@@ -3,7 +3,7 @@ title: Elastic SAN scalability and performance targets
 description: Learn about the capacity, IOPS, and throughput rates for Azure Elastic SAN. Learn which regions support higher capacities.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/31/2024
 ms.author: rogarana
 ms.custom: references_regions
@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Scale targets for Elastic SAN
 
-There are three main components to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes.
+There are three main components to an Elastic SAN: the SAN itself, volume groups, and volumes.
 
 ## The Elastic SAN
 

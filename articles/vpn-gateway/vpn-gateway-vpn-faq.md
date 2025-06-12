@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about VPN Gateway connect
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 05/09/2025
 ms.author: cherylmc
 ---
 
@@ -165,6 +165,10 @@ Yes. You can use the Set Pre-Shared Key REST API and PowerShell cmdlet to config
 ### Can I use other authentication options?
 
 You're limited to using preshared keys for authentication.
+
+### Does Azure VPN Gateway support IPv6?
+
+Yes. For additional information see [Configure IPv6 for VPN Gateway](ipv6-configuration.md).
 
 ### How do I specify which traffic goes through the VPN gateway?
 
@@ -335,7 +339,7 @@ RADIUS authentication is supported for the OpenVPN protocol.
 
 ### How do I configure a cross tenant scenario?
 
- * If you're using REST API or ARM templates for connection resources referencing a gateway in a different tenant, follow this authentication procedure: [Header values for authentication](/azure/azure-resource-manager/management/authenticate-multi-tenant#header-values-for-authentication).
+ * If you're using REST API or ARM templates for connection resources referencing a gateway in a different tenant, follow this authentication procedure: [Header values for authentication](../azure-resource-manager/management/authenticate-multi-tenant.md#header-values-for-authentication).
  * For [site-to-site](vpn-gateway-create-site-to-site-rm-powershell.md#tenants).
  * For [VNet-to-VNet](vpn-gateway-vnet-vnet-rm-ps.md#tenant).
 

@@ -5,8 +5,8 @@ description: How Azure IoT Edge uses certificate to validate devices, modules, a
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 08/07/2024
-ms.topic: conceptual
+ms.date: 06/03/2025
+ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
 ---
@@ -15,17 +15,17 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-IoT Edge uses different types of certificates for different purposes. This article walks you through the different ways that IoT Edge uses certificates with Azure IoT Hub and IoT Edge gateway scenarios.
+IoT Edge uses different types of certificates for different purposes. This article explains how IoT Edge uses certificates with Azure IoT Hub and IoT Edge gateway scenarios.
 
 > [!IMPORTANT]
-> For brevity, this article applies to IoT Edge version 1.2 or later. The certificate concepts for version 1.1 are similar, but there are some differences:
+> For brevity, this article applies to IoT Edge version 1.2 or later. Certificate concepts for version 1.1 are similar, but there are some differences:
 >
-> * The *device CA certificate* in version 1.1 was renamed to *Edge CA certificate*.
-> * The *workload CA certificate* in version 1.1 was retired. In version 1.2 or later, the IoT Edge module runtime generates all server certificates directly from the Edge CA certificate, without the intermediate workload CA certificate between them in the certificate chain.
+> * The *device CA certificate* in version 1.1 is now called the *Edge CA certificate*.
+> * The *workload CA certificate* in version 1.1 is retired. In version 1.2 or later, the IoT Edge module runtime generates all server certificates directly from the Edge CA certificate, without the intermediate workload CA certificate in the certificate chain.
 
 ## Summary
 
-These core scenarios are where IoT Edge uses certificates. Use the links to learn more about each scenario.
+IoT Edge uses certificates in these core scenarios. Use the links to learn more about each scenario.
 
 | Actor | Purpose | Certificate |
 |---|---|---|
@@ -37,12 +37,12 @@ These core scenarios are where IoT Edge uses certificates. Use the links to lear
 
 ## Prerequisites
 
-* You should have a basic understanding of public key cryptography, key pairs, and how a public key and private key can encrypt or decrypt data. For more information about how IoT Edge uses public key cryptography, see [Understanding Public Key Cryptography and X.509 Public Key Infrastructure](../iot-hub/tutorial-x509-introduction.md).
-* You should have a basic understanding about how IoT Edge relates to IoT Hub. For more information, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
+* You need a basic understanding of public key cryptography, key pairs, and how a public key and private key can encrypt or decrypt data. For more information about how IoT Edge uses public key cryptography, see [Understanding Public Key Cryptography and X.509 Public Key Infrastructure](../iot-hub/tutorial-x509-introduction.md).
+* You need a basic understanding of how IoT Edge relates to IoT Hub. For more information, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
 ## Single device scenario
 
-To help understand IoT Edge certificate concepts, imagine a scenario where an IoT Edge device named *EdgeGateway* connects to an Azure IoT Hub named *ContosoIotHub*. In this example, all authentication is done with X.509 certificate authentication rather than symmetric keys. To establish trust in this scenario, we need to guarantee the IoT Hub and IoT Edge device are authentic:  *"Is this device genuine and valid?"* and *"Is the identity of the IoT Hub correct?"*. The scenario can be illustrated as follows:
+To help you learn IoT Edge certificate concepts, imagine a scenario where an IoT Edge device named *EdgeGateway* connects to an Azure IoT Hub named *ContosoIotHub*. In this example, all authentication uses X.509 certificate authentication instead of symmetric keys. To establish trust in this scenario, we need to guarantee the IoT Hub and IoT Edge device are authentic: *"Is this device genuine and valid?"* and *"Is the identity of the IoT Hub correct?"*. Here's an illustration of the scenario:
 
 :::image type="content" source="./media/iot-edge-certs/trust-scenario.png" alt-text="Trust scenario state diagram showing connection between IoT Edge device and IoT Hub." lightbox="./media/iot-edge-certs/trust-scenario.png":::
 
@@ -53,11 +53,11 @@ stateDiagram-v2
     note left of ContosoIotHub: Verify genuine device - "Is this device EdgeGateway?"
 -->
 
-We'll explain the answers to each question and then expand the example in later sections of the article.
+This article explains the answers to each question and then expands the example in later sections.
 
 ## Device verifies IoT Hub identity
 
-How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub*? When *EdgeGateway* wants to talk to the cloud, it connects to the endpoint *ContosoIoTHub.Azure-devices.NET*. To make sure the endpoint is authentic, IoT Edge needs *ContosoIoTHub* to show identification (ID). The ID must be issued by an authority that *EdgeGateway* trusts. To verify IoT Hub identity, IoT Edge and IoT Hub use the **TLS handshake** protocol to verify IoT Hub's server identity. A *TLS handshake* is illustrated in the following diagram. To keep the example simple, some details have been omitted. To learn more about the *TLS handshake* protocol, see [TLS handshake on Wikipedia](https://wikipedia.org/wiki/Transport_Layer_Security#TLS_handshake).
+How does *EdgeGateway* check it's talking to the real *ContosoIotHub*? When *EdgeGateway* talks to the cloud, it connects to the endpoint *ContosoIoTHub.Azure-devices.NET*. To make sure the endpoint is authentic, IoT Edge needs *ContosoIoTHub* to show identification (ID). The ID must be issued by an authority that *EdgeGateway* trusts. To verify IoT Hub identity, IoT Edge and IoT Hub use the **TLS handshake** protocol to check IoT Hub's server identity. The following diagram shows a *TLS handshake*. Some details are left out to keep it simple. For more information about the *TLS handshake* protocol, see [TLS handshake on Wikipedia](https://wikipedia.org/wiki/Transport_Layer_Security#TLS_handshake).
 
 > [!NOTE]
 > In this example, *ContosoIoTHub* represents the IoT Hub hostname *ContosoIotHub.Azure-devices.NET*.
@@ -76,7 +76,7 @@ sequenceDiagram
     EdgeGateway->>ContosoIotHub: Looks good 🙂, let's connect
 -->
 
-In this context, you don't need to know the exact details of the *cryptographic algorithm*. It's important to understand that the algorithm ensures the server possesses the private key that is paired with its public key. It verifies that the presenter of the certificate didn't copy or steal it. If we use a photo ID as an example, your face matches the photo on the ID. If someone steals your ID, they can't use it for identification because your face is unique and difficult to reproduce. For cryptographic keys, the key pair is related and unique. Instead of the matching a face to a photo ID, the cryptographic algorithm uses the key pair to verify identity.
+In this context, you don't need to know the exact details of the *cryptographic algorithm*. The key thing is that the algorithm checks the server possesses the private key that is paired with its public key. This check proves the certificate presenter didn't copy or steal it. Think of a photo ID where your face matches the photo. If someone steals your ID, they can't use it because your face is unique. For cryptographic keys, the key pair is related and unique. Instead of matching a face to a photo ID, the cryptographic algorithm uses the key pair to verify identity.
 
 In our scenario, *ContosoIotHub* shows the following certificate chain:
 
@@ -92,7 +92,7 @@ flowchart TB
     id1-- Issued by -- -> id2
 -->
 
-The root certificate authority (CA) is the [Baltimore CyberTrust Root](https://www.digicert.com/kb/digicert-root-certificates.htm) certificate. This root certificate is signed by DigiCert, and is widely trusted and stored in many operating systems. For example, both Ubuntu and Windows include it in the default certificate store.
+The root certificate authority (CA) is the [Baltimore CyberTrust Root](https://www.digicert.com/kb/digicert-root-certificates.htm) certificate. DigiCert signs this root certificate, and it's widely trusted and stored in many operating systems. For example, both Ubuntu and Windows include it in the default certificate store.
 
 Windows certificate store:
 
@@ -102,7 +102,7 @@ Ubuntu certificate store:
 
 :::image type="content" source="./media/iot-edge-certs/ubuntu-baltimore.png" alt-text="Screenshot showing Baltimore CyberTrust Root certificate listed in the Ubuntu certificate store." lightbox="./media/iot-edge-certs/ubuntu-baltimore.png":::
 
-When a device checks for the *Baltimore CyberTrust Root* certificate, it's preinstalled in the OS. From *EdgeGateway* perspective, since the certificate chain presented by *ContosoIotHub* is signed by a root CA that the OS trusts, the certificate is considered trustworthy. The certificate is known as **IoT Hub server certificate**. To learn more about the IoT Hub server certificate, see [Transport Layer Security (TLS) support in IoT Hub](../iot-hub/iot-hub-tls-support.md).
+When a device checks for the *Baltimore CyberTrust Root* certificate, it's already in the OS. From the *EdgeGateway* perspective, since the certificate chain from *ContosoIotHub* is signed by a root CA the OS trusts, the certificate is trustworthy. This certificate is called the **IoT Hub server certificate**. For more about the IoT Hub server certificate, see [Transport Layer Security (TLS) support in IoT Hub](../iot-hub/iot-hub-tls-support.md).
 
 In summary, *EdgeGateway* can verify and trust *ContosoIotHub's* identity because:
 
@@ -112,7 +112,7 @@ In summary, *EdgeGateway* can verify and trust *ContosoIotHub's* identity becaus
 
 ## IoT Hub verifies IoT Edge device identity
 
-How does *ContosoIotHub* verify it's communicating with *EdgeGateway*? Since [IoT Hub supports *mutual TLS* (mTLS)](../iot-hub/iot-hub-tls-support.md#mutual-tls-support), it checks *EdgeGateway*'s certificate during [client-authenticated TLS handshake](https://wikipedia.org/wiki/Transport_Layer_Security#Client-authenticated_TLS_handshake). For simplicity, we'll skip some steps in the following diagram.
+How does *ContosoIotHub* check that it's communicating with *EdgeGateway*? Because [IoT Hub supports *mutual TLS* (mTLS)](../iot-hub/iot-hub-tls-support.md#mutual-tls-support), it checks *EdgeGateway*'s certificate during a [client-authenticated TLS handshake](https://wikipedia.org/wiki/Transport_Layer_Security#Client-authenticated_TLS_handshake). For simplicity, we skip some steps in the following diagram.
 
 :::image type="content" source="./media/iot-edge-certs/verify-edge-identity.svg" alt-text="Sequence diagram showing certificate exchange from IoT Edge device to IoT Hub with certificate thumbprint check verification on IoT Hub.":::
 
@@ -128,12 +128,12 @@ sequenceDiagram
     ContosoIotHub->>EdgeGateway: Great, let's connect
 -->
 
-In this case, *EdgeGateway* provides its **IoT Edge device identity certificate**. From *ContosoIotHub* perspective, it checks both that the thumbprint of the provided certificate matches its record and *EdgeGateway* has the private key paired with the certificate it presented. When you provision an IoT Edge device in IoT Hub, you provide a thumbprint. The thumbprint is what IoT Hub uses to verify the certificate.
+In this case, *EdgeGateway* provides its **IoT Edge device identity certificate**. From *ContosoIotHub*'s perspective, it checks that the thumbprint of the provided certificate matches its record, and that *EdgeGateway* has the private key paired with the certificate it presents. When you provision an IoT Edge device in IoT Hub, you provide a thumbprint. IoT Hub uses the thumbprint to verify the certificate.
 
 > [!TIP]
-> IoT Hub requires two thumbprints when registering an IoT Edge device. A best practice is to prepare two different device identity certificates with different expiration dates. This way, if one certificate expires, the other is still valid and gives you time to rotate the expired certificate. However, it's also possible to use only one certificate for registration. Use a single certificate by setting the same certificate thumbprint for both the primary and secondary thumbprints when registering the device.
+> IoT Hub requires two thumbprints when you register an IoT Edge device. It's best to prepare two different device identity certificates with different expiration dates. If one certificate expires, the other is still valid and gives you time to rotate the expired certificate. But you can use only one certificate for registration. Use a single certificate by setting the same certificate thumbprint for both the primary and secondary thumbprints when you register the device.
 
-For example, we can use the following command to get the identity certificate's thumbprint on *EdgeGateway*:
+For example, use the following command to get the identity certificate's thumbprint on *EdgeGateway*:
 
 ```bash
 sudo openssl x509 -in /var/lib/aziot/certd/certs/deviceid-random.cer -noout -nocert -fingerprint -sha256
@@ -145,36 +145,36 @@ The command outputs the certificate SHA256 thumbprint:
 SHA256 Fingerprint=1E:F3:1F:88:24:74:2C:4A:C1:A7:FA:EC:5D:16:C4:11:CD:85:52:D0:88:3E:39:CB:7F:17:53:40:9C:02:95:C3
 ```
 
-If we view the SHA256 thumbprint value for the *EdgeGateway* device registered in IoT Hub, we can see it matches the thumbprint on *EdgeGateway*:
+If you view the SHA256 thumbprint value for the *EdgeGateway* device registered in IoT Hub, you see it matches the thumbprint on *EdgeGateway*:
 
 :::image type="content" source="./media/iot-edge-certs/edge-id-thumbprint.png" alt-text="Screenshot from Azure portal of EdgeGateway device's thumbprint in ContosoIotHub.":::
 
-In summary, *ContosoIotHub* can trust *EdgeGateway* because *EdgeGateway* presents a valid **IoT Edge device identity certificate** whose thumbprint matches the one registered in IoT Hub. 
+In summary, *ContosoIotHub* trusts *EdgeGateway* because *EdgeGateway* presents a valid **IoT Edge device identity certificate** with a thumbprint that matches the one registered in IoT Hub. 
 
 For more information about the certificate building process, see [Create and provision an IoT Edge device on Linux using X.509 certificates](how-to-provision-single-device-linux-x509.md).
 
 > [!NOTE]
-> This example doesn't address Azure IoT Hub Device Provisioning Service (DPS), which has support for X.509 CA authentication with IoT Edge when provisioned with an enrollment group. Using DPS, you upload the CA certificate or an intermediate certificate, the certificate chain is verified, then the device is provisioned. To learn more, see [DPS X.509 certificate attestation](../iot-dps/concepts-x509-attestation.md).
+> This example doesn't cover Azure IoT Hub Device Provisioning Service (DPS), which supports X.509 CA authentication with IoT Edge when provisioned with an enrollment group. With DPS, you upload the CA certificate or an intermediate certificate, the certificate chain is verified, then the device is provisioned. To learn more, see [DPS X.509 certificate attestation](../iot-dps/concepts-x509-attestation.md).
 >
-> In the Azure Portal, DPS displays the SHA1 thumbprint for the certificate rather than the SHA256 thumbprint.
+> In the Azure portal, DPS shows the SHA1 thumbprint for the certificate instead of the SHA256 thumbprint.
 >
-> DPS registers or updates the SHA256 thumbprint to IoT Hub. You can verify the thumbprint using the command `openssl x509 -in /var/lib/aziot/certd/certs/deviceid-long-random-string.cer -noout -fingerprint -sha256`. Once registered, Iot Edge uses thumbprint authentication with IoT Hub. If the device is reprovisioned and a new certificate is issued, DPS updates IoT Hub with the new thumbprint.
+> DPS registers or updates the SHA256 thumbprint in IoT Hub. You can check the thumbprint using the command `openssl x509 -in /var/lib/aziot/certd/certs/deviceid-long-random-string.cer -noout -fingerprint -sha256`. After registration, IoT Edge uses thumbprint authentication with IoT Hub. If the device is reprovisioned and a new certificate is issued, DPS updates IoT Hub with the new thumbprint.
 >
-> IoT Hub currently doesn't support X.509 CA authentication directly with IoT Edge.
+> Currently, IoT Hub doesn't support X.509 CA authentication directly with IoT Edge.
 
 ### Certificate use for module identity operations
 
-In the certificate verification diagrams, it may appear IoT Edge only uses the certificate to talk to IoT Hub. IoT Edge consists of several modules. As a result, IoT Edge uses the certificate to manage module identities for modules that send messages. The modules don't use the certificate to authenticate to IoT Hub, but rather use SAS keys derived from the private key that are generated by IoT Edge module runtime. These SAS keys don't change even if the device identity certificate expires. If the certificate expires, *edgeHub* for example continues to run, and only the module identity operations fail.
+In the certificate verification diagrams, it can look like IoT Edge only uses the certificate to talk to IoT Hub. IoT Edge has several modules. IoT Edge uses the certificate to manage module identities for modules that send messages. The modules don't use the certificate to authenticate to IoT Hub, but use SAS keys derived from the private key that IoT Edge module runtime generates. These SAS keys don't change even if the device identity certificate expires. If the certificate expires, *edgeHub* still runs, but only the module identity operations fail.
 
-The interaction between modules and IoT Hub is secure because the SAS key is derived from a secret and IoT Edge manages the key without the risk of human intervention.
+The interaction between modules and IoT Hub is secure because the SAS key is derived from a secret, and IoT Edge manages the key without the risk of human intervention.
 
 ## Nested device hierarchy scenario with IoT Edge as gateway
 
-You now have a good understanding of a simple interaction IoT Edge between and IoT Hub. But, IoT Edge can also act as a gateway for downstream devices or other IoT Edge devices. These communication channels must also be encrypted and trusted. Because of the added complexity, we have to expand our example scenario to include a downstream device.
+You now understand a simple interaction between IoT Edge and IoT Hub. But IoT Edge can also act as a gateway for downstream devices or other IoT Edge devices. These communication channels must be encrypted and trusted. Because of the added complexity, let's expand the example scenario to include a downstream device.
 
-We add a regular IoT device named *TempSensor*, which connects to its parent IoT Edge device *EdgeGateway* that connects to IoT Hub *ContosoIotHub*. Similar to before, all authentication is done with X.509 certificate authentication. Our new scenario raises two new questions: *"Is the TempSensor device legitimate?"* and *"Is the identity of the EdgeGateway correct?"*. The scenario can be illustrated as follows:
+We add a regular IoT device named *TempSensor*, which connects to its parent IoT Edge device *EdgeGateway* that connects to IoT Hub *ContosoIotHub*. As before, all authentication uses X.509 certificate authentication. This scenario raises two questions: *"Is the TempSensor device legitimate?"* and *"Is the identity of the EdgeGateway correct?"*. The scenario is illustrated here:
 
-:::image type="content" source="./media/iot-edge-certs/trust-scenario-ext.png" alt-text="Trust scenario state diagram showing connection between IoT Edge device, an IoT Edge gateway, and IoT Hub." lightbox="./media/iot-edge-certs/trust-scenario-ext.png":::
+:::image type="content" source="./media/iot-edge-certs/trust-scenario-ext.png" alt-text="Diagram that shows the connection between an IoT Edge device, an IoT Edge gateway, and IoT Hub." lightbox="./media/iot-edge-certs/trust-scenario-ext.png":::
 
 <!-- mermaid
 stateDiagram-v2
@@ -190,7 +190,7 @@ stateDiagram-v2
 -->
 
 > [!TIP]
-> *TempSensor* is an IoT device in the scenario. The certificate concept is the same if *TempSensor* is a downstream IoT Edge device of parent *EdgeGateway*.
+> *TempSensor* is an IoT device in this scenario. The certificate concept is the same if *TempSensor* is a downstream IoT Edge device of parent *EdgeGateway*.
 
 ## Device verifies gateway identity
 
@@ -324,9 +324,9 @@ Other modules can get server certificates issued by *Edge CA*. For example, a *G
 
 ## Gateway verifies device identity
 
-How does *EdgeGateway* verify it's communicating with *TempSensor*? EdgeGateway uses *TLS client authentication* to authenticate TempSensor.
+How does *EdgeGateway* check that it's communicating with *TempSensor*? *EdgeGateway* uses *TLS client authentication* to authenticate *TempSensor*.
 
-:::image type="content" source="./media/iot-edge-certs/verify-sensor-identity.svg" alt-text="Sequence diagram showing certificate exchange from IoT Edge device to gateway with certificate check verification from IoT Hub certificates.":::
+:::image type="content" source="./media/iot-edge-certs/verify-sensor-identity.svg" alt-text="Diagram that shows a certificate exchange between an IoT Edge device and a gateway, with certificate check against IoT Hub certificates.":::
 
 <!-- mermaid
 sequenceDiagram
@@ -345,52 +345,52 @@ sequenceDiagram
     EdgeGateway->>TempSensor: Great, let's connect
 -->
 
-The sequence is similar to *ContosoIotHub* verifying a device. However, in a gateway scenario, *EdgeGateway* relies on *ContosoIotHub* as the source of truth for the record of the certificates. *EdgeGateway* also keeps an offline copy or cache in case there's no connection to the cloud.
+The sequence is similar to *ContosoIotHub* checking a device. But in a gateway scenario, *EdgeGateway* relies on *ContosoIotHub* as the source of truth for the certificate record. *EdgeGateway* also keeps an offline copy or cache if there's no connection to the cloud.
 
 > [!TIP]
-> Unlike IoT Edge devices, downstream IoT devices are not limited to thumbprint X.509 authentication. X.509 CA authentication is also an option. Instead of just looking for a match on the thumbprint, *EdgeGateway* can also check if *TempSensor's* certificate is rooted in a CA that has been uploaded to *ContosoIotHub*.
+> Unlike IoT Edge devices, downstream IoT devices aren't limited to thumbprint X.509 authentication. X.509 CA authentication is also an option. Instead of just looking for a match on the thumbprint, *EdgeGateway* can also check if *TempSensor's* certificate is rooted in a CA uploaded to *ContosoIotHub*.
 
 In summary, *EdgeGateway* can trust *TempSensor* because:
 
-* *TempSensor* presented a valid *IoT device identity certificate* for its name
+* *TempSensor* presents a valid *IoT device identity certificate* for its name
 * The identity certificate's thumbprint matches the one uploaded to *ContosoIotHub*
 * Cryptographic algorithms verify that the ownership and issuance chain can be trusted
 
 ## Where to get the certificates and management
 
-In most cases, you can provide your own certificates or use on auto-generated certificates. For example, *Edge CA* and the *edgeHub* certificate are auto-generated.
+In most cases, you provide your own certificates or use auto-generated certificates. For example, *Edge CA* and the *edgeHub* certificate are auto-generated.
 
-However, the best practice is to configure your devices to use an Enrollment over Secure Transport (EST) server to manage x509 certificates. Using an EST server frees you from manually handling the certificates and installing them on devices. For more information about using an EST server, see [Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md).
+But the best practice is to set up your devices to use an Enrollment over Secure Transport (EST) server to manage x509 certificates. An EST server lets you avoid manually handling and installing certificates on devices. For more information about using an EST server, see [Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md).
 
-You can use certificates to authenticate to EST server as well. These certificates are used to authenticate with EST servers to issue other certificates. The certificate service uses a bootstrap certificate to authenticate with an EST server. The bootstrap certificate is long-lived. Upon initial authentication, the certificate service makes a request to the EST server to issue an identity certificate. This identity certificate is used in future EST requests to the same server.
+You can use certificates to authenticate to the EST server too. These certificates authenticate with EST servers to issue other certificates. The certificate service uses a bootstrap certificate to authenticate with an EST server. The bootstrap certificate is long-lived. When it first authenticates, the certificate service requests an identity certificate from the EST server. The identity certificate is used in future EST requests to the same server.
 
-If you can't use an EST server, you should request certificates from your PKI provider. You can manage the certificate files manually in IoT Hub and your IoT Edge devices. For more information, [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
+If you can't use an EST server, request certificates from your PKI provider. Manage the certificate files manually in IoT Hub and your IoT Edge devices. For more information, see [Manage certificates on an IoT Edge device](how-to-manage-device-certificates.md).
 
-For proof of concept development, you can create test certificates. For more information, see [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
+For proof of concept development, create test certificates. For more information, see [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
 
 ## Certificates in IoT
 
 ### Certificate authority
 
-The certificate authority (CA) is an entity that issues digital certificates. A certificate authority acts as a trusted third party between the owner and the receiver of the certificate. A digital certificate certifies the ownership of a public key by the receiver of the certificate. The certificate chain of trust works by initially issuing a root certificate, which is the basis for trust in all certificates issued by the authority. The root certificate owner can then issue additional intermediate certificates (downstream device certificates).
+A certificate authority (CA) issues digital certificates. The CA acts as a trusted third party between the certificate owner and receiver of the certificate. A digital certificate proves the receiver owns a public key. The certificate chain of trust starts with a root certificate, which is the basis for trust in all certificates the authority issues. The root certificate owner can issue additional intermediate certificates (downstream device certificates).
 
 ### Root CA certificate
 
-A root CA certificate is the root of trust of the entire process. In production scenarios, this CA certificate is purchased from a trusted commercial certificate authority like Baltimore, Verisign, or DigiCert. Should you have complete control over the devices connecting to your IoT Edge devices, it's possible to use a corporate level certificate authority. In either event, the entire certificate chain from the IoT Edge to IoT Hub uses it. The downstream IoT devices must trust the root certificate. You can store the root CA certificate either in the trusted root certificate authority store, or provide the certificate details in your application code.
+A root CA certificate is the root of trust for the process. In production, you usually buy this CA certificate from a trusted commercial certificate authority like Baltimore, Verisign, or DigiCert. If you control all devices connecting to your IoT Edge devices, you can use a corporate certificate authority. In both cases, the certificate chain from IoT Edge to IoT Hub uses the root CA certificate. Downstream IoT devices must trust the root certificate. Store the root CA certificate in the trusted root certificate authority store or provide the certificate details in your application code.
 
 ### Intermediate certificates
 
-In a typical manufacturing process for creating secure devices, root CA certificates are rarely used directly, primarily because of the risk of leakage or exposure. The root CA certificate creates and digitally signs one or more intermediate CA certificates. There may be only one, or there may be a chain of these intermediate certificates. Scenarios that would require a chain of intermediate certificates include:
+In a typical manufacturing process for secure devices, manufacturers rarely use root CA certificates directly because of the risk of leakage or exposure. The root CA certificate creates and digitally signs one or more intermediate CA certificates. There can be one or a chain of intermediate certificates. Scenarios that require a chain of intermediate certificates include:
 
 * A hierarchy of departments within a manufacturer
 * Multiple companies involved serially in the production of a device
-* A customer buying a root CA and deriving a signing certificate for the manufacturer to sign the devices they make on that customer's behalf
+* A customer buying a root CA and deriving a signing certificate for the manufacturer to sign devices on the customer's behalf
 
-In any case, the manufacturer uses an intermediate CA certificate at the end of this chain to sign the Edge CA certificate placed on the end device. These intermediate certificates are closely guarded at the manufacturing plant. They undergo strict processes, both physical and electronic for their usage.
+The manufacturer uses an intermediate CA certificate at the end of this chain to sign the Edge CA certificate placed on the end device. The manufacturing plant closely guards these intermediate certificates. Strict physical and electronic processes control their usage.
 
 ## Next steps
 
 * For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
 * [Understand Azure IoT Edge modules](iot-edge-modules.md)
 * [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md)
-* This article talks about the certificates that are used to secure connections between the different components on an IoT Edge device or between an IoT Edge device and any downstream devices. You may also use certificates to authenticate your IoT Edge device to IoT Hub. Those authentication certificates are different, and aren't discussed in this article. For more information about authenticating your device with certificates, see [Create and provision an IoT Edge device using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md).
+* This article explains how certificates are used to secure connections between the different components on an IoT Edge device or between an IoT Edge device and any downstream devices. You may also use certificates to authenticate your IoT Edge device to IoT Hub. Those authentication certificates are different, and aren't discussed in this article. For more information about authenticating your device with certificates, see [Create and provision an IoT Edge device using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md).

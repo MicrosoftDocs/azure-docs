@@ -2,9 +2,11 @@
 title: Troubleshoot extension-based Hybrid Runbook Worker issues in Azure Automation 
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation extension-based Hybrid Runbook Workers.
 services: automation
-ms.date: 08/26/2024
+ms.date: 05/08/2025
 ms.topic: troubleshooting 
 ms.custom:
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Troubleshoot VM extension-based Hybrid Runbook Worker issues in Automation
@@ -72,6 +74,54 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
     ```
     /home/hweautomation
     ```
+
+
+### Scenario: Jobs on Linux Hybrid Worker may get stuck in Running status
+
+#### Issue
+Jobs on Linux Hybrid Worker may get stuck in Running status while the CPU core usage is less than 25%.
+
+#### Cause
+Each CPU core has a default quota limit of 25% for Linux Hybrid Worker.
+
+#### Resolution
+You can remove this limit and make it unrestricted with the following steps:
+
+**Switch to sudo permissions** -
+  1. sudo su
+  1. systemctl status hwd.service // check and make sure hwd service is running well.
+
+**Update the setting in the below file in Hybrid Worker**
+  1. vi /lib/systemd/system/hwd.service
+  1. Update the setting from CPUQuota=25% to CPUQuota= as shown below to make the usage unrestricted.
+
+  ```
+    root@ubuntu2204:~# cat /lib/systemd/system/hwd.service
+    [Unit]
+    Description=HW Service
+    After=network.target
+    
+    [Service]
+    Type=simple
+    ExecStart=/usr/bin/python3 /var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-1.1.16/HybridWorkerAgent/DaemonScripts/Scripts/3.x/automationWorkerStarterScript.py
+    TimeoutStartSec=5
+    Restart=always
+    RestartSec=10s
+    TimeoutStopSec=600
+    CPUQuota=
+    KillMode=process
+    
+    [Install]
+    WantedBy=multi-user.target
+    
+   ```
+
+**Restart hwd service**
+  1. systemctl daemon-reload
+  1. systemctl restart hwd.service
+
+For more information, see [Linux hybrid jobs get stuck in Running state even if each CPU core usage is less than 25% - Overview](https://supportability.visualstudio.com/AAAP_Code/_wiki/wikis/AAAP/1980067/KI-Linux-hybrid-jobs-get-stuck-in-Running-status-even-if-each-CPU-core-usage-is-less-than-25-).
+
 
 ### Scenario: Runbooks go into a suspended state on a Hybrid Runbook Worker when using a custom account on a server with User Account Control (UAC) enabled
 
@@ -267,7 +317,7 @@ Sometimes the uninstallation process might get stuck.
    ```
 1. **Remove registry key**, if present: `HKLM:\Software\Microsoft\Azure\HybridWorker`
 
-   1. PowerShell code to remove the registry key along with any subkeys and values under it.:
+   1. PowerShell code to remove the registry key along with any sub keys and values under it.:
    
       ```powershell
       Get-Item HKLM:\Software\Microsoft\Azure\HybridWorker | Remove-Item -Recurse
@@ -275,7 +325,7 @@ Sometimes the uninstallation process might get stuck.
       
 1. **Remove the registry key**, if present: `HKLM:\Software\Microsoft\HybridRunbookWorkerV2`
 
-   1. PowerShell code to remove the registry key along with any subkeys and values under it.:
+   1. PowerShell code to remove the registry key along with any sub keys and values under it.:
    
       ```powershell
       Get-Item HKLM:\Software\Microsoft\HybridRunbookWorkerV2 | Remove-Item -Recurse

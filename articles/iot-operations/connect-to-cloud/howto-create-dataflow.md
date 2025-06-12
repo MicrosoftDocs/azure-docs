@@ -6,13 +6,15 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 02/07/2025
+ms.date: 04/03/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
+ms.custom:
+  - build-2025
 ---
 
-# Configure data flows in Azure IoT Operations
+# Create data flows in Azure IoT Operations
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
@@ -44,7 +46,7 @@ To define the source and destination, you need to configure the data flow endpoi
 > [!IMPORTANT]
 > Each data flow must have the Azure IoT Operations local MQTT broker default endpoint [as *either* the source or destination](#proper-data-flow-configuration).
 
-You can use the operations experience in Azure IoT Operations to create a data flow. The operations experience provides a visual interface to configure the data flow. You can also use Bicep to create a data flow using a Bicep template file, or use Kubernetes to create a data flow using a YAML file.
+You can use the operations experience in Azure IoT Operations to create a data flow. The operations experience provides a visual interface to configure the data flow. You can also use Bicep to create a data flow using a Bicep file, or use Kubernetes to create a data flow using a YAML file.
 
 Continue reading to learn how to configure the source, transformation, and destination.
 
@@ -54,7 +56,7 @@ You can deploy data flows as soon as you have an instance of [Azure IoT Operatio
 
 ### Data flow profile
 
-If you don't need different scaling settings for your data flows, use the [default data flow profile](./howto-configure-dataflow-profile.md#default-data-flow-profile) provided by Azure IoT Operations. To learn how to configure a data flow profile, see [Configure data flow profiles](howto-configure-dataflow-profile.md).
+If you don't need different scaling settings for your data flows, use the [default data flow profile](./howto-configure-dataflow-profile.md#default-data-flow-profile) provided by Azure IoT Operations. To learn how to configure a new data flow profile, see [Configure data flow profiles](howto-configure-dataflow-profile.md).
 
 ### Data flow endpoints
 
@@ -64,11 +66,21 @@ Data flow endpoints are required to configure the source and destination for the
 
 Once you have the prerequisites, you can start to create a data flow.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-To create a data flow in [operations experience](https://iotoperations.azure.com/), select **Data flow** > **Create data flow**. Then, you see the page where you can configure the source, transformation, and destination for the data flow.
+1. To create a data flow in [operations experience](https://iotoperations.azure.com/), select **Data flow** > **Create data flow**. 
 
-:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience to create a data flow.":::
+1. Select the placeholder name **new-data-flow** to set the data flow properties. Enter the name of the data flow and choose the data flow profile to use. The default data flow profile is selected by default. For more information on data flow profiles, see [Configure data flow profile](howto-configure-dataflow-profile.md).
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-profile.png" alt-text="Screenshot of the operations experience interface where a user names the data flow and selects a profile for it.":::
+
+    > [!IMPORTANT] 
+    > You can only choose the data flow profile when creating a data flow. You can't change the data flow profile after the data flow is created.
+    > If you want to change the data flow profile of an existing data flow, delete the original data flow and create a new one with the new data flow profile.
+
+1. Configure the source, transformation, and destination endpoint for the data flow by selecting the items in the data flow diagram.
+
+    :::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot of the operations experience interface displaying a data flow diagram with a source endpoint, transformation stage, and destination endpoint.":::
 
 # [Bicep](#tab/bicep)
 
@@ -171,15 +183,15 @@ Review the following sections to learn how to configure the operation types of t
 
 To configure a source for the data flow, specify the endpoint reference and a list of data sources for the endpoint. Choose one of the following options as the source for the data flow.
 
-If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
+If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about using the local MQTT broker endpoint, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
 
 ### Option 1: Use default message broker endpoint as source
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. Under **Source details**, select **Message broker**.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience to select message broker as the source endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot of the operations experience interface showing the selection of the message broker as the source endpoint for a data flow.":::
 
 1. Enter the following settings for the message broker source:
 
@@ -193,14 +205,14 @@ If the default endpoint isn't used as the source, it must be used as the [destin
 
 # [Bicep](#tab/bicep)
 
-The message broker endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the data flow.
+The message broker endpoint is configured in the Bicep file. For example, the following endpoint is a source for the data flow.
 
 ```bicep
 sourceSettings: {
   endpointRef: 'default'
   dataSources: [
-    'thermostats/+/telemetry/temperature/#'
-    'humidifiers/+/telemetry/humidity/#'
+    'thermostats/+/sensor/temperature/#'
+    'humidifiers/+/sensor/humidity/#'
   ]
 }
 ```
@@ -215,8 +227,8 @@ For example, to configure a source using a message broker endpoint and two topic
 sourceSettings:
   endpointRef: default
   dataSources:
-    - thermostats/+/telemetry/temperature/#
-    - humidifiers/+/telemetry/humidity/#
+    - thermostats/+/sensor/temperature/#
+    - humidifiers/+/sensor/humidity/#
 ```
 
 Because `dataSources` allows you to specify MQTT or Kafka topics without modifying the endpoint configuration, you can reuse the endpoint for multiple data flows even if the topics are different. To learn more, see [Configure data sources](#configure-data-sources-mqtt-or-kafka-topics).
@@ -225,7 +237,7 @@ Because `dataSources` allows you to specify MQTT or Kafka topics without modifyi
 
 ### Option 2: Use asset as source
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the data flow. Using an asset as a source is only available in the operations experience.
 
@@ -257,7 +269,7 @@ Once configured, the data from the asset reaches the data flow via the local MQT
 
 If you created a custom MQTT or Kafka data flow endpoint (for example, to use with Event Grid or Event Hubs), you can use it as the source for the data flow. Remember that storage type endpoints, like Data Lake or Fabric OneLake, can't be used as source.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. Under **Source details**, select **Message broker**.
 
@@ -309,9 +321,9 @@ You can specify multiple MQTT or Kafka topics in a source without needing to mod
 
 #### MQTT topics
 
-When the source is an MQTT (Event Grid included) endpoint, you can use the MQTT topic filter to subscribe to incoming messages. The topic filter can include wildcards to subscribe to multiple topics. For example, `thermostats/+/telemetry/temperature/#` subscribes to all temperature telemetry messages from thermostats. To configure the MQTT topic filters:
+When the source is an MQTT (Event Grid included) endpoint, you can use the MQTT topic filter to subscribe to incoming messages. The topic filter can include wildcards to subscribe to multiple topics. For example, `thermostats/+/sensor/temperature/#` subscribes to all temperature sensor messages from thermostats. To configure the MQTT topic filters:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow **Source details**, select **Message broker**, then use the **Topic(s)** field to specify the MQTT topic filters to subscribe to for incoming messages. You can add multiple MQTT topics by selecting **Add row** and entering a new topic.
 
@@ -334,13 +346,13 @@ Example with multiple MQTT topic filters with wildcards:
 sourceSettings: {
   endpointRef: 'default'
   dataSources: [
-    'thermostats/+/telemetry/temperature/#'
-    'humidifiers/+/telemetry/humidity/#'
+    'thermostats/+/sensor/temperature/#'
+    'humidifiers/+/sensor/humidity/#'
   ]
 }
 ```
 
-Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all telemetry messages under all subtopics of the `temperature` and `humidity` topics.
+Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all sensor messages under all subtopics of the `temperature` and `humidity` topics.
 
 # [Kubernetes (preview)](#tab/kubernetes)
   
@@ -359,11 +371,11 @@ Example with multiple topic filters with wildcards:
 sourceSettings:
   endpointRef: default
   dataSources:
-    - thermostats/+/telemetry/temperature/#
-    - humidifiers/+/telemetry/humidity/#
+    - thermostats/+/sensor/temperature/#
+    - humidifiers/+/sensor/humidity/#
 ```
 
-Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all telemetry messages under all subtopics of the `temperature` and `humidity` topics.
+Here, the wildcard `+` is used to select all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard is used to select all messages under all subtopics of the `temperature` and `humidity` topics.
 
 ---
 
@@ -371,7 +383,7 @@ Here, the wildcard `+` is used to select all devices under the `thermostats` and
 
 To use shared subscriptions with message broker sources, you can specify the shared subscription topic in the form of `$shared/<GROUP_NAME>/<TOPIC_FILTER>`.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In operations experience data flow **Source details**, select **Message broker** and use the **Topic** field to specify the shared subscription group and topic.
 
@@ -395,7 +407,6 @@ sourceSettings:
 
 ---
 
-
 If the instance count in the [data flow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all data flows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a data flow profile with an instance count of 3, and your data flow uses a message broker endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
 
 You can explicitly create a topic named `$shared/mygroup/topic` in your configuration. However, adding the `$shared` topic explicitly isn't recommended since the `$shared` prefix is automatically added when needed. Data flows can make optimizations with the group name if it isn't set. For example, `$share` isn't set and data flows only has to operate over the topic name.
@@ -412,7 +423,7 @@ When the source is a Kafka (Event Hubs included) endpoint, specify the individua
 
 To configure the Kafka topics:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow **Source details**, select **Message broker**, then use the **Topic** field to specify the Kafka topic filter to subscribe to for incoming messages.
 
@@ -456,7 +467,7 @@ If the source is an asset, the schema is automatically inferred from the asset d
 
 To configure the schema used to deserialize the incoming messages from a source:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In operations experience data flow **Source details**, select **Message broker** and use the **Message schema** field to specify the schema. You can use the **Upload** button to upload a schema file first. To learn more, see [Understand message schemas](concept-schema-registry.md).
 
@@ -495,11 +506,11 @@ The transformation operation is where you can transform the data from the source
 
 This section is an introduction to data flow transforms. For more detailed information, see [Map data by using data flows](concept-dataflow-mapping.md), [Convert data by using data flow conversions](concept-dataflow-conversions.md), and [Enrich data by using data flows](concept-dataflow-enrich.md).
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience, select **Data flow** > **Add transform (optional)**.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience to add a transform to a data flow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot of the operations experience interface showing the addition of a transformation stage to a data flow.":::
 
 # [Bicep](#tab/bicep)
 
@@ -537,7 +548,7 @@ To enrich the data, first add reference dataset in the Azure IoT Operations [sta
 
 You can load sample data into the state store by using the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/statestore-cli). Key names in the state store correspond to a dataset in the data flow configuration.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 Currently, the *Enrich* stage isn't supported in the operations experience.
 
@@ -594,7 +605,7 @@ For more information about condition syntax, see [Enrich data by using data flow
 
 To filter the data on a condition, you can use the `filter` stage. The condition is specified as a field in the source data that matches a value.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. Under **Transform (optional)**, select **Filter** > **Add**.
 
@@ -654,8 +665,6 @@ If the `temperature` field is greater than 20, the data is passed to the next st
 
 To map the data to another field with optional conversion, you can use the `map` operation. The conversion is specified as a formula that uses the fields in the source data.
 
-# [Portal](#tab/portal)
-
 In the operations experience, mapping is currently supported using **Compute**, **Rename**, and **New property** transforms.
 
 #### Compute
@@ -708,6 +717,8 @@ You can rename a datapoint using the **Rename** transform. This operation is use
 #### New property
 
 You can add a new property to the source data using the **New property** transform. This operation is used to add a new property to the source data. The new property can be used in the subsequent stages of the data flow.
+
+# [Operations experience](#tab/portal)
 
 1. Under **Transform (optional)**, select **New property** > **Add**. 
 
@@ -771,15 +782,18 @@ builtInTransformationSettings:
 
 To learn more, see [Map data by using data flows](concept-dataflow-mapping.md) and [Convert data by using data flows](concept-dataflow-conversions.md).
 
-<!-- TODO: DOE content for this -->
+#### Remove
 
-<!-- #### Passthrough operation
+By default, all datapoints are included in the output schema. You can remove any datapoint from the destination using the **Remove** transform.
 
-Using map, you can apply a passthrough operation that takes all the input fields and maps them to the output field, essentially passing through all fields. 
+# [Operations experience](#tab/portal)
 
-# [Portal](#tab/portal)
+1. Under **Transform (optional)**, select **Remove**. 
+1. Select the datapoint to remove from the output schema.
 
-TBD
+    :::image type="content" source="media/howto-create-dataflow/dataflow-remove.png" alt-text="Screenshot using operations experience to remove the weight datapoint the output schema.":::
+
+1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
 
@@ -787,8 +801,46 @@ TBD
 builtInTransformationSettings: {
   map: [
     {
-      inputs: [ '*' ]
+      inputs: [
+        '*'
+      ]
       output: '*'
+    }
+    {
+      inputs: [
+        'weight'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.SourceTimestamp'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.Value'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode.Code'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode.Symbol'
+      ]
+      output: ''
     }
   ]
 }
@@ -799,14 +851,33 @@ builtInTransformationSettings: {
 ```yaml
 builtInTransformationSettings:
   map:
+    - type: PassThrough
+      inputs:
+        - "*"
+      output: "*"
     - inputs:
-      - '*'
-      output: '*'
+        - weight
+      output: ""
+    - inputs:
+        - weight.SourceTimestamp
+      output: ""
+    - inputs:
+        - weight.Value
+      output: ""
+    - inputs:
+        - weight.StatusCode
+      output: ""
+    - inputs:
+        - weight.StatusCode.Code
+      output: ""
+    - inputs:
+        - weight.StatusCode.Symbol
+      output: ""
 ```
 
 ---
 
- -->
+To learn more, see [Map data by using data flows](concept-dataflow-mapping.md) and [Convert data by using data flows](concept-dataflow-conversions.md).
 
 ### Serialize data according to a schema
 
@@ -815,7 +886,7 @@ If you want to serialize the data before sending it to the destination, you need
 > [!TIP]
 > To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 For operations experience, you specify the schema and serialization format in the data flow endpoint details. The endpoints that support serialization formats are Microsoft Fabric OneLake, Azure Data Lake Storage Gen 2, Azure Data Explorer, and local storage. For example, to serialize the data in Delta format, you need to upload a schema to the schema registry and reference it in the data flow destination endpoint configuration.
 
@@ -850,12 +921,12 @@ For more information about schema registry, see [Understand message schemas](con
 
 To configure a destination for the data flow, specify the endpoint reference and data destination. You can specify a list of data destinations for the endpoint.
 
-To send data to a destination other than the local MQTT broker, create a data flow endpoint. To learn how, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md). If the destination isn't the local MQTT broker, it must be used as a source. To learn more about, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
+To send data to a destination other than the local MQTT broker, create a data flow endpoint. To learn how, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md). If the destination isn't the local MQTT broker, it must be used as a source. To learn more about using the local MQTT broker endpoint, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
 
 > [!IMPORTANT]
 > Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use data flow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify a schema reference](#serialize-data-according-to-a-schema).
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. Select the data flow endpoint to use as the destination.
 
@@ -902,7 +973,7 @@ Similar to data sources, data destination is a concept that is used to keep the 
 
 To configure the data destination:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 When using the operations experience, the data destination field is automatically interpreted based on the endpoint type. For example, if the data flow endpoint is a storage endpoint, the destination details page prompts you to enter the container name. If the data flow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic, and so on.
 
@@ -986,7 +1057,7 @@ destinationSettings:
 
 The following example is a data flow configuration that uses the MQTT endpoint for the source and destination. The source filters the data from the MQTT topic `azure-iot-operations/data/thermostat`. The transformation converts the temperature to Fahrenheit and filters the data where the temperature multiplied by the humidity is less than 100000. The destination sends the data to the MQTT topic `factory`.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 :::image type="content" source="media/howto-create-dataflow/dataflow-example.png" alt-text="Screenshot showing the operations experience data flow example with a source endpoint, transforms, and a destination endpoint." lightbox="media/howto-create-dataflow/dataflow-example.png":::
 
@@ -1157,15 +1228,15 @@ Follow [Tutorial: Bi-directional MQTT bridge to Azure Event Grid](tutorial-mqtt-
 
 To export the data flow configuration, you can use the operations experience or by exporting the Data flow custom resource.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 Select the data flow you want to export and select **Export** from the toolbar.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using operations experience to export a data flow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot of the operations experience interface showing the export option for a configured data flow.":::
 
 # [Bicep](#tab/bicep)
 
-Bicep is infrastructure as code and no export is required. Use the [Bicep template file to create a data flow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure data flows.
+Bicep is infrastructure as code and no export is required. Use the [Bicep file to create a data flow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure data flows.
 
 # [Kubernetes (preview)](#tab/kubernetes)
 

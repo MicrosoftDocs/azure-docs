@@ -30,7 +30,7 @@ We recommend a [hub-and-spoke topology](concept-connectivity-configuration.md#hu
 
 ### Hub-and-spoke topology with direct connectivity
 
-A hub-and-spoke topology with direct connectivity combines the two preceding topologies. We recommend it when you have common central infrastructure in the hub, and you want direct communication between all spokes. [Direct connectivity](concept-connectivity-configuration.md#direct-connectivity) helps you reduce the latency that extra network hops cause when they're going through a hub.
+A hub-and-spoke topology with direct connectivity combines the two preceding topologies. We recommend it when you have common central infrastructure in the hub, and you want direct communication between all spokes. [Direct connectivity](concept-connectivity-configuration.md#enable-direct-connectivity) helps you reduce the latency that extra network hops cause when they're going through a hub.
 
 ### Maintaining a virtual network topology
 

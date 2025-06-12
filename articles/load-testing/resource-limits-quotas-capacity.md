@@ -51,9 +51,9 @@ The following limits apply on a per-region, per-subscription basis.
 
 ### Notifications
 The following limits apply on a per-region, per-subscription basis.
-| Resource  | Default limit |  Maximum limit |
-|---------| ---------: | ---------: |
-|Tests per notification rule  | 20 | |
+| Resource  | Default limit |
+|---------| ---------: | 
+|Tests per notification rule  | 20 |
 |Action groups per notification rule| 5| 
 
 ### Data retention

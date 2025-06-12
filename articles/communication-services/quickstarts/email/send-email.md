@@ -1,7 +1,7 @@
 ---
 title: Send an email using Azure Communication Services
-titleSuffix: An Azure Communication Services Quickstart
-description: Learn how to send an email message using Azure Communication Services.
+titleSuffix: An Azure Communication Services article
+description: This article describes how to send an email message using Azure Communication Services.
 author: bashan-git
 manager: sphenry
 services: azure-communication-services
@@ -15,7 +15,7 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python-portal-nocode-ps
 
 # Send an email using Azure Communication Services
 
-[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
 This quickstart describes how to send email using our Email SDKs.
 
@@ -58,14 +58,14 @@ This quickstart describes how to send email using our Email SDKs.
 To troubleshoot issues related to email delivery, you can [get status of the email delivery](./handle-email-events.md) to capture delivery details.
 
 > [!IMPORTANT]
-> The success result returned by polling for the status of the send operation only validates the fact that the email successfully sent out for delivery. To get additional information about the status of the delivery on the recipient end, you need to reference [how to handle email events](./handle-email-events.md).
+> The success result returned by polling for the status of the send operation only validates the fact that the email successfully sent out for delivery. For more information about the status of the delivery on the recipient end, see [how to handle email events](./handle-email-events.md).
 
 ### Email throttling
 
-If you see that your application is hanging, it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](./send-email-advanced/throw-exception-when-tier-limit-reached.md).
+If your application is hanging, it could be due to email sending being throttled. You can [handle tier limits through logging or by implementing a custom policy](./send-email-advanced/throw-exception-when-tier-limit-reached.md).
 
 > [!NOTE]
-> This sandbox setup is to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Submit a support request to raise your desired sending limit if you require sending a volume of messages exceeding the rate limits.
+> This sandbox is intended to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Submit a support request to raise your desired sending limit if you require sending a volume of messages exceeding the rate limits.
 
 ## Clean up Azure Communication Service resources
 

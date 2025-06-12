@@ -5,8 +5,9 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 11/12/2024
+ms.date: 06/03/2025
 ms.custom:
+  - build-2025
 ---
 
 # Create and manage a workspace in Azure API Management
@@ -19,19 +20,19 @@ Set up a [workspace](workspaces-overview.md) to enable an API team to manage and
 
 Follow the steps in this article to:
 
-* Create an API Management workspace and a workspace gateway using the Azure portal
+* Create an API Management workspace and associate a workspace gateway using the Azure portal
 * Optionally, isolate the workspace gateway in an Azure virtual network
 * Assign permissions to the workspace
 
 > [!NOTE]
 > * Currently, creating a workspace gateway is a long-running operation that can take up to 3 hours or more to complete. 
-> * We're introducing the ability to associate multiple workspaces with a workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024 and it may not be available to all eligible services before January. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
+> * Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after April 15, 2025. [Learn more about shared workspace gateways](workspaces-overview.md#workspace-gateway).
 
 ## Prerequisites
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
 * **Owner** or **Contributor** role on the resource group where the API Management instance is deployed, or equivalent permissions to create resources in the resource group.
-* (Optional) An existing or new Azure virtual network and subnet to isolate the workspace gateway's inbound and outbound traffic. For configuration options and requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
+* (Optional) A subnet in a new or existing Azure virtual network to isolate the workspace gateway's inbound and outbound traffic. For configuration options and requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
     
 ## Create a workspace - portal
 
@@ -41,20 +42,26 @@ Follow the steps in this article to:
 
 1. On the **Basics** tab, enter a descriptive **Display name**, resource **Name**, and optional **Description** for the workspace. Select **Next**.
 
-1. On the **Gateway** tab, configure settings for the workspace gateway:
+1. On the **Gateway** tab, configure settings for the workspace gateway.
 
-    * In **Gateway details**, enter a gateway name and select the number of scale **Units**. The gateway costs are based on the number of units you select. For more information, see [API Management pricing](https://aka.ms/apimpricing).
+    :::image type="content" source="media/how-to-create-workspace/create-workspace-gateway.png" alt-text="Screenshot of creating a workspace gateway in the portal.":::
 
-    * In **Network**, select a **Network configuration** for your workspace gateway. 
+    * Select **Create new** to create a new workspace gateway, or select **Use existing** to associate the workspace with an existing gateway that has other workspaces deployed on it.
 
-        > [!IMPORTANT]
-        > Plan your workspace's network configuration carefully. You can't change the network configuration after you create the workspace.
+    * If you choose to create a new gateway:
+        * In **Gateway details**, enter a new gateway name and select the number of scale **Units**. The gateway costs are based on the number of units. For more information, see [API Management pricing](https://aka.ms/apimpricing).
 
-    * If you select a network configuration that includes private inbound or private outbound network access, select a **Virtual network** and **Subnet** to isolate the workspace gateway, or create a new one. For network requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
-
+        * In **Network**, select a **Network configuration** for your workspace gateway. 
+    
+          > [!IMPORTANT]
+          > Plan your workspace's network configuration carefully. You can't change the network configuration after you create the workspace.
+    
+        * If you select either **Inbound public access, outbound private access** (virtual network integration) or **Inbound private access, outbound private access** (virtual network injection), select a **Virtual network** and **Subnet** to isolate the workspace gateway, or create a new one. For network requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
+    
 1. Select **Next**. After validation completes, select **Create**.
 
-It can take from several minutes to up to several hours to create the workspace, workspace gateway, and related resources. To track the deployment progress in the Azure portal, go to the gateway's resource group. In the left menu, under **Settings**, select **Deployments**.
+    > [!NOTE]
+    > Creation of a new workspace gateway, if selected, can take up to several hours to complete. To track the deployment progress in the Azure portal, go to the gateway's resource group. In the left menu, under **Settings**, select **Deployments**.
 
 After the deployment completes, the new workspace appears in the list on the **Workspaces** page. Select the workspace to manage its settings and resources.
 
@@ -114,6 +121,45 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
     * **Owner**
     * **Contributor**
     * **Reader** 
+
+## Enable diagnostic settings for monitoring workspace APIs
+
+Configure settings to collect Azure Monitor logs for the workspace and send them to a Log Analytics workspace so that the workspace team can monitor their own APIs while the API platform team can access centralized logs for the API Management instance. See the following diagram:
+
+:::image type="content" source="media/how-to-create-workspace/federated-logs.png" alt-text="Diagram of federated logging in API Management.":::
+
+To collect Azure Monitor logs for the workspace, diagnostic settings are needed at both the service and workspace levels:
+
+1. First, enable a diagnostics setting at the *service level* for collection of API Management gateway logs, if a setting isn't already enabled. We recommend sending logs to a Log Analytics workspace. For more information, see [Configure diagnostic settings for API Management](api-management-howto-use-azure-monitor.md#resource-logs).
+
+1. Then, enable a diagnostics setting at the *workspace level* to send API Management gateway logs to the same Log Analytics workspace. This setting collects logs for all workspace gateways associated with the workspace. 
+
+    > [!IMPORTANT]
+    > A diagnostic setting at the service level configures logging across the API Management instance, including workspaces that have a workspace-level diagnostic setting enabled. If you don't enable a workspace-level diagnostic setting, the workspace's gateway logs won't be collected or aggregated into Log Analytics.
+
+    > [!NOTE]
+    > By default, members of the workspace team assigned the built-in workspace RBAC roles don't have permissions to edit diagnostic settings in a workspace. The API platform team has those permissions. 
+
+To configure a workspace diagnostic setting for collection of workspace-level gateway logs:
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
+
+1. In the left menu, under **APIs**, select **Workspaces**  > the name of your workspace.
+
+1. In the left menu of the workspaces, under **Monitoring**, select **Diagnostic settings** > **+ Add diagnostic setting**.
+
+1. On the **Diagnostic setting** page, enter or select details for the setting:
+
+    1. **Diagnostic setting name**: Enter a descriptive name.
+    1. **Category groups**: Optionally make a selection for your scenario.
+    1. Under **Categories**: Select **Logs related to ApiManagement Gateway** to collect gateway logs for APIs in this workspace.
+    1. Under **Destination details**, select to send logs to the same Azure Log Analytics workspace specified in the service-level diagnostic setting and in other workspace-level diagnostic settings. 
+    1. Select **Save**.
+
+> [!NOTE]
+> * Currently, only gateway logs can be collected for workspaces.
+> * Access workspace-level logs by navigating to **Monitoring** > **Logs** in the left menu of the workspace.
+    
 
 ## Get started with your workspace
 

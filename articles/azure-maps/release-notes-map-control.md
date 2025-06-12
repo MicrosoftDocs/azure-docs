@@ -137,7 +137,7 @@ This document contains information about new features and other changes to the M
 
 #### Other changes
 
-- The accessibility feature for screen reader has been upgraded to utilize the Search V2 API (reverse geocoding).
+- The accessibility feature for screen reader has been upgraded to utilize the Search v2 API (reverse geocoding).
 
 - Enhanced accessibility in the Compass and Pitch controls.
 
@@ -513,7 +513,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Other changes
 
-- The accessibility feature for screen reader has been upgraded to utilize the Search V2 API (reverse geocoding).
+- The accessibility feature for screen reader has been upgraded to utilize the Search v2 API (reverse geocoding).
 
 ### [2.3.4] (November 1, 2023)
 

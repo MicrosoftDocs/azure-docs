@@ -1,20 +1,20 @@
 ---
 title: About Vector Embeddings and Vector Search in Azure Cache for Redis
 description: Learn about Azure Cache for Redis to store vector embeddings and provide similarity search.
-
-
-ms.collection: ce-skilling-ai-copilot
+ms.date: 05/18/2025
 ms.topic: overview
+ms.collection:
+  - ce-skilling-ai-copilot
 ms.custom:
   - ignite-2024
-ms.date: 02/27/2025
-
+  - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # What are Vector Embeddings and Vector Search in Azure Cache for Redis?
 
 Vector similarity search (VSS) has become a popular technology for AI-powered intelligent applications. Azure Cache for Redis can be used as a vector database when combined with models like [Azure OpenAI](/azure/ai-services/openai/overview) for Retrieval-Augmented Generative AI and other analysis scenarios. This article is a high-level introduction to the concept of vector embeddings, vector similarity search, and how Redis can be used as a vector database powering intelligent applications.
-
 
 For tutorials and sample applications on how to use Enterprise tier or Azure Managed Redis with Azure OpenAI, see the following:
 
@@ -27,7 +27,7 @@ Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/
 
 This table contains the information for vector search availability in different tiers.
 
-| Tier      | Basic / Standard | Premium | Enterprise | Enterprise Flash | Azure Managed Redis (preview) |
+| Tier      | Basic / Standard | Premium | Enterprise | Enterprise Flash | Azure Managed Redis |
 |-----------|:----------------:|:-------:|:----------:|:----------------:|:-----------------------------:|
 | Available | No               | No      | Yes        | Yes (preview)    | Yes                           |
 

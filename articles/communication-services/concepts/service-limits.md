@@ -291,6 +291,19 @@ The following timeouts apply to the Azure Communication Services Calling SDKs:
 | PSTN call establishment timeout. | 115 |
 | Promote a 1:1 call to a group call timeout. | 115 |
 
+### Virtual Rooms 
+The throttling policies of rooms service are determined by grouping requests through **resource id**.
+
+| API | Threshold |
+|--|--|
+| Create Room | 20 req/sec |
+| Update Room | 20 req/sec |
+| Delete Room | 20 req/sec |
+| Get Room    | 40 req/sec |
+| List Rooms  | 10 req/sec |
+| Update participant   | 20 req/sec |
+| List participants    | 40 req/sec |
+
 ### Action to take
 
 For more information about the voice and video calling SDK and service, see [Calling SDK overview](./voice-video-calling/calling-sdk-features.md) or [Known issues in the SDKs and APIs](./known-issues.md). You can also submit a request to [Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase some of the limits. Our vetting team reviews all requests.

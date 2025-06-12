@@ -6,7 +6,7 @@ author: kperla97
 manager: chpalm
 services: azure-communication-services
 
-ms.author: anniewang
+ms.author: kaperla
 ms.date: 6/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
@@ -43,7 +43,8 @@ Once you configure your display name and emoji, you can join the chat session. N
 Components of the main chat screen:
 
 - **Main Chat Area**: The core chat experience where users can send and receive messages. To send messages, you can use the input area and press enter (or use the send button). The chat screen organizes received chat messages by sender with the correct name and emoji. You see two types of notifications in the chat area: 1) typing notifications when a user is typing and 2) sent and read notifications for messages.
-- **Header**: Where the user sees the title of the chat thread and the leave button to exit the chat session.
+- **Header**: Where the user sees the title of the chat thread and the controls for toggling participant and settings side bars, and a leave button to exit the chat session.
+- **Side Bar**: Where participants and setting information display when toggled using the controls in the header. The participants side bar contains a list of participants in the chat and a link to invite participants to the chat session. The settings side bar enables you to configure the chat thread title.
 
 Complete the following prerequisites and steps to set up the sample.
 

@@ -4,7 +4,7 @@ description: Root squash is a security feature that prevents unauthorized root-l
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/13/2024
 ms.author: kendownie
 ---

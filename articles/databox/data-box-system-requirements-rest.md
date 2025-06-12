@@ -5,7 +5,7 @@ services: databox
 author: stevenmatthew
 
 ms.service: azure-databox
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/05/2020
 ms.author: shaas
 ---

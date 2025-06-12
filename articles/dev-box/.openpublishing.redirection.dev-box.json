@@ -89,6 +89,16 @@
       "source_path_from_root": "/articles/dev-box/how-to-configure-multiple-monitors.md",
       "redirect_url": "https://aka.ms/dev-box/multiple-monitors",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/how-to-write-customization-file.md",
+      "redirect_url": "/azure/dev-box/how-to-write-image-definition-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/how-to-write-individual-customization-file.md",
+      "redirect_url": "/azure/dev-box/how-to-write-user-customization-file",
+      "redirect_document_id": false
     }
   ]
 }

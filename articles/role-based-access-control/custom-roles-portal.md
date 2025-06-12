@@ -1,17 +1,21 @@
 ---
 title: Create or update Azure custom roles using the Azure portal - Azure RBAC
-description: Learn how to create Azure custom roles using the Azure portal and Azure role-based access control (Azure RBAC). This includes how to list, create, update, and delete custom roles.
+description: Learn how to create a custom role to manage access to Azure resources using the Azure portal and Azure role-based access control (Azure RBAC). This includes how to list, create, update, and delete custom roles.
 author: rolyon
 manager: femila
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 03/30/2025
+ms.date: 05/19/2025
 ms.author: rolyon
+ms.custom:
+  - build-2025
 ---
 
 # Create or update Azure custom roles using the Azure portal
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes. Custom roles are stored in a Microsoft Entra directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. This article describes how to create custom roles using the Azure portal.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes. Custom roles are stored in a Microsoft Entra directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
+
+This article describes how to create a custom role to manage access to Azure resources using the Azure portal. If you want to instead create a custom role to manage access to Microsoft Entra resources, see [Create a custom role in Microsoft Entra ID](/entra/identity/role-based-access-control/custom-create).
 
 ## Prerequisites
 
@@ -30,7 +34,7 @@ Azure has thousands of permissions that you can potentially include in your cust
 
 ## Step 2: Choose how to start
 
-There are three ways that you can start to create a custom role. You can clone an existing role, start from scratch, or start with a JSON file. The easiest way is to find an existing role that has most of the permissions you need and then clone and modify it for your scenario. 
+There are three ways that you can start to create a custom role. You can clone an existing built-in or custom role, start from scratch, or start with a JSON file. The easiest way is to find an existing role that has most of the permissions you need and then clone and modify it for your scenario. 
 
 ### Clone a role
 
@@ -44,7 +48,7 @@ If an existing role does not quite have the permissions you need, you can clone 
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
-1. Search for a role you want to clone such as the Billing Reader role.
+1. Search for a built-in or custom role you want to clone such as the Billing Reader role.
 
 1. At the end of the row, click the ellipsis (**...**) and then click **Clone**.
 

@@ -4,7 +4,7 @@ description: How to work with the old virtual network gateway SKUs; Standard, an
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 05/08/2025
 ms.author: cherylmc 
 ---
 # Working with VPN Gateway legacy SKUs
@@ -71,11 +71,11 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 
 ### <a name="migrate"></a>Migrate a gateway SKU
 
-A gateway SKU migration process is similar to a resize. It requires fewer steps and configuration changes than changing to a new gateway SKU. At this time, gateway SKU migration isn't available. You can migrate a deprecated legacy gateway SKU December 2024 through September 30, 2025. We'll make a migration path available along with detailed documentation.
+A gateway SKU migration process is similar to a resize. It requires fewer steps and configuration changes than changing to a new gateway SKU. Your gateway will be migrated seamlessly from backend without any connectivity impact before September 30, 2025. This is different from the initial approach of providing a migration path.
 
 ### <a name="change"></a>Change to the new gateway SKUs
 
-Standard and High Performance SKUs will be deprecated September 30, 2025. The product team will make a migration path available for legacy SKUs. For more information, See the [Legacy SKU deprecation](#sku-deprecation) section. You can choose to change from a legacy SKU to one of the new SKUs at any point. However, changing to a new SKU requires more steps than migrating and incurs downtime.
+Standard and High Performance SKUs will be deprecated September 30, 2025. The product team will migrate the legacy SKUs from backend. For more information, See the [Legacy SKU deprecation](#sku-deprecation) section. You can choose to change from a legacy SKU to one of the new SKUs at any point. However, changing to a new SKU requires more steps than migrating and incurs downtime.
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 

@@ -83,7 +83,7 @@ additionalContent:
     - title: Networking foundation # < 60 chars (optional)
       items:
         # Card
-        - title: Virtual Network
+        - title: Azure Virtual Network
           links:
             - text: What is Azure Virtual Network?
               url: ../virtual-network/virtual-networks-overview.md
@@ -92,7 +92,7 @@ additionalContent:
             - text: See more
               url: ../virtual-network/index.yml
         # Card
-        - title: Private Link
+        - title: Azure Private Link
           links:
             - text: What is Azure Private Link?
               url: ../private-link/private-link-overview.md
@@ -101,7 +101,7 @@ additionalContent:
             - text: See more
               url: ../private-link/index.yml
         # Card
-        - title: DNS
+        - title: Azure DNS
           links:
             - text: What is Azure DNS?
               url: ../dns/dns-overview.md
@@ -113,7 +113,7 @@ additionalContent:
     - title: Load balancing and content delivery # < 60 chars (optional)
       items:
         # Card
-        - title: Load Balancer
+        - title: Azure Load Balancer
           links:
             - text: What is Azure Load Balancer?
               url: ../load-balancer/load-balancer-overview.md
@@ -122,7 +122,7 @@ additionalContent:
             - text: See more
               url: ../load-balancer/index.yml
         # Card
-        - title: Application Gateway
+        - title: Azure Application Gateway
           links:
             - text: What is Azure Application Gateway?
               url: ../application-gateway/overview.md
@@ -131,7 +131,7 @@ additionalContent:
             - text: See more
               url: ../application-gateway/index.yml
         # Card
-        - title: Front Door
+        - title: Azure Front Door
           links:
             - text: What is Azure Front Door?
               url: ../frontdoor/front-door-overview.md
@@ -142,7 +142,7 @@ additionalContent:
     - title: Hybrid connectivity # < 60 chars (optional)
       items:
         # Card
-        - title: VPN Gateway
+        - title: Azure VPN Gateway
           links:
             - text: What is Azure VPN Gateway?
               url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
@@ -153,7 +153,7 @@ additionalContent:
             - text: See more
               url: ../vpn-gateway/index.yml   
         # Card
-        - title: ExpressRoute
+        - title: Azure ExpressRoute
           links:
             - text: What is Azure ExpressRoute?
               url: ../expressroute/expressroute-introduction.md
@@ -162,7 +162,7 @@ additionalContent:
             - text: See more
               url: ../expressroute/index.yml
         # Card
-        - title: Virtual WAN
+        - title: Azure Virtual WAN
           links:
             - text: What is Azure Virtual WAN?
               url: ../virtual-wan/virtual-wan-about.md
@@ -174,7 +174,7 @@ additionalContent:
     - title: Network security # < 60 chars (optional)
       items:
         # Card
-        - title: Firewall
+        - title: Azure Firewall
           links:
             - text: What is Azure Firewall?
               url: ../firewall/overview.md
@@ -183,7 +183,7 @@ additionalContent:
             - text: See more
               url: ../firewall/index.yml
         # Card
-        - title: DDoS Protection
+        - title: Azure DDoS Protection
           links:
             - text: What is Azure DDoS Protection?
               url: ../ddos-protection/ddos-protection-overview.md
@@ -194,7 +194,7 @@ additionalContent:
             - text: See more
               url: ../ddos-protection/index.yml
         # Card
-        - title: Web Application Firewall
+        - title: Azure Web Application Firewall
           links:
             - text: What is Azure Web Application Firewall?
               url: ../web-application-firewall/overview.md

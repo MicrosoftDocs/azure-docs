@@ -2,16 +2,15 @@
 title: Use extensions in Bicep
 description: This article describes how to use Bicep extensions.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 12/06/2024
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 05/14/2025
 ---
 
 # Use Bicep extensions
 
-Bicep was initially created to enhance the authoring experience compared to Azure Resource Manager JSON templates, simplifying the deployment and management of Azure resources. Bicep extensions build on this foundation, enabling Bicep templates to reference resources beyond the scope of Azure Resource Manager. This article describes how to use Bicep extensions.
-
-> [!NOTE]
-> The experimental feature `extensibility` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features) to use this feature.
+Bicep was initially created to enhance the authoring experience compared to Azure Resource Manager JSON templates, simplifying the deployment and management of Azure resources. Bicep extensions build on this foundation, enabling Bicep files to reference resources beyond the scope of Azure Resource Manager. This article describes how to use Bicep extensions.
 
 The syntax for importing Bicep extensions is:
 

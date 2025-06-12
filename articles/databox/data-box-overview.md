@@ -67,7 +67,7 @@ Azure providers and non-Azure providers can ingest data from Azure Data Box. The
 You can use your Data Box data with many non-Azure service providers. For instance:
 
 - **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to back up and replicate large amounts of data from your Hyper-V machine to your Data Box.
-
+- **[Commvault](/azure/storage/solution-integration/validated-partners/backup-archive-disaster-recovery/commvault/commvault-solution-guide)** - leverages Azure Data Box to migrate petabyte scale backup and archive data from on-premises to Azure for network constrained environments.
 ## Benefits
 
 Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:
@@ -110,6 +110,7 @@ The Data Box device has the following features in this release.
 | Security                                                | Rugged device casing with tamper-proof custom screws <br> Intrusion detection system in device <br> Secure boot <br>Hardware Root of Trust <br> TPM 2.0  |
 | Data transfer rate                                      | Approx. 7 GB/s using SMB Direct on RDMA (100-GbE) for large files. Both data ports can be used, though not required. Performance might differ depending on the source and size of your files.      |
 | Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management |
+| Cooling capability                                      | Fan cooled internally. <br> Operating temp is (0-35)C normal with full performance and (35-45)C with reduced performance <br> Storage temp is (-40 to 60)C <br> Airflow details are 144 CFM/KW for 120 TB and 122 CFM/KW for 525 TB |
 
 [!INCLUDE [data-box-cable-adapter](../../includes/data-box-cable-adapter.md)]
 

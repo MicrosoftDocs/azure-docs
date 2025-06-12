@@ -12,9 +12,9 @@ ms.date: 10/19/2023
 
 When you store load test secrets or certificates in Azure Key Vault, your load testing resource uses a [managed identity](../how-to-use-a-managed-identity.md) for accessing the key vault. After you configure the manage identity, you need to grant the managed identity of your load testing resource permissions to read these values from the key vault.
 
-To grant your Azure load testing resource permissions to read secrets or certificates from your Azure key vault:
+To grant your Azure load testing resource permissions to read secrets or certificates from your Azure Key Vault:
 
-1. In the [Azure portal](https://portal.azure.com/), go to your Azure key vault resource.
+1. In the [Azure portal](https://portal.azure.com/), go to your Azure Key Vault resource.
 
     If you don't have a key vault, follow the instructions in [Azure Key Vault quickstart](/azure/key-vault/secrets/quick-create-cli) to create one.
 

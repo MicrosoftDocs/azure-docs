@@ -1,10 +1,10 @@
 ---
 title: Watermarking in Azure Virtual Desktop
 description: Learn how to enable watermarking in Azure Virtual Desktop to help prevent sensitive information from being captured on client endpoints.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 10/08/2024
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Watermarking in Azure Virtual Desktop

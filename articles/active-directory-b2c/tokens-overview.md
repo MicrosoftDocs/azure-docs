@@ -19,6 +19,7 @@ ms.custom: b2c-support
 ---
 
 # Overview of tokens in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) emits different types of security tokens as it processes each [authentication flow](application-types.md). This article describes the format, security characteristics, and contents of each type of token.
 

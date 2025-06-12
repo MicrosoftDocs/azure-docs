@@ -207,6 +207,24 @@ groups:
     title: Isolated worker model
   - id: in-proc
     title: In-process model
+- id: reliability-functions-hosting-plan
+  title: Function app hosting options for Availability Zones support
+  prompt: Choose a hosting option for your function app
+  pivots:
+  - id: flex-consumption-plan
+    title: Flex Consumption plan
+  - id: premium-plan
+    title: Premium plan
+- id: functions-hosting-plan-dynamic
+  title: Function app hosting options
+  prompt: Choose a hosting option for your function app
+  pivots:
+  - id: flex-consumption-plan
+    title: Flex Consumption plan
+  - id: premium-plan
+    title: Premium plan
+  - id: consumption-plan
+    title: Consumption plan
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
@@ -335,7 +353,22 @@ groups:
     title: Azure portal
   - id: experience-arm
     title: Azure Resource Manager
+
 # Owner: msangapu
+- id: app-service-webjobs
+  title: Programming Language
+  prompt: Choose a programming language
+  pivots:
+  - id: dotnet
+    title: .NET
+  - id: python
+    title: Python
+  - id: node
+    title: Node.js
+  - id: java
+    title: Java
+  - id: php
+    title: PHP
 - id: app-service-vscode-cli-portal
   title: Development environment
   prompt: Choose a development environment
@@ -360,8 +393,6 @@ groups:
     title: Azure PowerShell
   - id: development-environment-azure-portal
     title: Azure portal
-  - id: development-environment-azd
-    title: Azure Developer CLI
 - id: app-service-platform-windows-linux
   title: App Service platform
   prompt: Choose a hosting platform
@@ -731,10 +762,8 @@ groups:
   title: Platform
   prompt: Choose a platform
   pivots:
-  - id: platform-azp
-    title: Azure portal
   - id: platform-azp-new
-    title: Azure portal (new)
+    title: Azure portal
   - id: platform-azcli
     title: Azure CLI
   - id: programming-language-java
@@ -1030,7 +1059,8 @@ groups:
   - id: callend
     title: Call end
 # Owner: prakulka
-- id: acs-tollfree-shortcode-alphanumeric-tendlc
+# SMS Number types pricing
+- id: acs-tollfree-shortcode-alphanumeric-tendlc-mobile
   title: Number Type
   prompt: Choose a Number Type
   pivots:
@@ -1040,6 +1070,8 @@ groups:
     title: 10DLC
   - id: shortcode
     title: Short Code
+  - id: mobile-number
+    title: Mobile Numbers
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
 # Owner: cshoe
@@ -1164,6 +1196,19 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
+# Owner: cshoe
+- id: arm-azure-cli-portal-bicep
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-cli
+    title: Azure CLI
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-resource-manager
+    title: ARM template
+  - id: container-apps-bicep
+    title: Bicep
 # Owner: ruslany
 - id: azure-cli-bicep
   title: Interaction type
@@ -1192,14 +1237,6 @@ groups:
   - id: azure-resource-manager
     title: ARM template
 # Owner: duau
-- id: front-door-tiers
-  title: Front Door tiers
-  prompt: "Select the Azure Front Door tier:"
-  pivots:
-  - id: front-door-standard-premium
-    title: Standard/Premium
-  - id: front-door-classic
-    title: Classic
 - id: expressroute-experience
   title: ExpressRoute experience
   prompt: "Select your ExpressRoute create experience:"
@@ -1208,6 +1245,23 @@ groups:
     title: Current
   - id: expressroute-preview
     title: Preview
+# Owner: halkazwini
+- id: front-door-tiers
+  title: Front Door tiers
+  prompt: "Select the Azure Front Door tier:"
+  pivots:
+  - id: front-door-standard-premium
+    title: Standard/Premium
+  - id: front-door-classic
+    title: Classic
+- id: flow-log-types
+  title: Flow Log types
+  prompt: "Select the flow log type:"
+  pivots:
+  - id: virtual-network
+    title: Virtual network
+  - id: network-security-group
+    title: Network security group
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
   title: Front Door Developer experience
@@ -1387,6 +1441,21 @@ groups:
     title: iOS
   - id: programming-language-java
     title: Android
+
+# Owners: tayaras
+- id: acs-programming-languages-javascript-java-swift-csharp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: Web
+  - id: programming-language-csharp
+    title: Windows
+  - id: programming-language-swift
+    title: iOS
+  - id: programming-language-java
+    title: Android
+
 - id: acs-programming-languages-support-kotlin-swift
   title: Programming languages
   prompt: Choose a programming language
@@ -1514,7 +1583,7 @@ groups:
   - id: method-azure-cli
     title: Azure CLI
   - id: method-bicep
-    title: Bicep template
+    title: Bicep file
 - id: azure-web-pubsub-samples-authenticate-and-connect
   title: Authenticate and connect to your Web PubSub resource(s) using one of the methods
   prompt: Choose an option
@@ -1813,7 +1882,7 @@ groups:
   - id: free-shared-basic
     title: Free, Shared, Basic
   - id: premium
-    title: Premium v2 and Premium v3
+    title: Premium v2-v4
   - id: isolated
     title: Isolated v2 (App Service Environment)
 #Owner: yassirbisteni
@@ -1845,7 +1914,7 @@ groups:
   prompt: Choose a connection type
   pivots:
   - id: connection-agentless
-    title: Agentless data connector (Preview)
+    title: Agentless data connector (Limited preview)
   - id: connection-agent
     title: Data connector agent
 # Owner: jodowns

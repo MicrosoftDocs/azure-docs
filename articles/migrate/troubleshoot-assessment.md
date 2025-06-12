@@ -13,7 +13,7 @@ This article helps you troubleshoot issues with assessment and dependency visual
 
 ## Common assessment errors
 
-Assessment service uses the [configuration data](discovered-metadata.md) and the [performance data](concepts-assessment-calculation.md#how-does-the-appliance-calculate-performance-data) for calculating the assessments. The data is fetched by the Azure Migrate appliance at specific intervals in case of appliance-based discovery and assessments.
+Assessment service uses the [configuration data](discovered-metadata.md) and the [performance data](concepts-assessment-overview.md#how-does-the-appliance-aggregate-performance-data) for calculating the assessments. The data is fetched by the Azure Migrate appliance at specific intervals in case of appliance-based discovery and assessments.
 The following table summarizes the errors encountered while fetching the data by the assessment service. 
 
 ### Error Code: 60001:UnableToConnectToPhysicalServer	

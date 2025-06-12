@@ -2,11 +2,11 @@
 title: Azure permissions for Internet of Things - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Internet of Things category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -129,9 +129,9 @@ Azure service: [IoT Hub](/azure/iot-hub/), [IoT Hub Device Provisioning Service]
 > | Microsoft.Devices/iotHubs/routing/$testall/Action | Test a message against all existing Routes |
 > | Microsoft.Devices/iotHubs/routing/$testnew/Action | Test a message against a provided test Route |
 > | Microsoft.Devices/iotHubs/routingEndpointsHealth/Read | Gets the health of all routing Endpoints for an IotHub |
-> | Microsoft.Devices/iotHubs/securitySettings/Write | Update the Azure Security Center settings on IoT Hub |
-> | Microsoft.Devices/iotHubs/securitySettings/Read | Get the Azure Security Center settings on IoT Hub |
-> | Microsoft.Devices/iotHubs/securitySettings/operationResults/Read | Get the result of the Async Put operation for IoT Hub SecuritySettings |
+> | Microsoft.Devices/iotHubs/securitySettings/Write | Update the Azure Security Center settings on Iot Hub |
+> | Microsoft.Devices/iotHubs/securitySettings/Read | Get the Azure Security Center settings on Iot Hub |
+> | Microsoft.Devices/iotHubs/securitySettings/operationResults/Read | Get the result of the Async Put operation for Iot Hub SecuritySettings |
 > | Microsoft.Devices/iotHubs/skus/Read | Get valid IotHub Skus |
 > | Microsoft.Devices/locations/operationresults/Read | Get Location based Operation Result |
 > | Microsoft.Devices/operationresults/Read | Get Operation Result |
@@ -393,6 +393,7 @@ Azure service: [Microsoft Defender for IoT](/azure/defender-for-iot/device-build
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateDownloadUrl/action | The operation to a url for file download. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateFilesystemDownloadUrl/action | The operation to a url for tar file download. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/binaryHardeningResults/read | Lists binary hardening analysis results of a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/commonVulnerabilitiesAndExposures/read | Lists CVE analysis results of a firmware. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cryptoCertificates/read | Lists cryptographic certificate analysis results found in a firmware. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cryptoKeys/read | Lists cryptographic key analysis results found in a firmware. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cves/read | Lists CVE analysis results of a firmware. |
@@ -400,6 +401,8 @@ Azure service: [Microsoft Defender for IoT](/azure/defender-for-iot/device-build
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/sbomComponents/read | Lists SBOM analysis results of a firmware. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/summaries/read | Lists analysis result summary names of a firmware. To fetch the full summary data, get that summary by name. |
 > | Microsoft.IoTFirmwareDefense/workspaces/firmwares/summaries/read | Get an analysis result summary of a firmware by name. |
+> | Microsoft.IoTFirmwareDefense/workspaces/usageMetrics/read | Lists monthly usage information for a workspace. |
+> | Microsoft.IoTFirmwareDefense/workspaces/usageMetrics/read | Gets monthly usage information for a workspace. |
 
 ## Microsoft.IoTSecurity
 
@@ -452,7 +455,6 @@ Azure service: [IoT security](/azure/iot/iot-security-architecture)
 > | Microsoft.IoTSecurity/onPremiseSensors/delete | Deletes on-premise IoT Sensors |
 > | Microsoft.IoTSecurity/onPremiseSensors/downloadActivation/action | Gets on-premise IoT Sensor Activation File |
 > | Microsoft.IoTSecurity/onPremiseSensors/downloadResetPassword/action | Downloads file for reset password of the on-premise IoT Sensor |
-> | Microsoft.IoTSecurity/onPremiseSensors/listDiagnosticsUploadDetails/action | Get details required to upload sensor diagnostics data |
 > | Microsoft.IoTSecurity/sensors/read | Gets IoT Sensors |
 
 ## Microsoft.StreamAnalytics

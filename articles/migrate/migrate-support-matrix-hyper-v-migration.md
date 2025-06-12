@@ -4,7 +4,7 @@ description: Learn about support for Hyper-V migration with Azure Migrate.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 04/02/2025
 ms.custom: engagement-fy24

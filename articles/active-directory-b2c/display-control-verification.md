@@ -20,6 +20,7 @@ ms.subservice: b2c
 ---
 
 # Verification display control
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Use a verification [display control](display-controls.md) to verify a claim, for example an email address or phone number, with a verification code sent to the user.
 

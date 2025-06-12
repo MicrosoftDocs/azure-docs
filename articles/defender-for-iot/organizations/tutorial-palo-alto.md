@@ -11,6 +11,10 @@ This article describes how to integrate Palo Alto with Microsoft Defender for Io
 
 Viewing both Defender for IoT and Palo Alto information together provides SOC analysts with multidimensional visibility so that they can block critical threats faster.
 
+>[!Note]
+>
+>Defender for IoT plans to retire the Palo Alto integration on December 1, 2025
+
 ## Cloud-based integrations
 
 > [!TIP]

@@ -3,7 +3,7 @@ title: Planning for an Azure File Sync deployment
 description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares locally on an on-premises Windows Server or cloud VM.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/07/2025
 ms.author: kendownie
 ms.custom: references_regions
@@ -53,11 +53,13 @@ A sync group contains one cloud endpoint, or Azure file share, and at least one 
 
 ### Consider the count of Storage Sync Services needed
 
-A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it's often best to only deploy a single Storage Sync Service and register all servers on it. 
+A Storage Sync Service is the root ARM resource for Azure File Sync, managing synchronization relationships between your Windows Servers and Azure file shares. Each Storage Sync Service can contain multiple Sync Groups and multiple Registered Servers.
 
-Create multiple Storage Sync Services only if you have:
-* distinct sets of servers that must never exchange data with one another. In this case, you want to design the system to exclude certain sets of servers to sync with an Azure file share that is already in use as a cloud endpoint in a sync group in a different Storage Sync Service. Another way to look at this is that Windows Servers registered to different storage sync service can't sync with the same Azure file share.
-* a need to have more registered servers or sync groups than a single Storage Sync Service can support. Review the [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets) for more details.
+Each Windows Server can only be registered to one Storage Sync Service. After registration, the server can participate in multiple sync groups within that Storage Sync Service by creating server endpoints on the server using an ARM principal.
+
+When designing Azure File Sync topologies, ensure that you isolate data clearly at the Storage Sync Service level. For example, if your enterprise requires separate Azure File Sync environments for two distinct business units, and you need strict data isolation between these groups, you should create a dedicated Storage Sync Service for each group. Avoid placing sync groups for both business groups within the same Storage Sync Service, as that would not ensure complete isolation.
+
+For additional guidance on data isolation using separate subscriptions or resource groups in Azure, refer to the following Azure documentation: Review the [Azure guidance for secure isolation](/azure/azure-resource-manager/management/resource-providers-and-types#resource-scope-and-lifecycle) for more details.
 
 ## Plan for balanced sync topologies
 

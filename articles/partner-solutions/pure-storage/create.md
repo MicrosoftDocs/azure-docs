@@ -73,4 +73,4 @@ There are required fields that you need to fill out.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Manage Azure Native Pure Storage resources (preview)](manage.md)
+> [Manage Azure Native Pure Storage (preview) resources](manage.md)

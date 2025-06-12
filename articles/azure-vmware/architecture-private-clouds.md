@@ -1,7 +1,7 @@
 ---
 title: Architecture for Private Clouds and Clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined datacenters and VMware vSphere clusters. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 4/4/2025
 ms.custom: engagement-fy23, references_regions
@@ -119,6 +119,9 @@ AV64 host types are available per availability zone. The following table lists t
 ## Clusters
 
 [!INCLUDE [hosts-minimum-initial-deployment-statement](includes/hosts-minimum-initial-deployment-statement.md)]
+
+> [!CAUTION]
+> Deleting a cluster terminates all running workloads and components and is an irreversible operation. Once you delete a cluster, you cannot recover the data.
 
 [!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
 

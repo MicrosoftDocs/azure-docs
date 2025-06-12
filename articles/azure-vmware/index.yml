@@ -21,9 +21,9 @@ highlightedContent:
     - title: What's Azure VMware Solution? 
       itemType: overview
       url: /azure/azure-vmware/introduction
-    - title: Tutorials 
+    - title: Introduction to Azure VMware Solution Generation 2 Private Clouds (Public preview) 
       itemType: overview
-      url: /azure/azure-vmware/tutorial-network-checklist
+      url: /azure/azure-vmware/native-introduction
     - title: Networking
       itemType: how-to-guide
       url: tutorial-expressroute-global-reach-private-cloud.md

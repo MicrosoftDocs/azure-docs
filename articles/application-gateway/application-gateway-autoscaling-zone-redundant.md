@@ -2,11 +2,11 @@
 title: Scaling and Zone-redundant Application Gateway v2
 description: This article introduces the Azure Application Standard_v2 and WAF_v2 SKU Autoscaling and Zone-redundant features.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 11/02/2023
-ms.author: greglin
+ms.author: mbender
 ms.custom: fasttrack-edit, references_regions
 ---
 
@@ -14,7 +14,7 @@ ms.custom: fasttrack-edit, references_regions
 
 Application Gateway and WAF can be configured to scale in two modes:
 
-- **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale out or in based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring the gateway to run at peak-provisioned capacity for expected maximum traffic load. You must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 don't fall below the minimum instance count specified, even without traffic. Each instance is roughly equivalent to 10 more reserved Capacity Units. Zero signifies no reserved capacity and is purely autoscaling in nature. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You are only billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 10 if not specified. Autoscaling should always be enabled to minimize the impact of any zonal failure. 
+- **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale out or in based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring the gateway to run at peak-provisioned capacity for expected maximum traffic load. You must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 don't fall below the minimum instance count specified, even without traffic. The minimum instance count can range from 0 to 100. Each instance is roughly equivalent to 10 more reserved Capacity Units. Zero signifies no reserved capacity and is purely autoscaling in nature. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You are only billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 10 if not specified. Autoscaling should always be enabled to minimize the impact of any zonal failure. 
 
 > [!NOTE]
 > If the maximum instance count is updated to a value less than the current instance count, the new setting will not take immediate effect. The newly updated maximum will only be enforced after a scale-in operation brings  the  current count below newly updated maximum count. If the scale-in operation does not occur because the autoscaling  scale in thresholds are not met, the new maximum setting will not be applied.

@@ -117,6 +117,8 @@ sections:
 
           Since Dapr version updates are applied automatically, you always benefit from the most secure version. However, Dapr in Azure Container Apps doesn't follow a fixed release schedule for new features. Instead, the release of new Dapr versions for new functionality depends on the prioritization and stability of the Dapr binaries.
 
+          Find updates and release announcments for Dapr in Azure Container Apps in [GitHub](https://aka.ms/dapr-aca-updates).
+
       - question: |
           Can I use a specific Dapr version for my environment?
         answer:

@@ -8,6 +8,8 @@ items:
 - name: Partner services documentation
   expanded: true
   items:
+  - name: Arize AI
+    href: ./arize-ai/index.yml
   - name: Astro
     href: ./astronomer/index.yml
   - name: Confluent
@@ -20,7 +22,11 @@ items:
     href: ./elastic/index.yml
   - name: Informatica 
     href: ./informatica/index.yml
-  - name: Neon Serverless Postgres (preview)
+  - name: LambdaTest - HyperExecute
+    href: ./lambda-test/index.yml
+  - name: MongoDB Atlas (preview)
+    href: ./mongo-db/index.yml
+  - name: Neon Serverless Postgres
     href: ./neon/index.yml 
   - name: New Relic
     href: ./new-relic/index.yml

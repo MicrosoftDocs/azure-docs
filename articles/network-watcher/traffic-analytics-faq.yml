@@ -7,7 +7,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 02/11/2025
+  ms.date: 06/03/2025
 title: Traffic analytics frequently asked questions (FAQ)
 summary: |
   This article provides answers to the most frequently asked questions about traffic analytics capability of Azure Network Watcher.  
@@ -16,25 +16,20 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          How can I check if I have the required roles?
+          What RBAC permissions are required to use traffic analytics?
         answer: |
-          To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml). If you can't see the role assignments, contact the respective subscription admin.
+          See [Traffic analytics permissions](./required-rbac-permissions.md#traffic-analytics) for the full list of required RBAC roles and permissions.
 
       - question: |
-          Can I enable flow logs for network security groups that are in different regions than my workspace region?
+          Can I enable flow logs for resources that are in different regions than my workspace region?
         answer: |
-          Yes, network security groups can be in different regions than your Log Analytics workspace region.
+          Yes, virtual networks and network security groups can be in different regions than your Log Analytics workspace region.
 
       - question: |
           Can multiple network security groups be configured within a single workspace?
         answer: |
           Yes.
 
-      - question: |
-          Are Classic network security groups supported?
-        answer: |
-          No, traffic analytics doesn't support classic network security groups.
-      
       - question: |
           Why doesn't traffic analytics display data for my traffic analytics enabled network security groups? 
         answer: |
@@ -43,8 +38,13 @@ sections:
       - question: |
           Can I use an existing workspace?
         answer: |
-          Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you don't want to upgrade the workspace, you need to create a new one. For more information about Kusto Query Language (KQL), see [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
-          
+          Yes. If you select an existing workspace, make sure that it was migrated to the new query language. If you don't want to upgrade the workspace, you need to create a new one. For more information about Kusto Query Language (KQL), see [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
+
+      - question: |
+          Why do some resources appear as **Unknown** in traffic analytics?
+        answer: |
+          Traffic analytics performs a resource discovery scan every 6 hours to identify new VMs, NICs, virtual networks, and subnets. When a new VM or NIC is created after the most recent discovery cycle, and flow data is collected before the next discovery, traffic analytics can't yet associate the traffic with a known resource. As a result, those resources are temporarily labeled as *unknown* in the analytics view.
+
       - question: |
           Can my Azure storage account be in one subscription and my Log Analytics workspace be in a different subscription?
         answer: |
@@ -68,7 +68,7 @@ sections:
       - question: |
           Will I lose the data stored in Log Analytics workspace if I delete the storage account used for flow logging?
         answer: |
-          No. If you delete the storage account that is used for flow logs, the data stored in Log Analytics workspace won't be affected. You can still view historic data in Log Analytics workspace (some metrics will be impacted) but traffic analytics will no longer process any new additional flow logs until you update the flow logs to use a different storage account.
+          No. If you delete the storage account that is used for flow logs, the data stored in Log Analytics workspace won't be affected. You can still view historic data in Log Analytics workspace (some metrics will be impacted) but traffic analytics will no longer process any new flow logs until you update the flow logs to use a different storage account.
 
       - question: |
           What if I can't configure a network security group for traffic analytics due to a "Not found" error?
@@ -78,7 +78,7 @@ sections:
       - question: |
           What if I'm getting the status: “Failed to load” in the flow logs page?
         answer: |
-          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Azure portal](nsg-flow-logs-portal.md#register-insights-provider), [PowerShell](nsg-flow-logs-powershell.md#register-insights-provider), or [Azure CLI](nsg-flow-logs-cli.md#register-insights-provider) instructions on how to register it.
+          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Manage NSG flow logs](nsg-flow-logs-manage.md#register-insights-provider) instructions on how to register it.
           
       - question: |
           I configured the solution. Why am I not seeing anything on the dashboard?
@@ -86,7 +86,7 @@ sections:
           The dashboard might take up to 30 minutes to show reports for the first time. The solution must first aggregate enough data for it to derive meaningful insights, then it generates reports. 
 
       - question: |
-          What if I get this message: “We could not find any data in this workspace for selected time interval. Try changing the time interval or select a different workspace.”?
+          What if I get this message: “We couldn't find any data in this workspace for selected time interval. Try changing the time interval or select a different workspace.”?
         answer: |
           Try the following options:
           - Change the time interval in the upper bar.
@@ -110,16 +110,6 @@ sections:
           You're seeing the resources information on the dashboard; however, no flow-related statistics are present. Data might not be present because of no communication flows between the resources. Wait for 60 minutes, and recheck status. If the problem persists, and you're sure that communication flows among resources exist, raise concerns in [Microsoft Q&A](/answers/topics/azure-network-watcher.html).
 
       - question: |
-          Can I configure traffic analytics using PowerShell?
-        answer: |
-          You can configure traffic analytics using Windows PowerShell version 6.2.1 and higher. To configure flow logging and traffic analytics for a specific network security group using PowerShell, see [Enable network security group flow logs and traffic analytics](./network-watcher-nsg-flow-logging-powershell.md#create-a-flow-log-and-traffic-analytics-workspace).
-                    
-      - question: |
-          Can I configure traffic analytics using an Azure Resource Manager template or a Bicep file?
-        answer: |
-          Yes, you can use an Azure Resource Manager template or a Bicep file to configure traffic analytics. For more information, see [Configure NSG flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md) and [Configure NSG flow logs using a Bicep file](quickstart-configure-network-security-group-flow-logs-from-bicep.md).
-
-      - question: |
           How is traffic analytics priced?
         answer: |
           Traffic analytics is metered. The metering is based on processing of raw flow log data by the service. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).          
@@ -129,7 +119,12 @@ sections:
           How frequently does traffic analytics process data?
         answer: |
           Default processing interval of traffic analytics is 60 minutes, however, you can select accelerated processing at 10 minutes intervals. For more information, see [Data aggregation in traffic analytics](./traffic-analytics-schema.md#data-aggregation).
-          
+
+      - question: |
+          What are the other resources created with my workspace?
+        answer: |
+          Traffic analytics creates and manages data collection rule (DCR) and data collection endpoint (DCE) resources in the same resource group as the workspace, prefixed with `NWTA`. If you perform any operation on these resources, traffic analytics might not function as expected. For more information, see [Data aggregation in traffic analytics](./traffic-analytics-schema.md#data-aggregation). For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
+
       - question: |
           How does traffic analytics decide that an IP is malicious? 
         answer: |

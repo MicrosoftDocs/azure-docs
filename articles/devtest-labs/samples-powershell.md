@@ -269,7 +269,7 @@ if($existingPolicy.Properties.threshold -eq '[]')
 $allAvailableImages = Get-AzResource -ResourceType Microsoft.DevTestLab/labs/galleryImages -Name $lab.Name -ResourceGroupName $lab.ResourceGroupName -ApiVersion 2017-04-26-preview
     $finalImages = $existingImages
 
-# loop through the requested images and add them to the finalImages list if they arent already there
+# loop through the requested images and add them to the finalImages list if they aren't already there
     foreach($image in $ImagesToAdd)
     {
         $imageObject = $allAvailableImages | Where-Object {$_.Name -eq $image}

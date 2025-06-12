@@ -8,6 +8,8 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: jojoh
+ms.custom:
+  - build-2025
 ---
 
 # Tutorial: Create and manage Cost Management exports
@@ -174,10 +176,10 @@ You can perform the following actions on individual exports.
 When you create a scheduled export, the export runs at the same frequency for each export that runs later. For instance, if the export is scheduled to run once every UTC day, it creates a daily export of costs accumulated from the start of the month to the current date. Individual export runs can occur at different times throughout the day, so avoid relying on the exact time of the export runs. The run timing depends on the active load present in Azure during a given UTC day. Once an export run begins, your data should be available within 4 hours. Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
 
 When you create an export using the [Exports API](/rest/api/cost-management/exports/create-or-update?tabs=HTTP), specify the `recurrencePeriod` in UTC time. The API doesn’t convert your local time to UTC.
-  - Example - A daily export is scheduled on Friday, August 19 with `recurrencePeriod` set to 2:00 PM. The API receives the input as 2:00 PM UTC, Friday, August 19.
+- Example - A daily export is scheduled on Friday, August 19 with `recurrencePeriod` set to 2:00 PM. The API receives the input as 2:00 PM UTC, Friday, August 19.
 
 When you create an export in the Azure portal, its start date time is automatically converted to the equivalent UTC time.
-  - Example - A daily export is scheduled on Friday, August 19 with the local time of 2:00 AM IST (UTC+5:30) from the Azure portal. The API receives the input as 8:30 PM, Thursday, August 18.
+- Example - A daily export is scheduled on Friday, August 19 with the local time of 2:00 AM IST (UTC+5:30) from the Azure portal. The API receives the input as 8:30 PM, Thursday, August 18.
 
 Various datasets support different schedule frequency options as described in the following table.
 
@@ -327,30 +329,78 @@ The exports experience currently has the following limitations.
 
 Here are some frequently asked questions and answers about exports.
 
-### Why is file partitioning enabled in exports?
-The file partitioning is a feature that is activated by default to facilitate the management of large files. This functionality divides larger files into smaller segments, which enhances the ease of file transfer, download, ingestion, and overall readability. It's advantageous for customers whose cost files increase in size over time. The specifics of the file partitions are described in a manifest.json file provided with each export run, enabling you to rejoin the original file.
+### Understanding file partitioning in Cost Management Exports
 
-#### How does the enhanced export experience handle missing attributes like subscription IDs?
+#### Why and when file partitioning is applied
+
+To improve reliability and scalability, Cost Management exports automatically partition large files into smaller chunks. Partitioning helps address challenges with downloading or opening large single files, especially over unreliable networks or in tools with file size or row count limitations, such as Microsoft Excel.
+
+In exports experience, partitioning is always enabled. Files are split based on size—not row count—with each uncompressed file kept under 1 GB. For compressed formats like Gzip, actual file sizes may vary depending on compression efficiency.
+
+Partitioning is applied consistently, even for small exports. This ensures compatibility with downstream systems, supports enterprise-scale automation, and avoids inconsistencies or failures in reporting workflows.
+
+#### Working with partitioned files
+
+Each export includes a **manifest.json** file that lists all partitioned file names and their metadata. To work with partitioned files:
+
+- Always refer to the manifest file to retrieve correct file names and sequence.
+- Avoid hardcoding or guessing partition names, as file naming conventions may change.
+- Use tools that support multi-file ingestion, such as **Power BI**, **Apache Spark**, or **Microsoft Fabric Delta Lake**.
+
+**Why is my small export still partitioned?**  
+Partitioning is applied by default to ensure consistent processing and avoid edge-case failures. Even small exports are partitioned to align with platform standards.
+
+**Can I disable partitioning?**  
+No. Partitioning is a default behavior in exports experience and cannot be disabled. This ensures consistent reliability across all customer scenarios.
+
+**How do I identify which file to use?**  
+Use the **manifest.json** file included with every export. It lists all partitioned files in sequence and provides relevant metadata.
+
+**How can I open partitioned files in Excel?**  
+If your export is partitioned, you'll need to combine the files using tools like **Power BI**, scripts, or data processing pipelines. Be aware that large datasets may exceed Excel's row limits.
+
+### How does the enhanced export experience handle missing attributes like subscription IDs?
 
 In the new export experience, missing attributes such as subscription IDs are set to null or empty rather than using a default empty GUID (00000000-0000-0000-0000-000000000000). The null or empty values more accurately indicate the absence of a value. It affects charges pertaining to unused reservations, unused savings plan, and rounding adjustments.
 
-#### How much historical data can I retrieve using Exports?
+### How much historical data can I retrieve using exports?
 
-You can retrieve up to 13 months of historical data through the Azure portal for all datasets, except for reservation recommendations, which are limited to the current recommendation snapshot. To access data older than 13 months, you can use the REST API.
+You can retrieve historical data using exports through either the **Azure portal** or the **REST API**, depending on your dataset and time range requirements.
 
-- Cost and usage (Actual), Cost and usage (Amortized), and Cost and usage (FOCUS): Up to seven years of data.
+#### Retrieve historical data via Azure portal
 
-- Reservation transactions: Up to seven years of data across all channels.
+The Azure portal supports retrieval of up to **13 months** of historical data for most datasets.
 
-- Reservation recommendations, Reservation details: Up to 13 months of data.
+To retrieve historical data:
 
-- All available prices:
-
-  - MCA/MPA: Up to 13 months.
+1. Create a one-time or custom export (e.g., Actual cost, Amortized cost, or Price sheet).
+2. After saving the export, go to **Cost Management > Exports**, and select your export.
+3. Click **Export selected dates** to rerun the export for specific historical months — note that data can be retrieved **one month at a time**, up to the 13-month limit.
     
-  - EA: Up to 25 months (starting from December 2022).
+> [!NOTE]
+> Reservation recommendations are based on the current snapshot only and do not support historical backfill.
+
+#### Retrieve data via REST API
+
+- To access data older than 13 months, use the [Exports - Execute REST API](/rest/api/cost-management/exports/execute?view=rest-cost-management-2025-03-01&preserve-view=true).
+- This method allows programmatic backfill of data for specific date ranges, depending on dataset availability.
+
+#### Data retention limits by dataset
+
+| Dataset                                      | Azure portal limit     | REST API limit        |
+|---------------------------------------------|-------------------------|------------------------|
+| Cost and usage (Actual, Amortized, FOCUS)   | Up to 13 months         | Up to 7 years          |
+| Reservation transactions                     | Up to 13 months         | Up to 7 years          |
+| Reservation details                          | Up to 13 months         | Up to 13 months        |
+| Reservation recommendations                  | Current snapshot only   | Current snapshot only  |
+| Price sheet                                  | Up to 13 months 	 | MCA/MPA: 13 months<br>EA: 25 months |
+
+> [!TIP]
+> For retrieving more than 13 months of historical data, or automating backfills at scale, the REST API is recommended.
+
+
     
-#### Which datasets support Parquet format and compression?
+### Which datasets support Parquet format and compression?
 
 The following table captures the supported formats and compression formats for each of the exported datasets. If you're creating an export with multiple datasets, Parquet & compression options only appear in the dropdown if all of the selected datasets support them. 
 
@@ -370,7 +420,7 @@ The following table captures the supported formats and compression formats for e
 |Price Sheet|CSV|None, Gzip|
 ||Parquet|None, Snappy|
 
-#### Why do I get the 'Unauthorized' error while trying to create an Export? 
+### Why do I get the 'Unauthorized' error while trying to create an Export?
 
 When attempting to create an Export to a storage account with a firewall, the user must have the Owner role or a custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions. If these permissions are missing, you encounter an error similar to:
 
@@ -386,7 +436,7 @@ When attempting to create an Export to a storage account with a firewall, the us
 
 You can check for the permissions on the storage account by referring to the steps in [Check access for a user to a single Azure resource](../../role-based-access-control/check-access.md). 
 
-#### What is the maximum number of subscriptions allowed within a management group (MG) when creating an export? 
+### What is the maximum number of subscriptions allowed within a management group (MG) when creating an export?
 
 The maximum limit is **3,000 subscriptions** per management group in Cost Management, including exports. 
 
@@ -396,7 +446,7 @@ To manage more than 3,000 subscriptions:
 
 - Alternatively, if all subscriptions are under the same billing account, create an export at the **billing account scope** to get combined data.
 
-#### How are the exported files organized in the blob storage folders?
+### How are the exported files organized in the blob storage folders?
 
 The exported files are organized in a structured hierarchy within the storage folders. The naming and hierarchy of the folders are as follows:
 

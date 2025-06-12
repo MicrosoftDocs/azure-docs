@@ -13,7 +13,7 @@ ms.subservice: orchestration
 # Transform data by running a Synapse Spark job definition
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Azure Synapse Spark job definition Activity in a [pipeline](concepts-pipelines-activities.md) runs a Synapse Spark job definition in your Azure Synapse Analytics workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
+The Azure Synapse Spark job definition Activity in a [pipeline](concepts-pipelines-activities.md) runs a Synapse Spark job definition in your Azure Synapse Analytics workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 ## Set Apache Spark job definition canvas
 
@@ -72,7 +72,8 @@ To use a Spark job definition activity for Synapse in a pipeline, complete the f
      |Min executors| Min number of executors to be allocated in the specified Spark pool for the job.|
      |Max executors| Max number of executors to be allocated in the specified Spark pool for the job.|
      |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.|
-    |Spark configuration| Specify values for Spark configuration properties listed in the topic: Spark Configuration - Application properties. Users can use default configuration and customized configuration. |
+     |Spark configuration| Specify values for Spark configuration properties listed in the topic: Spark Configuration - Application properties. Users can use default configuration and customized configuration. |
+     |Authentication| User-assigned managed identities or system-assigned managed identities already supported in Spark job definitions. |
 
     :::image type="content" source="./media/transform-data-synapse-spark-job-definition/spark-job-definition-activity-settings.png" alt-text="Screenshot that shows the UI for the spark job definition activity.":::
 

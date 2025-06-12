@@ -7,7 +7,11 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
 ms.date: 03/12/2025
-ms.custom: devx-track-bicep, subject-bicepqs, mode-arm
+ms.custom:
+  - devx-track-bicep
+  - subject-bicepqs
+  - mode-arm
+  - build-2025
 
 #CustomerIntent: As an Azure administrator, I need to enable NSG flow logs using a Bicep file so that I can log the traffic flowing through a network security group.
 ---
@@ -38,7 +42,7 @@ In this quickstart, you learn how to enable NSG flow logs using a Bicep file. Fo
 
 ## Review the Bicep file
 
-This quickstart uses the [Create NSG flow logs](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/networkwatcher-flowLogs-create/main.bicep) Bicep template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create/).
+This quickstart uses the [Create NSG flow logs](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/networkwatcher-flowLogs-create/main.bicep) Bicep file from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/networkwatcher-flowLogs-create/main.bicep" range="1-67" highlight="51-67":::
 

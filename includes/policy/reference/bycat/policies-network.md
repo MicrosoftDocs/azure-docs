@@ -1,10 +1,12 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/07/2025
+ms.date: 05/23/2025
 ms.author: jasongroce
 author: jasongroce
-ms.custom: generated
+ms.custom:
+  - generated
+  - build-2025
 ---
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
@@ -51,7 +53,7 @@ ms.custom: generated
 |[Public IPs and Public IP prefixes should have FirstPartyUsage tag](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffe8a9af4-a003-4c7d-b7a4-b9808310c4f8) |Ensure all Public IP addresses and Public IP Prefixes have a FirstPartyUsage tag. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/PublicIPWithFPUOnly_Audit.json) |
 |[SQL Server should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fae5d2f14-d830-42b6-9899-df6cfe9c71a3) |This policy audits any SQL Server not configured to use a virtual network service endpoint. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_SQLServer_AINE.json) |
 |[Storage Accounts should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60d21c4f-21a3-4d94-85f4-b924e6aeeda4) |This policy audits any Storage Account not configured to use a virtual network service endpoint. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_StorageAccount_Audit.json) |
-|[Subnets should be private](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7bca8353-aa3b-429b-904a-9229c4385837) |Ensure your subnets are secure by default by preventing default outbound access. For more information go to [https://aka.ms/defaultoutboundaccessretirement](https://aka.ms/defaultoutboundaccessretirement) |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/PrivateSubnetOnly_Audit.json) |
+|[Subnets should be private](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7bca8353-aa3b-429b-904a-9229c4385837) |Ensure your subnets are secure by default by preventing default outbound access. For more information go to [https://aka.ms/defaultoutboundaccessretirement](https://aka.ms/defaultoutboundaccessretirement) |Audit, Deny, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/PrivateSubnetOnly_Audit.json) |
 |[Virtual Hubs should be protected with Azure Firewall](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72923a3a-e567-46d3-b3f9-ffb2462a1c3a) |Deploy an Azure Firewall to your Virtual Hubs to protect and granularly control internet egress and ingress traffic. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualHubs_DeployedWithAzureFirewall_Audit.json) |
 |[Virtual machines should be connected to an approved virtual network](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |This policy audits any virtual machine connected to a virtual network that is not approved. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 |[Virtual networks should be protected by Azure DDoS Protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) |Protect your virtual networks against volumetric and protocol attacks with Azure DDoS Protection. For more information, visit [https://aka.ms/ddosprotectiondocs](https://aka.ms/ddosprotectiondocs). |Modify, Audit, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkDdosStandard_Audit.json) |

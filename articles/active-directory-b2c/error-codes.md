@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Error codes: Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The following errors can be returned by the Azure Active Directory B2C service.
 

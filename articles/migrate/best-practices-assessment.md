@@ -2,7 +2,7 @@
 title: Assessment best practices in Azure Migrate Discovery and assessment tool
 description: Tips for creating assessments with Azure Migrate Discovery and assessment tool.
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/11/2021
 ms.custom: engagement-fy23
 ---

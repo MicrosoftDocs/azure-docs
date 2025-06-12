@@ -46,6 +46,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/contribute.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/bicep/linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md",
       "redirect_url": "/azure/azure-resource-manager/bicep/linter-rule-protect-commandtoexecute-secrets",
       "redirect_document_id": false

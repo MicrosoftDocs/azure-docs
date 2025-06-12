@@ -201,6 +201,8 @@
         href: cross-zone-replication-introduction.md
       - name: Requirements and considerations for cross-zone replication 
         href: cross-zone-replication-requirements-considerations.md
+    - name: Understand cross-zone-region replication 
+      href: cross-zone-region-replication.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
@@ -349,6 +351,8 @@
         href: configure-customer-managed-keys.md
       - name: Configure customer-managed keys with managed HSM
         href: configure-customer-managed-keys-hardware.md
+      - name: Configure cross-tenant customer-managed keys 
+        href: customer-managed-keys-cross-tenant.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes
@@ -441,7 +445,7 @@
         href: backup-delete.md 	
     - name: Manage replication
       items:
-      - name: Create cross-region replication
+      - name: Create volume replication
         href: cross-region-replication-create-peering.md
       - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md
@@ -459,6 +463,8 @@
         href: manage-availability-zone-volume-placement.md
       - name: Create cross-zone replication 
         href: create-cross-zone-replication.md
+    - name: Configure cross-zone-region replication 
+      href: cross-zone-region-replication-configure.md
   - name: Relocate
     items:
     - name: Relocate volume to another region
@@ -485,6 +491,8 @@
       href: troubleshoot-snapshot-policies.md
     - name: Troubleshoot cross-region replication errors
       href: troubleshoot-cross-region-replication.md
+    - name: Troubleshoot customer-managed keys 
+      href: troubleshoot-customer-managed-keys.md
     - name: Troubleshoot Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md
     - name: Troubleshoot user access on LDAP volumes
@@ -552,7 +560,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&rar=true&regions=all
   - name: Feature availability
-    href: https://aka.ms/anfmap
+    href: https://azure.github.io/azure-netapp-files/map/
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos

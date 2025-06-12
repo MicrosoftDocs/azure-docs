@@ -4,8 +4,9 @@ description: Learn how to configure vaulted backup for Azure Files using Azure B
 ms.devlang: azurecli
 ms.custom:
   - ignite-2024
+  - build-2025
 ms.topic: quickstart
-ms.date: 02/27/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -13,7 +14,7 @@ ms.author: jsuri
 
 #  Quickstart: Configure vaulted backup for Azure Files using Azure Bicep
 
-This quickstart describes how to configure vaulted backup for Azure Files using Azure Bicep template.
+This quickstart describes how to configure vaulted backup for Azure Files using Azure Bicep file.
 
 [Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. Vaulted backup offers an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions.
 
@@ -233,4 +234,6 @@ To deploy the template, follow these steps:
 
 -  [Track the backup job using Azure PowerShell](manage-afs-powershell.md#track-backup-and-restore-jobs).
 - [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md).
+- Restore Azure Files using [Azure portal](restore-afs.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
+- Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).
 

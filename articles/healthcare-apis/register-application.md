@@ -5,7 +5,7 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 09/02/2022
+ms.date: 06/09/2025
 ms.author: chrupa
 ---
 
@@ -39,7 +39,7 @@ If you keep this default value, the application registration is a **confidential
 
 [ ![Screenshot of confidential client application.](media/register-application-five.png) ](media/register-application-five.png#lightbox)
 
-If you change the default value to "Yes" for the "Allow public client flows" option in the advanced setting, the application registration is a **public client application** and a certificate or secret isn't required. The "Yes" value is useful when you want to use the client application in your mobile app or a JavaScript app where you don't want to store any secrets.
+If you change the default value to "Yes" for the "Allow public client flows" option in the advanced setting, the application registration is a **public client application** and a certificate or secret isn't required. The "Yes" value is useful when you want to build a public client application using the OAuth authorization protocol or features as described in [Public client and confidential client applications](https://learn.microsoft.com/entra/identity-platform/msal-client-applications#when-should-you-enable-a-public-client-flow-in-your-app-registration).
 
 For tools that require a redirect URL, select **Add a platform** to configure the platform.
 

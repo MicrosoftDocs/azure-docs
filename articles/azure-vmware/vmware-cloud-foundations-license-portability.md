@@ -72,7 +72,7 @@ To get your quota request approved, you must first register the portable VCF det
 >The "Qty" represents the number of cores eligible for VCF portability. Your quota request shouldn't surpass the number of nodes equivalent to your entitled cores from Broadcom. If your quota request exceeds the approved cores, the quota request will be granted only for the number of nodes that are fully covered by the entitled cores.
 
 - VCF with VMware vDefend entitlement sample: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-vdefend-entitlements.png" alt-text="Screenshot of VCF with Vmware vDefend entitlement sample format." border="false":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-vdefend-entitlements.png" alt-text="Screenshot of VCF with VMware vDefend entitlement sample format." border="false":::
 
 Sample Email to register portable VCF entitlements: 
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf.png" alt-text="Screenshot of sample email to register portable VCF subscription." border="true":::
@@ -129,20 +129,21 @@ If you’re an existing Azure VMware Solution customer and wish to transition to
 
 ## Frequently Asked Questions
 
-**1. What if my VCF subscription expires before my AVS Reservation (RI) ends?** 
+### 1. What if my VCF subscription expires before my AVS Reservation (RI) ends?
 If your VCF subscription expires before your AVS Reservation (RI) ends, you have two options:
 
-  Option 1: **Switch to AVS-managed licenses:** Inform Microsoft of your intent to transition to AVS-managed licenses. If you have reservations on the VCF BYOL SKU, you can exchange them for the corresponding AVS SKU without any cancellation or exchange fees, as long as your exchanges comply with the [Azure Reservation Exchange Policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations#cancel-exchange-and-refund-policies).
-  Option 2: **Renew your VCF subscription with Broadcom:** Register your new VCF subscription with Microsoft to continue using your Private Cloud without any disruption.
+  1. **Switch to AVS-managed licenses:** Inform Microsoft of your intent to transition to AVS-managed licenses. If you have reservations on the VCF BYOL SKU, you can exchange them for the corresponding AVS SKU without any cancellation or exchange fees, as long as your exchanges comply with the [Azure Reservation Exchange Policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations#cancel-exchange-and-refund-policies).
+  
+  2. **Renew your VCF subscription with Broadcom:** Register your new VCF subscription with Microsoft to continue using your Private Cloud without any disruption.
 
-**2. Can I change back and forth between AVS to AVS VCF BYOL anytime?**
+### 2. Can I change back and forth between AVS to AVS VCF BYOL anytime?
 Yes, you can switch between AVS and AVS VCF BYOL SKUs anytime. 
 
-**3. Will the AVS 30-day Pilot Program support AVS VCF BYOL?**
+### 3. Will the AVS 30-day Pilot Program support AVS VCF BYOL?
 The 30-day Pilot Program **does not** require you to bring your own VCF subscription, as you can leverage AVS-owned VCF during the Pilot period. However, if you wish to bring your own VCF subscription instead of continuing with the AVS-owned VCF after the Pilot, you must **register your VCF subscription before the Pilot program ends**. If you don't register before the end of the Pilot program, you'll automatically be converted to AVS pay-as-you-go pricing.
 
-**4. Is VCF portability available for Gov Cloud as well?**
-VCF portability is **not available in Gov Cloud.** Ensure to check the availability of this feature in your region before proceeding.
+### 4. Is VCF portability available for Gov Cloud as well?**
+Yes, VCF portability is **now available in Gov Cloud.** 
 
 ## "Onboarding to portable VCF on Azure VMware Solution" Checklist
 

@@ -4,8 +4,8 @@ description: Supported features for Microsoft Teams on Azure Virtual Desktop.
 ms.topic: conceptual
 ms.custom: docs_inherited
 search.audiencetype: EndUser
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 07/26/2023
 ---
 
@@ -42,8 +42,10 @@ The following table lists whether the Windows Desktop client, Azure Virtual Desk
 | Shared system audio | Yes | No |
 | Simulcast | Yes | Yes |
 
-> [!TIP]
-> You can find a more general list of Teams features that aren't supported on any VDI platform in the documentation for Microsoft Teams at [Features not supported in VDI](/microsoftteams/new-teams-vdi-requirements-deploy#features-not-supported-in-vdi).
+> [!NOTE]
+> - Teams optimizations on macOS aren't supported when using Teams as a RemoteApp.
+> 
+> - You can find a more general list of Teams features that aren't supported on any VDI platform in the documentation for Microsoft Teams at [Features not supported in VDI](/microsoftteams/new-teams-vdi-requirements-deploy#features-not-supported-in-vdi).
 
 ## Version requirements
 

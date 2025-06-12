@@ -1,11 +1,11 @@
 ---
 title: Azure Site Recovery Deployment Planner for VMware disaster recovery 
 description: Learn about the Azure Site Recovery Deployment Planner for disaster recovery of VMware VMs to Azure.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.author: ankitadutta
-ms.date: 03/31/2025
+ms.author: jsuri
+ms.date: 04/26/2025
 ---
 
 # About the Azure Site Recovery Deployment Planner for VMware to Azure
@@ -63,7 +63,10 @@ The tool provides the following details:
 | Supported configuration|vCenter Server, ESXi| Hyper-V cluster, Hyper-V host|NA|Hyper-V cluster, Hyper-V host|NA |
 | Number of servers that can be profiled per running instance of Site Recovery Deployment Planner |Single (VMs belonging to one vCenter Server or one ESXi server can be profiled at a time)|Multiple (VMs across multiple hosts or host clusters can be profiled at a time)| NA |Multiple (VMs across multiple hosts or host clusters can be profiled at a time)| NA |
 
-*The tool is primarily for the Hyper-V to Azure disaster recovery scenario. For Hyper-V to secondary site disaster recovery, it can be used only to understand source-side recommendations like required network bandwidth, required free storage space on each of the source Hyper-V servers, and initial replication batching numbers and batch definitions. Ignore the Azure recommendations and costs from the report. Also, the Get Throughput operation is not applicable for the Hyper-V-to-secondary-site disaster recovery scenario.
+The tool supports Hyper-V to Azure disaster recovery scenarios. For Hyper-V to secondary site disaster recovery, use the tool only to obtain source-side recommendations, such as required network bandwidth, required free storage space on each source Hyper-V server, and initial replication batch sizes and definitions. Ignore Azure recommendations and costs in the report. The Get Throughput operation doesn't apply to the Hyper-V to secondary site disaster recovery scenario.
+
+> [!NOTE]
+> The Azure Site Recovery Deployment Planner doesn't support OfferID MS-AZR-0017P.
 
 ## Prerequisites
 

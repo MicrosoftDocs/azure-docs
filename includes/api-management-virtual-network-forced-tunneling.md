@@ -14,7 +14,7 @@ Forced tunneling lets you redirect or "force" all internet-bound traffic from yo
       * Azure SQL (required only in the primary region if the API Management service is deployed to [multiple regions](../articles/api-management/api-management-howto-deploy-multi-region.md))
       * Azure Storage
       * Azure Event Hubs
-      * Azure Key Vault (required when API Management is deployed on the `stv2` platform) 
+      * Azure Key Vault
   
      By enabling endpoints directly from the API Management subnet to these services, you can use the Microsoft Azure backbone network, providing optimal routing for service traffic. If you use service endpoints with a force tunneled API Management, traffic for the preceding Azure services isn't force tunneled. However, the other API Management service dependency traffic remains force tunneled. Ensure that your firewall or virtual appliance doesn't block this traffic, or the API Management service may not function properly.
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: Learn how to save costs and buy a Microsoft Sentinel pre-purchase plan
 author: austinmccollum
 ms.topic: how-to
-ms.date: 07/10/2024
+ms.date: 04/15/2025
 ms.author: austinmc
 ms.collection: usx-security
 #customerintent: As a SOC administrator or a billing specialist, I want to know how to buy a pre-purchase plan and whether commit units will benefit us financially.
@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 Save on your Microsoft Sentinel costs when you buy a pre-purchase plan. Pre-purchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, if Microsoft Sentinel generates a retail cost of $100, then 100 Sentinel CUs (SCUs) are consumed. 
 
-Any eligible Microsoft Sentinel retail costs automatically deduct first from your SCUs over the course of its one year term or until they are depleted. Your pre-purchase plan SCUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan, and by default automatically renew to ensure you continue saving.
+Any eligible Microsoft Sentinel retail costs automatically deduct first from your SCUs over the course of its one year term or until they're depleted. Your pre-purchase plan SCUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan. By default, plans are configured to renew at the end of the one year term.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ To buy a pre-purchase plan, you must have one of the following Azure subscriptio
    - [Allow the customer to buy their own reservations](/partner-center/customers/give-customers-permission)
 
 >[!NOTE]
-> Microsoft Sentinel Commit Units are different from Security Compute Units in Security Copilot. Customers cannot use Sentinel Commit Units to run Copilot workloads and vice versa.
+> Microsoft Sentinel Commit Units are different from Security Compute Units in Security Copilot. Customers can't use Sentinel Commit Units to run Copilot workloads and vice versa.
 
 ## Determine the right size to buy
 
@@ -36,7 +36,7 @@ Here's an example of the decision making and cost savings for a pre-purchase pla
 
 A $100,000 USD pre-purchase plan covers five months of that commitment tier but is valid for paying Microsoft Sentinel costs for 12 months. That pre-purchase plan is bought at a 22% discount for $78,000 USD. 
 
-The savings for the commitment tier and the pre-purchase plan combine. The original pay-as-you-go price for five months of 200 GB/day ingestion and analysis costs is about $160,000 USD. With an accurate commitment tier and a pre-purchase plan, the cost is reduced to $78,000 USD for a combined savings of over 51%.
+The savings for the commitment tier and the pre-purchase plan combine. The original pay-as-you-go price for five months of 200 GB/day ingestion and analysis costs is about $160,000 USD. With an accurate commitment tier and a pre-purchase plan, the cost is reduced to $78,000 USD for a combined savings of over 51%. Since the example plan is depleted after just 5 months, the best way to ensure continued savings is to purchase more SCUs with another plan.
 
 For more information, see the following articles:
 - [Switch to simplified pricing](enroll-simplified-pricing-tier.md)
@@ -82,7 +82,7 @@ You can't split or merge a **Microsoft Sentinel Pre-Purchase Plan**. For more in
 
 ## Cancellations and exchanges
 
-Cancel and exchange isn't supported for **Microsoft Sentinel Pre-Purchase Plans**. All purchases are final.
+Cancel and exchange operations aren't supported for **Microsoft Sentinel Pre-Purchase Plans**. All purchases are final.
 
 ## Related content
 

@@ -16,6 +16,8 @@ ms.subservice: b2c
 
 # Manage Azure AD B2C custom policies with Microsoft Graph PowerShell
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Microsoft Graph PowerShell provides several cmdlets for command line- and script-based custom policy management in your Azure AD B2C tenant. Learn how to use the Microsoft Graph PowerShell SDK to:
 
 * List the custom policies in an Azure AD B2C tenant

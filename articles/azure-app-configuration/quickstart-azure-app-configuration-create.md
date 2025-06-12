@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 03/25/2024
+ms.date: 04/16/2025
 
 #Customer intent: As an Azure developer, I want to create an app configuration store to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -44,9 +44,6 @@ An Azure account with an active subscription. [Create one for free](https://azur
     :::image type="content" source="media/azure-app-configuration-create/azure-portal-basic-tab.png" alt-text="Screenshot of the Azure portal that shows the basic tab of the creation for with the free tier selected.":::
 
 1. Select **Review + create** to validate your settings.
-
-    :::image type="content" source="media/azure-app-configuration-create/azure-portal-review.png" alt-text="Screenshot of the Azure portal that shows the configuration settings in the Review + create tab.":::
-
 1. Select **Create**. The deployment might take a few minutes.
 1. After the deployment finishes, go to the App Configuration resource. Select **Settings** > **Access keys**. Make a note of the primary read-only key connection string. You'll use this connection string later to configure your application to communicate with the App Configuration store that you created.
 
@@ -125,8 +122,9 @@ az group delete --name <name>
 
 ---
 
-## Next steps
+## Next step
 
 Advance to the next article to learn how to create an ASP.NET Core app with Azure App Configuration to centralize storage and management of its application settings.
+
 > [!div class="nextstepaction"]
 > [Quickstart ASP.NET Core](quickstart-aspnet-core-app.md)

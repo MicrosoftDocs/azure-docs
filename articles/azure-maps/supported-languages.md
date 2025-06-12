@@ -92,9 +92,9 @@ Azure Maps have been localized in variety languages across its services. The fol
 <sup>1</sup> Neutral Ground Truth (Local) - Official languages for all regions in local scripts if available<br>
 <sup>2</sup> Neutral Ground Truth (Latin) - Latin exonyms are used if available
 
-## Routing v2 services (preview) supported languages
+## Routing services supported languages
 
-Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for the routing v2 services. The routing column in the following table includes routes for driving and walking.
+Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for the latest version of the Azure Maps [Route] service. The routing column in the following table includes routes for driving and walking.
 
 | Culture        | Language                                   | Routing | Truck Routing |
 |----------------|--------------------------------------------|:-------:|:-------------:|
@@ -266,3 +266,5 @@ The following table provides supported views.
 | YE      | Yemen (Arabic View)                                         |   ✓  |        |
 | Auto    | Automatically detect based on request                       |   ✓  |    ✓   |
 | Unified | Unified View (Others)                                       |   ✓  |    ✓   |
+
+[Route]:  /rest/api/maps/route

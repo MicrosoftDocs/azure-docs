@@ -2,16 +2,11 @@
 title: Reserved capacity for Azure NetApp Files
 description: Learn how to optimize total cost of ownership (TCO) with Azure NetApp Files reservations. 
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: anfdocs
 ---

@@ -2,8 +2,8 @@
 title: Automatic Guest Patching for Azure Virtual Machines
 description: Learn how to automatically patch your Azure Virtual Machines and Scale Sets using Azure Update Manager. This article provides an overview of supported OS images, configuration steps, and best practices for maintaining security compliance through automatic guest patching.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 03/07/2025
 ms.topic: overview
 ---
@@ -29,7 +29,7 @@ For VMs created from customized images even if the Patch orchestration mode is s
 ## Next steps
 
 - Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
-- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manger.
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manager.
 - Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
 - Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).
 - Learn more on how to [configure Windows Update settings](configure-wu-agent.md) to work with Azure Update Manager. 

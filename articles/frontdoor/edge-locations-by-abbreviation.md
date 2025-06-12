@@ -11,6 +11,8 @@ ms.custom: references_regions
 
 # Azure Front Door POP Locations by Abbreviation
 
+**Applies to:** :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic) :heavy_check_mark: CDN Standard from Microsoft (classic)
+
 This article provides a list of Azure Front Door point-of-presence (POP) locations, organized by their abbreviations.
 
 ## POP Locations

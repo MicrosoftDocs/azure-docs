@@ -10,15 +10,14 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to understand how to build fact creators and retrievers so that I can test my rules and rulesets in Microsoft Rules Composer and use those rulesets with my Azure Logic Apps Rules Engine project.
+ms.custom:
+  - build-2025
 ---
 
-# Build fact creators and retrievers to use with rules and rulesets (Preview)
+# Build fact creators and retrievers to use with rules and rulesets
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To create facts for your rules engine to use during business rules development and testing, you can build a *fact creator*, which provides your engine with an array of .NET objects. You can also build a *fact retriever* that inserts long-term or slowly changing facts into your rules for evaluation during execution.
 

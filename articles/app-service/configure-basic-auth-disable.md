@@ -68,7 +68,7 @@ The following table shows how various deployment methods behave when basic authe
 
 | Deployment method | When basic authentication is disabled |
 |-|-|
-| Visual Studio deployment | Doesn't work. |
+| Visual Studio deployment | Deployment with Microsoft Entra authentication requires Visual Studio 2022 version 17.12 or later. |
 | [FTP](deploy-ftp.md) | Doesn't work. |
 | [Local Git](deploy-local-git.md) | Doesn't work. |
 | Azure CLI | In the Azure CLI 2.48.1 or higher, the following commands fall back to Microsoft Entra authentication:<br/>[`az webapp up`](/cli/azure/webapp#az-webapp-up).<br/>[`az webapp deploy`](/cli/azure/webapp#az-webapp-deploy).<br/>[`az webapp log deployment show`](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-show).<br/>[`az webapp log deployment list`](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-list).<br/>[`az webapp log download`](/cli/azure/webapp/log#az-webapp-log-download).<br/>[`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail).<br/>[`az webapp browse`](/cli/azure/webapp#az-webapp-browse).<br/>[`az webapp create-remote-connection`](/cli/azure/webapp#az-webapp-create-remote-connection).<br/>[`az webapp ssh`](/cli/azure/webapp#az-webapp-ssh).<br/>[`az functionapp deploy`](/cli/azure/functionapp#az-functionapp-deploy).<br/>[`az functionapp log deployment list`](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-list).<br/>[`az functionapp log deployment show`](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-show).<br/>[`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). |

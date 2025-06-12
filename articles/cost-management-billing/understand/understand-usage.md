@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 09/19/2024
+ms.date: 04/30/2025
 ms.author: jkinma
 #customer intent: As a billing administrator, I want to understand usage and charges so that I can manage Azure billing.
 ---

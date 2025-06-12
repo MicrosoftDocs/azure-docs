@@ -7,6 +7,8 @@ ms.service: azure-virtual-network-manager
 ms.topic: concept-article
 ms.date: 11/06/2024
 #CustomerIntent: As a network admin, I want understand the limitations in Azure Virtual Network Manager so that I can properly deploy it my environment.
+ms.custom:
+  - build-2025
 ---
 
 # Limitations with Azure Virtual Network Manager
@@ -45,7 +47,7 @@ This article provides an overview of the current limitations when you're using [
 
 ## Limitations for security admin rules
 
-* The maximum number of IP prefixes in all [security admin rules](concept-security-admins.md) combined is 1,000.
+* The maximum number of IP prefixes in all [security admin rules](concept-security-admins.md) combined is 20,000.
 * The maximum number of admin rules in one level of Azure Virtual Network Manager is 100.
 * The service tags AzurePlatformDNS, AzurePlatformIMDS, and AzurePlatformLKM are not currently supported in security admin rules.
 

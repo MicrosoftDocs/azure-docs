@@ -3,7 +3,7 @@ title: Use Bicep to create a new resource group
 description: Describes how to use Bicep to create a new resource group in your Azure subscription.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Create resource groups by using Bicep
@@ -22,7 +22,7 @@ targetScope='subscription'
 param resourceGroupName string
 param resourceGroupLocation string
 
-resource newRG 'Microsoft.Resources/resourceGroups@2024-03-01' = {
+resource newRG 'Microsoft.Resources/resourceGroups@2024-11-01' = {
   name: resourceGroupName
   location: resourceGroupLocation
 }
@@ -65,7 +65,7 @@ param resourceGroupLocation string
 param storageName string
 param storageLocation string
 
-resource newRG 'Microsoft.Resources/resourceGroups@2024-03-01' = {
+resource newRG 'Microsoft.Resources/resourceGroups@2024-11-01' = {
   name: resourceGroupName
   location: resourceGroupLocation
 }
@@ -86,7 +86,7 @@ The module uses a Bicep file named **storage.bicep** with the following contents
 param storageLocation string
 param storageName string
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: storageName
   location: storageLocation
   sku: {

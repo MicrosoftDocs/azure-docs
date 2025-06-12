@@ -1,12 +1,12 @@
 ---
-title: Troubleshoot
+title: Troubleshoot WAF for Azure Application Gateway
 titleSuffix: Azure Web Application Firewall
-description: This article provides troubleshooting information for Web Application Firewall (WAF) for Azure Application Gateway
+description: This article provides troubleshooting information for Web Application Firewall (WAF) for Azure Application Gateway.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 05/09/2025
 ---
 
 # Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway
@@ -29,102 +29,102 @@ The final two log entries show the request was blocked because the anomaly score
 
 ```json
 { 
-    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
-    "operationName": "ApplicationGatewayFirewall", 
-    "category": "ApplicationGatewayFirewallLog", 
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+    "operationName": "ApplicationGatewayFirewall",
+    "category": "ApplicationGatewayFirewallLog",
     "properties": { 
-        "instanceId": "appgw_3", 
-        "clientIp": "203.0.113.139", 
-        "clientPort": "", 
-        "requestUri": "\/", 
-        "ruleSetType": "OWASP_CRS", 
-        "ruleSetVersion": "3.0.0", 
-        "ruleId": "920350", 
-        "message": "Host header is a numeric IP address", 
-        "action": "Matched", 
-        "site": "Global", 
+        "instanceId": "appgw_3",
+        "clientIp": "203.0.113.139",
+        "clientPort": "",
+        "requestUri": "\/",
+        "ruleSetType": "OWASP_CRS",
+        "ruleSetVersion": "3.0.0",
+        "ruleId": "920350",
+        "message": "Host header is a numeric IP address",
+        "action": "Matched",
+        "site": "Global",
         "details": { 
-            "message": "Warning. Pattern match \\\"^[\\\\\\\\d.:]+$\\\" at REQUEST_HEADERS:Host. ", 
-            "data": "40.90.218.160", 
-            "file": "rules\/REQUEST-920-PROTOCOL-ENFORCEMENT.conf\\\"", 
+            "message": "Warning. Pattern match \\\"^[\\\\\\\\d.:]+$\\\" at REQUEST_HEADERS:Host. ",
+            "data": "40.90.218.160",
+            "file": "rules\/REQUEST-920-PROTOCOL-ENFORCEMENT.conf\\\"",
             "line": "791" 
-        }, 
-        "hostname": "vm000003", 
+        },
+        "hostname": "vm000003",
         "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt" 
     } 
 } 
 { 
-    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
-    "operationName": "ApplicationGatewayFirewall", 
-    "category": "ApplicationGatewayFirewallLog", 
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+    "operationName": "ApplicationGatewayFirewall",
+    "category": "ApplicationGatewayFirewallLog",
     "properties": { 
-        "instanceId": "appgw_3", 
-        "clientIp": "203.0.113.139", 
-        "clientPort": "", 
-        "requestUri": "\/", 
-        "ruleSetType": "OWASP_CRS", 
-        "ruleSetVersion": "3.0.0", 
-        "ruleId": "942130", 
-        "message": "SQL Injection Attack: SQL Tautology Detected.", 
-        "action": "Matched", 
-        "site": "Global", 
+        "instanceId": "appgw_3",
+        "clientIp": "203.0.113.139",
+        "clientPort": "",
+        "requestUri": "\/",
+        "ruleSetType": "OWASP_CRS",
+        "ruleSetVersion": "3.0.0",
+        "ruleId": "942130",
+        "message": "SQL Injection Attack: SQL Tautology Detected.",
+        "action": "Matched",
+        "site": "Global",
         "details": { 
-            "message": "Warning. Pattern match \\\"(?i:([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)([\\\\\\\\d\\\\\\\\w]++)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?:(?:=|\\u003c=\\u003e|r?like|sounds\\\\\\\\s+like|regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)\\\\\\\\2|(?:!=|\\u003c=|\\u003e=|\\u003c\\u003e|\\u003c|\\u003e|\\\\\\\\^|is\\\\\\\\s+not|not\\\\\\\\s+like|not\\\\\\\\s+regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?!\\\\\\\\2)([\\\\\\\\d\\\\\\\\w]+)))\\\" at ARGS:text1. ", 
-            "data": "Matched Data: 1=1 found within ARGS:text1: 1=1", 
-            "file": "rules\/REQUEST-942-APPLICATION-ATTACK-SQLI.conf\\\"", 
+            "message": "Warning. Pattern match \\\"(?i:([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)([\\\\\\\\d\\\\\\\\w]++)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?:(?:=|\\u003c=\\u003e|r?like|sounds\\\\\\\\s+like|regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)\\\\\\\\2|(?:!=|\\u003c=|\\u003e=|\\u003c\\u003e|\\u003c|\\u003e|\\\\\\\\^|is\\\\\\\\s+not|not\\\\\\\\s+like|not\\\\\\\\s+regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?!\\\\\\\\2)([\\\\\\\\d\\\\\\\\w]+)))\\\" at ARGS:text1. ",
+            "data": "Matched Data: 1=1 found within ARGS:text1: 1=1",
+            "file": "rules\/REQUEST-942-APPLICATION-ATTACK-SQLI.conf\\\"",
             "line": "554" 
-        }, 
-        "hostname": "vm000003", 
+        },
+        "hostname": "vm000003",
         "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt" 
     } 
 } 
 { 
-    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
-    "operationName": "ApplicationGatewayFirewall", 
-    "category": "ApplicationGatewayFirewallLog", 
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+    "operationName": "ApplicationGatewayFirewall",
+    "category": "ApplicationGatewayFirewallLog",
     "properties": { 
-        "instanceId": "appgw_3", 
-        "clientIp": "167.220.2.139", 
-        "clientPort": "", 
-        "requestUri": "\/", 
-        "ruleSetType": "", 
-        "ruleSetVersion": "", 
-        "ruleId": "0", 
-        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Score: 8)", 
-        "action": "Blocked", 
-        "site": "Global", 
+        "instanceId": "appgw_3",
+        "clientIp": "203.0.113.139",
+        "clientPort": "",
+        "requestUri": "\/",
+        "ruleSetType": "",
+        "ruleSetVersion": "",
+        "ruleId": "0",
+        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Score: 8)",
+        "action": "Blocked",
+        "site": "Global",
         "details": { 
-            "message": "Access denied with code 403 (phase 2). Operator GE matched 5 at TX:anomaly_score. ", 
-            "data": "", 
-            "file": "rules\/REQUEST-949-BLOCKING-EVALUATION.conf\\\"", 
+            "message": "Access denied with code 403 (phase 2). Operator GE matched 5 at TX:anomaly_score. ",
+            "data": "",
+            "file": "rules\/REQUEST-949-BLOCKING-EVALUATION.conf\\\"",
             "line": "57" 
-        }, 
-        "hostname": "vm000003", 
+        },
+        "hostname": "vm000003",
         "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt" 
     } 
 } 
 { 
-    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
-    "operationName": "ApplicationGatewayFirewall", 
-    "category": "ApplicationGatewayFirewallLog", 
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+    "operationName": "ApplicationGatewayFirewall",
+    "category": "ApplicationGatewayFirewallLog",
     "properties": { 
-        "instanceId": "appgw_3", 
-        "clientIp": "203.0.113.139", 
-        "clientPort": "", 
-        "requestUri": "\/", 
-        "ruleSetType": "", 
-        "ruleSetVersion": "", 
-        "ruleId": "0", 
-        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Inbound Score: 8 - SQLI=5,XSS=0,RFI=0,LFI=0,RCE=0,PHPI=0,HTTP=0,SESS=0): SQL Injection Attack: SQL Tautology Detected.", 
-        "action": "Blocked", 
-        "site": "Global", 
+        "instanceId": "appgw_3",
+        "clientIp": "203.0.113.139",
+        "clientPort": "",
+        "requestUri": "\/",
+        "ruleSetType": "",
+        "ruleSetVersion": "",
+        "ruleId": "0",
+        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Inbound Score: 8 - SQLI=5,XSS=0,RFI=0,LFI=0,RCE=0,PHPI=0,HTTP=0,SESS=0): SQL Injection Attack: SQL Tautology Detected.",
+        "action": "Blocked",
+        "site": "Global",
         "details": { 
-            "message": "Warning. Operator GE matched 5 at TX:inbound_anomaly_score. ", 
-            "data": "", 
-            "file": "rules\/RESPONSE-980-CORRELATION.conf\\\"", 
+            "message": "Warning. Operator GE matched 5 at TX:inbound_anomaly_score. ",
+            "data": "",
+            "file": "rules\/RESPONSE-980-CORRELATION.conf\\\"",
             "line": "73" 
-        }, 
-        "hostname": "vm000003", 
+        },
+        "hostname": "vm000003",
         "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt" 
     }
 }
@@ -181,106 +181,106 @@ Examine the firewall log and view the PT1H.json file for the hour that the reque
 In this example, you can see that you have four rules with the same TransactionID, and that they all occurred at the exact same time:
 
 ```json
--	{
--	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
--	    "operationName": "ApplicationGatewayFirewall",
--	    "category": "ApplicationGatewayFirewallLog",
--	    "properties": {
--	        "instanceId": "appgw_3",
--	        "clientIp": "167.220.2.139",
--	        "clientPort": "",
--	        "requestUri": "\/",
--	        "ruleSetType": "OWASP_CRS",
--	        "ruleSetVersion": "3.0.0",
--	        "ruleId": "920350",
--	        "message": "Host header is a numeric IP address",
--	        "action": "Matched",
--	        "site": "Global",
--	        "details": {
--	            "message": "Warning. Pattern match \\\"^[\\\\\\\\d.:]+$\\\" at REQUEST_HEADERS:Host. ",
--	            "data": "40.90.218.160",
--	            "file": "rules\/REQUEST-920-PROTOCOL-ENFORCEMENT.conf\\\"",
--	            "line": "791"
--	        },
--	        "hostname": "vm000003",
--	        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
--	    }
--	}
--	{
--	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
--	    "operationName": "ApplicationGatewayFirewall",
--	    "category": "ApplicationGatewayFirewallLog",
--	    "properties": {
--	        "instanceId": "appgw_3",
--	        "clientIp": "203.0.113.139",
--	        "clientPort": "",
--	        "requestUri": "\/",
--	        "ruleSetType": "OWASP_CRS",
--	        "ruleSetVersion": "3.0.0",
--	        "ruleId": "942130",
--	        "message": "SQL Injection Attack: SQL Tautology Detected.",
--	        "action": "Matched",
--	        "site": "Global",
--	        "details": {
--	            "message": "Warning. Pattern match \\\"(?i:([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)([\\\\\\\\d\\\\\\\\w]++)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?:(?:=|\\u003c=\\u003e|r?like|sounds\\\\\\\\s+like|regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)\\\\\\\\2|(?:!=|\\u003c=|\\u003e=|\\u003c\\u003e|\\u003c|\\u003e|\\\\\\\\^|is\\\\\\\\s+not|not\\\\\\\\s+like|not\\\\\\\\s+regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?!\\\\\\\\2)([\\\\\\\\d\\\\\\\\w]+)))\\\" at ARGS:text1. ",
--	            "data": "Matched Data: 1=1 found within ARGS:text1: 1=1",
--	            "file": "rules\/REQUEST-942-APPLICATION-ATTACK-SQLI.conf\\\"",
--	            "line": "554"
--	        },
--	        "hostname": "vm000003",
--	        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
--	    }
--	}
--	{
--	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
--	    "operationName": "ApplicationGatewayFirewall",
--	    "category": "ApplicationGatewayFirewallLog",
--	    "properties": {
--	        "instanceId": "appgw_3",
--	        "clientIp": "203.0.113.139",
--	        "clientPort": "",
--	        "requestUri": "\/",
--	        "ruleSetType": "",
--	        "ruleSetVersion": "",
--	        "ruleId": "0",
--	        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Score: 8)",
--	        "action": "Blocked",
--	        "site": "Global",
--	        "details": {
--	            "message": "Access denied with code 403 (phase 2). Operator GE matched 5 at TX:anomaly_score. ",
--	            "data": "",
--	            "file": "rules\/REQUEST-949-BLOCKING-EVALUATION.conf\\\"",
--	            "line": "57"
--	        },
--	        "hostname": "vm000003",
--	        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
--	    }
--	}
--	{
--	    "resourceId": "/SUBSCRIPTIONS/66667777-aaaa-8888-bbbb-9999cccc0000/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
--	    "operationName": "ApplicationGatewayFirewall",
--	    "category": "ApplicationGatewayFirewallLog",
--	    "properties": {
--	        "instanceId": "appgw_3",
--	        "clientIp": "203.0.113.139",
--	        "clientPort": "",
--	        "requestUri": "\/",
--	        "ruleSetType": "",
--	        "ruleSetVersion": "",
--	        "ruleId": "0",
--	        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Inbound Score: 8 - SQLI=5,XSS=0,RFI=0,LFI=0,RCE=0,PHPI=0,HTTP=0,SESS=0): SQL Injection Attack: SQL Tautology Detected.",
--	        "action": "Blocked",
--	        "site": "Global",
--	        "details": {
--	            "message": "Warning. Operator GE matched 5 at TX:inbound_anomaly_score. ",
--	            "data": "",
--	            "file": "rules\/RESPONSE-980-CORRELATION.conf\\\"",
--	            "line": "73"
--	        },
--	        "hostname": "vm000003",
--	        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
--	    }
--	}
+{
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+    "operationName": "ApplicationGatewayFirewall",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties": {
+        "instanceId": "appgw_3",
+        "clientIp": "203.0.113.139",
+        "clientPort": "",
+        "requestUri": "\/",
+        "ruleSetType": "OWASP_CRS",
+        "ruleSetVersion": "3.0.0",
+        "ruleId": "920350",
+        "message": "Host header is a numeric IP address",
+        "action": "Matched",
+        "site": "Global",
+        "details": {
+            "message": "Warning. Pattern match \\\"^[\\\\\\\\d.:]+$\\\" at REQUEST_HEADERS:Host. ",
+            "data": "40.90.218.160",
+            "file": "rules\/REQUEST-920-PROTOCOL-ENFORCEMENT.conf\\\"",
+            "line": "791"
+        },
+        "hostname": "vm000003",
+        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
+    }
+}
+{
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+    "operationName": "ApplicationGatewayFirewall",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties": {
+        "instanceId": "appgw_3",
+        "clientIp": "203.0.113.139",
+        "clientPort": "",
+        "requestUri": "\/",
+        "ruleSetType": "OWASP_CRS",
+        "ruleSetVersion": "3.0.0",
+        "ruleId": "942130",
+        "message": "SQL Injection Attack: SQL Tautology Detected.",
+        "action": "Matched",
+        "site": "Global",
+        "details": {
+            "message": "Warning. Pattern match \\\"(?i:([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)([\\\\\\\\d\\\\\\\\w]++)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?:(?:=|\\u003c=\\u003e|r?like|sounds\\\\\\\\s+like|regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)\\\\\\\\2|(?:!=|\\u003c=|\\u003e=|\\u003c\\u003e|\\u003c|\\u003e|\\\\\\\\^|is\\\\\\\\s+not|not\\\\\\\\s+like|not\\\\\\\\s+regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?!\\\\\\\\2)([\\\\\\\\d\\\\\\\\w]+)))\\\" at ARGS:text1. ",
+            "data": "Matched Data: 1=1 found within ARGS:text1: 1=1",
+            "file": "rules\/REQUEST-942-APPLICATION-ATTACK-SQLI.conf\\\"",
+            "line": "554"
+        },
+        "hostname": "vm000003",
+        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
+    }
+}
+{
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+    "operationName": "ApplicationGatewayFirewall",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties": {
+        "instanceId": "appgw_3",
+        "clientIp": "203.0.113.139",
+        "clientPort": "",
+        "requestUri": "\/",
+        "ruleSetType": "",
+        "ruleSetVersion": "",
+        "ruleId": "0",
+        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Score: 8)",
+        "action": "Blocked",
+        "site": "Global",
+        "details": {
+            "message": "Access denied with code 403 (phase 2). Operator GE matched 5 at TX:anomaly_score. ",
+            "data": "",
+            "file": "rules\/REQUEST-949-BLOCKING-EVALUATION.conf\\\"",
+            "line": "57"
+        },
+        "hostname": "vm000003",
+        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
+    }
+}
+{
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+    "operationName": "ApplicationGatewayFirewall",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties": {
+        "instanceId": "appgw_3",
+        "clientIp": "203.0.113.139",
+        "clientPort": "",
+        "requestUri": "\/",
+        "ruleSetType": "",
+        "ruleSetVersion": "",
+        "ruleId": "0",
+        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Inbound Score: 8 - SQLI=5,XSS=0,RFI=0,LFI=0,RCE=0,PHPI=0,HTTP=0,SESS=0): SQL Injection Attack: SQL Tautology Detected.",
+        "action": "Blocked",
+        "site": "Global",
+        "details": {
+            "message": "Warning. Operator GE matched 5 at TX:inbound_anomaly_score. ",
+            "data": "",
+            "file": "rules\/RESPONSE-980-CORRELATION.conf\\\"",
+            "line": "73"
+        },
+        "hostname": "vm000003",
+        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
+    }
+}
 ```
 
 With your knowledge of how the CRS rule sets work, and that the CRS ruleset 3.0 works with an anomaly scoring system (see [Web Application Firewall for Azure Application Gateway](ag-overview.md)) you know that the bottom two rules with the **action: Blocked** property are blocking based on the total anomaly score. The rules to focus on are the top two.
@@ -315,7 +315,7 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 
   By disabling max request body limit, WAF can process large request bodies without rejecting them for exceeding the size limit. This setting is useful if you regularly have large requests.
 
-  When you disable this option, the request body will only be inspected up to the max request body inspection limit. If there's malicious content in the request beyond the max request body inspection limit the WAF won't detect it.
+  When you disable this option, the request body will only be inspected up to the maximum request body inspection limit. If there's malicious content in the request beyond the max request body inspection limit the WAF won't detect it.
 
 - Disable maximum file size limits
 

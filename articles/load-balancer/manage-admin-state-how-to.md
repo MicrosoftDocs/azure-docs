@@ -383,7 +383,7 @@ $rsg = "MyResourceGroup"
 $vnt = "MyVnet"
 $lbn = "MyLB"
 $bep = "MyAddressPool"
-$ip = “10.0.2.4"
+$ip = "10.0.2.4"
 
 # Remove the admin state from the backend pool instance
 $vnet = Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rsg
