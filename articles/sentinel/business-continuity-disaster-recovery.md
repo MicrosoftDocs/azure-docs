@@ -49,7 +49,7 @@ To support BCDR in a regional outage, Microsoft Sentinel uses a customer-enabled
 
 Customer-enabled BCDR involves:
 
-- Creating two identical Log Analytics workspaces that are enabled for Microsoft Sentinel in the appropriate regions. For more information, see [Quickstart: Onboard Microsoft Sentinel](quickstart-onboard.md).
+- Creating two identical Log Analytics workspaces that are enabled for Microsoft Sentinel in the appropriate regions. For more information, see [Onboard Microsoft Sentinel](quickstart-onboard.md).
 
     In the backup workspace, focus on the data sources, analytic rules, and other configurations that are critical for your business continuity.
 

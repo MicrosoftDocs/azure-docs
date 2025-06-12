@@ -1,10 +1,10 @@
 ---
-title: 'Quickstart: Onboard to Microsoft Sentinel'
+title: Onboard to Microsoft Sentinel
 description: In this quickstart, you enable Microsoft Sentinel, and set up data connectors to monitor and protect your environment.
 author: batamig
 ms.author: bagol
-ms.topic: quickstart
-ms.date: 04/03/2025
+ms.topic: how-to
+ms.date: 06/12/2025
 ms.custom: references_regions, mode-other
 #Customer intent: As a security operator, set up data connectors in one place so I can monitor and protect my environment.
 
@@ -13,7 +13,7 @@ ms.custom: references_regions, mode-other
 
 ---
 
-# Quickstart: Onboard Microsoft Sentinel
+# Onboard Microsoft Sentinel
 
 In this quickstart, you'll enable Microsoft Sentinel and install a solution from the content hub. Then, you'll set up a data connector to start ingesting data into Microsoft Sentinel.
 
@@ -34,7 +34,10 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
     - To enable Microsoft Sentinel, you need **contributor** permissions to the subscription in which the Microsoft Sentinel workspace resides.
 
     - To use Microsoft Sentinel, you need either **Microsoft Sentinel Contributor** or **Microsoft Sentinel Reader** permissions on the resource group that the workspace belongs to.
+
     - To install or manage solutions in the content hub, you need the **Microsoft Sentinel Contributor** role on the resource group that the workspace belongs to.
+
+    - If you have permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), your workspace is automatically onboarded to the Defender portal. Users of such workspaces use [Microsoft Sentinel in the Defender portal](../microsoft-sentinel-defender-portal.md) only. 
 
 - **Microsoft Sentinel is a paid service**. Review the [pricing options](https://go.microsoft.com/fwlink/?linkid=2104058) and the [Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 
@@ -54,7 +57,7 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
 
 1. Select **Create**.
 
-1. Select the workspace you want to use or create a new one. You can run Microsoft Sentinel on more than one workspace, but the data is isolated to a single workspace.
+1. Select the workspace you want to use or create a new one. You can run Microsoft Sentinel on more than one workspace, but data is isolated to a single workspace.
 
     :::image type="content" source="media/quickstart-onboard/choose-workspace.png" alt-text="Screenshot of choosing a workspace while enabling Microsoft Sentinel.":::      
  
@@ -64,17 +67,31 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
 1. Select **Add**.
 
 > [!TIP]
-> We recommend onboarding your workspace to the Defender portal for a unified experience in managing security operations (SecOps) across both Microsoft Sentinel and other Microsoft security services.
+> If your workspace isn't automatically onboarded to the Defender portal, we recommend onboarding for a unified experience in managing security operations (SecOps) across both Microsoft Sentinel and other Microsoft security services.
 >
-> If you decide to onboard your workspace now, you can continue the procedures in this article from the Defender portal. For more information, see [Onboard Microsoft Sentinel to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
+> If your workspace is automatically onboarded, or if you decide to onboard your workspace now, you can continue the procedures in this article from the Defender portal. For more information, see [Onboard Microsoft Sentinel to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
+
+## Access Microsoft Sentinel in the Defender portal
+
+This procedure is relevant if you're automatically onboarded to the Defender portal, or if you choose to onboard your workspace to the Defender portal after enabling Microsoft Sentinel. Users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal.
+
+1. Sign into the [Defender portal](https://security.microsoft.com).
+
+    The first time you access the Defender portal, it'll take some time to provision your tenant.
+
+1. Once provisioned, you'll see **Microsoft Sentinel** available in the navigation pane, with Microsoft Sentinel nodes nested within. For example:
+
+    :::image type="content" source="media/quickstart-onboard/defender-portal-initial-view.png" alt-text="Screenshot of Microsoft Sentinel in the Defender portal.":::
+
+1. Scroll down in the navigation pane, and select **Settings > Microsoft Sentinel > Workspaces** to view the workspaces onboarded to the Defender portal and available to you.
+
+The Defender portal supports multiple workspaces, with one workspace acting as the primary workspace per tenant. For more information, see [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md) and [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
 
 ## Install a solution from the content hub
 
 The content hub in Microsoft Sentinel is the centralized location to discover and manage out-of-the-box content including data connectors. For this quickstart, install the solution for Azure Activity.
 
-1. In Microsoft Sentinel, select **Content hub**.
-
-1. Find and select the **Azure Activity** solution.
+1. In Microsoft Sentinel, browse to the **Content hub** page, and find and select the **Azure Activity** solution.
 
    #### [Defender portal](#tab/defender-portal)
 
@@ -169,6 +186,8 @@ Now that you've enabled the Azure Activity data connector and generated some act
 ## Next steps
 
 In this quickstart, you enabled Microsoft Sentinel and installed a solution from the content hub. Then, you set up a data connector to start ingesting data into Microsoft Sentinel. You also verified that data is being ingested by viewing the data in the workspace.
+
+If you're a new customer who's been automatically onboarded to the Defender portal, your users will access Microsoft Sentinel in the Defender portal only. As you use the Microsoft Sentinel documentation, make sure to select the Defender portal version of the documentation.
 
 - To visualize the data you've collected by using the dashboards and workbooks, see [Visualize collected data](get-visibility.md).
 - To detect threats by using analytics rules, see [Tutorial: Detect threats by using analytics rules in Microsoft Sentinel](tutorial-log4j-detection.md).

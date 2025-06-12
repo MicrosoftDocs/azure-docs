@@ -4,7 +4,7 @@ description: Move Microsoft Sentinel operations from the Azure portal to the Mic
 author: batamig
 ms.author: bagol
 ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 05/04/2025
+ms.date: 06/12/2025
 ms.collection: usx-security
 
 #Customer intent: As a security operations team member, I want to understand the process involved in moving our Microsoft Sentinel experience from the Azure portal to the Defender portal so that I can benefit from unified security operations across my entire environment.
@@ -20,9 +20,12 @@ This article explains how to transition your Microsoft Sentinel experience from 
 
 Before you start, note:
 
-- This article is for customers with an existing workspace enabled for Microsoft Sentinel who want to transition their Microsoft Sentinel experience to the Defender portal. If you're a new customer, see [Deploy for unified security operations in the Defender portal](/unified-secops-platform/overview-deploy) to learn how to create a new workspace for Microsoft Sentinel in the Defender portal.
-- When relevant, detailed prerequisites are in the linked articles for each step.
+- This article is for customers with an existing workspace enabled for Microsoft Sentinel who want to transition their Microsoft Sentinel experience to the Defender portal. If you're a new customer who onboarded with permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), your workspaces are [automatically onboarded to the Defender portal](quickstart-onboard.md).
+
 - Some Microsoft Sentinel features have new locations in the Defender portal. For more information, see [Quick reference](microsoft-sentinel-defender-portal.md#quick-reference).
+
+- When relevant, detailed prerequisites are in the linked articles for each step.
+
 
 ## Plan and set up your transition environment
 

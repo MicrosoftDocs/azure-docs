@@ -122,6 +122,6 @@ The following table highlights the key capabilities in Microsoft Sentinel for th
 
 ## Related content
 
-- [Quickstart: Onboard Microsoft Sentinel](quickstart-onboard.md)
+- [Onboard Microsoft Sentinel](quickstart-onboard.md)
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)
 - [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md)

@@ -62,5 +62,5 @@ If you don't want to keep the workspace and the data collected for Microsoft Sen
 
 ## Related resources
 
-If you change your mind and want to install Microsoft Sentinel again, see [Quickstart: Onboard Microsoft Sentinel](quickstart-onboard.md).
+If you change your mind and want to install Microsoft Sentinel again, see [Onboard Microsoft Sentinel](quickstart-onboard.md).
 
