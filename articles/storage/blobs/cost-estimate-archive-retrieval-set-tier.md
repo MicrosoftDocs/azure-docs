@@ -1,6 +1,6 @@
 ---
-title: 'Cost estimate: Analyze archived data (Azure Blob Storage)' 
-description: This article shows an example of what it costs to retrieve and analyze archived data in Azure Blob Storage.
+title: 'Cost estimate: Move data from archive (Azure Blob Storage)' 
+description: This article shows an example of what it costs to move data out of archive storage.
 services: storage
 author: normesta
 
