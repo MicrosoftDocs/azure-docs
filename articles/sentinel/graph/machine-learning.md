@@ -5,7 +5,7 @@ description: Overview and introduction to machine learning using KQL and Jupyter
 author: EdB-MSFT  
 ms.service: microsoft-sentinel  
 ms.topic: conceptual
-ms.custom: sentinel-lake
+ms.custom: sentinel-graph
 ms.date: 06/11/2025
 ms.author: edbaynash  
 
@@ -14,13 +14,16 @@ ms.collection: ms-security
 
 # Introduction to machine learning in the Microsoft Sentinel data lake (Preview)
 
-Machine Learning (ML), a subset of Artificial Intelligence, empowers systems to predict outcomes based solely on training data without explicit programming. This capability is particularly valuable in cybersecurity. ML can identify patterns and relationships in data that may not be immediately apparent to humans and could be challenging to code using conventional programming methods. Threat hunters, detection engineers, and data scientists looking to enhance their cybersecurity measures can leverage ML and the Microsoft Sentinel data lake for advanced analytics, to detect anomalies, predict threats, and enhance overall security measures.
+Machine Learning (ML), a subset of Artificial Intelligence, empowers systems to predict outcomes based solely on training data without explicit programming. This capability is particularly valuable in cybersecurity. ML can identify patterns and relationships in data that may not be immediately apparent to humans and could be challenging to code using conventional programming methods. Threat hunters, detection engineers, and data scientists looking to enhance their cybersecurity measures can leverage ML and the Microsoft Sentinel data lake for advanced analytics, to detect anomalies, predict threats, and enhance overall security measures.  
+
+KQL (Kusto Query Language) and Jupyter notebooks in the Microsoft Sentinel data lake provide powerful tools for performing machine learning tasks, including anomaly detection and time series analysis. This article provides an overview of KQL and Notebooks functions for machine learning in the Microsoft Sentinel data lake.
 
 ## Anomaly Insights
 
-Anomaly insights in cybersecurity involve identifying unusual patterns that may indicate a security threat. For example, using Python Notebooks with the VS Code Microsoft Sentinel security extension for anomaly insights, you can perform univariate and multivariate analysis. This method can process anomalies without the need for offline training of a model and online scoring. Similarly, KQL native functions for anomaly insights can perform univariate analysis based on improved seasonal trend composition models, processing anomalies of 50,000 time series in seconds. For example using the `series_decompose_anomalies` function in KQL, you can quickly detect unusual spikes in CPU usage that may indicate a potential security breach. For mor information, see [series_decompose_anomalies](/kusto/query/series-decompose-anomalies-function?view=microsoft-sentinel)  
+Anomaly insights in cybersecurity involve identifying unusual patterns that may indicate a security threat. For example, using Python Notebooks with the VS Code Microsoft Sentinel security extension for anomaly insights, you can perform univariate and multivariate analysis. This method can process anomalies without the need for offline training of a model and online scoring. Similarly, KQL native functions for anomaly insights can perform univariate analysis based on improved seasonal trend composition models, processing anomalies of 50,000 time series in seconds. For example using the `series_decompose_anomalies` function in KQL, you can quickly detect unusual spikes in CPU usage that may indicate a potential security breach. For more information, see [series_decompose_anomalies](/kusto/query/series-decompose-anomalies-function?view=microsoft-sentinel)  
 
 ## Time Series Analysis
+
 Time series analysis involves examining data points collected or recorded at specific time intervals to identify trends, cycles, and anomalies. In cybersecurity, time series analysis can be used to monitor network traffic, system performance, and user activity over time. Using the `make-series` operator and `series_fit_line function` in KQL, you can fit a line to a series of data points, analyze network traffic data to identify trends and predict future traffic patterns, helping to detect potential DDoS attacks. For more information, see [series_fit_line](/kusto/query/series-fit-line-function?view=microsoft-sentinel).
 
 ## Machine Learning Support in KQL and Notebooks
@@ -36,7 +39,7 @@ For more information on KQL ML functions, see the following articles:
 + [Anomaly detection and forecasting](/kusto/query/anomaly-detection?view=microsoft-sentinel)
 + [Time series analysis](/kusto/query/time-series-analysis?view=microsoft-sentinel)
 
-Plugins are additional functions that extend the capabilities of KQL for machine learning tasks. The following plugins are available : 
+Plugins are additional functions that extend the capabilities of KQL for machine learning tasks. The following plugins are available: 
 
 + [autocluster()](/kusto/query/autocluster-plugin): Automatically detects clusters in data. 
 + [basket()](/kusto/query/basket-plugin): Finds frequent patterns of attributes in the data and returns the patterns that pass a frequency threshold in that data.
@@ -60,8 +63,3 @@ The Jupyter notebook experience in the VS Code Microsoft Sentinel extension supp
 These libraries enable users to build and deploy machine learning models for advanced analytics, anomaly detection, and predictive modeling.
 
 Machine Learning offers powerful tools for enhancing cybersecurity measures. By leveraging KQL and Notebooks, detection engineers, data scientists, and threat hunters can perform advanced analytics for anomaly detection, time series analysis, and more. These capabilities enable organizations to proactively identify and mitigate potential security threats, ensuring a safer digital environment.
-
-## Related content
-
-- [Data lake exploration - KQL queries (Preview)](kql-queries.md)
-- [Jupyter notebooks and the Microsoft Sentinel data lake (Preview)](/spark-notebooks.md)
