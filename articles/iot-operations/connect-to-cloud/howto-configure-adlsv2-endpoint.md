@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/01/2025
+ms.date: 06/11/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -61,6 +61,59 @@ Then, go to the Azure Storage account > **Access control (IAM)** > **Add role as
     | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |
 
 1. Select **Apply** to provision the endpoint.
+
+# [Azure CLI](#tab/cli)
+
+### Create or replace
+
+Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-adls) create or replace an Azure Data Lake Storage Gen2 data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create adls --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --storage-account <StorageAccountName>
+```
+
+The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`.
+
+An example command to create or replace a Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
+
+```azurecli
+az iot ops dataflow endpoint create adls --resource-group myResourceGroup --instance myAioInstance --name adls-endpoint --storage-account adlsstorage
+```
+
+### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Lake Storage Gen2 data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `adls-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "DataLakeStorage",
+  "dataLakeStorageSettings": {
+    "authentication": {
+      "method": "SystemAssignedManagedIdentity",
+      "systemAssignedManagedIdentitySettings": {}
+    },
+    "batching": {
+      "latencySeconds": 60,
+      "maxMessages": 100000
+    },
+    "host": "https://<account>.blob.core.windows.net"
+  }
+}
+```
+
+Here's an example command to create a new Azure Data Lake Storage Gen2 data flow endpoint named `adls-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name adls-endpoint --config-file ~/adls-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
@@ -140,6 +193,10 @@ Then, create the *DataflowEndpoint* resource and specify the access token authen
 # [Operations experience](#tab/portal)
 
 See the [access token](#access-token) section for steps to create a secret in the operations experience web UI.
+
+# [Azure CLI](#tab/cli)
+
+See the [access token](#access-token) section.
 
 # [Bicep](#tab/bicep)
 
@@ -235,6 +292,59 @@ In the operations experience data flow endpoint settings page, select the **Basi
 
 In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
+# [Azure CLI](#tab/cli)
+
+### Create or replace
+
+Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-adls) create or replace an Azure Data Lake Storage Gen2 data flow endpoint with system assigned managed identity.
+
+```azurecli
+az iot ops dataflow endpoint create adls --auth-type SystemAssignedManagedIdentity --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --storage-account <StorageAccountName>
+```
+
+The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`.
+
+An example command to create or replace a Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
+
+```azurecli
+az iot ops dataflow endpoint create adls --auth-type SystemAssignedManagedIdentity --resource-group myResourceGroup --instance myAioInstance --name adls-endpoint --storage-account adlsstorage
+```
+
+### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Lake Storage Gen2 data flow endpoint with system assigned managed identity.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `adls-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "DataLakeStorage",
+  "dataLakeStorageSettings": {
+    "authentication": {
+      "method": "SystemAssignedManagedIdentity",
+      "systemAssignedManagedIdentitySettings": {}
+    },
+    "batching": {
+      "latencySeconds": 60,
+      "maxMessages": 100000
+    },
+    "host": "https://<account>.blob.core.windows.net"
+  }
+}
+```
+
+Here's an example command to create a new Azure Data Lake Storage Gen2 data flow endpoint named `adls-endpoint` as follows:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name adls-endpoint --config-file ~/adls-endpoint.json
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -262,6 +372,61 @@ If you need to override the system-assigned managed identity audience, you can s
 # [Operations experience](#tab/portal)
 
 In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
+
+# [Azure CLI](#tab/cli)
+
+### Create or replace
+
+Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-adls) create or replace an Azure Data Lake Storage Gen2 data flow endpoint with system assigned managed identity.
+
+```azurecli
+az iot ops dataflow endpoint create adls --auth-type SystemAssignedManagedIdentity --audience https://<account>.blob.core.windows.net --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --storage-account <StorageAccountName>
+```
+
+The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`.
+
+An example command to create or replace a Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
+
+```azurecli
+az iot ops dataflow endpoint create adls --auth-type SystemAssignedManagedIdentity --audience https://<account>.blob.core.windows.net --resource-group myResourceGroup --instance myAioInstance --name adls-endpoint --storage-account adlsstorage
+```
+
+### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Lake Storage Gen2 data flow endpoint with system assigned managed identity.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `adls-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "DataLakeStorage",
+  "dataLakeStorageSettings": {
+    "authentication": {
+      "method": "SystemAssignedManagedIdentity",
+      "systemAssignedManagedIdentitySettings": {
+        "audience": "https://<account>.blob.core.windows.net"
+      }
+    },
+    "batching": {
+      "latencySeconds": 60,
+      "maxMessages": 100000
+    },
+    "host": "https://<account>.blob.core.windows.net"
+  }
+}
+```
+
+Here's an example command to create a new Azure Data Lake Storage Gen2 data flow endpoint named `adls-endpoint` as follows:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name adls-endpoint --config-file ~/adls-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
@@ -305,6 +470,63 @@ Then, configure the data flow endpoint with user-assigned managed identity setti
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
+
+# [Azure CLI](#tab/cli)
+
+### Create or replace
+
+Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-adls) create or replace an Azure Data Lake Storage Gen2 data flow endpoint with user assigned managed identity.
+
+```azurecli
+az iot ops dataflow endpoint create adls --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --scope <Scope> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --storage-account <StorageAccountName>
+```
+
+The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`. The `--auth-type` parameter specifies the authentication method, which is `UserAssignedManagedIdentity` in this case. The `--client-id`, `--tenant-id`, and `--scope` parameters specify the user assigned managed identity client ID, tenant ID, and scope respectively.
+
+An example command to create or replace a Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
+
+```azurecli
+az iot ops dataflow endpoint create adls --auth-type UserAssignedManagedIdentity --client-id ClientId --tenant-id TenantId --scope https://storage.azure.com/.default --resource-group myResourceGroup --instance myAioInstance --name adls-endpoint --storage-account adlsstorage
+```
+
+### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Lake Storage Gen2 data flow endpoint with user assigned managed identity.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `adls-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "DataLakeStorage",
+  "dataLakeStorageSettings": {
+      "authentication": {
+        "method": "UserAssignedManagedIdentity",
+        "userAssignedManagedIdentitySettings": {
+          "clientId": "<ClientId>",
+          "scope": "<Scope>",
+          "tenantId": "<TenantId>"
+        }
+      },
+    "batching": {
+      "latencySeconds": 60,
+      "maxMessages": 100000
+    },
+    "host": "https://<account>.blob.core.windows.net"
+  }
+}
+```
+
+Here's an example command to create a new Azure Data Lake Storage Gen2 data flow endpoint named `adls-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name adls-endpoint --config-file ~/adls-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
@@ -375,6 +597,55 @@ If you select **Create new**, enter the following settings:
 
 To learn more about secrets, see [Create and manage secrets in Azure IoT Operations](../secure-iot-ops/howto-manage-secrets.md).
 
+# [Azure CLI](#tab/cli)
+
+### Create or replace
+
+Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-adls) create or replace an Azure Data Lake Storage Gen2 data flow endpoint with access token authentication.
+
+```azurecli
+az iot ops dataflow endpoint create adls --auth-type AccessToken --secret-name <SasSecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --storage-account <StorageAccountName>
+```
+
+The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`. The `--auth-type` parameter specifies the authentication method, which is `AccessToken` in this case. The `--secret-name` parameter specifies the name of the Kubernetes secret containing the SAS token.
+
+An example command to create or replace a Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
+
+```azurecli
+az iot ops dataflow endpoint create adls --auth-type AccessToken --secret-name mySasSecret --resource-group myResourceGroup --instance myAioInstance --name adls-endpoint --storage-account adlsstorage
+```
+
+### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Lake Storage Gen2 data flow endpoint with access token authentication.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `adls-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "DataLakeStorage",
+  "dataLakeStorageSettings": {
+    "authentication": {
+      "method": "AccessToken",
+      "accessTokenSettings": {
+        "secretRef": "<SAS_SECRET_NAME>"
+      }
+    },
+    "batching": {
+      "latencySeconds": 60,
+      "maxMessages": 100000
+    },
+    "host": "https://<account>.blob.core.windows.net"
+  }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -386,6 +657,12 @@ dataLakeStorageSettings: {
     }
   }
 }
+```
+
+Here's an example command to create a new Azure Data Lake Storage Gen2 data flow endpoint named `adls-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name adls-endpoint --config-file ~/adls-endpoint.json
 ```
 
 # [Kubernetes (preview)](#tab/kubernetes)
@@ -425,6 +702,41 @@ For example, to configure the maximum number of messages to 1000 and the maximum
 In the operations experience, select the **Advanced** tab for the data flow endpoint.
 
 :::image type="content" source="media/howto-configure-adlsv2-endpoint/adls-advanced.png" alt-text="Screenshot using operations experience to set ADLS V2 advanced settings.":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Lake Storage Gen2 data flow endpoint advanced settings.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `adls-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "DataLakeStorage",
+  "dataLakeStorageSettings": {
+    "authentication": {
+      "method": "SystemAssignedManagedIdentity",
+      "systemAssignedManagedIdentitySettings": {}
+    },
+    "batching": {
+      "latencySeconds": 100,
+      "maxMessages": 1000
+    },
+    "host": "https://<account>.blob.core.windows.net"
+  }
+}
+```
+
+Here's an example command to create a new Azure Data Lake Storage Gen2 data flow endpoint named `adls-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name adls-endpoint --config-file ~/adls-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
