@@ -98,7 +98,7 @@ For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
   :::image type="content" source="./media/spark-notebooks/create-new-notebook.png" lightbox="./media/spark-notebooks/create-new-notebook.png" alt-text="A screenshot showing how to create a new notebook from the search bar.":::
 
   1. Select File > New File, then select **Jupyter Notebook** from the dropdown.  
-  :::image type="content" source="./media/spark-notebooks/new-file-notebook.png" lightbox="./media/spark-notebooks/new-file-notebook.png"alt-text="A screenshot showing how to create a new notebook form the file menu.":::
+  :::image type="content" source="./media/spark-notebooks/new-file-notebook.png" lightbox="./media/spark-notebooks/new-file-notebook.png" alt-text="A screenshot showing how to create a new notebook form the file menu.":::
 
 
 1. In the new notebook, paste the following code into the first cell.
@@ -257,7 +257,6 @@ The following table lists common errors you may encounter when working with note
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
 - [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
 - [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
-- 
+- [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
