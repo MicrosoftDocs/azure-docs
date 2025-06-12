@@ -274,7 +274,7 @@ sections:
       - question: |
           Do I get billed for the Azure Front Door resources that are disabled?
         answer: |
-          Azure Front Door is a service that provides fast and secure web delivery. It allows you to define how your web traffic is routed and optimized across multiple regions and endpoints. Azure Front Door resources, such as Front Door profiles and routing rules, are only charged when they're enabled. However, web application firewall (WAF) policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
+          Azure Front Door resources cannot be disabled. They can only be deleted. Variable meters like Data Transfer Out, Data Transfer In and Requests are not charged when there is no traffic but base fee is charged even if there is no traffic. Base fee will be charged till the profile is deleted. For AFD Classic, WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
 
   - name: Caching
     questions:
