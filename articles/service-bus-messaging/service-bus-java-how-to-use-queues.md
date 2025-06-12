@@ -313,7 +313,6 @@ In this section, you add code to retrieve messages from the queue.
 
     > [!IMPORTANT]
     > - Replace `NAMESPACENAME` with the name of your Service Bus namespace.
-    > - Replace `QueueTest` in `QueueTest::processMessage` in the code with the name of your class.
 
     ```java
     // handles received messages
