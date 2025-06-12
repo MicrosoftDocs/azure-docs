@@ -103,9 +103,7 @@ Take the following actions to help mitigate fraudulent sign-ups.
 
    1. Open the JSON file that was downloaded in the previous step. In the file, search for `DEFAULT`, and replace the line with `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Be sure to set `Overrides` to `true`.
 
-   > [!IMPORTANT]
-   > To implement SMS blocking effectively, please ensure that the Overrides setting is enabled (true) only for the primary or default language used in your business. Avoid enabling overrides for any non-primary      languages, as doing so may lead to unintended SMS blocking behavior. Since the countryList in the JSON file functions as an allow list, please include all countries permitted to send SMS within this list for the primary language configuration when Overrides is set to true.
-
+ To implement SMS blocking effectively, make sure the Overrides setting is enabled (set to true) only for your organization’s primary or default language. Do not enable Overrides for any secondary or non-primary languages, as this can cause unexpected SMS blocking. Since the countryList in the JSON file acts as an allow list, be sure to include all countries that should be permitted to send SMS in this list for the primary language configuration when Overrides is true.
    > [!NOTE]
    > You can customize the list of allowed country codes in the `countryList` element (see the [Phone factor authentication page example](localization-string-ids.md#phone-factor-authentication-page-example)).
 
