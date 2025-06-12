@@ -5,7 +5,7 @@ description: Use Blob APIs and applications that use Blob APIs with Azure Data L
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/18/2024
 ms.author: normesta
 ---

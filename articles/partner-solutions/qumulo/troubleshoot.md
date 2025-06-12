@@ -1,23 +1,16 @@
 ---
-title: Troubleshoot Azure Native Qumulo Scalable File Service
+title: Troubleshoot Azure Native Qumulo 
 description: This article provides information about troubleshooting Azure Native Qumulo Scalable File Service.
 
-ms.topic: conceptual
-ms.date: 11/15/2023
+ms.topic: troubleshooting-general
+ms.date: 02/09/2025
 ms.custom:
   - ignite-2023
 ---
 
-# Troubleshoot Azure Native Qumulo Scalable File Service
+# Troubleshoot Azure Native Qumulo 
 
 This article describes how to fix common problems when you're working with Azure Native Qumulo Scalable File Service.
-
-Try the troubleshooting information in this article first. If that doesn't work, you can use one of the following methods to open a request form for Qumulo support:
-
-- Go to the [Qumulo support page](https://aka.ms/partners/Qumulo/Support) and select **Open a case**.
-- Go to the Azure portal and select **New Support request** on the left pane.
-
-:::image type="content" source="media/qumulo-troubleshooting/qumulo-support-request.png" alt-text="Screenshot that shows a request form for Qumulo support.":::
 
 ## Purchase errors
 
@@ -33,13 +26,6 @@ For successful creation of a Qumulo service, custom role-based access control (R
 
   - Microsoft.Network/virtualNetworks/subnets/join/action
 
-## Next steps
+## Related content
 
-- [Manage Azure Native Qumulo Scalable File Service](manage.md)
-- Get started with Azure Native Qumulo Scalable File Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview)
+- [What is Azure Native Qumulo?](overview.md)

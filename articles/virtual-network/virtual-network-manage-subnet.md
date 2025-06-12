@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-azurecli
   - devx-track-azurepowershell
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 04/15/2025
 ms.author: allensu
 ---
 
@@ -23,17 +23,20 @@ All Azure resources in a virtual network are deployed into subnets within the vi
 # [Portal](#tab/azure-portal)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using the Azure portal](quick-create-portal.md).
+
 - To run the procedures, sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 # [Azure CLI](#tab/azure-cli)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using Azure CLI](quick-create-cli.md).
 
 You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/overview) or from Azure CLI on your computer.
 
-- Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account. To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+- Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account. To run the commands in the Cloud Shell, select **Open Cloud shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
 - If you [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands, you need Azure CLI version 2.31.0 or later. Run [az version](/cli/azure/reference-index?#az-version) to find your installed version, and run [az upgrade](/cli/azure/reference-index?#az-upgrade) to upgrade.
 
@@ -42,11 +45,12 @@ You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/ov
 # [PowerShell](#tab/azure-powershell)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 - An existing Azure virtual network. To create one, see [Quickstart: Create a virtual network by using Azure PowerShell](quick-create-powershell.md).
 
 You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/overview) or from PowerShell on your computer.
 
-- Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account. To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+- Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account. To run the commands in the Cloud Shell, select **Open Cloud shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
 - If you [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the commands, you need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
@@ -59,7 +63,7 @@ You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/ov
 
 ### Permissions
 
-To do tasks on subnets, your account must be assigned to the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that's assigned the appropriate actions in the following list:
+To do tasks on subnets, your account must be assigned to the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) assigned the appropriate actions in the following list:
 
 |Action                                                                   |   Name                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
@@ -75,10 +79,15 @@ To do tasks on subnets, your account must be assigned to the [Network contributo
 # [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), search for and select *virtual networks*.
+
 1. On the **Virtual networks** page, select the virtual network you want to add a subnet to.
+
 1. On the virtual network page, select **Subnets** from the left navigation.
+
 1. On the **Subnets** page, select **+ Subnet**.
+
 1. On the **Add subnet** screen, enter or select values for the subnet settings.
+
 1. Select **Save**.
 
 # [Azure CLI](#tab/azure-cli)
@@ -86,23 +95,31 @@ To do tasks on subnets, your account must be assigned to the [Network contributo
 Run the [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command with the options you want to configure.
 
 ```azurecli-interactive
-az network vnet subnet create --name <subnetName> --resource-group <resourceGroupName> --vnet-name <virtualNetworkName>
+az network vnet subnet create \
+    --name <subnetName> \
+    --resource-group <resourceGroupName> \
+    --vnet-name <virtualNetworkName>
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 1. Use the [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) command to configure the subnet.
 
-   ```azurepowershell-interactive
-   $vnet = Get-AzVirtualNetwork -Name <virtualNetworkName> -ResourceGroupName <resourceGroupName>
-   Add-AzVirtualNetworkSubnetConfig -Name <subnetName> -VirtualNetwork $vnet -AddressPrefix <String[]>
-   ```
+    ```azurepowershell-interactive
+    $vnet = Get-AzVirtualNetwork @vnetParams
+    $subnetParams = @{
+       Name           = "<subnetName>"
+       VirtualNetwork = $vnet
+       AddressPrefix  = "<String[]>"
+    }
+    Add-AzVirtualNetworkSubnetConfig @subnetParams
+    ```
 
 1. Then associate the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork).
 
-   ```azurepowershell-interactive
-   Set-AzVirtualNetwork -VirtualNetwork $vnet
-   ```
+    ```azurepowershell-interactive
+    Set-AzVirtualNetwork -VirtualNetwork $vnet
+    ```
 
 ---
 
@@ -151,7 +168,7 @@ You can change the following subnet settings after the subnet is created:
 | --- | --- |
 | **Subnet address range** | If no resources are deployed within the subnet, you can change the address range. If any resources exist in the subnet, you must first either move the resources to another subnet or delete them from the subnet. The steps you take to move or delete a resource vary depending on the resource. To learn how to move or delete resources that are in subnets, read the documentation for each resource type.|
 | **Add IPv6 address space**, **NAT gateway**, **Network security group**, and **Route table** | You can add IPv6, NAT gateway, NSG, or route table support after you create the subnet.|
-| **Service endpoints** | To enable a service endpoint for an existing subnet, ensure that no critical tasks are running on any resource in the subnet. Service endpoints switch routes on every network interface in the subnet. The service endpoints change from using the default route with the `0.0.0.0/0` address prefix and next hop type of `Internet` to using a new route with the address prefix of the service and a next hop type of `VirtualNetworkServiceEndpoint`.<br><br>During the switch, any open TCP connections may be terminated. The service endpoint isn't enabled until traffic to the service for all network interfaces updates with the new route. For more information, see [Virtual network traffic routing](virtual-networks-udr-overview.md).|
+| **Service endpoints** | To enable a service endpoint for an existing subnet, ensure that no critical tasks are running on any resource in the subnet. Service endpoints switch routes on every network interface in the subnet. The service endpoints change from using the default route with the `0.0.0.0/0` address prefix and next hop type of `Internet` to using a new route with the address prefix of the service and a next hop type of `VirtualNetworkServiceEndpoint`.<br><br>During the switch, any open TCP connections might be terminated. The service endpoint isn't enabled until traffic to the service for all network interfaces updates with the new route. For more information, see [Virtual network traffic routing](virtual-networks-udr-overview.md).|
 | **Subnet delegation** | You can modify subnet delegation to enable zero or multiple delegations. If a resource for a service is already deployed in the subnet, you can't add or remove subnet delegations until you remove all the resources for the service. To delegate for a different service in the portal, select the service you want to delegate to from the popup list. |
 | **Network policy for private endpoints**| You can change private endpoint network policy after subnet creation.|
 
@@ -162,9 +179,13 @@ You can change the following subnet settings after the subnet is created:
 You can delete a subnet only if there are no resources in the subnet. If resources are in the subnet, you must delete those resources before you can delete the subnet. The steps you take to delete a resource vary depending on the resource. To learn how to delete the resources, see the documentation for each resource type.
 
 1. In the [Azure portal](https://portal.azure.com), search for and select *virtual networks*.
+
 1. On the **Virtual networks** page, select the virtual network you want to delete a subnet from.
+
 1. On the virtual network's page, select **Subnets** from the left navigation.
+
 1. On the **Subnets** page, select the subnet you want to delete.
+
 1. Select **Delete**, and then select **Yes** in the confirmation dialog box.
 
 # [Azure CLI](#tab/azure-cli)
@@ -172,7 +193,10 @@ You can delete a subnet only if there are no resources in the subnet. If resourc
 Run the [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete) command.
 
 ```azurecli-interactive
-az network vnet subnet delete --name <subnetName> --resource-group <resourceGroupName> --vnet-name <virtualNetworkName>
+az network vnet subnet delete \
+    --name <subnetName> \
+    --resource-group <resourceGroupName> \
+    --vnet-name <virtualNetworkName>
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -180,7 +204,11 @@ az network vnet subnet delete --name <subnetName> --resource-group <resourceGrou
 Run the [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json) command and then set the configuration.
 
 ```azurepowershell-interactive
-Remove-AzVirtualNetworkSubnetConfig -Name <subnetName> -VirtualNetwork $vnet | Set-AzVirtualNetwork
+$subnetParams = @{
+  Name           = "<subnetName>"
+  VirtualNetwork = $vnet
+}
+Remove-AzVirtualNetworkSubnetConfig @subnetParams | Set-AzVirtualNetwork
 ```
 
 ---

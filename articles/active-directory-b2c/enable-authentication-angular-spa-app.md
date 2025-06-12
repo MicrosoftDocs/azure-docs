@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Enable authentication in your own Angular Application by using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own Angular single-page application (SPA). Learn how to integrate an Angular application with the [MSAL for Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/master/lib/msal-angular) authentication library. 
 

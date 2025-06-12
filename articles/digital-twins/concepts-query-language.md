@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Query language
 titleSuffix: Azure Digital Twins
 description: Learn about the basics of the Azure Digital Twins query language.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Azure Digital Twins query language
@@ -31,7 +25,7 @@ You can use the Azure Digital Twins query language to retrieve digital twins acc
 
 To submit a query to the service from a client app, you'll use the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs for Azure Digital Twins](concepts-apis-sdks.md#data-plane-overview).
 
-[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
+[!INCLUDE [digital-twins-query-reference.md](includes/digital-twins-query-reference.md)]
 
 ## Considerations for querying
 
@@ -42,7 +36,7 @@ When writing queries for Azure Digital Twins, keep the following considerations 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
 * If you're using the Azure CLI to run queries, you may need to escape certain additional characters to meet the requirements of various shells. For more information, see [Use special characters in different shells](concepts-cli.md#use-special-characters-in-different-shells)
 
-[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+[!INCLUDE [digital-twins-query-latency-note.md](includes/digital-twins-query-latency-note.md)]
 
 ## Querying historized twin data over time
 

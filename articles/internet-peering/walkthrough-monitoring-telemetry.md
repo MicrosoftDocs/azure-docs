@@ -6,7 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 04/21/2025
+# Customer intent: "As an internet peering partner, I want to view telemetry and metrics for my peerings in the Azure portal, so that I can monitor performance and ensure optimal connectivity."
 ---
 
 # View metrics for an internet peering

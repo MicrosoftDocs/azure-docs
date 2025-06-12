@@ -3,10 +3,10 @@ title: Deploy Application Gateway Basic (Preview)
 titleSuffix: Azure Application Gateway
 description: Learn how to deploy Application Gateway Basic. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.topic: how-to
 ms.date: 05/06/2024
-ms.author: greglin
+ms.author: mbender
 ms.service: azure-application-gateway
 ms.custom: mvc, mode-ui, devx-track-azurepowershell
 ---

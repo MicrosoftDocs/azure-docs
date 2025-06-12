@@ -317,9 +317,9 @@ The following example illustrates the JWT and SAML token issuers with single sig
 <ClaimsProvider>
   <DisplayName>Local Account SignIn</DisplayName>
   <TechnicalProfiles>
-    <!-- JWT Token Issuer -->
+    <!-- JWT Issuer -->
     <TechnicalProfile Id="JwtIssuer">
-      <DisplayName>JWT token Issuer</DisplayName>
+      <DisplayName>JWT Issuer</DisplayName>
       <Protocol Name="OpenIdConnect" />
       <OutputTokenFormat>JWT</OutputTokenFormat>
       ...    

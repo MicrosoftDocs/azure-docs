@@ -5,12 +5,12 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 03/14/2025
 ---
 
 # Integrate Azure Blob Storage with Service Connector
 
-This page shows the supported authentication types, client types and sample code of Azure Blob Storage using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
+This article covers supported authentication methods, clients, and sample code you can use to connect your apps to Azure Blob Storage using Service Connector. In this article, you'll also find default environment variable names, values, and configuration obtained when creating service connections.
 
 ## Supported compute services
 
@@ -24,7 +24,7 @@ Service Connector can be used to connect the following compute services to Azure
 
 ## Supported authentication types and client types
 
-The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Blob Storage using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute services to Azure Blob Storage using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
@@ -35,8 +35,6 @@ The table below shows which combinations of authentication methods and clients a
 | Python             | Yes                              | Yes                            | Yes                        | Yes               |
 | Go                 | Yes                              | Yes                            | Yes                        | Yes               |
 | None               | Yes                              | Yes                            | Yes                        | Yes               |
-
-This table clearly indicates that all combinations of client types and authentication methods are supported, except for the Java - Spring Boot client type, which only supports the Secret / connection string method. All other client types can use any of the authentication methods to connect to Azure Blob Storage using Service Connector.
 
 ## Default environment variable names or application properties and sample code
 

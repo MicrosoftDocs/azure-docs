@@ -29,7 +29,7 @@ The scope of an access key and the actions it supports depend on the type of acc
 | ----- | ----- | ---- | ---- |
 | **Function** | `default` or user defined | `function` | Allows access only to a specific function endpoint. |
 | **Host** | `default` or user defined | `function` | Allows access to all function endpoints in a function app. |
-| **Master** | `_master` | `admin` | Special host key that also provides administrative access to the runtime REST APIs in a function app. This key can't be revoked. Because the master key grants elevated permissions in your function app, you shouldn't share this key with third parties or distribute it in native client applications. |
+| **Master** | `_master` | `admin` | Special host key that also provides administrative access to the runtime REST APIs in a function app. Because the master key grants elevated permissions in your function app, you shouldn't share this key with third parties or distribute it in native client applications. |
 | **System** | Depends on the extension | n/a | Specific extensions might require a system-managed key to access webhook endpoints. System keys are designed for extension-specific function endpoints that get called by internal components. For example, the [Event Grid trigger](functions-bindings-event-grid-trigger.md) requires that the subscription use a system key when calling the trigger endpoint. Durable Functions also uses system keys to call [Durable Task extension APIs](durable/durable-functions-http-api.md). <br/>System keys can only be created by specific extensions, and you can't explicitly set their values. Like other keys, you can generate a new value for the key from the portal or by using the key APIs. | 
 
 Each key is named for reference, and there's a default key (named `default`) at the function and host level. Function keys take precedence over host keys. When two keys are defined with the same name, the function key is always used.
@@ -63,7 +63,7 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 | A second storage account | `blob` | Stores keys in Blob storage in a storage account that's different that the one used by the Functions runtime. The specific account and container used is defined by a shared access signature (SAS) URL set in the [`AzureWebJobsSecretStorageSas`](functions-app-settings.md#azurewebjobssecretstoragesas) setting. You must maintain the `AzureWebJobsSecretStorageSas` setting when the SAS URL changes. |
 | [Azure Key Vault](/azure/key-vault/general/overview) | `keyvault` | The key vault set in [`AzureWebJobsSecretStorageKeyVaultUri`](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. | 
 | File system  | `files` | Keys are persisted on the local file system,  which is the default in Functions v1.x. File system storage isn't recommended. |
-| Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when your function app is deployed to Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when you use it to deploy your app to a Kubernetes cluster.|
+| Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when your function app is deployed to Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when you use it to deploy your app to a Kubernetes cluster. [Immutable secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) aren't supported | 
 
 When using Key Vault for key storage, the app settings you need depend on the managed identity type, either system-assigned or user-assigned. 
 
@@ -73,6 +73,8 @@ When using Key Vault for key storage, the app settings you need depend on the ma
 | [AzureWebJobsSecretStorageKeyVaultClientId](functions-app-settings.md#azurewebjobssecretstoragekeyvaultclientid) | X | ✓ |✓ |
 | [AzureWebJobsSecretStorageKeyVaultClientSecret](functions-app-settings.md#azurewebjobssecretstoragekeyvaultclientsecret) | X | X | ✓ |
 | [AzureWebJobsSecretStorageKeyVaultTenantId](functions-app-settings.md#azurewebjobssecretstoragekeyvaulttenantid) | X | X | ✓ |
+
+[!INCLUDE [functions-key-vault-secrets-storage-warning](../../includes/functions-key-vault-secrets-storage-warning.md)]
 
 ## Use access keys
 

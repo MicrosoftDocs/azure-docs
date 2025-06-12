@@ -1,8 +1,8 @@
 ---
 title: How to programmatically create an Azure Device Provisioning Service individual enrollment for TPM attestation
 description: This article shows you how to programmatically create an individual enrollment entry for a device that uses TPM attestation.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 07/28/2022
 ms.topic: how-to
 ms.service: azure-iot-hub

@@ -113,7 +113,63 @@ When you create an NVA in a Virtual WAN hub, you must choose the number of NVA I
 NVAs in Virtual WAN are deployed to ensure you always are able to achieve at minimum the vendor-specific throughput numbers for a particular chosen scale unit. To achieve this, NVAs in Virtual WAN are overprovisioned with additional capacity in the form of multiple instances in a 'n+1' manner. This means that at any given time you might see aggregate throughput across the instances to be greater than the vendor-specific throughput numbers. This ensures if an instance is unhealthy, the remaining 'n' instance(s) can service customer traffic and provide the vendor-specific throughput for that scale unit.
 
 If the total amount of traffic that passes through an NVA at a given time goes above the vendor-specific throughput numbers for the chosen scale unit, events that might cause an NVA instance to be unavailable including but not limited to routine Azure platform maintenance activities or software upgrades can result in service or connectivity disruption. To minimize service disruptions, you should choose the scale unit based on your peak traffic profile and vendor-specific throughput numbers for a particular scale unit as opposed to relying on best-case throughput numbers observed during testing.
- 
+
+### Hub address space
+
+Every Virtual WAN hub is deployed with a hub address space. The minimum recommended hub address space is /23. Virtual WAN automatically carves out subnets within the hub to deploy different services within the Virtual WAN hub such as Azure Firewalls, NVAs and gateway connectivity services.
+
+There are a limited number of IP addresses available in the Virtual WAN hub that can be assigned to the internal or external subnet of NVA deployments. The number of IP addresses allocated to either the internal or external subnet of NVAs is static for all Virtual WAN hubs deployed with a specific address size, irrespective of whether or not customers utilize or plan to utilize all services in the Virtual WAN hub. Service-level allocation can't be modified.
+
+The following table describes the number of IP addresses available for NVA deployments for different hub address sizes.
+
+|Hub Address Space|IP addresses available for NVA internal subnet| IP addresses available for NVA external subnet|
+|--|--|--|
+|/23 or smaller|11| 11|
+|/22|27|27|
+|/21|59| 59|
+|/20 or larger| 123| 123|
+
+#### <a name="ipconsumed" ></a> Consumed IP addresses
+
+>[NOTE]
+> Select your hub address space with scalability taken into consideration as the subnets allocated to NVAs can't be re-sized. Actions such as deploying multiple NVAs in the hub or adding additional IP configurations to existing NVAs requires sufficient available IP addresses.
+
+The number of IP addresses that are consumed by a single NVA deployment is calculated separately for the internal and external interfaces. NVAs deployed in the same hub consume IP addresses from the same subnet as other NVAs and therefore all NVAs in the same hub contribute towards to hub's limit.
+
+The following table shows the number of NVA instances deployed for different scale units.
+
+|Scale Unit| Instances|
+|--|--|
+|2-20|2|
+|30-40|3|
+|60|4|
+|80|5|
+
+**Internal Interface**
+
+* For NVA deployments that are **not** compatible for [Internet Inbound](how-to-network-virtual-appliance-inbound.md), **1 IP address** is assigned to the Internal Load Balancer. **2 IP addresses** are consumed if the NVA deployments is compatible  for [Internet-Inbound](how-to-network-virtual-appliance-inbound.md). Reference [Internet-Inbound](how-to-network-virtual-appliance-inbound.md) for documentation on how to verify your NVA's compatability status.
+* One IP address is consumed per NVA instance. This IP address is assigned to each NVAs internal NIC. You may add [additional IP configurations](how-to-network-virtual-appliance-add-ip-configurations.md) to the internal NIC. One additional IP configuration results in one additional private IP address consumed per NVA instance. 
+
+**Example**: 
+
+* 60 scale unit NVA (4 instances)
+* Internet-inbound compatible
+* 3 IP configurations on the internal interface.
+
+In this example, 14 IP addresses are consumed in the internal subnet. 12 IP addresses are assigned to the internal interface. 2 additional IP addresses are consumed by the load balancer. 
+
+**External Interface**
+
+One IP address is consumed per NVA instance. This IP address is assigned to the external NIC as part of a private and public IP tuple. You can assign [additional IP configurations](how-to-network-virtual-appliance-add-ip-configurations.md)  to the external NIC to add additional private and public IP tuples. One additional IP configuration results in one additional IP address consumed per NVA instance. 
+
+**Example**: 
+
+* 60 scale unit NVA (4 instances)
+* 2 IP configurations on the internal interface.
+
+In this example, 8 IP addresses are consumed in the external subnet. 8 IP addresses are assigned to the internal interface. 
+
+
 ## <a name="configuration"></a>NVA configuration process
 
 Partners have worked to provide an experience that configures the NVA automatically as part of the deployment process. Once the NVA is provisioned into the virtual hub, any additional configuration that might be required for the NVA must be done via the NVA partners portal or management application. Direct access to the NVA isn't available.
@@ -132,10 +188,10 @@ NVA in the virtual hub is available in the following regions:
 |---|---|
 | North America| Canada Central, Canada East, Central US, East US, East US 2, South Central US, North Central US, West Central US, West US, West US 2 |
 | South America | Brazil South, Brazil Southeast |
-| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe, Sweden Central, Italy North|
+| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe, Sweden Central, Italy North, Spain Central, Poland Central|
 | Middle East | UAE North, Qatar Central, Israel Central |
 | Asia | East Asia, Japan East, Japan West, Korea Central, Korea South, Southeast Asia |
-| Australia | Australia South East, Australia East, Australia Central, Australia Central 2|
+| Australia | Australia South East, Australia East, Australia Central, Australia Central 2, New Zealand North|
 | Africa | South Africa North |
 | India | South India, West India, Central India |
 

@@ -4,6 +4,9 @@ description: Learn how to troubleshoot errors that occur when creating Azure HDI
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 06/15/2024
 ---
 

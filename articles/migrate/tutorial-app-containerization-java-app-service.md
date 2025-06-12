@@ -1,12 +1,12 @@
 ---
 title: Containerization and migration of Java web applications to Azure App Service.
 description: Tutorial:Containerize & migrate Java web applications to Azure App Service.
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.custom: devx-track-extended-java
-ms.date: 09/26/2024
+ms.date: 02/06/2025
 ---
 # Java web app containerization and migration to Azure App Service
 
@@ -27,8 +27,7 @@ The Azure Migrate: App Containerization tool helps you to:
 - **Deploy to Azure App Service**:  The tool then generates the deployment files needed to deploy the containerized application to Azure App Service.
 
 > [!NOTE]
->
-> - The Azure Migrate: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](tutorial-discover-vmware.md).
+> - The Azure Migrate: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md).
 > - App Containerization Tool skips the discovery of some default Tomcat web apps, such as "docs", "examples", "host-manager", "manager" and "ROOT".
 
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
@@ -226,7 +225,7 @@ Once the container image is built, the next step is to deploy the application as
 2. **Specify secret store and monitoring workspace**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or App Service application settings for managing your application secrets. [Learn more](../app-service/configure-common.md#configure-connection-strings).
 
      - If you've selected App Service application settings for managing secrets, then select **Continue**.
-     - If you'd like to use an Azure Key Vault for managing your application secrets, then specify the Azure Key Vault that you'd want to use.
+     - If you'd like to use an Azure Key Vault for managing your application secrets, then specify the Azure Key Vault that you'd want to use.     
          - If you don’t have an Azure Key Vault or would like to create a new Key Vault, you can choose to create one from the tool by selecting **Create new**.
          - The tool will automatically assign the necessary permissions for managing secrets through the Key Vault.
     - **Monitoring workspace**: If you'd selected to enabled monitoring with Application Insights, then specify the Application Insights resource that you'd want to use. This option won't be visible if you had disabled monitoring integration.

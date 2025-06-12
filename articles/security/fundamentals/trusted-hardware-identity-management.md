@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 10/24/2022
+ms.date: 04/16/2025
 ---
 
 # Trusted Hardware Identity Management
@@ -33,17 +33,18 @@ The Open Enclave SDK and Azure Attestation don't look at the `nextUpdate` date, 
 
 ### What is the Azure DCAP library?
 
-The Azure Data Center Attestation Primitives (DCAP) library, a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the Trusted Hardware Identity Management service. Fetching collateral directly from the Trusted Hardware Identity Management service ensures that all Azure hosts have collateral readily available within the Azure cloud to reduce external dependencies. The current recommended version of the DCAP library is 1.11.2.
+The Azure Data Center Attestation Primitives (DCAP) library, a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the Trusted Hardware Identity Management service. Fetching collateral directly from the Trusted Hardware Identity Management service ensures that all Azure hosts have collateral readily available within the Azure cloud to reduce external dependencies. It is recommended to use the latest version available for your target OS.
 
 ### Where can I download the latest Azure DCAP library?
 
 Use the following links to download the packages:
 
-- [Ubuntu 20.04](https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.12.0_amd64.deb)
-- [Ubuntu 18.04](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.12.0_amd64.deb)
+- [Ubuntu 22.04](https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/a/az-dcap-client/)
+- [Ubuntu 20.04](https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/a/az-dcap-client/)
+- [Ubuntu 18.04](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/)
 - [Windows](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.12.0)
 
-For newer versions of Ubuntu (for example, Ubuntu 22.04), you have to use the [Intel QPL](#how-do-i-use-intel-qpl-with-trusted-hardware-identity-management).
+For newer versions of Ubuntu (for example, Ubuntu 24.04), you have to use the [Intel QPL](#how-do-i-use-intel-qpl-with-trusted-hardware-identity-management).
 
 ### Why do Trusted Hardware Identity Management and Intel have different baselines?
 

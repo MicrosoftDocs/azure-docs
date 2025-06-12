@@ -151,7 +151,7 @@ sections:
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
-          No, the address of an existing public IP can't be changed. If you need to change the public IP address on your NAT gateway, see [Add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
+          Yes, you can change the public IP addresses associated with an existing NAT gateway. If you need to change the public IP address on your NAT gateway, see [Add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
 
       - question: If multiple public IP addresses are assigned to a NAT gateway, which public IPs do my subnet resources use?
         answer: |

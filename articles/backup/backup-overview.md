@@ -2,7 +2,7 @@
 title: What is Azure Backup?
 description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 ms.topic: overview
-ms.date: 02/28/2025
+ms.date: 03/04/2025
 ms.custom: mvc, engagement-fy24, ignite-2024
 author: jyothisuri
 ms.author: jsuri
@@ -22,7 +22,7 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 - **SQL Server in Azure VMs** -  [Back up SQL Server databases running on Azure VMs](backup-azure-sql-database.md)
 - **SAP HANA databases in Azure VMs** - [Backup SAP HANA databases running on Azure VMs](backup-azure-sap-hana-database.md)
 - **Azure Database for PostgreSQL servers** -  [Back up Azure PostgreSQL databases and retain the backups for up to 10 years](backup-azure-database-postgresql.md)
-- **Azure Blobs** - [Overview of operational backup for Azure Blobs](blob-backup-overview.md)
+- **Azure Blobs** - Overview of [operational](blob-backup-overview.md?tabs=operational-backup)/ [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backup for Azure Blobs
 - **Azure Database for PostgreSQL Flexible server** - [Overview of Azure Database for PostgreSQL Flexible server backup](backup-azure-database-postgresql-flex-overview.md)
 - **Azure Kubernetes service** - [Overview of AKS backup](azure-kubernetes-service-backup-overview.md)
 - **Azure Database for MySQL - Flexible Server backup (preview)** - [Overview of Azure Database for MySQL - Flexible Server  (preview)](backup-azure-mysql-flexible-server-about.md)

@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 Azure Communication Services capabilities are conceptually organized into discrete areas based on their functional area. Most areas have fully open-source SDKs programmed against published REST APIs that you can use directly over the Internet. The Calling SDK uses proprietary network interfaces and is closed-source.
 
-In the following tables we summarize these areas and availability of REST APIs and SDK libraries. We note whether APIs and SDKs are intended for end-user clients or trusted service environments. You shouldn't directly access APIs such as SMS using end-user devices in low trust environments.
+The following tables summarize these areas and availability of REST APIs and SDK libraries. We note whether APIs and SDKs are intended for end-user clients or trusted service environments. You shouldn't directly access APIs such as SMS using end-user devices in low trust environments.
 
 You can accelerate development of Calling and Chat applications using the [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
 
@@ -115,6 +115,9 @@ All other Communication Services packages target .NET Standard 2.0, which suppor
   - Mono 5.4
   - Xamarin iOS 10.14
   - Xamarin Mac 3.8
+
+> [!NOTE]
+> [Unpackaged app](/windows/apps/package-and-deploy/) is currently not supported
 
 #### SDK package size
 

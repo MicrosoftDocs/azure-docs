@@ -3,7 +3,7 @@ title: Tutorial - Scale clusters in a private cloud
 description: In this tutorial, you use the Azure portal to scale an Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 6/7/2024
+ms.date: 6/4/2025
 ms.custom: engagement-fy23
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution private cloud in the Azure portal.
@@ -39,13 +39,20 @@ We do not allow the mixing of AV36, AV36P, or AV52 SKUs within the same cluster.
 
 2. The deployment of the new cluster will begin.
 
-## Scale a cluster
-
-> [!NOTE]
-> Scaling down a cluster successfully requires all objects (VM/vmdk/iso/etc) on a vSAN datastore to be configured with a storage policy below or equal to [RAID level requirements](configure-storage-policy.md). 
+## Delete an existing cluster
 
 > [!CAUTION]
 > Deleting a cluster terminates all running workloads and components and is an irreversible operation. Once you delete a cluster, you cannot recover the data.
+
+1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters**.
+
+2. Select the **Cluster** you plan to delete, select **More** (...), select **Delete**.
+
+   :::image type="content" source="media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Screenshot showing how to delete a cluster to an Azure VMware Solution private cloud." lightbox="media/tutorial-scale-private-cloud/remove-cluster.png" border="true":::
+
+3. The deletion of the cluster will begin.
+
+## Scale a cluster - Host Addition
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters**.
 
@@ -61,6 +68,26 @@ We do not allow the mixing of AV36, AV36P, or AV52 SKUs within the same cluster.
 
    >[!NOTE] 
    >The hosts will be added to the cluster in parallel.
+
+## Scale a cluster - Host Removal
+
+> [!NOTE]
+> Scaling down a cluster successfully requires all objects (VM/vmdk/iso/etc) on a vSAN datastore to be configured with a storage policy below or equal to [RAID level requirements](configure-storage-policy.md).
+> Scaling down a cluster will place requested host(s) into maintenance mode prior to actual removal of host from vCenter inventory.
+> Clusters cannot be scaled down past the minimum requirement of 3 hosts per cluster. 
+
+1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters**.
+
+2. Select the cluster you want to scale down, select **More** (...), then select **Edit**.
+
+   :::image type="content" source="media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Screenshot showing where to edit an existing cluster." lightbox="media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" border="true":::
+
+3. Select the host you want to remove, select **More** (...), select **Delete**, then select **Save**.
+
+   :::image type="content" source="media/tutorial-scale-private-cloud/remove-host-from-cluster.png" alt-text="Screenshot showing how to remove a host from an existing cluster." lightbox="media/tutorial-scale-private-cloud/remove-host-from-cluster.png" border="true":::
+
+   The removal of a host from the cluster begins.
+
 
 ## Next steps
 

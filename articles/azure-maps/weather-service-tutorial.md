@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Join sensor data with weather forecast data using Jupyter Notebooks (Python)'
 titleSuffix: Microsoft Azure Maps
-description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather services using Jupyter Notebooks in VS Code (Python).
+description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather service using Jupyter Notebooks in VS Code (Python).
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 10/28/2024
@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-python
 
 # Tutorial: Join sensor data with weather forecast data using Jupyter Notebooks (Python)
 
-Wind power is one alternative energy source for fossil fuels to combat against climate change. Because wind isn't consistent by nature, wind power operators need to build machine learning (ML) models to predict the wind power capacity. This prediction is necessary to meet electricity demand and ensure the grid stability. In this tutorial, we walk through how Azure Maps weather forecast data is combined with demo data for weather readings. Weather forecast data is requested by calling Azure Maps Weather services.
+Wind power is one alternative energy source for fossil fuels to combat against climate change. Because wind isn't consistent by nature, wind power operators need to build machine learning (ML) models to predict the wind power capacity. This prediction is necessary to meet electricity demand and ensure the grid stability. In this tutorial, we walk through how Azure Maps weather forecast data is combined with demo data for weather readings. Weather forecast data is requested by calling Azure Maps Weather service.
 
 In this tutorial, you will:
 
@@ -88,7 +88,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## Request daily forecast data
 
-In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast] API of the Azure Maps Weather services. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
+In our scenario, we would like to request daily forecast for each sensor location. The following script calls the [Daily Forecast] API of the Azure Maps Weather service. This API returns weather forecast for each wind turbine, for the next 15 days from the current date.
 
 ```python
 subscription_key = "Your Azure Maps key"
@@ -101,7 +101,7 @@ years,months,days = [],[],[]
 dates_check=set()
 wind_speeds, wind_direction = [], []
 
-# Call azure maps Weather services to get daily forecast data for 15 days from current date
+# Call azure maps Weather service to get daily forecast data for 15 days from current date
 session = aiohttp.ClientSession()
 j=-1
 for i in range(0, len(coords), 2):
@@ -109,7 +109,7 @@ for i in range(0, len(coords), 2):
     wind_direction.append([])
     
     query = str(coords[i])+', '+str(coords[i+1])
-    forecast_response = await(await session.get("https://atlas.microsoft.com/weather/forecast/daily/json?query={}&api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&duration=15".format(query, subscription_key))).json()
+    forecast_response = await(await session.get("https://atlas.microsoft.com/weather/forecast/daily/json?query={}&api-version=1.0&subscription-key={}&duration=15".format(query, subscription_key))).json()
     j+=1
     for day in range(len(forecast_response['forecasts'])):
             date = forecast_response['forecasts'][day]['date'][:10]
@@ -134,7 +134,7 @@ session = aiohttp.ClientSession()
 
 pins="default|la-25+60|ls12|lc003C62|co9B2F15||'Location A'{} {}|'Location B'{} {}|'Location C'{} {}|'Location D'{} {}".format(coords[1],coords[0],coords[3],coords[2],coords[5],coords[4], coords[7],coords[6])
 
-image_response = "https://atlas.microsoft.com/map/static/png?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&layer=basic&style=main&zoom=6&center={},{}&pins={}".format(subscription_key,coords[7],coords[6],pins)
+image_response = "https://atlas.microsoft.com/map/static?subscription-key={}&api-version=2024-04-01&layer=basic&style=main&zoom=6&center={},{}&pins={}".format(subscription_key,coords[7],coords[6],pins)
 
 static_map_response = await session.get(image_response)
 

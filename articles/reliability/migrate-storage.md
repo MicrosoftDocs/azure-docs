@@ -3,7 +3,7 @@ title: Migrate Azure Storage accounts to availability zone support
 description: Learn how to migrate your Azure storage accounts to availability zone support.
 author: sonmitt
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/27/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
@@ -176,4 +176,4 @@ Learn more about:
 > [Azure services that support availability zones](availability-zones-service-support.md)
 
 > [!div class="nextstepaction"]
-> [Azure regions that support availability zones](availability-zones-region-support.md)
+> [Azure regions that support availability zones](regions-list.md)

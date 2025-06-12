@@ -3,13 +3,14 @@ title: 'Quickstart: Create a profile and endpoint - Resource Manager template'
 titleSuffix: Azure Content Delivery Network
 description: In this quickstart, learn how to create an Azure Content Delivery Network profile and endpoint a Resource Manager template
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint - ARM template

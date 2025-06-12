@@ -2,7 +2,7 @@
  ms.topic: include
  author: cherylmc
  ms.service: azure-vpn-gateway
- ms.date: 01/28/2025
+ ms.date: 03/20/2025
  ms.author: cherylmc
 
 
@@ -31,3 +31,4 @@
 1. After the import validates (imports with no errors), select **Save**.
 
 1. In the left pane, locate the **VPN connection**, then select **Connect**.
+1. [!INCLUDE [Azure VPN Client system tray](vpn-gateway-vwan-azure-vpn-client-tray.md)]

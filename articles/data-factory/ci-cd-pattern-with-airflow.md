@@ -3,7 +3,7 @@ title: CI/CD patterns with Workflow Orchestration Manager
 description: This article talks about recommended deployment patterns with Workflow Orchestration Manager.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 01/29/2025
 ---

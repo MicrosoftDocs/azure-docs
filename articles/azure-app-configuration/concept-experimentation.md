@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.custom:
   - build-2024
 ms.topic: conceptual
-ms.date: 11/12/2024
+ms.date: 03/24/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 

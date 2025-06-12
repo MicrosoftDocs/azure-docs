@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: concept-article
-ms.date: 02/19/2025
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: fasttrack-edit
@@ -21,10 +21,12 @@ ms.custom: fasttrack-edit
 
 # Web sign in with OpenID Connect in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign in, and other identity management experiences in your web applications to Microsoft Entra ID. This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 > [!NOTE]
-> Most of the open-source authentication libraries acquire and validate the JWT tokens for your application. We recommend exploring those options, rather than implementing your own code. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
+> Most of the open-source authentication libraries acquire and validate the JWTs for your application. We recommend exploring those options, rather than implementing your own code. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This authentication protocol allows you to perform single sign-on. It introduces the concept of an *ID token*, which allows the client to verify the identity of the user and obtain basic profile information about the user.
 
@@ -110,7 +112,7 @@ error=access_denied
 Just receiving an ID token isn't enough to authenticate the user. Validate the ID token's signature and verify the claims in the token per your application's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they're valid. 
 
 > [!NOTE]
-> Most of the open-source authentication libraries validate the JWT tokens for your application. We recommend exploring those options, rather than implementing your own validation logic. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
+> Most of the open-source authentication libraries validate the JWTs for your application. We recommend exploring those options, rather than implementing your own validation logic. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
 
 Azure AD B2C has an OpenID Connect metadata endpoint, which allows an application to get information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There's a JSON metadata document for each user flow in your B2C tenant. For example, the metadata document for the `b2c_1_sign_in` user flow in `fabrikamb2c.onmicrosoft.com` is located at:
 
@@ -193,7 +195,7 @@ A successful token response looks like:
 | --------- | ----------- |
 | not_before | The epoch time at which the token becomes valid. |
 | token_type | The token type value. `Bearer` is the only type that is supported. |
-| access_token | The signed JWT token that you requested. |
+| access_token | The signed JWT that you requested. |
 | scope | The valid scopes for the token. |
 | expires_in | The length of time that the access token is valid (in seconds). |
 | expires_on | The epoch time when the access token becomes invalid. |
@@ -270,7 +272,7 @@ A successful token response looks like:
 | --------- | ----------- |
 | not_before | The epoch time at which the token becomes valid. |
 | token_type | The token type value. `Bearer` is the only type that is supported. |
-| access_token | The signed JWT token that was requested. |
+| access_token | The signed JWT that was requested. |
 | scope | The valid scopes for the token. |
 | expires_in | The length of time that the access token is valid (in seconds). |
 | refresh_token | An OAuth 2.0 refresh token. The application can use this token to acquire additional tokens after the current token expires. Refresh tokens can be used to retain access to resources for extended periods of time. |

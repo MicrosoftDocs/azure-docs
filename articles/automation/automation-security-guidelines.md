@@ -6,6 +6,8 @@ ms.subservice: shared-capabilities
 ms.date: 12/03/2024
 ms.topic: overview 
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Security best practices in Azure Automation

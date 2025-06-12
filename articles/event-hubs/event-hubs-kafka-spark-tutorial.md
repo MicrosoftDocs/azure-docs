@@ -2,7 +2,8 @@
 title: Connect with your Apache Spark app - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Apache Spark with Azure Event Hubs for Kafka.
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.subservice: kafka
+ms.date: 03/06/2025
 ms.devlang: spark-scala
 ---
 
@@ -29,7 +30,7 @@ Before you start this tutorial, make sure that you have:
 -	[Git](https://www.git-scm.com/downloads)
 
 > [!NOTE]
-> The Spark-Kafka adapter was updated to support Kafka v2.0 as of Spark v2.4. In previous releases of Spark, the adapter supported Kafka v0.10 and later but relied specifically on Kafka v0.10 APIs. As Event Hubs for Kafka does not support Kafka v0.10, the Spark-Kafka adapters from versions of Spark prior to v2.4 are not supported by Event Hubs for Kafka Ecosystems.
+> The Spark-Kafka adapter was updated to support Kafka v2.0 as of Spark v2.4. In previous releases of Spark, the adapter supported Kafka v0.10 and later but relied specifically on Kafka v0.10 APIs. As Event Hubs for Kafka doesn't support Kafka v0.10, the Spark-Kafka adapters from versions of Spark prior to v2.4 aren't supported by Event Hubs for Kafka Ecosystems.
 
 
 ## Create an Event Hubs namespace
@@ -75,7 +76,7 @@ IllegalArgumentException: requirement failed: Got wrong record for <spark job na
 ```
 
 ## Write to Event Hubs for Kafka
-You can also write to Event Hubs the same way you write to Kafka. Don't forget to update your configuration to change **BOOTSTRAP_SERVERS** and **EH_SASL** with information from your Event Hubs namespace.  For the full sample code, see sparkProducer.scala file on the GitHub. 
+You can also write to Event Hubs the same way you write to Kafka. Don't forget to update your configuration to change **BOOTSTRAP_SERVERS** and **EH_SASL** with information from your Event Hubs namespace. For the full sample code, see sparkProducer.scala file on the GitHub. 
 
 ```scala
 df = /**Dataframe**/

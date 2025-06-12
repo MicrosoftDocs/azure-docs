@@ -41,7 +41,7 @@ Next, you create a function in the new function app.
 
 ## Create Azure Cosmos DB trigger
 
-1. In your function app, select **Overview**, and then select **+ Create** under **Functions**.
+1. In your function app, select **Overview** and then select **+ Create** under **Functions**. If you don't see a **Create** button, you must instead add your Azure Cosmos DB trigger to your local code project and then redeploy to Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
 
 1. Under **Select a template**, scroll down and choose the **Azure Cosmos DB trigger** template.
 

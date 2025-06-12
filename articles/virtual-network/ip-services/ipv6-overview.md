@@ -89,8 +89,6 @@ IPv6 for Azure Virtual Network is a foundational feature set that enables custom
 
 The current IPv6 for Azure Virtual Network release has the following limitations:
 
-- VPN gateways currently support IPv4 traffic only, but they still can be deployed in a dual-stacked virtual network using Azure PowerShell and Azure CLI commands only.
-
 - The Azure platforms, such as Azure Container Instances and Azure Container Apps, do not support IPv6 communication for containers 
 
 - IPv6-only Virtual Machines or Virtual Machines Scale Sets aren't supported, each NIC must include at least one IPv4 IP configuration. 

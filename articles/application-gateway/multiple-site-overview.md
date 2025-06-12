@@ -2,10 +2,10 @@
 title: Hosting multiple sites on Azure Application Gateway
 description: This article provides an overview of the Azure Application Gateway multi-site support. Examples are provided of rule priority and the order of evaluation for rules applied to incoming requests. Application Gateway rule priority evaluation order is described in detail. Conditions and limitations for using wildcard rules are provided.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
-ms.date: 02/28/2024
-ms.author: greglin
+ms.date: 03/05/2025
+ms.author: mbender
 ms.topic: concept-article
 ---
 
@@ -75,6 +75,7 @@ In the Azure portal, under the multi-site listener, you must choose the **Multip
 * There can only be up to two asterisks `*` in a host name. For example, `*.contoso.*` is valid and `*.contoso.*.*.com` is invalid.
 * There can only be a maximum of 4 wildcard characters in a host name. For example, `????.contoso.com`, `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid.
 * Using asterisk `*` and question mark `?` together in a component of a host name (`*?` or `?*` or `**`) is invalid. For example, `*?.contoso.com` and `**.contoso.com` are invalid.
+* An entry of `*.contoso.com` does not match `contoso.com` because `*.contoso.com` specifies that a dot is present before contoso.
 
 <!-- docutune:enable -->
 

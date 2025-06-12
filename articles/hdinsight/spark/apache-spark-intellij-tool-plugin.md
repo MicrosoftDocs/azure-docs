@@ -4,6 +4,9 @@ description: Use the Azure Toolkit for IntelliJ to develop Spark applications wr
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/15/2024
 ---
 

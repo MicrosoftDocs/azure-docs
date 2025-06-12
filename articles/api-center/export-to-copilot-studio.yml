@@ -1,0 +1,79 @@
+### YamlMime:HowTo
+
+metadata:
+  title: Export API from API Center as Copilot Studio connector
+  description: Learn how to export an API definition from your Azure API center as a custom connector in Microsoft Copilot Studio.
+  author: dlepow
+  ms.author: danlep
+  ms.service: azure-api-management
+  ms.topic: how-to 
+  ms.date: 04/28/2025
+  ms.custom: template-how-to
+
+  #customer intent: As an API program manager, I want to export an API from my API center inventory as a connector in Microsoft Copilot Studio for use in agents.
+title: |
+  Export API definition from API Center to Copilot Studio as a connector
+
+introduction: |
+  You can export an API definition from your Azure API center as a [connector in Microsoft Copilot Studio](/connectors/overview) (preview). Copilot Studio is a graphical, low-code tool for building agents and agent flows and is part of the Microsoft Power Platform family.
+  
+  In Microsoft Copilot Studio, citizen developers can use the exported connector as a custom connector to [extend the capabilities of AI agents](/microsoft-copilot-studio/copilot-connectors-in-copilot-studio).
+
+  In this article, you create a custom connector from an OpenAPI definition associated with an API in an API center.  
+
+prerequisites:
+  summary: |
+
+  dependencies:
+    - An API center instance. You can [create one](set-up-api-center.md) in the Azure portal.
+    - An API registered in the API center inventory. The API must have a version associated with a [deployment](configure-environments-deployments.md), and it must have an API definition in OpenAPI 2.0 format.
+    - A Power Platform [environment](/power-apps/powerapps-overview#power-apps-for-admins).
+    - A Microsoft Copilot Studio [license](/microsoft-copilot-studio/requirements-licensing-subscriptions).
+
+procedureSection:
+  - title: | 
+        Export API definition from API Center
+    summary: |
+      Follow these steps to export an API definition from your Azure API center as a custom connector in Microsoft Copilot Studio. 
+       
+    steps:
+      - |
+        Navigate to your API center in the Azure portal.
+      - |
+        In the left menu, select **Copilot Studio (preview)**.
+      - |
+        Select **Create a connector**. The **Create a connector** window opens.
+      - |
+        Select a **Power Platform environment** to export the API to. 
+      - |
+        Enter a **Connector display name**.
+      - |
+        Select the **API**, **API version**, and **Deployment** for the connector. The **Host** URL is populated with the deployment's runtime URL.
+      - |
+        Select the **API definition** to use for the connector.
+      - |
+        Optionally, if you configured [API access settings](https://aka.ms/apicenter/docs/access) for the API version in your API center, select an available **Security requirement** type to use for the connector.
+      - |
+        Select **Create**. 
+
+        :::image type="content" source="media/export-to-copilot-studio/copilot-studio-menu-item.png" alt-text="Screenshot of creating a Copilot Studio connector in the portal.":::
+
+        
+        The connector is now available for use in Microsoft Copilot Studio.
+    
+        After creating the connector:
+        
+        - You can [test the connector](/connectors/custom-connectors/define-openapi-definition#test-the-connector) in Power Automate or Power Apps. 
+        
+        - After testing, use the connector in [Microsoft Copilot Studio](/microsoft-copilot-studio/) to create applications and workflows.
+
+relatedContent:
+  
+    - text: Create a custom connector from an OpenAPI definition
+      url: /connectors/custom-connectors/define-openapi-definition
+
+    - text: Learn more about building AI-driven agents with Microsoft Copilot Studio
+      url: /microsoft-copilot-studio/nlu-gpt-overview
+
+    - text: Get started with Microsoft Copilot Studio 
+      url: /training/modules/power-virtual-agents-bots

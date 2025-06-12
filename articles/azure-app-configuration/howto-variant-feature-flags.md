@@ -74,3 +74,4 @@ In this tutorial, you create a web app named _Quote of the Day_. When the app is
 
 2. Continue to the following instructions to use the variant feature flag in your application for the language or platform you're using.
     * [ASP.NET Core](./howto-variant-feature-flags-aspnet-core.md)
+    * [Python](./howto-variant-feature-flags-python.md)

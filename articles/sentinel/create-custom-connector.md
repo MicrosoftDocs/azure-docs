@@ -23,7 +23,7 @@ The following table compares essential details about each method for creating cu
 
 |Method description  |Capability | Serverless    |Complexity  |
 |---------|---------|---------|---------|
-| **[Codeless Connector Platform (CCP)](#connect-with-the-codeless-connector-platform)** <br>Best for less technical audiences to create SaaS connectors using a configuration file instead of advanced development. | Supports all capabilities available with the code. | Yes | Low; simple, codeless development
+| **[Codeless Connector Framework (CCF)](#connect-with-the-codeless-connector-framework)** <br>Best for less technical audiences to create SaaS connectors using a configuration file instead of advanced development. | Supports all capabilities available with the code. | Yes | Low; simple, codeless development
 |**[Azure Monitor Agent](#connect-with-the-azure-monitor-agent)** <br>Best for collecting files from on-premises and IaaS sources   | File collection, data transformation  |   No      | Low         |
 |**[Logstash](#connect-with-logstash)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Supports all capabilities of the Azure Monitor Agent  |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
 |**[Logic Apps](#connect-with-logic-apps)** <br>High cost; avoid for high-volume data <br>Best for low-volume cloud sources  | Codeless programming allows for limited flexibility, without support for implementing algorithms.<br><br> If no available action already supports your requirements, creating a custom action may add complexity.    |    Yes         |   Low; simple, codeless development      |
@@ -38,11 +38,11 @@ The following table compares essential details about each method for creating cu
 > - Office 365 (Microsoft Sentinel GitHub community): [Logic App connector](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data) | [Azure Function connector](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
 >
 
-## Connect with the Codeless Connector Platform
+## Connect with the Codeless Connector Framework
 
-The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners, and then deployed to your own workspace, or as a solution to Microsoft Sentinel's content hub.
+The Codeless Connector Framework (CCF) provides a configuration file that can be used by both customers and partners, and then deployed to your own workspace, or as a solution to Microsoft Sentinel's content hub.
 
-Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
+Connectors created using the CCF are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 
@@ -92,7 +92,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to create a serverless, custom c
     |---------|---------|
     |**A recurring task**     |   For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. <br>For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](../connectors/connectors-native-recurrence.md).      |
     |**On-demand triggering**     | Run your Logic App on-demand for manual data collection and testing. <br>For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](../logic-apps/logic-apps-http-endpoint.md).        |
-    |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can start the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPs](../connectors/connectors-native-http.md).       |
+    |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can start the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPS](../connectors/connectors-native-http.md).       |
 
 
 1. **Use any of the Logic App connectors that read information to get your events**. For example:

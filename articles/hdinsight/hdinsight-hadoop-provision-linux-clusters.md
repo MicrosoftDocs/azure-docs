@@ -4,6 +4,9 @@ description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, devx-track-azurepowershell, linux-related-content
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 01/08/2025
 ---
 
@@ -137,7 +140,8 @@ If you want to retain your Hive tables after you delete an HDInsight cluster, us
 
 An HDInsight metastore that's created for one HDInsight cluster version can't be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-You can use managed identities to authenticate with SQL database for Hive. For more information, see [Use managed identity for SQL Database authentication in HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md).
+You can use managed identities to authenticate with SQL database for Hive. For more information, see [Use managed identity for SQL Database authentication in HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md).
+
 
 The default metastore provides a SQL database with a *basic tier 5 DTU limit (not upgradeable)*. It's suitable for basic testing purposes. For large or production workloads, we recommend that you migrate to an external metastore.
 
@@ -207,7 +211,8 @@ Each cluster type has its own number of nodes, terminology for nodes, and defaul
 | HBase |Head server (2), Region server (1+), Master/ZooKeeper node (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="HDInsight HBase cluster type setup." border="false"::: |
 | Spark |Head node (2), Worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="HDInsight spark cluster type setup." border="false"::: |
 
-For more information, see [Default node configuration and VM sizes for clusters](hdinsight-supported-node-configuration.md).
+For more information, see [Default node configuration and VM sizes for clusters](hdinsight-supported-node-configuration.md).
+
 
 The cost of HDInsight clusters determined by the number of nodes and the VM sizes for the nodes.
 

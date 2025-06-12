@@ -6,21 +6,19 @@
     href: bastion-overview.md
   - name: What's new in Bastion?
     href: whats-new.md
-- name: Quickstarts
+- name: Quickstarts & Tutorials
   expanded: true
   items:
-  - name: Deploy Bastion - default settings - Standard SKU
+  - name: Deploy Bastion Developer
+    href: quickstart-developer.md
+  - name: Deploy Bastion - Standard SKU
     href: quickstart-host-portal.md
-  - name: Deploy Bastion - default settings - Developer SKU
-    href: quickstart-developer-sku.md
+  - name: Deploy Bastion - specify settings and SKU
+    href: tutorial-create-host-portal.md
   - name: Deploy Bastion - ARM template
     href: quickstart-host-arm-template.md
   - name: Deploy Bastion - Terraform
     href: quickstart-deploy-terraform.md
-- name: Tutorials
-  items:
-  - name: Deploy Bastion using manually specified settings and SKUs
-    href: tutorial-create-host-portal.md
 - name: Concepts
   items:
   - name: Work remotely
@@ -140,7 +138,7 @@
   - name: Azure Networking blog
     href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Microsoft Q&A question page - Azure Bastion
-    href: https://learn.microsoft.com/answers/tags/119/azure-bastion
+    href: /answers/tags/119/azure-bastion
   - name: Networking feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing

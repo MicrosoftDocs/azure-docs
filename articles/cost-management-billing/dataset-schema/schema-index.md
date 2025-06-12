@@ -1,13 +1,13 @@
 ---
 title: Cost Management dataset schema index
 description: Learn about the dataset schemas available in Cost Management.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 01/24/2025
-ms.author: banders
+ms.author: jojoh
 ---
 
 # Cost Management dataset schema index

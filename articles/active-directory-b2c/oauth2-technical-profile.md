@@ -1,7 +1,7 @@
 ---
 title: Define an OAuth2 technical profile in a custom policy
 titleSuffix: Azure AD B2C
-description: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C.
+description: Define an OAuth2 technical profile in a custom policy in Azure AD B2C. Integrate with OAuth2 identity providers for social or enterprise sign-in.
 
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Define an OAuth2 technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -210,7 +212,7 @@ Authorization: Basic YWJjZDoxMjM0
 redirect_uri=https%3a%2f%2fcontoso.b2clogin.com%2fontoso.onmicrosoft.com%2foauth2%2fauthresp&code=12345&grant_type=authorization_code
 ```
 
-For identity providers that support private key JWT authentication, configure the `token_endpoint_auth_method` metadata to `private_key_jwt`. With this type of authentication method, the certificate provided to Azure AD B2C is used to generate a signed assertion, which is passed to the identity provider through the `client_assertion` parameter. The `client_assertion_type` set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. The `token_signing_algorithm` metadata specifies the signing algorithm of the JWT token. 
+For identity providers that support private key JWT authentication, configure the `token_endpoint_auth_method` metadata to `private_key_jwt`. With this type of authentication method, the certificate provided to Azure AD B2C is used to generate a signed assertion, which is passed to the identity provider through the `client_assertion` parameter. The `client_assertion_type` set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. The `token_signing_algorithm` metadata specifies the signing algorithm of the JWT. 
 
 ```xml
 <Item Key="AccessTokenEndpoint">https://contoso.com/oauth2/token</Item>
@@ -359,6 +361,6 @@ The **CryptographicKeys** element contains the following attribute:
 
 When you configure the redirect URI of your identity provider, enter `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/oauth2/authresp`. Make sure to replace `{tenant-name}` with your tenant's name (for example, contosob2c). The redirect URI needs to be in all lowercase.
 
-## Next steps
+## Related content
 
 - Learn how to [add an identity provider to your Azure Active Directory B2C tenant](add-identity-provider.md)

@@ -1,8 +1,6 @@
 ---
 title: Prepare for Operator Connect or Teams Phone Mobile live traffic with Azure Communications Gateway
 description: After deploying Azure Communications Gateway, you and your onboarding team must carry out further integration work before you can launch your Teams Phone Mobile or Operator Connect service.
-author: GemmaWakeford
-ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 02/16/2024

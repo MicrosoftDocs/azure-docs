@@ -179,6 +179,201 @@
             "source_path_from_root": "/articles/azure-maps/tutorial-geofence.md",
             "redirect_url": "/azure/azure-maps/",
             "redirect_document_id": true
-        }
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/quick-android-map.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/migrate-from-google-maps-android-app.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-use-android-map-control-library.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/set-android-map-styles.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/map-add-controls-android.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/create-data-source-android-sdk.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-add-symbol-to-android-map.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/map-add-bubble-layer-android.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/display-feature-information-android.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/android-map-add-line-layer.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-add-shapes-to-android-map.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/map-extruded-polygon-android.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/map-add-heat-map-layer-android.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/map-add-image-layer-android.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-add-tile-layer-android-map.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-show-traffic-android.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/clustering-point-data-android-sdk.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/data-driven-style-expressions-android-sdk.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/android-map-events.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-load-geojson-file-android.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/quick-ios-app.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-use-ios-map-control-library.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/set-map-style-ios-sdk.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/add-controls-map-ios.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/create-data-source-ios-sdk.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/add-symbol-layer-ios.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/add-bubble-layer-map-ios.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/display-feature-information-ios-sdk.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/add-line-layer-map-ios.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/add-polygon-layer-map-ios.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/add-polygon-extrusion-layer-map-ios.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/add-heat-map-layer-ios.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/add-image-layer-map-ios.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/add-tile-layer-map-ios.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/show-traffic-data-map-ios-sdk.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/clustering-point-data-ios-sdk.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/data-driven-style-expressions-ios-sdk.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/interact-map-ios-sdk.md  ",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-use-indoor-module-ios.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": false
+        }   
     ]
 }

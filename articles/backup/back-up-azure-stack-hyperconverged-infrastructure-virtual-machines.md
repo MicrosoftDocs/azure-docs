@@ -2,7 +2,7 @@
 title: Back up Azure Local virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 02/20/2025
+ms.date: 03/06/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
@@ -75,6 +75,11 @@ These are the prerequisites for backing up virtual machines with MABS:
    - Required space for backup storage - 80 TB
 
 2. Set up the MABS protection agent on the server or each cluster node.
+
+   >[!Note]
+   >If **Azure Benefits** is enabled on the Azure VM, disable the Firewall rule `AzsHci-ImdsAttestation-Block-TCP-In` to allow the **Agent WMI Queries**. To disable the Firewall, run the following cmdlet from PowerShell prompt on each node of the cluster:
+   >
+   >`Get-ClusterNode | % {$session = New-PsSession -ComputerName $_ ; Invoke-Command -Session $session -ScriptBlock {$env:COMPUTERNAME ; Disable-NetFirewallRule AzsHci-ImdsAttestation-Block-TCP-In }}`
 
 3. To deploy the agent, choose one of the following methods:
 

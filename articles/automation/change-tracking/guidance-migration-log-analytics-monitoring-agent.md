@@ -1,12 +1,13 @@
 ---
 title: Migration guidance from Change Tracking and inventory using Log Analytics to Azure Monitoring Agent
 description: An overview on how to migrate from Change Tracking and inventory using Log Analytics to Azure Monitoring Agent.
-author: snehasudhirG
+
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: how-to
 ms.date: 01/03/2025
-ms.author: sudhirsneha
+ms.author: v-jasmineme
+author: jasminemehndir
 ms.custom:
 ms.service: azure-automation
 ---

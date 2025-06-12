@@ -5,6 +5,9 @@ ms.custom: hdinsightactive
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 06/15/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Reboot VMs for HDInsight clusters

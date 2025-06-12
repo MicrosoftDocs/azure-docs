@@ -6,6 +6,8 @@ ms.subservice: process-automation
 ms.date: 09/09/2024
 ms.topic: overview 
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Automation Hybrid Runbook Worker overview
@@ -149,7 +151,7 @@ You might have runbooks that manage resources on the local machine or run agains
 
 ### Hybrid Runbook Worker jobs
 
-Hybrid Runbook Worker jobs run under the local **System** account on Windows or the [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) on Linux. Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs run in Azure sandboxes. See [Runbook execution environment](automation-runbook-execution.md#runbook-execution-environment).
+Hybrid Runbook Worker jobs run under the local **System** account on Windows or the nxautomation account on Linux. Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs run in Azure sandboxes. See [Runbook execution environment](automation-runbook-execution.md#runbook-execution-environment).
 
 If the Hybrid Runbook Worker host machine reboots, any running runbook job restarts from the beginning, or from the last checkpoint for PowerShell Workflow runbooks. After a runbook job is restarted more than three times, it's suspended.
 

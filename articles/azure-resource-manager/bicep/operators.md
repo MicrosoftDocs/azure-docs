@@ -3,7 +3,7 @@ title: Bicep operators
 description: Describes the Bicep operators available for Azure Resource Manager deployments.
 ms.topic: reference
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 02/12/2025
+ms.date: 05/20/2025
 ---
 
 # Bicep operators
@@ -46,6 +46,7 @@ The accessor operators are used to access nested resources and properties on obj
 | Operator | Name | Description |
 | ---- | ---- | ---- |
 | `[]` | [Index accessor](./operators-access.md#index-accessor) | Access an element of an array or property on an object. |
+| `[^index]` | [Reverse index accessor](./operators-access.md#reverse-index-accessor) | Accesses an array element by index, counting from the end of the array (1-based from the end). |
 | `.` | [Function accessor](./operators-access.md#function-accessor) | Call a function on a resource. |
 | `::` | [Nested resource accessor](./operators-access.md#nested-resource-accessor) | Access a nested resource from outside of the parent resource. |
 | `.` | [Property accessor](./operators-access.md#property-accessor) | Access properties of an object. |

@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-arm-template
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using an ARM template.

@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: feature-availability
-ms.date: 06/27/2024
+ms.date: 04/30/2025
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -158,6 +158,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](/azure/defender-for-cloud/custom-dashboards-azure-workbooks)                               | GA             | GA                             |
 | **Microsoft Defender plans and extensions**                                                                                                                                          |                |                                |
 | <li> [Microsoft Defender for servers](/azure/defender-for-cloud/defender-for-servers-introduction)                                                                                    | GA             | GA                             |
+| <li> [Microsoft Defender AI Services](/azure/defender-for-cloud/ai-threat-protection)                                                                                    | GA             | Not Available|
 | <li> [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)                                                                            | GA             | Not Available                  |
 | <li> [Microsoft Defender for DNS](/azure/defender-for-cloud/defender-for-dns-introduction)                                                                                            | Not available for new subscriptions | Not available for new subscriptions |
 | <li> [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) <sup>[9](#footnote4)</sup>                                                  | GA                                   | GA                             |
@@ -225,7 +226,7 @@ Office 365 GCC is paired with Microsoft Entra ID in Azure. Office 365 GCC High a
 
 | Connector | Azure | Azure Government |
 |--|--|--|
-| **[Office IRM](../../sentinel/data-connectors/microsoft-365-insider-risk-management.md)**  |  |  |
+| **[Office IRM](../../sentinel/data-connectors-reference.md#microsoft-365-insider-risk-management)**  |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
@@ -237,39 +238,39 @@ Office 365 GCC is paired with Microsoft Entra ID in Azure. Office 365 GCC High a
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)** |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)** <br>Shadow IT logs |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)** <br>Shadow IT logs |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)**                  <br>Alerts |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)**                  <br>Alerts |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Endpoint](../../sentinel/data-connectors/microsoft-defender-for-endpoint.md)** |  |  |
+| **[Microsoft Defender for Endpoint](../../sentinel/data-connectors-reference.md#microsoft-defender-for-endpoint)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Defender for Identity](../../sentinel/data-connectors/microsoft-defender-for-identity.md)** |  |  |
+| **[Microsoft Defender for Identity](../../sentinel/data-connectors-reference.md#microsoft-defender-for-identity)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| **[Microsoft Defender for Office 365](../../sentinel/data-connectors/microsoft-defender-for-office-365.md)** |  |  |
+| **[Microsoft Defender for Office 365](../../sentinel/data-connectors-reference.md#microsoft-defender-for-office-365-preview)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| - **[Microsoft Power BI](../../sentinel/data-connectors/microsoft-powerbi.md)** | |  |
+| - **[Microsoft Power BI](../../sentinel/data-connectors-reference.md#microsoft-powerbi)** | |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| - **[Microsoft Project](../../sentinel/data-connectors/microsoft-project.md)** |  |  |
+| - **[Microsoft Project](../../sentinel/data-connectors-reference.md#microsoft-project)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| **[Office 365](../../sentinel/data-connectors/office-365.md)** |  |  |
+| **[Office 365](../../sentinel/data-connectors-reference.md#microsoft-365-formerly-office-365)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |

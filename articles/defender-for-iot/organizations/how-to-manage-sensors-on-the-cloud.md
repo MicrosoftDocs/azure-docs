@@ -15,7 +15,6 @@ This article describes how to view and manage sensors with [Microsoft Defender f
 Before you can use the procedures in this article, you need to have network sensors onboarded to Defender for IoT. For more information, see:
 
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
-- [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
 
 ## View your sensors
 

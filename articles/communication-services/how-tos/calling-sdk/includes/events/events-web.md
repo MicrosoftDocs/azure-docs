@@ -67,10 +67,10 @@ Your application should notify the user of the incoming call. The notification p
 
 **Code sample:**
 ```javascript
-callClient.on('incomingCall', (async (incomimgCallEvent) => {
+callClient.on('incomingCall', (async (incomingCallEvent) => {
     try {
         // Store a reference to the call object
-        incomingCall = incomimgCallEvent.incomingCall; 
+        incomingCall = incomingCallEvent.incomingCall; 
         // Update your UI to allow
         acceptCallButton.disabled = false; 
         callButton.disabled = true;
@@ -210,7 +210,7 @@ Your application should show a preview of the local video and enable or disable 
 
 ```javascript
 call.on('isLocalVideoStartedChanged', () => {
-    showdDisableCameraButton(call.isLocalVideoStarted);
+    showDisableCameraButton(call.isLocalVideoStarted);
 });
 ```
 
@@ -234,7 +234,7 @@ call.on('remoteParticipantsUpdated', (remoteParticipantsUpdatedEvent) => {
     
     remoteParticipantsUpdatedEvent.removed.forEach(participant => {
         // removeParticipant should
-        //   - unsubcribe from the remote participants events 
+        //   - unsubscribe from the remote participants events 
         //   - update the UI  
         removeParticipant(participant);
     });
@@ -325,7 +325,7 @@ call.on('mutedByOthers', () => {
 
 ### Event: `callerInfoChanged`
 
-The `callerInfoChanged` event happens when caller information was updated.
+The `callerInfoChanged` event happens when caller information was updated. This occurs when a caller changes their display name.
 
 **How might your application react to the event?**
 Application can update caller information.
@@ -340,7 +340,7 @@ call.on('callerInfoChanged', () => {
 
 ### Event: `transferorInfoChanged`
 
-The `transferorInfoChanged` event happens when transferor information was updated.
+The `transferorInfoChanged` event happens when transferor information was updated. This occurs when a transferor changes their display name.
 
 **How might your application react to the event?**
 Application can update transferor information.
@@ -359,7 +359,7 @@ call.on('transferorInfoChanged', () => {
 
 ### Event: `roleChanged`
 
-The `roleChanged` event fires when the `RemotePartipant` role changes in the call. An example would be when the RemoteParticipant become presenter `ACSCallParticipantRolePresenter` in a call.
+The `roleChanged` event fires when the `RemoteParticipant` role changes in the call. An example would be when the RemoteParticipant become presenter `ACSCallParticipantRolePresenter` in a call.
 
 **How might your application react to the event?**
 Your application should update its UI based on the `RemoteParticipant` new role.
@@ -410,7 +410,7 @@ The `isSpeakingChanged` when the dominant speaker in a call changes.
 
 **How might your application react to the event?**
 
-Your application UI should give priority to display the `RemotePartipant` who became dominant speaker.
+Your application UI should give priority to display the `RemoteParticipant` who became dominant speaker.
 
 **Code Sample:**
 

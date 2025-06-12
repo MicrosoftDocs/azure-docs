@@ -1,15 +1,20 @@
 ---
-title: Send or receive events from Azure Event Hubs using Java (latest)
-description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs.
+title: Send and Receive Events With Java in Azure Event Hubs
+description: Learn how to create a Java application to send and receive events in Azure Event Hubs. Follow this step-by-step guide to get started.
 ms.topic: quickstart
-ms.date: 02/16/2024
+ms.date: 05/14/2025
 ms.devlang: java
-ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - mode-api
+  - passwordless-java
+  - devx-track-extended-java
+  - build-2025
 ---
 
-# Use Java to send events to or receive events from Azure Event Hubs
+# Quickstart: Send events to or receive events from Azure Event Hubs
 
-This quickstart shows how to send events to and receive events from an event hub using the **azure-messaging-eventhubs** Java package.
+In this Quickstart, you learn how to send events to and receive events from an Azure event hub using the **azure-messaging-eventhubs** Java package.
 
 > [!TIP]
 > If you're working with Azure Event Hubs resources in a Spring application, we recommend that you consider [Spring Cloud Azure](/azure/developer/java/spring-framework/) as an alternative. Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Event Hubs, see [Spring Cloud Stream with Azure Event Hubs](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub).
@@ -38,12 +43,12 @@ First, create a new **Maven** project for a console/shell application in your fa
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-messaging-eventhubs</artifactId>
-		    <version>5.18.0</version>
+		    <version>5.20.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-identity</artifactId>
-		    <version>1.11.2</version>
+		    <version>1.16.1</version>
 		    <scope>compile</scope>
 		</dependency>
 ```
@@ -54,7 +59,7 @@ First, create a new **Maven** project for a console/shell application in your fa
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-messaging-eventhubs</artifactId>
-		    <version>5.18.0</version>
+		    <version>5.20.2</version>
 		</dependency>
 ```
 
@@ -253,17 +258,17 @@ Add the following dependencies in the pom.xml file.
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-messaging-eventhubs</artifactId>
-		    <version>5.15.0</version>
+		    <version>5.20.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-		    <version>1.16.1</version>
+		    <version>1.20.6</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-identity</artifactId>
-		    <version>1.8.0</version>
+		    <version>1.16.1</version>
 		    <scope>compile</scope>
 		</dependency>	
 	</dependencies>
@@ -282,12 +287,12 @@ Add the following dependencies in the pom.xml file.
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-messaging-eventhubs</artifactId>
-		    <version>5.15.0</version>
+		    <version>5.20.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.azure</groupId>
 		    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-		    <version>1.16.1</version>
+		    <version>1.20.6</version>
 		</dependency>
 	</dependencies>
 ```
@@ -475,7 +480,7 @@ Add the following dependencies in the pom.xml file.
     Exiting process
     ```
 
-## Next steps
+## Related content
 
 See the following samples on GitHub:
 

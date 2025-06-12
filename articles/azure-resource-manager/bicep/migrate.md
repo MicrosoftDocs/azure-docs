@@ -2,8 +2,10 @@
 title: Migrate Azure resources and JSON ARM templates to use Bicep
 description: Learn the recommended workflow when migrating Azure resources and JSON ARM templates to use Bicep.
 ms.topic: conceptual
-ms.date: 01/10/2025
-ms.custom: devx-track-bicep
+ms.date: 04/09/2025
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 author: joshuawaddell
 ms.author: jowaddel
 ---
@@ -28,7 +30,7 @@ In the _convert_ phase of migrating your resources to Bicep, the goal is to capt
 
 The convert phase consists of two steps, which you complete in sequence:
 
-1. **Capture a representation of your Azure resources.** If you have an existing JSON template that you're converting to Bicep, the first step is easy - you already have your source template. If you're converting Azure resources that were deployed by using the portal or another tool, you need to capture the resource definitions. You can capture a JSON representation of your resources using the Azure portal, Azure CLI, or Azure PowerShell cmdlets to *export* single resources, multiple resources, and entire resource groups. You can use the `Insert Resource` command within Visual Studio Code to import a Bicep representation of your Azure resource.
+1. **Capture a representation of your Azure resources.** If you have an existing JSON template that you're converting to Bicep, the first step is easy - you already have your source template. If you're converting Azure resources that were deployed by using the portal or another tool, you need to capture the resource definitions. You can capture a JSON representation of your resources using the Azure portal, Azure CLI, or Azure PowerShell cmdlets to _export_ single resources, multiple resources, and entire resource groups. You can use the `Insert Resource` command within Visual Studio Code to import a Bicep representation of your Azure resource.
 
 1. **If required, convert the JSON representation to Bicep using the _decompile_ command.** [The Bicep tooling includes the `decompile` command to convert templates.](decompile.md) You can invoke the `decompile` command from [Visual Studio Code with the Bicep extension](./visual-studio-code.md#decompile-into-bicep-command), the [Azure CLI](./bicep-cli.md#decompile), or from the [Bicep CLI](./bicep-cli.md#decompile). The decompilation process is a best-effort process and doesn't guarantee a full mapping from JSON to Bicep. You may need to revise the generated Bicep file to meet your template best practices before using the file to deploy resources.
 
@@ -80,9 +82,9 @@ In the _test_ phase of migrating your resources to Bicep, the goal is to verify 
 
 The test phase consists of two steps, which you complete in sequence:
 
-1. **Run the ARM template deployment what-if operation.** To help you verify your converted templates before deployment, you can use the [Azure Resource Manager template deployment what-if operation](../templates/deploy-what-if.md). It compares the current state of your environment with the desired state that is defined in the template. The tool outputs the list of changes that will occur *without* applying the changes to your environment. You can use what-if with both incremental and complete mode deployments. Even if you plan to deploy your template using incremental mode, it's a good idea to run your what-if operation in complete mode.
+1. **Run the ARM template deployment what-if operation.** To help you verify your converted templates before deployment, you can use the [Azure Resource Manager template deployment what-if operation](../templates/deploy-what-if.md). It compares the current state of your environment with the desired state that is defined in the template. The tool outputs the list of changes that will occur _without_ applying the changes to your environment. You can use what-if with both [incremental mode](../templates/deployment-modes.md#incremental-mode) and [complete mode](../templates/deployment-modes.md#complete-mode) deployments. Even if you plan to deploy your template using incremental mode, it's a good idea to run your what-if operation in complete mode.
 
-1. **Perform a test deployment.** Before introducing your converted Bicep template to production, consider running multiple test deployments. If you have multiple environments (for example, development, test, and production), you may want to try deploying your template to one of your non-production environments first. After the deployment, compare the original resources with the new resource deployments for consistency.
+1. **Perform a test deployment.** Before introducing your converted Bicep file to production, consider running multiple test deployments. If you have multiple environments (for example, development, test, and production), you may want to try deploying your template to one of your non-production environments first. After the deployment, compare the original resources with the new resource deployments for consistency.
 
 ## Phase 5: Deploy
 
@@ -96,7 +98,7 @@ The deploy phase consists of four steps, which you complete in sequence:
 
 1. **Deploy manually.** If you're going to use the converted template in a pipeline, such as [Azure DevOps](add-template-to-azure-pipelines.md) or [GitHub Actions](deploy-github-actions.md), consider running the deployment from your local machine first. It's preferable to test the template's functionality before incorporating it into your production pipeline. That way, you can respond quickly if there's a problem.
 
-1. **Run smoke tests.** After your deployment is complete, you should run a series of *smoke tests* to ensure that your application or workload is working properly. For example, test to see if your web app is accessible through normal access channels, such as the public Internet or across a corporate VPN. For databases, attempt to make a database connection and execute a series of queries. With virtual machines, sign in to the virtual machine and make sure that all services are up and running.
+1. **Run smoke tests.** After your deployment is complete, you should run a series of _smoke tests_ to ensure that your application or workload is working properly. For example, test to see if your web app is accessible through normal access channels, such as the public Internet or across a corporate VPN. For databases, attempt to make a database connection and execute a series of queries. With virtual machines, sign in to the virtual machine and make sure that all services are up and running.
 
 ## Next steps
 

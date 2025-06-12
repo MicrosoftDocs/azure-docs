@@ -2,7 +2,7 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 02/27/2025
+ms.date: 04/30/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -36,10 +36,6 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 
 ---
 
-### Supported regions for Cross Subscription Backup (preview)
-
-Cross Subscription Backup (CSB) for Azure Files (preview) is currently available in the following regions: East Asia, Southeast Asia, UK South, UK West, Central India.
-
 ## Supported storage accounts
 
 **Choose a backup tier**:
@@ -62,9 +58,6 @@ Cross Subscription Backup (CSB) for Azure Files (preview) is currently available
 >[!Important]
 >The source Storage Account must have the **Allow storage account key access** setting enabled for successful Azure Files backup and restore.
 
-
->[!Note]
->Storage accounts with restricted network access aren't supported.   
 
 ---
 
@@ -128,7 +121,7 @@ Cross Subscription Backup (CSB) for Azure Files (preview) is currently available
 | Maximum number of files in a File Share | 10 million |
 
 >[!Note]
->If you have multiple backups scheduled per day, only the last scheduled backup of the day is transferred to the vault.
+>If you have multiple backups scheduled per day, only the last scheduled snapshot of the day is transferred to the vault.
 
 ---
 
@@ -147,16 +140,13 @@ Cross Subscription Backup (CSB) for Azure Files (preview) is currently available
 | Maximum size of a file (if the destination account is in a Vnet) | 1 TB |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large File Shares | 15  TiB |
-| Maximum duration of a restore job                           | 15 days
+| Maximum duration of a restore job                           | 7 days
 
 # [Vault-standard tier](#tab/vault-tier)
 
 | Setting | Limit |
 | --- | --- |
-| Maximum size of a file | 1 TB | 
-
->[!Note]
->Restore to File Shares connected with Azure File sync service or with restricted network access isn't supported.	
+| Maximum size of a file | 4 TB | 
 
 ---
 
@@ -226,6 +216,18 @@ The following table lists the behavior of backups due to customer-initiated fail
 | --- | --- | --- | --- |
 | Customer-managed planned failover | Supported | Supported | Not supported |
 | Customer-managed unplanned failover | Not supported | Only cross-region restore from the vault is supported. | Not supported |
+
+## Permitted scope for copy operations(preview)
+
+The following table lists the scope for copy operation:
+
+| Configuration | Support |
+| --- | --- |
+| From any storage account | Supported |
+| From storage accounts in the same Microsoft Entra tenant | Supported |
+| From storage accounts with a private endpoint to the same virtual network | Unsupported |
+
+Azure Trusted Services are allowed, but private endpoints take priority; so, this won't work. 
 
 
 ## Next steps

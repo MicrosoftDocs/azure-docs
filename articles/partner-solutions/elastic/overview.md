@@ -47,4 +47,5 @@ For more help with using the Elastic service, see the [Elastic documentation](ht
 
 ## Next steps
 
-- [QuickStart: Get started with Elastic](create.md)
+> [!div class="nextstepaction"]
+> [QuickStart: Get started with Elastic](create.md)

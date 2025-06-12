@@ -20,6 +20,8 @@ ms.subservice: b2c
 
 # Define an OAuth1 technical profile in an Azure Active Directory B2C custom policy
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Azure Active Directory B2C (Azure AD B2C) provides support for the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849) identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With an OAuth1 technical profile, you can federate with an OAuth1 based identity provider, such as X. Federating with the identity provider allows users to sign in with their existing social or enterprise identities.

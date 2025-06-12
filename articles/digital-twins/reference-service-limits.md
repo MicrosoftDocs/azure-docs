@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Service limits
 titleSuffix: Azure Digital Twins
 description: Chart showing the limits of the Azure Digital Twins service.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 01/27/2025
 ms.topic: reference
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Azure Digital Twins service limits
@@ -26,7 +20,7 @@ The following sections describe the service limits of Azure Digital Twins.
 
 ## Limits by type
 
-[!INCLUDE [Azure Digital Twins limits](../../includes/digital-twins-limits.md)]
+[!INCLUDE [Azure Digital Twins limits](includes/digital-twins-limits.md)]
 
 ## Working with limits
 

@@ -7,17 +7,18 @@ ms.author: elavarasid
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-Capabilities feature is an extended feature of the core `Call` API and allows you to obtain the capabilities of the local participant in the current call.
+The ability to view capabilities is an extended feature of the core `Call` API. It enables you to obtain the capabilities of the local participant in the current call.
 
+The feature enables you to register for an event listener to listen for capability changes.
 
-The feature allows you to register for an event listener, to listen to capability changes.
+## Get the capabilities feature
 
-**Register to capabilities feature:**
 >```js
 >const capabilitiesFeature = this.call.feature(Features.Capabilities);
 >```
 
-**Get the capabilities of the local participant:**
+## Get the capabilities of the local participant
+
 Capabilities object has the capabilities of the local participants and is of type `ParticipantCapabilities`. Properties of Capabilities include:
 
 - *isPresent* indicates if a capability is present.
@@ -28,6 +29,7 @@ const capabilities =  capabilitiesFeature.capabilities;
 ```
 
 **Subscribe to `capabilitiesChanged` event:**
+
 ```js
 capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
     for (const [key, value] of Object.entries(capabilitiesChangeInfo.newValue)) {
@@ -71,7 +73,8 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
 });
 ```
 
-**Capabilities Exposed**
+## Capabilities Exposed
+
 - *turnVideoOn*: Ability to turn on video
 - *unmuteMic*: Ability to send audio
 - *shareScreen*: Ability to share screen
@@ -86,7 +89,7 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
 - *startLiveCaptions*: Ability to start live captions (beta only)
 - *stopLiveCaptions*: Ability to stop live captions (beta only)
 - *raiseHand*: Ability to raise hand (beta only)
-- *muteOthers*: Ability to soft mute remote participant(s) in the meeting 
+- *muteOthers*: Ability to soft mute remote participants in the meeting 
 - *reaction*: Ability to react in the meeting (beta only)
 - *viewAttendeeNames*: Ability to view attendee names in the meeting
 - *forbidOthersAudio*: Ability to forbid attendees' audio in the meeting or group call

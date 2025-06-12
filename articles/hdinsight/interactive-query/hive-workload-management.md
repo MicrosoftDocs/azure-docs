@@ -4,8 +4,9 @@ titleSuffix: Azure HDInsight
 description: Hive LLAP Workload Management feature
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: reachnijel
-ms.author: nijelsf
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

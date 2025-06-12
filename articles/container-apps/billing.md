@@ -14,7 +14,7 @@ ms.author: cshoe
 
 # Billing in Azure Container Apps
 
-Billing in Azure Container Apps is based on your [plan type](plans.md).
+Billing in Azure Container Apps is based on your [plan type](plans.md) (Consumption or Dedicated), which is determined by your environment type you select.
 
 | Plan type | Description |
 |--|--|

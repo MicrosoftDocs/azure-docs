@@ -5,8 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 12/22/2024
-appliesto: 
-  - Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to learn the basics of navigating, triaging, and managing Microsoft Sentinel incidents in the Azure portal so that I can start investigating and responding to security incidents.
 ---
 

@@ -2,13 +2,13 @@
 title: Download your savings plan price sheet
 titleSuffix: Microsoft Cost Management
 description: This article explains how you can download the price sheet for an Enterprise Agreement (EA) or Microsoft Customer Agreement (MCA).
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # Download your savings plan price sheet

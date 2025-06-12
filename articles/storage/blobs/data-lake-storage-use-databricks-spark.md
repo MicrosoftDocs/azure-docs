@@ -43,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Create an Azure Databricks workspace. See [Create an Azure Databricks workspace](/azure/databricks/getting-started/#--create-an-azure-databricks-workspace).
 
-2. Create a notebook. See [Create a notebook](/azure/databricks/notebooks/quick-start#create-notebook). Choose Python as the default language of the notebook.
+2. Create a notebook. See [Create a notebook](/azure/databricks/notebooks). Choose Python as the default language of the notebook.
 
 Keep your notebook open. You use it in the following sections.
 

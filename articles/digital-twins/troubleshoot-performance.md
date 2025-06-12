@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: "Troubleshoot performance"
 titleSuffix: Azure Digital Twins
 description: Tips for troubleshooting performance of an Azure Digital Twins instance.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/10/2022
 ms.topic: troubleshooting
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Troubleshoot Azure Digital Twins performance

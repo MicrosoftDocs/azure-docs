@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 05/30/2023
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: include file
 ---
 <!-- This tells how to get the primary connection string for a device registered to your IoT hub -->

@@ -134,7 +134,7 @@
       - name: Move Automation account to another subscription
         href: how-to/move-account.md
       - name: Move Automation account to another region
-        href: ../operational-excellence/relocation-automation.md?toc=/azure/private-link/toc.json
+        href: ../azure-resource-manager/management/relocation/relocation-automation.md?toc=/azure/private-link/toc.json
     - name: Manage Automation account
       href: delete-account.md
     - name: Migrate from Orchestrator to Azure Automation (Beta)
@@ -266,19 +266,19 @@
     - name: Supported regions
       href: change-tracking/region-mappings-monitoring-agent.md
     - name: Enable change tracking and inventory
-      href: change-tracking/enable-vms-monitoring-agent.md
+      items:
+      - name: At scale using Azure portal - Machines blade (New)
+        href: change-tracking/enable-change-tracking-at-scale-machines-blade.md
+      - name: At scale using Azure Policy
+        href: change-tracking/enable-change-tracking-at-scale-policy.md
+      - name: At scale using Azure portal - Virtual machines
+        href: change-tracking/enable-vms-monitoring-agent.md
     - name: Manage change tracking and inventory
       href: change-tracking/manage-change-tracking-monitoring-agent.md
   - name: Migration from Change Tracking and Inventory using LA to Change Tracking using AMA
     items:
     - name: Migration from Log Analytics to Azure Monitoring Agent version
       href: change-tracking/guidance-migration-log-analytics-monitoring-agent.md
-  - name: Update Management (Retired)
-    items:
-    - name: Enable
-    - name: Manage updates for your VMs
-    - name: Disable
-    - name: Troubleshoot
   - name: Scenarios
     items:
     - name: Send an email from a runbook

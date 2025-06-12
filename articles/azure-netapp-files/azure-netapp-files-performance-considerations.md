@@ -4,7 +4,7 @@ description: Learn about performance for Azure NetApp Files, including the relat
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/17/2024
 ms.author: anfdocs
 ---

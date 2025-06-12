@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 07/10/2024
+ms.date: 03/25/2025
 ms.custom: template-concept, references_regions, ignite-2024
 ---
 
@@ -28,6 +28,9 @@ The following tables list the Private Link services and the regions where they'r
 |Azure Bot Service | All public regions | Supported only on Direct Line App Service extension | GA </br> [Learn how to create a private endpoint for Azure Bot Service](/azure/bot-service/dl-network-isolation-concept) |
 | Azure AI Search | All public regions | | GA </br> [Learn how to create a private endpoint for Azure AI Search](/azure/search/service-create-private-endpoint) |
 | Azure AI services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](/azure/ai-services/cognitive-services-virtual-networks#use-private-endpoints)  |
+| Azure AI Video Indexer | All public regions  |   | GA   <br/> [Use private endpoints with Azure AI Video Indexer.](/azure/azure-video-indexer/private-endpoint-overview)  |
+
+
 
 ### Analytics
 

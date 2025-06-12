@@ -4,7 +4,7 @@ description: Learn to use request and response policies in API Management to cal
 services: api-management
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/05/2024
 ms.author: danlep
 

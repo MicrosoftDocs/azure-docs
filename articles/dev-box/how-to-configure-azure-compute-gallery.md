@@ -6,23 +6,23 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/20/2023
+ms.date: 04/03/2025
 ms.topic: how-to
+
+#customer intent: As a developer, I want to learn how to configure and attach an Azure compute gallery to a dev center in Microsoft Dev Box so that I can use a compute gallery to manage and share dev box images.
 ---
 
 # Configure Azure Compute Gallery for Microsoft Dev Box
 
-In this article, you learn how to configure and attach an Azure compute gallery to a dev center in Microsoft Dev Box. With Azure Compute Gallery, you can give developers customized images for their dev box.
-
-Azure Compute Gallery is a service for managing and sharing images. A gallery is a repository that's stored in your Azure subscription and helps you build structure and organization around your image resources. Dev Box supports GitHub, Azure Repos, and Bitbucket repositories to provide an image gallery.
+This article explains how to configure and attach an Azure compute gallery to a dev center in Microsoft Dev Box. Azure Compute Gallery allows you to manage and share customized images for dev boxes, helping development teams standardize and streamline their workflows. By attaching a compute gallery to a dev center, you can create dev box definitions based on stored images, ensuring consistency and efficiency.  
 
 After you attach a compute gallery to a dev center in Microsoft Dev Box, you can create dev box definitions based on images stored in the compute gallery.
 
-Advantages of using a gallery include:
+Advantages of using a gallery:
 
-- You maintain the images in a single location and use them across dev centers, projects, and pools.
-- Development teams can use the latest version of an image definition to ensure they always receive the most recent image when creating dev boxes.
-- Development teams can standardize on a supported image version until a newer version is validated.
+- Centralized image management: Maintain images in a single location and reuse them across dev centers, projects, and pools.  
+- Always up-to-date: Ensure development teams receive the latest validated image versions for consistent dev box creation.  
+- Standardization: Allow teams to standardize on a supported image version until a newer version is validated.  
 
 To learn more about Azure Compute Gallery and how to create galleries, see:
 
@@ -31,8 +31,8 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 ## Prerequisites
 
-- A dev center. If you don't have one available, follow the steps in [Create a dev center](quickstart-configure-dev-box-service.md#create-a-dev-center).
-- A compute gallery. Images stored in a compute gallery can be used in a dev box definition, provided they meet the requirements listed in the [Compute gallery image requirements](#compute-gallery-image-requirements) section.
+- **Dev center:** If you don't have a dev center, follow the steps in [Create a dev center](quickstart-configure-dev-box-service.md#create-a-dev-center).  
+- **Compute gallery:** Ensure your compute gallery meets the [image requirements](#compute-gallery-image-requirements) to be used in dev box definitions.  
 
 > [!NOTE]
 > Microsoft Dev Box doesn't support community galleries.
@@ -41,7 +41,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 A gallery used to configure dev box definitions must have at least [one image definition and one image version](/azure/virtual-machines/image-version).
 
-When you create a virtual machine (VM) image, select an image from the Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
+When you create a virtual machine (VM) image, select an image from Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
 - [Visual Studio 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019plustools?tab=Overview)
 - [Visual Studio 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudioplustools?tab=Overview) 
 
@@ -60,6 +60,7 @@ The image version must meet the following requirements:
     - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
 - Default 64-GB OS disk size
     - The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
+- Data disks cannot be attached to the VM prior to capturing the image.
 - The image definition must have [trusted launch enabled as the security type](/azure/virtual-machines/trusted-launch). You configure the security type when you create the image definition.
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
@@ -135,7 +136,7 @@ Use the following steps to manually assign the role.
    | --- | --- |
    | **Role** | Select **Contributor**. |
    | **Assign access to** | Select **Managed Identity**. |
-   | **Members** | Search for and select the user-assigned managed identity that you created when you [added a user-assigned identity to the dev center](#add-a-user-assigned-identity-to-the-dev-center). |
+   | **Members** | Search for and select the user-assigned managed identity that you created when you added a user-assigned identity to the dev center. |
 
 You can use the same managed identity in multiple dev centers and compute galleries. Any dev center with the managed identity added has the necessary permissions to the images in the gallery that has the Contributor role assignment added.
 
@@ -169,7 +170,7 @@ To use the images from a compute gallery in dev box definitions, you must first 
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/gallery-grid.png" alt-text="Screenshot that shows the page for compute galleries page with example galleries listed.":::
 
-After you successfully add a gallery, the images in the gallery are available to select when you create and update dev box definitions.
+After adding a gallery, the images in the gallery are available to select when you create and update dev box definitions.
 
 ## Remove a gallery from a dev center
 
@@ -177,6 +178,8 @@ You can detach galleries from dev centers so their images can no longer be used 
 
 > [!NOTE]
 > You can't remove galleries that are being actively used in dev box definitions. Before you can remove such a gallery, you must delete the associated dev box definition or update the definition to use an image from a different gallery.
+
+You can't remove galleries actively used in dev box definitions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

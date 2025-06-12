@@ -2,8 +2,8 @@
 ms.topic: include
 ms.service: azure-policy
 ms.date: 03/04/2025
-ms.author: davidsmatlak
-author: davidsmatlak
+ms.author: jasongroce
+author: jasongroce
 ---
 
 There's a maximum count for each object type for Azure Policy. For definitions, an entry of _Scope_ means the [management group](../../management-groups/overview.md) or subscription. For assignments and exemptions, an entry of _Scope_ means the management group, subscription, resource group, or individual resource.

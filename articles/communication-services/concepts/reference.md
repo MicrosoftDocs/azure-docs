@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 # Reference documentation overview
 
-[!INCLUDE [Survey Request](../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
 ## External links and docs
 
@@ -38,7 +38,7 @@ For each area, we have external pages to track and review our SDKs. Consult the 
 | SMS  | [npm](https://www.npmjs.com/package/@azure/communication-sms)             | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms) | [PyPi](https://pypi.org/project/azure-communication-sms/)            | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)     | -       | -                 | -      |
 | UI Library             | [npm](https://www.npmjs.com/package/@azure/communication-react)           | -         | -              | -        | [GitHub](https://github.com/Azure/communication-ui-library-ios)                 | [GitHub](https://github.com/Azure/communication-ui-library-android)     | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs) |
 
-## Related lass/method articles
+## Related class/method articles
 
 For more information about class/reference information for each SDK, see:
 

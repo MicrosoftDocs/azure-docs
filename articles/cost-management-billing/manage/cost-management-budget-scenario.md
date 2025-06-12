@@ -1,13 +1,13 @@
 ---
 title: Azure billing and cost management budget scenario
 description: Learn how to use Azure Automation to shut down VMs based on specific budget thresholds.
-author: bandersmsft
-ms.reviewer: adwise
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: jojoh
 ---
 
 # Manage costs with budgets

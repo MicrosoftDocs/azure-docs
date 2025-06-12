@@ -2,8 +2,8 @@
 title: What is Azure IoT Hub?
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Azure IoT Hub helps users connect IoT applications and their attached devices.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
@@ -15,7 +15,7 @@ ms.date: 02/27/2025
 
 The Internet of Things (IoT) is a network of physical devices that connect to and exchange data with other devices and services over the Internet or other network. There are currently over 10 billion connected devices in the world and more are added every year. Anything that can be embedded with the necessary sensors and software can be connected over the internet.
 
-Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT hub.
+Azure IoT Hub is a managed service that acts as a central message hub in a cloud-based IoT solution. It enables reliable and secure communication at scale between an IoT application and its attached devices. Almost any device can be connected to an IoT hub.
 
 Several messaging patterns are supported, including device-to-cloud messages, uploading files from devices, and request-reply methods to control your devices from the cloud. IoT Hub also supports monitoring to help you track device creation, device connections, and device failures.
 

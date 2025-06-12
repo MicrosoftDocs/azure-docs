@@ -1,13 +1,13 @@
 ---
 title: Resolve a past-due balance your pay-as-you-go Azure subscription
 description: Learn how to make a payment if your Azure subscription has a past-due balance.
-author: bandersmsft
-ms.reviewer: lishepar
+author: lindseyshep
+ms.reviewer: lishepar, jobailey
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
-ms.author: banders
+ms.date: 05/01/2025
+ms.author: lishepar
 ms.custom: references_regions
 ---
 
@@ -85,7 +85,9 @@ Users in the following countries/regions don't have the **Settle balance** optio
 
 ## Troubleshoot a declined credit card
 
-If your credit card charge is declined, contact your bank to resolve the problem. Check with your bank to make sure:
+If your credit card charge is declined, contact your bank to resolve the problem. Also confirm you have sufficient funds in your account to support the payment. 
+
+Check with your bank to make sure:
 
 - International transactions are enabled on the card.
 - The card has sufficient credit limit or funds to settle the balance.

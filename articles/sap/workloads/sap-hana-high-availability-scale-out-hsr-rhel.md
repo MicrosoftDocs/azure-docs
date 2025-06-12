@@ -8,7 +8,7 @@ ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 12/31/2024
+ms.date: 05/22/2025
 ms.author: radeltch
 ---
 
@@ -157,6 +157,9 @@ In the instructions that follow, we assume that you've already created the resou
        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db3-hsr --accelerated-networking true
        ```
 
+       > [!NOTE]
+       > You don’t have to install the Azure CLI package on your HANA nodes to run `az` command. You can run it from any machine that has the CLI installed, or use Azure Cloud Shell.
+
 6. Start the HANA DB virtual machines.
 
 ### Configure Azure load balancer
@@ -168,7 +171,7 @@ During VM configuration, you have an option to create or select exiting load bal
 > * For HANA scale out, select the NIC for the `client` subnet when adding the virtual machines in the backend pool.
 > * The full set of command in Azure CLI and PowerShell adds the VMs with primary NIC in the backend pool.
 
-#### [Azure Portal](#tab/lb-portal)
+#### [Azure portal](#tab/lb-portal)
 
 [!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-db-portal.md)]
 
@@ -185,7 +188,6 @@ The full set of PowerShell code display the setup of the load balancer, which in
 [!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-db-powershell.md)]
 
 ---
-
 
 > [!NOTE]
 > When you're using the standard load balancer, you should be aware of the following limitation. When you place VMs without public IP addresses in the back-end pool of an internal load balancer, there's no outbound internet connectivity. To allow routing to public end points, you need to perform additional configuration. For more information, see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -684,6 +686,9 @@ The following steps get you set up for system replication:
     hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
     hdbsql -d HN1 -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupHN1')"
     ```
+
+   > [!NOTE]
+   > When using Local Secure Store (LSS), SAP HANA backups are self-contained and require you to set a backup password for the encryption root keys. Refer to SAP Note [3571561](https://me.sap.com/notes/0003571561) for detailed instructions. The password must be set for SYSTEMDB and individual tenant database.
 
    Copy the system PKI files to the secondary site:
 

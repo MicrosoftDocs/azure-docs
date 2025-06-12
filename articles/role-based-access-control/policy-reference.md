@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure RBAC. Thes
 ms.date: 02/06/2024
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-reference

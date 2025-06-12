@@ -46,7 +46,7 @@ Changes can take 1 hour or longer to apply. An instance in the Developer service
 > [!NOTE]
 > Some protocols or cipher suites (such as backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST API call. Use the `properties.customProperties` structure in the [Create/Update API Management Service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API.
 
-## Next steps
+## Related content
 
 * For recommendations on securing your API Management instance, see [Azure security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline).
 * Learn about security considerations in the API Management [landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/security).

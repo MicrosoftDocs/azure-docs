@@ -162,6 +162,8 @@ The restore configuration is composed of following items:
 
 - `namespace_mappings`: You can map namespace (and underlying resources) to a different namespace in the target cluster. If the target namespace doesn't exist in the cluster, then a new namespace is created by the extension. The input value should be provided as key value pair.
 
+- `object_type`: This variable specifies whether the restore configuration is intended for a recovery point stored in the Operational Tier or the Vault Tier. If the recovery point is in the Operational Tier, set the value to **KubernetesClusterRestoreCriteria**. If the recovery point is in the Vault Tier or being restored to a secondary region, set the value to **KubernetesClusterVaultTierRestoreCriteria**.
+
 - `persistent_volume_restore_mode`: You can use this variable to decide whether you would like to restore the persistent volumes backed up or not. Accepted values are RestoreWithVolumeData, RestoreWithoutVolumeData
 
 - `resource_modifier_reference`: You can refer the Resource Modifier resource deployed in the cluster with this variable. The input value is a key value pair of the Namespace in which the resource is deployed and the name of the yaml file.
@@ -171,6 +173,8 @@ The restore configuration is composed of following items:
 - `staging_resource_group_id`: In case you're restoring backup stored in the **vault tier**, you need to provide an ID of resource group as a staging location. In this resource group, the backed up persistent volumes are hydrated before being restored to the target cluster. 
 
 - `staging_storage_account_id`: In case you're restoring backup stored in the **vault tier**, you need to provide an ID of storage account as a staging location. In this resource group, the backed up kubernetes resources are hydrated before being restored to the target cluster. 
+
+
 
 Now, prepare the restore request with all relevant details. If you're restoring the backup to the original cluster, then run the following command:
 
@@ -185,6 +189,13 @@ If the Target AKS cluster for restore is different from the original cluster, th
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureKubernetesService --restore-location $region --source-datastore OperationalStore --recovery-point-id $recoverypointid --restore-configuration restoreconfig.json --target-resource-id /subscriptions/$subscriptionId/resourceGroups/$aksclusterresourcegroup/providers/Microsoft.ContainerService/managedClusters/$targetakscluster >restorerequestobject.json
 
 ```
+If the target cluster is in secondary region then use the flag `--use-secondary-region`.
+
+```azurecli
+az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureKubernetesService --restore-location $region --source-datastore OperationalStore --recovery-point-id $recoverypointid --restore-configuration restoreconfig.json --target-resource-id /subscriptions/$subscriptionId/resourceGroups/$aksclusterresourcegroup/providers/Microsoft.ContainerService/managedClusters/$targetakscluster --use-secondary-region true >restorerequestobject.json
+
+```
+
 
 >[!Note]
 > In case you have picked a recovery point from vault tier with `--source-datastore` as VaultStore then provide a storage account and snapshot resource group in restore configuration.
@@ -197,6 +208,13 @@ Now, you can update the JSON object as per your requirements, and then validate 
 az dataprotection backup-instance validate-for-restore --backup-instance-name $backupinstancename --resource-group $backupvaultresourcegroup --restore-request-object restorerequestobject.json --vault-name $backupvault
 
 ```
+If the target cluster is in secondary region then use the flag `--use-secondary-region`.
+
+```azurecli
+az dataprotection backup-instance validate-for-restore --backup-instance-name $backupinstancename --resource-group $backupvaultresourcegroup --restore-request-object restorerequestobject.json --vault-name $backupvault --use-secondary-region true
+
+```
+
 
 This command checks if the AKS Cluster and Backup vault have the required roles on different resource needed to perform restore. If the validation fails due to missing roles, you can assign them by running the following command:
 
@@ -212,7 +230,7 @@ az dataprotection backup-instance update-msi-permissions --datasource-type Azure
 > - The *User Identity* attached with the Backup Extension should have *Storage Blob Data Contributor* roles on the *storage account* where backups are stored in case of Operational Tier and on the **staging storage account* in case of Vault Tier. 
 > - The *Backup vault* should have a *Reader* role on the *Target AKS cluster* and *Snapshot Resource Group* in case of restoring from Operational Tier.
 > - The *Backup vault* should have a *Contributor* role on the *Staging Resource Group* in case of restoring backup from Vault Tier. 
-> - The *Backup vault* should have a *Storage Account Contributor* and *Storage Blob Data Owner* role on the *Staging Resource Group* in case of restoring backup from Vault Tier. 
+> - The *Backup vault* should have a *Storage Account Contributor* and *Storage Blob Data Owner* role on the *Staging Storage Account* in case of restoring backup from Vault Tier. 
 
 ## Trigger the restore
 
@@ -221,6 +239,12 @@ Once the role assignment is complete, you should validate the restore object onc
 ```azurecli
 az dataprotection backup-instance restore trigger --backup-instance-name $backupinstancename --restore-request-object restorerequestobject.json 
 ```
+If the target cluster is in secondary region then use the flag `--use-secondary-region`.
+
+```azurecli
+az dataprotection backup-instance restore trigger --backup-instance-name $backupinstancename --restore-request-object restorerequestobject.json --use-secondary-region true
+```
+
 
 >[!Note]
 >The resources hydrated in the staging resource group and storage account are not automatically cleaned up after the restore job is completed and are to be deleted manually.

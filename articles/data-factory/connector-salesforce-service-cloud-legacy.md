@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/15/2024
+ms.date: 05/07/2025
 ---
 
 # Copy data from and to Salesforce Service Cloud V1 using Azure Data Factory or Synapse Analytics
@@ -16,7 +16,7 @@ ms.date: 10/15/2024
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Salesforce Service Cloud. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The [Salesforce Service Cloud V2 connector](connector-salesforce-service-cloud.md) provides improved native Salesforce Service Cloud support. If you are using the [Salesforce Service Cloud V1 connector](connector-salesforce-service-cloud-legacy.md) in your solution, you are recommended to [upgrade your Salesforce Service Cloud connector](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) at your earliest convenience. Refer to this [section](connector-salesforce-service-cloud.md#differences-between-salesforce-service-cloud-and-salesforce-service-cloud-legacy) for details on the difference between V2 and V1.
+> The [Salesforce Service Cloud V2 connector](connector-salesforce-service-cloud.md) provides improved native Salesforce Service Cloud support. If you are using the [Salesforce Service Cloud V1 connector](connector-salesforce-service-cloud-legacy.md) in your solution, you are recommended to [upgrade your Salesforce Service Cloud connector](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) before **June 30, 2025**. Refer to this [section](connector-salesforce-service-cloud.md#differences-between-salesforce-service-cloud-and-salesforce-service-cloud-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 

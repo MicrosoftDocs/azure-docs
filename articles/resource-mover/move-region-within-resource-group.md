@@ -1,11 +1,11 @@
 ---
 title: Move resources to another region with Azure Resource Mover
 description: Learn how to move resources within a resource group to another region with Azure Resource Mover.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.date: 12/27/2024
-ms.author: ankitadutta
+ms.author: jsuri
 
 #Customer intent: As an Azure admin,  I want to relocate Azure resources to a different Azure region with Azure Resource Mover
 
@@ -90,9 +90,6 @@ Select resources you want to move. You move resources to a target region in the 
 Resources you're moving appear in the **Across regions** page, in a *Prepare pending* state. Start validation as follows:
 
 1. Dependencies are validated in the background after you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation.
-
-    ![Button to validate dependencies](./media/move-region-within-resource-group/validate-dependencies.png)
-
 2. If dependencies are found, select **Add dependencies**. 
 3. In **Add dependencies**, select the dependent resources > **Add dependencies**. Monitor progress in the notifications.
 
@@ -102,7 +99,6 @@ Resources you're moving appear in the **Across regions** page, in a *Prepare pen
 
 4. On the **Across regions** page, verify that resources are now in a *Prepare pending* state, with no issues.
 
-    ![Page to show prepare pending state for all resources](./media/move-region-within-resource-group/prepare-pending.png)
 
 ## Move the source resource group 
 
@@ -122,7 +118,6 @@ Prepare as follows:
 > [!NOTE]
 >  After preparing the resource group, it's in the *Initiate move pending* state. Refresh to show the latest state.
 
-![Status showing initiate pending state](./media/move-region-within-resource-group/initiate-resource-group-pending.png)
 
 ### Move the source resource group
 
@@ -174,7 +169,6 @@ Now that the source resource group is moved, you can prepare to move the other r
 > - Resource Move generates ARM templates for the other source resources.
 > - After preparing resources, they're in an *Initiate move pending* state.
 
-![Page showing resources in initiate move pending state](./media/move-region-availability-zone/initiate-move-pending.png)
 
 ## Initiate the move
 

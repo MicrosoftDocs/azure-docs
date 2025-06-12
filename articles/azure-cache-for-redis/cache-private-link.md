@@ -4,6 +4,8 @@ description: Learn how to create an Azure Cache, an Azure Virtual Network, and a
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.topic: conceptual
 ms.date: 11/12/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 

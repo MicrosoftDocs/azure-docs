@@ -3,8 +3,8 @@ title: Configure audio and video redirection over the Remote Desktop Protocol
 description: Learn how to redirect audio peripherals, such as microphone and speaker, between a local device and a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 04/24/2024
 ---
 
@@ -353,7 +353,7 @@ To allow or disable audio input redirection using Group Policy:
 
 You can disable audio input redirection on a local device to prevent audio input from being redirected from a local device to a remote session. This method is useful if you want to enable audio input redirection for most users, but disable it for specific devices.
 
-For iOS/iPadOS and Android devices, you can disable audio input redirection using Intune. For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For iOS/iPadOS and Android devices, you can disable audio input redirection using Intune. For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ---
 

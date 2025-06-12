@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Control a device from Azure IoT Hub | Microsoft Docs
 description: In this quickstart, you run two sample applications. One application is a service application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.custom: [mvc, mqtt, "Role: Cloud Development", devx-track-azurecli, mode-other, devx-track-dotnet, devx-track-extended-java, devx-track-python, devx-track-js]
-ms.date: 02/25/2022
+ms.date: 03/28/2025
 zone_pivot_groups: iot-hub-set1
 #Customer intent: As a developer new to IoT Hub, I need to see how to use a service application to control a device connected to the hub.
 ---
@@ -51,4 +51,4 @@ In this quickstart, you called a direct method on a device from a service applic
 To learn how to route device-to-cloud messages to different destinations in the cloud, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Route telemetry to different endpoints for processing](tutorial-routing.md)
+> [Tutorial: Send device data to Azure Storage using IoT Hub message routing](tutorial-routing.md)

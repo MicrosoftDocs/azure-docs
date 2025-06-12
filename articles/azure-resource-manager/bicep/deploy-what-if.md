@@ -3,14 +3,14 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Bicep deployment what-if operation
 
 Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
 
-You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
+You can use the what-if operation with [Visual Studio Code](./visual-studio-code.md#deployment-pane), Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
 
 During What-If operations, the evaluation and expansion of `templateLink` aren't supported. As a result, any resources deployed using template links within nested deployments, including template spec references, won't be visible in the What-If operation results.
 
@@ -276,7 +276,7 @@ az deployment group create \
 After the deployment completes, you're ready to test the what-if operation. This time you deploy a Bicep file that changes the virtual network. It's missing one of the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
 
 ```bicep
-resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   name: 'vnet-001'
   location: resourceGroup().location
   tags: {

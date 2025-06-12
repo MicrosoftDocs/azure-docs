@@ -3,6 +3,9 @@ title: Unable to read Apache Yarn log in Azure HDInsight
 description: Troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/10/2024
 ---
 

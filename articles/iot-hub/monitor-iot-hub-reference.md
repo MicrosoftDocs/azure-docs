@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 07/30/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ---
 
@@ -150,7 +150,7 @@ Event Grid metrics:
 | Metric display name | Metric | Unit | Description |
 |:---|:---|:---|:---|
 | Event Grid deliveries | EventGridDeliveries | Count | The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid). |
-| Event Grid latency | EventGridLatency | Milliseconds | The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event. |
+| Event Grid latency | EventGridLatency | Milliseconds | The average latency (milliseconds) from when the IoT Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event. |
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
@@ -195,7 +195,7 @@ Routing metrics:
 | Routing: messages delivered to storage | d2c.endpoints.egress.storage | Count | The number of times IoT Hub routing successfully delivered messages to storage endpoints. |
 | Routing: telemetry messages delivered | d2c.telemetry.egress.success | Count | The number of times messages were successfully delivered to all endpoints using IoT Hub routing. If a message is routed to multiple endpoints, this value increases by one for each successful delivery. If a message is delivered to the same endpoint multiple times, this value increases by one for each successful delivery. |
 | Routing: telemetry messages dropped | d2c.telemetry.egress.dropped | Count | The number of times IoT Hub routing drops messages due to dead endpoints. This value doesn't count messages delivered to fallback route as dropped messages aren't delivered there. |
-| Routing: telemetry messages incompatible | d2c.telemetry.egress.invalid | Count | The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. A message is incompatible with an endpoint when Iot Hub attempts to deliver the message to an endpoint and it fails with a nontransient error. Invalid messages aren't retried. This value doesn't include retries. |
+| Routing: telemetry messages incompatible | d2c.telemetry.egress.invalid | Count | The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. A message is incompatible with an endpoint when IoT Hub attempts to deliver the message to an endpoint and it fails with a nontransient error. Invalid messages aren't retried. This value doesn't include retries. |
 | Routing: telemetry messages orphaned | d2c.telemetry.egress.orphaned | Count | The number of times IoT Hub routing orphans messages because they didn't match any routing query, when fallback route is disabled. |
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).

@@ -4,8 +4,8 @@ description: Start here to learn how to monitor Azure IoT Hub by using Azure Mon
 ms.date: 07/30/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ---
 
