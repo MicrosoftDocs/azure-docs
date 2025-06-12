@@ -153,8 +153,7 @@ Take the following actions to help mitigate fraudulent sign-ups by removing the 
      </BuildingBlocks>
     ```
    
-   > [!NOTE]
-   > The countryList functions as an allow list; therefore, only the countries specified within it (e.g., Japan, Bulgaria, and the United States) will be permitted to use MFA, while all other countries will be blocked.
+The countryList acts as an allow list. Only the countries you specify in this list (for example, Japan, Bulgaria, and the United States) are permitted to use MFA. All other countries are blocked.
 
 ## Related content
 
