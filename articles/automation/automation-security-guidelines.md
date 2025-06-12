@@ -10,10 +10,9 @@ ms.service: azure-automation
 
 # Security best practices in Azure Automation
 
-This article details the best practices to securely execute the automation jobs.
-[Azure Automation](./overview.md) provides you the platform to orchestrate frequent, time consuming, error-prone infrastructure management and operational tasks, as well as mission-critical operations. This service allows you to execute scripts, known as automation runbooks seamlessly across cloud and hybrid environments. 
+This article details the best practices to securely execute the automation jobs. [Azure Automation](./overview.md) provides you with the platform to orchestrate frequent, time consuming, error-prone infrastructure management and operational tasks, as well as mission-critical operations. This service allows you to execute scripts, known as automation runbooks seamlessly across cloud and hybrid environments. 
 
-The platform components of Azure Automation Service are actively secured and hardened. The service goes through robust security and compliance checks. the [Microsoft cloud security benchmark](/security/benchmark/azure/overview) details the best practices and recommendations to help improve the security of workloads, data, and services on Azure. Also see [Azure security baseline for Azure Automation](/security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json).
+The platform components of Azure Automation Service are actively secured and hardened. The service goes through robust security and compliance checks. The [Microsoft cloud security benchmark](/security/benchmark/azure/overview) details the best practices and recommendations to help improve the security of workloads, data, and services on Azure. Also see [Azure security baseline for Azure Automation](/security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json).
 
 ## Secure configuration of Automation account
 
@@ -33,7 +32,7 @@ This section guides you in configuring your Automation account securely.
 
 ### Securing Hybrid Runbook worker role
 
-1. Install Hybrid workers using the [Hybrid Runbook Worker VM extension](./extension-based-hybrid-runbook-worker-install.md?tabs=windows), that doesn't have any dependency on the Log Analytics agent. We recommend this platform as it leverages Microsoft Entra ID based authentication. 
+1. Install Hybrid workers using the [Hybrid Runbook Worker VM extension](./extension-based-hybrid-runbook-worker-install.md?tabs=windows) that doesn't have any dependency on the Log Analytics agent. We recommend this platform as it leverages Microsoft Entra ID based authentication. 
    [Hybrid Runbook Worker](./automation-hrw-run-runbooks.md) feature of Azure Automation allows you to execute runbooks directly on the machine hosting the role in Azure or non-Azure machine to execute Automation jobs in the local environment. 
     - Use only high privilege users or [Hybrid worker custom roles](./extension-based-hybrid-runbook-worker-install.md?tabs=windows) for users responsible for managing operations such as registering or unregistering Hybrid workers and hybrid groups and executing runbooks against Hybrid runbook worker groups. 
     - The same user would also require VM contributor access on the machine hosting Hybrid worker role. Since the VM contributor is a high privilege role, ensure only a limited right set of users have access to manage Hybrid works, thereby reducing the potential for breach by a compromised owner.
@@ -57,7 +56,7 @@ This section guides you in configuring your Automation account securely.
 
    Follow the [Managed identity best practice recommendations](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#choosing-system-or-user-assigned-managed-identities) for more details. 
 
-1. Rotate the [Azure Automation keys](./automation-create-standalone-account.md?tabs=azureportal#manage-automation-account-keys) periodically. The key regeneration prevents future DSC or hybrid worker node registrations from using previous keys. We recommend to use the [Extension based hybrid workers](./automation-hybrid-runbook-worker.md) that use Microsoft Entra authentication instead of Automation keys. Microsoft Entra ID centralizes the control and management of identities and resource credentials.
+1. Rotate the [Azure Automation keys](./automation-create-standalone-account.md?tabs=azureportal#manage-automation-account-keys) periodically. The key regeneration prevents future DSC or hybrid worker node registrations from using previous keys. We recommend using the [Extension based hybrid workers](./automation-hybrid-runbook-worker.md) that use Microsoft Entra authentication instead of Automation keys. Microsoft Entra ID centralizes the control and management of identities and resource credentials.
 
 ### Data security
 1. Secure the assets in Azure Automation including credentials, certificates, connections and encrypted variables. These assets are protected in Azure Automation using multiple levels of encryption. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of Automation assets. These keys must be present in Azure Key Vault for Automation service to be able to access the keys. See [Encryption of secure assets using customer-managed keys](./automation-secure-asset-encryption.md).
@@ -68,7 +67,7 @@ This section guides you in configuring your Automation account securely.
 
 ### Network isolation
 
-1. Use [Azure Private Link](./how-to/private-link-security.md) to securely connect Hybrid runbook workers to Azure Automation. Azure Private Endpoint is a network interface that connects you privately and securely to a an Azure Automation service powered by Azure Private Link. Private Endpoint uses a private IP address from your Virtual Network (VNet), to effectively bring the Automation service into your VNet. 
+1. Use [Azure Private Link](./how-to/private-link-security.md) to securely connect Hybrid runbook workers to Azure Automation. Azure Private Endpoint is a network interface that connects you privately and securely to an Azure Automation service powered by Azure Private Link. Private Endpoint uses a private IP address from your Virtual Network (VNet), to effectively bring the Automation service into your VNet. 
 
 If you want to access and manage other services privately through runbooks from Azure VNet without the need to open an outbound connection to the internet, you can execute runbooks on a Hybrid Worker that is connected to the Azure VNet.
 
