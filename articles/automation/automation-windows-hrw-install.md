@@ -15,7 +15,7 @@ ms.service: azure-automation
 
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 
-Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. See [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md)
+Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. For more information, see [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md).
 
 ## Next steps
 
