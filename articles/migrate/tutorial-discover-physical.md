@@ -189,7 +189,7 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 
 1. In a new browser tab, paste the device code and sign in using your Azure username and password. You cannot sign in with a PIN.
 
->[!Note]
+> [!Note]
 > If you close the sign-in tab accidentally without logging in, refresh the browser tab of the appliance configuration manager. It shows the device code and the **Copy code & Login button again**.
 
 1. After you sign in successfully, return to the browser tab that displays the appliance configuration manager.
