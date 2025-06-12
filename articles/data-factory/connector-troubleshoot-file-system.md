@@ -20,9 +20,9 @@ This article provides suggestions to troubleshoot common problems with the file 
 
 - **Message**: `Access to '%path;' is not allowed.`
 
-- **Cause**: Copying files from local machine is not supported under Azure Integration Runtime. For Self-hosted Integration Runtime (versions >= 5.22.8297.1) , Azure Data Factory is introducing a new security control to allow or disallow local SHIR file system access through the connector.  By default, it's disabled.
+- **Cause**: Copying files from local machine isn't supported under Azure Integration Runtime. For Self-hosted Integration Runtime (versions >= 5.22.8297.1), Azure Data Factory is introducing a new security control to allow or disallow local SHIR file system access through the connector. It's disabled by default.
 
-- **Recommendation**: Using command line from [Set up an existing self-hosted IR via local PowerShell](create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell) , you could allow or disallow local SHIR file system access.
+- **Recommendation**: Using command line from [Set up an existing self-hosted IR via local PowerShell](create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell), you could allow or disallow local SHIR file system access.
 
 
 ## Related content
