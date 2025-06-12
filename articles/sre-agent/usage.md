@@ -1,15 +1,14 @@
 ---
-title: Create and use an Azure SRE Agent
+title: Create and use an Azure SRE Agent (preview)
 description: Learn to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 05/16/2025
+ms.date: 06/12/2025
 ms.author: cshoe
-ms.custom:
-  - build-2025
+ms.service: azure
 ---
 
-# Create and use an Azure SRE Agent
+# Create and use an Azure SRE Agent (preview)
 
 An Azure SRE Agent helps you maintain the health and performance of your Azure resources through AI-powered monitoring and assistance. Agents continuously watch your resources for issues, provide troubleshooting help, and suggest remediation steps available through a natural language chat interface. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
 
@@ -77,4 +76,4 @@ If you have a specific problem in mind, you could ask questions like:
 
 ## Related content
 
-- [Azure SRE Agent overview](./sre-agent-overview.md)
+- [Azure SRE Agent overview](./overview.md)

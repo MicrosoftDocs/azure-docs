@@ -1,0 +1,245 @@
+metadata:
+  title: Azure SRE Agent - Frequently asked questions
+  description: Find answers to the frequently asked questions about Azure Container Apps.
+  keywords: azure sre agent, frequently asked questions
+  author: craigshoemaker
+  ms.topic: faq
+  ms.service: azure
+  ms.date: 06/06/2025
+  ms.author: cshoe
+
+title: Azure SRE Agent frequently asked questions (FAQs)
+summary: This article answers commonly asked questions about Azure SRE Agent  
+sections:
+  - name: Billing
+    questions:
+      - question: |
+          How much does SRE Agent cost?
+        answer: |
+          SRE Agent is priced in Azure Agent Unit (AAU). The Azure Agent Unit is a standard unit that measures work done by the SRE Agent.
+          
+          An agent unit has two main components:
+          
+          - **Always-on** flow is charged at 4 AAU per agent per hour. Minimum billing is one hour, and it continuously billed once an agent is created.  
+          - **Active flow** is charged at 0.25 AAU per second when the agent is processing a request, either directly via chat or via an incident response. 
+      - question: |
+          What's an example of how I'm charged for using an SRE Agent?
+        answer: |
+          Consider the following scenario. SRE agent is managing an app with an incident raised due to a series of `500` server errors. The SRE Agent takes ~2.5 minutes to determine the root cause and mitigate the issue.  
+
+          In this case, the agent consumes 37.5 agent units to handle the incident in execution mode. This usage brings the total charge per day to about $13.35.
+
+          | Type | AU per hour | Duration | Daily unit consumption | Total |
+          |---|---|---|---|---|
+          | Always-on | 4 per agent, per hour | 24 hours | 96 units | $9.60 |
+          | Active flow | 0.25 per second | 2.5 minutes | 37.5 units | $3.75 |
+
+          This brings the total cost for the day to $13.35 while consuming 133.5 units.
+      - question: |
+          Do you charge during preview?
+        answer: |
+          Yes, billing for the public preview begins on July 1, 2025.
+
+  - name: Foundations
+    questions:
+      - question: |
+          What is Azure SRE Agent?
+        answer: |
+          Azure SRE Agent is an AI-powered Azure service that helps lower operational costs and improve application uptime. It continuously monitors the health and performance of production applications across Azure services like Kubernetes, PaaS, serverless, and databases.
+          
+          The agent seamlessly integrates with incident management tools like Azure Monitor or Pager Duty to handle production alerts, incident investigations, and performs root cause analysis. SRE Agent partners with human SREs to mitigate the issues in minutes and partner with SWE agent capabilities in GitHub Copilot to close the loop with the developers.
+      - question: |
+          Why should I use SRE Agent?
+        answer: |
+          For SREs and engineers with SRE duties: 
+
+          - Accelerates Incident Response: Analyzes real-time data to detect anomalies and patterns, speeding up incident detection and resolution. 
+          - Reduce Toil: Automates repetitive and manual tasks, freeing up time for strategic initiatives. 
+          - Enhance Job Satisfaction: Offload mundane tasks so that SREs can focus on more challenging and rewarding work. 
+
+          For Business Stakeholders: 
+          - Increase Reliability: Proactively identifies and mitigates potential disruptions, ensuring higher application uptimes. 
+          - Optimize Costs: Reduces operational expenses by automating resource management and incident responses. 
+          - Drive Innovation: Frees up engineering resources to focus on developing new features and improving existing systems.
+      - question: |
+          What are the key capabilities of SRE Agent? 
+        answer: |
+          The SRE Agent features include: 
+
+          - Natural language interface inside Azure portal to chat with the agent to learn, visualize, perform operations on Azure resources, and diagnose apps. 
+          - Proactive checks for TLS, CVEs, and AuthN use. 
+          - Responds to incidents in Azure Monitor or PagerDuty. 
+          - Resource mapping that shows logical upstream and downstream dependencies for applications built using Azure Kubernetes Service, Azure App Service, Azure Functions, and Azure Container Apps. 
+          - Scorecard detailing key metrics for an application including application health and CPU and memory utilization. 
+          - Diagnosis of root cause analysis (RCA) and mitigation support for "app down" scenarios. 
+          - Integration with SWE Agent (Padawan) via GitHub issues to drive resolution with development teams.
+          - Daily report summarizing security insights, incidents, health, and performance trends for resources managed by the SRE Agent.
+      - question: |
+          What are the SLA terms?
+        answer: |
+          There's no SLA while the service is in public preview.
+      - question: |
+          What is Azure SRE Agent, what can it do, and what are its intended uses?
+        answer: |
+          The Azure SRE Agent is a system designed to assist Site Reliability Engineers (SREs) in managing their Azure resources. Agents perform tasks such as monitoring, diagnosing, and mitigating issues.
+
+          The system takes your input on the resources it manages, the health or status of specific resources, and any issues to those resources.
+
+          Outputs from the agent include:
+
+          - Information about resources
+          - Mitigations and solutions to issues
+          - Recommendations on best practices
+          - Actions to resolve issues or implement best practices with user approval
+
+          The Azure SRE Agent offers functionalities to assist SREs in managing Azure resources. Agents monitor system metrics and logs to detect issues early, diagnose the root causes of problems, and implement fixes and preventive measures to avoid future incidents. Examples of tasks the agent can handle include:
+
+          - Diagnosing and troubleshooting "application down" scenarios
+          - Getting resource availability information
+          - Ensuring Azure resources are following best practices.
+
+          The agent performs actions on behalf of the user with the right approvals and permissions, ensuring that humans remain in control.
+
+          The intended use of the SRE Agent is to help you monitor, diagnose issues, and maintain your Azure resources. The agent is designed to improve the reliability and efficiency of software systems by handling tasks like:
+
+          - Reading customer resource metrics and logs
+          - Provide mitigations or recommendations
+          - Perform actions on the customer's behalf with the right approvals and permissions
+
+          The agent aims to reduce the toil of SREs by automating routine tasks and providing insights and recommendations to enhance system reliability.
+      - question: |
+          How was SRE Agent evaluated? What metrics are used to measure performance?
+        answer: |
+          The SRE Agent was evaluated through various assessment activities, including user validation, measurement, and mitigations. Metrics used to measure performance include the accuracy of diagnostics, the effectiveness of mitigations, and user feedback on the agent's recommendations.
+
+          The evaluation process involved testing the agent's capabilities across different scenarios, such as app availability and incident response, to ensure its reliability and effectiveness. Results are generalizable across use cases that weren't part of the initial evaluation. The agent's design allows it to adapt to different situations and provide consistent performance.
+      - question: |
+          What are the limitations of SRE Agent? How can an SRE Agent’s limitations be minimized?
+        answer: |
+          The known limitations of the SRE Agent include its reliance on user approval for performing actions, which can slow down the response time in critical situations. Additionally, the agent might not be able to solve all problems or could produce inaccurate recommendations due to limitations in its knowledge base.
+
+          You can minimize how these limitations effect you by providing detailed and accurate inputs, regularly updating the agent's configuration, and closely monitoring its actions. Ensuring a human SRE reviews and validates the agent's recommendations also helps mitigate potential errors.
+      - question: |
+          What operational factors and settings allow for effective and responsible use of SRE Agent?
+        answer: |
+          Effective and responsible use of the SRE Agent requires configuring the system to manage the appropriate resources and setting up permissions and approvals for actions. Ensuring that the agent operates within defined parameters and regularly reviewing its actions can help maintain reliability and safety.
+      - question: |
+          How do I provide feedback?
+        answer: |
+          The current feedback system for the Azure SRE Agent includes thumbs-up and thumbs-down buttons for you to rate the quality of the agent's responses.
+
+          When you select either the thumbs-up or thumbs-down button, a small pop-up appears in the same view containing a text box for free-form text feedback. You can enter submit comments here to help the development identify areas for improvement.
+
+  - name: Functionality
+    questions:
+      - question: |
+          What types of questions can I ask the SRE Agent?
+        answer: |
+          You can ask the SRE Agent a wide range of questions related to diagnostics, reliability, performance, and operations for your Azure applications and infrastructure. The Agent is designed to understand both high-level intent and deep technical scenarios, across supported Azure services. Here are a few examples: 
+
+          - Diagnostics & troubleshooting:
+            - Why is my app crashing in Azure App Service?
+            - What's causing image pull errors in my Container App?
+            - Why is my AKS pod stuck in "Pending"?
+            - Is there a connectivity failure in my Function App?
+
+          - Performance & health 
+            - Why is my app running slowly?
+            - What are the top performance bottlenecks in my AKS cluster?
+            - Is my container hitting CPU or memory limits?
+
+          - Monitoring & metrics 
+            - What's the current CPU usage for my web app?
+            - How has request latency changed over the past 24 hours?
+
+          - Resilience & reliability 
+            - Is my app set up for high availability?
+            - What are the single points of failure in my deployment?
+
+          - Operational guidance 
+            - How can I scale my App Service instance automatically?
+            - What's the best way to set up alerts for restarts?
+            - Can you help me enable diagnostics logging for ACA?
+
+          - Best practices & recommendations 
+            - Am I following container best practices?
+            - What should I do to reduce cold start time for my Functions apps?
+      - question: |s
+          How real-time is the agent's response?
+        answer: |
+          The SRE Agent provides near real-time responses, but the exact freshness of its data depends on the type of information being retrieved. For most operational insights, such as current CPU usage, service health, or resource availability, the agent queries live telemetry or metrics, allowing it to deliver timely and actionable guidance. However, some data sources like diagnostic logs, traces, or aggregated analytics can have a slight delay due to ingestion and processing times within Azure Monitor or Log Analytics. When the agent performs active diagnostics or executes commands like querying pod states or pulling container event logs, the response time includes both the data retrieval and analysis phases. As a result, you can generally expect responses within a few seconds to few minutes, depending on the complexity of the request and the systems involved.
+      - question: |
+          What data does the agent collect and store?
+        answer: |
+          The SRE Agent collects only the data necessary to fulfill your request with a strong emphasis on security and privacy. The agent may temporarily access telemetry, logs, configuration metadata, or diagnostic results from services like Azure AppInsights, Azure Monitor, or Log Analytics. The data the agent accesses is dependent on the scenario. Data is used in-memory to analyze issues, generate responses, or suggest remediation steps. The agent doesn't persist or store information outside your Azure environment. Additionally, any interaction data used for improving the agent's performance is anonymized and handled in accordance with Microsoft's data privacy and compliance standards.
+      - question: |
+          How does the agent collect data from logs, metrics, traces, Kubernetes, and microservices? 
+        answer: |
+          The Azure SRE Agent collects data from various Azure-native sources to diagnose and resolve issues. It uses Azure Monitor Logs via Kusto queries for log analysis, Azure Metrics for health signals, and Activity Logs to track changes and deployments. It queries the Kubernetes API (kubectl, events, or pod logs) for container and workload health, and taps into Application Insights for traces and user-level errors. The agent also uses Azure Resource Graph to process resource relationships. This rich telemetry enables it to detect failures, identify root causes, and recommend or perform precise fixes.
+      - question: |
+          What scenarios are supported for Azure App Service?
+        answer: |
+          The SRE Agent supports key scenarios for Azure App Service, including diagnosing app crashes, slow performance, high CPU or memory usage, and startup failures. The agent can also help with deployment issues, scaling problems, and configuration errors. By analyzing logs and real-time telemetry, the agent provides actionable insights and recommends best practices like enabling "Auto-Heal" or "Always On" to improve reliability.
+      - question: |
+          What scenarios are supported for Azure Container Apps? 
+        answer: |
+          The SRE Agent supports scenarios for Azure Container Apps such as diagnosing container startup failures, image pull errors, scaling issues, NSG failures, and unexpected restarts. The agent can analyze logs, container events, and environment configurations to provide root cause analysis and recommend fixes for improved reliability and performance.
+      - question: |
+          What scenarios are supported for Azure Functions?
+        answer: |
+          The SRE Agent supports Azure Functions scenarios like diagnosing code throwing exceptions, misconfigurations such as missing app settings, managed identity, failed health checks, and scaling errors. The agent can analyze logs, execution traces, and trigger behavior to identify root causes and suggest optimizations for performance and reliability.
+      - question: |
+          What scenarios are supported for Azure Kubernetes Service?
+        answer: |
+          The SRE Agent supports Azure Kubernetes Service (AKS) scenarios such as diagnosing pod failures, image pull errors, node resource exhaustion, pending or crash-looping pods, and deployment issues. It can also help with scaling problems, networking misconfigurations, and performance bottlenecks by analyzing cluster state, logs, and metrics to provide root cause insights and remediation steps.
+      - question: |
+          What built-in tools are supported to perform diagnosis and remediation for incidents for app service?
+        answer: |
+          For Azure App Service, the SRE Agent uses Log Stream and App Logs for real-time and historical log inspection, Application Insights for telemetry and tracing, Kudu Console for advanced troubleshooting, Auto-Heal for detecting and automatically mitigating unhealthy app conditions, and App Service Diagnostics (Diagnose and Solve Problems) for analyzing app health, performance, and errors.
+      - question: |
+          What built-in tools are supported to perform diagnosis and remediation for incidents for Azure Container Apps?
+        answer: |
+          For Azure Container Apps (ACA), the SRE Agent uses Container App Diagnostics for health and failure analysis, Log Analytics and Container App logs for reviewing container output and system events, Container Events, and Revision History to trace deployment changes or failures, and Azure Monitor for tracking metrics like CPU, memory, and replica count. The agent can also surface issues from Environment diagnostics, such as networking or scale controller problems.
+      - question: |
+          What built-in tools are supported to perform diagnosis and remediation for incidents for Function apps?
+        answer: |
+          For Azure Functions, the SRE Agent uses Function App Diagnostics (Diagnose and Solve Problems) for analyzing performance, errors, and availability issues, Application Insights for telemetry, distributed tracing, and failure analysis, Log Stream and Function Logs for real-time monitoring, Azure Monitor for metrics like execution count and duration, and Kudu for advanced troubleshooting and file system access.
+      - question: |
+          What built-in tools are supported to perform diagnosis and remediation for incidents for Azure Kubernetes Services clusters?
+        answer: |
+          For Azure Kubernetes Service (AKS), the SRE Agent uses `kubectl` commands for querying pod status, events, and logs, Azure Monitor for container metrics and health, Log Analytics for querying cluster logs, AKS Diagnostics (Diagnose and Solve Problems) for analyzing cluster health and performance, and Azure Resource Graph to visualize resource relationships and dependencies.
+      - question: |
+          Can I bring in my custom data sources and tools? 
+        answer: |
+          No.
+      - question: |
+          Can the Agent suggest remediation steps?
+        answer: |
+          Yes, the SRE Agent not only suggests remediation steps but can also take action to fix issues when safe and supported. For common and well-understood problems, such as restarting a failed container, scaling up a service, or applying a configuration fix, the agent can automatically apply the remediation upon your approval. When it's not able to perform the fix directly, it provides clear, step-by-step guidance tailored to your environment, helping you resolve the issue quickly.
+      - question: |
+          Is there a webhook or API to trigger the Agent programmatically?
+        answer: |
+          The SRE Agent currently integrates with incident management platforms such as PagerDuty and Azure Monitor alerts. These integrations enable proactive alerts as issues arise in your Azure resources, allowing the Agent to immediately detect, investigate, and begin mitigation. 
+
+  - name: Security
+    questions:
+      - question: |
+          Is my data shared with OpenAI or third parties? 
+        answer: |
+          The Azure SRE Agent processes all diagnostic data, logs, and telemetry within your Azure environment, ensuring it stays securely within your tenant. Microsoft doesn't share this data with OpenAI or third parties, nor use it to train AI models without your explicit consent. The agent operates independently of OpenAI services, keeping your data private and under your full control.
+      - question: |
+          How is data secured when processed by the Agent? 
+        answer: |
+          When the SRE Agent processes data, it follows strict security measures to ensure your information remains protected. All data—such as logs, telemetry, and diagnostics—is handled securely within your Azure environment, using Azure's built-in encryption both in transit and at rest. Access to this data is tightly controlled through Azure's identity and access management, ensuring only authorized users and services can view or act on it. Additionally, the agent operates with least-privilege principles, minimizing exposure and reducing risk.
+      - question: | 
+          Is the Agent based on GPT or other LLMs?
+        answer: |
+          Yes, the Azure SRE Agent uses OpenAI's large language models to understand natural language queries and generate intelligent, context-aware responses. By combining OpenAI's advanced AI capabilities with Azure's monitoring and diagnostic tools, the Agent can analyze complex technical issues, interpret diagnostic data, and provide clear explanations and remediation guidance tailored to your environment.
+      - question: |
+          How is the Agent trained or fine-tuned? 
+        answer: |
+          The Azure SRE Agent is trained and fine-tuned using publicly available data, Microsoft's internal technical documentation, domain-specific knowledge of Azure services, and (with explicit customer permission), past incident data from your agent's history.
+      - question: |
+          Does the Agent learn from my environment over time?
+        answer: |
+          The Azure SRE Agent doesn't automatically learn or adapt from your environment unless you explicitly opt in. With your permission, anonymized data from your past incidents can be used to improve the agent's models, helping it provide more relevant and precise recommendations over time. Without this opt-in, your environment data remains private, and the agent relies solely on its pretrained knowledge and general best practices.

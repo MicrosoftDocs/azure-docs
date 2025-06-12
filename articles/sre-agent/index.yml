@@ -1,0 +1,30 @@
+### YamlMime:Landing
+
+title: Azure SRE Agent documentation
+summary: AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
+
+metadata:
+  title: Azure SRE Agent documentation
+  description: Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure.
+  ms.topic: landing-page
+  ms.service: azure
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 06/06/2025
+landingContent:
+  - title: About Azure Container Apps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure SRE Agent?
+            url: overview.md
+          - text: How to use an agent
+            url: usage.md
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Troubleshoot Azure App Service
+            url: azure-app-service.md
+          - text: Troubleshoot Azure Container Apps
+            url: azure-container-apps.md
