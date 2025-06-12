@@ -153,22 +153,29 @@ You can create an alert for any metric or resource that emits log data that's su
 
    For more information, see [Manage alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules).
 
-
 1. In the [Azure portal](https://portal.azure.com), open your integration environment.
 
-1. On the integration environment menu, under **Environment**, select **Resources**.
+1. On the integration environment menu, under **Environment**, select **Applications**.
 
-1. Select the resource or application group that you want to monitor with alerts.
+1. Select the application where you want to add alerts.
 
-   You can select a parent resource or expand the parent to select a child resource, for example, a logic app workflow for Azure Logic Apps, API in API Management, or a queue for Azure Service Bus.
+1. On the application menu, under **Monitoring**, select **Alerts**.
 
-1. On the selected resource menu, under **Monitoring**, select **Alerts**.
+1. In the **Resource name** column, find the parent resource or expand the parent to select a child resource.
 
-1. On the **Alerts** toolbar, select **Alert rules** to review any existing rules.
+   For example, you can select a workflow for a logic app in Azure Logic Apps, an API in API Management, or a queue for Azure Service Bus.
 
-1. On the **Alert rules** toolbar, select **Create**.
+1. In the **Edit** column, select **Edit** for the parent or child resource.
 
-1. On the **Create an alert rule** page, follow the steps in [Create or edit an alert rule from a specific resource](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule#create-or-edit-an-alert-rule-from-a-specific-resource).
+   <**SCREENSHOT**>
+
+1. On the **Alerts** tab, select either **Add rule**, or if no rules exist, select **Start with recommended rules**. Set up the rule that you want for monitoring the resource.
+
+   For more information, see [Create alert rules for Azure resources](/azure/azure-monitor/alerts/alert-options).
+
+1. When you're done, save your rule.
 
 ## Related content
 
+- [Manage Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-manage)
+- [Azure Workbooks templates](/azure/azure-monitor/visualize/workbooks-templates)
