@@ -51,11 +51,11 @@ RSS is always enabled by default in an Azure Linux Virtual Machine (VM). Linux k
 
 ### Enable Azure Accelerated Networking for optimal throughput
 
-Azure provides accelerated networking which can really improve network performance, latency, jitter. There are currently two different technologies that are used depending on the virtual machine size, [Mellanox](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-how-it-works) which is wide available and [MANA](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-mana-overview) which is developed by Microsoft.
+Azure provides accelerated networking which can really improve network performance, latency, jitter. There are currently two different technologies that are used depending on the virtual machine size, [Mellanox](/azure/virtual-network/accelerated-networking-how-it-works) which is wide available and [MANA](/azure/virtual-network/accelerated-networking-mana-overview) which is developed by Microsoft.
 
 ### Azure Linux Tuned Kernels
 
-Some distributions such as Ubuntu (Canonical) and SUSE have [Azure tuned kernels](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros#azure-tuned-kernels).
+Some distributions such as Ubuntu (Canonical) and SUSE have [Azure tuned kernels](/azure/virtual-machines/linux/endorsed-distros#azure-tuned-kernels).
 
 Use the following command to make sure that you're using the Azure kernel, which has usually the `azure` string in the naming.
 
