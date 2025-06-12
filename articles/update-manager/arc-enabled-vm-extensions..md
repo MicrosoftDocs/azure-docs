@@ -1,5 +1,5 @@
 ---
-title: Release notes of Arc-enabled VM extensions-June 25
+title: Release notes of Arc-enabled VM extensions June 25
 description: Learn about Azure Arc-enabled VM extensions, including their latest releases, known issues, and bug fixes, in the month of July to help you manage updates effectively.
 ms.service: azure-update-manager
 ms.date: 06/12/2025

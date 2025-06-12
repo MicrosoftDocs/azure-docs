@@ -8,7 +8,7 @@ author: habibaum
 ms.author: v-uhabiba
 ---
 
-# Release notes for Azure Arc-enabled VM extensions
+# Release notes for Azure Arc-enabled VM extensions - March 25
 
 For Azure Arc-enabled machines, two extensions are installed. For more information, see [How Update Manager works](workflow-update-manager.md)
 

@@ -17,6 +17,8 @@ items:
       items:
       - name: March 2025
         href: overview-arc-enabled-vm-extensions.md
+      - name: June 2025
+        href: arc-enabled-vm-extensions.md
 - name: Getting started
   items:
   - name: Prerequisites
