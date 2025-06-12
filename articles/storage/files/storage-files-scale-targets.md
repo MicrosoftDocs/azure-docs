@@ -171,7 +171,7 @@ The following table indicates which targets are soft, representing the Microsoft
 | Server endpoints per sync group | 100 server endpoints | Yes |
 | Server endpoints per server | 30 server endpoints | Yes |
 | File system objects (directories and files) per sync group | 100 million objects | No |
-| Maximum number of file system objects (directories and files) in a directory **(not recursive)** | 5 million objects | Yes |
+| Maximum number of file system objects (directories and files) in a directory **(not recursive)** | 5 million objects | No |
 | Maximum object (directories and files) security descriptor size | 64 KiB | Yes |
 | File size | 100 GiB | No |
 | Minimum file size for a file to be tiered | Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size is 8 KiB. | Yes |

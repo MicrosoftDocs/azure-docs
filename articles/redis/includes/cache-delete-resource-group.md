@@ -1,9 +1,9 @@
 ---
-ms.date: 08/16/2024
-
+ms.date: 05/18/2025
 ms.topic: include
 ms.custom:
   - ignite-2024
+  - build-2025
 ---
 
 ## Clean up resources

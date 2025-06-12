@@ -2,11 +2,11 @@
 title: What is Azure DNS Private Resolver?
 description: In this article, get started with an overview of the Azure DNS Private Resolver service.
 ms.custom: references_regions
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: overview
 ms.date: 01/29/2025
-ms.author: greglin
+ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
 

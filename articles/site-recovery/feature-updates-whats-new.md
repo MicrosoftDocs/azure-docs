@@ -2,10 +2,10 @@
 title: New feature updates in Azure Site Recovery
 description: Provides a summary of new features updates in the Azure Site Recovery service.
 ms.topic: concept-article
-ms.author: ankitadutta
+ms.author: jsuri
 ms.service: azure-site-recovery
-author: ankitaduttaMSFT
-ms.date: 06/10/2024
+author: jyothisuri
+ms.date: 05/11/2025
 ---
 
 # Site Recovery feature updates
@@ -13,6 +13,27 @@ ms.date: 06/10/2024
 The Azure Site Recovery service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest feature releases. This page is updated regularly.
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
+
+## Updates (April 2025)
+
+### Azure Site Recovery for Shared Disks
+
+Azure Site Recovery for Shared Disk feature enables you to protect, monitor, recover, and re-protect your workloads running on [Windows Server Failover Clusters (WSFC)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server.md) on Azure VMs with Shared Disk. 
+
+You can use the benefits of Shared Disk for your mission-critical applications such as SQL FCI, SAP ASCS, Scale-out File Servers, etc., while ensuring business continuity and disaster recovery (BCDR) with Azure Site Recovery. [Learn more](tutorial-shared-disk.md). 
+
+**Salient Features**:
+- **OS Support:** Windows Server 2016 and later.  
+- **Nodes:** Up to 4 nodes per cluster. 
+- **Shared Disks:** Any number of shared disks can be attached to the cluster.  
+- **Support:** High Churn and PowerShell support.
+
+
+## Updates (March 2025)
+
+### Azure Site Recovery support for Azure Trusted Launch VMs (Linux OS) (preview)
+
+Azure Site Recovery support for [Azure Trusted Launch VMs](/virtual-machines/trusted-launch.md) running Linux OS is in public preview. Azure Trusted Launch VMs provide foundational compute security to Azure Generation 2 VMs by enabling Secure Boot and vTPM capabilities. This public preview is available for Azure Trusted launch VMs running Linux OS. Azure Site Recovery support for Trusted launch VM running Windows OS is already generally available.  [Learn more](concepts-trusted-vm.md).
 
 ## Updates (May 2024)
 

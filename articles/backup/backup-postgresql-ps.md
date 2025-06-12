@@ -2,8 +2,10 @@
 title: Back Up PostgreSQL Databases by Using Azure PowerShell
 description: Learn how to back up Azure Database for PostgreSQL by using Azure PowerShell.
 ms.topic: how-to
-ms.date: 04/16/2025
-ms.custom: devx-track-azurepowershell
+ms.date: 05/20/2025
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -11,7 +13,7 @@ ms.author: jsuri
 
 # Back up PostgreSQL databases by using Azure PowerShell
 
-This article describes how to back up  [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) by using Azure PowerShell. You can also to [create a backup policy](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md) and [configure backup](backup-azure-data-protection-use-rest-api-backup-postgresql.md) for PostgreSQL databases using REST API.
+This article describes how to back up  [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) by using Azure PowerShell. You can also configure backup using [Azure portal](backup-azure-database-postgresql.md), [Azure CLI](backup-postgresql-cli.md), and [REST API](backup-azure-data-protection-use-rest-api-backup-postgresql.md) for PostgreSQL databases. 
 
 Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq) for backing up PostgreSQL databases in Azure Database for PostgreSQL.
 
@@ -45,7 +47,7 @@ Type                : Microsoft.DataProtection/backupVaults
 
 ## Create a backup policy
 
-After you create a vault, you can create a backup policy to help protect PostgreSQL databases.
+After you create a vault, you can create a backup policy to help protect PostgreSQL databases. You can also [create a backup policy for PostgreSQL databases using REST API](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md).
 
 ### Understand the PostgreSQL backup policy
 
@@ -305,4 +307,5 @@ You can also use `Az.ResourceGraph` to track all jobs across all Backup vaults. 
 
 ## Related content
 
-- [Restore Azure managed disks by using Azure PowerShell](restore-managed-disks-ps.md)
+- [Restore a PostgreSQL database using Azure PowerShell](restore-postgresql-database-ps.md).
+- Restore a PostgreSQL database using [Azure portal](restore-azure-database-postgresql.md), [Azure CLI](restore-postgresql-database-cli.md), and [REST API](restore-postgresql-database-use-rest-api.md).

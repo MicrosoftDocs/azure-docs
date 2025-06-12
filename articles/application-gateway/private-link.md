@@ -2,11 +2,11 @@
 title: Azure Application Gateway Private Link
 description: This article is an overview of Application Gateway Private Link.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 06/06/2023
-ms.author: greglin
+ms.author: mbender
 
 ---
 

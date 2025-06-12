@@ -1,17 +1,19 @@
 ---
-title: Best practices for development for Azure Managed Redis (preview)
+title: Best practices for development for Azure Managed Redis
 description: Learn how to develop code for Azure Managed Redis.
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
-ms.date: 11/15/2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Development with Azure Managed Redis(preview)
+# Development with Azure Managed Redis
+
+In this article, we discus how to develop code for Azure Managed Redis.
 
 ## Connection resilience and server load
 
@@ -19,7 +21,7 @@ When developing client applications, be sure to consider the relevant best pract
 
 ## Consider more keys and smaller values
 
-Azure Managed Redis (preview) works best with smaller values. To spread the data over multiple keys, consider dividing bigger chunks of data in to smaller chunks. For more information on ideal value size, see this [article](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
+Azure Managed Redis works best with smaller values. To spread the data over multiple keys, consider dividing bigger chunks of data in to smaller chunks. For more information on ideal value size, see this [article](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
 
 ## Large request or response size
 
@@ -59,18 +61,18 @@ Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, 
 
 ## Choose an appropriate tier
 
-Azure Managed Redis offers Memory Optimized, Balanced, Compute Optimized and Flash Optimized tiers. See more information on how to choose a tier [here](how-to-scale.md#performance-tiers).
+Azure Managed Redis offers Memory Optimized, Balanced, Compute Optimized, and Flash Optimized tiers. For more information on how to choose a tier, see [How to scale](how-to-scale.md#performance-tiers).
 We recommend performance testing to choose the right tier and validate connection settings. For more information, see [Performance testing](best-practices-performance.md).
 
 ## Choose an appropriate availability mode
 
-Azure Managed Redis offers the option to enable or disable high availability configuration. When high availability mode is disabled, the data your AMR instance will not be replicated and hence your Redis instance will be unavailable during maintenance. All data in the AMR instance will also be lost in the event of planned or unplanned maintenance. We recommend disabling the high availability only for your development or test workloads. Performance of Redis instances with high availability could also be lower due to the lack of data replication which is crucial distribute load between primary and replica data shard.
+Azure Managed Redis offers the option to enable or disable high availability configuration. When high availability mode is disabled, the data your AMR instance isn't replicated, and your Redis instance is unavailable during maintenance. All data in the AMR instance is lost during planned or unplanned maintenance. We recommend disabling the high availability only for your development or test workloads. Performance of Redis instances with high availability could also be lower due to the lack of data replication which is crucial distribute load between primary and replica data shard.
 
 ## Client in same region as Redis instance
 
 Locate your Redis instance and your application in the same region. Connecting to a Redis in a different region can significantly increase latency and reduce reliability.  
 
-While you can connect from outside of Azure, it isn't recommended, especially when using Redis for accelerating your application or database performance.. If you're using Redis server as just a key/value store, latency might not be the primary concern.
+While you can connect from outside of Azure, it isn't recommended, especially when using Redis for accelerating your application or database performance. If you're using Redis server as just a key/value store, latency might not be the primary concern.
 
 ## Rely on hostname not public IP address
 
@@ -80,15 +82,15 @@ The public IP address assigned to your AMR instance can change as a result of a 
 
 Azure Managed Redis requires TLS encrypted communications by default. TLS versions 1.2 and 1.3 are currently supported. If your client library or tool doesn't support TLS, then enabling unencrypted connections is possible.
 
-## Monitor memory usage, CPU usage metrics, client connections and network bandwidth
+## Monitor memory usage, CPU usage metrics, client connections, and network bandwidth
 
-When using Azure Managed Redis instance in production, we recommend setting alerts for "Used Memory Percentage", "CPU" metrics, "Connected Clients". If these metrics are consistently above 75%, consider scaling your instance to a  bigger memory or better throughput tier. See [when to scale](how-to-scale.md#when-to-scale) for more details.
+When using Azure Managed Redis instance in production, we recommend setting alerts for **Used Memory Percentage**, **CPU** metrics, **Connected Clients**. If these metrics are consistently above 75%, consider scaling your instance to a  bigger memory or better throughput tier. For more details, see [when to scale](how-to-scale.md#when-to-scale).
 
 ## Consider enabling Data Persistence or Data Backup
 
 Redis is designed for ephemeral data by default, which means that in rare cases, your data can be lost due to various circumstances like maintenance or outages. If your application is sensitive to data loss, we recommend enabling data persistence or periodic data backup using data export operation.
 
-The [data persistence](how-to-persistence.md) feature is designed to automatically provide a quick recovery point for data when a cache goes down. The quick recovery is made possible by storing the RDB or AOF file in a managed disk that is mounted to the cache instance. Persistence files on the disk aren't accessible to users or cannot be used by any other AMR instance.
+The [data persistence](how-to-persistence.md) feature is designed to automatically provide a quick recovery point for data when a cache goes down. The quick recovery is made possible by storing the RDB or AOF file in a managed disk that is mounted to the cache instance. Persistence files on the disk aren't accessible to users or can't be used by any other AMR instance.
 
 Many customers want to use persistence to take periodic backups of the data on their cache. We don't recommend that you use data persistence in this way. Instead, use the [import/export](how-to-import-export-data.md) feature. You can export copies of data in RDB format directly into your chosen storage account and trigger the data export as frequently as you require. This exported data can then be imported to any Redis instance. Export can be triggered either from the portal or by using the CLI, PowerShell, or SDK tools.
 

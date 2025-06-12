@@ -30,6 +30,8 @@ items:
     items:
     - name: Data residency and user privacy
       href: concepts/privacy.md
+    - name: Create a Network Security Perimeter (NSP)
+      href: quickstarts/network-security-perimeter.md
     - name: European Union Data Boundary
       href: concepts/european-union-data-boundary.md
     - name: Azure Government
@@ -66,6 +68,8 @@ items:
       href: /java/api/overview/azure/communication-identity-readme
     - name: Identity (Python)
       href: /python/api/overview/azure/communication-identity-readme
+    - name: Identity (REST)
+      href: /rest/api/communication/identity/operation-groups
 - name: Chat
   items:
   - name: Overview
@@ -128,6 +132,8 @@ items:
         href: tutorials/file-sharing-tutorial-interop-chat.md
       - name: Add inline image support in Teams interop chat
         href: tutorials/inline-image-tutorial-interop-chat.md
+      - name: Add Adaptive Cards in chat
+        href: quickstarts/ui-library/get-started-chat-adaptive-card.md
     - name: Connect to Teams
       items:
       - name: Add Teams meeting chat to your app
@@ -144,6 +150,8 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
+    - name: Integrate an OpenAI bot with chat
+      href: quickstarts/chat/openai-chat-bot-integration.md
     - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Chat hero sample
@@ -162,6 +170,8 @@ items:
       href: /python/api/overview/azure/communication-chat-readme
     - name: Chat (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html
+    - name: Chat (REST)
+      href: /rest/api/communication/chat/operation-groups
 - name: Email
   items:
   - name: Overview
@@ -208,6 +218,8 @@ items:
         href: quickstarts/email/send-email-smtp/smtp-authentication.md
       - name: Send email using SMTP
         href: quickstarts/email/send-email-smtp/send-email-smtp.md
+      - name: Send email using SMTP with XOAuth2
+        href: quickstarts/email/send-email-smtp/send-email-smtp-oauth.md
     - name: Attachments
       items:
       - name: Inline attachments
@@ -282,6 +294,8 @@ items:
       href: /cli/azure/communication/email
     - name: Email (PowerShell)
       href: /powershell/module/az.communication
+    - name: Email (REST)
+      href: /rest/api/communication/email/operation-groups
 - name: SMS
   items:
   - name: Overview
@@ -292,8 +306,6 @@ items:
     href: concepts/sms/sdk-features.md
   - name: SMS FAQ
     href: concepts/sms/sms-faq.md
-  - name: Phone number types
-    href: concepts/numbers/number-types.md
   - name: Country availability
     href: concepts/numbers/sub-eligibility-number-capability.md
   - name: Messaging policy
@@ -362,6 +374,8 @@ items:
       href: /java/api/overview/azure/communication-sms-readme
     - name: SMS (Python)
       href: /python/api/overview/azure/communication-sms-readme
+    - name: SMS (REST)
+      href: /rest/api/communication/sms/operation-groups
 - name: Advanced messaging with WhatsApp
   items:
   - name: Overview
@@ -874,6 +888,8 @@ items:
         href: /java/api/overview/azure/communication-rooms-readme
       - name: Rooms (Python)
         href: /python/api/overview/azure/communication-rooms-readme
+      - name: Rooms (REST)
+        href: /rest/api/communication/rooms/operation-groups
 - name: Phone calling
   items:
   - name: Overview
@@ -974,6 +990,8 @@ items:
         href: /java/api/overview/azure/communication-phonenumbers-readme
       - name: Phone Numbers (Python)
         href: /python/api/overview/azure/communication-phonenumbers-readme
+      - name: Phone Numbers (REST)
+        href: /rest/api/communication/phonenumbers/operation-groups
 - name: Call Automation
   items:
   - name: Overview
@@ -986,12 +1004,8 @@ items:
       href: concepts/call-automation/incoming-call-notification.md
     - name: Make an outbound call
       href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
-    - name: Control and steer calls
-      href: how-tos/call-automation/actions-for-call-control.md
     - name: Mute participants during a call
       href: how-tos/call-automation/mute-participants.md
-    - name: Pass contextual data between calls
-      href: how-tos/call-automation/custom-context.md
     - name: Ring Teams users
       href: concepts/call-automation/call-automation-teams-interop.md
   - name: Interactive voice and AI
@@ -1002,8 +1016,6 @@ items:
       href: concepts/call-automation/play-action.md
     - name: Gather user input
       href: concepts/call-automation/recognize-action.md
-    - name: Control mid call media actions
-      href: how-tos/call-automation/control-mid-call-media-actions.md
     - name: Customize voice prompts to users with play action
       href: how-tos/call-automation/play-action.md
     - name: Gather user input with recognize action
@@ -1052,10 +1064,16 @@ items:
       href: concepts/voice-video-calling/known-issues-call-automation.md
   - name: Samples and tutorials
     items:
-    - name: Secure webhook endpoints
+    - name: Control and steer calls
+      href: how-tos/call-automation/actions-for-call-control.md
+    - name: Control mid call media actions
+      href: how-tos/call-automation/control-mid-call-media-actions.md
+    - name: Secure webhook and websocket endpoints
       href: how-tos/call-automation/secure-webhook-endpoint.md
     - name: Handle Call Automation events with EventProcessor
       href: how-tos/call-automation/handle-events-with-event-processor.md
+    - name: Pass contextual data between calls
+      href: how-tos/call-automation/custom-context.md
     - name: Call Automation Azure OpenAI sample
       href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
@@ -1064,8 +1082,6 @@ items:
       href: samples/integrate-azure-communication-services-with-copilot-studio.md
   - name: References
     items:
-    - name: Call Automation (REST)
-      href: /rest/api/communication/callautomation/operation-groups
     - name: Call Automation (JavaScript)
       href: /javascript/api/overview/azure/communication-call-automation-readme
     - name: Call Automation (.NET)
@@ -1074,6 +1090,8 @@ items:
       href: /java/api/overview/azure/communication-callautomation-readme
     - name: Call Automation (Python)
       href: /python/api/overview/azure/communication-callautomation-readme
+    - name: Call Automation (REST)
+      href: /rest/api/communication/callautomation/operation-groups
 - name: Teams interoperability
   items:
   - name: Overview
@@ -1162,12 +1180,38 @@ items:
         href: tutorials/calling-widget/calling-widget-js-tutorial.md
     - name: Enable audio conferencing
       href: how-tos/calling-sdk/audio-conferencing.md
+    - name: Manage Teams meeting lobby
+      href: how-tos/calling-sdk/lobby.md
     - name: Enable breakout rooms
       href: how-tos/calling-sdk/breakoutrooms.md
     - name: Enable Together Mode
       href: how-tos/calling-sdk/together-mode.md
     - name: Control media access
       href: how-tos/calling-sdk/media-access.md
+- name: Teams Phone extensibility
+  items:
+  - name: Overview
+    href: concepts/interop/tpe/teams-phone-extensibility-overview.md
+  - name: Cost and connectivity options
+    href: concepts/interop/tpe/teams-phone-extensibility-connectivity-cost.md
+  - name: Provisioning and authorization
+    href: concepts/interop/tpe/teams-phone-extensibility-provisioning.md
+  - name: Teams Phone client capabilities
+    href: concepts/interop/tpe/teams-phone-extensibility-client-capabilities.md
+  - name: Teams Phone extensibility FAQ
+    href: concepts/interop/tpe/teams-phone-extensibility-faq.md
+  - name: Troubleshooting
+    href: concepts/interop/tpe/teams-phone-extensibility-troubleshooting.md
+  - name: Samples and tutorials
+    items:
+    - name: Teams Phone extensibility quick start
+      href: quickstarts/tpe/teams-phone-extensibility-quickstart.md
+    - name: Answer Teams Phone calls from Call Automation
+      href: quickstarts/tpe/teams-phone-extensibility-answer-teams-calls.md
+    - name: Access Teams Phone without going through the Teams client
+      href: quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md
+    - name: REST API for Teams Phone extensibility
+      href: quickstarts/tpe/teams-phone-extensiblity-rest-api.md
 - name: Job Router
   items:
   - name: Overview
@@ -1228,6 +1272,8 @@ items:
       href: /java/api/overview/azure/communication-jobrouter-readme
     - name: Job Router (Python)
       href: /python/api/overview/azure/communication-jobrouter-readme
+    - name: Job Router (REST)
+      href: /rest/api/communication/jobrouter/operation-groups
 - name: Artificial Intelligence
   items:
   - name: Overview
@@ -1242,6 +1288,8 @@ items:
     items:
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
+    - name: Integrate an OpenAI bot with chat
+      href: quickstarts/chat/openai-chat-bot-integration.md
     - name: Client background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
     - name: Client noise enhancement and effects
@@ -1360,6 +1408,8 @@ items:
         href: /java/api/overview/azure/resourcemanager-communication-readme
       - name: Azure Resource Manager (Python)
         href: /python/api/overview/azure/mgmt-communication-readme
+      - name: Azure Resource Manager (REST)
+        href: /rest/api/communication/resourcemanager/operation-groups
     - name: Common Azure API client libraries
       items:
       - name: Common (JavaScript)

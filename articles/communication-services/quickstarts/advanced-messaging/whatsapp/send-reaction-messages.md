@@ -1,12 +1,12 @@
 ---
 title: Send reaction WhatsApp messages
-titleSuffix: An Azure Communication Services Advanced Messages quickstart
+titleSuffix: An Azure Communication Services Advanced Messages article
 description: This article describes how to send WhatsApp reaction messages using Azure Communication Services Advanced Messages SDK.
 author: shamkh
 manager: camilo.ramirez
 services: azure-communication-services
 ms.author: shamkh
-ms.date: 01/15/2025
+ms.date: 05/01/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging

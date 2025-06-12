@@ -6,7 +6,9 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 01/22/2025
 ms.author: kendownie
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Improve performance for SMB Azure file shares
@@ -206,12 +208,17 @@ Supported regions:
 - Germany West Central
 - Central India
 - South India
-- West India 
+- West India
+- Israel Central
 - Italy North
+- Japan East
+- Japan West
 - Jio India West
+- Korea Central
 - Korea South
 - Mexico Central
 - Norway East
+- New Zealand North
 - Poland Central
 - Qatar Central
 - South Africa North
@@ -221,10 +228,13 @@ Supported regions:
 - UAE North
 - North Central US
 - South Central US 
+- East US
+- East US 2
 - West US
 - West US 2
 - West US 3
 - West Central US
+- UK South
 - UK West
 
 ### Performance improvements with metadata caching

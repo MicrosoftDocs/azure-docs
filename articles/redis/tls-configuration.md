@@ -1,23 +1,20 @@
 ---
 title: What are the configuration settings for TLS?
 description: Learn about the TLS protocol configuration and how to use TLS to securely communicate with Azure Managed Redis instances.
-
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
-ms.date: 11/15/2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
-
 # Customer intent: As a developer creating a service that uses a cache, I want to know the details about TLS connections so that I know my service is secure.
 ---
 
-# What are configuration settings for the TLS protocol with Azure Managed Redis (preview)?
+# What are configuration settings for the TLS protocol with Azure Managed Redis?
 
-Transport Layer Security (TLS) is a cryptographic protocol that provides secure communication over a network. Azure Managed Redis (preview) supports TLS on all tiers.
+Transport Layer Security (TLS) is a cryptographic protocol that provides secure communication over a network. Azure Managed Redis supports TLS on all tiers.
 
 When you create a service that uses an Azure Managed Redis instance, we strongly encourage you to connect using TLS.
 

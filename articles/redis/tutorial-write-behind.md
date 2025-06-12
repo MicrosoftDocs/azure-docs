@@ -1,22 +1,19 @@
 ---
-title: 'Tutorial: Create a write-behind cache by using Azure Functions and Azure Redis'
+title: "Tutorial: Create a write-behind cache by using Azure Functions and Azure Redis"
 description: In this tutorial, you learn how to use Azure Functions and Azure Redis to create a write-behind cache.
-
-
+ms.date: 04/12/2024
 ms.topic: tutorial
 ms.custom:
   - ignite-2024
-ms.date: 04/12/2024
+  - build-2025
 appliesto:
   - ✅ Azure Cache for Redis
-
-
-#CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
+# CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
 ---
 
 # Tutorial: Create a write-behind cache by using Azure Functions and Azure Redis
 
-The objective of this tutorial is to use an Azure Managed Redis (preview) or Azure Cache for Redis instance as a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching). The write-behind pattern in this tutorial shows how writes to the cache trigger corresponding writes to a SQL database (an instance of the Azure SQL Database service).
+The objective of this tutorial is to use an Azure Managed Redis or Azure Cache for Redis instance as a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching). The write-behind pattern in this tutorial shows how writes to the cache trigger corresponding writes to a SQL database (an instance of the Azure SQL Database service).
 
 You use the [Redis trigger for Azure Functions](/azure/azure-functions/functions-bindings-cache) to implement this functionality. In this scenario, you see how to use Redis to store inventory and pricing information, while backing up that information in a SQL database.
 
@@ -34,7 +31,7 @@ In this tutorial, you learn how to:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Redis](tutorial-functions-getting-started.md), with these resources provisioned:
-  - An Azure Managed Redis (preview) or Azure Cache for Redis instance
+  - An Azure Managed Redis or Azure Cache for Redis instance
   - Azure Functions instance
   - A working knowledge of using Azure SQL
   - Visual Studio Code (VS Code) environment set up with NuGet packages installed

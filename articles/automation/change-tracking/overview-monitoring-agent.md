@@ -6,6 +6,8 @@ ms.subservice: change-inventory-management
 ms.date: 03/13/2025
 ms.topic: overview
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Overview of change tracking and inventory using Azure Monitoring Agent

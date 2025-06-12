@@ -3,7 +3,9 @@ title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
 ms.date: 03/04/2025
 ms.topic: conceptual
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Understand Azure Policy for Kubernetes clusters
@@ -607,6 +609,17 @@ To identify the Gatekeeper version that your Azure Policy Add-on is using, you c
 Finally, to identify the AKS cluster version that you're using, follow the linked AKS guidance.
 
 ### Add-on versions available per each AKS cluster version
+
+#### 1.11.1
+Security improvements.
+
+- Released May 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.19.1
+##### Gatekeeper 3.19.1-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.19.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.18.2...v3.19.1
+Patch [CVE-2025-22872](https://nvd.nist.gov/vuln/detail/CVE-2025-22872).
 
 #### 1.10.1
 Update the `policy-kubernetes-addon-prod` and `policy-kubernetes-webhook` images to patch [CVE-2025-30204](https://nvd.nist.gov/vuln/detail/CVE-2025-30204) and [CVE-2025-22870](https://nvd.nist.gov/vuln/detail/CVE-2025-22870).

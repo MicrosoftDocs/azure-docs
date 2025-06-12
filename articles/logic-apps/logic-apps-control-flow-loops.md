@@ -1,24 +1,32 @@
 ---
-title: Add loops to repeat actions
-description: Create loops to repeat actions in workflows using Azure Logic Apps.
+title: Repeat actions in workflows with loops
+description: Repeat actions with loops in workflows for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2023
+ms.custom:
+  - build-2025
 ---
 
-# Create loops to repeat actions in workflows with Azure Logic Apps
+# Add loops to repeat actions in workflows for Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Azure Logic Apps includes the following loop actions that you can use in your workflow:
+To repeat actions in a logic app workflow, Azure Logic Apps supports adding loop actions to your workflow for this task.
 
-* To repeat one or more actions on items in an array, add the [**For each** action](#foreach-loop) to your workflow.
+> [!NOTE]
+>
+> Looking for Power Automate documentation about loops? See [Using loops](/power-automate/desktop-flows/use-loops).
+
+Based on your use case, you can choose from the following types of loop actions:
+
+* To repeat one or more actions on items in an array or collection, add the [**For each** action](#foreach-loop) to your workflow.
 
   Alternatively, if you have a trigger that receives an array and want to run an iteration for each array item, you can *debatch* that array with the [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
-* To repeat one or more actions until a condition gets met or a state changes, add the [Until action](#until-loop) to your workflow.
+* To repeat one or more actions until a condition is met or a specific state changes, add the [**Until** action](#until-loop) to your workflow.
 
   Your workflow first runs all the actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of **Until** loops that a workflow can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 

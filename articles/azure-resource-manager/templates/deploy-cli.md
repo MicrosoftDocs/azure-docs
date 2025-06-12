@@ -3,7 +3,11 @@ title: Azure deployment templates with Azure CLI – Azure Resource Manager | Mi
 description: Use Azure Resource Manager and Azure CLI to create and deploy resource groups to Azure. The resources are defined in an Azure deployment template.
 ms.topic: how-to
 ms.date: 04/28/2025
-ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template
+ms.custom:
+  - devx-track-azurecli
+  - seo-azure-cli
+  - devx-track-arm-template
+  - build-2025
 keywords: azure cli deploy arm template, create resource group azure, azure deployment template, deployment resources, arm template, azure arm template
 ---
 
@@ -270,7 +274,7 @@ For more information about the parameter file, see [Create Resource Manager para
 
 ### Bicep parameter files
 
-With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch results in an "Only a .bicep template is allowed with a .bicepparam file" error.
+With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch results in an, "Only a .bicep file is allowed with a .bicepparam file," error.
 
 ```azurecli-interactive
 az deployment group create \
