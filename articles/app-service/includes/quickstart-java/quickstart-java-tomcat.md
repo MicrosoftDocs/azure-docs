@@ -7,7 +7,7 @@ ms.date: 06/10/2025
 ms.author: cephalin
 ---
 
-In this quickstart, you use the Maven plugin to deploy a Java web application to a Linux Tomcat server in App Service.
+This quickstart uses the Maven plugin to deploy a Java web application to a Linux Tomcat server in Azure App Service.
 
 ## Prerequisites
 
@@ -15,14 +15,16 @@ In this quickstart, you use the Maven plugin to deploy a Java web application to
 
 - Run the commands in this quickstart by using Azure Cloud Shell, an interactive shell that you can use through your browser to work with Azure services. To use Cloud Shell:
 
-  1. Select **Open Cloud Shell** at upper right in a code block and sign in to Azure if necessary. Make sure you're in the **Bash** environment of Cloud Shell.
-  1. Select **Copy** in the code block, paste the code into Cloud Shell, and run it. 
+  1. Select the following **Launch Cloud Shell** button or go to https://shell.azure.com to open Cloud Shell in your browser.
+     :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+  1. Sign in to Azure if necessary, and make sure you're in the **Bash** environment of Cloud Shell.
+  1. Select **Copy** in a code block, paste the code into Cloud Shell, and run it.
 
 ## Create a Java app
 
 Run the following Maven command in Cloud Shell to create a new app named `helloworld`:
 
-```azurecli-interactive
+```bash
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-DarchetypeVersion=1.4" "-Dversion=1.0-SNAPSHOT"
 ```
 
@@ -34,7 +36,7 @@ The App Service deployment process uses your Azure credentials from Cloud Shell 
 
 Run the following Maven command to configure the deployment by setting the App Service operating system, Java version, and Tomcat version.
 
-```azurecli-interactive
+```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.14.1:config
 ```
 
@@ -100,7 +102,7 @@ You can modify the configurations for App Service directly in your *pom.xml* fil
 
 With all the configuration ready in the *pom.xml* file, you can deploy your Java app to Azure with the following single command.
 
-```azurecli-interactive
+```bash
 mvn package azure-webapp:deploy
 ```
 
@@ -114,7 +116,7 @@ Congratulations! You deployed a Java app to App Service.
 
 ## Clean up resources
 
-You created the resources for this tutorial in an Azure resource group. If you no longer need them, you can delete the resource group and all its resources by running the following Azure CLI command in the Cloud Shell.
+You created the resources for this tutorial in an Azure resource group. If you no longer need them, you can delete the resource group and all its resources by running the following Azure CLI command in Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name helloworld-1745408005556-rg --yes

@@ -7,7 +7,7 @@ ms.date: 06/10/2025
 ms.author: cephalin
 ---
 
-This quickstart uses the Maven plugin to deploy a Java web application to a Linux JBoss EAP server in App Service.
+This quickstart uses the Maven plugin to deploy a Java web application to a Linux JBoss EAP server in Azure App Service.
 
 ## Prerequisites
 
@@ -15,20 +15,22 @@ This quickstart uses the Maven plugin to deploy a Java web application to a Linu
 
 - Run the commands in this quickstart by using Azure Cloud Shell, an interactive shell that you can use through your browser to work with Azure services. To use Cloud Shell:
 
-  1. Select **Open Cloud Shell** at upper right in a code block and sign in to Azure if necessary. Make sure you're in the **Bash** environment of Cloud Shell.
-  1. Select **Copy** in the code block, paste the code into Cloud Shell, and run it. 
+  1. Select the following **Launch Cloud Shell** button or go to https://shell.azure.com to open Cloud Shell in your browser.
+     :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+  1. Sign in to Azure if necessary, and make sure you're in the **Bash** environment of Cloud Shell.
+  1. Select **Copy** in a code block, paste the code into Cloud Shell, and run it.
 
 ## Create a Java app
 
 1. Clone the Pet Store demo application.
 
-   ```azurecli-interactive
+   ```bash
    git clone https://github.com/Azure-Samples/app-service-java-quickstart
    ```
 
 1. Change directory to the completed `petstore-ee7` project and build it.
 
-   ```azurecli-interactive
+   ```bash
    cd app-service-java-quickstart
    git checkout 20230308
    cd petstore-ee7
@@ -46,7 +48,7 @@ The App Service deployment process uses your Azure credentials from Cloud Shell 
 
 Run the following Maven command to configure the deployment by setting the App Service operating system, Java version, and Jbosseap version.
 
-```azurecli-interactive
+```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.14.1:config
 ```
 
@@ -112,7 +114,7 @@ You can modify the configurations for App Service directly in your *pom.xml* fil
 
 With all the configuration ready in your *pom.xml* file, you can deploy your Java app to Azure with the following single command.
 
-```azurecli-interactive
+```bash
 # Disable testing, as it requires Wildfly to be installed locally.
 mvn package azure-webapp:deploy -DskipTests
 ```
