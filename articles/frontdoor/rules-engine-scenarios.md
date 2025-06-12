@@ -699,12 +699,12 @@ However, you can emulate "if-elseif-else" logic by using the **Stop evaluating r
 2. Create rules in priority order, with the most specific conditions first
 3. For each rule, check the **Stop evaluating remaining rules** option
 
-:::image type="content" source="./media/rules-engine-scenarios/if-elseif-else-rules.png" alt-text="Screenshot that shows how to configure if-elseif-else rules." lightbox="./media/rules-engine-scenarios/if-elseif-else-rules.png":::
+:::image type="content" source="./media/rules-engine-scenarios/if-else-if-else-rules.png" alt-text="Screenshot that shows how to configure if-elseif-else rules." lightbox="./media/rules-engine-scenarios/if-else-if-else-rules.png":::
 
 > [!IMPORTANT]
-> This if-elseif-else paradigm only works if the ruleset is attached as the **final** ruleset for that route.
+> The if-elseif-else paradigm only works if the ruleset is attached as the **final** ruleset for that route.
 
-:::image type="content" source="./media/rules-engine-scenarios/if-elseif-else-rules-final.png" alt-text="Screenshot that shows how to place if-elseif-else rules as the final ruleset for the route." lightbox="./media/rules-engine-scenarios/if-elseif-else-rules-final.png":::
+:::image type="content" source="./media/rules-engine-scenarios/if-else-if-else-rules-final.png" alt-text="Screenshot that shows how to place if-elseif-else rules as the final ruleset for the route." lightbox="./media/rules-engine-scenarios/if-else-if-else-rules-final.png":::
 
 # [**ARM**](#tab/arm)
 
@@ -784,7 +784,7 @@ The rule configuration redirects all HTTPS requests that don't already contain t
 
 # [**Portal**](#tab/portal)
 
-:::image type="content" source="./media/rules-engine-scenarios/append-sas-token.png" alt-text="Screenshot that shows how to append SAS token in query string." lightbox="./media/rules-engine-scenarios/append-sas-token.png":::
+:::image type="content" source="./media/rules-engine-scenarios/append-token.png" alt-text="Screenshot that shows how to append SAS token in query string." lightbox="./media/rules-engine-scenarios/append-token.png":::
 
 # [**ARM**](#tab/arm)
 
