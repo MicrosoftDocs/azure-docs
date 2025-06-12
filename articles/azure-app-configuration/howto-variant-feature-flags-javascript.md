@@ -44,6 +44,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     const express = require("express");
     const server = express();
 
+    const appConfigEndpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
     const { DefaultAzureCredential } = require("@azure/identity");
     const { load } = require("@azure/app-configuration-provider");
     const { FeatureManager, ConfigurationMapFeatureFlagProvider } = require("@microsoft/feature-management");
@@ -109,98 +110,119 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 1. Create a new file named *index.html* and add the following code:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Quote of the Day</title>
-  <style>
-    .heart-button {
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      font-size: 24px;
-    }
-
-    .heart-button:hover {
-      background-color: #F0F0F0;
-    }
-  </style>
-</head>
-<body>
-  <div style="display: flex; flex-direction: column; min-height: 100vh; background-color: #f4f4f4;">
-    <header style="background-color: white; border-bottom: 1px solid #eaeaea; display: flex; justify-content: space-between; align-items: center; font-family: 'Arial', sans-serif; font-size: 16px;">
-      <div style="font-size: 1.25em; color: black;">QuoteOfTheDay</div>
-    </header>
-
-    <main style="display: flex; justify-content: center; align-items: center; flex-grow: 1;">
-      <div style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); max-width: 700px; position: relative; text-align: left;">
-        <div id="quote-content">
-          <h2 id="greeting">Quote of the Day</h2>
-          <blockquote style="font-size: 2em; font-style: italic; color: #4EC2F7; margin: 0 0 20px 0; line-height: 1.4;">
-            <p>"You cannot change what you are, only what you do."</p>
-            <footer style="font-size: 0.55em; color: black; font-family: 'Arial', sans-serif; font-style: normal; font-weight: bold;">— Philip Pullman</footer>
-          </blockquote>
-          <div style="position: absolute; top: 10px; right: 10px; display: flex;">
-            <button class="heart-button" id="like-button">
-              <span id="heart-icon" style="color: #ccc">♥</span>
-            </button>
-          </div>
-        </div>
-        <div id="loading" style="display: none;">
-          <p>Loading</p>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const currentUser = urlParams.get('userId') || '';
-      let liked = false;
-      
-      const greetingElement = document.getElementById('greeting');
-      const heartIcon = document.getElementById('heart-icon');
-      const likeButton = document.getElementById('like-button');
-      const quoteContent = document.getElementById('quote-content');
-      const loadingElement = document.getElementById('loading');
-
-      async function init() {
-        quoteContent.style.display = 'none';
-        loadingElement.style.display = 'block';
-        
-        const response = await fetch(`/api/getGreetingMessage?userId=${currentUser}`, { 
-          method: "GET"
-        });
-        const result = await response.json();
-        greetingElement.textContent = result.message || "Quote of the Day";
-        quoteContent.style.display = 'block';
-        loadingElement.style.display = 'none';
-      }
-
-      likeButton.addEventListener('click', async function() {
-        if (!liked) {
-          const response = await fetch("/api/like", { 
-            method: "POST", 
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ UserId: currentUser }),
-          });
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Quote of the Day</title>
+    <style>
+        .heart-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
         }
-        liked = !liked;
-        heartIcon.style.color = liked ? 'red' : '#ccc';
-      });
 
-      init();
-    });
-  </script>
-</body>
-</html>
-```
+        .heart-button:hover {
+        background-color: #F0F0F0;
+        }
+    </style>
+    </head>
+    <body>
+    <div style="display: flex; flex-direction: column; min-height: 100vh; background-color: #f4f4f4;">
+        <header style="background-color: white; border-bottom: 1px solid #eaeaea; display: flex; justify-content: space-between; align-items: center; font-family: 'Arial', sans-serif; font-size: 16px;">
+        <div style="font-size: 1.25em; color: black;">QuoteOfTheDay</div>
+        </header>
 
-1. Launch the application.
+        <main style="display: flex; justify-content: center; align-items: center; flex-grow: 1;">
+        <div style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); max-width: 700px; position: relative; text-align: left;">
+            <div id="quote-content">
+            <h2 id="greeting">Quote of the Day</h2>
+            <blockquote style="font-size: 2em; font-style: italic; color: #4EC2F7; margin: 0 0 20px 0; line-height: 1.4;">
+                <p>"You cannot change what you are, only what you do."</p>
+                <footer style="font-size: 0.55em; color: black; font-family: 'Arial', sans-serif; font-style: normal; font-weight: bold;">— Philip Pullman</footer>
+            </blockquote>
+            <div style="position: absolute; top: 10px; right: 10px; display: flex;">
+                <button class="heart-button" id="like-button">
+                <span id="heart-icon" style="color: #ccc">♥</span>
+                </button>
+            </div>
+            </div>
+            <div id="loading" style="display: none;">
+            <p>Loading</p>
+            </div>
+        </div>
+        </main>
+    </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentUser = urlParams.get('userId') || '';
+        let liked = false;
+        
+        const greetingElement = document.getElementById('greeting');
+        const heartIcon = document.getElementById('heart-icon');
+        const likeButton = document.getElementById('like-button');
+        const quoteContent = document.getElementById('quote-content');
+        const loadingElement = document.getElementById('loading');
+
+        async function init() {
+            quoteContent.style.display = 'none';
+            loadingElement.style.display = 'block';
+            
+            const response = await fetch(`/api/getGreetingMessage?userId=${currentUser}`, { 
+            method: "GET"
+            });
+            const result = await response.json();
+            greetingElement.textContent = result.message || "Quote of the Day";
+            quoteContent.style.display = 'block';
+            loadingElement.style.display = 'none';
+        }
+
+        likeButton.addEventListener('click', async function() {
+            if (!liked) {
+            const response = await fetch("/api/like", { 
+                method: "POST", 
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ UserId: currentUser }),
+            });
+            }
+            liked = !liked;
+            heartIcon.style.color = liked ? 'red' : '#ccc';
+        });
+
+        init();
+        });
+    </script>
+    </body>
+    </html>
+    ```
+
+## Run the application
+
+1. Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    ```
+
+    If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    ```
+
+1. Run the application.
 
     ```bash
     node server.js
