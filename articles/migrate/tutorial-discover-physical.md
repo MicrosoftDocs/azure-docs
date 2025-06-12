@@ -183,9 +183,9 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 1. If you don't have the key, go to **Azure Migrate**: **Discovery and assessment** > **Overview** > **Manage existing appliances**.
 1. Select the appliance name you used when you created the project key, then copy the key eshown there.
 1. The appliance verifies the key and starts the auto-update service. This service updates all appliance components to their latest versions. After the update finishes, you can select 'View appliance services' to see the status and versions of the services running on the appliance server.
-1. To register the appliance, select Login. In **Continue with Azure Login** select **Copy code & Logi** to copy the device code. You need this code to sign in to Azure. The browser opens a new tab with the Azure sign-in prompt. Make sure you turn off the pop-up blocker to see the prompt.
+1. To register the appliance, select Login. In **Continue with Azure Login** select **Copy code & Login** to copy the device code. You need this code to sign in to Azure. The browser opens a new tab with the Azure sign-in prompt. Make sure you turn off the pop-up blocker to see the prompt.
 
-::image type="content" source="./media/tutorial-discover-physical/continue-azure-login.png" alt-text="Screenshot that shows how to continue-azure-login." lightbox="./media/tutorial-discover-physical/continue-azure-login.png":::
+    ::image type="content" source="./media/tutorial-discover-physical/continue-azure-login.png" alt-text="Screenshot shows how to continue azure login." lightbox="./media/tutorial-discover-physical/continue-azure-login.png":::
 
 1. In a new browser tab, paste the device code and sign in using your Azure username and password. You cannot sign in with a PIN.
 
