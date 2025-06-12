@@ -130,7 +130,7 @@
     - name: Granular RBAC
       href: https://go.microsoft.com/fwlink/?linkid=2324519
     - name: Microsoft Entra repository permissions
-      href: ../container-registry/container-registry-rbac-abac-repository-permissions.md#tabs=azure-portal
+      href: https://go.microsoft.com/fwlink/?linkid=2324520
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments
