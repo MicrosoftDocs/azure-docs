@@ -27,7 +27,8 @@ This article shows you how to configure Azure Bastion to use Kerberos authentica
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). To be able to connect to a VM through your browser using Bastion, you must be able to sign in to the Azure portal.
-
+* Ensure that the Network Security Groups (NSGs) associated with both Azure Bastion and Kerberos-enabled systems (such as domain controllers) allow both inbound and outbound traffic on the following ports: **53, 88, 389, 464 and 636**. These ports are required for proper DNS resolution, Kerberos authentication, and Active Directory communication.
+For further reference, see the Microsoft documentation on configuring firewalls for Active Directory domains and trusts: [Configure Windows Firewall to allow Active Directory domains and trusts](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/config-firewall-for-ad-domains-and-trusts)
 * An Azure virtual network. For steps to create a virtual network, see [Quickstart: Create a virtual network](../virtual-network/quick-create-portal.md).
 
 ## Update VNet DNS servers
