@@ -44,13 +44,14 @@ Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), th
 |                         | Price of a write operation on the hot tier    |                                  | $0.000021     |
 |                         | **Cost to upload log files**<br></br>         | (50,000 blobs * 156) * $0.000021 | **$163.80**   |
 | **Cost of replication** | Price of data transfer (per GB)               |                                  | $0.02         |
-|                         | **Data transfer fee**                         | 50,000 GB * $0.02                | **$1,000.00** |
+|                         | **Cost to replicate**<br><br>                 | 50,000 GB * $0.02                | **$1,000.00** |
 | **Cost to read**        | Number of read operations                     | 50,000 / 2                       | 25,000        |
 |                         | Price a read operation on the hot tier        |                                  | $0.00440      |
-|                         | Cost of read operations<br></br>              | 25,000 GB * $0.00440             | **$110.00**   |
+|                         | Cost of read operations<br></br>              | 25,000 GB * $0.00440             | $110.00       |
 |                         | Number of blobs downloaded from other regions | 25,000 * 75%                     | 1875          |
-|                         | **Network bandwidth fee**                     | 1875 * $0.02                     | **$375.00**   |
-| **Total cost**          |                                               | $163.80 + $2,000 + $110 + $750   | **$1,648.80** |
+|                         | Network bandwidth fee                         | 1875 * $0.02                     | $375.00       |
+|                         | **Cost to read**<br><br>                      | $110 + $375                      | **$485**      |
+| **Total cost**          |                                               | $163.80 + $1,000 + $485          | **$1,648.80** |
 
 > [!TIP]
 > You can estimate the cost of these components in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) 
