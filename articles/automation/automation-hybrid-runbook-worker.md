@@ -89,10 +89,10 @@ To control the distribution of runbooks on Hybrid Runbook Workers and when or ho
 
 ## Hybrid Runbook Worker installation
 
-To install see [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md).
+To install, see [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md).
 
 >[!NOTE]
-> Hybrid Runbook Worker is currently not supported on VM Scale Sets.
+> Hybrid Runbook Worker is currently not supported on Azure Virtual Machine Scale Sets.
 
 ## <a name="network-planning"></a>Network planning
 
@@ -112,8 +112,8 @@ Azure Automation supports Azure virtual network service tags, starting with the 
 
 The service tag for the Azure Automation service only provides IPs used for the following scenarios:
 
-* Trigger webhooks from within your virtual network
-* Allow Hybrid Runbook Workers or State Configuration agents on your VNet to communicate with the Automation service
+* Trigger webhooks from within your virtual network.
+* Allow Hybrid Runbook Workers or State Configuration agents on your VNet to communicate with the Automation service.
 
 >[!NOTE]
 >The service tag **GuestAndHybridManagement** currently doesn't support runbook job execution in an Azure sandbox, only directly on a Hybrid Runbook Worker.
