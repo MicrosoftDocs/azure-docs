@@ -68,7 +68,7 @@ After the deployment is complete, browse to the new resource group that is creat
 
 :::image type="content" source="media/private-link/private-link-fhir-map.png" alt-text="Screenshot showing image of Private Link FHIR Mapping.":::
 
-Select **Virtual network links** from the **Settings**. Notice that the FHIR service is linked to the virtual network.
+Select **Virtual network links** from the **Settings**. Notice that the FHIR service is linked to the virtual network. Make sure only a single VNET is associated with the DNS zone. If you need to support multiple VNETs, you must create separate DNS zones in different resource groups.During the setup confirm that the Private Endpoint and Private DNS Zone are not shared across multiple VNETs, as this is a common misconfiguration that can lead to IP resolution issues and access failures leading to HTTP 403 errors on the service. 
 
 :::image type="content" source="media/private-link/private-link-vnet-link-fhir.png" alt-text="Screenshot showing image of Private Link virtual network Link FHIR.":::
 
@@ -79,6 +79,7 @@ Similarly, you can see the private link mapping for the DICOM service.
 Also, you can see the DICOM service is linked to the virtual network.
 
 :::image type="content" source="media/private-link/private-link-vnet-link-dicom.png" alt-text="Screenshot showing image of Private Link virtual network Link DICOM.":::
+
 
 ## Test private endpoint
 
