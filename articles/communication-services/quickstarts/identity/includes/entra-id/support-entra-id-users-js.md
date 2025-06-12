@@ -79,7 +79,7 @@ From the project directory:
 
 ### Step 1: Initialize implementation of TokenCredential from Azure Identity SDK
 
-The first step in obtaining Communication Services access token for Entra ID user is getting  an Entra ID access token for your Entra ID user by using [Azure Identity](/javascript/api/overview/azure/identity-readme) SDK. The code below retrieves Microsoft Entra client ID and tenant ID from environment variables named `ENTRA_CLIENT_ID` and `ENTRA_TENANT_ID`.
+The first step in obtaining Communication Services access token for Entra ID user is getting  an Entra ID access token for your Entra ID user by using [Azure Identity](/javascript/api/overview/azure/identity-readme) SDK. The code below retrieves the Contoso Entra client ID and the Fabrikam tenant ID from environment variables named `ENTRA_CLIENT_ID` and `ENTRA_TENANT_ID`. To enable authentication for users across multiple tenants, initialize the `InteractiveBrowserCredential` class with the authority set to `https://login.microsoftonline.com/organizations`. For more information, see [Authority](/entra/identity-platform/msal-client-application-configuration#authority).
 
 ```javascript
 // This code demonstrates how to fetch your Microsoft Entra client ID and tenant ID from environment variables.
