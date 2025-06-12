@@ -39,7 +39,7 @@ Managing redirects is critical for search engine optimization (SEO), user experi
 
 - **Redirect based on query string parameters:** You can redirect requests using query fields of the incoming URL by capturing the value of a specific query string key in the format `{http_req_arg_<key>}`.
     
-    For example, extract the value of `cdpb` query key from an incoming URL: `https://example.mydomain.com/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount` and use it to configure the “destination host” into outgoing URL: `https://teststorageaccount.blob.core.windows.net/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount`.
+    For example, extract the value of `cdpb` query key from an incoming URL: `https://example.mydomain.com/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount` and use it to configure the *Destination host* into outgoing URL: `https://teststorageaccount.blob.core.windows.net/testcontainer/123.zip?sig=fffff&cdpb=teststorageaccount`.
     
     This approach enables dynamic redirects without having to create a separate rule for each `cdpb` value, significantly reducing the number of rules required.
 
@@ -853,7 +853,7 @@ The rule configuration redirects all HTTPS requests that don't already contain t
 
 You can use the Azure Front Door rules engine to add security headers that help prevent browser-based vulnerabilities, such as HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, and X-Frame-Options.
 
-For example, you can add a *Content-Security-Policy* header to all incoming requests that match the path defined in the route associated with your rules engine configuration. In this configuration, use `script-src 'self' https://apiphany.portal.azure-api.net` as the header value to only allow scripts from the trusted site `https://apiphany.portal.azure-api.net` to run on the application. For more information, see [Add security headers with rules engine](/frontdoor/front-door-security-headers#add-a-content-security-policy-header-in-azure-portal).
+For example, you can add a *Content-Security-Policy* header to all incoming requests that match the path defined in the route associated with your rules engine configuration. In this configuration, use `script-src 'self' https://apiphany.portal.azure-api.net` as the header value to only allow scripts from the trusted site `https://apiphany.portal.azure-api.net` to run on the application. For more information, see [Add security headers with rules engine](/azure/frontdoor/front-door-security-headers#add-a-content-security-policy-header-in-azure-portal).
 
 # [**Portal**](#tab/portal)
 
