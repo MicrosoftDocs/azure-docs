@@ -80,10 +80,10 @@ Serverless GPUs are available in the following regions:
 
 | Region | A100 | T4 |
 |--|--|--|
-| West US 3 | yes | yes |
-| West US | yes | no |
-| Australia East | yes | yes |
-| Sweden Central | yes | yes |
+| West US 3 | Yes | Yes |
+| West US | Yes | No |
+| Australia East | Yes | Yes |
+| Sweden Central | Yes | Yes |
 
 ## Use serverless GPUs
 
