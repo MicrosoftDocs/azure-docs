@@ -47,6 +47,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     const { DefaultAzureCredential } = require("@azure/identity");
     const { load } = require("@azure/app-configuration-provider");
     const { FeatureManager, ConfigurationMapFeatureFlagProvider } = require("@microsoft/feature-management");
+
     let appConfig;
     let featureManager;
     async function initializeConfig() {
@@ -64,6 +65,37 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         featureManager = new FeatureManager(featureFlagProvider);
     }
 
+    function startServer() {
+        // Use a middleware to refresh the configuration before each request
+        server.use((req, res, next) => {
+            appConfig.refresh();
+            next();
+        });
+        server.use(express.json());
+        // Serve static index.html from the current folder
+        server.use(express.static("."));
+
+        server.get("/api/getGreetingMessage", async (req, res) => {
+            const { userId, groups } = req.query;
+            const variant = await featureManager.getVariant("Greeting", { userId: userId, groups: groups ? groups.split(",") : [] });
+            res.status(200).send({ message: variant?.configuration });
+        });
+
+        server.post("/api/like", (req, res) => {
+            const { UserId } = req.body;
+            if (UserId === undefined) {
+                return res.status(400).send({ error: "UserId is required" });
+            }
+            // Here you would typically emit a 'like' event to compare variants.
+            res.status(200).send();
+        });
+
+        const port = "8080";
+        server.listen(port, () => {
+            console.log(`Server is running at http://localhost:${port}`);
+        });
+    }
+
     // Initialize the configuration and start the server
     initializeConfig()
         .then(() => {
@@ -73,314 +105,101 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
             console.error("Failed to load configuration:", error);
             process.exit(1);
         });
-
-    function startServer() {
-        // Use a middleware to refresh the configuration before each request
-        server.use((req, res, next) => {
-            appConfig.refresh();
-            next();
-        });
-        server.use(express.json());
-        // Serve static index.html from the "client/dist" directory
-        server.use(express.static("client/dist"));
-
-        server.get("/api/getGreetingMessage", async (req, res) => {
-            const { userId, groups } = req.query;
-            const variant = await featureManager.getVariant("Greeting", { userId: userId, groups: groups ? groups.split(",") : [] });
-            res.status(200).send({
-                message: variant?.configuration
-            });
-        });
-
-        server.post("/api/like", (req, res) => {
-            const { UserId } = req.body;
-            if (UserId === undefined) {
-                return res.status(400).send({ error: "UserId is required" });
-            }
-            // Here you would typically log the like event to a database or analytics service to conduct an experimentation.
-            res.status(200).send({ message: "Like event logged successfully" });
-        });
-
-        const port = "8080";
-        server.listen(port, () => {
-            console.log(`Server is running at http://localhost:${port}`);
-        });
-    }
-
     ```
 
-    This file contains the backend logic for your application, including configuration loading, feature flag management, and API endpoints.
+1. Create a new file named *index.html* and add the following code:
 
-## Implement the front end application
-
-1. Create a React application using `vite`. During the creation, select `React` and `JavaScript`.
-
-
-    ```bash
-    npm create vite@latest client
-    ```
-
-    This creates a modern React app in the `client` directory.
-
-1. Switch to the *client* folder and install the required dependencies
-
-    ```bash
-    cd client
-    npm install
-    npm install react-router-dom
-    npm install react-icons
-    ```
-
-1. Update the *index.css* file.
-
-    ```css
-    body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    }
-
-    .quote-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-    }
-
-    .navbar {
-    background-color: white;
-    border-bottom: 1px solid #eaeaea;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    align-items: center;
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    }
-
-    .navbar-left {
-    display: flex;
-    align-items: center;
-    margin-left: 40px;
-    }
-
-    .logo {
-    font-size: 1.25em;
-    text-decoration: none;
-    color: black;
-    margin-right: 20px;
-    }
-
-    .navbar-left nav a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    font-family: 'Arial', sans-serif;
-    }
-
-    .navbar-right a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    font-family: 'Arial', sans-serif;
-    }
-
-    .quote-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    }
-
-    .quote-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 700px;
-    position: relative;
-    text-align: left;
-    }
-
-    .quote-card h2 {
-    font-weight: normal;
-    }
-
-    .quote-card blockquote {
-    font-size: 2em;
-    font-family: 'Georgia', serif;
-    font-style: italic;
-    color: #4EC2F7;
-    margin: 0 0 20px 0;
-    line-height: 1.4;
-    text-align: left;
-    }
-
-    .quote-card footer {
-    font-size: 0.55em;
-    color: black;
-    font-family: 'Arial', sans-serif;
-    font-style: normal;
-    text-align: left;
-    font-weight: bold;
-    }
-
-    .vote-container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 0em;
-    }
-
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quote of the Day</title>
+  <style>
     .heart-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    font-size: 24px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
     }
 
     .heart-button:hover {
-    background-color: #F0F0F0;
+      background-color: #F0F0F0;
     }
+  </style>
+</head>
+<body>
+  <div style="display: flex; flex-direction: column; min-height: 100vh; background-color: #f4f4f4;">
+    <header style="background-color: white; border-bottom: 1px solid #eaeaea; display: flex; justify-content: space-between; align-items: center; font-family: 'Arial', sans-serif; font-size: 16px;">
+      <div style="font-size: 1.25em; color: black;">QuoteOfTheDay</div>
+    </header>
 
-    .heart-button:focus {
-    outline: none;
-    box-shadow: none;
-    }
+    <main style="display: flex; justify-content: center; align-items: center; flex-grow: 1;">
+      <div style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); max-width: 700px; position: relative; text-align: left;">
+        <div id="quote-content">
+          <h2 id="greeting">Quote of the Day</h2>
+          <blockquote style="font-size: 2em; font-style: italic; color: #4EC2F7; margin: 0 0 20px 0; line-height: 1.4;">
+            <p>"You cannot change what you are, only what you do."</p>
+            <footer style="font-size: 0.55em; color: black; font-family: 'Arial', sans-serif; font-style: normal; font-weight: bold;">— Philip Pullman</footer>
+          </blockquote>
+          <div style="position: absolute; top: 10px; right: 10px; display: flex;">
+            <button class="heart-button" id="like-button">
+              <span id="heart-icon" style="color: #ccc">♥</span>
+            </button>
+          </div>
+        </div>
+        <div id="loading" style="display: none;">
+          <p>Loading</p>
+        </div>
+      </div>
+    </main>
+  </div>
 
-    h2 {
-    margin-bottom: 20px;
-    color: #333;
-    }
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentUser = urlParams.get('userId') || '';
+      let liked = false;
+      
+      const greetingElement = document.getElementById('greeting');
+      const heartIcon = document.getElementById('heart-icon');
+      const likeButton = document.getElementById('like-button');
+      const quoteContent = document.getElementById('quote-content');
+      const loadingElement = document.getElementById('loading');
 
-    footer {
-    background-color: white;
-    padding-top: 10px;
-    text-align: center;
-    border-top: 1px solid #eaeaea;
-    }
+      async function init() {
+        quoteContent.style.display = 'none';
+        loadingElement.style.display = 'block';
+        
+        const response = await fetch(`/api/getGreetingMessage?userId=${currentUser}`, { 
+          method: "GET"
+        });
+        const result = await response.json();
+        greetingElement.textContent = result.message || "Quote of the Day";
+        quoteContent.style.display = 'block';
+        loadingElement.style.display = 'none';
+      }
 
-    footer a {
-    color: #4EC2F7;
-    text-decoration: none;
-    }
-    ```
+      likeButton.addEventListener('click', async function() {
+        if (!liked) {
+          const response = await fetch("/api/like", { 
+            method: "POST", 
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ UserId: currentUser }),
+          });
+        }
+        liked = !liked;
+        heartIcon.style.color = liked ? 'red' : '#ccc';
+      });
 
-1. Create a new file named *Home.jsx*.
+      init();
+    });
+  </script>
+</body>
+</html>
+```
 
-    ```jsx
-    import { useState, useEffect } from "react";
-    import { useLocation } from "react-router-dom";
-    import { FaHeart, FaRegHeart } from "react-icons/fa";
-
-    function Home() {
-        const location = useLocation();
-        const params = new URLSearchParams(location.search);
-        const currentUser = params.get("userId");
-        const [liked, setLiked] = useState(false);
-        const [message, setMessage] = useState(undefined);
-
-        useEffect(() => {
-            const init = async () => {
-                const response = await fetch(`/api/getGreetingMessage?userId=${currentUser ?? ""}`, { 
-                    method: "GET"
-                });
-                if (response.ok) {
-                    const result = await response.json();
-                    setMessage(result.message ?? "Quote of the Day"); // default message is "Quote of the Day"
-                } 
-                else {
-                    console.error("Failed to get greeting message.");
-                }
-                setLiked(false);
-            };
-            init();
-        }, []);
-
-        const handleClick = async () => {
-            if (!liked) {
-                const response = await fetch("/api/like", { 
-                    method: "POST", 
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ UserId: currentUser ?? "" }),
-                });
-
-                if (response.ok) {
-                console.log("Like the quote successfully.");
-                } else {
-                console.error("Failed to like the quote.");
-                }
-            }
-            setLiked(!liked);
-        };
-
-        return (
-            <div className="quote-page">
-                <header className="navbar">
-                    <div className="navbar-left">
-                        <div className="logo">QuoteOfTheDay</div>
-                    </div>
-                </header>
-
-                <main className="quote-container">
-                    <div className="quote-card">
-                    { message != undefined ?
-                        ( 
-                        <>
-                        <h2>
-                            <>{message}</>
-                        </h2>
-                        <blockquote>
-                            <p>"You cannot change what you are, only what you do."</p>
-                            <footer>— Philip Pullman</footer>
-                        </blockquote>
-                        <div className="vote-container">
-                            <button className="heart-button" onClick={handleClick}>
-                            {liked ? <FaHeart /> : <FaRegHeart />}
-                            </button>
-                        </div>
-                        </> 
-                        ) 
-                        : <p>Loading</p>       
-                    }
-                    </div>
-                </main>
-            </div>
-        );
-    }
-
-    export default Home;
-    ```
-
-1. Update the *App.jsx* file.
-
-    ```jsx
-    import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-    import Home from "./Home";
-
-    function App() {
-        return (
-            <Router>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                </Routes>
-            </Router>
-        );
-    }
-
-    export default App;
-    ```
-
-1. In the *client* folder, run the following command to compile your React app and outputs static files to `client/dist`.
-
-    ```bash
-    npm run build
-    ```
-
-1. Go back to the root folder and launch the backend.
+1. Launch the application.
 
 
     ```bash
