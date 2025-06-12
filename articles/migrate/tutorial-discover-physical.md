@@ -152,7 +152,7 @@ Ensure that the appliance connects to Azure URLs for [public](migrate-appliance.
 
 Set up the appliance for the first time:
 
-1. Open a browser on any machine that connects to the appliance. Go to the appliance web app URL:https://<appliance name or IP address>:44368
+1. Open a browser on any machine that connects to the appliance. Go to the appliance web app URL:https://[appliance name or IP address]:44368
 
 Or, open the app from the desktop by selecting the shortcut.
 
