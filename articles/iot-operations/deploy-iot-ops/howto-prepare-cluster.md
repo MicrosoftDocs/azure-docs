@@ -354,7 +354,7 @@ Azure CLIEdit development language
 az connectedk8s enable-features -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
 ```
 
-### Update Pod Security Admission Settings
+### Update pod security admission settings
 
 Before deploying Azure IoT Operations, you will need to update the Pod Security Admission settings on your TKGm cluster. Applying this file will pre-create namespace labels and set pod security to `privileged`.
 
