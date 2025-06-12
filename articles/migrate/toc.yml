@@ -37,8 +37,8 @@ items:
       items:
       - name: Appliance requirements
         href: migrate-appliance.md
-      - name: Discover VMware estate
-        items: 
+    - name: Discover VMware estate
+      items: 
       - name: Scoped discovery of VMware estate
         href: set-discovery-scope.md
       - name: Support matrix for VMware discovery 
