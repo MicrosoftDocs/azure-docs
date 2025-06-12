@@ -1,7 +1,7 @@
 ---  
 title: Exploring and interacting with lake data using Jupyter Notebooks (Preview)
 titleSuffix: Microsoft Security  
-description: This article describes how to explore and interact with lake data using Spark notebooks in Visual Studio Code. You will learn how to install the Microsoft Security Sentinel extension, create and run Spark notebooks, and review sample code for interacting with security data in your modern data lake.  
+description: This article describes how to explore and interact with lake data using Spark notebooks in Visual Studio Code.
 author: EdB-MSFT  
 ms.topic: how-to  
 ms.date: 06/04/2025
@@ -14,24 +14,24 @@ ms.author: edbayansh
  
 ## Overview  
 
-Microsoft Sentinel Lake is a next-generation, cloud-native security data lake that extends the capabilities of Microsoft Sentinel by providing a highly scalable, cost-effective platform for long-term storage and data retention, advanced analytics, and AI-driven security operations.
+Microsoft Sentinel data lake is a next-generation, cloud-native security data lake that extends the capabilities of Microsoft Sentinel by providing a highly scalable, cost-effective platform for long-term storage and data retention, advanced analytics, and AI-driven security operations.
 
-Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by a Visual Studio Code extension that allows you to interact with the data lake using Python and Apache Spark. This enables you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment.
+Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by a Visual Studio Code extension that allows you to interact with the data lake using Python and Apache Spark. Notebooks enable you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment. 
 
 The Microsoft Sentinel extension with Jupyter notebooks provides a powerful environment for exploring and analyzing lake data with the following benefits:
 
 - **Interactive data exploration**: Jupyter notebooks provide an interactive environment for exploring and analyzing data. You can run code snippets, visualize results, and document your findings all in one place.
-- **Integration with Python libraries**: The Microsoft Sentinel extension includes a wide range of Python libraries, enabling you to leverage existing tools and frameworks for data analysis, machine learning, and visualization.
-- **Powerful data analysis**: With the integration of Apache Spark, you can leverage the power of distributed computing to analyze large datasets efficiently. This allows you to perform complex transformations and aggregations on your security data.  
+- **Integration with Python libraries**: The Microsoft Sentinel extension includes a wide range of Python libraries, enabling you to use existing tools and frameworks for data analysis, machine learning, and visualization.
+- **Powerful data analysis**: With the integration of Apache Spark, you can use the power of distributed computing to analyze large datasets efficiently. This allows you to perform complex transformations and aggregations on your security data.  
 -	**Low-and-slow attacks**: Powerful way to analyze large scale, complex, interconnected data related to security events, alerts, and incidents, enabling detection of sophisticated threats and patterns, such as lateral movement or low-and-slow attacks, evading traditional rule-based systems. 
--	**AI and ML intergration**: Integrate with AI and machine learning to enhance anomaly detection, threat prediction, and behavioral analysis, empowering security teams to build agents to automate their investigations. 
+-	**AI and ML integration**: Integrate with AI and machine learning to enhance anomaly detection, threat prediction, and behavioral analysis, empowering security teams to build agents to automate their investigations. 
 -	**Scalability**: Notebooks provide the scalability to process vast amounts of data cost efficiently and enable deep batch processing for uncovering trends, patterns, and anomalies. 
 - **Visualization capabilities**: Jupyter notebooks support various visualization libraries, enabling you to create charts, graphs, and other visual representations of your data. This helps you gain insights and communicate findings effectively.
 - **Collaboration and sharing**: Jupyter notebooks can be easily shared with colleagues, allowing for collaboration on data analysis projects. You can export notebooks in various formats, including HTML and PDF, for easy sharing and presentation.
 - **Documentation and reproducibility**: Jupyter notebooks allow you to document your code, analysis, and findings in a single file. This makes it easier to reproduce results and share your work with others.  
 
 
-This article shows you how to explore and interact with lake data using Jupyter notebooks in Visual Studio Code. The Microsoft Sentinel extension for Visual Studio Code (VSCode) provides a powerful environment for exploring and analyzing the lake data using Jupyter notebooks and Python. The extension allows you to run interactive queries, visualize data, and gain insights from your security data stored in the data lake with the flexibility and power of Python libraries. 
+This article shows you how to explore and interact with lake data using Jupyter notebooks in Visual Studio Code. 
 
 > [!NOTE]  
 > The Microsoft Sentinel extension is currently in Public Preview. Some functionality and performance limits may change as new releases are made available.  
@@ -50,7 +50,7 @@ Before you can use the Microsoft Sentinel extension for Visual Studio Code, you 
  
 ###  Microsoft Sentinel extension for Visual Studio Code  
  
-The Sentinel extension for Visual Studio Code (VSCode) is installed from the extensions marketplace in VS Code. To install the extension, follow these steps:
+The Microsoft Sentinel extension for Visual Studio Code (VS Code) is installed from the extensions marketplace in VS Code. To install the extension, follow these steps:
 
 1. Select the Extensions Marketplace in the left toolbar
 1. Search for *Sentinel*
@@ -60,11 +60,11 @@ The Sentinel extension for Visual Studio Code (VSCode) is installed from the ext
 
 ### Onboarding to the Microsoft Sentinel data lake
 
-If you have not already onboaded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until you have ingested a sufficient volume of data before you can create meaningful analyses using notebooks.
+If you have not already onboarded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until you have ingested a sufficient volume of data before you can create meaningful analyses using notebooks.
 
 ### Permissions and Roles
 
-Querying the data lake based on your Entra Id roles and permissions. For more information see [Permissions and roles for Microsoft Sentinel data lake](./sentinel-lake-permissions.md).
+Querying the data lake based on your Microsoft Entra ID roles and permissions. For more information, see [Permissions and roles for Microsoft Sentinel data lake](./sentinel-lake-permissions.md).
  
  
 ## Explore lake-tier tables
@@ -78,7 +78,7 @@ After installing the Microsoft Sentinel extension, you can start exploring lake-
 
 :::image type="content" source="./media/spark-notebooks/sign-in.png" lightbox="./media/spark-notebooks/sign-in.png" alt-text="A screenshot showing the sign in dialog."::: 
 
-1. Select your account name to complete the login.
+1. Select your account name to complete the sign in.
  
 :::image type="content" source="./media/spark-notebooks/select-account.png" lightbox="./media/spark-notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
 
@@ -88,7 +88,7 @@ Once you have signed in, the Microsoft Sentinel extension displays a list of **L
 
 For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
 
-:::image type="content" source="./media/spark-notebooks/tables-and-jobs.png" lightbox="./media/spark-notebooks/tables-and-jobs.png" alt-text="A screenshot showing the list of tables, jobs and the selected table's metadata."::: 
+:::image type="content" source="./media/spark-notebooks/tables-and-jobs.png" lightbox="./media/spark-notebooks/tables-and-jobs.png" alt-text="A screenshot showing the list of tables, jobs, and the selected table's metadata."::: 
 
 ## Create a new notebook
  
@@ -112,14 +112,14 @@ For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
    df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100,   truncate=False)  
    ```  
 
-1. Select the **Run** triagle button to execute the code in the notebook. The results are displayed in the output pane below the code cell.  
+1. Select the **Run** triangle to execute the code in the notebook. The results are displayed in the output pane below the code cell.  
   :::image type="content" source="./media/spark-notebooks/run-notebook.png" lightbox="./media/spark-notebooks/run-notebook.png" alt-text="A screenshot showing how to run a notebook cell.":::
 
 1. Select **MSG Runtime** from the list for a list of runtime pools.
   :::image type="content" source="./media/spark-notebooks/select-msg-runtime.png" lightbox="./media/spark-notebooks/select-msg-runtime.png" alt-text="A screenshot showing the runtime picker.":::  
 
 1. Select **Microsoft Sentinel Medium** to run the notebook in the medium sized runtime pool. For more information on the different runtimes, see [Selecting the appropriate MSG runtime](#selecting-the-appropriate-runtime-pool).
-  :::image type="content" source="./media/spark-notebooks/select-kernel-size.png" lightbox="./media/spark-notebooks/select-kernel-size.png" alt-text="Ascreenshot showing the runpool size picker.":::  
+  :::image type="content" source="./media/spark-notebooks/select-kernel-size.png" lightbox="./media/spark-notebooks/select-kernel-size.png" alt-text="A screenshot showing the run pool size picker.":::  
 
 
 > [!NOTE]
@@ -163,7 +163,7 @@ There are three runtime pools available to run your Jupyter notebooks in the Mic
  
 Logs can be viewed in the **Output** pane of Visual Studio Code.  
 
-1. In the **Output** pane, select **Microsoft Sentinel** from the drop down.  
+1. In the **Output** pane, select **Microsoft Sentinel** from the drop-down.  
 1. Select **Debug** to include detailed log entries.  
 
 :::image type="content" source="media/spark-notebooks/output-pane.png" lightbox="media/spark-notebooks/output-pane.png" alt-text="A screenshot showing the output pane.":::
@@ -173,15 +173,16 @@ Logs can be viewed in the **Output** pane of Visual Studio Code.
 
 ## Jobs and Scheduling
 
-You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. This allows you to automate data processing tasks and ensure that your analyses are always up-to-date.
+You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.  
 
-To schedule a job you must save your notebook as a file.
+To schedule a job, you must save your notebook as a file.
+
 1. Select **File** > **Save As** and save the notebook with a `.ipynb` extension.
 1. Open the folder where you saved the notebook file using **File** > **Open folder**.
 
 1. In the **Explorer** pane, right-click the notebook file and select **Microsoft Sentinel**, then select **Create schedule Job**.
 
-    :::image type="content" source="./media/spark-notebooks/create-job.png" lightbox="./media/spark-notebooks/create-job.png" alt-text="A screenshot showing how to create a new job in VSCode."  :::
+    :::image type="content" source="./media/spark-notebooks/create-job.png" lightbox="./media/spark-notebooks/create-job.png" alt-text="A screenshot showing how to create a new job in VS Code."  :::
 
 1. On the **Job configuration** page, in the **Job details** section enter a **name** and **description** for the job.
 1. To run a job manually without a schedule select **Off** under **Scheduled Run** in the **Schedule Configuration** section.    
@@ -195,11 +196,11 @@ To schedule a job you must save your notebook as a file.
     1. Select a **Time zone** for the start and end times.
     1. Select **Publish job** to save the job configuration and publish the job.
 
-    :::image type="content" source="./media/spark-notebooks/job-configuration.png" lightbox="./media/spark-notebooks/job-configuration.png" alt-text="A screenshot showing the job cvonfiguration page."  :::
+    :::image type="content" source="./media/spark-notebooks/job-configuration.png" lightbox="./media/spark-notebooks/job-configuration.png" alt-text="A screenshot showing the job configuration page."  :::
 
 1. Select the Microsoft Sentinel shield icon in the left toolbar to view the job in the **Jobs** section.
 
-1. Select the job then select **Run now** to run a job immediately. If your job is a scheduled job, it will run at the specified time and frequency. 
+1. Select the job then select **Run now** to run a job immediately. If your job is a scheduled job, it runs at the specified time and frequency. 
 1. View the job status in the **Runs** tab.
 
   :::image type="content" source="./media/spark-notebooks/job-runs.png" lightbox="./media/spark-notebooks/job-runs.png" alt-text="A screenshot showing the job runs page."  :::
@@ -216,13 +217,13 @@ To schedule a job you must save your notebook as a file.
 |Interactive queries| Spark session inactivity timeout| 20 minutes|
 |Interactive queries| interactive query timeout | 2 hours |
 |Interactive queries| Gateway web socket timeout | 2 hours |
-|Interactive queries| Maxmimum rows displayed| 10,000 rows |
+|Interactive queries| Maximum rows displayed| 10,000 rows |
 |Jobs  | Job timeout| X hours <<<<<<>>>>>> |
 | Compute resources| vCores are allocated per customer account|  1000|
 | Compute resources| Maximum vCores allocated to interactive sessions | 760 vCores |
-| Compute resources| Maximum vCores allocated to kobs | 240 vCores|
+| Compute resources| Maximum vCores allocated to jobs | 240 vCores|
 | Compute resources| Max concurrent users in interactive sessions| 10 users|
-| Compute resources| Max concurrent running jobs| 3 jobs. The fouth and subsequent jobs will be queued.|
+| Compute resources| Max concurrent running jobs| 3 jobs. The fourth and subsequent jobs are queued.|
 
 
 ## Troubleshooting 
@@ -249,10 +250,10 @@ The following table lists common errors you may encounter when working with note
 | Library | Missing suffix _SPRK for writing table to lake | save_as_table() is writing data to a table that requires _SPRK | Add _SPRK as suffix for writing to custom table in Lake |
 | Library | Missing suffix _SPRK_CL for writing table to analytics tier | save_as_table() is writing data to a table that requires _SPRK_CL | Add _SPRK as suffix for writing to custom table in analytics tier |
 | Library | Invalid write | Attempted to write to system table, this action is not permitted. | Specify a custom table to write to |
-| Library | Invalid notebook | Incorrect arguments passed to a library method (e.g., missing ‘mode’ in save_as_table) | Validate parameter names and values. Refer to method documentation or use auto-complete in VS Code |
+| Library | Invalid notebook | Incorrect arguments passed to a library method (for example, missing ‘mode’ in save_as_table) | Validate parameter names and values. Refer to method documentation or use autocomplete in VS Code |
 | Job | Job quota exceeded | The notebook is corrupted or contains unsupported syntax for scheduled execution | Open the notebook and validate that all cells run sequentially without manual input. |
 | Job | Job quota exceeded | User or workspace has hit the limit for concurrent or scheduled jobs | Reduce the number of active jobs, or wait for some to finish. |
-| Job | Expired credentials | The user’s token or session used for scheduling is no longer valid | Re-authenticate before scheduling the job. |
+| Job | Expired credentials | The user’s token or session used for scheduling is no longer valid | Reauthenticate before scheduling the job. |
 
 
 ## Related content

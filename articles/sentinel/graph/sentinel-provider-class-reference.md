@@ -131,7 +131,7 @@ lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "workspace1", mod
 
 ### delete_table
 
-Deletes the table from the schema.  You can delete table from lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.   
+Deletes the table from the schema. You can delete table from lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.   
 
 ```python
 lake_provider.delete_table({table_name}, {database}, [id])
@@ -153,6 +153,6 @@ lake_provider.delete_table("customtable_SPRK", "msgworkspace")
 ## Related content
 
 - [Use Jupyter notebooks with Microsoft Sentinel Data lake](./spark-notebooks.md)
-- [Sentinel data lake overview](./sentinel-lake-overview.md)
-- [Sentinel data lake permissions](./sentinel-lake-permissions.md)
+- [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
+- [Microsoft Sentinel data lake permissions](./sentinel-lake-permissions.md)
 - [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
