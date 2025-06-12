@@ -1,7 +1,7 @@
 ---
-title: Microsoft Teams Phone client capabilities in Calling client and Call Automation SDK
+title: Microsoft Teams Phone capabilities in Calling and Call Automation SDKs
 titleSuffix: An Azure Communication Services article
-description: Conceptual documentation describing which capabilities Azure Communication Services Calling client and Call Automation SDKs support for Teams users in Teams Phone calls.
+description: Conceptual documentation describing which capabilities Azure Communication Services Calling and Call Automation SDKs support for Teams users in Teams Phone calls.
 author: jacadd
 manager: chpalm
 services: azure-communication-services
@@ -12,9 +12,9 @@ ms.custom: public_preview
 ms.service: azure-communication-services
 ---
 
-# Microsoft Teams Phone client capabilities in Calling client and Call Automation SDK
+# Microsoft Teams Phone capabilities in Calling and Call Automation SDKs
     
-This article describes which Microsoft Teams Phone client capabilities Azure Communication Services Calling client and Call Automation SDKs support for Teams Phone extensibility.
+This article describes which Microsoft Teams Phone capabilities Azure Communication Services Calling and Call Automation SDKs support for Teams Phone extensibility.
 
 [!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
@@ -24,7 +24,7 @@ This article describes which Microsoft Teams Phone client capabilities Azure Com
 - Teams users must be Enterprise Voice enabled.
 - Agents in Azure Communication Services applications support the capabilities in the following table. Teams users aren't supported.
 
-## Teams Phone client capabilities
+## Teams Phone capabilities
 
 The following list of capabilities is supported for scenarios where at least one phone number participates in 1:1 or group calls:
 
