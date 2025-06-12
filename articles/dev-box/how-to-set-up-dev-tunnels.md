@@ -77,7 +77,7 @@ Follow these steps to set up a dev tunnel and connect to your dev box using VS C
 
 - Why can't I connect to the Dev Box even if the tunnel is enabled?
 
-   Refresh the Dev Box extension explorer view with the button in the top right corner to check the latest status of the tunnel. If the tunnel is enabled, but you still can't connect, try disabling the tunnel, signing in to the Dev Box, and then re-enabling the tunnel.nnect, try disabling the tunnel, logging into the Dev Box, and then re-enabling the tunnel.
+   Refresh the Dev Box extension explorer view with the button in the top right corner to check the latest status of the tunnel. If the tunnel is enabled, but you still can't connect, try disabling the tunnel, signing in to the Dev Box, and then re-enabling the tunnel.
 
 ## Related content
 - [Configure Conditional Access Policies for Dev Tunnels](how-to-conditional-access-dev-tunnels-service.md)
