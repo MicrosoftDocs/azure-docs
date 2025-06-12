@@ -4,7 +4,7 @@ metadata:
   description: Get answers to frequently asked questions about Azure Disk Backup
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 06/03/2024
+  ms.date: 06/12/2025
   author: jyothisuri
   ms.author: jsuri
 title: Frequently asked questions about Azure Disk Backup
@@ -153,4 +153,7 @@ additionalContent: |
 
   ## Next steps
   
-  - [Azure Disk Backup support matrix](disk-backup-support-matrix.md)
+  - [Azure Disk Backup support matrix](disk-backup-support-matrix.md).
+  - Back up Azure Managed Disks using [Azure portal](backup-managed-disks.md), [Azure PowerShell](backup-managed-disks-ps.md), [Azure CLI](backup-managed-disks-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+  - Restore Azure Managed Disks using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
+  - [Manage Azure Managed Disks backups using Azure portal](manage-azure-managed-disks.md).
