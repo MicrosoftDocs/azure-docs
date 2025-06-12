@@ -235,13 +235,15 @@ Now, connect the appliance to the physical servers and start discovery:
 1. Select **Add discovery source** to enter the server IP address or FQDN and the friendly name for the credentials used to connect to the server.
     1. The appliance uses WinRM port 5986 (HTTPS) by default to communicate with Windows servers, and port 22 (TCP) for Linux servers.
     1. If the target Hyper-V servers do not have HTTPS prerequisites[add link] set up, the appliance switches to WinRM port 5985 (HTTP).
-    [Add screen]
+    
+    ![Screenshot that shows the physical or virtual server details.](./media/tutorial-discover-physical/physical-virtual-server-details.png)
+
     1. To use HTTPS communication without fallback, turn on the HTTPS protocol toggle in Appliance Config Manager.
     1. After you turn on the checkbox, ensure that the prerequisites are configured on the target servers. If the servers do not have certificates, discovery fails on both current and newly added servers.
         1. WinRM HTTPS needs a local computer Server Authentication certificate. The certificate must have a CN that matches the hostname. It must not be expired, revoked, or self-signed. You can check the article that explains how to set up WinRM for HTTPS.
 1. You can **Add single item** at a time or **Add multiple items** together. You can also provide server details through **Import a CSV file**1. 
 
-    [add screen]
+  ![Screenshot that shows how to add physical discovery source.](./media/tutorial-discover-physical/add-discovery-source.png)
 
     1. If you choose **Add single item**, select the OS type.
     1. Enter a friendly name for the credentials, add the server **IP address or FQDN**
