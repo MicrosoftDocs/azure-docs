@@ -1914,7 +1914,7 @@ groups:
   prompt: Choose a connection type
   pivots:
   - id: connection-agentless
-    title: Agentless data connector (Preview)
+    title: Agentless data connector (Limited preview)
   - id: connection-agent
     title: Data connector agent
 # Owner: jodowns

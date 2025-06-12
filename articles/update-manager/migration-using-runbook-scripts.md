@@ -70,7 +70,6 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
  - Creates an automation variable with name AutomationAccountAzureEnvironment which will store the Azure Cloud Environment to which Automation Account belongs.
  - Creation of User Identity in the same Subscription and resource group as the Automation Account. The name of User Identity will be like *AutomationAccount_aummig_umsi*. 
  - Attaching the User Identity to the Automation Account.
- - The script assigns the following permissions to the user managed identity: [Update Management Permissions Required](../automation/automation-role-based-access-control.md#update-management-permissions).
 
 
      1. For this, the script fetches all the machines onboarded to Automation Update Management under this automation account and parse their subscription IDs to be given the required RBAC to the User Identity. 

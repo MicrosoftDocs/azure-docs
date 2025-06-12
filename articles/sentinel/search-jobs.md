@@ -3,7 +3,7 @@ title: Search across long time spans in large datasets - Microsoft Sentinel
 description: Learn how to use search jobs to search large datasets.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 03/07/2024
+ms.date: 03/17/2025
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

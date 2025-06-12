@@ -14,7 +14,7 @@ appliesto:
 
 Find out what's new in Azure Managed Redis.
 
-## May 2024
+## May 2025
 
 ### Azure Managed Redis General Availability (GA)
 

@@ -46,6 +46,7 @@ We recommend reviewing the following limitations before creating watchlists:
 | **Watchlist name and alias length** | Watchlist names and aliases must be between 3 and 64 characters. First and last characters must be alphanumeric; spaces, hyphens, and underscores allowed between. |
 | **Intended use** | Use watchlists only for reference data. Watchlists aren't designed for large data volumes. |
 | **Maximum active watchlist items** | You can have a maximum of 10 million active watchlist items across all watchlists in a workspace. Deleted items don't count. For larger volumes, use [custom logs](/azure/azure-monitor/agents/data-sources-custom-logs). |
+| **Data retention**| Data in the Log Analytics Watchlist table is retained for 28 days.|
 | **Refresh interval** | Watchlists refresh every 12 days, updating the `TimeGenerated` field. |
 | **Cross-workspace management** | Managing watchlists across workspaces using Azure Lighthouse isn't supported. |
 | **Local file upload size** | Local file uploads are limited to files of up to 3.8 MB. |

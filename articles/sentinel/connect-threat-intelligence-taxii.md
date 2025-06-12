@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: Learn how to connect Microsoft Sentinel to industry-standard threat intelligence feeds to import threat indicators.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 3/14/2024
+ms.date: 1/20/2025
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

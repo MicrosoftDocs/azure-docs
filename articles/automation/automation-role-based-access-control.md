@@ -90,7 +90,7 @@ An Automation Contributor can manage all resources in the Automation account exc
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|List keys for a Log Analytics workspace|
 
 > [!NOTE]
-> The Automation Contributor role can be used to access any resource using the managed identity, if appropriate permissions are set on the target resource, or using a Run As account. An Automation Run As account are by default, configured with Contributor rights on the subscription. Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.
+> The Automation Contributor role can be used to access any resource using the managed identity, if appropriate permissions are set on the target resource, or using a Run As account. Automation Run As accounts are by default, configured with Contributor rights on the subscription. Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.
 > 
 > When assigning permissions, it is recommended to use Azure role based access control (RBAC) assigned to a managed identity. Review our [best approach](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md) recommendations for using a system or user-assigned managed identity, including management and governance during its lifetime.
 
@@ -304,29 +304,6 @@ The following sections describe the minimum required permissions needed for enab
 You can create [Azure custom roles](../role-based-access-control/custom-roles.md) in Automation and grant the following permissions to Hybrid Worker Groups and Hybrid Workers:
 
 - [Extension-based Hybrid Runbook Worker](./extension-based-hybrid-runbook-worker-install.md?tabs=windows#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
-- [Agent-based Windows Hybrid Runbook Worker](./automation-windows-hrw-install.md#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
- - [Agent-based Linux Hybrid Runbook Worker](./automation-linux-hrw-install.md#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) 
-
-
-## Update Management permissions
-
-Update Management can be used to assess and schedule update deployments to machines in multiple subscriptions in the same Microsoft Entra tenant, or across tenants using Azure Lighthouse. The following table lists the permissions needed to manage update deployments.
-
-|**Resource** |**Role** |**Scope** |
-|---------|---------|---------|
-|Automation account |Virtual Machine Contributor  |Resource Group for the account  |
-|Log Analytics workspace | Log Analytics Contributor|Log Analytics workspace |
-|Log Analytics workspace |Log Analytics Reader|Subscription|
-|Solution |Log Analytics Contributor |Solution|
-|Virtual Machine |Virtual Machine Contributor |Virtual Machine |
-|**Actions on Virtual Machine** | | |
-|View history of update schedule execution ([Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns)) |Reader |Automation account |
-|**Actions on virtual machine** |**Permission** | |
-|Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.Compute/virtualMachines/write |For static VM list and resource groups |
-|Create update schedule ([Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)) |Microsoft.OperationalInsights/workspaces/analytics/query/action |For workspace resource ID when using non-Azure dynamic list.|
-
->[!NOTE]
->When you use Update management, ensure that the execution policy for scripts is *RemoteSigned*.
 
 ## Configure Azure RBAC for your Automation account
 
