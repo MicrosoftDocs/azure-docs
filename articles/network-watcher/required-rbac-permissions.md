@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 06/11/2025
+ms.date: 06/12/2025
 
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 ---
@@ -90,7 +90,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > | Microsoft.Insights/dataCollectionEndpoints/write <sup>1</sup> | Create or update a data collection endpoint |
 > | Microsoft.Insights/dataCollectionEndpoints/delete <sup>1</sup> | Delete a data collection endpoint |
 
-<sup>1</sup> Required on the Log Analytics workspace subscription when using traffic analytics with virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
+<sup>1</sup> Required on the Log Analytics workspace subscription when using traffic analytics with virtual network flow logs.
 
 [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
