@@ -4,7 +4,7 @@ description: Learn how to configure continuous integration and continuous deploy
 author: cephalin
 ms.author: cephalin
 ms.topic: how-to
-ms.date: 06/04/2025
+ms.date: 06/11/2025
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 
 ---
@@ -46,7 +46,7 @@ If necessary, select **Authorize** and follow the authorization prompts for GitH
 
 1. Under **Authentication type**, select **User-assigned identity** for better security.
 
-   If your Azure account has the required permissions, App Service creates a [user-assigned managed identity](#what-does-the-user-assigned-identity-option-do-in-github-actions) for you, or you can choose an existing managed identity. If you don't have the required permissions, work with your Azure administrator to create an identity, and then select it in the dropdown.
+   If your Azure account has the required permissions, App Service creates a [user-assigned managed identity](#what-does-the-user-assigned-identity-option-do-for-github-actions) for you, or you can choose an existing managed identity. If you don't have the required permissions, work with your Azure administrator to create an [identity with the required role on your app](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app), and then select it in the dropdown.
 
 1. App Service selects a workflow template based on your app's [language stack setting](configure-common.md#configure-language-stack-settings) and commits it into your selected GitHub repository. You can optionally select **Preview file** to see the workflow file before saving your changes.
 
@@ -96,9 +96,9 @@ To disable continuous deployment for a connected source:
 
 1. Select **OK**.
 
-For GitHub, the workflow file remains in the repository by default, but no longer triggers continuous deployment to your app.
+For GitHub, the workflow file remains in the repository by default, but you no longer see the integrated progress on the **Logs** tab of the **Deployment Center**.
 
-## Build providers
+## What are the build providers?
 
 Build providers help you build a continuous integration and continuous delivery (CI/CD) solution with Azure App Service by automating build, test, and deployment. Some deployment sources offer several build provider options. All listed sources can build with App Service Build Service.
 
@@ -110,7 +110,7 @@ The GitHub Actions build provider is available only for GitHub source and is the
 
 For basic authentication, the GitHub Actions build provider adds the publish profile for your app as a GitHub secret. The workflow file uses this secret to authenticate with App Service.
 
-For user-assigned identity, App Service enables the recommended Microsoft OpenID Connect authentication and configures the necessary resources in Azure and GitHub. For more information, see [What does the user-assigned identity option do in GitHub Actions?](#what-does-the-user-assigned-identity-option-do-in-github-actions)
+For user-assigned identity, App Service enables the recommended Microsoft OpenID Connect authentication and configures the necessary resources in Azure and GitHub. For more information, see [What does the user-assigned identity option do for GitHub Actions?](#what-does-the-user-assigned-identity-option-do-for-github-actions)
 
 The GitHub Actions build provider captures information from the [workflow run logs](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) and displays it on the **Logs** tab in the app's **Deployment Center**.
 
@@ -141,8 +141,8 @@ To use Azure Pipelines as the build provider, select the **Azure Pipelines** opt
 ## Frequently asked questions
 
 - [How does the GitHub Actions build provider work if basic authentication is disabled?](#how-does-the-github-actions-build-provider-work-if-basic-authentication-is-disabled)
-- [What can happen to my app during deployment?](#what-can-happen-to-my-app-during-deployment)
-- [What does the user-assigned identity option do in GitHub Actions?](#what-does-the-user-assigned-identity-option-do-in-github-actions)
+- [What happens to my app during deployment that can cause failure or unpredictable behavior?](#what-can-happen-to-my-app-during-deployment)
+- [What does the user-assigned identity option do for GitHub Actions?](#what-does-the-user-assigned-identity-option-do-for-github-actions)
 - [Why do I see the error "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials"?](#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials)
 - [Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
 
@@ -150,11 +150,9 @@ To use Azure Pipelines as the build provider, select the **Azure Pipelines** opt
 
 The GitHub Actions build provider doesn't work with basic authentication if basic authentication is disabled. Try using GitHub Actions with the user-assigned identity option instead. For more information, see [Deploy without basic authentication](configure-basic-auth-disable.md#deploy-without-basic-authentication).
 
-<a name="what-can-happen-to-my-app-during-deployment"></a>
-[!INCLUDE [What can happen to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+[!INCLUDE [What happens to my app during deployment that can cause failure or unpredictable behavior?](../../includes/app-service-deploy-atomicity.md)]
 
-### What does the user-assigned identity option do in GitHub Actions?
-<a name="what-does-the-user-assigned-identity-option-do-for-github-actions"></a>
+### What does the user-assigned identity option do for GitHub Actions?
 
 When you select **User-assigned identity** for **GitHub** source, App Service configures all the necessary resources in Azure and GitHub. App Service enables the recommended Microsoft OpenID Connect authentication with GitHub Actions.
 
@@ -181,7 +179,7 @@ For more information on using alternative steps, see [Deploy to App Service usin
 
 ### Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?
 
-The message indicates that the selected user-assigned managed identity doesn't have the required role to enable OpenID Connect between the GitHub repository and the App Service app. The identity must have **Owner**, **Contributor**, or **Websites Contributor** role on the app. The least privileged role that the identity needs is **Websites Contributor**.
+The message indicates that the selected user-assigned managed identity doesn't have the required role to [enable OpenID Connect]((#what-does-the-user-assigned-identity-option-do-for-github-actions) between the GitHub repository and the App Service app. The identity must have **Owner**, **Contributor**, or **Websites Contributor** role on the app. The least privileged role that the identity needs is **Websites Contributor**.
 
 ## Related content
 
