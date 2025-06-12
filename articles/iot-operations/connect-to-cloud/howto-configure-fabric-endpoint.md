@@ -64,6 +64,64 @@ Go to Microsoft Fabric workspace you created, select **Manage access** > **+ Add
 
 1. Select **Apply** to provision the endpoint.
 
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-fabric-onelake) command to create or replace a Microsoft Fabric OneLake data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create fabric-onelake --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --workspace <WorkspaceName> --lakehouse <LakehouseName> --path-type <PathType>
+```
+
+The `--workspace` parameter is the name of the Microsoft Fabric workspace. The `--lakehouse` is the name of the Microsoft Fabric lakehouse within the workspace. The `--path-type` parameter specifies the OneLake path type, which can be either `Tables` or `Files`.
+
+Here's an example command to create or replace a Microsoft Fabric OneLake data flow endpoint named `fabric-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create fabric-onelake --resource-group myResourceGroup --instance myAioInstance --name fabric-endpoint --workspace myWorkspace --lakehouse myLakehouse --path-type Tables
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change a Microsoft Fabric OneLake data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `fabric-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "FabricOneLake",
+  "fabricOneLakeSettings": {
+    "authentication": {
+      "method": "SystemAssignedManagedIdentity",
+      "systemAssignedManagedIdentitySettings": {}
+    },
+    "batching": {
+      "latencySeconds": 60,
+      "maxMessages": 100000
+    },
+    "host": "https://onelake.dfs.fabric.microsoft.com",
+    "oneLakePathType": "Tables",
+    "names": {
+      "workspaceName": "<WorkspaceName>",
+      "lakehouseName": "<LakehouseName>"
+    }
+  }
+}
+```
+
+Here's an example command to create a new Microsoft Fabric OneLake data flow endpoint named `fabric-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name fabric-endpoint --config-file ~/fabric-endpoint.json
+```
+
 # [Bicep](#tab/bicep)
    
 Create a Bicep `.bicep` file with the following content.
@@ -153,6 +211,27 @@ The `oneLakePathType` setting determines the type of path to use in the OneLake 
 
 The OneLake path type is set in the **Basic** tab for the data flow endpoint.
 
+
+# [Azure CLI](#tab/cli)
+
+
+If you use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-fabric-onelake), the `--path-type` parameter specifies the OneLake path type, which can be either `Tables` or `Files`.
+
+```azurecli
+az iot ops dataflow endpoint create fabric-onelake --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --workspace <WorkspaceName> --lakehouse <LakehouseName> --path-type <PathType>
+```
+
+If you use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply), the `oneLakePathType` property is set in the JSON configuration file.
+
+```json
+{
+  "endpointType": "FabricOneLake",
+  "fabricOneLakeSettings": {
+    "oneLakePathType": "Tables" // Or "Files"
+  }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -190,6 +269,64 @@ Then, configure the data flow endpoint with system-assigned managed identity set
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-fabric-onelake) command to create or replace a Microsoft Fabric OneLake data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create fabric-onelake --auth-type SystemAssignedManagedIdentity --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --workspace <WorkspaceName> --lakehouse <LakehouseName> --path-type <PathType>
+```
+
+The `--workspace` parameter is the name of the Microsoft Fabric workspace. The `--lakehouse` is the name of the Microsoft Fabric lakehouse within the workspace. The `--path-type` parameter specifies the OneLake path type, which can be either `Tables` or `Files`.
+
+Here's an example command to create or replace a Microsoft Fabric OneLake data flow endpoint named `fabric-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create fabric-onelake --resource-group myResourceGroup --instance myAioInstance --name fabric-endpoint --workspace myWorkspace --lakehouse myLakehouse --path-type Tables
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change a Microsoft Fabric OneLake data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `fabric-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "FabricOneLake",
+  "fabricOneLakeSettings": {
+    "authentication": {
+      "method": "SystemAssignedManagedIdentity",
+      "systemAssignedManagedIdentitySettings": {}
+    },
+    "batching": {
+      "latencySeconds": 60,
+      "maxMessages": 100000
+    },
+    "host": "https://onelake.dfs.fabric.microsoft.com",
+    "oneLakePathType": "Tables",
+    "names": {
+      "workspaceName": "<WorkspaceName>",
+      "lakehouseName": "<LakehouseName>"
+    }
+  }
+}
+```
+
+Here's an example command to create a new Microsoft Fabric OneLake data flow endpoint named `fabric-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name fabric-endpoint --config-file ~/fabric-endpoint.json
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -218,6 +355,66 @@ If you need to override the system-assigned managed identity audience, you can s
 # [Operations experience](#tab/portal)
 
 In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-fabric-onelake) command to create or replace a Microsoft Fabric OneLake data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create fabric-onelake --auth-type SystemAssignedManagedIdentity fabric-onelake --audience https://<account>.onelake.dfs.fabric.microsoft.com --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --workspace <WorkspaceName> --lakehouse <LakehouseName> --path-type <PathType>
+```
+
+The `--audience` parameter specifies the audience for the system-assigned managed identity. The default audience is `https://<account>.onelake.dfs.fabric.microsoft.com`.
+
+Here's an example command to create or replace a Microsoft Fabric OneLake data flow endpoint named `fabric-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create fabric-onelake --auth-type SystemAssignedManagedIdentity --audience https://account.onelake.dfs.fabric.microsoft.com --resource-group myResourceGroup --instance myAioInstance --name fabric-endpoint --workspace myWorkspace --lakehouse myLakehouse --path-type Tables
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change a Microsoft Fabric OneLake data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `fabric-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "FabricOneLake",
+  "fabricOneLakeSettings": {
+    "authentication": {
+      "method": "SystemAssignedManagedIdentity",
+      "systemAssignedManagedIdentitySettings": {
+        "audience": "https://<account>.onelake.dfs.fabric.microsoft.com"
+      }
+    },
+    "batching": {
+      "latencySeconds": 60,
+      "maxMessages": 100000
+    },
+    "host": "https://onelake.dfs.fabric.microsoft.com",
+    "oneLakePathType": "Tables",
+    "names": {
+      "workspaceName": "<WorkspaceName>",
+      "lakehouseName": "<LakehouseName>"
+    }
+  }
+}
+```
+
+Here's an example command to create a new Microsoft Fabric OneLake data flow endpoint named `fabric-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name fabric-endpoint --config-file ~/fabric-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
@@ -261,6 +458,70 @@ Then, configure the data flow endpoint with user-assigned managed identity setti
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-fabric-onelake) command to create or replace a Microsoft Fabric OneLake data flow endpoint with user-assigned managed identity.
+
+```azurecli
+az iot ops dataflow endpoint create fabric-onelake --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --scope <Scope> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --workspace <WorkspaceName> --lakehouse <LakehouseName> --path-type <PathType>
+```
+
+The `--auth-type` parameter specifies the authentication method, which is `UserAssignedManagedIdentity` in this case. The `--client-id`, `--tenant-id`, and `--scope` parameters specify the user-assigned managed identity client ID, tenant ID, and scope respectively.
+
+Here's an example command to create or replace a Microsoft Fabric OneLake data flow endpoint named `fabric-endpoint`:
+
+Example command:
+
+```azurecli
+az iot ops dataflow endpoint create fabric-onelake --auth-type UserAssignedManagedIdentity --client-id ClientId --tenant-id TenantId --scope https://storage.azure.com/.default --resource-group myResourceGroup --instance myAioInstance --name fabric-endpoint --workspace myWorkspace --lakehouse myLakehouse --path-type Tables
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change a Microsoft Fabric OneLake data flow endpoint with user-assigned managed identity.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+Example `fabric-endpoint.json`:
+
+```json
+{
+  "endpointType": "FabricOneLake",
+  "fabricOneLakeSettings": {
+    "authentication": {
+      "method": "UserAssignedManagedIdentity",
+      "userAssignedManagedIdentitySettings": {
+        "clientId": "<ClientId>",
+        "scope": "<Scope>",
+        "tenantId": "<TenantId>"
+      }
+    },
+    "batching": {
+      "latencySeconds": 60,
+      "maxMessages": 100000
+    },
+    "host": "https://onelake.dfs.fabric.microsoft.com",
+    "oneLakePathType": "Tables",
+    "names": {
+      "workspaceName": "<WorkspaceName>",
+      "lakehouseName": "<LakehouseName>"
+    }
+  }
+}
+```
+
+Example command:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name fabric-endpoint --config-file ~/fabric-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
@@ -317,6 +578,46 @@ For example, to configure the maximum number of messages to 1000 and the maximum
 In the operations experience, select the **Advanced** tab for the data flow endpoint.
 
 :::image type="content" source="media/howto-configure-fabric-endpoint/fabric-advanced.png" alt-text="Screenshot using operations experience to set Microsoft Fabric advanced settings.":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change Microsoft Fabric OneLake data flow endpoint advanced settings.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `fabric-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "FabricOneLake",
+  "fabricOneLakeSettings": {
+    "authentication": {
+      "method": "SystemAssignedManagedIdentity",
+      "systemAssignedManagedIdentitySettings": {}
+    },
+    "batching": {
+      "latencySeconds": 100,
+      "maxMessages": 1000
+    },
+    "host": "https://onelake.dfs.fabric.microsoft.com",
+    "oneLakePathType": "Tables",
+    "names": {
+      "workspaceName": "<WorkspaceName>",
+      "lakehouseName": "<LakehouseName>"
+    }
+  }
+}
+```
+
+Here's an example command to create a new Microsoft Fabric OneLake data flow endpoint named `fabric-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name fabric-endpoint --config-file ~/fabric-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
