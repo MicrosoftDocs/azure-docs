@@ -5,7 +5,7 @@ description: Overview and introduction to machine learning using KQL and Jupyter
 author: EdB-MSFT  
 ms.service: microsoft-sentinel  
 ms.topic: conceptual
-ms.custom: sentinel-lake-graph
+ms.custom: sentinel-lake
 ms.date: 06/11/2025
 ms.author: edbaynash  
 
