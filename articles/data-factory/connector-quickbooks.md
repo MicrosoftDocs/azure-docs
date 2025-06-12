@@ -201,7 +201,7 @@ To copy data from QuickBooks Online, set the source type in the copy activity to
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **QuickBooksSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. <br><br>For version 2.0, you can only use QuickBooks native query with limitations. For more information, see [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries). <br>Note: The `tableName` used in the query must match the `tableName` in the dataset, otherwise an exception will be thrown. <br><br>For version 1.0 (Preview), you can use SQL-92 query. For example: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -248,12 +248,13 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Quickbooks version 1.0 (Preview) | End of support announced | / |  
-| Quickbooks version 2.0 | GA version available | • `useEncryptedEndpoints` is not supported. <br><br>• `query` don’t support GROUP BY clauses, JOIN clauses and Aggregate Function (Avg, Max, Sum). For more information about query operations and syntax, see this [article](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries).  |
+| Version 1.0 (Preview) | End of support announced | / |  
+| Version 2.0 | GA version available | • `useEncryptedEndpoints` is not supported. <br><br>• SQL-92 query is not supported.  <br><br>• Support Quickbooks native query with limitations. GROUP BY clauses, JOIN clauses and Aggregate Function (Avg, Max, Sum) aren't supported. For more information, see [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries). <br><br>• The `tableName` used in the query must match the `tableName` in the dataset, otherwise an exception will be thrown.  |
 
 ### <a name="upgrade-the-quickbooks-connector-from-version-10-to-version-20"></a> Upgrade the Quickbooks connector from version 1.0 (Preview) to version 2.0
 
-In **Edit linked service** page, select 2.0 for version. For more information, see [linked service version 2.0 properties](#version-20).
+1. In **Edit linked service** page, select 2.0 for version. For more information, see [linked service version 2.0 properties](#version-20).
+1. If you use SQL query in the copy activity source or the lookup activity that refers to the version 1.0 (Preview) linked service, you need to convert them to the QuickBooks native query. Learn more about native query from [Quickbooks as a source type](#quickbooks-as-source) and [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
