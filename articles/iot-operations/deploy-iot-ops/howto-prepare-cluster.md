@@ -363,7 +363,7 @@ Before deploying Azure IoT Operations, you will need to update the Pod Security 
 kubectl apply -f <link to repo>
 ```
 
-## Advanced Configuration
+## Advanced configuration
 
 At this point, when you have an Azure Arc-enabled Kubernetes cluster but before you deploy Azure IoT Operations to it, you might want to configure your cluster for advanced scenarios.
 
