@@ -31,30 +31,40 @@ items:
     href: migrate-support-matrix.md
 - name: Discover inventory
   items:
+    - name: Discovery methods
+    - href: discovery-methods-modes.md
     - name: Appliance requirements
       href: migrate-appliance.md
-    - name: Scoped discovery of VMware estate
-      href: set-discovery-scope.md
+    - name: Discover VMware estate
+    - href: set-discovery-scope.md
+    - name: Support matrix for VMware discovery 
+    - href: migrate-support-matrix-vmware.md
+    - name: Discover Hyper-V estate
+    - href: tutorial-discover-hyper-v.md
+    - name: Discover physical servers and servers running in AWS and GCP
+    - href: tutorial-discover-physical.md
     - name: Appliance configuration
       items:
       - name: Provide server credentials
         href: add-server-credentials.md
+      - name: Appliance diagnostics
+      - href: troubleshoot-appliance-diagnostic.md
+    - name: Discover workloads
+      items:  
       - name: Discover SQL servers and Webapps
         href: how-to-discover-sql-existing-project.md
-      - name: Discover MySQL database instances
-        href: tutorial-discover-mysql-database-instances.md
+#     - name: Discover MySQL database instances
+#       href: tutorial-discover-mysql-database-instances.md
       - name: Discover software, databases, and web apps
         href: how-to-discover-applications.md
-      - name: Appliance diagnostics
-        href: troubleshoot-appliance-diagnostic.md
+      - name: Create least privileged credentials for SQL discovery
+        href: least-privilege-credentials.md
     - name: Discover using inventory import
       items:
       - name: CSV import
         href: tutorial-discover-import.md
       - name: RVTools import
         href: tutorial-import-vmware-using-rvtools-xlsx.md
-    - name: Create least privileged credentials for SQL discover
-      href: least-privilege-credentials.md
 - name: Explore inventory
   items:
     - name: Discovered metadata
@@ -195,9 +205,7 @@ items:
     - name: Migrate Hyper-V servers 
       items:
 #       - name: Create Business case and assessment
-#         href: tutorial-assess-hyper-v.md
-        - name: Discover Hyper-v estate
-          href: tutorial-discover-hyper-v.md
+#         href: tutorial-assess-hyper-v.md        
         - name: Assess large number of servers in Hyper-V environment
           href: scale-hyper-v-assessment.md
         - name: Migrate to Azure Cloud
@@ -206,8 +214,6 @@ items:
           href: /azure/azure-local/migrate/migration-azure-migrate-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Migrate physical servers
       items:
-        - name: Discover physical servers and servers running in AWS and GCP
-          href: tutorial-discover-physical.md
         - name: Assess Physical servers
           href: tutorial-assess-physical.md
         - name: Migrate Physical servers to Azure

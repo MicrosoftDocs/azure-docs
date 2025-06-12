@@ -11,7 +11,7 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy24, linux-related-content
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
 
-# Tutorial: Discover physical servers with Azure Migrate: Discovery and assessment
+# Discover physical servers and servers running in AWS and GCP
 
 This article explains how to set up the Azure Migrate appliance to discover physical servers and servers running in AWS, GCP, or any other cloud.
 
