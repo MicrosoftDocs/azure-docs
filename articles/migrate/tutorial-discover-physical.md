@@ -244,7 +244,6 @@ Now, connect the appliance to the physical servers and start discovery:
 1. You can **Add single item** at a time or **Add multiple items** together. You can also provide server details through **Import a CSV file**1. 
 
   ![Screenshot that shows how to add physical discovery source.](./media/tutorial-discover-physical/add-discovery-source.png)
-
     1. If you choose **Add single item**, select the OS type.
     1. Enter a friendly name for the credentials, add the server **IP address or FQDN**
     1. Select **Save**.
