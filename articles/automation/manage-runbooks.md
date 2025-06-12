@@ -435,7 +435,7 @@ When your runbook has been published, you can schedule it for operation:
 You can recover a deleted runbook through PowerShell scripts. To recover a runbook, ensure that the following conditions are met:
 
 - The runbooks to be restored were deleted in the past 29 days.
-- The Automation account for that runbook exist.
+- The Automation account for that runbook exists.
 - The *Automation Contributor* role permission is granted to the System-assigned managed identity of the Automation account.
 
 ### PowerShell script
