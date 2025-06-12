@@ -114,10 +114,11 @@ Take the following actions to help mitigate fraudulent sign-ups.
 
 ## Mitigate fraudulent sign-ups for custom policy
 
-Take the following actions to help mitigate fraudulent sign-ups by removing the country codes that aren't relevant to your organization:
+To help prevent fraudulent sign-ups, remove any country codes that do not apply to your organization by following these steps:
 
-1. Identify the policy file where RelyingParty is defined. In the sample [Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) this is the SignUpOrSignin.xml file
-2. Remove country codes that aren't relevant to your organization by adding the following code within the "BuildingBlocks" section:
+1. Locate the policy file that defines the `RelyingParty`. For example, in the [Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), this is usually the SignUpOrSignin.xml file.
+
+1. In the `BuildingBlocks` section of this policy file, add the following code. Make sure to include only the country codes relevant to your organization:
 
    ```xml
     <BuildingBlocks>
