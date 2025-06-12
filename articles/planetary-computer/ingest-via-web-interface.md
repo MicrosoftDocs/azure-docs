@@ -3,7 +3,7 @@ title: Data ingestion using web interface in Microsoft Planetary Computer Pro
 description: Learn how to ingest data into your collection using the Microsoft Planetary Computer Pro web interface. 
 author: beharris
 ms.author: brentharris
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: quickstart
 ms.date: 04/25/2025
 #customer intent: As a Planetary Computer Pro user, I want to ingest data into my collection using the web interface so that I can manage my geospatial assets.

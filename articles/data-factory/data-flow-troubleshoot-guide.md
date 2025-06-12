@@ -1162,7 +1162,7 @@ Note: Please check that the given database is of type 'Dedicated SQL pool (forme
 ### Error code: SystemErrorSynapseSparkJobFailed (Ongoing)
 - **Message**: Job failed during run time with state=[dead]. Credentials were not provided for the WASB URI.
 - **Cause**: Data flow is unsupported in Synapse workspaces using Spark version 3.4 when DEP (Data Exfiltration Protection) is enabled by selecting "Allow outbound data traffic only to approved targets" during workspace network configuration.
-- **Recommendation**: Disable the above settings during workspace creation. For more information, see this [document](https://learn.microsoft.com/azure/synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection) 
+- **Recommendation**: Disable the above settings during workspace creation. For more information, see this [document](/azure/synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection) 
 
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.
@@ -1292,6 +1292,5 @@ For more help with troubleshooting, see these resources:
 
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [X information about Data Factory](https://x.com/hashtag/DataFactory)

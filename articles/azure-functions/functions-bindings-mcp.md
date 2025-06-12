@@ -48,7 +48,7 @@ To use this experimental bundle in your app, replace the existing `extensionBund
 
 ```json
 "extensionBundle": {
-  "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+  "id": "Microsoft.Azure.Functions.ExtensionBundle.Experimental",
   "version": "[4.*, 5.0.0)"
 }
 ```

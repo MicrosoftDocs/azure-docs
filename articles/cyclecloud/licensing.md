@@ -2,7 +2,7 @@
 title: Licensing Information
 description: Licensing information for Azure CycleCloud
 author: adriankjohnson
-ms.date: 07/19/2022
+ms.date: 06/10/2025
 ms.author: adjohnso
 ---
 

@@ -3,7 +3,7 @@ title: Configure collections for visualization in Microsoft Planetary Computer P
 description: Learn how to configure collections in the Microsoft Planetary Computer Pro portal. 
 author: beharris
 ms.author: brentharris
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: quickstart
 ms.date: 04/23/2025
 #customer intent: As a user of geospatial data, I want to configure a collection in the Planetary Computer Pro web interface so that I can visualize my data in the Explorer.
