@@ -83,22 +83,22 @@ To prepare a Tanzu Kubernetes Grid (TKG) workload cluster, you need:
 - An Azure resource group. Only one Azure IoT Operations instance is supported per resource group. To create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions).
 
 
-```azurecli
- az group create --location <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID>
-```
+   ```azurecli
+   az group create --location <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID>
+   ```
 
 - Azure CLI version 2.53.0 or newer installed on your cluster machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 - The latest version of the **connectedk8s** extension for Azure CLI:
 
 
-```bash
-az extension add --upgrade --name connectedk8s
-```
+   ```bash
+   az extension add --upgrade --name connectedk8s
+   ```
 
 - [Tanzu Kubernetes Grid with a standalone management cluster.](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/mgmt-index.html)
 
-- Hardware that meets the system requirements:
+- Hardware that meets the system requirements:.
 
   - [Azure IoT Operations supported environments](./overview-deploy.md#supported-environments).
   - [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
@@ -159,13 +159,13 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
 
 Connect your cluster to Azure Arc so that it can be managed remotely.
 
-1. On the machine where you deployed the Kubernetes cluster, sign into Azure CLI with your Microsoft Entra user account that has the required role(s) for the Azure subscription:
+1. From a machine that has `kubectl` access to your cluster, sign into Azure CLI with your Microsoft Entra user account that has the required role(s) for the Azure subscription:
 
-   ```azurecli
+      ```azurecli
    az login
    ```
 
-   If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
+      If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
 1. After you sign in, the Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
@@ -271,19 +271,18 @@ Then, once you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azu
 
 ### [Tanzu Kubernetes Grid with a management cluster](#tab/tkgm)
 
-To prepare a TKGm workload cluster:
+To prepare a TKGm workload cluster, you need:
 
-1. Create a single-node or multi-node TKGm workload cluster. For guidance, see the [Tanzu documentation](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/workload-clusters-index.html).
+- A single-node or multi-node TKGm workload cluster. For guidance, see the [Tanzu documentation](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/workload-clusters-index.html).
 
-1. SSH to one of the control plane VMs that is created. Once on the control plane VM, run the following:
+### Update pod security admission settings
+
+Before deploying Azure IoT Operations, you will need to update the Pod Security Admission settings on your TKGm cluster. Applying this file will pre-create namespace labels and set pod security to `privileged`.
 
 
-```bash
-mkdir ~/.kube
-sudo cp /etc/kubernetes/admin.conf ~/.kube/config
-sudo chown <user>:<group> ~/.kube/config
-kubectl get pods -A
-```
+   ```azurecli
+   kubectl apply -f <link to repo>
+   ```
 
 ### Arc-enable your cluster
 
@@ -292,9 +291,9 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 1. On the machine where you deployed the Kubernetes cluster, sign into Azure CLI with your Microsoft Entra user account that has the required role(s) for the Azure subscription:
 
 
-```azurecli
-az login
-```
+   ```azurecli
+   az login
+   ```
 
 If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
@@ -303,65 +302,63 @@ If at any point you get an error that says *Your device is required to be manage
 1. Register the required resource providers in your subscription.
 
 
-```azurecli
-az provider register -n "Microsoft.ExtendedLocation"
-az provider register -n "Microsoft.Kubernetes"
-az provider register -n "Microsoft.KubernetesConfiguration"
-az provider register -n "Microsoft.IoTOperations"
-az provider register -n "Microsoft.DeviceRegistry"
-az provider register -n "Microsoft.SecretSyncController"
-```
+   ```azurecli
+   az provider register -n "Microsoft.ExtendedLocation"
+   az provider register -n "Microsoft.Kubernetes"
+   az provider register -n "Microsoft.KubernetesConfiguration"
+   az provider register -n "Microsoft.IoTOperations"
+   az provider register -n "Microsoft.DeviceRegistry"
+   az provider register -n "Microsoft.SecretSyncController"
+   ```
 
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group.
 
 
-```azurecli
-az connectedk8s connect --name <CLUSTER_NAME> -l <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity --disable-auto-upgrade
-```
+   ```azurecli
+   az connectedk8s connect --name <CLUSTER_NAME> -l <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity --disable-auto-upgrade
+   ```
 
 To prevent unplanned updates to Azure Arc and the system Arc extensions that Azure IoT Operations uses as dependencies, this command disables autoupgrade. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade) as needed. 
 
 1. Get the cluster's issuer URL.
 
 
-```azurecli
-az connectedk8s show --resource-group <RESOURCE_GROUP> --name <CLUSTER_NAME> --query oidcIssuerProfile.issuerUrl --output tsv
-```
+   ```azurecli
+   az connectedk8s show --resource-group <RESOURCE_GROUP> --name <CLUSTER_NAME> --query oidcIssuerProfile.issuerUrl --output tsv
+   ```
 
 Save the output of this command to use in the next steps.
 
-1. SSH to a TKGm management cluster. Edit the custom resource for the workload cluster with the issuer URL from the previous step.
+1. Connect to the TKG management cluster. Edit the custom resource for the workload cluster with the issuer URL from the previous step.
 
-
-```azurecli
-kubectl edit cluster <CLUSTER_NAME> 
-```
+   ```azurecli
+   kubectl edit cluster <CLUSTER_NAME> 
+   ```
 
 1. Add the following content to the `config.yaml` file, replacing the <OIDC_ISSUER_URL> placeholder with your cluster's issuer URL.
+> [!NOTE]
+> The URL should be copied exactly as printed by the prior command, including any characters such as `/`.
+   ```yaml
+   - name: apiServerExtraArgs
+     value: {"service-account-issuer":"<OIDC_ISSUER_URL>"}
+   ```
 
+1. Prepare for enabling the Azure Arc service, custom location, on your Arc cluster by getting the custom location object ID and saving it as the environment variable, OBJECT_ID. You must be logged into Azure CLI with a Microsoft Entra user account to successfully run the command, not a service principal. Run the following command **exactly as written**, without changing the GUID value. 
 
-```yaml
-- name: apiServerExtraArgs
-  value: {"service-account-issuer":"<OIDC_ISSUER_URL>"}
-```
+   ```azurecli
+   export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)
+   ```
+
+   > [!NOTE]
+   >If you receive the error: "Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation," then your service principal might lack the necessary permissions to retrieve the object ID of the custom location. Log into Azure CLI with a Microsoft Entra user account that meets the prerequisites. For more information, see [Create and manage custom locations](https://aka.ms/enable-cl-sp).
 
 1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s) command to enable the custom location feature on your Arc cluster. This command uses the OBJECT_ID environment variable saved from the previous step to set the value for the custom-locations-oid parameter. Run this command on the machine where you deployed the Kubernetes cluster:
 
-Azure CLIEdit development language
 
-
-```azurecli
-az connectedk8s enable-features -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
-```
-
-### Update pod security admission settings
-
-Before deploying Azure IoT Operations, you will need to update the Pod Security Admission settings on your TKGm cluster. Applying this file will pre-create namespace labels and set pod security to `privileged`.
-
-
-```azurecli
-kubectl apply -f <link to repo>
-```
+   ```azurecli
+   az connectedk8s enable-features -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
+   ```
+---
 
 ## Advanced configuration
 
