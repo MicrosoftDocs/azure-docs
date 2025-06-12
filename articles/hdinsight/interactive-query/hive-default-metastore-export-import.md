@@ -1,10 +1,11 @@
 ---
 title: Migrate default Hive metastore to external metastore on Azure HDInsight
 description: Migrate default Hive metastore to external metastore on Azure HDInsight
-author: reachnijel
-ms.author: nijelsf
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

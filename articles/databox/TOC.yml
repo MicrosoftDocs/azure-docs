@@ -1,13 +1,12 @@
 - name:  Azure Data Box Documentation - Offline Transfer
   href: ./index.yml
   items:
-  - name: Data Box
+
+  - name: Data Box Next Gen
     items:
     - name: Overview
       items:
-      - name: What is Data Box?
-        href: data-box-overview.md?pivots=dbx
-      - name: What is next-gen Data Box?
+      - name: What is Data Box Next Gen?
         href: data-box-overview.md?pivots=dbx-ng
     - name: Quickstarts
       expanded: true
@@ -15,107 +14,99 @@
       - name: Set up - Azure portal
         items:
         - name: For import
-          href: data-box-quickstart-portal.md?pivots=dbx
-        - name: For import - Next Gen
           href: data-box-quickstart-portal.md?pivots=dbx-ng
         - name: For export
-          href: data-box-quickstart-export.md?pivots=dbx
-        - name: For export - Next Gen
           href: data-box-quickstart-export.md?pivots=dbx-ng
     - name: Tutorials
       items:
       - name: Import data to Azure
         items: 
         - name: 1 - Order
-          href: data-box-deploy-ordered.md
+          href: data-box-deploy-ordered.md?pivots=dbx-ng
         - name: 2 - Set up
-          href: data-box-deploy-set-up.md
+          href: data-box-deploy-set-up.md?pivots=dbx-ng
         - name: 3 - Connect & copy
           items:
           - name: Via SMB
-            href: data-box-deploy-copy-data.md 
+            href: data-box-deploy-copy-data.md?pivots=dbx-ng
           - name: Via NFS
-            href: data-box-deploy-copy-data-via-nfs.md
+            href: data-box-deploy-copy-data-via-nfs.md?pivots=dbx-ng
           - name: Via REST
-            href: data-box-deploy-copy-data-via-rest.md
+            href: data-box-deploy-copy-data-via-rest.md?pivots=dbx-ng
           - name: Via data copy service
-            href: data-box-deploy-copy-data-via-copy-service.md
+            href: data-box-deploy-copy-data-via-copy-service.md?pivots=dbx-ng
           - name: To managed disks
-            href: data-box-deploy-copy-data-from-vhds.md
+            href: data-box-deploy-copy-data-from-vhds.md?pivots=dbx-ng
         - name: 4 - Prepare to ship
-          href: data-box-deploy-prepare-to-ship.md
+          href: data-box-deploy-prepare-to-ship.md?pivots=dbx-ng
         - name: 5 - Return, upload, verify
-          href: data-box-deploy-picked-up.md
+          href: data-box-deploy-picked-up.md?pivots=dbx-ng
       - name: Export data from Azure
         items: 
         - name: 1 - Order
-          href: data-box-deploy-export-ordered.md
+          href: data-box-deploy-export-ordered.md?pivots=dbx-ng
         - name: 2 - Set up
-          href: data-box-deploy-set-up.md
+          href: data-box-deploy-set-up.md?pivots=dbx-ng
         - name: 3 - Connect & copy
           items:
           - name: Via SMB
-            href: data-box-deploy-export-copy-data.md 
+            href: data-box-deploy-export-copy-data.md?pivots=dbx-ng
           - name: Via NFS
-            href: data-box-deploy-export-copy-data-via-nfs.md
+            href: data-box-deploy-export-copy-data-via-nfs.md?pivots=dbx-ng
         - name: 4 - Return
-          href: data-box-deploy-export-picked-up.md   
+          href: data-box-deploy-export-picked-up.md?pivots=dbx-ng
     - name: Concepts
       items:
       - name: Read safety guidelines
-        href: data-box-safety.md
-      - name: Read safety guidelines - Next Gen
-        href: data-box-next-gen-safety.md
+        href: data-box-safety.md?pivots=dbx-ng
       - name: Review tracking and logging
         items:
         - name: For import orders
-          href: data-box-logs.md
+          href: data-box-logs.md?pivots=dbx-ng
         - name: For export orders
-          href: data-box-export-logs.md
+          href: data-box-export-logs.md?pivots=dbx-ng
       - name: View audit logs
-        href: data-box-audit-logs.md
+        href: data-box-audit-logs.md?pivots=dbx-ng
       - name: Review requirements
         items:
         - name: For Data Box
-          href: data-box-system-requirements.md
+          href: data-box-system-requirements.md?pivots=dbx-ng
         - name: For Data Box Blob storage
-          href: data-box-system-requirements-rest.md
+          href: data-box-system-requirements-rest.md?pivots=dbx-ng
       - name: Understand limits
-        href: data-box-limits.md
+        href: data-box-limits.md?pivots=dbx-ng
       - name: Security
         items:
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/databox-security-baseline?context=/azure/databox/context/context
+          href: /security/benchmark/azure/baselines/databox-security-baseline?pivots=dbx-ng
         - name: Security controls by Azure Policy
-          href: ./security-controls-policy.md
-        - name: Review security 
-          href: data-box-security.md
-        - name: Review security - Next Gen
-          href: data-box-next-gen-security.md
+          href: ./security-controls-policy.md?pivots=dbx-ng
+        - name: Review security
+          href: data-box-security.md?pivots=dbx-ng
       - name: Transfer ACLs and metadata
-        href: data-box-file-acls-preservation.md 
+        href: data-box-file-acls-preservation.md?pivots=dbx-ng
       - name: FAQ
         href: data-box-faq.yml 
     - name: How to
       items:  
       - name: Manage via Azure portal
-        href: data-box-portal-admin.md
+        href: data-box-portal-admin.md?pivots=dbx-ng
       - name: Manage via local web UI
-        href: data-box-local-web-ui-admin.md
+        href: data-box-local-web-ui-admin.md?pivots=dbx-ng
       - name: Use self-managed shipping
-        href: data-box-portal-customer-managed-shipping.md
+        href: data-box-portal-customer-managed-shipping.md?pivots=dbx-ng
       - name: Bring your own certificates
-        href: data-box-bring-your-own-certificates.md
+        href: data-box-bring-your-own-certificates.md?pivots=dbx-ng
       - name: Enable customer managed key
-        href: data-box-customer-managed-encryption-key-portal.md
+        href: data-box-customer-managed-encryption-key-portal.md?pivots=dbx-ng
       - name: Use Customer Lockbox
-        href: data-box-customer-lockbox.md         
+        href: data-box-customer-lockbox.md?pivots=dbx-ng
       - name: Move data to a blob tier
-        href: data-box-how-to-set-data-tier.md
+        href: data-box-how-to-set-data-tier.md?pivots=dbx-ng
       - name: Cable the device
-        href: data-box-cable-options.md
+        href: data-box-cable-options.md?pivots=dbx-ng
       - name: Contact Support
-        href: data-box-disk-contact-microsoft-support.md
+        href: data-box-disk-contact-microsoft-support.md?pivots=dbx-ng
       - name: Migrate
         items:
         - name: Using Storage Mover
@@ -131,15 +122,145 @@
       - name: Troubleshoot
         items:
         - name: Data Box share access
-          href: data-box-troubleshoot-share-access.md
+          href: data-box-troubleshoot-share-access.md?pivots=dbx-ng
         - name: Data Box copy issues
-          href: data-box-troubleshoot.md
+          href: data-box-troubleshoot.md?pivots=dbx-ng
         - name: Data Box upload issues
-          href: data-box-troubleshoot-data-upload.md
+          href: data-box-troubleshoot-data-upload.md?pivots=dbx-ng
         - name: Data Box Blob storage issues
-          href: data-box-troubleshoot-rest.md    
+          href: data-box-troubleshoot-rest.md?pivots=dbx-ng
         - name: Data Box time sync issues
-          href: data-box-troubleshoot-time-sync.md
+          href: data-box-troubleshoot-time-sync.md?pivots=dbx-ng
+
+  - name: Data Box
+    items:
+    - name: Overview
+      items:
+      - name: What is Data Box?
+        href: data-box-overview.md?pivots=dbx
+    - name: Quickstarts
+      expanded: true
+      items:
+      - name: Set up - Azure portal
+        items:
+        - name: For import
+          href: data-box-quickstart-portal.md?pivots=dbx
+        - name: For export
+          href: data-box-quickstart-export.md?pivots=dbx
+    - name: Tutorials
+      items:
+      - name: Import data to Azure
+        items: 
+        - name: 1 - Order
+          href: data-box-deploy-ordered.md?pivots=dbx
+        - name: 2 - Set up
+          href: data-box-deploy-set-up.md?pivots=dbx
+        - name: 3 - Connect & copy
+          items:
+          - name: Via SMB
+            href: data-box-deploy-copy-data.md?pivots=dbx
+          - name: Via NFS
+            href: data-box-deploy-copy-data-via-nfs.md?pivots=dbx
+          - name: Via REST
+            href: data-box-deploy-copy-data-via-rest.md?pivots=dbx
+          - name: Via data copy service
+            href: data-box-deploy-copy-data-via-copy-service.md?pivots=dbx
+          - name: To managed disks
+            href: data-box-deploy-copy-data-from-vhds.md?pivots=dbx
+        - name: 4 - Prepare to ship
+          href: data-box-deploy-prepare-to-ship.md?pivots=dbx
+        - name: 5 - Return, upload, verify
+          href: data-box-deploy-picked-up.md?pivots=dbx
+      - name: Export data from Azure
+        items: 
+        - name: 1 - Order
+          href: data-box-deploy-export-ordered.md?pivots=dbx
+        - name: 2 - Set up
+          href: data-box-deploy-set-up.md?pivots=dbx
+        - name: 3 - Connect & copy
+          items:
+          - name: Via SMB
+            href: data-box-deploy-export-copy-data.md?pivots=dbx
+          - name: Via NFS
+            href: data-box-deploy-export-copy-data-via-nfs.md?pivots=dbx
+        - name: 4 - Return
+          href: data-box-deploy-export-picked-up.md?pivots=dbx
+    - name: Concepts
+      items:
+      - name: Read safety guidelines
+        href: data-box-safety.md?pivots=dbx
+      - name: Review tracking and logging
+        items:
+        - name: For import orders
+          href: data-box-logs.md?pivots=dbx
+        - name: For export orders
+          href: data-box-export-logs.md?pivots=dbx
+      - name: View audit logs
+        href: data-box-audit-logs.md?pivots=dbx
+      - name: Review requirements
+        items:
+        - name: For Data Box
+          href: data-box-system-requirements.md?pivots=dbx
+        - name: For Data Box Blob storage
+          href: data-box-system-requirements-rest.md?pivots=dbx
+      - name: Understand limits
+        href: data-box-limits.md?pivots=dbx
+      - name: Security
+        items:
+        - name: Security baseline
+          href: /security/benchmark/azure/baselines/databox-security-baseline?context=/azure/databox/context/context
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
+        - name: Review security 
+          href: data-box-security.md?pivots=dbx
+      - name: Transfer ACLs and metadata
+        href: data-box-file-acls-preservation.md?pivots=dbx
+      - name: FAQ
+        href: data-box-faq.yml 
+    - name: How to
+      items:  
+      - name: Manage via Azure portal
+        href: data-box-portal-admin.md?pivots=dbx
+      - name: Manage via local web UI
+        href: data-box-local-web-ui-admin.md?pivots=dbx
+      - name: Use self-managed shipping
+        href: data-box-portal-customer-managed-shipping.md?pivots=dbx
+      - name: Bring your own certificates
+        href: data-box-bring-your-own-certificates.md?pivots=dbx
+      - name: Enable customer managed key
+        href: data-box-customer-managed-encryption-key-portal.md?pivots=dbx
+      - name: Use Customer Lockbox
+        href: data-box-customer-lockbox.md?pivots=dbx
+      - name: Move data to a blob tier
+        href: data-box-how-to-set-data-tier.md?pivots=dbx
+      - name: Cable the device
+        href: data-box-cable-options.md?pivots=dbx
+      - name: Contact Support
+        href: data-box-disk-contact-microsoft-support.md?pivots=dbx
+      - name: Migrate
+        items:
+        - name: Using Storage Mover
+          href: ../storage-mover/service-overview.md#using-azure-storage-mover-and-azure-data-box
+        - name: To SharePoint Online
+          href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%2fazure%2fdatabox%2fcontext%2fcontext
+        - name: To Azure File Sync
+          href: ../storage/files/storage-files-migration-server-hybrid-databox.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+        - name: From HDFS store
+          href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
+        - name: To Azure backup
+          href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
+      - name: Troubleshoot
+        items:
+        - name: Data Box share access
+          href: data-box-troubleshoot-share-access.md?pivots=dbx
+        - name: Data Box copy issues
+          href: data-box-troubleshoot.md?pivots=dbx
+        - name: Data Box upload issues
+          href: data-box-troubleshoot-data-upload.md?pivots=dbx
+        - name: Data Box Blob storage issues
+          href: data-box-troubleshoot-rest.md?pivots=dbx
+        - name: Data Box time sync issues
+          href: data-box-troubleshoot-time-sync.md?pivots=dbx
  
   - name: Data Box Disk 
     items:

@@ -1,8 +1,8 @@
 ---
 title: Convert resource class to a workload group
 description: Learn how to create a workload group that is similar to a resource class in a dedicated SQL pool.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 08/13/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

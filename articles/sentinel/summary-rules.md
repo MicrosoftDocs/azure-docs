@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: how-to #Don't change
 ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #customer intent: As a SOC engineer, I want to create summary rules in Microsoft Sentinel to aggregate large sets of data for use across my SOC team activities.
@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Aggregate Microsoft Sentinel data with summary rules (preview)
 
-Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentinel to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled in custom log tables and provide fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#auxiliary-logs-and-basic-logs). Summary rules can help optimize your data for:
+Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentinel to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled in custom log tables and provide fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#auxiliary-logs). Summary rules can help optimize your data for:
 
 - **Analysis and reports**, especially over large data sets and time ranges, as required for security and incident analysis, month-over-month or annual business reports, and so on. 
 - **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a less expensive log tier, and send as summarized data only to an Analytics table for analysis and reports.
@@ -48,7 +48,7 @@ We recommend that you [experiment with your summary rule query](hunts.md) in the
 
 Create a new summary rule to aggregate a specific large set of data into a dynamic table. Configure your rule frequency to determine how often your aggregated data set is updated from the raw data.
 
-1. In the Azure portal, from the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules (Preview)**. In the Defender portal, select **Microsoft Sentinel > Configuration > Summary rules (Preview)**. For example:
+1. In the Defender portal, select **Microsoft Sentinel > Configuration > Summary rules**. In the Azure portal, from the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules (Preview)**. For example:
 
     :::image type="content" source="media/summary-rules/summary-rules-azure.png" alt-text="Screenshot of the Summary rules page in the Azure portal.":::
 
@@ -218,14 +218,14 @@ This procedure describes a sample process for using summary rules with [auxiliar
 
 1. Create summary rules that aggregate your CEF data. For example:
 
-    - **Lookup incident of concern (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurrences, and then query only those occurrences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other metadata, which can then be used against IoC lookups:
+    - **Lookup indicator of compromise (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurrences, and then query only those occurrences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other metadata, which can then be used against IoC lookups:
 
         ```kusto
         // Daily Network traffic trend Per Destination IP along with Data transfer stats 
         // Frequency - Daily - Maintain 30 day or 60 Day History. 
           Custom_CommonSecurityLog 
           | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
-          | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofByesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
+          | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofBytesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
           by Day,DestinationIp, DeviceVendor 
         ```
 

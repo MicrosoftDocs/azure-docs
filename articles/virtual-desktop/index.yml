@@ -7,8 +7,8 @@ metadata:
   title: Azure Virtual Desktop documentation
   description: Azure Virtual Desktop securely delivers virtual desktops and applications remotely and provides users with the only multi-session Windows 11 and Windows 10 experience.
   ms.topic: landing-page
-  author: dknappettmsft
-  ms.author: daknappe
+  author: ErikjeMS
+  ms.author: avdcontent
   ms.date: 01/22/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -51,18 +51,16 @@ landingContent:
   # Card
   - title: Connect to Azure Virtual Desktop
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Connect to Azure Virtual Desktop
+            url: connect-azure-virtual-desktop.md
       - linkListType: overview
         links:
           - text: Windows App overview
             url: /windows-app/overview
           - text: Remote Desktop client overview
             url: /previous-versions/remote-desktop-client/overview
-      - linkListType: get-started
-        links:
-          - text: Get started with Windows App to connect to devices and apps
-            url: /windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop
-          - text: Use the Remote Desktop client to connect to Azure Virtual Desktop
-            url: /previous-versions/remote-desktop-client/connect-windows-cloud-services
 
   # Card
   - title: More information

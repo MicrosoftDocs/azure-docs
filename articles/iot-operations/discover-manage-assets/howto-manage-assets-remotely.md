@@ -18,7 +18,7 @@ An _asset_ in Azure IoT Operations is a logical entity that you create to repres
 
 _OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
 
-An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to connector for OPC UA modules. This connection enables a connector for OPC UA to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the connector for OPC UA and MQTT broker. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards telemetry to the connector for OPC UA.
+An _asset endpoint_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to connector for OPC UA modules. This connection enables a connector for OPC UA to access an asset's data points. Without an asset endpoint, data can't flow from an OPC UA server to the connector for OPC UA and MQTT broker. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards messages such as sensor data to the connector for OPC UA.
 
 A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
@@ -221,7 +221,7 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
     | ns=3;s=FastUInt10 | Temperature | None |
     | ns=3;s=FastUInt100 | Humidity | None |
 
-1. Select **Manage default settings** to configure default telemetry settings for the asset. These settings apply to all the OPC UA tags that belong to the asset. You can override these settings for each tag that you add. Default telemetry settings include:
+1. Select **Manage default settings** to configure default settings for messages from the asset. These settings apply to all the OPC UA tags that belong to the asset. You can override these settings for each tag that you add. Default settings include:
 
     - **Sampling interval (milliseconds)**: The sampling interval indicates the fastest rate at which the OPC UA server should sample its underlying source for data changes.
     - **Publishing interval (milliseconds)**: The rate at which OPC UA server should publish data.

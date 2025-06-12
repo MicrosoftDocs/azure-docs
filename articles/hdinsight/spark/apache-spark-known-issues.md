@@ -4,6 +4,9 @@ description: Learn about issues related to Apache Spark clusters in Azure HDInsi
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/14/2024
 ---
 

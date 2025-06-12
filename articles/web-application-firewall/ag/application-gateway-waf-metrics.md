@@ -21,8 +21,6 @@ WAF with Application Gateway log is integrated with [Azure Monitor](/azure/azure
 
 WAF with Application Gateway provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics logs and alerts are recorded in a json format. These logs can be integrated with [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 
-![WAFDiag](../media/waf-appgateway-metrics/waf-appgateway-diagnostic.png)
-
 For more information about diagnostics logs, see [Application Gateway WAF resource logs](../ag/web-application-firewall-logs.md).  If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine tune rules and exclude any data that you want to be excluded from the logs. For more information, see [Web application firewall exclusion lists in Azure Application Gateway](../ag/application-gateway-waf-configuration.md).
 
 

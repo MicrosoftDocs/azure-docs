@@ -1,8 +1,8 @@
 ---
 title: Load Contoso retail data to dedicated SQL pools
 description: Use PolyBase and T-SQL commands to load two tables from the Contoso retail data into dedicated SQL pools.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 11/20/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

@@ -6,8 +6,8 @@ ms.author: yelevin
 ms.topic: conceptual
 ms.date: 07/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 ---
 # Log retention plans in Microsoft Sentinel
@@ -18,11 +18,7 @@ These competing needs require a log management strategy that balances data acces
 
 This article discusses categories of data and the retention states used to store and access your data. It also describes the log plans Microsoft Sentinel offers you to build a log management and retention strategy.
 
-> [!IMPORTANT]
->
-> The **Auxiliary Logs** log type is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> [!INCLUDE [unified-soc-preview](includes/unified-soc-preview-without-alert.md)]
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Categories of ingested data
 
@@ -64,9 +60,9 @@ This category encompasses logs whose individual security value is limited but ar
 
 Some examples of secondary data log sources are cloud storage access logs, NetFlow logs, TLS/SSL certificate logs, firewall logs, proxy logs, and IoT logs. To learn more about how each of these sources brings value to security detections without being needed all the time, see [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md).
 
-Logs containing secondary security data should be stored using the [**Auxiliary logs**](#auxiliary-logs-plan) plan (now in Preview) described later in this article.
+Logs containing secondary security data should be stored using the [**Auxiliary logs**](#auxiliary-logs-plan) plan described later in this article.
 
-For a non-preview option, you can use [**Basic logs**](#basic-logs-plan) instead.
+(The existing **Basic logs** plan also serves this purpose, but it costs more and is not recommended for new instances.)
 
 ## Log management plans
 
@@ -75,8 +71,6 @@ Microsoft Sentinel provides two different log storage plans, or types, to accomm
 - The [**Analytics logs**](#analytics-logs-plan) plan is designed to store primary security data and make it easily and constantly accessible at high performance.
 
 - The [**Auxiliary logs**](#auxiliary-logs-plan) plan is designed to store secondary security data at very low cost for long periods of time, while still allowing for limited accessibility.
-
-- A third plan, [**Basic logs**](#basic-logs-plan), is the predecessor of the auxiliary logs plan, and can be used as a substitute for it while the auxiliary logs plan remains in preview.
 
 **Each of these plans preserves data in two different states:**
 
@@ -102,14 +96,10 @@ The **Auxiliary logs** plan keeps data in the **interactive retention** state fo
 
 When the interactive retention period ends, data goes into the **long-term retention** state, remaining in its original table. Long-term retention in the auxiliary logs plan is similar to long-term retention in the analytics logs plan, except that the only option to access the data is with a [**search job**](investigate-large-datasets.md). [Restore](restore.md) is not supported for the auxiliary logs plan.
 
-### Basic logs plan
-
-A third plan, known as **Basic logs**, provides similar functionality to the auxiliary logs plan, but at a higher interactive retention cost (though not as high as the analytics logs plan). While the auxiliary logs plan remains in preview, basic logs can be an option for long-term, low-cost retention if your organization doesn't use preview features. To learn more about the basic logs plan, see [Table plans](/azure/azure-monitor/logs/data-platform-logs#table-plans) in the Azure Monitor documentation.
-
 ## Related content
 
 - For a more in-depth comparison of log data plans, and more general information about log types, see [Azure Monitor Logs overview | Table plans](/azure/azure-monitor/logs/data-platform-logs#table-plans).
 
-- To set up a table in the Auxiliary logs plan, see [Set up a table with the Auxiliary plan in your Log Analytics workspace (Preview)](/azure/azure-monitor/logs/create-custom-table-auxiliary).
+- To set up a table in the Auxiliary logs plan, see [Set up a table with the Auxiliary plan in your Log Analytics workspace](/azure/azure-monitor/logs/create-custom-table-auxiliary).
 
 - To understand more about retention periods&mdash;which exist across plans&mdash;see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure).

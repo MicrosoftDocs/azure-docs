@@ -1,28 +1,20 @@
 items:
 - name: Azure NAT Gateway documentation
   href: index.yml
-- name: Overview
+- name: Get started
   items:
   - name: What is Azure NAT Gateway?
     href: nat-overview.md
-- name: Quickstarts
+  - name: Create and validate Azure NAT Gateway
+    href: quickstart-create-nat-gateway.md
+  - name: Availability zones
+    href: nat-availability-zones.md
+  - name: NAT gateway resource
+    href: nat-gateway-resource.md
+- name: Deploy
   items:
-  - name: Portal
-    href: quickstart-create-nat-gateway-portal.md
-  - name: PowerShell
-    href: quickstart-create-nat-gateway-powershell.md
-  - name: CLI
-    href: quickstart-create-nat-gateway-cli.md
-  - name: Bicep
-    displayName: ARM, Resource Manager, Template
-    href: quickstart-create-nat-gateway-bicep.md
-  - name: ARM template
-    displayName: Resource Manager
-    href: quickstart-create-nat-gateway-template.md
-  - name: Terraform
-    href: quickstart-create-nat-gateway-terraform.md
-- name: Tutorials
-  items:
+  - name: NAT gateway design guidance
+    href: nat-gateway-design.md
   - name: Use a NAT gateway with a hub and spoke network
     href: tutorial-hub-spoke-route-nat.md
   - name: Use a NAT gateway with Azure Firewall
@@ -35,37 +27,26 @@ items:
     href: tutorial-migrate-outbound-nat.md
   - name: Migrate a virtual machine public IP address
     href: tutorial-migrate-ilip-nat.md
-  expanded: true
-- name: Concepts
+- name: Secure
   items:
-  - name: NAT gateway resource
-    href: nat-gateway-resource.md
-  - name: Availability zones
-    href: nat-availability-zones.md
-  - name: Security
-    items:
-    - name: NAT gateway security baseline
-      href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
+  - name: NAT gateway security baseline
+    href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
+  - name: Network security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+- name: Connectivity
+  items:
   - name: SNAT with NAT gateway
-    href: nat-gateway-snat.md
-  - name: NAT gateway design guidance
-    href: nat-gateway-design.md
-  - name: Metrics and alerts
-    href: nat-metrics.md
-- name: How-to
+    href: nat-gateway-snat.md 
+- name: Manage and monitor
   items:
-  - name: Monitor NAT gateway
-    href: monitor-nat-gateway.md
-  - name: Resource health
-    href: resource-health.md
   - name: Manage NAT gateway
     href: manage-nat-gateway.md
-  - name: Move across regions
-    items:
-    - name: Create and configure NAT gateway after region move
-      href: region-move-nat-gateway.md
-  - name: Troubleshoot
-    items:
+  - name: Create and configure NAT gateway after region move
+    href: region-move-nat-gateway.md
+  - name: Metrics and alerts
+    href: nat-metrics.md
+- name: Troubleshoot
+  items:
     - name: Troubleshoot NAT gateway
       href: troubleshoot-nat.md
     - name: Troubleshoot NAT gateway connectivity
@@ -99,6 +80,8 @@ items:
   - name: Build your skills with Microsoft Learn training
     href: /training/modules/intro-to-azure-virtual-network-nat/
   - name: Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Azure networking blog
     href: https://azure.microsoft.com/blog/category/networking
   - name: Microsoft Q&A question page for Networking
     href: /answers/topics/azure-virtual-network.html

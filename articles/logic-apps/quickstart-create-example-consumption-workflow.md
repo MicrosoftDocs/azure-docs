@@ -7,7 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mode-ui
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/18/2025
+ms.date: 04/04/2025
 #Customer intent: As a developer, I want to create my first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -125,7 +125,7 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **The RSS feed URL** | Yes | <*RSS-feed-URL*> | The RSS feed URL to monitor. <br><br>This example uses the Wall Street Journal's RSS feed at **https://feeds.a.dj.com/rss/RSSMarketsMain.xml**. However, you can use any RSS feed that doesn't require HTTP authorization. Choose an RSS feed that publishes frequently, so you can easily test your workflow. |
+   | **The RSS feed URL** | Yes | <*RSS-feed-URL*> | The RSS feed URL to monitor. <br><br>This example uses the Wall Street Journal's RSS feed at **https://feeds.content.dowjones.io/public/rss/RSSMarketsMain**. However, you can use any RSS feed that doesn't require HTTP authorization. Choose an RSS feed that publishes frequently, so you can easily test your workflow. |
    | **Chosen Property Will Be Used To Determine Which Items are New** | No | **PublishDate** | The property that determines which items are new. |
    | **Interval** | Yes | **30** | The number of intervals to wait between feed checks. <br><br>This example uses **30** as the interval because this value is the [minimum interval for the **RSS** trigger](/connectors/rss/#general-limits). |
    | **Frequency** | Yes | **Minute** | The unit of frequency to use for every interval. <br><br>This example uses **Minute** as the frequency. |
@@ -136,7 +136,29 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-   This step instantly publishes your logic app resource and workflow live in the Azure portal. However, the trigger only checks the RSS feed without taking any other actions. So, you need to add an action to specify what you want to happen when the trigger fires.
+   This step automatically publishes your logic app resource and workflow live in the Azure portal. However, the workflow doesn't do anything yet other than fire the trigger to check the RSS feed, based on the specified schedule. In a later section, you add an action to specify what you want to happen when the trigger fires.
+
+1. Due to this **RSS** trigger's default double-encoding behavior, you have to edit the trigger definition and manually remove this behavior:
+
+   1. On the *designer* toolbar, select **Code view**.
+
+      > [!IMPORTANT]
+      >
+      > Don't select the **Code view** tab in the trigger information pane. This tab opens code view in read-only mode.
+
+   1. In the code editor, find the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent('https://feeds.content.dowjones.io/public/rss/RSSMarketsMain'))}"`**.
+
+   1. Remove the extra function named **`encodeURIComponent()`** so that you have only one instance, for example: 
+   
+      **`"feedUrl": "@{encodeURIComponent('https://feeds.content.dowjones.io/public/rss/RSSMarketsMain')}"`**  
+
+1. Save the changes that you made. On the code editor toolbar, select **Save**.
+
+   Every time that you save changes to your workflow in the designer or code editor, Azure instantly publishes those changes live in the Azure portal.
+
+1. Return to the designer. On the code editor toolbar, select **Designer**.
+
+In the next section, you specify the action to take when the trigger condition is met, which causes the trigger to fire.
 
 <a name="add-email-action"></a>
 

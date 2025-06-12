@@ -3,12 +3,14 @@ title: How to create custom machine configuration package artifacts
 description: Learn how to create a machine configuration package file.
 ms.date: 02/01/2024
 ms.topic: how-to
+ms.custom:
+  - build-2025
 ---
 # How to create custom machine configuration package artifacts
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
-Machine configuration uses [Desired State Configuration][02] (DSC) when auditing and configuring
+Machine configuration uses [PowerShell Desired State Configuration][02] (PSDSC) when auditing and configuring
 both Windows and Linux. The DSC configuration defines the condition that the machine should be in.
 
 > [!IMPORTANT]
@@ -222,7 +224,7 @@ third-party platform in the content artifact.
 
 <!-- Reference link definitions -->
 [01]: ../../overview.md
-[02]: /powershell/dsc/overview
+[02]: /powershell/dsc/overview?view=dsc-2.0&preserve-view=true
 [03]: ./1-set-up-authoring-environment.md
 [05]: /powershell/dsc/resources/authoringResourceClass
 [06]: https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22

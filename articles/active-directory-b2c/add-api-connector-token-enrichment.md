@@ -15,6 +15,9 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Enrich tokens with claims from external sources using API connectors
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API into their user flow using [API connectors](api-connectors-overview.md). It enables developers to dynamically retrieve data from external identity sources. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with APIs to enrich tokens with information from external sources.
 ::: zone pivot="b2c-user-flow"

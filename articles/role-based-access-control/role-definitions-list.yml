@@ -5,7 +5,7 @@ metadata:
   description: Learn how to list Azure built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
   author: rolyon
   ms.author: rolyon
-  manager: amycolannino
+  manager: femila
   ms.date: 01/07/2025
   ms.service: role-based-access-control
   ms.topic: how-to

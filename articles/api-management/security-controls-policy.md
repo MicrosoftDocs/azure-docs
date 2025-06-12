@@ -23,7 +23,7 @@ compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-apim](../../includes/policy/standards/byrp/microsoft.apimanagement.md)]
 
-## Next steps
+## Related content
 
 - Learn more about [Azure Policy Regulatory Compliance](../governance/policy/concepts/regulatory-compliance.md).
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).

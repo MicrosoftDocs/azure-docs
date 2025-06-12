@@ -1,9 +1,8 @@
 ---
 title: 'Tutorial: Get started analyze data in Storage accounts' 
 description: In this tutorial, you'll learn how to analyze data located in a storage account.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+author: juluczni
+ms.author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial

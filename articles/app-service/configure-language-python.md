@@ -7,7 +7,7 @@ ms.reviewer: astay
 ms.author: msangapu
 author: msangapu-msft
 ms.devlang: python
-ms.custom: mvc, devx-track-python, devx-track-azurecli, mode-other, py-fresh-zinc, linux-related-content
+ms.custom: mvc, devx-track-python, devx-track-azurecli, mode-other, py-fresh-zinc, linux-related-content, innovation-engine
 adobe-target: true
 ---
 
@@ -64,10 +64,11 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
 You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
 
-<!-- <a> element here to preserve external links-->
-<a name="access-environment-variables"></a>
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
 
 ## Customize build automation
+> [!NOTE]
+> When Python applications are deployed with build automation, content will be deployed to and served from `/tmp/<uid>`, not under `/home/site/wwwroot`. This content directory can be access through the `APP_PATH` environment variable. Any additional files created at runtime should be written to a location under `/home` or using [Bring Your Own Storage](configure-connect-to-azure-storage.md) for persistence. More information on this behavior can be found [here](https://github.com/Azure-App-Service/KuduLite/wiki/Python-Build-Changes).
 
 App Service's build system, called Oryx, performs the following steps when you deploy your app, if the app setting `SCM_DO_BUILD_DURING_DEPLOYMENT` is set to `1`:
 
@@ -351,6 +352,9 @@ App Service ignores any errors that occur when processing a custom startup comma
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
     ```
+
+<!-- <a> element here to preserve external links-->
+<a name="access-environment-variables"></a>
 
 ## Access app settings as environment variables
 

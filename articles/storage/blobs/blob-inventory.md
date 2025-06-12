@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.date: 03/28/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.custom: references_regions
 ---

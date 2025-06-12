@@ -2,11 +2,11 @@
 title: Upgrade or view a SKU - portal
 titleSuffix: Azure Bastion
 description: Learn how to view a SKU and upgrade SKU tiers.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 12/09/2024
-ms.author: cherylmc
+ms.date: 03/31/2025
+ms.author: abell
 
 ---
 
@@ -24,9 +24,9 @@ To view the SKU for your bastion host, use the following steps.
 1. In the Azure portal, go to your bastion host.
 1. In the left pane, select **Configuration** to open the Configuration page. Click through the different Tier options. Notice that the SKU affects the available features you can select for your bastion host.
 
-## Upgrade from the Developer SKU
+## Upgrade from Bastion Developer
 
-When you upgrade from a Developer SKU to a dedicated deployment SKU, you need to create a public IP address and an Azure Bastion subnet.
+When you upgrade from Bastion Developer to a dedicated deployment SKU, you need to create a public IP address and an Azure Bastion subnet.
 
 Use the following steps to upgrade to a higher SKU.
 

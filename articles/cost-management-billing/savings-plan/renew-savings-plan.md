@@ -2,24 +2,22 @@
 title: Automatically renew your Azure savings plan
 titleSuffix: Microsoft Cost Management
 description: Learn how you can automatically renew an Azure saving plan to continue getting discounts.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 01/07/2025
-ms.author: banders
+ms.date: 06/04/2025
+ms.author: onwokolo
 ---
 
 # Automatically renew your Azure savings plan
 
-You can automatically purchase a replacement savings plan when an existing savings plan expires. Automatic renewal provides an effortless way to continue getting savings plan discounts without having to closely monitor a savings plan's expiration. The renewal setting is turned off by default. Enable or disable the renewal setting anytime, up to the expiration of the existing savings plan.
-Renewing a savings plan creates a new savings plan when the existing one expires. It doesn't extend the term of the existing savings plan.
+You can automatically purchase a replacement savings plan when an existing savings plan expires. Automatic renewal provides an effortless way to continue getting savings plan discounts without having to closely monitor a savings plan's expiration. The renewal setting is turned off by default. Enable or disable the renewal setting anytime, up to the expiration of the existing savings plan, by selecting your savings plan at Azure portal>Savings Plan, then go to renewal settings. Renewing a savings plan creates a new savings plan when the existing one expires. It doesn't extend the term of the existing savings plan.
 
 ## Required renewal permissions
 
-The following conditions are required to renew a savings plan:
-
+The following conditions are required to renew a savings plan: 
 Billing admin For Enterprise Agreements (EA) and Microsoft Customer Agreements (MCA):
 - You must be either a Billing profile owner or Billing profile contributor of an MCA account
 - You must be an EA administrator with write access of an EA account
@@ -44,8 +42,7 @@ Your services continue to run normally. You're charged pay-as-you-go rates for y
 
 ## Default renewal settings
 
-By default, the renewal inherits all properties except automatic renewal setting from the expiring savings plan. A savings plan renewal purchase has the same billing subscription, term, billing frequency, and savings plan commitment. The new savings plan inherits the scope setting from the expiring savings plan during renewal.
-However, you can explicitly set the hourly commitment, billing frequency, and commitment term to optimize your savings.
+By default, the renewal inherits all properties except automatic renewal setting from the expiring savings plan. A savings plan renewal purchase has the same billing subscription, term, billing frequency, and savings plan commitment. The new savings plan inherits the scope setting from the expiring savings plan during renewal. However, you can explicitly set the hourly commitment, billing frequency, and commitment term to optimize your savings. You can view the current rates and discounts by selecting your savings plan at Azure portal>Savings Plan.
 
 ## When the new savings plan is purchased
 A new savings plan is purchased when the existing savings plan expires. We try to prevent any delay between the two savings plan. Continuity ensures that your costs are predictable, and you continue to get discounts.

@@ -198,7 +198,7 @@ See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for
 
 In addition to copying data from source data store to sink, you can also configure to add additional data columns to copy along to sink. For example:
 
-- When you copy from a file-based source, store the relative file path as an additional column to trace from which file the data comes from.
+- When you copy from a [file-based source](#supported-file-formats), store the relative file path as an additional column of type String to trace from which file the data comes from.
 - Duplicate the specified source column as another column.
 - Add a column with ADF expression, to attach ADF system variables like pipeline name/pipeline ID, or store other dynamic value from upstream activity's output.
 - Add a column with static value to meet your downstream consumption need.

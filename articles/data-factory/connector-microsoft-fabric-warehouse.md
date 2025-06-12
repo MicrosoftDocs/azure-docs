@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/11/2025
+ms.date: 04/24/2025
 ---
 
 # Copy and transform data in Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics
@@ -542,6 +542,19 @@ Settings specific to Microsoft Fabric Warehouse are available in the Settings ta
 | Batch size               | Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No       | Numeral values | batchSize: 1234|
 | Use sink schema             | By default, a temporary table will be created under the sink schema as staging. You can alternatively uncheck the **Use sink schema** option and instead, in **Select user DB schema**, specify a schema name under which Data Factory will create a staging table to load upstream data and automatically clean them up upon completion. Make sure you have create table permission in the database and alter permission on the schema. | No       | true or false | stagingSchemaName|
 | Pre and Post SQL scripts   | Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database| No       | SQL scripts | preSQLs:['set IDENTITY_INSERT mytable ON'] postSQLs:['set IDENTITY_INSERT mytable OFF'],|
+
+### Using Fabric Warehouse as a Sink with Staging Enabled
+
+If the staging storage location has a firewall enabled, access issues may occur.
+
+#### Workarounds
+
+- **Different Regions**:  
+  If the Fabric capacity and staging storage are in different regions, ensure the required IP addresses are allowed in the storage location firewall to enable connectivity.
+
+- **Same Region**:  
+  If the Fabric capacity and staging storage are in the same region and access issues persist, choose an alternative staging storage location in a different region than the Fabric capacity.
+
 
 ### Error row handling
 By default, a data flow run will fail on the first error it gets. You can choose to Continue on error that allows your data flow to complete even if individual rows have errors. The service provides different options for you to handle these error rows.

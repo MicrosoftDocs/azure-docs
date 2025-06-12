@@ -2,11 +2,11 @@
 title: Expose an AKS service over HTTP or HTTPS using Application Gateway
 description: This article provides information on how to expose an AKS service over HTTP or HTTPS by using Application Gateway.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/23/2023
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Expose an AKS service over HTTP or HTTPS by using Application Gateway

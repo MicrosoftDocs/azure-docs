@@ -25,6 +25,8 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - In case you are trying to restore a backup stored in Vault Tier, you need to provide a storage account in input as a staging location. Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one vault to staging storage account across tenants. Ensure that the staging storage account for the restore has the **AllowCrossTenantReplication** property set to **true**. 
 
+- Azure Backup does not automatically scale out AKS nodes—it only restores data and associated resources. Autoscaling is managed by AKS itself, using features like the Cluster Autoscaler. If autoscaling is enabled on the target cluster, it should handle resource scaling automatically. Before restoring, ensure that the target cluster has sufficient resources to avoid restore failures or performance issues 
+
 For more information on the limitations and supported scenarios, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
 
 ## Restore the AKS clusters

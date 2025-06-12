@@ -5,7 +5,7 @@ ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/27/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -309,4 +309,6 @@ New-AzResourceGroupDeployment -existingResourceGroupName $existingResourceGroupN
 
 -  [Track the backup job using Azure PowerShell](manage-afs-powershell.md#track-backup-and-restore-jobs).
 - [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md).
+- Restore Azure Files using [Azure portal](restore-afs.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
+- Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).
 

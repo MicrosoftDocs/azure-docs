@@ -2,7 +2,7 @@
 title: Back up Azure Files in the Azure portal
 description: Learn how to use the Azure portal to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
-ms.date: 02/27/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
@@ -15,7 +15,7 @@ This article describes how to back up [Azure Files](../storage/files/storage-fil
 
 Azure Files backup is a native cloud solution that protects your data and eliminates on-premises maintenance overheads. Azure Backup seamlessly integrates with Azure File Sync, centralizing your file share data and backups. The simple, reliable, and secure solution allows you to protect your enterprise file shares using [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups, ensuring data recovery for accidental or malicious deletion.
 
-[Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts.  You can:
+[Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. You can:
 
 - Define backup schedules and retention settings.
 - Store backup data in the Recovery Service vault, retaining it for up to **10 years**.
@@ -28,9 +28,10 @@ Azure Files backup is a native cloud solution that protects your data and elimin
 * [Create a backup policy for protection of Azure Files](quick-backup-azure-files-vault-tier-portal.md).
 * If the storage account access has restrictions, check the firewall settings of the account to ensure the exception **Allow Azure services on the trusted services list to access this storage account** is in grant state. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
 * Ensure that you allow the **Storage account key access** in the required storage account.
+* Ensure that the target storage account has the [supported configurations](azure-file-share-support-matrix.md#permitted-scope-for-copy-operationspreview).
 
->[!Important]
->To perform [Cross Subscription Backup (CSB)  for protecting Azure Files (preview)](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-preview-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the given prerequisites. Learn about the [supported regions for Cross Subscription Backup (preview)](azure-file-share-support-matrix.md#supported-regions-for-cross-subscription-backup-preview).
+>[!IMPORTANT]
+>To perform [Cross Subscription Backup (CSB) for protecting Azure Files](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the given prerequisites.
 
 
 ## Configure the backup
@@ -59,7 +60,7 @@ To configure backup for multiple file shares from the Recovery Services vault, f
 
 1. On the **Select storage account** pane, by default it list the storage accounts from the current subscription. Select an account, and select **OK**.
 
-   If you want to configure the backup operation with a storage account in a different subscription ([Cross Subscription Backup - preview](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-preview-works)), choose the other subscription from the **Subscription** filter. The storage accounts from the selected subscription appear.
+   If you want to configure the backup operation with a storage account in a different subscription ([Cross Subscription Backup](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works)), choose the other subscription from the **Subscription** filter. The storage accounts from the selected subscription appear.
 
    :::image type="content" source="./media/backup-azure-files/azure-file-share-confirm-storage-account.png" alt-text="Screenshot showing to select one of the discovered storage accounts." lightbox="./media/backup-azure-files/azure-file-share-confirm-storage-account.png":::
    
@@ -91,7 +92,7 @@ To configure backup for multiple file shares from the Recovery Services vault, f
 
    1. Configure the *Snapshot retention* and *Vault retention* duration to determine the expiry date of the recovery points.
 
-      >[!Note]
+      >[!NOTE]
       >The *vault tier* provides longer retention than the *snapshot tier*. 
    1. Select **OK** to create the backup policy.
 
@@ -155,7 +156,7 @@ The following steps explain how you can configure backup for individual file sha
 
    1. Configure the *Snapshot retention* and *Vault retention* duration to determine the expiry date of the recovery points.
 
-      >[!Note]
+      >[!NOTE]
       >The *vault tier* provides longer retention than the *snapshot tier*. 
    1. Select **OK** to create the backup policy.
 
@@ -182,7 +183,6 @@ Once the backup configuration is complete, you can [run an on-demand backup](tut
 
 ## Next steps
 
-Learn how to:
-
 * [Restore Azure Files using Azure portal](restore-afs.md).
-* [Manage Azure Files backups using Azure portal](manage-afs-backup.md).
+* Restore Azure Files using [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
+* Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

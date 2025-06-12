@@ -71,7 +71,7 @@ az spring app create \
     --system-assigned
 ```
 
-### Enable system-assigned managed identity on an existing app**
+### Enable system-assigned managed identity on an existing app
 
 Use `az spring app identity assign` command to enable the system-assigned identity on an existing app.
 

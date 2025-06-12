@@ -2,300 +2,290 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Virtual Network?
-    href: virtual-networks-overview.md
-  - name: FAQ
-    href: virtual-networks-faq.md
-  - name: Accelerated Networking
-    href: accelerated-networking-overview.md
-  - name: Application security groups
-    href: application-security-groups.md
-  - name: Network security groups
-    href: network-security-groups-overview.md
-  - name: Service endpoints
-    href: virtual-network-service-endpoints-overview.md
-  - name: Service tags
-    href: service-tags-overview.md
+    - name: What is Azure Virtual Network?
+      href: virtual-networks-overview.md
+    - name: FAQ
+      href: virtual-networks-faq.md
+    - name: Accelerated Networking
+      href: accelerated-networking-overview.md
+    - name: Application security groups
+      href: application-security-groups.md
+    - name: Network security groups
+      href: network-security-groups-overview.md
+    - name: Service endpoints
+      href: virtual-network-service-endpoints-overview.md
+    - name: Service tags
+      href: service-tags-overview.md
 - name: Get started
   items:
-  - name: Add, change, or delete a subnet
-    href: virtual-network-manage-subnet.md
-  - name: Create a virtual network
-    href: quick-create-portal.md
-  - name: Monitoring
-    href: monitor-virtual-network.md
-  - name: Plan virtual networks
-    href: virtual-network-vnet-plan-design-arm.md
-  - name: Traffic routing
-    href: virtual-networks-udr-overview.md
+    - name: Add, change, or delete a subnet
+      href: virtual-network-manage-subnet.md
+    - name: Create a virtual network
+      href: quickstart-create-virtual-network.md
+    - name: Monitoring
+      href: monitor-virtual-network.md
+    - name: Plan virtual networks
+      href: virtual-network-vnet-plan-design-arm.md
+    - name: Traffic routing
+      href: virtual-networks-udr-overview.md
 - name: Architecture and concepts
   items:
-  - name: Azure services network isolation
-    href: vnet-integration-for-azure-services.md
-  - name: Concepts and best practices
-    href: concepts-and-best-practices.md
-  - name: Interoperability in Azure
-    href: /azure/networking/connectivity-interoperability-control-plane?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-  - name: IP based access control list (ACL)
-    href: ip-based-access-control-list-overview.md
-  - name: Subnet delegation
-    href: subnet-delegation-overview.md
-  - name: Subnet extension
-    href: subnet-extension.md
-  - name: Virtual network peering
-    href: virtual-network-peering-overview.md
-  - name: What is IP address 168.63.129.16?
-    href: what-is-ip-address-168-63-129-16.md
+    - name: Azure services network isolation
+      href: vnet-integration-for-azure-services.md
+    - name: Concepts and best practices
+      href: concepts-and-best-practices.md
+    - name: Interoperability in Azure
+      href: /azure/networking/connectivity-interoperability-control-plane?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: IP based access control list (ACL)
+      href: ip-based-access-control-list-overview.md
+    - name: Subnet delegation
+      href: subnet-delegation-overview.md
+    - name: Subnet extension
+      href: subnet-extension.md
+    - name: Virtual network peering
+      href: virtual-network-peering-overview.md
+    - name: What is IP address 168.63.129.16?
+      href: what-is-ip-address-168-63-129-16.md
 - name: Plan and design
-  items: 
-  - name: Implement a secure hybrid network
-    href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=portal
-  - name: Name resolution for resources
-    href: virtual-networks-name-resolution-for-vms-and-role-instances.md
-  - name: Network virtual appliances
-    href: virtual-network-scenario-udr-gw-nva.md
-  - name: Optimize network throughput for Azure virtual machines
-    href: virtual-network-optimize-network-bandwidth.md
-  - name: Use dynamic DNS to register hostnames
-    href: virtual-networks-name-resolution-ddns.md
-  - name: View and modify hostnames
-    href: virtual-networks-viewing-and-modifying-hostnames.yml
-  - name: Virtual networks and virtual machines in Azure
-    href: network-overview.md
+  items:
+    - name: Implement a secure hybrid network
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=portal
+    - name: Name resolution for resources
+      href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+    - name: Network virtual appliances
+      href: virtual-network-scenario-udr-gw-nva.md
+    - name: Optimize network throughput for Azure virtual machines
+      href: virtual-network-optimize-network-bandwidth.md
+    - name: Use dynamic DNS to register hostnames
+      href: virtual-networks-name-resolution-ddns.md
+    - name: View and modify hostnames
+      href: virtual-networks-viewing-and-modifying-hostnames.yml
+    - name: Virtual networks and virtual machines in Azure
+      href: network-overview.md
 - name: Deploy virtual network
   items:
-  - name: Connect a virtual network to ExpressRoute circuits
-    href: /azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-  - name: Connect an on-premises network to Azure by using ExpressRoute
-    href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-  - name: Connect virtual networks
-    href: tutorial-connect-virtual-networks.md
-  - name: Create a virtual network
-    items:
-    - name: ARM template
-      href: quick-create-template.md
-    - name: Azure CLI
-      href: quick-create-cli.md
-    - name: Bicep
-      href: quick-create-bicep.md
-    - name: PowerShell
-      href: quick-create-powershell.md
-    - name: Terraform
-      href: quick-create-terraform.md
-  - name: Create and associate service endpoint policies
-    href: virtual-network-service-endpoint-policies.md
-  - name: Filter network traffic
-    href: tutorial-filter-network-traffic.md
-  - name: Restrict network access to PaaS resources
-    href: tutorial-restrict-network-access-to-resources.md
-  - name: Route network traffic
-    href: tutorial-create-route-table.md
+    - name: Connect a virtual network to ExpressRoute circuits
+      href: /azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Connect an on-premises network to Azure by using ExpressRoute
+      href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Connect virtual networks
+      href: tutorial-connect-virtual-networks.md
+    - name: Create and associate service endpoint policies
+      href: virtual-network-service-endpoint-policies.md
+    - name: Filter network traffic
+      href: tutorial-filter-network-traffic.md
+    - name: Restrict network access to PaaS resources
+      href: tutorial-restrict-network-access-to-resources.md
+    - name: Route network traffic
+      href: tutorial-create-route-table.md
 - name: Manage connectivity
   items:
-  - name: Accelerated networking
-    items:
-    - name: Create a VM with Accelerated Networking
-      href: create-virtual-machine-accelerated-networking.md
-    - name: Manage accelerated networking
-      href: manage-accelerated-networking.md
-    - name: Linux and FreeBSD VMs
-      href: accelerated-networking-how-it-works.md
-    - name: DPDK
-      href: setup-dpdk.md
-  - name: Add or remove a subnet delegation
-    href: manage-subnet-delegation.md
-  - name: Containers
-    items: 
-    - name: Container networking
-      href: container-networking-overview.md
-    - name: Deploy container networking
-      href: deploy-container-networking.md
-    - name: Deploy container networking for a stand-alone host
-      href: deploy-container-networking-docker-linux.md
-  - name: Create multiple prefixes for a subnet
-    href: how-to-multiple-prefixes-subnet.md
-  - name: Manage a virtual network
-    href: manage-virtual-network.yml
-  - name: Integrate services with Private Link
-    href: /azure/private-link/private-link-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-  - name: Peering
-    items:
-    - name: Create peering
+    - name: Accelerated networking
       items:
-      - name: Different subscriptions and tenants
-        href: create-peering-different-subscriptions.md
-      - name: Different subscriptions with SPNs
-        href: create-peering-different-subscriptions-service-principal.md
-      - name: Different deployment model same subscription
-        href: create-peering-different-deployment-models.md
-      - name: Different deployment model and subscription
-        href: create-peering-different-deployment-models-subscriptions.md
-    - name: Manage a virtual network peering
-      href: virtual-network-manage-peering.md
-    - name: Update the address space for a peered virtual network
-      href: update-virtual-network-peering-address-space.yml
-  - name: Routing
-    items: 
-    - name: Manage route tables
-      href: manage-route-table.yml
-    - name: Ansible
-      href: /azure/developer/ansible/route-table-configure?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-  - name: Hybrid connectivity
-    items:
-    - name: Configure a VNet-to-VNet VPN gateway connection
-      href: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Connect virtual networks from different deployment models
-      href: /azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Create a site-to-site VPN connection
-      href: /azure/vpn-gateway/tutorial-site-to-site-portal?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-  - name: Virtual machines
-    items:
-    - name: Add or remove network interfaces
-      href: virtual-network-network-interface-vm.yml
-    - name: Configure MTU for virtual machines
-      href: how-to-virtual-machine-mtu.md
-    - name: Linux VM with multiple NICs
-      href: /azure/virtual-machines/linux/multiple-nics?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Windows VM with multiple NICs
-      href: /azure/virtual-machines/windows/multiple-nics?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Manage a network interface
-      href: virtual-network-network-interface.md
-    - name: Microsoft Azure Network Adapter (MANA)
-      items: 
-      - name: Overview
-        href: accelerated-networking-mana-overview.md
-      - name: Linux VMs
-        href: accelerated-networking-mana-linux.md
-      - name: Windows VMs
-        href: accelerated-networking-mana-windows.md
-    - name: Migrate a VM public IP address to a NAT gateway
-      href: /azure/nat-gateway/tutorial-migrate-ilip-nat?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Network bandwidth
-      href: virtual-machine-network-throughput.md
-    - name: TCP/IP performance tuning
-      href: virtual-network-tcpip-performance-tuning.md
+        - name: Create a VM with Accelerated Networking
+          href: create-virtual-machine-accelerated-networking.md
+        - name: Manage accelerated networking
+          href: manage-accelerated-networking.md
+        - name: Network optimized VM network connection acceleration
+          href: network-optimized-vm-network-connection-acceleration.md
+        - name: Linux and FreeBSD VMs
+          href: accelerated-networking-how-it-works.md
+        - name: DPDK
+          href: setup-dpdk.md
+    - name: Add or remove a subnet delegation
+      href: manage-subnet-delegation.md
+    - name: Containers
+      items:
+        - name: Container networking
+          href: container-networking-overview.md
+        - name: Deploy container networking
+          href: deploy-container-networking.md
+        - name: Deploy container networking for a stand-alone host
+          href: deploy-container-networking-docker-linux.md
+    - name: Create multiple prefixes for a subnet
+      href: how-to-multiple-prefixes-subnet.md
+    - name: Manage a virtual network
+      href: manage-virtual-network.yml
+    - name: Integrate services with Private Link
+      href: /azure/private-link/private-link-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Peering
+      items:
+        - name: Create peering
+          items:
+            - name: Different subscriptions and tenants
+              href: create-peering-different-subscriptions.md
+            - name: Different subscriptions with SPNs
+              href: create-peering-different-subscriptions-service-principal.md
+        - name: Manage a virtual network peering
+          href: virtual-network-manage-peering.md
+        - name: Update the address space for a peered virtual network
+          href: update-virtual-network-peering-address-space.yml
+        - name: Configure subnet peering
+          href: how-to-configure-subnet-peering.md
+    - name: Routing
+      items:
+        - name: Manage route tables
+          href: manage-route-table.yml
+        - name: Ansible
+          href: /azure/developer/ansible/route-table-configure?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Hybrid connectivity
+      items:
+        - name: Configure a VNet-to-VNet VPN gateway connection
+          href: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Connect virtual networks from different deployment models
+          href: /azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Create a site-to-site VPN connection
+          href: /azure/vpn-gateway/tutorial-site-to-site-portal?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Virtual machines
+      items:
+        - name: Add or remove network interfaces
+          href: virtual-network-network-interface-vm.yml
+        - name: Configure MTU for virtual machines
+          href: how-to-virtual-machine-mtu.md
+        - name: Linux VM with multiple NICs
+          href: /azure/virtual-machines/linux/multiple-nics?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Windows VM with multiple NICs
+          href: /azure/virtual-machines/windows/multiple-nics?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Manage a network interface
+          href: virtual-network-network-interface.md
+        - name: Microsoft Azure Network Adapter (MANA)
+          items:
+            - name: Overview
+              href: accelerated-networking-mana-overview.md
+            - name: Linux VMs
+              href: accelerated-networking-mana-linux.md
+            - name: Windows VMs
+              href: accelerated-networking-mana-windows.md
+        - name: Migrate a VM public IP address to a NAT gateway
+          href: /azure/nat-gateway/tutorial-migrate-ilip-nat?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Network bandwidth
+          href: virtual-machine-network-throughput.md
+        - name: TCP/IP performance tuning
+          href: virtual-network-tcpip-performance-tuning.md
 - name: Reliability and availability
-  items: 
-  - name: Business continuity
-    href: virtual-network-disaster-recovery-guidance.md
-  - name: Deploy a DHCP server on an Azure VM
-    href: how-to-dhcp-azure.md
-  - name: Move across regions
-    items:
-    - name: Manual relocation
-      items: 
-      - name: Network security groups (NSG)
-        href: /azure/operational-excellence/relocation-virtual-network-nsg?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=azure-portal
-      - name: Virtual networks
-        href: /azure/operational-excellence/relocation-virtual-network?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=azure-portal
-    - name: Network interfaces
-      href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Network security groups (NSG)
-      href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Virtual networks
-      href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+  items:
+    - name: Deploy a DHCP server on an Azure VM
+      href: how-to-dhcp-azure.md
+    - name: Move across regions
+      items:
+        - name: Manual relocation
+          items:
+            - name: Network security groups (NSG)
+              href: /azure/operational-excellence/relocation-virtual-network-nsg?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=azure-portal
+            - name: Virtual networks
+              href: /azure/operational-excellence/relocation-virtual-network?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&tabs=azure-portal
+        - name: Network interfaces
+          href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Network security groups (NSG)
+          href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Virtual networks
+          href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Azure Virtual Network reliability
+      href: ../reliability/reliability-virtual-network.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
 - name: Troubleshoot
   items:
-  - name: Configure reverse lookup zones for an SMTP banner check
-    href: create-ptr-for-smtp-service.md
-  - name: Diagnose a virtual machine network traffic filter problem
-    href: diagnose-network-traffic-filter-problem.md
-  - name: Diagnose a virtual machine routing problem
-    href: diagnose-network-routing-problem.md
-  - name: Network virtual appliance issues in Azure
-    href: virtual-network-troubleshoot-nva.md
-  - name: Resource logging for a network security group
-    href: virtual-network-nsg-manage-log.md
-  - name: Test network latency between Azure VMs
-    href: virtual-network-test-latency.md
-  - name: Test VM network throughput by using NTTTCP
-    href: virtual-network-bandwidth-testing.md
-  - name: Troubleshoot Azure VM connectivity problems
-    href: troubleshoot-vm-connectivity.md
-  - name: Troubleshoot outbound SMTP connectivity problems
-    href: troubleshoot-outbound-smtp-connectivity.md
-  - name: Troubleshoot virtual network peering issues
-    href: virtual-network-troubleshoot-peering-issues.md
-  - name: Troubleshoot connectivity problems between Azure VMs
-    href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
-  - name: Troubleshoot virtual network deletion failures
-    href: virtual-network-troubleshoot-cannot-delete-vnet.md
+    - name: Configure reverse lookup zones for an SMTP banner check
+      href: create-ptr-for-smtp-service.md
+    - name: Diagnose a virtual machine network traffic filter problem
+      href: diagnose-network-traffic-filter-problem.md
+    - name: Diagnose a virtual machine routing problem
+      href: diagnose-network-routing-problem.md
+    - name: Network virtual appliance issues in Azure
+      href: virtual-network-troubleshoot-nva.md
+    - name: Resource logging for a network security group
+      href: virtual-network-nsg-manage-log.md
+    - name: Test network latency between Azure VMs
+      href: virtual-network-test-latency.md
+    - name: Test VM network throughput by using NTTTCP
+      href: virtual-network-bandwidth-testing.md
+    - name: Troubleshoot Azure VM connectivity problems
+      href: troubleshoot-vm-connectivity.md
+    - name: Troubleshoot outbound SMTP connectivity problems
+      href: troubleshoot-outbound-smtp-connectivity.md
+    - name: Troubleshoot virtual network peering issues
+      href: virtual-network-troubleshoot-peering-issues.md
+    - name: Troubleshoot connectivity problems between Azure VMs
+      href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
+    - name: Troubleshoot virtual network deletion failures
+      href: virtual-network-troubleshoot-cannot-delete-vnet.md
 - name: Security
   items:
-  - name: Azure Kubernetes network policies
-    href: kubernetes-network-policies.md
-  - name: Azure Policy Regulatory Compliance controls
-    href: ./security-controls-policy.md
-  - name: Azure security baseline for Virtual Network
-    href: /security/benchmark/azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-  - name: Azure Security blog
-    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-  - name: DDoS protection
-    items:
-    - name: Overview
-      href: /azure/ddos-protection/ddos-protection-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Create and configure
-      href: /azure/ddos-protection/manage-ddos-protection?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-    - name: Partnering with Azure DDoS Protection
-      href: /azure/ddos-protection/ddos-protection-partner-onboarding?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-  - name: Encryption
-    items: 
-    - name: Overview
-      href: virtual-network-encryption-overview.md
-    - name: Create a virtual network with encryption
-      href: how-to-create-encryption.md
-    - name: FAQ
-      href: virtual-network-encryption-faq.yml
-  - name: Network security groups
-    items:
-    - name: How network security groups filter traffic
-      href: network-security-group-how-it-works.md
-    - name: Manage network security groups
-      href: manage-network-security-group.md
-  - name: Service endpoint policies for Azure Storage
-    href: virtual-network-service-endpoint-policies-overview.md
-  - name: Virtual network TAP
-    items:
-    - name: Overview
-      href: virtual-network-tap-overview.md
-    - name: Configure virtual network TAP
-      href: tutorial-tap-virtual-network-cli.md
+    - name: Azure Kubernetes network policies
+      href: kubernetes-network-policies.md
+    - name: Azure Policy Regulatory Compliance controls
+      href: ./security-controls-policy.md
+    - name: Azure security baseline for Virtual Network
+      href: /security/benchmark/azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Azure Security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+    - name: DDoS protection
+      items:
+        - name: Overview
+          href: /azure/ddos-protection/ddos-protection-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Create and configure
+          href: /azure/ddos-protection/manage-ddos-protection?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Partnering with Azure DDoS Protection
+          href: /azure/ddos-protection/ddos-protection-partner-onboarding?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Encryption
+      items:
+        - name: Overview
+          href: virtual-network-encryption-overview.md
+        - name: Create a virtual network with encryption
+          href: how-to-create-encryption.md
+        - name: FAQ
+          href: virtual-network-encryption-faq.yml
+    - name: Network security groups
+      items:
+        - name: How network security groups filter traffic
+          href: network-security-group-how-it-works.md
+        - name: Manage network security groups
+          href: manage-network-security-group.md
+    - name: Service endpoint policies for Azure Storage
+      href: virtual-network-service-endpoint-policies-overview.md
+    - name: Virtual network TAP
+      items:
+        - name: Overview
+          href: virtual-network-tap-overview.md
+        - name: Configure virtual network TAP - Azure portal
+          href: tutorial-virtual-network-tap-portal.md
+        - name: Configure virtual network TAP - Azure CLI
+          href: tutorial-tap-virtual-network-cli.md
 - name: Reference
   items:
-  - name: Monitor data reference
-    href: monitor-virtual-network-reference.md
-  - name: Azure CLI
-    href: /cli/azure/azure-cli-reference-for-network
-  - name: Azure PowerShell
-    href: /powershell/module/az.network
-  - name: .NET
-    href: /dotnet/api/overview/azure/virtual-network
-  - name: Java
-    href: /java/api/
-  - name: Node.js
-    href: /javascript/azure#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/virtual-network
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.network/allversions
-  - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=virtual-network
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md
+    - name: Monitor data reference
+      href: monitor-virtual-network-reference.md
+    - name: Azure CLI
+      href: /cli/azure/azure-cli-reference-for-network
+    - name: Azure PowerShell
+      href: /powershell/module/az.network
+    - name: .NET
+      href: /dotnet/api/overview/azure/virtual-network
+    - name: Java
+      href: /java/api/
+    - name: Node.js
+      href: /javascript/azure#azure-sdk
+    - name: Python
+      href: https://azure.microsoft.com/develop/python/
+    - name: REST
+      href: /rest/api/virtual-network
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.network/allversions
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?service=virtual-network
+    - name: Azure Policy built-ins
+      href: ./policy-reference.md
+      displayName: samples, policies, definitions
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn training
-    href: /training/browse/
-  - name: Azure Networking blog
-    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
-  - name: Networking feedback
-    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/virtual-network
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/
+    - name: Azure Networking blog
+      href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+    - name: Networking feedback
+      href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/virtual-network
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-virtual-network

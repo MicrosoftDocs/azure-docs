@@ -9,7 +9,7 @@ ms.author: shamkh
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ms.topic: quickstart 
-ms.date: 02/12/2024
+ms.date: 05/01/2025
 ms.custom: template-quickstart
 ---
 
@@ -55,7 +55,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
     :::image type="content" source="./media/handle-advanced-messaging-events/default-domain.png" lightbox="./media/handle-advanced-messaging-events/default-domain.png" alt-text="Screenshot that shows URL of Events Viewer web app.":::
 
-6.  The URL for the Event Grid Viewer is the Site Name you used to create the deployment with the path `/api/update` appended.
+6.  The URL for the Event Grid Viewer is the Site Name you used to create the deployment with the path `/api/updates` appended.
     For example: "https://{{site-name}}.azurewebsites.net/api/updates". You'll need it in the next step and during the creation of the demo app.
 
 ## Subscribe to Advanced Messaging events
@@ -98,7 +98,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-For more information, see:
 - [Understand Advanced Communication Messages Events](../../../../event-grid/communication-services-advanced-messaging-events.md)
 - [Get started With Advanced Communication Messages SDK](./get-started.md)
 

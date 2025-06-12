@@ -10,10 +10,11 @@ metadata:
   ms.custom:
     - build-2024
     - ignite-2024
+    - build-2025
   ms.topic: landing-page
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 09/05/2024
+  ms.date: 03/31/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -30,14 +31,14 @@ landingContent:
             url: concept-dev-box-concepts.md
           - text: Microsoft Dev Box Roadmap
             url: dev-box-roadmap.md
-
-  # Card
-  - title: Get started
-    linkLists:
       - linkListType: deploy
         links:
           - text: Microsoft Dev Box deployment guide
             url: concept-dev-box-deployment-guide.md
+
+  # Card
+  - title: Get started
+    linkLists:
       - linkListType: quickstart
         links:
           - text: Set up Dev Box with an ARM template
@@ -48,28 +49,26 @@ landingContent:
             url: quickstart-create-dev-box.md
           - text: Use Team Customizations
             url: quickstart-team-customizations.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to your dev box
+            url: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
+          - text: Use multiple monitors with your dev box 
+            url: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
 
   # Card
-  - title: Quota management
+  - title: Dev Box cost management
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Request a quota limit increase
             url: how-to-request-quota-increase.md
-            
-  # Card
-  - title: Connect to a dev box
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Use Dev Home to manage dev boxes
-            url: how-to-use-dev-home-customize-dev-box.md 
-      - linkListType: how-to-guide
-        links:
-          - text: Use the Troubleshoot and Repair tool
-            url: how-to-troubleshoot-repair-dev-box.md
-          - text: Troubleshoot dev box connectivity issues
-            url: how-to-troubleshoot-remote-desktop-connectivity.md                   
+          - text: Configure Dev Box Hibernation
+            url: how-to-configure-dev-box-hibernation.md
+          - text: Autostop Dev Boxes on schedule             
+            url: how-to-configure-stop-schedule.md
+          - text: Skip or delay a scheduled shutdown
+            url: how-to-skip-delay-stop.md
 
   # Card
   - title: Provide secure access
@@ -79,8 +78,8 @@ landingContent:
           - text: Configure conditional access policies
             url: how-to-configure-intune-conditional-access-policies.md
           - text: Enable single sign-on for dev box
-            url: how-to-enable-single-sign-on.md  
-
+            url: how-to-enable-single-sign-on.md
+ 
   # Card
   - title: Create custom dev boxes
     linkLists:
@@ -88,24 +87,30 @@ landingContent:
         links:
           - text: What are Team Customizations
             url: concept-what-are-team-customizations.md
-          - text: Write a customization file
-            url: how-to-write-customization-file.md
+          - text: Write an image definition file
+            url: how-to-write-image-definition-file.md
+          - text: Use secrets in customization files
+            url: how-to-use-secrets-customization-files.md
+          - text: Use GitHub Copilot to generate an image definition file
+            url: how-to-use-copilot-generate-image-definition-file.md
           - text: Configure imaging for Customizations
             url: how-to-configure-customization-imaging.md
           - text: Create customization tasks
             url: how-to-create-customization-tasks-catalog.md
-          - text: Configure Azure Compute Gallery
-            url: how-to-configure-azure-compute-gallery.md
-          - text: Provision a custom image by using Azure VM Image Builder
-            url: how-to-customize-devbox-azure-image-builder.md
-          - text: Configure Dev Box Hibernation
-            url: how-to-configure-dev-box-hibernation.md
 
    # Card
   - title: Support & Reference
     linkLists:
         - linkListType: how-to-guide
           links:
+          - text: Use the Troubleshoot and Repair tool
+            url: how-to-troubleshoot-repair-dev-box.md
+          - text: Troubleshoot dev box connectivity issues
+            url: how-to-troubleshoot-remote-desktop-connectivity.md   
+          - text: Resolve connectivity issues
+            url: how-to-resolve-dev-box-connectivity-issues.md
+          - text: 'Reference: imagedefinition.yaml and task.yaml files'
+            url: reference-dev-box-customizations.md
           - text: Get support for Microsoft Dev Box
             url: how-to-get-help.md
         - linkListType: reference

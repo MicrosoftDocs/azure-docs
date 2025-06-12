@@ -2,15 +2,18 @@
 title: 'Connect Azure Front Door Premium to a storage account origin with Private Link'
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a storage account privately.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
-ms.author: duau
+ms.custom:
+  - build-2025
 ---
 
 # Connect Azure Front Door Premium to a storage account origin with Private Link
+
+**Applies to:** :heavy_check_mark: Front Door Premium
 
 This article guides you through how to configure Azure Front Door Premium tier to connect to your storage account origin privately using the Azure Private Link service.
 
@@ -72,6 +75,13 @@ In this section, you map the Private Link service to a private endpoint created 
 
 > [!NOTE]
 > If the blob or container within the storage account doesn't permit anonymous access, requests made against the blob/container should be authorized. One option for authorizing a request is by using [shared access signatures](../../storage/common/storage-sas-overview.md).
+
+## Common mistakes to avoid
+
+The following are common mistakes when configuring an origin with Azure Private Link enabled:
+
+* Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
+* Not using SAS tokens while connecting to storage account that does not allow anonymous access.
 
 ## Next steps
 

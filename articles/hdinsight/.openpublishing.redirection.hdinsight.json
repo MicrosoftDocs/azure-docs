@@ -30,6 +30,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/hdinsight/kafka/apache-kafka-azure-container-services.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/overview-data-lake-storage-gen1.md",
         "redirect_url": "/azure/hdinsight/overview-data-lake-storage-gen2",
         "redirect_document_id": false

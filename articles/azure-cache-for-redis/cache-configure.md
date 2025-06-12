@@ -6,6 +6,8 @@ description: Understand the default Redis configuration for Azure Cache for Redi
 
 ms.topic: conceptual
 ms.date: 05/07/2024
+appliesto:
+  - ✅ Azure Cache for Redis
  
 ms.custom: engagement-fy23
 ---
@@ -62,7 +64,7 @@ The **Overview** section provides you with basic information about your cache, s
 
 ### Activity log
 
-Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log). For more information on monitoring the activity log, see [Activity log](monitor-cache.md#azure-activity-log).
+Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log). For more information on monitoring the activity log, see [Activity log](../redis/monitor-cache.md#azure-activity-log).
 
 ### Access control (IAM)
 
@@ -87,7 +89,7 @@ The Event Grid helps you build automation into your cloud infrastructure, create
 You can securely issue commands to your Azure Cache for Redis instances using the **Redis Console**, which is available in the Azure portal for Basic, Standard and Premium cache tiers.
 
 > [!IMPORTANT]
-> The Redis Console does't work when a cache has any of the following:
+> The Redis Console doesn't work when a cache has any of the following:
 >
 > - [Virtual Network](cache-how-to-premium-vnet.md). When your cache is part of a VNet, only clients in the VNet can access the cache. Because Redis Console runs in your local browser, which is outside the VNet, it can't connect to your cache.
 > - [Private Link](cache-private-link.md)
@@ -213,7 +215,7 @@ The **maxmemory-reserved** setting configures the amount of memory in MB per ins
 
 The **maxfragmentationmemory-reserved** setting configures the amount of memory in MB per instance in a cluster that is reserved to accommodate for memory fragmentation. When you set this value, the Redis server experience is more consistent when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it's unavailable for storage of cached data. The minimum and maximum values on the slider are 10% and 60%, shown in megabytes. You must set the value in that range.
 
-When choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**), consider how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB, this change drops the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system has to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Create your own metrics](monitor-cache.md#create-your-own-metrics).
+When choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**), consider how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB, this change drops the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system has to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Create your own metrics](../redis/monitor-cache.md#create-your-own-metrics).
 
 > [!IMPORTANT]
 > The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are available for Basic,Standard and Premium caches.
@@ -368,26 +370,26 @@ To reboot one or more nodes of your cache, select the desired nodes and select *
 
 The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis instance.
 
-- For more information on Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](monitor-cache.md).
-- For information on how to set up and use Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](monitor-cache.md).
+- For more information on Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](../redis/monitor-cache.md).
+- For information on how to set up and use Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](../redis/monitor-cache.md).
 
 :::image type="content" source="media/cache-configure/redis-cache-diagnostics.png" alt-text="Diagnostics":::
 
 ### Insights
 
-Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics. For more information, see [Insights](monitor-cache.md#insights).
+Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics. For more information, see [Insights](../redis/monitor-cache.md#insights).
 
 ### Metrics
 
-Select **Metrics** to create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create your own metrics](monitor-cache.md#create-your-own-metrics).
+Select **Metrics** to create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create your own metrics](../redis/monitor-cache.md#create-your-own-metrics).
 
 ### Alerts
 
-Select **Alerts** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Create alerts](monitor-cache.md#create-alerts).
+Select **Alerts** to configure alerts based on Azure Cache for Redis metrics. For more information, see [Create alerts](../redis/monitor-cache.md#create-alerts).
 
 ### Diagnostic settings
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](monitor-cache.md#data-storage) used to store cache diagnostics.
+By default, cache metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](../redis/monitor-cache.md#data-storage) used to store cache diagnostics.
 
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs).
@@ -406,13 +408,13 @@ Further information can be found on the **Recommendations** in the working pane 
 
 :::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations":::
 
-You can monitor these metrics on the [Monitoring](monitor-cache.md) section of the Resource menu.
+You can monitor these metrics on the [Monitoring](../redis/monitor-cache.md) section of the Resource menu.
 
 | Azure Cache for Redis metric | More information |
 | --- | --- |
 | Network bandwidth usage |[Cache performance - available bandwidth](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 | Connected clients |[Default Redis server configuration - max clients](#maxclients) |
-| Server load |[Redis Server Load](monitor-cache.md#view-cache-metrics) |
+| Server load |[Redis Server Load](../redis/monitor-cache.md#view-cache-metrics) |
 | Memory usage |[Cache performance - size](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
 To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
@@ -501,7 +503,7 @@ New Azure Cache for Redis instances are configured with the following default Re
 For more information about databases, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-)
 
 > [!NOTE]
-> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
+> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](../redis/how-to-manage-redis-cache-powershell.md#databases).
 >
 
 ### Maxclients
@@ -559,4 +561,4 @@ For more information about Redis commands, see [https://redis.io/commands](https
 ## Related content
 
 - [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
-- [Monitor Azure Cache for Redis](monitor-cache.md)
+- [Monitor Azure Cache for Redis](../redis/monitor-cache.md)

@@ -11,7 +11,7 @@ ms.custom: references_regions, linux-related-content
 
 # Connect to Elastic SAN volumes - Linux
 
-This article explains how to connect to an Elastic storage area network (SAN) volume from an individual Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN volumes - Windows](elastic-san-connect-windows.md).
+This article explains how to connect to an Elastic SAN volume from an individual Linux client. For details on connecting from a Windows client, see [Connect to Elastic SAN volumes - Windows](elastic-san-connect-windows.md).
 
 In this article, you'll add the Storage service endpoint to an Azure virtual network's subnet, then you'll configure your volume group to allow connections from your subnet. Finally, you'll configure your client environment to connect to an Elastic SAN volume and establish a connection.
 
@@ -50,7 +50,8 @@ defaults {
     path_grouping_policy multibus	# To place all the paths in one priority group
     path_selector "round-robin 0"	# To use round robin algorithm to determine path for next I/O operation
     failback immediate			# For immediate failback to highest priority path group with active paths
-    no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
+    no_path_retry 3			# To disable I/O queueing after retrying once when all paths are down
+    polling_interval 5         # Set path check polling interval to 5 seconds
 }
 devices {
   device {
@@ -83,6 +84,28 @@ You can verify the number of sessions using `sudo multipath -ll`
 
 #### Number of sessions
 You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits.
+
+You can customize the session count by following the instructions below:  
+
+The script accepts the `--num-of-sessions` argument, allowing you to define the number of sessions per volume. 
+
+```bash
+python3 connect_for_documentation.py \ 
+
+--subscription <your-subscription-id>\ 
+
+-g <resource-group>\ 
+
+-e <elastic-san-name>\ 
+
+-v <volume-group-name>\ 
+
+-n volume1 volume2 \ 
+
+-s <value>
+```
+
+**Note!** Valid values for `-n` range from 1 to 32. If not specified, the default of 32 sessions is used. 
 
 ## Next steps
 

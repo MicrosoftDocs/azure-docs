@@ -1,20 +1,28 @@
 ---
-title: Track and log Azure Data Box, Azure Data Box Heavy events for import order| Microsoft Docs 
-description: Describes how to track and log events at the various stages of your Azure Data Box and Azure Data Box Heavy import order.
+title: Track and log Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy events for import order | Microsoft Docs 
+description: Describes how to track and log events at the various stages of your Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy import order.
 services: databox
 author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 03/06/2025
 ms.author: shaas
 ---
 
-# Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order
+# Tracking and event logging for your Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy import order
 
-A Data Box or Data Box Heavy import order goes through the following steps: order, set up, data copy, return, upload to Azure and verify, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
+A Data Box import order goes through the following steps: 
+  - Order
+  - Set up, 
+  - Data copy
+  - Return
+  - Upload to Azure and verify, and 
+  - Data erasure
 
-The following table gives a summary of each step in processing an import order and the tools available to track and audit the order during the step.
+For each step in the order, you can undertake multiple actions to control access and track the order, audit the events, and interpret the various logs that are generated.
+
+The following table provides a summary of each step undertaken when processing an import order. The table also identifies the tools available to track and audit the order during each step.
 
 | Data Box import order stage| Tool to track and audit|
 |----------------------------|------------------------|
@@ -26,7 +34,7 @@ The following table gives a summary of each step in processing an import order a
 | Data upload to Azure       | [Review copy logs](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
-This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy import order. The information in this article applies to both, Data Box and Data Box Heavy import orders. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
+This article describes in detail the various mechanisms or tools available to track and audit Data Box import orders. The information in this article applies to Azure Data 120, Data Box 525, and Data Box orders. In the subsequent sections, any references to Data Box apply to all SKUs.
 
 > [!NOTE]
 > [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
@@ -70,7 +78,7 @@ You can track your order through the Azure portal and through the shipping carri
 
 ## View error log during data copy
 
-During the data copy to Data Box or Data Box Heavy, an error file is generated if there are any issues with the data being copied.
+During the data copy to Data Box, an error file is generated if there are any issues with the data being copied.
 
 ### Error.xml file
 
@@ -79,7 +87,7 @@ Make sure that the copy jobs have finished with no errors. If there are errors d
 - If you copied a file that is not 512 bytes aligned to a managed disk folder on your Data Box, the file isn't uploaded as a page blob to your staging storage account. You will see an error in the logs. Remove the file, and copy a file that is 512 bytes aligned.
 - If you copied a VHDX, or a dynamic VHD, or a differencing VHD, you will see an error in the logs. Those file types are not supported.
 
-Here is a sample of the *error.xml* for different errors when copying to managed disks.
+The following is a sample of an *error.xml* file containing different errors when copying to managed disks.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
@@ -88,7 +96,7 @@ Here is a sample of the *error.xml* for different errors when copying to managed
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-Here is a sample of the *error.xml* for different errors when copying to page blobs.
+The following is a sample of an *error.xml* file containing different errors when copying to page blobs.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
@@ -97,9 +105,7 @@ Here is a sample of the *error.xml* for different errors when copying to page bl
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File10Bytes</file>
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File500Bytes</file>
 ```
-
-
-Here is a sample of the *error.xml* for different errors when copying to block blobs.
+The following is a sample of an *error.xml* file containing different errors when copying to block blobs.
 
 ```xml
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
@@ -127,7 +133,7 @@ Here is a sample of the *error.xml* for different errors when copying to block b
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-Here is a sample of the *error.xml* for different errors when copying to Azure Files.
+The following is a sample of an *error.xml* file containing different errors when copying to Azure Files.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>
@@ -145,7 +151,7 @@ Here is a sample of the *error.xml* for different errors when copying to Azure F
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-In each of the above cases, resolve the errors before you proceed to the next step. For more information on the errors received during data copy to Data Box via SMB or NFS protocols, go to [Troubleshoot Data Box and Data Box Heavy issues](data-box-troubleshoot.md). For information on errors received during data copy to Data Box via REST, go to [Troubleshoot Data Box Blob storage issues](data-box-troubleshoot-rest.md).
+In each of the preceding cases, you need to resolve the errors before you proceed to the next step. For more information on the errors received during data copy to Data Box via SMB or NFS protocols, go to [Troubleshoot Data Box](data-box-troubleshoot.md). For information on errors received during data copy to Data Box via REST, go to [Troubleshoot Data Box Blob storage issues](data-box-troubleshoot-rest.md).
 
 ## Inspect BOM during prepare to ship
 
@@ -153,7 +159,7 @@ During prepare to ship, a list of files known as the Bill of Materials (BOM) or 
 
 - Use this file to verify against the actual names and the number of files that were copied to the Data Box.
 - Use this file to verify against the actual sizes of the files.
-- Verify that the *crc64* corresponds to a non-zero string. <!--A null value for crc64 indicates that there was a reparse point error)-->
+- Verify that the *crc64* corresponds to a non-zero string.
 
 For more information on the errors received during prepare to ship, go to [Troubleshoot Data Box and Data Box Heavy issues](data-box-troubleshoot.md).
 
@@ -169,7 +175,7 @@ BOM or manifest file has the following general format:
 
 `<file size = "file-size-in-bytes" crc64="cyclic-redundancy-check-string">\folder-path-on-data-box\name-of-file-copied.md</file>`
 
-Here is a sample of a manifest generated when the data was copied to the block blob share on the Data Box.
+The following is a sample of a manifest generated when data is copied to the block blob share on the Data Box.
 
 ```
 <file size="10923" crc64="0x51c78833c90e4e3f">\databox\media\data-box-deploy-copy-data\connect-shares-file-explorer1.png</file>
@@ -270,16 +276,15 @@ The `copylog` specifies the old and the new blob or file name and the path in Az
 </ErroredEntity>
 ```
 
-
 ### Upload completed with errors
 
 Upload to Azure may also complete with errors.
 
-![Path to copy log in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
+:::image type="content" source="media/data-box-logs/copy-log-path-2.png" alt-text="Screen capture of the path to copy log in Overview blade when completed with errors.":::
 
-You may occasionally get a non-retryable error that causes a file not to upload. In that case, you'll receive a notification. For information about how to follow up on the notification, see [Review copy errors in data uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).
+You may occasionally get a non-retryable error that causes a file not to upload. In that case, you'll receive a notification. For information about how to follow up on the notification, see [Review copy errors in data uploads from Azure Data Box](data-box-troubleshoot-data-upload.md).
 
-Here is an example of a copy log where the upload completed with errors:
+The following is an example of a copy log where the upload completed with errors:
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -305,9 +310,9 @@ After the data is erased from the Data Box disks as per the NIST SP 800-88 Revis
 
 ### Audit logs
 
-Audit logs contain information on how to power on and access shares on the Data Box or Data Box Heavy when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
+Audit logs contain information on how to power on and access shares on the Data Box when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-jobauditlogs`
 
-Here is a sample of the audit log from a Data Box:
+The following is a sample of the audit log from a Data Box:
 
 ```
 9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
@@ -421,4 +426,4 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 
 ## Next steps
 
-- Learn how to [Troubleshoot issues on your Data Box and Data Box Heavy](data-box-troubleshoot.md).
+- Learn how to [Troubleshoot issues on Data Box](data-box-troubleshoot.md).

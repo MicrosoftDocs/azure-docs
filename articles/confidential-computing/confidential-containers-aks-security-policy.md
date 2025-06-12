@@ -1,7 +1,7 @@
 ---
 title: Security policy for Confidential Containers on Azure Kubernetes Service 
 description: Understand the security policy implemented to provide self-protection of the container hosted on Azure Kubernetes Service
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: magoedte
 author: mgoedtel
 ms.service: azure-container-instances

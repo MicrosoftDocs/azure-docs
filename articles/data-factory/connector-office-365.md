@@ -4,9 +4,11 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data from Microsoft 365 (Office 365) to supported sink data stores by using copy and mapping data flow activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
+ms.custom:
+  - synapse
+  - build-2025
 ms.topic: conceptual
-ms.date: 10/29/2024
+ms.date: 04/27/2025
 ms.author: jianleishen
 ---
 # Copy from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics
@@ -111,7 +113,13 @@ The following properties are supported for Microsoft 365 (Office 365) linked ser
 | office365TenantId | Azure tenant ID to which the Microsoft 365 (Office 365) account belongs. | Yes |
 | servicePrincipalTenantId | Specify the tenant information under which your Microsoft Entra web application resides. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
-| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely. | Yes |
+| servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalKey` and `ServicePrincipalCert`. | No |
+| ***For ServicePrincipalKey*** | | |
+| servicePrincipalKey | Specify the application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No (Required when `servicePrincipalCredentialType` is `ServicePrincipalKey`)  |
+| ***For ServicePrincipalCert*** | | |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Azure Active Directory. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Go to this [section](#save-the-service-principal-certificate-in-azure-key-vault) to learn how to save the certificate in Azure Key Vault. | No (Required when `servicePrincipalCredentialType` is `ServicePrincipalCert`) |
+| servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate has a password and you are using AadServicePrincipal authentication. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| | | |
 | connectVia | The Integration Runtime to be used to connect to the data store.  If not specified, it uses the default Azure Integration Runtime. | No |
 
 >[!NOTE]
@@ -119,7 +127,7 @@ The following properties are supported for Microsoft 365 (Office 365) linked ser
 >- If you're an enterprise developer developing an application against Microsoft 365 (Office 365) data for your own organization's usage, then you should supply the same tenant ID for both properties, which is your organization's Microsoft Entra tenant ID.
 >- If you're an ISV developer developing an application for your customers, then office365TenantId will be your customer's (application installer) Microsoft Entra tenant ID and servicePrincipalTenantId will be your company's Microsoft Entra tenant ID.
 
-**Example:**
+**Example 1: Using service principal key authentication**
 
 ```json
 {
@@ -129,15 +137,64 @@ The following properties are supported for Microsoft 365 (Office 365) linked ser
         "typeProperties": {
             "office365TenantId": "<Microsoft 365 (Office 365) tenant id>",
             "servicePrincipalTenantId": "<AAD app service principal tenant id>",
+            "servicePrincipalCredentialType": "ServicePrincipalKey",
             "servicePrincipalId": "<AAD app service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
                 "value": "<AAD app service principal key>"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
 ```
+
+**Example 2: Using service principal certificate authentication**
+
+```json
+{
+    "name": "Office365LinkedService",
+    "properties": {
+        "type": "Office365",
+        "typeProperties": {
+            "office365TenantId": "<Microsoft 365 (Office 365) tenant id>",
+            "servicePrincipalTenantId": "<AAD app service principal tenant id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",            
+            "servicePrincipalId": "<AAD app service principal id>",
+            "servicePrincipalEmbeddedCert": "<AAD app service principal cert in base64>",
+            "servicePrincipalEmbeddedCertPassword": "<AAD app service principal cert password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+#### Save the service principal certificate in Azure Key Vault
+
+You have two options to save the service principal certificate in Azure Key Vault:
+
+- **Option 1**
+
+    1. Convert the service principal certificate to a base64 string. Learn more from this [article](https://blog.tekspace.io/convert-certificate-from-pfx-to-base64-with-powershell/).
+
+    
+    2. Save the base64 string as a secret in Azure Key Vault.
+    	
+       :::image type="content" source="media/connector-office-365/secrets.png" alt-text="Screenshot of secrets.":::
+    
+       :::image type="content" source="media/connector-office-365/secret-value.png" alt-text="Screenshot of secret value.":::
+
+- **Option 2**
+	
+    If you can't download the certificate from Azure Key Vault, you can use this [template](https://supportability.visualstudio.com/256c8350-cb4b-49c9-ac6e-a012aeb312d1/_apis/git/repositories/da6cf5d9-0dc5-4ba9-a5e2-6e6a93adf93c/Items?path=/AzureDataFactory/.attachments/ConvertCertToBase64StringInAKVPipeline-47f8e507-e7ef-4343-a73b-733b9a7f8e4e.zip&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1&sanitize=true&includeContentMetadata=true&versionDescriptor.version=master) to save the converted service principal certificate as a secret in Azure Key Vault. 
+        
+    :::image type="content" source="media/connector-office-365/template-pipeline.png" alt-text="Screenshot of template pipeline to save service principal certificate as a secret in AKV.":::
 
 ## Dataset properties
 

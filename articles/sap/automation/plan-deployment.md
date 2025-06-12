@@ -5,7 +5,7 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 12/14/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
@@ -316,7 +316,7 @@ The following sample folder hierarchy shows how to structure your configuration 
 > | LANDSCAPE         | Configuration files for workload zone   | A folder with [configuration files for all workload zones](deploy-workload-zone.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network**. For example, **PROD-WEEU-SAP00-INFRASTRUCTURE**.                      |
 > | SYSTEM            | Configuration files for the SAP systems | A folder with [configuration files for all SAP System Identification (SID) deployments](configure-system.md) that the environment manages. Name each subfolder by the naming convention **Environment - Region - Virtual Network - SID**. For example, **PROD-WEEU-SAPO00-ABC**. |
 
-:::image type="content" source="./media/plan-deployment/folder-structure.png" alt-text="Screenshot that shows example folder structure, with separate folders for SAP HANA and multiple workload environments.":::
+:::image type="content" source="./media/plan-deployment/folder-structure.png" alt-text="Screenshot that shows example folder structure, with separate folders for SAP HANA and multiple workload environments." lightbox="./media/plan-deployment/folder-structure.png":::
 
 Your parameter file's name becomes the name of the Terraform state file. Make sure to use a unique parameter file name for this reason.
 

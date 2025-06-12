@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Azure Active Directory B2C with Bluink eID-Me for identity verification
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 ## Before you begin
 
 Azure Active Directory B2C (Azure AD B2C) has two methods to define users interaction with applications: predefined user flows, or configurable custom policies. 
@@ -250,7 +252,7 @@ You can add more identity claims that eID-Me supports.
 2. Find the `BuildingBlocks` element. 
 
 > [!NOTE]
-> Find supported eID-Me identity claims lists on [OID repository](https://oid-rep.orange-labs.fr/get/1.3.6.1.4.1.50715) with OIDC identifiers on [well-known/openid-configuration](https://eid-me.bluink.ca/.well-known/openid-configuration).
+> Find supported eID-Me identity claims lists on [OID repository](https://oid-base.com/get/1.3.6.1.4.1.12356.101.2.0.1102) with OIDC identifiers on [well-known/openid-configuration](https://eid-me.bluink.ca/.well-known/openid-configuration).
 
    ```xml
    <BuildingBlocks>

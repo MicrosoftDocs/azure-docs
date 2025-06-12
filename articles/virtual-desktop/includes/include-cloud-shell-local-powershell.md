@@ -1,6 +1,6 @@
 ---
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.topic: include
 ms.date: 11/30/2022
 ---

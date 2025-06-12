@@ -6,6 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 01/15/2025
 author: apwestgarth
 ms.author: msangapu
+ROBOTS: NOINDEX
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)

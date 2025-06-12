@@ -47,7 +47,7 @@ Added support for metadata driven pipelines for dynamic full and incremental pro
 
 ### Integration runtime
 
-Self-hosted integration runtime now supports self-contained interactive authoring (Preview) [Learn more](create-self-hosted-integration-runtime.md?tabs=data-factory#self-contained-interactive-authoring-preview)
+Self-hosted integration runtime now supports self-contained interactive authoring (Preview) [Learn more](create-self-hosted-integration-runtime.md?tabs=data-factory#self-contained-interactive-authoring)
 
 ## July 2023
 

@@ -2,7 +2,7 @@
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 ms.topic: overview
-ms.date: 03/05/2025
+ms.date: 05/19/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -35,10 +35,10 @@ A recovery point is created as soon as the snapshot is finished and this recover
 
 ## Feature considerations
 
-* The snapshots are stored along with the disks to boost recovery point creation and to speeds up the restore operations. As a result, you'll see storage costs that correspond to snapshots taken during this period.
+* The snapshots are stored along with the disks to boost recovery point creation and to speed up restore operations. As a result, you'll see storage costs that correspond to snapshots taken during this period.
 * For standard policy, all snapshots are incremental in nature and are stored as page blobs. All the users using unmanaged disks are charged for the snapshots stored in their local storage account. Since the restore point collections used by Managed VM backups use blob snapshots at the underlying storage level, for managed disks you'll see costs corresponding to blob snapshot pricing and they're incremental.
-* For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space. For Enhanced policy, only Managed VM backups are supported. The initial snapshot is a full copy of the disk(s). The subsequent snapshots are incremental in nature and occupy only delta changes to disks since the last snapshot.
- When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require CMK-encrypted disks via Azure Policy. 
+* For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space. For Enhanced policy, only Managed VM backups are supported. The initial snapshot is a full copy of the disk(s). The subsequent snapshots are incremental in nature and occupy only delta changes to disks since the last snapshot. When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require CMK-encrypted disks via Azure Policy.
+* When you perform Instant Restores for unmanaged disks, ensure that the storage account hosting the snapshot/vhd files has public network access or similar is enabled. If necessary network access from the Storage Account isn't available, then a standard recovery point restore is triggered, which will cause a slower restore time.
 
 ## Cost impact
 
@@ -57,7 +57,8 @@ Enhanced policy uses Managed disk snapshots for Instant Restore functionality. T
 For example, a VM with 100GB in size has a change rate of 2% and retention of 5 days for Instant Restore. In this case, the snapshot storage billed will be 108GB (100 + 100 X 0.02 X 4).
 
 >[!NOTE]
->Snapshot retention is fixed to 5 days for weekly policies for Standard policy and can vary between 5 to 20 days for enhanced policy.
+>- Snapshot retention is fixed to 5 days for weekly policies for Standard policy and can vary between 5 to 20 days for enhanced policy.
+>- Trusted Launch virtual machines with standard policy use managed disk snapshots for Instant Restore. In this scenario, you incur Snapshot storage cost same as that of Enhanced policy.
 
 ## Configure snapshot retention
 
@@ -138,3 +139,6 @@ Instant restore feature is enabled for everyone and can't be disabled. You can r
 
 Yes it's safe, and there's absolutely no impact in data transfer speed.
 
+### Why does a 12-month backup retention policy retain data for 372 days instead of 365?
+
+The retention period for monthly backups is calculated considering **31 days** for each month. When you multiply 31 days by 12 months, the total retention duration becomes **372 days**. This approach ensures consistent retention across all months, regardless of their actual number of days.

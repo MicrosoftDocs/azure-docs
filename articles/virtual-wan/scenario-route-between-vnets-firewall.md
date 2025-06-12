@@ -5,7 +5,7 @@ description: Learn about routing scenarios to route traffic between VNets direct
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 10/25/2024
+ms.date: 03/26/2025
 ms.author: cherylmc
 
 ---
@@ -15,7 +15,7 @@ When working with Virtual WAN virtual hub routing, there are quite a few availab
 
 ## <a name="design"></a>Design
 
-In order to figure out how many route tables will be needed, you can build a connectivity matrix, where each cell represents whether a source (row) can communicate to a destination (column). The connectivity matrix in this scenario is trivial, but be consistent with other scenarios, we can still look at it.
+In order to figure out how many route tables will be needed, you can build a connectivity matrix, where each cell represents whether a source (row) can communicate to a destination (column). The connectivity matrix in this scenario is trivial, but to be consistent with other scenarios, we can still look at it.
 
 **Connectivity matrix**
 

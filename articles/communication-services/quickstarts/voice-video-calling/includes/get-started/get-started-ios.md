@@ -1,18 +1,18 @@
 ---
-title: Quickstart - Add calling to an iOS app using Azure Communication Services
-description: In this quickstart, you learn how to use the Azure Communication Services Calling SDK for iOS.
+title: Add calling to an iOS app
+description: This article describes how to use the Azure Communication Services Calling SDK for iOS.
 author: tophpalmer
 ms.author: rifox
-ms.date: 03/10/2021
+ms.date: 05/10/2025
 ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you learn how to start a call using the Azure Communication Services Calling SDK for iOS.
+This article describes how to start a call using the Azure Communication Services Calling SDK for iOS.
 
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
+You can download the sample app from GitHub at [Calling SDK for iOS](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
 
 ## Prerequisites
 
@@ -130,7 +130,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `CallClient` | The `CallClient` is the main entry point to the Calling SDK.|
 | `CallAgent` | The `CallAgent` is used to start and manage calls. |
 | `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.| 
-| `CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`,`PhoneNumberIdentifier` or `CallingApplication.` |
+| `CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`,`PhoneNumberIdentifier`, or `CallingApplication.` |
 
 ## Authenticate the client
 
@@ -214,4 +214,4 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 You can make an outbound VOIP call by providing a user ID in the text field and tapping the **Start Call** button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
 
 > [!NOTE]
-> The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
+> The first time you make a call, the system prompts you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission isn't granted.

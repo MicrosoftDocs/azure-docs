@@ -5,10 +5,11 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/13/2024
+ms.date: 05/20/2025
 ms.author: danlep
 ms.custom:
   - build-2024
+  - build-2025
 ---
 
 # Backends in API Management
@@ -20,7 +21,7 @@ A *backend* (or *API backend*) in API Management is an HTTP service that impleme
 When importing certain APIs, API Management configures the API backend automatically. For example, API Management configures the backend web service when importing:
 * An [OpenAPI specification](import-api-from-oas.md).
 * A [SOAP API](import-soap-api.md).
-* Azure resources, such as an HTTP-triggered [Azure Function App](import-function-app-as-api.md) or [Logic App](import-logic-app-as-api.md).
+* Azure resources, such as an [Azure OpenAI API](azure-openai-api-from-specification.md), an HTTP-triggered [Azure Function App](import-function-app-as-api.md), or a [Logic App](import-logic-app-as-api.md).
 
 API Management also supports using other Azure resources as an API backend, such as:
 * A [Service Fabric cluster](how-to-configure-service-fabric-backend.yml).
@@ -39,9 +40,43 @@ Use backends for one or more of the following:
 
 Configure and manage backend entities in the Azure portal, or using Azure APIs or tools.
 
+## Create a backend
+
+You can create a backend in the Azure portal, or using Azure APIs or tools.
+
+To create a backend in the portal:
+
+1. Sign into the [portal](https://portal.azure.com) and go to your API Management instance.
+1. In the left menu, select **APIs** > **Backends** > **+ Create new backend**.
+1. On the **Backend** page, do the following:
+    1. Enter a **Name** for the backend and optional **Description**.
+    1. Select a **Backend hosting type**, for example, **Azure resource** for an Azure resource such as a Function App or Logic App, **Custom URL** for a custom service, or a **Service Fabric** cluster. 
+    1. In **Runtime URL**, enter the URL of the backend service that API requests are forwarded to.
+    1. Under **Advanced**, optionally disable certificate chain or certificate name validation for the backend.
+    1. Under **Add this backend service to a backend pool**, optionally select or create a [load-balanced pool](#load-balanced-pool) for the backend.
+    1. Under **Circuit breaker rule**, optionally configure a [circuit breaker](#circuit-breaker) for the backend.
+    1. Under **Authorization credentials**, optionally configure credentials to authorize access to the backend. Options include a request header, query parameter, [client certificate](api-management-howto-mutual-certificates-for-clients.md), or system-assigned or user-assigned [managed identity](#configure-managed-identity-for-authorization-credentials) configured in the API Management instance.
+    1. Select **Create**.
+    
+After creating a backend, you can update the backend settings at any time. For example, add a circuit breaker rule, change the runtime URL, or add authorization credentials.
+
+### Configure managed identity for authorization credentials
+
+You can use a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) configured in the API Management instance to authorize access to the backend service. To configure a managed identity for authorization credentials, do the following:
+
+1. In the **Authorization credentials** section of the backend configuration, select the **Managed identity** tab, and select **Enable**.
+1. In **Client identity**, select either **System assigned identity** or a user-assigned identity that is configured in your instance.
+1. In **Resource ID**, enter a target Azure service or the application ID of your own Microsoft Entra application representing the backend. Example: `https://cognitiveservices.azure.com` for Azure OpenAI service. 
+
+    For more examples, see the [authentication-managed-identity](authentication-managed-identity-policy.md) policy reference.
+1. Select **Create**.
+
+> [!NOTE]
+> Also assign the managed identity the appropriate permissions or an RBAC role to access the backend service. For example, if the backend is an Azure OpenAI service, you might assign the managed identity the `Cognitive Services User` role.
+
 ## Reference backend using set-backend-service policy
 
-After creating a backend, you can reference the backend in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a backend entity instead. For example:
+After creating a backend, you can reference the backend identifier (name) in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a backend entity instead. For example:
 
 ```xml
 <policies>
@@ -95,13 +130,26 @@ The backend circuit breaker is an implementation of the [circuit breaker pattern
 
 ### Example
 
-Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a circuit breaker in a backend. In the following example, the circuit breaker in *myBackend* in the API Management instance *myAPIM* trips when there are three or more `5xx` status codes indicating server errors in 1 hour. 
+Use the Azure portal, API Management [REST API](/rest/api/apimanagement/backend), or a Bicep or ARM template to configure a circuit breaker in a backend. In the following example, the circuit breaker in *myBackend* in the API Management instance *myAPIM* trips when there are three or more `5xx` status codes indicating server errors in 1 hour. 
 
-The circuit breaker resets after 1 hour. If a `Retry-After` header is present in the response, the circuit breaker accepts the value and waits for the specified time before sending requests to the backend again.
+The circuit breaker in this example resets after 1 hour. If a `Retry-After` header is present in the response, the circuit breaker accepts the value and waits for the specified time before sending requests to the backend again.
+
+#### [Portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), go to your API Management instance.
+1. In the left menu, select **APIs** > **Backends** > your backend.
+1. In the backend page, select **Settings** > **Circuit breaker settings** > **Add new**.
+1. In the **Create new circuit breaker** page, configure the rule:
+    * **Rule name**: Enter a name for the rule, such as *myBackend*.
+    * **Failure count**: Enter *3*.
+    * **Failure interval**: Leave the default value of **1 hour**.
+    * **Failure status code range**: Select **500 - 599**.
+    * **Trip duration**: Leave the default value of **1 hour**.
+    * **Check 'Retry-After' header in HTTP response**: Select **True (Accept)**.
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template for a backend resource with a circuit breaker:
+Include a snippet similar to the following in your Bicep file for a backend resource with a circuit breaker:
 
 ```bicep
 resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-preview' = {
@@ -175,17 +223,16 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 
 ## Load-balanced pool
 
-API Management supports backend *pools*, when you want to implement multiple backends for an API and load-balance requests across those backends. 
+API Management supports backend *pools*, when you want to implement multiple backends for an API and load-balance requests across those backends. A pool is a collection of backends that are treated as a single entity for load balancing.
 
 Use a backend pool for scenarios such as the following:
 
 * Spread the load to multiple backends, which may have individual backend circuit breakers.
 * Shift the load from one set of backends to another for upgrade (blue-green deployment).
 
-To create a backend pool, set the `type` property of the backend to `pool` and specify a list of backends that make up the pool.
 
 > [!NOTE]
-> * Currently, you can only include single backends in a backend pool. You can't add a backend of type `pool` to another backend pool. You can include up to 30 backends in a pool.
+> * You can include up to 30 backends in a pool. 
 > * Because of the distributed nature of the API Management architecture, backend load balancing is approximate. Different instances of the gateway do not synchronize and will load balance based on the information on the same instance.
 
 
@@ -193,20 +240,83 @@ To create a backend pool, set the `type` property of the backend to `pool` and s
 
 API Management supports the following load balancing options for backend pools:
 
-* **Round-robin**: By default, requests are distributed evenly across the backends in the pool.
-* **Weighted**: Weights are assigned to the backends in the pool, and requests are distributed across the backends based on the relative weight assigned to each backend. Use this option for scenarios such as conducting a blue-green deployment.
-* **Priority-based**: Backends are organized in priority groups, and requests are sent to the backends in order of the priority groups. Within a priority group, requests are distributed either evenly across the backends, or (if assigned) according to the relative weight assigned to each backend.
-    
+| Load balancing option      | Description |
+|------------------|-------------|
+| **Round-robin**  | Requests are distributed evenly across the backends in the pool by default. |
+| **Weighted**     | Weights are assigned to the backends in the pool, and requests are distributed based on the relative weight of each backend. Useful for scenarios such as blue-green deployments. |
+| **Priority-based** | Backends are organized into priority groups. Requests are sent to higher priority groups first; within a group, requests are distributed evenly or according to assigned weights. |    
+
 > [!NOTE]
 > Backends in lower priority groups will only be used when all backends in higher priority groups are unavailable because circuit breaker rules are tripped.
 
+### Session awareness
+
+With any of the preceding load balancing options, optionally enable **session awareness** (session affinity) to ensure that all requests from a specific user during a session are directed to the same backend in the pool. API Management sets a session ID cookie to maintain session state. This option is useful, for example, in scenarios with backends such as AI chat assistants or other conversational agents to route requests from the same session to the same endpoint.
+
+> [!NOTE]
+> Session awareness in load-balanced pools is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
+
+#### Manage cookies for session awareness
+
+When using session awareness, the client must handle cookies appropriately. The client needs to store the `Set-Cookie` header value and send it with subsequent requests to maintain session state.
+
+You can use API Management policies to help set cookies for session awareness. For example, for the case of the Assistants API (a feature of [Azure OpenAI in Azure AI Foundry Models](/azure/ai-services/openai/concepts/models)), the client needs to keep the session ID, extract the thread ID from the body, and keep the pair and send the right cookie for each call. Moreover, the client needs to know when to send a cookie or when not to send a cookie header. These requirements can be handled appropriately by defining the following example policies:
+
+
+```xml
+<policies>
+  <inbound>
+    <base />
+    <set-backend-service backend-id="APIMBackend" />
+  </inbound>
+  <backend>
+    <base />
+  </backend>
+  <outbound>
+    <base />
+    <set-variable name="gwSetCookie" value="@{
+      var payload = context.Response.Body.As<JObject>();
+      var threadId = payload["id"];
+      var gwSetCookieHeaderValue = context.Request.Headers.GetValueOrDefault("SetCookie", string.Empty);
+      if(!string.IsNullOrEmpty(gwSetCookieHeaderValue))
+      {
+        gwSetCookieHeaderValue = gwSetCookieHeaderValue + $";Path=/threads/{threadId};";
+      }
+      return gwSetCookieHeaderValue;
+    }" />
+    <set-header name="Set-Cookie" exists-action="override">
+      <value>Cookie=gwSetCookieHeaderValue</value>
+    </set-header>
+  </outbound>
+  <on-error>
+    <base />
+  </on-error>
+</policies>
+```
+
 ### Example
 
-Use the API Management [REST API](/rest/api/apimanagement/backend) or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a backend pool. Example backends in the pool are named *backend-1* and *backend-2*. Both backends are in the highest priority group; within the group, *backend-1* has a greater weight than *backend-2* .
+Use the portal, API Management [REST API](/rest/api/apimanagement/backend), or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a backend pool. Example backends in the pool are named *backend-1* and *backend-2*. Both backends are in the highest priority group; within the group, *backend-1* has a greater weight than *backend-2*.
+
+
+#### [Portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), go to your API Management instance.
+1. In the left menu, select **APIs** > **Backends** > your backend.
+1. In the **Backends** page, select the **Load balancer** tab.
+1. Select **+ Create new pool**.
+1. In the **Create new load-balanced pool** page, do the following:
+    * **Name**: Enter a name for the pool such as *myBackendPool*.
+    * **Description**: Optionally enter a description.
+    * **Add backends to pool**: Select one or more backends to add to the pool.
+    * **Backend weight and priority**: Select **Customize weight and priority** to configure the weight and priority of each backend in the pool. For example, if you added two backends named *backend-1* and *backend-2*, set the weight of *backend-1* to 3 and the weight of *backend-2* to 1, and set the priority of both backends to 1.
+    * Select **Create**.
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template for a backend resource with a load-balanced pool:
+Include a snippet similar to the following in your Bicep file for a load-balanced pool. Set the `type` property of the backend entity to `Pool` and specify the backends in the pool.
+
+This example includes an optional `sessionAffinity` pool configuration for session awareness. It sets a cookie so that requests from a user session are routed to a specific backend in the pool. 
 
 ```bicep
 resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-preview' = {
@@ -226,14 +336,23 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-previ
           priority: 1
           weight: 1
         }
-      ]
+      ],
+      "sessionAffinity": { 
+        "sessionId": { 
+          "source": "Cookie", 
+          "name": "SessionId" 
+        } 
+      } 
     }
   }
 }
 ```
 #### [ARM](#tab/arm)
 
-Include a JSON snippet similar to the following in your ARM template for a backend resource with a load-balanced pool. 
+Include a JSON snippet similar to the following in your ARM template for a load-balanced pool. Set the `type` property of the backend resource to `Pool` and specify the backends in the pool.
+
+This example includes an optional `sessionAffinity` pool configuration for session awareness. It sets a cookie so that requests from a user session are routed to a specific backend in the pool. 
+
 
 ```json
 {
@@ -255,7 +374,13 @@ Include a JSON snippet similar to the following in your ARM template for a backe
           "priority": "1",
           "weight": "1"    
         }
-      ]
+      ],
+        "sessionAffinity": { 
+        "sessionId": { 
+          "source": "Cookie", 
+          "name": "SessionId" 
+        } 
+      } 
     }
   }
 }
@@ -274,3 +399,4 @@ Include a JSON snippet similar to the following in your ARM template for a backe
 * Blog: [Using Azure API Management circuit breaker and load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-azure-api-management-circuit-breaker-and-load-balancing/ba-p/4041003)
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.yml) using the Azure portal.
 * Quickstart [Create a Backend Pool in Azure API Management using Bicep for load balance OpenAI requests](https://github.com/Azure-Samples/apim-lbpool-openai-quickstart)
+* See [Azure API Management as an Event Grid source](/azure/event-grid/event-schema-api-management) for information about Event Grid events that are generated by the gateway when a circuit breaker is tripped or reset. Use these events to take action before backend issues escalate. 

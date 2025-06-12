@@ -139,10 +139,6 @@ After you cancel your plan, the integration stops and you'll no longer get added
 
 The cancellation takes effect one hour after confirming the change.  This change appears on your next monthly statement, and you're charged based on the length of time the plan was in effect.
 
-> [!IMPORTANT]
->
-> If you've [registered an Enterprise IoT network sensor](eiot-sensor.md) (Public preview), device data collected by the sensor remains in your Microsoft Defender XDR instance. If you're canceling the Enterprise IoT plan because you no longer need the service, make sure to manually delete data from Microsoft Defender XDR as needed.
-
 ## Next steps
 
 For more information, see:

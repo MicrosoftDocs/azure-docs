@@ -31,9 +31,9 @@
   expanded: true
   items:
   - name: Multi-party and cleanroom collaboration
-    href: multi-party-data.md #multi-party-collaboration # new #p1
-  - name: It's the future #maybe change link to a page that references the below, and explains why it's the future
-    href: https://azure.microsoft.com/blog/key-foundations-for-protecting-your-data-with-azure-confidential-computing/ # New, house-view.. why is it the future - x-links to a lot of MarkRus material tying it back to strategic direction/vision
+    href: multi-party-data.md 
+  - name: It's the future 
+    href: https://azure.microsoft.com/blog/key-foundations-for-protecting-your-data-with-azure-confidential-computing/
   - name: Confidential AI
     href: confidential-ai.md
 - name: How do I get it? # HOW?
@@ -109,18 +109,10 @@
     items:  
     - name: Container solutions overview
       href: choose-confidential-containers-offerings.md 
-    - name: Application enclave nodes on AKS
-      items:
-      - name: Application enclave with Intel SGX DCSv2/DCsv3 nodes 
-        href: confidential-nodes-aks-overview.md
-      - name: Deploy application enclave nodes on AKS
-        href: confidential-enclave-nodes-aks-get-started.md
-      - name: Enclave-aware containers
-        href: enclave-aware-containers.md
-      - name: AKS Add-on
-        href: confidential-nodes-aks-addon.md
-      - name: Confidential enclave nodes FAQ
-        href: confidential-nodes-aks-faq.yml
+    - name: Confidential node pools on AKS
+      items: 
+      - name: Confidential VM node pools in AKS
+        href: confidential-node-pool-aks.md
     - name: Confidential containers
       items:
       - name: Confidential containers overview
@@ -133,10 +125,18 @@
         href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci
       - name: Confidential containers with Intel SGX enclaves
         href: confidential-containers-enclaves.md
-    - name: Confidential node pools on AKS
-      items: 
-      - name: Confidential VM node pools in AKS
-        href: confidential-node-pool-aks.md
+    - name: Application enclave nodes on AKS
+      items:
+      - name: Application enclave with Intel SGX DCSv2/DCsv3 nodes 
+        href: confidential-nodes-aks-overview.md
+      - name: Deploy application enclave nodes on AKS
+        href: confidential-enclave-nodes-aks-get-started.md
+      - name: Enclave-aware containers
+        href: enclave-aware-containers.md
+      - name: AKS Add-on
+        href: confidential-nodes-aks-addon.md
+      - name: Confidential enclave nodes FAQ
+        href: confidential-nodes-aks-faq.yml
     - name: References
       items:
       - name: DCasv5 and DCadsv5-series
@@ -154,10 +154,6 @@
   - name: Confidential services
     expanded: true
     items:
-    - name: SQL Always Encrypted with secure enclaves # x-link to SQL docs #done
-      href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
-    - name: SQL on confidential virtual machines #done
-      href: /azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to
     - name: Confidential VMs for Azure Databricks
       href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982#:~:text=Azure%20Databricks%20now%20supports%20using%20Confidential%20computing%20VM,Azure%20Databricks%20workload%20securely%20%26%20confidentially%20on%20Azure
     - name: Confidential VMs for Azure Data Explorer (preview) #done
@@ -166,6 +162,10 @@
       href: /azure/virtual-desktop/whats-new#confidential-virtual-machines-and-trusted-launch-virtual-machines-are-now-generally-available-in-azure-virtual-desktop
     - name: Azure confidential ledger #done
       href: /azure/confidential-ledger/overview
+    - name: SQL on confidential virtual machines #done
+      href: /azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to
+    - name: SQL Always Encrypted with secure enclaves # x-link to SQL docs #done
+      href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
   - name: Partner Solutions
     items:
     - name: Overview

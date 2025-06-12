@@ -46,7 +46,7 @@ For more information, visit [Azure Logic Apps](https://azure.microsoft.com/servi
 
 ## Why use Azure Logic Apps
 
-The Azure Logic Apps platform provides [1,400+ prebuilt connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that connects and integrates your workflows with various services, systems, apps, and data. This constantly expanding connector ecosystem helps you reduce or eliminate the work required to access your resources. Instead, you can focus more on designing and developing the business logic and functionality required for your solutions to meet your business needs.
+The Azure Logic Apps platform provides [1,400+ prebuilt connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use to integrate your workflows with various services, systems, apps, and data. This constantly expanding connector ecosystem helps you reduce or eliminate the work required to access your resources. Instead, you can focus more on designing and developing the business logic and functionality required for your solutions to meet your business needs.
 
 To communicate with any service endpoint, run your own code, control your workflow structure, manipulate data, or connect to commonly used resources with increased speed, capacity, and throughput, you can use [built-in connector operations](#logic-app-concepts). These operations natively run on the Azure Logic Apps runtime, rather than in Azure, for better performance.
 

@@ -1,7 +1,7 @@
 ---
 author: JanSchietse
 ms.author: janschietse
-ms.date: 01/25/2024
+ms.date: 03/17/2025
 ms.topic: include
 ms.service: azure-health-insights
 ---
@@ -18,7 +18,7 @@ ms.service: azure-health-insights
             "kind": "finding",
             "finding": {
               "resourceType": "Observation",
-              "id": "1056",
+              "id": "1071",
               "status": "unknown",
               "code": {
                 "coding": [
@@ -160,7 +160,7 @@ ms.service: azure-health-insights
                 "extension": [
                   {
                     "url": "code",
-                    "valueString": "30954-2"
+                    "valueString": "18782-3"
                   },
                   {
                     "url": "codingSystem",
@@ -172,7 +172,7 @@ ms.service: azure-health-insights
                   },
                   {
                     "url": "displayName",
-                    "valueString": "RESULTS"
+                    "valueString": "RADIOLOGY STUDY OBSERVATION (NARRATIVE)"
                   }
                 ],
                 "url": "section"
@@ -183,7 +183,7 @@ ms.service: azure-health-insights
             "kind": "finding",
             "finding": {
               "resourceType": "Observation",
-              "id": "1057",
+              "id": "1072",
               "status": "unknown",
               "code": {
                 "coding": [
@@ -331,6 +331,26 @@ ms.service: azure-health-insights
                     "coding": [
                       {
                         "system": "http://snomed.info/sct",
+                        "code": "723851000000107",
+                        "display": "GUIDANCE (QUALIFIER VALUE)"
+                      }
+                    ]
+                  },
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "258319005",
+                        "display": "LUNG INVOLVEMENT STAGES (TUMOR STAGING)"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
                         "code": "46150521",
                         "display": "MULTIPLE (QUALIFIER VALUE)"
                       }
@@ -420,7 +440,7 @@ ms.service: azure-health-insights
                 "extension": [
                   {
                     "url": "code",
-                    "valueString": "30954-2"
+                    "valueString": "18782-3"
                   },
                   {
                     "url": "codingSystem",
@@ -432,7 +452,7 @@ ms.service: azure-health-insights
                   },
                   {
                     "url": "displayName",
-                    "valueString": "RESULTS"
+                    "valueString": "RADIOLOGY STUDY OBSERVATION (NARRATIVE)"
                   }
                 ],
                 "url": "section"
@@ -443,7 +463,7 @@ ms.service: azure-health-insights
             "kind": "finding",
             "finding": {
               "resourceType": "Observation",
-              "id": "1058",
+              "id": "1073",
               "status": "unknown",
               "code": {
                 "coding": [
@@ -560,6 +580,46 @@ ms.service: azure-health-insights
                     "coding": [
                       {
                         "system": "http://snomed.info/sct",
+                        "code": "45851105",
+                        "display": "REGION (ATTRIBUTE)"
+                      }
+                    ]
+                  },
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://radlex.org",
+                        "code": "RID1301",
+                        "display": "LUNG"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "45851105",
+                        "display": "REGION (ATTRIBUTE)"
+                      }
+                    ]
+                  },
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://radlex.org",
+                        "code": "RID13437",
+                        "display": "LUNGS"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
                         "code": "45651917",
                         "display": "LATERALITY (ATTRIBUTE)"
                       }
@@ -571,6 +631,26 @@ ms.service: azure-health-insights
                         "system": "http://snomed.info/sct",
                         "code": "24028007",
                         "display": "RIGHT (QUALIFIER VALUE)"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "723851000000107",
+                        "display": "GUIDANCE (QUALIFIER VALUE)"
+                      }
+                    ]
+                  },
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "258319005",
+                        "display": "LUNG INVOLVEMENT STAGES (TUMOR STAGING)"
                       }
                     ]
                   }
@@ -681,7 +761,7 @@ ms.service: azure-health-insights
                 "extension": [
                   {
                     "url": "code",
-                    "valueString": "30954-2"
+                    "valueString": "18782-3"
                   },
                   {
                     "url": "codingSystem",
@@ -693,7 +773,7 @@ ms.service: azure-health-insights
                   },
                   {
                     "url": "displayName",
-                    "valueString": "RESULTS"
+                    "valueString": "RADIOLOGY STUDY OBSERVATION (NARRATIVE)"
                   }
                 ],
                 "url": "section"
@@ -704,7 +784,7 @@ ms.service: azure-health-insights
             "kind": "finding",
             "finding": {
               "resourceType": "Observation",
-              "id": "1059",
+              "id": "1074",
               "status": "unknown",
               "code": {
                 "coding": [
@@ -872,6 +952,46 @@ ms.service: azure-health-insights
                     "coding": [
                       {
                         "system": "http://snomed.info/sct",
+                        "code": "723851000000107",
+                        "display": "GUIDANCE (QUALIFIER VALUE)"
+                      }
+                    ]
+                  },
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://radlex.org",
+                        "code": "RID50149",
+                        "display": "PULMONARY NODULE"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "362981000",
+                        "display": "QUALIFIER VALUE (QUALIFIER VALUE)"
+                      }
+                    ]
+                  },
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "260369004",
+                        "display": "INCREASING (QUALIFIER VALUE)"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
                         "code": "46150521",
                         "display": "MULTIPLE (QUALIFIER VALUE)"
                       }
@@ -909,8 +1029,8 @@ ms.service: azure-health-insights
                     {
                       "coding": [
                         {
-                          "code": "9130008",
-                          "display": "PREVIOUS"
+                          "code": "15240007",
+                          "display": "CURRENT"
                         }
                       ]
                     }
@@ -923,7 +1043,7 @@ ms.service: azure-health-insights
                 "extension": [
                   {
                     "url": "code",
-                    "valueString": "30954-2"
+                    "valueString": "18782-3"
                   },
                   {
                     "url": "codingSystem",
@@ -935,7 +1055,7 @@ ms.service: azure-health-insights
                   },
                   {
                     "url": "displayName",
-                    "valueString": "RESULTS"
+                    "valueString": "RADIOLOGY STUDY OBSERVATION (NARRATIVE)"
                   }
                 ],
                 "url": "section"
@@ -946,7 +1066,7 @@ ms.service: azure-health-insights
             "kind": "finding",
             "finding": {
               "resourceType": "Observation",
-              "id": "1060",
+              "id": "1075",
               "status": "unknown",
               "code": {
                 "coding": [
@@ -1063,134 +1183,41 @@ ms.service: azure-health-insights
                     "coding": [
                       {
                         "system": "http://snomed.info/sct",
-                        "code": "46150521",
-                        "display": "MULTIPLE (QUALIFIER VALUE)"
+                        "code": "723851000000107",
+                        "display": "GUIDANCE (QUALIFIER VALUE)"
                       }
                     ]
                   },
-                  "valueBoolean": false
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "258319005",
+                        "display": "LUNG INVOLVEMENT STAGES (TUMOR STAGING)"
+                      }
+                    ]
+                  }
                 },
                 {
                   "code": {
                     "coding": [
                       {
-                        "system": "http://radlex.org",
-                        "code": "246115007",
-                        "display": "SIZE (ATTRIBUTE)"
+                        "system": "http://snomed.info/sct",
+                        "code": "723851000000107",
+                        "display": "GUIDANCE (QUALIFIER VALUE)"
                       }
                     ]
                   },
-                  "valueQuantity": {
-                    "value": 4,
-                    "unit": "CENTIMETER"
-                  },
-                  "interpretation": [
-                    {
-                      "coding": [
-                        {
-                          "code": "15240007",
-                          "display": "CURRENT"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            "extension": [
-              {
-                "extension": [
-                  {
-                    "url": "code",
-                    "valueString": "51848-0"
-                  },
-                  {
-                    "url": "codingSystem",
-                    "valueString": "2.16.840.1.113883.6.1"
-                  },
-                  {
-                    "url": "codingSystemName",
-                    "valueString": "http://loinc.org"
-                  },
-                  {
-                    "url": "displayName",
-                    "valueString": "ASSESSMENT"
-                  }
-                ],
-                "url": "section"
-              }
-            ]
-          },
-          {
-            "kind": "finding",
-            "finding": {
-              "resourceType": "Observation",
-              "id": "1189",
-              "status": "unknown",
-              "code": {
-                "coding": [
-                  {
-                    "system": "http://snomed.info/sct",
-                    "code": "404684003",
-                    "display": "CLINICAL FINDING (FINDING)"
-                  }
-                ]
-              },
-              "component": [
-                {
-                  "code": {
+                  "valueCodeableConcept": {
                     "coding": [
                       {
-                        "system": "http://snomed.info/sct",
-                        "code": "46150521",
-                        "display": "MULTIPLE (QUALIFIER VALUE)"
+                        "system": "http://radlex.org",
+                        "code": "RID50149",
+                        "display": "PULMONARY NODULE"
                       }
                     ]
-                  },
-                  "valueBoolean": false
-                }
-              ]
-            },
-            "extension": [
-              {
-                "extension": [
-                  {
-                    "url": "code",
-                    "valueString": "30954-2"
-                  },
-                  {
-                    "url": "codingSystem",
-                    "valueString": "2.16.840.1.113883.6.1"
-                  },
-                  {
-                    "url": "codingSystemName",
-                    "valueString": "http://loinc.org"
-                  },
-                  {
-                    "url": "displayName",
-                    "valueString": "RESULTS"
                   }
-                ],
-                "url": "section"
-              }
-            ]
-          },
-          {
-            "kind": "finding",
-            "finding": {
-              "resourceType": "Observation",
-              "id": "1192",
-              "status": "unknown",
-              "code": {
-                "coding": [
-                  {
-                    "system": "http://snomed.info/sct",
-                    "code": "404684003",
-                    "display": "CLINICAL FINDING (FINDING)"
-                  }
-                ]
-              },
-              "component": [
+                },
                 {
                   "code": {
                     "coding": [
@@ -1235,7 +1262,7 @@ ms.service: azure-health-insights
                 "extension": [
                   {
                     "url": "code",
-                    "valueString": "30954-2"
+                    "valueString": "19005-8"
                   },
                   {
                     "url": "codingSystem",
@@ -1247,7 +1274,7 @@ ms.service: azure-health-insights
                   },
                   {
                     "url": "displayName",
-                    "valueString": "RESULTS"
+                    "valueString": "RADIOLOGY IMAGING STUDY (NARRATIVE)"
                   }
                 ],
                 "url": "section"
@@ -1257,12 +1284,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-04-16"
+    "modelVersion": "2025-03-17"
   },
-  "id": "Finding",
-  "createdAt": "2024-05-14T15:33:37Z",
-  "expiresAt": "2024-05-15T15:33:37Z",
-  "updatedAt": "2024-05-14T15:33:40Z",
+  "id": "fca107",
+  "createdAt": "2025-04-30T09:48:01Z",
+  "expiresAt": "2025-05-01T09:48:01Z",
+  "updatedAt": "2025-04-30T09:48:05Z",
   "status": "succeeded"
 }
 ```

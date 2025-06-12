@@ -23,7 +23,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 ## Experience in the Defender portal 
 
-Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md). In the Defender portal, all features in general availability are available in both commercial and GCC High and DoD clouds. Features still in preview are available only in the commercial cloud.
+Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md). In the Defender portal, all features in general availability are available in commercial, GCC, GCC High and DoD clouds. Features still in preview are available only in the commercial cloud.
 
 While [attack disruption in the Defender portal](/defender-xdr/automatic-attack-disruption) is generally available, [SAP support for attack disruption](/defender-xdr/automatic-attack-disruption#automated-response-actions-for-sap-with-microsoft-sentinel) in the Defender portal available only in the commercial cloud.
 
@@ -55,35 +55,35 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |[Amazon Web Services S3](connect-aws.md?tabs=s3) |GA|&#x2705; |&#x2705; |&#10060; |
 |[Microsoft Entra ID](connect-azure-active-directory.md) |GA |&#x2705; |&#x2705;|&#x2705; <sup>[1](#logsavailable)</sup> |
 |[Microsoft Entra ID Protection](connect-services-api-based.md) |GA |&#x2705;| &#x2705; |&#10060; |
-|[Azure Activity](data-connectors/azure-activity.md) |GA |&#x2705;| &#x2705;|&#x2705; |
+|[Azure Activity](data-connectors-reference.md#azure-activity) |GA |&#x2705;| &#x2705;|&#x2705; |
 |[Azure DDoS Protection](connect-services-diagnostic-setting-based.md) |GA |&#x2705;| &#x2705;|&#10060; |
-|[Azure Firewall](data-connectors/azure-firewall.md) |GA |&#x2705;| &#x2705;|&#x2705; |
-|[Azure Information Protection (Preview)](data-connectors/azure-information-protection.md) |Deprecated |&#10060; |&#10060; |&#10060; |
-|[Azure Key Vault](data-connectors/azure-key-vault.md) |Public preview |&#x2705; |&#x2705;|&#x2705; |
-|[Azure Kubernetes Service (AKS)](data-connectors/azure-kubernetes-service-aks.md) |Public preview |&#x2705;| &#x2705;|&#x2705; |
+|[Azure Firewall](data-connectors-reference.md#azure-firewall) |GA |&#x2705;| &#x2705;|&#x2705; |
+|[Azure Information Protection (Preview)](data-connectors-reference.md#microsoft-purview-information-protection) |Deprecated |&#10060; |&#10060; |&#10060; |
+|[Azure Key Vault](data-connectors-reference.md#azure-key-vault) |Public preview |&#x2705; |&#x2705;|&#x2705; |
+|[Azure Kubernetes Service (AKS)](data-connectors-reference.md#azure-kubernetes-service-aks) |Public preview |&#x2705;| &#x2705;|&#x2705; |
 |[Azure SQL Databases](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-sql-solution-query-deep-dive/ba-p/2597961) |GA |&#x2705; |&#x2705;|&#x2705; |
-|[Azure Web Application Firewall (WAF)](data-connectors/azure-web-application-firewall-waf.md) |GA |&#x2705; |&#x2705;|&#x2705; |
-|[Cisco ASA](data-connectors/cisco-asa.md) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Azure Web Application Firewall (WAF)](data-connectors-reference.md#azure-web-application-firewall-waf) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Cisco ASA](data-connectors-reference.md#cisco-asaftd-via-ama-preview) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Codeless Connectors Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) |Public preview |&#x2705; |&#10060;|&#10060; |
 |[Common Event Format (CEF)](connect-common-event-format.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Common Event Format (CEF) via AMA](connect-cef-syslog-ama.md) |GA |&#x2705;|&#x2705;  |&#x2705; |
-|[DNS](data-connectors/dns.md) |Public preview |&#x2705;| &#10060; |&#x2705; |
+|[DNS](data-connectors-reference.md#dns) |Public preview |&#x2705;| &#10060; |&#x2705; |
 |[GCP Pub/Sub Audit Logs](connect-google-cloud-platform.md) |Public preview |&#x2705; |&#x2705; |&#10060; |
 |[Microsoft Defender XDR](connect-microsoft-365-defender.md?tabs=MDE) |GA |&#x2705;| &#x2705;|&#10060; |
 |[Microsoft Purview Insider Risk Management (Preview)](sentinel-solutions-catalog.md#domain-solutions) |Public preview |&#x2705; |&#x2705;|&#10060; |
 |[Microsoft Defender for Cloud](connect-defender-for-cloud.md) |GA |&#x2705; |&#x2705; |&#x2705;|
 |[Microsoft Defender for IoT](connect-services-api-based.md) |GA |&#x2705;|&#x2705;|&#10060; |
-|[Microsoft Power BI (Preview)](data-connectors/microsoft-powerbi.md) |Public preview |&#x2705; |&#x2705;|&#10060; |
-|[Microsoft Project (Preview)](data-connectors/microsoft-project.md) |Public preview |&#x2705; |&#x2705;|&#10060; |
+|[Microsoft Power BI (Preview)](data-connectors-reference.md#microsoft-powerbi) |Public preview |&#x2705; |&#x2705;|&#10060; |
+|[Microsoft Project (Preview)](data-connectors-reference.md#microsoft-project) |Public preview |&#x2705; |&#x2705;|&#10060; |
 |[Microsoft Purview (Preview)](connect-services-diagnostic-setting-based.md) |Public preview |&#x2705;|&#10060; |&#10060; |
 |[Microsoft Purview Information Protection](connect-microsoft-purview.md) |Public preview |&#x2705;| &#10060;|&#10060; |
-|[Microsoft Sentinel solution for Microsoft Business Apps](business-applications/solution-overview.md) | Public Preview |&#x2705; |&#x2705; |&#x2705; |
+|[Microsoft Sentinel solution for Microsoft Business Apps](business-applications/solution-overview.md) | GA |&#x2705; |&#x2705; |&#x2705; |
 |[Office 365](connect-services-api-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
 |[Summary rules](summary-rules.md) | Public preview |&#x2705; | &#10060; |&#10060; |
 |[Syslog](connect-syslog.md) |GA |&#x2705;| &#x2705;|&#x2705; |
 |[Syslog via AMA](connect-cef-syslog-ama.md) |GA |&#x2705;| &#x2705;|&#x2705; |
 |[Windows DNS Events via AMA](connect-dns-ama.md) |GA |&#x2705; |&#x2705;|&#x2705; |
-|[Windows Firewall](data-connectors/windows-firewall.md) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Windows Firewall](data-connectors-reference.md#windows-firewall) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Windows Forwarded Events](connect-services-windows-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
 |[Windows Security Events via AMA](connect-services-windows-based.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 
@@ -161,7 +161,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Threat protection for SAP](sap/deployment-overview.md)</sup> |GA |&#x2705;|&#x2705; |&#x2705; |
-|[Agentless data connector](sap/deployment-overview.md#data-connector) | Limited preview | &#x2705; |&#10060; | &#10060;|
+|[Agentless data connector](sap/deployment-overview.md#data-connector) | Public preview | &#x2705; |&#10060; | &#10060;|
 
 ## Threat intelligence support		
 

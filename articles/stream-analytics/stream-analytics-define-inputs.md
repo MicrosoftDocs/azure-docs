@@ -6,6 +6,8 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 12/17/2024
+ms.custom:
+  - build-2025
 ---
 # Stream data as input into Stream Analytics
 
@@ -53,10 +55,10 @@ The following table explains each property in the **New input** page in the Azur
 | **Authentication mode** | Specify the type of the authentication you want to use to connect to the event hub. You can use a connection string or a managed identity to authenticate with the event hub. For the managed identity option, you can either create a system-assigned managed identity for the Stream Analytics job or a user-assigned managed identity to authenticate with the event hub. When you use a managed identity, the managed identity must be a member of [Azure Event Hubs Data Receiver or Azure Event Hubs Data Owner roles](../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs). | 
 | **Event Hub policy name** | The shared access policy that provides access to the Event Hubs. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated, unless you select the option to provide the Event Hubs settings manually.|
 | **Partition key** | It's an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. It's used for improving the performance of your query if it includes a `PARTITION BY` or `GROUP BY` clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to `PartitionId.` |
-| **Event serialization format** | The serialization format (JSON, CSV, Avro, Parquet, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream. Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
+| **Event serialization format** | The serialization format (JSON, CSV, Avro) of the incoming data stream. Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
 | **Event compression type** | The compression type used to read the incoming data stream, such as None (default), Gzip, or Deflate. |
-| **Schema registry (preview)** | You can select the schema registry with schemas for event data that's received from the event hub. | 
+| **Schema registry**  | You can select the schema registry with schemas for event data that's received from the event hub. | 
 
 When your data comes from an Event Hubs stream input, you have access to the following metadata fields in your Stream Analytics query:
 
@@ -86,7 +88,7 @@ Azure IoT Hub is a highly scalable publish-subscribe event ingestor optimized fo
 
 The default timestamp of events coming from an IoT Hub in Stream Analytics is the timestamp that the event arrived in the IoT Hub, which is `EventEnqueuedUtcTime`. To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) keyword.
 
-### Iot Hub Consumer groups
+### IoT Hub Consumer groups
 
 You should configure each Stream Analytics IoT Hub input to have its own consumer group. When a job contains a self-join or when it has multiple inputs, some input might be read by more than one reader downstream. This situation impacts the number of readers in a single consumer group. To avoid exceeding the Azure IoT Hub limit of five readers per consumer group per partition, it's a best practice to designate a consumer group for each Stream Analytics job.
 
@@ -101,10 +103,10 @@ The following table explains each property in the **New input** page in the Azur
 | **IoT Hub** | The name of the IoT Hub to use as input. |
 | **Consumer group** | We recommend that you use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless you specify otherwise. |
 | **Shared access policy name** | The shared access policy that provides access to the IoT Hub. Each shared access policy has a name, permissions that you set, and access keys. |
-| **Shared access policy key** | The shared access key used to authorize access to the IoT Hub. This option is automatically populated in unless you select the option to provide the Iot Hub settings manually. |
+| **Shared access policy key** | The shared access key used to authorize access to the IoT Hub. This option is automatically populated in unless you select the option to provide the IoT Hub settings manually. |
 | **Endpoint** | The endpoint for the IoT Hub.|
 | **Partition key** | It's an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. It's used for improving the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to "PartitionId." |
-| **Event serialization format** | The serialization format (JSON, CSV, Avro, Parquet, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream. Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
+| **Event serialization format** | The serialization format (JSON, CSV, Avro) of the incoming data stream. Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
 | **Event compression type** | The compression type used to read the incoming data stream, such as None (default), Gzip, or Deflate. |
 
@@ -158,7 +160,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Time format** (optional) |  If you use the time variable in the path, the time format in which the files are organized. Currently the only supported value is `HH` for hours. |
 | **Partition key** | It's an optional field that is available only if your job is configured to use [compatibility level](./stream-analytics-compatibility-level.md) 1.2 or higher. If your input is partitioned by a property, you can add the name of this property here. It's used for improving the performance of your query if it includes a PARTITION BY or GROUP BY clause on this property. If this job uses compatibility level 1.2 or higher, this field defaults to "PartitionId." |
 | **Count of input partitions** | This field is present only when {partition} is present in path pattern. The value of this property is an integer >=1. Wherever {partition} appears in pathPattern, a number between 0 and the value of this field -1 will be used. |
-| **Event serialization format** | The serialization format (JSON, CSV, Avro, Parquet, or [Other (Protobuf, XML, proprietary...)](custom-deserializer.md)) of the incoming data stream. Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
+| **Event serialization format** | The serialization format (JSON, CSV, Avro) of the incoming data stream. Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | For CSV and JSON, UTF-8 is currently the only supported encoding format. |
 | **Compression** | The compression type used to read the incoming data stream, such as None (default), Gzip, or Deflate. |
 

@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: halkazwini
   ms.author: halkazwini
-  ms.date: 02/06/2025
+  ms.date: 03/14/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -72,8 +72,8 @@ landingContent:
             url: monitor-vm-communication.md          
       - linkListType: how-to-guide  
         links:
-          - text: Troubleshoot connections
-            url: network-watcher-connectivity-portal.md
+          - text: Troubleshoot outbound connections
+            url: connection-troubleshoot-manage.md
 
   # Card
   - title: Log network traffic
@@ -91,9 +91,9 @@ landingContent:
       - linkListType: how-to-guide  
         links:
           - text: Manage network security group flow logs
-            url: nsg-flow-logs-portal.md
+            url: nsg-flow-logs-manage.md
           - text: Manage virtual network flow logs
-            url: vnet-flow-logs-portal.md
+            url: vnet-flow-logs-manage.md
 
   # Card
   - title: Traffic analytics

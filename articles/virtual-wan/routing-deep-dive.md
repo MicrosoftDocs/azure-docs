@@ -6,7 +6,7 @@ services: virtual-wan
 author: erjosito
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 08/24/2023
+ms.date: 03/26/2025
 ms.author: jomore
 ---
 
@@ -27,7 +27,7 @@ All VNet and branch connections are associated and propagating to the default ro
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1.png" alt-text="Diagram that shows a Virtual WAN design with two ExpressRoute circuits and two V P N branches." :::
 
 > [!IMPORTANT]
-> The previous diagram shows two secured virtual hubs, this topology is supported with Routing Intent. For more information see [How to configure Virtual WAN Hub routing intent and routing policies][virtual-wan-intent].
+> The previous diagram shows two secured virtual hubs. This topology is supported with Routing Intent. For more information, see [How to configure Virtual WAN Hub routing intent and routing policies][virtual-wan-intent].
 
 Out of the box, the Virtual WAN hubs exchange information between each other so that communication across regions is enabled. You can inspect the effective routes in Virtual WAN route tables: for example, the following picture shows  the effective routes in hub 1:
 

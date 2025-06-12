@@ -16,6 +16,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 # Set up the local account identity provider
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 This article describes how to determine sign-in methods for your Azure AD B2C local accounts. A local account refers to an account that is created in your Azure AD B2C directory when a user signs up for your application or an admin creates the account. Usernames and passwords are stored locally and Azure AD B2C serves as the identity provider for local accounts.

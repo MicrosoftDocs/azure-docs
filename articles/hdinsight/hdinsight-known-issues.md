@@ -3,6 +3,9 @@ title: Azure HDInsight known issues
 description: Track known issues for Azure HDInsight, along with troubleshooting steps, actions, and frequently asked questions.
 ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 03/28/2024
 ---
 
@@ -21,6 +24,7 @@ Azure HDInsight Open known issues:
 | Control Plane | [Component version validation error in ARM templates](./component-version-validation-error-arm-templates.md) |
 | Platform | [Cluster reliability issue with older images in HDInsight clusters](./cluster-reliability-issues.md)|
 | Platform | [Switch users through the Ambari UI](./hdinsight-known-issues-ambari-users-cache.md)|
+| Spark History Service| Decommissioned node logs cannot be accessed directly from Spark / YARN UI (Expected behavior)|
 
 
 

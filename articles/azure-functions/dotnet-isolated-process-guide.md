@@ -3,12 +3,13 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/05/2024
+ms.date: 05/19/2025
 ms.custom:
   - template-concept
   - devx-track-dotnet
   - devx-track-azurecli
   - ignite-2023
+  - build-2025
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated worker process so that I can run my function code on current (not LTS) releases of .NET.
 ---
@@ -128,8 +129,7 @@ var builder = FunctionsApplication.CreateBuilder(args);
 
 builder.Services
     .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights()
-    .AddSingleton<IHttpResponderService, DefaultHttpResponderService>();
+    .ConfigureFunctionsApplicationInsights();
 
 builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
     {
@@ -1219,125 +1219,7 @@ When you create your function app in Azure using the methods in the previous sec
 
 ## .NET Aspire (Preview)
 
-[.NET Aspire](/dotnet/aspire/get-started/aspire-overview) is an opinionated stack that simplifies development of distributed applications in the cloud. You can enlist .NET 8 and .NET 9 isolated worker model projects in Aspire 9.0 orchestrations using preview support. The section outlines the core requirements for enlistment.
-
-This integration requires specific setup:
-
-- Use [Aspire 9.0 or later](/dotnet/aspire/fundamentals/setup-tooling) and the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0). Aspire 9.0 supports the .NET 8 and .NET 9 frameworks.
-- If you use Visual Studio, update to version 17.12 or later. You must also have the latest version of the Functions tools for Visual Studio. To check for updates, navigate to **Tools** > **Options**, choose **Azure Functions** under **Projects and Solutions**. Select **Check for updates** and install updates as prompted.
-- In the [Aspire app host project](/dotnet/aspire/fundamentals/app-host-overview):
-    - You must reference [Aspire.Hosting.Azure.Functions].
-    - You must have a project reference to your Functions project.
-    - In the app host's `Program.cs`, you must also include the project by calling `AddAzureFunctionsProject<TProject>()` on your `IDistributedApplicationBuilder`. This method is used instead of the `AddProject<TProject>()` that you use for other project types. If you just use `AddProject<TProject>()`, the Functions project will not start properly.
-- In the Functions project:
-    - You must reference the [2.x versions](#version-2x) of [Microsoft.Azure.Functions.Worker] and [Microsoft.Azure.Functions.Worker.Sdk]. You must also update any references you have to `Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore` to the 2.x version as well.
-    - Your `Program.cs` should use the `IHostApplicationBuilder` version of [host instance startup](#start-up-and-configuration).
-    - If you want to use your Aspire service defaults, you should include a project reference to the service defaults project. Before building your `IHostApplicationBuilder` in `Program.cs`, you should also include a call to `builder.AddServiceDefaults()`.
-    - You shouldn't keep configuration in `local.settings.json`, aside from the `FUNCTIONS_WORKER_RUNTIME` setting, which should remain "dotnet-isolated". Other configuration should be set through the app host project.
-    - You should remove any direct Application Insights integrations. Monitoring in Aspire is instead handled through its OpenTelemetry support.
-
-The following example shows a minimal `Program.cs` for an App Host project:
-
-```csharp
-var builder = DistributedApplication.CreateBuilder(args);
-
-builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject");
-
-builder.Build().Run();
-```
-
-The following example shows a minimal `Program.cs` for a Functions project used in Aspire:
-
-```csharp
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
-var builder = FunctionsApplication.CreateBuilder(args);
-
-builder.AddServiceDefaults();
-
-builder.ConfigureFunctionsWebApplication();
-
-builder.Build().Run();
-```
-
-This does not include the default Application Insights configuration that you see in many of the other `Program.cs` examples in this article. Instead, Aspire's OpenTelemetry integration is configured through the `builder.AddServiceDefaults()` call.
-
-### Considerations and best practices for .NET Aspire integration
-
-Consider the following points when evaluating .NET Aspire with Azure Functions:
-
-- Support for Azure Functions with .NET Aspire is currently in preview. During the preview period, when you publish the Aspire solution to Azure, Functions projects are deployed as Azure Container Apps resources without event-driven scaling. Azure Functions support is not available for apps deployed in this mode.
-- Trigger and binding configuration through Aspire is currently limited to specific integrations. See [Connection configuration with Aspire](#connection-configuration-with-aspire) for details.
-- Your `Program.cs` should use the `IHostApplicationBuilder` version of [host instance startup](#start-up-and-configuration). This allows you to call `builder.AddServiceDefaults()` to add [.NET Aspire service defaults](/dotnet/aspire/fundamentals/service-defaults) to your Functions project.
-- Aspire uses OpenTelemetry for monitoring. You can configure Aspire to export telemetry to Azure Monitor through the service defaults project. In many other Azure Functions contexts, you might include direct integration with Application Insights by registering the telemetry worker service. This is not recommended in Aspire and can lead to runtime errors with version 2.22.0 of `Microsoft.ApplicationInsights.WorkerService`. You should remove any direct Application Insights integrations from your Functions project when using Aspire.
-- For Functions projects enlisted into an Aspire orchestration, most of the application configuration should come from the Aspire app host project. You should typically avoid setting things in `local.settings.json`, other than the `FUNCTIONS_WORKER_RUNTIME` setting. If the same environment variable is set by `local.settings.json` and Aspire, the system uses the Aspire version.
-- Do not configure the Storage emulator for any connections in `local.settings.json`. Many Functions starter templates include the emulator as a default for `AzureWebJobsStorage`. However, emulator configuration can prompt some IDEs to start a version of the emulator that can conflict with the version that Aspire uses.
-
-### Connection configuration with Aspire
-
-Azure Functions requires a [host storage connection (`AzureWebJobsStorage`)](./functions-reference.md#connecting-to-host-storage-with-an-identity) for several of its core behaviors. When you call `AddAzureFunctionsProject<TProject>()` in your app host project, a default `AzureWebJobsStorage` connection is created and provided to the Functions project. This default connection uses the Storage emulator for local development runs and automatically provisions a storage account when deployed. For additional control, you can replace this connection by calling `.WithHostStorage()` on the Functions project resource.
-
-The following example shows a minimal `Program.cs` for an app host project that replaces the host storage:
-
-```csharp
-var builder = DistributedApplication.CreateBuilder(args);
-
-var myHostStorage = builder.AddAzureStorage("myHostStorage");
-
-builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
-    .WithHostStorage(myHostStorage);
-
-builder.Build().Run();
-```
-
-> [!NOTE]
-> When Aspire provisions the host storage in publish mode, it defaults to creating role assignments for the [Storage Account Contributor], [Storage Blob Data Contributor], [Storage Queue Data Contributor], and [Storage Table Data Contributor] roles.
-
-Your triggers and bindings reference connections by name. Some Aspire integrations are enabled to provide these through a call to `WithReference()` on the project resource:
-
-| Aspire integration                                                          | Notes                                                                                                                                                                                                |
-|-----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Azure Blobs](/dotnet/aspire/storage/azure-storage-blobs-integration)       | When Aspire provisions the resource, it defaults to creating role assignments for the [Storage Blob Data Contributor], [Storage Queue Data Contributor], and [Storage Table Data Contributor] roles. |
-| [Azure Queues](/dotnet/aspire/storage/azure-storage-queues-integration)     | When Aspire provisions the resource, it defaults to creating role assignments for the [Storage Blob Data Contributor], [Storage Queue Data Contributor], and [Storage Table Data Contributor] roles. |
-| [Azure Event Hubs](/dotnet/aspire/messaging/azure-event-hubs-integration)   | When Aspire provisions the resource, it defaults to creating a role assignment using the [Azure Event Hubs Data Owner] role.                                                                         |
-| [Azure Service Bus](/dotnet/aspire/messaging/azure-service-bus-integration) | When Aspire provisions the resource, it defaults to creating a role assignment using the [Azure Service Bus Data Owner] role.                                                                        |
-
-The following example shows a minimal `Program.cs` for an app host project that configures a queue trigger. In this example, the corresponding queue trigger has its `Connection` property set to "MyQueueTriggerConnection".
-
-```csharp
-var builder = DistributedApplication.CreateBuilder(args);
-
-var myAppStorage = builder.AddAzureStorage("myAppStorage").RunAsEmulator();
-var queues = myAppStorage.AddQueues("queues");
-
-builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
-    .WithReference(queues, "MyQueueTriggerConnection");
-
-builder.Build().Run();
-```
-
-For other integrations, calls to `WithReference` set the configuration in a different way, making it available to [Aspire client integrations](/dotnet/aspire/fundamentals/integrations-overview#client-integrations), but not to triggers and bindings. For these integrations, you should call `WithEnvironment()` to pass the connection information for the trigger or binding to resolve. The following example shows how to set the environment variable "MyBindingConnection" for a resource that exposes a connection string expression:
-
-```csharp
-builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
-    .WithEnvironment("MyBindingConnection", otherIntegration.Resource.ConnectionStringExpression);
-```
-
-You can configure both `WithReference()` and `WithEnvironment()` if you want a connection to be used both by Aspire client integrations and the triggers and bindings system.
-
-For some resources, the structure of a connection might be different between when you run it locally and when you publish it to Azure. In the previous example, `otherIntegration` could be a resource that runs as an emulator, so `ConnectionStringExpression` would return an emulator connection string. However, when the resource is published, Aspire might set up an identity-based connection, and `ConnectionStringExpression` would return the service's URI. In this case, to set up [identity based connections for Azure Functions](./functions-reference.md#configure-an-identity-based-connection), you might need to provide a different environment variable name. The following example uses `builder.ExecutionContext.IsPublishMode` to conditionally add the necessary suffix:
-
-```csharp
-builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
-    .WithEnvironment("MyBindingConnection" + (builder.ExecutionContext.IsPublishMode ? "__serviceUri" : ""), otherIntegration.Resource.ConnectionStringExpression);
-```
-
-Depending on your scenario, you may also need to adjust the permissions that will be assigned for an identity-based connection. You can use the [`ConfigureConstruct<T>()` method](/dotnet/api/aspire.hosting.azureconstructresourceextensions.configureconstruct) to customize how Aspire configures infrastructure when it publishes your project.
-
-Consult each binding's [reference pages](./functions-triggers-bindings.md#supported-bindings) for details on the connection formats it supports and the permissions those formats require.
+[.NET Aspire](/dotnet/aspire/get-started/aspire-overview) is an opinionated stack that simplifies development of distributed applications in the cloud. You can enlist .NET 8 and .NET 9 isolated worker model projects in Aspire 9.0 orchestrations using preview support. See [Azure Functions with .NET Aspire (Preview)](./dotnet-aspire-integration.md) for more information.
 
 ## Debugging
 
@@ -1442,7 +1324,7 @@ To use Azure Functions with a preview version of .NET, you need to update your p
 1. Installing the relevant .NET SDK version in your development
 1. Changing the `TargetFramework` setting in your `.csproj` file
 
-When you deploy to your function app in Azure, you also need to ensure that the framework is made available to the app. During the preview period, some tools and experiences may not surface the new preview version as an option. If you don't see the preview version included in the Azure portal, for example, you can use the REST API, Bicep templates, or the Azure CLI to configure the version manually.
+When you deploy to your function app in Azure, you also need to ensure that the framework is made available to the app. During the preview period, some tools and experiences may not surface the new preview version as an option. If you don't see the preview version included in the Azure portal, for example, you can use the REST API, Bicep files, or the Azure CLI to configure the version manually.
 
 ### [Windows](#tab/windows)
 
@@ -1488,6 +1370,9 @@ Keep these considerations in mind when using Functions with preview versions of 
 
 > [!div class="nextstepaction"]
 > [Migrate .NET apps to the isolated worker model][migrate]
+
+> [!div class="nextstepaction"]
+> [Integrate with .NET Aspire](./dotnet-aspire-integration.md)
 
 [migrate]: ./migrate-dotnet-to-isolated-model.md
 

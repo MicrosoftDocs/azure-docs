@@ -2,28 +2,23 @@
 title: Quickstart for adding feature flags to Azure Functions | Microsoft Docs
 description: In this quickstart, use Azure Functions with feature flags from Azure App Configuration and test the function locally.
 services: azure-app-configuration
-author: maud-lv
+author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 02/17/2024
-ms.author: malev
+ms.date: 03/15/2025
+ms.author: zhenlwa
 ---
 # Quickstart: Add feature flags to an Azure Functions app
 
-In this quickstart, you create an Azure Functions C# code project and use feature flags in it. You use the feature management from Azure App Configuration to centrally store all your feature flags and control their states.
-
-The .NET Feature Management libraries extend the framework with feature flag support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
-
->[!NOTE]  
->This article currently only supports [C# in-process function apps](../azure-functions/functions-dotnet-class-library.md) that run on .NET 6.
+In this quickstart, you create an Azure Functions app and use feature flags in it. You use the feature management from Azure App Configuration to centrally store all your feature flags and control their states.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
+- [Visual Studio](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
 
 ## Add a feature flag
 
@@ -32,159 +27,199 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
-## Create a Functions project
+## Create a Function App
 
-The Azure Functions project template in Visual Studio creates a C# class library project that you can publish to a function app in Azure. You can use a function app to group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
+Create an Azure Functions app using Visual Studio by selecting the **Azure Functions (C#)** template. This template guides you through configuring essential settings for your project. For detailed instructions, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md?pivots=isolated).
 
-1. From the Visual Studio menu, select **File** > **New** > **Project**.
+Use the following table as a reference for key parameters when creating your Function App.
 
-1. In **Create a new project**, enter *functions* in the search box, choose the **Azure Functions** template, and then select **Next**.
+| Setting              | Value                      |
+|----------------------|----------------------------|
+| Functions worker     | .NET 8.0 Isolated          |
+| Function             | HTTP trigger               |
+| Authorization level  | Anonymous                  |
 
-1. In **Configure your new project**, enter a **Project name** for your project, and then select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
+> [!NOTE]  
+> Azure App Configuration can be used with Azure Functions in either the [isolated worker model](../azure-functions/dotnet-isolated-process-guide.md) or the [in-process model](../azure-functions/functions-dotnet-class-library.md). This quickstart uses the isolated worker model as an example. You can find complete code examples for both models in the [Azure App Configuration GitHub repository](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetCore/AzureFunctions).
 
-1. For the **Create a new Azure Functions application** settings, use the values in the following table:
+## Connect to an App Configuration store
+You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
 
-    | Setting      | Value  | Description                      |
-    | ------------ |  ------- |----------------------------------------- |
-    | **.NET version** | **.NET 6** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. For more information, see [Azure Functions runtime versions overview](../azure-functions/functions-versions.md).   |
-    | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
-    | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
-    | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](../azure-functions/functions-bindings-http-webhook.md). |
-    
-    ![Screenshot of Azure Functions project settings](../../includes/media/functions-vs-tools-create/functions-project-settings.png)
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add the latest stable version of following NuGet packages to your project.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    - Microsoft.Azure.AppConfiguration.Functions.Worker
+    - Microsoft.FeatureManagement
+    - Azure.Identity
+
+    ### [Connection string](#tab/connection-string)
+
+    - Microsoft.Azure.AppConfiguration.Functions.Worker
+    - Microsoft.FeatureManagement
 
     ---
 
-    Make sure you set the **Authorization level** to **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint.
+1. Open *Program.cs* and update the code as follows. You add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
 
-1. Select **Create** to create the function project and HTTP trigger function.
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-## Connect to an App Configuration store
-
-This project will use [dependency injection in .NET Azure Functions](../azure-functions/functions-dotnet-dependency-injection.md). It adds Azure App Configuration as an extra configuration source where your feature flags are stored.
-
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add following NuGet packages to your project.
-   - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) version 4.1.0 or later
-   - [Microsoft.FeatureManagement](https://www.nuget.org/packages/Microsoft.FeatureManagement/) version 2.2.0 or later
-   - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/) version 1.1.0 or later 
-
-1. Add a new file, *Startup.cs*, with the following code. It defines a class named `Startup` that implements the `FunctionsStartup` abstract class. An assembly attribute is used to specify the type name used during Azure Functions startup.
-
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+    
     ```csharp
-    using System;
-    using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+    using Azure.Identity;
+    using Microsoft.Azure.Functions.Worker.Builder;
     using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Hosting;
     using Microsoft.FeatureManagement;
 
-    [assembly: FunctionsStartup(typeof(FunctionApp.Startup))]
+    var builder = FunctionsApplication.CreateBuilder(args);
 
-    namespace FunctionApp
+    // Connect to Azure App Configuration
+    builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        class Startup : FunctionsStartup
-        {
-            public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
-            {
-            }
-
-            public override void Configure(IFunctionsHostBuilder builder)
-            {
-            }
-        }
-    }
+        Uri endpoint = new(Environment.GetEnvironmentVariable("AZURE_APPCONFIG_ENDPOINT") ?? 
+            throw new InvalidOperationException("The environment variable 'AZURE_APPCONFIG_ENDPOINT' is not set or is empty."));
+        options.Connect(endpoint, new DefaultAzureCredential())
+               // Load all feature flags with no label. To load feature flags with specific keys and labels, set via FeatureFlagOptions.Select.
+               // Use the default refresh interval of 30 seconds. It can be overridden via FeatureFlagOptions.SetRefreshInterval.
+               .UseFeatureFlags();
+    });
     ```
 
-
-1. Update the `ConfigureAppConfiguration` method, and add Azure App Configuration provider as an extra configuration source by calling `AddAzureAppConfiguration()`. 
-
-    The `UseFeatureFlags()` method tells the provider to load feature flags. All feature flags have a default cache expiration of 30 seconds before rechecking for changes. The expiration interval can be updated by setting the `FeatureFlagsOptions.CacheExpirationInterval` property passed to the `UseFeatureFlags` method. 
+    ### [Connection string](#tab/connection-string)
 
     ```csharp
-    public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+    using Microsoft.Azure.Functions.Worker.Builder;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Hosting;
+    using Microsoft.FeatureManagement;
+
+    var builder = FunctionsApplication.CreateBuilder(args);
+
+    // Connect to Azure App Configuration
+    builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        builder.ConfigurationBuilder.AddAzureAppConfiguration(options =>
-        {
-            options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                   .Select("_")
-                   .UseFeatureFlags();
-        });
-    }
+        string connectionString = Environment.GetEnvironmentVariable("AZURE_APPCONFIG_CONNECTION_STRING") ?? 
+            throw new InvalidOperationException("The environment variable 'AZURE_APPCONFIG_CONNECTION_STRING' is not set or is empty.");
+        options.Connect(connectionString)
+               // Load all feature flags with no label. To load feature flags with specific keys and labels, set via FeatureFlagOptions.Select.
+               // Use the default refresh interval of 30 seconds. It can be overridden via FeatureFlagOptions.SetRefreshInterval.
+               .UseFeatureFlags();
+    });
     ```
+    ---
+
+    The `UseFeatureFlags()` method instructs the provider to load feature flags. By default, all feature flags without labels are loaded and refreshed every 30 seconds. The selection and refresh behavior of feature flags are configured independently from other configuration key-values. You can customize these behaviors by passing a `FeatureFlagOptions` action to the `UseFeatureFlags` method. Use `FeatureFlagOptions.Select` to specify the keys and labels of feature flags to load, and use `FeatureFlagOptions.SetRefreshInterval` to override the default refresh interval.
 
     > [!TIP]
-    > If you don't want any configuration other than feature flags to be loaded to your application, you can call `Select("_")` to only load a nonexisting dummy key `"_"`. By default, all configuration key-values in your App Configuration store will be loaded if no `Select` method is called.
+    > If you don't want any configuration other than feature flags to be loaded to your application, you can call `options.Select("_")` to only load a nonexisting dummy key `"_"`. By default, all configuration key-values without labels in your App Configuration store will be loaded if no `Select` method is called.
 
-1. Update the `Configure` method to make Azure App Configuration services and feature manager available through dependency injection.
+1. Update the *Program.cs* file to enable automatic feature flag refresh on each function execution by adding the Azure App Configuration middleware. You also register feature management service, allowing you to inject and use it in your function code later.
 
     ```csharp
-    public override void Configure(IFunctionsHostBuilder builder)
+    // Connect to Azure App Configuration
+    builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        builder.Services.AddAzureAppConfiguration();
-        builder.Services.AddFeatureManagement();
-    }
+        // Omitted the code added in the previous step.
+    });
+
+    // Add Azure App Configuration middleware and feature management to the service collection.
+    builder.Services
+        .AddAzureAppConfiguration()
+        .AddFeatureManagement();
+
+    // Use Azure App Configuration middleware for dynamic configuration and feature flag refresh.
+    builder.UseAzureAppConfiguration();
+
+    builder.ConfigureFunctionsWebApplication();
+
+    builder.Build().Run();
     ```
 
-1. Open *Function1.cs*, and add the following namespaces.
+1. Open *Function1.cs*, and add the following namespace.
 
     ```csharp
-    using System.Linq;
     using Microsoft.FeatureManagement;
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-   Add a constructor used to obtain instances of `_featureManagerSnapshot` and `IConfigurationRefresherProvider` through dependency injection. From the `IConfigurationRefresherProvider`, you can obtain the instance of `IConfigurationRefresher`.
+   Update the constructor to obtain an instance of `IVariantFeatureManagerSnapshot` through dependency injection.
 
     ```csharp
-    private readonly IVariantFeatureManagerSnapshot _featureManagerSnapshot;
-    private readonly IConfigurationRefresher _configurationRefresher;
+    private readonly IVariantFeatureManagerSnapshot _featureManager;
+    private readonly ILogger<Function1> _logger;
 
-    public Function1(IVariantFeatureManagerSnapshot featureManagerSnapshot, IConfigurationRefresherProvider refresherProvider)
+    public Function1(IVariantFeatureManagerSnapshot featureManager, ILogger<Function1> logger)
     {
-        _featureManagerSnapshot = featureManagerSnapshot;
-        _configurationRefresher = refresherProvider.Refreshers.First();
+        _featureManager = featureManager;
+        _logger = logger;
     }
     ```
 
-1. Update the `Run` method to change the value of the displayed message depending on the state of the feature flag.
-
-   The `TryRefreshAsync` method is called at the beginning of the Functions call to refresh feature flags. It will be a no-op if the cache expiration time window isn't reached. Remove the `await` operator if you prefer the feature flags to be refreshed without blocking the current Functions call. In that case, later Functions calls will get updated value.
+1. Update the `Run` method to return a response message based on the state of the feature flag.
 
     ```csharp
-    [FunctionName("Function1")]
-    public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-        ILogger log)
+    [Function("Function1")]
+    public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
     {
-        log.LogInformation("C# HTTP trigger function processed a request.");
+        _logger.LogInformation("C# HTTP trigger function processed a request.");
 
-        await _configurationRefresher.TryRefreshAsync();
+        // Read feature flag
+        string featureName = "Beta";
+        bool featureEnabled = await _featureManager.IsEnabledAsync(featureName, req.HttpContext.RequestAborted);
 
-        string message = await _featureManagerSnapshot.IsEnabledAsync("Beta")
-                ? "The Feature Flag 'Beta' is turned ON"
-                : "The Feature Flag 'Beta' is turned OFF";
-
-        return (ActionResult)new OkObjectResult(message);
+        return new OkObjectResult(featureEnabled
+            ? $"The Feature Flag '{featureName}' is turned ON!"
+            : $"The Feature Flag '{featureName}' is turned OFF");
     }
     ```
 
 ## Test the function locally
 
-1. Set an environment variable named **ConnectionString**, where the value is the connection string you retrieved earlier in your App Configuration store under **Access Keys**. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set the environment variable.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-        setx ConnectionString "<connection-string-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
     ```
 
-    If you use Windows PowerShell, run the following command:
+    If you use PowerShell, run the following command:
 
-    ```azurepowershell
-        $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
+    ```powershell
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-        export ConnectionString='<connection-string-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
+
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access settings* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    ```
+
+   If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    ```    
+    ---
 
 1. Press F5 to test your function. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
 
@@ -196,16 +231,11 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
     ![Quickstart Function feature flag disabled](./media/quickstarts/functions-launch-ff-disabled.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created.
+1. In the Azure portal, navigate to your App Configuration store. Under **Operations**, select **Feature manager**, locate the *Beta* feature flag, and set the **Enabled** toggle to **On**.
 
-1. Select **Feature manager**, and change the state of the *Beta* key to **On**.
-
-1. Refresh the browser a few times. When the refresh interval time window passes, the page will change to indicate the feature flag *Beta* is turned on, as shown in the image below.
+1. Refresh the browser a few times. When the refresh interval time window passes, the page changes to indicate the feature flag *Beta* is turned on, as shown in the image.
  
     ![Quickstart Function feature flag enabled](./media/quickstarts/functions-launch-ff-enabled.png)
-
-> [!NOTE]
-> The example code used in this tutorial can be downloaded from the [Azure App Configuration GitHub repo](https://github.com/Azure/AppConfiguration/tree/master/examples/DotNetCore/AzureFunction).
 
 ## Clean up resources
 
@@ -213,25 +243,14 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
 ## Next steps
 
-In this quickstart, you created a feature flag and used it with an Azure Functions.
-
-To enable feature management capability for other types of apps, continue to the following tutorials.
-
-> [!div class="nextstepaction"]
-> [Use feature flags in ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md)
-
-> [!div class="nextstepaction"]
-> [Use feature flags in .NET/.NET framework console apps](./quickstart-feature-flag-dotnet.md)
-
-> [!div class="nextstepaction"]
-> [Use feature flags in .NET background services](./quickstart-feature-flag-dotnet-background-service.md)
-
-To learn more about managing feature flags in Azure App Configuration, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Manage feature flags in Azure App Configuration](./manage-feature-flags.md)
+In this quickstart, you created a feature flag and used it with an Azure Functions app.
 
 For the full feature rundown of the .NET feature management library, continue to the following document.
 
 > [!div class="nextstepaction"]
 > [.NET Feature Management](./feature-management-dotnet-reference.md)
+
+To learn more about managing feature flags in Azure App Configuration, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Manage feature flags in Azure App Configuration](./manage-feature-flags.md)

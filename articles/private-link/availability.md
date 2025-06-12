@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 07/10/2024
+ms.date: 03/25/2025
 ms.custom: template-concept, references_regions, ignite-2024
 ---
 

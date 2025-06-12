@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel entity types reference | Microsoft Docs
-description: This article displays the Microsoft Sentinel entity types and their required identifiers.
+description: This article displays the Microsoft Sentinel entity types and their identifiers, and lists strong and weak identifiers for each.
 author: yelevin
 ms.author: yelevin
 ms.topic: reference
-ms.date: 10/16/2024
+ms.date: 03/24/2025
 
 
 #Customer intent: As a security analyst, I want to understand the entity types and identifiers in Microsoft Sentinel so that I can effectively track and investigate alerts and incidents.
@@ -31,7 +31,8 @@ You can currently use up to three identifiers for a given entity when creating a
 | - | - | - | - |
 | [**Account**](#account) | Name<br>*FullName \**<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>*DisplayName \**<br>ObjectGuid | Name+UPNSuffix<br>AADUserId<br>Sid [\*\*](#strong-identifiers-of-an-account-entity)<br>Sid+*Host* [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+*Host*+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+DnsDomain<br>PUID<br>ObjectGuid | Name |
 | [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>*FullName \**<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | HostName+NTDomain<br>HostName+DnsDomain<br>NetBiosName+NTDomain<br>NetBiosName+DnsDomain<br>AzureID<br>OMSAgentID | HostName<br>NetBiosName |
-| [**IP**](#ip) | Address<br>AddressScope | Address [\*\*](#strong-identifiers-of-an-ip-entity)<br>Address+AddressScope [\*\*](#strong-identifiers-of-an-ip-entity) | |
+| **Entity type** | **Identifiers** | **Strong identifiers** | **Weak identifiers** |
+| [**IP**](#ip) | Address<br>AddressScope | [Global address:](#strong-identifiers-of-an-ip-entity) Address\*\*<br>[Private address:](#strong-identifiers-of-an-ip-entity) Address+AddressScope\*\* | <br>[Private address:](#weak-identifiers-of-an-ip-entity) Address\*\* |
 | [**URL**](#url) | Url | Url *(if absolute URL)* [\*\*](#strong-identifiers-of-a-url-entity) | Url *(if relative URL)* [\*\*](#strong-identifiers-of-a-url-entity) |
 | [**Azure resource**](#azure-resource)<br>*(AzureResource)* | ResourceId | ResourceId | |
 | [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name<br>AppId+InstanceName<br>Name+InstanceName | |
@@ -39,11 +40,13 @@ You can currently use up to three identifiers for a given entity when creating a
 | [**File**](#file) | Directory<br>Name | Directory+Name | |
 | [**File hash**](#file-hash)<br>*(FileHash)* | Algorithm<br>Value | Algorithm+Value | |
 | [**Malware**](#malware) | Name<br>Category | Name+Category | |
+| **Entity type** | **Identifiers** | **Strong identifiers** | **Weak identifiers** |
 | [**Process**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | *Host*+ProcessID+CreationTimeUtc<br>*Host*+*ParentProcessId*+<br>&nbsp;&nbsp;&nbsp;CreationTimeUtc+CommandLine<br>*Host*+ProcessId+<br>&nbsp;&nbsp;&nbsp;CreationTimeUtc+*ImageFile*<br>*Host*+ProcessId+<br>&nbsp;&nbsp;&nbsp;CreationTimeUtc+*ImageFile*+<br>&nbsp;&nbsp;&nbsp;*FileHash* | ProcessId+CreationTimeUtc+<br>&nbsp;&nbsp;&nbsp;CommandLine (no Host)<br>ProcessId+CreationTimeUtc+<br>&nbsp;&nbsp;&nbsp;*ImageFile* (no Host) |
 | [**Registry key**](#registry-key)<br>*(RegistryKey)* | Hive<br>Key | Hive+Key | |
 | [**Registry value**](#registry-value)<br>*(RegistryValue)* | Name<br>Value<br>ValueType<br> | *Key*+Name | Name (no Key) |
 | [**Security group**](#security-group)<br>*(SecurityGroup)* | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
 | [**Mailbox**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Upn<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
+| **Entity type** | **Identifiers** | **Strong identifiers** | **Weak identifiers** |
 | [**Mail cluster**](#mail-cluster)<br>*(MailCluster)* | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>*ClusterSourceIdentifier \**<br>*ClusterSourceType \**<br>*ClusterQueryStartTime \**<br>*ClusterQueryEndTime \**<br>*ClusterGroup \** | Query+Source | |
 | [**Mail message**](#mail-message)<br>*(MailMessage)* | Recipient<br>Urls<br>Threats<br>Sender<br>*P1Sender \**<br>*P1SenderDisplayName \**<br>*P1SenderDomain \**<br>SenderIP<br>*P2Sender \**<br>*P2SenderDisplayName \**<br>*P2SenderDomain \**<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>*BodyFingerprintBin1 \**<br>*BodyFingerprintBin2 \**<br>*BodyFingerprintBin3 \**<br>*BodyFingerprintBin4 \**<br>*BodyFingerprintBin5 \**<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>*Language \**<br>*ThreatDetectionMethods \** | NetworkMessageId+Recipient | |
 | [**Submission mail**](#submission-mail)<br>*(SubmissionMail)* | NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType<br>SubmissionId<br>SubmissionDate<br>Submitter | SubmissionId+NetworkMessageId+<br>&nbsp;&nbsp;&nbsp;Recipient+Submitter |  |
@@ -94,9 +97,9 @@ The following section contains a more in-depth look at the full schemas of each 
 | **Type** | String | 'account' |
 | **Name** | String | The name of the account. This field should hold only the name without any domain added to it. |
 | ***FullName*** | -- | *Not part of schema, included for backward compatibility with old version of entity mapping.* |
-| **NTDomain** | String | The NETBIOS domain name as it appears in the alert format&mdash;domain\username. Examples: Finance, NT AUTHORITY |
-| **DnsDomain** | String | The fully qualified domain DNS name. Examples: finance.contoso.com |
-| **UPNSuffix** | String | The user principal name suffix for the account. In many cases the UPN Suffix is also the domain name. Examples: contoso.com |
+| **NTDomain** | String | The NETBIOS domain name as it appears in the alert format&mdash;domain\username. <br>*Examples:* Finance, NT AUTHORITY |
+| **DnsDomain** | String | The fully qualified domain DNS name. <br>*Examples:* finance.contoso.com |
+| **UPNSuffix** | String | The user principal name suffix for the account. In many cases the UPN Suffix is also the domain name. <br>*Examples:* contoso.com |
 | **Host** | Entity ([Host](#host)) | The host that contains the account, if it's a local account. |
 | **Sid** | String | The account's security identifier. |
 | **AadTenantId** | Guid? | The Microsoft Entra tenant ID, if known. |
@@ -187,17 +190,22 @@ The following section contains a more in-depth look at the full schemas of each 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | **Type** | String | 'ip' |
-| **Address** | String | The IP address as string, for example. 127.0.0.1 (either in IPv4 or IPv6). |
-| **AddressScope** | String | Name of the host, subnet, or private network for private, non-global IP addresses. Null or empty for global IP addresses (default). |
+| **Address** | String | The IP address as string (either in IPv4 or IPv6).<br>*Examples:* `20.112.250.133`, `2603:1030:b:3::152` |
+| **AddressScope** | String | Name of the host, subnet, or private network for private, non-global IP addresses. Null or empty for global IP addresses (default).<br>*Examples:* `/27`, `255.255.255.128` |
 | **Location** | GeoLocation | The geo-location context attached to the IP entity. <br><br>For more information, see also [Enrich entities in Microsoft Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md). |
 | **Stream** | Stream | The source of discovery logs related to the specific IP. Optional. |
 
 #### Strong identifiers of an IP entity
 
 - **Address**  
-\*\* Address alone is a unique, strong identifier when the IP address is a global address.
+When the IP address is a global address, the Address identifier by itself is a unique, strong identifier.
 - **Address + AddressScope**  
-\*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifier.
+For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifier.
+
+#### Weak identifiers of an IP entity
+
+- **Address**  
+The Address identifier by itself is a weak identifier when the IP address is a private/internal, non-global IP address.
 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 

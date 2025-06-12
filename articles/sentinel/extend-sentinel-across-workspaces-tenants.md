@@ -2,10 +2,12 @@
 title: Extend Microsoft Sentinel across workspaces and tenants
 description: How to use Microsoft Sentinel to query and analyze data across workspaces and tenants.
 author: yelevin
-ms.topic: how-to
-ms.date: 10/17/2024
+ms.topic: concept-article
+ms.date: 03/17/2025
 ms.author: yelevin
-appliesto: Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 #Customer intent: As a security analyst, I want to query data across multiple workspaces and tenants so that I can centralize incident management and enhance threat detection capabilities.
 
@@ -15,11 +17,16 @@ appliesto: Microsoft Sentinel in the Azure portal
 
 When you onboard Microsoft Sentinel, your first step is to select your Log Analytics workspace. While you can get the full benefit of the Microsoft Sentinel experience with a single workspace, in some cases, you might want to extend your workspace to query and analyze your data across workspaces and tenants. For more information, see [Design a Log Analytics workspace architecture](/azure/azure-monitor/logs/workspace-design) and [Prepare for multiple workspaces and tenants in Microsoft Sentinel](prepare-multiple-workspaces.md).
 
-If you onboard Microsoft Sentinel to the Microsoft Defender portal, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
+If you onboard Microsoft Sentinel to the Microsoft Defender portal, see:
+
+- [Multiple Microsoft Sentinel workspaces in the Defender portal](/azure/sentinel/workspaces-defender-portal) 
+- [Microsoft Defender multitenant management](/defender-xdr/mto-overview)
 
 ## Manage incidents on multiple workspaces
 
-Microsoft Sentinel supports a [multiple workspace incident view](./multiple-workspace-view.md) where you can centrally manage and monitor incidents across multiple workspaces. The centralized incident view lets you manage incidents directly or drill down transparently to the incident details in the context of the originating workspace.
+In the Azure and Defender portals, the incidents view allows you to centrally manage and monitor incidents across multiple workspaces or filter the view by workspace.  Manage incidents directly or drill down transparently to the incident details in the context of the originating workspace.
+
+If you're working in the Azure portal, see [multiple workspace incident view](./multiple-workspace-view.md). For the Defender portal, see [Multiple Microsoft Sentinel workspaces in the Defender portal](/azure/sentinel/workspaces-defender-portal).
 
 ## Query multiple workspaces
 
@@ -88,17 +95,26 @@ To configure and manage multiple Log Analytics workspaces enabled for Microsoft 
 - Learn how to [automate the deployment of Microsoft Sentinel resources](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885), including alert rules, hunting queries, workbooks, and playbooks.
 - Learn how to [deploy custom content from your repository](ci-cd.md). This resource provides a consolidated methodology for managing Microsoft Sentinel as code and for deploying and configuring resources from a private Azure DevOps or GitHub repository.
 
-## Manage workspaces across tenants using Azure Lighthouse
+## Manage workspaces across tenants
 
-As mentioned above, in many scenarios, the different Log Analytics workspaces enabled for Microsoft Sentinels can be located in different Microsoft Entra tenants. You can use [Azure Lighthouse](/azure/lighthouse/overview) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on workspaces across all tenants. 
+<a name="manage-workspaces-across-tenants-using-azure-lighthouse"></a>
+
+In many scenarios, the different Log Analytics workspaces enabled for Microsoft Sentinels can be located in different Microsoft Entra tenants. You can use [Azure Lighthouse](/azure/lighthouse/overview) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on workspaces across all tenants. 
 
 Once Azure Lighthouse is [onboarded](/azure/lighthouse/how-to/onboard-customer), use the [directory + subscription selector](multiple-tenants-service-providers.md#access-microsoft-sentinel-in-managed-tenants) on the Azure portal to select all the subscriptions containing workspaces you want to manage, in order to ensure that they'll all be available in the different workspace selectors in the portal.
 
 When using Azure Lighthouse, it's recommended to create a group for each Microsoft Sentinel role and delegate permissions from each tenant to those groups.
 
-## Next step
+If you're using the Defender portal, multitenant management for Microsoft Defender XDR and Microsoft Sentinel provides your security operation teams with a single, unified view of all the tenants you manage. For more information, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
 
-In this article, you learned how Microsoft Sentinel's capabilities can be extended across multiple workspaces and tenants. For practical guidance on implementing Microsoft Sentinel's cross-workspace architecture, see the following articles:
+## Related content
 
-- Learn how to [work with multiple tenants](./multiple-tenants-service-providers.md) in Microsoft Sentinel, using Azure Lighthouse.
-- Learn how to [view and manage incidents in multiple workspaces](./multiple-workspace-view.md) seamlessly.
+For Microsoft Sentinel in the Azure portal, see:
+
+- [Manage multiple tenants in Microsoft Sentinel as an MSSP](./multiple-tenants-service-providers.md) by using Azure Lighthouse
+- [Work with incidents in many workspaces at once](./multiple-workspace-view.md) in the Azure portal
+
+For Microsoft Sentinel in the Defender portal, see:
+
+- [Multiple Microsoft Sentinel workspaces in the Defender portal](/azure/sentinel/workspaces-defender-portal) 
+- [Microsoft Defender multitenant management](/defender-xdr/mto-overview)

@@ -2,8 +2,8 @@
 title: Session host update (preview) - Azure Virtual Desktop
 description: Learn about session host update, which updates the operating system image and configuration of session hosts in a host pool in Azure Virtual Desktop.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 01/24/2025
 ---
 
@@ -55,9 +55,7 @@ There can only be one session host update operation running or scheduled in a si
 The existing power state and drain mode of session hosts is honored. You can perform an update on a host pool where all the session hosts are deallocated to save costs.
 
 > [!IMPORTANT]
-> - If you use Azure Virtual Desktop Insights, the Azure Monitor agent or Log Analytics agent isn't automatically installed on the updated session hosts. To install the agent automatically, here are some options:
->    - For the Azure Monitor agent, you can [use Azure Policy](/azure/azure-monitor/agents/azure-monitor-agent-policy).
->    - For the Log Analytics agent, you can [use Azure Automation](/azure/azure-monitor/agents/agent-windows?tabs=azure-automation#install-the-agent).
+> - If you use Azure Virtual Desktop Insights, the Azure Monitor agent isn't automatically installed on the updated session hosts. To install the agent automatically, you can [use Azure Policy](/azure/azure-monitor/agents/azure-monitor-agent-policy).
 >
 > - Keep in mind [quota limits](/azure/quotas/view-quotas) on your Azure subscription and consider [submitting a request to increase a quota](/azure/quotas/quickstart-increase-quota-portal) if an update would go over the limit.
 >
@@ -65,7 +63,7 @@ The existing power state and drain mode of session hosts is honored. You can per
 
 ## Virtual machines and management tools
 
-The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and the [generation of virtual machine](/azure/virtual-machines/generation-2), and can be from:
+The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and the [generation of virtual machine](/azure/virtual-machines/generation-2), and it can be from:
 
 - Azure Marketplace.
 
@@ -93,7 +91,7 @@ With only a reduced number of session hosts available, you should schedule an up
 
 Here are known issues and limitations:
 
-- The current session host configuration version isn't displayed in the session host blade in the portal. Until this issue is fixed, you can access the portal using [this portal URL](https://portal.azure.com/?feature.hostpoolVirtualMachinesBladeV3=false#home) to view the current configuration version.
+- Session host update only supports key vaults that are configured to [allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 - Session host update is only available in the global Azure cloud. It isn't available in other clouds, such as Azure US Government or Azure operated by 21Vianet.
 

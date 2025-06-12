@@ -119,7 +119,3 @@ Secure your GraphQL API by applying both existing [authentication and authorizat
 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Next steps
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

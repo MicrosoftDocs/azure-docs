@@ -3,7 +3,10 @@ title: Timeouts with 'hbase hbck' command in Azure HDInsight
 description: Time out issue with 'hbase hbck' command when fixing region assignments
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 02/03/2025
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  02/03/2025
 ---
 
 # Scenario: Timeouts with 'hbase hbck' command in Azure HDInsight

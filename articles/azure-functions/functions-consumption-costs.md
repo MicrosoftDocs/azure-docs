@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.custom:
   - build-2024
   - ignite-2024
+  - build-2025
 # Customer intent: As a cloud developer, I want to understand the overall costs of running my code in a dynamic plan in Azure Functions so that I can make better architectural and business decisions.
 ---
 
@@ -50,7 +51,7 @@ Consider a function app that is comprised only of HTTP triggers with and these b
 
 + HTTP triggers handle 40 constant requests per second.
 + HTTP triggers handle 10 concurrent requests.
-+ The instance memory size setting is `2048 MB`. 
++ The instance memory size is 2,048 MB. 
 + There are _no always ready instances configured_, which means the app can scale to zero.
 
 In a situation like this, the pricing depends more on the kind of work being done during code execution. Let's look at two workload scenarios:

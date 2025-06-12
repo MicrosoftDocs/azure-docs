@@ -3,6 +3,9 @@ title: Not sufficient fault domains in region error in Azure HDInsight
 description: Cluster creation failed due to not sufficient fault domains in region in Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 01/02/2025
 ---
 

@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 09/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As an SAP BASIS team member, I want to deploy and configure a custom Microsoft Sentinel for SAP applications data connector so that I can securely integrate SAP logs into my cloud-based SIEM for enhanced monitoring and analysis.
 
@@ -21,7 +21,7 @@ This article provides procedures for deploying and configuring the Microsoft Sen
 Content in this article is intended for your **SAP BASIS** teams. For more information, see [Deploy an SAP data connector agent from the command line](deploy-command-line.md).
 
 > [!NOTE]
-> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless solution](deployment-overview.md#data-connector) (limited preview).
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Limited preview).
 >
 
 ## Prerequisites

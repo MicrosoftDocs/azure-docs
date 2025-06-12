@@ -1,11 +1,12 @@
 ---
 title: Security awareness and Ubuntu Pro support in Azure Update Manager
 description: Guidance on security awareness and Ubuntu Pro support in Azure Update Manager.
-author: snehasudhirG
+author: habibaum
+ms.author: v-uhabiba
 ms.service: azure-update-manager
 ms.topic: overview
-ms.date: 09/06/2024
-ms.author: sudhirsneha
+ms.date: 02/26/2025
+
 ---
 
 # Guidance on security awareness and Ubuntu Pro support
@@ -34,7 +35,10 @@ You can continue to use the Azure Update Manager [capabilities](updates-maintena
 
  
 ## Next steps
-- [An overview on Azure Update Manager](overview.md)
-- [View updates for single machine](view-updates.md) 
-- [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
-- [Schedule recurring updates](scheduled-patching.md)
+-- Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manager.
+- Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
+- Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).
+- Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).
+- Learn more on how to [configure Windows Update settings](configure-wu-agent.md) to work with Azure Update Manager. 
+- Learn about [Extended Security Updates (ESU) using Azure Update Manager](extended-security-updates.md).

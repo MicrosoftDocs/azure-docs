@@ -5,8 +5,11 @@ author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 06/27/2023
-ms.custom: template-how-to-pattern, devx-track-bicep
+ms.date: 04/09/2025
+ms.custom:
+  - template-how-to-pattern
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Configure service load-balancer in Azure Operator Nexus Kubernetes service
@@ -28,7 +31,7 @@ Before proceeding with this how-to guide, it's recommended that you:
    * IP address pools shouldn't overlap with existing POD CIDR, Service CIDR, or CNI prefix to prevent conflicts and networking problems within the cluster.
 
 > [!IMPORTANT]
-> These instructions are for creating a new Nexus Kubernetes cluster. Avoid applying the Bicep template to an existing cluster, as IP pool configuration is immutable. Once a cluster is created with the IP pool configuration, it cannot be modified.
+> These instructions are for creating a new Nexus Kubernetes cluster. Avoid applying the Bicep file to an existing cluster, as IP pool configuration is immutable. Once a cluster is created with the IP pool configuration, it cannot be modified.
 
 ## Configuration options
 Before configuring the IP address pool for the service load-balancer, it's important to understand the various configuration options available. These options allow you to define the behavior and parameters of the IP address pool according to your specific requirements.
@@ -50,9 +53,9 @@ In addition to the required fields, there are also optional fields available for
    * The `autoAssign` field determines whether IP addresses are automatically assigned from the pool. This field is a `string` type with a default value of `True`. You can set it to either `True` or `False` based on your preference.
    * The `onlyUseHostIps` field controls the use of IP addresses ending with `.0` and `.255` within the pool. Enabling this option restricts the usage to IP addresses between `.1` and `.254` (inclusive), excluding the reserved network and broadcast addresses.
 
-## Bicep template parameters for IP address pool configuration
+## Bicep file parameters for IP address pool configuration
 
-The following JSON snippet shows the parameters required for configuring the IP address pool in the Bicep template.
+The following JSON snippet shows the parameters required for configuring the IP address pool in the Bicep file.
 
 ```json
 "ipAddressPools": {
@@ -72,13 +75,13 @@ The following JSON snippet shows the parameters required for configuring the IP 
 
 To add the IP pool configuration to your cluster, you need to update the `kubernetes-deploy-parameters.json` file that you created during the [quickStart](./quickstarts-kubernetes-cluster-deployment-bicep.md). Include the IP pool configuration in this file according to your desired settings.
 
-After adding the IP pool configuration to your parameter file, you can proceed with deploying the Bicep template. This action sets up your new cluster with the specified IP address pool configuration, allowing you to utilize the IP pool as intended.
+After adding the IP pool configuration to your parameter file, you can proceed with deploying the Bicep file. This action sets up your new cluster with the specified IP address pool configuration, allowing you to utilize the IP pool as intended.
 
 By following these instructions, you can create a new Nexus Kubernetes cluster with the desired IP pool configuration and take advantage of the IP address pool for your cluster services.
 
 ### Example parameters
 
-This parameter file is intended to be used with the [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) Bicep template for creating a cluster with BGP load balancer enabled. It contains the necessary configuration settings to set up the cluster with BGP load balancer functionality. By using this parameter file with the Bicep template, you can create a cluster with the desired BGP load balancer capabilities.
+This parameter file is intended to be used with the [quickStart guide](./quickstarts-kubernetes-cluster-deployment-bicep.md) Bicep file for creating a cluster with BGP load balancer enabled. It contains the necessary configuration settings to set up the cluster with BGP load balancer functionality. By using this parameter file with the Bicep file, you can create a cluster with the desired BGP load balancer capabilities.
 
 ```json
 {

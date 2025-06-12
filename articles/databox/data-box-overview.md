@@ -19,6 +19,9 @@ The Microsoft Azure Data Box cloud solution lets you send terabytes of data into
 :::zone-end
 
 :::zone pivot="dbx"
+
+[!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
+
 The Microsoft Azure Data Box cloud solution lets you send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device. Each storage device has a maximum usable storage capacity of 80 TB and is transported to your datacenter through a regional carrier. The device has a rugged casing to protect and secure data during the transit.
 :::zone-end
 
@@ -64,7 +67,7 @@ Azure providers and non-Azure providers can ingest data from Azure Data Box. The
 You can use your Data Box data with many non-Azure service providers. For instance:
 
 - **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to back up and replicate large amounts of data from your Hyper-V machine to your Data Box.
-
+- **[Commvault](/azure/storage/solution-integration/validated-partners/backup-archive-disaster-recovery/commvault/commvault-solution-guide)** - leverages Azure Data Box to migrate petabyte scale backup and archive data from on-premises to Azure for network constrained environments.
 ## Benefits
 
 Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:
@@ -107,6 +110,7 @@ The Data Box device has the following features in this release.
 | Security                                                | Rugged device casing with tamper-proof custom screws <br> Intrusion detection system in device <br> Secure boot <br>Hardware Root of Trust <br> TPM 2.0  |
 | Data transfer rate                                      | Approx. 7 GB/s using SMB Direct on RDMA (100-GbE) for large files. Both data ports can be used, though not required. Performance might differ depending on the source and size of your files.      |
 | Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management |
+| Cooling capability                                      | Fan cooled internally. <br> Operating temp is (0-35)C normal with full performance and (35-45)C with reduced performance <br> Storage temp is (-40 to 60)C <br> Airflow details are 144 CFM/KW for 120 TB and 122 CFM/KW for 525 TB |
 
 [!INCLUDE [data-box-cable-adapter](../../includes/data-box-cable-adapter.md)]
 
@@ -116,7 +120,6 @@ The new version offers enhanced performance for data ingestion and upload, makin
  - There is significant performance improvement within the data copy service, ranging from 2x for small sized files (64K-512K), to up to 7x for large files (8 MB to 128 MB). The data copy service runs locally on the Data Box, connects to the user’s network-attached storage (NAS) device via the Server Message Block (SMB) protocol, and copies data to Data Box. This eliminates the need for an intermediate host to ingest data.
  -	High-speed transfers to Azure with data upload up to 5x faster for medium to large files, minimizing the lead time for your data to become accessible in the Azure cloud. 
  -	These improvements are achieved through optimized hardware and software stacks, including the use of RDMA for SMB, which collectively reduces CPU usage and enhance overall efficiency.
-
 :::zone-end
 
 :::zone pivot="dbx"
@@ -130,11 +133,11 @@ The new version offers enhanced performance for data ingestion and upload, makin
 | Storage capacity                                        | 100-TB device has 80 TB or usable capacity after RAID 5 protection|
 | Power rating                                            | The power supply unit is rated for 700 W. <br> Typically, the unit draws 375 W.|
 | Network interfaces                                      | 2 X 1-GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 10 GbE <br> 2 X 10-GbE interface - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
-| Data transfer                                      | Both import and export are supported.  |
+| Data transfer                                           | Both import and export are supported.  |
 | Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
 | Security                                                | Rugged device casing with tamper-proof custom screws <br> Tamper-evident stickers placed at the bottom of the device|
 | Data transfer rate                                      | Up to 80 TB in a day over a 10-GbE network interface        |
-| Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management  |
+| Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management |
 
 :::zone-end
 

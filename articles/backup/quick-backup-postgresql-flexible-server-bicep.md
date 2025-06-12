@@ -1,9 +1,10 @@
 ---
-title: Quickstart - Configure backup for Azure Database for PostgreSQL - Flexible Servers with a Bicep template
-description: Learn how to configure backup for your Azure Database for PostgreSQL - Flexible Server with a Bicep template.
+title: Quickstart - Configure backup for Azure Database for PostgreSQL - Flexible Servers with a Bicep file
+description: Learn how to configure backup for your Azure Database for PostgreSQL - Flexible Server with a Bicep file.
 ms.devlang: azurecli
 ms.custom:
   - ignite-2024
+  - build-2025
 ms.topic: quickstart
 ms.date: 02/18/2025
 ms.service: azure-backup
@@ -11,11 +12,11 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Servers with a Bicep template
+# Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Servers with a Bicep file
 
-This quickstart describes how to configure backup Azure Database for PostgreSQL - Flexible Server with an Azure Bicep template.
+This quickstart describes how to configure backup Azure Database for PostgreSQL - Flexible Server with an Azure Bicep file.
 
-[Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible servers using multiple clients, such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This article focuses on the process of deploying a Bicep template to create a Backup vault and then configure backup for the Azure PostgreSQL - Flexible Server. Learn more about [developing Bicep templates](../azure-resource-manager/bicep/deploy-cli.md).
+[Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible servers using multiple clients, such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This article focuses on the process of deploying a Bicep file to create a Backup vault and then configure backup for the Azure PostgreSQL - Flexible Server. Learn more about [developing Bicep files](../azure-resource-manager/bicep/deploy-cli.md).
 
 Bicep is a language for declaratively deploying Azure resources. You can use Bicep instead of JSON to develop your Azure Resource Manager templates (ARM templates). Bicep syntax reduces the complexity and improves the development experience. Bicep is a transparent abstraction over ARM template JSON that provides all JSON template capabilities. During deployment, the Bicep CLI converts a Bicep file into an ARM template JSON. A Bicep file states the Azure resources and resource properties, without writing a sequence of programming commands to create resources.
 

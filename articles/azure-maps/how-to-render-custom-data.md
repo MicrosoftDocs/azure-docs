@@ -20,7 +20,7 @@ The following are examples of custom data:
 - Geometry overlays
 
 > [!TIP]
-> To show a simple map on a web page, it's often more cost effective to use the Azure Maps Web SDK, rather than to use the static image service. The web SDK uses map tiles; and unless the user pans and zooms the map, they will often generate only a fraction of a transaction per map load using browser caching. The Azure Maps Web SDK has options for disabling panning and zooming. Also, the Azure Maps Web SDK provides a richer set of data visualization options than a static map web service does.
+> To show a simple map on a web page, it's often more cost effective to use the Azure Maps Web SDK, rather than to use the static image service. The Web SDK uses map tiles; and unless the user pans and zooms the map, they will often generate only a fraction of a transaction per map load using browser caching. The Azure Maps Web SDK has options for disabling panning and zooming. Also, the Azure Maps Web SDK provides a richer set of data visualization options than a static map web service does.
 
 ## Prerequisites
 

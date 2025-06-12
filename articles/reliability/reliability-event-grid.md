@@ -29,7 +29,7 @@ Event Grid resource definitions for topics, system topics, domains, and event su
  
 ### Prerequisites
 
-For availability zone support, your Event Grid resources must be in a region that supports availability zones. To review which regions support availability zones, see the [list of supported regions](availability-zones-region-support.md). 
+For availability zone support, your Event Grid resources must be in a region that supports availability zones. To review which regions support availability zones, see the [list of supported regions](regions-list.md). 
 
 
 ### Pricing

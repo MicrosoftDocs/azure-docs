@@ -5,7 +5,7 @@ description: Learn to troubleshoot and solve common point-to-site connection pro
 author: chadmath
 ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/04/2024
+ms.date: 04/03/2025
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -348,6 +348,34 @@ The refresh token can show as expired/invalid due to several reasons. You can ch
 ### Solution
 
 In these scenarios, users need to reconnect. This triggers an interactive sign-in process in Microsoft Entra that issues a new refresh token and access token.
+
+## <a name="reauthenticate"></a>Azure VPN Client with Entra ID authentication doesn't prompt the user to reauthenticate every time it disconnects
+
+### Cause
+
+An Azure VPN client connecting using point-to-site with Entra ID authentication doesn't require interactive reauthentication when disconnected.
+
+The recommended sign-in frequency (SIF) or refresh token expiry time for the best experience with the Azure VPN Client should be set to greater than 2 hours, depending on what works best for the customer. This means the customer will remain connected for that duration without needing to reauthenticate interactively.
+
+Setting the SIF to "every time" is not recommended, as it would require interactive reauthentication every hour, causing frequent disconnects.
+
+With the sign-in cache enabled (default), the token is stored in permanent storage, allowing reconnection without interactive reauthentication even after disconnection, as long as the refresh token is valid. Meaning, the reconnection duration is within the SIF or refresh token expiry time.
+
+### Solution
+
+To ensure the Azure VPN client is prompted for reauthentication every time it gets disconnected, the customer can use the "sign-in cache disabled" option in the Azure VPN Client (version 4.0.0.0 and later). The customer can modify the user profile (XML) setting `cachesigninuser` to `false`.
+
+```
+<azvpnprofile> 
+    <clientauth> 
+      <aad>  
+          <cachesigninuser>false</cachesigninuser> 
+      </aad> 
+    </clientauth>    
+</azvpnprofile> 
+```
+
+When the sign-in cache is disabled, the token is stored in in-memory storage, valid for one connection (or session), regardless of its duration (from 30 minutes to 90 days). Once the connection is disconnected, the in-memory token is dropped. The duration of one connection depends on the refresh token expiry time or the SIF.
 
 ## VPN client error: Dialing VPN connection \<VPN Connection Name\>, Status = VPN Platform did not trigger connection
 

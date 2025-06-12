@@ -46,7 +46,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
     |Property  |Value  |
     |---------|---------|
     |Secure Output     |True         |
-    |URL     |[Your secret URI value]?api-version=7.0         |
+    |URL     |[Your secret URI value]?api-version=7.5        |
     |Method     |GET         |
     |Authentication     |System Assigned Managed Identity         |
     |Resource        |https://vault.azure.net       |
@@ -54,7 +54,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
     :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png" alt-text="Web activity":::
 
     > [!IMPORTANT]
-    > You must add **?api-version=7.0** to the end of your secret URI.  
+    > You must add **?api-version=7.5** to the end of your secret URI.
 
     > [!CAUTION]
     > Set the Secure Output option to true to prevent the secret value from being logged in plain text.  Any further activities that consume this value should have their Secure Input option set to true.

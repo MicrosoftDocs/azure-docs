@@ -1,7 +1,7 @@
 ---
 title: Back up Azure Database for PostgreSQL - Flexible Servers using REST API
 description: Learn how to back up Azure Database for PostgreSQL - Flexible servers using REST API.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - ignite-2024
 ms.date: 02/28/2025
