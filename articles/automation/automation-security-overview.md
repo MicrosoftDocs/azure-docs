@@ -14,9 +14,6 @@ author: jasminemehndir
 
 # Azure Automation account authentication overview
 
-> [!IMPORTANT]
-> Azure Automation Run as accounts, including  Classic Run as accounts have retired on **30 September 2023** and replaced with [Managed Identities](automation-security-overview.md#managed-identities). You would no longer be able to create or renew Run as accounts through the Azure portal. For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts).
-
 Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS). You can use runbooks to automate your tasks, or a Hybrid Runbook Worker if you have business or operational processes to manage outside of Azure. Working in any one of these environments require permissions to securely access the resources with the minimal rights required.
 
 This article covers authentication scenarios supported by Azure Automation and tells how to get started based on the environment or environments that you need to manage.
@@ -24,7 +21,7 @@ This article covers authentication scenarios supported by Azure Automation and t
 
 ## Automation account
 
-When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources, runbooks, assets, and configurations from the resources of other accounts. You can use Automation accounts to separate resources into separate logical environments or delegated responsibilities. For example, you might use one account for development, another for production, and another for your on-premises environment. Or you might dedicate an Automation account to manage operating system updates across all of your machines with [Update Management](update-management/overview.md).
+When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources, runbooks, assets, and configurations from the resources of other accounts. You can use Automation accounts to separate resources into separate logical environments or delegated responsibilities. For example, you might use one account for development, another for production, and another for your on-premises environment.
 
 An Azure Automation account is different from your Microsoft account or accounts created in your Azure subscription. For an introduction to creating an Automation account, see [Create an Automation account](./quickstarts/create-azure-automation-account-portal.md).
 
@@ -45,7 +42,7 @@ Here are some of the benefits of using managed identities:
 - Using a managed identity instead of the Automation Run As account simplifies management. 
 - Managed identities can be used without any additional cost.
 
-- You don't have to specify the Run As connection object in your runbook code. You can access resources using your Automation account's managed identity from a runbook without creating certificates, connections, etc.
+- You can access resources using your Automation account's managed identity from a runbook without creating certificates, connections, etc.
 
 An Automation account can authenticate using two types of managed identities:
 
