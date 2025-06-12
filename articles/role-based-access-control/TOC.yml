@@ -128,9 +128,9 @@
     - name: Example conditions for Blob Storage
       href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
     - name: Granular RBAC
-      href: ../azure-monitor/logs/granular-rbac-log-analytics.md
+      href: ../azure-monitor/logs/granular-rbac-log-analytics.md?toc=/azure/role-based-access-control/toc.json
     - name: Microsoft Entra repository permissions
-      href: ../azure/containers/container-registry/container-registry-rbac-abac-repository-permissions.md
+      href: ../containers/container-registry/container-registry-rbac-abac-repository-permissions.md?toc=/azure/role-based-access-control/toc.json
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments
