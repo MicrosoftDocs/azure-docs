@@ -1,15 +1,15 @@
 ---
-title: Create application groups to organize Azure resources
-description: Create an application group to logically organize and manage Azure resources related to your integration solutions.
+title: Organize Azure Resources with Application Groups
+description: Learn how to organize and manage Azure resources based on your integration solutions by creating application groups.
 ms.service: azure
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/07/2024
+ms.date: 06/10/2025
 # CustomerIntent: As an integration developer, I want a way to logically organize and manage the Azure resources related to my organization's integration solutions.
 ms.subservice: azure-integration-environments
 ---
 
-# Create an application group (Preview)
+# Organize and manage Azure resources by creating application groups (Preview)
 
 > [!NOTE]
 >
