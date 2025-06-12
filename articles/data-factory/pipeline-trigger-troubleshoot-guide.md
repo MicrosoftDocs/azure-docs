@@ -274,6 +274,5 @@ For more troubleshooting help, try these resources:
 
 *  [Azure Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Azure Data Factory feature requests](/answers/topics/azure-data-factory.html)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
 *  [X information about Azure Data Factory](https://x.com/hashtag/DataFactory)
