@@ -84,11 +84,11 @@ Managing redirects is critical for search engine optimization (SEO), user experi
 
     This approach eliminates the need to create a separate rule for each tenant ID, allowing you to handle dynamic routing with fewer rules.
 
-# [**Portal**](#tab/portal)
+    # [**Portal**](#tab/portal)
 
     :::image type="content" source="./media/rules-engine-scenarios/redirect-url-path-segment.png" alt-text="Screenshot that shows how to use fixed-length path segment to redirect URL." lightbox="./media/rules-engine-scenarios/redirect-url-path-segment.png":::
 
-# [**ARM**](#tab/arm)
+    # [**ARM**](#tab/arm)
 
     ```json
     {
@@ -119,7 +119,7 @@ Managing redirects is critical for search engine optimization (SEO), user experi
     }
     ```
 
----
+    ---
 
 - **Redirect based on dynamic-length URL path segments:** When the URL path segment has a dynamic length, you can extract it using the `{url_path:seg#}`. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
 
@@ -127,11 +127,11 @@ Managing redirects is critical for search engine optimization (SEO), user experi
 
     This method avoids creating separate rules for each tenant ID, enabling more efficient configuration.
 
-# [**Portal**](#tab/portal)
+    # [**Portal**](#tab/portal)
 
-N/A
+    N/A
 
-# [**ARM**](#tab/arm)
+    # [**ARM**](#tab/arm)
 
     ```json
     {
@@ -162,17 +162,17 @@ N/A
     }
     ```
 
----
+    ---
 
 - **Redirect based on part of the incoming hostname:** You can redirect requests to different origins by extracting part of the incoming hostname.
 
     For example, you can capture `tenantName` from `https://[tenantName].poc.contoso.com/GB` to redirect the request to `s1.example.com/Buyer/Main?realm=[tenantName]&examplename=example1` using the offset and length in server variable in the format of `{hostname:0:-16}`. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
 
-# [**Portal**](#tab/portal)
+    # [**Portal**](#tab/portal)
 
     :::image type="content" source="./media/rules-engine-scenarios/redirect-incoming-hostname.png" alt-text="Screenshot that shows how to use incoming hostname to redirect URL." lightbox="./media/rules-engine-scenarios/redirect-incoming-hostname.png":::
 
-# [**ARM**](#tab/arm)
+    # [**ARM**](#tab/arm)
 
     ```json
     {
@@ -217,7 +217,7 @@ N/A
     }
     ```
 
----
+    ---
 
 ## Scenario 2: Populate or modify a response header based on a request header value
 
