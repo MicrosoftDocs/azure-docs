@@ -228,7 +228,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     node server.js
     ```
 
-1. Open your browser and visit `localhost:8080/` to see the app running. You should see the default greeting message.
+1. Open your browser and visit `localhost:8080` to see the app running. You should see the default greeting message.
 
     :::image type="content" source="media/howto-variant-feature-flags-javascript/default-variant.png" alt-text="Screenshot of the Quote of the day app, showing no greeting message for the user.":::
 
