@@ -1,10 +1,11 @@
 ---
-title: Front Door Rules Engine Scenarios and Configurations
+title: Rules Engine Scenarios and Configurations
+titleSuffix: Azure Front Door 
 description: Learn about the scenarios and configurations for Azure Front Door Rules Engine.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: concept-article
+ms.topic: how-to
 ms.date: 06/12/2025
 
 ---
@@ -31,7 +32,7 @@ You can define various rule [actions](front-door-rules-engine-actions.md) based 
 
 1.	Enable complex scenarios using regex and server variables: capture dynamic values from incoming requests or responses, and combine them with static strings or other variables.
 
-This article covers common use cases supported by the rules engine, and how to configure these rules to meet your needs. It also includes Azure Resource Manager (ARM) template examples to help automate deployment of these capabilities.
+This article covers common use cases supported by the Azure Front Door rules engine, and provides detailed configuration examples to meet various business and technical requirements.
 
 ## Scenario 1: Redirect using query string, URL path segments, or incoming hostname captures
 
