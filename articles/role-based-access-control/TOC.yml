@@ -66,8 +66,6 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
-    - name: Granular RBAC
-      href: ../azure-monitor/logs/granular-rbac.md
 - name: How-to guides
   items:
   - name: List role definitions
@@ -129,6 +127,10 @@
       href: conditions-role-assignments-template.md
     - name: Example conditions for Blob Storage
       href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
+    - name: Granular RBAC
+      href: ~/azure-monitor/logs/granular-rbac-log-analytics.md 
+    - name: Microsoft Entra repository permissions
+      href: ~/azure/containers/container-registry/container-registry-rbac-abac-repository-permissions.md
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments
