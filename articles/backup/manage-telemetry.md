@@ -7,7 +7,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Manage telemetry settings
+# Manage telemetry settings in Microsoft Azure Backup Server
 
 >[!NOTE]
 >This feature is applicable for MABS V3 UR2 and later.
