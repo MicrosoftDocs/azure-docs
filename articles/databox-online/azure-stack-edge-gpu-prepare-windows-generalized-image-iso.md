@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 06/10/2025
+ms.date: 06/12/2025
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to quickly deploy new Windows virtual machines on my Azure Stack Edge Pro GPU device, and I want to use an ISO image for OS installation.
 ---
@@ -83,7 +83,7 @@ To create the VHD, follow these steps:
 
 #### Create Hyper-V VM from VHD
 
-Now you use the VHD you just created to create a new virtual machine.
+Now use the VHD you just created to create a new virtual machine.
 
 To create your new virtual machine, follow these steps:
 

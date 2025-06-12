@@ -7,7 +7,7 @@ author: alkohli
 ms.service: azure-stack-edge
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 06/10/2025
+ms.date: 06/12/2025
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -76,7 +76,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
     ![Screenshot of the Overview pane in Virtual Machines view for an Azure Stack Edge device. The Enable button, to enable VM cloud management, is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)
 
-1. The first step is to add a VM image. You already uploaded a VHD into the storage account in the earlier step. You use this VHD to create a VM image.
+1. The first step is to add a VM image. You already uploaded a VHD into the storage account in the earlier step. Use this VHD to create a VM image.
 
     Select **+ Add image** to download the VHD from the storage account and add it to the device. The download process takes several minutes depending on the size of the VHD and the internet bandwidth available for the download. 
 
@@ -140,7 +140,7 @@ Follow these steps to create a VM after you've created a VM image.
 
     Select **Next: Disks**.
 
-1. On the **Disks** tab, you attach disks to your VM. 
+1. On the **Disks** tab, attach disks to your VM. 
     
     1. You can choose to **Create and attach a new disk** or **Attach an existing disk**.
 
@@ -152,7 +152,7 @@ Follow these steps to create a VM after you've created a VM image.
 
     1. Repeat the preceding process to add more disks. After the disks are created, they show up on the **Disks** tab. Select **Next: Networking**.
 
-1. On the **Networking** tab, you configure the network connectivity for your VM.
+1. On the **Networking** tab, configure the network connectivity for your VM.
 
     |Parameter  |Description |
     |---------|---------|
@@ -198,7 +198,7 @@ Follow these steps to create a VM after you've created a VM image.
 
     ![Screenshot that shows the Details tab on the Overview pane for a virtual machine in Azure Stack Edge. The Overview label and the IP Address in Networking are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
 
-    You use the IP address for the network interface to connect to the VM.
+    Use the IP address for the network interface to connect to the VM.
 
 ## Connect to a VM
 

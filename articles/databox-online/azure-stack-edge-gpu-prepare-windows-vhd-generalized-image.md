@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 06/10/2025
+ms.date: 06/12/2025
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
@@ -93,7 +93,7 @@ Follow these steps:
     Convert-VHD -Path <source VHD path> -DestinationPath <destination-path.vhd> -VHDType Fixed 
     ```
 -->
-You use this fixed-size VHD for all the subsequent steps in this article.
+Use this fixed-size VHD for all the subsequent steps in this article.
 
 #### Create Hyper-V VM from the fixed-size VHD
 
