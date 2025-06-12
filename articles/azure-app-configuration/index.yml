@@ -9,6 +9,7 @@ metadata:
   ms.service: azure-app-configuration
   ms.custom:
     - build-2024
+    - build-2025
   ms.topic: landing-page
   ms.date: 04/16/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -184,7 +185,7 @@ landingContent:
         - text: Overview
           url: configuration-provider-overview.md
         - text: .NET provider
-          url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
+          url: reference-dotnet-provider.md
         - text: Java Spring provider
           url: https://go.microsoft.com/fwlink/?linkid=2180917
         - text: Python provider

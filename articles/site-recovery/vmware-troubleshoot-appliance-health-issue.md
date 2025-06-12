@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot VMware replication appliance health issues in Azure Site Recovery 
 description: This article describes troubleshooting replication appliance health issues in Azure Site Recovery. 
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.author: ankitadutta
+ms.author: jsuri
 ms.date: 08/16/2024
 
 ---

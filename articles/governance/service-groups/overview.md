@@ -6,6 +6,8 @@ ms.author: rithorn
 ms.service: azure-policy
 ms.topic: overview
 ms.date: 05/19/2025
+ms.custom:
+  - build-2025
 ---
 
 # What are Azure Service Groups?
@@ -34,7 +36,9 @@ The same resources can be connected to many different service groups, allowing d
 :::image type="content" source="./media/multiple-service-group.png" alt-text="Diagram that shows multiple service group branches." Lightbox="./media/multiple-service-group.png":::
 
 ### Flexible Membership
+
 Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group, or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows resources or resource containers to have memberships with multiple different Service Groups. A member is any resource, resource group, or subscription that is connected to a Service Group through a new resource called "MemberOf" Relationship. The Service Group allows new scenarios where the same resources can be connected to many Service Group Trees, enabling new ways to view your data.  
+
 
 #### Example Scenarios 
 * Aggregating Health Metrics
@@ -83,6 +87,15 @@ This table shows a summary of the differences between the groups.
 **: Tags can be applied across scopes and are added to resources individually. Azure Policy has built-in policies that can help manage tags.
 
 ***: Azure tags can be used as criteria within Azure Policy to apply policies to certain resources. Azure tags are subject to limitations.
+
+### Important facts about service groups
+
+- A single tenant can support 10,000 service groups.
+- A service group tree can support up to ten levels of depth.
+  This limit doesn't include the root level or the subscription level.
+- Each service group can have many children.
+- A single service group name/ID can be up to 250 characters.
+- There are no limits of number of members of service groups, there is a limit of 2,000 relationships (including ServiceGroupMember) within a subscription
 
 ### The Root Service Group 
 
@@ -148,7 +161,9 @@ This role manages all aspects of Service Groups and Relationships and is the def
 }
 ```
 #### Service Group Contributor 
+
 The Service Group Contributor role is given to users when they need to create or manage a Service Group's lifecycle. This role allows for all actions except for Role Assignment capabilities.  
+
 ```json
 {
   "assignableScopes": [

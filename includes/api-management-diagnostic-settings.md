@@ -4,6 +4,8 @@ ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/24/2025
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 
@@ -29,4 +31,7 @@ To configure a diagnostic setting for collection of resource logs:
 
 > [!NOTE]
 > Adding a diagnostic setting object might result in a failure if the [MinApiVersion property](/dotnet/api/microsoft.azure.management.apimanagement.models.apiversionconstraint.minapiversion) of your API Management service is set to any API version higher than 2022-09-01-preview. 
-For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings).
+
+> [!NOTE]
+> To enable diagnostic settings for API Management workspaces, see [Create and manage a workspace](../articles/api-management/how-to-create-workspace.md#enable-diagnostic-settings-for-monitoring-workspace-apis).
+

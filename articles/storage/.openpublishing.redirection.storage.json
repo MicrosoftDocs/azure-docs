@@ -1456,6 +1456,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/storage/files/storage-files-quick-create-use-windows.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-portal.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/files/storage-sync-files-networking-overview.md",
             "redirect_url": "/azure/storage/file-sync/file-sync-networking-overview",
             "redirect_document_id": true

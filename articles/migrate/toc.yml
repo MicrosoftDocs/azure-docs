@@ -33,14 +33,8 @@ items:
   items:
     - name: Appliance requirements
       href: migrate-appliance.md
-    - name: Discover VMware estate
-      href: tutorial-discover-vmware.md
     - name: Scoped discovery of VMware estate
       href: set-discovery-scope.md
-    - name: Discover Hyper-v estate
-      href: tutorial-discover-hyper-v.md
-    - name: Discover physical servers and servers running in AWS and GCP
-      href: tutorial-discover-physical.md
     - name: Appliance configuration
       items:
       - name: Provide server credentials
@@ -159,6 +153,8 @@ items:
       items:
       - name: Agent-based migration using portal
         href: tutorial-migrate-vmware-agent.md
+      - name: Hydration process 
+        href: hydration-process.md
     - name: Agentless migrations
       items:
       - name: Agentless migrations using portal
@@ -188,6 +184,10 @@ items:
     items:
     - name: Migrate VMware servers 
       items:
+        - name: Discover VMware estate
+          href: tutorial-discover-vmware.md
+        - name: Assess VMWare servers  
+          href: ../azure-vmware/tutorial-access-private-cloud.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json  
         - name: Migrate to Azure Cloud
           href: tutorial-migrate-vmware.md
         - name: Migrate to Azure Local 
@@ -196,13 +196,19 @@ items:
       items:
 #       - name: Create Business case and assessment
 #         href: tutorial-assess-hyper-v.md
+        - name: Discover Hyper-v estate
+          href: tutorial-discover-hyper-v.md
+        - name: Assess large number of servers in Hyper-V environment
+          href: scale-hyper-v-assessment.md
         - name: Migrate to Azure Cloud
           href: tutorial-migrate-hyper-v.md
         - name: Migrate to Azure Local
           href: /azure/azure-local/migrate/migration-azure-migrate-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Migrate physical servers
       items:
-        - name: Create Business case and assessment
+        - name: Discover physical servers and servers running in AWS and GCP
+          href: tutorial-discover-physical.md
+        - name: Assess Physical servers
           href: tutorial-assess-physical.md
         - name: Migrate Physical servers to Azure
           href: tutorial-migrate-physical-virtual-machines.md
@@ -303,8 +309,6 @@ items:
       items:
       - name: Assess large number of servers in VMware environment
         href: scale-vmware-assessment.md
-      - name: Assess large number of servers in Hyper-V environment
-        href: scale-hyper-v-assessment.md
       - name: Assess large numbers of physical servers
         href: scale-physical-assessment.md
   - name: Migrate

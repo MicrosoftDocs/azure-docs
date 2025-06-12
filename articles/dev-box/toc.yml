@@ -48,6 +48,8 @@ items:
         href: how-to-configure-network-connections.md
       - name: Manage a dev box project
         href: how-to-manage-dev-box-projects.md
+      - name: Configure project policies
+        href: how-to-configure-project-policy.md
       - name: Manage a dev box definition
         href: how-to-manage-dev-box-definitions.md
       - name: Manage a dev box pool
@@ -61,6 +63,10 @@ items:
       - name: Monitor Dev Box
         href: monitor-dev-box.md
         displayName: diagnostic, logs
+      - name: Configure conditional access policies for dev tunnels
+        href: how-to-conditional-access-dev-tunnels-service.md
+      - name: Move dev box pools between regions
+        href: how-to-move-dev-box-pool-region.md
   - name: Prepare images
     items:
       - name: Configure an Azure compute gallery
@@ -75,6 +81,8 @@ items:
       - name: Write an image definition file
         href: how-to-write-image-definition-file.md
         displayName: customizations, image definition, team customization
+      - name: Create an image definition file with Copilot
+        href: how-to-use-copilot-generate-image-definition-file.md
       - name: Write an individual customization file
         href: how-to-write-individual-customization-file.md
         displayName: customizations, image definition, personal customization, individual
@@ -94,6 +102,12 @@ items:
         displayName: Windows App, connect, access dev box, RDP, iPad
       - name: Use multiple monitors
         href: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
+      - name: Connect to a dev box with a dev tunnel
+        href: how-to-set-up-dev-tunnels.md
+  - name: AI on Dev Box
+    items: 
+      - name: Configure Serverless GPU
+        href: how-to-configure-dev-box-serverless-gpu.md
   - name: Security
     items:
       - name: Provide access to project admins
@@ -158,6 +172,9 @@ items:
         href: how-to-get-help.md
   - name: Reference
     items:
+      - name: 'Reference: imagedefinition.yaml and task.yaml files'
+        href: reference-dev-box-customizations.md
+        displayName: Customize, schema, yaml, imagedefinition, task
       - name: Install Azure CLI devcenter extension
         href: how-to-install-dev-box-cli.md
       - name: Azure CLI - az devcenter

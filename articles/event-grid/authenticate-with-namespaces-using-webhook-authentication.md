@@ -2,7 +2,8 @@
 title: Authenticate with namespaces using webhook auth
 description: This article shows you how to authenticate with Azure Event Grid namespace using webhook or Azure function. 
 ms.topic: how-to
-ms.custom: build-2025
+ms.custom:
+  - build-2025
 ms.date: 04/30/2025
 author: Connected-Seth
 ms.author: seshanmugam
@@ -51,49 +52,44 @@ For information on configuring system and user-assigned identities using the Azu
 ## Grant the managed identity appropriate access to function or webhook
 Grant the managed identity of your Event Grid namespace the appropriate access to the target Azure function or webhook. 
 
-### Use Azure portal
+To set up custom authentication for an Azure function, follow these steps:
 
-1. Identify the managed identity. 
-    1. Navigate to your **Event Grid namespace** in the [Azure portal](https://portal.azure.com). 
-    1. On the **Event Grid namespace** page, select **Identity** on the left menu.
-    1. Copy the **object ID** of the managed identity. 
-1. Navigate to your **Azure function app** or the **app service hosting the Webhook**. 
-1. Assign appropriate role to the managed identity. 
-    1. On the **Function App** page, select **Access Control (IAM)** on the left menu, and then select **Add Role Assignment**. 
-    1. Choose a role like **Contributor** or **Function App Contributor** (or a custom role with required permissions). 
-    1. Scope it appropriately (for example, at the resource or resource group level). 
-    1. Select **Assign access to**, and then select user, group, or service principal. 
-    1. Paste the object ID of the managed identity for your Event Grid namespace. 
-1. **Save** and **Confirm** access. Complete the role assignment and confirm access is reflected under the **Role assignments** tab. 
+### Create a Microsoft Entra app
+1. [Create a Microsoft Entra App in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app).
+1. On the overview page of the app, note the **Application (client) ID**.
 
-### Use Azure CLI
+    :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/application-client-id.png" alt-text="Screenshot showing the Overview page of a Microsoft Entra ID app with the application or client ID highlighted.":::
+1. On the left menu, select **Expose an API**, and then select **Add** next to **Application ID URI**. 
+1. Note down the **application ID URI** On the **Edit application ID URI** page, then select **Save**. 
 
-1. Get the object ID of the managed identity for your Event Grid namespace. 
+    :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/application-id-uri.png" alt-text="Screenshot showing the application ID URI of the Microsoft Entra app." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/application-id-uri.png":::    
 
-    ```azurecli
-    az eventgrid namespace identity show \ 
-      --name <eventgrid-namespace-name> \ 
-      --resource-group <eventgrid-resource-group> \ 
-      --query principalId \ 
-      --output tsv 
-    ```    
-    
-    Save the output (let’s call it EG_MI_ID). 
-2. Assign a role (for example, Contributor) to the managed identity on the Azure function or Webhook resource.
+### Set up authentication for Azure function
+If you have a basic Azure Function created from the Azure portal, follow these steps to set up authentication and validate the Microsoft Entra ID token created using a managed identity. 
 
-    ```azurecli
-    az role assignment create \ 
-      --assignee-object-id <EG_MI_ID> \ 
-      --assignee-principal-type ServicePrincipal \ 
-      --role "Contributor" \  # or use a least-privileged custom role 
-      --scope $(az functionapp show \ 
-                 --name <function-app-name> \ 
-                 --resource-group <function-app-resource-group> \ 
-                 --query id --output tsv) 
-    ```    
-    You can replace **Contributor** with a custom role name that grants only required permissions (for example, **Azure Event Grid Event Subscription Contributor** for webhooks). 
+1. Navigate to your Azure function app.
+1. On the left menu, select **Authentication**, and then select **Add identity provider**. 
 
- ## Configure custom webhook authentication settings on your Event Grid namespace 
+    :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/function-add-identity-provider-button.png" alt-text="Screenshot showing the Authentication page." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/function-add-identity-provider-button.png":::
+1. On the **Add an identity provider** page, for **Identity Provider**, select **Microsoft** from the drop-down list. 
+1. In the **App registration**, do these steps: 
+    1. For **Client ID**, enter the client ID of Microsoft Entra app you noted earlier. 
+    1. For **Issuer URL**, add the issuer URL in the form: `https://login.microsoftonline.com/<tenantid>/v2.0`.
+
+        :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/identity-provider-first-settings.png" alt-text="Screenshot showing the Add an identity provider with Microsoft as an identity provider." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/identity-provider-first-settings.png":::
+1. In the **Allowed token audiences**, add the **application UD URI** of the Microsoft Entra app you noted earlier. 
+1. In the **Additional checks** section, do these steps:
+    1. For **Client application development**, select **Allow requests from specific client applications**. 
+    1. On the **Allowed client applications** page, enter the **client ID** of the system-assigned managed identity used to generate the token. You can find this ID in the **enterprise app** of the Microsoft Entra ID resource.
+1. Choose additional settings based on specific requirements, and then select **Add**. 
+
+Now, generate and use the Microsoft Entra ID token.
+1. Generate a Microsoft Entra ID token using the **managed identity** with the **application ID URI** as the resources.
+1. Use this token to invoke the Azure function by including it in the request header. 
+
+
+
+## Configure custom webhook authentication settings on your Event Grid namespace 
 In this step, you configure custom webhook authentication settings on your Event Grid namespace using Azure portal and Azure CLI. You need to create the namespace first and then update it using the following steps. 
 
 ### Use Azure portal 
@@ -136,7 +132,7 @@ Replace <NAMESPACE_NAME> and <RESOURCE_GROUP_NAME> with your actual values, and 
 ### Request Headers 
 
 - Authorization: Bearer token 
-    - token is an Entra ID token for the managed identity configured to call the webhook. 
+    - token is a Microsoft Entra token for the managed identity configured to call the webhook. 
     
 ### Request payload 
 

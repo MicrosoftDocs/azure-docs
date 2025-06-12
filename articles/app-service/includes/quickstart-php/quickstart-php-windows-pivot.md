@@ -78,7 +78,7 @@ To complete this quickstart:
     When the web app has been created, the Azure CLI shows output similar to the following example:
 
     <pre>
-    Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
+    Local git is configured with url of &lt;URL>
     {
       "availabilityState": "Normal",
       "clientAffinityEnabled": true,
@@ -95,14 +95,10 @@ To complete this quickstart:
     You've created an empty new web app, with git deployment enabled.
 
     > [!NOTE]
-    > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
+    > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property. Save this URL as you need it later.
     >
 
-1. Browse to your newly created web app. Replace _&lt;app-name>_ with your unique app name created in the prior step.
-
-    ```bash
-    http://<app-name>.azurewebsites.net
-    ```
+1. Browse to your newly created web app. 
 
     Here's what your new web app should look like:
 
@@ -131,17 +127,13 @@ To complete this quickstart:
   remote: Finished successfully.
   remote: Running post deployment command(s)...
   remote: Deployment successful.
-  To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+  To &lt;URL>
       cc39b1e..25f1805  main -> main
   </pre>
 
 ## Browse to the app
 
 Browse to the deployed application using your web browser.
-
-```
-http://<app-name>.azurewebsites.net
-```
 
 The PHP sample code is running in an Azure App Service web app.
 

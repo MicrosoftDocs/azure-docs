@@ -3,11 +3,11 @@ title: Diagnostic logs
 titleSuffix: Azure Application Gateway
 description: Learn how to enable and manage logs for Azure Application Gateway.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/07/2025
-ms.author: greglin 
+ms.author: mbender 
 ---
 
 # Diagnostic logs for Application Gateway

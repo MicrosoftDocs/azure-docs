@@ -12,6 +12,9 @@ ms.custom:
   - build-2025
 ms.devlang: python
 zone_pivot_groups: redis-type
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 # customer intent: As a cloud developer, I want to quickly see a cache so that understand how to use Python with Azure Redis.
 ---
 
@@ -209,6 +212,8 @@ Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](
    Unlike the first example, If your token expires, this example automatically refreshes it.
 
 ## [Access Key Authentication](#tab/accesskey)
+
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 

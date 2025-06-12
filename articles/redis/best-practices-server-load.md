@@ -6,6 +6,8 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis 
 ---
 
 # Manage Server Load for Azure Managed Redis

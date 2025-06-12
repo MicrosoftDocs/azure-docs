@@ -5,6 +5,8 @@ ms.topic: how-to
 author: dougeby
 ms.author: avdcontent
 ms.date: 05/19/2025
+ms.custom:
+  - build-2025
 ---
 
 # Update session hosts using session host update in Azure Virtual Desktop (preview)
@@ -219,7 +221,7 @@ You can update the session host management policy before you schedule an update,
    Get-AzWvdSessionHostConfiguration @parameters | FL *
    ```
 
-3. *Optional*: If you want to update the session host management policy before scheduling an update, run the following command, using the `Update-AzWvdSessionHostManagement` cmdlet. Alternatively, you can override specific values when scheduling an update, which are used for that update only. For valid time zone values, see [Get-TimeZone PowerShell reference](/powershell/module/microsoft.powershell.management/get-timezone) and use the value from the `StandardName` property.
+3. *Optional*: If you want to update the session host management policy before scheduling an update, run the following command, using the `Update-AzWvdSessionHostManagement` cmdlet. Alternatively, you can override specific values when scheduling an update, which are used for that update only. For valid time zone values, see [Get-TimeZone PowerShell reference](/powershell/module/microsoft.powershell.management/get-timezone) and use the value from the `StandardName` property. We recommend setting `UpdateDeleteOriginalVM = $true` so that you don't need to clean up session host resources after an update.
 
    ```azurepowershell
    $parameters = @{

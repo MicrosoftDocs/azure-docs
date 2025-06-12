@@ -9,15 +9,15 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.custom: devx-track-javascript
 ms.topic: tutorial
-ms.date: 02/02/2025
+ms.date: 05/22/2025
 #Customer intent: I want to learn how to use Azure App Configuration JavaScript client library.
 ---
 
-# JavaScript Configuration Provider
+# JavaScript configuration provider
 
 [![configuration-provider-npm-package](https://img.shields.io/npm/v/@azure/app-configuration-provider?label=@azure/app-configuration-provider)](https://www.npmjs.com/package/@azure/app-configuration-provider)
 
-Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The JavaScript configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional functionality above the Azure SDK for JavaScript.
+Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The JavaScript configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional [functionality](./configuration-provider-overview.md#feature-development-status) above the Azure SDK for JavaScript.
 
 ## Load configuration
 
@@ -118,7 +118,7 @@ The `AzureAppConfiguration` type extends the following interfaces:
     const fontSize2 = settingsObj.app.font.size; // object-style configuration representation
     ```
 
-### JSON Content Type Handling
+### JSON content type handling
 
 You can [create JSON key-values](./howto-leverage-json-content-type.md#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider will automatically convert the key-values of valid JSON content type (e.g. application/json) into object.
 
@@ -228,7 +228,7 @@ appConfig.refresh();
 disposer.dispose();
 ```
 
-### Refresh on sentinel key (Legacy)
+### Refresh on sentinel key
 
 A sentinel key is a key that you update after you complete the change of all other keys. The configuration provider will monitor the sentinel key instead of all selected key-values. When a change is detected, your app refreshes all configuration values.
 
@@ -256,7 +256,7 @@ const appConfig = await load(endpoint, credential, {
         selectors: [ { keyFilter: "*", labelFilter: "Prod" } ],
         refresh: {
             enabled: true, // enable refreshing feature flags
-            refreshIntervalInMs: 10_000
+            refreshIntervalInMs: 60_000
         }
     }
 });
@@ -351,6 +351,79 @@ const resolveSecret = (url) => "From Secret Resolver";
 const appConfig = await load(endpoint, credential, {
     keyVaultOptions: {
         secretResolver: resolveSecret
+    }
+});
+```
+
+You can also set `clientOptions` property to configure `SecretClientOptions` used to connect to Azure Key Vault that has no registered `SecretClient`.
+
+```typescript
+const credential = new DefaultAzureCredential();
+const appConfig = await load(endpoint, credential, {
+    keyVaultOptions: {
+        credential: credential,
+        clientOptions: { // configure a custom SecretClientOptions
+            retryOptions: { 
+                maxRetries: 3, 
+                maxRetryDelayInMs: 1000 
+            }
+        }
+    }
+});
+```
+
+### Parallel secret resolution
+
+Azure Key Vault doesn't provide a batch API for retrieving multiple secrets in a single request. When your application needs to load numerous Key Vault references, you can improve performance by enabling parallel secret resolution using the `parallelSecretResolutionEnabled` property in `KeyVaultOptions`. This allows the provider to fetch multiple secrets in parallel rather than sequentially:
+
+
+```typescript
+const credential = new DefaultAzureCredential();
+const appConfig = await load(endpoint, credential, {
+    keyVaultOptions: {
+        credential: credential,
+        parallelSecretResolutionEnabled: true
+    }
+});
+```
+
+> [!NOTE]
+> When resolving secret in parallel, you may encounter the [service limit](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions) of Azure Key Vault.
+> To handle throttling effectively, implement the [client-side throttling best practices](/azure/key-vault/general/overview-throttling#how-to-throttle-your-app-in-response-to-service-limits) by configuring appropriate retry options for the `SecretClient`. You can either register custom `SecretClient` instances or configure `clientOptions` via the `AzureAppConfigurationOptions.keyVaultOptions`.
+
+
+## Snapshot
+
+[Snapshot](./concept-snapshots.md) is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
+
+You can use snapshot selector to load key-values or feature flags from a snapshot:
+
+```typescript
+const appConfig = await load(endpoint, credential, {
+    selectors: [
+        { snapshotName: "MySnapshot" }, // load key-values from snapshot
+        { keyFilter: "test*", labelFilter: "test" }
+    ],
+    featureFlagOptions: {
+        enabled: true,
+        selectors: [
+            { snapshotName: "MySnapshot" }, // load feature flags from snapshot
+            { keyFilter: "*", labelFilter: "test" }
+        ]
+    }
+});
+```
+
+## Startup retry
+
+Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
+
+You can customize this behavior via the `AzureAppConfigurationOptions.startupOptions`:
+
+```typescript
+const appConfig = await load(endpoint, credential, { 
+    startupOptions: { 
+        timeoutInMs: 300_000
     }
 });
 ```

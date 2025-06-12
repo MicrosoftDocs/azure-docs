@@ -14,6 +14,9 @@ ms.custom:
   - devx-track-extended-java
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 ms.devlang: java
 zone_pivot_groups: redis-type
 ---

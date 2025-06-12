@@ -1,13 +1,15 @@
 ---
 title: Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)
 description: Learn how to request billing ownership of Azure billing products from other users for a Microsoft Partner Agreement (MPA).
-author: bandersmsft
-ms.reviewer: amberbhargava
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: jkinma
+ms.custom:
+  - build-2025
 ---
 
 # Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)

@@ -3,20 +3,19 @@ title: User-defined functions in Bicep
 description: Describes how to define and use user-defined functions in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 04/28/2025
+ms.date: 05/16/2025
 ---
 
 # User-defined functions in Bicep
 
 Within your Bicep file, you can create your own functions. These functions are available for use in your Bicep files. User-defined functions are separate from the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files. Using user-defined functions automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
-[Bicep CLI version 0.26.X or higher](./install.md) is required to use this feature.
+[Bicep CLI version 0.26.X or higher](https://github.com/Azure/bicep/releases/tag/v0.26.54) is required to use this feature.
 
 ## Limitations
 
 There are some restrictions when defining a user function:
 
-* The function can't access variables.
 * The function can only use parameters that are defined in the function.
 * The function can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions.
 * Parameters for the function can't have default values.
@@ -29,8 +28,6 @@ Use the `func` statement to define user-defined functions.
 @<decorator>(<argument>)
 func <user-defined-function-name> (<argument-name> <data-type>, <argument-name> <data-type>, ...) <function-data-type> => <expression>
 ```
-
-## Examples
 
 The following examples show how to define and use user-defined functions:
 
@@ -71,7 +68,7 @@ The outputs from the preceding examples are:
 | nameArray | Array | ["John"] |
 | addNameArray | Array | ["Mary","Bob","John"] |
 
-With [Bicep CLI version 0.23.X or higher](./install.md), you have the flexibility to invoke another user-defined function within a user-defined function. In the preceding example, with the function definition of `sayHelloString`, you can redefine the `sayHelloObject` function as:
+You have the flexibility to invoke another user-defined function within a user-defined function. In the preceding example, with the function definition of `sayHelloString`, you can redefine the `sayHelloObject` function as:
 
 ```bicep
 func sayHelloObject(name string) object => {
@@ -101,6 +98,50 @@ The output from the preceding example is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | elements | positiveInt | 3 |
+
+As of [Bicep CLI version 0.30.X](https://github.com/Azure/bicep/releases/tag/v0.30.3), user-defined functions can access variables defined in the same Bicep file. The following example demonstrates how a user-defined function can reference a variable:
+
+```bicep
+var greetingPrefix = 'Hello'
+
+func greet(name string) string => '${greetingPrefix}, ${name}!'
+
+output message string = greet('Azure')
+```
+
+The output from the preceding example is:
+
+| Name    | Type   | Value           |
+| ------- | ------ | --------------- |
+| message | String | Hello, Azure!   |
+
+Starting with [Bicep CLI version 0.31.X](https://github.com/Azure/bicep/releases/tag/v0.31.34), variables imported from other Bicep files are accessible within your user-defined functions, just like variables defined locally.
+
+Suppose you have a Bicep file named `shared.bicep` that exports a variable:
+
+```bicep
+// shared.bicep
+@export()
+var sharedPrefix = 'Contoso'
+```
+
+You can import this variable into your main Bicep file and use it inside a user-defined function:
+
+```bicep
+import shared from './shared.bicep'
+
+func makeResourceName(suffix string) string => '${shared.sharedPrefix}-${suffix}'
+
+output resourceName string = makeResourceName('storage')
+```
+
+The output from the preceding example is:
+
+| Name         | Type   | Value           |
+| ------------ | ------ | --------------- |
+| resourceName | String | Contoso-storage |
+
+For more information on importing variables, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
 
 ## Use decorators
 

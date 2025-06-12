@@ -7,6 +7,8 @@ ms.custom:
   - "devx-track-csharp, mvc"
   - build-2025
 ms.devlang: csharp
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET
 

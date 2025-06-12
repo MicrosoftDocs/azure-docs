@@ -24,7 +24,7 @@ The automatic or manual updates described in this article are relevant to the SA
 Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams. 
 
 > [!NOTE]
-> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Preview).
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Limited preview).
 >
 
 ## Prerequisites
@@ -88,7 +88,7 @@ Be sure to check for any other available updates, such as SAP change requests.
 
 ## Update your system for attack disruption
 
-Automatic attack disruption for SAP is supported in Microsoft's unified security operations platform, and requires:
+Automatic attack disruption for SAP is supported in the Microsoft Defender portal with Defender XDR, and requires:
 
 - A workspace [onboarded to the Defender portal](../microsoft-sentinel-defender-portal.md).
 

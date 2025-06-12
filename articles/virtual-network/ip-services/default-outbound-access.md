@@ -62,13 +62,8 @@ Some examples of configurations that won't work when using default outbound acce
  
 There are multiple ways to turn off default outbound access. The following sections describe the options available to you.
  
-### Utilize the Private Subnet parameter (public preview)
+### Utilize the Private Subnet parameter
 
-> [!IMPORTANT]
-> Private Subnets are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
- 
 * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
  
 * VMs on a Private subnet can still access the Internet using explicit outbound connectivity.
@@ -166,7 +161,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 
 * In configurations using a User Defined Route (UDR) with a default route (0.0.0.0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
 
-* Private Subnets are not applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
+* Private Subnets aren't applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
  
 ### Add an explicit outbound connectivity method
  
@@ -177,7 +172,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
 
 >[!NOTE]
-> There is a NIC-level parameter (defaultOutboundEnabled) which tracks if default outbound access is being utilized.  When an explicit outbound connectivity method is added to a virtual machine, in order for the parameter to be updated, the virtual machine must be rebooted. The Advisor "Add explicit outbound method to disable default outbound" operates by checking for this parameter- so a reboot is required for changes to be reflected and the action to clear. 
+> There's a NIC-level parameter (defaultOutboundEnabled) which tracks if default outbound access is being utilized.  When an explicit outbound connectivity method is added to a virtual machine, in order for the parameter to be updated, the virtual machine must be rebooted. The Advisor "Add explicit outbound method to disable default outbound" operates by checking for this parameter- so a stop/deallocate of the virtual machine is required for changes to be reflected and the action to clear. 
  
 ### Use Flexible orchestration mode for Virtual Machine Scale Sets
  

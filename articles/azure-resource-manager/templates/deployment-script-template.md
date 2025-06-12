@@ -1,7 +1,9 @@
 ---
 title: Use deployment scripts in templates | Microsoft Docs
 description: Use deployment scripts in Azure Resource Manager templates.
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - build-2025
 ms.topic: conceptual
 ms.date: 04/28/2025
 ---

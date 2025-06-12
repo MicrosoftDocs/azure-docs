@@ -7,6 +7,9 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 ---
 # Use the Redis command-line tool with Azure Managed Redis
 
