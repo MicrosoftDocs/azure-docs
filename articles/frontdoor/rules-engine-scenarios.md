@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 06/03/2025
+ms.date: 06/12/2025
 
 ---
 
@@ -692,7 +692,7 @@ You can protect files in your storage account by changing the access to your sto
 
 For example, if you want to append a SAS token to the incoming URL: `https://www.contoso.com/dccp/grammars/0.1.0-59/en-US/grammars/IVR/ssn0100_CollectTIN_QA_dtmf.grxml?version=1.0_1719342835399`, the rewrite URL will be: `https://www.contoso.com/grammars/0.1.0-59/en-US/grammars/IVR/ssn0100_CollectTIN_QA_dtmf.grxml?version=1.0_1719342835399&<SASTOKEN>`
 
-In this example, the incoming URL already has query parameters, and you want to preserve the existing query string while appending the SAS token by configuring URL redirect using `/{url_path:seg1:20}?{query_string}&sp=racwl&<SASToken>`.
+In this example, the incoming URL already has query parameters, and you want to preserve the existing query string while appending the SAS token by configuring URL redirect using `/{url_path:seg1:20}?{query_string}&<SASToken>`.
 
 The rule configuration redirects all HTTPS requests that don't already contain the SAS token (identified by the absence of `sp=rl` in the query string).
 
