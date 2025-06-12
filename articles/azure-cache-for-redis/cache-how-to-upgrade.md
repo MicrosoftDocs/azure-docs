@@ -7,6 +7,8 @@ description: Learn how to upgrade the version of Azure Cache for Redis.
 
 ms.topic: how-to
 ms.date: 05/21/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ms.custom: template-how-to, devx-track-azurecli
 ---
 

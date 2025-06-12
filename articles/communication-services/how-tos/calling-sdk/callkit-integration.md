@@ -135,7 +135,7 @@ description: Steps on how to integrate CallKit with Azure Communication Services
   }
 
   // Event raised by the SDK
-  public func callAgent(_ callAgent: CallAgent, didRecieveIncomingCall incomingcall: IncomingCall) {
+  public func callAgent(_ callAgent: CallAgent, didReceiveIncomingCall incomingcall: IncomingCall) {
   }
   ```
 

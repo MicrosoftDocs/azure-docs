@@ -48,6 +48,8 @@
       href: error-invalid-name-segments.md
     - name: Resource quota exceeded
       href: error-resource-quota.md
+    - name: Location ineligible
+      href: error-region-access-policy.md
     - name: SKU not available
       href: error-sku-not-available.md
 - name: Reference

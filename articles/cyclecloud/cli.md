@@ -2,8 +2,8 @@
 title: Azure CycleCloud CLI Reference
 description: CycleCloud CLI reference 
 author: rokeptne
-ms.date: 07/15/2024
-ms.author: rokeptne
+ms.date: 06/10/2025
+ms.author: padmalathas
 ---
 
 # CycleCloud CLI
@@ -12,11 +12,11 @@ The Azure CycleCloud CLI allows you to manage your installation from a console o
 
 ## Global CLI Parameters
 
-These are available for all commands.
+These parameters are available for all commands.
 
 ### `-h, --help`
 
-show this help message and exit
+Shows the help message and exits.
 
 ### `-v, --version`
 
@@ -24,7 +24,7 @@ Shows the version for the CLI.
 
 ### `--config=CONFIG_FILE`
 
-Specifies the path to a non-default config file to be used for this command.
+Specifies the path to a nondefault config file to be used for this command.
 
 ### `--loglevel=LOG_LEVEL`
 
@@ -41,17 +41,17 @@ cyclecloud account <command> [-o OUTPUT_FILE]
                              [--force]
 ```
 
-| sub-command | description |
+| subcommand | description |
 | ----- | ----- |
-| list | list accounts |
-| show <account_name> | show detail for an account |
-| create | create a new account |
-| edit <account_name> | edit an existing account |
-| delete <account_name> | delete an existing account |
+| `list` | List accounts. |
+| `show <account_name>` | Show detail for an account. |
+| `create` | Create a new account. |
+| `edit <account_name>` | Edit an existing account. |
+| `delete <account_name>` | Delete an existing account. |
 
 ## cyclecloud account list
 
-list accounts
+List accounts.
 
 ```CycleCloud CLI
 cyclecloud account list
@@ -59,7 +59,7 @@ cyclecloud account list
 
 ## cyclecloud account show
 
-show detail for an account
+Show detail for an account.
 
 ```CycleCloud CLI
 cyclecloud account show <account_name>
@@ -67,7 +67,7 @@ cyclecloud account show <account_name>
 
 ## cyclecloud account create
 
-create a new account
+Create a new account.
 
 ```CycleCloud CLI
 cyclecloud account create [-o OUTPUT_FILE]
@@ -81,7 +81,7 @@ Writes the configuration parameters to disk
 
 ### `--dry-run`
 
-Prompts and validates information but does not enact any changes
+Prompts and validates information but doesn't enact any changes
 
 ### `-f INPUT_FILE`
 
@@ -89,7 +89,7 @@ Reads the definition from a configuration file instead of prompting
 
 ## cyclecloud account edit
 
-edit an existing account
+Edit an existing account.
 
 ```CycleCloud CLI
 cyclecloud account edit <account_name> [-o OUTPUT_FILE]
@@ -99,19 +99,19 @@ cyclecloud account edit <account_name> [-o OUTPUT_FILE]
 
 ### `-o OUTPUT_FILE`
 
-Writes the configuration parameters to disk
+Writes the configuration parameters to disk.
 
 ### `--dry-run`
 
-Prompts and validates information but does not enact any changes
+Prompts and validates information but doesn't enact any changes.
 
 ### `-f INPUT_FILE`
 
-Reads the definition from a configuration file instead of prompting
+Reads the definition from a configuration file instead of prompting.
 
 ## cyclecloud account delete
 
-delete an existing account
+Delete an existing account.
 
 ```CycleCloud CLI
 cyclecloud account delete <account_name> [--force]
@@ -119,7 +119,7 @@ cyclecloud account delete <account_name> [--force]
 
 ### `--force`
 
-If true, does not prompt to delete the account.
+If true, doesn't prompt to delete the account.
 
 ## cyclecloud add_node
 
@@ -141,28 +141,28 @@ How many nodes to start. If not specified, the default is 1.
 
 ### `-f, --fixed`
 
-If set, node will be added permanently (until removed) to the cluster template.  Otherwise node will be removed automatically when terminated.
+If set, the node is permanently added (until removed) to the cluster template. Otherwise, the node is automatically removed when terminated.
 
 ## cyclecloud config
 
-Easily switch between cyclecloud configurations
+Easily switch between cyclecloud configurations.
 
 ```CycleCloud CLI
 cyclecloud config <command>
 ```
 
-| sub-command | description |
+| Subcommand | Description |
 | ----- | ----- |
-| show | show the current configuration in use |
-| list | list available configurations |
-| create <config_name> | create a new configuration |
-| rename <old_name> <new_name> | rename an existing configuration |
-| use <config_name> | switch to a specified configuration |
-| remove <config_name> | remove a named configuration |
+| `show` | Show the current configuration. |
+| `list` | List available configurations. |
+| `create <config_name>` | Create a new configuration. |
+| `rename <old_name> <new_name>` | Rename an existing configuration. |
+| `use <config_name>` | Switch to a specified configuration. |
+| `remove <config_name>` | Remove a named configuration. |
 
 ## cyclecloud config show
 
-show the current configuration in use
+Show the current configuration.
 
 ```CycleCloud CLI
 cyclecloud config show
@@ -170,7 +170,7 @@ cyclecloud config show
 
 ## cyclecloud config list
 
-list available configurations
+List available configurations.
 
 ```CycleCloud CLI
 cyclecloud config list
@@ -178,7 +178,7 @@ cyclecloud config list
 
 ## cyclecloud config create
 
-create a new configuration
+Create a new configuration.
 
 ```CycleCloud CLI
 cyclecloud config create <config_name>
@@ -186,7 +186,7 @@ cyclecloud config create <config_name>
 
 ## cyclecloud config rename
 
-rename an existing configuration
+Rename an existing configuration.
 
 ```CycleCloud CLI
 cyclecloud config rename <old_name> <new_name>
@@ -194,7 +194,7 @@ cyclecloud config rename <old_name> <new_name>
 
 ## cyclecloud config use
 
-switch to a specified configuration
+Switch to a specified configuration.
 
 ```CycleCloud CLI
 cyclecloud config use <config_name>
@@ -202,7 +202,7 @@ cyclecloud config use <config_name>
 
 ## cyclecloud config remove
 
-remove a named configuration
+Remove a named configuration.
 
 ```CycleCloud CLI
 cyclecloud config remove <config_name>
@@ -224,7 +224,7 @@ cyclecloud connect <NAME> [--keyfile=KEYFILE]
 
 ### `-k KEYFILE, --keyfile=KEYFILE`
 
-The keypair to use, if not given on the node or the node does not exist.
+The keypair to use, if not given on the node or the node doesn't exist.
 
 ### `-c CLUSTER, --cluster=CLUSTER`
 
@@ -232,7 +232,7 @@ The cluster the node is in, if the name is a node name. Optional unless there ar
 
 ### `-u USER, --user=USER`
 
-The user to login to the node with.
+The user to sign in to the node.
 
 ### `--bastion-host=BASTION-HOST`
 
@@ -244,7 +244,7 @@ SSH port for connecting to the bastion.
 
 ### `--bastion-user=BASTION-USER`
 
-User login for connecting to the bastion.
+User name for connecting to the bastion.
 
 ### `--bastion-key=BASTION-KEY`
 
@@ -260,7 +260,7 @@ cyclecloud copy_cluster <source_cluster_name> <new_cluster_name> [--parameters=P
 
 ### `-p PARAMETERS, --parameters=PARAMETERS`
 
-The parameters file to use
+The parameters file to use.
 
 ## cyclecloud create_cluster
 
@@ -274,15 +274,15 @@ cyclecloud create_cluster <TEMPLATE> <NAME> [--force]
 
 ### `--force`
 
-If specified, the cluster will be replaced if it exists
+If specified, the cluster is replaced if it exists.
 
 ### `-p PARAMETERS, --parameters=PARAMETERS`
 
-The parameters file to use
+The parameters file to use.
 
 ### `-P PARAMETER_OVERRIDE, --parameter-override=PARAMETER_OVERRIDE`
 
-Add or override a specific parameter. Takes precedent over values specified in -p.
+Add or override a specific parameter. This option takes precedence over values specified in `-p`.
 
 ## cyclecloud credential
 
@@ -292,16 +292,16 @@ Manage cloud provider account credentials.
 cyclecloud credential <command>
 ```
 
-| sub-command | description |
+| Subcommand | Description |
 | ----- | ----- |
-| list | list credentials |
-| create | create a new credential |
-| edit <account_name> | edit an existing credential |
-| delete <account_name> | delete an existing credential |
+| `list` | List credentials. |
+| `create` | Create a new credential. |
+| `edit <account_name>` | Edit an existing credential. |
+| `delete <account_name>` | Delete an existing credential. |
 
 ## cyclecloud credential list
 
-list credentials
+List credentials.
 
 ```CycleCloud CLI
 cyclecloud credential list
@@ -309,7 +309,7 @@ cyclecloud credential list
 
 ## cyclecloud credential create
 
-create a new credential
+Create a new credential.
 
 ```CycleCloud CLI
 cyclecloud credential create
@@ -317,7 +317,7 @@ cyclecloud credential create
 
 ## cyclecloud credential edit
 
-edit an existing credential
+Edit an existing credential.
 
 ```CycleCloud CLI
 cyclecloud credential edit <account_name>
@@ -325,7 +325,7 @@ cyclecloud credential edit <account_name>
 
 ## cyclecloud credential delete
 
-delete an existing credential
+Delete an existing credential.
 
 ```CycleCloud CLI
 cyclecloud credential delete <account_name>
@@ -333,7 +333,7 @@ cyclecloud credential delete <account_name>
 
 ## cyclecloud delete_cluster
 
-Deletes a non-running cluster.
+Delete a nonrunning cluster.
 
 ```CycleCloud CLI
 cyclecloud delete_cluster <CLUSTER> [--recursive]
@@ -342,15 +342,15 @@ cyclecloud delete_cluster <CLUSTER> [--recursive]
 
 ### `-r, --recursive`
 
-Recursively delete this cluster and all its sub-clusters.
+Recursively delete this cluster and all its subclusters.
 
 ### `--force`
 
-Force this cluster to be deleted. Note: only use this option if all resources in your cloud provider are already terminated!
+Force this cluster to be deleted. Use this option only if all resources in your cloud provider are already terminated.
 
 ## cyclecloud delete_template
 
-Deletes a cluster template
+Delete a cluster template.
 
 ```CycleCloud CLI
 cyclecloud delete_template <TEMPLATE>
@@ -367,11 +367,11 @@ cyclecloud export_parameters <cluster_name> [-o OUTPUT_FILE]
 
 ### `-o OUTPUT_FILE`
 
-For create, writes the cluster parameters to disk
+For create, writes the cluster parameters to disk.
 
 ### `--format=OUTPUT_FORMAT`
 
-Output format
+Output format.
 
 ## cyclecloud image
 
@@ -390,13 +390,13 @@ cyclecloud image <command> [--account=ACCOUNTS]
                            [--dry-run]
 ```
 
-| sub-command | description |
+| Subcommand | Description |
 | ----- | ----- |
-| add <image_name> [...] | add one or more images |
+| `add <image_name> [...]` | Add one or more images. |
 
 ## cyclecloud image add
 
-add one or more images
+Add one or more images.
 
 ```CycleCloud CLI
 cyclecloud image add <image_name> [...] [--account=ACCOUNTS]
@@ -413,47 +413,47 @@ cyclecloud image add <image_name> [...] [--account=ACCOUNTS]
 
 ### `--account=ACCOUNTS`
 
-Search only this account (can be repeated for multiple accounts)
+Search only this account. You can repeat this option for multiple accounts.
 
 ### `--name=NAME`
 
-The name of the package to create (required)
+The name of the package to create. This parameter is required.
 
 ### `--label=LABEL`
 
-The label of the package to create
+The label of the package to create.
 
 ### `--package-version=PACKAGE_VERSION`
 
-Use this version for the new image instead of the default of 1.0.0
+Use this version for the new image instead of the default of 1.0.0.
 
 ### `--bump-version=BUMP_VERSION`
 
-Use '--bump-version minor' to increment the latest minor version by 1 (eg, 1.1 to 1.2), or use '--bump-version major' or '--bump-version patch'
+Use `--bump-version minor` to increment the latest minor version by 1 (for example, 1.1 to 1.2), or use `--bump-version major` or `--bump-version patch`.
 
 ### `--os=OS`
 
-Use '--os linux/windows' to specify the Operating System on the image
+Use `--os linux/windows` to specify the operating system on the image.
 
 ### `--jetpack-version=JETPACK_VERSION`
 
-The version of jetpack that is installed or should be installed on the image
+The version of Jetpack that is installed or should be installed on the image.
 
 ### `--install-jetpack`
 
-Install jetpack at runtime on this image
+Install Jetpack at runtime on this image.
 
 ### `--jetpack-platform=JETPACK_PLATFORM`
 
-The jetpack platform used on the image (e.g. centos-7, ubuntu-14.04, windows
+The Jetpack platform used on the image (for example, centos-7, ubuntu-14.04, windows).
 
 ### `--dry-run`
 
-Looks for matching images but does not store any image information
+Looks for matching images but doesn't store any image information.
 
 ## cyclecloud import_cluster
 
-Creates a cluster from a text file. If CLUSTER is not given, and the file has a single cluster, the name of that cluster is used.
+Creates a cluster from a text file. If CLUSTER isn't provided and the file contains a single cluster, the name of that cluster is used.
 
 ```CycleCloud CLI
 cyclecloud import_cluster [CLUSTER] [-c TEMPLATE]
@@ -471,7 +471,7 @@ The cluster in the file to import. If not specified, the name of the new cluster
 
 ### `--force`
 
-If specified, the cluster will be replaced if it exists.
+If specified, the cluster is replaced if it exists.
 
 ### `-t, --as-template`
 
@@ -479,23 +479,23 @@ If specified, the cluster is stored as a template which can only be used to crea
 
 ### `-f FILE, --file=FILE`
 
-The file from which to import the template.
+The file for importing the template.
 
 ### `-p PARAMETERS, --parameters=PARAMETERS`
 
-The parameters file to use
+The parameters file to use.
 
 ### `-P PARAMETER_OVERRIDE, --parameter-override=PARAMETER_OVERRIDE`
 
-Add or override a specific parameter. Takes precedent over values specified in -p.
+Add or override a specific parameter. Takes precedent over values specified in `-p`.
 
 ### `-r, --recursive`
 
-Imports the named cluster and all clusters in the file for which it is the parent.
+Imports the named cluster and all clusters in the file for which it's the parent.
 
 ## cyclecloud import_template
 
-Imports a cluster template from a text file. If NAME is not given, and the file has a single cluster, the name of that cluster is used.
+Imports a cluster template from a text file. If NAME isn't given, and the file has a single cluster, the name of that cluster is used.
 
 ```CycleCloud CLI
 cyclecloud import_template [NAME] [-c TEMPLATE]
@@ -509,11 +509,11 @@ The template in the file to import. If not specified, the name of the new templa
 
 ### `--force`
 
-If specified, the template will be replaced if it exists
+If specified, the template is replaced if it exists.
 
 ### `-f FILE, --file=FILE`
 
-The file from which to import the template.
+The file for importing the template.
 
 ## cyclecloud initialize
 
@@ -531,11 +531,11 @@ cyclecloud initialize [--batch]
 
 ### `--batch`
 
-If specified, the arguments must be supplied on the command line. Questions will be assumed to be 'no'.
+If specified, the arguments must be supplied on the command line. Questions are assumed to be 'no'.
 
 ### `--force`
 
-Force a re-initialize even if valid config file is available.
+Force reinitialization even if a valid config file is available.
 
 ### `--url=URL`
 
@@ -555,7 +555,7 @@ Whether to verify (true) or not (false) SSL certificates for the CycleServer ins
 
 ### `--name=NAMED_CONFIG`
 
-Create a named configuration that can be used with the config command
+Create a named configuration that you can use with the config command.
 
 ## cyclecloud locker
 
@@ -565,14 +565,14 @@ Manage CycleCloud lockers.
 cyclecloud locker <command>
 ```
 
-| sub-command | description |
+| Subcommand | Description |
 | ----- | ----- |
-| list | list lockers |
-| show \<locker\> | show detail for a locker |
+| `list` | List lockers. |
+| `show <locker>` | Show detail for a locker. |
 
 ## cyclecloud locker list
 
-list lockers
+List lockers.
 
 ```CycleCloud CLI
 cyclecloud locker list
@@ -580,7 +580,7 @@ cyclecloud locker list
 
 ## cyclecloud locker show
 
-show detail for a locker
+Show detail for a locker.
 
 ```CycleCloud CLI
 cyclecloud locker show <locker>
@@ -602,22 +602,22 @@ cyclecloud project <command> [--skip-teardown]
                              [--build-dir=BUILD_DIR]
 ```
 
-| sub-command | description |
+| Subcommand | Description |
 | ----- | ----- |
-| init \<name\> | create a new empty project |
-| fetch \<url\> \<path\> | fetches a project from a Github \<url\> to \<path\> |
-| info | display project info |
-| add_spec \<spec\> | adds a spec to the project |
-| default_locker \<locker\> | sets the default locker(s) to upload to |
-| test | execute integration test for a given cluster definition |
-| build | build the project |
-| upload [locker] | build and upload project the specified locker(s) (uses default if none specified) |
-| download [locker] | download the project blobs from the specified locker(s) (uses default if none specified) |
-| generate_template \<file\> | generate a cluster template for the project, written to \<file\> |
+| `init <name>` | Create a new empty project. |
+| `fetch <url> <path>` | Fetch a project from a GitHub \<url\> to \<path\>. |
+| `info` | Display project info. |
+| `add_spec <spec>` | Add a spec to the project. |
+| `default_locker <locker>` | Set the default lockers to upload to. |
+| `test` | Execute integration test for a given cluster definition. |
+| `build` | Build the project. |
+| `upload [locker]` | Build and upload project the specified lockers (uses default if none specified). |
+| `download [locker]` | Download the project blobs from the specified lockers (uses default if none specified). |
+| `generate_template <file>` | Generate a cluster template for the project, written to \<file\>. |
 
 ## cyclecloud project init
 
-create a new empty project
+Create a new empty project.
 
 ```CycleCloud CLI
 cyclecloud project init <name>
@@ -625,7 +625,7 @@ cyclecloud project init <name>
 
 ## cyclecloud project fetch
 
-fetches a project from a Github \<url\> to \<path\>
+Fetches a project from a GitHub `<url>` to `<path>`.
 
 ```CycleCloud CLI
 cyclecloud project fetch <url> <path>
@@ -633,7 +633,7 @@ cyclecloud project fetch <url> <path>
 
 ## cyclecloud project info
 
-display project info
+Displays the project info.
 
 ```CycleCloud CLI
 cyclecloud project info
@@ -641,7 +641,7 @@ cyclecloud project info
 
 ## cyclecloud project add_spec
 
-adds a spec to the project
+Adds a spec to the project.
 
 ```CycleCloud CLI
 cyclecloud project add_spec <spec>
@@ -649,7 +649,7 @@ cyclecloud project add_spec <spec>
 
 ## cyclecloud project default_locker
 
-sets the default locker(s) to upload to
+Sets the default locker for uploads.
 
 ```CycleCloud CLI
 cyclecloud project default_locker <locker> [--global]
@@ -661,7 +661,7 @@ Set global default instead of project specific value.
 
 ## cyclecloud project test
 
-execute integration test for a given cluster definition
+Executes integration test for a cluster definition.
 
 ```CycleCloud CLI
 cyclecloud project test [--skip-teardown]
@@ -674,31 +674,31 @@ cyclecloud project test [--skip-teardown]
 
 ### `--skip-teardown`
 
-Skip tearing down cluster created for testing
+Skip tearing down cluster created for testing.
 
 ### `--output-json=JSON_FILE`
 
-Output the results to the specified json file
+Output the results to the specified json file.
 
 ### `--junit-xml=JUNIT_FILE`
 
-Output the results in junit-xml format to the specified json file
+Output the results in junit-xml format to the specified json file.
 
 ### `-e EXTRA_VARS, --extra-var=EXTRA_VARS`
 
-Arbitrary key=value pairs used to parameterize the cluster template under test
+Arbitrary key=value pairs used to parameterize the cluster template under test.
 
 ### `-t TEMPLATE, --template=TEMPLATE`
 
-Path to cluster template file
+Path to cluster template file.
 
 ### `-n CLUSTER_NAME, --name=CLUSTER_NAME`
 
-Name of cluster definition to test
+Name of cluster definition to test.
 
 ## cyclecloud project build
 
-build the project
+Build the project.
 
 ```CycleCloud CLI
 cyclecloud project build [--project-version=PROJECT_VERSION]
@@ -707,15 +707,15 @@ cyclecloud project build [--project-version=PROJECT_VERSION]
 
 ### `--project-version=PROJECT_VERSION`
 
-Override the project version present in project.ini
+Override the project version present in project.ini.
 
 ### `--build-dir=BUILD_DIR`
 
-The build directory
+The build directory.
 
 ## cyclecloud project upload
 
-build and upload project the specified locker(s) (uses default if none specified)
+Build and upload project the specified lockers (uses default if none specified).
 
 ```CycleCloud CLI
 cyclecloud project upload [locker] [--project-version=PROJECT_VERSION]
@@ -723,11 +723,11 @@ cyclecloud project upload [locker] [--project-version=PROJECT_VERSION]
 
 ### `--project-version=PROJECT_VERSION`
 
-Override the project version present in project.ini
+Override the project version present in project.ini.
 
 ## cyclecloud project download
 
-download the project blobs from the specified locker(s) (uses default if none specified)
+Download the project blobs from the specified lockers. If you don't specify lockers, the command uses the default lockers.
 
 ```CycleCloud CLI
 cyclecloud project download [locker]
@@ -735,7 +735,7 @@ cyclecloud project download [locker]
 
 ## cyclecloud project generate_template
 
-generate a cluster template for the project, written to \<file\>
+Generate a cluster template for the project. The command writes the template to `<file>`.
 
 ```CycleCloud CLI
 cyclecloud project generate_template <file>
@@ -751,7 +751,7 @@ cyclecloud reboot_node <CLUSTER> <NODE_NAME>
 
 ## cyclecloud remove_node
 
-Removes a node from the cluster (and terminates it if started).
+Remove a node from the cluster. The command terminates the node if it started.
 
 ```CycleCloud CLI
 cyclecloud remove_node <CLUSTER> <NODE_NAME> [--filter=FILTER]
@@ -763,23 +763,23 @@ cyclecloud remove_node <CLUSTER> <NODE_NAME> [--filter=FILTER]
 
 ### `-f FILTER, --filter=FILTER`
 
-Remove nodes matching the complete class-ad expression.
+Remove nodes that match the complete class-ad expression.
 
 ### `--instance-filter=INSTANCE_FILTER`
 
-Remove nodes with active instances matching the complete class-ad expression.
+Remove nodes with active instances that match the complete class-ad expression.
 
 ### `--creds=CREDS`
 
-Remove nodes started using the named set of credentials.
+Remove nodes that you started using the named set of credentials.
 
 ### `--no-prompt`
 
-If specified, will not ask for confirmation before terminating nodes based on a filter.
+If specified, doesn't ask for confirmation before terminating nodes based on a filter.
 
 ### `--force`
 
-Force this node to be removed, even if not terminated. Note: only use this option if the resources for this node in your cloud provider are already terminated!
+Force this node to be removed, even if not terminated. Only use this option if the resources for this node in your cloud provider are already terminated.
 
 ## cyclecloud retry
 
@@ -791,7 +791,7 @@ cyclecloud retry <CLUSTER> [--recursive]
 
 ### `-r, --recursive`
 
-Recursively retry options in this cluster and all its sub-clusters.
+Recursively retry options in this cluster and all its subclusters.
 
 ## cyclecloud show_cluster
 
@@ -805,7 +805,7 @@ cyclecloud show_cluster <CLUSTER> [--recursive]
 
 ### `-r, --recursive`
 
-Show this cluster and all of its sub-clusters.
+Show this cluster and all of its subclusters.
 
 ### `-l, --long`
 
@@ -817,7 +817,7 @@ Include cluster templates in the output.
 
 ## cyclecloud show_nodes
 
-Show details of selected nodes/instances.
+Show details of selected nodes or instances.
 
 ```CycleCloud CLI
 cyclecloud show_nodes [NAME] [--attrs=ATTRS]
@@ -846,7 +846,7 @@ Show only nodes with active instances matching the complete class-ad expression.
 
 ### `--output=OUTPUT`
 
-Output the matching node attributes described by a Python-style named-parameter format string.  Ex. --output="Name: %(Name)s\t(ID: %(InstanceId)s)\n Cluster: %(ClusterName)s\n"
+Output the matching node attributes described by a Python-style named-parameter format string. For example, `--output="Name: %(Name)s\t(ID: %(InstanceId)s)\n Cluster: %(ClusterName)s\n"`.
 
 ### `--format=FORMAT`
 
@@ -883,15 +883,15 @@ cyclecloud start_cluster <CLUSTER> [--recursive]
 
 ### `-r, --recursive`
 
-Recursively start this cluster and all its sub-clusters.
+Recursively start this cluster and all its subclusters.
 
 ### `-t, --test`
 
-Start cluster in test mode
+Start cluster in test mode.
 
 ## cyclecloud start_node
 
-(Re-)Starts terminated nodes in a running cluster.
+Starts terminated nodes in a running cluster.
 
 ```CycleCloud CLI
 cyclecloud start_node <CLUSTER> <NODE_NAME>
@@ -907,7 +907,7 @@ cyclecloud terminate_cluster <CLUSTER> [--recursive]
 
 ### `-r, --recursive`
 
-Recursively terminate this cluster and all its sub-clusters.
+Recursively terminate this cluster and all its subclusters.
 
 ## cyclecloud terminate_node
 
@@ -934,5 +934,5 @@ Terminate nodes started using the named set of credentials.
 
 ### `--no-prompt`
 
-If specified, will not ask for confirmation before terminating nodes based on a filter.
+If specified, doesn't ask for confirmation before terminating nodes based on a filter.
 

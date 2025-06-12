@@ -1,26 +1,23 @@
 ---
-title: Azure Operator Nexus storage for Kubernetes
+title: Azure Operator Nexus persistent storage for Kubernetes
 description: Get an overview of available storage classes for Kubernetes on Azure Operator Nexus.
 author: pjw711
 ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 01/06/2025
+ms.date: 05/22/2025
 ms.custom: template-concept
 ---
 
-# Azure Operator Nexus storage for Kubernetes
+# Azure Operator Nexus persistent storage for Kubernetes
 
-Each Azure Operator Nexus cluster uses a single storage appliance to provide persistent storage to Nexus Kubernetes cluster tenant workloads. The Azure Operator Nexus software Kubernetes stack offers two types of persistent storage. Operators select them through the Kubernetes StorageClass mechanism.
-
-> [!IMPORTANT]
-> Azure Operator Nexus does not support ephemeral volumes. Nexus recommends that the persistent volume storage mechanisms described in this document are used for all Nexus Kubernetes cluster workload volumes as these provide the highest levels of performance and availability. All storage in Azure Operator Nexus is provided by the storage appliance. There is no support for storage provided by baremetal machine disks.
+Each Azure Operator Nexus provides two types of persistent storage to Nexus Kubernetes cluster tenant workloads: *nexus-volume* and *nexus-shared*. Operators select the type of storage they need by creating Persistent Volume Claims (PVCs) using the *nexus-volume* or *nexus-shared* storage class. All data stored in persistent volumes is stored on a storage appliance deployed on-premises as part of the Azure Operator Nexus instance. Azure Operator Nexus requires one storage appliance and supports up to two storage appliances per Azure Operator Nexus instance.
 
 ## Kubernetes storage classes
 
 ### StorageClass: nexus-volume
 
-The default storage mechanism, *nexus-volume*, is the preferred choice for most users. It provides the highest levels of performance and availability. However, volumes can't be simultaneously shared across multiple worker nodes. Operators can access and manage these volumes by using the Azure API and portal, through the volume resource.
+The default storage mechanism, *nexus-volume*, is the preferred choice for most users. It provides the highest levels of performance and availability. However, volumes can't be simultaneously shared across multiple worker nodes. Operators can access and manage these volumes by using the Azure API and portal, through the volume resource. *nexus-volume* storage supports both block and filesystem volume modes.
 
 ```yaml
 apiVersion: v1
@@ -44,6 +41,8 @@ status:
     storage: 107Mi
   phase: Bound
 ```
+
+Some Azure Operator Nexus deployments may have two storage appliances installed. Persistent volume claims (PVCs) using the *nexus-volume* storage class can place the associated persistent volumes onto a specific storage appliance by using the *storageApplianceName* annotation. More information is available in [this document](./concepts-storage-multiple-appliances.md).
 
 ### StorageClass: nexus-shared
 
@@ -303,11 +302,15 @@ PVCs created using the nexus-volume and nexus-shared have minimum and maximum cl
 | nexus-shared  | None | 1 TiB |
 
 > [!IMPORTANT]
-> Volumes that reach their consumption limit will cause out of disk space errors on the workloads that consume them. You must make sure that you provision suitable volume sizes for your workload requirements. You must monitor both the storage appliance and all NFS servers for their percentage storage consumption. You can do this using the metrics documented in the [list of available metrics](./list-of-metrics-collected.md).
+> Volumes that reach their consumption limit causes out of disk space errors on the workloads that consume them. You must make sure that you provision suitable volume sizes for your workload requirements. You must monitor both the storage appliance and all NFS servers for their percentage storage consumption. You can do this using the metrics documented in the [list of available metrics](./list-of-metrics-collected.md).
 
 - Both nexus-volume and nexus-shared PVCs have their requested storage capacity enforced as a consumption limit. A volume can't consume more storage than the associated PVC request.
 - All physical volumes are thin-provisioned. You must monitor the total storage consumption on your storage appliance and perform maintenance operations to free up storage space if necessary.
 - A nexus-volume PVC provisioning request fails if the requested size is less than the minimum or more than the maximum supported volume size.
 - Nexus-shared volumes are logically thin-provisioned on the backing NFS server. This NFS server has a fixed capacity of 1 TiB.
   - A nexus-shared PVC can be provisioned despite requesting more than 1 TiB of storage, however, only 1 TiB can be consumed.
-  - It is possible to provision a set of PVCs where the sum of capacity requests is greater than 1 TiB. However, the consumption limit of 1 TiB applies; the set of associated PVs may not consume more than 1 TiB of storage.
+  - It's possible to provision a set of PVCs where the sum of capacity requests is greater than 1 TiB. However, the consumption limit of 1 TiB applies; the set of associated PVs can't consume more than 1 TiB of storage.
+
+## Limitations
+
+- Azure Operator Nexus does not support [CSI ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes).

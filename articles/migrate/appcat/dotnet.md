@@ -5,7 +5,7 @@ author: brborges
 ms.author: brborges
 ms.service: azure-migrate
 ms.custom: devx-track-dotnet
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2023
 ---
 

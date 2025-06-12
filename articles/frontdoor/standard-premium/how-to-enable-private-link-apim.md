@@ -1,18 +1,20 @@
 ---
-title: 'Connect Azure Front Door Premium to an Azure API Management origin with Private Link'
-titleSuffix: Azure Private Link
+title: 'Connect Front Door Premium to an Azure API Management origin with Private Link'
 description: Learn how to connect your Azure Front Door Premium to an Azure API Management privately.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 09/26/2024
-ms.author: duau
+ms.date: 04/28/2025
+ms.custom:
+  - ai-usage
+  - build-2025
 zone_pivot_groups: front-door-dev-exp-portal-ps-cli
-ms.custom: ai-usage
 ---
 
 # Connect Azure Front Door Premium to an Azure API Management with Private Link
+
+**Applies to:** :heavy_check_mark: Front Door Premium
 
 This article guides you through the steps to configure an Azure Front Door Premium to connect privately to your Azure API Management origin using Azure Private Link.
 
@@ -21,41 +23,48 @@ This article guides you through the steps to configure an Azure Front Door Premi
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door](../create-front-door-portal.md).
-- Have a functioning Azure API Management instance. For more information on how to create an API Management instance, see [Create a new Azure API Management instance](../../api-management/get-started-create-service-instance.md)
-- Private endpoint support for Azure API Management Standard v2 tier is currently in limited preview. If you want to enable an Azure API Management Standard v2 tier instance as a private link enabled origin for Azure Front Door Premium,  you must first sign up for the preview via this [this form](https://aka.ms/privateendpointpreview). This step isn't needed if you're using an API Management instance with Developer, Basic, Standard or Premium tier.
+
+- An Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door using the Azure portal](../create-front-door-portal.md).
+
+- An Azure API Management instance. For more information on how to create an API Management instance, see [Create a new Azure API Management instance](../../api-management/get-started-create-service-instance.md). For v1 tiers, the instance should be deployed in public mode and not in virtual network mode.
 
 ## Create an origin group and add the API Management instance as an origin
 
-1. In your Azure Front Door Premium profile, go to *Settings* and select **Origin groups**.
+1. Under **Settings** of your Azure Front Door Premium profile, select **Origin groups**.
 
-1. Click on **Add**
-2. Enter a name for the origin group
-3. Select **+ Add an origin** 
-4. Use the following table to configure the settings for the origin:
+1. Select **Add**
+
+1. Enter a name for the origin group.
+
+1. Select **+ Add an origin** 
+
+1. Use the following table to configure the origin settings:
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter a name to identify this origin. |
-    | Origin Type | API Management |
+    | Origin Type | Select **API Management**. |
     | Host name | Select the host from the dropdown that you want as an origin. | 
-    | Origin host header | Will be autopopulated with the host of the chosen API Management instance|
-    | HTTP port | 80 (default) |
-    | HTTPS port | 443 (default) |
+    | Origin host header | Will be autopopulated with the host of the chosen API Management instance. |
+    | HTTP port | 80 (default). |
+    | HTTPS port | 443 (default). |
     | Priority | Assign different priorities to origins for primary, secondary, and backup purposes. |
     | Weight | 1000 (default). Use weights to distribute traffic among different origins. |
     | Region | Select the region that matches or is closest to your origin. |
-    | Target sub resource | Choose 'Gateway' |
+    | Target sub resource | Select **Gateway**. |
     | Request message | Enter a custom message to display while approving the Private Endpoint.  |
 
-:::image type="content" source="../media/private-link/apim-privatelink.png" alt-text="Screenshot of origin settings for configuring API Management as a private origin.":::
+    :::image type="content" source="../media/how-to-enable-private-link-apim/apim-private-link.png" alt-text="Screenshot of origin settings for configuring API Management as a private origin." lightbox="../media/how-to-enable-private-link-apim/apim-private-link.png":::
 
-6. Select **Add** to save your origin settings
-7. Select **Add** to save the origin group settings.
+1. Select **Add** to save your origin settings
+
+1. Select **Add** to save the origin group settings.
 
 ## Approve the private endpoint
 
-1. Navigate to the API Management instance you configured with Private Link in the previous section. Under **Deployment + infrastructure**, select **Network**.
+1. Go to the API Management instance you configured with Private Link in the previous section.
+
+1. Under **Deployment + infrastructure**, select **Network**.
 
 1. Select **Inbound private endpoint connections** tab. 
 
@@ -63,8 +72,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 1. After approval, the connection status will update. It can take a few minutes for the connection to fully establish. Once established, you can access your API Management through Front Door. 
 
-
-:::image type="content" source="../media/private-link/apim-private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections tab in API Management portal.":::
+    :::image type="content" source="../media/how-to-enable-private-link-apim/apim-private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections tab in API Management portal." lightbox="../media/how-to-enable-private-link-apim/apim-private-endpoint-connections.png":::
 
 ::: zone-end
 
@@ -73,18 +81,13 @@ This article guides you through the steps to configure an Azure Front Door Premi
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door using Azure PowerShell](../create-front-door-powershell.md)
+- An Azure API Management instance. For more information on how to create an API Management instance, see [Create a new Azure API Management instance using PowerShell](../../api-management/powershell-create-service-instance.md). For v1 tiers, the instance should be deployed in public mode and not in virtual network mode.
+- Azure Cloud Shell or Azure PowerShell.
 
-- Azure PowerShell installed locally or Azure Cloud Shell.
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
-
-- Have a functioning Azure API Management instance. For more information on how to create an API Management instance, see [Create a new Azure API Management instance by using PowerShell](../../api-management/powershell-create-service-instance.md)
-
-- Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door - PowerShell](../create-front-door-powershell.md)
-
-- Private endpoint support for Azure API Management Standard v2 tier is currently in limited preview. If you want to enable an Azure API Management Standard v2 tier instance as a private link enabled origin for Azure Front Door Premium,  you must first sign up for the preview via this [this form](https://aka.ms/privateendpointpreview). This step isn't needed if you're using an API Management instance with Developer, Basic, Standard or Premium tier.
+    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ## Create an origin group and add the API Management instance as an origin
 
@@ -177,15 +180,16 @@ Your Azure Front Door profile is now fully functional after completing the final
 
 ::: zone pivot="front-door-cli"
 
-[!INCLUDE[azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door using the Azure CLI](../create-front-door-cli.md).
+- An Azure API Management instance. For more information on how to create an API Management instance, see [Create a new Azure API Management instance by using the Azure CLI](../../api-management/get-started-create-service-instance-cli.md). For v1 tiers, the instance should be deployed in public mode and not in virtual network mode.
+- Azure Cloud Shell or Azure CLI.
 
-- A functioning Azure Front Door Premium profile and endpoint. See [Create a Front Door - CLI](../create-front-door-cli.md).
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-- A functioning Azure API Management instance. See [Create a new Azure API Management instance by using the Azure CLI](../../api-management/get-started-create-service-instance-cli.md)
-
-- Private endpoint support for Azure API Management Standard v2 tier is currently in limited preview. If you want to enable an Azure API Management Standard v2 tier instance as a private link enabled origin for Azure Front Door Premium, you must first sign up for the preview via this [this form](https://aka.ms/privateendpointpreview). This step isn't needed if you're using an API Management instance with Developer, Basic, Standard or Premium tier.
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 ## Create an origin group and add the API Management instance as an origin
 
@@ -263,6 +267,13 @@ Your Azure Front Door profile is now fully functional after completing the final
 
 ::: zone-end
 
-## Next steps
+## Common mistakes to avoid
 
-Learn about [Private Link service with storage account](../../storage/common/storage-private-endpoints.md).
+The following are common mistakes when configuring an Azure API Management origin with Azure Private Link enabled:
+* Adding the Azure API Management origin with Azure Private Link to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
+
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Private Link service with storage account](../../storage/common/storage-private-endpoints.md)

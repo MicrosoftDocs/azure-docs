@@ -1,24 +1,25 @@
 ---
-title: "Deployment step 3: storage - data migration component"
-description: Learn about data migration during migration deployment step three.
+title: "Data migration"
+description: Learn the best practices and utilites when migrating your data during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 3: storage - data migration component
+# Data migration
 
-Process to allow users to migrate data from an on-premises environment to the cloud environment in a secure and reliable way. Moving data closer to the cloud environment’s computing nodes is essential to meet the needs of throughput and IOPS.
+A key aspect of your high performance computing migration is ensuring seamless data migration. Moving data closer to the cloud environment’s computing nodes is essential to meet the needs of throughput and IOPS. Seamless data migration requires a strategic approach and reliable utilities to conduct in a secure and reliable way.
 
-This component should:
-
+Your data migration strategy should:
 - Retain all existing file and directory structure from source to target.
 - Retain all metadata related to the files, including user and group ownership, permissions, modification time, and access time.
 - Report on the results of the data migration or copy tool.
 - Implement a data migration restart process.
+
+This part of the guide covers the needs, tools, services, and best practices associated with data migration.
 
 ## Define data migration needs
 

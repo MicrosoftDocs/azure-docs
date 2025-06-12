@@ -1,11 +1,11 @@
 ---
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
-ms.date: 10/15/2024
+ms.date: 05/12/2025
 ms.custom: horz-monitor
 ms.topic: reference
-author: greg-lindsay
-ms.author: greglin
+author: mbender-ms
+ms.author: mbender
 ms.service: azure-application-gateway
 ---
 
@@ -46,7 +46,7 @@ For Application Gateway v2 SKU, the following metrics are available. What follow
 - **Client TLS protocol**. Count of TLS and non-TLS requests.
 - **Current capacity units**. There are three determinants to capacity unit: compute unit, persistent connections, and throughput. Each capacity unit is composed of at most one compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.
 - **Current compute units**. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing.
-- **Current connections**. The total number of concurrent connections active from clients to the Application Gateway.
+- **Current connections**. The total number of concurrent connections active from clients to the Application Gateway, including probes for the health of the application gateway's instances.
 - **Estimated Billed Capacity units**. With the v2 SKU, consumption drives the pricing model. Capacity units measure consumption-based cost that is charged in addition to the fixed cost. *Estimated Billed Capacity units indicate the number of capacity units using which the billing is estimated. This amount is calculated as the greater value between *Current capacity units* (capacity units required to load balance the traffic) and *Fixed billable capacity units* (minimum capacity units kept provisioned).
 - **Failed Requests**. This value includes the 5xx codes that are generated from the Application Gateway and the 5xx codes that are generated from the backend. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 - **Fixed Billable Capacity Units**. The minimum number of capacity units kept provisioned as per the *Minimum scale units* setting in the Application Gateway configuration. One instance translates to 10 capacity units.
@@ -109,7 +109,9 @@ https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/loc
 
 ### TLS/TCP proxy metrics
 
-Application Gateway supports TLS/TCP proxy monitoring. With layer 4 proxy feature now available with Application Gateway, there are some Common metrics that apply to both layer 7 and layer 4. There are some layer 4 specific metrics. The following list summarizes the metrics are the applicable for layer 4 usage.
+The following metrics are available for monitoring Application Gateway's TLS/TCP proxy. In addition to Layer 4-specific metrics, there are several common metrics with Layer 7 (HTTP/S). For details of each, visit the complete [metrics listing](#supported-metrics-for-microsoftnetworkapplicationgateways).
+
+**Metrics that also apply to L4 proxy**
 
 - Current Connections
 - New Connections per second
@@ -118,14 +120,16 @@ Application Gateway supports TLS/TCP proxy monitoring. With layer 4 proxy featur
 - Unhealthy host count
 - Client RTT
 - Backend Connect Time
-- Backend First Byte Response Time. `BackendHttpSetting` dimension includes both layer 7 and layer 4 backend settings.
+- Backend First Byte Response Time (`BackendHttpSetting` dimension applies to both Layer 7 and 4 backend settings).
+- Bytes Sent
+- Bytes Received
+- Compute Units
+- Capacity Units
 
-For more information, see previous descriptions and the [metrics table](#supported-metrics-for-microsoftnetworkapplicationgateways).
+**L4 proxy-specific metrics**
 
-These metrics apply to layer 4 only.
-
-- **Backend Session Duration**. The total time of a backend connection. The average time duration from the start of a new connection to its termination. `BackendHttpSetting` dimension includes both layer 7 and layer 4 backend settings.
-- **Connection Lifetime**. The total time of a client connection to application gateway. The average time duration from the start of a new connection to its termination in milliseconds.
+- Backend Session Duration - The total time of a backend connection. The average time duration from the start of a new connection to its termination. `BackendHttpSetting` dimension includes both layer 7 and layer 4 backend settings.
+- Connection Lifetime - The total time of a client connection to application gateway. The average time duration from the start of a new connection to its termination in milliseconds.
 
 ### TLS/TCP proxy backend health
 
@@ -336,6 +340,7 @@ If the application gateway can't complete the request, it stores one of the foll
 | ERRORINFO_UPSTREAM_NO_LIVE | The application gateway is unable to find any active or reachable backend servers to handle incoming requests. |
 | ERRORINFO_UPSTREAM_CLOSED_CONNECTION | The backend server closed the connection unexpectedly or before the request was fully processed. This condition could happen due to backend server reaching its limits, crashing etc. |
 | ERRORINFO_UPSTREAM_TIMED_OUT | The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
+| ERRORINFO_INVALID_HEADER | Application Gateway detected a partial invalid header and forwarded the remaining header to the backend, which responded with 500. Ensure the client's request header does not contain CR, LF, NULL, or similar characters. Replace such characters with SP (whitespace). |
 
 ### Firewall log category
 

@@ -1102,32 +1102,32 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-linux-readme.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/containers/app-service-linux-intro.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/containers/choose-deployment-type.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-choose-deployment-type.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-how-to-create-web-app.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-intro.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
@@ -1981,11 +1981,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service/tutorial-java-quarkus-postgresql-app.md",
-      "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service/containers/tutorial-java-spring-cosmosdb.md",
       "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
       "redirect_document_id": false
@@ -2713,6 +2708,156 @@
     {
       "source_path_from_root": "/articles/app-service/app-service-sql-asp-github-actions.md",
       "redirect_url": "/azure/app-service/deploy-github-actions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/management-addresses.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-intro.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-web-configure-an-app-service-environment.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-environment-auto-scale.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-network-architecture-overview.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-control-inbound-traffic.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/app-service-app-service-environment-layered-security.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/intro.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/create-from-template.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/create-ilb-ase.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/create-external-ase.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/using-an-ase.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/network-info.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/zone-redundancy.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/certificates.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/forced-tunnel-support.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/firewall-integration.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/upgrade-to-asev3.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/migrate.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/side-by-side-migrate.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/migration-alternatives.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/version-comparison.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/how-to-side-by-side-migrate.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/how-to-migrate.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/tutorial-sidecar-local-small-language-model.md",
+      "redirect_url": "/azure/app-service/tutorial-ai-slm-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/deploy-intelligent-apps.md",
+      "redirect_url": "/azure/app-service/overview-ai-integration",
       "redirect_document_id": false
     }
   ]

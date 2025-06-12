@@ -4,19 +4,18 @@ description: Learn about zone-redundant virtual network gateways in Azure availa
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: how-to
-ms.date: 12/04/2023
+ms.topic: concept-article
+ms.date: 05/22/2025
 ms.author: cherylmc 
 ---
 # About zone-redundant virtual network gateway in Azure availability zones
 
-This article helps you create a zone-redundant virtual network gateway in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md) and [What are Azure regions and availability zones?](../reliability/availability-zones-overview.md)
+This article helps you create a zone-redundant virtual network gateway in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For more information, see [What are Azure regions and availability zones?](../reliability/availability-zones-overview.md)
 
 ### <a name="zrgw"></a>Zone-redundant gateways
 
 To automatically deploy your virtual network gateways across availability zones, you can use zone-redundant virtual network gateways. With zone-redundant gateways, you can benefit from zone-resiliency to access your mission-critical, scalable services on Azure.
 
-<br>
 <br>
 
 ![zone-redundant gateways graphic](./media/create-zone-redundant-vnet-gateway/zonered.png)
@@ -25,7 +24,6 @@ To automatically deploy your virtual network gateways across availability zones,
 
 To deploy gateways in a specific zone, you can use zonal gateways. When you deploy a zonal gateway, all instances of the gateway are deployed in the same availability zone.
 
-<br>
 <br>
 
 ![zonal gateways graphic](./media/create-zone-redundant-vnet-gateway/zonal.png)
@@ -38,7 +36,7 @@ For information about gateway SKUs, see [VPN gateway SKUs](vpn-gateway-about-vpn
 
 ## <a name="pipskus"></a>Public IP SKUs
 
-Zone-redundant, zonal and non-zonal gateways rely on the configuration of *Standard* SKU of Azure public IP resource. If you create a public IP resource with a *Basic* SKU, the gateway won't have any zone redundancy, and the gateway resources are regional.
+Zone-redundant, zonal, and non-zonal gateways rely on the configuration of *Standard* SKU of Azure public IP resource. If you create a public IP resource with a *Basic* SKU, the gateway won't have any zone redundancy, and the gateway resources are regional.
 
 For more information, see [Availability zones](../virtual-network/ip-services/public-ip-addresses.md#availability-zone).
 
@@ -74,10 +72,10 @@ Yes, you can use the Azure portal to deploy these SKUs. However, you see these S
 
 These SKUs are available in Azure regions that have Azure availability zones. For more information, see [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
 
-### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
+### Can I change my existing virtual network gateways to zone-redundant or zonal gateways?
 
-* VPN gateway - migrating your existing virtual network gateways to zone-redundant or zonal gateways is currently not supported. You can, however, delete your existing gateway and re-create a zone-redundant or zonal gateway.
-* ExpressRoute gateway - migrating your existing ExpressRoute virtual network gateway to a zone-redundant or zonal gateway is currently in public preview. For more information, see [Migrate to an availability zone enabled ExpressRoute virtual network gateway](../expressroute/gateway-migration.md).
+* VPN Gateway - See [About SKU consolidation & migration](gateway-sku-consolidation.md).
+* ExpressRoute - See [Migrate to an availability zone enabled ExpressRoute virtual network gateway](../expressroute/gateway-migration.md).
 
 ### Can I deploy both VPN and ExpressRoute gateways in same virtual network?
 

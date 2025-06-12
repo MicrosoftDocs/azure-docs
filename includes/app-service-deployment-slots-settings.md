@@ -6,27 +6,25 @@ ms.date: 01/24/2025
 ms.author: cephalin
 ---
 
-When you clone configuration from another deployment slot, the cloned configuration is editable. Some configuration elements follow the content across a swap (*not slot specific*). Other configuration elements stay in the same slot after a swap (*slot specific*). The following lists show the settings that change when you swap slots.
+When you clone a configuration from another deployment slot, the cloned configuration is editable. Some configuration elements follow the content across a swap (they're *not slot specific*). Other configuration elements stay in the same slot after a swap (they're *slot specific*).
 
-**Settings that are swapped**:
+When you swap slots, these settings are swapped:
 
-- Language stack and version, 32/64-bit
+- Language stack and version, 32 bit and 64 bit
 - App settings (can be configured to stick to a slot)
 - Connection strings (can be configured to stick to a slot)
 - Mounted storage accounts (can be configured to stick to a slot)
 - Handler mappings
 - Public certificates
 - WebJobs content
-- Hybrid connections *
-- Service endpoints *
-- Azure Content Delivery Network *
+- Hybrid connections (currently)
+- Service endpoints (currently)
+- Azure Content Delivery Network (currently)
 - Path mappings
 
-Features marked with an asterisk (*) are planned to be unswapped. 
+When you swap slots, these settings aren't swapped:
 
-**Settings that aren't swapped**:
-
-- General settings not mentioned in **Settings that are swapped**
+- General settings not mentioned in the previous list
 - Publishing endpoints
 - Custom domain names
 - Nonpublic certificates and TLS/SSL settings
@@ -38,11 +36,10 @@ Features marked with an asterisk (*) are planned to be unswapped.
 - Cross-origin resource sharing (CORS)
 - Virtual network integration
 - Managed identities and related settings
-- Settings that end with the suffix _EXTENSION_VERSION
-- Settings that created by [Service Connector](../articles/service-connector/overview.md)
+- Settings that end with the suffix `_EXTENSION_VERSION`
+- Settings that [Service Connector](../articles/service-connector/overview.md) created
 
 > [!NOTE]
-> To make settings swappable, add the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app and set its value to `0` or `false`. These settings are either all swappable or not at all. You can't make just some settings swappable and not the others. Managed identities are never swapped. This override app setting doesn't affect them.
+> To make settings swappable, add the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app. Set its value to `0` or `false`. These settings are either all swappable or all not swappable. You can't make just some settings swappable and not the others. Managed identities are never swapped. This override app setting doesn't affect them.
 >
-> Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic settings aren't swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
->
+> Certain app settings that apply to unswapped settings are also not swapped. For example, because diagnostic settings aren't swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.

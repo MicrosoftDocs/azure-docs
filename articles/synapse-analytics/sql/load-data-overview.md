@@ -3,7 +3,7 @@ title: Design a PolyBase data loading strategy for dedicated SQL pool
 description: Learn how to implement a PolyBase data loading strategy for dedicated SQL pool using Extract, Load, and Transform (ELT).
 author: joannapea
 ms.author: joanpo
-ms.reviewer: wiassaf
+
 ms.date: 02/05/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql

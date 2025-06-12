@@ -11,7 +11,8 @@
     href: virtual-wan-faq.md
   - name: About Virtual WAN pricing
     href: pricing-concepts.md
-  - name: Quickstarts
+  - name: Quickstarts & Tutorials
+    expanded: true
     items:
     - name: Configure a site-to-site connection
       href: virtual-wan-site-to-site-portal.md
@@ -31,14 +32,16 @@
         href: quickstart-any-to-any-template.md
       - name: Route to shared services VNets
         href: quickstart-route-shared-services-vnet-template.md
-    - name: BICEP templates
+    - name: Bicep files
       items:
       - name: Deploy Virtual WAN with routing intent and routing policies
         href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent
-- name: Design and architecture
+- name: Design & architecture
   items: 
   - name: Migrate to Virtual WAN
     href: migrate-from-hub-spoke-topology.md
+  - name: Interconnect Virtual WANs
+    href: virtual-wan-connectivity.md
   - name: Global transit network architecture
     href: virtual-wan-global-transit-network-architecture.md
   - name: SD-WAN connectivity architecture
@@ -49,11 +52,11 @@
     href: ../azure-netapp-files/configure-virtual-wan.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Interconnect with China
     href: interconnect-china.md
-  - name: Virtual Hub third-party integrations
+  - name: Virtual hub third-party integrations
     items:
     - name: Overview of third-party integrations  
       href: third-party-integrations.md
-    - name: Integrated NVAs in the Virtual Hub
+    - name: Integrated NVAs in the virtual hub
       href: about-nva-hub.md
     - name: Software-as-a-service(SaaS)
       href: how-to-palo-alto-cloud-ngfw.md
@@ -99,15 +102,39 @@
     href: scenario-365-expressroute-private.md
 - name: Virtual WAN and virtual hub settings
   items:
-  - name: Virtual hub settings
-    href: hub-settings.md
+  - name: Virtual WAN gateway settings
+    href: gateway-settings.md
+  - name: Upgrade from Basic virtual WAN to Standard
+    href: upgrade-virtual-wan.md
   - name: Roles and permissions
     href: roles-permissions.md
-  - name: Gateway settings
-    href: gateway-settings.md
-  - name: Install Azure Firewall in a hub
-    href: howto-firewall.md
-- name: Configure site-to-site connections
+  - name: Virtual hub settings
+    href: hub-settings.md
+  - name: Connect a VNet to a virtual hub
+    href: howto-connect-vnet-hub.md
+  - name: Secured virtual hub
+    items:
+    - name: What is a secured virtual hub?
+      href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
+    - name: Convert a virtual hub to a secured virtual hub
+      href: howto-firewall.md
+    - name: Secure your virtual hub using Azure Firewall Manager
+      href: ../firewall-manager/secure-cloud-network.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
+    - name: Customer-provided public IP address for secured virtual hub
+      href:  ../firewall/secured-hub-customer-public-ip.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
+- name: Integrated NVA in a virtual hub
+  items:
+  - name: Create an NVA in a virtual hub
+    href: how-to-nva-hub.md
+  - name: Restart an NVA in a virtual hub
+    href: how-to-network-virtual-appliance-restart.md
+  - name: Reimage an NVA in a virtual hub
+    href: how-to-network-virtual-appliance-reimage.md
+  - name: Configure DNAT/Internet inbound for NVAs
+    href: how-to-network-virtual-appliance-inbound.md
+  - name: Manage IP configurations for NVAs
+    href: how-to-network-virtual-appliance-add-ip-configurations.md
+- name: Site-to-site (S2S) connections
   items:
   - name: Create a site-to-site connection
     items:
@@ -131,7 +158,7 @@
       href: nat-rules-vpn-gateway-powershell.md
   - name: Multiple ISP links - Azure path selection
     href: path-selection-multiple-links.md
-- name: Configure User VPN (P2S) connections
+- name: User VPN point-to-site (P2S) connections
   items:
   - name: About point-to-site concepts
     href: point-to-site-concepts.md
@@ -163,38 +190,38 @@
             href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md
           - name: Version 3.x
             href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md
-        - name: Linux clients
+      - name: Linux clients
+        items:
+        - name: Azure VPN Client
+          href: point-to-site-azure-vpn-client-certificate-linux.md
+        - name: OpenVPN client
+          href: point-to-site-vpn-client-certificate-openvpn-linux.md
+        - name: IKEv2 - strongSwan
+          href: point-to-site-vpn-client-certificate-ike-linux.md
+      - name: macOS and iOS clients
+        items:
+        - name: Native VPN client
+          href: point-to-site-vpn-client-cert-mac.md
+        - name: OpenVPN client - macOS
+          href: point-to-site-vpn-client-certificate-openvpn-mac.md
+        - name: OpenVPN client - iOS
+          href: point-to-site-vpn-client-certificate-openvpn-ios.md  
+      - name: Generate self-signed certificates
+        items:
+        - name: .cer and .pfx files
           items:
-          - name: Azure VPN Client
-            href: point-to-site-azure-vpn-client-certificate-linux.md
-          - name: OpenVPN client
-            href: point-to-site-vpn-client-certificate-openvpn-linux.md
-          - name: IKEv2 - strongSwan
-            href: point-to-site-vpn-client-certificate-ike-linux.md
-        - name: macOS and iOS clients
+          - name: Azure PowerShell
+            href: certificates-point-to-site.md
+          - name: MakeCert
+            href: certificates-point-to-site-makecert.md
+        - name: .pem files
           items:
-          - name: Native VPN client
-            href: point-to-site-vpn-client-cert-mac.md
-          - name: OpenVPN client - macOS
-            href: point-to-site-vpn-client-certificate-openvpn-mac.md
-          - name: OpenVPN client - iOS
-            href: point-to-site-vpn-client-certificate-openvpn-ios.md  
-        - name: Generate self-signed certificates
-          items:
-          - name: .cer and .pfx files
-            items:
-            - name: Azure PowerShell
-              href: certificates-point-to-site.md
-            - name: MakeCert
-              href: certificates-point-to-site-makecert.md
-          - name: .pem files
-            items:
-            - name: Linux - OpenSSL
-              href: ../vpn-gateway/point-to-site-certificates-linux-openssl.md
-            - name: Linux - strongSwan
-              href: ../vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md
-        - name: Install client certificates
-          href: install-client-certificates.md
+          - name: Linux - OpenSSL
+            href: point-to-site-certificates-linux-openssl.md
+          - name: Linux - strongSwan
+            href: point-to-site-certificates-linux-strongswan.md
+      - name: Install client certificates
+        href: install-client-certificates.md
   - name: Configure P2S - Microsoft Entra ID authentication
     items:
     - name: P2S server configuration
@@ -215,11 +242,11 @@
         href: openvpn-azure-ad-tenant-multi-app.md
     - name: VPN client configuration
       items:
-      - name: Windows clients
+      - name: Azure VPN Client - Windows
         href: point-to-site-entra-vpn-client-windows.md
-      - name: macOS clients
+      - name: Azure VPN Client - macOS
         href: point-to-site-entra-vpn-client-mac.md
-      - name: Linux clients
+      - name: Azure VPN Client - Linux
         href: point-to-site-entra-vpn-client-linux.md
       - name: VPN client profiles
         items:
@@ -227,12 +254,14 @@
           href: global-hub-profile.md
         - name: Extract and view profile information
           href: about-vpn-profile-download.md
-        - name: Intune- Deploy VPN client profile
+        - name: Intune - Deploy VPN client profile
           href: vpn-profile-intune.md
   - name: Azure VPN Client versions & settings
     items:
     - name: Configure optional settings
-      href: azure-vpn-client-optional-configurations-windows.md
+      href: azure-vpn-client-optional-configurations.md
+    - name: Run Prerequisites Test
+      href: azure-vpn-client-prerequisites-check.md
     - name: Azure VPN Client versions
       href: azure-vpn-client-versions.md
   - name: Assign IP addresses to specific User Groups
@@ -251,7 +280,7 @@
       href: howto-always-on-device-tunnel.md
   - name: Configure P2S forced tunneling
     href: how-to-forced-tunnel.md
-- name: Configure ExpressRoute connections 
+- name: ExpressRoute connections 
   items:
   - name: About ExpressRoute in Virtual WAN
     href: virtual-wan-expressroute-about.md
@@ -263,6 +292,7 @@
       href: expressroute-powershell.md
   - name: Configure ExpressRoute encryption
     href: vpn-over-expressroute.md
+
 - name: Routing
   items:
   - name: Virtual WAN routing deep dive
@@ -289,10 +319,22 @@
       href: route-maps-about.md
     - name: Configure Route-maps
       href: route-maps-how-to.md
+    - name: Configure Route-maps to summarize routes leaving your virtual WAN
+      href: route-maps-how-to-summarize-routes-leaving-your-virtual-wan.md
+    - name: Configure Route-maps to drop inbound routes from branch sites
+      href: route-maps-drop-inbound-branch-sites.md
+    - name: Configure Route-maps to prepend routes
+      href: route-maps-prepend-routes.md
+    - name: Configure Route-maps to tag routes
+      href: route-maps-tag-routes.md
+    - name: Configure Route-maps to summarize routes from an NVA
+      href: route-maps-summarize-from-device-spoke-vnet-nva.md
   - name: View virtual hub effective routes
     href: effective-routes-virtual-hub.md
   - name: Configure routing intent and policies
     href: how-to-routing-policies.md
+  - name: Next hop IP support
+    href: next-hop-ip.md
   - name: Route traffic from a virtual hub to an NVA (legacy)
     items:
     - name: Azure portal
@@ -323,7 +365,7 @@
     href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Install Azure Firewall in a hub
     href: howto-firewall.md
-  - name: Inter-hub and branch-to-branch inspection
+  - name: Inter-hub & branch-to-branch inspection
     href: how-to-routing-policies.md
   - name: Software-as-a-service (SaaS)
     href: how-to-palo-alto-cloud-ngfw.md
@@ -333,7 +375,7 @@
     href: manage-secure-access-resources-spoke-p2s.md
   - name: Azure Security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-- name: Monitoring and maintenance
+- name: Monitoring & maintenance
   items:
   - name: Monitor Virtual WAN
     href: monitor-virtual-wan.md
@@ -373,7 +415,7 @@
     href: /answers/tags/34/azure-virtual-wan
   - name: Networking feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
-  - name: Subscription and service limits
+  - name: Subscription & service limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/virtual-wan/toc.json
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-wan

@@ -2,15 +2,16 @@
 title: How to configure origins
 titleSuffix: Azure Front Door
 description: This article explains how to configure origins in an origin group to use with your Azure Front Door profile.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 02/18/2025
-ms.author: duau
 ---
 
 # How to configure an origin for Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 This article shows you how to create an Azure Front Door origin in a new origin group. The origin group can be then associated with a route to determine how traffic reaches your origins.
 

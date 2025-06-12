@@ -3,7 +3,7 @@ title: Create monitoring resources by using Bicep
 description: Describes how to create monitoring resources by using Bicep.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Create monitoring resources by using Bicep
@@ -41,7 +41,7 @@ resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' exis
   name: logAnalyticsWorkspace
 }
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2024-04-01' = {
   name: appPlanName
   location: location
   sku: {
@@ -148,7 +148,7 @@ param location string = resourceGroup().location
 
 var actionGroupEmail = 'oncallteam@contoso.com'
 
-resource supportTeamActionGroup 'Microsoft.Insights/actionGroups@2023-01-01' = {
+resource supportTeamActionGroup 'Microsoft.Insights/actionGroups@2024-10-01-preview' = {
   name: actionGroupName
   location: location
   properties: {

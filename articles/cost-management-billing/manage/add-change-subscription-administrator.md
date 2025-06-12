@@ -1,13 +1,13 @@
 ---
 title: Add or change Azure subscription administrators
 description: Describes how to add or change an Azure subscription administrator using Azure role-based access control (Azure RBAC).
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: jkinma
 
 ---
 # Add or change Azure subscription administrators
@@ -42,7 +42,7 @@ If you're not sure who the account billing administrator is for a subscription, 
 
 1. Open the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Select the subscription you want to check, and then look under **Settings**.
-1. Select **Properties**. The account billing administrator of the subscription is displayed in the **Account Admin** box.
+1. Select **Billing properties**. The account billing administrator of the subscription is displayed in the **Account Admin** box.
 
 ### To assign a user as an administrator
 

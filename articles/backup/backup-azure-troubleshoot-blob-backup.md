@@ -2,7 +2,7 @@
 title: Troubleshoot Blob backup and restore issues
 description: In this article, learn about symptoms, causes, and resolutions of Azure Backup failures related to the Azure Blob backups and restore.
 ms.topic: troubleshooting
-ms.date: 02/24/2025
+ms.date: 05/21/2025
 ms.service: azure-backup
 ms.reviewer: geg
 author: jyothisuri
@@ -199,6 +199,14 @@ This article provides troubleshooting information to address issues you encounte
 **Recommended action**: Remove the container from other Object replication policy or change protection intent.
 
 ## Common errors for Azure Blob vaulted backup
+
+### UserErrorLegalHoldOnContainer
+
+**Error code**: `UserErrorLegalHoldOnContainer`
+
+**Error message**: Operation has failed because the container(s) have legal hold.
+
+**Recommendation**: Remove the legal hold from containers or remove container with legal hold from protection for the operation to succeed. 
 
 ### UserErrorInvalidParameterInRequest 
 

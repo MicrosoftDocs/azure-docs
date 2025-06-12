@@ -2,7 +2,7 @@
 title: OT monitoring software versions - Microsoft Defender for IoT
 description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
 ms.topic: release-notes
-ms.date: 12/19/2023
+ms.date: 04/06/2025
 ---
 
 # OT monitoring software versions
@@ -28,7 +28,7 @@ When updating your on-premises software, we recommend:
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### OT monitoring software versions (sensor versions)
-
+ 
 Cloud features may be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed, or higher.
 
 > [!IMPORTANT]
@@ -38,6 +38,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **25.1** | | | |
+| 25.1.2 | 06/2025 | Minor |05/2026 |
+| 25.1.1  |03/2025 | Minor |02/2026 |
 | 25.1.0  |03/2025 | Major |02/2026 |
 | **24.1** | | | |
 | 24.1.9  |03/2025 | Minor |02/2026 |
@@ -48,21 +50,6 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | 24.1.4  |07/2024 | Minor |07/2025 |
 | 24.1.3  |06/2024 | Minor |06/2025 |
 | 24.1.2  |04/2024 | Minor |04/2025 |
-| **23.2** | | | |
-| 23.2.0 | 12/2023 | Major | 12/2024 |
-| **23.1** | | | |
-| 23.1.3 | 09/2023 | Patch | 08/2024 |
-| 23.1.2 | 07/2023 | Major | 06/2024 |
-| **22.3** | | | |
-|22.3.10 | 07/2023 | Patch | 06/2024 |
-| 22.3.9 | 05/2023 | Patch | 04/2024 |
-| 22.3.8 | 04/2023 | Patch | 03/2024 |
-| 22.3.7 | 03/2023 | Patch | 02/2024 |
-| 22.3.6 | 03/2023 | Patch | 02/2024 |
-| 22.3.5 | 01/2023 | Patch | 12/2023 |
-| 22.3.4 | 01/2023 | Major | 12/2023 |
-| **22.2** | | | |
-| 22.2.9 | 01/2023 | Patch | 12/2023 |
 
 ### Threat intelligence updates
 
@@ -95,6 +82,25 @@ Version numbers are listed only in this article and in the [What's new in Micros
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
 ## Versions 25.1.x
+
+### Version 25.1.2
+
+**Release date**: 06/2025
+
+**Supported until**: 05/2026
+
+This version includes bug fixes for stability improvements.
+
+### Version 25.1.1
+
+**Release date**: 04/2025
+
+**Supported until**: 03/2026
+
+This version includes the following updates:
+
+- Bug fixes for stability improvements
+- Enhanced 'Address Scan Detected' alert with port and protocol details for each scanned address, allowing SOC teams to investigate more efficiently without opening the PCAP.
 
 ### Version 25.1.0
 
@@ -162,7 +168,7 @@ This version includes the following updates and enhancements:
 
 This version includes the following updates and enhancements:
 
-- [Malicious URL path alert](whats-new.md#malicious-url-path-alert)
+- [Malicious URL path alert](whats-new-archive.md#malicious-url-path-alert)
 - The following CVE is resolved in this version:
   - CVE-2024-38089
 
@@ -174,7 +180,7 @@ This version includes the following updates and enhancements:
 
 This version includes the following updates and enhancements:
 
-- [Sensor time drift detection](whats-new.md#sensor-time-drift-detection)
+- [Sensor time drift detection](whats-new-archive.md#sensor-time-drift-detection)
 - Bug fixes for stability improvements
 - The following CVEs are resolved in this version:
   - CVE-2024-29055
@@ -198,6 +204,7 @@ This version includes the following updates and enhancements:
 - [Newly supported protocols](concept-supported-protocols.md)
 - [L60 hardware profile is no longer supported](ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments)
 
+=======
 ## Versions 23.2.x
 
 ### Version 23.2.0
@@ -208,7 +215,7 @@ This version includes the following updates and enhancements:
 
 This version includes the following updates and enhancements:
 
-- [Sensor software runs on a Debian 11 operating system](ot-deploy/install-software-ot-sensor.md) and [updates to this version may be heavier and longer than usual](whats-new.md#ot-network-sensors-now-run-on-debian-11)
+- [Sensor software runs on a Debian 11 operating system](ot-deploy/install-software-ot-sensor.md) and [updates to this version may be heavier and longer than usual](whats-new-archive.md#ot-network-sensors-now-run-on-debian-11)
 - [The legacy, privileged default *support* user is replaced by the default *admin* user](roles-on-premises.md#legacy-users)
 
 > [!IMPORTANT]
@@ -263,7 +270,7 @@ This version includes bug fixes for stability improvements.
 
 This version includes:
 
-- [Improved monitoring and support for OT sensor logs](whats-new.md#improved-monitoring-and-support-for-ot-sensor-logs)
+- [Improved monitoring and support for OT sensor logs](whats-new-archive.md#improved-monitoring-and-support-for-ot-sensor-logs)
 - Bug fixes for stability improvements.
 
 ### 22.3.8
@@ -289,7 +296,7 @@ Version 22.3.7 includes the same features as 22.3.6. If you have version 22.3.6 
 - [Support for transient devices](device-inventory.md#supported-devices)
 - [Autoresolved notifications](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
 - [Device data retention updated to 90 days](references-data-retention.md#device-data-retention-periods)
-- [Merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices on OT sensors now include confirmation messages when the action has completed
+- [Deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices on OT sensors now includes confirmation messages when the action has completed
 - Support for [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) on OT sensors
 - An enhanced [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) process on the OT sensor, using an **Edit** button in the toolbar at the top of the page
 - [Enhanced UI on the OT sensor for uploading an SSL/TLS certificate](ot-deploy/activate-deploy-sensor.md#define-ssltls-certificate-settings)
@@ -377,7 +384,7 @@ This version includes the following new updates and fixes:
 
 - [Device inventory enhancements in the sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md):
 
-  - Merge duplicate devices, delete single devices, and delete inactive devices by admin users
+  - Delete single devices, and delete inactive devices by admin users
   - **Last seen** value in the device details pane is replaced by **Last activity**
 
 - [New parameters for the *devicecves* API](api/management-integration-apis.md): `sensorId`, `score`, and `deviceIds`
@@ -554,5 +561,4 @@ This version includes the following new updates and fixes:
 
 ## Next steps
 
-For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](release-notes-archive.md).
-
+For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](whats-new-archive.md).

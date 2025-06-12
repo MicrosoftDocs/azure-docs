@@ -148,8 +148,7 @@ transfer.on('stateChanged', () => {
 ```
 
 ### Initial Caller and Transferor information
-In case of call transfer or forward scenario incoming call object contains information about initial caller and transferor agents.
-Transferor agent could be Azure Communication Calling user or Teams user or Voice Application (Call Queue and etc.)
+When forwarding or transferring a call, `transferInfo` is populated with information about the prior call state. This includes `callerInfo` which describes the initial caller and `transferorInfo` which describes the entity transferring or forwarding the call. For example, if an ACS user places a call to a Teams call queue which then distributes the call to a M365 user, the `callerInfo` would specify the ACS user and the `transferorInfo` would specify the Teams call queue. Callers and transferors have the ability to update their displayName, and if this occurs the callerInfoChanged or transferorInfoChanged events will fire. For more information on change events see [Event: callerInfoChanged](../../events.md?pivots=platform-web#event-callerinfochanged) and [Event: transferorInfoChanged](../../events.md?pivots=platform-web#event-transferorinfochanged). This applies to all calls and for any identity (BYOI or M365).
 ```js
 const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
     const incomingCall = args.incomingCall;

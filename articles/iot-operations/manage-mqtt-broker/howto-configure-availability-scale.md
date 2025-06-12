@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 11/11/2024
+  - build-2025
+ms.date: 05/14/2025
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ms.service: azure-iot-operations
@@ -137,6 +138,8 @@ For example, if your cluster has three nodes, each with eight CPU cores, then se
 
 ## Configure memory profile
 
+The memory profile specifies the broker's memory usage for resource-limited environments. You can choose from predefined memory profiles that have different memory usage characteristics. The memory profile setting is used to configure the memory usage of the frontend and backend replicas. The memory profile interacts with the cardinality settings to determine the total memory usage of the broker.
+
 > [!IMPORTANT]
 > This setting requires you to modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
@@ -162,14 +165,18 @@ To learn more, see [`az iot ops create` optional parameters](/cli/azure/iot/ops#
 
 ---
 
-There are a few memory profiles to choose from, each with different memory usage characteristics.
+There are predefined memory profiles with different memory usage characteristics for publishing messages. There isn't a limit on the number of sessions or subscriptions that the broker can handle. The memory profile governs only the memory usage for PUBLISH traffic.
 
 ### Tiny
+
+Use this profile when you have limited memory resources and client publish traffic is low.
 
 When you use this profile:
 
 - Maximum memory usage of each frontend replica is approximately 99 MiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 102 MiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
+- Maximum message size is 4 MB.
+- The maximum size of the incoming buffer for PUBLISH data is approximately 16 MiB per backend worker. However, the effective size may be lower due to backpressure mechanisms, which activate when the buffer reaches 75% capacity resulting in a buffer size of approximately 12 MiB. Rejected packets have a PUBACK response with a *Quota exceeded* error code.
 
 Recommendations when you use this profile:
 
@@ -178,27 +185,69 @@ Recommendations when you use this profile:
 
 ### Low
 
+Use this profile when you have limited memory resources and clients publish small packets.
+
 When you use this profile:
 
 - Maximum memory usage of each frontend replica is approximately 387 MiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 390 MiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
+- Maximum message size is 16 MB.
+- The maximum size of the incoming buffer for PUBLISH data is approximately 64 MiB per backend worker. However, the effective size may be lower due to backpressure mechanisms, which activate when the buffer reaches 75% capacity resulting in a buffer size of approximately 48 MiB. Rejected packets have a PUBACK response with a *Quota exceeded* error code.
 
 Recommendations when you use this profile:
 
 - Only one or two frontends should be used.
-- Clients shouldn't send large packets. You should only send packets smaller than 10 MiB.
+- Clients shouldn't send large packets. You should only send packets smaller than 16 MiB.
 
 ### Medium
+
+Use this profile when you need to handle a moderate number of client messages.
 
 Medium is the default profile.
 
 - Maximum memory usage of each frontend replica is approximately 1.9 GiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 1.5 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
+- Maximum message size is 64 MB.
+- The maximum size of the incoming buffer for PUBLISH data is approximately 576 MiB per backend worker. However, the effective size may be lower due to backpressure mechanisms, which activate when the buffer reaches 75% capacity resulting in a buffer size of approximately 432 MiB. Rejected packets have a PUBACK response with a *Quota exceeded* error code.
 
 ### High
 
+Use this profile when you need to handle a large number of client messages.
+
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
+- Maximum message size is 256 MB.
+- The maximum size of the incoming buffer for PUBLISH data is approximately 2 GiB per backend worker. However, the effective size may be lower due to backpressure mechanisms, which activate when the buffer reaches 75% capacity resulting in a buffer size of approximately 1.5 GiB. Rejected packets have a PUBACK response with a *Quota exceeded* error code.
+
+
+## Calculate total memory usage
+
+The memory profile setting specifies the memory usage for each frontend and backend replica and interacts with the cardinality settings. You can calculate the total memory usage using the formula: 
+
+*M_total = R_fe * M_fe + (P_be * RF_be) * M_be * W_be*
+
+Where:
+
+| Variable | Description |
+|----------|-------------|
+| *M_total* | Total memory usage |
+| *R_fe* | The number of frontend replicas |
+| *M_fe*| The memory usage of each frontend replica |
+| *P_be*| The number of backend partitions |
+| *RF_be* | Backend redundancy factor |
+| *M_be* | The memory usage of each backend replica |
+| *W_be* | The number of workers per backend replica |
+
+For example if you choose the *Medium* memory profile, the profile has a frontend memory usage of 1.9 GB and backend memory usage of 1.5 GB. Assume that the broker configuration is 2 frontend replicas, 2 backend partitions, and a backend redundancy factor of 2. The total memory usage is:
+
+*2 * 1.9 GB + (2 * 2) * 1.5 GB * 2* = 15.8 GB
+
+In comparison, the *Tiny* memory profile has a frontend memory usage of 99 MiB and backend memory usage of 102 MiB. If you assume the same broker configuration, the total memory usage is:
+
+*2 * 99 MB + (2 * 2) * 102 MB * 2 = 198 MB + 816 MB* = 1.014 GB.
+
+> [!IMPORTANT]
+> The MQTT broker starts rejecting messages when memory is 75% full.
 
 ## Cardinality and Kubernetes resource limits
 

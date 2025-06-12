@@ -18,21 +18,21 @@ ms.author: shaas
 #    09/01/23: 100 (2159/0)
 -->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 # Tutorial: Copy data to Azure Data Box Disk and verify
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ## Copy data to Azure Data Box Disk and validate
 
 After the disks are connected and unlocked, you can copy data from your source data server to your disks. After the data copy is complete, you should validate the data to ensure that it will successfully upload to Azure.
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 > [!IMPORTANT]
 > Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs.
@@ -44,7 +44,7 @@ After the disks are connected and unlocked, you can copy data from your source d
 > The information contained within this section applies to orders placed after April 1, 2024.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is end of support status. Please consider your use and planning accordingly.
 
 This tutorial describes how to copy data from your host computer and generate checksums to verify data integrity.
 
@@ -351,9 +351,9 @@ Advance to the next tutorial to learn how to return the Data Box Disk and verify
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box back to Microsoft](./data-box-disk-deploy-picked-up.md)
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ### Copy data to disks
 
@@ -386,4 +386,6 @@ Verify your data by following these steps:
 
     For more information on data validation, see [Validate data](#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
-::: zone-end
+::: zone-end-->
+
+

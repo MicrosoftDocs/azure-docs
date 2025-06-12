@@ -20,6 +20,8 @@ ms.subservice: b2c
 
 # Page layout versions
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
 > [!IMPORTANT]

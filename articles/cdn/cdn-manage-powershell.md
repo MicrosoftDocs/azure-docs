@@ -1,13 +1,14 @@
 ---
+ROBOTS: NOINDEX
 title: Manage Azure Content Delivery Network with PowerShell
 description: Use this tutorial to learn how to use PowerShell to manage aspects of your Azure Content Delivery Network endpoint profiles and endpoints.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau 
+ms.date: 03/31/2025
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -89,7 +90,7 @@ DESCRIPTION
     Gets an Azure CDN profile and all related information.
 
 RELATED LINKS
-    https://docs.microsoft.com/powershell/module/az.cdn/get-azcdnprofile
+    https://learn.microsoft.com/powershell/module/az.cdn/get-azcdnprofile
 
 REMARKS
     To see the examples, type: "get-help Get-AzCdnProfile -examples".

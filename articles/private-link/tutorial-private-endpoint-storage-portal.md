@@ -7,7 +7,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: tutorial
-ms.date: 12/03/2024
+ms.date: 03/25/2025
 ms.custom: template-tutorial
 ---
 
@@ -58,7 +58,7 @@ Before you create the private endpoint, it's recommended to disable public acces
 
 1. Select **+ Create** in **Private endpoints**.
 
-1. In the **Basics** tab of **Create a private endpoint**, enter or select the following information.
+1. In the **Basics** tab of **Create a private endpoint**, enter, or select the following information.
 
     | Setting | Value |
     | ------- | ----- |

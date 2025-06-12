@@ -21,6 +21,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Enable multifactor authentication in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Azure Active Directory B2C (Azure AD B2C) integrates directly with [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) so that you can add a second layer of security to sign-up and sign-in experiences in your applications. If you already created sign-up and sign-in user flows, you can still enable multifactor authentication.

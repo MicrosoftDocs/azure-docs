@@ -2,11 +2,12 @@
 title: Use a rules engine to enforce HTTPS in Standard Azure Content Delivery Network
 description: Use the rules engine for Microsoft Standard Azure Content Delivery Network to customize how Azure Content Delivery Network handles HTTP requests. Including blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers. In this article, learn how to create a rule to redirect users to HTTPS.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
 ---
 
 # Set up the Standard rules engine for Azure Content Delivery Network

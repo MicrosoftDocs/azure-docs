@@ -14,7 +14,7 @@ ms.custom: template-overview
 In this quickstart, you learn how to create an Azure Programmable Connectivity (APC) gateway and subscribe to API plans in the Azure portal.
 
 > [!NOTE]
-> Deleting and modifying existing APC Gateways is not supported during the preview. Please open a support ticket in the Azure Portal if you need to delete an APC Gateway.
+> Modifying existing APC Gateways is not supported during the preview. If you need to modify an APC Gateway, you must delete it and recreate it.
 >
 
 > [!NOTE]

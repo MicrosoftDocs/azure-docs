@@ -1,16 +1,16 @@
 ---
-title: Best practices for Azure Web Application Firewall (WAF) on Azure Application Gateway
+title: Best practices for Azure Web Application Firewall (WAF) on Application Gateway
 description: In this article, you learn about the best practices for using the Azure Web Application Firewall (WAF) on Azure Application Gateway.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 08/28/2023
+ms.date: 04/30/2025
 ---
 
 # Best practices for Azure Web Application Firewall (WAF) on Azure Application Gateway
 
-This article summarizes best practices for using Azure Web Application Firewall (WAF) on Azure Application Gateway.
+This article summarizes the best practices for using Azure Web Application Firewall (WAF) on Azure Application Gateway.
 
 ## General best practices
 
@@ -20,10 +20,11 @@ For Internet-facing applications, we recommend you enable a web application fire
 
 ### Use WAF policies
 
-WAF policies are the new resource type for managing your Application Gateway WAF. If you have older WAFs that use WAF Configuration resources, you should migrate to WAF policies to take advantage of the latest features.
+WAF policies are the new resource type for managing your Application Gateway WAF. If you have older WAFs that use WAF configuration resources, you should migrate to WAF policies to take advantage of the latest features.
 
 For more information, see the following resources:
-- [Migrate Web Application Firewall policies using Azure PowerShell](./migrate-policy.md)
+- [Upgrade to Azure Application Gateway WAF policy](./upgrade-ag-waf-policy.md)
+- [Upgrade Web Application Firewall policies using Azure PowerShell](./migrate-policy.md)
 - [Upgrade Application Gateway WAF configuration to WAF policy using Azure Firewall Manager](../shared/manage-policies.md#upgrade-application-gateway-waf-configuration-to-waf-policy)
 
 ### Tune your WAF
@@ -42,7 +43,7 @@ After you tune your WAF, you should configure it to [run in **prevention** mode]
 
 When you tune your WAF for your application workload, you typically create a set of rule exclusions to reduce false positive detections. If you manually configure these exclusions by using the Azure portal, then when you upgrade your WAF to use a newer ruleset version, you need to reconfigure the same exceptions against the new ruleset version. This process can be time-consuming and error-prone.
 
-Instead, consider defining your WAF rule exclusions and other configurations as code, such as by using the Azure CLI, Azure PowerShell, Bicep or Terraform. Then, when you need to update your WAF ruleset version, you can easily reuse the same exclusions.
+Instead, consider defining your WAF rule exclusions and other configurations as code, such as by using the Azure CLI, Azure PowerShell, Bicep, or Terraform. Then, when you need to update your WAF ruleset version, you can easily reuse the same exclusions.
 
 ## Managed ruleset best practices
 
@@ -86,6 +87,6 @@ Microsoft Sentinel is a security information and event management (SIEM) system,
 
 For more information, see [Using Microsoft Sentinel with Azure Web Application Firewall](../waf-sentinel.md).
 
-## Next steps
+## Next step
 
 Learn how to [enable the WAF on an Application Gateway](application-gateway-web-application-firewall-portal.md).

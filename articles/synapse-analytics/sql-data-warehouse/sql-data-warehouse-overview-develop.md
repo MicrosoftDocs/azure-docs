@@ -3,7 +3,7 @@ title: Resources for developing a dedicated SQL pool (formerly SQL DW) in Azure 
 description: Development concepts, design decisions, recommendations, and coding techniques for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 author: XiaoyuMSFT
 ms.author: xiaoyul
-ms.reviewer: wiassaf
+
 ms.date: 08/29/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

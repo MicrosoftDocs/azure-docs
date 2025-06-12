@@ -4,7 +4,11 @@ description: This quickstart shows you how to use Bicep to deploy an Azure Sprin
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.custom: devx-track-java, mode-other, devx-track-bicep
+ms.custom:
+  - devx-track-java
+  - mode-other
+  - devx-track-bicep
+  - build-2025
 ms.author: karler
 ms.date: 08/28/2024
 ---
@@ -15,7 +19,7 @@ ms.date: 08/28/2024
 
 **This article applies to:** ❎ Basic ✅ Standard ✅ Enterprise
 
-This quickstart describes how to use a Bicep template to deploy an Azure Spring Apps cluster into an existing virtual network.
+This quickstart describes how to use a Bicep file to deploy an Azure Spring Apps cluster into an existing virtual network.
 
 Azure Spring Apps makes it easy to deploy Spring applications to Azure without any code changes. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
@@ -62,8 +66,8 @@ Next, open a Bash window and run the following Azure CLI command, replacing the 
 * `springCloudInstanceName`: The name of the Azure Spring Apps resource.
 * `appInsightsName`: The name of the Application Insights instance for Azure Spring Apps.
 * `laWorkspaceResourceId`: The resource ID of the existing Log Analytics workspace (for example, **/subscriptions/\<your subscription>/resourcegroups/\<your Log Analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/\<your Log Analytics workspace name>**).
-* **springCloudAppSubnetID:** The resource ID of the Azure Spring Apps Application Subnet.
-* **springCloudRuntimeSubnetID:** The resource ID of the Azure Spring Apps Runtime Subnet.
+* `springCloudAppSubnetID`: The resource ID of the Azure Spring Apps Application Subnet.
+* `springCloudRuntimeSubnetID`: The resource ID of the Azure Spring Apps Runtime Subnet.
 * `springCloudServiceCidrs`: A comma-separated list of IP address ranges (three in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Apps infrastructure. These three ranges should be at least `/16` unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
 
   ```azurecli
@@ -80,7 +84,7 @@ Next, open a Bash window and run the following Azure CLI command, replacing the 
           springCloudServiceCidrs=<value>
   ```
 
-  This command uses the Bicep template to create an Azure Spring Apps instance in an existing virtual network. The command also creates a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
+  This command uses the Bicep file to create an Azure Spring Apps instance in an existing virtual network. The command also creates a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
 
 ## Review deployed resources
 

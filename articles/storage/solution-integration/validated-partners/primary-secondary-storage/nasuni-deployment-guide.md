@@ -5,7 +5,7 @@ description: Deployment guide for Nasuni and Azure Blob Storage
 author: beber
 ms.author: beber
 ms.date: 09/13/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
 ---

@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Use Azure Digital Twins Explorer (preview)
 titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/06/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Use Azure Digital Twins Explorer (preview)
@@ -25,7 +19,7 @@ The main way to access Azure Digital Twins Explorer is through the [Azure portal
 
 To open Azure Digital Twins Explorer for an Azure Digital Twins instance, first navigate to the instance in the portal, by searching for its name in the portal search bar.
 
-[!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
+[!INCLUDE [digital-twins-access-explorer.md](includes/digital-twins-access-explorer.md)]
 
 ### Switch contexts within the app
 
@@ -158,7 +152,7 @@ If your Azure Digital Twins instance has [data history](concepts-data-history.md
 
     :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png" alt-text="Screenshot of the Data history explorer with the property details highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/data-history-explorer-property.png":::
 
-    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
+    [!INCLUDE [digital-twins-visual-property-error-note.md](includes/digital-twins-visual-property-error-note.md)]
 
 1. Choose a **Label** for the time series and select **Update**.  
 
@@ -217,9 +211,9 @@ If you choose a property that isn't present on every twin, any twins in the grap
 
 You can rearrange the twins into different configurations by clicking and dragging them around the Twin Graph screen.
 
-You can also apply one of several layout algorithms to the graph from the options in the **Choose Layout** menu. 
+You can also apply one of several layout algorithms to the graph from the options in the **Choose layout** menu. 
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The Choose Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, and Klay." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The Choose Layout button is highlighted, showing a menu with layout options." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png":::
 
 ### Control twin graph expansion
 
@@ -331,7 +325,7 @@ The **Models** panel:
 The **Model Graph** panel:
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Model Graph panel is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png":::
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 You can use these panels to [view your models](#view-models).
 
@@ -346,7 +340,7 @@ You can view a flat list of the models in your instance in the **Models** panel.
 
 You can use the **Model Graph** panel to view a graphical representation of the models in your instance, along with the relationships, inheritance, and components that connect them to each other.
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 #### View model definition
 
@@ -362,9 +356,9 @@ You can also view a model's full definition by selecting it in the **Model Graph
 
 You can rearrange the models into different configurations by clicking and dragging them around the Model Graph screen.
 
-You can also apply one of several layout algorithms to the model graph from the options in the **Choose Layout** menu. 
+You can also apply one of several layout algorithms to the model graph from the options in the **Choose layout** menu. 
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The Choose Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, Klay, and d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The Choose Layout button is highlighted, showing a menu with layout options." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
 
 ### Filter and highlight model graph elements
 
@@ -423,7 +417,7 @@ For information about the viewing experience for models, see [Explore models and
 
 You can upload models from your machine by selecting model files individually, or by uploading an entire folder of model files at once. If you're uploading one JSON file that contains the code for many models, be sure to review the [bulk model upload limitations](#limitations-of-bulk-model-upload).
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 To upload one or more models that are individually selected, select the **Upload a model** icon showing an upwards arrow.
 

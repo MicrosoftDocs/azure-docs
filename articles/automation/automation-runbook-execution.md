@@ -7,6 +7,8 @@ ms.date: 09/09/2024
 ms.topic: overview
 ms.custom:
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Runbook execution in Azure Automation
@@ -31,7 +33,7 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 
 Runbooks in Azure Automation can run on either an Azure sandbox or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). 
 
-When runbooks are designed to authenticate and run against resources in Azure, they run in an Azure sandbox. Azure Automation assigns a worker to run each job during runbook execution in the sandbox. While workers are shared by many Automation accounts, jobs from different Automation accounts are isolated from one another.  Jobs using the same sandbox are bound by the resource limitations of the sandbox. The Azure sandbox environment doesn't support interactive operations. It prevents access to all out-of-process COM servers, and it doesn't support making [WMI calls](/windows/win32/wmisdk/wmi-architecture) to the Win32 provider in your runbook.  These scenarios are only supported by running the runbook on a Windows Hybrid Runbook Worker.
+When runbooks are designed to authenticate and run against resources in Azure, they run in an Azure sandbox. Azure Automation assigns a worker to run each job during runbook execution in the sandbox. While workers are shared by many Automation accounts, jobs from different Automation accounts are isolated from one another.  Jobs using the same sandbox are bound by the resource limitations of the sandbox. The Azure sandbox environment doesn't support interactive operations.
 
 You can also use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) to run runbooks directly on the computer that hosts the role and against local resources in the environment. Azure Automation stores and manages runbooks and then delivers them to one or more assigned computers.
 
@@ -39,7 +41,6 @@ Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network
 
 >[!NOTE]
 >- To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation).
->- Runbook execution shouldn't depend on timezone of the sandbox.
 
 The following table lists some runbook execution tasks with the recommended execution environment listed for each.
 
@@ -57,7 +58,6 @@ The following table lists some runbook execution tasks with the recommended exec
 |Install a module with an installer|Hybrid Runbook Worker|Modules for sandbox must support copying.|
 |Use runbooks or modules that require .NET Framework version different from 4.7.2|Hybrid Runbook Worker|Azure sandboxes support .NET Framework 4.7.2, and upgrading to a different version isn't supported.|
 |Run scripts that require elevation|Hybrid Runbook Worker|Sandboxes don't allow elevation. With a Hybrid Runbook Worker, you can turn off UAC and use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command) when running the command that requires elevation.|
-|Run scripts that require access to Windows Management Instrumentation (WMI)|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud can't access WMI provider. |
 
 ## Temporary storage in a sandbox
 
@@ -78,7 +78,7 @@ Defender for Cloud places constraints on users who can run any scripts, either s
 
 ## Subscriptions
 
-An Azure [subscription](/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) is an agreement with Microsoft to use one or more cloud-based services, for which you are charged. For Azure Automation, each subscription is linked to an Azure Automation account, and you can [create multiple subscriptions](manage-runbooks.md#work-with-multiple-subscriptions) in the account.
+An Azure [subscription](/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) is an agreement with Microsoft to use one or more cloud-based services, for which you are charged. You can [manage multiple subscriptions](manage-runbooks.md#work-with-multiple-subscriptions) from the same Automation account if the credential you are using has access to multiple subscriptions.
 
 ## Credentials
 
@@ -86,20 +86,7 @@ A runbook requires appropriate [credentials](shared-resources/credentials.md) to
 
 ## Azure Monitor
 
-Azure Automation makes use of [Azure Monitor](/azure/azure-monitor/overview) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent).
-
-### Log Analytics agent for Windows
-
-The [Log Analytics agent for Windows](/azure/azure-monitor/agents/agent-windows) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
-
->[!NOTE]
->The Log Analytics agent for Windows was previously known as the Microsoft Monitoring Agent (MMA).
-
-### Log Analytics agent for Linux
-
-The [Log Analytics agent for Linux](/azure/azure-monitor/agents/agent-linux) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with certain service accounts that execute commands requiring root permissions. For more information, see [Service accounts](./automation-hrw-run-runbooks.md#service-accounts).
-
-The Log Analytics agent log is located at `/var/opt/microsoft/omsagent/log/omsagent.log`.
+Azure Automation can make use of [Azure Monitor](/azure/azure-monitor/overview) for monitoring its machine operations.
 
 ## Runbook permissions
 
@@ -217,7 +204,7 @@ Runbooks that run in Azure sandboxes don't support calling processes, such as ex
 
 ## Device and application characteristics
 
-Runbook jobs in Azure sandboxes can't access any device or application characteristics. The most common API used to query performance metrics on Windows is WMI, with some of the common metrics being memory and CPU usage. However, it doesn't matter what API is used, as jobs running in the cloud can't access the Microsoft implementation of Web-Based Enterprise Management (WBEM). This platform is built on the Common Information Model (CIM), providing the industry standards for defining device and application characteristics.
+Runbook jobs in Azure sandboxes can't access any device or application characteristics. The most common API used to query performance metrics on Windows is WMI, with some of the common metrics being memory and CPU usage. 
 
 ## Webhooks
 

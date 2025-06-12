@@ -2,13 +2,13 @@
 title: View Azure savings plan cost and usage
 titleSuffix: Microsoft Cost Management
 description: Learn how to view saving plan cost and usage details.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # View Azure savings plan cost and usage details

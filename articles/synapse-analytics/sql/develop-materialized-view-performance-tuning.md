@@ -3,7 +3,7 @@ title: Performance tuning with materialized views
 description: Recommendations and considerations for materialized views to improve your query performance.
 author: XiaoyuMSFT
 ms.author: xiaoyul
-ms.reviewer: nibruno; wiassaf
+ms.reviewer: nibruno
 ms.date: 03/01/2023
 ms.service: azure-synapse-analytics
 ms.subservice: sql

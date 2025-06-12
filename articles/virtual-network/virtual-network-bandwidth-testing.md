@@ -1,25 +1,25 @@
 ---
-title: Test VM network throughput by using NTTTCP
+title: Test virtual machine network throughput by using NTTTCP
 description: Use the NTTTCP tool to test network bandwidth and throughput performance for Windows and Linux VMs on a virtual network.
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 11/01/2023
+ms.date: 04/15/2025
 ms.author: allensu
 ---
 
-# Test VM network throughput by using NTTTCP
+# Test virtual machine network throughput by using NTTTCP
 
 This article describes how to use the free NTTTCP tool from Microsoft to test network bandwidth and throughput performance on Azure Windows or Linux virtual machines (VMs). A tool like NTTTCP targets the network for testing and minimizes the use of other resources that could affect performance.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Two Windows or Linux virtual machines in Azure. [Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [create a Linux VM](/azure/virtual-machines/linux/quick-create-portal).
+- Two Windows or Linux virtual machines in Azure. [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal) or [create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal).
     - To test throughput, you need two VMs of the same size to function as *sender* and *receiver*. The two VMs should be in the same [proximity placement group](/azure/virtual-machines/co-location) or [availability set](/azure/virtual-machines/availability-set-overview), so you can use their internal IP addresses and exclude load balancers from the test.
-    - Note the number of VM cores and the receiver VM IP address to use in the commands. Both the sender and receiver commands use the receiver's IP address.
+    - Note the number of VM cores and the receiver VM IP address for the commands. Both the sender and receiver commands use the receiver's IP address.
 
 >[!NOTE]
 >Testing by using a virtual IP is possible, but is beyond the scope of this article.

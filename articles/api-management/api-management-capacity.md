@@ -1,14 +1,16 @@
 ---
-title: Capacity metrics - Azure API Management | Microsoft Docs
+title: Capacity Metrics - Azure API Management
 description: This article explains the capacity metrics in Azure API Management and how to make informed decisions about whether to scale an instance.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 10/01/2024
+ms.date: 04/17/2025
 ms.author: danlep
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - build-2025
 ---
 
 # Capacity of an Azure API Management instance
@@ -19,10 +21,10 @@ API Management provides [Azure Monitor metrics](api-management-howto-use-azure-m
 
 This article explains the capacity metrics and how they behave, shows how to access capacity metrics in the Azure portal, and suggests when to consider scaling or upgrading your API Management instance.
 
-[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
-
 > [!IMPORTANT]
-> This article introduces how to monitor and scale your Azure API Management instance based on capacity metrics. However, when an instance *reaches* its capacity, it won't throttle to prevent overload. Instead, it will act like an overloaded web server: increased latency, dropped connections, and timeout errors. API clients should be ready to handle these issues as they do with other external services, for example by using retry policies.
+> This article introduces how to monitor and scale your Azure API Management instance based on capacity metrics. However, when an instance *reaches* its capacity, it won't throttle to prevent overload. Instead, it will act like an overloaded web server: increased latency, dropped connections, and time-out errors. API clients should be ready to handle these issues as they do with other external services, for example by using retry policies.
+
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
 
 ## Prerequisites
 
@@ -30,7 +32,7 @@ To follow the steps in this article, you must have an API Management instance in
 
 ## Available capacity metrics
 
-Different capacity metrics are available in the [v2 service tiers](v2-service-tiers-overview.md) and classic tiers. 
+Different capacity metrics are available in the [v2 service tiers](v2-service-tiers-overview.md), classic tiers, and [workspace gateways](workspaces-overview.md#workspace-gateway). 
 
 #### [v2 tiers](#tab/v2-tiers)
 
@@ -66,6 +68,21 @@ Available aggregations for this metric are as follows.
 
 [!INCLUDE [api-management-cpu-memory-capacity](../../includes/api-management-cpu-memory-capacity.md)]
 
+#### [Workspace gateways](#tab/workspace-gateway)
+
+In a workspace gateway, the following metrics are available:
+
+* **CPU Utilization (%)** - The percentage of CPU capacity used by the gateway units.
+
+* **Memory Utilization (%)** - The percentage of memory capacity used by the gateway units.
+
+Available aggregations for these metrics are as follows.
+
+* **Avg** - Average percentage of capacity used across gateway processes in every [unit](upgrade-and-scale.md) of a workspace gateway. 
+* **Max** - Percentage of capacity in gateway process with the greatest consumption.  
+
+[!INCLUDE [api-management-cpu-memory-capacity](../../includes/api-management-cpu-memory-capacity.md)]
+
 ---
 
 ## Capacity metric behavior
@@ -85,7 +102,7 @@ The more complex operations on the requests are, the higher the capacity consump
 
 Capacity metrics can also spike intermittently or be greater than zero even if no requests are being processed. It happens because of system- or platform-specific actions and should not be taken into consideration when deciding whether to scale an instance.
 
-Although capacity metrics are designed to surface problems with your API Management instance, there are cases when problems won't be reflected in changes in these metrics. Additionally, low capacity metrics don't necessarily mean that your API Management instance isn't experiencing any problems.
+Although capacity metrics are designed to surface problems with your API Management instance (or workspace gateway), there are cases when problems won't be reflected in changes in these metrics. Additionally, low capacity metrics don't necessarily mean that your API Management instance isn't experiencing any problems.
 
   
 ## Use the Azure portal to examine capacity metrics
@@ -123,28 +140,40 @@ Access metrics in the portal to understand how much capacity is used over time.
 > [!IMPORTANT]
 > Currently, the **CPU Percentage of Gateway** and **Memory Consumption of Gateway** metrics also appear in the portal for instances in classic tiers. However, they're not supported for use in classic tiers and show a value of 0.
 
-
-
-
-
 > [!NOTE]
 > * You can set a [metric alert](api-management-howto-use-azure-monitor.md#set-up-an-alert-rule) to let you know when something unexpected is happening. For example, get notifications when your API Management instance has exceeded its expected peak capacity for more than 20 minutes.
 > * You can use Azure Monitor [autoscaling](api-management-howto-autoscale.md) to automatically add an Azure API Management unit. Scaling operation can take around 30 minutes, so you should plan your rules accordingly.  
 > * In multi-region deployments, only scaling the primary location is allowed.
 
+#### [Workspace gateways](#tab/workspace-gateway) 
+
+1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
+1. In the left menu, under **APIs**, select **Workspaces** > the workspace associated with the gateway that you want to monitor.
+1. In the left menu, under **Deployment + infrastructure**, select **Gateways** > the workspace gateway that you want to monitor.
+1. In the left menu, under **Monitoring**, select **Metrics**.
+1. Select the **CPU Utilization (%)** or **Memory Utilization (%)** metric from the available metrics. Choose the default **Avg** aggregation or select the **Max** aggregation to see the peak usage.
+1. Pick a desired timeframe from the top bar of the section.
+
+> [!NOTE]
+> You can set a [metric alert](api-management-howto-use-azure-monitor.md#set-up-an-alert-rule) to let you know when something unexpected is happening. For example, get notifications when your workspace gateway has exceeded its expected peak CPU or Memory usage for more than 20 minutes.
+
+
 ---
 
 ## Use capacity for scaling decisions
 
-Use capacity metrics for making decisions whether to scale an API Management instance to accommodate more load. The following are general considerations:
+Use capacity metrics for making decisions whether to scale an API Management instance (or workspace gateway) to accommodate more load. The following are general considerations:
 
 + Look at a long-term trend and average.
 + Ignore sudden spikes that are most likely not related to an increase in load (see [Capacity metric behavior](#capacity-metric-behavior) section for explanation).
 + As a general rule, upgrade or scale your instance when a capacity metric value exceeds **60% - 70%** for a long period of time (for example, 30 minutes). Different values may work better for your service or scenario.
-+ If your instance is configured with only 1 unit, upgrade or scale your instance when a capacity metric value exceeds **40%** for a long period. This recommendation is based on the need to reserve capacity for guest OS updates in the underlying service platform.
++ If your instance or workspace gateway is configured with only 1 unit, upgrade or scale it when a capacity metric value exceeds **40%** for a long period. This recommendation is based on the need to reserve capacity for guest OS updates in the underlying service platform.
 
->[!TIP]  
-> If you are able to estimate your traffic beforehand, test your API Management instance on workloads you expect. You can increase the request load on your tenant gradually and monitor the value of the capacity metric that corresponds to your peak load. Follow the steps from the previous section to use Azure portal to understand how much capacity is used at any given time.
+> [!TIP]  
+> If you are able to estimate your traffic beforehand, test your API Management instance or workspace gateway on workloads you expect. You can increase the request load gradually and monitor the value of the capacity metric that corresponds to your peak load. Follow the steps from the previous section to use Azure portal to understand how much capacity is used at any given time.
+
+> [!IMPORTANT]
+> When defining autoscaling rules, make sure to avoid autoscaling flapping that will cause a scale in/scale out loop. To learn more, we recommend reading [Azure Monitor Autoscale's guidance around flapping](/azure/azure-monitor/autoscale/autoscale-flapping).
 
 ## Related content
 

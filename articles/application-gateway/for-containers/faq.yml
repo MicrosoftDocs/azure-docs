@@ -3,11 +3,11 @@ metadata:
   title: Frequently asked questions about Azure Application Gateway for Containers
   description: Find answers to frequently asked questions about Azure Application Gateway for Containers.
   services: application-gateway
-  author: greg-lindsay
+  author: mbender-ms
   ms.service: azure-appgw-for-containers
   ms.topic: concept-article
-  ms.date: 02/27/2024
-  ms.author: greglin
+  ms.date: 3/31/2025
+  ms.author: mbender
     
 title: Frequently asked questions about Application Gateway for Containers
 summary: The following are common questions asked about Azure Application Gateway for Containers.
@@ -19,19 +19,31 @@ sections:
         answer: Application Gateway for Containers offers various layer 7 load-balancing capabilities for your container applications. This service is highly available, scalable, and fully managed by Azure.
 
       - question: Where does Application Gateway for Containers store customer data?
-        answer: Application Gateway for Containers stores and processes data in the region of its deployed resource(s). Configuration data may be replicated to its region pair, where applicable, for resiliency.
+        answer: Application Gateway for Containers stores and processes data in the region of its deployed resources. Configuration data may be replicated to its region pair, where applicable, for resiliency.
 
       - question: How does Application Gateway for Containers handle routine maintenance?
         answer: Routine maintenance and updates are designed to not be service impacting and require no customer intervention. For updates that might break existing configurations or cause existing product functionality changes, notifications are published via [Azure Service Health](/azure/service-health/alerts-activity-log-service-notifications-portal). These notifications are also sent via email to subscription service administrators.
 
       - question: Does Application Gateway for Containers support FIPS?
-        answer: Yes, Application Gateway for Containers can run in a FIPS 140-2 approved mode of operation, commonly referred to as "FIPS mode". FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing are used. Please open a support case via the Azure portal to request FIPS mode to be enabled if required. 
+        answer: Yes, Application Gateway for Containers can run in a FIPS 140-2 approved mode of operation, commonly referred to as **FIPS mode**. FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing are used. If necessary, open a support case via the Azure portal to request that FIPS mode be enabled. 
+
+      - question: Does Application Gateway for Containers support Kubenet?
+        answer: No, Application Gateway for Containers doesn't support Kubenet in favor of [CNI Overlay](/azure/aks/azure-cni-overlay). [Learn more](/azure/aks/upgrade-aks-ipam-and-dataplane) about migrating from Kubenet to CNI Overlay.
 
   - name: Performance
     questions:
       - question: How does Application Gateway for Containers support high availability and scalability?
-        answer: Application Gateway for Containers automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintainence and unexpected failures.
-          
+        answer: |
+          Application Gateway for Containers automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintenance and unexpected failures. 
+        
+          > [!WARNING] 
+          > Ensure the Application Gateway for Containers subnet is a /24 prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (i.e., /23) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.
+
+  - name: Configuration - AKS
+    questions:
+      - question: Can I upgrade an existing AKS cluster with Application Gateway for Containers from CNI to CNI Overlay?
+        answer: Yes. Upgrade of the AKS cluster from CNI to CNI Overlay and Application Gateway for Containers automatically detects the change. It is recommended to schedule this during a maintenance window as it may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
+        
   - name: Configuration - TLS
     questions:
       - question: Does Application Gateway for Containers support reencryption (end-to-end encryption) of traffic to backend targets?
@@ -43,13 +55,13 @@ sections:
   - name: Configuration - ALB Controller
     questions:
       - question: Is it supported to install both Application Gateway Ingress Controller (AGIC) and ALB Controller in the same Kubernetes cluster?
-        answer: Yes, both Application Gateway Ingress Controller (AGIC) and ALB Controller may run at the same time in the same Kubernetes cluster. Updates to AGIC or to ALB Controller won't interfere with each other. 
+        answer: Yes, both Application Gateway Ingress Controller (AGIC) and ALB Controller may run at the same time in the same Kubernetes cluster. Updates to AGIC or to ALB Controller don't interfere with each other. 
         
       - question: Is it supported to install multiple ALB Controllers on the same Kubernetes cluster?
-        answer: It's possible to install multiple ALB Controllers on the same cluster, however this isn't recommended or supported as it's not possible to partition gateways, routes, services, etc.
+        answer: It's possible to install multiple ALB Controllers on the same cluster, however this option isn't recommended or supported as it's not possible to partition gateways, routes, services, etc.
 
       - question: Is it supported to increase the number of pods/replicas for ALB Controller?
-        answer: No, user defined replica count is not supported.  ALB Controller is automatically provisioned with at least two replicas in active/passive configuration to enable high availability.
+        answer: No, user defined replica count is not supported. ALB Controller is automatically provisioned with at least two replicas in active/passive configuration to enable high availability.
 
       - question: Is it supported to use the same managed identity with multiple ALB Controllers?
         answer: No.  Each ALB controller must use its own unique managed identity.

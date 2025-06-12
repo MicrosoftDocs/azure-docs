@@ -5,7 +5,7 @@ services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 1/24/2025
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: armohamed
@@ -330,4 +330,4 @@ node ./send-messages.js
 
 ## Full sample code
 
-Find the finalized code for this sample on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).
+Find the finalized code for this sample on GitHub at [JavaScript Messages SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/communication/communication-messages-rest/samples).

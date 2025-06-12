@@ -1,9 +1,9 @@
 ---
 title: Understand Azure Files performance
-description: Learn about the factors that can impact Azure file share performance such as IOPS, throughput, latency, and queue depth, and how to optimize performance for your workload.
+description: Learn about the factors that can impact Azure file share performance such as IOPS, throughput, latency, and queue depth.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/13/2024
 ms.author: kendownie
 ---
@@ -13,12 +13,18 @@ ms.author: kendownie
 Azure Files can satisfy performance requirements for most applications and use cases. This article explains the different factors that can affect file share performance and how to optimize the performance of Azure file shares for your workload.
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Glossary
 
@@ -30,7 +36,7 @@ Before reading this article, it's helpful to understand some key terms relating 
 
 -   **I/O size**
 
-    I/O size, sometimes referred to as block size, is the size of the request that an application uses to perform a single input/output (I/O) operation on storage. Depending on the application, I/O size can range from very small sizes such as 4 KiB to much larger sizes. I/O size plays a major role in achievable throughput.
+    I/O size, sometimes referred to as block size, is the size of the request that an application uses to perform a single input/output (I/O) operation on storage. Depending on the application, I/O size can range from small sizes such as 4 KiB to larger sizes. I/O size plays a major role in achievable throughput.
 
 -  **Throughput**
 
@@ -38,51 +44,40 @@ Before reading this article, it's helpful to understand some key terms relating 
 
 -  **Latency**
 
-    Latency is a synonym for delay and is usually measured in milliseconds (ms). There are two types of latency: end-to-end latency and service latency. For more information, see [Latency](#latency).
+    Latency is a synonym for delay and is measured in milliseconds (ms). There are two types of latency: end-to-end latency and service latency. For more information, see [Latency](#latency).
 
 -  **Queue depth**
 
     Queue depth is the number of pending I/O requests that a storage resource can handle at any one time. For more information, see [Queue depth](#queue-depth).
 
-## Choosing a performance tier based on usage patterns
+## Choosing a media tier based on usage patterns
 
-Azure Files provides a range of storage tiers that help reduce costs by allowing you to store data at the appropriate level of performance and price. At the highest level, Azure Files offers two performance tiers: standard and premium. Standard file shares are hosted on a storage system backed by hard disk drives (HDD), while premium file shares are backed by solid-state drives (SSD) for better performance. Standard file shares have several storage tiers (transaction optimized, hot, and cool) that you can seamlessly move between to maximize the data at-rest storage and transaction prices. However, you can't move between standard and premium tiers without physically migrating your data between different [storage accounts](../common/storage-account-overview.md#types-of-storage-accounts).
+Azure Files provides a two storage media tiers allow you to balance performance and price: SSD and HDD. You pick the media tier of the file share at the storage account level, and once you create a storage account in a particular media tier you can't move to the other one without [manually migrating to a new file share](./migrate-files-between-shares.md).
 
-When choosing between standard and premium file shares, it's important to understand the requirements of the expected usage pattern you're planning to run on Azure Files. If you require large amounts of IOPS, extremely fast data transfer speeds, or very low latency, then you should choose premium Azure file shares.
+When choosing between SSD and HDD file shares, it's important to understand the requirements of the expected usage pattern you're planning to run on Azure Files. If you require large amounts of IOPS, fast data transfer speeds, or low latency, then you should choose SSD file shares.
 
-The following table summarizes the expected performance targets between standard and premium. For details, see [Azure Files scalability and performance targets](storage-files-scale-targets.md). 
+The following table summarizes the expected performance targets between SSD and HDD file shares. For details, see [Azure Files scalability and performance targets](storage-files-scale-targets.md). 
 
-| **Usage pattern requirements**                | **Standard** | **Premium** |
-|-----------------------------------------------|--------------|-------------|
-| Write latency (single-digit milliseconds)     | Yes          | Yes         |
-| Read latency (single-digit milliseconds)      | No           | Yes         |
+| **Usage pattern requirements** | **SSD** | **HDD** |
+|-|-|-|
+| Write latency (single-digit milliseconds) | Yes | Yes |
+| Read latency (single-digit milliseconds) | Yes | No |
 
-Premium file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see the [provisioned v1 model](understanding-billing.md#provisioned-v1-model). Burst credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. Earned credits are used later to enable bursting when operations would exceed the baseline IOPS.
-
-| **Capacity (GiB)** | **Baseline IOPS** | **Burst IOPS** | **Burst credits** | **Throughput (ingress + egress)** |
-|--------------------|-------------------|----------------|-------------------|---------------------------------------------|
-| 100                | 3,100             | Up to 10,000   | 24,840,000        | 110 MiB/s                                   |
-| 500                | 3,500             | Up to 10,000   | 23,400,000        | 150 MiB/s                                   |
-| 1,024              | 4,024             | Up to 10,000   | 21,513,600        | 203 MiB/s                                   |
-| 5,120              | 8,120             | Up to 15,360   | 26,064,000        | 613 MiB/s                                   |
-| 10,240             | 13,240            | Up to 30,720   | 62,928,000        | 1,125 MiB/s                                 |
-| 33,792             | 36,792            | Up to 100,000  | 227,548,800       | 3,480 MiB/s                                 |
-| 51,200             | 54,200            | Up to 100,000  | 164,880,000       | 5,220 MiB/s                                 |
-| 102,400            | 100,000           | Up to 100,000  | 0                 | 10,340 MiB/s                                |
+SSD file shares offer a provisioning model that guarantees the following performance profile based on share size. For more information, see the [provisioned v1 model](understanding-billing.md#provisioned-v1-model). 
 
 ### Performance checklist
 
-Whether you're assessing performance requirements for a new or existing workload, understanding your usage patterns will help you achieve predictable performance. Consult with your storage admin or application developer to determine the following usage patterns.
+Whether you're assessing performance requirements for a new or existing workload, understanding your usage patterns helps you achieve predictable performance.
 
-- **Latency sensitivity:** Are users opening files or interacting with virtual desktops that run on Azure Files? These are examples of workloads that are sensitive to read latency and also have high visibility to end users. These types of workloads are more suitable for premium Azure file shares, which can provide single-millisecond latency for both read and write operations (< 2 ms for small I/O size).
+- **Latency sensitivity:** Workloads that are sensitive to read latency and have high visibility to end users are more suitable for SSD file shares, which can provide single-millisecond latency for both read and write operations (< 2 ms for small I/O size).
 
-- **IOPS and throughput requirements:** Premium file shares support larger IOPS and throughput limits than standard file shares. See [file share scale targets](./storage-files-scale-targets.md#azure-file-share-scale-targets) for more information.
+- **IOPS and throughput requirements:** SSD file shares support larger IOPS and throughput limits than HDD file shares. See [file share scale targets](./storage-files-scale-targets.md#azure-file-share-scale-targets) for more information.
 
-- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads will be less likely to achieve the upper performance limits of standard file shares compared to long-running, frequently occurring workloads. On premium file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioning size. Depending on how long the workload needs to [burst](understanding-billing.md#provisioned-v1-bursting) for and how long it spends below the baseline IOPS, you can determine if you're accumulating enough bursting credits to consistently satisfy your workload at peak times. Finding the right balance will reduce costs compared to over-provisioning the file share. A common mistake is to run performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration. 
+- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads are less likely to achieve the upper performance limits of HDD file shares compared to long-running, frequently occurring workloads. On SSD file shares, workload duration is helpful when determining the correct performance profile to use based on the provisioned storage, IOPS, and throughput. A common mistake is to run performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration. 
 
-- **Workload parallelization:** For workloads that perform operations in parallel, such as through multiple threads, processes, or application instances on the same client, premium file shares provide a clear advantage over standard file shares: SMB Multichannel. See [Improve SMB Azure file share performance](smb-performance.md) for more information.
+- **Workload parallelization:** For workloads that perform operations in parallel, such as through multiple threads, processes, or application instances on the same client, SSD file shares provide a clear advantage over HDD file shares: SMB Multichannel. See [Improve SMB Azure file share performance](smb-performance.md) for more information.
 
-- **API operation distribution**: Is the workload metadata heavy with file open/close operations? This is common for workloads that are performing read operations against a large number of files. See [Metadata or namespace heavy workload](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-2-metadata-or-namespace-heavy-workload).
+- **API operation distribution**: Metadata heavy workloads, such as workloads that are performing read operations against a large number of files, are a better fit for SSD file shares. See [Metadata or namespace heavy workload](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-2-metadata-or-namespace-heavy-workload).
 
 ## Latency
 
@@ -90,7 +85,7 @@ When thinking about latency, it's important to first understand how latency is d
 
 - **End-to-end latency (SuccessE2ELatency)** is the total time it takes for a transaction to perform a complete round trip from the client, across the network, to the Azure Files service, and back to the client.
 
-- **Service Latency (SuccessServerLatency)** is the time it takes for a transaction to round-trip only within the Azure Files service. This doesn't include any client or network latency.
+- **Service Latency (SuccessServerLatency)** is the time it takes for a transaction to round-trip only within Azure Files. This doesn't include any client or network latency.
 
   :::image type="content" source="media/understand-performance/storage-latency-diagram.png" alt-text="Diagram comparing client latency and service latency for Azure Files.":::
 
@@ -98,10 +93,10 @@ The difference between **SuccessE2ELatency** and **SuccessServerLatency** values
 
 It's common to confuse client latency with service latency (in this case, Azure Files performance). For example, if the service latency is reporting low latency and the end-to-end is reporting [very high latency for requests](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#very-high-latency-for-requests), that suggests that all the time is spent in transit to and from the client, and not in the Azure Files service.
 
-Furthermore, as the diagram illustrates, the farther you are away from the service, the slower the latency experience will be, and the more difficult it will be to achieve performance scale limits with any cloud service. This is especially true when accessing Azure Files from on premises. While options like ExpressRoute are ideal for on-premises, they still don't match the performance of an application (compute + storage) that's running exclusively in the same Azure region.
+Furthermore, as the diagram illustrates, the farther you're away from the service, the slower the latency experience is, and the more difficult it's to achieve performance scale limits with any cloud service. This is especially true when accessing Azure Files from on premises. While options like ExpressRoute are ideal for on-premises, they still don't match the performance of an application (compute + storage) that's running exclusively in the same Azure region.
 
 > [!TIP]
-> Using a VM in Azure to test performance between on-premises and Azure is an effective and practical way to baseline the networking capabilities of the connection to Azure. Often a workload can be slowed down by an undersized or incorrectly routed ExpressRoute circuit or VPN gateway.
+> Using a VM in Azure to test performance between on-premises and Azure is an effective and practical way to baseline the networking capabilities of the connection to Azure. Undersized or incorrectly routed ExpressRoute circuits or VPN gateways can significantly slow down workloads running on Azure Files.
 
 ## Queue depth
 

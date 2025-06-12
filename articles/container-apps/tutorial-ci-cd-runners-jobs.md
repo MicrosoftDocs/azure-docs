@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 02/03/2025
+ms.date: 03/20/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 ---
@@ -35,6 +35,9 @@ In this tutorial, you learn how to run GitHub Actions runners as an [event-drive
 > [!IMPORTANT]
 > Self-hosted runners are only recommended for *private* repositories. Using them with public repositories can allow dangerous code to execute on your self-hosted runner. For more information, see [Self-hosted runner security](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security).
 
+> [!NOTE]
+> Every personal access token (PAT) has an expiration date. You need to make sure PATs are regularly rotated before their expiration date. For more information about managing your PAT, see [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+
 ::: zone-end
 
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
@@ -52,10 +55,13 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 > [!IMPORTANT]
 > Self-hosted agents are only recommended for *private* projects. Using them with public projects can allow dangerous code to execute on your self-hosted agent. For more information, see [Self-hosted agent security](/azure/devops/pipelines/agents/linux-agent#permissions).
 
+> [!NOTE]
+> Every personal access token (PAT) has an expiration date. You need to make sure PATs are regularly rotated before their expiration date. For more information about managing your PAT, see [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+
 ::: zone-end
 
 > [!NOTE]
-> Container apps and jobs don't support running Docker in containers. Any steps in your workflows that use Docker commands will fail when run on a self-hosted runner or agent in a Container Apps job.
+> Container apps and jobs don't support running Docker in containers. Any steps in your workflows that use Docker commands fail when run on a self-hosted runner or agent in a Container Apps job.
 
 ## Prerequisites
 
@@ -237,6 +243,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     GITHUB_PAT="<GITHUB_PAT>"
     REPO_OWNER="<REPO_OWNER>"
     REPO_NAME="<REPO_NAME>"
+    REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -244,6 +251,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     $GITHUB_PAT="<GITHUB_PAT>"
     $REPO_OWNER="<REPO_OWNER>"
     $REPO_NAME="<REPO_NAME>"
+    $REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     ---
@@ -255,6 +263,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     | `<GITHUB_PAT>` | The GitHub PAT you generated. |
     | `<REPO_OWNER>` | The owner of the repository you created earlier. This value is usually your GitHub username. |
     | `<REPO_NAME>` | The name of the repository you created earlier. This value is the same name you entered in the *Repository name* field. |
+    | `<YOUR_REGISTRATION_TOKEN_API_URL>` | The registration token API URL in the *entrypoint.sh* file. | For example, 'https://myapi.example.com/get-token' |
 
 ## Build the GitHub Actions runner container image
 
@@ -420,7 +429,7 @@ To avoid using administrative credentials, pull images from private repositories
 
 ## Deploy a self-hosted runner as a job
 
-You can now create a job that uses to use the container image. In this section, you create a job that executes the self-hosted runner and authenticates with GitHub using the PAT you generated earlier. The job uses the [`github-runner` scale rule](https://keda.sh/docs/latest/scalers/github-runner/) to create job executions based on the number of pending workflow runs.
+You can now create a job that uses the container image. In this section, you create a job that executes the self-hosted runner and authenticates with GitHub using the PAT you generated earlier. The job uses the [`github-runner` scale rule](https://keda.sh/docs/latest/scalers/github-runner/) to create job executions based on the number of pending workflow runs.
 
 1. Create a job in the Container Apps environment.
 
@@ -641,7 +650,6 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     AZP_TOKEN="<AZP_TOKEN>"
     ORGANIZATION_URL="<ORGANIZATION_URL>"
     AZP_POOL="container-apps"
-    REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -649,7 +657,6 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     $AZP_TOKEN="<AZP_TOKEN>"
     $ORGANIZATION_URL="<ORGANIZATION_URL>"
     $AZP_POOL="container-apps"
-    $REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     ---
@@ -660,7 +667,6 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     |---|---|---|
     | `<AZP_TOKEN>` | The Azure DevOps PAT you generated. | |
     | `<ORGANIZATION_URL>` | The URL of your Azure DevOps organization. Make sure no trailing `/` is present at the end of the URL. | For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`. |
-    | `<YOUR_REGISTRATION_TOKEN_API_URL>` | The registration token API URL in the *entrypoint.sh* file. | For example, 'https://myapi.example.com/get-token' |
 
 ## Build the Azure Pipelines agent container image
 
@@ -974,7 +980,7 @@ Once a self-hosted agent job is configured, you can run a pipeline and verify it
 Once you're done, run the following command to delete the resource group that contains your Container Apps resources.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they're also deleted.
 
 # [Bash](#tab/bash)
 ```bash

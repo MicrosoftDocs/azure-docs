@@ -1,0 +1,22 @@
+- name: Azure startup credit offer documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: Overview of Azure startup credit offer
+    href: overview.md
+- name: Concepts
+  items: 
+  - name: Azure usage and billing
+    href: azure-usage.md
+  - name: Help and support
+    href: startup-help.md
+  - name: Understanding your credit offer
+    href: startup-programs.md
+- name: Resources
+  items:
+  - name: Microsoft for Startups
+    href: https://www.microsoft.com/startups
+  - name: Azure AI Foundry
+    href: https://ai.azure.com/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/

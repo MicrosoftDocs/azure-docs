@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.reviewer: saggupta
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 04/19/2024
+ms.date: 03/11/2025
 ms.custom: subject-monitoring
 
 #CustomerIntent: As an Azure administrator, I want to see a visual representation of my Azure network resources so that I can see their detailed network insights.
@@ -112,7 +112,8 @@ Diagnostic Toolkit provides access to all the diagnostic features available for 
 
 By default, all networking resources are visible in Azure Monitor network insights. You can select the resource type for viewing resource health and metrics (if available), subscription details, location, etc. A subset of networking resources has been *Onboarded*. For Onboarded resources, you have access to a resource specific topology view and a built-in metrics workbook. These out-of-the-box experiences make it easier to explore resource metrics and troubleshoot issues.  
 
-Resources that have been onboarded are: 
+Resources that have been onboarded are:
+
 - Application Gateway
 - Azure Bastion
 - Azure Firewall
@@ -132,7 +133,29 @@ Resources that have been onboarded are:
 - Virtual Network Gateway (ExpressRoute and VPN)
 - Virtual WAN
 
+## Frequently asked questions (FAQ)
+
+### How do I resolve performance problems or failures?
+
+To learn about troubleshooting any networking-related problems you identify using Azure Monitor network insights, see the troubleshooting documentation for the malfunctioning resource.
+
+### How do I make changes or add visualizations to Azure Monitor network insights?
+
+To make changes, select **Edit Mode** to modify the workbook. You can then save your changes as a new workbook that's tied to a designated subscription and resource group.
+
+### What's the time grain after I pin any part of the workbooks?
+
+Azure Monitor network insights uses the **Auto** time grain, so the time grain is based on the selected time range.
+
+### What's the time range when any part of a workbook is pinned?
+
+The time range depends on the dashboard settings.
+
+### What if I want to see other data or make my own visualizations? How can I make changes to Azure Monitor network insights?
+
+You can edit the workbook you see in any side-panel or detailed metric view by using the edit mode. You can then save your changes as a new workbook.
+
 ## Related content
 
-- To learn more about network monitoring, see [What is Azure Network Watcher?](../network-watcher/network-watcher-overview.md)
-- To learn about the scenarios workbooks are designed to support and how to create reports and customize existing reports, see [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview).
+- [What is Azure Network Watcher?](../network-watcher/network-watcher-overview.md)
+- [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview)

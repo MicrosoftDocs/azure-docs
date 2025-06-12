@@ -7,7 +7,7 @@ author: EliotSeattle
 ms.author: eliotgra
 ms.custom: references_regions
 recommendations: false
-ms.date: 07/12/2024
+ms.date: 05/22/2025
 ---
 
 # Compare Azure Government and global Azure
@@ -82,7 +82,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Cloud Services|cloudapp.net|usgovcloudapp.net||
 |**Containers**|Azure Service Fabric|cloudapp.azure.com|cloudapp.usgovcloudapi.net||
 ||Container Registry|azurecr.io|azurecr.us||
-|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
+|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../redis/how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
 ||Azure Cosmos DB|documents.azure.com|documents.azure.us||
 ||Azure Database for MariaDB|mariadb.database.azure.com|mariadb.database.usgovcloudapi.net||
 ||Azure Database for MySQL|mysql.database.azure.com|mysql.database.usgovcloudapi.net||
@@ -264,8 +264,8 @@ The following features have known limitations in Azure Government:
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
   - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Microsoft Entra B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
 
-- Limitations with multi-factor authentication:
-    - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
+- Limitations with multifactor authentication:
+    - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and shouldn't be required based off the user's current IP address.
 
 ### [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 
@@ -338,7 +338,7 @@ To allow the Application Insights SDK/agent to send data to the Application Insi
 
 ### [Cost Management and Billing](../cost-management-billing/index.yml)
 
-The following Azure Cost Management + Billing **features aren't currently available** in Azure Government:
+The following Microsoft Cost Management + Billing **features aren't currently available** in Azure Government:
 
 - Cost Management + Billing for cloud solution providers (CSPs)
 
@@ -364,7 +364,7 @@ The following Azure Migrate **features aren't currently available** in Azure Gov
 - Containerizing ASP.NET apps and deploying them on Windows containers on App Service.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
-For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
+For more information, see [Azure Migrate support matrix](../migrate/supported-geographies.md#azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
 
 ## Networking
 

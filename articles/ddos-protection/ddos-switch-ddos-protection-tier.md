@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: azure-ddos-protection
 ms.topic: how-to 
-ms.date: 02/10/2025
+ms.date: 03/17/2025
 ---
 
 # How to switch Azure DDoS Protection tiers using Azure portal

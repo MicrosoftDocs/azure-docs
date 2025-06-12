@@ -1,9 +1,9 @@
 ---
-title: IoT Plug and Play architecture | Microsoft Docs
+title: IoT Plug and Play architecture
 description: Understand the key architectural elements of an IoT Plug and Play solution.
-author: ridomin
-ms.author: rmpablos
-ms.date: 1/23/2024
+author: dominicbetts
+ms.author: dobett
+ms.date: 03/13/2025
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: azure-iot
@@ -13,7 +13,7 @@ ms.service: azure-iot
 
 IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that describes a device's capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of interfaces that define:
 
-- _Properties_ that represent the read-only or writable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writable property.
+- _Properties_ that represent the read-only or writable state of a device or other entity. For example, a device serial number is a read-only property and a target temperature on a thermostat is a writable property.
 - _Telemetry_ that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
 - _Commands_ that describe a function or operation that can be done on a device. For example, a command could reboot a gateway or take a picture using a remote camera.
 
@@ -70,7 +70,7 @@ An IoT hub:
 
 ## Backend solution
 
-A backend solution monitors and controls connected devices by interacting with digital twins in the IoT hub. Use one of the Azure IoT service SDKs to implement your backend solution. To understand the capabilities of a connected device, the solution backend:
+A backend solution monitors and controls connected devices by interacting with digital twins in the IoT hub. To implement a backend solution, use one of the Azure IoT service SDKs. To understand the capabilities of a connected device, the solution backend:
 
 1. Retrieves the model ID the device registered with the IoT hub.
 1. Uses the model ID to retrieve the interface definitions from any model repository.
@@ -87,5 +87,5 @@ The backend solution can use the information from the interface definitions to:
 
 Now that you have an overview of the architecture of an IoT Plug and Play solution, the next steps are to learn more about:
 
-- [Digital twin model integration](./concepts-model-discovery.md)
+- [Use models in a solution](./concepts-model-discovery.md)
 - [Developing for IoT Plug and Play](./concepts-developer-guide-device.md)

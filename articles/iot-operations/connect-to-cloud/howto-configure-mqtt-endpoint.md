@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/14/2024
+ms.date: 05/21/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure data flow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -45,7 +45,7 @@ The default endpoint uses the following settings:
 
 To view or edit the default MQTT broker endpoint settings:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the [operations experience](https://iotoperations.azure.com/), select the **Data flow endpoints**.
 1. Select the **default** endpoint to view or edit the settings.
@@ -112,7 +112,7 @@ kubectl get dataflowendpoint default -n azure-iot-operations -o yaml
 
 You can also create new local MQTT broker endpoints with custom settings. For example, you can create a new MQTT broker endpoint using a different port, authentication, or authorization settings. However, you must still always use the default endpoint as either the source or destination in every data flow, even if you create new endpoints.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the [operations experience](https://iotoperations.azure.com/), select the **Data flow endpoints**.
 1. Under **Create new data flow endpoint**, select **Azure IoT Operations Local MQTT** > **New**.
@@ -243,7 +243,7 @@ Alternatively, you can assign the role at the topic space level. Go to the topic
 
 Once the Event Grid namespace is configured, you can create a data flow endpoint for the Event Grid MQTT broker.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the [operations experience](https://iotoperations.azure.com/), select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Azure Event Grid MQTT** > **New**.
@@ -357,7 +357,7 @@ Azure Event Grid MQTT broker [doesn't support shared subscriptions](../../event-
 
 For other MQTT brokers, you can configure the endpoint, TLS, authentication, and other settings as needed.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the [operations experience](https://iotoperations.azure.com/), select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Custom MQTT Broker** > **New**.
@@ -430,7 +430,7 @@ Before you configure the data flow endpoint, assign a role to the Azure IoT Oper
 
 Then, configure the data flow endpoint with system-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
@@ -460,7 +460,7 @@ mqttSettings:
 
 In most cases when using with Event Grid, you can leave the settings empty as shown. This sets the managed identity audience to the Event Grid common audience `https://eventgrid.azure.net`. If you need to set a different audience, you can specify it in the settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 Not supported.
 
@@ -501,7 +501,7 @@ Before you configure the data flow endpoint, assign a role to the user-assigned 
 
 Then, configure the data flow endpoint with user-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
@@ -542,7 +542,7 @@ Here, the scope is optional and defaults to `https://eventgrid.azure.net/.defaul
 
 To use Kubernetes service account token (SAT) for authentication, you don't need to create a secret. The SAT is used to authenticate with the MQTT broker by matching the audience.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Service account token**.
 
@@ -595,13 +595,13 @@ Before configuring the data flow endpoint, create a secret with the certificate 
 
   Here, the secret must have `client_cert.pem` and `client_key.pem` as the key names for the certificate and private key. Optionally, the secret can also have `client_intermediate_certs.pem` as the key name for the intermediate certificates.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 > [!IMPORTANT]
-> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 > [!IMPORTANT]
-> The operations experience portal currently has a known issue where creating an X.509 secret results in a secret with incorrectly encoded data. To learn more and the workaround, see [known issues](../troubleshoot/known-issues.md).
+> The operations experience web UI currently has a known issue where creating an X.509 secret results in a secret with incorrectly encoded data. To learn more and the workaround, see [known issues](../troubleshoot/known-issues.md).
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
 
@@ -648,7 +648,7 @@ mqttSettings:
 
 To use anonymous authentication, set the authentication method to `Anonymous`.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **None**.
 
@@ -678,7 +678,7 @@ mqttSettings:
 
 You can set advanced settings for the MQTT broker data flow endpoint such as TLS, trusted CA certificate, MQTT messaging settings, and CloudEvents. You can set these settings in the data flow endpoint **Advanced** portal tab, within the data flow endpoint custom resource.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience, select the **Advanced** tab for the data flow endpoint.
 
@@ -722,7 +722,7 @@ mqttSettings:
 
 To enable or disable TLS for the MQTT endpoint, update the `mode` setting in the TLS settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the checkbox next to **TLS mode enabled**.
 
@@ -752,7 +752,7 @@ The TLS mode can be set to `Enabled` or `Disabled`. If the mode is set to `Enabl
 
 Configure the trusted CA certificate for the MQTT endpoint to establish a secure connection to the MQTT broker. This setting is important if the MQTT broker uses a self-signed certificate or a certificate signed by a custom CA that isn't trusted by default.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Trusted CA certificate config map** field to specify the ConfigMap containing the trusted CA certificate.
 
@@ -794,7 +794,7 @@ You can set a client ID prefix for the MQTT client. The client ID is generated b
 > [!CAUTION]
 > Most applications should not modify the client ID prefix. Don't modify this after an initial IoT Operations deployment. Changing the client ID prefix after deployment might result in data loss.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Client ID prefix** field to specify the prefix.
 
@@ -819,7 +819,7 @@ mqttSettings:
 
 You can set the Quality of Service (QoS) level for the MQTT messages to either 1 or 0. The default is 1.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Quality of service (QoS)** field to specify the QoS level.
 
@@ -850,7 +850,7 @@ If set to `Never`, the retain flag is removed from the MQTT messages. This can b
 
 To configure retain settings:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Retain** field to specify the retain setting.
 
@@ -880,7 +880,7 @@ The *retain* setting only takes effect if the data flow uses MQTT endpoint as bo
 
 You can set the session expiry interval for the data flow MQTT client. The session expiry interval is the maximum time that an MQTT session is maintained if the data flow client disconnects. The default is 600 seconds. To configure the session expiry interval:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Session expiry** field to specify the session expiry interval.
 
@@ -905,7 +905,7 @@ mqttSettings:
 
 By default, WebSockets isn't enabled. To use MQTT over WebSockets, set the `protocol` field to `WebSockets`.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Protocol** field to specify the protocol.
 
@@ -930,7 +930,7 @@ mqttSettings:
 
 You can set the maximum number of inflight messages that the data flow MQTT client can have. The default is 100.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Maximum in-flight messages** field to specify the maximum number of inflight messages.
 
@@ -957,7 +957,7 @@ For subscribe when the MQTT endpoint is used as a source, this is the receive ma
 
 You can set the keep alive interval for the data flow MQTT client. The keep alive interval is the maximum time that the data flow client can be idle before sending a PINGREQ message to the broker. The default is 60 seconds.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Keep alive** field to specify the keep alive interval.
 
@@ -984,7 +984,7 @@ mqttSettings:
 
 The `cloudEventAttributes ` options are `Propagate` or`CreateOrRemap`. To configure CloudEvents settings:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Cloud event attributes** field to specify the CloudEvents setting.
 
@@ -1017,7 +1017,7 @@ CloudEvent properties are passed through for messages that contain the required 
 | `type`            | Yes      | `ms.aio.telemetry`                                     | Passed through as is                                                                                    |
 | `source`          | Yes      | `aio://mycluster/myoven`                               | Passed through as is                                                                                    |
 | `id`              | Yes      | `A234-1234-1234`                                       | Passed through as is                                                                                    |
-| `subject`         | No       | `aio/myoven/telemetry/temperature`                     | Passed through as is                                                                                    |
+| `subject`         | No       | `aio/myoven/sensor/temperature`                     | Passed through as is                                                                                    |
 | `time`            | No       | `2018-04-05T17:31:00Z`                                 | Passed through as is. It's not restamped. |
 | `datacontenttype` | No       | `application/json`                                     | Changed to the output data content type after the optional transform stage.                             |
 | `dataschema`      | No       | `sr://fabrikam-schemas/123123123234234234234234#1.0.0` | If an output data transformation schema is given in the transformation configuration, `dataschema` is changed to the output schema.         |

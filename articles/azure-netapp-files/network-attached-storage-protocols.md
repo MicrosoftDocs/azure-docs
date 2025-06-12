@@ -4,7 +4,7 @@ description: Learn how SMB, NFS, and dual protocols operate in Azure NetApp File
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/28/2025
 ms.author: anfdocs
 ---

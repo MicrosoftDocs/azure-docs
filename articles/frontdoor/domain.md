@@ -1,7 +1,6 @@
 ---
 title: 'Domains in Azure Front Door'
 description: Learn about custom domains when using Azure Front Door.
-services: frontdoor
 author: johndowns
 ms.service: azure-frontdoor
 ms.topic: concept-article
@@ -10,6 +9,8 @@ ms.author: jodowns
 ---
 
 # Domains in Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 A *domain* represents a custom domain name that Azure Front Door uses to receive your application's traffic. Azure Front Door supports adding three types of domain names:
 
@@ -185,13 +186,14 @@ For most custom domains, Azure Front Door automatically renews (rotates) managed
 However, Azure Front Door won't automatically rotate certificates in the following scenarios:
 
 * The custom domain's CNAME record is pointing to a DNS record other than your Azure Front Door endpoint's domain.
-* The custom domain points to the Azure Front Door endpoint through a chain. For example, if your DNS record points to Azure Traffic Manager, which in turn resolves to Azure Front Door, the CNAME chain is `contoso.com` CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`. Azure Front Door can't verify the whole chain.
+* The custom domain points to the Azure Front Door endpoint through a chain. 
 * The custom domain uses an A record. We recommend you always use a CNAME record to point to Azure Front Door.
 * The custom domain is an [apex domain](apex-domain.md) and uses CNAME flattening.
 
 If one of the scenarios above applies to your custom domain, then 45 days before the managed certificate expire, the domain validation state becomes *Pending Revalidation*. The *Pending Revalidation* state indicates that you need to create a new DNS TXT record to revalidate your domain ownership.
 
 > [!NOTE]
+> An exception to the above is that Azure Front Door (Standard and Premium) managed certificates are automatically rotated even if the domain CNAME record points indirectly to a Traffic Manager endpoint.
 > DNS TXT records expire after seven days. If you previously added a domain validation TXT record to your DNS server, you need to replace it with a new TXT record. Ensure you use the new value, otherwise the domain validation process will fail.
 
 If your domain can't be validated, the domain validation state becomes *Rejected*. This state indicates that the certificate authority has rejected the request for reissuing a managed certificate.

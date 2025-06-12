@@ -4,6 +4,9 @@ description: Learn how to use MirrorMaker 2 to migrate Kafka clusters between di
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 05/09/2024
 ---
 

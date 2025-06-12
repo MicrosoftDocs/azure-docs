@@ -400,7 +400,7 @@ By default, anyone can still access your app using HTTP, but you can redirect al
 
 #### [Azure portal](#tab/Azure-portal)
 
-In your app page, in the navigation, select **Custom Domain**. Then, set **HTTPS Only** to `Yes`.
+In your app page, in the navigation, select **Custom Domain**. Then, set **HTTPS Only** to **Yes**.
 
 :::image type="content" source="./media/how-to-custom-domain/enforce-https.png" alt-text="Screenshot of an SSL binding with the Https Only option highlighted.":::
 

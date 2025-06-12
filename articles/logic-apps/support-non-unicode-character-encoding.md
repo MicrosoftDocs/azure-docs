@@ -4,7 +4,7 @@ description: Handle non-Unicode characters in Azure Logic Apps by converting tex
 ms.service: azure-logic-apps
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 08/21/2024
+ms.date: 03/27/2025
 ---
 
 # Support non-Unicode character encoding in Azure Logic Apps

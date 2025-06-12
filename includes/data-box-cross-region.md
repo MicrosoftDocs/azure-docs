@@ -2,7 +2,7 @@
 author: stevenmatthew
 ms.service: azure-databox
 ms.topic: include
-ms.date: 03/03/2025
+ms.date: 03/06/2025
 ms.author: shaas
 ---
 
@@ -18,8 +18,8 @@ This capability is particularly useful for large distributed organizations that 
 
 ### Exceptions and limitations
 
-Customers should be aware of the following exceptions and limitations when planning their data transfer strategies.
+Customers should be aware of the following exceptions and limitations when planning their data transfer strategies:
 
 - Cross-cloud transfers are not supported. Data cannot be transferred between different cloud providers.
 - Shipping the Data Box device itself across commerce boundaries is not supported.
-- Some data transfer scenarios take place over large geographic areas. Higher than normal latency times might be encountered during such transfers.
+- Some data transfer scenarios take place over large geographic areas. Higher than normal latencies might be encountered during such transfers.

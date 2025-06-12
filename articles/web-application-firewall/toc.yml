@@ -34,14 +34,18 @@ items:
         href: ./ag/tutorial-restrict-web-traffic-powershell.md
       - name: Azure CLI
         href: ./ag/tutorial-restrict-web-traffic-cli.md
+    - name: Create Web Application Firewall v2 - ARM template
+      href: ./ag/quick-create-template.md
     - name: Create Web Application Firewall v2 - Bicep
       href: ./ag/quick-create-bicep.md
-    - name: Deploy Web Application Firewall v2 - ARM template
-      href: ./ag/quick-create-template.md
+    - name: Create Web Application Firewall v2 – Terraform
+      href: quickstart-web-application-firewall-terraform.md
   - name: Front Door
     items:
     - name: Create WAF policy - portal
       href: ./afds/waf-front-door-create-portal.md
+    - name: Configure WAF policy - PowerShell
+      href: ./afds/waf-front-door-custom-rules-powershell.md
 - name: Configure
   items:
   - name: Application Gateway
@@ -104,12 +108,10 @@ items:
       href: ./ag/waf-engine.md
   - name: Front Door
     items:
-    - name: WAF Policy
-      items:
-      - name: Policy settings
-        href: ./afds/waf-front-door-policy-settings.md
-      - name: Configure WAF policy - PowerShell
-        href: ./afds/waf-front-door-custom-rules-powershell.md
+    - name: Policy settings
+      href: ./afds/waf-front-door-policy-settings.md
+    - name: Configure custom response code
+      href: ./afds/waf-front-door-configure-custom-response-code.md
     - name: Managed rules
       items:
       - name: Overview
@@ -138,8 +140,6 @@ items:
         href: geomatch-custom-rules-examples.md
     - name: Tuning
       href: ./afds/waf-front-door-tuning.md
-    - name: Configure custom response code
-      href: ./afds/waf-front-door-configure-custom-response-code.md
   - name: Use Azure Policy
     href: ./shared/waf-azure-policy.md
   - name: Configure policies using Firewall Manager
@@ -178,10 +178,12 @@ items:
       href: ./afds/automated-detection-response-with-sentinel.md
   - name: Application DDoS protection
     href: ./shared/application-ddos-protection.md
-  - name: Microsoft Copilot for Security
+  - name: Microsoft Security Copilot
     href: waf-copilot.md
   - name: JavaScript challenge
     href: waf-javascript-challenge.md
+  - name: CAPTCHA challenge
+    href: ./afds/captcha-challenge.md
 - name: Operational excellence
   items:
   - name: Application Gateway

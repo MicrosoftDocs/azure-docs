@@ -1,0 +1,208 @@
+### YamlMime:FAQ
+metadata:
+  title: Enterprise Agreement (EA) frequently asked questions (FAQ)
+  titleSuffix: Microsoft Cost Management
+  description: Frequently asked questions and answers.
+  author: racheg
+  ms.reviewer: racheg
+  ms.service: cost-management-billing
+  ms.subservice: enterprise
+  ms.topic: faq
+  ms.date: 06/05/2025
+  ms.author: racheg
+title: Enterprise Agreement (EA) frequently asked questions (FAQ)
+summary: |
+sections:
+  - name: Azure Enterprise Agreement (EA) questions
+    questions:
+      - question: How do I assign SPN permissions to my enrollment?
+        answer: |
+          See [Assign roles to EA SPNs](manage/assign-roles-azure-service-principals.md).
+      - question: How do I add a new EA administrator to my enrollment?
+        answer: |
+          A new enterprise admin can be added by existing enterprise admins. If you're the EA administrator, sign in to the Azure portal > select **Billing scope** > navigate to **Access control(IAM)** > select **+ Add** in the top-left corner to add a new EA administrator. Ensure that you have their email address and a preferred sign-in method, such as via work/school authentication or Microsoft Live ID, available.
+          
+          If you aren't the EA administrator, reach out to your EA administrators in your company to request that they add you to the enrollment. Once they add you to the enrollment, you receive an activation email.
+          
+          However, if the EA administrators aren't able to assist you, we're able to add you on their behalf if you can provide us with:
+          - The enrollment number.
+          - The email address to be added and authentication type (work/school/MS).
+          - The email approval from the EA administrator.
+          
+          Once you have all the required information, submit a support request in the Azure portal.
+      - question: My current EA admin is no longer with the company. What should I do?
+        answer: |
+          An EA enrollment can have multiple EA administrators. You can reach out to another EA administrator to have new EA administrator/account owners/department admin added. However, if you aren't clear on who is the EA administrator in your company or there's no other available EA administrator on the enrollment, reach out to us with the following information:
+          - The enrollment number
+          - The email address to be added and authentication type (work/school/MS)
+          - Provide information showing that the current EA admin is no longer with the company
+          
+          If there are other EA administrators on the enrollment, we reach out to the EA administrators to request for approval on administrative changes on the enrollment.
+      - question: My enrollment is showing in pending status. How do I activate my enrollment?
+        answer: |
+          Enrollments are in pending status if the initial EA administrator didn't sign in to the enrollment. If you're an enterprise customer, sign in to Azure portal. On the billing scope page, select your billing account. When you're on the enrollment overview page, the status is updated from **Pending** to **Active**. Navigate to the **Properties** menu to view the update status.
+      - question: Why is my account stuck in pending status?
+        answer: |
+          When new Account Owners (AO) are added to the enrollment for the first time, they always show as "pending" under status. When the AO receives the activation welcome email, they can sign in to activate their account. Signing in updates the account status from "pending" to "active."
+      - question: I forgot my password to Azure portal. What should I do?
+        answer: |
+          If you forgot your Microsoft Live ID password, have it reset at [https://account.live.com/password/reset](https://account.live.com/password/reset).
+          
+          If you forgot your work password, contact your company's IT administrator.
+      - question: I have a valid work or school account. Why can't I add it to the Azure portal?
+        answer: |
+          If you have a work or school account under a different tenant, change the authorization level under enrollment details page to "Work or School Account Cross Tenant" and you're able to add the account.
+
+      - question: I accidentally associated my existing Azure account with Azure EA enrollment. As a result, I lost my monthly credit. Can I get my monthly credit back?
+        answer: |
+          If you signed in as an Azure EA account owner with the same credentials as your Visual Studio subscription, you can recover your individual Visual Studio subscription Azure benefit by performing one of the following actions:
+          
+          - Remove or move associated Azure subscriptions and then remove your account ownership from your EA account in the Azure portal. Then, sign up for individual Visual Studio Azure benefits again.
+          - Delete the Visual Studio subscriber from the administration site in VLSC, and reassign the subscription to an account with different credentials this time. Then, sign up for individual Visual Studio Azure benefits anew.
+      - question: What type of subscription should I create?
+        answer: |
+          Azure Enterprise customers have two types of subscription offers:
+          
+          - Microsoft Azure Enterprise, which is ideal for:
+          - All production usage
+          - Best prices based on infrastructure spend
+          
+          For more information, [contact Azure sales](https://azure.microsoft.com/pricing/enterprise-agreement/).
+          
+          - Enterprise Dev/Test, which is ideal for:
+          - All team dev/test workloads
+          - Medium-to-heavy individual dev/test workloads
+          - Access to special MSDN images and preferential service rates
+          
+          For more information, see [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p/).
+      - question: My subscription name is the same as the offer name. Should I change the subscription name to something meaningful to my organization?
+        answer: |
+          When you create a subscription, the name defaults to the offer type you choose. We recommend that you change the subscription name to something that makes it easy for you to track the subscription.
+          
+          To change the name:
+          
+          1. Sign in to [https://account.windowsazure.com](https://account.windowsazure.com).
+          1. Select the subscription list.
+          1. Select the subscription you want to edit.
+          1. Select the **Manage Subscription** icon.
+          1. Edit subscription details.
+      - question: How can I track costs incurred by a cost center?
+        answer: |
+          To track cost by cost center, you need to define the cost center at one of the following levels:
+          
+          - Department
+          - Account
+          - Subscription
+          
+          Based on your needs, you can use the same cost center to track usage and costs associated with a particular cost center.
+          
+          For example, to track costs for a special project where multiple departments are involved, you might want to define the cost center at a subscription level to track the usage and costs.
+          
+          You can't define a cost center at the service level. If you want to track usage at the service level, you can use the _Tag_ feature available at the service level.
+      - question: How do I track usage and spend by different departments in my organization?
+        answer: |
+          You can create as many departments as you need under your Azure EA enrollment. In order to track the usage correctly, ensure that you're not sharing subscriptions across departments.
+          
+          After you create departments and subscriptions, you can see data in the usage report. This information can help you track usage and manage cost and spend at the department level.
+          
+          You can also access usage data via the reporting API.
+          
+          Direct enterprise customers can view usage and spending at different department levels in the Azure portal. Navigate to the **Department** menu to view charges.
+      - question: Can I set a spending quota and get alerts as I approach my limit?
+        answer: |
+          Spending limits are no longer supported in the Azure portal experience. Instead, we recommend using [Budgets](costs/tutorial-acm-create-budgets.md), which offer more flexibility and visibility.
+
+          You can create a budget at the department level to track your spending. Alerts can be configured to notify you when your spending reaches 50%, 75%, 90%, or 100% of the budgeted amount.
+      - question: I used resource groups to implement Azure RBAC and track usage. How can I view the associated usage details?
+        answer: |
+          If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file.
+          
+          You can also access usage via API.
+          
+          > [!NOTE]
+          > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you can't apply a tag to that resource. You must redeploy these resources through the Resource Manager to support tagging. All other resources support tagging.
+      - question: Can I perform analyses using Power BI?
+        answer: |
+          Yes, you can analyze your Azure cost data using Power BI. Our recommended approach is to first create an export in Cost Management and then uses the exported cost report to build a Power BI report tailored to your needs.
+
+          You can also use the [Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) to create customized visualizations and insights. If you're on an Enterprise Agreement (EA), the [Cost Management template app](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md) is also available, offering prebuilt reports to help monitor costs, analyze service usage trends, and identify optimization opportunities.
+
+          Power BI reporting is supported for Azure EA direct, partner, and indirect customers with access to billing information.
+
+      - question: Can I associate my existing Azure account to Azure EA enrollment?
+        answer: |
+          Yes. All Azure subscriptions for which you're the account owner are converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, Microsoft Cloud Partner Program, and more. You lose monthly credit when converting such subscriptions.
+      - question: How many Azure account owners can you have per subscription?
+        answer: |
+          Only one account owner is permitted per subscription. More roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
+      - question: Is it possible to transfer subscription ownership to another account?
+        answer: |
+          Yes, you can transfer subscription ownership to different account. For example, if an Account A has three subscriptions, the enterprise administrator is able to transfer one subscription to Account B, one to Account C, and one to Account D. Or they can transfer all subscriptions to Account E.
+          
+          Enterprise customers can transfer their subscription ownership to another account in the Azure portal. Navigate to the **Account** or **Subscription** menu to transfer ownership.
+      - question: Can an Azure account owner be listed under more than one department?
+        answer: |
+          No, an account owner can only be associated to a single department. The policy helps ensure accurate monitoring and apportioning of costs and spending associated to the department that it aligns with under the EA enrollment.
+      - question: Can an Azure account owner be listed as a security group?
+        answer: |
+          No, a subscription owner must be a unique Microsoft account (MSA) or Microsoft Entra authentication. To account for succession within your organization, you should consider creating generic accounts and using Microsoft Entra ID to manage subscription access.
+      - question: Can an individual user own multiple subscriptions?
+        answer: |
+          An Azure account owner can create and manage an unlimited number of subscriptions.
+      - question: How can I access/view all my organization's subscriptions?
+        answer: |
+          Today, policy does it; meaning you would need to require that for every subscription created, your account is added to a subscription role using role-based access.
+      - question: Where do I go to create a subscription?
+        answer: |
+          Before you can create an enterprise Azure (EA) offer subscription, your account must be added to the role of account owner by your EA enrollment's administrator in the Azure portal. Or, you must be an Enterprise Administrator. You need to sign in to the Azure portal to obtain your entitlement to create EA offer type subscriptions. We recommend that your first EA subscription is created from the **+ Add Subscription** link in Azure portal. However, once your account is entitled it might be easier to create subscriptions in portal.azure.com in the subscription tab in the upper left corner of the page, where you can both create and rename your subscription in a single step.
+      - question: Who can create a subscription?
+        answer: |
+          To create an enterprise Azure offer type subscription, you must be entitled in the role of account owner or enterprise administrator in the Azure portal.
+
+      - question: Why does my cost show as $0?
+        answer: |
+          Enterprise administrators can provide account owners and department administrators with access to cost and pricing information in the Azure portal. Navigate to the **Policies** menu to change settings.
+          
+          > [!NOTE]
+          > If you're an account owner or department administrator, contact your enterprise administrator to enable the pricing feature.
+          
+          For **indirect enrollment** customers, contact your partner to check that they enabled the pricing feature for you. Only the partner does it. After you're enabled, you can view the cost and pricing on your enrollment as an enterprise administrator.
+
+          Partners, if you want to enable the view charges feature for an account owner or a department administrator, follow the steps under **direct enrollment**.
+      - question: Why is there no SKU information on my usage detail report?
+        answer: |
+          The usage detail report doesn't contain SKU information. The report does, however, contain usage information so you can download the price sheet report to obtain the SKU information.
+      - question: Why doesn't the total amount on Azure Marketplace match the reports for usage summary and detail?
+        answer: |
+          The Azure Marketplace charges report shows only the usage-based charges. One-time fees aren't shown. See the usage summary page for the most up-to-date usage-based charges and one-time fees.
+      - question: Why isn't my Power BI report working?
+        answer: |
+          For issues with Power BI, log a ticket with the [Power BI support team](https://support.powerbi.com).
+      - question: Why don't my resource tags show on my reports?
+        answer: |
+          Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) article.
+      - question: What changed with Azure Marketplace services and Azure EA Prepayment?
+        answer: |
+          As of March 1, 2018, some third-party reseller services consume Azure EA Prepayment. Except for Azure reserved VM instances (RIs), services were previously billed outside Azure EA Prepayment and were invoiced separately.
+          
+          We expanded the use of Azure Prepayment to include some of the third-party published Azure Marketplace services that are purchased most frequently. Azure EA Prepayment for these services in Azure Marketplace helps simplify your purchase and payment management.
+
+          The change was made because customers wanted other ways to use the upfront Azure Prepayment. Customers frequently requested this change, and it impacted a large portion of Azure Marketplace customers.
+      - question: How do I benefit from Azure prepayment for Azure Marketplace purchases with my EA agreement?
+        answer: |
+          You get a simpler billing experience and are better able to spend your Azure EA Prepayment. Because the services are included in your Azure Prepayment, your Azure EA Prepayment becomes more valuable.
+      - question: What Azure Marketplace services use Azure EA Prepayment, and how do I know?
+        answer: |
+          When you purchase a service that uses Azure Prepayment, Azure Marketplace presents a disclaimer. Some supported services are published by Red Hat, SUSE, Autodesk, and Oracle. Currently, similarly named services published by other parties don't deduct from Azure Prepayment. See [third-party services that use Azure Prepayment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) for a complete list of products participating in the program.
+      - question: What if my Azure EA Prepayment runs out for Azure Marketplace purchases?
+        answer: |
+          If you consume all your Azure Prepayment and go into overage, charges related to these services appear on your next overage invoice along with any other consumption services. Before the March 1, 2018 change, these charges were invoiced with other Azure Marketplace services.
+      - question: Why don't all Azure Marketplaces consume Azure EA Prepayment?
+        answer: |
+          We frequently work to deliver the best customer experience related to Azure EA Prepayment. The latest changes to Azure EA prepayment addressed a large number of customers and a significant portion of the total spend in Azure Marketplace. Other services might be added in the future.
+      - question: How do Azure Marketplace services and Azure EA Prepayment changes affect indirect enrollment and partners?
+        answer: |
+          There's no effect to our indirect enrollment customers or partners. These services are subject to the same partner markup capabilities as other consumption services. The only change is that the charges appear on a different invoice, and the payment of the charges comes out of the customer's Azure EA Prepayment.
+      - question: Where can I see the Azure Marketplace services that consume Azure EA Prepayment?
+        answer: |
+          Specific Azure Marketplace offers can use Azure Prepayment funds. See [third-party services that use Azure Prepayment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) for a complete list of products participating in the program.

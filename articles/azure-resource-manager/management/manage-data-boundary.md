@@ -2,7 +2,7 @@
 title: Configure data boundary
 description: Learn how to configure data boundary.
 ms.topic: how-to
-ms.date: 02/11/2025
+ms.date: 04/01/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---
@@ -31,55 +31,59 @@ To configure data boundary, the `DataBoundaryTenantAdministrator` built-in role 
 1. Elevate access to manage all Azure subscriptions and management groups. For more information, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
 1. With the User Access Administrator privilege, grant yourself the `DataBoundaryTenantAdministrator` role at the tenant scope (`/`) by using Azure CLI or Azure PowerShell or REST API.
 
-  # [Azure CLI](#tab/azure-cli)
+    ### [Azure portal](#tab/azure-portal)
 
-  ```azurecli
-  DATA_BOUNDARY_TENANT_ADMINISTRATOR_ROLE_ID="d1a38570-4b05-4d70-b8e4-1100bcf76d12"
-  
-  az role assignment create --assignee "{assignee}" --role DATA_BOUNDARY_TENANT_ADMINISTRATOR_ROLE_ID --scope "/"
-  ```
+    Not supported by the Azure portal. Use Azure CLI or Azure PowerShell or REST API instead.
 
-  # [PowerShell](#tab/azure-powershell)
+    ### [Azure CLI](#tab/azure-cli)
 
-  ```azurepowershell
-  $dataBoundaryTenantAdministratorRoleDefinitionId = "d1a38570-4b05-4d70-b8e4-1100bcf76d12"
-  
-  New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionId $dataBoundaryTenantAdministratorRoleDefinitionId -Scope "/"
-  ```
+    ```azurecli
+    DATA_BOUNDARY_TENANT_ADMINISTRATOR_ROLE_ID="d1a38570-4b05-4d70-b8e4-1100bcf76d12"
+    
+    az role assignment create --assignee "{assignee}" --role DATA_BOUNDARY_TENANT_ADMINISTRATOR_ROLE_ID --scope "/"
+    ```
 
-  # [REST API](#tab/rest-api)
-  
-  ```http
-  PUT https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2020-04-01-preview
-  ```
-  
-  Request body:
-  
-  ```json
-  {
-    "properties": {
-      "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/d1a38570-4b05-4d70-b8e4-1100bcf76d12",
-      "principalId": "{assignee}"
+    ### [PowerShell](#tab/azure-powershell)
+
+    ```azurepowershell
+    $dataBoundaryTenantAdministratorRoleDefinitionId = "d1a38570-4b05-4d70-b8e4-1100bcf76d12"
+    
+    New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionId $dataBoundaryTenantAdministratorRoleDefinitionId -Scope "/"
+    ```
+
+    ### [REST API](#tab/rest-api)
+
+    ```http
+    PUT https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}?api-version=2020-04-01-preview
+    ```
+
+    Request body:
+
+    ```json
+    {
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/d1a38570-4b05-4d70-b8e4-1100bcf76d12",
+        "principalId": "{assignee}"
+      }
     }
-  }
-  ```
-  
-  Response body:
-  
-  ```json
-  {
-    "id": "/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}",
-    "type": "Microsoft.Authorization/roleAssignments",
-    "name": "{roleAssignmentName}",
-    "properties": {
-      "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/d1a38570-4b05-4d70-b8e4-1100bcf76d12",
-      "principalId": "{assignee}",
-      "principalType": "User", // Could also be "Group", "ServicePrincipal", etc.
-    }
-  }
-  ```
+    ```
 
-  ---
+    Response body:
+
+    ```json
+    {
+      "id": "/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "{roleAssignmentName}",
+      "properties": {
+        "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/d1a38570-4b05-4d70-b8e4-1100bcf76d12",
+        "principalId": "{assignee}",
+        "principalType": "User", // Could also be "Group", "ServicePrincipal", etc.
+      }
+    }
+    ```
+  
+    ---
 
 For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-powershell.md).
 
@@ -94,7 +98,19 @@ Data boundary geo currently has two options:
 
 To opt in a tenant to data boundary, use the following commands.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure portal](#tab/azure-portal)
+
+Use these steps to create a data boundary:
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. In the search box, type **azure data boundaries**, and then select **Azure Data Boundaries**.
+1. In **Boundary region**, select data boundary geo, either `Global` or `EU`, and then select **Save**.
+
+    :::image type="content" source="./media/manage-data-boundary/azure-tenant-configure-data-boundary.png" alt-text="Screenshot of configuring data boundary.":::
+
+  The `Boundary region` can only be configured for empty tenants.
+
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az data-boundary create --data-boundary <data-boundary-geo> --default default
@@ -104,7 +120,7 @@ The `--default` switch is currently mandatory but will be phased out in the futu
 
 For more information, see [Azure CLI Reference](/cli/azure/reference-index).
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Set-AzDataBoundary -DataBoundary <data-boundary-geo>
@@ -112,7 +128,7 @@ Set-AzDataBoundary -DataBoundary <data-boundary-geo>
 
 For more information, see [Azure PowerShell Reference](/powershell/module/az.resources).
 
-# [REST API](#tab/rest-api)
+### [REST API](#tab/rest-api)
 
 ```http
 PUT https://management.azure.com/providers/Microsoft.Resources/dataBoundaries/default?api-version=2024-08-01 
@@ -154,6 +170,13 @@ To get data boundary at specified scopes. The scopes include:
 |Tenant | (empty) |
 |Subscription | subscriptions/{subscriptionId} |
 |Resource group | subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName} |
+
+# [Azure portal](#tab/azure-portal)
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. In the search box, type **azure data boundaries**, and then select **Azure Data Boundaries**. The following screenshot shows a `Global` data boundary.
+
+    :::image type="content" source="./media/manage-data-boundary/azure-tenant-read-data-boundary.png" alt-text="Screenshot of showing data boundary.":::
 
 # [Azure CLI](#tab/azure-cli)
 

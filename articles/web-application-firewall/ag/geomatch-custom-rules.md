@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 09/05/2023
+ms.date: 05/12/2025
 ---
 
 # Geomatch custom rules
@@ -15,16 +15,19 @@ Custom rules allow you to create tailored rules to suit the exact needs of your 
 To create a geo-filtering custom rule in the Azure portal, select *Geo location* as the Match Type, and then select the country/region or countries/regions you want to allow/block from your application. When creating geomatch rules with Azure PowerShell or Azure Resource Manager, use the match variable `RemoteAddr` and the operator `Geomatch`. For more information, see [how to create custom rules in PowerShell](configure-waf-custom-rules.md) and more [custom rule examples](create-custom-waf-rules.md).
 
 > [!NOTE]
-> Geo-filtering works based on mapping each request's IP address to a country or region. There might be some IP addresses in the data set that are not yet mapped to a country or region. To avoid accidentally blocking legitimate users, Application Gateway's WAF allows requests from unknown IP addresses.
+> Geo-filtering works based on mapping each request's IP address to a country or region. There might be some IP addresses in the data set that aren't yet mapped to a country or region. To avoid accidentally blocking legitimate users, Application Gateway's WAF allows requests from unknown IP addresses.
 
 > [!IMPORTANT]
-> Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country/region) captures IP addresses that are not yet mapped to a country or region in our dataset. This avoids false positives.
+> Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country/region) captures IP addresses that aren't yet mapped to a country or region in our dataset. This avoids false positives.
 
-## Country/Region codes
+## Country/region codes
 
-If you're using the Geomatch operator, the selectors can be any of the following two-digit country/region codes. 
+> [!NOTE]
+> Geo-filtering custom rules are supported only in the Azure public cloud, Azure China, and Azure Government.
 
-|Country/Region code | Country/Region name |
+If you're using the *geomatch* operator, the selectors can be any of the following two-digit country/region codes. 
+
+|Country/region code | Country/region name |
 | ----- | ----- |
 | AD | Andorra |
 | AE | United Arab Emirates|
@@ -55,7 +58,7 @@ If you're using the Geomatch operator, the selectors can be any of the following
 | BM | Bermuda|
 | BN | Brunei|
 | BO | Bolivia|
-| BQ | Bonaire, Sint Eustatius and Saba|
+| BQ | Bonaire, Sint Eustatius, and Saba|
 | BR | Brazil|
 | BS | Bahamas|
 | BT | Bhutan|
@@ -275,7 +278,7 @@ If you're using the Geomatch operator, the selectors can be any of the following
 | ZM | Zambia|
 | ZW | Zimbabwe|
 
-## Next steps
+## Related content
 
 - [Create your own custom rules](create-custom-waf-rules.md)
 - [Use Azure WAF geomatch custom rules to enhance network security](../geomatch-custom-rules-examples.md)

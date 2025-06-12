@@ -4,6 +4,9 @@ description: Learn how to create and manage Azure HDInsight clusters by using th
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, linux-related-content
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 07/23/2024
 ---
 
@@ -120,7 +123,8 @@ You can move an HDInsight cluster to another Azure resource group or another sub
 
 On the [cluster home page](#homePage):
 
-1. On the top menu, select **Move**.
+1. On the top menu, select **Move**.
+
 
 1. Select **Move to another resource group** or **Move to another subscription**.
 1. Follow the instructions on the new page.

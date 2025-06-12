@@ -16,6 +16,7 @@ ms.subservice: b2c
 ---
 
 # Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The following section describes how to create proof of concept implementations for funnel-based orchestration. The completed Azure Active Directory B2C (Azure AD B2C) custom policies can be found [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/global-architecture-model/funnel-based-approach).
 

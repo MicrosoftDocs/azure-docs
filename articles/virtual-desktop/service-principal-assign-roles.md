@@ -3,8 +3,8 @@ title: Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Des
 description: Learn how to assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals by using the Azure portal, Azure CLI, or Azure PowerShell.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 12/20/2023
 ---
 
@@ -12,7 +12,7 @@ ms.date: 12/20/2023
 
 Several Azure Virtual Desktop features require you to assign Azure role-based access control (Azure RBAC) roles or Microsoft Entra roles to one of the Azure Virtual Desktop service principals. Features that you need to assign a role to an Azure Virtual Desktop service principal include:
 
-- [App attach](app-attach-setup.md) (when using Azure Files and your session hosts joined to Microsoft Entra ID).
+- [App Attach](app-attach-setup.md) (when using Azure Files and your session hosts joined to Microsoft Entra ID).
 - [Autoscale](autoscale-scaling-plan.md).
 - [Session host update](session-host-update.md)
 - [Start VM on Connect](start-virtual-machine-connect.md).
@@ -36,7 +36,7 @@ Before you can assign a role to an Azure Virtual Desktop service principal, you 
 
 - To assign Azure RBAC roles, you must have the `Microsoft.Authorization/roleAssignments/write` permission to an Azure subscription in order to assign roles on that subscription. This permission is part of the [Owner](../role-based-access-control/built-in-roles.md) or [User Access Administrator](../role-based-access-control/built-in-roles.md) built in roles.
 
-- To assign Microsoft Entra roles, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) or [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role.
+- To assign Microsoft Entra roles, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) or equivalent.
 
 - If you want to use Azure PowerShell or Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module or [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
