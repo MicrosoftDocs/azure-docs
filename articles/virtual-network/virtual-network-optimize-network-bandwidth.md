@@ -68,7 +68,7 @@ uname -r
 
 ### Other Linux distributions
 
-Most modern distributions have significant improvements with newer kernels. Check the current kernel version to make sure that you're running a kernel that is newer than 4.19, which includes some great improvements in networking, for example support for the [BBR Congestion-Based Congestion Control]([https://research.google/pubs/bbr-congestion-based-congestion-control-2/).
+Most modern distributions have significant improvements with newer kernels. Check the current kernel version to make sure that you're running a kernel that is newer than 4.19, which includes some great improvements in networking, for example support for the *BBR Congestion-Based Congestion Control*.
 
 ## Achieving consistent transfer speeds in Azure Linux VMs
 
