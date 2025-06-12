@@ -25,12 +25,12 @@ For iDRAC credential rotation to occur, a machine must meet specific criteria wh
 * The machine must be `Provision Status: Succeeded` and `Uncordoned`. If these two criteria are met, we move on to the next step.
 * We check for two specific cases where we consider the machine to be "Healthy" or "Spare":
     * For the machine to be considered `Healthy`, we check the following criteria. If all three are met, we proceed with rotation. If not, we check for spare.
-        1. The machine must be in `Ready` state
-        1. The machine's detailed status is `Provisoned`
-        1. The machine must have a set kubernetes node
+        - The machine must be in `Ready` state
+        - The machine's detailed status is `Provisoned`
+        - The machine must have a set kubernetes node
     * For the machine to be considered a `Spare`, we perform these checks. If the following are met, we consider it a "Spare" node and perform rotation.
-        1. The machine is `NOT` in `Ready` state
-        1. The machine's detailed status is `Available`
+        - The machine is `NOT` in `Ready` state
+        - The machine's detailed status is `Available`
 
 As per these guidelines, a machine doesn't perform automatic rotation if it's `Cordoned`. Likewise, rotation doesn't occur on any machine that isn't `Provision Status: Succeeded`.
 
