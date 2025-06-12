@@ -21,7 +21,7 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 ## Prerequisites
 
-Before you start, make sure that you've the following.
+Before you start, make sure that you've done the following.
 
 ### Network configuration
 
