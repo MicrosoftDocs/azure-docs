@@ -7,6 +7,8 @@ ms.date: 09/10/2024
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage runbooks in Azure Automation

@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account before you begin
    1. Under **External connections**, select **Linked services**.
    1. To add a linked service, select **New**.
    1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.
-   1. Enter your authentication credentials. Account key, service principal (SP), Credentials, and   Manged service identity (MSI) are currently supported authentication types. Make sure that *Storage Blob Data Contributor* is assigned on storage for SP and MSI before you choose it for authentication. **Test connection** to verify your credentials are correct. Select   **Create**.
+   1. Enter your authentication credentials. Account key, service principal (SP), Credentials, and Managed service identity (MSI) are currently supported authentication types. Make sure that *Storage Blob Data Contributor* is assigned on storage for SP and MSI before you choose it for authentication. **Test connection** to verify your credentials are correct. Select   **Create**.
 
    :::image type="content" source="media/tutorial-use-pandas-spark-pool/create-adls-linked-service.png" alt-text="Screenshot of creating a linked service using an ADLS Gen2 storage access key.":::
 

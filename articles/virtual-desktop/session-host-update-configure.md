@@ -5,6 +5,8 @@ ms.topic: how-to
 author: dougeby
 ms.author: avdcontent
 ms.date: 05/19/2025
+ms.custom:
+  - build-2025
 ---
 
 # Update session hosts using session host update in Azure Virtual Desktop (preview)

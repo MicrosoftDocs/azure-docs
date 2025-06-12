@@ -9,6 +9,8 @@ ms.author: kewear
 ms.reviewer: estfan, azla
 ms.date: 02/04/2025
 ms.topic: conceptual
+ms.custom:
+  - build-2025
 ---
 
 # Power Automate migration to Azure Logic Apps (Standard)

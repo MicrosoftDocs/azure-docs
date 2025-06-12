@@ -1,9 +1,9 @@
 ---
 title: How to create and assign User Assigned Managed Identity in Azure Operator Service Manager
 description: Learn how to create and assign a User Assigned Managed Identity in Azure Operator Service Manager.
-author: sherrygonz
-ms.author: sherryg
-ms.date: 10/19/2023
+author: msftadam
+ms.author: adamdor
+ms.date: 6/9/2025
 ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
@@ -12,59 +12,63 @@ ms.service: azure-operator-service-manager
 
 In this how-to guide, you learn how to:
 - Create a User Assigned Managed Identity (UAMI) for your Site Network Service (SNS).
-- Assign that User Assigned Managed Identity permissions.
+- Assign that User Assigned Managed Identity permissions for use by Azure Operator Service Manager (AOSM)
 
-The requirement for a User Assigned Managed Identity and the required permissions depend on the Network Service Design (NSD) and must have been communicated to you by the Network Service Designer.
+> [!WARNING]
+> UAMI is required where an expected SNS operation may run for four or more hours. If UAMI isn't used during long running SNS operations, the SNS may report a false failed status before component operations complete.
 
 ## Prerequisites
 
-- You must have created a custom role via [Create a custom role](how-to-create-custom-role.md).  This article assumes that you named the custom role 'Custom Role - AOSM Service Operator access to Publisher.'
+- You must create a custom role via [Create a custom role](how-to-create-custom-role.md). This article assumes that you named the custom role 'Custom Role - AOSM Service Operator access to Publisher.'
 
-- Your Network Service Designer must have told you which other permissions your Managed Identity requires and which Network Function Definition Version (NFDV) your SNS uses.
+- You must work with your Network Service Designer to understand the permissions your Managed Identity requires and which Network Function Definition Version (NFDV) your SNS uses.
 
-- To perform this task, you need either the 'Owner' or 'User Access Administrator' role over the Network Function Definition Version resource from your chosen Publisher. You also must have a Resource Group over which you have the 'Owner' or 'User Access Administrator' role assignment in order to create the Managed Identity and assign it permissions.
+- You need either the 'Owner' or 'User Access Administrator' role over the Network Function Definition Version resource from your chosen Publisher. You also must have a Resource Group over which you have the 'Owner' or 'User Access Administrator' role assignment.
 
-## Create a User Assigned Managed Identity
+## Create a UAMI
 
-Create a User Assigned Managed Identity. For details, refer to [Create a User Assigned Managed Identity for your SNS](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp).
+First, create a UAMI. Refer to [Create a User Assigned Managed Identity for your SNS](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) for details.
 
-## Assign custom role
+## Assign custom role to UAMI
 
-Assign a custom role to your User Assigned Managed Identity.
+Next, assign a custom role to your new UAMI. Choose a scope-based approach and then allow the proper permission across that scope.
 
 ### Choose scope for assigning custom role
 
-The publisher resources that you need to assign the custom role to are:
+Either assign the custom role individually to a child resource, like an NFDV, or to a parent resource, such as the publisher resource group or Network Function Definition Group (NFDG). Assigning the role to a parent resource grants equal access over all child resources. For proper SNS operations, either the parent resource must include all below resources, or the following resources must be assigned the custom role individually:
 
-- The Network Function Definition Version(s)
+- All the Network Function Definition Versions (NSDV).
+- All the Network Function Definition Groups (NFDG) and Versions 
+- All the Network Service Design Groups (NSD) and Versions.
+- All the Configuration Group Schemas (CGS).
+- All the custom locations.
 
-You must decide if you want to assign the custom role individually to this NFDV, or to a parent resource such as the publisher resource group or Network Function Definition Group.
+### Allow proper permissions for the chosen scope
 
-Applying to a parent resource grants access over all child resources. For example, applying to the whole publisher resource group gives the managed identity access to:
-- All the Network Function Definition Groups and Versions.
+The UAMI needs the following individual permissions to execute required SNS operations:
 
-- All the Network Service Design Groups and Versions.
+- On the NFDV
+  - Microsoft.HybridNetwork/publishers/networkFunctionDefinitionGroups/networkFunctionDefinitionVersions/use/**action**
+  - Microsoft.HybridNetwork/Publishers/NetworkFunctionDefinitionGroups/NetworkFunctionDefinitionVersions/**read**
+- On the NSDV
+  - Microsoft.HybridNetwork/publishers/networkServiceDesignGroups/networkServiceDesignVersions/use/action
+  - Microsoft.HybridNetwork/publishers/networkServiceDesignGroups/networkServiceDesignVersions/**read**
+- On the CGS
+  - Microsoft.HybridNetwork/Publishers/ConfigurationGroupSchemas/**read**
+- On the custom location
+  - Microsoft.ExtendedLocation/customLocations/deploy/**action**
+  - Microsoft.ExtendedLocation/customLocations/**read** 
+- In addition, the UAMI need access on itself
+  - Microsoft.ManagedIdentity/userAssignedIdentities/assign/**action**
 
-- All the Configuration Group Schemas.
-
-The custom role permissions limit access to the list of the permissions shown here:
-
-- Microsoft.HybridNetwork/Publishers/NetworkFunctionDefinitionGroups/NetworkFunctionDefinitionVersions/**use**/**action**
-
-- Microsoft.HybridNetwork/Publishers/NetworkFunctionDefinitionGroups/NetworkFunctionDefinitionVersions/**read**
-
-- Microsoft.HybridNetwork/Publishers/NetworkServiceDesignGroups/NetworkServiceDesignVersions/**use**/**action**
-
-- Microsoft.HybridNetwork/Publishers/NetworkServiceDesignGroups/NetworkServiceDesignVersions/**read**
-
-- Microsoft.HybridNetwork/Publishers/ConfigurationGroupSchemas/**read**
+If using a parent resource scope approach, then the required permissions would be applied to the parent resource.  
 
 > [!NOTE]
-> Do not provide write or delete access to any of these publisher resources.
+> Don't provide write or delete access to any of these publisher resources.
 
 ### Assign custom role
 
-1. Access the Azure portal and open your chosen scope; Publisher Resource Group or Network Function Definition Version.
+1. Access the Azure portal and open your chosen resource scope; for example, Publisher Resource Group or Network Function Definition Version.
 
 2. In the side menu of this item, select **Access Control (IAM)**.
 
@@ -80,27 +84,26 @@ The custom role permissions limit access to the list of the permissions shown he
 
     :::image type="content" source="media/how-to-custom-assign-user-access-managed-identity.png" alt-text="Screenshot showing the add role assignment and select managed identities." lightbox="media/how-to-custom-assign-user-access-managed-identity.png":::
 
-
-7. Select **Review and assign**.
+6. Select **Review and assign**.
 
 ### Repeat the role assignment
 
-Repeat the role assignment tasks for all of your chosen scopes.
+Repeat the role assignment process for any remaining resources given the chosen scope approach.
 
 ## Assign Managed Identity Operator role to the Managed Identity itself
 
 1. Go to the Azure portal and search for **Managed Identities**.
-1. Select *identity-for-nginx-sns* from the list of **Managed Identities**.
-1. On the side menu, select **Access Control (IAM)**.
-1. Choose **Add Role Assignment** and select the **Managed Identity Operator** role.
+2. Select *your-identity* from the list of **Managed Identities**.
+3. On the side menu, select **Access Control (IAM)**.
+4. Choose **Add Role Assignment** and select the **Managed Identity Operator** role.
 :::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing the Managed Identity Operator role add role assignment." lightbox="media/how-to-create-user-assigned-managed-identity-operator.png":::
 
-1. Select the **Managed Identity Operator** role.
+5. Select the **Managed Identity Operator** role.
 
     :::image type="content" source="media/managed-identity-operator-role-virtual-network-function.png" alt-text="Screenshot showing the Managed Identity Operator role." lightbox="media/managed-identity-operator-role-virtual-network-function.png":::
 
-1. Select **Managed identity**.
-1. Select **+ Select members** and navigate to the user-assigned managed identity and proceed with the assignment.
+6. Select **Managed identity**.
+7. Select **+ Select members** and navigate to the user-assigned managed identity and proceed with the assignment.
 
     :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected." lightbox="media/managed-identity-user-assigned-ubuntu.png":::
 

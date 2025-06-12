@@ -2,10 +2,10 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 05/19/2025
+ms.date: 06/12/2025
 ms.service: azure-site-recovery
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy23, references_regions, linux-related-content
 ---
 
@@ -83,8 +83,6 @@ As average churn on the disks increases, the number of disks that a storage acco
 > The cache limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
 >
 > When you enable replication via the virtual machine workflow for cross subscription, the portal only lists the cache storage account from the source subscription, but doesn't list any storage account created in the target subscription. To set up this scenario, use [PowerShell](azure-to-azure-powershell.md).
->
-> Azure Site Recovery is now supported for VMs with Premium SSD v2 disks.
 
 ## Replicated machine operating systems
 
@@ -130,16 +128,31 @@ SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5, SP6  [(Supported kern
 SUSE Linux Enterprise Server 15 | 15, SP1, SP2, SP3, SP4, SP5, SP6 [(Supported kernel versions)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Upgrade of replicating machines from SP3 to SP4 isn't supported. If a replicated machine has been upgraded, you need to disable replication and re-enable replication after the upgrade.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) (running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4, 5, and 6 (UEK3, UEK4, UEK5, UEK6), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5.  <br/><br/>8.1 (running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/)). <br> Oracle Linux 9.x is supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-virtual-machines).
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) (running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4, 5, and 6 (UEK3, UEK4, UEK5, UEK6), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5).  <br/><br/>8.1 (running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/)). <br> Oracle Linux 9.x is supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-virtual-machines).
 Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-for-azure-virtual-machines).
 Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-azure-virtual-machines). 
 
 > [!NOTE]
 > For Linux versions, Azure Site Recovery doesn't support custom OS kernels. Only the stock kernels that are part of the distribution minor version release/update are supported.
 
-> [!NOTE] 
-> To support latest Linux kernels within 15 days of release, Azure Site Recovery rolls out hot fix patch on top of latest mobility agent version. This fix is rolled out in between two major version releases. To update to latest version of mobility agent (including hot fix patch), follow steps mentioned in [this article](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). This patch is currently rolled out for mobility agents used in Azure to Azure DR scenario.
+##### Linux Kernel support timelines
 
+To support newly released Linux kernels, Azure Site Recovery (ASR) provides hotfix patches of mobility agent on top of the latest mobility agent version. These hotfixes are released on a **best-effort basis within 30 days** of the kernel release and apply only to **Azure-to-Azure disaster recovery scenarios**.
+
+>[!Note]
+>This is not a service-level agreement (SLA). The 30-days support window on **a best effort basis** applies only to specific scenarios as outlined in the following table.
+
+Only those scenarios mentioned in the *Scenarios covered by 30-Days best effort support* are applicable for the best effort basis of 30 days. Any other scenario, even if it is not mentioned in the *Scenarios **not** covered by 30-Days best effort support* column, is not applicable for this best effort support.
+
+###### Scope of 30-Day Kernel support on best effort
+
+ **Distribution** | **Scenarios covered by 30-Days best effort support** | **Scenarios not covered by 30-Days best effort support** 
+ --- | --- | --- 
+Ubuntu | - New kernel within an already supported kernel series within a supported Ubuntu version.<br/>e.g., 5.15.0-1081-azure for Ubuntu 22.04 if 5.15.0-1079-azure is already supported for Ubuntu 22.04 since both belong to the 5.15.0-* kernel series. This applies to both Azure (-azure) and generic kernels (-generic) only. | - New Major OS version released.<br/>e.g., Assume Ubuntu releases Ubuntu 26.04 which is not supported by ASR yet.<br/><br/>- New kernel series not previously supported for the same Ubuntu version.<br/>e.g., 6.5.0-18-azure for Ubuntu 22.04 if no kernel from the 6.5.0-* series is supported. 
+Debian | - New kernel within an already supported kernel series within a supported Debian version.<br/>e.g., 4.19.0-27-cloud-amd64 for Debian 10 if 4.19.0-26-cloud-amd64 is already supported for Debian 10 since both belong to the 4.19.0-* kernel series. This applies to Azure kernels (-cloud-amd64) and Stock kernels (-amd64) only. | - New Major OS version released.<br/>e.g., Assume Debian releases Debian 11 which is not supported by ASR yet.<br/><br/>- New kernel series not previously supported for the same Debian version.<br/>e.g., 5.10.0-0.deb10.30-cloud-amd64 for Debian 10 if no kernel from the 5.10.0-* series is supported. 
+SUSE | - New kernel within an already supported kernel series within supported Service Pack (SP) version <br/>e.g., 6.4.0-150600.8.8 for SUSE 15 SP6 if 6.4.0-150600.8.5 is already supported for SUSE 15 SP6 since both belong to the 6.4.0-150600.8.* kernel series. This applies to Azure kernels (-azure:[Service Pack Number]). Stock kernels (-default) are supported by default. | - New Service Pack releases.<br/>e.g., Assume SUSE releases SUSE 15 SP7 which ASR does not support yet.<br/><br/>- New kernel series not previously supported for the same SP version. 
+RHEL, Rocky, Alma, Oracle Linux (All distros are based on RHEL kernels) | - A new kernel for RHEL 8.x or 9.y would be supported if the minor OS version (RHEL 8.x or RHEL 9.y) is supported and the kernel series is already supported for that minor OS version. For RHEL 8.x, this only applies if x ≥ 6. <br/><br/>For Oracle Linux UEK kernels, new kernels within a supported uek kernel series within a supported OS version. | -New Major version released.<br/>e.g., Assume RHEL 10.x, Rocky Linux 10.x, Alma Linux 10.x, or Oracle Linux 10.x is released which ASR does not support. <br/><br/>- Minor OS version released within a supported Major OS version.<br/>e.g., Assume RHEL 9.5 is released which ASR does not support.<br/><br/>- New kernels for RHEL 8.x where x < 6 (e.g., RHEL 8.4) are not supported within 30 days.<br/><br/>-New kernel releases for a UEK kernel series not yet supported by ASR. 
+ 
 #### Supported kernel versions for Red Hat Enterprise Linux for Azure virtual machines 
 
 > [!NOTE]
@@ -200,10 +213,6 @@ RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3  | 9.60 | 5.14.0-70.13.1.el9_
 24.04 LTS | 9.65| 6.8.0-1025-azure <br> 6.8.0-1026-azure <br> 6.8.0-1027-azure <br> 6.8.0-56-generic <br> 6.8.0-57-generic <br> 6.8.0-58-generic|
 24.04 LTS | 9.64| 6.8.0-1021-azure <br> 6.8.0-52-generic <br> 6.8.0-53-generic <br> 6.8.0-54-generic <br> 6.8.0-55-generic <br> 6.8.0-1007-azure <br> 6.8.0-1008-azure <br> 6.8.0-1009-azure <br> 6.8.0-1010-azure <br> 6.8.0-1012-azure <br> 6.8.0-1013-azure <br> 6.8.0-1014-azure <br> 6.8.0-1015-azure <br> 6.8.0-1016-azure <br> 6.8.0-1017-azure <br> 6.8.0-1018-azure <br> 6.8.0-1020-azure <br> 6.8.0-31-generic <br> 6.8.0-35-generic <br> 6.8.0-36-generic <br> 6.8.0-38-generic <br> 6.8.0-39-generic <br> 6.8.0-40-generic <br> 6.8.0-41-generic <br> 6.8.0-44-generic <br> 6.8.0-45-generic <br> 6.8.0-47-generic <br> 6.8.0-48-generic <br> 6.8.0-49-generic <br> 6.8.0-50-generic <br> 6.8.0-51-generic |
 
-> [!NOTE]
-> To support latest Linux kernels within 15 days of release, Azure Site Recovery rolls out hot fix patch on top of latest mobility agent version. This fix is rolled out in between two major version releases. To update to latest version of mobility agent (including hot fix patch) follow steps mentioned in [this article](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). This patch is currently rolled out for mobility agents used in Azure to Azure DR scenario.
-
-
 #### Supported Debian kernel versions for Azure virtual machines
 
 > [!NOTE]
@@ -252,9 +261,6 @@ Debian 12 | 9.64 | 6.1.0-29-amd64 <br> 6.1.0-29-cloud-amd64 <br> 6.1.0-30-amd64 
 Debian 12 | 9.63 | 6.1.0-25-amd64 <br>6.1.0-25-cloud-amd64 <br>6.1.0-26-amd64 <br> 6.1.0-26-cloud-amd64 |
 Debian 12 | 9.62| 6.1.0-22-amd64 <br> 6.1.0-22-cloud-amd64 <br> 6.1.0-23-amd64 <br> 6.1.0-23-cloud-amd64 <br> 6.5.0-0.deb12.4-cloud-amd64  |
 Debian 12 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 5.17.0-1-amd64 <br> 5.17.0-1-cloud-amd64 <br> 6.1.-11-amd64 <br> 6.1.0-11-cloud-amd64 <br> 6.1.0-12-amd64 <br> 6.1.0-12-cloud-amd64 <br> 6.1.0-13-amd64 <br> 6.1.0-15-amd64 <br> 6.1.0-15-cloud-amd64 <br> 6.1.0-16-amd64 <br> 6.1.0-16-cloud-amd64 <br> 6.1.0-17-amd64 <br> 6.1.0-17-cloud-amd64 <br> 6.1.0-18-amd64 <br> 6.1.0-18-cloud-amd64 <br> 6.1.0-7-amd64 <br> 6.1.0-7-cloud-amd64 <br> 6.5.0-0.deb12.4-amd64 <br> 6.5.0-0.deb12.4-cloud-amd64 <br> 6.1.0-20-amd64 <br> 6.1.0-20-cloud-amd64 <br> 6.1.0-21-amd64 <br> 6.1.0-21-cloud-amd64 |
-
-> [!NOTE]
-> To support latest Linux kernels within 15 days of release, Azure Site Recovery rolls out hot fix patch on top of latest mobility agent version. This fix is rolled out in between two major version releases. To update to latest version of mobility agent (including hot fix patch) follow steps mentioned in [this article](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). This patch is currently rolled out for mobility agents used in Azure to Azure DR scenario.
 
 #### Supported SUSE Linux Enterprise Server 12 kernel versions for Azure virtual machines
 
@@ -318,10 +324,6 @@ Rocky Linux 9.0 <br> Rocky Linux 9.1  | 9.60 |  5.14.0-70.13.1.el9_0.x86_64 <br>
 --- | --- | --- |
 Rocky Linux  | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | Rocky Linux 8.8 <br> Rocky Linux 8.9 |
 Rocky Linux  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | Rocky Linux 8.7 <br> Rocky Linux 9.0 |
-
-
-> [!IMPORTANT] 
-> To support latest Linux kernels within 15 days of release, Azure Site Recovery rolls out hot fix patch on top of latest mobility agent version. This fix is rolled out in between two major version releases. To update to latest version of mobility agent (including hot fix patch) follow steps mentioned in [this article](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). This patch is currently rolled out for mobility agents used in Azure to Azure DR scenario.
 
 #### Supported Alma Linux kernel versions for Azure virtual machines
 
@@ -430,7 +432,8 @@ Azure Storage firewalls for virtual networks  | Supported | If you want to restr
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
-Azure Shared Disks | Not supported
+Managed Shared Disk| Supported 
+Managed Premium SSD v2 Disk| Supported | Public Preview with PowerShell support in all public regions except Australia East and West Central US.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
 Ultra Disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported

@@ -554,6 +554,8 @@
     items:
     - name: Overview 
       href: /defender-xdr/incidents-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Plan incident response
+      href: /unified-secops-platform/plan-incident-response
     - name: Alerts, incidents, and correlation
       href: /defender-xdr/alerts-incidents-correlation?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Manage incidents
@@ -719,7 +721,7 @@
     href: sentinel-solution-quality-guidance.md
   - name: Partner integrations best practices
     href: partner-integrations.md
-  - name: Creating codeless data connectors (CCP)
+  - name: Creating codeless data connectors (CCF)
     href: create-codeless-connector.md
   - name: Creating analytics rules
     href: sentinel-analytic-rules-creation.md

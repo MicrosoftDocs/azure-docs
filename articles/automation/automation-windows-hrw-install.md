@@ -6,6 +6,8 @@ ms.subservice: process-automation
 ms.date: 01/01/2025
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Deploy an agent-based Windows Hybrid Runbook Worker in Automation

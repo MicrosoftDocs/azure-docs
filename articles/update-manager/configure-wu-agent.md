@@ -4,8 +4,8 @@ description: This article tells how to configure Windows update settings to work
 ms.service: azure-update-manager
 ms.date: 02/27/2025
 ms.topic: how-to
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.custom: engagement-fy24
 ---
 

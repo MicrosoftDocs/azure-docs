@@ -5,8 +5,8 @@ ms.service: azure-update-manager
 ms.custom: devx-track-azurepowershell
 ms.date: 12/03/2024
 ms.topic: how-to
-author: snehasudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # Configure scheduled patching on Azure VMs for business continuity
