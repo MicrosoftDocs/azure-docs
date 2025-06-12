@@ -61,7 +61,7 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 - Azure Key Vault
 - Azure Front Door
 
-## Download and Install
+## Download and install
 
 To use the `appcat` CLI, you must download the package specific to your environment, and have the required dependencies in your environment. The `appcat` CLI runs on any environment such as Windows, Linux, or Mac, using Intel, Arm, or Apple Silicon hardware. For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/java/openjdk).
 
@@ -100,7 +100,7 @@ To use the `appcat` CLI, you must download the package specific to your environm
 - [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the `JAVA_HOME` environment variable is set.
 - [Download Apache Maven](https://maven.apache.org/download.cgi) and [install locally](https://maven.apache.org/install.html). Ensure that the Maven binary (`mvn`) is reachable through `PATH` environment variable.
 
-### Installation
+### Install AppCAT
 
 To install `appcat`, download the appropriate zip file for your platform. After you download the file, depending on your operating system, you should find either a **.tar.gz** (Linux/macOS) or **.zip** file (Windows).
 
@@ -121,7 +121,7 @@ Extract the binary from the downloaded file. You should see the following folder
 └── readme.html
 ```
 
-### Run the tool
+### Run AppCAT
 
 To run `appcat` from any location in your terminal, extract the archive to your desired location. Then, update the `PATH` environment variable to include the directory where you extracted the archive.
 
@@ -290,8 +290,6 @@ The `--input` flag should point to a file or directory containing XML rules, and
 > [!NOTE]
 > Ensure that the file permissions for scripts in the extracted folder are set to allow execution.
 
-In the **samples** folder, you can find a sample web application called **airsonic.war**. Airsonic is a web-based media streamer, providing access to your music and enabling you to share it with friends. To learn more about Airsonic, see [Airsonic](https://github.com/airsonic/airsonic).
-
 In the **samples** directory, you can find the following scripts to run different types of analysis:
 
 - **run-assessment**: Provides a report with code assessment and steps for migrating Airsonic to Azure App Service on Tomcat.
@@ -300,18 +298,29 @@ In the **samples** directory, you can find the following scripts to run differen
 - **run-assessment-openjdk21**: Generates a report with code assessment and steps for migrating Airsonic to OpenJDK 21.
 - **run-assessment-package-only**: Produces a report by assessing specific packages.
 
-Depending on your operating system, run the appropriate script, as shown in the following example:
+These scripts are intended to be used with the [Airsonic-Advanced](https://github.com/airsonic-advanced/airsonic-advanced) sample project - a community-driven, web-based media streamer that enables you to access and share your music collection.
+
+You can clone the application repository manually using the following command:
+
+```sh
+git clone https://github.com/airsonic-advanced/airsonic-advanced.git
+```
+
+After cloning, provide the path to the cloned folder when running the assessment scripts. Depending on your operating system, run the appropriate script, as shown in the following example:
+
+> [!NOTE]
+> Make sure you have cloned the Airsonic Advanced project to a local path before running the scripts.
 
 # [Linux / macOS](#tab/linux)
 
 ```bash
-./samples/run-assessment
+./samples/run-assessment <path-to-airsonic-advanced>
 ```
 
 # [Windows](#tab/windows)
 
 ```cmd
-.\samples\run-assessment.bat
+.\samples\run-assessment.bat <path-to-airsonic-advanced>
 ```
 
 ---
@@ -320,35 +329,43 @@ The reports are automatically generated and launched. You can find the reports u
 
 ### Summary of the analysis
 
-The landing page of the report lists all the technologies that are used in the application. The dashboard provides a summary of the analysis, including the number of transformation incidents, the incidents categories, or the story points.
+The landing page of the report presents a summary view of all analyzed applications. From here, you can navigate to individual application reports to explore detailed findings.
 
 :::image type="content" source="media/java/appcat-7-report-summary.png" alt-text="Screenshot of the appcat summary report." lightbox="media/java/appcat-7-report-summary.png":::
 
-When you zoom in on the **Incidents by Category** pie chart, you can see the number of incidents by category: **Mandatory**, **Optional**, and **Potential**.
-
-The dashboard also shows the *story points*. The story points are an abstract metric commonly used in Agile software development to estimate the level of effort needed to implement a feature or change. `appcat` uses story points to express the level of effort needed to migrate a particular application. Story points don't necessarily translate to work hours, but the value should be consistent across tasks.
-
-:::image type="content" source="media/java/appcat-7-report-summary-incident.png" alt-text="Screenshot of the AppCAT summary incident report." lightbox="media/java/appcat-7-report-summary-incident.png":::
+The **Ask Copilot** button in the upper-right corner redirects you to the GitHub Copilot App Modernization for Java extension in Visual Studio Code. This extension provides both app assessment and code remediation as its key capabilities for migrating Java applications to Azure - powered by AppCAT and GitHub Copilot's AI capabilities.
 
 ### Assessment report
 
-The assessment report gives an overview of the transformation issues that would need to be solved to migrate the application to Azure.
+The assessment report provides a categorized issue list of various aspects of Azure readiness, cloud native, and Java modernization that you need to address to successfully migrate the application to Azure.
 
-These *Issues*, also called *Incidents*, have a severity (*Mandatory*, *Optional*, or *Potential*), a level of effort, and a number indicating the story points. The story points are determined by calculating the number of incidents times the effort required to address the issue.
+Each *Issue* is categorized by severity - **Mandatory**, **Optional**, or **Potential** - and includes the number of impacted lines of code.
+
+The **Dependencies** and **Technologies** tabs display the libraries and technologies used within the application.
 
 :::image type="content" source="media/java/appcat-7-report-assessment.png" alt-text="Screenshot of the AppCAT assessment report." lightbox="media/java/appcat-7-report-assessment.png":::
 
 ### Detailed information for a specific issue
 
-For each incident, you can get more information (the issue detail, the content of the rule, and so on) just by selecting it. You also get the list of all the files affected by this incident.
+For each issue, you can get more information (the issue detail, the content of the rule, and so on) just by selecting it. You also get the list of all the files affected by this issue.
 
 :::image type="content" source="media/java/appcat-7-report-assessment-detail.png" alt-text="Screenshot of the AppCAT issue detail report." lightbox="media/java/appcat-7-report-assessment-detail.png":::
 
-Then, for each file or class affected by the incident, you can jump into the source code to highlight the line of code that created the issue.
+Then, for each file or class affected by the issue, you can jump into the source code to highlight the line of code that created the issue.
 
 :::image type="content" source="media/java/appcat-7-report-assessment-code.png" alt-text="Screenshot of the AppCAT issue code report." lightbox="media/java/appcat-7-report-assessment-code.png":::
 
 ## Release notes
+
+### 7.6.0.6
+
+This release contains the following fixes and enhancements.
+
+- A default **.appcat-ignore** file is now included in the release package by default. This file causes the tool to exclude specified folders or paths that don't need to be analyzed.
+- Fixed the issue of missing dependencies in the report when using `full` mode (specified by using `--mode`).
+- Scoped analysis to AppCAT-supported targets when no targets are specified.
+- Ignored comment lines during analysis.
+- Fixed incorrect location for XML rules.
 
 ### 7.6.0.5
 
@@ -450,13 +467,20 @@ This release contains the following fixes and includes a set of new rules.
 
 ### 6.3.0.8
 
-Previously, a set of targets were enabled by default, making it difficult for certain customers to assess large applications with too many incidents related to less critical issues. To reduce noise in reports, users must now specify multiple targets, with the parameter `--target`, when executing `appcat`, giving them the option to select only the targets that matter.
+Previously, a set of targets were enabled by default, making it difficult for certain customers to assess large applications with too many issues related to less critical issues. To reduce noise in reports, users must now specify multiple targets, with the parameter `--target`, when executing `appcat`, giving them the option to select only the targets that matter.
 
 ### 6.3.0.7
 
 GA (Generally Available) release of Azure Migrate application and code assessment.
 
 ## Known issues
+
+### 7.6.0.6
+
+- Rules issues:
+  - The `azure-system-config-01000` rules aren't being triggered.
+  - The `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
+- An error in the Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.6.0.5
 
@@ -478,7 +502,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - Rules issues:
     - `azure-system-config-01000`, `http-session-01000` rules aren't being triggered.
     - `FileSystem - Java IO` rule isn't being triggered.
-- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant issues created on Windows OS.
 - Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
 - In binary analysis reports, the code snippet title shows an incorrect or nonexistent file path.
@@ -489,7 +513,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - Rules issues:
     - `azure-system-config-01000`, `http-session-01000` rules aren't being triggered.
     - `FileSystem - Java IO` rule isn't being triggered.
-- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant issues created on Windows OS.
 - Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
 - In binary analysis reports, the code snippet title shows an incorrect or nonexistent file path.
@@ -500,7 +524,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - Rules issues:
     - `azure-system-config-01000`, `http-session-01000`, `java-removals-00150` rules aren't being triggered.
     - `FileSystem - Java IO` rule isn't being triggered.
-- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant issues created on Windows OS.
 - Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
 - In binary analysis reports, the code snippet title shows an incorrect or nonexistent file path.
@@ -520,7 +544,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
     - `azure-system-config-01000`, `http-session-01000`, `java-removals-00150` rules aren't being triggered.
     - `FileSystem - Java IO` rule isn't being triggered.
     - Error `unable to parse all the rules for ruleset` when running analysis. This error occurs during analysis when the tool fails to parse all rules in the ruleset.
-- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant issues created on Windows OS.
 - Missing descriptions for some rules on the **Insights** tab. Some tag rules are lacking descriptions, leading to blank titles appearing on the **Insights** tab of the report.
 - Error in **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - This release requires an active internet connection for dependency analysis.
