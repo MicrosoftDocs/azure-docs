@@ -10,6 +10,7 @@ ms.date: 01/29/2025
 ms.custom: devx-track-azurecli
 
 #CustomerIntent: As a network administrator, I want to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
+# Customer intent: As a network administrator, I want to troubleshoot VPN gateways and connections using the Azure CLI, so that I can resolve connectivity issues between my virtual network and on-premises networks effectively.
 ---
 
 # Troubleshoot VPN virtual network gateways and connections using the Azure CLI
