@@ -28,9 +28,9 @@ By default, all metrics are shown at the SAN level. To view these metrics at eit
 
 ## Resource logging
 
-You can configure the [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) of your elastic SAN to send Azure platform logs and metrics to different destinations. Currently, there are two log configurations:
+You can configure the [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) of your elastic SAN to send Azure platform logs and metrics to different destinations. Currently, there's one log configuration:
 
-- Transactions- Every transaction log offered by the resource.
+- Transactions - Every transaction log offered by the resource.
 
 Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective.
 
