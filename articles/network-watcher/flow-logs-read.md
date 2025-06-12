@@ -10,6 +10,7 @@ ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want to read my flow logs using a PowerShell script so I can see the latest data.
+# Customer intent: As an Azure administrator, I want to efficiently read and analyze my Network Watcher flow logs using PowerShell scripts, so that I can quickly access and interpret network data without downloading entire log files.
 ---
 
 # Read flow logs

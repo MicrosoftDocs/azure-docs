@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 05/18/2022
+ms.date: 06/12/2025
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
@@ -42,18 +42,18 @@ Before you prepare a Windows VHD for use as a generalized image on an Azure Stac
 
 - You have a VHD or a VHDX containing a supported version of Windows. 
 - You have access to a Windows client with Hyper-V Manager installed. 
-- You have access to an Azure Blob storage account to store your VHD after it is prepared.
+- You have access to an Azure Blob storage account to store your VHD after it's prepared.
 
 ## Prepare source VM from Windows VHD
 
-When your VM source is a Windows VHD or VHDX, you first need to convert the Windows VHD to a fixed-size VHD. You will use the fixed-size VHD to create a new virtual machine.
+When your VM source is a Windows VHD or VHDX, you first need to convert the Windows VHD to a fixed-size VHD. You'll use the fixed-size VHD to create a new virtual machine.
 
 > [!IMPORTANT]
-> These procedures do not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> These procedures don't cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 #### Convert source VHD to a fixed-size VHD
 
-For your device, you'll need fixed-size VHDs to create VM images. You'll need to convert your source Windows VHD or VHDX to a fixed VHD. 
+For your device, you need fixed-size VHDs to create VM images. You must convert your source Windows VHD or VHDX to a fixed VHD. 
 
 Follow these steps:
 
@@ -93,7 +93,7 @@ Follow these steps:
     Convert-VHD -Path <source VHD path> -DestinationPath <destination-path.vhd> -VHDType Fixed 
     ```
 -->
-You'll use this fixed-size VHD for all the subsequent steps in this article.
+Use this fixed-size VHD for all the subsequent steps in this article.
 
 #### Create Hyper-V VM from the fixed-size VHD
 

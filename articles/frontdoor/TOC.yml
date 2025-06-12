@@ -83,6 +83,8 @@
       href: front-door-security-headers.md?pivots=front-door-standard-premium
     - name: Configure delivery rules
       href: standard-premium/front-door-add-rules-cli.md
+    - name: Rules engine scenarios
+      href: rules-engine-scenarios.md
     - name: Server variables
       href: rule-set-server-variables.md
     - name: URL rewrite

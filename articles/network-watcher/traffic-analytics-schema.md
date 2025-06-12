@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 02/07/2025
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
+# Customer intent: "As a network administrator, I want to understand the traffic analytics schema and data aggregation methods so that I can effectively analyze flow logs and enhance network performance and security."
 ---
 
 # Traffic analytics schema and data aggregation

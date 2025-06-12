@@ -7,6 +7,7 @@ author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 10/16/2024
+# Customer intent: As a network security analyst, I want to set up network intrusion detection using open-source tools and Azure packet captures so that I can effectively monitor for and respond to potential security threats in my network environment.
 ---
 
 # Perform network intrusion detection by using Azure Network Watcher and open-source tools

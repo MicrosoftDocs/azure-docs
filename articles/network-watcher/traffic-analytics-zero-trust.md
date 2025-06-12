@@ -7,6 +7,7 @@ ms.author:   shijaiswal # Microsoft alias
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date:     06/04/2025
+# Customer intent: As a network security engineer, I want to utilize traffic analytics to implement Zero Trust principles in my Azure environment, so that I can enhance network segmentation, detect threats, and improve overall security visibility.
 ---
 
 # Apply Zero Trust principles to segment Azure network through traffic analytics
