@@ -16,9 +16,7 @@ ms.custom: passwordless-java, devx-track-extended-java
 > * [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 > * [Python](service-bus-python-how-to-use-queues.md)
 
-This quick start provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find prebuilt Java samples for Azure Service Bus in the [Azure SDK for Java repository on GitHub](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/src/samples).
-
-In this quickstart, you create a Java app to send messages to and receive messages from an Azure Service Bus queue.
+This quickstart provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You create a Java app to send messages to and receive messages from an Azure Service Bus queue. You can find prebuilt Java samples for Azure Service Bus in the [Azure SDK for Java repository on GitHub](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/src/samples).
 
 > [!TIP]
 > If you're working with Azure Service Bus resources in a Spring application, we recommend that you consider [Spring Cloud Azure](/azure/developer/java/spring-framework/). Spring Cloud Azure is an open-source project that provides seamless Spring integration with Azure services. To learn more about Spring Cloud Azure, and to see an example using Service Bus, see [Spring Cloud Stream with Azure Service Bus](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-with-service-bus).
@@ -110,7 +108,7 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ```
     ---
 
-1. In the class, define variables to hold connection string and queue name.
+1. In the class, define variables to hold the connection string and queue name.
 
     ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -180,7 +178,7 @@ Update the `pom.xml` file to add a dependency to the Azure Service Bus package.
     ```
     ---
 
-1. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. Here, you use a list of sample messages.
+1. Add a method named `createMessages` in the class to create a list of messages. Typically, you get these messages from different parts of your application. In this example, you use a list of sample messages.
 
     ```java
     static List<ServiceBusMessage> createMessages()
@@ -431,7 +429,7 @@ In this section, you add code to retrieve messages from the queue.
 ### [Passwordless (Recommended)](#tab/passwordless)
 
 1. If you're using Eclipse, right-click the project, select **Export**, expand **Java**, select **Runnable JAR file**, and follow the steps to create a runnable JAR file.
-1. If you're signed into the machine using a user account that's different from the user account added to the **Azure Service Bus Data Owner** role, follow these steps. Otherwise, skip this step and move on to run the Jar file in the next step.
+1. If you're signed under a user account that's different from the one that you added to the **Azure Service Bus Data Owner** role, follow these steps. Otherwise, move on to run the Jar file in the next step.
 
    1. [Install Azure CLI](/cli/azure/install-azure-cli-windows) on your machine.
    1. Run the following CLI command to sign in to Azure. Use the same user account that you added to the **Azure Service Bus Data Owner** role.
@@ -478,11 +476,11 @@ On the **Overview** page for the Service Bus namespace in the Azure portal, you 
 
 :::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Screenshot shows the incoming and outgoing message count." lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
 
-Select the queue on this **Overview** page to navigate to the **Service Bus Queue** page. You see the **incoming** and **outgoing** message count on this page too. You also see other information such as the **current size** of the queue, **maximum size**, **active message count**, and so on.
+Select the queue on this **Overview** page to navigate to the **Service Bus Queue** page. You see the **incoming** and **outgoing** message count on this page too. You also see other information such as the **current size** of the queue, and **maximum size**, **active message count**.
 
 :::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Screenshot shows the queue details for the messages for this queue." lightbox="./media/service-bus-java-how-to-use-queues/queue-details.png":::
 
-## Next Steps
+## Related content
 
 See the following documentation and samples:
 
