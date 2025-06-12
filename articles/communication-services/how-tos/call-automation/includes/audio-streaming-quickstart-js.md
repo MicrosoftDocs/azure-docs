@@ -34,21 +34,26 @@ Enable automatic audio streaming when the call is established by setting the fla
 This setting ensures that audio streaming starts automatically as soon as the call is connected.
 
 ``` JS
-var mediaStreamingOptions = new MediaStreamingOptions(
-	new Uri("wss://YOUR_WEBSOCKET_URL"),
-	MediaStreamingContent.Audio,
-	MediaStreamingAudioChannel.Mixed,
-	startMediaStreaming: true)
-{
-	EnableBidirectional = true,
-		AudioFormat = AudioFormat.Pcm24KMono
-}
-var options = new AnswerCallOptions(incomingCallContext, callbackUri)
-{
-	MediaStreamingOptions = mediaStreamingOptions,
+const mediaStreamingOptions = {
+    transportUrl: "wss://YOUR_WEBSOCKET_URL", 
+    transportType: "websocket",               
+    contentType: "audio",                     
+    audioChannelType: "mixed",                
+    startMediaStreaming: true,
+    enableDtmfTones: true,           
+    enableBidirectional: true,                
+    audioFormat: "Pcm24KMono"                 
 };
 
-AnswerCallResult answerCallResult = await client.AnswerCallAsync(options);
+const answerCallOptions = {
+    mediaStreamingOptions: mediaStreamingOptions
+};
+
+answerCallResult = await acsClient.answerCall(
+    incomingCallContext,
+    callbackUri,
+    answerCallOptions
+);
 ```
 
 When Azure Communication Services receives the URL for your WebSocket server, it establishes a connection to it. Once the connection is successfully made, streaming is initiated.
@@ -58,11 +63,12 @@ To start media streaming during the call, you can use the API. To do so, set the
 
 ``` JS
 const mediaStreamingOptions: MediaStreamingOptions = {
-	transportUrl: transportUrl,
+	transportUrl:  "wss://YOUR_WEBSOCKET_URL",
 	transportType: "websocket",
 	contentType: "audio",
 	audioChannelType: "unmixed",
 	startMediaStreaming: false,
+	enableDtmfTones: true,
 	enableBidirectional: true,
 	audioFormat: "Pcm24KMono"
 }
@@ -133,6 +139,9 @@ async function processWebsocketMessageAsync(receivedBuffer: ArrayBuffer) {
 ```
 
 The first packet you receive contains metadata about the stream, including audio settings such as encoding, sample rate, and other configuration details.
+
+### Additional Headers
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`. These are sent when Azure Communication Services tries to connect to your endpoint.
 
 ``` json
 {

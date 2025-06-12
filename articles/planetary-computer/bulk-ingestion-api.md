@@ -3,7 +3,7 @@ title: Bulk Data Ingestion in Microsoft Planetary Computer Pro
 description: This article shows how to use the Microsoft Planetary Computer Pro Bulk Ingestion API to ingest a large volume of geospatial data into a GeoCatalog.
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: how-to #Don't Change
 ms.date: 04/18/2024
 #customer intent: As a geocatalog user, I want to use the Bulk Ingestion API so that I can efficiently ingest a large amount of geospatial data into my GeoCatalog.

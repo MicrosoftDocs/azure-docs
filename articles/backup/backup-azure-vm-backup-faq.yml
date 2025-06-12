@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 05/12/2025
+  ms.date: 06/12/2025
   author: jyothisuri
   ms.author: jsuri
   ms.custom: build-2025
@@ -148,6 +148,10 @@ sections:
       - question: Can I remove all restore points and retain the latest one?
         answer: |
           No, you can't retain one single restore point. When you delete the previous restore points, the chain gets deleted. Therefore, you can't selectively retain or delete a recovery point.
+
+      - question: In Azure VM Backup, what is the Snapshot Tier and Storage Redundancy for snapshot taken as part of backup?
+        answer: |
+          In Azure VM Backup, snapshots are taken using the Standard HDD tier type, regardless of the source VM disk tier. By default, the storage redundancy for these snapshots is Locally Redundant Storage (LRS). However, if the VM backups are managed by an Enhanced Policy and the underlying source disk storage supports Zone Redundant Storage (ZRS), the snapshots will be of the ZRS type.
 
       - question: How long can I retain backup points of Azure VMs using the backup policy?
         answer: |

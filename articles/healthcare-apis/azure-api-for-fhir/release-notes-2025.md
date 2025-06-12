@@ -6,7 +6,7 @@ author: KendalBond007
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/14/2025
+ms.date: 5/30/2025
 ms.custom:
   - references_regions
   - build-2025
@@ -22,8 +22,14 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 ## May 2025
 **Enhanced error handling for $export**: Previously, 409 and 412 errors from Cosmos DB weren't retried, and would be surfaced as 500 InternalServerError. The issue is fixed, and these requests are now retried. 
 
+**Improved error handling for exports or imports that have missing Managed Identity**: Previously, export or import jobs with a missing Managed Identity would result in an unknown server error (HTTP status code 500). We have improved error handling for this case, expect message—'Failed to get access token'—to be shown. 
+
+**Support multiple pages of include results in bulk delete**: Previously, bulk deletes with _include and _revinclude couldn't delete more than 100 included resources. We have made a fix to lift that limit by supporting multiple pages of include results, and bulk delete will be able to delete more than 100 included resources.
+
 #### Bug fixes:
 **Creation after deletion of search parameters fix**: Previously, creating the same search parameter that was deleted in the past could fail due to an issue in updating the cache for Search Parameter definition manager. The issue is fixed, and now, the cache is synced before validating a search parameter in an incoming request.
+
+**Export duplicates fix**: Previously, there was a bug where exports with _isParallel = on and _maxCount set to 1000 or lower could result in duplication of exported resources. This issue has been fixed. 
 
 ## April 2025
 **Enhanced error handling for READ operations with wrong cases on resource types**: Added validation on the resource type with wrong casing for READ operations (for example, GET /patient/ instead of GET /Patient/). In the past, a request with the wrong casing resource type was causing 500 status code (InternalServerError). After this change, a request with the wrong casing resource type will be rejected with 400 status code (ResourceNotSupported) as the resource type in any request should be validated in the case-sensitive manner.

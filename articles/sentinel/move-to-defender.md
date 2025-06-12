@@ -83,7 +83,7 @@ From a Log Analytics perspective, Microsoft Sentinel’s integration into Micros
 #### Integrate with Microsoft Defender for Cloud
 
 - If you're using the tenant-based data connector for Defender for Cloud, make sure to take action to prevent duplicate events and alerts. 
-- If you're using the legacy, subscription-based connector instead, make sure to opt out of synching incidents and alerts to Microsoft Defender.
+- If you're using the legacy, subscription-based connector instead, make sure to opt out of syncing incidents and alerts to Microsoft Defender.
 
 For more information, see [Alerts and incidents in Microsoft Defender](/azure/defender-for-cloud/concept-integration-365#microsoft-sentinel-customers).
 

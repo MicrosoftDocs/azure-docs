@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 09/10/2024
+ms.date: 06/12/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
@@ -80,7 +80,9 @@ The price that appears beside an operation type isn't the price you pay for each
 
 #### Data transfer meter
 
-Any data that leaves the Azure region incurs data transfer and network bandwidth charges. These charges commonly appear in scenarios where an account is configured for geo-redundant storage or when an object replication policy is configured to copy data to an account in another region. However, these charges also apply to data that is downloaded to an on-premises client. The price of network bandwidth doesn't appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
+Any data that leaves the Azure region incurs either a data transfer or network bandwidth charge. The data transfer meter appears when an account is configured for geo-redundant storage. 
+
+Network bandwidth fees apply when a workload or object replication policy copies data to an account in another region. Network bandwidth fees can also appear when data that is downloaded to an on-premises client. The price of network bandwidth doesn't appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 #### Feature-related meters
 
