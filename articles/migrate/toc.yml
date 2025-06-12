@@ -33,16 +33,18 @@ items:
   items:
     - name: Discovery methods
       href: discovery-methods-modes.md
-    - name: Appliance requirements
-      href: migrate-appliance.md
-    - name: Discover VMware estate
-      href: set-discovery-scope.md
-    - name: Support matrix for VMware discovery 
-      href: migrate-support-matrix-vmware.md
-    - name: Discover Hyper-V estate
-      href: tutorial-discover-hyper-v.md
-    - name: Discover physical servers and servers running in AWS and GCP
-      href: tutorial-discover-physical.md
+    - name: Discovery using appliance
+      items:
+      - name: Appliance requirements
+        href: migrate-appliance.md
+      - name: Discover VMware estate
+        href: set-discovery-scope.md
+      - name: Support matrix for VMware discovery 
+        href: migrate-support-matrix-vmware.md
+      - name: Discover Hyper-V estate
+        href: tutorial-discover-hyper-v.md
+      - name: Discover physical servers and servers running in AWS and GCP
+        href: tutorial-discover-physical.md
     - name: Appliance configuration
       items:
       - name: Provide server credentials
