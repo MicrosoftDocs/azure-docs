@@ -20,11 +20,11 @@ This article provides suggestions to troubleshoot common problems with the Parqu
 
 - **Message**: `An error occurred when invoking java, message: %javaException;.`
 
-- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
+- **Causes and recommendations**: Different causes could lead to this error. Check this list for possible cause analysis and related recommendation.
 
     | Cause analysis                                               | Recommendation                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
-    | When the error message contains the strings "java.lang.OutOfMemory", "Java heap space", and "doubleCapacity", it's usually a memory management issue in an old version of Integration Runtime. | If you are using Self-hosted IR and the version is earlier than 3.20.7159.1, we recommend that you upgrade to the latest version. |
+    | When the error message contains the strings "java.lang.OutOfMemory", "Java heap space", and "doubleCapacity", it's usually a memory management issue in an old version of Integration Runtime. | If you're using Self-hosted IR and the version is earlier than 3.20.7159.1, we recommend that you upgrade to the latest version. |
     | When the error message contains the string "java.lang.OutOfMemory", the integration runtime doesn't have enough resources to process the files. | Limit the concurrent runs on the integration runtime. For Self-hosted IR, scale up to a powerful machine with memory that's equal to or greater than 8 GB. |
     | When the error message contains the string "NullPointerReference", it might be a transient error. | Retry the operation. If the problem persists, contact support. |
 
@@ -40,7 +40,7 @@ This article provides suggestions to troubleshoot common problems with the Parqu
 
 - **Message**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
-- **Cause**: The Parquet format is not supported in Azure Data Factory and Synapse pipelines.
+- **Cause**: The Parquet format isn't supported in Azure Data Factory and Synapse pipelines.
 
 - **Recommendation**:  Double-check the source data by going to [Supported file formats and compression codecs by copy activity](./supported-file-formats-and-compression-codecs.md).
 
@@ -106,7 +106,7 @@ This article provides suggestions to troubleshoot common problems with the Parqu
 
 - **Cause**: This scenario isn't supported.
 
-- **Recommendation**:  'ParquetInterpretFor' should not be 'sparkSql'.
+- **Recommendation**:  'ParquetInterpretFor' shouldn't be 'sparkSql'.
 
 ## Error code: ParquetUnsupportFileLevelCompressionOption
 
@@ -122,7 +122,7 @@ This article provides suggestions to troubleshoot common problems with the Parqu
 
 - **Cause**: A Java Virtual Machine (JVM) can't be created because some illegal (global) arguments are set.
 
-- **Recommendation**:  Log in to the machine that hosts *each node* of your self-hosted IR. Check to ensure that the system variable is set correctly, as follows: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8 G`. Restart all the IR nodes, and then rerun the pipeline.
+- **Recommendation**:  Sign in to the machine that hosts *each node* of your self-hosted IR. Check to ensure that the system variable is set correctly, as follows: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8 G`. Restart all the IR nodes, and then rerun the pipeline.
 
 ## Arithmetic overflow
 
@@ -140,7 +140,7 @@ This article provides suggestions to troubleshoot common problems with the Parqu
 
     The issue could be caused by white spaces or unsupported special characters (such as,;{}()\n\t=) in the column name, because Parquet doesn't support such a format. 
 
-    For example, a column name such as *contoso(test)* will parse the type in brackets from [code](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/MessageTypeParser.java) `Tokenizer st = new Tokenizer(schemaString, " ;{}()\n\t");`. The error is thrown because there is no such "test" type.
+    For example, a column name such as *contoso(test)* will parse the type in brackets from [code](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/MessageTypeParser.java) `Tokenizer st = new Tokenizer(schemaString, " ;{}()\n\t");`. The error is thrown because there's no such "test" type.
 
     To check supported types, go to the GitHub [apache/parquet-mr site](https://github.com/apache/parquet-mr/blob/master/parquet-column/src/main/java/org/apache/parquet/schema/OriginalType.java).
 
