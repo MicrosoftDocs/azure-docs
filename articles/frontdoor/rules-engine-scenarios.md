@@ -713,7 +713,7 @@ N/A
 
 ---
 
-## Scenario 11: Removing query strings from incoming URLs using URL redirects
+## Scenario 11: Remove query strings from incoming URLs using URL redirects
 
 You can remove query strings from incoming URLs by implementing a 3xx URL redirect that guides users back to the Azure Front Door endpoint with the query strings removed.
 
