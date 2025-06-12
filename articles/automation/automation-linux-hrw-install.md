@@ -7,6 +7,8 @@ ms.custom: linux-related-content
 ms.date: 04/07/2025
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation
@@ -176,7 +178,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
     > To manage the configuration of machines that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the machines as DSC nodes.
 
     > [!NOTE]
-    > The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn't have the appropriate permissions, the installation fails.
+    > The nxautomation account with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn't have the appropriate permissions, the installation fails.
 
 3. Verify agent is reporting to workspace.
 

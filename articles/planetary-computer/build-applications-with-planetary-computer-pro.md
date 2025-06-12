@@ -3,7 +3,7 @@ title: Building Custom Applications with Microsoft Planetary Computer Pro
 description: "Learn the basics of how to connect Microsoft Planetary Computer Pro (Planetary Computer Pro) to applications or build your application on top of Planetary Computer Pro's API services."
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: concept-article #Don't change.
 ms.date: 04/29/2025
 
@@ -44,7 +44,7 @@ The [REST API is detailed in the API reference](/rest/api/planetarycomputer).
 
 ### Fist Party Application Support
 
-Planetary Computer Pro has a build-in application called Explorer which allows users to visualize ingested data in a GeoCatalog resource from their browser. Once the data is [configured for visualization](./collection-configuration-concept.md), it can be [used in the explorer](./use-explorer.md).
+Planetary Computer Pro has a built-in application called Explorer which allows users to visualize ingested data in a GeoCatalog resource from their browser. Once the data is [configured for visualization](./collection-configuration-concept.md), it can be [used in the explorer](./use-explorer.md).
 
 In more, by using [the API services](#direct-api-integration), data in Planetary Computer Pro can be integrated with first party Microsoft applications such as [Fabric](/fabric) and [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). 
 

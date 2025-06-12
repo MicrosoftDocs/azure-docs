@@ -8,7 +8,7 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.topic: how-to
-ms.date: 05/19/2025
+ms.date: 06/02/2025
 ms.author: cshoe
 ---
 
@@ -76,7 +76,7 @@ Access to this feature is only available after you have serverless GPU quota. Yo
 
 ## Supported regions
 
-Serverless GPUs are available in preview in the *West US 3*, *Australia East*, and *Sweden Central* regions.
+Serverless GPUs are available in the *West US 3*, *Australia East*, and *Sweden Central* regions.
 
 ## Use serverless GPUs
 
