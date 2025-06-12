@@ -43,11 +43,11 @@ Managing redirects is critical for search engine optimization (SEO), user experi
     
     This approach enables dynamic redirects without having to create a separate rule for each `cdpb` value, significantly reducing the number of rules required.
 
-# [**Portal**](#tab/portal)
+    # [**Portal**](#tab/portal)
 
     :::image type="content" source="./media/rules-engine-scenarios/redirect-query-string.png" alt-text="Screenshot that shows how to use query string to redirect URL." lightbox="./media/rules-engine-scenarios/redirect-query-string.png":::
 
-# [**ARM**](#tab/arm)
+    # [**ARM**](#tab/arm)
 
     ```json
     {
@@ -76,7 +76,7 @@ Managing redirects is critical for search engine optimization (SEO), user experi
         }
     }
     ```
----
+    ---
 
 - **Redirect based on fixed-length URL path segments:** You can redirect requests to different origins based on fixed-length URL path segment by capturing the URL segments using `{variable:offset:length}`. For more information, see [Server variable format](/azure/frontdoor/rule-set-server-variables#server-variable-format).
 
