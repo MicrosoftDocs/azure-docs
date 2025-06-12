@@ -514,8 +514,10 @@ items:
           href: archive-cost-estimation.md
       - name: Estimates
         items:
-        - name: Early retrieval from archive
-          href: cost-estimate-archive-retrieval.md
+        - name: Early retrieval from archive (Set Blob Tier)
+          href: cost-estimate-archive-retrieval-set-tier.md
+        - name: Early retrieval from archive (Copy Blob)
+          href: cost-estimate-archive-retrieval-copy-blob.md
         - name: Cross region data access
           href: cost-estimate-multi-region-access.md
     - name: Optimize costs
