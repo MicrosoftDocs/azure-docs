@@ -11,6 +11,7 @@ ms.date: 05/19/2025
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
 ms.custom:
   - build-2025
+# Customer intent: As an Azure administrator, I want to implement virtual network flow logs so that I can effectively monitor network traffic, optimize performance, and ensure compliance within my virtual network.
 ---
 
 # Virtual network flow logs
