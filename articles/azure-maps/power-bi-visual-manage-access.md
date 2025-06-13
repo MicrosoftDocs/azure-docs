@@ -34,7 +34,7 @@ When enabled, data sent to Azure Maps can be processed outside your tenant’s g
 - Enable this setting to access more capabilities provided by Microsoft Online Services subprocessors.
 - Disabling this setting can limit Azure Maps features if services are unavailable in your compliance region.
 
-:::image type="content" source="media/power-bi-visual/settings-enable-subprocessing.png" alt-text="Data sent to Azure Maps can be processed outside your tenant’s geographic region, compliance boundary, or national cloud instance.":::
+:::image type="content" source="media/power-bi-visual/settings-enable-subprocessing.png" alt-text="Screenshot showing that data sent to Azure Maps can be processed outside your tenant’s geographic region, compliance boundary, or national cloud instance.":::
 
 ### Allow Microsoft subprocessors to process data
 
@@ -44,7 +44,7 @@ Some Azure Maps features, like the selection tool, can utilize third-party mappi
 - Data can be stored and processed in the United States or other countries where Microsoft or its subprocessors operate.
 - To enable this setting, "Data sent to Azure Maps can be processed outside your tenant’s geographic region, compliance boundary, or national cloud instance" must also be enabled.
 
-:::image type="content" source="media/power-bi-visual/settings-processed-by-subprocessors.png" alt-text="Data sent to Azure Maps can be processed by Microsoft Online Services subprocessors.":::
+:::image type="content" source="media/power-bi-visual/settings-processed-by-subprocessors.png" alt-text="Screenshot showing that data sent to Azure Maps can be processed by Microsoft Online Services subprocessors.":::
 
 > [!NOTE]
 > Azure Maps and subprocessors don't handle personally identifiable information (PII). The data sent to Azure Maps only includes location-related information, such as coordinates or place names, and doesn't include user identities or report consumer information.
