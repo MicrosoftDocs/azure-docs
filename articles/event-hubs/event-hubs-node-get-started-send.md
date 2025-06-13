@@ -10,22 +10,20 @@ ms.custom: devx-track-js, mode-api, passwordless-js
 
 # Quickstart: Send events to or receive events from event hubs by using JavaScript
 
-In this Quickstart, you learn how to send events to and receive events from an event hub using the **@azure/event-hubs** npm package. 
+In this Quickstart, you learn how to send events to and receive events from an event hub using the **@azure/event-hubs** npm package.
+
+If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you begin.
 
 ## Prerequisites
 
-If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
-
-To complete this quickstart, you need the following prerequisites:
-
-- **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Node.js LTS. Download the latest [long-term support (LTS) version](https://nodejs.org).  
-- Visual Studio Code (recommended) or any other integrated development environment (IDE).  
-- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. For more information, see [Create an event hub using Azure portal](event-hubs-create.md). 
+- Microsoft Azure subscription. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an Azure account, sign up for a [free trial](https://azure.microsoft.com/free/).
+- Node.js LTS. Download the latest [long-term support (LTS) version](https://nodejs.org).
+- Visual Studio Code (recommended) or any other integrated development environment (IDE).
+- Create an Event Hubs namespace and an event hub. Use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs Get the management credentials that your application needs to communicate with the event hub. For more information, see [Create an event hub using Azure portal](event-hubs-create.md).
 
 ### Install npm packages to send events
 
-To install the [Node Package Manager (npm) package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs), open a command prompt that has `npm` in its path, change the directory to the folder where you want to keep your samples.
+To install the [Node Package Manager (npm) package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs), open a Command Prompt window that has `npm` in its path. Change the directory to the folder where you want to keep your samples.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -54,8 +52,8 @@ npm install @azure/event-hubs
 
 In this section, you create a JavaScript application that sends events to an event hub.
 
-1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com).
-1. Create a file called *send.js*, and paste the following code into it:
+1. Open a text editor, such as [Visual Studio Code](https://code.visualstudio.com).
+1. Create a file called *send.js*. Paste the following code into it:
 
    ## [Passwordless (Recommended)](#tab/passwordless)
 
@@ -141,7 +139,16 @@ In this section, you create a JavaScript application that sends events to an eve
 
     ---
 
-1. To run this file, enter `node send.js`. This command sends a batch of three events to your event hub. If you're using the passwordless (Microsoft Entra ID Role-based access control (RBAC)) authentication, you might want to run `az login` and sign into Azure using the account that was added to the Azure Event Hubs Data Owner role. 
+1. To run the application, use this command:
+
+   ```bash
+   node send.js
+   ```
+
+   The command sends a batch of three events to your event hub.
+
+   If you're using the passwordless (Microsoft Entra ID Role-based access control (RBAC)) authentication, you might need sign into Azure using the account that you added to the Azure Event Hubs Data Owner role. Use the `az login` command.
+ 
 1. In the Azure portal, verify that the event hub received the messages. To update the chart, refresh the page. It might take a few seconds for it to show that the messages are received.
 
    :::image type="content" source="./media/node-get-started-send/verify-messages-portal.png" alt-text="Screenshot shows the Overview page where you can verify that the event hub received the message." lightbox="./media/node-get-started-send/verify-messages-portal.png":::
@@ -158,7 +165,7 @@ In this section, you receive events from an event hub by using an Azure Blob sto
 
 ### Create an Azure storage account and a blob container
 
-To create an Azure storage account and a blob container in it, do the following actions:
+To create an Azure storage account with a blob container:
 
 1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal)  
 1. [Create a blob container in the storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
@@ -203,8 +210,8 @@ npm install @azure/eventhubs-checkpointstore-blob
 
 ### Write code to receive events
 
-1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com).
-1. Create a file called *receive.js*, and paste the following code into it:
+1. Open a text editor, such as [Visual Studio Code](https://code.visualstudio.com).
+1. Create a file called *receive.js*. Paste the following code into it:
 
     ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -351,7 +358,7 @@ npm install @azure/eventhubs-checkpointstore-blob
 
     ---
 
-1. To run this file, enter `node receive.js`. The window should display messages about received events.
+1. To run this code, use the command `node receive.js`. The window display messages about received events.
 
     ```bash
     C:\Self Study\Event Hubs\JavaScript>node receive.js
@@ -361,7 +368,7 @@ npm install @azure/eventhubs-checkpointstore-blob
     ```
 
     > [!NOTE]
-    > For the complete source code, including additional informational comments, see [receiveEventsUsingCheckpointStore.js](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript/receiveEventsUsingCheckpointStore.js).
+    > For the complete source code, including informational comments, see [receiveEventsUsingCheckpointStore.js](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript/receiveEventsUsingCheckpointStore.js).
 
     The receiver program receives events from all the partitions of the default consumer group in the event hub.
 
@@ -370,8 +377,6 @@ npm install @azure/eventhubs-checkpointstore-blob
 Delete the resource group that has the Event Hubs namespace or delete only the namespace if you want to keep the resource group. 
 
 ## Related content
-
-Check out these samples on GitHub:
 
 - [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/javascript)
 - [TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/typescript)
