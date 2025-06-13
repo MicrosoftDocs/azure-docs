@@ -89,6 +89,9 @@ The previous `$BlockRule` maps to the following custom rule in Azure Resource Ma
 
 This custom rule contains a name, priority, an action, and the array of matching conditions that must be met for the action to take place. For further explanation of these fields, see the following field descriptions. For example custom rules, see [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
+> [!NOTE]
+> WAF customer rules don't support evaluating or taking actions based on uploaded file names. As a result, you can't use custom rules to block or allow requests based on file names or file types.
+
 ## Fields for custom rules
 
 ### Name [optional]
