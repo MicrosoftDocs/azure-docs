@@ -513,12 +513,22 @@ items:
         href: map-rest-apis-transaction-categories.md
     - name: Estimate costs
       items:
-      - name: Estimate the cost of Azure Blob Storage
-        href: blob-storage-estimate-costs.md
-      - name: Estimate the cost of AzCopy transfers
-        href: azcopy-cost-estimation.md
-      - name: Estimate the cost to archive data
-        href: archive-cost-estimation.md
+      - name: Guides 
+        items:
+        - name: Estimate the cost of Azure Blob Storage
+          href: blob-storage-estimate-costs.md
+        - name: Estimate the cost of AzCopy transfers
+          href: azcopy-cost-estimation.md
+        - name: Estimate the cost to archive data
+          href: archive-cost-estimation.md
+      - name: Estimates
+        items:
+        - name: Rehydrate from archive by setting tiers
+          href: cost-estimate-archive-retrieval-set-tier.md
+        - name: Rehydrate from archive by copying blobs
+          href: cost-estimate-archive-retrieval-copy-blob.md
+        - name: Cross region data access
+          href: cost-estimate-multi-region-access.md
     - name: Optimize costs
       items:
       - name: Access tiers
