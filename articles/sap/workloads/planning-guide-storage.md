@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 07/25/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT planner for SAP workloads, I want to evaluate different Azure storage types, so that I can select the best options for performance, resiliency, and cost-effectiveness in supporting my SAP applications.
 ---
 
 # Azure Storage types for SAP workload

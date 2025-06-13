@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 01/27/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an SAP architect, I want to design and deploy SAP workloads on Azure Virtual Machines, so that I can optimize performance and ensure high availability for our critical business applications while adhering to supported configurations and best practices.
 ---
 
 # SAP workload on Azure virtual machine supported scenarios

@@ -10,6 +10,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 11/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an SAP system administrator, I want to install and configure a high-availability SAP NetWeaver system on an Azure Windows failover cluster, so that I can ensure continuous operation and reliability for SAP ASCS/SCS instances.
 ---
 
 # Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure

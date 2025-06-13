@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to start and stop SAP systems in Azure Center for SAP solutions so that I can control instances through the Virtual Instance for SAP resource.
+# Customer intent: As an SAP system administrator, I want to start and stop SAP systems, instances, and HANA databases using the Virtual Instance for SAP solutions in Azure, so that I can effectively manage system resources and ensure optimal performance.
 ---
 
 # Start and stop SAP systems, instances and HANA database

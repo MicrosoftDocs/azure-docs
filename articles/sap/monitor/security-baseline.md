@@ -9,6 +9,7 @@ ms.custom: subject-monitoring
 ms.date: 08/22/2024
 ms.author: sakhare
 #Customer intent: As a SAP BASIS or cloud infrastructure team, I want to learn about security baseline provided by Azure Monitor for SAP solutions.
+# Customer intent: As a cloud infrastructure team member, I want to understand the security baseline for Azure Monitor for SAP solutions, so that I can ensure compliance with security recommendations and effectively monitor our SAP deployment.
 ---
 
 # Security baseline for Azure Monitor for SAP solutions

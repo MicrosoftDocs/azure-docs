@@ -12,6 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 06/22/2021
 ms.author: oldoll
+# Customer intent: As an IT administrator managing SAP solutions on Azure VMs, I want to deploy and configure the new Azure VM extension for SAP, so that I can monitor and manage my virtual machine's performance efficiently and ensure reliable operations.
 ---
 
 # New Version of Azure VM extension for SAP solutions 

@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 07/22/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a system architect, I want to understand the storage architecture for SAP HANA on Azure Large Instances, so that I can effectively plan and configure my deployments to meet performance and capacity requirements.
 ---
 # SAP HANA (Large Instances) storage architecture
 

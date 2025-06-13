@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 author: sagarkeswani
 ms.author: sagarkeswani
 #Customer intent: As a developer, I want to create a virtual network so that I can deploy S/4HANA infrastructure in Azure Center for SAP solutions.
+# Customer intent: As a network administrator, I want to configure a virtual network and its components for S/4HANA deployment, so that I can ensure proper connectivity and security for the infrastructure on Azure.
 ---
 
 # Prepare network for infrastructure deployment 

@@ -11,6 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 06/22/2021
 ms.author: oldoll
+# Customer intent: As an IT administrator deploying SAP solutions on Azure, I want to implement the Azure VM extension for SAP, so that I can ensure the proper functionality and support for my virtual machines in the cloud environment.
 ---
 
 # Implement the Azure VM extension for SAP solutions

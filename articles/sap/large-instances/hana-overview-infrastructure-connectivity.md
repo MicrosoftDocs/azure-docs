@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 6/1/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT administrator, I want to gather the necessary information and requirements to deploy SAP HANA on Azure Large Instances, so that I can ensure successful provisioning and connectivity of the infrastructure.
 ---
 
 # SAP HANA (Large Instances) deployment 

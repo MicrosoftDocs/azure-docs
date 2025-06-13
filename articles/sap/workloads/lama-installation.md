@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.custom: subject-rbac-steps
+# Customer intent: As an SAP administrator, I want to configure the SAP Landscape Management connector for Azure, so that I can effectively manage and monitor my SAP landscapes hosted on Azure virtual machines.
 ---
 # SAP LaMa connector for Azure
 

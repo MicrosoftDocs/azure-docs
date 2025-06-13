@@ -8,6 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.custom: subject-monitoring
 ms.date: 08/21/2024
+# Customer intent: As an SAP administrator, I want to access log data from Azure Monitor for SAP solutions, so that I can analyze performance and availability for SAP applications running on Azure.
 ---
 
 # Data reference for Azure Monitor for SAP solutions 

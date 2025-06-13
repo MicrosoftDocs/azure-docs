@@ -8,6 +8,7 @@ ms.date: 12/15/2022
 author: MartinPankraz
 ms.author: mapankra
 
+# Customer intent: "As an SAP workload administrator, I want to integrate SAP with Azure services, so that I can enhance our business processes and improve operational efficiency through seamless workflows and data management."
 ---
 # Get started with SAP and Microsoft integration scenarios
 

@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 07/19/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a cloud architect, I want to understand the supported architectural scenarios for SAP HANA on large instances, so that I can effectively design and implement solutions that meet specific business requirements and ensure high availability and disaster recovery configurations.
 ---
 # Supported scenarios for HANA Large Instances
 This article describes the supported scenarios and architectural details for HANA Large Instances (HLI).

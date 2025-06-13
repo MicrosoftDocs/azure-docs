@@ -8,6 +8,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.date: 07/19/2022
 ms.author: mapankra
+# Customer intent: "As an IT architect, I want to securely expose SAP Process Orchestration using Azure services, so that I can facilitate integrated communication between internal systems and external partners while ensuring data protection and compliance."
 ---
 # Expose SAP legacy middleware securely with Azure PaaS
 

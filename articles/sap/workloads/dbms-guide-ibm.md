@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 08/29/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
+# Customer intent: "As an IT administrator managing SAP workloads, I want to deploy IBM Db2 on Azure virtual machines, so that I can leverage cloud infrastructure while maintaining compatibility with on-premises development and administration tools."
 ---
 
 # IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload

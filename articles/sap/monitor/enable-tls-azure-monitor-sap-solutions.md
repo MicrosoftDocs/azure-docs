@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/21/2024
 ms.author: sakhare
 #Customer intent: As an SAP Basis or cloud infrastructure team member, I want to deploy Azure Monitor for SAP solutions with secure communication.
+# Customer intent: As an SAP Basis or cloud infrastructure team member, I want to enable TLS 1.2 or later for Azure Monitor for SAP solutions, so that I can ensure secure communication and protect telemetry data during transit.
 ---
 
 # Enable TLS 1.2 or later in Azure Monitor for SAP solutions

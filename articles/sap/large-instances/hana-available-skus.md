@@ -12,6 +12,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 02/11/2022
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017, references_regions
+# Customer intent: "As a cloud architect, I want to review the available SKUs for SAP HANA on large instances, so that I can select the optimal configuration that meets the performance and memory requirements of my workloads."
 ---
 # Available SKUs for HANA Large Instances
 

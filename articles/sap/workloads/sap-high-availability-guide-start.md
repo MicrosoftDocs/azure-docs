@@ -12,6 +12,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT administrator, I want to implement high availability for SAP NetWeaver on Azure Virtual Machines, so that I can ensure reliability and reduce downtime for critical business applications.
 ---
 
 # Azure Virtual Machines high availability for SAP NetWeaver

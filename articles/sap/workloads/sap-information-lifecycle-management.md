@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 01/28/2022
 ms.author: sedusch
 ms.custom: subject-rbac-steps
+# Customer intent: "As a system administrator managing SAP systems, I want to configure Azure Blob Storage for SAP Information Lifecycle Management, so that I can efficiently store and manage archive data while ensuring compliance and security."
 ---
 # SAP Information Lifecycle Management (ILM) with Microsoft Azure Blob Storage
 

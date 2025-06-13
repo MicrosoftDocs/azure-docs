@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/01/2025
 ms.author: radeltch
+# Customer intent: As a system administrator, I want to configure high availability for SAP HANA using Azure NetApp Files with RHEL, so that I can ensure continuous operation and resilience of the database in a scale-up deployment.
 ---
 
 # High availability of SAP HANA scale-up with Azure NetApp Files on RHEL

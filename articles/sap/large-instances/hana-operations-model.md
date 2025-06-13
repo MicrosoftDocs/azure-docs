@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 05/17/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As a cloud architect managing SAP HANA deployments, I want to understand my operational responsibilities on Azure for Large Instances, so that I can effectively manage the OS, storage, networking, and application layers while ensuring compliance and performance."
 ---
 # Operations model and responsibilities
 

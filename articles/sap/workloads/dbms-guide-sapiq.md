@@ -9,6 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 06/19/2023
 ms.author: depadia
+# Customer intent: As an SAP BW system administrator, I want to implement near-line storage using SAP IQ on Azure, so that I can optimize data management, improve performance, and reduce operational costs by efficiently handling historical data.
 ---
 
 # SAP BW NLS implementation guide with SAP IQ on Azure
