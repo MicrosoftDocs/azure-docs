@@ -142,7 +142,7 @@ The visualizations for application-specific dashboards are built on [Azure Workb
       - Failures for workflow runs, triggers, and actions.
       - Completed workflow runs, triggers, and actions.
 
-      :::image type="content" source="media/monitor-resources-create-alerts/trend-charts.png" alt-text="Screenshot shows aggregated trend charts for logic apps in an application." lightbox="media/monitor-resources-create-alerts/insights-logic-apps.png":::
+      :::image type="content" source="media/monitor-resources-create-alerts/trend-charts.png" alt-text="Screenshot shows aggregated trend charts for logic apps in an application." lightbox="media/monitor-resources-create-alerts/trend-charts.png":::
 
    1. To troubleshoot specific workflow runs, select the **Runs** tab.
 
