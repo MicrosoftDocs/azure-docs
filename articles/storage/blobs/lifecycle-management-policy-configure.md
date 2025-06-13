@@ -5,7 +5,7 @@ description: Configure a lifecycle management policy to automatically move data 
 author: normesta
 
 ms.author: normesta
-ms.date: 05/29/2025
+ms.date: 06/13/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.reviewer: yzheng

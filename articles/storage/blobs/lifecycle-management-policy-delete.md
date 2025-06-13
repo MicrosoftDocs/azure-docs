@@ -5,7 +5,7 @@ description: This article shows examples of how to configure a lifecycle managem
 author: normesta
 
 ms.author: normesta
-ms.date: 05/29/2025
+ms.date: 06/13/2025
 ms.service: azure-blob-storage
 ms.topic: conceptual 
 

@@ -5,7 +5,7 @@ description: Learn about best practice guidelines that help you use access tiers
 author: normesta
 
 ms.author: normesta
-ms.date: 08/10/2023
+ms.date: 06/13/2025
 ms.service: azure-data-lake-storage
 ms.topic: concept-article
 ---
