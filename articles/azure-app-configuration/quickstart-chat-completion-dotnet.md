@@ -104,7 +104,7 @@ In this guide, you build an AI chat application and iterate on the prompt using 
 
     If the key _ChatApp:AzureOpenAI:ApiKey_ is a Key Vault reference in App Configuration, make sure to add the following code snippet to the `AddAzureAppConfiguration` call and [grant your app access to Key Vault](./use-key-vault-references-dotnet-core.md#grant-your-app-access-to-key-vault).
 
-    ```cshrap
+    ```csharp
     options.ConfigureKeyVault(keyVaultOptions =>
     {
         keyVaultOptions.SetCredential(credential);
@@ -158,7 +158,7 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     }
     ```
 
-1. Next, update the existing code in _Program.cs_ file to refresh the configuration from Azure App Configuration:
+1. Next, update the existing code in the _Program.cs_ file to refresh the configuration from Azure App Configuration, apply the latest AI configuration values to the chat completion settings, and retrieve a response from the AI model.
 
     ```csharp
     while (true)
@@ -336,7 +336,7 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     - Role: **system**
     - Content: "You are a cheerful tour guide".
 
-1. Press the Enter key to trigger a refresh and you should see the updated value in the output.
+1. Wait a few moments for the refresh interval to elapse, and then press the Enter key to see the updated AI response in the output.
 
     ```Output
     system: You are a cheerful tour guide
