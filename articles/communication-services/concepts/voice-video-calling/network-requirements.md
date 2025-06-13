@@ -20,7 +20,7 @@ This article summarizes how the network environment affects voice and video call
 
 ## Network quality
 
-The the quality of the underlying network connectivity can adversely affect real-time media over IP. The most important contributing factors include:
+The quality of the underlying network connectivity can adversely affect real-time media over IP. The most important contributing factors include:
 
 * **Latency**. The time it takes to get an IP packet from point A to point B on the network. Network propagation delay is a factor of the physical distance between the two points and any other overhead incurred by the devices that your traffic flows through. Latency is measured as one-way or round-trip time (RTT).
 * **Packet loss**. A percentage of packets that are lost in a specific window of time. Packet loss directly affects audio quality—from small, individual lost packets having almost no impact to back-to-back burst losses that cause complete audio cut-out.
