@@ -13,13 +13,18 @@ ms.custom: references_regions, engagement-fy23
 
 # Azure Blob Storage lifecycle management overview
 
-Azure Blob Storage empowers organizations to efficiently manage and scale their data storage needs, even as data volumes grow, and usage patterns evolve. By using blob lifecycle management, customers can proactively optimize costs by implementing rule-based policies that automatically transition data to cooler tiers or expire it when it's no longer needed. This seamless automation ensures that data is always stored in the most cost-effective manner which maximizes budget efficiency while maintaining easy access and robust data management. With blob lifecycle management, organizations can confidently scale their storage environments, knowing that their costs are optimized and their data is managed according to real-world usage. 
+Azure Blob Storage empowers organizations to efficiently manage and scale their data storage needs, even as data volumes grow, and usage patterns evolve. By using blob lifecycle management, customers can proactively optimize costs by implementing rule-based policies that automatically transition data to cooler tiers or expire it when it's no longer needed. 
+
+This seamless automation ensures that data is always stored in the most cost-effective manner which maximizes budget efficiency while maintaining easy access and robust data management. With blob lifecycle management, organizations can confidently scale their storage environments, knowing that their costs are optimized and their data is managed according to real-world usage. 
  
 With the lifecycle management policy, you can: 
 
 - Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects aren't accessed or modified for a period of time, to optimize for cost.
+
 - Transition blobs back from cool to hot immediately when they're accessed. 
+
 - Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles. 
+
 - Apply rules to an entire storage account, to select containers, or to a subset of blobs using name prefixes or blob index tags as filters. 
 
 > [!TIP]
