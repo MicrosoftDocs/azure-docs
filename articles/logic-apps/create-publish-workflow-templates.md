@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2024
+ms.date: 06/16/2025
 #Customer intent: As a developer, I want to create and share workflow templates for use with Azure Logic Apps.
 ---
 
@@ -17,9 +17,94 @@ Azure Logic Apps provides prebuilt integration workflow templates that you can u
 
 Not only can you kickstart development with workflow templates, you can create workflow templates for your own use or share them with others. Your template can include artifacts such as schemas, maps, and custom assemblies. To add your template to the templates gallery in the Azure portal, create a template package by using this how-to guide. When you're done, visit the [workflow template repository in GitHub for Azure Logic Apps](https://github.com/Azure/LogicAppsTemplates) where you can create a pull request for your template package and have the Azure Logic Apps team review your template.
 
+## Prerequisites
+
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An Standard logic app resource with at least one workflow to use as the source workflow definition for the template.
+
+  If you don't have this resource, see [Create an example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md).
+
 ## Limitations
 
-Workflow templates currently support only Standard logic apps and single workflows. 
+Workflow templates currently support only Standard logic apps.
+
+<a name="workflow-best-practices"></a>
+
+### Workflow best practices
+
+- Use the built-in operations as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
+
+  - A built-in, service provider version, which appears in the connectors gallery under the **Built-in** filter. This version is hosted and run with the single-tenant Azure Logic Apps runtime, offering better performance, throughput, and other benefits.
+
+  - A Microsoft-managed API version, which appears in the connectors gallery with the **Shared** label. This version is hosted and run in multitenant Azure using shared global resources.
+
+- Don't use hardcoded properties and their values in trigger and action definitions.
+
+- Provide more context about trigger and action definitions by adding descriptive and helpful comments.
+
+## Create a workflow template
+
+### [Portal](#tab/portal)
+
+#### Create a blank template
+
+1. In the [Azure portal](https://portal.azure.com) search box, find and select **logic apps templates**.
+
+1. On the **Logic Apps Templates** page toolbar, select **Create**.
+
+1. On the **Create an Azure Logic Apps template** page, on the **Basics** tab, provide the following information:
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use with the workflow template. |
+   | **Resource group** | Yes | <*resource-group-name*> | The name for the Azure resource group to use with the template. |
+   | **Name** | Yes | <*template-name*> | The name for the workflow template resource. |
+   | **Region** | Yes | <*Azure-region*> | The Azure region for where to create the workflow template resource. |
+
+1. When you're done, select **Review + create**. Review the provided information, and select **Create**.
+
+   Azure creates an empty template resource.
+
+Next, choose the source workflow definition to use for your template.
+
+#### Choose the source workflow definition
+
+1. On the template resource menu, under **Template**, select **Template**.
+
+1. On the **Template** page, on the **Workflows** tab, select **Manage workflows**.
+
+1. On the **Manage workflows** pane, on the **Choose workflows** tab, provide the following information:
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **Subscription** | Yes | <*Azure-subscription-name*> | The name for the Azure subscription with the source logic app. |
+   | **Resource group** | Yes | <*resource-group-name*> | The name for the Azure resource group with the source logic app. |
+   | **Logic app instance** | Yes | <*source-logic-app*> | The name for the source Standard logic app with the workflow that you want to use. |
+   | **Workflows** | Yes | <*source-workflows*> | Select at least one workflow to use in your template. |
+
+1. When you're done, select **Next**.
+
+1. On the **Set up workflows** tab, provide the following information for each selected source workflow:
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+
+Workflow name (Can rename only once. Lowercase letters, numbers, and hyphens only)
+Workflow display name 
+State (Stateful, Stateless)
+Trigger
+Summary
+Description (optional)
+Prerequisites (optional)
+Light mode image
+Dark mode image
+
+
+### [Manual](#tab/manual)
+
+
+---
 
 ## What does a template package include?
 
@@ -59,25 +144,11 @@ As you build your workflow, the designer automatically includes references to an
 
 After you're done, [copy the underlying workflow definition](#copy-workflow-definition) to an empty **workflow.json** file.
 
-<a name="workflow-best-practices"></a>
-
-### Workflow best practices
-
-- Use the built-in operations as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
-
-  - A built-in, service provider version, which appears in the connectors gallery with the **In App** label. This version is hosted and run with the single-tenant Azure Logic Apps runtime, offering better performance, throughput, and other benefits.
-
-  - A Microsoft-managed API version, which appears in the connectors gallery with the **Shared** label. This version is hosted and run in multitenant Azure using shared global resources.
-
-- Don't use hardcoded properties and their values in trigger and action definitions.
-
-- Provide more context about trigger and action definitions by adding descriptive and helpful comments.
-
 <a name="copy-workflow-definition"></a>
 
 ### Copy the underlying workflow definition
 
-1. In the Azure portal, on the workflow menu, under **Developer**, select **Code**.
+1. In the [Azure portal](https://portal.azure.com), on the workflow menu, under **Developer**, select **Code**.
 
 1. From the code view window, copy the entire workflow definition, for example:
 
