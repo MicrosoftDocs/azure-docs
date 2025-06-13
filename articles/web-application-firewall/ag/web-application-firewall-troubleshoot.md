@@ -215,7 +215,7 @@ To record and save a HAR file in Google Chrome, follow these steps
 
 1. Select **Export HAR (sanitized)...** and save the HAR file.
 
-    :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-save-file.png" alt-text="Screenshot that shows how to save the HAR file in Microsoft Edge developer tools.":::
+    :::image type="content" source="../media/web-application-firewall-troubleshoot/chrome-dev-tools-save-file.png" alt-text="Screenshot that shows how to save the HAR file in Microsoft Edge developer tools.":::
 
 ---
 
