@@ -128,7 +128,7 @@ Run the script named `AzureMigrateInstaller.ps1` using this command:
     `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 1. Select from the scenario, cloud, and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** *(or servers running on other clouds like AWS, GCP, Xen, etc.)* to an Azure Migrate project with **default (public endpoint) connectivity** on **Azure public cloud**.
 
-[add screen]
+    ![Screenshot that shows that how to continue azure login.](./media/tutorial-discover-physical/set-up-appliance.png)
 
 1. The installer script does the following:
     1. Installs agents and a web application. 
@@ -167,6 +167,7 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
     - Select **Setup proxy** and enter the proxy address *(http://ProxyIPAddress or http://ProxyFQDN, where FQDN means fully qualified domain name)* and the listening port.
      - Enter credentials if the proxy needs authentication.
     - If you add or change proxy settings or disable the proxy or authentication, select **Save** to apply the changes and check connectivity again.
+    
     > [!Note]
     > Only HTTP proxy is supported.
 
@@ -174,7 +175,7 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 
 1. **Install updates and register appliance**: Follow the steps to run auto-update and register the appliance.
 
-[Add screen]
+    ![Screenshot that shows that how to continue azure login.](./media/tutorial-discover-physical/install-updates-register-appliance.png)
 
 > [!Note]
 > This is a new user experience in Azure Migrate appliance. It is available only when you set up the appliance using the latest OVA or installer script from the portal. Appliances that are already registered keep using the older version of the experience and continue to work without any issues.
@@ -260,6 +261,7 @@ Now, connect the appliance to the physical servers and start discovery:
     1. To remove a server, select **Delete**.
 1. You can **revalidate** the connectivity to servers any time before you start the discovery. 
 1. Before you start discovery, you can turn off the slider to skip software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
+
 [Add screen]
 
 1. To discover SQL Server instances and databases, you add extra credentials (Windows domain, non-domain, or SQL authentication). The appliance then tries to automatically map these credentials to the SQL servers. If you add domain credentials, the appliance authenticates them with the domain’s Active Directory to prevent user account lockouts. To check if the domain credentials are valid, follow these steps:
