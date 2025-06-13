@@ -189,7 +189,7 @@ To record and save a HAR file in Microsoft Edge, follow these steps
 
 1. Stop recording by selecting the **Stop recording network log**.
 
-1. Select **Export HAR (sanitized)...** and save the HAR file. If you don't see the export icon, expand the width of your Edge developer tools window.
+1. Select **Export HAR (sanitized)...** and save the HAR file. If you don't see the export icon, expand the width of your Microsoft Edge developer tools window.
 
     :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-save-file.png" alt-text="Screenshot that shows how to save the HAR file in Microsoft Edge developer tools.":::
 
@@ -371,7 +371,7 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 
   By disabling max request body limit, WAF can process large request bodies without rejecting them for exceeding the size limit. This setting is useful if you regularly have large requests.
 
-  When you disable this option, the request body will only be inspected up to the maximum request body inspection limit. If there's malicious content in the request beyond the max request body inspection limit the WAF won't detect it.
+  When you disable this option, the request body will only be inspected up to the maximum request body inspection limit. If there's malicious content in the request beyond the max request body inspection limit, the WAF won't detect it.
 
 - Disable maximum file size limits
 
