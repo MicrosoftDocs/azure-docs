@@ -149,23 +149,23 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 
       :::image type="content" source="./media/custom-event-to-function/provide-subscription-values.png" alt-text="Screenshot that shows event subscription values.":::
 
-   1. On the **Select Azure Function** pane, follow these steps:
+1. On the **Select Azure Function** pane, follow these steps:
 
-      1. For **Subscription**, select the Azure subscription that has the function.
-      1. For **Resource group**, select the resource group that has the function.
-      1. For **Function app**, select your function app.
-      1. For **Function**, select the function in the function app.
-      1. Select **Confirm Selection**.
+   1. For **Subscription**, select the Azure subscription that has the function.
+   1. For **Resource group**, select the resource group that has the function.
+   1. For **Function app**, select your function app.
+   1. For **Function**, select the function in the function app.
+   1. Select **Confirm Selection**.
 
-         :::image type="content" source="./media/custom-event-to-function/provide-endpoint.png" alt-text="Screenshot that shows the pane for selecting a previously created Azure function.":::
+      :::image type="content" source="./media/custom-event-to-function/provide-endpoint.png" alt-text="Screenshot that shows the pane for selecting a previously created Azure function.":::
 
-   1. This step is optional, but we recommend it for production scenarios. On the **Create Event Subscription** pane, go to the **Additional Features** tab and set values for **Max events per batch** and **Preferred batch size in kilobytes**.
+1. This step is optional, but we recommend it for production scenarios. On the **Create Event Subscription** pane, go to the **Additional Features** tab and set values for **Max events per batch** and **Preferred batch size in kilobytes**.
 
-      Batching can give you high throughput. For **Max events per batch**, set the maximum number of events that a subscription includes in a batch. **Preferred batch size in kilobytes** sets the preferred upper bound of batch size, but it can be exceeded if a single event is larger than this threshold.
+   Batching can give you high throughput. For **Max events per batch**, set the maximum number of events that a subscription includes in a batch. **Preferred batch size in kilobytes** sets the preferred upper bound of batch size, but it can be exceeded if a single event is larger than this threshold.
 
-      :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Screenshot that shows batching settings for an event subscription.":::
+   :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Screenshot that shows batching settings for an event subscription.":::
 
-   1. On the **Create Event Subscription** pane, select **Create**.
+1. On the **Create Event Subscription** pane, select **Create**.
 
 ## Send an event to your topic
 
