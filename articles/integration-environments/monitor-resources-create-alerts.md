@@ -1,42 +1,30 @@
 ---
-title: Monitor Performance and Create Alerts
-description: Learn how to monitor performance and create alerts for Azure resources organized by application groups in an integration environment.
+title: Monitor Resources and Create Alerts
+description: Learn how to monitor performance and health for Azure resources organized as applications in an integration environment by creating alerts.
 ms.service: azure
 ms.subservice: azure-integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, divswa, azla
 ms.date: 06/10/2025
-# CustomerIntent: As an integration developer, I want a way to check the performance and create alerts for the Azure resources organized as application groups based on my organization's integration solutions.
+# CustomerIntent: As an integration developer, I want to check the performance and health for Azure resources organized as applications based on my organization's integration solutions by creating alerts.
 ---
 
-# Monitor performance and create alerts for Azure resources in integration environments (Preview)
+# Monitor health and performance for Azure resources in integration environments by creating alerts (Preview)
 
 > [!NOTE]
 >
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+For the Azure resources that you logically organize as applications in an integration environment, you can monitor their health and performance by creating alerts. The integration environment lets you complete the following monitoring tasks:
 
-Benefits:
-
-1. **Unified Application Health View**
-   - Monitor all applications in your integration environment from a central dashboard.
-   - Create alerts to monitor and trigger on events on Azure resources.
-   - Track individual resources and view triggered alerts.
-
-2. **End-to-End Message Tracing**
-   - Trace messages across resources in **Azure Integration Services (AIS)** with a single correlation ID.
-   - Get a full itinerary of message flow for better troubleshooting. Note: In some cases, Service Bus traces might not appear.
-
-3. **Expanded monitoring Azure Logic Apps**
-   - View health for multiple logic apps.
-   - Select and resubmit multiple logic workflow runs in bulk.
-
-4. **Improved Browsing Experience**
-   - **API Connections View**: Find and monitor API connections in a single place.
-   - **Resource Status**: Check resource status in one place.
-   - **Plan information**: View plan name and SKU for Azure resources.
-   - **Custom filters**: Adjust displayed columns for better monitoring.
+- Create alerts to monitor and trigger on specific events that happen in Azure resources.
+- Monitor all applications and resources in your integration environment from centralized dashboards.
+- Trace messages across Azure resources with a single correlation ID.
+- Get a full itinerary of message flow for easier troubleshooting.
+- Find and monitor API connections in one place.
+- Select and resubmit multiple logic app workflow runs in bulk.
+- Customize filters for your monitoring needs.
 
 ## Prerequisites
 
@@ -70,6 +58,10 @@ Benefits:
   | Azure Service Bus | [Tracking with Azure Application Insights](/azure/service-bus-messaging/service-bus-end-to-end-tracing?tabs=net-standard-sdk-2#tracking-with-azure-application-insights) |
 
   After the Azure resources in your applications generate and push data into the Log Analytics workspace in Application Insights, you can review that data on various dashboards.
+
+## Limitations and known issues
+
+In some scenarios, traces for Azure Service Bus might not appear.
 
 ## Set up alerts
 
@@ -181,26 +173,6 @@ The visualizations for application-specific dashboards are built on [Azure Workb
          - Single run: In the **Resubmit** column, select the **Resubmit** link.
 
          - Multiple runs: Select the runs that you want, and then select **Resubmit Selected Runs**.
-
-## View alerts for all applications
-
-For all applications where you set up alerts, you can view the aggregated the visualizations on the aggregated application dashboard are powered by Azure Monitor. For more information, see [Azure Monitor Insights overview](/azure/azure-monitor/visualize/insights-overview).
-
-1. In the [Azure portal](https://portal.azure.com), open your integration environment.
-
-1. On the resource navigation menu, under **Environment**, select **Insights**.
-
-   The **Insights** page shows health metrics for all applications in the integration environment, for example:
-
-   <**SCREENSHOT**>
-
-1. From the **Insights** page, select a specific application, which shows more details about the alerts triggered by resources in the application.
-
-   This view consolidates alerts from various Azure resources, so that you can more easily monitor and manage those resources. For example, this view shows associated resources, triggered alerts, severity levels, and an **Open Alert Details** link to get more information about each alert.
-
-1. For a specific alert, select **Open Alert Details** to view information about the specific entities that are in an unhealthy state.
-
-   On the specific alert pane, you can take action on the alert, update the user response, and add comments.
 
 ## Related content
 
