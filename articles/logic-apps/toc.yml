@@ -611,7 +611,7 @@ items:
   - name: Azure Logic Apps roadmap
     href: https://aka.ms/logicappsroadmap/
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Pricing for Azure Logic Apps
     href: https://azure.microsoft.com/pricing/details/logic-apps/
   - name: Pricing calculator

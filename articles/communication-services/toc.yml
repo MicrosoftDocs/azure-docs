@@ -501,6 +501,8 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
+      - name: Integrate with Azure ExpressRoute
+        href: tutorials/integrate-express-route.md
   - name: Advanced audio and video features
     items:
     - name: Music mode

@@ -24,6 +24,24 @@ This article focuses on application authentication and how to configure the conn
 
 To learn more about OPC UA application security, see [Application Authentication](https://reference.opcfoundation.org/Core/Part2/v105/docs/4.10).
 
+The following diagram shows the sequence of events that occur when the connector for OPC UA connects to an OPC UA server. The sections later in this article discuss the details of each step in the sequence:
+
+:::image type="content" source="media/overview-opcua-broker-certificates-management/mutual-trust.svg" alt-text="Diagram that summarizes the OPC UA connector connection handshake." border="false":::
+
+<!-- ```mermaid
+sequenceDiagram
+    participant Connector as Connector for OPC UA
+    participant OPCUA as OPC UA server
+
+    Connector->>OPCUA: Presents connector for OPC UA application instance certificate
+
+    OPCUA->>OPCUA: Validate connector for OPC UA<br>application instance certificate
+
+    OPCUA->>Connector: Presents OPC UA server application instance certificate
+
+    Connector->>Connector: Validate OPC UA server certificate against<br>connector for OPC UA trusted certificates list<br>or trusted issuers list.
+``` -->
+
 ## Connector for OPC UA application instance certificate
 
 The connector for OPC UA is an OPC UA client application. The connector for OPC UA makes use of a single OPC UA application instance certificate for all the sessions it establishes to collect messages and data from OPC UA servers. A default deployment of the connector for OPC UA uses [cert-manager](https://cert-manager.io/) to manage its application instance certificate:

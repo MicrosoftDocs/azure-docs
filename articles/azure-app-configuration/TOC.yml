@@ -170,6 +170,12 @@
   items:
   - name: Overview
     href: concept-ai-configuration.md
+  - name: Chat completion
+    items:
+    - name: Overview
+      href: howto-chat-completion-config.md
+    - name: .NET
+      href: quickstart-chat-completion-dotnet.md
 - name: Feature management
   items:
   - name: Overview

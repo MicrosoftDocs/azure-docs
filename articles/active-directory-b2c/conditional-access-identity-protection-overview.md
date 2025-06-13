@@ -4,7 +4,7 @@ description: Learn how Identity Protection gives you visibility into risky sign-
 ms.service: azure-active-directory
 ms.subservice: b2c
 ms.topic: overview
-ms.date: 05/20/2025
+ms.date: 06/12/2025
 ms.author: kengaderdus
 author: kengaderdus
 manager: mwongerapk
@@ -24,7 +24,7 @@ If you're already familiar with [Identity Protection](../active-directory/identi
 ![Conditional Access in a B2C tenant](media/conditional-access-identity-protection-overview/conditional-access-b2c.png)
 
 > [!NOTE]
-> Azure AD B2C **Premium P2** is required to create risky sign-in policies. **Premium P1** tenants can create a policy that is based on location, application, user-based, or group-based policies. For more information, see [Change your Azure AD B2C pricing tier](billing.md#change-your-azure-ad-pricing-tier).
+> Azure AD B2C **Premium P2** is required to create risky sign-in policies but it has now been deprecated as of May 1, 2025.. **Premium P1** tenants can create a policy that is based on location, application, user-based, or group-based policies.
 
 ## Benefits of Identity Protection and Conditional Access for Azure AD B2C
 

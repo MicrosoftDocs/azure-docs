@@ -19,9 +19,9 @@ This article summarizes how the network environment affects voice and video call
 
 ## Network quality
 
-The quality of real-time media over IP is significantly affected by the quality of the underlying network connectivity, but especially by the amount of:
+The quality of the underlying network connectivity can adversely affect real-time media over IP. The most important contributing factors include:
 
-* **Latency**. The time it takes to get an IP packet from point A to point B on the network. This network propagation delay is determined by the physical distance between the two points and any other overhead incurred by the devices that your traffic flows through. Latency is measured as one-way or round-trip time (RTT).
+* **Latency**. The time it takes to get an IP packet from point A to point B on the network. Network propagation delay is a factor of the physical distance between the two points and any other overhead incurred by the devices that your traffic flows through. Latency is measured as one-way or round-trip time (RTT).
 * **Packet loss**. A percentage of packets that are lost in a specific window of time. Packet loss directly affects audio quality—from small, individual lost packets having almost no impact to back-to-back burst losses that cause complete audio cut-out.
 * **Inter-packet arrival jitter, also known as jitter**. The average change in delay between successive packets. Communication Services can adapt to some levels of jitter through buffering. It's only when the jitter exceeds the buffering that a participant notices its effects.
 
@@ -55,17 +55,17 @@ The following bandwidth requirements are for the native Windows, Android, and iO
 
 ## Firewall configuration
 
-Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services won't work properly. The list of IP ranges and allow listed domains that need to be enabled are:
+Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services don't work properly. The list of IP ranges and allow listed domains that need to be enabled are:
 
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
-| Media traffic | Range of Azure public cloud IP addresses 20.202.0.0/16 The range provided above is the range of IP addresses on either Media processor or Azure Communication Services TURN service. | UDP 3478 through 3481, TCP ports 443 |
+| Media traffic | Range of Azure public cloud IP addresses 20.202.0.0/16. The range provided here are the range of IP addresses on either Media processor or Azure Communication Services TURN service. | UDP 3478 through 3481, TCP ports 443 |
 | Signaling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azure.com, *.office.com| TCP 443, 80 |
 | Call Automation Media | 52.112.0.0/14, 52.122.0.0/15, 2603:1063::/38|	UDP: 3478, 3479, 3480, 3481|
 | Call Automation callback URLs | *.lync.com, *.teams.cloud.microsoft, *.teams.microsoft.com, teams.cloud.microsoft, teams.microsoft.com, 52.112.0.0/14, 52.122.0.0/15, 2603:1027::/48, 2603:1037::/48, 2603:1047::/48, 2603:1057::/48, 2603:1063::/38, 2620:1ec:6::/48, 2620:1ec:40::/42 | TCP: 443, 80 UDP: 443 |
 
 
-The endpoints below should be reachable for U.S. Government GCC High customers only.
+Only U.S. Government GCC High customers can reach the following endpoints.
 
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
@@ -76,11 +76,12 @@ The endpoints below should be reachable for U.S. Government GCC High customers o
 ## Network optimization
 
 The following tasks are optional and aren't required for rolling out Communication Services. Use this guidance to optimize your network and Communication Services performance or if you know you have some network limitations.
+
 You might want to optimize further if:
 
 * Communication Services runs slowly. Maybe you have insufficient bandwidth.
-* Calls keep dropping. Drops might be caused by firewall or proxy blockers.
-* Calls have static and cut out, or voices sound like robots. These issues might be caused by jitter or packet loss.
+* Calls keep dropping. Firewalls and proxy blockers can cause call drops.
+* Calls have static and cut out, or voices sound like robots. Jitter or packet loss can cause these problems.
 
 | Network optimization task | Details |
 | :-- | :-- |
@@ -91,7 +92,7 @@ Validate NAT pool size | Validate the NAT pool size required for user connectivi
 | Intrusion detection and prevention guidance | If your environment has an [intrusion detection system](../../../network-watcher/network-watcher-intrusion-detection-open-source-tools.md) or intrusion prevention system deployed for an extra layer of security for outbound connections, allow all Communication Services URLs. |
 | Configure split-tunnel VPN | Provide an alternate path for Teams traffic that bypasses the virtual private network (VPN), commonly known as [split-tunnel VPN](/windows/security/identity-protection/vpn/vpn-routing). Split tunneling means that traffic for Communication Services doesn't go through the VPN but instead goes directly to Azure. Bypassing your VPN has a positive impact on media quality, and it reduces load from the VPN devices and the organization's network. To implement a split-tunnel VPN, work with your VPN vendor. Other reasons why we recommend bypassing the VPN: <ul><li> VPNs are typically not designed or configured to support real-time media.</li><li> VPNs might also not support UDP, which is required for Communication Services.</li><li>VPNs also introduce an extra layer of encryption on top of media traffic that's already encrypted.</li><li>Connectivity to Communication Services might not be efficient because of hair-pinning traffic through a VPN device.</li></ul>|
 | Implement QoS | [Use Quality of Service (QoS)](/microsoftteams/qos-in-teams) to configure packet prioritization. QoS improves call quality and helps you monitor and troubleshoot call quality. QoS should be implemented on all segments of a managed network. Even when a network is adequately provisioned for bandwidth, QoS provides risk mitigation if unanticipated network events occur. With QoS, voice traffic is prioritized so that these unanticipated events don't negatively affect quality. | 
-| Optimize Wi-Fi | Similar to VPN, Wi-Fi networks aren't necessarily designed or configured to support real-time media. Planning for, or optimizing, a Wi-Fi network to support Communication Services is an important consideration for a high-quality deployment. Consider these factors: <ul><li>Implement QoS or Wi-Fi Multimedia to ensure that media traffic is getting prioritized appropriately over your Wi-Fi networks.</li><li>Plan and optimize the Wi-Fi bands and access point placement. The 2.4-GHz range might provide an adequate experience depending on access point placement, but access points are often affected by other consumer devices that operate in that range. The 5-GHz range is better suited to real-time media because of its dense range, but it requires more access points to get sufficient coverage. Endpoints also need to support that range and be configured to use those bands accordingly.</li><li>If you're using dual-band Wi-Fi networks, consider implementing band steering. Band steering is a technique implemented by Wi-Fi vendors to influence dual-band clients to use the 5-GHz range.</li><li>When access points of the same channel are too close together, they can cause signal overlap and unintentionally compete, which results in a degraded user experience. Ensure that access points next to each other are on channels that don't overlap.</li></ul> Each wireless vendor has its own recommendations for deploying its wireless solution. Consult your Wi-Fi vendor for specific guidance.|
+| Optimize Wi-Fi | Similar to VPN, Wi-Fi networks aren't necessarily designed or configured to support real-time media. Planning for, or optimizing, a Wi-Fi network to support Communication Services is an important consideration for a high-quality deployment. Consider these factors: <ul><li>Implement QoS or Wi-Fi Multimedia to ensure that media traffic is getting prioritized appropriately over your Wi-Fi networks.</li><li>Plan and optimize the Wi-Fi bands and access point placement. The 2.4-GHz range might provide an adequate experience depending on access point placement. Other consumer devices that operate in that range can also negatively affect access points. The 5-GHz range is better suited to real-time media because of its dense range, but it requires more access points to get sufficient coverage. Endpoints also need to support that range and configured to use those bands accordingly.</li><li>If you're using dual-band Wi-Fi networks, consider implementing band steering. Band steering is a technique implemented by Wi-Fi vendors to influence dual-band clients to use the 5-GHz range.</li><li>When access points of the same channel are too close together, they can cause signal overlap and unintentionally compete, which results in a degraded user experience. Ensure that access points next to each other are on channels that don't overlap.</li></ul> Each wireless vendor has its own recommendations for deploying its wireless solution. Consult your Wi-Fi vendor for specific guidance.|
 
 ## Operating systems and browsers (for JavaScript SDKs)
 
@@ -100,8 +101,7 @@ Learn about the operating systems and browsers that the calling SDKs support in 
 
 ## Next steps
 
-The following articles might be of interest to you:
-
 - Learn more about [calling libraries](./calling-sdk-features.md).
 - Learn about [client-server architecture](../client-and-server-architecture.md).
 - Learn about [call flow topologies](../call-flows.md).
+- Learn about [integrating Azure Communication Services with Azure ExpressRoute](../../tutorials/integrate-express-route.md).

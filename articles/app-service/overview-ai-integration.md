@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: overview
-ms.date: 06/06/2025
+ms.date: 06/12/2025
 ms.custom:
   - build-2025
 ---
@@ -31,7 +31,7 @@ Build AI-powered .NET applications with these tutorials:
 - [Build a RAG application with Azure OpenAI and Azure AI Search (.NET)](tutorial-ai-openai-search-dotnet.md) - Implement RAG to enable your AI models to access and use your organization's data.
 - [Build a RAG application with Azure OpenAI and Azure SQL](deploy-intelligent-apps-dotnet-to-azure-sql.md) - Use Azure SQL as a vector database for RAG applications.
 - [Run a chatbot with a local SLM sidecar extension](tutorial-ai-slm-dotnet.md) - Deploy a chatbot that uses a local SLM without requiring an external AI service.
-- [Invoke OpenAPI web app from Azure AI Agent](invoke-openapi-web-app-from-azure-ai-agent-service.md) - Make your web API available to AI agents.
+- [Invoke a web app from Azure AI Foundry Agent](invoke-openapi-web-app-from-azure-ai-agent-service.md) - Make your web API available to AI agents.
 
 ## Java applications
 

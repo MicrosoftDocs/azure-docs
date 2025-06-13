@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/28/2025
+ms.date: 06/12/2025
 ---
 
 # Copy data from Amazon Redshift using Azure Data Factory or Synapse Analytics
@@ -275,7 +275,8 @@ When you copy data from Amazon Redshift, the following mappings apply from Amazo
 | BOOLEAN |Boolean |String |
 | CHAR |String |String |
 | DATE |DateTime |DateTime |
-| DECIMAL |String |Decimal |
+| DECIMAL  (Precision <= 28) |Decimal |Decimal |
+| DECIMAL (Precision > 28) |String |String |
 | DOUBLE PRECISION |Double |Double |
 | INTEGER |Int32 |Int32 |
 | REAL |Single |Single |
@@ -305,7 +306,7 @@ The Amazon Redshift connector version 2.0 (Preview) offers new functionalities a
 | Version 2.0 (Preview) | Version 1.0 |
 | :----------- | :------- |
 | Only support the self-hosted integration runtime with version 5.54.0.0 or above. | Support the Azure integration runtime and self-hosted integration runtime. |
-| The following mappings are used from Amazon Redshift data types to interim service data type.<br><br>BOOLEAN -> Boolean <br>DECIMAL -> String| The following mappings are used from Amazon Redshift data types to interim service data type.<br><br>BOOLEAN -> String <br>DECIMAL -> Decimal|  
+| The following mappings are used from Amazon Redshift data types to interim service data type.<br><br>BOOLEAN -> Boolean | The following mappings are used from Amazon Redshift data types to interim service data type.<br><br>BOOLEAN -> String |  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

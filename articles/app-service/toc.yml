@@ -562,7 +562,7 @@ items:
     - name: Build your skills with Microsoft Learn training
       href: /training/browse/
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-service/
     - name: Quota Information

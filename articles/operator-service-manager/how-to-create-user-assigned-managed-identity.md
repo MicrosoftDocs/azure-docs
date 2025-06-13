@@ -37,10 +37,10 @@ Next, assign a custom role to your new UAMI. Choose a scope-based approach and t
 
 Either assign the custom role individually to a child resource, like an NFDV, or to a parent resource, such as the publisher resource group or Network Function Definition Group (NFDG). Assigning the role to a parent resource grants equal access over all child resources. For proper SNS operations, either the parent resource must include all below resources, or the following resources must be assigned the custom role individually:
 
-- All the Network Function Definition Versions (NSDV).
-- All the Network Function Definition Groups (NFDG) and Versions 
-- All the Network Service Design Groups (NSD) and Versions.
-- All the Configuration Group Schemas (CGS).
+- All the Network Function Definition Groups (NFDG) and versions. 
+- All the Network Function Definition (NFD) and versions.
+- All the Network Service Design Groups (NSD) and versions.
+- All the Configuration Group Schemas (CGS) and versions.
 - All the custom locations.
 
 ### Allow proper permissions for the chosen scope

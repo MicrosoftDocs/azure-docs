@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/28/2025
+ms.date: 06/04/2025
 ms.author: jianleishen
 ---
 
@@ -108,7 +108,7 @@ The Oracle linked service supports the following properties when apply version 2
 | password | The Oracle database password. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
-More connection properties you can set in linked service per your case:
+You can set the following additional connection properties in the linked service depending on your case.
 
 | Property | Description | Required | Default value |
 |:--- |:--- |:--- |:--- |
@@ -508,7 +508,7 @@ When you copy data from and to Oracle, the following interim data type mappings 
 | NCHAR |String |String |
 | NCLOB |String |String |
 | NUMBER (p,s) |Int16, Int32, Int64, Single, Double, Decimal |Decimal, String (if p > 28) |
-| NUMBER without precision and scale | Decimal |Double |
+| NUMBER without precision and scale | Decimal (256,130)  |Double |
 | NVARCHAR2 |String |String |
 | RAW |Byte[] |Byte[] |
 | TIMESTAMP |DateTime |DateTime |
