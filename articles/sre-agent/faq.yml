@@ -1,15 +1,14 @@
 metadata:
-  title: Azure SRE Agent frequently asked questions
   description: Find answers to the frequently asked questions about Azure SRE Agent.
   keywords: azure sre agent, frequently asked questions
   author: craigshoemaker
-  ms.topic: faq
   ms.service: azure
+  ms.topic: faq
   ms.date: 06/13/2025
   ms.author: cshoe
-
 title: Azure SRE Agent frequently asked questions (FAQs)
 summary: This article answers commonly asked questions about Azure SRE Agent  
+
 sections:
   - name: Billing
     questions:
