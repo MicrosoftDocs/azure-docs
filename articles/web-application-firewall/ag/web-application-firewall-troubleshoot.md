@@ -148,7 +148,7 @@ Occasionally, there are cases where specific parameters get passed into the WAF 
 
 :::image type="content" source="../media/web-application-firewall-troubleshoot/exclusion-list.png" alt-text="Screenshot that shows the exclusion list." lightbox="../media/web-application-firewall-troubleshoot/exclusion-list.png":::
 
-In this example, you want to exclude the **Request attribute name** that equals *text1*. This is apparent because you can see the attribute name in the firewall logs: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. The attribute is **text1**. You can also find this attribute name a few other ways, see [Finding request attribute names](#finding-request-attribute-names).
+In this example, you want to exclude the **Request attribute name** that equals *text1*. This is apparent because you can see the attribute name in the firewall logs: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. The attribute is **text1**. You can also find this attribute name a few other ways, see [Finding request attribute names](#find-request-attribute-names).
 
 :::image type="content" source="../media/web-application-firewall-troubleshoot/waf-config.png" alt-text="Screenshot that shows how to configure WAF exclusion lists." lightbox="../media/web-application-firewall-troubleshoot/waf-config.png":::
 
