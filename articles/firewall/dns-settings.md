@@ -7,7 +7,9 @@ ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 05/15/2025
 ms.author: duau
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 ---
 
 # Azure Firewall DNS settings

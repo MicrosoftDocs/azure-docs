@@ -3,7 +3,7 @@ title: Back up Azure Managed Disks using Azure CLI
 description: Learn how to back up Azure Managed Disks using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
-ms.date: 04/23/2025
+ms.date: 06/11/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -158,6 +158,9 @@ The policy template consists of a trigger (which decides what triggers the backu
         }
       ]
 ```
+
+>[!Important]
+>The backup schedule follows the ISO 8601 duration format. However, the repeating interval prefix `R` is not supported, as backups are configured to run indefinitely. Any value specified with `R` will be ignored.
 
 Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every 4, 6, 8 or 12 hours. The backups are scheduled based on the **Time** interval selected.
 
@@ -493,7 +496,7 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --stat
 
 ## Next steps
 
-[Restore Azure Managed Disks using Azure CLI](restore-managed-disks-cli.md).
+Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
 
 ## Related content
 

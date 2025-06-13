@@ -10,6 +10,7 @@ metadata:
   ms.custom:
     - build-2024
     - ignite-2024
+    - build-2025
   ms.topic: landing-page
   ms.author: rosemalcolm
   author: RoseHJM
@@ -108,6 +109,8 @@ landingContent:
             url: how-to-troubleshoot-remote-desktop-connectivity.md   
           - text: Resolve connectivity issues
             url: how-to-resolve-dev-box-connectivity-issues.md
+          - text: 'Reference: imagedefinition.yaml and task.yaml files'
+            url: reference-dev-box-customizations.md
           - text: Get support for Microsoft Dev Box
             url: how-to-get-help.md
         - linkListType: reference

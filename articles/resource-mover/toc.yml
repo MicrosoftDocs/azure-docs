@@ -55,7 +55,7 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.migrate/allversions
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
 - name: Monitoring
   items:
   - name: Monitor Move across region

@@ -2,11 +2,11 @@
 title: TLS termination with Azure Key Vault certificates
 description: Learn how you can integrate Azure Application Gateway with Key Vault for server certificates that are attached to HTTPS-enabled listeners.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 02/02/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # TLS termination with Key Vault certificates
@@ -121,7 +121,8 @@ For Cert name, type a friendly name for the certificate to be referenced in Key 
 Once selected, select  **Add** (if creating) or **Save** (if editing) to apply the referenced Key Vault certificate to the listener.
 
 #### Key Vault Azure role-based access control permission model
-Application Gateway supports certificates referenced in Key Vault via the Role-based access control permission model. The first few steps to reference the Key Vault must be completed via ARM template, Bicep, CLI, or  PowerShell.
+
+Application Gateway supports certificates referenced in Key Vault via the Role-based access control permission model. The first few steps to reference the Key Vault must be completed via ARM template, Bicep, CLI, or PowerShell. During this process, a managed identity containing the proper Role-based access control permissions is utilized.
 
 > [!Note]
 > Specifying Azure Key Vault certificates that are subject to the role-based access control permission model is not supported via the portal.
@@ -140,7 +141,7 @@ Add-AzApplicationGatewaySslCertificate -KeyVaultSecretId $secretId -ApplicationG
 # Commit the changes to the Application Gateway
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
-
+> 
 Once the commands have been executed, you can navigate to your Application Gateway in the Azure portal and select the Listeners tab.  Click Add Listener (or select an existing) and specify the Protocol to HTTPS.
 
 Under **Choose a certificate** select the certificate named in the previous steps.  Once selected, select  *Add* (if creating) or *Save* (if editing) to apply the referenced Key Vault certificate to the listener.

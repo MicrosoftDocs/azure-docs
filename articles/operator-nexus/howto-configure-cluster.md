@@ -5,7 +5,7 @@ author: bartpinto
 ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 05/22/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -78,7 +78,7 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
   --cluster-service-principal application-id="<SP_APP_ID>" \
     password="$SP_PASS" principal-id="$SP_ID" tenant-id="<TENANT_ID>" \
   --subscription "<SUBSCRIPTION_ID>" \
-  --secret-archive "{key-vault-id:<KVRESOURCE_ID>, use-key-vault:true}" \
+  --secret-archive-settings "{identity-type:<ID_TYPE>, vault-uri:<VAULT_URI>}" \
   --cluster-type "<CLUSTER_TYPE>" --cluster-version "<CLUSTER_VERSION>" \
   --tags <TAG_KEY1>="<TAG_VALUE1>" <TAG_KEY2>="<TAG_VALUE2>"
 ```
@@ -105,7 +105,7 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
   --cluster-service-principal application-id="<SP_APP_ID>" \
     password="$SP_PASS" principal-id="$SP_ID" tenant-id="<TENANT_ID>" \
   --subscription "<SUBSCRIPTION_ID>" \
-  --secret-archive "{key-vault-id:<KVRESOURCE_ID>, use-key-vault:true}" \
+  --secret-archive-settings "{identity-type:<ID_TYPE>, vault-uri:<VAULT_URI>}" \
   --cluster-type "<CLUSTER_TYPE>" --cluster-version "<CLUSTER_VERSION>" \
   --tags <TAG_KEY1>="<TAG_VALUE1>" <TAG_KEY2>="<TAG_VALUE2>"
 ```
@@ -127,8 +127,8 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
 | AGGR_RACK_BMM             | Used for single rack deployment only, empty for multi-rack                                                                                              |
 | SA1_NAME                   | First Storage Appliance Device name                                                                                                                           |
 | SA2_NAME                   | Second Storage Appliance Device name                                                                                                                           |
-| SA1_PASS                   | First Storage Appliance admin password                                                                                                                        |
-| SA2_PASS                   | Second Storage Appliance admin password                                                                                                                        |
+| SA1_PASS                   | First Storage Appliance admin password reference URI or password value \*See [Key Vault Credential Reference](reference-key-vault-credential.md)                                                                                            |
+| SA2_PASS                   | Second Storage Appliance admin password reference URI or password value \*See [Key Vault Credential Reference](reference-key-vault-credential.md)                                                                                             |
 | SA_USER                   | Storage Appliance admin user                                                                                                                            |
 | SA1_SN                     | First Storage Appliance Serial Number                                                                                                                         |
 | SA2_SN                     | Second Storage Appliance Serial Number                                                                                                                         |
@@ -136,7 +136,7 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
 | COMPX_RACK_SKU            | The Rack Stock Keeping Unit (SKU) for CompX Rack; repeat for each rack in compute-rack-definitions \*See [Operator Nexus Network Cloud Stock Keeping Unit (SKUs)](./reference-operator-nexus-skus.md) |
 | COMPX_RACK_SN             | Rack Serial Number for CompX Rack; repeat for each rack in compute-rack-definitions                                                                     |
 | COMPX_RACK_LOCATION       | Rack physical location for CompX Rack; repeat for each rack in compute-rack-definitions                                                                 |
-| COMPX_SVRY_BMC_PASS       | CompX Rack ServerY Baseboard Management Controller (BMC) password; repeat for each rack in compute-rack-definitions and for each server in rack         |
+| COMPX_SVRY_BMC_PASS       | CompX Rack ServerY Baseboard Management Controller (BMC) password reference URI or password value; repeat for each rack in compute-rack-definitions and for each server in rack \*See [Key Vault Credential Reference](reference-key-vault-credential.md)        |
 | COMPX_SVRY_BMC_USER       | CompX Rack ServerY BMC user; repeat for each rack in compute-rack-definitions and for each server in rack                                               |
 | COMPX_SVRY_BMC_MAC        | CompX Rack ServerY BMC MAC address; repeat for each rack in compute-rack-definitions and for each server in rack                                        |
 | COMPX_SVRY_BOOT_MAC       | CompX Rack ServerY boot Network Interface Card (NIC) MAC address; repeat for each rack in compute-rack-definitions and for each server in rack          |
@@ -157,6 +157,8 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
 | TAG_VALUE1                | Optional tag1 value to pass to Cluster Create                                                                                                           |
 | TAG_KEY2                  | Optional tag2 to pass to Cluster Create                                                                                                                 |
 | TAG_VALUE2                | Optional tag2 value to pass to Cluster Create                                                                                                           |
+| ID_TYPE                   | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#key-vault-settings) for details on secret-archive-settings                               |
+| VAULT_URI                 | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#key-vault-settings) for details on secret-archive-settings                               |
 
 ## Cluster Identity
 

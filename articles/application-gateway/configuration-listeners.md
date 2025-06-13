@@ -2,11 +2,11 @@
 title: Azure Application Gateway listener configuration
 description: This article describes how to configure Azure Application Gateway listeners.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 07/19/2023
-ms.author: greglin 
+ms.author: mbender 
 ---
 
 # Application Gateway listener configuration
@@ -85,7 +85,9 @@ $gw.EnableHttp2 = $true
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-You can also enable HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in Application gateway > Configuration. 
+> [!IMPORTANT]
+> When creating an application gateway resource through the Azure portal, the default option for **HTTP2** is set as enabled. You can choose **Disabled** during creation, and re-enabled HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in **Application gateway > Configuration**.
+>
 
 ### WebSocket support
 

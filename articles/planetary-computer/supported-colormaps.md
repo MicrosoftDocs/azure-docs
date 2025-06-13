@@ -3,10 +3,12 @@ title: Color Maps for Data Visualization in Microsoft Planetary Computer Pro
 description: Learn about the complete set of named colormaps supported by the Data Explorer in Microsoft Planetary Computer Pro.
 author: aloverro
 ms.author: adamloverro
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: concept-article
 ms.date: 4/24/2025
 #customer intent: As a user of an Microsoft Planetary Computer Pro GeoCatalog, I want to understand which colormaps are supported so that I can setup the render configurations for my GeoCatalog STAC collection.
+ms.custom:
+  - build-2025
 ---
 
 # Supported colormaps in Microsoft Planetary Computer Pro

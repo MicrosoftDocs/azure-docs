@@ -198,7 +198,9 @@ This procedure has steps both in Microsoft Sentinel and your SAP system, and req
 1. In the **Configuration** section, expand and follow the instructions in the **Initial connector configuration - Run the steps below once:** section. These steps will require both your SecuritySOC engineer and the SAP admin.
     1. Trigger automatic deployment of Azure resources (SOC Engineer).
        If, after you deploy the Azure resources, the values in the steps 2 and 3 aren't automatically populated, close and re-expand step 1 to refresh the values in steps 2 and 3.
-    1. Deploy an OAuth2 client credentials artifact in the SAP Integration (SAP Admin).
+   1. Deploy an OAuth2 client credentials artifact in the SAP Integration (SAP Admin).
+   1. Deploy a Secure Parameter artifact in SAP Integration (SAP Admin) named **workspaceKey** containing the Log Analytics workspace key visible in the data connector UI.
+      
     1. Deploy the SAP agentless data connector package to the SAP Integration Suite (SAP Admin).
         1. Download the [integration package](https://aka.ms/SAPAgentlessPackage) and upload it to your SAP Integration Suite. For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/importing-integration-packages).
         1. Open the package and go to the **Artifacts** tab. Then select the **Data Collector** configuration. For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/importing-integration-packages).
@@ -234,6 +236,8 @@ This procedure has steps both in Microsoft Sentinel and your SAP system, and req
    - **RFC_READ_TABLE**, to read data from required tables
       
    - **SIAG_ROLE_GET_AUTH**, to retrieve security role authorizations
+      
+   - **/OSP/SYSTEM_TIMEZONE**, to retrieve SAP system timezone details
       
 1. Add a new destination in SAP BTP that points the virtual host you'd created earlier. Use the following details to populate the new destination:
 

@@ -2,11 +2,11 @@
 title: ECDSA and RSA Certificates for Azure Application Gateway for Containers
 description: Learn how to configure a listener with both ECDSA and RSA certificates for Azure Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 5/9/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # ECDSA and RSA certificates for Application Gateway for Containers
