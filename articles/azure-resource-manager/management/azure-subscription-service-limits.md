@@ -170,7 +170,7 @@ See [Limits in Azure Cosmos DB](/azure/cosmos-db/concepts-limits) for Azure Cosm
 
 ## Azure Database for MySQL
 
-See [Limitations in Azure Database for MySQL](/azure/mysql/flexible-server/concepts-limits) for Azure Database for MySQL limits.
+See [Limitations in Azure Database for MySQL](/azure/mysql/flexible-server/concepts-limitations) for Azure Database for MySQL limits.
 
 ## Azure Database for PostgreSQL
 
