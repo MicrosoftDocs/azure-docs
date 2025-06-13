@@ -5,8 +5,8 @@ description: This article provides troubleshooting information for Web Applicati
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.topic: concept-article
-ms.date: 05/09/2025
+ms.topic: how-to
+ms.date: 06/13/2025
 ---
 
 # Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway
@@ -17,7 +17,7 @@ Start by reviewing the [WAF overview](ag-overview.md) and [WAF configuration](ap
 
 The OWASP rule sets are designed to be strict out of the box, and to be tuned to suit the specific needs of the application or organization using WAF. It's entirely normal, and expected in many cases, to create exclusions, custom rules, and even disable rules that may be causing issues or false positives. Per-site and per-URI policies allow for these changes to only affect specific sites/URIs. So changes shouldn’t have to affect other sites that may not be running into the same issues.
 
-## Understanding WAF logs
+## Understand WAF logs
 
 The purpose of WAF logs is to show every request that WAF matches or blocks. It's a ledger of all evaluated requests that are matched or blocked. If you notice that the WAF blocks a request that it shouldn't (a false positive), you can do a few things. First, narrow down, and find the specific request. Look through the logs to find the specific URI, timestamp, or transaction ID of the request. When you find the  associated log entries, you can begin to act on the false positives.
 
@@ -130,7 +130,7 @@ The final two log entries show the request was blocked because the anomaly score
 }
 ```
 
-## Fixing false positives
+## Fix false positives
 
 With this information, and the knowledge that rule 942130 is the one that matched the `1=1` string, you can do a few things to stop this from blocking your traffic:
 
@@ -138,7 +138,7 @@ With this information, and the knowledge that rule 942130 is the one that matche
 
 - Disable the rule.
 
-### Using an exclusion list
+### Use an exclusion list
 
 To make an informed decision about handling a false positive, it’s important to familiarize yourself with the technologies your application uses. For example, say there isn't a SQL server in your technology stack, and you're getting false positives related to those rules. Disabling those rules doesn't necessarily weaken your security.
 
@@ -146,15 +146,15 @@ One benefit of using an exclusion list is that only a specific part of a request
 
 Occasionally, there are cases where specific parameters get passed into the WAF in a manner that may not be intuitive. For example, there's a token that gets passed when authenticating using Microsoft Entra ID. *__RequestVerificationToken* is usually passed in as a request cookie. However, in some cases where cookies are disabled, this token is also passed as a request attribute or `arg`. If this happens, you need to ensure that *__RequestVerificationToken* is added to the exclusion list as a **Request attribute name** as well.
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/exclusion-list.png" alt-text="Screenshot that shows the exclusion list.":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/exclusion-list.png" alt-text="Screenshot that shows the exclusion list." lightbox="../media/web-application-firewall-troubleshoot/exclusion-list.png":::
 
-In this example, you want to exclude the **Request attribute name** that equals *text1*. This is apparent because you can see the attribute name in the firewall logs: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. The attribute is **text1**. You can also find this attribute name a few other ways, see [Finding request attribute names](#finding-request-attribute-names).
+In this example, you want to exclude the **Request attribute name** that equals *text1*. This is apparent because you can see the attribute name in the firewall logs: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. The attribute is **text1**. You can also find this attribute name a few other ways, see [Finding request attribute names](#find-request-attribute-names).
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/waf-config.png" alt-text="Screenshot that shows how to configure WAF exclusion lists.":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/waf-config.png" alt-text="Screenshot that shows how to configure WAF exclusion lists." lightbox="../media/web-application-firewall-troubleshoot/waf-config.png":::
 
 You can create exclusions for WAF in Application Gateway at different scope levels. For more information, see [Web Application Firewall exclusion lists](application-gateway-waf-configuration.md#exclusion-scopes).
 
-### Disabling rules
+### Disable rules
 
 Another way to get around a false positive is to disable the rule that matched on the input the WAF thought was malicious. Since you've parsed the WAF logs and have narrowed the rule down to 942130, you can disable it in the Azure portal. See [Customize web application firewall rules through the Azure portal](application-gateway-customize-waf-rules-portal.md).
 
@@ -162,17 +162,75 @@ One benefit of disabling a rule is that if you know all traffic that contains a 
 
 If you want to use Azure PowerShell, see [Customize web application firewall rules through PowerShell](application-gateway-customize-waf-rules-powershell.md). If you want to use Azure CLI, see [Customize web application firewall rules through the Azure CLI](application-gateway-customize-waf-rules-cli.md).
 
-## Finding request attribute names
+## Record HAR files
+
+You can use your browser or an external tool like Fiddler to record HTTP Archive (HAR) files. HAR files contain information about the requests and responses that your browser makes when loading a web page. This information can be useful for troubleshooting WAF issues.
+
+> [!TIP]
+> It's a good practice to have the HAR file ready when you contact support. The support team can use the HAR file to help diagnose the issue.
+
+# [**Edge**](#tab/edge)
+
+To record and save a HAR file in Microsoft Edge, follow these steps
+
+1. Press **F12** or **Ctrl+Shift+I** to launch Edge Developer tools. You can also launch the tools from the toolbar menu under **More tools > Developer tools**.
+
+1. In the **Console** tab, select **Clear console** or press **Ctrl+L**.
+
+    :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-console.png" alt-text="Screenshot of the Console tab of Microsoft Edge developer tools.":::
+
+1. Select the **Network** tab.
+
+1. Select **Clear network log** or press **Ctrl+L**, and then select the **Record network log** if it's not recording.
+
+    :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-network.png" alt-text="Screenshot of the Network tab of Microsoft Edge developer tools.":::
+
+1. Load the webpage that's protected by your WAF for which you want to troubleshoot.
+
+1. Stop recording by selecting the **Stop recording network log**.
+
+1. Select **Export HAR (sanitized)...** and save the HAR file.
+
+    :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-save-file.png" alt-text="Screenshot that shows how to save the HAR file in Microsoft Edge developer tools.":::
+
+# [**Chrome**](#tab/chrome)
+
+To record and save a HAR file in Google Chrome, follow these steps
+
+1. Press **F12** or **Ctrl+Shift+I** to launch Chrome Developer tools. You can also launch the tools from the toolbar menu under **More tools > Developer tools**.
+
+1. In the **Console** tab, select **Clear console** or press **Ctrl+L**.
+
+    :::image type="content" source="../media/web-application-firewall-troubleshoot/chrome-dev-tools-console.png" alt-text="Screenshot of the Console tab of Google Chrome developer tools.":::
+
+1. Select the **Network** tab.
+
+1. Select **Clear network log** or press **Ctrl+L**, and then select the **Record network log** if it's not recording.
+
+    :::image type="content" source="../media/web-application-firewall-troubleshoot/chrome-dev-tools-network.png" alt-text="Screenshot of the Network tab of Google Chrome developer tools.":::
+
+1. Load the webpage that's protected by your WAF for which you want to troubleshoot.
+
+1. Stop recording by selecting the **Stop recording network log**.
+
+1. Select **Export HAR (sanitized)...** and save the HAR file.
+
+    :::image type="content" source="../media/web-application-firewall-troubleshoot/chrome-dev-tools-save-file.png" alt-text="Screenshot that shows how to save the HAR file in Google Chrome developer tools.":::
+
+---
+
+
+## Find request attribute names
 
 With the help of [Fiddler](https://www.telerik.com/fiddler), you inspect individual requests and determine what specific fields of a web page are called. This can help to exclude certain fields from inspection using Exclusion Lists.
 
 In this example, you can see that the field where the *1=1* string was entered is called **text1**.
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. In the Raw tab, 1 = 1 is visible after the name text1.":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. In the Raw tab, 1 = 1 is visible after the name text1." lightbox="../media/web-application-firewall-troubleshoot/fiddler-1.png":::
 
 This is a field you can exclude. To learn more about exclusion lists, See [Web application firewall exclusion lists](application-gateway-waf-configuration.md). You can exclude the evaluation in this case by configuring the following exclusion:
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/waf-exclusion-02.png" alt-text="Screenshot that shows WAF exclusion.":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/waf-exclusion-02.png" alt-text="Screenshot that shows WAF exclusion." lightbox="../media/web-application-firewall-troubleshoot/waf-exclusion-02.png":::
 
 You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, resource logs, and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
@@ -289,17 +347,15 @@ The first entry is logged because the user used a numeric IP address to navigate
 
 The second one (rule 942130) is the interesting one. You can see in the details that it matched a pattern `(1=1)`, and the field is named **text1**. Follow the same previous steps to exclude the **Request Attribute Name** that equals `1=1`.
 
-## Finding request header names
+## Find request header names
 
 Fiddler is a useful tool once again to find request header names. In the following screenshot, you can see the headers for this GET request, which include *Content-Type*, *User-Agent*, and so on.
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. The Raw tab lists request header details like the connection, content-type, and user-agent." border="false":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. The Raw tab lists request header details like the connection, content-type, and user-agent." lightbox="../media/web-application-firewall-troubleshoot/fiddler-2.png":::
 
-Another way to view request and response headers is to look inside the developer tools of Chrome. You can press F12 or right-click -> **Inspect** -> **Developer Tools**, and select the **Network** tab. Load a web page, and select the request you want to inspect.
+Another way to view request and response headers is to use the developer tools of Microsoft Edge or Google Chrome. For more information, see [Record HAR files](#record-har-files).
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/chrome-f12.png" alt-text="Screenshot that shows the result of clicking F12 in a Chrome browser.":::
-
-## Finding request cookie names
+## Find request cookie names
 
 If the request contains cookies, the **Cookies** tab can be selected to view them in Fiddler.
 
@@ -315,7 +371,7 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 
   By disabling max request body limit, WAF can process large request bodies without rejecting them for exceeding the size limit. This setting is useful if you regularly have large requests.
 
-  When you disable this option, the request body will only be inspected up to the maximum request body inspection limit. If there's malicious content in the request beyond the max request body inspection limit the WAF won't detect it.
+  When you disable this option, the request body will only be inspected up to the maximum request body inspection limit. If there's malicious content in the request beyond the max request body inspection limit, the WAF won't detect it.
 
 - Disable maximum file size limits
 
