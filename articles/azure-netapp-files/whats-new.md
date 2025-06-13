@@ -18,7 +18,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Flexible service level](manage-cool-access.md#register-the-feature) now supports storage with cool access (Preview)
 
-    Azure NetApp Files storage with cool access provides the ability to configure a capacity pool with cool access, which moves cold (infrequently accessed) data transparently to Azure storage account to help you reduce the total cost of storage. You must be registered for the [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) preview before enrolling in the preview for Flexible service level with cool access. 
+    Azure NetApp Files storage with cool access provides the ability to configure a capacity pool with cool access, which moves cold (infrequently accessed) data transparently to Azure storage account to help you reduce the total cost of storage. You must be registered for the [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) preview before enrolling in [the preview for the Flexible service level with cool access](manage-cool-access.md#register-the-feature). 
 
 ## May 2025
 
