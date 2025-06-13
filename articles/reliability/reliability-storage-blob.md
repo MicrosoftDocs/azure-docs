@@ -73,9 +73,9 @@ When you enable zone-redundant storage, you're charged at a different rate than 
 
 This section describes what to expect when a blob storage account is configured for zone redundancy and all availability zones are operational.
 
-- **Traffic routing between zones**: Azure Blob Storage with zone-redundant storage (ZRS)uses an active/active approach where client requests are automatically distributed across storage clusters in multiple availability zones. The service uses intelligent load balancing to optimize performance while maintaining data consistency. Traffic distribution is transparent to applications and requires no client-side configuration. <!-- TODO Check with PG: As far as I know, ZRS is active-passive. -->
+- **Traffic routing between zones**: Azure Blob Storage with zone-redundant storage (ZRS) automatically distributes requests across storage clusters in multiple availability zones. Traffic distribution is transparent to applications and requires no client-side configuration.
 
-- **Data replication between zones**: All write operations to zone-redundant storage are replicated synchronously across all availability zones within the region.When you upload or modify blob data, the operation isn't considered complete until the data has been successfully written to storage clusters in all of the availability zones. This synchronous replication ensures strong consistency and zero data loss during zone failures. However, may result in slightly higher write latency compared to locally redundant storage. <!-- TODO Check with PG: What's the latency impact for ZRS? Can we quantify it? -->
+- **Data replication between zones**: All write operations to zone-redundant storage are replicated synchronously across all availability zones within the region. When you upload or modify blob data, the operation isn't considered complete until the data has been successfully replicated across all of the availability zones. This synchronous replication ensures strong consistency and zero data loss during zone failures. However, it may result in slightly higher write latency compared to locally redundant storage. <!-- TODO Imani confirming whether we can quantify or provide any more details around the latency impact for ZRS -->
 
 ### Zone-down experience
 
@@ -83,13 +83,11 @@ This section describes what to expect when a blob storage account is configured 
 
 - **Detection and response:** Microsoft automatically detects zone failures and initiates failover processes. No customer action is required for zone-redundant storage accounts.
 
-<!-- TODO: Need to confirm with PG, but as far as I know there's no way for a customer to find out when a zone failure/failover has occurred, so we omit the 'Notification' item. -->
-
 - **Active requests:** In-flight requests might be dropped during the failover and should be retried. Applications should [implement retry logic](#transient-faults) to handle these temporary interruptions.
 
 - **Expected data loss:**  No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete.
 
-- **Expected downtime:** A small amount of downtime (typically seconds to minutes) may occur during automatic failover as traffic is redirected to healthy zones. <!-- TODO Check with PG: Their doc says "If a zone becomes unavailable, Azure undertakes networking updates such as Domain Name System (DNS) repointing. These updates could affect your application if you access data before the updates are complete." We should confirm if they have an estimate on how long there might be impact. -->
+- **Expected downtime:** A small amount of downtime (typically a few seconds ) may occur during automatic failover as traffic is redirected to healthy zones. <!-- TODO Imani confirming -->
 
 - **Traffic rerouting.** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
 
@@ -185,7 +183,7 @@ This section describes what to expect when a storage account is configured for g
       > [!WARNING]
       > An unplanned failover [can result in data loss](/azure/storage/common/storage-disaster-recovery-guidance#anticipate-data-loss-and-inconsistencies). Before initiating a customer-managed failover, decide whether the risk of data loss is justified by the restoration of service.
     
-    - **Active requests:** Any in-flight requests during the failover process might be dropped. Applications must retry to new primary endpoint. <!-- TODO Check with PG: If the customer has initiated an unplanned failover even though the storage account is healthy, does the account go into read-only mode during the failover process? -->
+    - **Active requests:** During the failover process, both the primary and secondary storage account endpoints become temporarily unavailable for both reads and writes. Any active requests might be dropped, and client applications need to retry after the failover completes.
 
     - **Expected data loss:** During an unplanned failover, it's likely that you will have some data loss. This is because of the asynchronous replication lag, which means that recent writes may not be replicated. You can check the [Last Sync time](/azure/storage/common/last-sync-time-get) to understand how much data could be lost during an unplanned failover. Typically the data loss is expected to be less than 15 minutes, but that's not guaranteed.
 
