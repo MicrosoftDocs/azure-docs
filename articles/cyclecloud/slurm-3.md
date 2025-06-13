@@ -2,7 +2,7 @@
 title: Slurm Scheduler Integration version 3.0
 description: New CycleCloud Slurm 3.0+ functionality.
 author: anhoward
-ms.date: 01/23/2025
+ms.date: 06/13/2025
 ms.author: anhoward
 ---
 
