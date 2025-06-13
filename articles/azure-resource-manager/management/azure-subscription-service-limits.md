@@ -168,13 +168,13 @@ See [Limits in Azure Cosmos DB](/azure/cosmos-db/concepts-limits) for Azure Cosm
 
 [!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
-## Azure Database for MySQL
+## Azure Database for MySQL flexible server
 
-See [Limitations in Azure Database for MySQL](/azure/mysql/flexible-server/concepts-limitations) for Azure Database for MySQL limits.
+See [Limitations in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-limitations) for Azure Database for MySQL - Flexible Server limits.
 
-## Azure Database for PostgreSQL
+## Azure Database for PostgreSQL flexible server
 
-See [Limitations in Azure Database for PostgreSQL](/azure/postgresql/flexible-server/concepts-limits) for Azure Database for PostgreSQL limits.
+See [Limits in Azure Database for PostgreSQL flexible server](/azure/postgresql/flexible-server/concepts-limits) for Azure Database for PostgreSQL flexible server limits.
 
 ## Azure Deployment Environments limits
 
