@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud engineer, I want to deploy the control plane for the SAP Deployment Automation Framework, so that I can automate the management of SAP workloads in the cloud effectively.
 ---
 
 # Deploy the control plane

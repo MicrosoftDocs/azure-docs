@@ -8,6 +8,7 @@ ms.date: 10/24/2024
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: "As an IT administrator, I want to integrate the SAP Cloud Appliance Library with the SAP Deployment Automation Framework, so that I can streamline the deployment and management of SAP solutions on Azure."
 ---
 # Integrate SAP Cloud Appliance Library with SAP Deployment Automation Framework
 

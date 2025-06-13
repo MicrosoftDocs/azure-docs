@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: As a system administrator, I want to generate unattended installation templates for SAP applications using the Azure Deployment Automation Framework, so that I can streamline the deployment process and ensure consistent system configurations.
 ---
 
 # Generate SAP Application templates for automation

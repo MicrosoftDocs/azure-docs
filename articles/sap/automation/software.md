@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-ansible
+# Customer intent: As an SAP operator, I want to download SAP software using Ansible playbooks in my Azure environment, so that I can automate the deployment process and effectively manage my SAP resources.
 ---
 
 # Download SAP software

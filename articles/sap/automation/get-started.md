@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-azurecli
+# Customer intent: As an SAP administrator, I want to deploy the SAP Deployment Automation Framework using either Azure DevOps or a virtual machine, so that I can streamline the configuration and installation of SAP applications in the Azure environment.
 ---
 
 # Get started with SAP Deployment Automation Framework

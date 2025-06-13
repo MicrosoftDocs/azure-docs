@@ -10,6 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 title: install_deployer.sh
 description: Bootstrap a new deployer in the control plane using a shell script.
+# Customer intent: As a cloud administrator, I want to use the install_deployer.sh script to set up a new deployer VM in the control plane, so that I can automate the deployment of SAP artifacts using Ansible and Terraform.
 ---
 
 # install_deployer.sh

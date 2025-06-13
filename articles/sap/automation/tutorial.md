@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud architect, I want to deploy the SAP Deployment Automation Framework on Azure, so that I can automate the provisioning and management of SAP environments at an enterprise scale."
 ---
 
 # Tutorial: Deploy SAP Deployment Automation Framework for enterprise scale

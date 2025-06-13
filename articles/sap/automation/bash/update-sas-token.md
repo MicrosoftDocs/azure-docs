@@ -10,6 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 title: update_sas_token.sh
 description: Updates the SAP Library SAS token in Azure Key Vault
+# Customer intent: As an IT administrator managing SAP workloads, I want to update the SAS token for the SAP Library in Azure Key Vault, so that I can ensure secure access to storage resources during operations.
 ---
 
 # update_sas_token.sh
