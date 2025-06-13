@@ -87,7 +87,7 @@ Use this action to redirect clients to a new URL.
 
 Field | Description
 ------|------------
-Type | Select the response type to return to the requestor: Found (302), Moved (301), Temporary redirect (307), and Permanent redirect (308).
+Type | Select the response type to return to the requester: Found (302), Moved (301), Temporary redirect (307), and Permanent redirect (308).
 Protocol | Match Request, HTTP, HTTPS.
 Hostname | Select the host name you want the request to be redirected to. Leave blank to preserve the incoming host.
 Path | Define the path to use in the redirect. Leave blank to preserve the incoming path.

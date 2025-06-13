@@ -856,6 +856,8 @@
         href: backup-azure-auto-enable-backup.md
       - name: Configure vault diagnostics settings at scale
         href: azure-policy-configure-diagnostics.md
+      - name: Audit and Enforce backup for Azure Files using Azure policy  
+        href: backup-azure-files-policy-automation.md
       - name: Audit and Enforce backup for Managed Disks using Azure policy
         href: backup-managed-disks-policy.md
       - name: Audit and Enforce backup operations for Azure Kubernetes Service clusters using Azure policy
