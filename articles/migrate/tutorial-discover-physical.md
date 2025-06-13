@@ -100,7 +100,7 @@ To generate the project key, follow the steps:
 1. After the resources are created successfully, a **project key** is generated.
 1. Copy the key ad you’ll need it to register the appliance during its setup.
 
-[Add screen]
+ ![Screenshot that shows how to generate the key.](./media/tutorial-discover-physical/discover-generate-key.png)
 
 ## Download the installer script
 
@@ -154,9 +154,7 @@ Ensure that the appliance connects to Azure URLs for [public](migrate-appliance.
 
 Set up the appliance for the first time:
 
-1. Open a browser on any machine that connects to the appliance. Go to the appliance web app URL:https://[appliance name or IP address]:44368
-
-Or, open the app from the desktop by selecting the shortcut.
+1. Open a browser on any machine that connects to the appliance. Go to the appliance web app URL:https://[appliance name or IP address]:44368. Or open the app from the desktop by selecting the shortcut.
 
 1. Accept the license terms and read the partner information.
 
@@ -247,16 +245,16 @@ Now, connect the appliance to the physical servers and start discovery:
 
   ![Screenshot that shows how to add physical discovery source.](./media/tutorial-discover-physical/add-discovery-source.png)
 
-    1. If you choose **Add single item**, select the OS type.
-    1. Enter a friendly name for the credentials, add the server **IP address or FQDN**
-    1. Select **Save**.
-    1. If you choose **Add multiple items**, enter multiple records at once by specifyin the server **IP address or FQDN**. 
-    1. Enter the friendly name for the credentials in the text box. 
-    1. Verify the records and then select **Save**.
-    1. If you choose **Import CSV** *(this is selected by default)*, download the CSV template file.
-    1. Fill it with the server **IP address or FQDN**.
-    1. Enter the friendly name for the credentials. Then import the file into the appliance.
-    1. Verify the records, and then select **Save**.
+  1. If you choose **Add single item**, select the OS type.
+  1. Enter a friendly name for the credentials, add the server **IP address or FQDN**
+  1. Select **Save**.
+  1. If you choose **Add multiple items**, enter multiple records at once by specifyin the server **IP address or FQDN**. 
+  1. Enter the friendly name for the credentials in the text box. 
+  1. Verify the records and then select **Save**.
+  1. If you choose **Import CSV** *(this is selected by default)*, download the CSV template file.
+  1. Fill it with the server **IP address or FQDN**.
+  1. Enter the friendly name for the credentials. Then import the file into the appliance.
+  1. Verify the records, and then select **Save**.
 
 1. When you select **Save**, the appliance validates the connection to the added servers and shows the **Validation status** in the table next to each server. 
     1. If validation fails for a server, you can review the error by selecting **Validation failed** in the Status column. Fix the issue and validate again.
