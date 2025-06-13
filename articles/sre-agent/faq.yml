@@ -1,11 +1,11 @@
 metadata:
-  title: Azure SRE Agent - Frequently asked questions
-  description: Find answers to the frequently asked questions about Azure Container Apps.
+  title: Azure SRE Agent frequently asked questions
+  description: Find answers to the frequently asked questions about Azure SRE Agent.
   keywords: azure sre agent, frequently asked questions
   author: craigshoemaker
   ms.topic: faq
   ms.service: azure
-  ms.date: 06/06/2025
+  ms.date: 06/13/2025
   ms.author: cshoe
 
 title: Azure SRE Agent frequently asked questions (FAQs)
@@ -164,7 +164,7 @@ sections:
           - Best practices & recommendations 
             - Am I following container best practices?
             - What should I do to reduce cold start time for my Functions apps?
-      - question: |s
+      - question: |
           How real-time is the agent's response?
         answer: |
           The SRE Agent provides near real-time responses, but the exact freshness of its data depends on the type of information being retrieved. For most operational insights, such as current CPU usage, service health, or resource availability, the agent queries live telemetry or metrics, allowing it to deliver timely and actionable guidance. However, some data sources like diagnostic logs, traces, or aggregated analytics can have a slight delay due to ingestion and processing times within Azure Monitor or Log Analytics. When the agent performs active diagnostics or executes commands like querying pod states or pulling container event logs, the response time includes both the data retrieval and analysis phases. As a result, you can generally expect responses within a few seconds to few minutes, depending on the complexity of the request and the systems involved.

@@ -3,7 +3,7 @@ title: Create and use an Azure SRE Agent (preview)
 description: Learn to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 06/12/2025
+ms.date: 06/13/2025
 ms.author: cshoe
 ms.service: azure
 ---

@@ -246,7 +246,7 @@ items:
 - name: Logs and monitoring
   items:
     - name: Troubleshoot and resolve issues with an agent
-      href: ../sre-agent/azure-app-service.md  
+      href: ../sre-agent/troubleshoot-azure-app-service.md  
     - name: Monitor App Service
       href: monitor-app-service.md
     - name: Monitoring data reference

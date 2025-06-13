@@ -3,7 +3,7 @@ title: Azure SRE Agent overview (preview)
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 06/12/2025
+ms.date: 06/13/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -43,7 +43,7 @@ The SRE Agent offers several key features that enhance the reliability and perfo
 
 - **Resource visualization**: Comprehensive views of your resource dependencies and health status.
 
-    :::image type="content" source="media/overview/knowldege-graph.png" alt-text="Screenshot of an SRE Agent knowledge graph.":::
+    :::image type="content" source="media/overview/resources.png" alt-text="Screenshot of an SRE Agent knowledge graph.":::
 
 An SRE Agent works to proactively monitor and maintain your Azure services. Each day your agent creates daily resource reports which provide insights into the health and status of your applications.
 

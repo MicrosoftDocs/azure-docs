@@ -4,7 +4,7 @@ description: Learn how to configure and manage permissions for Azure SRE Agent t
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 06/12/2025
+ms.date: 06/13/2025
 ms.service: azure
 ---
 

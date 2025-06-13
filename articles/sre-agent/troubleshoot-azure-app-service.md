@@ -4,7 +4,7 @@ description: Learn how to use Azure SRE Agent (preview) and Azure App Service to
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 06/12/2025
+ms.date: 06/13/2025
 ms.service: azure
 ---
 

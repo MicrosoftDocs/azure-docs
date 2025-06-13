@@ -11,9 +11,9 @@
     - name: Tutorials
       items:
       - name: Troubleshoot App Service
-        href: azure-app-service.md
+        href: troubleshoot-azure-app-service.md
       - name: Troubleshoot Container Apps
-        href: azure-container-apps.md
+        href: troubleshoot-azure-container-apps.md
 - name: Key concepts
   expanded: true
   items:

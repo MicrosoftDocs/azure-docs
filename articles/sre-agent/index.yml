@@ -10,7 +10,7 @@ metadata:
   ms.service: azure
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 06/06/2025
+  ms.date: 06/13/2025
 landingContent:
   - title: About Azure Container Apps
     linkLists:
@@ -25,6 +25,6 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Troubleshoot Azure App Service
-            url: azure-app-service.md
+            url: troubleshoot-azure-app-service.md
           - text: Troubleshoot Azure Container Apps
-            url: azure-container-apps.md
+            url: troubleshoot-azure-container-apps.md
