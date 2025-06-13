@@ -184,7 +184,7 @@ Sign in with the Azure CLI command `az login` for your local machine to provide 
 
 1. Replace `<SERVICE-BUS-NAMESPACE>` with your Service Bus namespace.
 1. Replace `<QUEUE NAME>` with the name of the queue.
-1. To run this file, use this command at a command prompt:
+1. To run the code in this file, use this command at a command prompt:
 
    ```console
    node send.js
@@ -277,7 +277,7 @@ Sign in with the Azure CLI command `az login` for your local machine to provide 
     ```
 1. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
 1. Replace `<QUEUE NAME>` with the name of the queue.
-1. To run this file, use this command at a command prompt:
+1. To run the code in this file, use this command at a command prompt:
 
    ```console
    node send.js
@@ -350,7 +350,7 @@ Sign in with the Azure CLI command `az login` for your local machine to provide 
 
 1. Replace `<SERVICE-BUS-NAMESPACE>` with your Service Bus namespace.
 1. Replace `<QUEUE NAME>` with the name of the queue.
-1. To run this file, use this command at a command prompt:
+1. To run the code in this file, use this command at a command prompt:
 
    ```console
    node receive.js
@@ -408,7 +408,7 @@ Sign in with the Azure CLI command `az login` for your local machine to provide 
 
 1. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
 1. Replace `<QUEUE NAME>` with the name of the queue.
-1. To run this file, use this command at a command prompt:
+1. To run the code in this file, use this command at a command prompt:
 
    ```console
    node receive.js
