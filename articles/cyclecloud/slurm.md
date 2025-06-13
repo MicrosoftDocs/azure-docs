@@ -2,7 +2,7 @@
 title: Slurm Scheduler Integration
 description: Slurm scheduler configuration in Azure CycleCloud.
 author: KimliW
-ms.date: 08/01/2018
+ms.date: 06/13/2025
 ms.author: adjohnso
 ---
 
