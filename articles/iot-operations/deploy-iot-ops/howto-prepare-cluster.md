@@ -12,13 +12,13 @@ ms.date: 10/23/2024
 
 # Prepare your Azure Arc-enabled Kubernetes cluster
 
-An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations. This article describes how to prepare a cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows.
+An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations. This article describes how to prepare a cluster before you deploy Azure IoT Operations. This article includes guidance for Ubuntu, Windows, Azure Local, and Tanzu Kubernetes Grid (TKG).
 
 The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead. For more information about test settings and secure settings, see [Deployment details > Choose your features](./overview-deploy.md#choose-your-features).
 
 ## Prerequisites
 
-Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. If you want to deploy Azure IoT Operations to a multi-node solution, use K3s on Ubuntu.
+Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows, K3s for deployments on Ubuntu, AKS deployments on Azure Local, and Tanzu Kubernetes release (TKr) on TKG. If you want to deploy Azure IoT Operations to a multi-node solution, use K3s on Ubuntu.
 
 ### [Ubuntu](#tab/ubuntu)
 
@@ -32,7 +32,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
    az group create --location <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID>
    ```
 
-* Azure CLI version 2.53.0 or newer installed on your cluster machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.62.0 or newer installed on your cluster machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * The latest version of the **connectedk8s** extension for Azure CLI:
 
@@ -87,7 +87,7 @@ To prepare a Tanzu Kubernetes Grid (TKG) workload cluster, you need:
    az group create --location <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID>
    ```
 
-- Azure CLI version 2.53.0 or newer installed on your cluster machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- Azure CLI version 2.62.0 or newer installed on your cluster machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 - The latest version of the **connectedk8s** extension for Azure CLI:
 
@@ -280,9 +280,10 @@ To prepare a TKGm workload cluster, you need:
 Before deploying Azure IoT Operations, you will need to update the Pod Security Admission settings on your TKGm cluster. Applying this file will pre-create namespace labels and set pod security to `privileged`.
 
 
-   ```azurecli
-   kubectl apply -f <link to repo>
-   ```
+
+```azurecli
+   kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/tanzu-config/psa.yaml
+```
 
 ### Arc-enable your cluster
 
@@ -295,12 +296,12 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
    az login
    ```
 
-If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
-
 1. After you sign in, the Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
 1. Register the required resource providers in your subscription.
 
+   > [!NOTE]
+   > This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
    ```azurecli
    az provider register -n "Microsoft.ExtendedLocation"
@@ -317,16 +318,24 @@ If at any point you get an error that says *Your device is required to be manage
    ```azurecli
    az connectedk8s connect --name <CLUSTER_NAME> -l <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity --disable-auto-upgrade
    ```
-
-To prevent unplanned updates to Azure Arc and the system Arc extensions that Azure IoT Operations uses as dependencies, this command disables autoupgrade. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade) as needed. 
-
+   
+   To prevent unplanned updates to Azure Arc and the system Arc extensions that Azure IoT Operations uses as dependencies, this command disables autoupgrade. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade) as needed. 
+   
+   > [!IMPORTANT]
+   > If your environment uses a proxy server or Azure Arc Gateway, modify the `az connectedk8s connect` command with your proxy information:
+   > 
+   > 1. Follow the instructions in either [Connect using an outbound proxy server](/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-using-an-outbound-proxy-server) or [Onboard Kubernetes clusters to Azure Arc with Azure Arc Gateway](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking#onboard-kubernetes-clusters-to-azure-arc-with-your-arc-gateway-resource).
+   > 1. Add `169.254.169.254` to the `--proxy-skip-range` parameter of the `az connectedk8s connect` command. [Azure Device Registry](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry) uses this local endpoint to get access tokens for authorization.
+   > 
+   > Azure IoT Operations doesn't support proxy servers that require a trusted certificate.
+   
 1. Get the cluster's issuer URL.
 
 
    ```azurecli
    az connectedk8s show --resource-group <RESOURCE_GROUP> --name <CLUSTER_NAME> --query oidcIssuerProfile.issuerUrl --output tsv
    ```
-
+   
 Save the output of this command to use in the next steps.
 
 1. Connect to the TKG management cluster. Edit the custom resource for the workload cluster with the issuer URL from the previous step.
@@ -336,8 +345,8 @@ Save the output of this command to use in the next steps.
    ```
 
 1. Add the following content to the `config.yaml` file, replacing the <OIDC_ISSUER_URL> placeholder with your cluster's issuer URL.
-> [!NOTE]
-> The URL should be copied exactly as printed by the prior command, including any characters such as `/`.
+   > [!NOTE]
+   > The URL should be copied exactly as printed by the prior command, including any characters such as `/`.
    ```yaml
    - name: apiServerExtraArgs
      value: {"service-account-issuer":"<OIDC_ISSUER_URL>"}
