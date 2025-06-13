@@ -222,11 +222,11 @@ To record and save a HAR file in Google Chrome, follow these steps
 
 ## Find request attribute names
 
-With the help of [Fiddler](https://www.telerik.com/fiddler), you inspect individual requests and determine what specific fields of a web page are called. This can help to exclude certain fields from inspection using Exclusion Lists.
+You can use Fiddler to inspect individual requests and determine what specific fields of a web page are called. Using this information helps to exclude certain fields from inspection using Exclusion Lists.
 
 In this example, you can see that the field where the *1=1* string was entered is called **text1**.
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. In the Raw tab, 1 = 1 is visible after the name text1." lightbox="../media/web-application-firewall-troubleshoot/fiddler-1.png":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Screenshot of Fiddler Web Debugger. In the Raw tab, 1=1 is visible after the name text1." lightbox="../media/web-application-firewall-troubleshoot/fiddler-1.png":::
 
 This is a field you can exclude. To learn more about exclusion lists, See [Web application firewall exclusion lists](application-gateway-waf-configuration.md). You can exclude the evaluation in this case by configuring the following exclusion:
 
@@ -349,9 +349,9 @@ The second one (rule 942130) is the interesting one. You can see in the details 
 
 ## Find request header names
 
-Fiddler is a useful tool once again to find request header names. In the following screenshot, you can see the headers for this GET request, which include *Content-Type*, *User-Agent*, and so on.
+You can use Fiddler to find request header names. In the following screenshot, you can see the headers for this GET request, which include *Content-Type*, *User-Agent*, and so on.
 
-:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Screenshot of the Progress Telerik Fiddler Web Debugger. The Raw tab lists request header details like the connection, content-type, and user-agent." lightbox="../media/web-application-firewall-troubleshoot/fiddler-2.png":::
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Screenshot of Fiddler Web Debugger. The Raw tab lists request header details like the connection, content-type, and user-agent." lightbox="../media/web-application-firewall-troubleshoot/fiddler-2.png":::
 
 Another way to view request and response headers is to use the developer tools of Microsoft Edge or Google Chrome. For more information, see [Record HAR files](#record-har-files).
 
