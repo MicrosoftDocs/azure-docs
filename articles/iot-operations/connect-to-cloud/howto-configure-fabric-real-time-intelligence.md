@@ -6,13 +6,15 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/03/2025
+ms.date: 06/12/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for  Microsoft Fabric Real-Time Intelligence in Azure IoT Operations so that I can send real-time data to Microsoft Fabric.
 ---
 
 # Configure data flow endpoints for Microsoft Fabric Real-Time Intelligence
+
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operations, you can configure a data flow endpoint. This configuration allows you to specify the destination endpoint, authentication method, topic, and other settings.
 
@@ -79,6 +81,61 @@ Azure Key Vault is the recommended way to sync the connection string to the Kube
     :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/password-reference.png" alt-text="Screenshot to create a password reference in Azure Key Vault.":::
 
 1. Select **Apply** to provision the endpoint.
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create fabric-realtime](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-fabric-realtime) command to create or replace a Microsoft Fabric Real-Time Intelligence data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create fabric-realtime --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --workspace <WorkspaceName> --host <BootstrapServerAddress>
+```
+
+Here's an example command to create or replace a Microsoft Fabric Real-Time Intelligence data flow endpoint named `fabric-realtime-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create fabric-realtime --resource-group myResourceGroup --instance myAioInstance --name fabric-realtime-endpoint --host "fabricrealtime.servicebus.windows.net:9093"
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change a Microsoft Fabric Real-Time Intelligence data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `fabric-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "endpointType": "FabricRealTimeIntelligence",
+  "fabricRealTimeIntelligenceSettings": {
+    "authentication": {
+      "method": "Sasl",
+      "saslSettings": {
+        "saslType": "Plain",
+        "secretRef": "<SecretName>"
+      }
+    },
+    "host": "<BootstrapServerAddress>",
+    "topic": "<TopicName>",
+    "names": {
+      "workspaceName": "<WorkspaceName>",
+      "eventStreamName": "<EventStreamName>"
+    }
+  }
+}
+```
+
+Here's an example command to create a new Microsoft Fabric Real-Time Intelligence data flow endpoint named `fabric-realtime-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name fabric-realtime-endpoint --config-file ~/fabric-realtime-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
