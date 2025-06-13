@@ -1,6 +1,6 @@
 ---
-title: Monitor Resources and Create Alerts
-description: Learn how to monitor performance and health for Azure resources grouped as applications in an integration environment by creating alerts.
+title: Monitor Health and Performance with Alerts
+description: Learn how to monitor health and performance for Azure resources in applications for an integration environment by creating alerts.
 ms.service: azure
 ms.subservice: azure-integration-environments
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.date: 06/10/2025
 # CustomerIntent: As an integration developer, I want to check the performance and health for Azure resources organized as applications based on my organization's integration solutions by creating alerts.
 ---
 
-# Monitor Azure resources organized as applications in integration environments by creating alerts (Preview)
+# Monitor health and performance for Azure resources in applications (Preview)
 
 > [!NOTE]
 >

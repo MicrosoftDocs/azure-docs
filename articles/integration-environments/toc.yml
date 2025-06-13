@@ -13,7 +13,7 @@ items:
     href: create-integration-environment.md
   - name: Create an application group
     href: create-application-group.md
-  - name: Monitor applications and create alerts
+  - name: Monitor health and performance
     href: monitor-resources-create-alerts.md
 - name: Reference
   expanded: true
