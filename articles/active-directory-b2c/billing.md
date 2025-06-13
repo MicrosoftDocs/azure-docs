@@ -5,7 +5,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: reference
-ms.date: 06/10/2025
+ms.date: 06/13/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: fasttrack-edit
@@ -19,7 +19,7 @@ ms.custom: fasttrack-edit
 
 Azure Active Directory B2C (Azure AD B2C) pricing is based on monthly active users (MAU), which is the count of unique users with authentication activity within a calendar month. This billing model applies to both Azure AD B2C tenants and [Microsoft Entra guest user collaboration (B2B)](../active-directory/external-identities/external-identities-pricing.md). MAU billing helps you reduce costs by offering a free tier and flexible, predictable pricing. 
 
-In this article, learn about MAU and Go Local billing, linking Azure AD B2C tenants to a subscription, and changing the pricing tier.
+In this article, learn about MAU and Go Local billing, and linking Azure AD B2C tenants to a subscription.
 
 ## MAU overview
 
