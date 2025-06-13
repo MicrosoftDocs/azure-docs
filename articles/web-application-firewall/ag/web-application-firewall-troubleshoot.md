@@ -189,7 +189,7 @@ To record and save a HAR file in Microsoft Edge, follow these steps
 
 1. Stop recording by selecting the **Stop recording network log**.
 
-1. Select **Export HAR (sanitized)...** and save the HAR file. If you don't see the export icon, expand the width of your Microsoft Edge developer tools window.
+1. Select **Export HAR (sanitized)...** and save the HAR file.
 
     :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-save-file.png" alt-text="Screenshot that shows how to save the HAR file in Microsoft Edge developer tools.":::
 
