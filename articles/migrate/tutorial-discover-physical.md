@@ -128,7 +128,7 @@ Run the script named `AzureMigrateInstaller.ps1` using this command:
     `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 1. Select from the scenario, cloud, and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** *(or servers running on other clouds like AWS, GCP, Xen, etc.)* to an Azure Migrate project with **default (public endpoint) connectivity** on **Azure public cloud**.
 
-    ![Screenshot that shows that how to continue azure login.](./media/tutorial-discover-physical/set-up-appliance.png)
+    ![Screenshot that shows how to setup appliance.](./media/tutorial-discover-physical/set-up-appliance.png)
 
 1. The installer script does the following:
     1. Installs agents and a web application. 
@@ -175,7 +175,7 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 
 1. **Install updates and register appliance**: Follow the steps to run auto-update and register the appliance.
 
-    ![Screenshot that shows that how to continue azure login.](./media/tutorial-discover-physical/install-updates-register-appliance.png)
+    ![Screenshot that shows to install updates and register the appliance.](./media/tutorial-discover-physical/install-updates-register-appliance.png)
 
 > [!Note]
 > This is a new user experience in Azure Migrate appliance. It is available only when you set up the appliance using the latest OVA or installer script from the portal. Appliances that are already registered keep using the older version of the experience and continue to work without any issues.
