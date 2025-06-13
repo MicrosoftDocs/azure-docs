@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 05/29/2025
+ms.date: 06/13/2025
 ms.topic: concept-article
 ms.author: normesta
 ---
@@ -19,7 +19,9 @@ This sample estimates the cost to retrieve a portion of data from the archive ti
 
 ## Scenario
 
-Your company stores 20 TB of data in the archive tier for long term retention. However, after only three months in archive storage, 20% of that data must be retrieved for analysis.  You've been asked to estimate what it will cost to get that data from archive storage and then download that data to clients for analysis. Because the data is needed only temporarily, you decide that it's best to rehydrate blobs by copying them to the hot tier. That way, your company avoids the early deletion fee. After the data is no longer needed, it can be deleted from the hot tier at no charge.
+Your company stores 20 TB of data in the archive tier for long term retention. However, after only three months in archive storage, 20% of that data must be retrieved for analysis.  You've been asked to estimate what it will cost to get that data from archive storage and then download that data to clients. 
+
+Because the data is needed only temporarily, you decide not to rehydrate blobs by changing their tier. That way, your company avoids the early deletion fee. You already estimated the cost of that approach by reviewing the [Cost estimate: Move data out of archive storage](cost-estimate-archive-retrieval-set-tier.md) article. Instead, you decide that it's more cost-effective to copy blobs into the hot tier for analysis. You know that data in the hot tier can be deleted at no charge when the analysis is complete. 
 
 The storage account is located in the West US region, is configured for locally-redundant storage (LRS), and does not have hierarchical namespaces.
 
@@ -29,7 +31,7 @@ The following table describes each cost.
 
 | Cost | Description |
 |----|----|
-| **Copy blobs to the hot tier** | First, blobs must be moved out of archive storage for analysis. To do this, administrators will copy the blob from the archive tier to the hot tier. All tools and SDKs use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to accomplish this task. The Copy Blob operation is billed as a read operation on the source account and a write operation on the destination account |
+| **Copy blobs to the hot tier** | First, blobs must be moved out of archive storage for analysis. All tools and SDKs use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to accomplish this task. The [Copy Blob](/rest/api/storageservices/copy-blob) operation is billed as a read operation on the source account and a write operation on the destination account. |
 | **Data retrieval fee** | This meter applies to each GB moved from the archive tier and into an online tier such as the hot tier. |
 | **Read from the hot tier** | Once data is moved into the hot tier, clients will need to download that data. Each download is billed as a read operation. |
 
@@ -55,10 +57,11 @@ Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), th
 | **Total cost**                 |                                            | $0.22 + $88 + $24 + $0.0002           | **$88.22**  |
 
 > [!TIP]
-> You can estimate the cost of these components in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) .
+> This scenario does not model the amount of time that data exists in the storage, so the table does not include [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB. You can estimate the cost storage and the cost of transactions in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## See also
 
+- [Cost estimate: Move data out of archive storage](cost-estimate-archive-retrieval-set-tier.md)
 - [Estimate the cost of archiving data](archive-cost-estimation.md)
 - [Estimate the cost of using Azure Blob Storage](blob-storage-estimate-costs.md)
 - [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md)

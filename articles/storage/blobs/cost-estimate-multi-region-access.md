@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 05/29/2025
+ms.date: 06/13/2025
 ms.topic: concept-article
 ms.author: normesta
 ---
@@ -35,7 +35,7 @@ The following table describes each cost.
 
 ## Estimate
 
-Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated. This sample estimate doesn't include the [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB.
+Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated. 
 
 | Cost                    | Cost factor                                   | Calculation                      | Value         |
 |-------------------------|-----------------------------------------------|----------------------------------|---------------|
@@ -54,7 +54,7 @@ Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), th
 | **Total cost**          |                                               | $163.80 + $1,000 + $485          | **$1,648.80** |
 
 > [!TIP]
-> You can estimate the cost of these components in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) 
+> This scenario does not model the amount of time that data exists in storage, so the table does not include [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB. You can estimate the cost storage and the cost of transactions in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## See also
 

@@ -19,7 +19,7 @@ This sample estimates the cost to move a portion of data from the archive tier t
 
 ## Scenario
 
-Your company stores 20 TB of data in the archive tier for long term retention. However, after only three months in archive storage, 20% of that data must be moved back to the hot tier because your company believes that this data will need to be accessed frequently. You've been asked to estimate what it will cost to get that data from archive storage and then download that data to clients for analysis. 
+Your company stores 20 TB of data in the archive tier for long term retention. However, after only three months in archive storage, 20% of that data must be moved back to the hot tier because your company believes that this data will need to be accessed frequently. You've been asked to estimate what it will cost to get that data from archive storage.
 
 The storage account is located in the West US region, is configured for locally-redundant storage (LRS), and does not have hierarchical namespaces.
 
@@ -35,7 +35,7 @@ The following table describes each cost.
 
 ## Estimate
 
-Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated. This sample estimate doesn't include the [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB.
+Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated. 
 
 | Cost                   | Cost factor                                 | Calculation                    | Value       |
 |------------------------|---------------------------------------------|--------------------------------|-------------|
@@ -52,10 +52,11 @@ Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), th
 | **Total cost**         |                                             | $0.22 + $88 + $24              | **$112.22** |
 
 > [!TIP]
-> You can estimate the cost of these components in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) .
+> This scenario does not model the amount of time that data exists in storage, so the table does not include [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB. You can estimate the cost storage and the cost of transactions in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## See also
 
+- [Cost estimate: Retrieve data from archive storage for analysis](cost-estimate-archive-retrieval-copy-blob.md)
 - [Estimate the cost of archiving data](archive-cost-estimation.md)
 - [Estimate the cost of using Azure Blob Storage](blob-storage-estimate-costs.md)
 - [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md)
