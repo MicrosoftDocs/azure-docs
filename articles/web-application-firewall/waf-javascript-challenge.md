@@ -5,12 +5,12 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.custom: devx-track-js
-ms.date: 05/22/2025
+ms.date: 06/13/2025
 ms.topic: concept-article
 #customer intent: As a cloud network architect, I want to understand the Azure Web Application Firewall JavaScript challenge feature to determine if I want to deploy it.
 ---
 
-# Azure Web Application Firewall JavaScript challenge (preview) overview
+# Azure Web Application Firewall JavaScript challenge (preview)
 
 > [!IMPORTANT]
 > Azure Web Application Firewall JavaScript challenge is currently in PREVIEW.
