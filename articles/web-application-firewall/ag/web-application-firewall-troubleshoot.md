@@ -175,13 +175,13 @@ To record and save a HAR file in Microsoft Edge, follow these steps
 
 1. Press **F12** or **Ctrl+Shift+I** to launch Edge Developer tools. You can also launch the tools from the toolbar menu under **More tools > Developer tools**.
 
-1. In the **Console** tab, select **Clear console** or press **Ctrl + L**.
+1. In the **Console** tab, select **Clear console** or press **Ctrl+L**.
 
     :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-console.png" alt-text="Screenshot of the Console tab of Microsoft Edge developer tools.":::
 
 1. Select the **Network** tab.
 
-1. Select **Clear network log**, and then select the **Record network log** if it's not recording.
+1. Select **Clear network log** or press **Ctrl+L**, and then select the **Record network log** if it's not recording.
 
     :::image type="content" source="../media/web-application-firewall-troubleshoot/edge-dev-tools-network.png" alt-text="Screenshot of the Network tab of Microsoft Edge developer tools.":::
 
@@ -199,13 +199,13 @@ To record and save a HAR file in Google Chrome, follow these steps
 
 1. Press **F12** or **Ctrl+Shift+I** to launch Chrome Developer tools. You can also launch the tools from the toolbar menu under **More tools > Developer tools**.
 
-1. In the **Console** tab, select **Clear console** or press **Ctrl + L**.
+1. In the **Console** tab, select **Clear console** or press **Ctrl+L**.
 
     :::image type="content" source="../media/web-application-firewall-troubleshoot/chrome-dev-tools-console.png" alt-text="Screenshot of the Console tab of Google Chrome developer tools.":::
 
 1. Select the **Network** tab.
 
-1. Select **Clear network log**, and then select the **Record network log** if it's not recording.
+1. Select **Clear network log** or press **Ctrl+L**, and then select the **Record network log** if it's not recording.
 
     :::image type="content" source="../media/web-application-firewall-troubleshoot/chrome-dev-tools-network.png" alt-text="Screenshot of the Network tab of Google Chrome developer tools.":::
 
