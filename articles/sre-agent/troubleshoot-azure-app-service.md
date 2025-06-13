@@ -320,5 +320,5 @@ Repeat the following steps for both of these resource groups:
 
 ## Next steps
 
-* [Overview of Azure App Service](overview.md)
-* [Use Azure Developer CLI for modern app development](/azure/developer/azure-developer-cli/overview)
+* [SRE Agent overview](./overview.md)
+* [Azure SRE Agent usage](./usage.md)
