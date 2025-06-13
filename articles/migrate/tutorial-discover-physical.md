@@ -40,7 +40,7 @@ You can create the local user account in one of two ways:
 - Add the user account to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
 - If the Remote Management Users group is not available, add the user to the `WinRMRemoteWMIUsers_ group` instead.
 - The account needs these permissions so the appliance can create a CIM connection with the server and collect configuration and performance data from the required WMI classes.
-- Sometimes, even after adding the account to the right groups, it may not return the needed data because of UAC(add link) filtering. To fix this, give the user account the right permissions on the **CIMV2 namespace** and its sub-namespaces on the target server. You can follow these [steps](troubleshoot-appliance.md) to set the required permissions.
+- Sometimes, even after adding the account to the right groups, it may not return the needed data because of [UAC](/windows/win32/wmisdk/user-account-control-and-wmi) filtering. To fix this, give the user account the right permissions on the **CIMV2 namespace** and its sub-namespaces on the target server. You can follow these [steps](troubleshoot-appliance.md) to set the required permissions.
 
 >[!Note]
 > - For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
@@ -57,6 +57,8 @@ To set up:
 ### Prepare Linux server
 
 To discover Linux servers, you can create a sudo user account like this:
+
+**Set up Least privileged Linux user accounts** 
 
 - You need a sudo user account on the Linux servers you want to discover.
 - This account helps collect configuration and performance data, perform software inventory (find installed applications), and enable agentless dependency analysis using SSH.
@@ -112,7 +114,7 @@ To generate the project key, follow the steps:
 
 | Download | Hash value | 
 | --- | --- |
-| Latest version| 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731|
+| [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)| 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731|
 
 >[!Note]
 > You can use the same script to set up the physical appliance for both Azure Public and Azure Government cloud.
@@ -229,22 +231,22 @@ Now, connect the appliance to the physical servers and start discovery:
 >[!Note]
 > By default, the appliance uses the credentials to collect data about installed applications, roles, and features. It also collects dependency data from Windows and Linux servers, unless you turn off the slider to skip these actions in the last step.
 
-
 ### Add server details 
 
 1. **Provide physical or virtual server** details.
 1. Select **Add discovery source** to enter the server IP address or FQDN and the friendly name for the credentials used to connect to the server.
     1. The appliance uses WinRM port 5986 (HTTPS) by default to communicate with Windows servers, and port 22 (TCP) for Linux servers.
-    1. If the target Hyper-V servers do not have HTTPS prerequisites[add link] set up, the appliance switches to WinRM port 5985 (HTTP).
+    1. If the target Hyper-V servers do not have HTTPS [prerequisites](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) set up, the appliance switches to WinRM port 5985 (HTTP).
     
     ![Screenshot that shows the physical or virtual server details.](./media/tutorial-discover-physical/physical-virtual-server-details.png)
 
     1. To use HTTPS communication without fallback, turn on the HTTPS protocol toggle in Appliance Config Manager.
     1. After you turn on the checkbox, ensure that the prerequisites are configured on the target servers. If the servers do not have certificates, discovery fails on both current and newly added servers.
-        1. WinRM HTTPS needs a local computer Server Authentication certificate. The certificate must have a CN that matches the hostname. It must not be expired, revoked, or self-signed. You can check the article that explains how to set up WinRM for HTTPS.
+        1. WinRM HTTPS needs a local computer Server Authentication certificate. The certificate must have a CN that matches the hostname. It must not be expired, revoked, or self-signed. [Learn more](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https).
 1. You can **Add single item** at a time or **Add multiple items** together. You can also provide server details through **Import a CSV file**1. 
 
   ![Screenshot that shows how to add physical discovery source.](./media/tutorial-discover-physical/add-discovery-source.png)
+
     1. If you choose **Add single item**, select the OS type.
     1. Enter a friendly name for the credentials, add the server **IP address or FQDN**
     1. Select **Save**.
@@ -271,16 +273,26 @@ Now, connect the appliance to the physical servers and start discovery:
     
 ## Start discovery
 
-After discovery finishes, you verify that the servers appear in the portal.
+Select **Start discovery** to begin discovering the validated servers. After discovery starts, you can check each server’s discovery status in the table.
 
-1. Open the Azure Migrate dashboard.
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that shows the count for **Discovered servers**.
+### How discovery works
+
+- It takes about 2 minutes to discover 100 servers and show their metadata in the Azure portal.
+- [Software inventory](how-to-discover-applications.md) (installed applications discovery) starts automatically after the server discovery finishes. 
+- The time to discover installed applications depends on the number of servers. For 500 servers, it takes about one hour for the inventory to appear in the Azure Migrate project in the portal. 
+- The server credentials are checked and validated for agentless dependency analysis during software inventory. After server discovery finishes, you can enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md) in the portal. You can select only the servers that pass validation.
+
+
+### Verify servers in the portal
+After discovery finishes, you can verify that the servers appear in the portal.
+1.	Open the Azure Migrate dashboard.
+2.	In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for discovered servers.
 
 ## View License support status
 
 You get deeper insights into your environment’s support posture from the **Discovered servers** and **Discovered database instances** sections.
 
-The Operating system license support status column shows whether the operating system is in mainstream support, extended support, or out of support. When you select the support status, a pane opens on the right and gives clear guidance on what actions you can take to secure servers and databases that are in extended support or out of support.
+The **Operating system license support status** column shows whether the operating system is in mainstream support, extended support, or out of support. When you select the support status, a pane opens on the right and gives clear guidance on what actions you can take to secure servers and databases that are in extended support or out of support.
 
 To view the remaining duration until end of support, select **Columns** > **Support ends in** > **Submit**. The Support ends in column then shows the remaining duration in months.
 
