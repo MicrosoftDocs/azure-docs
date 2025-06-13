@@ -8,6 +8,7 @@ ms.date: 05/22/2025
 ms.author: jsuri
 ms.custom: mvc, engagement-fy23, akash-accuracy-may-2025
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region using Azure Resource Mover.
+# Customer intent: "As an Azure administrator, I want to move virtual machines and related resources across regions using a resource migration tool, so that I can optimize resource allocation, comply with internal policies, or leverage services available in different Azure regions."
 ---
 # Move Azure VMs across regions
 

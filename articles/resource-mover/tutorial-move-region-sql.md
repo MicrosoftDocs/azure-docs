@@ -8,6 +8,7 @@ ms.date: 12/27/2024
 ms.author: jsuri
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region using Azure Resource Mover.
+# Customer intent: "As an Azure administrator, I want to move SQL databases and elastic pools to different regions, so that I can optimize performance and manage resources according to regional requirements."
 ---
 
 # Move Azure SQL Database resources to another region

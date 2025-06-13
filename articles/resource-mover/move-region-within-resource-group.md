@@ -9,6 +9,7 @@ ms.author: jsuri
 
 #Customer intent: As an Azure admin,  I want to relocate Azure resources to a different Azure region with Azure Resource Mover
 
+# Customer intent: As an Azure admin, I want to relocate resources to a different Azure region using a resource management tool, so that I can optimize resource deployment and achieve better performance or compliance for my applications.
 ---
 
 # Move resources across regions (from resource group) with Azure Resource Mover
