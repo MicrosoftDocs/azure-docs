@@ -6,6 +6,8 @@ ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 02/13/2025
+ms.custom:
+  - build-2025
 ---
 # Integration FAQs for Azure NetApp Files
 

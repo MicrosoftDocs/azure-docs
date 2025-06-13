@@ -6,6 +6,8 @@ ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
 ms.date: 03/20/2025
+ms.custom:
+  - build-2025
 ---
 
 # Inject an Azure API Management instance in a private virtual network - Premium v2 tier

@@ -1,15 +1,17 @@
 ---
-title: 'Invoke an OpenAPI App Service web app from Azure AI Foundry Agent Service'
+title: 'Invoke an App Service web app from Azure AI Foundry Agent Service'
 description: Learn how to integrate App Service with AI Foundry Agent Service and get started with agentic AI
 author: seligj95
 ms.author: jordanselig
 ms.date: 05/28/2025
 ms.topic: article
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - build-2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Invoke an OpenAPI App Service web app from Azure AI Foundry Agent Service
+# Invoke an App Service web app from Azure AI Foundry Agent Service
 
 [Azure AI Foundry Agent Service](/azure/ai-services/agents/overview) allows you to create AI agents tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. You can now connect your Azure AI Agent to an external API using an [OpenAPI 3.0](https://www.openapis.org/what-is-openapi) specified tool, allowing for scalable interoperability with various applications. 
 

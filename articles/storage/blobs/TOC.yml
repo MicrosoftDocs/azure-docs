@@ -207,6 +207,8 @@ items:
       items:
       - name: Enable blob inventory reports
         href: blob-inventory-how-to.md
+      - name: Blob inventory performance characteristics
+        href: blob-inventory-performance-characteristics.md
       - name: Calculate blob count and total size
         href: calculate-blob-count-size.yml
       - name: 'Tutorial: Analyze blob inventory reports'

@@ -8,6 +8,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-baremetal-infrastructure
 ms.date: 06/01/2023
+# Customer intent: As a system administrator, I want to create and manage volume groups in the Azure Large Instances for Epic environment, so that I can optimize storage setup and performance for my databases and applications.
 ---
 
 # Create a volume group

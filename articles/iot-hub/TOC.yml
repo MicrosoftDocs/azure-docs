@@ -12,7 +12,7 @@
       href: quickstart-send-telemetry-cli.md
     - name: Send telemetry using SDK
       displayName: IoT Plug and Play, Azure IoT Explorer
-      href: ../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: ../iot/tutorial-send-telemetry-iot-hub.md
     - name: Control a device
       displayName: direct method, Azure IoT Explorer
       href: quickstart-control-device.md
@@ -486,7 +486,7 @@
       displayName: GDPR
       href: iot-hub-customer-data-requests.md
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=iot
+      href: https://azure.microsoft.com/updates/?category=iot
     - name: Azure IoT Hub extension for Visual Studio Code
       displayName: VS Code, Visual Studio Code, toolkit, azure-iot-toolkit
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit

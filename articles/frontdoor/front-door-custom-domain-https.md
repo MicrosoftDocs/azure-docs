@@ -8,6 +8,8 @@ ms.topic: how-to
 ms.date: 05/15/2025
 
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain in my Front Door (classic) so that my users can use my custom domain to access their content securely.
+ms.custom:
+  - build-2025
 ---
 
 # Configure HTTPS on an Azure Front Door (classic) custom domain

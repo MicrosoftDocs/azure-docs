@@ -14,14 +14,10 @@ items:
       items: 
       - name: Create an Azure Managed Redis instance
         href: quickstart-create-managed-redis.md 
-      - name: Create an Azure Cache for Redis instance in the Basic, Standard and Premium tiers
-        href: ../azure-cache-for-redis/quickstart-create-redis.md
       - name: Create and manage with Azure PowerShell
         href: how-to-manage-redis-cache-powershell.md
       - name: Create and manage with Azure CLI
         href: scripts/create-manage-cache.md
-      - name: Create and manage a premium cache with Azure CLI
-        href: ../azure-cache-for-redis/scripts/create-manage-premium-cache-cluster.md
       - name: Create Redis cache - Bicep
         displayName: ARM, Resource Manager, Template
         href: redis-cache-bicep-provision.md
@@ -75,12 +71,8 @@ items:
       href: architecture.md
     - name: Create and manage with Azure PowerShell
       href: how-to-manage-redis-cache-powershell.md
-    - name: Use Azure CLI
-      items:
-      - name: Overview
-        href: ../azure-cache-for-redis/cli-samples.md
-      - name: Create and manage a cache
-        href: scripts/create-manage-cache.md
+    - name: Create and manage a cache with Azure CLI
+      href: scripts/create-manage-cache.md
 
   - name: Development and client libraries
     items:
@@ -98,10 +90,7 @@ items:
       href: overview-vector-similarity.md
     - name: Connection resilience best practices
       href: best-practices-connection.md
-    # - name: Use Azure Functions triggers and bindings
-    #   items:
-    #   - name: Create a simple Function app for Redis triggers 
-    #     href: tutorial-functions-getting-started.md 
+
 
   - name: Logs and monitoring
     items:
@@ -237,14 +226,14 @@ items:
     items:
     - name: Use Spring Boot Initializer
       href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
-  - name: Azure Event Grid
-    items:
-    - name: Route events with Azure portal  
-      href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md
-    - name: Route events with Azure CLI 
-      href: ../azure-cache-for-redis/cache-event-grid-quickstart-cli.md
-    - name: Route events with PowerShell 
-      href: ../azure-cache-for-redis/cache-event-grid-quickstart-powershell.md
+  # - name: Azure Event Grid
+  #   items:
+  #   - name: Route events with Azure portal  
+  #     href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md
+  #   - name: Route events with Azure CLI 
+  #     href: ../azure-cache-for-redis/cache-event-grid-quickstart-cli.md
+  #   - name: Route events with PowerShell 
+  #     href: ../azure-cache-for-redis/cache-event-grid-quickstart-powershell.md
   - name: Create leaderboards
     href: web-app-cache-aside-leaderboard.md
   # - name: Deploy a machine learning model 

@@ -1,5 +1,5 @@
 ---
-title: About Azure Elastic storage area network protection (preview)
+title: About Azure Elastic storage area network backup (preview)
 description: Learn how the Azure Elastic storage area network (Azure Elastic SAN) backup works.
 ms.topic: overview
 ms.date: 05/21/2025
@@ -8,7 +8,7 @@ ms.author: jsuri
 ms.custom: engagement-fy24
 --- 
 
-# About Azure Elastic SAN  protection (preview)
+# About Azure Elastic SAN backup (preview)
 
 [Azure Backup](backup-overview.md) allows Azure Elastic storage area network (Azure Elastic SAN) volume protection (preview) through the [Backup vault](backup-vault-overview.md) to ensure seamless backup and restoration.
 
@@ -48,7 +48,7 @@ Azure Backup manages the protection workflow for Azure Elastic SAN by performing
    >- The Elastic SAN volume snapshot is temporary and isn't a recovery point.
    >- Azure Backup manages the lifecycle of these incremental snapshots as per the backup policy.
  
-1. During restore, Azure Backup reads the Manged Disk incremental snapshot, and then recovers it as a new volume in an existing Elastic SAN instance using the Elastic SAN import APIs.
+1. During restore, Azure Backup reads the Managed Disk incremental snapshot, and then recovers it as a new volume in an existing Elastic SAN instance using the Elastic SAN import APIs.
 
    You can also create a Managed Disk from the Managed Disk incremental snapshot directly from the [Azure portal](https://portal.azure.com/).
 

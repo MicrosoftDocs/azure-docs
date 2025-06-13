@@ -7,7 +7,7 @@ ms.author: kkendrick
 
 If the review finds no errors, the **Create** button is enabled. Select it.
 
-If the review identifies errors, a red dot appears next to each section where errors exist. To resolve errors:
+If the review identifies errors, a red dot appears next to each section where errors exist. To fix errors:
 
 1. Open each section that has errors and fix the errors.
 

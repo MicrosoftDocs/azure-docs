@@ -2,7 +2,10 @@
 title: Monitoring data reference for Azure Functions
 description: This article contains important reference material you need when you monitor Azure Functions.
 ms.date: 04/22/2025
-ms.custom: horz-monitor, build-2024
+ms.custom:
+  - horz-monitor
+  - build-2024
+  - build-2025
 ms.topic: reference
 ms.service: azure-functions
 ---

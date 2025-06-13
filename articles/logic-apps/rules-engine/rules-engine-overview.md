@@ -9,6 +9,8 @@ ms.topic: conceptual
 ms.date: 01/27/2025
 
 #CustomerIntent: As an integration developer, I want to learn about integrating business logic and decision management capabilities with Standard workflows in Azure Logic Apps.
+ms.custom:
+  - build-2025
 ---
 
 # Decision management and business logic integration using the Azure Logic Apps Rules Engine
