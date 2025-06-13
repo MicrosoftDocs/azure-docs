@@ -6,6 +6,7 @@ ms.author: jsuri
 ms.service: azure-site-recovery
 author: jyothisuri
 ms.date: 05/11/2025
+# Customer intent: "As a disaster recovery manager, I want to stay informed about the latest updates in Azure Site Recovery features, so that I can ensure optimal protection and monitoring of our critical workloads."
 ---
 
 # Site Recovery feature updates

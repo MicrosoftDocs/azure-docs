@@ -7,6 +7,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 12/19/2024
 ms.custom: subject-rbac-steps, engagement-fy23
+# Customer intent: As a system administrator, I want to configure private endpoints for on-premises machine replication to Azure, so that I can enhance security and control data traffic during disaster recovery operations.
 ---
 # Replicate on-premises machines by using private endpoints
 
