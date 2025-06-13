@@ -7,6 +7,7 @@ ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 11/20/2020
 ms.author: halkazwini
+# Customer intent: As a network administrator, I want to automate the monitoring of VPN gateway status using scripts and notifications, so that I can quickly detect and respond to network outages to ensure reliable service delivery.
 ---
 
 # Monitor VPN gateways with Network Watcher troubleshooting

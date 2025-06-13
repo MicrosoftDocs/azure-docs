@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/12/2024
 
 #CustomerIntent: As an Azure administrator, I want to migrate my tests from Network performance monitor to the new Connection monitor so I avoid service disruption. 
+# Customer intent: As an Azure administrator, I want to migrate my tests from Network performance monitor to Connection monitor so that I can leverage enhanced monitoring capabilities and avoid service disruption during the transition.
 ---
 
 # Migrate to Connection monitor from Network performance monitor
