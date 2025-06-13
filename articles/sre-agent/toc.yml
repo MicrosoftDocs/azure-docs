@@ -19,5 +19,3 @@
   items:
     - name: Autonomous vs review mode
       href: permissions.md
-    - name: FAQ
-      href: faq.yml
