@@ -253,5 +253,5 @@ Execute the following steps for both the *my-aca-app-group* and *my-sre-agent-gr
 
 ## Related content
 
-* [SRE Agent overview](../app-service/sre-agent-overview.md)
-* [Azure SRE Agent usage](../app-service/sre-agent-usage.md)
+* [SRE Agent overview](./overview.md)
+* [Azure SRE Agent usage](./usage.md)
