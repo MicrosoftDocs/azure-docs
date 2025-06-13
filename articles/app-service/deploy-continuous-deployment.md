@@ -32,11 +32,11 @@ Write permissions on an Azure App Service app in a source-control repository.
 
    ![Screenshot that shows how to configure the deployment source.](media/deploy-continuous-deployment/repo-source.png)
 
-All listed sources can build with App Service Build Service. Some sources can also build with GitHub Actions or Azure Pipelines. For more information, see [Build providers](#build-providers).
+All listed sources can build with App Service Build Service. Some sources can also build with GitHub Actions or Azure Pipelines. For more information, see [Build providers](#what-are-the-build-providers).
 
 # [GitHub](#tab/github)
 
-[GitHub Actions](?tabs=githubactions#build-providers) is the default GitHub build provider. To change the provider, select **Change provider**, select **App Service Build Service** or **Azure Pipelines**, and then select **OK**.
+[GitHub Actions](#github-actions) is the default GitHub build provider. To change the provider, select **Change provider**, select **App Service Build Service** or **Azure Pipelines**, and then select **OK**.
 
 If necessary, select **Authorize** and follow the authorization prompts for GitHub. To deploy from another user's repository, select **Change Account**.
 
@@ -136,12 +136,10 @@ Azure Pipelines is the build component of Azure DevOps. You can configure a pipe
 
 To use Azure Pipelines as the build provider, select the **Azure Pipelines** option in App Service **Deployment Center**, then go directly to [Azure DevOps](https://go.microsoft.com/fwlink/?linkid=2245703) to configure the pipeline. For more information, see [Deploy to App Service using Azure Pipelines](deploy-azure-pipelines.md).
 
------
-
 ## Frequently asked questions
 
 - [How does the GitHub Actions build provider work if basic authentication is disabled?](#how-does-the-github-actions-build-provider-work-if-basic-authentication-is-disabled)
-- [What happens to my app during deployment that can cause failure or unpredictable behavior?](#what-can-happen-to-my-app-during-deployment)
+- [What happens to my app during deployment that can cause failure or unpredictable behavior?](#what-happens-to-my-app-during-deployment-that-can-cause-failure-or-unpredictable-behavior)
 - [What does the user-assigned identity option do for GitHub Actions?](#what-does-the-user-assigned-identity-option-do-for-github-actions)
 - [Why do I see the error "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials"?](#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials)
 - [Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
