@@ -20,9 +20,15 @@ Create an agent by pointing it to the resource groups you want to monitor.
 
 ### Prerequisites
 
-You need to grant your agent permissions so that it can access the Azure resources.
+You need to grant your agent the correct permissions and access to the right namespace.
 
-Before you can create a new agent, make sure your user account has correct permissions. Your account needs `Microsoft.Authorization/roleAssignments/write` permissions using either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
+- **Security context**: Before you can create a new agent, make sure your user account has the `Microsoft.Authorization/roleAssignments/write` permissions using either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
+
+- **Namespace**: Using the cloud shell in the Azure portal, run the following command:
+
+    ```azurecli  
+    az provider register --namespace "Microsoft.App"
+    ```
 
 ### Create
 

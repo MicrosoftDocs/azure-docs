@@ -10,7 +10,7 @@ ms.service: azure
 
 # Azure SRE Agent overview (preview)
 
-Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. Azure SRE Agent brings these principles to your Azure hosted applications by providing AI-powered monitoring, troubleshooting, and remediation capabilities to your app environments. The agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chat interface, you can ask questions and give natural language commands to maintain your applications and services. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
+Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. Azure SRE Agent brings these principles to your Azure hosted applications by providing an AI-powered tool that helps sustain production cloud environments. SRE Agent helps you respond to incidents quickly and effectively, alleviating the toil of manually managing production environments. The agent leverages the reasoning capabilities of LLMs to identify the logs and metrics necessary for rapid root cause analysis and issue mitigation. Azure SRE Agent brings you better service uptime and reduced operational costs.
 
 Agents have access to every resource inside the resource groups associated to the agent. Therefore, agents:
 
@@ -18,12 +18,10 @@ Agents have access to every resource inside the resource groups associated to th
 
 - Send proactive notifications about unhealthy or unstable apps
 
-- Provide a natural language interface to issue commands
-
-An SRE Agent also integrates with [PagerDuty](https://www.pagerduty.com/) to support advanced notification solutions.
+An SRE Agent also integrates with [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview) and [PagerDuty](https://www.pagerduty.com/) to support advanced notification solutions.
 
 > [!NOTE]
-> The SRE Agent feature is in limited preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
+> The SRE Agent feature is in limited preview. To sign up for the wait list, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
 
 By using an SRE Agent, you consent the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -60,7 +58,6 @@ Reports include:
 | Scenario | Possible cause | Agent mitigation |
 |---|---|---|
 | Application down | ▪ **Application code issues**: Bugs or errors in the application code can lead to crashes or unresponsiveness.<br><br>▪ **Bad deployment**: Incorrect configurations or failed deployments can cause the application to go down.<br><br>▪ **High CPU/memory/thread issues**: Resource exhaustion due to high CPU, memory, or thread usage can affect application performance. | The SRE Agent can detect these issues and provide actionable insights or fixes. For example, it can identify a decrease in web app availability that coincides with a recent slot swap and recommend swapping back slots as the first step of mitigation. |
-| Virtual machine RDP issues | ▪ **NSG rules**: Misconfigured NSG rules on the NIC or Subnet can block RDP access. | The SRE Agent can detect misconfigurations of NSG rules that block RDP access. Agents can also apply the correct NSG rules to restore access. |
 | Container image pull failures | ▪ **Image availability**: The requested image might not be available or could be missing.<br><br>▪ **Network connectivity**: Network issues can disrupt the connection to the container app.<br><br>▪ **Registry connectivity issues**: Problems with connecting to the container registry can prevent image pulls. | The SRE Agent can detect container image pull failures and provide detailed diagnostics. It can recommend solutions such as rolling back to the last known healthy revision and updating the image reference. |
 
 An agent can provide detailed information about different aspects of your apps and resources. The following examples demonstrate the types of questions you could pose to your agent:

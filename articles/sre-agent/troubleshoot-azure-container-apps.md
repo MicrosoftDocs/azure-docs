@@ -29,6 +29,12 @@ In this tutorial, you:
 
 * **Security context**: Ensure your user account has the `Microsoft.Authorization/roleAssignments/write` permissions using either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
 
+* **Namespace**: Using the cloud shell in the Azure portal, run the following command:
+
+    ```azurecli  
+    az provider register --namespace "Microsoft.App"
+    ```
+
 ## 1. Create a container app
 
 Begin by creating an app for your agent to monitor.

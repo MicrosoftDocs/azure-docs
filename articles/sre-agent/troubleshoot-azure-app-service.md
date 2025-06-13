@@ -34,9 +34,15 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-To complete this tutorial, you need:
-- An [Azure subscription](https://azure.microsoft.com/free/).
-- `Microsoft.Authorization/roleAssignments/write` permissions to create role assignments (Role Based Access Control Administrator or User Access Administrator) for SRE Agent setup.
+* **Azure account**: An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* **Security context**: Ensure your user account has the `Microsoft.Authorization/roleAssignments/write` permissions using either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
+
+* **Namespace**: Using the cloud shell in the Azure portal, run the following command:
+
+    ```azurecli  
+    az provider register --namespace "Microsoft.App"
+    ```
 
 ## 1. Create an App Service app
 
