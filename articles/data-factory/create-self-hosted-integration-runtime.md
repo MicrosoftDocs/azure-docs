@@ -60,6 +60,7 @@ Here's a high-level summary of the data-flow steps for copying with a self-hoste
   - Windows Server 2016
   - Windows Server 2019
   - Windows Server 2022
+  - Windows Server 2025
 
 Installation of the self-hosted integration runtime on a domain controller isn't supported.
 

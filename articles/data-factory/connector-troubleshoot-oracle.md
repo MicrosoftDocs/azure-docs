@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Oracle connector in Azure
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/23/2024
+ms.date: 06/04/2025
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -16,7 +16,59 @@ ms.custom: has-adal-ref, synapse
 
 This article provides suggestions to troubleshoot common problems with the Oracle connector in Azure Data Factory and Azure Synapse.
 
-## Error code: ArgumentOutOfRangeException
+## Version 2.0
+
+### Error message: ORA-12650: No common encryption or data integrity algorithm
+
+- **Symptoms**: You meet the following error message: `ORA-12650: No common encryption or data integrity algorithm`
+
+- **Cause**: The client and server failed to agree on a common encryption/data integrity behavior or algorithm during negotiation. The default client-side configurations are as follows:
+
+    - `encryptionClient`: `required`
+    - `encryptionTypesClient`: `(AES256)`
+    - `cryptoChecksumClient`: `required`
+    - `cryptoChecksumTypesClient`: `(SHA512)`
+
+- **Recommendation**:
+
+    1. Check the server-side configurations, including SQLNET.ENCRYPTION_SERVER and SQLNET.CRYPTO_CHECKSUM_SERVER. Update the linked service additional properties `encryptionClient` and `cryptoChecksumClient` on the client side if needed. Note that the actual behavior is determined by the negotiation outcome between the client and server configuration, as shown below. 
+    
+        | Client\Server | rejected | accepted | requested | required |
+        |---------------|----------|----------|-----------|----------|
+        | rejected      | OFF      | OFF      | OFF       | Connection fails |
+        | accepted      | OFF      | OFF      | ON        | ON       |
+        | requested     | OFF      | ON       | ON        | ON       |
+        | required      | Connection fails | ON | ON | ON |
+    
+    1. Check the server-side configurations, including SQLNET.ENCRYPTION_TYPES_SERVER and SQLNET.CRYPTO_CHECKSUM_TYPES_SERVER. Update the linked service additional properties `encryptionTypesClient` and `cryptoChecksumTypesClient` on the client side to ensure that a common algorithm can be found between them. You can set `encryptionTypesClient` to `(AES128, AES192, AES256, 3DES112, 3DES168)` and `cryptoChecksumTypesClient` to `(SHA1, SHA256, SHA384, SHA512)` to include all supported client-side algorithms.
+
+
+### Decimal precision too large error
+
+- **Symptoms**: When copying NUMBER type columns from Oracle, the copy may fail or the data written to the sink cannot be further consumed by other tools because the decimal precision is too large. 
+
+- **Cause**: To avoid data loss, the decimal precision used to represent the Oracle NUMBER type is 256, which exceeds the max precision supported by the sink connector or downstream consumer.
+
+- **Recommendation**:
+
+    Resolve this issue by using one of the two methods provided below:
+    
+    - Use a query to explicitly cast the column to BINARY_DOUBLE. For example:  
+      `SELECT CAST(ColA AS BINARY_DOUBLE) AS ColB FROM TableA.`
+    
+    - Set the linked service additional property `supportV1DataTypes` to `true`, which ensures that version 2.0 uses the same data type mappings as version 1.0.
+
+### Error message: ORA-00933: SQL command not properly ended 
+
+- **Symptoms**: You meet the following error message: `ORA-00933: SQL command not properly ended` 
+
+- **Cause**: Currently Oracle version 2.0 doesn’t support the query ended with a semicolon. 
+
+- **Recommendation**: Remove the semicolon at the end of the query.  
+
+## Version 1.0
+
+### Error code: ArgumentOutOfRangeException
 
 - **Message**: `Hour, Minute, and Second parameters describe an un-representable DateTime.`
 
@@ -29,7 +81,7 @@ This article provides suggestions to troubleshoot common problems with the Oracl
     To learn the byte sequence in the result, see [How are dates stored in Oracle?](https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle).
 
 
-## Add secure algorithms when using the self-hosted integration runtime version 5.36.8726.3 or higher
+### Add secure algorithms when using the self-hosted integration runtime version 5.36.8726.3 or higher
 
 - **Symptoms**: When you use the self-hosted integration runtime version 5.36.8726.3 or higher, you meet this error message: `[Oracle]ORA-12650: No common encryption or data integrity algorithm`.
 
@@ -53,7 +105,7 @@ This article provides suggestions to troubleshoot common problems with the Oracl
         >[!Note]  
         >The recommended data integrity algorithms SHA256, SHA384 and SHA512 are available for Oracle 19c or higher. 
     
-## Error code: UserErrorFailedToConnectOdbcSource
+### Error code: UserErrorFailedToConnectOdbcSource
 
 There are three error messages associated with this error code. Check the cause and recommendation for each error message correspondingly.
 
@@ -81,7 +133,6 @@ There are three error messages associated with this error code. Check the cause 
 
 - **Recommendation**: Specify the connection string property `CryptoProtocolVersion=TLSv1.2`.
 
-
 ## Related content
 
 For more troubleshooting help, try these resources:
@@ -89,6 +140,7 @@ For more troubleshooting help, try these resources:
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [X information about Data Factory](https://x.com/hashtag/DataFactory)

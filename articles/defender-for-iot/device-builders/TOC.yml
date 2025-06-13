@@ -124,7 +124,7 @@
     displayName: FAQ, embedded, dependencies, data, quota, internet,
     href: resources-agent-frequently-asked-questions.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
+    href: https://azure.microsoft.com/updates/?category=security-identity
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
   - name: Feature support and retirement
