@@ -7,7 +7,13 @@ ms.date: 06/10/2025
 ms.author: cephalin
 ---
 
-This quickstart uses the Maven plugin to deploy a Java web application to a Linux Tomcat server in Azure App Service.
+[Azure App Service](/azure/app-service/) provides a highly scalable, self-patching web app hosting service. In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application to a Linux Tomcat server in Azure App Service.
+
+If Maven isn't your preferred development tool, check out similar articles for Java developers:
++ [Gradle](../../configure-language-java-deploy-run.md?pivots=platform-linux#gradle)
++ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
++ [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
 
 ## Prerequisites
 
@@ -16,7 +22,9 @@ This quickstart uses the Maven plugin to deploy a Java web application to a Linu
 - Run the commands in this quickstart by using Azure Cloud Shell, an interactive shell that you can use through your browser to work with Azure services. To use Cloud Shell:
 
   1. Select the following **Launch Cloud Shell** button or go to https://shell.azure.com to open Cloud Shell in your browser.
+
      :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+
   1. Sign in to Azure if necessary, and make sure you're in the **Bash** environment of Cloud Shell.
   1. Select **Copy** in a code block, paste the code into Cloud Shell, and run it.
 
