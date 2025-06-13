@@ -19,9 +19,9 @@ This sample estimates the cost to move a portion of data from the archive tier t
 
 ## Scenario
 
-Your company stores 20 TB of data in the archive tier for long term retention. However, after only three months in archive storage, 20% of that data must be moved back to the hot tier because your company believes that this data will need to be accessed frequently. You've been asked to estimate what it will cost to get that data from archive storage.
+Your company stores 20 TB of data in the archive tier for long term retention. However, after only three months in archive storage, 20% of that data must be moved back to the hot tier. You are asked to estimate the cost to get that data from archive storage.
 
-The storage account is located in the West US region, is configured for locally-redundant storage (LRS), and does not have hierarchical namespaces.
+The storage account is located in the West US region, is configured for locally-redundant storage (LRS), and doesn't have hierarchical namespaces.
 
 ## Costs
 
@@ -29,7 +29,7 @@ The following table describes each cost.
 
 | Cost | Description |
 |----|----|
-| **Change tier to hot** | First, blobs must be moved out of archive storage. To do this, administrators will change the tier of each blob from `archive` to `hot`. All tools and SDKs use the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation to accomplish this task. That operation is billed as a read operation on the archive tier. |
+| **Change tier to hot** | First, blobs must be moved out of archive storage. To do this, administrators change the tier of each blob from `archive` to `hot`. All tools and SDKs use the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation to accomplish this task. That operation is billed as a read operation on the archive tier. |
 | **Data retrieval fee** | This meter applies to each GB moved from the archive tier and into an online tier such as the hot tier. |
 | **Early deletion fee** | If data is moved out of the archive tier before 180 days have transpired, a prorated early deletion fee is applied to the bill. |
 
@@ -48,11 +48,11 @@ Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), th
 |                        | **Cost to retrieve**<br></br>               | 4,000 blobs * $0.0220          | **$88.00**  |
 | **Early deletion fee** | Rough number of months penalty              | (180 days - 90 days) / 30 days | 3           |
 |                        | Price per month of archive storage (per GB) |                                | $0.0020     |
-|                        | **Cost of early deletion**<br></br>         | (4000 blobs * $0.0020) * 3     | **$24.00**  |
+|                        | **Cost of early deletion**<br></br>         | (4,000 blobs * $0.0020) * 3     | **$24.00**  |
 | **Total cost**         |                                             | $0.22 + $88 + $24              | **$112.22** |
 
 > [!TIP]
-> This scenario does not model the amount of time that data exists in storage, so the table does not include [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB. You can estimate the cost storage and the cost of transactions in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+> This scenario doesn't model the amount of time that data exists in storage, so the table doesn't include [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB. You can estimate the cost storage and the cost of transactions in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## See also
 

@@ -19,9 +19,9 @@ This sample estimates the cost to upload and download data from multiple Azure r
 
 ## Scenario
 
-Your company plans to distribute a new client application to users located in multiple Azure regions across the continent. This application will be used to upload log files and download them for diagnostic analysis. Files are stored as blobs in the hot access tier. Based on expected usage patterns, you've been asked to create a rough estimate of costs.
+Your company plans to distribute a new client application to users located in multiple Azure regions across the continent. This application is used to upload log files and download them for diagnostic analysis. Files are stored as blobs in the hot access tier. Based on expected usage patterns, you've been asked to create a rough estimate of costs.
 
-The storage account is located in the West US region, is configured for Geo-redundant storage (GRS) and does not have hierarchical namespaces enabled. 
+The storage account is located in the West US region, is configured for Geo-redundant storage (GRS) and doesn't have hierarchical namespaces enabled. 
 
 ## Costs
 
@@ -29,9 +29,9 @@ The following table describes each cost.
 
 | Cost | Description |
 |----|----|
-| **Cost to write** | During this quarter, clients will upload an estimated **50,000** log files (roughly **1 GB** each in size). Clients are configured to upload those log files in 8 MiB blocks. Each block  is billed as a write operation with one additional operation to commit those blocks. A smaller block size is very performant, but you know that a larger block size results in fewer write operations so you plan to include that suggestion along with your estimate. |
+| **Cost to write** | During this quarter, clients upload an estimated **50,000** log files (roughly **1 GB** each in size). Clients are configured to upload those log files in 8-MiB blocks. Each block  is billed as a write operation with one additional operation to commit those blocks. A smaller block size is performant, but you know that a larger block size results in fewer write operations so you plan to include that suggestion along with your estimate. |
 | **Cost of replication** | Because the account is configured for geo-redundant storage, all blobs are replicated to a secondary region. This replication process adds a data transfer fee per GB replicated.|
-| **Cost to read** | Any blob that is downloaded for diagnostic analysis is billed as a read operation. You believe that client applications will download about half of the files uploaded for diagnostic analysis. You also learn that **75%** of client applications are not located in the same region as the storage account. Therefore, blobs downloaded by those clients incur a network bandwidth fee. |
+| **Cost to read** | Any blob that is downloaded for diagnostic analysis is billed as a read operation. You believe that client applications will download about half of the files uploaded for diagnostic analysis. You also learn that **75%** of client applications aren't located in the same region as the storage account. Therefore, blobs downloaded by those clients incur a network bandwidth fee. |
 
 ## Estimate
 
@@ -54,7 +54,7 @@ Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), th
 | **Total cost**          |                                               | $163.80 + $1,000 + $485          | **$1,648.80** |
 
 > [!TIP]
-> This scenario does not model the amount of time that data exists in storage, so the table does not include [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB. You can estimate the cost storage and the cost of transactions in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+> This scenario doesn't model the amount of time that data exists in storage, so the table doesn't include [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB. You can estimate the cost storage and the cost of transactions in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## See also
 

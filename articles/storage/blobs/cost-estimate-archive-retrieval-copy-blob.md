@@ -19,11 +19,11 @@ This sample estimates the cost to retrieve a portion of data from the archive ti
 
 ## Scenario
 
-Your company stores 20 TB of data in the archive tier for long term retention. However, after only three months in archive storage, 20% of that data must be retrieved for analysis.  You've been asked to estimate what it will cost to get that data from archive storage and then download that data to clients. 
+Your company stores 20 TB of data in the archive tier for long term retention. However, after only three months in archive storage, 20% of that data must be retrieved for analysis.  You're asked to estimate the cost to get that data from archive storage and then download that data to clients. 
 
 Because the data is needed only temporarily, you decide not to rehydrate blobs by changing their tier. That way, your company avoids the early deletion fee. You already estimated the cost of that approach by reviewing the [Cost estimate: Move data out of archive storage](cost-estimate-archive-retrieval-set-tier.md) article. Instead, you decide that it's more cost-effective to copy blobs into the hot tier for analysis. You know that data in the hot tier can be deleted at no charge when the analysis is complete. 
 
-The storage account is located in the West US region, is configured for locally-redundant storage (LRS), and does not have hierarchical namespaces.
+The storage account is located in the West US region, is configured for locally-redundant storage (LRS), and doesn't have hierarchical namespaces.
 
 ## Costs
 
@@ -33,7 +33,7 @@ The following table describes each cost.
 |----|----|
 | **Copy blobs to the hot tier** | First, blobs must be moved out of archive storage for analysis. All tools and SDKs use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to accomplish this task. The [Copy Blob](/rest/api/storageservices/copy-blob) operation is billed as a read operation on the source account and a write operation on the destination account. |
 | **Data retrieval fee** | This meter applies to each GB moved from the archive tier and into an online tier such as the hot tier. |
-| **Read from the hot tier** | Once data is moved into the hot tier, clients will need to download that data. Each download is billed as a read operation. |
+| **Read from the hot tier** | Once data is moved into the hot tier, clients need to download that data. Each download is billed as a read operation. |
 
 ## Estimate
 
@@ -57,7 +57,7 @@ Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), th
 | **Total cost**                 |                                            | $0.22 + $88 + $24 + $0.0002           | **$88.22**  |
 
 > [!TIP]
-> This scenario does not model the amount of time that data exists in the storage, so the table does not include [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB. You can estimate the cost storage and the cost of transactions in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+> This scenario doesn't model the amount of time that data exists in the storage, so the table doesn't include [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB. You can estimate the cost storage and the cost of transactions in your environment by using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## See also
 
