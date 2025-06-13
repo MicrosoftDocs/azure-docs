@@ -27,7 +27,7 @@ The following example assigns the **Storage Blob Data Contributor** role to your
 
 1. On the **Access control (IAM)** page, select the **Role assignments** tab.
 
-1. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
+1. Select **+ Add** from the top menu. Then select **Add role assignment**.
 
     :::image type="content" source="../../../articles/storage/common/media/assign-role-system-identity.png" alt-text="Screenshot showing how to assign a storage account role.":::
 
