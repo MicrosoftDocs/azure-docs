@@ -261,9 +261,6 @@ Now, connect the appliance to the physical servers and start discovery:
     1. To remove a server, select **Delete**.
 1. You can **revalidate** the connectivity to servers any time before you start the discovery. 
 1. Before you start discovery, you can turn off the slider to skip software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
-
-[Add screen]
-
 1. To discover SQL Server instances and databases, you add extra credentials (Windows domain, non-domain, or SQL authentication). The appliance then tries to automatically map these credentials to the SQL servers. If you add domain credentials, the appliance authenticates them with the domain’s Active Directory to prevent user account lockouts. To check if the domain credentials are valid, follow these steps:
     1. In the configuration manager credentials table, you see the **Validation status** for domain credentials. Only domain credentials are validated.
     1. If you use domain accounts, the username must be in Down-Level format (domain\username). The UPN format (username@domain.com) isn't supported.
