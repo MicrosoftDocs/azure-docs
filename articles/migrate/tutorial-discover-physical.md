@@ -17,8 +17,8 @@ This article explains how to set up the Azure Migrate appliance to discover phys
 
 The Azure Migrate appliance is a lightweight tool that Azure Migrate: Discovery and assessment uses to:
 
-- Discover on-premises servers
-- Send metadata and performance data of the discovered servers to Azure Migrate: Discovery and assessment
+- Discover on-premises servers.
+- Send metadata and performance data of the discovered servers to Azure Migrate: Discovery and assessment.
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ To generate the project key, follow the steps:
 1. In **Servers, databases, and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 1. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 1. **Generate project key**, enter a name for the Azure Migrate appliance you want to set up to discover physical or virtual servers. The name should be alphanumeric and 14 characters or fewer.
-1. Select **Generate key** to start creating the required Azure resources. Keep the Discover servers page open while the resources are being created.
+1. Select **Generate key** to start creating the required Azure resources. Keep the Discover servers page open while the resources are created.
 1. After the resources are created successfully, a **project key** is generated.
 1. Copy the key ad you’ll need it to register the appliance during its setup.
 
@@ -165,7 +165,7 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 1. **Connectivity**: The appliance checks if the server has internet access. If the server uses a proxy:
 
     - Select **Setup proxy** and enter the proxy address *(http://ProxyIPAddress or http://ProxyFQDN, where FQDN means fully qualified domain name)* and the listening port.
-     - Enter credentials if the proxy needs authentication.
+    - Enter credentials if the proxy needs authentication.
     - If you add or change proxy settings or disable the proxy or authentication, select **Save** to apply the changes and check connectivity again.
     
     > [!Note]
@@ -241,14 +241,14 @@ Now, connect the appliance to the physical servers and start discovery:
     1. To use HTTPS communication without fallback, turn on the HTTPS protocol toggle in Appliance Config Manager.
     1. After you turn on the checkbox, ensure that the prerequisites are configured on the target servers. If the servers do not have certificates, discovery fails on both current and newly added servers.
         1. WinRM HTTPS needs a local computer Server Authentication certificate. The certificate must have a CN that matches the hostname. It must not be expired, revoked, or self-signed. [Learn more](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https).
-1. You can **Add single item** at a time or **Add multiple items** together. You can also provide server details through **Import a CSV file**1. 
+1. You can **Add single item** at a time or **Add multiple items** together. You can also provide server details through **Import a CSV file**. 
 
   ![Screenshot that shows how to add physical discovery source.](./media/tutorial-discover-physical/add-discovery-source.png)
 
   1. If you choose **Add single item**, select the OS type.
-  1. Enter a friendly name for the credentials, add the server **IP address or FQDN**
+  1. Enter a friendly name for the credentials, add the server **IP address or FQDN**.
   1. Select **Save**.
-  1. If you choose **Add multiple items**, enter multiple records at once by specifyin the server **IP address or FQDN**. 
+  1. If you choose **Add multiple items**, enter multiple records at once by specifying the server **IP address or FQDN**. 
   1. Enter the friendly name for the credentials in the text box. 
   1. Verify the records and then select **Save**.
   1. If you choose **Import CSV** *(this is selected by default)*, download the CSV template file.
