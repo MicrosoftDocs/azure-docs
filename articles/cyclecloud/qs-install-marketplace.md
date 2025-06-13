@@ -2,7 +2,7 @@
 title: Quickstart - Install via Marketplace
 description: Learn how to get CycleCloud running using the Marketplace image. Create a virtual machine, assign Managed Identity, and sign in to the CycleCloud web server.
 author: adriankjohnson
-ms.date: 08/01/2018
+ms.date: 06/13/2025
 ms.author: adjohnso
 ---
 
