@@ -17,7 +17,7 @@ ms.date: 06/09/2025
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, you are recommended to [upgrade your Google BigQuery connector](#upgrade-the-google-bigquery-linked-service) before **September 30, 2025**. Refer to this [section](#google-bigquery-connector-lifecycle-and-upgrade) for details on the difference between V2 and V1.
+> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, you are recommended to [upgrade your Google BigQuery connector](#upgrade-the-google-bigquery-v2-connector-from-version-10-to-version-11) before **September 30, 2025**. Refer to this [section](#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 
@@ -224,7 +224,7 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
-## Google BigQuery connector lifecycle and upgrade
+## <a name="differences-between-google-bigquery-and-google-bigquery-legacy"></a> Google BigQuery connector lifecycle and upgrade
 
 The following table shows the release stage and change logs for different versions of the Google BigQuery connector:
 
@@ -234,7 +234,7 @@ The following table shows the release stage and change logs for different versio
 | Google BigQuery V2 (version 1.0) | GA version available | • Service authentication is supported by the Azure integration runtime. <br>The properties trustedCertPath, useSystemTrustStore, email and keyFilePath are not supported as they are available on the self-hosted integration runtime only. <br><br> • requestGoogleDriveScope is not supported. You need additionally apply the permission in Google BigQuery service by referring to [Choose Google Drive API scopes](https://developers.google.com/drive/api/guides/api-specific-auth) and [Query Drive data](https://cloud.google.com/bigquery/docs/query-drive-data). <br><br> • additionalProjects is not supported. As an alternative, [query a public dataset with the Google Cloud console](https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console).<br><br> • NUMBER is read as Decimal data type. <br><br> • Timestamp and Datetime are read as DateTimeOffset data type.|
 | Google BigQuery V2 (version 1.1) | GA version available | • When executing multiple statements, the `query` returns the complete set of results instead of only the result of the first statement. |
 
-### Upgrade the Google BigQuery V2 connector from version 1.0 to version 1.1 (Preview)
+### Upgrade the Google BigQuery V2 connector from version 1.0 to version 1.1
 
 In **Edit linked service** page, select 1.1 for version. For more information, see [Linked service properties](#linked-service-properties).
 
