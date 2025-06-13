@@ -41,7 +41,7 @@ The SRE Agent offers several key features that enhance the reliability and perfo
 
 - **Resource visualization**: Comprehensive views of your resource dependencies and health status.
 
-    :::image type="content" source="media/overview/resources.png" alt-text="Screenshot of an SRE Agent knowledge graph.":::
+    :::image type="content" source="media/overview/resources.png" alt-text="Screenshot of an SRE Agent knowledge graph." lightbox="media/overview/resources.png":::
 
 An SRE Agent works to proactively monitor and maintain your Azure services. Each day your agent creates daily resource reports which provide insights into the health and status of your applications.
 
