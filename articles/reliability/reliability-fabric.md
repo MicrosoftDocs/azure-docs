@@ -1,8 +1,8 @@
 ---
 title: Reliability in Microsoft Fabric 
 description: Find out about reliability in Microsoft Fabric
-author: paulinbar 
-ms.author: painbar 
+author: msmimart 
+ms.author: mimart 
 ms.topic: reliability-article
 ms.reviewer: anaharris
 ms.service: fabric
