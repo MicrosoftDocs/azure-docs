@@ -24,7 +24,7 @@ This article focuses on application authentication and how to configure the conn
 
 To learn more about OPC UA application security, see [Application Authentication](https://reference.opcfoundation.org/Core/Part2/v105/docs/4.10).
 
-There following diagram shows the sequence of events that occur when the connector for OPC UA connects to an OPC UA server. The sections later in this article discuss the details of each step in the sequence:
+The following diagram shows the sequence of events that occur when the connector for OPC UA connects to an OPC UA server. The sections later in this article discuss the details of each step in the sequence:
 
 :::image type="content" source="media/overview-opcua-broker-certificates-management/mutual-trust.svg" alt-text="Diagram that summarizes the OPC UA connector connection handshake." border="false":::
 
