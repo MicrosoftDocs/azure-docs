@@ -33,7 +33,7 @@ In this section, you create a chat completion configuration in Azure portal usin
         - **Content**: Type "What is the capital of France?"
     
     > [!div class="mx-imgBorder"]
-    > ![Screen shot shows the create new AI configuration form](./media/create-ai-chat-completion-config.png)
+    > ![Screenshot shows the create new AI configuration form.](./media/create-ai-chat-completion-config.png)
     
 1. Leave the rest of the values as default then select **Apply**.
 
