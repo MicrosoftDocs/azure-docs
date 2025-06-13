@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 02/13/2025
+ms.date: 06/13/2025
 ms.custom:
   - build-2025
 ---
@@ -28,6 +28,10 @@ For information on Unicode character support, see [Understand volume languages](
 ## Does Azure Databricks support mounting Azure NetApp Files NFS volumes?
 
 No, [Azure Databricks](/azure/databricks/) does not support mounting any NFS volumes including Azure NetApp Files NFS volumes. Contact the Azure Databricks team for more details. 
+
+## Can I use MuleSoft's Azure Storage connector Azure NetApp SMB volumes?
+
+Yes, it is possible to use an Azure NetApp Files volume using MuleSoft's Azure Storage Connector. [View considerations when using MuleSoft with Azure NetApp Files](faq-smb.md#does-azure-netapp-files-have-an-smb-credits-limit) 
 
 
 ## Next steps  
