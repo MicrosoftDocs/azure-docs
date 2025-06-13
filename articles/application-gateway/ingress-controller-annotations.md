@@ -27,7 +27,7 @@ For AGIC to observe an ingress resource, the resource *must be annotated* with `
 | [appgw.ingress.kubernetes.io/health-probe-hostname](#custom-health-probe) | `string` | `127.0.0.1` ||
 | [appgw.ingress.kubernetes.io/health-probe-port](#custom-health-probe) | `int32` | `80` ||
 | [appgw.ingress.kubernetes.io/health-probe-path](#custom-health-probe) | `string` | `/` ||
-| [appgw.ingress.kubernetes.io/health-probe-status-code](#custom-health-probe) | `string` | `200-399` ||
+| [appgw.ingress.kubernetes.io/health-probe-status-codes](#custom-health-probe) | `string` | `200-399` ||
 | [appgw.ingress.kubernetes.io/health-probe-interval](#custom-health-probe) | `int32` | `30` (seconds) ||
 | [appgw.ingress.kubernetes.io/health-probe-timeout](#custom-health-probe) | `int32` | `30` (seconds) ||
 | [appgw.ingress.kubernetes.io/health-probe-unhealthy-threshold](#custom-health-probe) | `int32` | `3` ||
@@ -126,7 +126,7 @@ You can [configure Application Gateway](./application-gateway-probe-overview.md)
 - `health-probe-hostname`: This annotation allows a custom hostname on the health probe.
 - `health-probe-port`: This annotation configures a custom port for the health probe.
 - `health-probe-path`: This annotation defines a path for the health probe.
-- `health-probe-status-code`: This annotation allows the health probe to accept different HTTP status codes.
+- `health-probe-status-codes`: This annotation allows the health probe to accept different HTTP status codes.
 - `health-probe-interval`: This annotation defines the interval at which the health probe runs.
 - `health-probe-timeout`: This annotation defines how long the health probe waits for a response before failing the probe.
 - `health-probe-unhealthy-threshold`: This annotation defines how many health probes must fail for the backend to be marked as unhealthy.
@@ -137,7 +137,7 @@ You can [configure Application Gateway](./application-gateway-probe-overview.md)
 appgw.ingress.kubernetes.io/health-probe-hostname: "contoso.com"
 appgw.ingress.kubernetes.io/health-probe-port: 80
 appgw.ingress.kubernetes.io/health-probe-path: "/"
-appgw.ingress.kubernetes.io/health-probe-status-code: "100-599"
+appgw.ingress.kubernetes.io/health-probe-status-codes: "100-599"
 appgw.ingress.kubernetes.io/health-probe-interval: 30
 appgw.ingress.kubernetes.io/health-probe-timeout: 30
 appgw.ingress.kubernetes.io/health-probe-unhealthy-threshold: 2
@@ -155,7 +155,7 @@ metadata:
     appgw.ingress.kubernetes.io/health-probe-hostname: "contoso.com"
     appgw.ingress.kubernetes.io/health-probe-port: 81
     appgw.ingress.kubernetes.io/health-probe-path: "/probepath"
-    appgw.ingress.kubernetes.io/health-probe-status-code: "100-599"
+    appgw.ingress.kubernetes.io/health-probe-status-codes: "100-599"
     appgw.ingress.kubernetes.io/health-probe-interval: 31
     appgw.ingress.kubernetes.io/health-probe-timeout: 31
     appgw.ingress.kubernetes.io/health-probe-unhealthy-threshold: 2
