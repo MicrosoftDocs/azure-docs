@@ -27,8 +27,8 @@ In the Azure portal, go to the **Settings** section for the dedicated cluster. U
 
 :::image type="content" source="./media/event-hubs-quickstart-stream-large-messages/large-message-configuration-for-dedicated-cluster.png" alt-text="Screenshot that shows the Quota pane for a dedicated cluster." lightbox="./media/event-hubs-quickstart-stream-large-messages/large-message-configuration-for-dedicated-cluster.png":::
 
-- Validate that the value for the read-only key `supportslargemessages` is set to `True`.
 - You can update the key `eventhubmaxmessagesizeinbytes` to a suitable value in bytes. An acceptable range for this value is between 1,048,576 and 20,971,520 bytes.
+- Validate that the value for the read-only key `supportslargemessages` is set to `True`.
 
 After the configuration is saved, you're ready to stream large messages with Event Hubs.
 
