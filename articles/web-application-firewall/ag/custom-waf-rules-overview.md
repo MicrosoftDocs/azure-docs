@@ -90,7 +90,7 @@ The previous `$BlockRule` maps to the following custom rule in Azure Resource Ma
 This custom rule contains a name, priority, an action, and the array of matching conditions that must be met for the action to take place. For further explanation of these fields, see the following field descriptions. For example custom rules, see [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
 > [!NOTE]
-> WAF custom rules don't support inspecting multipart/form-data fields such as the filename parameter within Content-Disposition headers. As a result, you can't use custom rules to block or allow requests based on filenames or file types.
+> WAF custom rules don't support allowing or blocking requests based on filenames or file types.
 
 ## Fields for custom rules
 
