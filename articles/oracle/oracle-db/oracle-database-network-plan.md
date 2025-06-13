@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.custom: engagement-fy23
 ms.date: 12/12/2023
+# Customer intent: "As a cloud architect, I want to configure network topologies for Oracle Database@Azure, so that I can ensure optimal connectivity, security, and performance for the deployment in my virtual network environment."
 ---
 # Network planning for Oracle Database@Azure
 In this article, learn about network topologies and constraints in Oracle Database@Azure.

@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a network administrator, I want to understand delegated subnet limits for Oracle Database@Azure, so that I can effectively manage and plan my cloud network resources.
 ---
 
 # Delegated subnet limits 

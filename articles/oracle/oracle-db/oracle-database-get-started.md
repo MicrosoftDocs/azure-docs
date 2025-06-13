@@ -7,6 +7,7 @@ ms.collection: linux
 ms.topic: get-started
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
+# Customer intent: "As a database administrator, I want to learn how to purchase and set up Oracle Database@Azure, so that I can optimize the management of my databases in a fast and integrated cloud environment."
 ---
 
 # Get started with Oracle Database@Azure

@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: "As a database administrator managing Oracle Autonomous Database on Azure, I want to learn about the latest features and enhancements, so that I can optimize our database deployment and take advantage of new capabilities."
 ---
 
 # What's new in Oracle Autonomous Database@Azure

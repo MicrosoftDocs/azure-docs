@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a cloud architect, I want to explore the latest features in Exadata services on Azure, so that I can leverage new capabilities for optimizing database performance and management in my deployments.
 ---
 
 # What's new in Exadata services

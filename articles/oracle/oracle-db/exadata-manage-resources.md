@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a cloud administrator, I want to manage Oracle Exadata resources through the Azure portal, so that I can efficiently provision, monitor, and support my database services on the cloud.
 ---
 
 # Manage Exadata resources

@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: "As a cloud architect, I want to use Terraform to provision and manage Oracle Exadata services in Azure, so that I can automate infrastructure deployments and streamline database management operations."
 ---
 
 # Terraform/OpenTofu examples for Exadata services
