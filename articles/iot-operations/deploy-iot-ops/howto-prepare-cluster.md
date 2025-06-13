@@ -271,13 +271,13 @@ Then, once you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azu
 
 ### [Tanzu Kubernetes Grid with a management cluster](#tab/tkgm)
 
-To prepare a TKGm workload cluster, you need:
+To prepare a TKG workload cluster, you need:
 
-- A single-node or multi-node TKGm workload cluster. For guidance, see the [Tanzu documentation](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/workload-clusters-index.html).
+- A single-node or multi-node TKG workload cluster. For guidance, see the [Tanzu documentation](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/workload-clusters-index.html).
 
 ### Update pod security admission settings
 
-Before deploying Azure IoT Operations, you will need to update the Pod Security Admission settings on your TKGm cluster. Applying this file will pre-create namespace labels and set pod security to `privileged`.
+Before deploying Azure IoT Operations, you will need to update the Pod Security Admission settings on your TKG cluster. Applying this file will pre-create namespace labels and set pod security to `privileged`.
 
 
 
