@@ -76,6 +76,8 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         // Serve static index.html from the current folder
         server.use(express.static("."));
 
+        // This API returns the different greeting messages based on the segment the user belongs to.
+        // It evaluates a variant feature flag based on user context. The greeting message is retrieved from the variant configuration.
         server.get("/api/getGreetingMessage", async (req, res) => {
             const { userId, groups } = req.query;
             const variant = await featureManager.getVariant("Greeting", { userId: userId, groups: groups ? groups.split(",") : [] });
@@ -157,6 +159,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     </div>
 
     <script>
+        // extract URL parameters to simulate user login
         document.addEventListener('DOMContentLoaded', function() {
         const urlParams = new URLSearchParams(window.location.search);
         const currentUser = urlParams.get('userId') || '';
@@ -176,7 +179,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
             method: "GET"
             });
             const result = await response.json();
-            greetingElement.textContent = result.message || "Quote of the Day";
+            greetingElement.textContent = result.message || "";
             quoteContent.style.display = 'block';
             loadingElement.style.display = 'none';
         }
@@ -199,6 +202,8 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     </body>
     </html>
     ```
+
+    For simplicity, the example extracts the `userId` from URL query parameters (e.g., `?userId=UserA`) to simulate different user identities.
 
 ## Run the application
 
@@ -228,7 +233,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     node server.js
     ```
 
-1. Open your browser and visit `localhost:8080` to see the app running. You should see the default greeting message.
+1. Open your browser and navigate to `localhost:8080`. You should see the default view of the app that doesn't have any greeting message.
 
     :::image type="content" source="media/howto-variant-feature-flags-javascript/default-variant.png" alt-text="Screenshot of the Quote of the day app, showing no greeting message for the user.":::
 
