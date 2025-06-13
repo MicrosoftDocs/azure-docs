@@ -260,7 +260,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 If you configure a rule to run daily, then it will be scheduled to run every day. If you configure a rule to run weekly, then it will be scheduled to run each week on Sunday UTC time. 
 
-The time taken to generate an inventory report depends on various factors and the maximum amount of time that an inventory run can complete before it fails is six days. To learn more about these influencing factors, see articles/storage/blobs/blob-inventory-performance-characteristics.md
+The time taken to generate an inventory report depends on various factors and the maximum amount of time that an inventory run can complete before it fails is six days. To learn more about these influencing factors, see [Blob inventory performance characteristics](blob-inventory-performance-characteristics.md).
 
 
 Runs don't overlap so a run must complete before another run of the same rule can begin. For example, if a rule is scheduled to run daily, but the previous day's run of that same rule is still in progress, then a new run won't be initiated that day. Rules that are scheduled to run weekly will run each Sunday regardless of whether a previous run succeeds or fails. If a run doesn't complete successfully, check subsequent runs to see if they complete before contacting support. The performance of a run can vary, so if a run doesn't complete, it's possible that subsequent runs will.
