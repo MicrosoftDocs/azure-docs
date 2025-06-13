@@ -7,7 +7,7 @@ ms.date: 06/10/2025
 ms.author: cephalin
 ---
 
-[Azure App Service](/azure/app-service/) provides a highly scalable, self-patching web app hosting service. In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application with an embedded Spring Boot, Quarkus, or Tomcat server to App Service by using the [azure-webapp-maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
+[Azure App Service](/azure/app-service/) provides a highly scalable, self-patching web app hosting service. In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy a Java web application with an embedded Spring Boot, Quarkus, or Tomcat server to App Service. For more information, see [azure-webapp-maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
 
 If Maven isn't your preferred development tool, check out similar articles for Java developers:
 + [Gradle](../../configure-language-java-deploy-run.md#gradle)
@@ -251,9 +251,9 @@ Congratulations! You deployed a Java app to App Service.
 
 ## Clean up resources
 
-You created the resources for this tutorial in an Azure resource group. If you no longer need them, you can delete the resource group and all its resources by running the following Azure CLI command in the Cloud Shell.
+You created the resources for this tutorial in an Azure resource group. If you no longer need them, you can delete the resource group and all its resources by running the following Azure CLI command in Cloud Shell.
 
-```azurecli-interactive
+```azurecli
 az group delete --name <resource group name>  --yes
 ```
 

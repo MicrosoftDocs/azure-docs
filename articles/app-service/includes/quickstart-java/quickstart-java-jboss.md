@@ -137,9 +137,9 @@ Congratulations! You deployed a Java app to App Service.
 
 ## Clean up resources
 
-You created the resources for this tutorial in an Azure resource group. If you no longer need them, you can delete the resource group and all its resources by running the following Azure CLI command in the Cloud Shell.
+You created the resources for this tutorial in an Azure resource group. If you no longer need them, you can delete the resource group and all its resources by running the following Azure CLI command in Cloud Shell.
 
-```azurecli-interactive
+```azurecli
 az group delete --name petstoreee7-1745409173307-rg  --yes
 ```
 The command might take a while to run.
