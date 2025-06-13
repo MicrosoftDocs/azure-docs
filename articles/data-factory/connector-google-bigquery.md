@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/14/2025
+ms.date: 06/09/2025
 ---
 
 # Copy data from Google BigQuery V2 using Azure Data Factory or Synapse Analytics
@@ -17,7 +17,7 @@ ms.date: 04/14/2025
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, please [upgrade your Google BigQuery connector](#upgrade-the-google-bigquery-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between V2 and V1.
+> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, you are recommended to [upgrade your Google BigQuery connector](#upgrade-the-google-bigquery-linked-service) before **September 30, 2025**. Refer to this [section](#google-bigquery-connector-lifecycle-and-upgrade) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 
@@ -74,6 +74,7 @@ The following properties are supported for the Google BigQuery linked service.
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **GoogleBigQueryV2**. | Yes |
+| version |The version that you specify. Recommend upgrading to the latest version to take advantage of the newest enhancements. | Yes for version 1.1 |
 | projectId | The project ID of the default BigQuery project to query against.  | Yes |
 | authenticationType | The OAuth 2.0 authentication mechanism used for authentication.</br>Allowed values are **UserAuthentication** and **ServiceAuthentication**. Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
 
@@ -94,6 +95,7 @@ Set "authenticationType" property to **UserAuthentication**, and specify the fol
     "name": "GoogleBigQueryLinkedService",
     "properties": {
         "type": "GoogleBigQueryV2",
+        "version": "1.1",
         "typeProperties": {
             "projectId" : "<project ID>",
             "authenticationType" : "UserAuthentication",
@@ -127,6 +129,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
     "name": "GoogleBigQueryLinkedService",
     "properties": {
         "type": "GoogleBigQueryV2",
+        "version": "1.1",
         "typeProperties": {
             "projectId": "<project ID>",
             "authenticationType": "ServiceAuthentication",
@@ -221,20 +224,19 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
-## <a name="upgrade-the-google-bigquery-linked-service"></a> Upgrade the Google BigQuery connector
+## Google BigQuery connector lifecycle and upgrade
 
-To upgrade the Google BigQuery connector, create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
+The following table shows the release stage and change logs for different versions of the Google BigQuery connector:
 
-## <a name="differences-between-google-bigquery-and-google-bigquery-legacy"></a> Differences between Google BigQuery V2 and V1
+| Version | Release stage | Change log | 
+| :----------- | :------- | :------- |
+| Google BigQuery V1 | GA version available | / |
+| Google BigQuery V2 (version 1.0) | GA version available | • Service authentication is supported by the Azure integration runtime. <br>The properties trustedCertPath, useSystemTrustStore, email and keyFilePath are not supported as they are available on the self-hosted integration runtime only. <br><br> • requestGoogleDriveScope is not supported. You need additionally apply the permission in Google BigQuery service by referring to [Choose Google Drive API scopes](https://developers.google.com/drive/api/guides/api-specific-auth) and [Query Drive data](https://cloud.google.com/bigquery/docs/query-drive-data). <br><br> • additionalProjects is not supported. As an alternative, [query a public dataset with the Google Cloud console](https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console).<br><br> • NUMBER is read as Decimal data type. <br><br> • Timestamp and Datetime are read as DateTimeOffset data type.|
+| Google BigQuery V2 (version 1.1) | GA version available | • When executing multiple statements, the `query` returns the complete set of results instead of only the result of the first statement. |
 
-The Google BigQuery V2 connector offers new functionalities and is compatible with most features of Google BigQuery V1 connector. The table below shows the feature differences between Google BigQuery V2 and V1.
+### Upgrade the Google BigQuery V2 connector from version 1.0 to version 1.1 (Preview)
 
-| Google BigQuery V2 | Google BigQuery V1 | 
-| :----------- | :------- |
-| Service authentication is supported by the Azure integration runtime and the self-hosted integration runtime.<br>The properties trustedCertPath, useSystemTrustStore, email and keyFilePath are not supported as they are available on the self-hosted integration runtime only. | Service authentication is only supported by the self-hosted integration runtime. <br>Support trustedCertPath, useSystemTrustStore, email and keyFilePath properties. | 
-| The following mappings are used from Google BigQuery data types to interim data types used by the service internally. <br><br>Numeric -> Decimal<br>Timestamp -> DateTimeOffset<br>Datetime -> DatetimeOffset | The following mappings are used from Google BigQuery data types to interim data types used by the service internally. <br><br>Numeric -> String<br>Timestamp -> DateTime<br>Datetime -> DateTime | 
-| requestGoogleDriveScope is not supported. You need additionally apply the permission in Google BigQuery service by referring to [Choose Google Drive API scopes](https://developers.google.com/drive/api/guides/api-specific-auth) and [Query Drive data](https://cloud.google.com/bigquery/docs/query-drive-data). | Support requestGoogleDriveScope. | 
-| additionalProjects is not supported. As an alternative, [query a public dataset with the Google Cloud console](https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console). | Support additionalProjects. | 
+In **Edit linked service** page, select 1.1 for version. For more information, see [Linked service properties](#linked-service-properties).
 
 ## Related content
 
