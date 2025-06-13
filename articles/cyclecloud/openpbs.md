@@ -8,10 +8,10 @@ ms.author: adjohnso
 
 # OpenPBS
 
-[//]: # (Need to link to the scheduler README on Github)
+[//]: # (Need to link to the scheduler README on GitHub)
 
 ::: moniker range="=cyclecloud-7"
-[OpenPBS](http://openpbs.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. A PBS Professional (PBS Pro) cluster has two main parts: the 'master' node, which runs the software on a shared filesystem, and the 'execute' nodes, which mount that filesystem and run the submitted jobs. For example, a simple cluster template snippet may look like:
+[OpenPBS](http://openpbs.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list", in the configuration section of your cluster definition. A PBS Professional (PBS Pro) cluster has two main parts: the 'master' node, which runs the software on a shared filesystem, and the 'execute' nodes, which mount that filesystem and run the submitted jobs. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster my-pbspro]
@@ -50,11 +50,11 @@ These resources can be used in combination as:
 ```bash
 qsub -l nodes=8:ppn=16:nodearray=hpc:machinetype=Standard_HB60rs my-simulation.sh
 ```
-Which will autoscale only if the 'Standard_HB60rs' machines are specified in the 'hpc' node array.
+Which autoscales only if the 'Standard_HB60rs' machines are specified in the 'hpc' node array.
 
 ## Adding extra queues assigned to nodearrays
 
-On clusters with multiple nodearrays, it's common to create separate queues to automatically route jobs to the appropriate VM type. In this example, we'll assume the following "gpu" nodearray has been defined in your cluster template:
+On clusters with multiple nodearrays, it's common to create separate queues to automatically route jobs to the appropriate VM type. In this example, we assume the following "gpu" nodearray is defined in your cluster template:
 
 ```bash
     [[nodearray gpu]]
@@ -80,7 +80,7 @@ After importing the cluster template and starting the cluster, the following com
 ```
 
 > [!NOTE]
-> The above queue definition packs all VMs in the queue into a single VM scale set to support MPI jobs. To define the queue for serial jobs and allow multiple VM Scalesets, set `ungrouped = true` for both `resources_default` and `default_chunk`. You can also set `resources_default.place = pack` if you want the scheduler to pack jobs onto VMs instead of round-robin allocation of jobs. For more information on PBS job packing, see the official [PBS Professional OSS documentation](https://www.altair.com/pbs-works-documentation/).
+> As shown in the example, queue definition packs all VMs in the queue into a single VM scale set to support MPI jobs. To define the queue for serial jobs and allow multiple VM Scalesets, set `ungrouped = true` for both `resources_default` and `default_chunk`. You can also set `resources_default.place = pack` if you want the scheduler to pack jobs onto VMs instead of round-robin allocation of jobs. For more information on PBS job packing, see the official [PBS Professional OSS documentation](https://www.altair.com/pbs-works-documentation/).
 
 ## PBS Professional Configuration Reference
 
@@ -89,7 +89,7 @@ The following are the PBS Professional(PBS Pro) specific configuration options y
 | PBS Pro Options | Description |
 | --------------- | ----------- |
 | pbspro.slots                           | The number of slots for a given node to report to PBS Pro. The number of slots is the number of concurrent jobs a node can execute, this value defaults to the number of CPUs on a given machine. You can override this value in cases where you don't run jobs based on CPU but on memory, GPUs, etc.                                                               |
-| pbspro.slot_type                       | The name of type of 'slot' a node provides. The default is 'execute'. When a job is tagged with the hard resource  `slot_type=<type>`, that job runs *only* on the machine of same slot type. It allows you to create a different software and hardware configurations per node and ensure an appropriate job is always scheduled on the correct type of node.  |
+| pbspro.slot_type                       | The name of type of 'slot' a node provides. The default is 'execute'. When a job is tagged with the hard resource  `slot_type=<type>`, that job runs *only* on the machine of the same slot type. It allows you to create a different software and hardware configurations per node and ensure an appropriate job is always scheduled on the correct type of node.  |
 | pbspro.version                         | Default: '18.1.3-0'. This is currently the default version and *only* option to install and run. This is currently the default version and *only* option. In the future more versions of the PBS Pro software may be supported. |
 
 ::: moniker-end
@@ -182,7 +182,7 @@ Currently, disk size is hardcoded to `size::20g`. Here's an example of handling 
 
 ### Autoscale and Scalesets
 
-CycleCloud treats spanning and serial jobs differently in OpenPBS clusters. Spanning jobs will land on nodes that are part of the same placement group. The placement group has a particular platform meaning VirtualMachineScaleSet with SinglePlacementGroup=true) and CycleCloud will manage a named placement group for each spanned node set. Use the PBS resource `group_id` for this placement group name.
+CycleCloud treats spanning and serial jobs differently in OpenPBS clusters. Spanning jobs land on nodes that are part of the same placement group. The placement group has a particular platform meaning VirtualMachineScaleSet with SinglePlacementGroup=true) and CycleCloud manages a named placement group for each spanned node set. Use the PBS resource `group_id` for this placement group name.
 
 The `hpc` queue appends the equivalent of `-l place=scatter:group=group_id` by using native queue defaults.
 
