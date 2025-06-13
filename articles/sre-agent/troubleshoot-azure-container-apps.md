@@ -105,13 +105,20 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
 
     During this step, you create a new resource group specifically for your agent which is independent of the resource group used for your application.
 
+    In the *Project details* section, enter the following values:
+
     | Property | Value |
     |---|---|
     | Subscription | Select your Azure subscription. |
     | Resource group | Enter **my-sre-agent-group**. |
-    | Name | Enter **my-aca-sre-agent**. |
+
+    In the *Agent details* section, enter the following values:
+
+    | Property | Value |
+    |---|---|
+    | Agent name | Enter **my-aca-sre-agent**. |
     | Region | Select **Sweden Central**.<br><br>During preview, the SRE Agent is only available in the *Sweden Central* region, but an agent can monitor resources in any Azure region. |
-    | Choose role | Select **Contributor role**. |
+    | Run mode| Select **Review*.<br><br>When in *review mode*, the agent works on your behalf only with your approval. |
 
 1. In the *Managed resource groups* section, select the **Select resource groups** button.
 
@@ -125,13 +132,13 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
 
 1. Select **Create**.
 
+    A page with the message *Deployment is in progress* is displayed.
+
+    Once the deployment is complete, select **Chat with agent**.
+
 ## 3. Chat with your agent
 
 Your agent has access to any resource inside the resource groups associated with the agent. Use the chat feature to help you inquire about and resolve issues related to your resources.
-
-1. Go to the Azure portal, search for and select **SRE Agent**.
-
-1. Select **my-aca-sre-agent** from the list.
 
 1. In the chat box, give your agent the following command.
 
@@ -185,13 +192,18 @@ By introducing a typo into the container image tag, you bring the app down so th
 
     While every chat session is different, you should see a response that resembles the following response.
 
-    > The image reference for **my-container-app** is `mcr.microsoft.com/k8se/quickstart:latest1`, which is a Microsoft Container Registry (MCR) image.
+    > ⚠️ I found a potential issue with crs-aca-app:
     >
-    > **The tag `latest1` does not exist, causing the image pull failure.**
+    > * The container image specified is: `mcr.microsoft.com/k8se/quickstart:latest1`
     >
-    > You should update the image tag to a valid one, such as `latest`. Would you like me to update the container image to `mcr.microsoft.com/k8se/quickstart:latest` and redeploy the app?
+    > This image tag (`latest1`) looks unusual. The typical image tag is `latest`, not `latest1`. If this image does not exist in the registry, your container app will fail to pull and start the container, even though the provisioning state may show as "Succeeded" and the status as "Running" at the platform level.
+    >
+    > **Recommendation**:
+    > Check and update the container image reference for **crs-aca-app** to use a valid tag (such as `latest`) if `latest1` is not intentional or does not exist.
+    >
+    > Would you like help correcting the image tag or need to investigate further into logs or events for this app?
 
-1. In the chat box, respond with **yes** to approve the request to redeploy.
+1. In the chat box, respond with **yes** to approve the request to fix the problem.
 
     If your agent doesn't respond with a "yes or no" question, you can give your agent the following command and wait for a response.
 
