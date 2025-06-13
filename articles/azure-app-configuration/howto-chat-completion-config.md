@@ -20,7 +20,7 @@ Chat completion is an AI capability that enables models to generate conversation
 
 ## Create a chat completion configuration
 
-In this section, you will create a chat completion configuration in Azure Portal using the GPT-4o model as an example.
+In this section, you create a chat completion configuration in Azure portal using the GPT-4o model as an example.
 
  1. In Azure portal, navigate to your App configuration store. From the **Operations** menu, select **Configuration explorer** > **Create**, and then select **AI configuration**.
 
@@ -30,7 +30,7 @@ In this section, you will create a chat completion configuration in Azure Portal
     - **Model**: Select **gpt-4o**.
     - **Message**: Add a new message.
         - **Role**: Select **user**
-        - **Content**: Type "What is the capial of France?"
+        - **Content**: Type "What is the capital of France?"
     
     > [!div class="mx-imgBorder"]
     > ![Screen shot shows the create new AI configuration form](./media/create-ai-chat-completion-config.png)
@@ -39,13 +39,13 @@ In this section, you will create a chat completion configuration in Azure Portal
 
 ## Add model connection configuration
 
-You've successfully added your chat completion configuration named **ChatApp:Model**. In this section, you'll add the connection details for your model, including the endpoint and deployment name. If required by your authentication method, you can also specify an API key using a Key Vault reference.
+You have successfully added your chat completion configuration named **ChatApp:Model**. In this section, you add the connection details for your model, including the endpoint and deployment name. If required by your authentication method, you can also specify an API key using a Key Vault reference.
 
 > [!NOTE]
 > This tutorial demonstrates how to use chat completion configuration with an Azure OpenAI model. However, the chat completion configuration demonstrated in the tutorial can be applied to any AI model you choose to work with in your application.
 >
 
-1. Follow the [Get started with Azure OpenAI Service](/azure/ai-services/openai/overview#get-started-with-azure-openai-service) to create and deploy an Azure OpenAI service resource with a **gpt-4o** model.  Please note down the deployment name for later use.
+1. Follow the [Get started with Azure OpenAI Service](/azure/ai-services/openai/overview#get-started-with-azure-openai-service) to create and deploy an Azure OpenAI service resource with a **gpt-4o** model. Note down the deployment name for later use.
 
 1. In your Azure OpenAI resource, from the **Resource Management** menu, select **Keys and Endpoint** and copy the Azure OpenAI resource endpoint, it should follow the format: `https://<open-ai-resource-name>.openai.azure.com`. If using the API key for authentication, copy the API key as well.
 
@@ -62,6 +62,6 @@ You've successfully added your chat completion configuration named **ChatApp:Mod
     |----------------------------------|----------------------------------------------------------------|
     |  _ChatApp:AzureOpenAI:APIKey_  | _The Key Vault reference of your Azure OpenAI resource API key_  |
 
-1. Continue to the following instructions to implement the chat completion configuration into your application for the language or platform you are using.
+1. Continue to the following instructions to implement the chat completion configuration into your application for the language or platform you're using.
 
     - [.NET](./quickstart-chat-completion-dotnet.md)
