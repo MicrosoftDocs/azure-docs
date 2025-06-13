@@ -9,6 +9,7 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: As a DevOps engineer, I want to retrieve the current POP IP list for my Azure Content Delivery Network, so that I can configure IP access control lists and ensure that only valid requests reach my origin server for enhanced security.
 ---
 
 # Retrieve the current POP IP list for Azure Content Delivery Network

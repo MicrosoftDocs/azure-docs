@@ -9,6 +9,7 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: "As a cloud administrator, I want to configure multiple origins for an Azure CDN endpoint, so that I can ensure redundancy and improve reliability for my content delivery."
 ---
 
 # Azure CDN endpoint multi-origin
