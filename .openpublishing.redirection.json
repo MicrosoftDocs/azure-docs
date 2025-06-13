@@ -2411,12 +2411,12 @@
     },
     {
       "source_path_from_root": "/articles/vpn-gateway/gateway-sku-change.md",
-      "redirect_url": "/previous-versions/azure/vpn-gateway/gateway-sku-upgrade",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/vpn-gateway/gateway-sku-resize.md",
-      "redirect_url": "/previous-versions/azure/vpn-gateway/gateway-sku-upgrade",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
       "redirect_document_id": false
     },
     {
