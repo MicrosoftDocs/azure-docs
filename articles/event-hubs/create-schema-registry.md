@@ -1,9 +1,11 @@
 ---
-title: Create an Azure Event Hubs schema registry
-description: This article shows you how to create a schema registry in an Azure Event Hubs namespace.
+title: Create an Azure Event Hubs Schema Registry
+description: Azure Schema Registry provides a central repository for schemas for event-driven and messaging-centric apps. Learn how to create a schema registry.
 ms.topic: quickstart
-ms.date: 09/09/2022
+ms.date: 06/16/2025
 ms.custom: references_regions, mode-other
+#customer intent: As a developer, I want to learn how to implement Azure Schema Registry as a central repository to support event-driven and messaging-centric applications.
+
 ---
 
 # Quickstart: Create an Azure Event Hubs schema registry using Azure portal
@@ -14,8 +16,8 @@ This article shows you how to create a schema group with schemas in a schema reg
 
 > [!NOTE]
 > - The feature isn't available in the **basic** tier.
-> - Make sure that you are a member of one of these roles: **Owner**, **Contributor**, or **Schema Registry Contributor**. For details about role-based access control, see [Schema Registry overview](schema-registry-concepts.md#azure-role-based-access-control).
-> - If the event hub is in a **virtual network**, you won't be able to create schemas in the Azure portal unless you access the portal from a VM in the same virtual network. 
+> - Make sure that you're a member of one of these roles: **Owner**, **Contributor**, or **Schema Registry Contributor**. For more information, see [Azure role-based access control](schema-registry-concepts.md#azure-role-based-access-control).
+> - If the event hub is in a **virtual network**, you can't create schemas in the Azure portal unless you access the portal from a virtual machine in the same virtual network. 
 
 
 ## Prerequisites
