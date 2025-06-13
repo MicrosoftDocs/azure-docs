@@ -23,6 +23,8 @@ The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To
 
 To be updated as and when future versions are released. 
 
+## Linux extensions
+
 ### June 2025
 
 #### Extension name: Microsoft.SoftwareUpdateManagement.LinuxOsUpdateExtension 
