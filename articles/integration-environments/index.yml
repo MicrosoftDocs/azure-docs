@@ -28,6 +28,8 @@ landingContent:
             url: create-integration-environment.md
           - text: Create an application group
             url: create-application-group.md
+          - text: Monitor health and performance
+            url: monitor-resources-create-alerts.md
       - linkListType: reference
         links:
           - text: REST API
