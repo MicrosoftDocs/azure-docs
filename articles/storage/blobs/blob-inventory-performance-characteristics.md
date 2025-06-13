@@ -57,7 +57,7 @@ When generating inventory reports, opt for csv format if your use case doesn't r
 Instead of running inventory on the entire storage account, use a prefix match filter to generate an inventory report for specific subsets of your data.
 -	Include Prefix: This filter targets a set of containers or paths within a container. This approach helps narrow down the scope of your inventory report, making the process faster and more efficient.
 
-- Exclude Prefix: Use this filter to exclude some specific subset from it. This approach also helps narrow the scope of your inventory report. To learn more, see the articles/storage/blobs/blob-inventory.md#rule-filters.
+- Exclude Prefix: Use this filter to exclude some specific subset from it. This approach also helps narrow the scope of your inventory report. To learn more, see [Rule filters](blob-inventory.md#rule-filters)
 
 ### Select relevant fields
 Customize your inventory reports by selecting only the relevant fields you need. Doing this reduces the amount of data processed and exported, leading to quicker report generation, and easier analysis. To learn more about the inventory schema fields, see [Custom schema fields supported for blob inventory](blob-inventory.md#custom-schema-fields-supported-for-blob-inventory)

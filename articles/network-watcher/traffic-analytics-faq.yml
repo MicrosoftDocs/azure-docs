@@ -7,7 +7,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 06/03/2025
+  ms.date: 06/13/2025
 title: Traffic analytics frequently asked questions (FAQ)
 summary: |
   This article provides answers to the most frequently asked questions about traffic analytics capability of Azure Network Watcher.  
@@ -36,14 +36,19 @@ sections:
           In the resource selection dropdown in the traffic analytics dashboard, the resource group of the **Virtual Network** resource must be selected, not the resource group of the virtual machine or network security group.  
 
       - question: |
+          Why do some resources appear as "Unknown" in traffic analytics?
+        answer: |
+          Traffic analytics performs a resource discovery scan every 6 hours to identify new VMs, NICs, virtual networks, and subnets. When a new VM or NIC is created after the most recent discovery cycle, and flow data is collected before the next discovery, traffic analytics can't yet associate the traffic with a known resource. As a result, those resources are temporarily labeled as *unknown* in the analytics view.
+
+      - question: |
+          Can I restrict public access to the data collection endpoint (DCE) resource created by traffic analytics?
+        answer: |
+          Yes, you can disable public access to restrict public inbound traffic to the DCE resource.
+
+      - question: |
           Can I use an existing workspace?
         answer: |
           Yes. If you select an existing workspace, make sure that it was migrated to the new query language. If you don't want to upgrade the workspace, you need to create a new one. For more information about Kusto Query Language (KQL), see [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
-
-      - question: |
-          Why do some resources appear as **Unknown** in traffic analytics?
-        answer: |
-          Traffic analytics performs a resource discovery scan every 6 hours to identify new VMs, NICs, virtual networks, and subnets. When a new VM or NIC is created after the most recent discovery cycle, and flow data is collected before the next discovery, traffic analytics can't yet associate the traffic with a known resource. As a result, those resources are temporarily labeled as *unknown* in the analytics view.
 
       - question: |
           Can my Azure storage account be in one subscription and my Log Analytics workspace be in a different subscription?

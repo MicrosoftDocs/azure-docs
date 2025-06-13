@@ -12,6 +12,7 @@ ms.topic: tutorial
 ms.date: 03/31/2025
 ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As a website owner, I want to add a custom domain to my content delivery network endpoint so that my users can use my custom domain to access my content.
+# Customer intent: As a website owner, I want to associate a custom domain with my content delivery network endpoint, so that my users can access my content using my own domain name instead of a default one.
 ---
 
 # Tutorial: Add a custom domain to your endpoint

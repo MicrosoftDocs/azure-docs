@@ -11,6 +11,7 @@ ms.topic: overview
 ms.date: 03/31/2025
 ms.custom: mvc
 ROBOTS: NOINDEX
+# Customer intent: "As a web developer, I want to implement a content delivery network, so that I can improve the performance and user experience of my applications by delivering high-bandwidth content efficiently to end users."
 ---
 
 # What is a content delivery network on Azure?

@@ -112,4 +112,4 @@ Following steps describe how you can set the blob tier to Archive using an Azure
 
 ## Next steps
 
--  Learn how to address the [common data tiering scenarios with lifecycle policy rules](../storage/blobs/lifecycle-management-overview.md#examples-of-lifecycle-policies)
+-  Learn how to address the [common data tiering scenarios with lifecycle policy rules](../storage/blobs/lifecycle-management-policy-access-tiers.md)
