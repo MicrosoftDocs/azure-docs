@@ -16,7 +16,7 @@ Slurm is a highly configurable open source workload manager. For more informatio
 > Starting with CycleCloud 8.4.0, the Slurm integration was rewritten to support new features and functionality. For more information, see [Slurm 3.0](slurm-3.md) documentation.
 
 ::: moniker range="=cyclecloud-7"
-To enable Slurm on a CycleCloud cluster, modify the "run_list" in the definiton of cluster's configuration section. A Slurm cluster has two main parts: the master (or scheduler) node, which runs the Slurm software on a shared file system, and the execute nodes, which mount that file system and run the submitted jobs. For example, a simple cluster template snippet may look like:
+To enable Slurm on a CycleCloud cluster, modify the "run_list" in the definition of cluster's configuration section. A Slurm cluster has two main parts: the master (or scheduler) node, which runs the Slurm software on a shared file system, and the executed nodes, which mount that file system and run the submitted jobs. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster custom-slurm]
@@ -47,7 +47,7 @@ To enable Slurm on a CycleCloud cluster, modify the "run_list" in the definiton 
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a Slurm cluster are the 'scheduler' node which provides a shared filesystem on which the Slurm software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
+Slurm can easily be enabled on a CycleCloud cluster by modifying the 'run_list', available in the configuration section of your cluster definition. The two basic components of a Slurm cluster are the 'scheduler' node which provides a shared filesystem on which the Slurm software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and executed the jobs submitted. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster custom-slurm]
@@ -92,12 +92,12 @@ The Slurm cluster deployed in CycleCloud contains a script that facilitates the 
 ```
 
 > [!NOTE]
-> For CycleCloud versions prior to 7.9.10, the `cyclecloud_slurm.sh` script is located in _/opt/cycle/jetpack/system/bootstrap/slurm_.
+> For CycleCloud versions before 7.9.10, the `cyclecloud_slurm.sh` script is located in _/opt/cycle/jetpack/system/bootstrap/slurm_.
 
 > [!IMPORTANT]
 > If you make any changes that affect the VMs for nodes in an MPI partition (such as VM size, image, or cloud-init), the nodes **must** all be terminated first.
 > The `remove_nodes` command prints a warning in this case, but it doesn't exit with an error.
-> If there're running nodes, you get an error of `This node doesn't match existing scaleset attribute` when new nodes are started.
+> If there are running nodes, you get an error of `This node doesn't match existing scaleset attribute` when new nodes are started.
 
 ::: moniker-end
 
@@ -209,13 +209,13 @@ Add the next attributes to the `Configuration` section:
 
 ### Autoscale
 
-CycleCloud uses Slurm's [Elastic Computing](https://slurm.schedmd.com/elastic_computing.html) feature. To debug autoscale issues, there're a few logs on the scheduler node you can check. The first is making sure that the power save resume calls are being made by checking `/var/log/slurmctld/slurmctld.log`. You should see lines like:
+CycleCloud uses Slurm's [Elastic Computing](https://slurm.schedmd.com/elastic_computing.html) feature. To debug autoscale issues, there are a few logs on the scheduler node you can check. The first is making sure that the power save resume calls are being made by checking `/var/log/slurmctld/slurmctld.log`. You should see lines like:
 
 ``` bash
 [2019-12-09T21:19:03.400] power_save: pid 8629 waking nodes htc-1
 ```
 
-The other log to check is `/var/log/slurmctld/resume.log`. If the resume step is failing, there's `/var/log/slurmctld/resume_fail.log`. If there're messages about unknown or invalid node names, make sure you haven't added nodes to the cluster without next the steps in the "Making Cluster Changes" section above.
+The other log to check is `/var/log/slurmctld/resume.log`. If the resume step is failing, there's `/var/log/slurmctld/resume_fail.log`. If there are messages about unknown or invalid node names, ensure nodes aren't added to the cluster without next the steps in the "Making Cluster Changes" section overhead.
 
 ## Slurm Configuration Reference
 
