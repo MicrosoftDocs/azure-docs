@@ -16,7 +16,7 @@ Slurm is a highly configurable open source workload manager. For more informatio
 > Starting with CycleCloud 8.4.0, the Slurm integration was rewritten to support new features and functionality. For more information, see [Slurm 3.0](slurm-3.md) documentation.
 
 ::: moniker range="=cyclecloud-7"
-Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list", in the configuration section of your cluster definition. A Slurm cluster has two main parts: the master (or scheduler) node, which runs the Slurm software on a shared file system, and the execute nodes, which mount that file system and run the submitted jobs. For example, a simple cluster template snippet may look like:
+To enable Slurm on a CycleCloud cluster, modify the "run_list" in the definiton of cluster's configuration section. A Slurm cluster has two main parts: the master (or scheduler) node, which runs the Slurm software on a shared file system, and the execute nodes, which mount that file system and run the submitted jobs. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster custom-slurm]
@@ -78,7 +78,7 @@ Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list" 
 ::: moniker-end
 ## Editing Existing Slurm Clusters
 
-Slurm clusters running in CycleCloud versions 7.8 and later implement an updated version of the autoscaling APIs that allows the clusters to utilize multiple nodearrays and partitions. To facilitate this functionality in Slurm, CycleCloud prepopulates the execute nodes in the cluster. Because of the prepopulation, you need to run a command on the Slurm scheduler node after making any changes to the cluster, such as autoscale limits or VM types.
+Slurm clusters running in CycleCloud versions 7.8 and later implement an updated version of the autoscaling APIs that allows the clusters to utilize multiple nodearrays and partitions. To facilitate this functionality in Slurm, CycleCloud prepopulates the executed nodes in the cluster. Because of the prepopulation, you need to run a command on the Slurm scheduler node after making any changes to the cluster, such as autoscale limits or VM types.
 
 ### Making Cluster Changes
 
@@ -195,7 +195,7 @@ To override the UID and GID, click the edit button for both the `scheduler` node
 And the `execute` nodearray:
 ![Edit Nodearray](~/articles/cyclecloud/images/slurmnodearraytab.png "Edit nodearray")
 
- and add the next attributes to the `Configuration` section:
+Add the next attributes to the `Configuration` section:
 ![Edit Configuration](~/articles/cyclecloud/images/slurmnodearrayedit.png "Edit configuration")
 
 ``` ini
@@ -215,7 +215,7 @@ CycleCloud uses Slurm's [Elastic Computing](https://slurm.schedmd.com/elastic_co
 [2019-12-09T21:19:03.400] power_save: pid 8629 waking nodes htc-1
 ```
 
-The other log to check is `/var/log/slurmctld/resume.log`. If the resume step is failing, there is `/var/log/slurmctld/resume_fail.log`. If there're messages about unknown or invalid node names, make sure you haven't added nodes to the cluster without next the steps in the "Making Cluster Changes" section above.
+The other log to check is `/var/log/slurmctld/resume.log`. If the resume step is failing, there's `/var/log/slurmctld/resume_fail.log`. If there're messages about unknown or invalid node names, make sure you haven't added nodes to the cluster without next the steps in the "Making Cluster Changes" section above.
 
 ## Slurm Configuration Reference
 
@@ -223,14 +223,14 @@ The next are the Slurm specific configuration options you can toggle to customiz
 
 | Slurm Specific Configuration Options | Description |
 | ------------------------------------ | ----------- |
-| slurm.version                        | Default: '18.08.7-1'. The Slurm version to install and run. This is currently the default and *only* option. In the future more versions of the Slurm software may be supported. |
+| slurm.version                        | Default: '18.08.7-1'. This sets the Slurm version to install and run. Right now, it’s the default and *only* option. More versions may be supported in the future. |
 | slurm.autoscale                      | Default: 'false'. A per-nodearray setting that controls whether Slurm should automatically stop and start nodes in this nodearray. |
-| slurm.hpc                            | Default: 'true'.A per-nodearray setting that controls whether nodes in the nodearray will be placed in the same placement group. Primarily used for nodearrays using VM families with InfiniBand. It only applies when slurm.autoscale is set to 'true'. |
+| slurm.hpc                            | Default: 'true'.A per-nodearray setting that controls whether nodes in the nodearray are placed in the same placement group. Primarily used for nodearrays using VM families with InfiniBand. It only applies when slurm.autoscale is set to 'true'. |
 | slurm.default_partition              | Default: 'false'. A per-nodearray setting that controls whether the nodearray should be the default partition for jobs that don't request a partition explicitly. |
 | slurm.dampen_memory                  | Default: '5'. The percentage of memory to hold back for OS/VM overhead. |
 | slurm.suspend_timeout                | Default: '600'. The amount of time (in seconds) between a suspend call and when that node can be used again. |
 | slurm.resume_timeout                 | Default: '1800'. The amount of time (in seconds) to wait for a node to successfully boot. |
-| slurm.install                        | Default: 'true'.  Determines if the Slurm is installed at node boot ('true'). If Slurm is installed in a custom image this should be set to 'false' (proj version 2.5.0+). |
+| slurm.install                        | Default: 'true'.  Determines if the Slurm is installed at node boot ('true'). If Slurm is installed in a custom image, this configuration option should be set to 'false' (proj version 2.5.0+). |
 | slurm.use_pcpu                       | Default: 'true'.  A per-nodearray setting to control scheduling with hyperthreaded vcpus. Set to 'false' to set CPUs=vcpus in cyclecloud.conf. |
 | slurm.user.name                      | Default: 'slurm'. The username for the Slurm service to use. |
 | slurm.user.uid                       | Default: '11100'. The User ID to use for the Slurm user. |
