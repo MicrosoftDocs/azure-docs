@@ -53,6 +53,9 @@ Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enable
 
 While the Analytics tier is most appropriate for continuous, real-time threat detection, the Microsoft Sentinel data lake is well-suited for ad-hoc querying and search of secodnary security data that isn't frequently needed or accessed on demand. Data lake offers ingestion and storage at a significantly reduced cost. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
+>[!NOTE]
+>The Microsoft Sentinel data lake is currently in Public Preview.
+
 ## Optimize Log Analytics costs with dedicated clusters
 
 If you ingest at least 100 GB into your Microsoft Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 100 GB or more. For more information, see [Simplified pricing tier for dedicated cluster](enroll-simplified-pricing-tier.md#simplified-pricing-tiers-for-dedicated-clusters).
