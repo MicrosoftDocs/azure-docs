@@ -1,10 +1,10 @@
 ---
-title: When to use Auxiliary Logs in Microsoft Sentinel
-description: Learn what log sources might be appropriate for Auxiliary Log or Basic Log ingestion and what are the attributes to look for to decide about other sources.
+title: When to use data lake in Microsoft Sentinel
+description: Learn what log sources might be appropriate for the Microsoft Sentinel data lake and what are the attributes to look for to decide about other sources.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 03/31/2025
+ms.date: 06/14/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -14,11 +14,13 @@ ms.collection: usx-security
 #Customer intent: As a security analyst, I want to ingest high-volume, verbose logs into a cost-effective storage solution so that I can enhance my threat hunting and incident investigation capabilities.
 
 ---
-# Log sources to use for Auxiliary Logs ingestion
+# Log sources to use for the Microsoft Sentinel data lake
 
-This article highlights log sources to consider configuring as Auxiliary Logs (or Basic Logs) when they're stored in Log Analytics tables. Before choosing a log type for which to configure a given table, do the research to see which is most appropriate. For more information about data categories and log data plans, see [Log retention plans in Microsoft Sentinel](log-plans.md).
+This article highlights log sources to consider configuring as Lake only when enabling a connector or when they're stored in Analytics tier. Before choosing a tier for which to configure a given table, do the research to see which is most appropriate. For more information about data categories and data tiers, see [Data tiers in Microsoft Sentinel](log-plans.md).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+>[!NOTE]
+>The Microsoft Sentinel data lake is currently in Public Preview.
 
 ## Storage access logs for cloud providers
 
