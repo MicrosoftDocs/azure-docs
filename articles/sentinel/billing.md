@@ -6,7 +6,7 @@ author: austinmccollum
 ms.author: austinmc
 ms.custom: subject-cost-optimization
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 06/14/2025
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -21,7 +21,7 @@ appliesto:
 
 As you plan your Microsoft Sentinel deployment, you typically want to understand its pricing and billing models to optimize your costs. Microsoft Sentinel's security analytics data is stored in an Azure Monitor Log Analytics workspace. Billing is based on the volume of data *analyzed* in Microsoft Sentinel and *stored* in the Log Analytics workspace. The cost of both is combined in a simplified pricing tier. Learn more about the [simplified pricing tiers](#simplified-pricing-tiers) or learn more about [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/) in general.
 
-Estimate your costs before you add any resources to your Microsoft Sentinel workspace by finding Microsoft Sentinel in the **Security** section of the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+To help estimate your Microsoft Sentinel expected costs, [contact a Security sales specialist](https://info.microsoft.com/ww-landing-microsoft-defender-contact-me.html) for more information on pricing or to request a quote.
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs and understand the billing for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
@@ -31,26 +31,11 @@ This article is part of the [Deployment guide for Microsoft Sentinel](deploy-ove
 
 ## Free trial
 
-Enable Microsoft Sentinel on an Azure Monitor Log Analytics workspace and the first 10 GB/day is free for 31 days. The cost for both Log Analytics data ingestion and Microsoft Sentinel analysis charges up to the 10 GB/day limit are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
+Enable Microsoft Sentinel on an Azure Monitor Log Analytics workspace and the first 10 GB/day ingested using the Analytics logs plan is free for 31 days. The cost for both Log Analytics data ingestion and Microsoft Sentinel analysis charges up to the 10 GB/day limit are waived during the 31-day trial period. This free trial is subject to a 20 workspace limit per Azure tenant.
 
-Usage beyond these limits is charged per the pricing listed on the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page. Charges related to extra capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial.
+See [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page for information on how usage beyond these limits is charged. Charges related to extra capabilities for [automation](automation.md) and [bring your own machine learning](bring-your-own-ml.md) are still applicable during the free trial, as well as any Sentinel data lake related charges.
 
-During your free trial, find resources for cost management, training, and more on the **News & guides > Free trial** tab in Microsoft Sentinel. This tab also displays details about the dates of your free trial, and how many days left until the trial expires.
-
-## Identify data sources and plan costs accordingly
-
-Identify the data sources you're ingesting or plan to ingest to your workspace in Microsoft Sentinel. Microsoft Sentinel allows you to bring in data from one or more data sources. Some of these data sources are free, and others incur charges. For more information, see [Free data sources](#free-data-sources).
-
-## Estimate costs and billing before using Microsoft Sentinel
-
-Use the [Microsoft Sentinel pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-sentinel) to estimate new or changing costs. Enter *Microsoft Sentinel* in the Search box and select the resulting Microsoft Sentinel tile. The pricing calculator helps you estimate your likely costs based on your expected data ingestion and retention.
-
-For example, enter the GB of daily data you expect to ingest in Microsoft Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
-
-- Microsoft Sentinel: Analytics logs and auxiliary/basic logs
-- Azure Monitor: Retention
-- Azure Monitor: Data Restore
-- Azure Monitor: Search Queries and Search Jobs
+During your free trial, find resources for cost management, training, and more on the [**News & guides > Free trial**](https://portal.azure.com/#view/Microsoft_Azure_Security_Insights/MainMenuBlade/~/NewsAndGuides) tab in Microsoft Sentinel on the Azure portal. This tab also displays details about the dates of your free trial, and how many days left until the trial expires.
 
 ## Understand the full billing model for Microsoft Sentinel
 
@@ -60,11 +45,11 @@ Microsoft Sentinel runs on Azure infrastructure that accrues costs when you depl
 
 ### How you're charged for Microsoft Sentinel
 
-Pricing is based on the types of logs ingested into a workspace. Analytics logs typically make up most of your high value security logs and support all data types offering full analytics, alerts and no query limits. Auxiliary logs and Basic logs tend to be verbose with low security value. It's important to note that billing is done per workspace on a daily basis for all log types and tiers.
+Pricing is based on the tier data is ingested into. For more infroamtion on tiers and plans, see [Data tiers in Microsoft Sentinel](log-plans.md).
 
-#### Analytics logs
+#### Analytics tier
 
-There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commitment Tiers**.
+There are two ways to pay for the analytics tier: **Pay-As-You-Go** and **Commitment Tiers**.
 
 - **Pay-As-You-Go** is the default model, based on the actual data volume stored and optionally for data retention beyond 90 days. Data volume is measured in GB (10<sup>9</sup> bytes).
 
@@ -78,21 +63,19 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
 <a name=auxiliary-logs-and-basic-logs></a>
 
-#### Auxiliary logs
+#### Data lake tier
 
-Auxiliary logs are a super-low-cost option for ingesting high-volume, low-value data sources. They are charged at a flat, low rate per GB. They have the following limitations, among others:
+The data lake tier is a cost-effective option for ingesting secondary security data. They are charged at a flat, low rate per GB. It provides querying and jobs scheduling capabilities and once enabled, mirrors all data available in the Analytics tier.
 
-- Reduced querying capabilities
-- 30-day interactive retention
-- No support for scheduled alerts
+See [Data lake tier](link-needed) for more infromation.
 
-This log type is best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see:
-- [Log retention plans in Microsoft Sentinel](log-plans.md)
-- [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md)
+The data lake tier incurs charges based on usage of various data like capabilities. 
+- **Data lake ingestion** charges are incured per GB of data ingested for tables in Lake only mode.
+- **Data lake storage** charges are incurred per GB per month for any data stored beyond the interactive retention period or in Lake only mode.
+- **Data lake query** charges are incured per GB of data analyzed using data lake exploration KQL queries, KQL jobs or Search.
+- **Advanced data insights** charges are incured per compute hour used when using data lake exploration notebook sessions or running data lake exploration notebook jobs. Compute hours are calculated by multiplying the number of cores in the pool selected for the notebook with the amount of time a session was active or a job was running.
 
-Basic logs are a similar option, but less cost-effective.
-
-To learn more about the difference between **interactive retention** and **long-term retention** (formerly known as archive), see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-archive).
+For customers that have not onboarded to the Sentinel data lake and are currently using Axuiliary or Basic logs, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-archive) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for relevant information.
 
 ### Simplified pricing tiers
 
@@ -108,7 +91,7 @@ Combining the pricing tiers offers a simplification to the overall billing and c
 
 Billable meters are the individual components of your service that appear on your bill and are shown in Microsoft Cost Management. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Microsoft Sentinel costs. There's a separate line item for each meter.
 
-To see your Azure bill, select **Cost Analysis** in the left navigation of **Cost Management**. On the **Cost analysis** screen, find and select the **Invoice details** from **All views**.
+To see your Azure bill, select **Cost Analysis** in the left navigation of **Cost Management**. On the **Cost analysis** screen, find and select the **Invoice details** from **All views**. To understand the access level required to view billing information, see [Manage access to billing information for Azure](/azure/cost-management-billing/manage/manage-billing-access).
 
 The costs shown in the following image are for example purposes only. They're not intended to reflect actual costs. Starting July 1, 2023, legacy pricing tiers are prefixed with **Classic**. 
 
