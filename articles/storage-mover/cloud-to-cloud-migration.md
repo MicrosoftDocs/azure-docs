@@ -39,20 +39,27 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
     :::image type="content" source="media/cloud-to-cloud-migration/sample-migration-sml.png" alt-text="A screen capture showing the Storage Mover Overview page with the Multicloud Migration tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/sample-migration.png":::
 
-1. Within the **Multicloud migration** tab, select **Create multicloud connector** to open the **Add AWS connector** page. 
+1. Within the **Multicloud migration** tab, select **Create multicloud connector** to open the **Add AWS connector** page.
+
 1. In the **Basics** tab:
 
     - From the drop-down lists located in the **Project Details** section, select the subscription and resource group in which you're creating your connector resource. Optionally, you can create a new resource group by selecting **Create new**.
+    
+    > [!TIP]
+    > You can filter subscriptions and resource groups by entering a value in the **Filter items...** fields within the respectective drop-down list. Only resources with names containing the specified value will be displayed.
+      
     - In the **Connector details** section, provide a value for the **Connector name** field. From the **Azure region** drop-down list, select the region where you want to create and save your connector resource.
     - In the **AWS account** section, select the appropriate AWS account type and provide the AWS account ID from which your connector is reading resources.
     
-    Verify all values and select **Next** to continue.
+    Verify all values are correct and select **Next** to continue to the **Solutions** tab as shown in the following image.
 
     :::image type="content" source="media/cloud-to-cloud-migration/add-aws-connector-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Basics tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-aws-connector.png":::
 
 1. Within the **Solutions** tab:
     - Add an **Inventory** solution, making sure that `AWS Services: S3` is selected.
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-inventory-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Solutions tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-connector-inventory.png":::
     - Add a **Storage - Data Management** solution.
+    
 1. Within the **Authentication template** tab, follow the instructions presented to create the *AWS CloudFormation Stack* from the AWS portal.
 1. Finally, select **Review + Create** to create the connector.
 
