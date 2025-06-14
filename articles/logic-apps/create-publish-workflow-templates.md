@@ -25,6 +25,18 @@ Not only can you kickstart development with workflow templates, you can create w
 
   If you don't have this resource, see [Create an example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md).
 
+- Screenshots that show a read-only preview for the workflow template with **.png** file name extension. These preview images for template appear on the template overview pane in the templates gallery.
+
+  To create these images, follow these steps:
+
+  1. In the [Azure portal](https://portal.azure.com), open the Standard logic app and source workflow in the designer.
+
+  1. Set up the workflow to create two screenshots: one version that works with a web browser's light theme and another version that works with a web browser's dark theme.
+
+  1. Create the screenshots using your preferred screen capture tool. Don't include too much whitespace around the workflow.
+
+  1. Save each image using the **.png** file name extension and a name that follows the [Names and style conventions](#names-style-conventions), for example, **<*image-name*>-light.png** and **<*image-name*>-dark.png**.
+
 ## Limitations
 
 Workflow templates currently support only Standard logic apps.
@@ -89,24 +101,27 @@ Next, choose the source workflow definition to use for your template.
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
+   | **Workflow name** | Yes | <*JSON-workflow-name*> | The JSON name for the workflow that can use only lowercase letters, numbers, and hyphens and which you can rename only one time. |
+   | **Workflow display name** | Yes | <*workflow-friendly-name*> | The friendly name that appears in the user interface. |
+   | **State** | Yes | **Stateful** or **Stateless** | Whether to save and store workflow run history, operation inputs, and operation outputs, by default. |
+   | **Summary** | Yes | <*short-description*> | A short high-level summary about purpose for the template. |
+   | **Description** | No | <*detailed-description*> | A description with more detailed information about the template. |
+   | **Prerequisites** | No | <*prerequisites*> | Any requirements that you need before you can use the template. |
 
-Workflow name (Can rename only once. Lowercase letters, numbers, and hyphens only)
-Workflow display name 
-State (Stateful, Stateless)
-Trigger
-Summary
-Description (optional)
-Prerequisites (optional)
-Light mode image
-Dark mode image
+1. In the **Workflow images** section, provide the workflow preview images to use for the template overview pane in the templates gallery. This pane includes other template information.
 
+   | Workflow image | Description |
+   |----------------|-------------|
+   | **Light mode image** | The light-themed preview image for your template. |
+   | **Dark mode image** | The dark-themed preview image for your template. |
+
+1. When you're done, select **Save**.
 
 ### [Manual](#tab/manual)
 
+For the manual approach to create a template, you need to create a template package. 
 
----
-
-## What does a template package include?
+#### What is in a template package?
 
 The following table describes the required and optional files in a template package:
 
@@ -122,7 +137,7 @@ The following table describes the required and optional files in a template pack
 
 You can also include any other files to maintain and support your template, for example, files with test or sample data.
 
-## Create a template package folder
+#### Create a template package folder
 
 - Before you create the template package folder, get familiar with [Names and style conventions](#names-and-style-conventions).
 
@@ -134,7 +149,7 @@ You can also include any other files to maintain and support your template, for 
 
 - To correctly register your template package folder, you must add the folder name to the [repository's root-level manifest.json file](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
 
-## Create a workflow.json file
+#### Create a workflow.json file
 
 The **workflow.json** file contains the underlying definition for a workflow in JSON format. To create the **workflow.json** file, you need to copy and save your workflow definition as a file named **workflow.json**.
 
@@ -184,29 +199,6 @@ For example:
 
 For more information about the connector ID, see [Find the connector ID](#find-connector-id).
 
-## Create a workflow template image
-
-In the Azure portal, each workflow template has an overview pane in the workflow templates gallery. This pane includes a read-only preview image for the workflow that the template creates plus other template information.
-
-To create this preview image, follow these steps:
-
-1. In the designer, set up your workflow for creating two screenshots.
-
-   You need to create a version each for the browser light theme and dark theme.
-
-1. Create the workflow screenshots using your preferred screen capture tool. Don't include too much whitespace around the workflow.
-
-1. Save each image using the **.png** file name extension and any name that you want, following the [Names and style conventions](#names-style-conventions).
-
-1. In the **manifest.json** file for your workflow template package, add the same image names to the **`images`** section without the **.png** file name extension, for example:
-
-   ```json
-   "images": {
-       "dark": "workflow-dark",
-       "light": "workflow-light"
-   }
-   ```
-
 ### Create a manifest.json file
 
 The **manifest.json** file describes the relationship between a workflow and related components. Currently, you need to manually create this file, or you can repurpose the **manifest.json** file from an existing prebuilt template in the [Azure Logic Apps workflow template repository in GitHub](https://github.com/Azure/LogicAppsTemplates). As you create the **manifest.json** file, make sure to review the [names and style conventions](#names-and-style-conventions).
@@ -229,6 +221,14 @@ The following table describes the attributes in the **manifest.json** file:
 | **`connections`** | Yes, but can be empty if none exist. | <*connections-array*> | The connections to create using the workflow template. Each connection has the following properties: <br><br>-**`connectorId`**: The connector ID must have the suffix, **`_#workflowname#`**. Use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<connector-ID>_#workflowname#`** <br><br>To find the connector ID, see [Find the connector ID](#find-connector-id). <br><br>- **`kind`**: The connector's runtime host type, which is either **`inapp`** for built-in operations and service provider connectors or **`shared`** for managed, Azure-hosted connectors. In the connectors gallery, built-in operations and service provider connectors are labeled as **In App**, while managed connectors are labeled as **Shared**. |
 | **`featuredConnections`** | No | <*featured-connections-array*> | By default, the template gallery shows icons for the prebuilt operations and connectors in Azure Logic Apps used by each template. To include icons for any other operations, you can use the **`featuredConnections`** attribute. Each operation must have the following attributes: <br><br>- **`kind`**: The operation kind <br><br>- **`type`**: The operation type <br><br>To find these values, see [Find the operation kind and type for featuredConnections section](#find-featured-connections-operation-properties). |
 
+In the **manifest.json** file for your workflow template package, add the same image names to the **`images`** section without the **.png** file name extension, for example:
+
+   ```json
+   "images": {
+       "dark": "workflow-dark",
+       "light": "workflow-light"
+   }
+   ```
 <a name="find-connector-id"></a>
 
 ## Find the connector ID
@@ -342,6 +342,8 @@ To publish your template to the templates gallery in the Azure portal, set up Gi
    1. Wait for the Azure Logic Apps team to review your pull request.
 
    For more information, see [Creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
+
+---
 
 <a name="names-style-conventions"></a>
 
