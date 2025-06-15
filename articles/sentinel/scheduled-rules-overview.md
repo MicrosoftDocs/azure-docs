@@ -184,9 +184,13 @@ The threshold can also be set to a maximum number of results, or an exact number
 
 There are two ways to handle the grouping of **events** into **alerts**:
 
-- **Group all events into a single alert:** This is the default. The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** explained in the previous section. This single alert summarizes all the events returned in the query results.
+- **Group all events into a single alert:** This is the default. The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** explained in the previous section. This single alert summarizes all the events returned in the query results. In this mode, the alert returns a query that allows you to see all the events that triggered the alert. You can drill down into the query results to see the individual events.
 
-- **Trigger an alert for each event:** The rule generates a unique alert for each event (result) returned by the query. This mode is useful if you want events to be displayed individually, or if you want to group them by certain parameters&mdash;by user, hostname, or something else. You can define these parameters in the query. |
+    :::image type="content" source="./media/scheduled-rules-overview/single-alert.png" alt-text="Screenshot of sample results for single alert mode showing a query.":::
+
+- **Trigger an alert for each event:** The rule generates a unique alert for each event (result) returned by the query. This mode is useful if you want events to be displayed individually, or if you want to group them by certain parameters&mdash;by user, hostname, or something else. You can define these parameters in the query. In this mode, the alert returns a base64 encoded result in the query area. Copy and run this output in Log Analytics to decode the base64 and show the original event.
+
+    :::image type="content" source="./media/scheduled-rules-overview/per-event.png" alt-text="Screenshot of sample results for trigger an alert for each event mode showing a base64 encoded query.":::
 
 Analytics rules can generate up to 150 alerts. If **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns *more than 150 events*, the first 149 events will each generate a unique alert (for 149 alerts), and the 150th alert will summarize the entire set of returned events. In other words, the 150th alert is what would have been generated if **Event grouping** had been set to **Group all events into a single alert**.
 
