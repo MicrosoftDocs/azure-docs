@@ -64,7 +64,7 @@ To modify the storage replication type, follow these steps:
 > You can't modify the storage replication type after the vault is set up and contains backup items. If you want to do this, you need to re-create the vault.
 >
 
-## Configure Recovery Services vault to save passphrase to Recovery Services vault
+## Configure Recovery Services vault to save passphrase to Key Vault
 
 Azure Backup using the Recovery Services agent (MARS) allows you to back up file or folder and system state data to Azure Recovery Services vault. This data is encrypted using a passphrase provided during the installation and registration of the MARS agent. This passphrase is required to retrieve and restore the backup data and needs to be saved in a secure external location, such as Azure Key Vault.
 
