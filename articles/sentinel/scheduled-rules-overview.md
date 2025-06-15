@@ -192,11 +192,11 @@ Analytics rules can generate up to 150 alerts. If **Event grouping** is set to *
 
 The *Query* section of the alert is different in each of these two modes. In the **Group all events into a single alert** mode, the the alert returns a query that allows you to see all the events that triggered the alert. You can drill down into the query results to see the individual events. In the **Trigger an alert for each event** mode,  the alert returns a base64 encoded result in the query area. Copy and run this output in Log Analytics to decode the base64 and show the original event.
 
-#### [Event grouping](#tab/event-grouping)
+#### [Single alert](#tab/event-grouping)
 
 :::image type="content" source="./media/scheduled-rules-overview/single-alert.png" alt-text="Screenshot of sample results for single alert mode showing a query.":::
 
-#### [Trigger an alert for each event](#tab/trigger-alert-per-event)
+#### [Alert for each event](#tab/trigger-alert-per-event)
 
 :::image type="content" source="./media/scheduled-rules-overview/per-event.png" alt-text="Screenshot of sample results for trigger an alert for each event mode showing a base64 encoded query.":::
 
