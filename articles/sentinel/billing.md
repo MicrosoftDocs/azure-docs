@@ -78,7 +78,7 @@ The data lake tier incurs charges based on usage of various data like capabiliti
 Once onboarded, usage from Microsoft Sentinel workspaces will begin to be billed through the above described meters rather than existing long-term retention (formerly known as Archive), search or auxiliary logs ingestion meters.
 
 >[!IMPORTANT]
->While in Public Preview, once onboarded to the Microsoft Sentinel data lake, billing through new meters will be billed at the respective meters' list rate. Pricing from previous meters does not carry over. For more details on pricing, see [Microsoft Sentinel pricing].(https://azure.microsoft.com/pricing/details/microsoft-sentinel/)
+>While in Public Preview, once onboarded to the Microsoft Sentinel data lake, billing through new meters will be billed at the respective meters' list rate. Pricing from previous meters does not carry over. For more details on pricing, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/)
 
 For customers that have not onboarded to the Sentinel data lake and are currently using Axuiliary or Basic logs, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-archive) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for relevant information.
 
