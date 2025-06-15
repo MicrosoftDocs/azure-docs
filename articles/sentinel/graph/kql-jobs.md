@@ -31,23 +31,24 @@ Storage in the analytics tier incurs higher billing rates than in the lake tier.
 
 When promoting data to the analytics tier, make sure that the destination workspace is visible in the Advance hunting query editor. You can only query connected workspaces in the Advanced hunting query editor. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace)
 
-<<<< Create a job from the jobs page or from a KQL query tab- waiting for final UX>>>>
+You can create a job by selecting the **Create job** button a KQL query tab or directly from the **Jobs** management page or by. For more information on the Jobs management page, see [Manage jobs in the Microsoft Sentinel data lake](manage-jobs.md).
+
 To create jobs to run on a schedule or on-demand, follow the steps below:
 
 1. Select the **Create job** button in the upper right corner of the query editor. 
-
+    
     :::image type="content" source="media/kql-jobs/create-a-job.png" alt-text="A screenshot showing the create job button." lightbox="media/kql-jobs/create-a-job.png":::
 
-1. Enter the following details for the job, then select **Next**:
-
-    1. **Job name**: A unique name for the job.            
-    1. **Job Description**: An optional description of the job, providing context and purpose for the job. 
-    1. **Select workspace**: The workspace where the job runs.
-    1. **Table selection**: The destination table in the analytics tier to promote the data to. If you're promoting data to a custom table and the table doesn't exist, you must create the table first. For more information on creating custom tables, see [Create a custom table](/azure/azure-monitor/logs/create-custom-table-auxiliary) 
-
+1. Enter a **Job name**.            
+1. Enter a **Job Description** providing the context and purpose of the job. 
+1. In the **Select workspace**, select the destination workspace where in the analytics tier to write to.
+1. Select the destination table:
+    1. To create a new table, select **Create a new table** and enter a table name. The table will have the suffix *_KQL_CL* added to the name.
+    1. To append to an existing table, select **Add to an exiting table** and select the table name form the drop-down list
+1. Select **Next**
     :::image type="content" source="media/kql-jobs/enter-job-details.png" alt-text="A screenshot showing the new job details page." lightbox="media/kql-jobs/enter-job-details.png":::
 
-1. Review your query in the Review the query panel. Check that the time picker is set to the required time range for the job.
+1. Review or write your query in the Review the query panel. Check that the time picker is set to the required time range for the job.
 1. Select **Next**
 
     :::image type="content" source="media/kql-jobs/review-query.png" alt-text="A screenshot showing the review query panel." lightbox="media/kql-jobs/review-query.png":::
