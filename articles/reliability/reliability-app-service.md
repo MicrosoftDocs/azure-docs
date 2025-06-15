@@ -4,7 +4,9 @@ description: Find out about reliability in Azure App Service, including availabi
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability
+ms.custom:
+  - subject-reliability
+  - build-2025
 ms.service: azure-app-service
 ms.date: 05/07/2025
 zone_pivot_groups: app-service-sku
@@ -23,11 +25,9 @@ When you deploy Azure App Service, you can provision multiple instances in an *A
 
 ::: zone pivot="free-shared-basic"
 
-
 - Use premium v3/v4 App Service plans.
 
-- [Enable zone redundancy](#availability-zone-support), which requires that you use Premium v3, Premium v4 or Isolated v2 App Service plans and that you have at minimum three instances of the plan. To view more information, make sure that you select the appropriate tier at the top of this page.
-
+- [Enable zone redundancy](#availability-zone-support), which requires that you use Premium v3, Premium v4 or Isolated v2 App Service plans and that you have at minimum two instances of the plan. To view more information, make sure that you select the appropriate tier at the top of this page.
 
 ::: zone-end
 
@@ -44,8 +44,6 @@ When you deploy Azure App Service, you can provision multiple instances in an *A
 Microsoft-provided SDKs usually handle transient faults. Because you host your own applications on Azure App Service, consider how to avoid causing transient faults by making sure that you:
 
 - **Deploy multiple instances in your plan.**  Azure App Service performs automated updates and other forms of maintenance on instances in your plan. If an instance becomes unhealthy, the service can automatically replace that instance with a new healthy instance. During the replacement process, there can be a short period when the previous instance is unavailable and a new instance isn't yet ready to serve traffic. You can mitigate the impact of this behavior by deploying multiple instances of your App Service plan.
-
-    When you enable zone redundancy on your App Service plan, you also improve your resiliency to updates that the App Service platform rolls out. *Update domains* consist of collections of virtual machines (VMs) that are taken offline at the time of an update. Update domains are tied to availability zones. Deploying multiple instances in your App Service plan and enabling zone redundancy for your plan adds an extra layer of resiliency during upgrades if an instance or zone becomes unhealthy.
 
 - **Use deployment slots.** Azure App Service [deployment slots](/azure/app-service/deploy-staging-slots) allow for zero-downtime deployments of your applications. Use deployment slots to minimize the impact of deployments and configuration changes for your users. Using deployment slots also reduces the likelihood that your application restarts. Restarting causes a transient fault.
 
@@ -133,6 +131,8 @@ To see which regions support availability zones for App Service Environment v3, 
 
 During an availability zone outage, some aspects of Azure App Service might be impacted even though the application continues to serve traffic. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
 
+When you enable zone redundancy on your App Service plan, you also improve your resiliency to updates that the App Service platform rolls out. To learn more, see [Reliability during service maintenance](#reliability-during-service-maintenance).
+
 ### Cost
 
 ::: zone-end
@@ -140,7 +140,7 @@ During an availability zone outage, some aspects of Azure App Service might be i
 ::: zone pivot="premium"
 
 
-When you're using App Service Premium v2, Premium v3, or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
+When you're using App Service Premium v2, Premium v3, or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have two or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
 
 
 If you enable availability zones but specify a capacity less than two, the platform enforces a minimum instance count of two. The platform charges you for those two instances.
@@ -149,7 +149,7 @@ If you enable availability zones but specify a capacity less than two, the platf
 
 ::: zone pivot="isolated"
 
-When you're using App Service Premium v2 or Premium v3 plans, there's no extra cost associated with enabling availability zones as long as you have two or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
+When you're using App Service Isolated v2 plans, there's no extra cost associated with enabling availability zones as long as you have two or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity less than two, the platform enforces a minimum instance count of two. The platform charges you for those two instances.
 
@@ -419,6 +419,26 @@ For an example approach that illustrates this architecture, see [High availabili
 When you use Basic tier or higher, you can back up your App Service app to a file by using the App Service backup and restore capabilities. For more information, see [Back up and restore your app in Azure App Service](../app-service/manage-backup.md).
 
 This feature is useful if it's hard to redeploy your code, or if you store state on disk. For most solutions, you shouldn't rely on App Service backups. Use the other methods described in this article to support your resiliency requirements.
+
+## Reliability during service maintenance
+
+Azure App Service performs regular service upgrades, as well as other forms of maintenance. To ensure that your expected capacity is available during an upgrade, the platform automatically adds extra instances of the App Service plan during the upgrade process.
+
+**Enable zone redundancy.** When you enable zone redundancy on your App Service plan, you also improve your resiliency to updates that the App Service platform rolls out. *Update domains* consist of collections of virtual machines (VMs) that are taken offline at the time of an update. Update domains are tied to availability zones. Deploying multiple instances in your App Service plan and enabling zone redundancy for your plan adds an extra layer of resiliency during upgrades if an instance or zone becomes unhealthy.
+
+::: zone pivot="free-shared-basic,premium"
+
+To learn more, see [Routine planned maintenance for Azure App Service](/azure/app-service/routine-maintenance).
+
+::: zone-end
+
+::: zone pivot="isolated"
+
+**Customize the upgrade cycle.** You to customize the upgrade cycle for an App Service Environment. If you need to validate the effect of upgrades on your workload, consider enabling manual upgrades so you can perform validation and testing on a nonproduction instance before the change rolls out to your production instance.
+
+To learn more about maintenance preferences, see [Upgrade preference for App Service Environment planned maintenance](/azure/app-service/environment/how-to-upgrade-preference).
+
+::: zone-end
 
 ## Service-level agreement (SLA)
 

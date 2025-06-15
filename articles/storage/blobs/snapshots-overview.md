@@ -8,6 +8,8 @@ ms.service: azure-blob-storage
 ms.topic: article
 ms.date: 12/29/2021
 ms.author: normesta
+ms.custom:
+  - build-2025
 ---
 
 # Blob snapshots

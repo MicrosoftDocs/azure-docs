@@ -4,8 +4,8 @@ description: This article describes about automatic updates for mobility agent a
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 12/23/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 

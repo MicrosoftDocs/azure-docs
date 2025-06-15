@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
+ms.custom:
+  - build-2025
 ---
 
 # Environment variables and app settings in Azure App Service
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 In [Azure App Service](overview.md), certain settings are available to the deployment or runtime environment as environment variables. You can customize some of these settings when you set them manually as [app settings](configure-common.md#configure-app-settings). This reference shows the variables that you can use or customize.
 

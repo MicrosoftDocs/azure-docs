@@ -87,6 +87,7 @@ This table describes each property.
 | `DiagnosticOptions`| This value allows developers to attach custom tags to their client telemetry, which can then be viewed in the Call Diagnostics section. This helps in identifying and troubleshooting issues more effectively. To learn how to add custom tags to this value, refer to [Tutorial on adding custom tags to your client telemetry](../../../tutorials/voice-video-calling/diagnostic-options-tag.md) |
 | `CallUpdatesVersion`| Represents the log version, with higher numbers indicating the most recently published version. |
 | `callDebuggingInfo`| This value contains json object with key-value pairs that represent internal properties of the call used for Microsoft debugging purposes.|
+| `TPE`| This value indicates that the call is associated with a Teams Phone extensibility scenario.|
 
 ### Error codes 
 

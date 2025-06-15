@@ -2,8 +2,11 @@
 title: Support matrix for Azure Data Lake Storage Vaulted Backup (preview)
 description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
 ms.topic: reference
-ms.date: 05/21/2025
-ms.custom: references_regions, engagement-fy24
+ms.date: 06/04/2025
+ms.custom:
+  - references_regions
+  - engagement-fy24
+  - build-2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -15,7 +18,7 @@ This article summarizes the regional availability, supported scenarios, and limi
 
 ## Supported regions
 
-Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia.
+Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia, India Central.
 
 ## Supported storage accounts
 
