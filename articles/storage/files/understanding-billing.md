@@ -116,11 +116,8 @@ The provisioned v2 model is provided for file shares in storage accounts with th
 
 Currently, these SKUs are generally available in a limited subset of regions:
 
-- All Azure public cloud regions
-- Azure US Government cloud regions:
-    - US Gov Virginia
-    - US Gov Arizona
-    - US Gov Texas
+- All Azure public cloud regions.
+- All Azure US Government cloud regions.
 
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:
