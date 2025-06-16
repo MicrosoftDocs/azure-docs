@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 06/16/2025
 ms.author: anfdocs
 ---
 # Restore individual files with single-file restore from backups in Azure NetApp Files (preview)
@@ -22,9 +22,6 @@ To restore individual files no longer available in an online snapshot [single-fi
 * The file list field has a character limit of 1,024 characters. 
 * The target volume for the restore operation must have enough logical free space available to accommodate all the files being restored.
 * The restore operation doesn't work if a directory or a soft link path is entered in the file list field.
-
->[!IMPORTANT]
->Only _regular_ volumes can be restored single-file restore from backups. This feature is not supported with [large volumes](large-volumes-requirements-considerations.md). 
 
 ## Register the feature
 
