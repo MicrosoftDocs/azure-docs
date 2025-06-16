@@ -269,7 +269,7 @@ By default, a Kubernetes cluster is created with a node pool that can run Linux 
 
 Then, once you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](howto-deploy-iot-operations.md).
 
-### [Tanzu Kubernetes Grid with a management cluster](#tab/tkgm)
+### [TKG with a management cluster](#tab/tkgm)
 
 To prepare a TKG workload cluster, you need:
 
