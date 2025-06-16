@@ -127,9 +127,9 @@
       href: conditions-role-assignments-template.md
     - name: Example conditions for Blob Storage
       href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
-    - name: Granular RBAC
+    - name: ABAC for Logs Analytics
       href: https://go.microsoft.com/fwlink/?linkid=2324519
-    - name: Microsoft Entra repository permissions
+    - name: ABAC for Container Registry
       href: https://go.microsoft.com/fwlink/?linkid=2324520
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
