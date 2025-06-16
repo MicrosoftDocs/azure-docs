@@ -151,7 +151,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: Incorrect containers selected for operation.
 
-**Recommendation**: This error may occur if one or more containers included in the scope of protection no longer exist in the protected storage account. We recommend you to re-trigger the operation after modifying the protected container list using the edit backup instance option.
+**Recommendation**: This error may occur if one or more containers included in the scope of protection no longer exist in the protected storage account. We recommend you to retrigger the operation after modifying the protected container list using the edit backup instance option.
 
 ### UserErrorPitrRestoreInProgress
 
@@ -296,7 +296,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: The backup failed due to one or more blob versions getting deleted in the backup job duration.
 
-**Recommended action**: We recommend you to avoid tampering with blob versions while a backup job is in  progress. Ensure the minimum retention configured for versions in the life cycle management policy is 7 days.
+**Recommended action**: We recommend you to avoid tampering with blob versions while a backup job is in  progress. Ensure the minimum retention configured for versions in the life cycle management policy is seven days.
 
 ### UserErrorBlobVersionArchivedDuringBackup
 
@@ -304,7 +304,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: The backup failed due to one or more blob versions moving to the archive tier in the backup job duration.
 
-**Recommended action**: We recommend you to avoid tampering with blob versions while a backup job is in  progress. Ensure the minimum retention configured for versions in the life cycle management policy is *7 days*.
+**Recommended action**: We recommend you to avoid tampering with blob versions while a backup job is in  progress. Ensure the minimum retention configured for versions in the life cycle management policy is *seven days*.
 
 ### UserErrorBlobVersionArchivedAndDeletedDuringBackup
 
@@ -312,7 +312,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: The backup failed due to one or more blob versions moving to the archive tier or getting deleted in the backup job duration.
 
-**Recommended action**: We recommend you to avoid tampering with blob versions while a backup job is in  progress. Ensure the minimum retention configured for versions in the life cycle management policy is 7 days.
+**Recommended action**: We recommend you to avoid tampering with blob versions while a backup job is in  progress. Ensure the minimum retention configured for versions in the life cycle management policy is seven days.
 
 ### UserErrorContainerHasImmutabilityPolicyDuringRestore
 
@@ -418,15 +418,15 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message** - The backup failed due to one or more blob versions getting deleted or container getting deleted in the backup job duration.
 
-**Recommended action**: We recommend to avoid tampering with blob versions and containers while a backup job is in  progress. Ensure the minimum retention configured for versions in lifecycle management policy is 7 days.
+**Recommended action**: We recommend to avoid tampering with blob versions and containers while a backup job is in  progress. Ensure the minimum retention configured for versions in lifecycle management policy is seven days.
 
 ## UserErrorBlobVersionArchivedDeletedAndContainerDeletedDuringBackup
 
 **Error code**: `UserErrorBlobVersionArchivedDeletedAndContainerDeletedDuringBackup`
 
-**Error message**: The backup failed due to one or more blob versions moving to the archive tier, blob version getting deleted and container getting deleted in the backup job duration.
+**Error message**: The backup failed due to one or more blob versions moving to the archive tier, blob version getting deleted, and container getting deleted in the backup job duration.
 
-**Recommended action**: We recommend to avoid tampering with blob versions and containers while a backup job is in  progress. Ensure the minimum retention configured for versions in lifecycle management policy is 7 days.
+**Recommended action**: We recommend to avoid tampering with blob versions and containers while a backup job is in  progress. Ensure the minimum retention configured for versions in lifecycle management policy is seven days.
 
 ## LongRunningOperationTrackingFailure
 
@@ -530,9 +530,9 @@ Error message**: Operation failed because, Storage Account and Datasource are no
 
 **Error code**: `641566, UserErrorDenyAssignmentWithBlueprint`
 
-**Error message**: Operation failed because the access is denied because of deny assigmented created by azure blueprint assignment.
+**Error message**: Operation failed because the access is denied due to deny assigmented created by Azure blueprint assignment.
 
-**Recommended action**: Remove the deny assignment created by azure blueprint assignment.
+**Recommended action**: Remove the deny assignment created by Azure blueprint assignment.
 
 ## 641568, UserErrorRestoreObjectReplicationPolicyCreationFailure
 
