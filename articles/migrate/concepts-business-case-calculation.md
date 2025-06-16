@@ -209,7 +209,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | **Security** | Per year |  Per server annual security/protection cost.  |    |
 | **Datacenter Admin cost** | Number of people * hourly cost * 730 hours | Cost per hour based on location. |     |
 
-### Sustainability insights: Lower emissions with Azure
+## Sustainability insights: Lower emissions with Azure
 
 The **Sustainability Benefits** capability is now embedded in Azure Migrate’s Business Case. It empowers IT, finance, and sustainability teams to:
 
