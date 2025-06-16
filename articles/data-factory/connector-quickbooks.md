@@ -238,6 +238,21 @@ To copy data from QuickBooks Online, set the source type in the copy activity to
 
 The Copy Activity in the service cannot copy data directly from Quickbooks Desktop. To copy data from Quickbooks Desktop, export your Quickbooks data to a comma-separated-values (CSV) file and then upload the file to Azure Blob Storage. From there, you can use the service to copy the data to the sink of your choice.
 
+## Data type mapping for Quickbooks
+
+When you copy data from Quickbooks, the following mappings apply from Quickbooks's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Quickbooks data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+|:--- |:--- |:--- |
+| String       | string            | string                 |
+| Boolean      | bool              | bool                   |
+| DateTime     | datetime          | datetime               |
+| Decimal      | decimal (15,2)    | decimal (15, 2)        |
+| Enum         | string            | string                 |
+| Date         | datetime          | datetime               |
+| BigDecimal   | decimal (15,2)    | Decimal (15, 2)        |
+| Integer      | int               | int                    |
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
