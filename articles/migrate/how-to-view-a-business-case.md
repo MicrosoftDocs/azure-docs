@@ -25,6 +25,7 @@ There are four major reports that you need to review:
     - Potential savings (TCO).
     - Estimated year on year cashflow savings based on the estimated migration completed that year.
     - Savings from unique Azure benefits like Azure Hybrid Benefit.
+    - Carbon emissions reductions by moving to Azure.
     - Savings from Security and Management capabilities.
     - Discovery insights covering the scope of the business case.
     - Support status of the operating system and database licenses.
@@ -65,7 +66,17 @@ It shows the potential savings with respect to extended security update license.
 
 It shows the potential savings with respect to securing your migration with Microsoft Defender for Cloud and Azure Management services including Azure Monitor, Azure Backup, and Azure Update Manager for streamlining your operations.
 
+### Sustainability insights: Lower emissions with Azure
+
+The **Sustainability Benefits** capability is now embedded in Azure Migrate’s Business Case. It empowers IT, finance, and sustainability teams to:
+
+- **Estimate on-premises emissions (in MtCO₂e)**: It uses a standard method that includes compute, storage, power use, and location-based carbon intensity.
+- **Compare with Azure emissions**: It uses Microsoft’s verified carbon rate cards for each SKU and region.
+- **Visualize year-on-year reduction**: It visualizes yearly reduction as workloads move from on-premises to Azure.
+- **Align cross-functional stakeholders**: It bring the stakeholders together by presenting both economic and environmental benefits in one unified view.
+
 ### Discovery insights
+
 It covers the total servers scoped in the business case computation, virtualization distribution, utilization insights, support status of the licenses, and distribution of servers based on workloads running on them.
 
 #### Utilization insights
