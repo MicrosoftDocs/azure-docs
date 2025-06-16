@@ -236,7 +236,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
     :::image type="content" source="media/howto-variant-feature-flags-javascript/default-variant.png" alt-text="Screenshot of the Quote of the day app, showing no greeting message for the user.":::
 
-1. You can use `userId` query parameter in the url to specify the user id. Visit `localhost:8080/?userId=UserA` and you see a long greeting message.
+1. You can use `userId` query parameter in the url to specify the user ID. Visit `localhost:8080/?userId=UserA` and you see a long greeting message.
 
     :::image type="content" source="media/howto-variant-feature-flags-javascript/long-variant.png" alt-text="Screenshot of the Quote of the day app, showing long greeting message for the user.":::
 
