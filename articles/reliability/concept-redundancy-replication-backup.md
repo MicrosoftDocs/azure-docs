@@ -89,7 +89,7 @@ A cloud environment's physical location as whole can be organized into physical 
 | A group of datacenters, which in Azure is called an *availability zone* | City-wide electrical storm |
 | The wider geographical area that the datacenter is in, such as a city, which is an Azure *region* | Widespread natural disaster |
 
-From a reliability perspective, an important way to mitigate the risks associated with a physical scope is to spread instances of a component across different physical scopes. Azure services with build-in redundancy may offer you one or more of the following three ways to deploy redundant instances:
+From a reliability perspective, an important way to mitigate the risks associated with a physical scope is to spread instances of a component across different physical scopes. Azure services with built-in redundancy may offer you one or more of the following three ways to deploy redundant instances:
 
 - *Local redundancy* places instances in multiple parts of a single Azure datacenter and protects against hardware failures that might affect a single instance. Local redundancy typically provides the lowest cost and latency. However, a datacenter failure could mean that all of the instances are unavailable.
 

@@ -39,7 +39,7 @@ The analysis results can go to worldwide reporting databases or applications. Bu
 - Explore [Azure Synapse architecture](massively-parallel-processing-mpp-architecture.md)
 - Quickly [create a dedicated SQL pool](../quickstart-create-sql-pool-studio.md)
 - [Load sample data](./load-data-from-azure-blob-storage-using-copy.md).
-- Explore [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+- Explore [Videos](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-videos)
 - [Get Started with Azure Synapse](../get-started.md)
 - [What's the difference between Azure Synapse dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in an Azure Synapse Analytics workspace?](../sql/overview-difference-between-formerly-sql-dw-workspace.md)
 

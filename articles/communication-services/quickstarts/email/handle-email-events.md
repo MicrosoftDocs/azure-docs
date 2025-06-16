@@ -99,13 +99,16 @@ Check out the full list of [events that Communication Services supports](../../.
 
 After you generate an event, notice that `Email Delivery Report Received` and `Email Engagement Tracking Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up at the beginning of this quickstart. Select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
 
+#### Microsoft.Communication.EmailDeliveryReportReceived event
 :::image type="content" source="./media/handle-email-events/email-delivery-report-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an EMAIL delivery report received event.":::
 
+#### Microsoft.Communication.EmailEngagementTrackingReportReceived event
 :::image type="content" source="./media/handle-email-events/email-engagementtracking-report-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an EMAIL engagement tracking report event.":::
 
 - `EngagementContext` refers to the link clicked when the engagementType is `Click`.
 - `UserAgent` refers to the User-Agent from which this email engagement event originated. For example, if the user interacted on Microsoft Edge using a Win10 machine: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246
 - `EngagementType` refers to the type of engagement. Possible values are `View` or `Click`.
+- `Recipient` refers to the recipient who engaged with the email. Note that this field is empty when the original email was sent to multiple recipients at a time.
 
 For more information, see [event schemas and other eventing concepts](../../../event-grid/event-schema-communication-services.md).
 

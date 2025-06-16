@@ -10611,11 +10611,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/saas-apps/cloudknox-permissions-management-platform-tutorial.md",
-      "redirect_url": "/entra/identity/saas-apps/cloudknox-permissions-management-platform-tutorial",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/saas-apps/cloudmore-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/cloudmore-tutorial",
       "redirect_document_id": false
@@ -10638,6 +10633,10 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/cmd-ctrl-base-camp-tutorial.md",
       "redirect_url": "/entra/identity/saas-apps/cmd-ctrl-base-camp-tutorial",
+      "redirect_document_id": false
+    },   {
+      "source_path_from_root": "/articles/active-directory/saas-apps/cloudknox-permissions-management-platform-tutorial.md",
+      "redirect_url": "/entra/permissions-management/overview",
       "redirect_document_id": false
     },
     {
