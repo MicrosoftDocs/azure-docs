@@ -15,7 +15,7 @@ ms.custom: generated
 This article details the configuration settings for Linux guests as applicable in the following
 implementations:
 
-- **\[GA\]: Linux machines should meet requirements for the Azure compute security baseline**
+- **Linux machines should meet requirements for the Azure compute security baseline**
   Azure Policy guest configuration definition
 - **Vulnerabilities in security configuration on your machines should be remediated** in Microsoft Defender for Cloud
 
