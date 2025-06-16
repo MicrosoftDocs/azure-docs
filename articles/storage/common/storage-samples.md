@@ -8,6 +8,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: sample 
 ms.custom: devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+# Customer intent: As a developer, I want to access and run sample code for Azure Storage across multiple programming languages, so that I can quickly learn and implement storage solutions in my applications.
 ---
 
 # Azure Storage samples
