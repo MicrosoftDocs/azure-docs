@@ -74,7 +74,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
   * [Azure IoT Operations supported environments](./overview-deploy.md#supported-environments).
   * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
     
-### [Tanzu Kubernetes Grid with a management cluster](#tab/tkgm)
+### [TKG with a management cluster](#tab/tkgm)
 
 To prepare a Tanzu Kubernetes Grid (TKG) workload cluster, you need:
 
