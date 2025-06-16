@@ -85,7 +85,7 @@ In this section, you add a schema to the schema group using the Azure portal.
 
 1. You see the **Schema Overview** page for the schema. 
 
-    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="Image showing the Schema Overview page.":::
+    :::image type="content" source="./media/create-schema-registry/schema-overview-page.png" alt-text="Image showing the Schema Overview page." lightbox="./media/create-schema-registry/schema-overview-page.png":::
 
 1. If there are multiple versions of a schema, you see them in the **Versions**. Select a version to switch to that version schema. 
 
@@ -93,15 +93,15 @@ In this section, you add a schema to the schema group using the Azure portal.
 
 1. Update the schema in the text box, and select **Validate**. In the following example, you add a new field called `description` to the schema.
 
-   :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="Image showing the Update schema page":::    
+   :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="Screenshot showing the Update schema page" lightbox="./media/create-schema-registry/update-schema.png":::
 
 1. Review validation status and changes, and select **Save**. 
 
-   :::image type="content" source="./media/create-schema-registry/compare-save-schema.png" alt-text="Image showing the Review page that shows validation status, changes, and save":::     
+   :::image type="content" source="./media/create-schema-registry/compare-save-schema.png" alt-text="Screenshot showing the Review page that shows validation status, changes, and save." lightbox="./media/create-schema-registry/compare-save-schema.png":::
 
    You see that `2` is selected for the **version** on the **Schema Overview** page. 
 
-   :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Image showing the new version of schema":::    
+   :::image type="content" source="./media/create-schema-registry/new-version.png" alt-text="Screenshot showing the new version of schema." lightbox="./media/create-schema-registry/new-version.png":::    
 
 1. Select `1` to see the version 1 of the schema. 
 
