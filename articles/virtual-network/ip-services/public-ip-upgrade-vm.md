@@ -83,10 +83,10 @@ To upgrade all VMs in a resource group, skipping VMs that do not have Network Se
 
 If a migration fails due to a transient issue, such as a network outage or client system issue, the migration can be re-run to configure the VM and Public IPs in the goal state. At execution, the script outputs a recovery log file, which is used to ensure the VM is properly reconfigured. Review the log file `PublicIPUpgrade.log` created in the location where the script was executed.
 
-To recover from a failed upgrade, pass the recovery log file path to the script with the `-recoverFromFile` parameter and identify the VM to recover with the `-VMName` and `-VMResourceGroup` or `-VMResourceID` parameters, as shown in this example.
+To recover from a failed upgrade, pass the recovery log file path to the script with the `-recoverFromFile` parameter and identify the VM to recover with the `-VMName` and `-ResourceGroupName` or `-VMResourceID` parameters, as shown in this example.
 
 ```powershell
-    Start-VMPublicIPUpgrade -RecoverFromFile ./PublicIPUpgrade_Recovery_2020-01-01-00-00.csv -VMName myVM -VMResourceGroup rg-myrg
+    Start-VMPublicIPUpgrade -RecoverFromFile ./PublicIPUpgrade_Recovery_2020-01-01-00-00.csv -VMName 'myVM' -ResourceGroupName 'rgName'
 ```
 
 ## Common questions
