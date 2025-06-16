@@ -18,11 +18,11 @@ Azure Data Explorer is a fast and highly scalable data analytics service designe
 
 Use Azure Data Explorer to interactively run KQL queries against all security data stored in the data lake. This article explains how to set up a connection and run a sample query using Azure Data Explorer. For more information about Azure Data Explorer, see [Azure Data Explorer documentation](/azure/data-explorer/?tabs=azure-data-explorer).
 
-The Sentinel lake explorer KQL query tool is another KQL tool that allows you to explore and visualize data stored in the Microsoft Sentinel data lake from within the Defender portal and create jobs to promote data to the Analytics tier. For more information, see [Microsoft Sentinel lake explorer KQL queries](kql-queries-jobs.md).
+The Sentinel lake explorer KQL query tool is another KQL tool that allows you to explore and visualize data stored in the Microsoft Sentinel data lake from within the Defender portal and create jobs to promote data to the Analytics tier. For more information, see [Microsoft Sentinel lake explorer KQL queries](kql-queries.md).
 
 For more information about KQL, see [Kusto Query Language documentation](/kusto/query/syntax-conventions?view=azure-data-explorer&preserve-view=true)
 
-## Onboarding to the Microsoft Sentinel data lake
+## Onboard to the Microsoft Sentinel data lake
 
 If you have not already onboarded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until you have ingested a sufficient volume of data before you can create meaningful analyses using KQL.
 

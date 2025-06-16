@@ -4,9 +4,9 @@ titleSuffix: Microsoft Security
 description: Use the Defender portal's Data lake exploration KQL queries to query and interact with the Microsoft Sentinel data lake. Create, edit, and run KQL queries to explore your data lake resources.
 author: EdB-MSFT  
 ms.service: sentinel  
-ms.topic: conceptual
-ms.custom: sentinel-lake-graph
-ms.date: 05/29/2025
+ms.topic: how-to
+ms.subservice: sentinel-graph
+ms.date: 06/16/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -33,7 +33,6 @@ To access data lake KQL queries, you must have one of the following roles:
 + Security reader
 + Security operator 
 + Security administrator
-+ Global administrator
 
 For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](./roles-permissions.md).
 
