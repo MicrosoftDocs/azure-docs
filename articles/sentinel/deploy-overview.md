@@ -1,10 +1,10 @@
 ---
 title: Deployment guide for Microsoft Sentinel
 description: Learn about the steps to deploy Microsoft Sentinel including the phases to plan and prepare, deploy, and fine tune.
-author: batamig
-ms.author: bagol
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: conceptual
-ms.date: 06/12/2025
+ms.date: 06/28/2024
 ms.service: microsoft-sentinel
 
 
