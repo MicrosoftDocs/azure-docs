@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 09/30/2024
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go, devx-track-go
+# Customer intent: As a developer using the Azure Storage client library for Go, I want to configure data transfer options for uploads and downloads, so that I can optimize performance and reliability based on my application's requirements and environment.
 ---
 
 # Performance tuning for uploads and downloads with Go
