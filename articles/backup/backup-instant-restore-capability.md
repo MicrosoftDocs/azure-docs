@@ -2,7 +2,7 @@
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 ms.topic: overview
-ms.date: 05/19/2025
+ms.date: 06/16/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -39,6 +39,7 @@ A recovery point is created as soon as the snapshot is finished and this recover
 * For standard policy, all snapshots are incremental in nature and are stored as page blobs. All the users using unmanaged disks are charged for the snapshots stored in their local storage account. Since the restore point collections used by Managed VM backups use blob snapshots at the underlying storage level, for managed disks you'll see costs corresponding to blob snapshot pricing and they're incremental.
 * For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space. For Enhanced policy, only Managed VM backups are supported. The initial snapshot is a full copy of the disk(s). The subsequent snapshots are incremental in nature and occupy only delta changes to disks since the last snapshot. When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require CMK-encrypted disks via Azure Policy.
 * When you perform Instant Restores for unmanaged disks, ensure that the storage account hosting the snapshot/vhd files has public network access or similar is enabled. If necessary network access from the Storage Account isn't available, then a standard recovery point restore is triggered, which will cause a slower restore time.
+* The [Standard policy](backup-instant-restore-capability.md) starts with an incremental backup, which lacks a full recovery point if the original disk is lost. The [Enhanced policy](backup-azure-vms-enhanced-policy.md) addresses this by making the first backup a full recovery point, ensuring complete recovery and improved data integrity.
 
 ## Cost impact
 
@@ -142,3 +143,7 @@ Yes it's safe, and there's absolutely no impact in data transfer speed.
 ### Why does a 12-month backup retention policy retain data for 372 days instead of 365?
 
 The retention period for monthly backups is calculated considering **31 days** for each month. When you multiply 31 days by 12 months, the total retention duration becomes **372 days**. This approach ensures consistent retention across all months, regardless of their actual number of days.
+
+### Is there a charge for retaining additional Restore Points beyond expiry for the garbage collection cycle?
+
+Yes, this incurs extra charges, as pricing depends on policy duration and unpruned recovery points, which should be considered when estimating backup costs.
