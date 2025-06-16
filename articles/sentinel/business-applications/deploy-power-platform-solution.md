@@ -41,9 +41,11 @@ Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, en
 
    - Microsoft Dataverse
    - Microsoft Power Platform Admin Activity
-   
    - Microsoft Power Automate
-      
+
+    > [!NOTE]
+    > There are other data connectors listed here, but these are the ones that are part of Power Platform and Dynamics 365 Customer Engagement. For information about Finance and Operations data connectors, see [Deploy for Dynamics 365 Finance and Operations](../dynamics-365/deploy-finance-and-operations-solution.md).
+
 1. For each data connector, on the side pane, select **Open connector page > Connect**.
 
 ## Configure data collection for Dataverse
