@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 10/23/2024
+# Customer intent: As a network administrator, I want to visualize network security group flow logs in a business intelligence tool, so that I can gain insights into IP traffic patterns and enhance network security management.
 ---
 
 # Visualizing network security group flow logs with Power BI

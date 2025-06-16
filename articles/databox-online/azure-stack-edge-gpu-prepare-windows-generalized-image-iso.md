@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 06/12/2025
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to quickly deploy new Windows virtual machines on my Azure Stack Edge Pro GPU device, and I want to use an ISO image for OS installation.
 ---
@@ -45,7 +45,7 @@ Before you can create a generalized Windows VHD by using an ISO image, make sure
 
 - You have access to a Windows client with Hyper-V Manager installed.
 
-- You have access to an Azure blob storage account to store your VHD after it is prepared.
+- You have access to an Azure blob storage account to store your VHD after it's prepared.
 
 ## Prepare source VM using an ISO
 
@@ -53,7 +53,7 @@ When you use an ISO image to install the operating system on your VM image, you 
 
 #### Create new VHD in Hyper-V Manager
 
-Your first step is to create a new Generation 1 VHD in Hyper-V Manager, which will be the source VHD for a new virtual machine.
+Your first step is to create a new Generation 1 VHD in Hyper-V Manager, which is the source VHD for a new virtual machine.
 
 To create the VHD, follow these steps:
 
@@ -73,17 +73,17 @@ To create the VHD, follow these steps:
 
    ![Enter the name and location for the VHD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-04.png)
 
-4. Under **Configure Disk**, select **Create a new blank virtual hard disk**, and enter the size of disk you would like to create (generally 20 GB and above for Windows Server). Then select **Next >**.
+4. Under **Configure Disk**, select **Create a new blank virtual hard disk**, and enter the size of disk you would like to create (generally 20 GB or more for Windows Server). Then select **Next >**.
 
    ![Settings for creating a new blank virtual hard disk and specifying the size](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-05.png)
 
-5. Under **Summary**, review your selections, and select **Finish** to create the new VHD. The process will take five or more minutes depending on the size of the VHD created.
+5. Under **Summary**, review your selections, and select **Finish** to create the new VHD. The process takes five or more minutes depending on the size of the VHD created.
 
    ![Summary of VHD settings](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-06.png)
 
 #### Create Hyper-V VM from VHD
 
-Now you'll use the VHD you just created to create a new virtual machine.
+Now use the VHD you just created to create a new virtual machine.
 
 To create your new virtual machine, follow these steps:
 
@@ -119,7 +119,7 @@ To create your new virtual machine, follow these steps:
 
 After creating the new virtual machine, follow these steps to mount your ISO image on the DVD drive of the virtual machine:
 
-1. In Hyper-V Manager, select the VM you just created, and then select **Settings**.
+1. In Hyper-V Manager, select the VM you created, and then select **Settings**.
  
    ![In Hyper-V Manager, open Settings for your virtual machine](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-13.png)
 
@@ -141,7 +141,7 @@ To finish building your virtual machine, you need to start the virtual machine a
 [!INCLUDE [Connect to Hyper-V VM](../../includes/azure-stack-edge-connect-to-hyperv-vm.md)]
 
 > [!NOTE]
-> If you installed the Windows Server 2019 Standard operating system on your virtual machine, you'll need to change the **BIOS** setting to **IDE** before you [generalize the VHD](#generalize-the-vhd). 
+> If you installed the Windows Server 2019 Standard operating system on your virtual machine, you must change the **BIOS** setting to **IDE** before you [generalize the VHD](#generalize-the-vhd). 
 
 ## Generalize the VHD
 

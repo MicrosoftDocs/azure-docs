@@ -7,6 +7,8 @@ ms.date: 09/10/2024
 ms.topic: how-to 
 ms.custom:
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Migrate from an existing Run As account to Managed identities

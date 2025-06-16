@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/12/2024
 
 #Customer intent: As an Azure administrator, I need use the Azure Monitor agent so I can monitor a connection with a non-Azure resource using the Connection monitor.
+# Customer intent: As an Azure administrator, I want to use the Azure Monitor agent to set up connection monitoring for both Azure and on-premises resources, so that I can ensure effective network connectivity and troubleshoot any issues efficiently.
 ---
 
 # Monitor network connectivity using Azure Monitor agent with connection monitor
