@@ -19,4 +19,4 @@ Enclave connections can also enable secured public access to resources within a 
 ![Diagram showing connections between two enclaves and connections to external resources.](./media/connections-two-enclaves-enclave-external.png)
 
 ## Template
-See [template documentation](./azure-virtual-enclaves-templates.md#connections-template)
+See [template documentation](./virtual-enclaves-templates.md#connections-template)

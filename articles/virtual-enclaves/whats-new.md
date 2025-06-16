@@ -62,4 +62,4 @@ The following features are currently in gated preview. After working with the li
 
 ## Next steps
 
-For more information about Azure Virtual Enclaves, see [What is Azure Virtual Enclaves](./what-azure-virtual-enclaves.md) and [frequently asked questions- FAQ](./azure-virtual-enclaves-faq.md).
+For more information about Azure Virtual Enclaves, see [What is Azure Virtual Enclaves](./what-azure-virtual-enclaves.md) and [frequently asked questions- FAQ](./virtual-enclaves-faq.md).

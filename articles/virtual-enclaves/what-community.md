@@ -31,7 +31,7 @@ Communities come with the following primary platform-managed and platform-deploy
 When you create a community, the Azure Virtual Enclaves resource provider also creates and manages a separate resource group called the community managed resource group. For more details regarding the community managed resource group, learn more about [Best practices of Azure Virtual Enclaves](./best-practices.md).
 
 ## Template
-See [template documentation](./azure-virtual-enclaves-templates.md#community-template)
+See [template documentation](./virtual-enclaves-templates.md#community-template)
 
 ## Managed Resources
 - [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md)
