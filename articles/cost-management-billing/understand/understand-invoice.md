@@ -8,6 +8,8 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 05/01/2025
+ms.custom:
+  - build-2025
 ---
 
 # Understand terms on your Microsoft Azure invoice

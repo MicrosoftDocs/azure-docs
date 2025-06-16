@@ -7,6 +7,8 @@ ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 06/02/2025
 ms.author: cshoe
+ms.custom:
+  - build-2025
 ---
 
 # Networking in Azure Container Apps environment
@@ -64,7 +66,7 @@ In order to create private endpoints on your Azure Container App environment, pu
 
 Azure networking policies are supported with the public network access flag.
 
-## <a name="private-endpoint"></a>Private endpoint
+### <a name="private-endpoint"></a>Private endpoint
 
 Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
 

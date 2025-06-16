@@ -9,6 +9,8 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 05/01/2025
+ms.custom:
+  - build-2025
 ---
 
 # Troubleshoot Azure subscription sign-in issues

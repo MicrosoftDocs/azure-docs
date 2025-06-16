@@ -4,9 +4,12 @@ description: This article explains how you can encrypt data in transit for NFS A
 author: guptasonia
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 06/11/2025
 ms.author: kendownie
-ms.custom: devx-track-azurepowershell, references_regions
+ms.custom:
+  - devx-track-azurepowershell
+  - references_regions
+  - build-2025
 #Customer intent: As a network administrator, I want to securely connect to Azure Files NFS v4.1 volumes using a TLS channel so that I can protect data in transit from interception. By using AZNFS mount helper package for simplified setup, I can ensure data confidentiality without needing complex setups or external authentication systems.
 ---
 
@@ -32,7 +35,7 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 ## Supported regions
 
-All regions that support Azure Premium Files now support encryption in transit, with the exception of Korea Central, West Europe, and Japan West.
+All regions that support Azure Premium Files now support encryption in transit.
 
 
 ## Register for preview

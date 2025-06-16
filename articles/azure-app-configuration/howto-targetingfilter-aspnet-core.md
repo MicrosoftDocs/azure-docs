@@ -8,6 +8,8 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
 ms.date: 12/02/2024
+ms.custom:
+  - build-2025
 ---
 
 # Roll out features to targeted audiences in an ASP.NET Core application

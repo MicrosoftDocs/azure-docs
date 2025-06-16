@@ -2,7 +2,9 @@
 title: Quickstart - Back up blobs in a storage account
 description: Learn how to back up blobs in a storage account with a Bicep file.
 ms.topic: quickstart
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 ms.date: 02/12/2025
 author: jyothisuri
 ms.author: jsuri

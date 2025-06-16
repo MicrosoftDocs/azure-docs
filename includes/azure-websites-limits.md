@@ -4,6 +4,8 @@ ms.service: azure-app-service
 ms.topic: include
 ms.date: 04/25/2025
 ms.author: msangapu
+ms.custom:
+  - build-2025
 ---
 | Resource | Free | Shared | Basic | Standard | Premium (v1-v4) | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |

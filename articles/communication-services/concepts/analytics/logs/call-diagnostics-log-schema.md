@@ -77,7 +77,7 @@ This table describes each property.
 | `VideoBitRateMax` | The maximum bitrate (bits per second) for a video or screenshare stream.  <br><br> A low bitrate value could indicate poor network issue. The minimum bitrate (bandwidth) required can be found here: [Network bandwidth](../../voice-video-calling/network-requirements.md#network-bandwidth). |
 | `StreamDirection` | The direction of the media stream. It is either Inbound or Outbound. |
 | `CodecName` | The name of the codec used for processing media streams. It can be OPUS, G722, H264S, SATIN, and so on. |
-| `OPS`| This value indicates that the call is associated with a Teams Phone extensibility scenario.|
+| `TPE`| This value indicates that the call is associated with a Teams Phone extensibility scenario.|
 
 ## Sample data for various call types
 

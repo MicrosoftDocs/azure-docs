@@ -14,8 +14,6 @@ ms.custom: UpdateFrequency3
 
 An *Azure App Service plan* defines a set of compute resources for a web app to run. An app service always runs in an App Service plan. [Azure Functions](../azure-functions/dedicated-plan.md) also has the option of running in an App Service plan.
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 When you create an App Service plan in a certain region, you create a set of compute resources for that plan in that region. Whatever apps you put into the App Service plan run on those compute resources, as defined in the plan.
 
 Each App Service plan defines:

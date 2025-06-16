@@ -2,7 +2,12 @@
 title: Azure Cosmos DB bindings for Functions 2.x and higher
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 ms.topic: reference
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+  - build-2025
 ms.date: 11/29/2022
 zone_pivot_groups: programming-languages-set-functions
 ---

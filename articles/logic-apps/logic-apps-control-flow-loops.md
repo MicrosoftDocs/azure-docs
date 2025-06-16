@@ -6,6 +6,8 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2023
+ms.custom:
+  - build-2025
 ---
 
 # Add loops to repeat actions in workflows for Azure Logic Apps
