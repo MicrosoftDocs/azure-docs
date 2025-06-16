@@ -30,7 +30,10 @@ In this article, you learn how to:
 
 To create an assessment, follow these steps.
 
-1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**. 
+1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**.  
+
+    :::image type="content" source="./media/create-web-app-assessment/create-workload-assessment.png" alt-text="Screenshot shows how to create web app assessment." lightbox="./media/create-web-app-assessment/create-workload-assessment.png" :::
+
 1. Select **Create assessment**.
 1. Provide a suitable name for the assessment and select **Add workloads**. 
 1. Using the filters, select **web apps**, and select **Add**. 
