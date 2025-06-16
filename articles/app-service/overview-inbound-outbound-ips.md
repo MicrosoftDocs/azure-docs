@@ -140,6 +140,12 @@ You can configure the IP mode behavior using the `IPMode` property:
 
 ### Configure IPv6 support
 
+# [Azure portal](#tab/azure-portal)
+
+To update an app to return IPv6 DNS records in the Azure portal, go to the **Configuration** page for the App Service app and set the **Inbound IP mode** property.
+
+  :::image type="content" source="./media/overview-inbound-outbound-ips/ip-mode-configuration.png" alt-text="Screenshot that shows how the inbound IP mode is set in the App Service configuration page.":::
+
 # [Azure CLI](#tab/azure-cli)
 
 To update an app to return IPv6 DNS records in the Azure CLI, run the following command.
@@ -151,12 +157,6 @@ az resource update --name <app-name> --set properties.ipMode="IPv6" -g <resource
 # To update a slot, you need to provide the resource ID of the slot
 az resource update --ids '/subscriptions/<sub-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/sites/<app-name>/slots/<slot-name>' --set properties.ipMode='IPv6'
 ```
-
-# [Azure portal](#tab/azure-portal)
-
-To update an app to return IPv6 DNS records in the Azure portal, go to the **Configuration** page for the App Service app and set the **Inbound IP mode** property.
-
-  :::image type="content" source="./media/overview-inbound-outbound-ips/ip-mode-configuration.png" alt-text="Screenshot that shows how the inbound IP mode is set in the App Service configuration page.":::
 
 # [Azure Resource Manager template](#tab/arm-template)
 
