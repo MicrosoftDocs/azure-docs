@@ -34,7 +34,7 @@ Using the value from before:
 az rest -m get -u "https://management.azure.com/subscriptions/.../providers/Microsoft.NetworkCloud/locations/EASTUS/operationStatuses/12312312-1231-1231-1231-123123123123*99399E995...?api-version=2022-12-12-preview"
 ```
 
-This request will return an operation status result that can be requeried using the same command until the status reaches a final state of `Succeeded` or `Failed`. At this point, the requested operation has ceased.
+This request will return an operation status result that can be required using the same command until the status reaches a final state of `Succeeded` or `Failed`. At this point, the requested operation has ceased.
 
 ```json
 {
