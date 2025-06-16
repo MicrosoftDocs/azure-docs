@@ -1,5 +1,6 @@
 ---
 title: "Tutorial - Use dynamic configuration in a Go console app"
+titleSuffix: Azure App Configuration
 description: In this quickstart, learn how to dynamically refresh Azure App Configuration data in a Go console application
 ms.service: azure-app-configuration
 services: azure-app-configuration
