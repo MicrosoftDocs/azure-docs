@@ -56,8 +56,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
             featureFlagOptions: {
                 enabled: true,
                 refresh: {
-                    enabled: true,
-                    refreshIntervalInMs: 10_000
+                    enabled: true
                 }
             }
         });
