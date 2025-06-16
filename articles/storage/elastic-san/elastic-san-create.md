@@ -279,4 +279,4 @@ az elastic-san volume create --elastic-san-name $EsanName -g $RgName -v $EsanVgN
 
 ## Next steps
 
-Now that you've deployed an Elastic SAN, Connect to Elastic SAN volumes from either [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-linux.md) clients.
+Now that you've deployed an Elastic SAN, configure its networking using either [private endpoints](elastic-san-configure-private-endpoints.md) or [service endpoints](elastic-san-configure-service-endpoints.md).
