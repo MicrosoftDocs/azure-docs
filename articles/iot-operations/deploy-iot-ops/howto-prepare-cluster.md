@@ -96,7 +96,7 @@ To prepare a TKG workload cluster, you need:
    az extension add --upgrade --name connectedk8s
    ```
 
-- [Tanzu Kubernetes Grid with a standalone management cluster.](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/mgmt-index.html)
+- [TKG with a standalone management cluster.](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/mgmt-index.html)
 
 - Hardware that meets the system requirements:.
 
