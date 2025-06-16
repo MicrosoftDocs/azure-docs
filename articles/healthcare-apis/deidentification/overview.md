@@ -11,7 +11,7 @@ ms.author: kimiamavon
 
 # What is the de-identification service?
 
-![Screenshot of the Tag Redact and Surrogation operations.](deid_operations.png)
+![Screenshot of the Tag Redact and Surrogation operations.](tag-redact-surrogate-operations.png)
 
 
 The de-identification service in Azure Health Data Services enables healthcare organizations to de-identify clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 27 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
@@ -40,14 +40,14 @@ The de-identification service unlocks the power of your data by automating three
 ### **Consistent replacement to preserve patient timelines**
 Consistent surrogation results enable organizations to retain relationships occurring in the underlying dataset, which is critical for research, analytics, and machine learning. By submitting data in the same batch, our service allows for consistent replacement across entities and preserves the relative temporal relationships between events.
 
-![Screenshot of consistent surrogation.](consistentsurrogation.png)
+![Screenshot of consistent surrogation.](consistent-surrogation.png)
 
 ## De-identify clinical data securely and efficiently
 
 The de-identification service offers many benefits, including:
 
 - **Expanded PHI coverage:**
-The service expands beyond the 18 HIPAA Identifiers to provide stronger privacy protections and more fine-grained distinctions between entity types. It distinguishes between Doctor and Patient, and covers [27 PHI entities the service de-identifies](https://learn.microsoft.com/rest/api/health-dataplane/deidentify-text/deidentify-text?view=rest-health-dataplane-2024-11-15&tabs=HTTP#phicategory).
+The service expands beyond the 18 HIPAA Identifiers to provide stronger privacy protections and more fine-grained distinctions between entity types. It distinguishes between Doctor and Patient, and covers [27 PHI entities the service de-identifies](/rest/api/health-dataplane/deidentify-text/deidentify-text?view=rest-health-dataplane-2024-11-15&tabs=HTTP#phicategory).
 
 - **PHI compliance**: The de-identification service is designed for protected health information (PHI). The service uses machine learning to identify PHI entities, including HIPAA’s 18 identifiers, using the “TAG” operation. The redaction and surrogation operations replace these identified PHI values with a tag of the entity type or a surrogate, or pseudonym. The service adheres to compliance requirements such as HIPAA.
 
