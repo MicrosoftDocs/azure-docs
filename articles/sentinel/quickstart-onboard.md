@@ -37,11 +37,12 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
 
     - To install or manage solutions in the content hub, you need the **Microsoft Sentinel Contributor** role on the resource group that the workspace belongs to.
 
-    - If you have permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), your workspace is automatically onboarded to the Defender portal. Users of such workspaces use [Microsoft Sentinel in the Defender portal](../microsoft-sentinel-defender-portal.md) only. 
+    - If you have permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), your workspace is automatically onboarded to the Defender portal. Users of such workspaces use [Microsoft Sentinel in the Defender portal](../microsoft-sentinel-defender-portal.md) only.
 
 - **Microsoft Sentinel is a paid service**. Review the [pricing options](https://go.microsoft.com/fwlink/?linkid=2104058) and the [Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 
 - Before deploying Microsoft Sentinel to a production environment, review the [predeployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md).
+
 
 <a name="enable"></a>
 
@@ -59,7 +60,7 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
 
 1. Select the workspace you want to use or create a new one. You can run Microsoft Sentinel on more than one workspace, but data is isolated to a single workspace.
 
-    :::image type="content" source="media/quickstart-onboard/choose-workspace.png" alt-text="Screenshot of choosing a workspace while enabling Microsoft Sentinel.":::      
+    :::image type="content" source="media/quickstart-onboard/choose-workspace.png" alt-text="Screenshot of choosing a workspace while enabling Microsoft Sentinel.":::
  
    - The default workspaces created by Microsoft Defender for Cloud aren't shown in the list. You can't install Microsoft Sentinel on these workspaces.
    - Once deployed on a workspace, Microsoft Sentinel **doesn't support** moving that workspace to another resource group or subscription.
@@ -73,7 +74,13 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
 
 ## Access Microsoft Sentinel in the Defender portal
 
-This procedure is relevant if you're automatically onboarded to the Defender portal, or if you choose to onboard your workspace to the Defender portal after enabling Microsoft Sentinel. Users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal.
+This procedure is relevant if you're automatically onboarded to the Defender portal, or if you choose to onboard your workspace to the Defender portal after enabling Microsoft Sentinel.
+
+In most cases, users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal.
+
+The exception is for Azure Lighthouse-delegated users who are accessing a new customer workspace onboarded to Microsoft Sentinel in the Azure portal. These users won't see the automatic redirection and can work in the Azure portal.
+
+**To access Microsoft Sentinel in the Defender portal:**
 
 1. Sign into the [Defender portal](https://security.microsoft.com).
 
