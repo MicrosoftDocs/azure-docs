@@ -146,9 +146,9 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 1. Create an agent in the Azure AI Foundry portal by following the steps at:[Quickstart: Create a new agent](/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal).
 
-    Note the [models you can use and the available regions](https://learn.microsoft.com/en-us/azure/ai-services/agents/concepts/model-region-support#azure-openai-models). 
+    Note the [models you can use and the available regions](/azure/ai-services/agents/concepts/model-region-support#azure-openai-models). 
 
-1. Select the new agent and add an action with the OpenAPI 3.0 specified tool by following the steps at [How to use the OpenAPI spec tool](https://learn.microsoft.com/en-us/azure/ai-services/agents/how-to/tools/openapi-spec-samples?pivots=portal).
+1. Select the new agent and add an action with the OpenAPI 3.0 specified tool by following the steps at [How to use the OpenAPI spec tool](/azure/ai-services/agents/how-to/tools/openapi-spec-samples?pivots=portal).
 
 1. In the **Define schema** page, paste the schema that you copied earlier. Review and save the action.
 
