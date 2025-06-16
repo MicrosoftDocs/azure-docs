@@ -46,8 +46,6 @@ If you want to inject a Premium v2 (preview) API Management instance into a virt
 * Minimum: /27 (32 addresses)
 * Recommended: /24 (256 addresses) - to accommodate scaling of API Management instance
 
-### Network security group
-
 [!INCLUDE [api-management-virtual-network-v2-nsg-rules](../../includes/api-management-virtual-network-v2-nsg-rules.md)]
 
 ### Subnet delegation

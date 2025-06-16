@@ -6,6 +6,8 @@ ms.date: 06/16/2025
 ms.author: danlep
 ---
 
+### Network security group
+
 A network security group (NSG) must be associated with the subnet. To set up a network security group, see [Create a network security group](../articles/virtual-network/manage-network-security-group.md). 
 
 * Configure an outbound NSG rule to allow access to Azure Storage on port 443. 
