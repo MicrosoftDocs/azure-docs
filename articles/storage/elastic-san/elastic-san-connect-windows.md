@@ -70,17 +70,12 @@ Use the following script to create your connections. To execute it, collect or d
 and other volume names that you might require
 - 32: Number of sessions to each volume
 
-Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/connect.ps1) and save it as a .ps1 file, for example, connect.ps1. Then execute it with the required parameters. The following is an example of how to run the script: 
+Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/blob/main/PSH%20(Windows)%20Multi-Session%20Connect%20Scripts/ElasticSanDocScripts0523/connect.ps1) and save it as a .ps1 file, for example, connect.ps1.
 
-```bash
-./connect.ps1 $rgname $esanname $vgname $vol1,$vol2,$vol3 32
-```
-
-Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
 ### Set session number
 
-You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
+Before you run the script, determine how many sessions your volume needs. To be able to reach a volume's highest IOPS and throughput capacities, you'll need 32 sessions. But, because Windows iSCSI initatior has a maximum of 256 sessions, you may need to use less than 32 sessions if you're connecting more than eight volumes to a Windows client.
 
 > [!NOTE]
 > Use the `-NumSession` parameter to set the number of sessions. The parameter accepts values from 1 to 32, and has a default value of 32.
@@ -99,6 +94,8 @@ You need to use 32 sessions to each target volume to achieve its maximum IOPS an
 
   -NumSession “<value>”
 ```
+
+Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
 ## Next steps
 
