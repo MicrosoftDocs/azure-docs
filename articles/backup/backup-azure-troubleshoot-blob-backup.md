@@ -288,7 +288,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: Requested operation failed due to throttling by the Azure service. Azure Storage account management list operations limit reached.
 
-**Recommended action&&: Wait for a few minutes and then try the operation again.
+**Recommended action**: Wait for a few minutes and then try the operation again.
 
 ### UserErrorBlobVersionDeletedDuringBackup 
 
@@ -372,7 +372,7 @@ This article provides troubleshooting information to address issues you encounte
 
 ### LinkedAuthorizationFailed
 
-*Error code**: `LinkedAuthorizationFailed`
+**Error code**: `LinkedAuthorizationFailed`
 
 **Error message**: The client [user name] with object ID has permissions to perform the required action [operation name] on scope [vault name], however, it does not have the required permissions to perform action(s) [operation name] on the linked scope [datasource name].
 
@@ -474,7 +474,7 @@ This error is usually seen for operational tier restore failure due to PITR stil
 
 **Error code**: `641541, UserErrorPitrRestoreFailedLeasedBlob`
 
-Error message**: The point in time operation failed because of a lease on the blob.
+**Error message**: The point in time operation failed because of a lease on the blob.
 
 **Recommended action**: Break the lease on blob before retrying.
 
@@ -482,7 +482,7 @@ Error message**: The point in time operation failed because of a lease on the bl
 
 **Error code**: `641560, UserErrorStorageAccountAndDatasourceLocationNotSame`
 
-Error message**: Operation failed because, Storage Account and Datasource are not in the same location.
+**Error message**: Operation failed because, Storage Account and Datasource are not in the same location.
 
 **Recommended action**: Check the DataSource location in protection input and make sure it is same as the location of Storage account
 
