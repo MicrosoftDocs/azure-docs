@@ -74,11 +74,7 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
 
 ## Access Microsoft Sentinel in the Defender portal
 
-This procedure is relevant if you're automatically onboarded to the Defender portal, or if you choose to onboard your workspace to the Defender portal after enabling Microsoft Sentinel.
-
-In most cases, users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal.
-
-The exception is for Azure Lighthouse-delegated users who are accessing a new customer workspace onboarded to Microsoft Sentinel in the Azure portal. These users won't see the automatic redirection and can work in the Azure portal.
+This procedure is relevant if you're automatically onboarded to the Defender portal, or if you choose to [onboard your workspace to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard) after enabling Microsoft Sentinel.
 
 **To access Microsoft Sentinel in the Defender portal:**
 
