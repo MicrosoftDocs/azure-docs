@@ -8,7 +8,9 @@
   - name: "Why use Azure Virtual Enclaves?"
     href: why-azure-virtual-enclaves.md
   - name: Azure Virtual Enclaves FAQs
-    href: azure-virtual-enclaves-faq.md
+    href: virtual-enclaves-faq.md
+  - name: Azure Virtual Enclaves Pricing
+    href: virtual-enclaves-pricing.md
   - name: "What's new?"
     href: whats-new.md
   - name: Quickstarts
@@ -55,15 +57,13 @@
     - name: Understand approvals
       href: understand-approvals.md
     - name: Understand resource groups
-      href: azure-virtual-enclaves-resource-groups.md
+      href: virtual-enclaves-resource-groups.md
 #     - name: Understanding Enclave Networking
 #       href: networking.md
 #     - name: Designing intra-enclave network isolation
 #       href: designing-intra-enclave-network-isolation.md
     - name: Best practices
       href: best-practices.md
-#     - name: Air-Gapped communities and Enclaves
-#       href: air-gapped-communities-and-enclaves.md
     - name: Understand Admin Virtual Machines
       href: understand-admin-vm.md
     - name: Understand Domain Name Service
@@ -181,7 +181,7 @@
 - name: Resources
   items:
     - name: Azure Virtual Enclaves templates
-      href: azure-virtual-enclaves-templates.md
+      href: virtual-enclaves-templates.md
     - name: Migrate Azure resources into Azure Virtual Enclaves
       href: migrate-azure-resources-azure-virtual-enclaves.md
     # - name: Videos

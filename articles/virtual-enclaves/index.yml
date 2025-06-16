@@ -27,7 +27,9 @@ landingContent:
         - text: Why use Azure Virtual Enclaves?
           url: why-azure-virtual-enclaves.md
         - text: Azure Virtual Enclaves FAQs
-          url: azure-virtual-enclaves-faq.md
+          url: virtual-enclaves-faq.md
+        - text: Azure Virtual Enclaves Pricing
+          url: virtual-enclaves-pricing.md
         - text: "What's new?"
           url: whats-new.md
       # - linkListType: learn
@@ -58,6 +60,12 @@ landingContent:
             url: list-service-catalog-templates.md
           - text: Understand approvals
             url: understand-approvals.md
+          - text: Understand resource groups
+            url: virtual-enclaves-resource-groups.md
+          - text: Understand Admin Virtual Machines
+            url: understand-admin-vm.md
+          - text: Understand Domain Name Service
+            url: understand-domain-name-service.md
   # Card
   - title: Get started
     linkLists:
@@ -203,6 +211,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure Virtual Enclaves templates
-            url: azure-virtual-enclaves-templates.md
+            url: virtual-enclaves-templates.md
           - text: Migrate Azure resources into Azure Virtual Enclaves
             url: migrate-azure-resources-azure-virtual-enclaves.md
