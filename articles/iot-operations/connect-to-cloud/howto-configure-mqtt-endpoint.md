@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 05/21/2025
+ms.date: 06/13/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure data flow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -51,6 +51,43 @@ To view or edit the default MQTT broker endpoint settings:
 1. Select the **default** endpoint to view or edit the settings.
 
     :::image type="content" source="media/howto-configure-mqtt-endpoint/default-mqtt-endpoint.png" alt-text="Screenshot using operations experience to view the default MQTT data flow endpoint.":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change the default MQTT broker data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name default --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `default-mqtt-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+    "endpointType": "Mqtt",
+    "mqttSettings": {
+        "host": "aio-broker:18883",
+        "authentication": {
+            "method": "ServiceAccountToken",
+            "serviceAccountTokenSettings": {
+                "audience": "aio-internal"
+            }
+        },
+        "tls": {
+            "mode": "Enabled",
+            "trustedCaCertificateConfigMapRef": "azure-iot-operations-aio-ca-trust-bundle"
+        }
+    }
+}
+```
+
+Here's an example command to create or update the default MQTT broker data flow endpoint:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroup --instance myAioInstance --name default --config-file ~/default-mqtt-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
@@ -130,6 +167,61 @@ You can also create new local MQTT broker endpoints with custom settings. For ex
     | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. You can upload industry-standard multi-line X509 certificates improving device authentication management, security, and flexibility.|
     | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
     | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create local-mqtt](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-local-mqtt) command to create or replace a local MQTT broker data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create local-mqtt --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --port <Port> --host <Host>
+```
+
+This command creates a local MQTT broker endpoint with default settings. You can specify additional options as needed.
+
+Here's an example command to create or replace a local MQTT broker data flow endpoint named `local-mqtt-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create local-mqtt --resource-group myResourceGroup --instance myAioInstance --name local-mqtt-endpoint --port 1883 --host aio-broker --auth-type ServiceAccountToken --audience aio-internal
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change a local MQTT broker data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `local-mqtt-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+    "endpointType": "Mqtt",
+    "mqttSettings": {
+        "host": "aio-broker:1883",
+        "authentication": {
+            "method": "ServiceAccountToken",
+            "serviceAccountTokenSettings": {
+                "audience": "aio-internal"
+            }
+        },
+        "tls": {
+            "mode": "Enabled",
+            "trustedCaCertificateConfigMapRef": "azure-iot-operations-aio-ca-trust-bundle"
+        }
+    }
+}
+```
+
+Here's an example command to create or update a local MQTT broker data flow endpoint named `local-mqtt-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroup --instance myAioInstance --name local-mqtt-endpoint --config-file ~/local-mqtt-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 
@@ -260,6 +352,58 @@ Once the Event Grid namespace is configured, you can create a data flow endpoint
 
 1. Select **Apply** to provision the endpoint.
 
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create eventgrid](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-eventgrid) command to create or replace an Azure Event Grid MQTT data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create eventgrid --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <Namespace>.<Region>-1.ts.eventgrid.azure.net --port 9092
+```
+
+This command creates an Event Grid MQTT broker endpoint with default settings and system-assigned managed identity authentication. You can specify additional options as needed.
+
+Here's an example command to create or replace an Event Grid MQTT broker data flow endpoint named `event-grid-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create eventgrid --resource-group myResourceGroup --instance myAioInstance --name event-grid-endpoint --host mynamespace.eastus-1.ts.eventgrid.azure.net --port 9092
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Event Grid MQTT broker data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `event-grid-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+    "endpointType": "Mqtt",
+    "mqttSettings": {
+        "host": "mynamespace.eastus-1.ts.eventgrid.azure.net:9092",
+        "authentication": {
+            "method": "SystemAssignedManagedIdentity",
+            "systemAssignedManagedIdentitySettings": {}
+        },
+        "tls": {
+            "mode": "Enabled"
+        }
+    }
+}
+```
+
+Here's an example command to create or update an Event Grid MQTT broker data flow endpoint named `event-grid-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroup --instance myAioInstance --name event-grid-endpoint --config-file ~/event-grid-endpoint.json
+```
+
 # [Bicep](#tab/bicep)
 
 Create a Bicep `.bicep` file with the following content.
@@ -379,6 +523,58 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 
 1. Select **Apply** to provision the endpoint.
 
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create custom-mqtt](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-custom-mqtt) command to create or replace a custom MQTT broker data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create custom-mqtt --resource-group <ResourceGroupName> --instance <AioInstanceName>  --name <EndpointName> --host <Host> --port <Port>
+```
+
+This command creates a custom MQTT broker endpoint with default settings and system-assigned managed identity authentication. You can specify additional options as needed.
+
+Here's an example command to create or replace a custom MQTT broker data flow endpoint named `custom-mqtt-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create custom-mqtt --resource-group myResourceGroup --instance myAioInstance --name custom-mqtt-endpoint --host mycustombroker.contoso.com --port 8883
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change a custom MQTT broker data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `custom-mqtt-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+    "endpointType": "Mqtt",
+    "mqttSettings": {
+        "host": "mycustombroker.contoso.com:8883",
+        "authentication": {
+          "method": "SystemAssignedManagedIdentity",
+          "systemAssignedManagedIdentitySettings": {}
+        },
+        "tls": {
+            "mode": "Enabled"
+        }
+    }
+}
+```
+
+Here's an example command to create or update a custom MQTT broker data flow endpoint named `custom-mqtt-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroup --instance myAioInstance --name custom-mqtt-endpoint --config-file ~/custom-mqtt-endpoint.json
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -434,8 +630,39 @@ Then, configure the data flow endpoint with system-assigned managed identity set
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
-# [Bicep](#tab/bicep)
+# [Azure CLI](#tab/cli)
 
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create) command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for with system-assigned managed identity authentication.
+
+```azurecli
+az iot ops dataflow endpoint create <Command> --auth-type SystemAssignedManagedIdentity --audience <Audience> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter
+
+In this example, assume a configuration file with the following content:
+
+```json
+{
+    "endpointType": "Mqtt",
+    "mqttSettings": {
+        "host": "mycustombroker.contoso.com:8883",
+        "authentication": {
+          "method": "SystemAssignedManagedIdentity",
+          "systemAssignedManagedIdentitySettings": {}
+        },
+        "tls": {
+            "mode": "Enabled"
+        }
+    }
+}
+```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 mqttSettings: {
@@ -458,36 +685,6 @@ mqttSettings:
 
 ---
 
-In most cases when using with Event Grid, you can leave the settings empty as shown. This sets the managed identity audience to the Event Grid common audience `https://eventgrid.azure.net`. If you need to set a different audience, you can specify it in the settings.
-
-# [Operations experience](#tab/portal)
-
-Not supported.
-
-# [Bicep](#tab/bicep)
-
-```bicep
-mqttSettings: {
-  authentication: {
-    method: 'SystemAssignedManagedIdentity'
-    systemAssignedManagedIdentitySettings: {
-      audience: 'https://<AUDIENCE>'
-    }
-  }
-}
-```
-
-# [Kubernetes (preview)](#tab/kubernetes)
-
-```yaml
-mqttSettings:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: https://<AUDIENCE>
-```
-
----
 
 ### User-assigned managed identity
 
@@ -504,6 +701,39 @@ Then, configure the data flow endpoint with user-assigned managed identity setti
 # [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create) command with the `--auth-type` parameter set to `UserAssignedManagedIdentity` for with user-assigned managed identity authentication.
+
+```azurecli
+az iot ops dataflow endpoint create <Command> --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter
+
+In this example, assume a configuration file with the following content:
+
+```json
+{
+    "endpointType": "Mqtt",
+    "mqttSettings": {
+        "authentication": {
+          "method": "UserAssignedManagedIdentity",
+          "userAssignedManagedIdentitySettings": {
+            "clientId": "<ID>",
+            "tenantId": "<ID>",
+            // Optional
+            "scope": "https://<Scope_Url>"
+          }
+        }
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -536,8 +766,6 @@ mqttSettings:
 
 ---
 
-Here, the scope is optional and defaults to `https://eventgrid.azure.net/.default` which works for all Azure Event Grid namespaces. If you need to set a different scope, you can specify it in the settings via Bicep or Kubernetes.
-
 ### Kubernetes service account token (SAT)
 
 To use Kubernetes service account token (SAT) for authentication, you don't need to create a secret. The SAT is used to authenticate with the MQTT broker by matching the audience.
@@ -547,6 +775,36 @@ To use Kubernetes service account token (SAT) for authentication, you don't need
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Service account token**.
 
 Enter the service audience.
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create) command with the `--auth-type` parameter set to `ServiceAccountToken` for Kubernetes service account token authentication.
+
+```azurecli
+az iot ops dataflow endpoint create <Command> --auth-type ServiceAccountToken --audience <Audience> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter.
+
+In this example, assume a configuration file with the following content:
+
+```json
+{
+    "endpointType": "Mqtt",
+    "mqttSettings": {
+        "authentication": {
+          "method": "ServiceAccountToken",
+          "serviceAccountTokenSettings": {
+            "audience": "<ServiceAccountAudience>"
+          }
+        }
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -620,6 +878,36 @@ If you select **Create new**, enter the following settings:
 
 To learn more about secrets, see [Create and manage secrets in Azure IoT Operations](../secure-iot-ops/howto-manage-secrets.md).
 
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create) command with the `--auth-type` parameter set to `X509Certificate` for X.509 certificate authentication.
+
+```azurecli
+az iot ops dataflow endpoint create <Command> --auth-type X509Certificate --secret-name <X509SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter.
+
+In this example, assume a configuration file with the following content:
+
+```json
+{
+    "endpointType": "Mqtt",
+    "mqttSettings": {
+        "authentication": {
+          "method": "X509Certificate",
+          "x509CertificateSettings": {
+            "secretRef": "<X509SecretName>"
+          }
+        }
+    }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -652,6 +940,33 @@ To use anonymous authentication, set the authentication method to `Anonymous`.
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **None**.
 
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create) command with the `--no-auth` parameter for anonymous authentication.
+
+```azurecli
+az iot ops dataflow endpoint create <Command> --no-auth --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter.
+
+In this example, assume a configuration file with the following content:
+
+```json
+{
+    "endpointType": "Mqtt",
+    "mqttSettings": {
+        "authentication": {
+          "method": "Anonymous"
+        }
+    }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -681,6 +996,26 @@ You can set advanced settings for the MQTT broker data flow endpoint such as TLS
 # [Operations experience](#tab/portal)
 
 In the operations experience, select the **Advanced** tab for the data flow endpoint.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "qos": 1,
+        "retain": "Keep",
+        "sessionExpirySeconds": 3600,
+        "keepAliveSeconds": 60,
+        "maxInflightMessages": 100,
+        "protocol": "WebSockets",
+        "clientIdPrefix": "dataflow",
+        "cloudEventAttributes": "Propagate",
+        "tls": {
+          "mode": "Enabled"
+        }
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -726,6 +1061,18 @@ To enable or disable TLS for the MQTT endpoint, update the `mode` setting in the
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the checkbox next to **TLS mode enabled**.
 
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "tls": {
+          "mode": "Enabled"
+        }
+    }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -766,6 +1113,17 @@ mqttSettings: {
 }
 ```
 
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "tls": {
+          "trustedCaCertificateConfigMapRef": "<YOUR_CA_CERTIFICATE>"
+        }
+    }
+}
+```
 # [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
@@ -800,6 +1158,16 @@ In the operations experience data flow endpoint settings page, select the **Adva
 
 # [Bicep](#tab/bicep)
 
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "clientIdPrefix": "<YOUR_PREFIX>"
+    }
+}
+```
+
 ```bicep
 mqttSettings: {
   clientIdPrefix: '<YOUR_PREFIX>'
@@ -823,6 +1191,15 @@ You can set the Quality of Service (QoS) level for the MQTT messages to either 1
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Quality of service (QoS)** field to specify the QoS level.
 
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "qos": 1
+    }
+}
+```
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -854,6 +1231,15 @@ To configure retain settings:
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Retain** field to specify the retain setting.
 
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "retain": "Keep"
+    }
+}
+```
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -884,6 +1270,16 @@ You can set the session expiry interval for the data flow MQTT client. The sessi
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Session expiry** field to specify the session expiry interval.
 
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "sessionExpirySeconds": 600
+    }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -909,6 +1305,16 @@ By default, WebSockets isn't enabled. To use MQTT over WebSockets, set the `prot
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Protocol** field to specify the protocol.
 
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "protocol": "WebSockets"
+    }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -933,6 +1339,16 @@ You can set the maximum number of inflight messages that the data flow MQTT clie
 # [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Maximum in-flight messages** field to specify the maximum number of inflight messages.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "maxInflightMessages": 100
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -961,6 +1377,16 @@ You can set the keep alive interval for the data flow MQTT client. The keep aliv
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Keep alive** field to specify the keep alive interval.
 
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "keepAliveSeconds": 60
+    }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -982,11 +1408,21 @@ mqttSettings:
 
 [CloudEvents](https://cloudevents.io/) are a way to describe event data in a common way. The CloudEvents settings are used to send or receive messages in the CloudEvents format. You can use CloudEvents for event-driven architectures where different services need to communicate with each other in the same or different cloud providers.
 
-The `cloudEventAttributes ` options are `Propagate` or`CreateOrRemap`. To configure CloudEvents settings:
+The `cloudEventAttributes` options are `Propagate` or`CreateOrRemap`. To configure CloudEvents settings:
 
 # [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Cloud event attributes** field to specify the CloudEvents setting.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "mqttSettings": {
+        "cloudEventAttributes": "Propagate"
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
