@@ -35,7 +35,13 @@ To create an assessment, follow these steps.
     :::image type="content" source="./media/create-web-app-assessment/create-workload-assessment.png" alt-text="Screenshot shows how to create web app assessment." lightbox="./media/create-web-app-assessment/create-workload-assessment.png" :::
 
 1. Select **Create assessment**.
+    
+    :::image type="content" source="./media/create-web-app-assessment/select-create-assessment.png" alt-text="Screenshot shows to select and create assessment." lightbox="./media/create-web-app-assessment/select-create-assessment.png" :::
+
 1. Provide a suitable name for the assessment and select **Add workloads**. 
+
+    :::image type="content" source="./media/create-web-app-assessment/add-workloads.png" alt-text="Screenshot shows how to add workloads." lightbox="./media/create-web-app-assessment/add-workloads.png" :::
+
 1. Using the filters, select **web apps**, and select **Add**. 
 1. Review the selected workloads and select **Next**. 
 1. On the **General settings** tab, modify the assessment settings that are applicable across all Azure targets. 
