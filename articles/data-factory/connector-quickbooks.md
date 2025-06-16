@@ -242,7 +242,7 @@ The Copy Activity in the service cannot copy data directly from Quickbooks Deskt
 
 When you copy data from Quickbooks, the following mappings apply from Quickbooks's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Quickbooks data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+| Quickbooks data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0 (Preview)) |
 |:--- |:--- |:--- |
 | String       | string            | string                 |
 | Boolean      | bool              | bool                   |
