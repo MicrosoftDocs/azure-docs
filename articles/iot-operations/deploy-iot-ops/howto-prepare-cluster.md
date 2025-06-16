@@ -336,7 +336,7 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
    az connectedk8s show --resource-group <RESOURCE_GROUP> --name <CLUSTER_NAME> --query oidcIssuerProfile.issuerUrl --output tsv
    ```
    
-Save the output of this command to use in the next steps.
+  Save the output of this command to use in the next steps.
 
 1. Connect to the TKG management cluster. Edit the custom resource for the workload cluster with the issuer URL from the previous step.
 
