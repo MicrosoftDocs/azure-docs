@@ -22,6 +22,7 @@ The Business case capability helps you build a business proposal to understand h
 - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
 - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
 - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
+- Sustainability insights: Sustainability insights show carbon emissions reduce when moving from on-premises to Azure.
 
 Other key features:
 
@@ -42,7 +43,6 @@ There are three types of migration strategies that you can choose while building
 | **Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. <br/><br/>General servers are recommended with a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy - *Modernize to PaaS* from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service and Azure Kubernetes Service assessments, with a preference to App Service. For general servers, sizing and cost comes from Azure VM assessment. |
  
 Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness, and Azure cost estimates, you can create respective assessments for the servers or workloads.
-
 
 ## Discovery sources to create a Business case
 
@@ -208,6 +208,25 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | **License Support** | License support cost for virtualization + Windows Server + SQL Server + Linux OS + Windows server extended security update (ESU) + SQL Server extended security update (ESU) |     | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure. |
 | **Security** | Per year |  Per server annual security/protection cost.  |    |
 | **Datacenter Admin cost** | Number of people * hourly cost * 730 hours | Cost per hour based on location. |     |
+
+### Sustainability insights: Lower emissions with Azure
+
+The Sustainability benefits capability is now embedded in Azure Migrate’s Business Case. It empowers IT, finance, and sustainability teams to:
+
+- **Estimate on-premises emissions (in MtCO₂e)**: It uses a standard method that includes compute, storage, power use, and location-based carbon intensity.
+- **Compare with Azure emissions**: It uses Microsoft’s verified carbon rate cards for each SKU and region.
+- **Visualize year-on-year reduction**: It visualizes yearly reduction as workloads move from on-premises to Azure.
+- **Align cross-functional stakeholders**: It bring the stakeholders together by presenting both economic and environmental benefits in one view.
+
+The method to calculate these emissions is explained below:
+
+
+
+
+
+
+
+
 
 ### On-premises with Arc and Azure (future state)
 
