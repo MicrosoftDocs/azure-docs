@@ -170,3 +170,9 @@ sections:
           How do I use `latest` or a static tag for my container image?
         answer: |
           Avoid using static tags like `latest` for container images. Using static tags can lead to caching problems and can make your app difficult to troubleshoot. Instead, use unique tags for each deployment, such as a Git hash or date and time to ensure that updates are properly tracked and deployed.
+  - name: OpenTelemetry
+    questions:
+      - question: |
+          What transport protocols does the OpenTelemetry managed agent support?
+        answer: |
+          The managed agent only supports gRPC.

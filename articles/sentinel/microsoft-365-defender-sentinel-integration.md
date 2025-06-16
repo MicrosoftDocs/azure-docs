@@ -72,7 +72,6 @@ Defender XDR enriches and groups alerts from multiple Microsoft Defender product
 - [Microsoft Defender for Identity](/defender-for-identity/what-is)
 - [Microsoft Defender for Office 365](/defender-office-365/mdo-about)
 - [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps)
-- [Microsoft Defender Vulnerability Management](/defender-vulnerability-management/defender-vulnerability-management)
 
 Other services whose alerts are collected by Defender XDR include:
 

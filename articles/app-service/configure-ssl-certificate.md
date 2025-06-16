@@ -38,8 +38,7 @@ The following table lists the options for you to add certificates in App Service
 
 The [free App Service managed certificate](#create-a-free-managed-certificate) and the [App Service certificate](configure-ssl-app-service-certificate.md) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
-* Be exported as a [password-protected .pfx file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), encrypted by using triple DES.
-* Contain a private key at least 2,048 bits long.
+* Be exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions).
 * Contain all intermediate certificates and the root certificate in the certificate chain.
 
 If you want to help secure a custom domain in a TLS binding, the certificate must meet these extra requirements:
@@ -48,7 +47,7 @@ If you want to help secure a custom domain in a TLS binding, the certificate mus
 * Be signed by a trusted certificate authority.
 
 > [!NOTE]
-> *Elliptic curve cryptography (ECC) certificates* work with App Service but aren't covered by this article. For the exact steps to create ECC certificates, work with your certificate authority.
+> **Elliptic Curve Cryptography (ECC) certificates** work with App Service when uploaded as a PFX, but currently cannot be imported from Key Vault. They aren't covered by this article. For the exact steps to create ECC certificates, work with your certificate authority.
 
 After you add a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system (OS) combination. Internally, it's called a *webspace*. That way, the certificate is accessible to other apps in the same resource group, region, and OS combination. Private certificates uploaded or imported to App Service are shared with app services in the same deployment unit.
 

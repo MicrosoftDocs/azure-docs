@@ -344,8 +344,6 @@
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
-  - name: Samples
-    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 - name: Resources
   items:
   - name: Azure updates

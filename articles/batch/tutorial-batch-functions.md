@@ -5,6 +5,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/21/2023
 ms.custom: mvc, devx-track-csharp
+# Customer intent: As a developer, I want to create an Azure Function that triggers a Batch job for OCR processing, so that I can automate the conversion of scanned documents into searchable text files upon upload.
 ---
 
 # Tutorial: Trigger a Batch job using Azure Functions

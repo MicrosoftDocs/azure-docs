@@ -4,6 +4,7 @@ description: Learn about the simplified compute node communication mode in the A
 ms.topic: how-to
 ms.date: 03/27/2025
 ms.custom: references_regions
+# Customer intent: "As a cloud administrator managing workload execution on Batch pools, I want to switch to simplified compute node communication mode, so that I can reduce networking complexity and enhance security for my batch processing environment."
 ---
 
 # Use simplified compute node communication

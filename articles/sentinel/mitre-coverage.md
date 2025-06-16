@@ -3,7 +3,7 @@ title: View MITRE coverage for your organization from Microsoft Sentinel | Micro
 description: Learn how to view coverage indicator in Microsoft Sentinel for MITRE tactics that are currently covered, and available to configure, for your organization.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 06/16/2025
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -36,7 +36,7 @@ Before you can view the MITRE coverage for your organization in Microsoft Sentin
 
 ## MITRE ATT&CK framework version
 
-Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 13.
+Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 16.
 
 ##  View current MITRE coverage
 

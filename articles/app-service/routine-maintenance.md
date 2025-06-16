@@ -48,6 +48,9 @@ From left to right, the example shows:
 - Selecting the **Impacted Resources** tab.
 - The **More info** option.
 
+> [!NOTE]
+> Manual initiation of maintenance is not supported for App Service Plans. However, App Service Environments (ASE) do support manual maintenance preferences.
+
 :::image type="content" source="./media/routine-maintenance/routine-maintenance-more.png" alt-text="Screenshot of more info for a maintenance event in the Azure portal." lightbox="media/routine-maintenance/routine-maintenance-more.png":::
 
 This example shows:

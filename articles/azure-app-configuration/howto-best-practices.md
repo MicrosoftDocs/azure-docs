@@ -86,6 +86,23 @@ const appConfig = await load(endpoint, credential, {
 });
 ```
 
+#### [Go](#tab/go)
+
+```golang
+options := &azureappconfiguration.Options{
+    Selectors: []azureappconfiguration.Selector{
+        {
+            KeyFilter: "TestApp.*",
+        },
+    },
+    RefreshOptions: azureappconfiguration.KeyValueRefreshOptions{
+        Enabled:  true,
+    },
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
 #### [Kubernetes](#tab/kubernetes)
 
 ```yaml
@@ -136,6 +153,26 @@ const appConfig = await load(endpoint, credential, {
         watchedSettings: [{ key: "SentinelKey" }]
     }
 });
+```
+
+#### [Go](#tab/go)
+
+```golang
+options := &azureappconfiguration.Options{
+    Selectors: []azureappconfiguration.Selector{
+        {
+            KeyFilter: "TestApp*",
+        },
+    },
+    RefreshOptions: azureappconfiguration.KeyValueRefreshOptions{
+        Enabled:  true,
+        WatchedSettings: []WatchedSetting{
+				    {Key: "SentinelKey"},
+			},
+    },
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
 ```
 
 #### [Kubernetes](#tab/kubernetes)

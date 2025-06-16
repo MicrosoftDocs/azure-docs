@@ -168,7 +168,7 @@ You can fully develop and deploy logic app resources with Azure DevOps or any ot
 ##### Monitor Standard workflows
 
 * [Monitor health for Standard workflows in Azure Logic Apps with Health Check](monitor-health-standard-workflows.md)
-* [Enable and view enhanced telemetry in Application Insights for Standard worklfows](enable-enhanced-telemetry-standard-workflows.md)
+* [Enable and view enhanced telemetry in Application Insights for Standard workflows](enable-enhanced-telemetry-standard-workflows.md)
 * [Monitor and track B2B transactions in Standard workflows](monitor-track-b2b-transactions-standard.md)
 
 ## Other integrations and capabilities

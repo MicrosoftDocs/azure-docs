@@ -6,6 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: azure-batch
 ms.date: 03/27/2025
+# Customer intent: As a cloud administrator, I want to effectively plan and manage costs for Azure Batch workloads, so that I can monitor expenses and optimize resource allocation to stay within budget while minimizing overall cloud spending.
 ---
 
 # Plan to manage costs for Azure Batch

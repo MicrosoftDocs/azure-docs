@@ -5,6 +5,7 @@ ms.topic: sample
 ms.date: 04/02/2025
 ms.custom: devx-track-azurecli, seo-azure-cli
 keywords: batch, azure cli samples, azure cli code samples, azure cli script samples
+# Customer intent: "As a cloud administrator, I want to create and manage a Batch account using CLI scripts, so that I can efficiently allocate compute resources and manage configurations for batch processing tasks."
 ---
 
 # CLI example: Create a Batch account in Batch service mode

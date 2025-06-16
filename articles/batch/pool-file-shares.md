@@ -4,6 +4,7 @@ description: How to mount an Azure Files share from compute nodes in a Linux or 
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 04/25/2025
+# Customer intent: "As a cloud engineer, I want to mount an Azure file share to my Batch pool, so that I can efficiently manage and access files used by compute nodes during processing tasks."
 ---
 
 # Use an Azure file share with a Batch pool
