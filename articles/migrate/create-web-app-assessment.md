@@ -43,9 +43,14 @@ To create an assessment, follow these steps.
     :::image type="content" source="./media/create-web-app-assessment/add-workloads.png" alt-text="Screenshot shows how to add workloads." lightbox="./media/create-web-app-assessment/add-workloads.png" :::
 
 1. Using the filters, select **web apps**, and select **Add**. 
+
+     :::image type="content" source="./media/create-web-app-assessment/add-workloads-using-filters.png" alt-text="Screenshot shows to use filters and add workloads." lightbox="./media/create-web-app-assessment/add-workloads-using-filters.png" :::
+
 1. Review the selected workloads and select **Next**. 
+
+    :::image type="content" source="./media/create-web-app-assessment/review-selected-workload.png" alt-text="Screenshot shows how to review selected workloads." lightbox="./media/create-web-app-assessment/review-selected-workload.png" :::
 1. On the **General settings** tab, modify the assessment settings that are applicable across all Azure targets. 
- 
+
     | **Setting**  | **Possible Values**  | **Description**  |
     |----------|-------|---|
     | Default target location | All locations supported by Azure targets | Used to generate regional cost for Azure targets.   |
@@ -58,6 +63,8 @@ To create an assessment, follow these steps.
     | Microsoft Defender for Cloud | -                                                 | Includes Microsoft Defender for App Service cost in the month over month cost estimate.                                |
  
 1. On the **Advanced settings** tab, select **Edit defaults** to choose the preferred Azure targets and target-specific settings. 
+
+    :::image type="content" source="./media/create-web-app-assessment/edit-defaults.png" alt-text="Screenshot shows to edit defaults to choose the preferred target." lightbox="./media/create-web-app-assessment/edit-defaults.png" :::
 
    **AKS Settings**
 
@@ -75,7 +82,9 @@ To create an assessment, follow these steps.
     | Isolation required | No   <br> Yes   | The Isolated plan allows you to run your apps in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.|
 
 1. Review and create the assessment. 
- 
+
+     :::image type="content" source="./media/create-web-app-assessment/review-and-create.png" alt-text="Screenshot shows to review and create the assessment." lightbox="./media/create-web-app-assessment/review-and-create.png" :::
+
 ## Next steps 
 
 - Understand the [assessment insights](https://microsoftapc.sharepoint.com/:w:/t/AzureCoreIDC/EQ8jF5QuAeJDqoYwJ8Y_k1IBOH8E2zjyGIChYANVLUxRdw?e=WIsw26) to make data-driven decisions for web app modernization. 
