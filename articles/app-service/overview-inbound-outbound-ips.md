@@ -43,115 +43,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## Get a static inbound IP
 
-Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to [secure a custom DNS name with an IP-based certificate binding](./configure-ssl-bindings.md). If you don't actually need TLS functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based TLS binding, the certificate is bound to the IP address itself, so App Service creates a static IP address to make it happen. 
-
-## Inbound IPv6 support
-
-Azure App Service supports IPv6 for inbound traffic. Apps can receive traffic over both IPv4 and IPv6 protocols, providing compatibility with modern networks and clients that require IPv6 connectivity.
-
-> [!NOTE]
-> Outbound IPv6 isn't supported. All outbound connections from your app use IPv4.
-
-### Prerequisites
-
-To use IPv6 inbound traffic, you need:
-
-- An IPv6 address that accepts incoming traffic
-- A DNS record that returns an IPv6 (AAAA) record
-- A client that can send and receive IPv6 traffic
-
-> [!IMPORTANT]
-> Many local networks and development environments only support IPv4, which might affect your ability to test IPv6 connectivity from your local machine.
-
-### How IPv6 addressing works
-
-All App Service deployment units include IPv6 addresses, enabling your app to receive traffic on both IPv4 and IPv6 addresses. For backward compatibility, the DNS response for the default hostname (`<app-name>.azurewebsites.net`) returns only the IPv4 address by default.
-
-You can configure the IP mode behavior using the `IPMode` property:
-
-- **IPv4** (default): DNS returns IPv4 address only
-- **IPv6**: DNS returns IPv6 address only
-- **IPv4AndIPv6**: DNS returns both IPv4 and IPv6 addresses
-
-### Configure IPv6 support
-
-# [Azure CLI](#tab/azure-cli)
-
-To update an app to return IPv6 DNS records in the Azure CLI, run the following command.
-
-```azurecli-interactive
-# Configure IPv6 only
-az resource update --name <app-name> --set properties.ipMode="IPv6" -g <resource-group-name> --resource-type "Microsoft.Web/sites"
-
-# To update a slot, you need to provide the resource ID of the slot
-az resource update --ids '/subscriptions/<sub-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/sites/<app-name>/slots/<slot-name>' --set properties.ipMode='IPv6'
-```
-
-# [Azure portal](#tab/azure-portal)
-
-To update an app to return IPv6 DNS records in the Azure portal, go to the **Configuration** page for the App Service app and set the **Inbound IP mode** property.
-
-:::image type="content" source="./media/overview-inbound-outbound-ips/ip-mode-configuration.png" alt-text="Screenshot that shows how the inbound IP mode is set in the App Service configuration page.":::
-
-# [Azure Resource Manager Template](#tab/arm-template)
-
-To deploy a new app or update an existing app using an Azure Resource Manager (ARM) template, set the `IPMode` to either "IPv6" or "IPv4AndIPv6".
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "variables": {
-      "appName": "APP-SERVICE-NAME",
-      "appIPMode": "IPv6",
-      "appServicePlanName": "PLAN-NAME",
-      "location": "[resourceGroup().location]"
-  },
-  "resources": [
-    {
-        "name": "[variables('appName')]",
-        "type": "Microsoft.Web/sites",
-        "apiVersion": "2021-03-01",
-        "location": "[variables('location')]",
-        "dependsOn": [
-            "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]"
-        ],
-        "properties": {
-          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
-          "httpsOnly": true,
-          "ipMode": "[variables('appIPMode')]"
-        }
-    }
-  ]
-}
-```
-
----
-
-### Test IPv6 connectivity
-
-To test IPv6 connectivity to your app, use the following curl command:
-
-```bash
-curl -6 https://<app-name>.azurewebsites.net
-```
-
-### Custom domains and IPv6
-
-When using custom domains, you can configure DNS records to support IPv6:
-
-- **IPv6 only**: Add an AAAA record pointing to your app's IPv6 address. Clients must support IPv6.
-- **Dual-stack**: Add both A (IPv4) and AAAA (IPv6) records, or use a CNAME record to the default hostname, which inherits the `IPMode` behavior.
-
-### IPv6 considerations
-
-Consider the following factors when implementing IPv6 support:
-
-- **Compatibility**: Use `IPv4AndIPv6` mode for maximum client compatibility
-- **Testing**: Verify that your network infrastructure and test environments support IPv6
-- **Client support**: Ensure your application clients can handle IPv6 addresses
-- **Outbound traffic**: Remember that outbound connections always use IPv4
-- **Client testing**: To ensure propert functionality, test your application with both IPv4 and IPv6 clients
+Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to [secure a custom DNS name with an IP-based certificate binding](./configure-ssl-bindings.md). If you don't actually need TLS functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based TLS binding, the certificate is bound to the IP address itself, so App Service creates a static IP address to make it happen.
 
 ## When outbound IPs change
 
@@ -217,6 +109,114 @@ The tag can be used to allow outbound traffic in a Network security group (NSG) 
 
 > [!NOTE]
 > Service tag helps you define network access, but it shouldn't be considered as a replacement for proper network security measures as it doesn't provide granular control over individual IP addresses.
+
+## Inbound IPv6 support
+
+Azure App Service supports IPv6 for inbound traffic. Apps can receive traffic over both IPv4 and IPv6 protocols, providing compatibility with modern networks and clients that require IPv6 connectivity.
+
+> [!NOTE]
+> Outbound IPv6 isn't supported. All outbound connections from your app use IPv4.
+
+### Prerequisites
+
+To use IPv6 inbound traffic, you need:
+
+- An IPv6 address that accepts incoming traffic
+- A DNS record that returns an IPv6 (AAAA) record
+- A client that can send and receive IPv6 traffic
+
+> [!IMPORTANT]
+> Many local networks and development environments only support IPv4, which might affect your ability to test IPv6 connectivity from your local machine.
+
+### How IPv6 addressing works
+
+All App Service deployment units include IPv6 addresses, enabling your app to receive traffic on both IPv4 and IPv6 addresses. For backward compatibility, the DNS response for the default hostname (`<app-name>.azurewebsites.net`) returns only the IPv4 address by default.
+
+You can configure the IP mode behavior using the `IPMode` property:
+
+- **IPv4** (default): DNS returns IPv4 address only
+- **IPv6**: DNS returns IPv6 address only
+- **IPv4AndIPv6**: DNS returns both IPv4 and IPv6 addresses
+
+### Configure IPv6 support
+
+# [Azure CLI](#tab/azure-cli)
+
+To update an app to return IPv6 DNS records in the Azure CLI, run the following command.
+
+```azurecli
+# Configure IPv6 only
+az resource update --name <app-name> --set properties.ipMode="IPv6" -g <resource-group-name> --resource-type "Microsoft.Web/sites"
+
+# To update a slot, you need to provide the resource ID of the slot
+az resource update --ids '/subscriptions/<sub-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Web/sites/<app-name>/slots/<slot-name>' --set properties.ipMode='IPv6'
+```
+
+# [Azure portal](#tab/azure-portal)
+
+To update an app to return IPv6 DNS records in the Azure portal, go to the **Configuration** page for the App Service app and set the **Inbound IP mode** property.
+
+  :::image type="content" source="./media/overview-inbound-outbound-ips/ip-mode-configuration.png" alt-text="Screenshot that shows how the inbound IP mode is set in the App Service configuration page.":::
+
+# [Azure Resource Manager template](#tab/arm-template)
+
+To deploy a new app or update an existing app using an Azure Resource Manager (ARM) template, set the `IPMode` to either "IPv6" or "IPv4AndIPv6".
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+      "appName": "APP-SERVICE-NAME",
+      "appIPMode": "IPv6",
+      "appServicePlanName": "PLAN-NAME",
+      "location": "[resourceGroup().location]"
+  },
+  "resources": [
+    {
+        "name": "[variables('appName')]",
+        "type": "Microsoft.Web/sites",
+        "apiVersion": "2021-03-01",
+        "location": "[variables('location')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]"
+        ],
+        "properties": {
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+          "httpsOnly": true,
+          "ipMode": "[variables('appIPMode')]"
+        }
+    }
+  ]
+}
+```
+
+---
+
+### Test IPv6 connectivity
+
+To test IPv6 connectivity to your app, use the following curl command:
+
+```bash
+curl -6 https://<app-name>.azurewebsites.net
+```
+
+### Custom domains and IPv6
+
+When using custom domains, you can configure DNS records to support IPv6:
+
+- **IPv6 only**: Add an AAAA record pointing to your app's IPv6 address. Clients must support IPv6.
+- **Dual-stack**: Add both A (IPv4) and AAAA (IPv6) records, or use a CNAME record to the default hostname, which inherits the `IPMode` behavior.
+
+### IPv6 considerations
+
+Consider the following factors when implementing IPv6 support:
+
+- **Compatibility**: Use `IPv4AndIPv6` mode for maximum client compatibility
+- **Testing**: Verify that your network infrastructure and test environments support IPv6
+- **Client support**: Ensure your application clients can handle IPv6 addresses
+- **Outbound traffic**: Remember that outbound connections always use IPv4
+- **Client testing**: To ensure propert functionality, test your application with both IPv4 and IPv6 clients
 
 ## Next steps
 
