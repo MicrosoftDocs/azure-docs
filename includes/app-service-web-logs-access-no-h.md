@@ -5,7 +5,7 @@ services: app-service
 author: cephalin
 ms.service: azure-app-service
 ms.topic: "include"
-ms.date: 07/13/2021
+ms.date: 04/01/2025
 ms.author: cephalin
 ms.custom: "include file"
 ---
@@ -26,7 +26,4 @@ az webapp log tail --resource-group <resource-group-name> --name <app-name>
 
 If console logs don't appear immediately, check again in 30 seconds.
 
-> [!NOTE]
-> You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
-
-To stop log streaming at any time, select Ctrl+C.
+To stop log streaming at any time, select **Ctrl**+**C**.

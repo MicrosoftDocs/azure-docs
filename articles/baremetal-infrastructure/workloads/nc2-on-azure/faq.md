@@ -8,6 +8,7 @@ ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
 ms.date: 12/10/2024
 ms.service: azure-baremetal-infrastructure
+# Customer intent: As a cloud solutions architect, I want to understand the support structure and integration capabilities of NC2 on Azure, so that I can effectively design and implement solutions that leverage both Nutanix software and Azure infrastructure.
 ---
 
 # Frequently asked questions about NC2 on Azure

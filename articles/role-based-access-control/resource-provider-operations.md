@@ -2,12 +2,12 @@
 title: Azure permissions - Azure RBAC
 description: Lists the permissions for Azure resource providers.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -41,6 +41,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [microsoft.app](./permissions/compute.md#microsoftapp) |  | [Azure Container Apps](/azure/container-apps/) |
 > | [Microsoft.AppPlatform](./permissions/compute.md#microsoftappplatform) | A fully managed Spring Cloud service, built and operated with Pivotal. | [Azure Spring Apps](/azure/spring-apps/) |
 > | [Microsoft.AVS](./permissions/compute.md#microsoftavs) |  | [Azure VMware Solution](/azure/azure-vmware/introduction) |
+> | [Microsoft.AzureFleet](./permissions/compute.md#microsoftazurefleet) |  | [Azure Compute Fleet](/azure/azure-compute-fleet/overview) |
 > | [Microsoft.Batch](./permissions/compute.md#microsoftbatch) | Cloud-scale job scheduling and compute management. | [Batch](/azure/batch/) |
 > | [Microsoft.ClassicCompute](./permissions/compute.md#microsoftclassiccompute) |  | Classic deployment model virtual machine |
 > | [Microsoft.Compute](./permissions/compute.md#microsoftcompute) | Access cloud compute capacity and scale on demand (such as virtual machines) and only pay for the resources you use. | [Virtual Machines](/azure/virtual-machines/)<br/>[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
@@ -90,7 +91,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.CertificateRegistration](./permissions/web-and-mobile.md#microsoftcertificateregistration) | Allow an application to use its own credentials for authentication. | [App Service Certificates](/azure/app-service/configure-ssl-certificate#buy-and-import-app-service-certificate) |
 > | [Microsoft.DomainRegistration](./permissions/web-and-mobile.md#microsoftdomainregistration) |  | [App Service](/azure/app-service/) |
 > | [Microsoft.Maps](./permissions/web-and-mobile.md#microsoftmaps) | Simple and secure location APIs provide geospatial context to data. | [Azure Maps](/azure/azure-maps/) |
-> | [Microsoft.Media](./permissions/web-and-mobile.md#microsoftmedia) | Encode, store, and stream video and audio at scale. | [Media Services](/azure/media-services/) |
 > | [Microsoft.SignalRService](./permissions/web-and-mobile.md#microsoftsignalrservice) | Add real-time web functionalities easily. | [Azure SignalR Service](/azure/azure-signalr/) |
 > | [microsoft.web](./permissions/web-and-mobile.md#microsoftweb) | Quickly create and deploy mission critical web apps at scale. | [App Service](/azure/app-service/)<br/>[Azure Functions](/azure/azure-functions/) |
 
@@ -154,6 +154,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.HealthBot](./permissions/ai-machine-learning.md#microsofthealthbot) |  | [Azure AI Health Bot](/azure/health-bot/overview) |
 > | [Microsoft.MachineLearningServices](./permissions/ai-machine-learning.md#microsoftmachinelearningservices) | Enterprise-grade machine learning service to build and deploy models faster. | [Machine Learning](/azure/machine-learning/) |
 > | [Microsoft.Search](./permissions/ai-machine-learning.md#microsoftsearch) | Leverage search services and get comprehensive results. | [Azure AI Search](/azure/search/) |
+> | [Microsoft.VideoIndexer](./permissions/ai-machine-learning.md#microsoftvideoindexer) | Extract the insights from your videos using Azure AI Video Indexer video and audio models. | [Azure AI Video Indexer](/azure/azure-video-indexer/) |
 
 ## Internet of Things
 
@@ -187,6 +188,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.ApiManagement](./permissions/integration.md#microsoftapimanagement) | Easily build and consume Cloud APIs. | [API Management](/azure/api-management/) |
 > | [Microsoft.AppConfiguration](./permissions/integration.md#microsoftappconfiguration) | Fast, scalable parameter storage for app configuration. | [Azure App Configuration](/azure/azure-app-configuration/) |
 > | [Microsoft.Communication](./permissions/integration.md#microsoftcommunication) |  | [Azure Communication Services](/azure/communication-services/overview) |
+> | [Microsoft.DurableTask](./permissions/integration.md#microsoftdurabletask) |  | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) |
 > | [Microsoft.EventGrid](./permissions/integration.md#microsofteventgrid) | Get reliable event delivery at massive scale. | [Event Grid](/azure/event-grid/) |
 > | [Microsoft.EventHub](./permissions/integration.md#microsofteventhub) | Receive telemetry from millions of devices. | [Event Hubs](/azure/event-hubs/) |
 > | [Microsoft.HealthcareApis](./permissions/integration.md#microsofthealthcareapis) |  | [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/) |
@@ -312,6 +314,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Kubernetes](./permissions/hybrid-multicloud.md#microsoftkubernetes) |  | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) |
 > | [Microsoft.KubernetesConfiguration](./permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration) |  | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) |
 > | [Microsoft.ResourceConnector](./permissions/hybrid-multicloud.md#microsoftresourceconnector) |  |  |
+> | [Microsoft.SCVMM](./permissions/hybrid-multicloud.md#microsoftscvmm) |  | [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](/azure/azure-arc/system-center-virtual-machine-manager/overview) |
 
 ## Next steps
 

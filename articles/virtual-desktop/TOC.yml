@@ -35,7 +35,7 @@
           displayName: what's new, avd insights, avdi
           href: whats-new-insights.md
         - name: MSIXMGR tool
-          displayName: what's new, msix app attach
+          displayName: what's new, app attach
           href: whats-new-msixmgr.md
         - name: Multimedia redirection
           displayName: what's new, mmr
@@ -157,6 +157,9 @@
             - name: Check access to required FQDNs and endpoints
               displayName: network, fqdn, endpoint, urls, connections, connectivity
               href: check-access-validate-required-fqdn-endpoint.md
+        - name: RDP Multipath
+          displayName: network connectivity, connections, udp
+          href: rdp-multipath.md
         - name: RDP Shortpath
           items:
             - name: RDP Shortpath overview
@@ -282,28 +285,25 @@
             - name: Set preferred application group type
               displayName: applications, apps, host pool properties
               href: set-preferred-application-group-type.md
-        - name: App attach
+        - name: App Attach
           items:
-            - name: App attach overview
-              displayName: applications, apps, msix app attach, app attach, app packages, appx packages
+            - name: App Attach overview
+              displayName: applications, apps, app packages, appx packages
               href: app-attach-overview.md
             - name: Create an MSIX image
-              displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+              displayName: applications, apps, appx packages, app packages
               href: app-attach-create-msix-image.md
-            - name: Add and manage app attach applications
-              displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+            - name: Add and manage App Attach applications
+              displayName: applications, apps, appx packages, app packages
               href: app-attach-setup.md
             - name: Test MSIX packages
-              displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+              displayName: applications, apps, appx packages, app packages
               href: app-attach-test-msix-packages.md
-            - name: Migrate from MSIX app attach to app attach
-              displayName: msix app attach, app attach, applications, apps, appx packages, app packages
-              href: msix-app-attach-migration.md
-            - name: Partner solutions with app attach
+            - name: Partner solutions with App Attach
               displayName: applications, partner, app attach, apps
               href: app-attach-partner-solutions.md
             - name: MSIXMGR tool parameters
-              displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+              displayName: applications, apps, appx packages, app packages
               href: msixmgr-tool-syntax-description.md
         - name: Specific applications
           items:
@@ -428,7 +428,7 @@
         - name: Security baseline
           href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
         - name: Screen capture protection
-          displayName: security
+          displayName: security, scp
           href: screen-capture-protection.md
         - name: Watermarking
           displayName: security
@@ -436,6 +436,9 @@
         - name: Onboard to Purview forensic evidence
           displayName: security, purview insider risk management
           href: purview-forensic-evidence.md
+        - name: Require local client device security compliance
+          displayName: apps, clients, windows app, remote desktop, rdp, edge, web browser
+          href: /windows-app/require-device-security-compliance-intune?context=/azure/virtual-desktop/context/context
     - name: Licensing and pricing
       items:
         - name: Enroll in per-user access pricing
@@ -468,22 +471,18 @@
           href: /windows-app/overview
         - name: Compare Windows App across platforms
           displayName: apps, clients, remote desktop client, rdp, connect
-          href: /windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop
+          href: /windows-app/compare-platforms-features?pivots=azure-virtual-desktop
         - name: Windows App documentation
           href: /windows-app/
     - name: Remote Desktop client
       items:
-        - name: Remote Desktop client overview
-          displayName: apps, remote desktop, rdp, windows app
-          href: /previous-versions/remote-desktop-client/overview
-        - name: Compare the Remote Desktop client across platforms
-          displayName: apps, remote desktop, rdp
-          href: /previous-versions/remote-desktop-client/compare-remote-desktop-clients?pivots=azure-virtual-desktop
+        - name: Connect with the Remote Desktop client
+          href: ./remote-desktop-client/connect-windows-cloud-services.md
         - name: Install the Remote Desktop client for Windows on a per-user basis
           displayName: apps, clients, remote desktop, rdp, connect, intune, configuration manager, configmgr, sccm, mem, mdm, per user
-          href: /previous-versions/remote-desktop-client/install-windows-client-per-user
-        - name: Remote Desktop client documentation
-          href: /previous-versions/remote-desktop-client/
+          href: ./remote-desktop-client/install-windows-client-per-user.md
+        - name: Use features of the Remote Desktop client
+          href: ./remote-desktop-client/client-features-windows-msrdc.md
     - name: Peripheral and resource redirection
       items:
         - name: Peripheral and resource redirection overview
@@ -527,9 +526,9 @@
             - name: WebAuthn
               displayName: devices, peripherals, redirections, identity
               href: redirection-configure-webauthn.md
-        - name: Configure client redirection using Intune
+        - name: Manage Windows App redirection settings with Microsoft Intune
           displayName: apps, clients, windows app, remote desktop, rdp
-          href: client-device-redirection-intune.md
+          href: /windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context
     - name: Supported RDP properties
       displayName: apps, clients, windows app, remote desktop, rdp
       href: rdp-properties.md
@@ -639,7 +638,7 @@
     - name: Custom image templates
       displayName: troubleshooting, virtual machines, vms, images, vhd, vhdx
       href: /troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates?context=/azure/virtual-desktop/context/context
-    - name: App attach
+    - name: App Attach
       displayName: troubleshooting, apps, remoteapp
       href: /troubleshoot/azure/virtual-desktop/troubleshoot-app-attach?context=/azure/virtual-desktop/context/context
 - name: Reference
@@ -663,7 +662,7 @@
       displayName: reference
       href: /rest/api/desktopvirtualization/
     - name: MSIXMGR tool parameters
-      displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+      displayName: app attach, applications, apps, appx packages, app packages
       href: msixmgr-tool-syntax-description.md
 - name: Resources
   items:

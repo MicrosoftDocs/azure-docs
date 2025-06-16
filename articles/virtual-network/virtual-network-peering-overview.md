@@ -6,29 +6,35 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 02/22/2024
+ms.date: 03/31/2025
 ms.author: allensu
 # Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This knowledge will allow me to design connectivity correctly and understand future scalability options and limitations.
 ---
 
 # Virtual network peering
 
-Virtual network peering enables you to seamlessly connect two or more [virtual networks](virtual-networks-overview.md) in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through the Microsoft *private* network only.
+Virtual network peering enables you to seamlessly connect two or more [virtual networks](virtual-networks-overview.md) in Azure. The virtual networks appear as one for connectivity purposes. The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Traffic is routed through the Microsoft *private* network only.
 
 By default, a virtual network is peered with up to 500 other virtual networks. By using the [connectivity configuration for Azure Virtual Network Manager](../virtual-network-manager/concept-connectivity-configuration.md), you can increase this limit to peer up to 1,000 virtual networks to a single virtual network. With this larger size, you can create a hub-and-spoke topology with 1,000-spoke virtual networks, for example. You can also create a mesh of 1,000-spoke virtual networks where all spoke virtual networks are directly interconnected.
 
 Azure supports the following types of peering:
 
 * **Virtual network peering**: Connect virtual networks within the same Azure region.
+
 * **Global virtual network peering**: Connect virtual networks across Azure regions.
 
 The benefits of using virtual network peering, whether local or global, include:
 
 * A low-latency, high-bandwidth connection between resources in different virtual networks.
+
 * The ability for resources in one virtual network to communicate with resources in a different virtual network.
+
 * The ability to transfer data between virtual networks across Azure subscriptions, Microsoft Entra tenants, deployment models, and Azure regions.
+
 * The ability to peer virtual networks created through Azure Resource Manager.
+
 * The ability to peer a virtual network created through Resource Manager to one created through the classic deployment model. To learn more about Azure deployment models, see [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
 * No downtime to resources in either virtual network when you create the peering or after the peering is created.
 
 Network traffic between peered virtual networks is private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public internet, gateways, or encryption are required in the communication between the virtual networks.
@@ -41,7 +47,7 @@ It's an added flexibility built on top of virtual network peering, where users g
 
 For peered virtual networks, resources in either virtual network can directly connect with resources in the peered virtual network.
 
-The network latency between virtual machines in peered virtual networks in the same region is the same as the latency within a single virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any extra restriction on bandwidth within the peering.
+The network latency between virtual machines in peered virtual networks in the same region is the same as the latency within a single virtual network. The network throughput is based on the bandwidth allowed for the virtual machine, proportionate to its size. There isn't any extra restriction on bandwidth within the peering.
 
 The traffic between virtual machines in peered virtual networks is routed directly through the Microsoft backbone infrastructure, not through a gateway or over the public internet.
 
@@ -55,7 +61,9 @@ You can resize the address space of Azure virtual networks that are peered witho
 You can resize addresses in the following ways:
 
 - Modify the address range prefix of an existing address range (for example, change 10.1.0.0/16 to 10.1.0.0/18).
+
 - Add address ranges to a virtual network.
+
 - Delete address ranges from a virtual network.
 
 Resizing of address space is supported cross-tenant.
@@ -103,8 +111,9 @@ You can also see [Troubleshoot virtual network peering issues](virtual-network-t
 
 The following constraints apply only when virtual networks are globally peered:
 
-   * Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network.
-   * Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global virtual network peering and load balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
+* Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network.
+   
+* Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global virtual network peering and load balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
 
 You can't perform virtual network peerings as part of the `PUT` virtual network operation.
 
@@ -125,15 +134,15 @@ Gateway transit is a peering property that enables a virtual network to use a vi
 
 ## Related content
 
-* You can create a peering between two virtual networks. The networks can belong to the same subscription, different deployment models in the same subscription, or different subscriptions. Complete a tutorial for one of the following scenarios:
+* You can create a peering between two virtual networks. The networks can belong to the same subscription or different subscriptions. Complete a tutorial for one of the following scenarios:
 
     |Azure deployment model             | Subscription  |
     |---------                          |---------|
-    |Both Resource Manager              |[Same](tutorial-connect-virtual-networks-portal.md)|
+    |Resource Manager              |[Same](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Different](create-peering-different-subscriptions.md)|
-    |One Resource Manager, one classic  |[Same](create-peering-different-deployment-models.md)|
-    |                                   |[Different](create-peering-different-deployment-models-subscriptions.md)|
 
 * To learn how to create a hub-and-spoke network topology, see [Hub-and-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
 * To learn about all virtual network peering settings, see [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md).
+
 * For answers to common virtual network peering and global virtual network peering questions, see [Virtual network peering](virtual-networks-faq.md#virtual-network-peering).

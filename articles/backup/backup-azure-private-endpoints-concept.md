@@ -3,7 +3,7 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: overview
 ms.service: azure-backup
-ms.date: 03/27/2025
+ms.date: 05/26/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -31,7 +31,8 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 - You can create private endpoints for new Recovery Services vaults that don't have any items registered/protected to the vault, only. However, private endpoints are currently not supported for Backup vaults.
 
   >[!Note]
-  >Private endpoints with static IPs are unsupported in the V2 experience due to dynamic IP expansion. While creation succeeds, registration might fail for vaults with existing protected items.
+  >- Private endpoints with static IPs are unsupported in the V2 experience due to dynamic IP expansion. While creation succeeds, registration might fail for vaults with existing protected items.
+  >- Creation of multiple private endpoints with the same name under Recovery Services Vaults is unsupported.
 
 - You can't upgrade vaults (that contains private endpoints) created using the classic experience to the new experience. You can delete all existing private endpoints, and then create new private endpoints with the v2 experience. 
 
@@ -93,7 +94,7 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
 >- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
-To auto-update the MARS Agent allow access to the `*.login.microsoft.com` domain.
+To auto-update the MARS Agent allow access to `download.microsoft.com/download/MARSagent/*`.
 
 For a Recovery Services vault with private endpoint setup, the name resolution for the FQDNs (`privatelink.<geo>.backup.windowsazure.com`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`) should return a private IP address. This can be achieved by using: 
 

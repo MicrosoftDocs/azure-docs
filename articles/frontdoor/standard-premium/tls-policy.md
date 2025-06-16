@@ -1,24 +1,23 @@
 ---
-title: Azure Front Door TLS policy (preview)
+title: Azure Front Door TLS policy
 description: Learn how custom TLS policies help you meet security requirements for your Azure Front Door custom domains.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 03/26/2025
+ms.date: 04/09/2025
 ---
 
-# Azure Front Door TLS policy (preview)
+# Azure Front Door TLS policy
 
-> [!IMPORTANT]
-> TLS policy is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door supports [end-to-end TLS encryption](../end-to-end-tls.md). When you add a custom domain to Azure Front Door, HTTPS is required, and you need to define a TLS policy which includes control of the TLS protocol version and the cipher suites during a TLS handshake. 
 
 Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. Currently, Azure Front Door doesn't support client/mutual authentication (mTLS).
 
 > [!NOTE]
-> As of March 1, 2025, TLS 1.0 and 1.1 are disallowed on Azure Front Door. If you didn't disable TLS 1.0 and 1.1 on legacy settings before this date, they'll still work temporarily but will be disabled in April 2025.
+> As of March 1, 2025, TLS 1.0 and 1.1 minimum version are disallowed on Azure Front Door. 
 
 Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs. If you use Azure Front Door (classic) and Microsoft CDN (classic), you'll continue to use the minimum TLS 1.2 version.
 

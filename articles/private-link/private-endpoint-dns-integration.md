@@ -4,7 +4,7 @@ description: Learn about Azure Private Endpoint DNS configuration scenarios.
 services: private-link
 author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: abell
 ms.custom: fasttrack-edit

@@ -5,7 +5,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: This document describes how to place video on a web page based on resolution size to optimize video placement and enhance overall page performance.
 author: sloanster
 services: azure-communication-services
-ms.date: 03/07/2025
+ms.date: 06/06/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -55,7 +55,7 @@ When placing multiple videos on a web page, consider the user's network bandwidt
 
 ### Use the Web UI Library
 
-The Azure Communication Services [Web UI Library](../../concepts/ui-library/ui-library-overview.md) is a powerful tool for developers looking to create seamless and visually appealing web applications. The Web UI Library offers a comprehensive set of pre-built UI components that are easy to integrate and highly customizable. This solution enables developers to focus on building functionality rather than designing from scratch.
+The Azure Communication Services [Web UI Library](../../concepts/ui-library/ui-library-overview.md) is a powerful tool for developers looking to create seamless and visually appealing web applications. The Web UI Library offers a comprehensive set of prebuilt UI components that are easy to integrate and highly customizable. This solution enables developers to focus on building functionality rather than designing from scratch.
 
 The Web UI Library ensures consistent design standards across different projects and platforms, enhancing user experience and reducing development time. Its extensive documentation and active community support make it an excellent choice for both beginners and experienced developers. By applying the Web UI Library, you can streamline your workflow, create professional-quality interfaces, and deliver engaging web applications more efficiently. Also, using the Web UI Library removes the guesswork of determining how many videos you can optimally subscribe to at one time.
 
@@ -76,19 +76,17 @@ When there's a change in the optimal video count value, if the result indicates 
 
 Conversely, if the optimal count decreases and is [less than the current number of videos on the page](../../resources/troubleshooting/voice-video-calling/video-issues/reaching-max-number-of-active-video-subscriptions.md), consider disposing of a video using the dispose method and updating the application layout accordingly.
 
-### Things to consider when adding a 1080P or 720P video to a page.
+### Things to consider when adding a 1080p or 720p video to a page.
 
-- You can place one 1080p incoming video with the rest smaller than 720P.
+- You can place one 1080p incoming video with the rest smaller than 720p.
 - You can place two 720p incoming videos with the rest smaller than 720p.
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
-
-In [version 1.33](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1332-beta1-2025-01-30) and later of the public preview calling SDK support putting 2 720P videos simultaneously on a web page.
+The WebJS calling SDK supports 1080p video streaming. To send a 1080p from a web desktop browser, you must use version 134.1 or higher of the [GA](https://www.npmjs.com/package/@azure/communication-calling) or [public preview](https://www.npmjs.com/package/@azure/communication-calling?activeTab=beta) caling SDK.
 
 For instance, in a group call where seven participants have their video cameras on, on each client page you can select two participants' videos are displayed at higher resolutions. These two participants set to show their video at 720p by setting their views on the web page to be 720 pixels in height by 1280 pixels in width (or greater). The remaining five participant videos should be set to a lower resolution, such as 360p or lower.
 
-- To ensure that the total number of rendered videos remains below the OVC value threshold, review and adhere to the [Optimal Video Count (OVC)](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web).
-- Each client can specify which user's video they want to receive and set individual resolution sizes on their respective machines.
+- Please ensure that the total number of rendered videos does not exceed the OVC [Optimal Video Count (OVC)](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web) value.
+- Each client can choose the video feed from specific users and adjust the resolution size on their individual devices.
 - Each participant's ability to send a specific video resolution can vary. Some computers are equipped with higher quality cameras, enabling them to transmit a 1080p video. Conversely, some mobile browsers have lower video transmission capabilities, such as only 540p. If you embedded the video resolution to be 1080p or 720p in a page, the incoming video might not match that resolution. In this case, the system upscales the video stream to fill the video renderer size.
 - Currently, a maximum of two 720p video streams can be rendered on a web page. If more than two 720p streams are enabled, all 720p video renditions are streamed at 540p.
 - The maximum number of incoming remote streams that can be subscribed to is 16 video streams plus 1 screen sharing on desktop browsers, and 4 video streams plus 1 screen sharing on web mobile browsers.
@@ -96,7 +94,75 @@ For instance, in a group call where seven participants have their video cameras 
 
    This function enables viewers with varying network conditions to select which video rendition to select to receive for the best possible video quality without buffering or interruptions. By optimizing bandwidth usage, simulcast sends higher resolution streams only to users who can support them. This behavior minimizes unnecessary data transmission. Simulcast improves the overall user experience by providing stable and consistent video quality and enables adaptive streaming.
 
-   Simulcast isn't supported on all browser devices. Currently, simulcast is unavailable when sending videos on mobile browsers or macOS Safari. If a participant attempts to render 720p video from a user on iOS Safari, Android Chrome, or macOS Safari and another participant on the call tries to render the same video at a smaller resolution, both receive the smaller resolution. This change happens because the devices prioritize smaller resolutions when simulcast send isn't supported.
+   Simulcast isn't supported on all browsers, specifically mobile browsers and macOS Safari. If a participant using iOS Safari, Android Chrome, or macOS Safari renders a 720p video and another participant tries to render the same video at a lower resolution, both will receive the lower resolution. This happens because these devices prioritize smaller resolutions when simulcast sending is unsupported.
+
+## How to configure to send a 1080p stream
+
+When using the WebJS SDK to send video at a 1080p resolution, you must use the [Video Constraints API](../voice-video-calling/get-started-video-constraints.md?pivots=platform-web) and specify that you want to use 1080p. If the Video Constraints API isn't used and 1080p isn't specified, the default video stream resolution is 720p.
+
+```javascript
+    const callOptions = {
+        videoOptions: {
+            localVideoStreams: [...],
+            constraints: {
+                send: {
+                    height: {
+                        max: 1080
+                    }
+                }
+            }
+        },
+        audioOptions: {
+            muted: false
+        }
+    };
+    // make a call
+    this.callAgent.startCall(identitiesToCall, callOptions);
+```
+
+### Items to note when sending a 1080p video stream
+* The camera in use should be capable of sending a 1080p video. To check what resolutions your camera supports, you can use the following JavaScript example to determine the available resolutions.
+
+```javascript
+async function getSupportedResolutions() {
+  const constraints = {
+    video: {
+      width: { ideal: 4096 }, // Try to get the maximum width
+      height: { ideal: 2160 } // Try to get the maximum height
+    }
+  };
+ 
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    const videoTrack = stream.getVideoTracks()[0];
+    const settings = videoTrack.getSettings();
+    
+    console.log(`Supported resolution: ${settings.width}x${settings.height}`);
+    
+    // Stop the video track to release the camera
+    videoTrack.stop();
+  } catch (error) {
+    console.error('Error accessing media devices.', error);
+  }
+}
+ 
+getSupportedResolutions();
+```
+
+* The machine sending a 1080p must have a powerful enough machine to support sending a 1080p. 
+* The client that is on the  receiver side (people accepting of a 1080p video) must have a video render HTML5 element capable of 1080p to accept 1080p. If any participants on the call don't have a 1080p element enabled to receive the video, the call will adjust and negotiate down to a smaller resolution.
+* All the people on the call that are sending and receiving a 1080p video stream must have the bandwidth to support a 1080p stream.
+
+| **Resolution** | **Min framerate** | **Max framerate** |  **Max bitrate**  |
+|--|--|--|--|
+| 1080p | 30 | 30 | 4 M |
+| 720p | 30 | 30 | 2.5 M |
+| 540p | 30 | 30 | 2 M |
+| 360p | 30 | 30 | 1 M |
+| 240p | 15 | 15 | 650 K |
+| 180p | 7.5 | 15 | 250 K(350 K if 15 FPS)|
+
+You can use the media quality statistics API within the WebJS SDK to determine the real time video send and receive resolution. See [here](../../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web) for more details.
 
 ## Conclusion
 

@@ -6,6 +6,8 @@ description: Learn about disk encryption when using Azure Cache for Redis.
 
 ms.topic: how-to
 ms.date: 02/28/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 
 ---
@@ -75,7 +77,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted by defau
 
 ### Use the portal to create a new cache with CMK enabled
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and start the [Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md) quickstart guide.
+1. Create a Redis Enterprise cache.
 
 1. On the **Advanced** page, go to the section titled **Customer-managed key encryption at rest** and enable the **Use a customer-managed key** option.
 

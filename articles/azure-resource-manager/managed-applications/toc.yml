@@ -58,6 +58,9 @@
     - name: Create an Azure application offer
       href: ../../marketplace/azure-app-offer-setup.md?toc=%2fazure%2fazure-resource-manager%2fmanaged-applications%2ftoc.json
       displayName: marketplace
+    - name: Reference linked artifacts and templates
+      href: artifacts-location.md
+      displayName: artifactsLocation
     - name: Request just-in-time access
       href: request-just-in-time-access.md
       displayName: JIT
@@ -190,7 +193,7 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/managed-applications/
   - name: Pricing calculator

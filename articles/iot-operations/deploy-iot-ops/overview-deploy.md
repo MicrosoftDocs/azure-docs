@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: conceptual
 ms.custom:
-ms.date: 11/06/2024
+ms.date: 04/28/2025
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
@@ -74,6 +74,9 @@ The following table describes Azure IoT Operations deployment and management tas
 | Create secrets in Key Vault | **Key Vault Secrets Officer** role at the resource level. | Only required for secure settings deployment. |
 | Enable resource sync rules on an Azure IoT Operations instance | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled as part of the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command. |
 
+> [!TIP]
+> You must enable resource sync rules on the Azure IoT Operations instance to use the automatic asset discovery capabilities of the Akri services. To learn more, see [What is OPC UA asset discovery (preview)?](../discover-manage-assets/overview-akri.md).
+
 If you use the Azure CLI to assign roles, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
 
 If you use the Azure portal to assign privileged admin roles to a user or principal, you're prompted to restrict access using conditions. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
@@ -103,7 +106,7 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
 
   |Endpoints (DNS) | Description |
   |-|-|
-  | `<customer-specific>.blob.storage.azure.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
+  | `<customer-specific>.blob.core.windows.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
 
 * To push data to the cloud, enable the following endpoints based on your choice of data platform.
 

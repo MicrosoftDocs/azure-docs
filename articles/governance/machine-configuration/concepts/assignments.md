@@ -67,12 +67,25 @@ An example deployment template:
           "contentHash": "SHA256HASH",
           "version": "1.0.0",
           "assignmentType": "ApplyAndMonitor",
-          "configurationParameter": {}
+          "configurationParameter": [
+            "name":"configurationName",
+            "value":"configurationValue"
+          ]
         }
       }
     }
   ]
 }
+
+```
+Example of configurationParameter:
+```
+   "configurationParameter": [
+        {
+          "name": "[SecureWebServer]s1;MinimumTLSVersion",
+          "value": "1.2"
+        }
+      ],
 ```
 
 The following table describes each property of guest assignment resources.

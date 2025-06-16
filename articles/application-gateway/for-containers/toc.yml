@@ -19,6 +19,8 @@
     href: application-gateway-for-containers-components.md
   - name: Migrate from AGIC to Application Gateway for Containers
     href: migrate-from-agic-to-agc.md
+  - name: Container networking
+    href: container-networking.md
   - name: Custom health probe
     href: custom-health-probe.md
   - name: ECDSA and RSA certificates
@@ -99,6 +101,8 @@
     href: troubleshooting-guide.md
 - name: Kubernetes Reference
   items:
+  - name: ALB Controller Helm Chart
+    href: alb-controller-helm-chart.md
   - name: API Specification
     href: api-specification-kubernetes.md
 - name: Reference

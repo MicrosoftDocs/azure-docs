@@ -1,7 +1,7 @@
 ---
 title: Triggers and bindings in Azure Functions
 description: Learn to use triggers and bindings to connect your Azure Function to online events and cloud-based services.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/28/2024
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
@@ -18,7 +18,7 @@ Binding to a function is a way of declaratively connecting your functions to oth
 
 You can mix and match different bindings to suit your function's specific scenario. Bindings are optional and a function might have one or multiple input and/or output bindings.
 
-Triggers and bindings let you avoid hardcoding access to other services. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function. 
+Triggers and bindings let you avoid hardcoding access to other services. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function.
 
 Consider the following examples of how you could implement different functions.
 
@@ -41,6 +41,8 @@ A function has a single trigger and one or more bindings. The type of binding is
 
 Triggers and bindings are defined differently depending on the development language. Make sure to select your language at the [top](#top) of the article.
 
+Trigger and binding names are limited to alphanumeric characters and `_`, the underscore.
+
 This example shows an HTTP triggered function with an output binding that writes a message to an Azure Storage queue.
 
 ::: zone pivot="programming-language-csharp"
@@ -52,7 +54,7 @@ The HTTP trigger (`HttpTrigger`) is defined on the `Run` method for a function n
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="11-14":::
 
-This example shows the `MultiResponse` object definition which both returns an `HttpResponse` to the HTTP request and also writes a message to a storage queue using a `QueueOutput` binding: 
+This example shows the `MultiResponse` object definition which both returns an `HttpResponse` to the HTTP request and also writes a message to a storage queue using a `QueueOutput` binding:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="33-38":::
 
@@ -90,13 +92,13 @@ In Node.js for Functions version 3, you configure triggers and bindings in a fun
 
 ---
 
-::: zone-end  
+::: zone-end
 This example is an HTTP triggered function that creates a queue item for each HTTP request received.
 
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript"
 ### [v4](#tab/node-v4)
 
-The `http` method on the exported `app` object defines an HTTP trigger, and the `storageQueue` method on `output` defines an output binding on this trigger.  
+The `http` method on the exported `app` object defines an HTTP trigger, and the `storageQueue` method on `output` defines an output binding on this trigger.
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" :::
 
@@ -131,8 +133,8 @@ This example `function.json` file defines the HTTP trigger function that returns
 
 ---
 
-::: zone-end  
-::: zone pivot="programming-language-typescript"  
+::: zone-end
+::: zone pivot="programming-language-typescript"
 ### [v4](#tab/node-v4)
 
 The `http` method on the exported `app` object defines an HTTP trigger, and the `storageQueue` method on `output` defines an output binding on this trigger.
@@ -168,20 +170,20 @@ This example `function.json` file defines the HTTP trigger function that returns
 }
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+::: zone-end
+::: zone pivot="programming-language-powershell"
 This example `function.json` file defines the function:
 
 :::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 
 For more information, see the [PowerShell developer guide](functions-reference-powershell.md#bindings).
-::: zone-end  
-::: zone pivot="programming-language-python"  
+::: zone-end
+::: zone pivot="programming-language-python"
 The way that the function is defined depends on the version of Python for Functions:
 
 ### [v2](#tab/python-v2)
 
-In Python for Functions version 2, you define the function directly in code using decorators. 
+In Python for Functions version 2, you define the function directly in code using decorators.
 
 :::code language="python" source="~/functions-docs-python-v2/function_app.py" range="4-9" :::
 
@@ -194,25 +196,25 @@ In Python for Functions version 1, this example `function.json` file defines an 
 
 ---
 
-::: zone-end  
+::: zone-end
 
 ## Add bindings to a function
 
-You can connect your function to other services by using input or output bindings. Add a binding by adding its specific definitions to your function. To learn how, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md).  
+You can connect your function to other services by using input or output bindings. Add a binding by adding its specific definitions to your function. To learn how, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md).
 
-Azure Functions supports multiple bindings, which must be configured correctly. For example, a function can read data from a queue (input binding) and write data to a database (output binding) simultaneously. 
+Azure Functions supports multiple bindings, which must be configured correctly. For example, a function can read data from a queue (input binding) and write data to a database (output binding) simultaneously.
 
 ## Supported bindings
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md). 
+For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
 
 Specific binding extension versions are only supported while the underlying service SDK is supported. Changes to support in the underlying service SDK version affect the support for the consuming extension.
 
 ## Bindings code examples
 
-Use the following table to find more examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project. 
+Use the following table to find more examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project.
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 

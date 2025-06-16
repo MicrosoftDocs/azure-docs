@@ -2,7 +2,7 @@
 title: Azure Files and File Sync videos
 description: View a comprehensive list of Azure Files and Azure File Sync video content released over time.
 author: sindamnataraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: nasindam
 ms.date: 07/26/2023
 ms.service: azure-file-storage

@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Basic guidance for different ISV options on running file services in Azure
 author: dukicn
 ms.author: nikoduki
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/22/2022
 ms.service: azure-storage
 ms.subservice: storage-common-concepts

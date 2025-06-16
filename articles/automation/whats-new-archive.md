@@ -5,6 +5,8 @@ services: automation
 ms.topic: overview
 ms.date: 08/01/2023
 ms.custom: references_regions
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Archive for What's new in Azure Automation?
@@ -124,7 +126,7 @@ The script is available for download from our [GitHub repository](https://github
 
 **Type.** New feature
 
-The Hybrid Runbook Worker feature supports CentOS 8.x, REHL 8.x, and SLES 15 distributions for only process automation on Hybrid Runbook Workers. See [Supported operating systems](automation-linux-hrw-install.md#supported-linux-operating-systems) for updates to the documentation to reflect these changes.
+The Hybrid Runbook Worker feature supports CentOS 8.x, REHL 8.x, and SLES 15 distributions for only process automation on Hybrid Runbook Workers.
 
 ### Update Management and Change Tracking availability in Australia East, East Asia, West US, and Central US regions
 
@@ -237,7 +239,7 @@ Use Azure Private Link to securely connect virtual networks to Azure Autom
 
 **Type:** New feature
 
-Automation Hybrid Runbook Worker supports the Windows Server 2008 R2 operating system. See [Supported operating systems](automation-windows-hrw-install.md#supported-windows-operating-system) for updates to the documentation to reflect these changes.
+Automation Hybrid Runbook Worker supports the Windows Server 2008 R2 operating system.
 
 ### Update Management support for Windows Server 2008 R2
 

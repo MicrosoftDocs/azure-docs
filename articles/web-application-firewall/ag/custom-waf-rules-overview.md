@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 01/30/2024
+ms.date: 03/30/2025
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -15,13 +15,13 @@ The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre
 
 Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow, block, or log). If a custom rule is triggered, and an allow or block action is taken, no further actions from custom or managed rules is taken. In the event of a custom rule triggering an allow or a block action, you may still see some log events for rule matches from configured ruleset (Core Rule Set/Default Rule Set) but those rules aren't enforced. The log events show merely due to the optimization enforced by the WAF engine for parallel rule processing and can be safely ignored. Custom rules can be enabled/disabled on demand.
 
-For example, you can block all requests from an IP address in the range 192.168.5.0/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.0/24), and the action is to block the traffic. You also set the rule's name, priority and enabled/disabled state.
+For example, you can block all requests from an IP address in the range 192.168.5.0/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.0/24), and the action is to block the traffic. You also set the rule's name, priority, and enabled/disabled state.
 
 Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, you  can use two custom rules to create the following logic ((rule1:Condition 1 **and** rule1:Condition 2) **or** rule2:Condition 3). This logic means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rules. 
 
 Different matching conditions within the same rule are always compounded using **and**. For example, block traffic from a specific IP address, and only if they're using a certain browser.
 
-If you want to use **or** between two different conditions,then the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they're using a specific browser.
+If you want to use **or** between two different conditions, then the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they're using a specific browser.
 
 Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
@@ -29,7 +29,7 @@ Regular expressions are also supported in custom rules, just like in the CRS rul
 > The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits).
 
 > [!CAUTION]
-> Any redirect rules applied at the application gateway level will bypass WAF custom rules. See [Application Gateway redirect overview](../../application-gateway/redirect-overview.md) for more information about redirect rules.
+> Any redirect rules applied at the application gateway level will bypass WAF custom rules. For more information, see [Application Gateway redirect overview](../../application-gateway/redirect-overview.md).
 
 ## Allowing vs. blocking
 
@@ -89,11 +89,14 @@ The previous `$BlockRule` maps to the following custom rule in Azure Resource Ma
 
 This custom rule contains a name, priority, an action, and the array of matching conditions that must be met for the action to take place. For further explanation of these fields, see the following field descriptions. For example custom rules, see [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
+> [!NOTE]
+> WAF custom rules don't support allowing or blocking requests based on filenames or file types.
+
 ## Fields for custom rules
 
 ### Name [optional]
 
-The name of the rule.  It appears in the logs.
+The name of the rule. It appears in the logs.
 
 ### Enable rule [optional]
 
@@ -148,7 +151,7 @@ Negates the current condition.
 
 ### Transform [optional]
 
-A list of strings with names of transformations to do before the match is attempted. These can be the following transformations:
+A list of string values specifying transformations to apply before attempting a match. The available transformations include:
 
 - Lowercase
 - Uppercase
@@ -163,7 +166,7 @@ A list of strings with names of transformations to do before the match is attemp
 List of values to match against, which can be thought of as being *OR*'ed. For example, it could be IP addresses or other strings. The value format depends on the previous operator.
 
 > [!NOTE]
-> If your WAF is running Core Rule Set (CRS) 3.1, or any other earlier CRS version, the match value only allows letters, numbers and punctuation marks. Quotation marks `"`, `'` and spaces are not supported.
+> If your WAF is running Core Rule Set (CRS) 3.1, or any other earlier CRS version, the match value only allows letters, numbers, and punctuation marks. Quotation marks `"`, `'` and spaces aren't supported.
 
 Supported HTTP request method values include:
 - GET
@@ -181,7 +184,7 @@ In WAF policy detection mode, if a custom rule is triggered, the action is alway
 - Allow – Authorizes the transaction, skipping all other rules. The specified request is added to the allowlist and once matched, the request stops further evaluation and is sent to the backend pool. Rules that are on the allowlist aren't evaluated for any further custom rules or managed rules.
 - Block - Blocks or logs the transaction based on SecDefaultAction (detection/prevention mode).
    - Prevention mode - Blocks the transaction based on SecDefaultAction. Just like the `Allow` action, once the request is evaluated and added to the blocklist, evaluation is stopped and the request is blocked. Any request after that meets the same conditions isn't evaluated and is blocked.
-   - Detection mode - Logs the transaction based on SecDefaultAction after which evaluation is stopped. Any request after that meets the same conditions isn't evaluated and is just logged.
+   - Detection mode - Logs the transaction based on SecDefaultAction after which evaluation is stopped. Any request after that meets the same conditions isn't evaluated and is logged.
 - Log – Lets the rule write to the log, but lets the rest of the rules run for evaluation. The other custom rules are evaluated in order of priority, followed by the managed rules.
 
 ## Copying and duplicating custom rules
@@ -192,7 +195,7 @@ Custom rules can be duplicated within a given policy. When duplicating a rule, y
 
 Custom rules let you create tailored rules to suit the exact needs of your applications and security policies. You can restrict access to your web applications by country/region. For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
-## Next steps
+## Next step
 
-- [Create your own custom rules](create-custom-waf-rules.md)
-- [Learn more about Azure network security](../../networking/security/index.yml)
+> [!div class="nextstepaction"]
+> [Create your own custom rules](create-custom-waf-rules.md)

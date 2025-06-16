@@ -5,7 +5,7 @@ author: mmccrory
 ms.service: azure-automanage
 ms.custom: linux-related-content
 ms.collection: linux
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/10/2021
 ms.author: memccror
 ---

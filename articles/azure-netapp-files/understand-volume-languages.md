@@ -4,7 +4,7 @@ description: Learn about the supported languages and character sets with NFS, SM
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/08/2024
 ms.author: anfdocs
 ---

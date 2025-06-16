@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 06/11/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -10,19 +10,12 @@ ms.author: jsuri
 
 # Back up Azure Managed Disks
 
-This article explains how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) from the Azure portal.
+This article explains how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) from the Azure portal. You can also use REST API to [create a Backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md) and [configure backup](backup-azure-dataprotection-use-rest-api-backup-disks.md) for Azure Managed Disk.
 
-In this article, you'll learn how to:
+Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
 
-- Create a Backup vault
-
-- Create a backup policy
-
-- Configure a backup of an Azure Disk
-
-- Run an on-demand backup job
-
-For information on the Azure Disk backup region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
+>[!Note]
+>- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
 
 ## Create a Backup vault
 
@@ -232,4 +225,10 @@ The Azure Backup service creates a job for scheduled backups or if you trigger o
 
 ## Next steps
 
-- [Restore Azure Managed Disks](restore-managed-disks.md)
+Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
+
+## Related content
+
+- [Create a backup policy to protect Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
+- [Back up Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+- [Restore Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).

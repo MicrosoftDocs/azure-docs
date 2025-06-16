@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: concept-article
 ms.date: 02/04/2025
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #customerIntent: As a security administrator, I want to understand and implement Business Continuity and Disaster Recovery (BCDR) strategies in Microsoft Sentinel in order to ensure high availability and resilience of my security operations.

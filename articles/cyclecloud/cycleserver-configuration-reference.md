@@ -2,13 +2,13 @@
 title: CycleServer Configuration Reference
 description: Configuration reference for cycle_server.properties file
 author: atomic-penguin
-ms.date: 07/15/2024
+ms.date: 06/10/2025
 ms.author: erwolfe
 ---
 
 # CycleServer Configuration
 
-CycleCloud uses the _cycle_server.properties_ file to pass configuration parameters to the CycleServer application and application server (Tomcat). The most common reason for updating this file is to configure SSL for the application server. For more information, see the [SSL Configuration How-to Guide](./how-to/ssl-configuration.md).
+CycleCloud uses the _cycle_server.properties_ file, located under the `/opt/cycle_server/config/` directory on Linux systems, to pass the configuration parameters to the CycleServer application and Tomcat application server. The most common reason for updating this file is to configure SSL for the application server. For more information, see the [SSL Configuration How-to Guide](./how-to/ssl-configuration.md).
 
 > [!IMPORTANT]
 > When editing the _cycle_server.properties_ file, first look for preexisting key-value definitions. If the file contains more than one definition, the **last** one is in effect.

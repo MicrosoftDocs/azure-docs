@@ -130,7 +130,7 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
 |KubeDeploymentStatusReplicasAvailable|Deployment|Deployment Replicas Available|Count|Number of deployment replicas available. In the absence of data, this metric will retain the most recent value emitted|Deployment, Namespace|
 |KubeDeploymentStatusReplicasUnavailable|Deployment|Deployment Replicas Unavailable|Count|Number of deployment replicas unavailable. In the absence of data, this metric will retain the most recent value emitted|Deployment, Namespace|
-|KubeDeploymentStatusReplicasReady|Deployment|Deployment Replicas Ready|Count|Number of deployment replicas ready. In the absence of data, this metric will default to 0|Deployment, Namespace|
+|KubeDeploymentStatusReplicasReady|Deployment|Deployment Replicas Ready|Count|Number of deployment replicas ready. In the absence of data, this metric will retain the most recent value emitted.|Deployment, Namespace|
 |KubeDeploymentStatusReplicasAvailablePercent|Deployment|Deployment Replicas Available Percent|Percent|Percentage of deployment replicas available. In the absence of data, this metric will default to 0|Deployment, Namespace|
 
 ### ***etcD***
@@ -415,7 +415,7 @@ All the metrics from Cluster Management are collected and delivered to Azure Mon
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
 |NexusClusterDeployClusterRequests|Nexus Cluster|Cluster Deploy Requests|Count|Number of cluster deploy requests|Cluster Version|
-|NexusClusterConnectionStatus|Nexus Cluster|Cluster Connection Status|Count|Tracks changes in the connection status of the Cluster(s) managed by the Cluster Manager. The metric gets a value of 0 when the Cluster is connected and 1 when disconnected. The reason filter describes the connection status itself.|Cluster Name, Reason|
+|NexusClusterConnectionStatus|Nexus Cluster|Cluster Connection Status|Count|Tracks changes in the connection status of the Cluster(s) managed by the Cluster Manager. The reason filter describes the connection status. In the absence of data, this metric will default to 0.|Cluster Name, Reason|
 |NexusClusterMachineUpgrade|Nexus Cluster|Cluster Machine Upgrade|Count|Nexus machine upgrade request, successful will have a value of 0 while unsuccessful will have a value of 1.|Cluster Name, Cluster Version, Result, Upgraded From Version, Upgraded To Version, Upgrade Strategy|
 |NexusClusterManagementBundleUpgrade|Nexus Cluster|Cluster Management Bundle Upgrade|Count|Nexus Cluster management bundle upgrade, successful will have a value of 0 while unsuccessful will have a value of 1.|Cluster Name, Cluster Version, Result, Upgraded From Version, Upgraded To Version|
 |NexusClusterRuntimeBundleUpgrade|Nexus Cluster|Cluster Runtime Bundle Upgrade|Count|Nexus Cluster runtime bundle upgrade, successful will have a value of 0 while unsuccessful will have a value of 1.|Cluster Name, Cluster Version, Result, Upgraded From Version, Upgraded To Version|

@@ -3,7 +3,7 @@ title: Migrate Azure Batch custom image pools to Azure Compute Gallery
 description: Learn how to migrate Azure Batch custom image pools to Azure compute gallery and plan for feature end of support.
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 04/25/2025
 ---
 
 # Migrate Azure Batch custom image pools to Azure Compute Gallery

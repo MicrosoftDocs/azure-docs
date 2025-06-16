@@ -2,13 +2,17 @@
 title: 'Quickstart: Use the Azure CLI to create a Batch account and run a job'
 description: Follow this quickstart to use the Azure CLI to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
 ms.topic: quickstart
-ms.date: 03/19/2025
+ms.date: 04/06/2025
 ms.custom: mvc, devx-track-azurecli, mode-api, linux-related-content, innovation-engine
 author: padmalathas
 ms.author: padmalathas
+# Customer intent: As a cloud user, I want to create and manage a Batch account using command-line tools, so that I can efficiently run jobs and tasks on virtual machines for large-scale processing workflows.
 ---
 
 # Quickstart: Use the Azure CLI to create a Batch account and run a job
+
+> [!div class="nextstepaction"]
+> [Deploy and Explore](https://go.microsoft.com/fwlink/?linkid=2321733)
 
 This quickstart shows you how to get started with Azure Batch by using Azure CLI commands and scripts to create and manage Batch resources. You create a Batch account that has a pool of virtual machines, or compute nodes. You then create and run a job with tasks that run on the pool nodes.
 

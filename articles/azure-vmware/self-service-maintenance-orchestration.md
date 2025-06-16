@@ -3,7 +3,7 @@ title: Self service maintenance orchestration (public preview)
 description: Learn how to enable self service maintenance orchestration.
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 06/25/2024
 ms.custom: engagement-fy24

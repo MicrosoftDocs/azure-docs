@@ -4,6 +4,8 @@ description: This article describes how to setup a metric alert based on runbook
 services: automation
 ms.date: 08/10/2020
 ms.topic: how-to
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 # Monitor runbooks with metric alerts
 

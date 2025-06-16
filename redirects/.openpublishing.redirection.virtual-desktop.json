@@ -654,6 +654,16 @@
             "source_path_from_root": "/articles/virtual-desktop/user-documentation/linux-overview.md",
             "redirect_url": "/azure/virtual-desktop/thin-clients",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/client-device-redirection-intune.md",
+            "redirect_url": "/windows-app/require-device-security-compliance-intune",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/msix-app-attach-migration.md",
+            "redirect_url": "/azure/virtual-desktop/app-attach-overview",
+            "redirect_document_id": false
         }
     ]
 }

@@ -5,7 +5,7 @@ description: Object replication asynchronously copies block blobs between a sour
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/06/2025
 ms.author: normesta
 ms.custom: engagement-fy23

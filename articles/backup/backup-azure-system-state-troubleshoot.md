@@ -3,7 +3,7 @@ title: Troubleshoot System State Backup
 description: In this article, learn how to troubleshoot issues in System State Backup for on-premises Windows servers.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 07/22/2019
+ms.date: 04/30/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -34,6 +34,8 @@ We recommend you perform the following validation steps, before you start troubl
 
 ### Limitation
 
+Here are the limitations for System State backups:
+
 - Recovering to different hardware using System State recovery isn't recommended by Microsoft
 - System State backup currently supports "on-premises" Windows servers. This functionality isn't available for Azure VMs.
 
@@ -49,7 +51,7 @@ Ensure Windows Server Backup is installed and enabled in the server. To check th
 Get-WindowsFeature Windows-Server-Backup
 ```
 
-If the output displays the **Install State** as **available**, then it means Windows Server backup feature is available for the installation but not installed on the server. However, if Windows Server Backup isn't installed, then use one of the methods below to install it.
+If the output displays the **`Install State`** as **available**, then it means Windows Server backup feature is available for the installation but not installed on the server. However, if Windows Server Backup isn't installed, then use one of the methods below to install it.
 
 #### Method 1: Install Windows Server Backup using PowerShell
 
@@ -61,9 +63,9 @@ To install Windows Server Backup using PowerShell, run the following command:
 
 #### Method 2: Install Windows Server Backup using Server Manager
 
-To install Windows Server Backup using Server Manager, perform the following steps:
+To install Windows Server Backup using Server Manager, follow these steps:
 
-1. In **Server Manger**, select **Add roles and features**. The **Add roles and features wizard** appears.
+1. In **Server Manager**, select **Add roles and features**. The **Add roles and features wizard** appears.
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
@@ -99,48 +101,48 @@ Microsoft Software Shadow Copy Provider(SWPRV) | Manual
 
 ### Validate Windows Server Backup status
 
-To validate Windows Server Backup status, perform the following steps:
+To validate Windows Server Backup status, follow these steps:
 
-- Ensure WSB PowerShell is running
+1. Ensure WSB PowerShell is running
 
-  - Run `Get-WBJob` from an elevated PowerShell and make sure it doesn't return the following error:
+   - Run `Get-WBJob` from an elevated PowerShell and make sure it doesn't return the following error:
 
-    > [!WARNING]
-    > Get-WBJob: The term 'Get-WBJob' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+     > [!WARNING]
+     > Get-WBJob: The term 'Get-WBJob' isn't recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 
-    - If it fails with this error, then reinstall the Windows Server Backup feature on the server machine as mentioned in step 1 of the prerequisites.
+   - If it fails with this error, then reinstall the Windows Server Backup feature on the server machine as mentioned in step 1 of the prerequisites.
 
-  - Ensure WSB backup is working properly, by running the following command from an elevated command prompt:
+1. Ensure WSB backup is working properly, by running the following command from an elevated command prompt:
 
-      `wbadmin start systemstatebackup -backuptarget:X: -quiet`
+   `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
-      > [!NOTE]
-      > Replace X with the drive letter of the volume where you want to store the system state back up image.
+   > [!NOTE]
+   > Replace X with the drive letter of the volume where you want to store the system state backup image.
 
-    - Periodically check the status of the job by running `Get-WBJob` command from elevated PowerShell
-    - After backup job completes check the final status of the job by running `Get-WBJob -Previous 1` command
+1. Periodically check the status of the job by running `Get-WBJob` command from elevated PowerShell
+1. After backup job completes, check the final status of the job by running `Get-WBJob -Previous 1` command
 
 If the job fails, it indicates a WSB issue that would result in MARS agent System State Backups failure.
 
 ## Common errors
 
-### VSS Writer timeout error
+### VSS Writer time-out error
 
 | Symptom | Cause | Resolution
 | -- | -- | --
-| - MARS agent fails with error message: "WSB job failed with VSS errors. Check VSS event logs to resolve the failure"<br/><br/> - Following error log is present in VSS Application event logs: "A VSS writer has rejected an event with error 0x800423f2, the writer's timeout expired between the Freeze and Thaw events."| VSS writer is unable to complete in time due to lack of CPU and memory resources on the machine <br/><br/> Another backup software is already using the VSS writer, as a result snapshot operation could not complete for this backup | Wait for CPU/memory to be freed up on system or abort the processes taking too much memory/CPU and try the operation again. <br/><br/>  Wait for the ongoing backup to complete and try the operation at a later point when no backups are running on the machine.
+| - MARS agent fails with error message: "WSB job failed with VSS errors. Check VSS event logs to resolve the failure"<br/><br/> - Following error log is present in VSS Application event logs: "A VSS writer has rejected an event with error 0x800423f2, the writer's time-out expired between the Freeze and Thaw events."| VSS writer is unable to complete in time due to lack of CPU and memory resources on the machine <br/><br/> Another backup software is already using the VSS writer, as a result snapshot operation couldn't complete for this backup | Wait for CPU/memory to be freed up on system or abort the processes taking too much memory/CPU and try the operation again. <br/><br/>  Wait for the ongoing backup to complete and try the operation at a later point when no backups are running on the machine.
 
 ### Insufficient disk space to grow shadow copies
 
 | Symptom | Resolution
 | -- | --
-| - MARS agent fails with error message: Backup failed as the shadow copy volume could not grow due to insufficient disk space on volumes containing system files <br/><br/> - Following error/warning log is present in volsnap system event logs: "There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted" | - Free up space in the highlighted volume in the event log so that there's sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy. For more information, see this [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
+| - MARS agent fails with error message: Backup failed as the shadow copy volume couldn't grow due to insufficient disk space on volumes containing system files <br/><br/> - Following error/warning log is present in volsnap system event logs: "There was insufficient disk space on volume C: to grow the shadow copy storage for shadow copies of C: due to this failure all shadow copies of volume C: are at risk of being deleted" | - Free up space in the highlighted volume in the event log so that there's sufficient space for shadow copies to grow while backup is in progress <br/><br/> -  While configuring shadow copy space we can restrict the amount of space used for shadow copy. For more information, see this [article](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### EFI partition locked
 
 | Symptom | Resolution
 | -- | --
-| MARS agent fails with error message: "System state backup failed as the EFI system partition is locked. This can be due to system partition access by a third-party security or back up software" | - If the issue is due to a third-party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent <br/><br/> - If a third-party backup software is running, then wait for it to finish and then retry back up
+| MARS agent fails with error message: System state backup operation failed as the EFI system partition is locked. This can be due to system partition access by a third-party security or back up software. | - If the issue is due to a third-party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent <br/><br/> - If a third-party backup software is running, then wait for it to finish and then retry backup.
 
 ## Next steps
 

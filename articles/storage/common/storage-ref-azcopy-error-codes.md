@@ -21,11 +21,11 @@ Invalid operation against a blob snapshot. Snapshots are read-only. You can't mo
 
 ### MissingRequiredQueryParameter
 
-A required query parameter wasn't specified for this request.
+A required query parameter wasn't specified for this request. Verify that all required parameters are included in your command.
 
 ### InvalidHeaderValue
 
-The value provided for one of the HTTP headers wasn't in the correct format.
+The value provided for one of the HTTP headers wasn't in the correct format. Check and correct the formatting of your HTTP headers.
 
 ## Unauthorized (401)
 
@@ -51,13 +51,13 @@ The specified account is disabled. Your Azure subscription can get disabled beca
 
 ### ResourceNotFound
 
-The specified resource doesn't exist.
+The specified resource doesn't exist. Confirm the resource's URL and ensure it has not been deleted or moved.
 
 ## Conflict (409)
 
 ### ResourceTypeMismatch
 
-The specified resource type doesn't match the type of the existing resource.
+The specified resource type doesn't match the type of the existing resource. 
 
 ## Internal Server Error (500)
 

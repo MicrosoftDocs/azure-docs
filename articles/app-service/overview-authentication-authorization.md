@@ -14,8 +14,6 @@ ms.author: cephalin
 
 Azure App Service provides built-in authentication (signing in users) and authorization (providing access to secure data) capabilities. These capabilities are sometimes called *Easy Auth*. You can use them to sign in users and access data by writing little or no code in your web app, RESTful API, mobile server, and [functions](../azure-functions/functions-overview.md).
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 This article describes how App Service helps simplify authentication and authorization for your app.
 
 ## Reasons to use built-in authentication
@@ -126,7 +124,11 @@ In the [Azure portal](https://portal.azure.com), you can configure App Service w
   With this option, you don't need to write any authentication code in your app. You can handle finer authorization, such as role-specific authorization, by [inspecting the user's claims](configure-authentication-user-identities.md).
 
   > [!CAUTION]
-  > Restricting access in this way applies to all calls to your app. This behavior might not be desirable for apps that have a publicly available home page, as in many single-page applications.
+  > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. If exceptions are needed, you need to [configure excluded paths in a configuration-file](configure-authentication-file-based.md).
+
+  > [!NOTE]
+  > When using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) which can help with some validations. To learn more about authorization in Microsoft Entra, see [Microsoft Entra authorization basics](../active-directory/develop/authorization-basics.md).
+
 
 When you're using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) that can help with some validations. To learn more about authorization in Microsoft Entra, see [Microsoft Entra authorization basics](../active-directory/develop/authorization-basics.md).
 
@@ -179,7 +181,7 @@ Disable [Azure Front Door caching](../frontdoor/front-door-caching.md) for the a
 
 ### Use the Azure Front Door endpoint for redirects
 
-App Service is usually not accessible directly when it's exposed by Azure Front Door. You can prevent this behavior, for example, by exposing App Service by using Azure Private Link in Azure Front Door Premium. To prevent the authentication workflow from redirecting traffic back to App Service directly, it's important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
+App Service is usually not accessible directly when it's exposed by Azure Front Door. You can prevent this behavior, for example, by exposing App Service by using Azure Private Link in Azure Front Door Premium. To prevent the authentication workflow from redirecting traffic back to App Service directly. For more information, see [Redirect URI](/entra/identity-platform/reply-url).
 
 ### Ensure that App Service is using the right redirect URI
 

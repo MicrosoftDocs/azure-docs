@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot
 services: iot
 ms.topic: conceptual
-ms.date: 11/11/2024
+ms.date: 03/31/2025
 
 # Generated from YAML source.
 ---
@@ -115,6 +115,9 @@ Applies to: Azure IoT Operations
 ### Azure Digital Twins
 
 A platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build twin graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences.
+
+>[!NOTE]
+> Azure Digital Twins is different from [digital twin builder (preview) in Fabric](#digital-twin-builder-preview-in-fabric) and the [device twins](#device-twin) used by IoT Hub.
 
 [Learn more](../digital-twins/overview.md)
 
@@ -471,7 +474,8 @@ Applies to: IoT Central
 
 A [device](#device) twin is JSON document that stores device state information such as metadata, [configurations](#configuration), and conditions. [IoT Hub](#iot-hub) persists a device twin for each device that you provision in your IoT hub. Device twins enable you to synchronize device conditions and configurations between the device and the [solution back end](#solution-back-end). You can query device twins to locate specific devices and for the status of long-running operations.
 
-See also [Digital twin](#digital-twin)
+>[!NOTE]
+> Device twins in IoT Hub are different from [Azure Digital Twins](#azure-digital-twins) (though they can be integrated as part of the same solution), and [digital twin builder (preview) in Fabric](#digital-twin-builder-preview-in-fabric).
 
 Casing rules: Always lowercase.
 
@@ -508,6 +512,18 @@ See also [Device twin](#device-twin)
 Casing rules: Always lowercase.
 
 Applies to: IoT Hub, IoT Central, Azure Digital Twins, Device developer
+
+### Digital twin builder (preview) in Fabric
+
+The **digital twin builder (preview)** in Microsoft Fabric is a new item within Fabric's [Real-Time Intelligence](/fabric/real-time-intelligence/) workload. It creates digital representations of real-world environments to optimize physical operations using data. It's integrated with the data storage and security options in Microsoft Fabric, and is part of a Fabric-focused solution.
+
+[Learn more](/fabric/real-time-intelligence/digital-twin-builder/overview)
+
+Casing rules: Never capitalize the name of this item, aside from using normal sentence case when it begins a sentence.
+
+Example usage: Digital twin builder (preview) is a new item within the Real-Time Intelligence workload in Microsoft Fabric. Digital twin builder creates digital representations of real-world environments to optimize physical operations using data.
+
+Applies to: Digital twin builder
 
 ### Digital twin change events
 

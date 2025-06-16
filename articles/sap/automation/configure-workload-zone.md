@@ -5,7 +5,7 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 3/9/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-terraform

@@ -1,20 +1,17 @@
 ---
 title: Azure Compute Fleet overview
 description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity.
-author: rrajeesh
-ms.author: rajeeshr
+author: shandilvarun
+ms.author: vashan
 ms.topic: overview
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 11/13/2024
+ms.date: 04/21/2025
 ms.reviewer: jushiman
 ---
 
-# What is Azure Compute Fleet? (Preview)
-
-> [!IMPORTANT]
-> Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+# What is Azure Compute Fleet? 
 
 Azure Compute Fleet is a building block that gives you accelerated access to Azure's capacity in a given region. Compute Fleet launches a combination of virtual machines (VMs) at the lowest price and highest capacity. You can use this product in many ways, whether by running a stateless web service, a big data cluster, or a Continuous Integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of concurrent core instances.
 

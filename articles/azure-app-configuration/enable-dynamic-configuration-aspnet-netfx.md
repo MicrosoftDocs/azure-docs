@@ -38,7 +38,6 @@ Add the following key-values to the App Configuration store and leave **Label** 
 | *TestApp:Settings:FontColor*       | *Black*                             |
 | *TestApp:Settings:FontSize*        | *40*                                |
 | *TestApp:Settings:Message*         | *Data from Azure App Configuration* |
-| *TestApp:Settings:Sentinel*        | *v1*                                |
 
 ## Create an ASP.NET Web Application
 
@@ -102,11 +101,11 @@ Add the following key-values to the App Configuration store and leave **Label** 
             options.Connect(new Uri(endpoint), new DefaultAzureCredential())
                    // Load all keys that start with `TestApp:` and have no label.
                    .Select("TestApp:*")
-                   // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.
+                   // Reload configuration if any selected key-values have changed.
                    .ConfigureRefresh(refresh => 
                    {
-                       refresh.Register("TestApp:Settings:Sentinel", refreshAll:true)
-                              .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                       refresh.RegisterAll()
+                              .SetRefreshInterval(new TimeSpan(0, 5, 0));
                    });
             _configurationRefresher = options.GetRefresher();
         });
@@ -126,11 +125,11 @@ Add the following key-values to the App Configuration store and leave **Label** 
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
                    // Load all keys that start with `TestApp:` and have no label.
                    .Select("TestApp:*")
-                   // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.
+                   // Reload configuration if any selected key-values have changed.
                    .ConfigureRefresh(refresh => 
                    {
-                       refresh.Register("TestApp:Settings:Sentinel", refreshAll:true)
-                              .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                       refresh.RegisterAll()
+                              .SetRefreshInterval(new TimeSpan(0, 5, 0));
                    });
             _configurationRefresher = options.GetRefresher();
         });
@@ -142,9 +141,9 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
     The `Application_Start` method is called upon the first request to your web application. It is called only once during the application's life cycle. As such it is a good place to initialize your `IConfiguration` object and load data from App Configuration.
 
-    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the registered key changes. In this example, the key *TestApp:Settings:Sentinel* is a *sentinel key* that you update after you complete the change of all other keys. When a change is detected, your application refreshes all configuration values. This approach helps to ensure the consistency of configuration in your application compared to monitoring all keys for changes.
+    Inside the `ConfigureRefresh` method, you call the `RegisterAll` method to instruct the App Configuration provider to reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with *TestApp:* and having no label). For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
     
-    The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 5 minutes instead. It reduces the potential number of requests made to your App Configuration store.
+    The `SetRefreshInterval` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 5 minutes instead. It reduces the potential number of requests made to your App Configuration store.
 
 
 1. Add an `Application_BeginRequest` method to the `Global` class. If the method already exists, add the following code to it.
@@ -156,9 +155,9 @@ Add the following key-values to the App Configuration store and leave **Label** 
     ```
     Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method at the beginning of every request to signal a refresh. This design ensures your application only sends requests to App Configuration when it is actively receiving requests. 
     
-    Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal. When a request is made to App Configuration, as you don't wait on the task, the configuration is refreshed asynchronously without blocking the execution of the current request. The current request may not get the updated configuration values, but subsequent requests will do.
+    Calling `TryRefreshAsync` is a no-op before the configured refresh interval elapses, so its performance impact is minimal. When a request is made to App Configuration, as you don't wait on the task, the configuration is refreshed asynchronously without blocking the execution of the current request. The current request may not get the updated configuration values, but subsequent requests will do.
 
-    If the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed again, and the `TryRefreshAsync` call is triggered by a new request to your application.
+    If the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed again, and the `TryRefreshAsync` call is triggered by a new request to your application.
 
 ## Use the latest configuration data
 
@@ -261,16 +260,15 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
     ![App launch local](./media/dotnet-fx-web-app-launch.png)
 
-1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following keys. Remember to update the sentinel key *TestApp:Settings:Sentinel* at last.
+1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following keys. 
 
     | Key                                | Value                                                        |
     |------------------------------------|--------------------------------------------------------------|
     | *TestApp:Settings:BackgroundColor* | *Green*                                                      |
     | *TestApp:Settings:FontColor*       | *LightGray*                                                  |
     | *TestApp:Settings:Message*         | *Data from Azure App Configuration - now with live updates!* |
-    | *TestApp:Settings:Sentinel*        | *v2*                                                         |
 
-1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected or change your cache expiration time to less than 5 minutes. 
+1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected or change your refresh interval to less than 5 minutes. 
 
     ![App refresh local](./media/dotnet-fx-web-app-refresh.png)
 

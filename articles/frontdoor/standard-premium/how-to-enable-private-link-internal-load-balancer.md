@@ -7,9 +7,13 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 08/12/2024
+ms.custom:
+  - build-2025
 ---
 
 # Connect Azure Front Door Premium to an internal load balancer origin with Private Link
+
+**Applies to:** :heavy_check_mark: Front Door Premium
 
 This article guides you through how to configure Azure Front Door Premium to connect to your internal load balancer origin using the Azure Private Link service.
 
@@ -65,6 +69,11 @@ In this section, you map the Private Link service to a private endpoint created 
 
 1. The *connection state* should change to **Approved**. It might take a couple of minutes for the connection to fully establish. You can now access your internal load balancer from Azure Front Door.
 
+## Common mistakes to avoid
+
+The following are common mistakes when configuring an origin with Azure Private Link enabled:
+
+* Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
 
 ## Next steps
 

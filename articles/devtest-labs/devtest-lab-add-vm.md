@@ -39,7 +39,7 @@ This article describes how to create Azure virtual machines (VMs) in Azure DevTe
    - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select a different size. For more information about default VM sizes, see [Default VM sizes](#default-vm-sizes).
    - **Allow hibernation**: Select this option to enable hibernation for the virtual machine.
      >[!NOTE]
-     >If you enable hibernation, you must also select **Public IP** in **Advanced Settings**. **Private** and **Shared** IPs aren't supported if hibernation is enabled.
+     >If you enable hibernation, you must also select either **Public IP** or **Private IP** in **Advanced Settings**. Hibernation for **Shared IPs** isn't currently supported.
    - **OS disk type**: Keep the default value for the base, or select a different option from the dropdown list.
    - **Security type**: You can select **Trusted launch** to enable trusted launch for Generation 2 VMs. If you select **Trusted launch**, select the **Enable secure boot**, **Enable vTPM**, and **Integrity monitoring** checkboxes as needed. For more information, see [Trusted Launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
    - **Artifacts**: Optionally, select **Add or Remove Artifacts** to select and configure artifacts to add to the VM. For instructions, see [Add artifacts](#add-artifacts).

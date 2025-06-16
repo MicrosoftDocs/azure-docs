@@ -5,8 +5,8 @@ description: How to install and manage certificates on an Azure IoT Edge device 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 04/09/2024
-ms.topic: conceptual
+ms.date: 05/07/2025
+ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
 ---
@@ -25,13 +25,13 @@ All IoT Edge devices use certificates to create secure connections between the r
 
 * An IoT Edge device.
   
-  If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of these quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
+  If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of these quickstart articles to [create a virtual Linux device](quickstart-linux.md) or [create a virtual Windows device](quickstart.md).
 
 * Ability to edit the IoT Edge configuration file `config.toml` following the [configuration template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml).
 
 * If your `config.toml` isn't based on the template, open the [template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml) and use the commented guidance to add configuration sections following the structure of the template.
 
-* If you have a new IoT Edge installation that hasn't been configured, copy the template to initialize the configuration. Don't use this command if you have an existing configuration. It overwrites the file.
+* If you have a new IoT Edge installation that isn't configured, copy the template to initialize the configuration. Don't use this command if you have an existing configuration. It overwrites the file.
 
     ```bash
     sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
@@ -60,7 +60,7 @@ IoT Edge requires the certificate and private key to be:
 
 If you get a `.pfx` file from your PKI provider, it's likely the certificate and private key encoded together in one file. Verify it's a PKCS#12 file type by using the `file` command. You can convert a PKCS#12 `.pfx` file to PEM files using the [openssl pkcs12 command](https://www.openssl.org/docs/man1.1.1/man1/pkcs12.html).
 
-If your PKI provider provides a `.cer` file, it may contain the same certificate as the `.pfx`, or it might be the PKI provider's issuing (root) certificate. To verify, inspect the file with the `openssl x509` command. If it's the issuing certificate:
+If your PKI provider provides a `.cer` file, it might contain the same certificate as the `.pfx`, or it might be the PKI provider's issuing (root) certificate. To verify, inspect the file with the `openssl x509` command. If it's the issuing certificate:
 
 * If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
 * Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
@@ -311,7 +311,7 @@ MIICdTCCAhugAwIBAgIBMDAKBggqhkjOPQQDAjAXMRUwEwYDVQQDDAxlc3RFeGFt
 ```
 
 > [!TIP]
-> To test without access to certificate files provided by a PKI, see [Create demo certificates to test device features](./how-to-create-test-certificates.md) to generate a short-lived non-production device identity certificate and private key.
+> To test without access to certificate files provided by a PKI, see [Create demo certificates to test IoT Edge device features](./how-to-create-test-certificates.md) to generate a short-lived nonproduction device identity certificate and private key.
 
 Configuration example when provisioning with IoT Hub:
 
@@ -353,7 +353,7 @@ Edge CA has two different modes:
 
 To help with getting started, IoT Edge automatically generates an **Edge CA certificate** when started for the first time by default. This self-signed certificate is only meant for development and testing scenarios, not production. By default, the certificate expires after 90 days. Expiration can be configured. This behavior is referred to as *quickstart Edge CA*.
 
-*Quickstart Edge CA* enables `edgeHub` and other IoT Edge modules to have a valid server certificate when IoT Edge is first installed with no configuration. The certificate is needed by `edgeHub` because modules or downstream devices [need to establish secure communication channels](iot-edge-certs.md#device-verifies-gateway-identity). Without the quickstart Edge CA, getting started would be significantly harder because you'd need to provide a valid server certificate from a PKI provider or with tools like `openssl`.
+*Quickstart Edge CA* enables `edgeHub` and other IoT Edge modules to have a valid server certificate when IoT Edge is first installed with no configuration. The `edgehub` module needs the certificate because modules or downstream devices [need to establish secure communication channels](iot-edge-certs.md#device-verifies-gateway-identity). Without the quickstart Edge CA, getting started would be harder because you'd need to provide a valid server certificate from a PKI provider or with tools like `openssl`.
 
 > [!IMPORTANT]
 > Never use the quickstart Edge CA for production because the locally generated certificate in it isn't connected to a PKI.
@@ -369,13 +369,13 @@ To configure the certificate expiration to something other than the default 90 d
 auto_generated_edge_ca_expiry_days = 180
 ```
 
-Delete the contents of the `/var/lib/aziot/certd/certs` and `/var/lib/aziot/keyd/keys` folders to remove any previously generated certificates then apply the configuration.
+To remove any previously generated certificates then apply the configuration, delete the contents of the `/var/lib/aziot/certd/certs` and `/var/lib/aziot/keyd/keys` folders.
 
 #### Renew quickstart Edge CA
 
 By default, IoT Edge automatically renews the quickstart Edge CA certificate when at 80% of the certificate lifetime. For example, if a certificate has a 90 day lifetime, IoT Edge automatically regenerates the Edge CA certificate at 72 days from issuance.
 
-To change the auto-renewal logic, add the following settings to the *Edge CA certificate* section in `config.toml`. For example:
+To change the autorenewal logic, add the following settings to the *Edge CA certificate* section in `config.toml`. For example:
 
 ```toml
 [edge_ca.auto_renew]
@@ -477,7 +477,7 @@ cert = "file:///var/aziot/my-edge-ca-cert.pem"
 pk = "file:///var/aziot/my-edge-ca-private-key.key.pem"
 ```
 
-If you've used any other certificates for IoT Edge on the device before, delete the files in `/var/lib/aziot/certd/certs` and the private keys associated with certificates (*not* all keys) in `/var/lib/aziot/keyd/keys`. IoT Edge recreates them with the new CA certificate you provided.
+If you previously used any other certificates for IoT Edge on the device, delete the files in `/var/lib/aziot/certd/certs` and the private keys associated with certificates (*not* all keys) in `/var/lib/aziot/keyd/keys`. IoT Edge recreates them with the new CA certificate you provided.
 
 This approach requires you to manually update the files as certificate expires. To avoid this issue, consider using EST for automatic management.
 
@@ -627,14 +627,14 @@ Edge Daemon issues module server and identity certificates for use by Edge modul
 
 ### Renewal
 
-Server certificates may be issued off the Edge CA certificate. Regardless of the issuance method, these certificates must be renewed by the module. If you develop a custom module, you must implement the renewal logic in your module.
+Server certificates might be issued off the Edge CA certificate. Regardless of the issuance method, the module must renew these certificates. If you develop a custom module, you must implement the renewal logic in your module.
 
 The *edgeHub* module supports a certificate renewal feature. You can configure the *edgeHub* module server certificate renewal using the following environment variables:
 
 * **ServerCertificateRenewAfterInMs**: Sets the duration in milliseconds when the *edgeHub* server certificate is renewed irrespective of certificate expiry time.
 * **MaxCheckCertExpiryInMs**: Sets the duration in milliseconds when *edgeHub* service checks the *edgeHub* server certificate expiration. If the variable is set, the check happens irrespective of certificate expiry time.
 
-For more information about the environment variables, see [EdgeHub and EdgeAgent environment variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
+For more information about the environment variables, see [Edge Hub and Edge Agent environment variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
 
 ## Changes in 1.2 and later
 

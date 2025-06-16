@@ -75,7 +75,7 @@ To get the cost for the entire lab, don't forget to include external resources. 
 
 Since cost entries are tied to the lab account, some schools use the lab account and the resource group as ways to separate the classes. Each class has its own lab plan and resource group.
 
-In the cost analysis pane, add a filter based on the resource group name for the class. Then, only the costs for that class will be visible. Grouping by resource group allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
+In the cost analysis pane, add a filter based on the resource group name for the class. Then, only the costs for that class will be visible. Grouping by resource group allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-improved-exports.md) feature of the cost analysis to download the costs of each class in separate files.
 
 With [lab plans](concept-lab-accounts-versus-lab-plans.md):
 

@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: devx-track-terraform;build-2023-metadata-update
 ms.topic: quickstart
 ms.author: normesta
-ms.date: 03/25/2025
+ms.date: 05/05/2025
 #customer intent: As a Terraform user, I want to see how to create a storage task using Terraform.
 content_well_notification: 
   - AI-contribution
@@ -17,16 +17,13 @@ content_well_notification:
 
 A storage task can perform operations on blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets. See [What are Azure Storage Actions?](../overview.md).
 
-In this how-to article, you'll learn how to create a storage task using Terraform.
-
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available in these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+In this how-to article, you learn how to create a storage task using Terraform.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
+In this article, you learn how to:
+
 > [!div class="checklist"]
-> * Retrieve the current Azure client configuration.
 > * Generate a random name for the resource group.
 > * Create a new Azure resource group with the generated name.
 > * Generate a random string to be used as the storage task name.
@@ -61,7 +58,7 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/outputs.tf":::
 
 > [!IMPORTANT]
-> If you are using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
+> If you're using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
 >
 > One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
 >
@@ -113,4 +110,4 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 
 ## Next steps
 
-[Create a storage task](storage-task-create.md)
+[Create and manage a storage task assignment](storage-task-assignment-create.md)

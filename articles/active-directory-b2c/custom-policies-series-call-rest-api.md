@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Call a REST API by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) custom policy allows you to interact with application logic that you implement outside of Azure AD B2C. To do so, you make an HTTP call to an endpoint. Azure AD B2C custom policies provide RESTful technical profile for this purpose. By using this capability, you can implement features that aren't available within Azure AD B2C custom policy.   
 
@@ -93,7 +94,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
                     "requestId": "requestId",
                     "userMessage" : "The access code you entered is incorrect. Please try again.",
                     "developerMessage" : `The provided code ${req.body.accessCode} does not match the expected code for user.`,
-                    "moreInfo" :"https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
+                    "moreInfo" :"https://learn.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
                 };
                 res.status(409).send(errorResponse);                
             }
@@ -138,7 +139,7 @@ You need to deploy an app, which serves as your external app. Your custom policy
             "requestId": "requestId",
             "userMessage": "The access code you entered is incorrect. Please try again.",
             "developerMessage": "The provided code 54321 does not match the expected code for user.",
-            "moreInfo": "https://docs.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
+            "moreInfo": "https://learn.microsoft.com/en-us/azure/active-directory-b2c/string-transformations"
         }
     ```
 Your REST service can return HTTP 4xx status code, but the value of `status` in the JSON response must be `409`.
@@ -215,7 +216,7 @@ to:
 ```xml
     <ValidationTechnicalProfile ReferenceId="ValidateAccessCodeViaHttp"/>
 ```
-At this point, the Technical Profile with `Id` *CheckAccessCodeViaClaimsTransformationChecker* isn't needed, and can be removed. 
+At this point, the Technical Profile with `Id` *CheckAccessCodeViaClaimsTransformationChecker* isn't needed and can be removed.
 
 
 ## Step 3 - Upload custom policy file

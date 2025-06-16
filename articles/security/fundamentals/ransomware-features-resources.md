@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 01/10/2022
+ms.date: 04/16/2025
 ---
 
 # Azure features & resources that help you protect, detect, and respond to ransomware attacks
@@ -125,7 +125,7 @@ We look forward to partnering with you in addressing ransomware protection, dete
 
 Connect with us:
 - [AskAzureSecurity@microsoft.com](mailto:AskAzureSecurity@microsoft.com)
-- [www.microsoft.com/services](https://www.microsoft.com/en-us/msservices)
+- [www.microsoft.com/services](https://www.microsoft.com/servicesagreement)
 
 For detailed information on how Microsoft secures our cloud, visit the [service trust portal](https://servicetrust.microsoft.com/).
 

@@ -83,10 +83,10 @@ Using the preceding steps, you can repeat the process for any number of months. 
 
 Instead of manually calculating your savings, you can see the same savings by viewing the RI savings report in the [Cost Management Power BI App for Enterprise Agreements](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md). The Power BI app automatically connects to your Azure data and performs the savings calculations automatically. The report shows savings for the period you have set, so it can span multiple months.
 
-Instead of downloading usage files, one per month, you can get all your usage data for a specific date range using exports from Cost Management and output the data to Azure Storage. Doing so allows you to see your savings over a longer period. For more information about creating an export, see [Create and manage exported data](../costs/tutorial-export-acm-data.md).
+Instead of downloading usage files, one per month, you can get all your usage data for a specific date range using exports from Cost Management and output the data to Azure Storage. Doing so allows you to see your savings over a longer period. For more information about creating an export, see [Create and manage exported data](../costs/tutorial-improved-exports.md).
 
 ## Next steps
 
 - If you have any unused reservations, read [Optimize reservation use](manage-reserved-vm-instance.md#optimize-reservation-use).
-- Learn more about creating an export at [Create and manage exported data](../costs/tutorial-export-acm-data.md).
+- Learn more about creating an export at [Create and manage exported data](../costs/tutorial-improved-exports.md).
 - Read about the RI savings report in the [Cost Management Power BI App for Enterprise Agreements](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).

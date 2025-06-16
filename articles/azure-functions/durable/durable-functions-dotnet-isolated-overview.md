@@ -86,15 +86,20 @@ public class MyOrchestration : TaskOrchestrator<string, string>
 ```
 
 ## Durable entities
-Durable entities are supported in the .NET isolated worker. See [developer's guide](./durable-functions-dotnet-entities.md).
+
+Durable entities are supported in the .NET isolated worker. For more information, see the [developer's guide](./durable-functions-dotnet-entities.md).
 
 ## Migration guide
 
-This guide assumes you're starting with a .NET Durable Functions 2.x project.
+This process assumes you're starting with a .NET Durable Functions 2.x project running in-process with the Functions host. 
 
-### Update your project
+### Migrate your project
 
-The first step is to update your project to [Azure Functions .NET isolated](../migrate-dotnet-to-isolated-model.md). Then, update your Durable Functions NuGet package references.
+The first step is to [migrate your .NET project to the isolated worker process](../migrate-dotnet-to-isolated-model.md). 
+
+### Update package reference 
+
+After you've migrated your app to use the isolate worker process, you must update your Durable Functions NuGet package to reference the isolated worker-specific package, like in this example:
 
 Old:
 

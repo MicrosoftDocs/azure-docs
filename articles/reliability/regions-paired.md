@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 03/07/2025
+ms.date: 03/19/2025
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 ---
@@ -24,7 +24,7 @@ You can design a highly resilient solution whether you use paired regions, nonpa
 
 Some Azure services use paired regions to build their multi-region geo-replication and geo-redundancy strategy. For example, [Azure geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) can automatically replicate data to a paired region.
 
-If you're in a region with a pair, then using its pair as a secondary region provides several benefits:
+If you're in a region that's paired, then using its pair as a secondary region provides several benefits:
 
 - **Region recovery sequence**. In the unlikely event of a geography-wide outage, the recovery of one region is prioritized out of every region pair. Components that are deployed across paired regions have one of the regions prioritized for recovery.
 - **Sequential updating**. Planned Azure system updates are staggered across region pairs to minimize the impact of bugs or logical failures in the rare event of a faulty update, and to prevent downtime to solutions that have been designed to use paired regions together for resiliency.

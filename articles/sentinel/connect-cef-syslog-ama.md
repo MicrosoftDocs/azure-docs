@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 06/27/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 

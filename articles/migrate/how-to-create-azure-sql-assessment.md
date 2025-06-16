@@ -1,9 +1,11 @@
 ---
 title: Create an Azure SQL assessment
 description: Learn how to assess SQL instances for migration to Azure SQL Managed Instance and Azure SQL Database
+author: rashi-ms
+ms.author: v-uhabiba
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 08/13/2024
+ms.date: 03/26/2025
 ms.custom: engagement-fy25
 ---
 
@@ -200,7 +202,7 @@ The confidence rating helps you estimate the reliability of size recommendations
 61%-80% | 4 stars
 81%-100% | 5 stars
 
-[Learn more](concepts-azure-sql-assessment-calculation.md#confidence-ratings) about confidence ratings.
+[Learn more](assessment-report.md#confidence-ratings-performance-based) about confidence ratings.
 
 ## Next steps
 

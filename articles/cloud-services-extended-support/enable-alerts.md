@@ -12,6 +12,9 @@ ms.date: 07/24/2024
 
 # Enable monitoring for Cloud Services (extended support) using the Azure portal
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 This article explains how to enable alerts on existing Cloud Service (extended support) deployments. 
 
 ## Add monitoring rules

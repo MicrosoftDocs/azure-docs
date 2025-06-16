@@ -5,8 +5,10 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 03/20/2025
+ms.date: 05/02/2025
 ms.author: cshoe
+ms.custom:
+  - build-2025
 ---
 
 # Networking in Azure Container Apps environment
@@ -145,13 +147,13 @@ Different environment types have different subnet requirements:
 
     | Subnet Size | Available IP Addresses<sup>1</sup> | Max nodes (Dedicated workload profile)<sup>2</sup>| Max replicas (Consumption workload profile)<sup>2</sup> |
     |--|--|--|--|
-    | /23 | 500 | 250 | 2,500 |
-    | /24 | 244 | 122 | 1,220 |
-    | /25 | 116 | 58 | 580 |
-    | /26 | 52 | 26 | 260 |
-    | /27 | 20 | 10 | 100 |
+    | /23 | 495 | 247 | 2,470 |
+    | /24 | 239 | 119 | 1,190 |
+    | /25 | 111 | 55 | 550 |
+    | /26 | 47 | 23 | 230 |
+    | /27 | 15 | 7 | 70 |
     
-    <sup>1</sup> The available IP addresses are the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure.  
+    <sup>1</sup> The available IP addresses is the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure and 5 IP addresses reserved by the subnet.  
     <sup>2</sup> This is accounting for apps in single revision mode.  
 
 # [Consumption only environment](#tab/consumption-only-env)
@@ -247,6 +249,7 @@ Application rules allow or deny traffic based on the application layer. The foll
 | Azure Container Registry (ACR) | *Your-ACR-address*, `*.blob.core.windows.net`, `login.microsoft.com` | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. |
 | Azure Key Vault | *Your-Azure-Key-Vault-address*, `login.microsoft.com` | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. |
 | Managed Identity | `*.identity.azure.net`, `login.microsoftonline.com`, `*.login.microsoftonline.com`, `*.login.microsoft.com` | These FQDNs are required when using managed identity with Azure Firewall in Azure Container Apps.
+| Aspire Dashboard | `https://northcentralus.ext.azurecontainerapps.dev` | This FQDN is required when using Aspire dashboard in an environment configured with a virtual network. |
 | Docker Hub Registry | `hub.docker.com`, `registry-1.docker.io`, `production.cloudflare.docker.com` | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. |
 
 ##### Network rules
@@ -258,7 +261,7 @@ Network rules allow or deny traffic based on the network and transport layer. Th
 | All scenarios | `MicrosoftContainerRegistry`, `AzureFrontDoorFirstParty`  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps. Either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
 | Azure Container Registry (ACR) | `AzureContainerRegistry`, `AzureActiveDirectory` | When using ACR with Azure Container Apps, you need to configure these network rules used by Azure Container Registry. |
 | Azure Key Vault | `AzureKeyVault`, `AzureActiveDirectory` | These service tags are required in addition to the FQDN for the network rule for Azure Key Vault. |
-| Managed Identity | `AzureActiveDirectory` | When using Managed Identity with Azure Container Apps, you need to configure these network rules used by Managed Identity. | 
+| Managed Identity | `AzureActiveDirectory` | When using Managed Identity with Azure Container Apps, you need to configure these network rules used by Managed Identity. |
 
 > [!NOTE]
 > For Azure resources you're using with Azure Firewall not listed in this article, refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
@@ -271,7 +274,7 @@ You can use NAT Gateway to simplify outbound connectivity for your outbound inte
 
 When you configure a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address for your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
 
-### <a name="public-network-access"></a>Public network access (preview)
+### <a name="public-network-access"></a>Public network access
 
 The public network access setting determines whether your container apps environment is accessible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
 
@@ -284,7 +287,7 @@ In order to create private endpoints on your Azure Container App environment, pu
 
 Azure networking policies are supported with the public network access flag.
 
-### <a name="private-endpoint"></a>Private endpoint (preview)
+### <a name="private-endpoint"></a>Private endpoint
 
 Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
 
@@ -295,7 +298,7 @@ This feature is supported for both Consumption and Dedicated plans in workload p
 - Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](how-to-integrate-with-azure-front-door.md) for more information.
 
 #### Considerations
-- Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic isn't supported.
+
 - To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
 - Your private endpoint's VNet can be separate from the VNet integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
@@ -309,7 +312,7 @@ In order to connect to your container apps through a private endpoint, you must 
 ### Environment security
 
 > [!NOTE]
-> To control ingress traffic, you can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway. This feature is in preview.
+> To control ingress traffic, you can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway.
 
 :::image type="content" source="media/networking/locked-down-network.png" alt-text="Diagram of how to fully lock down your network for Container Apps.":::
 
@@ -414,6 +417,9 @@ The static IP address of the Container Apps environment is available in the Azur
 ## Managed resources
 
 When you deploy an internal or an external environment into your own network, a new resource group is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform. Don't modify the services in this group or the resource group itself.
+
+> [!NOTE]
+> User-defined tags assigned to your Container Apps environment are replicated to all resources within the resource group, including the resource group itself.
 
 ### Workload profiles environment
 

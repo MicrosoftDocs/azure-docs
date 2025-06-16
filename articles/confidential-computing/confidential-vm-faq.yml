@@ -211,50 +211,22 @@ sections:
           Azure bills such resources separately from the confidential VM costs.
 
       - question: |
-          What can I do if the time on my DCesv5/ECesv5-series VM differs from UTC?
+          What can I do if the time on my DCesv6/ECesv6-series VM differs from UTC for Linux?
         answer: |
-          Rarely some DCesv5/ECesv5-series VMs may experience a small time difference from UTC. A long term fix is available for this soon. In the meantime here are the workarounds for Windows and Ubuntu Linux VMs:
-
-            ``` Windows
-            sc config vmictimesync start=disabled
-            sc stop vmictimesync
-            ```
-          For Ubuntu Linux images, run the following script:
+          Rarely some DCesv6/ECesv6-series Ubuntu Linux VMs may experience a small time difference from UTC. A long term fix is available for this soon. In the meantime here are the workarounds:
           
-            ``` Ubuntu Linux
-            #!/bin/bash
-
-            # Backup the original chrony.conf file
-            cp /etc/chrony/chrony.conf /etc/chrony/chrony.conf.bak
-
-            # check chronyd.service status
-            status=$(systemctl is-active chronyd.service)
-
-            # check chronyd.service status is "active" or not
-            if [ "$status" == "active" ]; then
-              echo "chronyd.service is active."
-            else
-              echo "chronyd.service is not active. Exiting script."
-              exit 1
-            fi
-
-            # Comment out the line with 'refclock PHC /dev/ptp_hyperv'
-            sed -i '/refclock PHC \/dev\/ptp_hyperv/ s/^/#/' /etc/chrony/chrony.conf
-
-            # Uncomment the lines with 'pool ntp.ubuntu.com' and other pool entries
-            sed -i '/#pool ntp.ubuntu.com/ s/^#//' /etc/chrony/chrony.conf
-            sed -i '/#pool 0.ubuntu.pool.ntp.org/ s/^#//' /etc/chrony/chrony.conf
-            sed -i '/#pool 1.ubuntu.pool.ntp.org/ s/^#//' /etc/chrony/chrony.conf
-            sed -i '/#pool 2.ubuntu.pool.ntp.org/ s/^#//' /etc/chrony/chrony.conf
-
-            echo "Changes applied to /etc/chrony/chrony.conf. Backup created at /etc/chrony/chrony.conf.bak."
-
-            echo "Restart chronyd service"
-            systemctl restart chronyd.service
-
-
-            echo "Check chronyd status"
-            systemctl status chronyd.service
-            ```
-
+          For Ubuntu Linux images, run the following steps:
+          
+          1. Run this command to update the chronyd file to disable using the IC Time Sync service.
+          ``` Ubuntu Linux
+          sed -i '/^refclock PHC \/dev\/ptp_hyperv poll 3 dpoll -2 offset 0/s/^/#/' /etc/chrony/chrony.conf
+          ```
+          2. Enable the Linux VM to use Network Time Protocol (NTP) instead.
+          ``` Ubuntu Linux
+          sed -i '/^#pool.*ntp/s/^#//' /etc/chrony/chrony.conf
+          ```
+          3. Restart the chronyd service to synchronize to current time.
+          ``` Ubuntu Linux
+          systemctl restart chronyd.service
+          ```
           

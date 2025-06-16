@@ -54,8 +54,6 @@ If you're an Owner on the subscription, you can run this command yourself. If yo
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "<role-name>"
 ```
 
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
-
 For more details about this role requirement and the assignment process, see [Set up your user's access permissions](how-to-set-up-instance-CLI.md#set-up-user-access-permissions).
 
 ## Next steps

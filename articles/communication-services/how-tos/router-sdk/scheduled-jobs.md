@@ -2,11 +2,10 @@
 title: Create a scheduled job for Azure Communication Services
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services Job Router SDK to create a scheduled job.
-author: williamzhao
-manager: bga
 services: azure-communication-services
-
-ms.author: williamzhao
+manager: chpalm
+ms.author: chpalm
+author: tophpalmer
 ms.date: 06/07/2023
 ms.topic: how-to
 ms.service: azure-communication-services

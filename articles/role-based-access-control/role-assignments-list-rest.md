@@ -6,7 +6,7 @@ manager: femila
 ms.service: role-based-access-control
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 03/30/2025
 ms.author: rolyon
 ---
 # List Azure role assignments using the REST API

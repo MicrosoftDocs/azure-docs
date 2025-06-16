@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 02/27/2025
+ms.date: 06/12/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Page layout versions
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
@@ -63,6 +65,9 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## Self-asserted page (selfasserted)
 
+**2.1.35**
+- Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI.
+  
 **2.1.34**
 - Input labels are now consistently visible and accessible, enhancing user experience and clarity. A new `enableInputLabel` feature flag has been introduced, which is enabled by default, allowing clients to toggle the visibility of input labels according to their preferences.
 - Resolved a problem with CAPTCHA input boxes to ensure smoother and more accurate interactions for Finnish language users.
@@ -222,6 +227,9 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
+**2.1.23**
+- Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI.
+  
 **2.1.22**
 - Input labels are now consistently visible and accessible, enhancing user experience and clarity. A new `enableInputLabel` feature flag has been introduced, which is enabled by default, allowing clients to toggle the visibility of input labels according to their preferences.
 - Resolved a problem with CAPTCHA input boxes to ensure smoother and more accurate interactions for Finnish language users.
@@ -321,6 +329,9 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Initial release
 
 ## MFA page (multifactor)
+
+**1.2.21**
+- Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI. 
 
 **1.2.20**
 - Resolved a problem with CAPTCHA input boxes to ensure smoother and more accurate interactions for Finnish language users.

@@ -1,26 +1,17 @@
 ---
 title: Remove servers and disable protection
 description: This article describes how to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 07/08/2024
-ms.author: ankitadutta
+ms.date: 03/25/2025
+ms.author: jsuri
 
 ---
 
 # Remove servers and disable protection
 
 This article describes how to unregister servers from a Recovery Services vault, and how to disable protection for machines protected by Site Recovery.
-
-
-## Unregister a  configuration server
-
-If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can unregister an unconnected configuration server from a vault as follows:
-
-1. [Disable protection of virtual machines](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-2. [Disassociate or delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) replication policies.
-3. [Delete the configuration server](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
 ## Unregister a VMM server
 
@@ -188,7 +179,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up.
 
      > [!NOTE]
-     > If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
+     > If you chose the **Remove** option, then run the following scripts to clean up the replication settings on-premises VMM Server.
 3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
     ```powershell
@@ -214,7 +205,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
    - **Disable replication and remove (recommended)** -  This option remove the replicated item from Azure Site Recovery and the replication for the machine is stopped. Replication configuration on the on-premises virtual machine is cleaned up and Site Recovery billing for this protected server is stopped.
    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. Run the following set of scripts to clean up the replication settings on-premises virtual machines.
      > [!NOTE]
-     > If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
+     > If you chose the **Remove** option, then run the following scripts to clean up the replication settings on-premises VMM Server.
 
 3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 

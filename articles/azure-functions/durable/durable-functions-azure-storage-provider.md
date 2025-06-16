@@ -237,6 +237,7 @@ You can enable extended sessions by setting `durableTask/extendedSessionsEnabled
   }
 }
 ```
+---
 
 There are two potential downsides of this setting to be aware of:
 
@@ -287,8 +288,6 @@ If you are not seeing the throughput numbers you expect and your CPU and memory 
 
 ### Flex Consumption Plan 
 The [Flex Consumption plan](../flex-consumption-plan.md) is an Azure Functions hosting plan that provides many of the benefits of the Consumption plan, including a serverless billing model, while also adding useful features, such as private networking, instance memory size selection, and full support for managed identity authentication.
-
-Azure Storage is currently the only supported [storage provider](durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan.
 
 You should follow these performance recommendations when hosting Durable Functions in the Flex Consumption plan:
 
