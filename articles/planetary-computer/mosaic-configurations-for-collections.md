@@ -13,6 +13,13 @@ ms.date: 04/09/2025
 
 Within each GeoCatalog STAC (SpatioTemporal Asset Catalog) collection, a **mosaic** specifies the search criteria used to retrieve and visualize STAC items within the Explorer web interface. For example, a mosaic might be configured to only return items that are from a specified date range or items that have less than a particular percentage cloud cover. One or more mosaics are created and managed by the user by editing the mosaic configuraiton for within each STAC collection.
 
+## Prerequisites
+
+Before you can configure a mosaic, ensure the following prerequisite steps are complete:
+
+1.  **STAC Collection Exists:** You created a [STAC collection in Planetary Computer Pro](./create-stac-collection.md).
+2.  **Data Ingested:** You [added STAC items](./add-stac-item-to-collection.md) containing the geospatial data assets you want to visualize into the collection.
+
 ## Components in a Mosaic
 
 A STAC collection's mosaic configuration objects is a list of individual specific search criteria, each called a mosaic. Each individual mosaic includes:
