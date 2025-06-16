@@ -139,7 +139,9 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 > those machines from the policy definition. For the Azure VM to download the assigned package and
 > apply the policy, the Guest Configuration Agent must be version `1.29.82.0` or higher for Windows
 > and version `1.26.76.0` or higher for Linux.
-> As an alternative System Assigned Managed Identities can be used to download packages for Arc-connected machines, and similar support has been provided for Azure options.
+>
+> For Arc-connected machines, you can also use System Assigned Managed Identities to download
+> packages.
 
 For more information about the **Mode** parameter, see the page
 [How to configure remediation options for machine configuration][02].
