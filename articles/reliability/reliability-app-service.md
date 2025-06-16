@@ -102,6 +102,8 @@ You must use the [Premium v2-4 plan types](/azure/app-service/overview-hosting-p
 
 ### Considerations
 
+During an availability zone outage, some aspects of Azure App Service might be affected, even though the application continues to serve traffic. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
+
 Instance distribution in a zone-redundant deployment follows specific rules. These rules remain applicable as the app scales in and scales out:
 
 - **Minimum instances:** Your App Service plan must have a minimum of two instances for zone redundancy.
