@@ -3,14 +3,16 @@ title: Configure render settings for data visualization in Microsoft Planetary C
 description: Learn the step-by-step process to configure render settings for visualizing geospatial data using the Microsoft Planetary Computer Pro data explorer and Tiler API.
 author: 777arc
 ms.author: marclichtman
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 05/08/2025
+ms.custom:
+  - build-2025
 ---
 
 # Configure render settings for visualizing data in Microsoft Planetary Computer Pro
 
-To visualize geospatial data using the Microsoft Planetary Computer Pro data explorer or the Tiler API, you must define **render configurations** for your SpatioTemporal Asset Catalog (STAC) collections. A render configuration specifies how the data assets within your STAC items should be combined, processed, and styled to create map tiles.
+To visualize geospatial data using the Microsoft Planetary Computer Pro data explorer or the Tiler API, you must define one or more **render configurations** for each of your SpatioTemporal Asset Catalog (STAC) collections. A render configuration specifies how the data assets within your STAC items are combined, processed, and styled to create map tiles.
 
 This guide walks you through the process of creating render configurations, from understanding prerequisites to configuring advanced options. Planetary Computer Pro's rendering capabilities are built upon the open-source [TiTiler](https://developmentseed.org/titiler/) project.
 
@@ -20,12 +22,11 @@ Before you can configure rendering, ensure the following prerequisite steps are 
 
 1.  **STAC Collection Exists:** You created a [STAC collection in Planetary Computer Pro](./create-stac-collection.md).
 2.  **Data Ingested:** You [added STAC items](./add-stac-item-to-collection.md) containing the geospatial data assets you want to visualize into the collection.
-3.  **`item_assets` Defined in Collection:** Your STAC collection's JSON definition *must* include a well-defined [`item_assets`](./stac-overview.md#item-assets) section. These properties inform the rendering engine about the common data assets (and their properties like data type or bands) available across the items in the collection. Render configurations reference the asset keys defined here.
 
 ## Process to build a Render Configuration
 | Step | Title                                                                                             | Description                                                                                                |
 | :--- | :------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------- |
-| 1    | [Define `item_assets` in your Collection JSON](#step-1-define-item_assets-in-your-collection-json) | First, you need to ensure your STAC collection JSON includes a well-defined `item_assets` section that describes the common assets within your items. |
+| 1    | [Define `item_assets` in your Collection JSON](#step-1-define-item_assets-in-your-collection-json) | First, you need to ensure your STAC collection JSON includes a well-defined [`item_assets`](./stac-overview.md#item-assets) section that describes the common assets within your items. |
 | 2    | [Understand Your Data and Visualization Goal](#step-2-understand-your-data-and-visualization-goal) | Next, determine the type of data you're working with and decide how you want it to appear visually (single-band colormap, multi-band RGB). |
 | 3    | [Construct the Render Configuration Object](#step-3-construct-the-render-configuration-object)     | Now, create the basic JSON structure that holds one or more render configurations for the Explorer UI.         |
 | 4    | [Define the `options` String - Core Parameters](#step-4-define-the-options-string---core-parameters) | Configure the essential TiTiler parameters within the `options` string to select the correct assets or bands and apply basic styling like colormaps or rescaling. |
@@ -34,7 +35,7 @@ Before you can configure rendering, ensure the following prerequisite steps are 
 
 ## Step 1: Define `item_assets` in your Collection JSON
 
-The item_assets field in your collection JSON is essential for rendering because it provides a schema describing the assets contained within the collection's items. This schema allows the rendering engine and the Explorer web application to understand the available data for visualization without inspecting individual items. It declares the keys (names) of the assets, such as `image`, `red`, `NIR`, or `elevation`, which reference your render configurations. Additionally, item_assets can include metadata like `eo:bands` for multi-band assets, facilitating the selection of specific bands for rendering. The Explorer uses this information to populate menus and understand the overall data structure.
+The item_assets field in your collection JSON is essential for rendering because it provides a consolidated description of the assets contained within the collection's items. The rendering engine and the Explorer web application use the item_assets field to understand the available data for visualization without inspecting individual items. It declares the keys (names) of the assets, such as `image`, `red`, `NIR`, or `elevation`, which are then referenced by the render configurations. Additionally, item_assets can include STAC extension metadata like `eo:bands` for multi-band assets, facilitating the selection of specific bands for rendering. The Explorer uses this information to populate menus and understand the overall data structure.
 
 **Example `item_assets` for a 4-band NAIP asset:**
 
@@ -86,13 +87,13 @@ Before building the configuration, determine how you want to visualize your data
 | :------------------------ | :----------------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------- |
 | **Single-Band Data**      | Each pixel has one value.                                                | elevation, temperature, land cover classification, calculated index  | Map these single values to a color range or discrete colors using a **colormap**.                              |
 | **Multi-Band Data**       | Data has multiple bands per pixel.                                       | RGB satellite imagery, multi-spectral data                           | Combine three specific bands to represent the Red, Green, and Blue channels of the output image.               |
-| **Derived Data (Expressions)** | Calculate a new value  from one or more bands/assets.        | NDVI from Red and NIR bands                                          | Define a mathematical **expression** and visualize the result (single-band with colormap or multi-band directly). |
+| **Derived Data (Expressions)** | Calculate a new value  from one or more bands/assets.        | Normalized Difference Vegitaiton Index (NDVI) from Red and NIR bands                                          | Define a mathematical **expression** and visualize the result (single-band with colormap or multi-band directly). |
 | **Derived Data (Algorithms)** | Calculate a new value across pixels.        | Hillshade shows contours of elevation data                                          | Use a mathematical **algorithm** to transform data into a visualization. |
 | **Data Cubes (GRIB/NetCDF)** | Data stored in GRIB or NetCDF formats with multiple variables and dimensions. | time, pressure levels                                                | Select a specific variable and potentially a slice through other dimensions (like time) for 2D visualization. |
 
 ## Step 3: Construct the Render Configuration Object
 
-Render configurations are defined as a list of JSON objects (or Python dictionaries if using the API). Each object in the list represents one visualization option that will appear in the Explorer dropdown.
+Render configurations are defined as a list of JSON objects (or Python dictionaries if using the API). Each object in the list represents one visualization option that will appear in the [Explorer dropdown](./use-explorer.md#Select-a-different-render-configuration).
 
 **Basic Structure:**
 
@@ -140,7 +141,7 @@ The `options` string is the heart of the render configuration. It uses a `key=va
 
 | Parameter | Description | Example |
 | :-------- | :---------- | :------ |
-| `colormap_name={name}` | Applies a predefined named colormap. Common examples: `viridis`, `plasma`, `gray`, `rdylgn`. See available [named colormaps](media/colormaps.png). | `assets=elevation&colormap_name=viridis` |
+| `colormap_name={name}` | Applies a predefined named colormap. Common examples: `viridis`, `plasma`, `gray`, `rdylgn`. See [supported colormaps](./supported-colormaps.md). | `assets=elevation&colormap_name=viridis` |
 | `rescale={min_val},{max_val}` | Stretches or compresses the data values to fit the full range of the colormap. Values outside this range are clamped to the min/max colors. | Map elevation values from 100 m to 1500 m across the full colormap: `assets=elevation&colormap_name=viridis&rescale=100,1500` |
 
 ### 3. Styling Multi-Band (RGB) Data
@@ -162,7 +163,7 @@ Beyond the basics, TiTiler offers many advanced parameters via the `options` str
 | `expression={formula}` | Define a mathematical formula using asset keys as variables | Standard operators (`+`, `-`, `*`, `/`) and parentheses | `expression=(B08-B04)/(B08+B04)` |
 | `asset_as_band=true` | Required when expression uses multiple *single-band* assets | `true` or `false` | `expression=(B08-B04)/(B08+B04)&asset_as_band=true` |
 
-Other details:
+**Examples**
 - Single-band result example: `expression=(B08-B04)/(B08+B04)&asset_as_band=true&colormap_name=rdylgn&rescale=-1,1`
 - Multi-band expressions use semicolons: `expression=B04*1.5;B03*1.1;B02*1.3&asset_as_band=true`
 - When using `expression`, you generally don't need `assets` or `asset_bidx`
@@ -175,9 +176,9 @@ Other details:
 | `algorithm_params={json_string}` | Parameters for the algorithm (URL-encoded JSON) | Varies by algorithm | `algorithm_params=%7B%22azimuth%22%3A%20315%2C%20%22angle_altitude%22%3A%2045%7D` |
 | `buffer={integer}` | Add pixel buffer around tiles (often needed for algorithms) | Integer value | `buffer=3` |
 
-**Full example:** `assets=elevation&algorithm=hillshade&colormap_name=gray&buffer=3&algorithm_params=%7B%22azimuth%22%3A%20315%2C%20%22angle_altitude%22%3A%2045%7D`
+**Example** `assets=elevation&algorithm=hillshade&colormap_name=gray&buffer=3&algorithm_params=%7B%22azimuth%22%3A%20315%2C%20%22angle_altitude%22%3A%2045%7D`
 
-For details on specific algorithms, see the [TiTiler Algorithm documentation](https://developmentseed.org/titiler/examples/notebooks/Working_with_Algorithm/) and [Mapbox algorithms](https://docs.mapbox.com/data/tilesets/guides/access-elevation-data/)
+For details on specific algorithms, see the [TiTiler Algorithm documentation](https://developmentseed.org/titiler/examples/notebooks/Working_with_Algorithm/) and [Mapbox Hillshade](https://docs.mapbox.com/style-spec/reference/layers/#hillshade)
 
 ### 3. Color Correction (for RGB / Three-band output)
 
@@ -190,7 +191,7 @@ For details on specific algorithms, see the [TiTiler Algorithm documentation](ht
 - `Saturation {PROPORTION}` - Adjust color intensity
 - `Sigmoidal {BANDS} {CONTRAST} {BIAS}` - Adjust contrast
 
-For more information about color correction, see the [TiTiler documentation](https://developmentseed.org/titiler/endpoints/cog/#color-correction).
+For more information about color correction, see the [TiTiler documentation](https://developmentseed.org/titiler/user_guide/rendering/#color-formula).
 
 ### 4. Custom Colormaps (for single-band output)
 
@@ -235,8 +236,8 @@ Once you construct your render configuration list (one or more JSON objects), ad
 1.  Navigate to your collection in the Planetary Computer Pro portal.
 2.  Select the **Configuration** button.
 3.  Go to the **Render** tab.
-4.  Paste your JSON list into the editor or use the UI fields to build it.
-5.  Save the changes.
+4.  Paste your JSON list into the editor.
+5.  Save the changes by selecting **Update**.
 
 [ ![Screenshot of the render configuration web interface displaying options for setting up render configurations.](media/render-configuration-web-interface.png) ](media/render-configuration-web-interface.png#lightbox)
 
@@ -244,7 +245,7 @@ For more information on configuring collections, see [Configure a collection wit
 
 **Using the API:**
 
-Use an HTTP POST request to the collection's render options endpoint.
+Define a collection render configuration using the [create stac collection render options](https://learn.microsoft.com/rest/api/planetarycomputer/data-plane/stac-collection-render-options/create) endpoint. The following is an example of using this endpoint using the REST API with Python:
 
 ```python
 import requests
@@ -289,7 +290,7 @@ Here are various examples of the `options` string and the full render configurat
     "name": "Biomass Change from prior year (tonnes)",
     "description": "Annual estimates of changes (gains and losses) in aboveground woody biomass.",
     "type": "raster-tile",
-    "options": 'assets=biomass_change_wm&colormap_name=spectral&rescale=-5000,5000',
+    "options": "assets=biomass_change_wm&colormap_name=spectral&rescale=-5000,5000",
     "minZoom": 2
   }
 ```
