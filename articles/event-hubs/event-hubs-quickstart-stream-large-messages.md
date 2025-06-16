@@ -30,7 +30,7 @@ In the Azure portal, go to the **Settings** section for the dedicated cluster. U
 - You can update the key `eventhubmaxmessagesizeinbytes` to a suitable value in bytes. An acceptable range for this value is between 1,048,576 and 20,971,520 bytes.
 - Validate that the value for the read-only key `supportslargemessages` is set to `True`.
 
-After the configuration is saved, you're ready to stream large messages with Event Hubs.
+After you save the configuration, you're ready to stream large messages with Event Hubs.
 
 > [!IMPORTANT]
 > Large message streaming is only supported with self-serve scalable dedicated clusters built out of the latest infrastructure. The `Supportslargemessages` key reflects this capability.
@@ -39,7 +39,7 @@ After the configuration is saved, you're ready to stream large messages with Eve
 
 ## Stream large messages with Event Hubs
 
-Event Hubs allows streaming of large messages up to 20 MB, both in batches and as individual publications. The ability to stream large messages or events requires no client code changes apart from the change in the message or event itself. You can continue sending or receiving messages by using any existing Event Hubs SDK or Kafka API to stream large messages to Event Hubs. This way you can stream large messages to Event Hubs in the same manner as you would for messages of sizes less than 1 MB.
+Event Hubs allows streaming of large messages up to 20 MB, both in batches and as individual publications. The ability to stream large messages or events requires no client code changes apart from the change in the message or event itself. You can continue to send or receive messages by using any existing Event Hubs SDK or Kafka API to stream large messages to Event Hubs. This way you can stream large messages to Event Hubs in the same manner as you would for messages of sizes less than 1 MB.
 
 For more information, see [Send events to and receive events from Event Hubs by using .NET](event-hubs-dotnet-standard-getstarted-send.md).
 
