@@ -23,7 +23,7 @@ ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, 
 
 To use the [ARG GET/LIST API](./guidance-for-throttled-requests.md#still-being-throttled), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which will route the request to this ARG backend for response.
 
-You are required to contact the ARG product group by sending an email to [Azure Resource Graph team](azureresourcegraphsupport@microsoft.com) sharing a brief overview of your scenario and the ARG team will reach out to you with next steps.
+You are required to contact the ARG product group by sending an email to [Azure Resource Graph team](mailto:azureresourcegraphsupport@microsoft.com) sharing a brief overview of your scenario and the ARG team will reach out to you with next steps.
 
  This opt-in model was deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
 
@@ -78,6 +78,8 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 ```api
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}?api-version={apiVersion}&**useResourceGraph=true** 
 ```
+> [!NOTE]
+> The API-version parameter is mandatory for all Azure Resource Graph GET/LIST API calls. However, the value of this parameter is currently ignored by the service. Regardless of the api-version specified, ARG always returns results based on the latest generally available (GA) non-preview version of the API.
 
 ## Some frequently used examples
 
@@ -135,7 +137,7 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 
 1. **VMSS VM health status** is not currently supported. If you require this data, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
 2. **VM and VMSS VM extensions** - The running states of VM and VMSS VM extensions is not supported. If you require this data, you can share your scenario and propose the feature addition on our  [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
-3. **Supported resources** - The ARG GET/LIST API supports all resource types as part of the `resources` and `computeresources` table.  If you require a resource type which is not part of these tables, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
+3. **Supported resources** - The ARG GET/LIST API supports all resource types as part of the [`resources`](../reference/supported-tables-resources.md#resources) and [`computeresources`](../reference/supported-tables-resources.md#computeresources) table.  If you require a resource type which is not part of these tables, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
 4. **Single API version support** - ARG GET/LIST today only supports a single API version for each resource type, which is generally the latest non-preview version of the type that exists in the Azure REST API spec. The ARG GET/LIST functionality returns the `apiVersion` field in the resource payload of the response which indicates the version of the resource type that was used when retrieving the resource details. Callers can apply this field to understand the API version to use, if its relevant for their scenario.  
 5. **Client support** 
     - Azure REST API: Supported
@@ -233,3 +235,22 @@ If onboarded through the flag `useResourceGraph=true`, the caller may choose to 
 This is a common scenario with many services where customers create resources and immediately issue a GET in 1-2 seconds part of another WRITE workflow. For example, customers create a new resource and right after trying to create a metric alert that monitors it. The resource might not have been indexed by ARG GET/LIST yet. There are two ways to work around this situation:
 - Retry on ARG GET/LIST a few times until it returns status code 200.  
 - Retry without ARG GET/LIST flag to fall back on the resource provider. True status code 404 doesn't hit the resource provider since ARM returns the error directly, whereas a false 404 should be served by the resource providers to get actual data. 
+
+7. What URI parameters are supported by the ARG GET/LIST API?
+
+The ARG GET/LIST API supports a range of URI parameters to help tailor and paginate query results. These include:
+Standard OData Pagination Parameters:
+- $top: Specifies the number of records to return.
+- $skip: Skips the specified number of records.
+- $skipToken: Used for retrieving the next page of results in paginated queries.
+
+Query Parameters for Virtual Machines and VMSS VMs -
+- statusOnly: statusOnly=true enables fetching run time status of all Virtual Machines in the subscription.
+- $expand=instanceView: The expand expression to apply on operation. 'instanceView' enables fetching run time status of all Virtual Machines, this can only be specified if a valid $filter option is specified
+- $filter: The system query option to filter VMs returned in the response. Allowed value is `virtualMachineScaleSet/id`
+eq 
+/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}
+
+8. What should I do if I encounter issues while using the useResourceGraph parameter when calling Azure Resource Graph?
+
+If you experience any issues while using the `useResourceGraph` parameter with ARG, please create a support ticket under the Azure Resource Graph service in the [Azure Portal](https://ms.portal.azure.com/#home) under **Help + Support.**
