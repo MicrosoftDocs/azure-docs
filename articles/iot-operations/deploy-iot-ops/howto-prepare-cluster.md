@@ -24,7 +24,7 @@ Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployment
 
 To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
-[!INCLUDE [Cluster prerequisites for Ubuntu and Tanzu](../includes/cluster-prerequisites-ubuntu-tanzu.md)]
+[!INCLUDE [Cluster prerequisites for Ubuntu and Tanzu](../includes/cluster-prerequisites.md)]
 
 * Hardware that meets the system requirements:
 
@@ -64,7 +64,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 To prepare a TKG workload cluster, you need:
 
-[!INCLUDE [Cluster prerequisites for Ubuntu and Tanzu](../includes/cluster-prerequisites-ubuntu-tanzu.md)]
+[!INCLUDE [Cluster prerequisites for Ubuntu and Tanzu](../includes/cluster-prerequisites.md)]
 
 - [TKG with a standalone management cluster.](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/mgmt-index.html)
 
