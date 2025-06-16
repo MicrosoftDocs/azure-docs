@@ -15,4 +15,3 @@ A network security group (NSG) must be associated with the subnet. To set up a n
 * NSG rules can also be used to block outbound traffic to the internet and access only resources in your virtual network. 
 
 
-
