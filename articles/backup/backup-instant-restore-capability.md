@@ -2,7 +2,7 @@
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 ms.topic: overview
-ms.date: 05/19/2025
+ms.date: 06/16/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -142,3 +142,7 @@ Yes it's safe, and there's absolutely no impact in data transfer speed.
 ### Why does a 12-month backup retention policy retain data for 372 days instead of 365?
 
 The retention period for monthly backups is calculated considering **31 days** for each month. When you multiply 31 days by 12 months, the total retention duration becomes **372 days**. This approach ensures consistent retention across all months, regardless of their actual number of days.
+
+### Is there a charge for retaining additional Restore Points beyond expiry for the garbage collection cycle?
+
+Yes, this incurs extra charges, as pricing depends on policy duration and unpruned recovery points, which should be considered when estimating backup costs.
