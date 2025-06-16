@@ -1,9 +1,11 @@
 ---
 title: Regulatory Compliance details for HIPAA HITRUST 9.2
 description: Details of the HIPAA HITRUST 9.2 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 04/30/2025
+ms.date: 05/23/2025
 ms.topic: generated-reference
-ms.custom: generated
+ms.custom:
+  - generated
+  - build-2025
 ---
 # Details of the HIPAA HITRUST 9.2 Regulatory Compliance built-in initiative
 
@@ -4446,7 +4448,6 @@ initiative definition.
 |---|---|---|---|
 |[Discover any indicators of compromise](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F07b42fb5-027e-5a3c-4915-9d9ef3020ec7) |CMA_C1702 - Discover any indicators of compromise |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1702.json) |
 |[Document wireless access security controls](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8f835d6a-4d13-9a9c-37dc-176cebd37fda) |CMA_C1695 - Document wireless access security controls |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1695.json) |
-|[Virtual machines should have the Log Analytics extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa70ca396-0a34-413a-88e1-b956c1e683be) |This policy audits any Windows/Linux virtual machines if the Log Analytics extension is not installed. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VirtualMachines_LogAnalyticsAgent_AINE.json) |
 
 ### 12101.09ab1Organizational.3-09.ab 09.10 Monitoring
 
@@ -4573,7 +4574,6 @@ initiative definition.
 |[Ensure audit records are not altered](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F27ce30dd-3d56-8b54-6144-e26d9a37a541) |CMA_C1125 - Ensure audit records are not altered |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1125.json) |
 |[Provide audit review, analysis, and reporting capability](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F44f8a42d-739f-8030-89a8-4c2d5b3f6af3) |CMA_C1124 - Provide audit review, analysis, and reporting capability |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1124.json) |
 |[Provide capability to process customer-controlled audit records](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21633c09-804e-7fcd-78e3-635c6bfe2be7) |CMA_C1126 - Provide capability to process customer-controlled audit records |Manual, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Regulatory%20Compliance/CMA_C1126.json) |
-|[Virtual machines should have the Log Analytics extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa70ca396-0a34-413a-88e1-b956c1e683be) |This policy audits any Windows/Linux virtual machines if the Log Analytics extension is not installed. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VirtualMachines_LogAnalyticsAgent_AINE.json) |
 
 ### 1216.09ab3System.12-09.ab 09.10 Monitoring
 

@@ -69,6 +69,8 @@
     href: application-gateway-autoscaling-zone-redundant.md
   - name: WebSocket support
     href: application-gateway-websocket.md
+  - name: DNS resolution details
+    href: application-gateway-dns-resolution.md
   - name: Ingress for AKS
     href: ingress-controller-overview.md
   - name: Understanding pricing
@@ -289,6 +291,8 @@
       href: ../reliability/migrate-app-gateway-v2.md?toc=/azure/application-gateway/toc.json
   - name: Proxy buffer configuration
     href: proxy-buffers.md
+  - name: Using Server-sent events
+    href: use-server-sent-events.md    
   - name: Custom error pages
     href: custom-error.md
   - name: Migrate to v2 SKU

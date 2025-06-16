@@ -1,37 +1,49 @@
 ---
-title: Use key vault secrets in customization files
-description: Learn how to use Azure Key Vault secrets in team and user customization files to clone private repositories.
+title: Fetch Azure Key Vault Secrets from Dev Box Customizations Files
+description: Discover how to fetch Azure Key Vault secrets by using team and user customization files to enhance security and simplify workflows.
+#customer intent: As a platform engineer, I want to configure Azure Key Vault secrets so that my development teams can securely access private repositories during Dev Box customization.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.custom:
   - ignite-2024
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:05/10/2025
+  - ai-gen-description
 ms.topic: how-to
-ms.date: 04/20/2025
-
-#customer intent: As a Dev Center Admin or Project Admin, I want to create image definition files so that my development teams can create customized dev boxes.
+ms.date: 05/10/2025
 ---
 
-# Clone a private repository by using a customization file
+# Use Azure Key Vault secrets in customization files
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
+You can use secrets from your Azure key vault in your YAML customizations to clone private repositories, or with any task you author that requires an access token. For example, in a team customization file, you can use a personal access token (PAT) stored in a key vault to access a private repository.
 
+## Use key vault secrets in customization files
 
-You can use secrets from your Azure key vault in your YAML customizations to clone private repositories, or with any custom task you author that requires an access token. In a team customization file, you can use a personal access token (PAT) stored in a key vault to access a private repository.
+To use a secret, like a PAT, in your customization files, store your PAT as a key vault secret. 
 
-## Use key vault secrets in team customization files
+Both team and user customizations support fetching secrets from a key vault. Team customizations, also known as image definition files, define the base image for the dev box with the `image` parameter, and list the tasks that run when a dev box is created. User customizations list the tasks that run when a dev box is created. The following examples show how to use a key vault secret in both types of customizations.
 
-To clone a private repository, store your PAT as a key vault secret. See [Grant the managed identity access to the key vault secret](../deployment-environments/how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret), and use it when you invoke the `git-clone` task in your customization.
+To configure key vault secrets for use in your team or user customizations, ensure that your dev center project's managed identity has the Key Vault Secrets User role on your key vault.
 
-To configure your key vault secrets for use in your YAML customizations:
+To configure key vault secrets for use in user customizations, you need to additionally:
 
 1. Ensure that your dev center project's managed identity has the Key Vault Reader role and the Key Vault Secrets User role on your key vault.
 2. Grant the Key Vault Secrets User role for the key vault secret to each user or user group that should be able to consume the secret during the customization of a dev box. The user or group granted the role must include the managed identity for the dev center, the admin's user account, and any user or group that needs the secret during dev box customization.
 
-For more information, see:
+You can use a key vault secret in-line with the built-in PowerShell task: 
 
-- [Configure a managed identity for a dev center](../deployment-environments/how-to-configure-managed-identity.md#configure-a-managed-identity-for-a-dev-center)
-- [Grant the managed identity access to the key vault secret](../deployment-environments/how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret)
+```yml
+$schema: "1.0" 
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc 
+tasks:  
+- name: git-clone
+    description: Clone this repository into C:\Workspaces 
+    parameters: 
+    command: MyCommand –MyParam '{{KEY_VAULT_SECRET_URI}}' 
+```
+This example shows an image definition file. The `KEY_VAULT_SECRET_URI` is the URI of the secret in your key vault. 
 
 You can reference the secret in your YAML customization in the following format, which uses the `git-clone` task as an example:
 
@@ -45,37 +57,34 @@ tasks:
       directory: C:\Workspaces
       pat: '{{KEY_VAULT_SECRET_URI}}'
 ```
+This example shows a user customization file. There is no `image` specified.
 
-## Use key vault secrets in user customization files
-
-To clone a private Azure Repos repository from a user customization file, you don't need to configure a secret in Azure Key Vault. If you want to clone a private Azure Repos repository from a user customization file, you don't need to configure a secret in Azure Key Vault. Instead, you can use `{{ado}}` or `{{ado://your-ado-organization-name}}` as a parameter. This parameter fetches an access token on your behalf when you're creating a dev box. The access token has read-only permission to your repository.
-
-The `git-clone` task in the quickstart catalog uses the access token to clone your repository. Here's an example:
+User customizations let you obtain an Azure DevOps token to clone private repositories without explicitly specifying a PAT from the key vault. The service automatically exchanges your Azure token for an Azure DevOps token at run time.  
 
 ```yml
-tasks:
-  - name: git-clone
-    description: Clone this repository into C:\Workspaces
-    parameters:
-      repositoryUrl: https://myazdo.visualstudio.com/MyProject/_git/myrepo
-      directory: C:\Workspaces
-      pat: '{{ado://YOUR_ADO_ORG}}'
-```
+$schema: "1.0" 
+tasks: 
+  - name: git-clone 
+    description: Clone this repository into C:\Workspaces 
+    parameters: 
+      repositoryUrl: https://myazdo.visualstudio.com/MyProject/_git/myrepo 
+      directory: C:\Workspaces 
+      pat: '{{ado://YOUR_ORG_NAME}}' 
+``` 
 
-The dev center needs access to your key vault. Dev centers don't support service tags, so if your key vault is private, allow trusted Microsoft services to bypass the firewall.
+The Dev Box VS Code extension and Dev Box CLI don't support hydrating secrets in the inner-loop testing workflow for customizations. 
 
-Dev centers don't support service tags, so if the key vault is private, allow trusted Microsoft services to bypass the firewall.
+## Configure key vault access
+
+The dev center needs access to your key vault. Because dev centers don't support service tags, if your key vault is private, let trusted Microsoft services bypass the firewall.
 
 :::image type="content" source="media/how-to-use-secrets-customization-files/trusted-services-bypass-firewall.png" alt-text="Screenshot that shows the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings." lightbox="media/how-to-use-secrets-customization-files/trusted-services-bypass-firewall.png":::
 
-To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+To learn how to let trusted Microsoft services bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
-## Share a customization file from a code repository
-
-Make the customization file available to dev box pools by naming it *imagedefinition.yaml* and uploading it to the repository that hosts the catalog. When you create a dev box pool, you can select the customization file from the catalog to apply to the dev boxes in the pool.
 
 ## Related content
 
 - [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md)
 - [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md)
-- [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md)
+- Learn how to [add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).

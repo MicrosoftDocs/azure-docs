@@ -6,14 +6,38 @@ author: KendalBond007
 ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 01/22/2025
+ms.date: 5/30/2025
 ms.author: kesheth
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Release notes 2025: Azure Health Data Services
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
+
+## May 2025
+### FHIR service
+**Enhanced error handling for $export**: Previously, 412 errors from Azure Storage weren't retried, and would be surfaced as 500 InternalServerError. The issue is fixed, and these requests are now retried. 
+
+**Enhancement for _include and _revinclude searches**: Added a more descriptive message for truncated _include messages. For _include and _revinclude search queries, when the number of included items exceeds the limit on the page, the OperationOutcome in the bundle will now include the message "Included items are truncated. Use the related link in the response to retrieve all included items."
+
+**Transaction handling improvement**: Fixed invisible transaction watchdog to limit number of transactions to process in a single batch to 10000 to avoid timeouts and improve transaction handling.
+
+**Improved error handling for exports or imports that have missing Managed Identity**: Previously, exports or imports with missing Managed Identity would result in a 500 Unknown Server Error. We have added improved error handling for this case, and now, a more descriptive error message "Failed to get access token" will be shown. 
+
+**Support multiple pages of include results in bulk delete**: Previously, bulk deletes with _include and _revinclude couldn't delete more than 100 included resources. We have made a fix to lift that limit by supporting multiple pages of include results, and bulk delete will be able to delete more than 100 included resources.
+
+**Added ID in CapabilityStatement**: Previously, when retrieving the server's CapabilityStatement from the /metadata endpoint, the returned resource did not contain an ID. We have now added a dynamic ID to the CapabilityStatement 
+
+Added validation on resource ID for import. Previously, the import process was not validating IDs, allowing unsupported characters, for example, "#", to cause errors. Now, we have added validation on resource ID for import, and have included the error message "Invalid resource ID".
+
+#### Bug fixes:
+**Creation after deletion of search parameters fix**: Previously, creating the same search parameter that was deleted in the past could fail due to an issue in updating the cache for Search Parameter definition manager. The issue is fixed, and now, the cache is synced before validating a search parameter in an incoming request.
+
+**Patient-everything with SMART patient user fix**: An issue was discovered where the patient-everything operation with a SMART patient user was failing. The issue is fixed, and now, the patient-everything operation works as expected with a SMART patient user.
+
 
 ## April 2025
 ### FHIR service
@@ -22,13 +46,15 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **Stability improvements**: Introduced merge throttling to manage code execution waits, improving system stability under high concurrency conditions.
 
-**Custom error container for $import**: Added ability for users to specify the name of the container where errors encountered during $import are logged. If not specified, the default container is used. More information [here](/articles/healthcare-apis/fhir/import-data.md).
+
+**Custom error container for $import**: Added ability for users to specify the name of the container where errors encountered during $import are logged. If not specified, the default container is used. More information [here](./fhir/import-data.md).
+
 
 **Search for not referenced resources**: Added functionality to search for resources that aren't referenced by other resources. 
 
 **Improved search error handling**: Previously, a search query with too many parameters returns a 500 error without any error message. Now, if a search query has too many parameters, the FHIR server will return a 400 error with the error message: "The incoming request has too many parameters. Reduce the number of parameters and resend the request."
 
-**Search with _include and _revinclude enhancements**: Previously, searches with `_include` and `_revinclude` were limited to return a maximum of 100 items, truncating results over 100 items. That limit has been removed through the introduction of a "Related" link with the $includes operation, and a new search result parameter called `_includesCount` that allows customers to page through the `_include` and `_revinclude` items. The parameter `_includesCount` can be used to configure how many `_include` and _`revinclude` items are on each page. Its default value is 1000. Customers can use the "Related" link in the original search response, and the "Next" link in the response from the "Related" link to page through the `_include` and `_revinclude` items. More information [here](/articles/healthcare-apis/fhir/overview-of-search.md). 
+**Search with _include and _revinclude enhancements**: Previously, searches with `_include` and `_revinclude` were limited to return a maximum of 100 items, truncating results over 100 items. That limit has been removed through the introduction of a "Related" link with the $includes operation, and a new search result parameter called `_includesCount` that allows customers to page through the `_include` and `_revinclude` items. The parameter `_includesCount` can be used to configure how many `_include` and _`revinclude` items are on each page. Its default value is 1000. Customers can use the "Related" link in the original search response, and the "Next" link in the response from the "Related" link to page through the `_include` and `_revinclude` items. More information [here](./fhir/overview-of-search.md). 
 
 
 #### Bug fixes:

@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 12/29/2024
 
 #CustomerIntent: As an Azure administrator, I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
+# Customer intent: "As an Azure administrator, I want to use a connectivity monitoring tool across Azure and hybrid environments, so that I can diagnose network issues, measure performance metrics, and ensure reliable communication between my virtual machines and endpoints."
 ---
 
 # Connection monitor overview

@@ -2,12 +2,7 @@
 title: Azure NetApp Files large volume performance benchmarks for Linux
 description: Describes the tested performance capabilities of a single Azure NetApp Files large volume as it pertains to Linux use cases.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na

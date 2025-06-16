@@ -1,17 +1,16 @@
 ---
-title: Troubleshoot Azure Managed Redis (preview) client issues
+title: Troubleshoot Azure Managed Redis client issues
 description: Learn how to resolve common client issues, such as client memory pressure, traffic burst, high CPU, limited bandwidth, large requests, or large response size, when using Azure Managed Redis.
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: troubleshooting
 ms.custom:
   - ignite-2024
-ms.topic: troubleshooting
-ms.date: 11/15/2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# Troubleshoot Azure Managed Redis (preview) client-side issues
+# Troubleshoot Azure Managed Redis client-side issues
 
 This section discusses troubleshooting issues that occur because of a condition on the Redis client that your application uses.
 

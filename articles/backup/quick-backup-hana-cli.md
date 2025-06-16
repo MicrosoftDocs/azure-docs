@@ -3,7 +3,7 @@ title: Quickstart - Back up an SAP HANA database with Azure CLI
 description: In this quickstart, learn how to create a Recovery Services vault, enable protection on an SAP HANA System Replication database, and create the initial recovery point with Azure CLI.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 06/17/2024
+ms.date: 12/10/2024
 ms.custom: mvc, devx-track-azurecli, mode-api, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri

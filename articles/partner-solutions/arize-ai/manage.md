@@ -1,12 +1,14 @@
 ---
-title: Manage an Arize AI resource through the Azure portal (preview)
+title: Manage an Arize AI resource through the Azure portal
 description: Learn how to manage Arize AI resources on the Azure portal.
 
 ms.topic: how-to
 ms.date: 04/21/2025
+ms.custom:
+  - build-2025
 ---
 
-# Manage an Arize AI resource (preview)
+# Manage an Arize AI resource
 
 This article describes how to manage the settings for Arize AI resources.
 
@@ -35,4 +37,4 @@ To manage your resource, select the links next to corresponding details.
 
 ## Get support
 
-Contact [Arize](https://arize.com/contact/) for customer support. You can also visit the [Slack Support Community](https://arize-ai.slack.com/ssb/redirect) for more help. 
+Contact [Arize](https://arize.com/contact/) for customer support. You can also go to the [Slack Support Community](https://arize-ai.slack.com/ssb/redirect) for more help. 

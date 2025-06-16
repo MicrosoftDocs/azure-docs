@@ -5,8 +5,10 @@ services: application gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 04/08/2025
-ms.author: greglin
+ms.date: 05/15/2025
+ms.author: mbender
+ms.custom:
+  - build-2025
 ---
 
 # Managing your Application Gateway with TLS 1.0 and 1.1 retirement
@@ -15,7 +17,14 @@ Starting **31st August 2025**, Azure Application Gateway will no longer support 
 
 ## Frontend TLS connections
 
-With deprecation of TLS versions 1.0 and 1.1, the **older Predefined TLS policies** and certain cipher suites from the **Custom TLS policy** will be removed.
+With deprecation of TLS versions 1.0 and 1.1, the **older Predefined TLS policies** and certain cipher suites from the **Custom TLS policy** will be removed. Depending on the configuration of your gateway, it's necessary to review the policy association for both general [TLS policy](application-gateway-ssl-policy-overview.md) and the [Listener-specific TLS policy](application-gateway-configure-listener-specific-ssl-policy.md).
+
+**General TLS policy - Portal view**
+:::image source="media/application-gateway-tls-version-retirement/general-tls-policy.png" alt-text="A diagram showing general TLS policy configuration in the Portal.":::
+
+**Listener-specific TLS policy - Portal view**
+:::image source="media/application-gateway-tls-version-retirement/listener-specific-tls-policy.png" alt-text="A diagram showing Listener-specific TLS policy configuration in the Portal.":::
+
 
 ### Predefined policies for V2 SKUs
 

@@ -6,7 +6,9 @@ ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/13/2023
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - build-2025
 ---
 
 # Operator Nexus platform prerequisites
@@ -665,9 +667,9 @@ An example design of three on-premises instances from the same NFC/CM pair, usin
 - All network fabric devices (except for the Terminal Server) are set to `ZTP` mode
 - Servers have default factory settings, inclusive of minimum BIOS settings.
 
-#### Minimum BIOS and firmware versions for Nexus Cluster runtime
+#### Minimum recommended BIOS and firmware versions for Nexus Cluster runtime
 
-Ensure the following minimum BIOS and firmware versions are deployed based on your Nexus Cluster, based on the selected runtime version and BOM:
+As a best practice, starting from the following minimum recommended BIOS and firmware versions are deployed based on your Nexus Cluster, based on the selected runtime version and BOM:
 
 #### Nexus Cluster runtime version 4.4.x
 

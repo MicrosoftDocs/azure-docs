@@ -4,8 +4,8 @@ description: How to fail over VMs/physical servers to Azure with Azure Site Reco
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 # Run a failover from on-premises to Azure
 

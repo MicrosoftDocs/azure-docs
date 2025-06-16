@@ -2,11 +2,11 @@
 title: 'Record Bastion sessions'
 titleSuffix: Azure Bastion
 description: Learn how to configure and record Bastion sessions.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 01/21/2025
-ms.author: cherylmc
+ms.author: abell
 
 ---
 

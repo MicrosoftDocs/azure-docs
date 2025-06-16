@@ -75,6 +75,18 @@
       href: enable-dynamic-configuration-javascript.md
     - name: Feature management
       href: quickstart-feature-flag-javascript.md
+  - name: Go
+    items:
+    - name: Configuration
+      href: quickstart-go-console-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-go-console-app.md
+  - name: Go Gin
+    items:
+    - name: Configuration
+      href: quickstart-go-web-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-gin-web-app.md
   - name: Azure Functions
     items:
     - name: Configuration
@@ -158,6 +170,16 @@
       href: concept-soft-delete.md
     - name: Recover or purge deleted stores
       href: howto-recover-deleted-stores-in-azure-app-configuration.md
+- name: AI configuration
+  items:
+  - name: Overview
+    href: concept-ai-configuration.md
+  - name: Chat completion
+    items:
+    - name: Overview
+      href: howto-chat-completion-config.md
+    - name: .NET
+      href: quickstart-chat-completion-dotnet.md
 - name: Feature management
   items:
   - name: Overview
@@ -196,6 +218,8 @@
       href: howto-variant-feature-flags-aspnet-core.md
     - name: Python
       href: howto-variant-feature-flags-python.md
+    - name: JavaScript
+      href: howto-variant-feature-flags-javascript.md
 - name: CI/CD integration
   items:
   - name: Use configuration files
@@ -332,6 +356,8 @@
       href: ./configuration-provider-overview.md
     - name: .NET
       items:
+      - name: Feature reference
+        href: ./reference-dotnet-provider.md
       - name: API reference
         href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
       - name: Azure SDK for .NET
@@ -414,6 +440,8 @@
     href: https://azure.microsoft.com/pricing/details/app-configuration/
   - name: Roadmap
     href: https://github.com/Azure/AppConfiguration/projects/1
+  - name: Support policy
+    href: ./client-library-support-policy.md
   - name: Videos
     items:
     - name: Getting started with App Configuration

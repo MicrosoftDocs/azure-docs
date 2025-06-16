@@ -8,6 +8,8 @@ ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/15/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
+ms.custom:
+  - build-2025
 ---
 
 # Network Fabric read-only commands for troubleshooting
@@ -55,11 +57,84 @@ To use Network Fabric read-only commands, complete the following steps:
     > [!NOTE]
     > The Storage URL must be located in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US. 
 
-- Bring your own storage account 
-    Users can bring your own storage for storing output files of runRO command by following the steps outlined in the [Bring Your Own Storage for Network Fabric](howto-configure-bring-your-own-storage-network-fabric.md) guide.
+## Bring your own storage account 
+
+Users can bring your own storage for storing output files of runRO command by following the steps outlined in the [Bring Your Own Storage for Network Fabric](howto-configure-bring-your-own-storage-network-fabric.md) guide.
 
 >[!Note]
 > Starting with the 2024-06-15-preview API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/azure/operator-nexus/howto-configure-network-fabric) article.
+
+### Running read-only (RO) Commands
+
+Azure Operator Nexus supports execution of read-only show commands on fabric devices via the Azure CLI. This feature allows administrators to retrieve diagnostic data for monitoring and troubleshooting while ensuring the underlying device configurations remain unchanged.
+
+#### Example: Executing a Read-Only Command via Azure CLI
+
+You can use the az networkfabric device run-ro command to issue supported show commands. Below is a sample command demonstrating how to query a device for its version details:
+
+ **Scenario 1:** Response under 4000 characters (Correct JSON formatting)
+
+```Azure CLI
+az networkfabric device run-ro \
+  --resource-group "resource-group-name" \
+  --resource-name "device-name" \
+  --ro-command "show version"
+
+```
+
+Replace `resource-group-name` and `device-name` with your specific values.
+
+Expected Output
+
+```json
+{
+  "configurationState": "Succeeded",
+  "deviceConfigurationPreview": {
+    "architecture": "x86_64",
+    "bootupTimestamp": 1742470725.3758163,
+    "configMacAddress": "00:00:00:00:00:00",
+    "hardwareRevision": "12.05",
+    "hwMacAddress": "c4:ca:xx:xx:xx:35",
+    "imageFormatVersion": "3.0",
+    "imageOptimization": "Default",
+    "internalBuildId": "2b2210fa-xxxx-xxxx-xxxx-f120aa00xxxx",
+    "internalVersion": "4.xx.1F-39879738.xxxxx",
+    "isIntlVersion": false,
+    "memFree": 3760128,
+    "memTotal": 8099732,
+    "mfgName": "vendor",
+    "modelName": "xxx-xxxxx-xx-x",
+    "serialNumber": "JPA2303P3FH",
+    "systemMacAddress": "c4:ca:xx:xx:xx:35",
+    "uptime": 3648004.37,
+    "version": "4.xx.1F"
+  },
+  "outputUrl": "https://<blob-url>/show_version.json"
+}
+```
+> [Note]
+> This output is well-formatted JSON because the total content is within the 4000-character boundary.
+
+Scenario 2: Response exceeds 4000 characters (Incorrect formatting)
+
+Truncated output
+```json
+{
+  "configurationState": "Succeeded",
+  "deviceConfigurationPreview": "{\n  \"lldpNeighbors\": {\n    \"Ethernet1/1\": {\n      \"lldpNeighborInfo\": [\n        {\n          \"chassisId\": \"c4ca.2b62.19b5\",\n          \"chassisIdType\": \"macAddress\",\n          \"lastChangeTime\": 1742470988.8675177,\n          ...
+        }\n      ]\n    },\n    ...
+  }",
+  "outputUrl": "https://<blob-url>/lldp_neighbors_detail.json"
+}
+```
+
+>[Note]
+>  The field deviceConfigurationPreview is not a JSON object, but rather a string containing escaped JSON. This happens because the actual output is larger than 4000 characters. In such cases, the formatting is lost in the CLI output.
+
+
+> [!Note] 
+> The output structure may vary depending on the specific show command issued.<br>
+> Ensure the storage account URL (provided during setup) is accessible for the platform to write the output securely.<br>
 
  ## Command restrictions
 

@@ -5,9 +5,11 @@ services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 05/03/2024
+ms.date: 05/14/2025
 ms.author: normesta
-ms.custom: subject-cost-optimization
+ms.custom:
+  - subject-cost-optimization
+  - build-2025
 ---
 
 # Map each REST operation to a price
@@ -96,30 +98,31 @@ The following table maps each Data Lake Storage REST operation to an operation t
 
 The price of each type appears in the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
-| Logged Operation         | REST API                                                                                             | Premium block blob | Standard general purpose v2 |
-|--------------------------|------------------------------------------------------------------------------------------------------|--------------------|-----------------------------|
-|  CreateFilesystem        | [Filesystem  Create](/rest/api/storageservices/datalakestoragegen2/filesystem/create)                | Write              | Write                       |
-|  DeleteFilesystem        | [Filesystem  Delete](/rest/api/storageservices/datalakestoragegen2/filesystem/delete)                | Free               | Free                        |
-|  GetFilesystemProperties | [Filesystem  Get Properties](/rest/api/storageservices/datalakestoragegen2/filesystem/getproperties) | Other              | Other                       |
-|  ListFilesystems         | [Filesystem  List](/rest/api/storageservices/datalakestoragegen2/filesystem/list)                    | Iterative Read     | Iterative Read              |
-|  SetFilesystemProperties | [Filesystem  Set Properties](/rest/api/storageservices/datalakestoragegen2/filesystem/setproperties) | Write              | Write                       |
-|  CreatePathDir           | [Path  Create](/rest/api/storageservices/datalakestoragegen2/path/create)                            | Write              | Write                       |
-|  CreatePathFile          | [Path  Create](/rest/api/storageservices/datalakestoragegen2/path/create)                            | Write              | Write                       |
-|  RenamePathDir           | [Path  Create](/rest/api/storageservices/datalakestoragegen2/path/create)                            | Write              | Write                       |
-|  RenamePathFile          | [Path  Create](/rest/api/storageservices/datalakestoragegen2/path/create)                            | Write              | Write                       |
-|  DeleteDirectory         | [Path  Delete](/rest/api/storageservices/datalakestoragegen2/path/delete)                            | Free               | Free                        |
-|  DeleteFile              | [Path  Delete](/rest/api/storageservices/datalakestoragegen2/path/delete)                            | Free               | Free                        |
-|  GetFileProperties       | [Path  Get Properties](/rest/api/storageservices/datalakestoragegen2/path/getproperties)             | Read               | Read                        |
-|  GetPathAccessControl    | [Path  Get Properties](/rest/api/storageservices/datalakestoragegen2/path/getproperties)             | Read               | Read                        |
-|  GetPathStatus           | [Path  Get Properties](/rest/api/storageservices/datalakestoragegen2/path/getproperties)             | Read               | Read                        |
-|  LeaseFile               | [Path  Lease](/rest/api/storageservices/datalakestoragegen2/path/lease)                              | Other              | Other                       |
-|  ListFilesystemDir       | [Path  List](/rest/api/storageservices/datalakestoragegen2/path/list)                                | Iterative Read     | Iterative Read              |
-|  ListFilesystemFile      | [Path  List](/rest/api/storageservices/datalakestoragegen2/path/list)                                | Iterative Read     | Iterative Read              |
-|  ReadFile                | [Path  Read](/rest/api/storageservices/datalakestoragegen2/path/read)                                | Read               | Read                        |
-|  AppendFile              | [Path  Update](/rest/api/storageservices/datalakestoragegen2/path/update)                            | Write              | Write                       |
-|  FlushFile               | [Path  Update](/rest/api/storageservices/datalakestoragegen2/path/update)                            | Write              | Write                       |
-|  SetFileProperties       | [Path  Update](/rest/api/storageservices/datalakestoragegen2/path/update)                            | Write              | Write                       |
-|  SetPathAccessControl    | [Path  Update](/rest/api/storageservices/datalakestoragegen2/path/update)                            | Write              | Write                       |
+| Logged Operation              | REST API                                                                                             | Premium block blob | Standard general purpose v2 |
+|-------------------------------|------------------------------------------------------------------------------------------------------|--------------------|-----------------------------|
+| CreateFilesystem              | [Filesystem  Create](/rest/api/storageservices/datalakestoragegen2/filesystem/create)                | Write              | Write                       |
+| DeleteFilesystem              | [Filesystem  Delete](/rest/api/storageservices/datalakestoragegen2/filesystem/delete)                | Free               | Free                        |
+| GetFilesystemProperties       | [Filesystem  Get Properties](/rest/api/storageservices/datalakestoragegen2/filesystem/getproperties) | Other              | Other                       |
+| ListFilesystems               | [Filesystem  List](/rest/api/storageservices/datalakestoragegen2/filesystem/list)                    | Iterative Read     | Iterative Read              |
+| SetFilesystemProperties       | [Filesystem  Set Properties](/rest/api/storageservices/datalakestoragegen2/filesystem/setproperties) | Write              | Write                       |
+| CreatePathDir                 | [Path  Create](/rest/api/storageservices/datalakestoragegen2/path/create)                            | Write              | Write                       |
+| CreatePathFile                | [Path  Create](/rest/api/storageservices/datalakestoragegen2/path/create)                            | Write              | Write                       |
+| RenamePathDir                 | [Path  Create](/rest/api/storageservices/datalakestoragegen2/path/create)                            | Iterative Write    | Iterative Write             |
+| RenamePathFile                | [Path  Create](/rest/api/storageservices/datalakestoragegen2/path/create)                            | Iterative Write    | Iterative Write             |
+| DeleteDirectory               | [Path  Delete](/rest/api/storageservices/datalakestoragegen2/path/delete)                            | Free               | Free                        |
+| DeleteFile                    | [Path  Delete](/rest/api/storageservices/datalakestoragegen2/path/delete)                            | Free               | Free                        |
+| GetFileProperties             | [Path  Get Properties](/rest/api/storageservices/datalakestoragegen2/path/getproperties)             | Read               | Read                        |
+| GetPathAccessControl          | [Path  Get Properties](/rest/api/storageservices/datalakestoragegen2/path/getproperties)             | Read               | Read                        |
+| GetPathStatus                 | [Path  Get Properties](/rest/api/storageservices/datalakestoragegen2/path/getproperties)             | Read               | Read                        |
+| LeaseFile                     | [Path  Lease](/rest/api/storageservices/datalakestoragegen2/path/lease)                              | Other              | Other                       |
+| ListFilesystemDir             | [Path  List](/rest/api/storageservices/datalakestoragegen2/path/list)                                | Iterative Read     | Iterative Read              |
+| ListFilesystemFile            | [Path  List](/rest/api/storageservices/datalakestoragegen2/path/list)                                | Iterative Read     | Iterative Read              |
+| ReadFile                      | [Path  Read](/rest/api/storageservices/datalakestoragegen2/path/read)                                | Read               | Read                        |
+| AppendFile                    | [Path  Update](/rest/api/storageservices/datalakestoragegen2/path/update)                            | Write              | Write                       |
+| FlushFile                     | [Path  Update](/rest/api/storageservices/datalakestoragegen2/path/update)                            | Write              | Write                       |
+| SetFileProperties             | [Path  Update](/rest/api/storageservices/datalakestoragegen2/path/update)                            | Write              | Write                       |
+| SetPathAccessControl          | [Path  Update](/rest/api/storageservices/datalakestoragegen2/path/update)                            | Write              | Write                       |
+| SetPathAccessControlRecursive | [Path  Update](/rest/api/storageservices/datalakestoragegen2/path/update)                            | Iterative Write    | Iterative Write             |
 
 ## See also
 

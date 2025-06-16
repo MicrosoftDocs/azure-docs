@@ -3,11 +3,11 @@ title: Examining logs using Azure Log Analytics
 titleSuffix: Azure Application Gateway
 description: This article shows you how you can use Azure Log Analytics to examine Application Gateway Web Application Firewall (WAF) logs.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Use Log Analytics to examine Application Gateway Logs

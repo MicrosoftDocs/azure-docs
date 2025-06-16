@@ -10,6 +10,7 @@ ms.date: 03/25/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 #Customer intent: As an Azure administrator, I need to install the Azure Monitor Agent on Azure Arc-enabled servers so I can monitor a connection using the Connection Monitor.
+# Customer intent: As an Azure administrator, I want to install and manage the Azure Monitor Agent on Azure Arc-enabled servers so that I can effectively monitor and analyze network connectivity and performance.
 ---
 
 # Install and upgrade Azure Monitor Agent on Azure Arc-enabled servers

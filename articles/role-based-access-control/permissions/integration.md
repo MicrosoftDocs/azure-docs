@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -1067,6 +1067,8 @@ Azure service: [Event Hubs](/azure/event-hubs/)
 > | Microsoft.EventHub/sku/read | Get list of Sku Resource Descriptions |
 > | Microsoft.EventHub/sku/regions/read | Get list of SkuRegions Resource Descriptions |
 > | **DataAction** | **Description** |
+> | Microsoft.EventHub/namespaces/generateUserDelegationKey/action | Returns a user delegation key for the Namespace |
+> | Microsoft.EventHub/namespaces/revokeUserDelegationKeys/action | Revokes all the user delegation keys for the specified EventHub Namespace |
 > | Microsoft.EventHub/namespaces/messages/send/action | Send messages |
 > | Microsoft.EventHub/namespaces/messages/receive/action | Receive messages |
 > | Microsoft.EventHub/namespaces/schemas/read | Retrieve schemas |
@@ -1586,6 +1588,8 @@ Azure service: [Service Bus](/azure/service-bus-messaging/)
 > | Microsoft.ServiceBus/sku/read | Get list of Sku Resource Descriptions |
 > | Microsoft.ServiceBus/sku/regions/read | Get list of SkuRegions Resource Descriptions |
 > | **DataAction** | **Description** |
+> | Microsoft.ServiceBus/namespaces/generateUserDelegationKey/action | Returns a user delegation key for the Namespace |
+> | Microsoft.ServiceBus/namespaces/revokeUserDelegationKeys/action | Revokes all the user delegation keys for the specified ServiceBus Namespace |
 > | Microsoft.ServiceBus/namespaces/messages/send/action | Send messages |
 > | Microsoft.ServiceBus/namespaces/messages/receive/action | Receive messages |
 
