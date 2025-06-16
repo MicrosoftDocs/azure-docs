@@ -11,11 +11,11 @@ ms.date: 04/09/2025
 
 # Mosaic configurations for collections in Microsoft Planetary Computer Pro
 
-For any STAC (SpatioTemporal Asset Catalog) collection, you can define a configuration of multiple mosaics. Each **mosaic** specifies search criteria that return and visualize STAC items within the Explorer web interface. For example, a mosaic might be configured to only return items that are from a specified date range or have less than a particular percentage cloud cover.
+Within each GeoCatalog STAC (SpatioTemporal Asset Catalog) collection, a **mosaic** specifies the search criteria used to retrieve and visualize STAC items within the Explorer web interface. For example, a mosaic might be configured to only return items that are from a specified date range or items that have less than a particular percentage cloud cover. One or more mosaics are created and managed by the user by editing the mosaic configuraiton for within each STAC collection.
 
 ## Components in a Mosaic
 
-A STAC collection's mosaic configuration is a list of individual specific search criteria, each called a mosaic. Each individual mosaic includes:
+A STAC collection's mosaic configuration objects is a list of individual specific search criteria, each called a mosaic. Each individual mosaic includes:
 
 - `id`: A unique identifier for the mosaic  
 - `name`: A human-readable title  
@@ -28,15 +28,20 @@ On a collection's landing page, select the **Configuration** button to open the 
 
 Inside this pane, navigate to the **Mosaics** tab.
 
-List individual mosaics to create a mosaic configuration. All items returned from a search are sorted such that most recent items appear first. For this reason, mosaics that don't specify a `datetime` range are best named 'most recent.'
+[ ![Screenshot of the mosaic configuration web interface displaying options for setting up mosaic configurations.](media/mosaic-configuration-screenshot.png) ](media/mosaic-configuration-screenshot.png#lightbox)
+
+The mosaic configurations for a collection are visible as a JSON object list, where each object represents a named mosaic configuration. 
 
 ## Example Mosaic Configurations used in Open Planetary Computer
 
 ### From Sentinel-2 L2A Collection [View on Planetary Computer](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)
 
-A mosaic configuration with these mosaics from the Sentinel-2 L2A colleciton would enable three different ways to visualize Sentinel-2 imagery in the Explorer interface: 1. most recent search results (any cloud cover), 2. most recent search results with low cloud cover, and 3. June - August 2022 search results with low cloud cover.
+A mosaic configuration with these mosaics from the Sentinel-2 L2A colleciton would enable three different ways to visualize Sentinel-2 imagery in the Explorer interface: 
+1. ```id: "most_recent"```: Most recent STAC Items (any cloud cover), 
+1. ```id: "recent_low_cloud"```: Most recent STAC Items with low (less than or equal to 10%) cloud cover, and 
+1. ```id: "jun_aut2022_low_cloud"```: STAC Items from between June - August 2022 with low (less than or equal to 10%) cloud cover.
 
-```python
+```json
 [
   {
     "id": "most_recent",
@@ -66,7 +71,7 @@ A mosaic configuration with these mosaics from the Sentinel-2 L2A colleciton wou
 
 ### USDA Cropland Data Layers Collection [View on Planetary Computer](https://planetarycomputer.microsoft.com/dataset/usda-cdl)
 
-Each collection may have its own set of properties that can be used in the `cql` for a specific search criteria. This mosaic configuration has a mosaic with `cql` that selects items based on their `usda_cdl` property. In this case, the mosaic specifies a search filtering for cropland data. By default, the items returned from the search are sorted by recency. 
+Each collection may have its own set of properties that can be used in the `cql` for a specific search criteria. This mosaic configuration specifies a mosaic with `cql` that filters items based on their `usda_cdl:type` property. In this case, the mosaic specifies a filter for data of `usda_cdl:type:` equal to `cropland`. By default, the items returned from the search are sorted by recency. 
 
 ```python
 [
