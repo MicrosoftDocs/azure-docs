@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 05/22/2025
+ms.date: 06/12/2025
 ms.service: azure-site-recovery
 author: jyothisuri
 ms.author: jsuri
@@ -433,7 +433,7 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Trans
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
 Managed Shared Disk| Supported 
-Managed Premium SSD v2 Disk| Supported | Public Preview with PowerShell support in all public regions except Australia East and West Central US. Portal is not supported.
+Managed Premium SSD v2 Disk| Supported | Public Preview with PowerShell support in all public regions except Australia East and West Central US.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
 Ultra Disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported

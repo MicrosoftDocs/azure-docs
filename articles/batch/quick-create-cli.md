@@ -11,7 +11,7 @@ ms.author: padmalathas
 
 # Quickstart: Use the Azure CLI to create a Batch account and run a job
 
-> [!div class=""nextstepaction""]
+> [!div class="nextstepaction"]
 > [Deploy and Explore](https://go.microsoft.com/fwlink/?linkid=2321733)
 
 This quickstart shows you how to get started with Azure Batch by using Azure CLI commands and scripts to create and manage Batch resources. You create a Batch account that has a pool of virtual machines, or compute nodes. You then create and run a job with tasks that run on the pool nodes.

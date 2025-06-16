@@ -57,8 +57,9 @@ This guide helps you get started recognizing DTMF input provided by participants
 
 ## Known limitations
 - In-band DTMF isn't supported. Use RFC 2833 DTMF instead.
-- Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
-- For scenarios where you exceed your Speech service quota limit, you can request to increase this limit by following the steps outlined in [Speech services quotas and limits](/azure/ai-services/speech-service/speech-services-quotas-and-limits).
+- Text-to-Speech prompts support a maximum of 4,000 characters. If your prompt is longer than this limit, we suggest using SSML for Text-to-Speech-based play actions.
+- Speech input for recordings is captured for 1:1 calls but not recorded in group calls when recording is enabled.
+- Speech service quota increases can be requested if you exceed your quota limit. Follow the steps outlined [here](/azure/ai-services/speech-service/speech-services-quotas-and-limits) to request an increase.
 
 ## Clean up resources
 
