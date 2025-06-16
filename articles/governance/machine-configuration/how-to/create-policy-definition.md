@@ -219,6 +219,7 @@ $PolicyConfig4      = @{
 }
 New-GuestConfigurationPolicy @PolicyConfig4 -UseSystemAssignedIdentity
 ```
+
 For this scenario, you need to disable the **Allow Blob anonymous access** setting and assign the
 role **Storage Blob Data Reader** on the storage account to the system identity.
 
