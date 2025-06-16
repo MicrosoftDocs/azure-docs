@@ -202,7 +202,7 @@ New-GuestConfigurationPolicy @PolicyConfig3 -ExcludeArcMachines
 For this scenario, you need to disable the **Allow Blob anonymous access** setting and assign the
 role **Storage Blob Data Reader** on the storage account to the identity.
 
-Create a policy definition that **enforces** a custom configuration package using a System-Assigned
+Create a policy definition that _enforces_ a custom configuration package using a System-Assigned
 Managed Identity:
 
 ```powershell
