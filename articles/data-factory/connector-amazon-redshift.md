@@ -295,7 +295,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
-| Version 1.0 | End of support announced | / |
+| Version 1.0 | GA version available | / |
 | Version 2.0 (Preview) | Preview version available | • Only support the self-hosted integration runtime with version 5.54.0.0 or above. <br><br>• BOOLEAN is read as Boolean data type.  |
 
 ### <a name="upgrade-the-amazon-redshift-connector"></a> Upgrade the Amazon Redshift connector from version 1.0 to version 2.0 (Preview)
