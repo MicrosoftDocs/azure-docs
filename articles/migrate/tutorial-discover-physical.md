@@ -180,9 +180,9 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 > [!Note]
 > This is a new user experience in Azure Migrate appliance. It is available only when you set up the appliance using the latest OVA or installer script from the portal. Appliances that are already registered keep using the older version of the experience and continue to work without any issues.
 
-1. To let the appliance run auto-update, paste the project key you copied from the portal
+1. To enable automatic updates on the appliance, paste the project key you copied from the portal.
 1. If you don't have the key, go to **Azure Migrate**: **Discovery and assessment** > **Overview** > **Manage existing appliances**.
-1. Select the appliance name you used when you created the project key, then copy the key eshown there.
+1. Select the appliance name you used when you created the project key, then copy the key shown there.
 1. The appliance verifies the key and starts the auto-update service. This service updates all appliance components to their latest versions. After the update finishes, you can select 'View appliance services' to see the status and versions of the services running on the appliance server.
 1. To register the appliance, select Login. In **Continue with Azure Login** select **Copy code & Login** to copy the device code. You need this code to sign in to Azure. The browser opens a new tab with the Azure sign-in prompt. Make sure you turn off the pop-up blocker to see the prompt.
 
