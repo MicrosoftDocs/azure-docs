@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: "As a Java developer, I want to create and manage container leases using the Azure Storage client library, so that I can control access and modifications to my storage resources effectively."
 ---
 
 # Create and manage container leases with Java
