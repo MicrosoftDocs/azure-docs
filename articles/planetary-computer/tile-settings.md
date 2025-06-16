@@ -4,10 +4,11 @@ description: This article provides an overview of the tile settings for Microsof
 author: 777arc
 ms.author: marclichtman
 ms.service: planetary-computer-pro
-ms.topic: concept-article
+ms.topic: how-to
 ms.date: 04/09/2025
 ms.custom:
   - build-2025
+# customer intent: As a GeoCatalog user, I want to set the tile configuration for my collection so that I can visualize my data in the Explorer UI.
 ---
 
 # Tile settings in Microsoft Planetary Computer Pro
@@ -18,15 +19,31 @@ In this article, see where to find and modify tile settings for Microsoft Planet
 
 ## Prerequisites
 
-- You have a [STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-collection-web-interface.md)
+Before you can configure tile settings, ensure the following prerequisite steps are complete:
+
+1.  **STAC Collection Exists:** You created a [STAC collection in Planetary Computer Pro](./create-stac-collection.md).
+2.  **Data Ingested:** You [added STAC items](./add-stac-item-to-collection.md) containing the geospatial data assets you want to visualize into the collection.
 
 ## Find tile settings
 
 The tile settings are found by going to the Collection page and selecting the Configuration button.
 
-[ ![Screenshot of the tile settings tab in the Microsoft Planetary Computer Pro interface.](media/tile-settings-1.png) ](media/tile-settings-1.png#lightbox)
+[ ![Screenshot of the tile settings tab in the Microsoft Planetary Computer Pro interface.](media/tile-configuration-screenshot.png) ](media/tile-configuration-screenshot.png#lightbox)
 
-The settings are in the form of a JSON object.
+The settings are in the form of a JSON object with the following properties:
+
+| Property           | Type     | Description                                                                                      |
+|--------------------|----------|--------------------------------------------------------------------------------------------------|
+| `minZoom`          | Integer (int32); maximum:24 | Minimum zoom level at which the Explorer UI will render items from the collection. See [Zoom Levels](https://learn.microsoft.com/azure/azure-maps/zoom-levels-and-tile-grid) for more information.             |
+| `maxItemsPerTile`  | Integer (int32)  | Maximum number of items that can be rendered per tile.                                           |
+| `defaultLocation`  | DefaultLocation Object   | Specifies the default map center coordinates and zoom level when the collection opens in the Explorer.|
+
+The `defaultLocation` object has the following properties:
+| Property      | Type                | Description                                                                 |
+|---------------|---------------------|-----------------------------------------------------------------------------|
+| `zoom`        | Integer (int32)     | The default zoom level when the collection opens in the Explorer.           |
+| `coordinates` | Array of float [2]  | The default map center as `[latitude, longitude]` in decimal degrees.       |
+
 
 ### Example tile settings
 
@@ -44,33 +61,14 @@ The settings are in the form of a JSON object.
 }
 ```
 
-### Zoom level
+### Tuning Performance
 
-High resolution imagery should have a high min zoom level to avoid experiencing latency when using the explorer. Low resolution imagery can have lower min zoom levels without issue.
-
-> [!NOTE]
-> Planetary Computer tile settings zoom must be configured as integers, even though the Explorer interface supports zooming to non-integer levels.
- 
-### Default location
-
-The `defaultLocation` field lets you specify the zoom level and center coordinates used when your collection first opens in the Data Explorer. For example:
-
-```JSON
-{
-  "defaultLocation": {
-    "zoom": 12,
-    "coordinates": [
-      8.9637,
-      -79.5437
-    ]
-  }
-}
-```
+It is recommended to pair a higher minimum zoom level with high resolution imagery. This will avoid experiencing additional latency when using the Explorer when at low zoom levels. Low resolution imagery can have lower min zoom levels without issue.
 
 > [!NOTE]
-> In the list of items, there's a menu item called "Set view as default location".  This isn't currently enabled.
+> The minimum zoom level for a given map view will be greater of the minimum zoom level for the [render configuration](./render-configuration.md) and the tile settings. For example, if the tile setting `minZoom` level is set to `6` but the render configuration `minZoom` level is set to `12`, the explorer will not start rendering tiles until zoom level 12.
+  
 
-[ ![Screenshot of the save view as default location option in the tile settings interface.](media/tile-settings-save-view-as.png) ](media/tile-settings-save-view-as.png#lightbox)
 
 ## Related content
 
