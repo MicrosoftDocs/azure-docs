@@ -11,7 +11,7 @@ ms.author: kimiamavon
 
 # What is the de-identification service?
 
-![Screenshot of the Tag Redact and Surrogation operations.](https://github.com/user-attachments/assets/5fb2a39d-c270-4551-baad-0dcf98cb48e1)
+![Screenshot of the Tag Redact and Surrogation operations.](azure-docs-pr/TAGREDACTSURROGATE.png)
 
 
 The de-identification service in Azure Health Data Services enables healthcare organizations to de-identify clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 27 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
@@ -40,7 +40,7 @@ The de-identification service unlocks the power of your data by automating three
 ### **Consistent replacement to preserve patient timelines**
 Consistent surrogation results enable organizations to retain relationships occurring in the underlying dataset, which is critical for research, analytics, and machine learning. By submitting data in the same batch, our service allows for consistent replacement across entities and preserves the relative temporal relationships between events.
 
-![Screenshot of consistent surrogation.](https://github.com/user-attachments/assets/9ac6532d-e21c-4b51-8a83-a89a42e1b7bb)
+![Screenshot of consistent surrogation.](azure-docs-pr/consistentsurrogation.png)
 
 ## De-identify clinical data securely and efficiently
 
@@ -57,7 +57,7 @@ The service expands beyond the 18 HIPAA Identifiers to provide stronger privacy 
 
 ## Easy API Integration Into Your Workflow
 
-![WORKFLOW](https://github.com/user-attachments/assets/3290d131-88f6-40d6-a510-f50f47f568cd)
+![API Integration Workflow](azure-docs-pr/WORKFLOW.png)
 
 Integrating Azure’s de-identification service into your environment is fast, flexible, and secure — built from the ground up to support health and life sciences workflows with minimal effort.
 
