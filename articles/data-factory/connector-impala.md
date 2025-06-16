@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/05/2025
+ms.date: 06/16/2025
 ms.author: jianleishen
 ---
 # Copy data from Impala using Azure Data Factory or Synapse Analytics
@@ -270,23 +270,21 @@ When you copy data from and to Impala, the following interim data type mappings 
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Impala connector 
+## <a name="differences-between-impala-version-20-and-version-10"></a> Impala connector lifecycle and upgrade
 
-Here are steps that help you upgrade the Impala connector: 
+The following table shows the release stage and change logs for different versions of the Impala connector:
 
-1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0](#version-20). 
+| Version | Release stage | Change log |
+| :----------- | :------- | :------- |
+| Version 1.0 | End of support announced | / |
+| Version 2.0 (Preview) | Preview version available | • SASLUsername authentication type is not supported. <br><br>• The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br>`enableServerCertificateValidation` is supported.  <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• TINYINT is read as SByte data type. |
+
+### <a name="upgrade-the-impala-connector"></a> Upgrade the Impala connector from version 1.0 to version 2.0 (Preview)
+
+1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
 
 2. The data type mapping for the Impala linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Impala](#data-type-mapping-for-impala).
 
-## <a name="differences-between-impala-version-20-and-version-10"></a> Differences between Impala version 2.0 (Preview) and version 1.0 
-
-The Impala connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (Preview) and version 1.0. 
-
-| Version 2.0 (Preview) | Version 1.0 |
-|:--- |:--- |
-| SASLUsername authentication type is not supported. | Support SASLUsername authentication type. |
-| The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br><br>`enableServerCertificateValidation` is supported.| The default value of `enableSSL` is false. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are supported.<br><br>`enableServerCertificateValidation` is not supported.  |
-| The following mappings are used from Impala data types to interim service data type.<br><br>TIMESTAMP -> DateTimeOffset <br>TINYINT -> SByte | The following mappings are used from Impala data types to interim service data type.<br><br>TIMESTAMP -> DateTime <br>TINYINT -> Int16 |  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
