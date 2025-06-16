@@ -7,7 +7,7 @@ manager: orpsod
 ms.collection:
   - usx-security
 ms.topic: how-to
-ms.date: 06/12/2025
+ms.date: 05/06/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
