@@ -4,7 +4,7 @@ description: Learn how to deploy your app to Azure App Service using FTP or FTPS
 
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
-ms.date: 06/11/2025
+ms.date: 06/16/2025
 author: cephalin
 ms.author: cephalin
 ---
@@ -38,7 +38,8 @@ Run the following [az webapp deployment list-publishing-profiles](/cli/azure/web
 az webapp deployment list-publishing-profiles --name <app-name> --resource-group <resource-group-name> --query "[?ends_with(profileName, 'FTP')].{profileName: profileName, publishUrl: publishUrl}"
 ```
 
-Each app has two FTP/S endpoints, read-write and read-only. The read-only endpoint is for data-recovery scenarios and has a `profileName` containing `ReadOnly`. For FTP/S deployment, copy the read-write URL.
+>[!NOTE]
+>If you see two endpoints returned, copy the read-write URL, not the one containing `dr` that has `ReadOnly` in the name.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -105,15 +106,14 @@ Set-AzWebApp -Name <app-name> -ResourceGroupName <resource-group-name> -FtpsStat
 
 ## Troubleshoot FTP/S deployment
 
-- [What can happen to my app during deployment?](#what-can-happen-to-my-app-during-deployment)
+- [What happens to my app during deployment that can cause failure or unpredictable behavior?](#what-happens-to-my-app-during-deployment-that-can-cause-failure-or-unpredictable-behavior)
 - [What's the first step in troubleshooting FTP/S deployment?](#whats-the-first-step-in-troubleshooting-ftps-deployment)
 - [Why can't I FTP/S and publish my code?](#why-cant-i-ftps-and-publish-my-code)
 - [How can I connect to FTP/S in App Service via passive mode?](#how-can-i-connect-to-ftps-in-azure-app-service-via-passive-mode)
 - [Why does my connection fail when attempting to connect over FTPS using explicit encryption?](#why-does-my-connection-fail-when-attempting-to-connect-over-ftps-using-explicit-encryption)
 - [How can I determine what method was used to deploy my app?](#how-can-i-determine-what-method-was-used-to-deploy-my-app)
 
-<a name="what-can-happen-to-my-app-during-deployment"></a>
-[!INCLUDE [What can happen to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+[!INCLUDE [What happens to my app during deployment that can cause failure or unpredictable behavior?](../../includes/app-service-deploy-atomicity.md)]
 
 ### What's the first step in troubleshooting FTP/S deployment?
 
