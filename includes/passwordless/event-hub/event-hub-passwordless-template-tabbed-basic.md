@@ -5,7 +5,7 @@ services: storage
 author: diberry
 ms.service: azure-storage
 ms.topic: include
-ms.date: 06/13/2025
+ms.date: 06/16/2025
 ms.author: diberry
 ms.custom: include file
 ---
@@ -37,7 +37,7 @@ A client can use the connection string to connect to the Event Hubs namespace. T
 1. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
 1. In the **Policy: RootManageSharedAccessKey** window, select the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    
-   :::image type="content" source="./media/event-hub-passwordless-template-tabbed/connection-string.png" alt-text="Screenshot shows an SAS policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
+   :::image type="content" source="./media/event-hub-passwordless-template-tabbed/connection-string.png" alt-text="Screenshot shows an SAS policy called RootManageSharedAccessKey, which includes keys and connection strings." lightbox="./media/event-hub-passwordless-template-tabbed/connection-string.png":::
 
    You can use this page to copy primary key, secondary key, primary connection string, and secondary connection string. 
 

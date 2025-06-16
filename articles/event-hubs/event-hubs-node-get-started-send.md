@@ -2,7 +2,7 @@
 title: 'Quickstart: Send or receive events using JavaScript'
 description: This article provides a walkthrough for creating JavaScript applications that send or receive events to and from Azure Event Hubs.
 ms.topic: quickstart
-ms.date: 06/13/2025
+ms.date: 06/16/2025
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
 #customer intent: As a JavaScript developer, I want to learn how to send events to an event hub and receive events from the event hub using C#. 

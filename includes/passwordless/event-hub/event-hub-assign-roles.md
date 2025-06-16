@@ -5,7 +5,7 @@ services: storage
 author: alexwolfmsft
 ms.service: azure-storage
 ms.topic: include
-ms.date: 06/13/2025
+ms.date: 06/16/2025
 ms.author: alexwolf
 ms.custom: include file
 ---
@@ -37,7 +37,7 @@ If you want to create a custom role, see [Rights required for Event Hubs operati
 
 1. Select **+ Add** from the top menu. Then select **Add role assignment**.
 
-    :::image type="content" source="media/event-hub-assign-roles/add-role.png" alt-text="Screenshot showing how to assign a role.":::    
+    :::image type="content" source="media/event-hub-assign-roles/add-role.png" alt-text="Screenshot showing how to assign a role." lightbox="media/event-hub-assign-roles/add-role.png":::    
 
 1. Use the search box to filter the results to the desired role. For this example, search for `Azure Event Hubs Data Owner` and select the matching result. Then choose **Next**.
 

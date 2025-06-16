@@ -4,7 +4,7 @@ description: Provides recommendations when using Azure Blob Storage as a checkpo
 author: spelluru
 ms.service: azure-event-hubs
 ms.topic: include
-ms.date: 06/13/2025
+ms.date: 06/16/2025
 ms.author: spelluru
 ms.custom: "include file"
 ---

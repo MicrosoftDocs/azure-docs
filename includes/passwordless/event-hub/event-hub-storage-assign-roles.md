@@ -5,7 +5,7 @@ services: storage
 author: alexwolfmsft
 ms.service: azure-storage
 ms.topic: include
-ms.date: 06/13/2025
+ms.date: 06/16/2025
 ms.author: alexwolf
 ms.custom: include file
 ---
@@ -29,7 +29,7 @@ The following example assigns the **Storage Blob Data Contributor** role to your
 
 1. Select **+ Add** from the top menu. Then select **Add role assignment**.
 
-    :::image type="content" source="../../../articles/storage/common/media/assign-role-system-identity.png" alt-text="Screenshot showing how to assign a storage account role.":::
+    :::image type="content" source="../../../articles/storage/common/media/assign-role-system-identity.png" alt-text="Screenshot showing how to assign a storage account role." lightbox="../../../articles/storage/common/media/assign-role-system-identity.png":::
 
 1. Use the search box to filter the results to the desired role. For this example, search for *Storage Blob Data Contributor*. Select the matching result and then choose **Next**.
 
