@@ -124,7 +124,14 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **ExcludeArcMachines**: Specifies that the Policy definition should exclude Arc machines. This
   parameter is required if you are using a User Assigned Managed Identity to provide access to an
   Azure Storage blob.
-- **UseSystemAssignedIdentity**: This is the option to use the system assigned identity for downloading   package from storage account container instead of using SaS url. When this option is enabled you        cannot use the ManagedIdentityResourceId. Only one of the options should be used at a time. You can     use this parameter without ExcludeArcMachines option as the system assigned identity is available for   Arc machines.
+- **UseSystemAssignedIdentity**: This is the option to use the system assigned identity for
+  downloading package from storage account container instead of using SaS URL.
+  
+  You can't use this option with the **ManagedIdentityResourceId**. The options are mutually
+  exclusive.
+  
+  You can use this parameter without **ExcludeArcMachines** option as the system assigned
+  identity is available for Arc machines.
 
 > [!IMPORTANT]
 > Unlike Azure VMs, Arc-connected machines currently do not support User Assigned Managed
