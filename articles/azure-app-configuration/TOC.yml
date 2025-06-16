@@ -214,6 +214,8 @@
       href: howto-variant-feature-flags-aspnet-core.md
     - name: Python
       href: howto-variant-feature-flags-python.md
+    - name: JavaScript
+      href: howto-variant-feature-flags-javascript.md
 - name: CI/CD integration
   items:
   - name: Use configuration files
