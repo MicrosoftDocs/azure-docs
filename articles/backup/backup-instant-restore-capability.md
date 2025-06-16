@@ -2,7 +2,7 @@
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 ms.topic: overview
-ms.date: 04/02/2025
+ms.date: 06/16/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -57,7 +57,8 @@ Enhanced policy uses Managed disk snapshots for Instant Restore functionality. T
 For example, a VM with 100GB in size has a change rate of 2% and retention of 5 days for Instant Restore. In this case, the snapshot storage billed will be 108GB (100 + 100 X 0.02 X 4).
 
 >[!NOTE]
->Snapshot retention is fixed to 5 days for weekly policies for Standard policy and can vary between 5 to 20 days for enhanced policy.
+>- Snapshot retention is fixed to 5 days for weekly policies for Standard policy and can vary between 5 to 20 days for enhanced policy.
+>- Trusted Launch virtual machines with standard policy use managed disk snapshots for Instant Restore. In this scenario, you incur Snapshot storage cost same as that of Enhanced policy.
 
 ## Configure snapshot retention
 
@@ -141,3 +142,7 @@ Yes it's safe, and there's absolutely no impact in data transfer speed.
 ### Why does a 12-month backup retention policy retain data for 372 days instead of 365?
 
 The retention period for monthly backups is calculated considering **31 days** for each month. When you multiply 31 days by 12 months, the total retention duration becomes **372 days**. This approach ensures consistent retention across all months, regardless of their actual number of days.
+
+### Is there a charge for retaining additional Restore Points beyond expiry for the garbage collection cycle?
+
+Yes, this incurs extra charges, as pricing depends on policy duration and unpruned recovery points, which should be considered when estimating backup costs.
