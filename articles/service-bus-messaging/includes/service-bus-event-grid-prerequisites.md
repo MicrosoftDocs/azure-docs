@@ -4,7 +4,7 @@ description: include file
 author: spelluru
 ms.service: azure-service-bus
 ms.topic: include
-ms.date: 12/08/2022
+ms.date: 06/17/2025
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -25,11 +25,11 @@ Follow instructions in this tutorial: [Quickstart: Use the Azure portal to creat
 
 ## Send messages to the Service Bus topic
 
-In this step, you use a sample application to send messages to the Service Bus topic you created in the previous step. 
+In this section, you use a sample application to send messages to the Service Bus topic you created in the previous section. 
 
 1. Clone the [GitHub azure-service-bus repository](https://github.com/Azure/azure-service-bus/) or download the zip file and extract files from it. 
 1. In Visual Studio, go to the *\samples\DotNet\Azure.Messaging.ServiceBus\ServiceBusEventGridIntegrationV2* folder, and then open the *SBEventGridIntegration.sln* file.
-1. In the Solution Explorer window, expand the **MessageSender** project, and select **Program.cs**.
+1. In the **Solution Explorer** window, expand the **MessageSender** project, and select **Program.cs**.
 1. Replace `<SERVICE BUS NAMESPACE - CONNECTION STRING>` with the connection string to your Service Bus namespace and `<TOPIC NAME>` with the name of the topic. 
 
    ```csharp
