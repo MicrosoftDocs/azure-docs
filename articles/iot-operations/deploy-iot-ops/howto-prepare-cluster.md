@@ -98,7 +98,7 @@ To prepare a TKG workload cluster, you need:
 
 - [TKG with a standalone management cluster.](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/mgmt-index.html)
 
-- Hardware that meets the system requirements:.
+- Hardware that meets the system requirements:
 
   - [Azure IoT Operations supported environments](./overview-deploy.md#supported-environments).
   - [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
@@ -282,7 +282,7 @@ Before deploying Azure IoT Operations, you will need to update the Pod Security 
 
 
 ```azurecli
-   kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/tanzu-config/psa.yaml
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/tanzu-config/psa.yaml
 ```
 
 ### Arc-enable your cluster
@@ -347,6 +347,7 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 1. Add the following content to the `config.yaml` file, replacing the <OIDC_ISSUER_URL> placeholder with your cluster's issuer URL.
    > [!NOTE]
    > The URL should be copied exactly as printed by the prior command, including any characters such as `/`.
+   
    ```yaml
    - name: apiServerExtraArgs
      value: {"service-account-issuer":"<OIDC_ISSUER_URL>"}
