@@ -24,12 +24,14 @@ Before you can configure a mosaic, ensure the following prerequisite steps are c
 
 ## Components in a Mosaic
 
-A STAC collection's mosaic configuration objects is a list of individual specific search criteria, each called a mosaic. Each individual mosaic includes:
+A STAC collection's mosaic configuration is a list of individual mosaic objects each defining a specific search criteria. Each individual mosaic object includes the following propoerties:
 
-- `id`: A unique identifier for the mosaic  
-- `name`: A human-readable title  
-- `description`: Info about the mosaic  
-- `cql`: A [CQL2](https://github.com/stac-api-extensions/filter) (Common Query Language) expression that defines the search parameters for STAC items to be found and visualized
+| Property    | Type     | Description                                                                                                     |
+|-------------|----------|-----------------------------------------------------------------------------------------------------------------|
+| `id`        | String   | A unique, user-specified text identifier for the mosaic. This id should not contain spaces.                                                                              |
+| `name`      | String   | A human-readable name for the Mosaic. This name will appear in the Explorer UI                                                                                          |
+| `description` | String | A user-defined helpful description of the mosaic.                                                                                           |
+| `cql`       | Array    | A [CQL2](https://github.com/stac-api-extensions/filter) (Common Query Language) expression defining search parameters for STAC items to be found and visualized |
 
 ## Configuring Mosaics from the Collection Page
 
