@@ -103,7 +103,7 @@ To prepare a TKG workload cluster, you need:
   - [Azure IoT Operations supported environments](./overview-deploy.md#supported-environments).
   - [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
     
-  - [TKGm requirements.](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/mgmt-reqs-index.html)
+  - [TKG standalone management cluster requirements.](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/mgmt-reqs-index.html)
     
 ---
 
