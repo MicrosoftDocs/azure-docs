@@ -79,7 +79,7 @@ Dynamic sessions are available in the following regions:
 |--------|------------------|------------------|
 | Australia East | ✔ | ✔ |
 | Brazil South | ✔ | ✔ |
-| Canada East | ✔ | ✔ |
+| Canada East | - | ✔ |
 | East Asia | ✔ | ✔ |
 | East US | ✔ | ✔ |
 | East US 2 | ✔ | ✔ |
