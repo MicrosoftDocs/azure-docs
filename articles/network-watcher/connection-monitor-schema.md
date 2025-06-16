@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 03/25/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about the available fields in connection monitor schemas so that I can understand the output of Log Analytics queries.
+# Customer intent: As an Azure administrator, I want to understand the fields in connection monitor test and path data schemas so that I can accurately interpret the logs and enhance network performance monitoring.
 ---
 
 # Connection monitor schemas
