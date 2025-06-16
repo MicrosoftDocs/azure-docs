@@ -1,12 +1,17 @@
 ---
 title: Monitoring metrics for Azure Application Gateway Web Application Firewall metrics
-description: This article describes the Azure Application Gateway WAF monitoring metrics.
+description: Learn how to configure and analyze Azure Application Gateway WAF metrics for enhanced security monitoring.
+#customer intent: As a network administrator, I want to monitor WAF metrics in Azure Application Gateway so that I can track and analyze security threats effectively.
 author: tobystic
 ms.author: olotolor
-ms.manager: gunjan.jain 
+ms.manager: gunjan.jain
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 07/14/2022
+ms.date: 06/16/2025
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:06/16/2025
 ---
 
 # Azure Web Application Firewall Monitoring and Logging
@@ -21,7 +26,7 @@ WAF with Application Gateway log is integrated with [Azure Monitor](/azure/azure
 
 WAF with Application Gateway provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics logs and alerts are recorded in a json format. These logs can be integrated with [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 
-For more information about diagnostics logs, see [Application Gateway WAF resource logs](../ag/web-application-firewall-logs.md).  If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine tune rules and exclude any data that you want to be excluded from the logs. For more information, see [Web application firewall exclusion lists in Azure Application Gateway](../ag/application-gateway-waf-configuration.md).
+For more information about diagnostics logs, see [Application Gateway WAF resource logs](../ag/web-application-firewall-logs.md). If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine tune rules and exclude any data that you want to be excluded from the logs. For more information, see [Web application firewall exclusion lists in Azure Application Gateway](../ag/application-gateway-waf-configuration.md).
 
 
 

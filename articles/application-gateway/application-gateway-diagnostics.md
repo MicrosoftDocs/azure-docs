@@ -1,13 +1,18 @@
 ---
 title: Diagnostic logs
 titleSuffix: Azure Application Gateway
-description: Learn how to enable and manage logs for Azure Application Gateway.
+description: Explore how to use Azure Monitor to collect and analyze Application Gateway logs for better troubleshooting and data visualization.
+#customer intent: As a network engineer, I want to analyze access logs for specific HTTP status codes so that I can identify and resolve problematic requests.
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/07/2025
+ms.date: 06/16/2025
 ms.author: mbender
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:06/16/2025
 ---
 
 # Diagnostic logs for Application Gateway
