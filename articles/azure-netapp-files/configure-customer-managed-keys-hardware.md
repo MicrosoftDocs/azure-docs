@@ -7,7 +7,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 05/09/2025
+ms.date: 05/20/2025
 ms.author: anfdocs
 ---
 # Configure customer-managed keys with managed Hardware Security Module for Azure NetApp Files volume encryption 
@@ -71,26 +71,6 @@ Azure NetApp Files volume encryption with customer-managed keys with the managed
 * West US
 * West US 2
 * West US 3
-
-## Register the feature
-
-This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFManagedHsmEncryption
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFManagedHsmEncryption
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Configure customer-managed keys with managed HSM for system-assigned identity
 

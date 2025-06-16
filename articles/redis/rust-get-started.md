@@ -8,6 +8,8 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.devlang: rust
+appliesto:
+  - ✅ Azure Cache for Redis
 # Customer intent: As a Rust developer new to Azure Cache for Redis, I want to learn how to use it with Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Cache for Redis with Rust

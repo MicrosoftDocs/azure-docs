@@ -2,9 +2,9 @@
 title: New feature updates in Azure Site Recovery
 description: Provides a summary of new features updates in the Azure Site Recovery service.
 ms.topic: concept-article
-ms.author: ankitadutta
+ms.author: jsuri
 ms.service: azure-site-recovery
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.date: 05/11/2025
 ---
 
@@ -18,7 +18,7 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 ### Azure Site Recovery for Shared Disks
 
-Azure Site Recovery for Shared Disk feature enables you to protect, monitor, recover, and re-protect your workloads running on [Windows Server Failover Clusters (WSFC)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server.md) on Azure VMs with Shared Disk. 
+Azure Site Recovery for Shared Disk feature enables you to protect, monitor, recover, and re-protect your workloads running on [Windows Server Failover Clusters (WSFC)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) on Azure VMs with Shared Disk. 
 
 You can use the benefits of Shared Disk for your mission-critical applications such as SQL FCI, SAP ASCS, Scale-out File Servers, etc., while ensuring business continuity and disaster recovery (BCDR) with Azure Site Recovery. [Learn more](tutorial-shared-disk.md). 
 

@@ -3,12 +3,13 @@ title: SAS Tokens for Data Ingestion in Microsoft Planetary Computer Pro
 description: Learn how to add credentials and ingest data into Microsoft Planetary Computer Pro.
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 05/08/2025
 
 #customer intent: Help customers understand how credentials work and how to add them ahead of an ingestion for SAS Tokens.
-
+ms.custom:
+  - build-2025
 ---
 
 # Set up an ingestion source for Microsoft Planetary Computer Pro using SAS tokens
@@ -91,7 +92,7 @@ If your ingestion expires or you need to add SAS tokens for a different Blob Con
 
 ## Set up ingestion source for SAS Tokens through the API
 
-Ingestion sources can also be set through the API using the Azure SDK [Storage Service](/rest/api/storageservices/create-user-delegation-sas) and the Planetary Computer API. See [ingestion sources](/rest/api/planetarycomputer/data-plane/ingestion-source) API documentation.
+Ingestion sources can also be set through the API using the Azure SDK [Storage Service](/rest/api/storageservices/create-user-delegation-sas) and the Planetary Computer API. See [ingestion sources](/rest/api/planetarycomputer/data-plane/ingestion-sources) API documentation.
 
 The following block of code imports required libraries and sets up key variables.
 

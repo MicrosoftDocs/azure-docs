@@ -9,6 +9,9 @@ ms.topic: concept-article
 ms.date: 05/19/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
+ms.custom:
+  - build-2025
+# Customer intent: As an Azure network administrator, I want to understand how NSG flow logs work, so that I can monitor traffic patterns and enhance the security and performance of my network.
 ---
 
 # Flow logging for network security groups
@@ -448,11 +451,22 @@ Flows affected by non-default inbound rules become non-terminating. Additionally
 
 You can resolve this difference by setting the `FlowTimeoutInMinutes` property on the associated virtual networks to a non-null value. You can achieve default stateful behavior by setting `FlowTimeoutInMinutes` to 4 minutes. For long-running connections where you don't want flows to disconnect from a service or destination, you can set `FlowTimeoutInMinutes` to a value of up to 30 minutes. Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to set `FlowTimeoutInMinutes` property:
 
+
 ```azurepowershell-interactive
-$virtualNetwork = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
-$virtualNetwork.FlowTimeoutInMinutes = 4
-$virtualNetwork |  Set-AzVirtualNetwork
+$virtualNetwork = @{
+    Name               = 'myVNet'
+    ResourceGroupName  = 'myResourceGroup'
+}
+
+$virtualNetworkConfig = Get-AzVirtualNetwork @virtualNetwork
+$virtualNetworkConfig.FlowTimeoutInMinutes = 4
+$virtualNetworkConfig | Set-AzVirtualNetwork
 ```
+
+Flow timeout can also be set using the Azure portal:
+
+:::image type="content" source="./media/nsg-flow-logs-overview/virtual-network-flow-timeout-settings.png" alt-text="Screenshot showing the virtual network timeout settings in the Azure portal." lightbox="./media/nsg-flow-logs-overview/virtual-network-flow-timeout-settings.png":::
+
 
 ### Inbound flows logged from internet IPs to VMs without public IPs
 

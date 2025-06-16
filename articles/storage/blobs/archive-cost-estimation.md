@@ -8,6 +8,8 @@ ms.author: normesta
 ms.date: 05/15/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
+ms.custom:
+  - build-2025
 ---
 
 # Estimate the cost of archiving data

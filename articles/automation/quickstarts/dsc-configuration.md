@@ -8,6 +8,8 @@ ms.date: 08/08/2024
 ms.topic: quickstart
 ms.custom: mvc, mode-other
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Configure a VM with Desired State Configuration

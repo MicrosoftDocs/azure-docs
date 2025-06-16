@@ -83,7 +83,7 @@ sections:
           Yes. To move a subscription (that contains a vault) to a different Microsoft Entra ID, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
           
           >[!IMPORTANT]
-          >Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles aren't transferrable. You must recreate the permissions and roles in the new Microsoft Entra ID.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#considerations), you must reconfigure the features.</li></ul>
+          >Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles aren't transferable. You must recreate the permissions and roles in the new Microsoft Entra ID.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#considerations), you must reconfigure the features.</li></ul>
           
       - question: |
           Can I move a subscription that contains a Recovery Services Vault to a different tenant?

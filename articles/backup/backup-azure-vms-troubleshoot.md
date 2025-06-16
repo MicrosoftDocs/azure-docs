@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 01/21/2025
+ms.date: 06/02/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -577,3 +577,15 @@ Get more information on how to set up a static IP through PowerShell:
 
 * [How to add a static internal IP to an existing VM](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
 * [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md)
+
+## Migration from Standard to Enhanced policy issue
+
+### BackUpOperationFailedV2
+
+**Error code**: `BackUpOperationFailedV2`
+
+**Error message**: The backups of VMs have failed after the policy migration from Standard to Enhanced policy.
+
+**Cause**: Snapshot retention of the Enhanced policy is applied on the older recovery points that were originally created under the Standard policy when you move a VM from a Standard to Enhanced policy.
+
+**Recommended action**: Contact Microsoft Support for resolution.

@@ -28,6 +28,9 @@ To view detailed usage for specific accounts, download the usage detail report. 
 
 Enterprise Administrators and partner administrators can view historical data usage for terminated enrollments just as they do for active ones using the following information.
 
+> [!NOTE]
+> Old Partner can access their usage details for up to 120 days after their participation in the agreement has ended.
+
 As an enterprise administrator:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

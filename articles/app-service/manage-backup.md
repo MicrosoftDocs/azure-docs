@@ -31,7 +31,7 @@ There are two types of backups in App Service. If your app is in a supported pri
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
 | Linked database | Not backed up. | **[Starting 3/31/2028, Azure App Service custom backups will no longer support backing up linked databases.](#deprecation-of-linked-database-backups)** <br><br>The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), [MySQL in-app](https://azure.github.io/AppService/2016/08/18/Announcing-MySQL-in-app-for-Web-Apps-(Windows).html). Note that Azure DB for MySQL - **Flexible Server** and Azure DB for PostgreSQL - **Flexible Server** aren't supported in custom backups. |
 | [Storage account](../storage/index.yml) required | No. | Yes. |
-| Backup frequency | Hourly, not configurable. | Configurable. |
+| Backup frequency | Hourly, not configurable. | Configurable (every 2 hours minimum, up to 12 backups per day (manual + scheduled)). |
 | Retention | 30 days, not configurable. <br><br> Days 1-3: hourly backups retained.<br><br> Days 4-14: every third hourly backup retained.<br><br> Days 15-30: every sixth hourly backup retained. | 0-30 days or indefinite. |
 | Downloadable | No. | Yes, as Azure Storage blobs. |
 | Partial backups | Not supported. | Supported. |

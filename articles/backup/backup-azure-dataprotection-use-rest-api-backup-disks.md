@@ -2,7 +2,7 @@
 title: Back up Azure Disks using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure Disks using REST API.
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 06/11/2025
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
 author: jyothisuri
 ms.author: jsuri
@@ -509,7 +509,7 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 ## Next steps
 
-[Restore data from an Azure Disk backup](backup-azure-arm-userestapi-restoreazurevms.md)
+Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
 
 For more information on the Azure Backup REST APIs, see the following articles:
 

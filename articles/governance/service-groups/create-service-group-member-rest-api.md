@@ -1,17 +1,19 @@
 ---
-title: "Quickstart: Connect Service Group members using the REST API - Azure Governance"
-description: In this quickstart, you use REST API to connect a resource to a service group with a service group member relationship.
+title: "Quickstart: Add Service Group members using the REST API - Azure Governance"
+description: In this quickstart, you use REST API to add a resource to a service group with a service group member relationship.
 author: rthorn17
 ms.author: rithorn
 ms.service: azure-policy
 ms.topic: quickstart
 ms.date: 5/19/2025
+ms.custom:
+  - build-2025
 ---
 
 
-# Quickstart: Connect resources or resource containers to service groups with Service Group Member Relationships 
+# Quickstart: Add resources or resource containers to service groups with Service Group Member Relationships 
  
-To connect resources, resource groups, or subscriptions to a Service Group (preview), you need to create a new Service Group Member Relationship. For more information on service groups, see [Getting started with Service Groups](overview.md).
+To add resources, resource groups, or subscriptions to a Service Group (preview), you need to create a new Service Group Member Relationship. For more information on service groups, see [Getting started with Service Groups](overview.md).
 
 > [!IMPORTANT]
 > Azure Service Groups is currently in PREVIEW. 
@@ -31,7 +33,7 @@ To connect resources, resource groups, or subscriptions to a Service Group (prev
 For REST API, use the
 [Service Groups Member- Create or Update]() endpoint to create a new service group member.
 
-In this example, we're connecting a Virtual Machine [VM1] to a service group [Contoso].
+In this example, we're adding a Virtual Machine [VM1] to a service group [Contoso].
 
 1. Service Group: **groupId** is _Contoso_
 1. Virtual Machine: The **resourceID** is _VM1_

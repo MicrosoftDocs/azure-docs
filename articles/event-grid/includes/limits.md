@@ -6,7 +6,10 @@
  ms.topic: include
  ms.date: 04/30/2025
  ms.author: robece
-ms.custom: include file, ignite-2023
+ms.custom:
+  - include file
+  - ignite-2023
+  - build-2025
 ---
 
 > [!NOTE]
@@ -21,10 +24,10 @@ Event Grid offers a standard tier and basic tier. Event Grid standard tier enabl
 [Azure Event Grid namespaces](../concepts-event-grid-namespaces.md#namespaces) enables MQTT messaging, and HTTP pull delivery.
 The following limits apply to namespace resources in Azure Event Grid.
 
-| Limit description                      | Limit |
-|----------------------------------------|-------|
+| Limit description                      | Limit | 
+|----------------------------------------|-------| 
 | Event Grid namespaces per Azure subscription      | 50    |
-| Maximum throughput units per Event Grid namespace | 40    |
+| Maximum throughput units per Event Grid namespace | 40 (To request an increase beyond 40 TUs, contact us at [askmqtt@microsoft.com](mailto:askmqtt@microsoft.com))    |
 | IP Firewall rules per Event Grid namespace        | 16    |
 
 ## MQTT limits in Event Grid namespace

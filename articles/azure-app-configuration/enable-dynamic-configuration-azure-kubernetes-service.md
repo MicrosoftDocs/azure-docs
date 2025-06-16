@@ -23,22 +23,9 @@ If you use Azure Kubernetes Service (AKS), this tutorial shows you how to enable
 
 Finish the quickstart: [Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md).
 
-> [!TIP]
-> The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md).
->
-## Add a sentinel key
-
-A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your App Configuration store, compared to monitoring all keys for changes.
-
-Add the following key-value to your App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
-
-| Key | Value |
-|---|---|
-| Settings:Sentinel | 1 |
-
 ## Reload data from App Configuration
 
-1. Open the *appConfigurationProvider.yaml* file located in the *Deployment* directory. Then, add the `refresh` section under the `configuration` property. It enables configuration refresh by monitoring the sentinel key.
+1. Open the *appConfigurationProvider.yaml* file located in the *Deployment* directory. Then, add the `refresh` section under the `configuration` property. It enables the Kubernetes provider to reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with *Settings:* and having no label). For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
 
     ```yaml
     apiVersion: azconfig.io/v1
@@ -58,13 +45,10 @@ Add the following key-value to your App Configuration store. For more informatio
       configuration:
         refresh:
           enabled: true
-          monitoring:
-            keyValues:
-            - key: Settings:Sentinel
     ```
 
     > [!TIP]
-    > By default, the Kubernetes provider polls the monitoring key-values every 30 seconds for change detection. However, you can change this behavior by setting the `interval` property of the `refresh`. If you want to reduce the number of requests to your App Configuration store, you can adjust it to a higher value.
+    > You can set the `interval` property of the `refresh` to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests made to your App Configuration store.
 
 1. Open the *deployment.yaml* file in the *Deployment* directory and add the following content to the `spec.containers` section. Your application loads configuration from a volume-mounted file the App Configuration Kubernetes provider generates. By setting this environment variable, your application can [use polling to monitor changes in mounted files](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher).
 
@@ -85,12 +69,11 @@ Add the following key-value to your App Configuration store. For more informatio
     ![Screenshot of the web app with old values.](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
 
-1. Update the following key-values in your App Configuration store, ensuring to update the sentinel key last.
+1. Update the following key-values in your App Configuration store.
 
     | Key | Value |
     |---|---|
     | Settings:Message | Hello from Azure App Configuration - now with live updates! |
-    | Settings:Sentinel | 2 |
 
 1. After refreshing the browser a few times, you'll see the updated content once the ConfigMap is updated in 30 seconds.
 

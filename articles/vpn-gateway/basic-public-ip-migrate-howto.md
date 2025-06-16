@@ -5,7 +5,7 @@ description: Learn how to migrate from a Basic SKU public IP address to a Standa
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2025
+ms.date: 06/06/2025
 ms.author: cherylmc
 ---
 
@@ -22,7 +22,7 @@ During the public IP address SKU migration process, your Basic SKU public IP add
 Additionally, if your VPN Gateway gateway SKU is VpnGw 1-5, your gateway SKU is migrated to a VPN Gateway AZ SKU (VpnGw 1-5 AZ). For more information, see [About VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md).
 
 > [!NOTE]
-> Migration functionality is rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region.
+> Migration functionality is rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region. For more information, see the [VPN Gateway - What's New](whats-new.md#upcoming-projected-changes) article.
 
 ## Workflow
 
@@ -89,6 +89,10 @@ When the public IP address migration is complete, you can view your resources on
 * To view the gateway SKU, go to the **Overview** page for your VPN gateway.
 
 * To view the public IP address SKU, go to the **Properties** page for your VPN gateway. Click the IP address value to open the Public IP address resource and view the resource SKU.
+
+## Known Issues
+
+* For VpnGw1 CSES to VMSS migration, we are seeing higher CPU utilization due to .NET core optimization. This is a known issue and we recommend to either wait for 10 minutes after prepare stage or upgrade to a higher gateway SKU during the migration process.
 
 ## Next steps
 

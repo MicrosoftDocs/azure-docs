@@ -6,6 +6,8 @@ ms.topic: tutorial
 ms.custom:
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
 # CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
 ---
 

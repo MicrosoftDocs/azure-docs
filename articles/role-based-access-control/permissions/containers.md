@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -289,10 +289,11 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/read | Gets a maintenance configuration |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/write | Creates a new MaintenanceConfiguration or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/delete | Deletes a maintenance configuration |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/read | Get a namespace of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/write | Create a namespace of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/delete | Delete a namespace of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/listCredential/action | List cluster credentials of a managed namespace |
 > | Microsoft.ContainerService/managedClusters/meshUpgradeProfiles/read | Read service mesh upgrade profiles for a managed cluster |
-> | Microsoft.ContainerService/managedClusters/namespaces/read | Get a namespace of a managed cluster |
-> | Microsoft.ContainerService/managedClusters/namespaces/write | Create a namespace of a managed cluster |
-> | Microsoft.ContainerService/managedClusters/namespaces/delete | Delete a namespace of a managed cluster |
 > | Microsoft.ContainerService/managedClusters/networkSecurityPerimeterAssociationProxies/read | Get ManagedCluster NetworkSecurityPerimeter Association |
 > | Microsoft.ContainerService/managedClusters/networkSecurityPerimeterAssociationProxies/write | Create or update ManagedCluster NetworkSecurityPerimeter Association |
 > | Microsoft.ContainerService/managedClusters/networkSecurityPerimeterAssociationProxies/delete | Delete ManagedCluster NetworkSecurityPerimeter Association |
@@ -1006,15 +1007,6 @@ Azure service: [Azure Red Hat OpenShift](/azure/openshift/)
 > | Microsoft.RedHatOpenShift/openShiftClusters/listCredentials/action |  |
 > | Microsoft.RedHatOpenShift/openShiftClusters/listAdminCredentials/action |  |
 > | Microsoft.RedHatOpenShift/openShiftClusters/detectors/read |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/machinePools/read |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/machinePools/write |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/machinePools/delete |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncIdentityProviders/read |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncIdentityProviders/write |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncIdentityProviders/delete |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncSets/read |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncSets/write |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncSets/delete |  |
 > | Microsoft.RedHatOpenShift/operations/read |  |
 
 ## Next steps

@@ -2,11 +2,11 @@
 title: Configure mutual authentication on Azure Application Gateway through portal
 description: Learn how to configure an Application Gateway to have mutual authentication through portal 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 02/18/2022
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Configure mutual authentication with Application Gateway through portal 

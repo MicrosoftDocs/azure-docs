@@ -170,7 +170,7 @@ In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked
 There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the Application Gateway WAF to block a request in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
 
 > [!NOTE]
-> The message that's logged when a WAF rule matches traffic includes the action value "Matched." If the total anomaly score of all matched rules is 5 or greater, and the WAF policy is running in Prevention mode, the request triggers a mandatory anomaly rule with the action value *Blocked*, and the request is stopped. However, if the WAF policy is running in Detection mode, the request triggers the action value *Detected*, and the request is logged and passed to the backend. For more information, see [Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
+> The message that's logged when a WAF rule matches traffic includes the action value "Matched." If the total anomaly score of all matched rules is 5 or greater, and the WAF policy is running in Prevention mode, the request triggers a mandatory anomaly rule with the action value *Blocked*, and the request is stopped. However, if the WAF policy is running in Detection mode, the request triggers the action value *Detected*, and the request is logged and passed to the backend. For more information, see [Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway](web-application-firewall-troubleshoot.md#understand-waf-logs). 
 
 ### Configuration
 
@@ -198,7 +198,7 @@ With the built-in Azure WAF firewall events workbook, you can get an overview of
 
 #### Azure Monitor Workbook for WAF
 
-Azure Monitor Workbook for WAF enables custom visualization of security-relevant WAF events across several filterable panels. It works with all WAF types, including Application Gateway, Front Door, and CDN, and can be filtered based on WAF type or a specific WAF instance. Import via ARM Template or Gallery Template. To deploy this workbook, see [WAF Workbook](https://aka.ms/AzWAFworkbook).
+Azure Monitor Workbook for WAF enables custom visualization of security-relevant WAF events across several filterable panels. It works with all WAF types, including Application Gateway, Front Door, and CDN, and it can be filtered based on WAF type or a specific WAF instance. Import via ARM Template or Gallery Template. To deploy this workbook, see [WAF Workbook](https://aka.ms/AzWAFworkbook).
 
 #### Logging
 

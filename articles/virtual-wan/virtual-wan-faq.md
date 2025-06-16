@@ -3,7 +3,9 @@ title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 ms.topic: faq
 ms.date: 03/26/2025
 ms.author: cherylmc
@@ -347,7 +349,7 @@ For any reason, if the VPN connection becomes the primary medium for the virtual
 
 ### Does ExpressRoute support Equal-Cost Multi-Path (ECMP) routing in Virtual WAN?
 
-When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. ECMP is currently not enabled by default for Virtual WAN hubs. To enable ECMP for your environment, you can create a [route-map](route-maps-how-to.md) for your virtual hub. When you create a route-map, your virtual hub will automatically be upgraded to the latest software version that supports ECMP, regardless of whether this route-map is applied on any connections. As a result, you only need to follow steps 1-7 [here](route-maps-how-to.md#configuration-workflow). If you do not plan to use the route-map, you can delete the route-map after step 7 is complete, as hubs with a route-map will incur additional cost. It is also recommended to first try creating a route-map in your test environment and validating routing and connectivity before creating a route-map in your production environment. 
+When 1 or more ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across 2 ExpressRoute circuits (corresponding to up to 4 ExpressRoute links) advertising the same on-premises routes. ECMP is currently not enabled by default for Virtual WAN hubs. To enable ECMP for your environment, you can create a [route-map](route-maps-how-to.md) for your virtual hub. When you create a route-map, your virtual hub will automatically be upgraded to the latest software version that supports ECMP, regardless of whether this route-map is applied on any connections. As a result, you only need to follow steps 1-7 [here](route-maps-how-to.md#configuration-workflow). If you do not plan to use the route-map, you can delete the route-map after step 7 is complete, as hubs with a route-map will incur additional cost. It is also recommended to first try creating a route-map in your test environment and validating routing and connectivity before creating a route-map in your production environment. 
 
 ### <a name="expressroute-bow-tie"></a>When two hubs (hub 1 and 2) are connected and there's an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 

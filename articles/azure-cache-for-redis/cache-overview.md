@@ -99,7 +99,7 @@ The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis fro
 > [!IMPORTANT]
 > Azure Cache for Redis Enterprise requires standard network Load Balancers that are charged separately from cache instances themselves. Currently, these charges are absorbed by Azure Cache for Redis and not passed on to customers. This may change in the future. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 >
-> If an Enterprise cache is configured for multiple Availability Zones, data transfer charges are absorbed by Azure cache for Redis and not passed to customers. This may change in the future, where data transfer would be billed at the [standard network bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/)
+> If an Enterprise cache is configured for multiple Availability Zones, data transfer charges are absorbed by Azure Cache for Redis and not passed to customers. This may change in the future, where data transfer would be billed at the [standard network bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/)
 >
 > In addition, data persistence adds Managed Disks. The use of these resources is free during the public preview of Enterprise data persistence. This might change when the feature becomes generally available.
 
@@ -110,7 +110,6 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 ## Related content
 
 - [Create an open-source Redis cache](quickstart-create-redis.md)
-- [Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md)
 - [Use Azure Cache for Redis in an ASP.NET web app](../redis/web-app-cache-howto.md)
 - [Use Azure Cache for Redis in .NET Core](../redis/dotnet-core-quickstart.md)
 - [Use Azure Cache for Redis in .NET Framework](../redis/dotnet-how-to-use-azure-redis-cache.md)

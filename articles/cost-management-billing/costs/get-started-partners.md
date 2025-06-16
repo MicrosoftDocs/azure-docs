@@ -86,8 +86,6 @@ After you onboard customers to a Microsoft Customer Agreement, you receive an in
 
 To help reconcile charges against the customer invoice, the billing profile scope enables you to see all costs that accrue for an invoice for your customers. Like the invoice, the scope shows costs for every customer in the new Microsoft Customer Agreement. The scope also shows every charge for customer entitlement products still in the current CSP offer.
 
-The billing profile and billing account scopes are the only applicable scopes that show charges for entitlement and purchase-based products like Azure Marketplace and reservation purchases.
-
 Billing profiles define the subscriptions that are included in an invoice. Billing profiles are the functional equivalent of an enterprise agreement enrollment. A billing profile is the scope where invoices are generated.
 
 Currently, the billing currency is the default currency when viewing costs in the billing profile scope. Budgets set at the billing profile scope are in the billing currency.
@@ -121,7 +119,7 @@ Only the users with **Admin agent** and [billing admin](/partner-center/account-
 
 ## Enable Cost Management for customer tenant subscriptions
 
-Partners can enable access to Cost Management after customers are onboarded to a Microsoft Customer Agreement. Then partners can then enable a policy allowing customers to view their costs for Azure consumed services computed at pay-as-you-go retail rates. Costs are shown in the customer's billing currency for their consumed usage at Azure RBAC subscription and resource groups scopes.
+Partners can enable access to Cost Management after customers are onboarded to a Microsoft Customer Agreement. Then partners can then enable a policy allowing customers to view their costs for Azure consumed services computed at pay-as-you-go retail rates, as well as purchases associated to the subscription of the customer. Costs are shown in the customer's billing currency for their consumed usage at Azure RBAC subscription and resource groups scopes.
 
 When the partner enables the policy for cost visibility, any user with Azure Resource Manager access to the subscription can manage and analyze costs at pay-as-you-go rates. Effectively, resellers and customers that have the appropriate Azure RBAC access to the Azure subscriptions can view cost.
 
@@ -144,19 +142,19 @@ The current cost visibility policy is shown for **Azure Usage** charges associat
 
 When the policy is set to **No**, Cost Management isn't available for subscription users associated to the customer. Unless enabled by a partner, the cost visibility policy is disabled by default for all subscription users.
 
-When the cost policy is set to **Yes**, subscription users associated to the customer tenant can see usage charges at pay-as-you go rates.
+When the cost policy is set to **Yes**, subscription users associated to the customer tenant can see all usage charges and any associated purchases at pay-as-you go rates.
 
-When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements aren't associated to a specific subscription. So, purchases aren't displayed at the subscription scope. The admin agent of a direct partner or an indirect provider can also use the [Update Customer API](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) to set each customer's cost visibility policy at scale.
+When the cost visibility policy is enabled, all services that have subscription usage and purchases, show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements associated to a specific subscription are available as well. The admin agent of a direct partner or an indirect provider can also use the [Update Customer API](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) to set each customer's cost visibility policy at scale.
 
 ### View subscription costs in the customer tenant
 
-To view costs for a subscription, open **Cost Management** in the customer's Azure tenant. Select **Cost analysis** and then the required subscription to start reviewing costs. You can view consumption costs for each subscription individually in the customer tenant.
+To view costs for a subscription, open **Cost Management** in the customer's Azure tenant. Select **Cost analysis** and then the required subscription to start reviewing costs. You can view consumption costs for each subscription individually in the customer tenant, as well as purchases associated to the subscription.
 
 :::image type="content" border="true" source="./media/get-started-partners/subscription-costs.png" lightbox="./media/get-started-partners/subscription-costs.png" alt-text="Screenshot showing view cost analysis as a customer.":::
 
 Cost analysis, budgets, and alerts are available for the subscription and resource group Azure RBAC scopes at pay-as-you-go rate-based costs.
 
-Amortized views and actual costs for reserved instances in the Azure RBAC scopes show zero charges. Purchase costs for entitlements such as Reserved instances, Saving Plan purchases, and Marketplace fees are only shown in billing scopes in the partner's tenant where the purchases were made.
+Amortized views and actual costs for reserved instances in the Azure RBAC scopes show zero charges. Purchase costs for entitlements such as Reserved instances, Saving Plan purchases, and Marketplace fees are displayed as well.
 
 The retail rates used to compute costs shown in the view are the same prices shown in the Azure Pricing Calculator for all customers. Costs shown don't include any discounts or credits that the partner may have like Partner Earned Credits, Tier Discounts, and Global Service discounts.
 

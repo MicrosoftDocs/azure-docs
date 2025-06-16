@@ -15,7 +15,7 @@ Azure Stream Analytics Cluster offers a single-tenant deployment for complex and
 
 Stream Analytics clusters are billed by Streaming Units (SUs) which represent the amount of CPU and memory resources allocated to your cluster. A Streaming Unit is the same across Standard and Dedicated offerings and Azure Stream Analytics supports two streaming unit structures: SU V1(to be deprecated) and SU V2(recommended) [learn more](./stream-analytics-streaming-unit-consumption.md).
 
-When you create a cluster on the portal, a **Dedicated V2** cluster is created by default.  Dedicated V2 clusters support 12 to 66 SU V2s, and can be scaled in increments of 12 (12, 24, 48...). Dedicated V1 clusters are ASA's original offering and still supported, they require a minimum of 36 SUs. 
+When you create a cluster on the portal, a **Dedicated V2** cluster is created by default. Dedicated V2 clusters support 12 to 66 SU V2s and can be scaled in increments of 12 (12, 24, 48...). Dedicated V1 clusters are ASA's original offering and still supported; they require a minimum of 36 SUs.
 
 The underlying compute power for V1 and V2 streaming units is as follows:
 

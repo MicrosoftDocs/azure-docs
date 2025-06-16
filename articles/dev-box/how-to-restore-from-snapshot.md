@@ -11,6 +11,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:05/11/2025
+  - build-2025
 ---
 
 # Restore your dev box from a snapshot
@@ -45,7 +46,11 @@ The retention period includes 10 short snapshots and 4 long snapshots, totaling 
 
 ## Take a manual snapshot of your dev box
 
-1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
+You can take a manual snapshot of your dev box to create a restore point before making significant changes, such as installing new software or making configuration changes.
+
+This feature is currently in preview. You can try it out by following these steps:
+
+1. Sign in to the [developer portal](https://aka.ms/TryManualSnapshot).
 
 1. On the dev box that you want to take a snapshot of, select the actions menu, and then select **Take snapshot**.
 

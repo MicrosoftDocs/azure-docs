@@ -2,8 +2,10 @@
 title: Monitor Azure API Management
 description: Learn how to monitor Azure API Management using Azure Monitor, including data collection, analysis, and alerting.
 ms.date: 05/14/2025
-ms.custom: horz-monitor
-ms.topic: concept-article
+ms.custom:
+  - horz-monitor
+  - build-2025
+ms.topic: how-to
 author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
@@ -106,9 +108,10 @@ This section shows you how to enable Azure Monitor logs for auditing and trouble
 
 |Category  |Description  | Notes |
 |---------|---------|-----|
-|API Management gateway     |  Requests processed by the API Management gateway, including HTTP methods, protocols, request and response bodies, headers, timings, error details, and cache involvement.       | Adjust settings for all APIs, or override them for individual APIs.<br/><br/>In API Management instances configured with [workspaces](workspaces-overview.md), gateway logs can be collected individually for each workspace and aggregated for centralized access by the platform team. |
+|API Management gateway     |  Requests processed by the API Management gateway, including HTTP methods, protocols, request and response bodies, headers, timings, error details, and cache involvement.       | Adjust settings for all APIs, or override them for individual APIs.<br/><br/>In API Management instances configured with [workspaces](workspaces-overview.md), gateway logs can be collected individually for each workspace and aggregated for centralized access by the platform team.  |
 |WebSocket connections     | Events for [WebSocket API](websocket-api.md) connections, starting from the handshake until the connection is terminated.       |
 |Developer portal usage     |  Requests that are received and processed by the API Management [developer portal](developer-portal-overview.md), including user authentication actions, views of API details, and API testing in the interactive test console.|
+| Generative AI gateway | Requests processed by the API Management gateway for large language model (LLM) REST APIs such as Azure OpenAI APIs, including token usage, models, and optionally details of request prompts and response completions. | Enable logging of request messages and/or response messages for specific LLM APIs.
 
 For more information, see [API Management monitoring data reference](monitor-api-management-reference.md).
 
@@ -116,9 +119,6 @@ For more information, see [API Management monitoring data reference](monitor-api
 #### Enable diagnostic setting for Azure Monitor logs
 
 [!INCLUDE [api-management-diagnostic-settings](../../includes/api-management-diagnostic-settings.md)]
-
-> [!NOTE]
-> To enable diagnostic settings for API Management workspaces, see [Create and manage a workspace](how-to-create-workspace.md#enable-diagnostic-settings-for-monitoring-workspace-apis)
 
 ### View Azure Monitor log data
 
@@ -143,6 +143,7 @@ If you send logs to a storage account, you can access the data in the Azure port
 [!INCLUDE [api-management-api-logging](../../includes/api-management-api-logging.md)]
 
 [!INCLUDE [azmon-horz-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-tools.md)]
+
 
 ### Visualize API Management monitoring data using a Managed Grafana dashboard
 
@@ -198,4 +199,5 @@ To see how to set up an alert rule in Azure API Management, see [Set up an alert
 ## Related content
 
 - [API Management monitoring data reference](monitor-api-management-reference.md)
+- [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md)
 - [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)

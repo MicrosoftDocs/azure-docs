@@ -3,11 +3,11 @@ title: Configure Azure Application Gateway TCP/TLS proxy (Preview)
 titleSuffix: Azure Application Gateway
 description: This article provides information on how to configure Application Gateway's layer 4 proxy service for non-HTTP workloads.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 05/12/2025
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Configure Azure Application Gateway TCP/TLS proxy (Preview)

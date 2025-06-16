@@ -117,6 +117,8 @@ sections:
 
           Since Dapr version updates are applied automatically, you always benefit from the most secure version. However, Dapr in Azure Container Apps doesn't follow a fixed release schedule for new features. Instead, the release of new Dapr versions for new functionality depends on the prioritization and stability of the Dapr binaries.
 
+          Find updates and release announcments for Dapr in Azure Container Apps in [GitHub](https://aka.ms/dapr-aca-updates).
+
       - question: |
           Can I use a specific Dapr version for my environment?
         answer:
@@ -168,3 +170,9 @@ sections:
           How do I use `latest` or a static tag for my container image?
         answer: |
           Avoid using static tags like `latest` for container images. Using static tags can lead to caching problems and can make your app difficult to troubleshoot. Instead, use unique tags for each deployment, such as a Git hash or date and time to ensure that updates are properly tracked and deployed.
+  - name: OpenTelemetry
+    questions:
+      - question: |
+          What transport protocols does the OpenTelemetry managed agent support?
+        answer: |
+          The managed agent only supports gRPC.

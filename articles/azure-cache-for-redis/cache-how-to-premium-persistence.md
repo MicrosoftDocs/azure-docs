@@ -152,8 +152,6 @@ With AOF persistence, write operations to the cache save to the named storage ac
 >[!NOTE]
 >You can also add persistence to a previously created cache by navigating to **Advanced settings** under **Settings** in the left navigation menu for your cache.
 
-1. To create an Enterprise-level cache in the [Azure portal](https://portal.azure.com), follow the instructions in the [Enterprise tier quickstart guide](quickstart-create-redis-enterprise.md).
-
 1. When you fill out the **Advanced** tab, select either **RDB** or **AOF** persistence for **Backup file** under **(PREVIEW) Data Persistence**.
 
 1. Set the **Backup Frequency**.
@@ -165,7 +163,6 @@ With AOF persistence, write operations to the cache save to the named storage ac
 
    :::image type="content" source="media/cache-how-to-premium-persistence/cache-advanced-persistence.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab and Data persistence is highlighted with a red box.":::
 
-1. Finish creating the cache by following the rest of the instructions in the [Enterprise tier quickstart guide](quickstart-create-redis-enterprise.md).
 
 ---
 

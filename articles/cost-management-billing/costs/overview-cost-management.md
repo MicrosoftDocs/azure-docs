@@ -68,9 +68,7 @@ During your cloud journey, there are many tools available to help you understand
 
 - The [Total Cost of Ownership (TCO) calculator](https://azure.microsoft.com/pricing/tco/calculator/) should be your first stop if you’re curious about how much it would cost to move your existing on-premises infrastructure to the cloud.
 - [Azure Migrate](https://azure.microsoft.com/products/azure-migrate/) is a free tool that helps you analyze your on-premises workloads and plan your cloud migration.
-- The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)  helps you estimate the cost of creating new or expanding existing deployments. In this tool, you're able to explore various configurations of many different Azure services as you identify which SKUs and how much usage keeps you within your desired price range. For more information, see the pricing details for each of the services you use.
-- The [Virtual Machine Selector Tool](https://azure.microsoft.com/pricing/vm-selector/) is your one-stop-shop for finding the best VMs for your intended solution.
-- The [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/#calculator) helps you estimate the savings of using your existing Windows Server and SQL Server licenses on Azure.
+- The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) is a free cost management tool that allows users to understand and estimate costs of Azure Services and products. It serves as the only unauthenticated experience that allows you to configure and budget the expected cost of deploying solutions in Azure. For customers that want to view their negotiated estimate prices, there is an authenticated version. The Azure pricing calculator allows organizations to plan and forecast cloud expenses, evaluate different configurations and pricing models, and make informed decisions about service selection and deployment options.
 
 ## Report on and analyze costs
 
