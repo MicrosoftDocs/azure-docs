@@ -357,8 +357,6 @@
   items:
     - name: Overview
       href: networking.md
-    - name: Environment-level networking
-      href: environment-level-networking.md
     - name: Ingress
       items:
         - name: Overview
@@ -386,7 +384,7 @@
       href: custom-virtual-networks.md
     - name: Managing outbound connections with Azure Firewall
       href: using-azure-firewall.md
-    - name: DNS
+    - name: Private endpoints and DNS
       href: dns.md
     - name: Tutorials
       items:
