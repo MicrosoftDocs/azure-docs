@@ -13,7 +13,7 @@ ms.custom: include file
 This quickstart shows you two ways of connecting to Azure Event Hubs:
 
 - *Passwordless*. Use your security principal in Microsoft Entra ID and role-based access control (RBAC) to connect to an Event Hubs namespace. You don't need to worry about having hard-coded connection strings in your code, in a configuration file, or in secure storage like Azure Key Vault.
-- *connection string*. Use a connection string to connect to an Event Hubs namespace. If you're new to Azure, you might find the connection string option easier to follow.
+- *Connection string*. Use a connection string to connect to an Event Hubs namespace. If you're new to Azure, you might find the connection string option easier to follow.
 
 We recommend using the passwordless option in real-world applications and production environments. For more information, see [Service Bus authentication and authorization](../../../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) and [Passwordless connections for Azure services](/azure/developer/intro/passwordless-overview).
 
