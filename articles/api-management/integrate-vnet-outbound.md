@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 04/03/2025
+ms.date: 06/16/2025
 ---
 
 # Integrate an Azure API Management instance with a private virtual network for outbound connections 
@@ -48,7 +48,7 @@ If you want to inject a Premium v2 (preview) API Management instance into a virt
 
 ### Network security group
 
-A network security group must be associated with the subnet. Configure any network security group rules that you need for the gateway to access your API backends. Network security groups (NSG) can also be used to block outbound traffic to the internet and access only resources in your virtual network. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
+[!INCLUDE [api-management-virtual-network-v2-nsg-rules](../../includes/api-management-virtual-network-v2-nsg-rules.md)]
 
 ### Subnet delegation
 

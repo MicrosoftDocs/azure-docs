@@ -54,14 +54,10 @@ If you want to enable *public* inbound access to an API Management instance in t
 * Minimum: /27 (32 addresses)
 * Recommended: /24 (256 addresses) - to accommodate scaling of API Management instance
 
-### Network security group
+## Network security group
 
-A network security group must be associated with the subnet. 
-
-* Configure an outbound NSG rule to allow access to Azure Storage on port 443. 
-* Configure other rules to meet your organization's network access requirements. 
-
-To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
+[!INCLUDE [api-management-virtual-network-v2-nsg-rules](../../includes/api-management-virtual-network-v2-nsg-rules.md)]
+* Configure inbound rules to meet your requirements for access to the API Management instance.
 
 ### Subnet delegation
 
