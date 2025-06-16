@@ -394,7 +394,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Cause**: This error can occur if required container is deleted while operation is in progress.
 
-**Recommended action**: Retry the operation and wait for completeion before attempting container delete operation.
+**Recommended action**: Retry the operation and wait for completion before attempting container delete operation.
 
 ## UserErrorBlobContainerDeletedDuringBackup
 
@@ -408,7 +408,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error code**: `UserErrorBlobVersionArchivedAndContainerDeletedDuringBackup`
 
-**Error message**: The backup failed due to one or more blob versions are moving to the archive tier and one or more container deleted in the backup job duration.
+**Error message**: The backup failed due to one or more blob versions are moving to the archive tier and one or more containers deleted in the backup job duration.
 
 **Recommended action**: We recommend to avoid tampering with blob versions and blob containers while a backup job is in  progress.
 
@@ -462,15 +462,15 @@ This error is usually seen for operational tier restore failure due to PITR stil
 
 **Recommended action**: Retry after ensuring there is no conflicting operation in progress.
 
-## 641539,UserErrorCrossTenantOrsPolicyDisabled
+## 641539, UserErrorCrossTenantOrsPolicyDisabled
 
-**Error code**: `641539,UserErrorCrossTenantOrsPolicyDisabled`
+**Error code**: `641539, UserErrorCrossTenantOrsPolicyDisabled`
 
 **Error message**: Cross tenant object replication policy is disabled.
 
 **Recommended action**: Enable cross tenant object replication policy on storage account and trigger the operation again.
 
-##  641541,UserErrorPitrRestoreFailedLeasedBlob
+##  641541, UserErrorPitrRestoreFailedLeasedBlob
 
 **Error code**: `641541, UserErrorPitrRestoreFailedLeasedBlob`
 
@@ -541,3 +541,11 @@ Error message**: Operation failed because, Storage Account and Datasource are no
 **Error message**: Failed to create object replication policy on the storage account, restore storage account or the object replication policy created by Azure Backup may have been deleted.
 
 **Recommended action**:  Use the valid restore storage account then try the operation again.
+
+## UserErrorMaxSubmissionLimitReached
+
+**Error code**: `UserErrorMaxSubmissionLimitReached`
+
+**Error message**: Limit reached for maximum number of operations within a time range is reached.
+
+**Recommended action**: The daily backup count has reached the maximum limit of five for the instance. Trigger a new backup after 24 hours.
