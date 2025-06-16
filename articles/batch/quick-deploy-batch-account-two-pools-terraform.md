@@ -11,6 +11,7 @@ ms.author: padmalathas
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a Terraform user, I want to deploy an Azure Batch account and two pools with specific configurations, so that I can efficiently manage parallel processing tasks in the cloud.
 ---
 
 # Deploy an Azure Batch account and two pools - Terraform
