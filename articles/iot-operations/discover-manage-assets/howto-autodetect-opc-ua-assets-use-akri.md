@@ -39,12 +39,16 @@ In this article, you learn how to automatically discover and configure OPC UA as
 
     # [Azure CLI](#tab/cli)
 
+    Run `rysnc enable` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
+
     ```bash
-    CUSTOM_LOCATION_NAME=$(az iot ops list -g <YOUR RESOURCE GROUP> --query "[0].extendedLocation.name" -o tsv)
-    
-    ASSIGNEE=$(az ad sp list --display-name "K8 Bridge" --query "[0].appId" -o tsv)
-    
-    az role assignment create --role "Azure Kubernetes Service Arc Contributor Role" --assignee $ASSIGNEE --scope $CUSTOM_LOCATION_NAME
+    az iot ops rsync enable
+    ```
+
+    If the signed-in CLI user doesn't have permission to look up the object ID of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
+
+    ```bash
+    az iot ops rsync enable --k8-bridge-sp-oid <k8 bridge service principal object ID>
     ```
 
     ---
