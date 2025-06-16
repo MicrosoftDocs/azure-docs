@@ -7,6 +7,8 @@ ms.date: 09/09/2024
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 # Start a runbook in Azure Automation
 
