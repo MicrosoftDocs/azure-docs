@@ -27,7 +27,7 @@ When you deploy App Service, you can provision multiple instances in an [App Ser
 
 - Use premium v3/v4 App Service plans.
 
-- [Enable zone redundancy](#availability-zone-support). To see requirements for enabling zone -redundancy, go to [Availability zone support requirements](#requirements).
+- [Enable zone redundancy](#availability-zone-support). To see requirements for enabling zone redundancy, go to [Availability zone support requirements](#requirements).
 
 ::: zone-end
 
@@ -47,7 +47,7 @@ Microsoft-provided SDKs usually handle transient faults. Because you host your o
 
 - **Use deployment slots.** App Service [deployment slots](/azure/app-service/deploy-staging-slots) enable zero-downtime deployments of your applications. Use deployment slots to minimize the effect of deployments and configuration changes for your users. Deployment slots also reduce the likelihood that your application restarts. Restarting the application causes a transient fault.
 
-- **Avoid scaling up or scaling down.** Instead of scaling up or scaling down, select a tier and instance size that meet your performance requirements under typical load. Only scale out instances to handle changes in traffic volume. Scaling up and scaling down can trigger an application restart.
+- **Avoid scaling up or scaling down.** Scaling up and down require involve changing the CPU, memory, and other resources that are allocated to each instance. Scale-up and scale-down operations can trigger an application restart. Instead of scaling up or scaling down, select a tier and instance size that meet your performance requirements under typical load. You can scale out and scale in by dynamically adding and removing instances to handle changes in traffic volume.
 
 ## Availability zone support
 
@@ -325,9 +325,6 @@ To deploy a new zone-redundant App Service plan, you must use either the [Premiu
 
     > [!NOTE]
     > If you use the Azure CLI to disable the `zoneRedundant` property, you should specify the `sku.capacity` property, otherwise the value defaults to 1.
-
-    > [!NOTE]
-    > If you use the Azure CLI to disable the zoneRedundant property, you should specify the sku.capacity property. Otherwise, the value defaults to 1.
 
 ::: zone-end
 
