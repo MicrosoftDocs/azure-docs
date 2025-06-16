@@ -31,7 +31,7 @@ You can view the latest changes to the FOCUS cost and usage details file schema 
 | 5 | BillingCurrency | Currency that a charge was billed in. |
 | 6 | BillingPeriodEnd | Exclusive end date and time of the billing period. |
 | 7 | BillingPeriodStart | Inclusive start date and time of the billing period. |
-| 8 | CapacityReservationId | Identifier assigned to a *capacity reservation* by the provider.Currently null/empty. |
+| 8 | CapacityReservationId | Identifier assigned to a *capacity reservation* by the provider. Currently null/empty. |
 | 9 | CapacityReservationStatus | Indicates whether the charge represents either the consumption of a *capacity reservation* or when a *capacity reservation* is unused. Currently null/empty. |
 | 10 | ChargeCategory | Highest-level classification of a charge based on the nature of how it gets billed. |
 | 11 | ChargeClass | Indicates whether the row represents a correction to one or more charges invoiced in a previous billing period. |
