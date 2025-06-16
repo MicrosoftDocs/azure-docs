@@ -238,7 +238,7 @@ The following list contains some common scenarios where you can use an **Until**
 
 * Create a record in a database. Wait until a specific field in that record gets approved. Continue processing.
 
-By default, the **Until** loop works succeeds or fails in the following ways:
+By default, the **Until** loop succeeds or fails in the following ways:
 
 - The **Until** loop succeeds if all the actions inside the loop succeed, and if the loop limit is reached, based on the run after behavior.
 
