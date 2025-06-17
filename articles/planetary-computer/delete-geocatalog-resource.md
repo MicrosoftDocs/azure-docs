@@ -13,7 +13,7 @@ ms.custom:
 
 # Delete a GeoCatalog resource
 
-This article shows you how to delete an existing GeoCatalog resource. This article documents the two methods used to delete a Microsoft Planetary Computer Pro GeoCatalog:
+This article documents the two methods you can use to delete an existing Microsoft Planetary Computer Pro GeoCatalog resource.
 
 - Using the Azure portal.
 - Using the Azure Rest API.
