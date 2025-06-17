@@ -1,5 +1,5 @@
 ---
-title: Security principles in Azure Container Apps
+title: Security overview in Azure Container Apps
 description: Learn about the security features and best practices for Azure Container Apps, including managed identities, secrets management, and token store.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 07/17/2025
 ms.author: cshoe
 ---
 
-# Security principles in Azure Container Apps
+# Security overview in Azure Container Apps
 
 Azure Container Apps provides several built-in security features that help you build secure containerized applications. This guide explores key security principles, including managed identities, secrets management, and token store, while providing best practices to help you design secure and scalable applications.
 
