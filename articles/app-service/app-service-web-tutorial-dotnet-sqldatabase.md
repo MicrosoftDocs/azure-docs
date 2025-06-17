@@ -4,7 +4,7 @@ description: Learn how to deploy a data-driven C# ASP.NET app to Azure App Servi
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/05/2025
+ms.date: 06/16/2025
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, AppServiceConnectivity
 author: cephalin
 ms.author: cephalin
@@ -136,22 +136,14 @@ Before you can create a database, you need a [logical SQL server](/azure/azure-s
 
 1. When the database resources are created, select **Next**.
 
-### Connect the database
+1. On the **Connect to Azure SQL Database** screen, select **Finish**.
 
-The app uses a database context to connect with the database. The database context in this sample is a connection string named `MyDbConnection`. The connection string is set in the *Web.config* file and referenced in the *Models/MyDatabaseContext.cs* file. The Azure app uses the connection string name to connect to the Azure SQL database.
-
-1. On the **Connect to Azure SQL Database** screen, under **Connection string name**, enter the name of the connection string referenced in *Models/MyDatabaseContext.cs*, in this case *MyDbConnection*.
+   ![Screenshot of the screen with messagea about configuring managed identity for the connection to work.](./media/app-service-web-tutorial-dotnet-sqldatabase/connect-warning.png)
 
    > [!NOTE]
    > If you see **Local user secrets files** instead, make sure you used the **Publish** page, not the **Connected Services** page, to configure SQL Database.
 
-1. Select **Additional settings**, make sure **Azure App Settings** is selected, and select **Finish**.
-
-   ![Screenshot of the screen with messagea about configuring managed identity for the connection to work.](./media/app-service-web-tutorial-dotnet-sqldatabase/connect-warning.png)
-
-Your app is connected to Azure SQL Database using Managed Identity for Azure services, a secure method of connecting your app to your Azure resources that doesn't use secrets or passwords.
-
-You now need to set the appropriate permissions on the SQL user corresponding with this managed identity for the connection to work.
+Your Azure SQL Database connection is now set up to use Managed Identity for Azure services, a secure method of connecting your app to your Azure resources that doesn't use secrets or passwords. You now need to set the appropriate permissions on the SQL user corresponding with this managed identity for the connection to work.
 
 ## Configure managed identity
 
@@ -166,21 +158,30 @@ When the Azure SQL Database creation wizard set up the Azure SQL server with a m
    Install-Package Microsoft.EntityFramework.SqlServer
    ```
 
-1. In a PowerShell command line, run the following command to sign in to SQL Database, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<entra-id-user>` with your Microsoft Entra user name.
+1. In a PowerShell command line, run the following command to sign in to SQL Database, replacing `<server-name>` with your server name and `<entra-id-user>` with the Microsoft Entra user name you used to set up the database in Visual Studio. That Entra user has admin access to the database server by default.
 
    ```azurepowershell
-   sqlcmd -S <servername>.database.windows.net -d <dbname> -U <entra-id-user> -G -l 30
+   sqlcmd -S <servername>.database.windows.net -d DotNetAppSqlDb_db -U <entra-id-user> -G -l 30
    ```
+   Follow the prompts to sign in.
 
 1. At the SQL prompt, run the following commands to grant the minimum permissions your app needs, replacing `<app-name>` with your app name.
 
    ```sql
-   CREATE USER [DotNetAppSqlDb20250604144735] FROM EXTERNAL PROVIDER;
-   ALTER ROLE db_datareader ADD MEMBER [DotNetAppSqlDb20250604144735];
-   ALTER ROLE db_datawriter ADD MEMBER [DotNetAppSqlDb20250604144735];
-   ALTER ROLE db_ddladmin ADD MEMBER [DotNetAppSqlDb20250604144735];
+   CREATE USER [<app-name>] FROM EXTERNAL PROVIDER;
+   ALTER ROLE db_datareader ADD MEMBER [<app-name>];
+   ALTER ROLE db_datawriter ADD MEMBER [<app-name>];
+   ALTER ROLE db_ddladmin ADD MEMBER [<app-name>];
    GO
    ```
+
+## Update the database context
+
+The app uses a database context to connect with the database, which is referenced in the *Models/MyDatabaseContext.cs* file. In this section, you update the code to refer to the Entity Framework 6 SQL Server provider, which depends on the modern [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) ADO.NET provider.
+
+The Entity Framework 6 provider replaces the built-in `System.Data.SqlClient` SQL Server provider, and includes support for Microsoft Entra ID authentication methods. For more information, see [Microsoft.EntityFramework.SqlServer}](https://www.nuget.org/packages/Microsoft.EntityFramework.SqlServer).
+
+`[DbConfigurationType(typeof(MicrosoftSqlDbConfiguration))]` works locally to use `Microsoft.Data.SqlClient` for the database context, but because `System.Data.SqlClient` is hardcoded as the provider in Azure App Service, you need to extend `MicrosoftSqlDbConfiguration` to redirect references to `System.Data.SqlClient` to `Microsoft.Data.SqlClient` instead.
 
 1. In *web.config*, remove the `entityFramework/providers/provider` section and line: `<provider invariantName="System.Data.SqlClient" .../>`.
 
