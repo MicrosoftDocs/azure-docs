@@ -8,6 +8,7 @@ ms.date: 09/13/2023
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: As an IT administrator implementing file storage solutions, I want to configure a Nasuni environment with Azure Blob storage, so that I can achieve high-performance file sharing and data protection across cloud and on-premises locations.
 ---
 
 # Nasuni Configuration Guide for Microsoft Azure

@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 08/25/2023
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: As a data engineer, I want to compare different migration tools for unstructured data, so that I can select the most suitable solution for transferring data to Azure with minimal downtime and maximum efficiency.
 ---
 
 # Comparison matrix
