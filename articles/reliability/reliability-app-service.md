@@ -27,7 +27,7 @@ When you deploy Azure App Service, you can provision multiple instances in an *A
 
 - Use premium v3/v4 App Service plans.
 
-- [Enable zone redundancy](#availability-zone-support), which requires that you use Premium v3, Premium v4 or Isolated v2 App Service plans and that you have at minimum three instances of the plan. To view more information, make sure that you select the appropriate tier at the top of this page.
+- [Enable zone redundancy](#availability-zone-support), which requires that you use Premium v3, Premium v4 or Isolated v2 App Service plans and that you have at minimum two instances of the plan. To view more information, make sure that you select the appropriate tier at the top of this page.
 
 ::: zone-end
 
@@ -140,7 +140,7 @@ When you enable zone redundancy on your App Service plan, you also improve your 
 ::: zone pivot="premium"
 
 
-When you're using App Service Premium v2, Premium v3, or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
+When you're using App Service Premium v2, Premium v3, or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have two or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
 
 
 If you enable availability zones but specify a capacity less than two, the platform enforces a minimum instance count of two. The platform charges you for those two instances.
@@ -149,7 +149,7 @@ If you enable availability zones but specify a capacity less than two, the platf
 
 ::: zone pivot="isolated"
 
-When you're using App Service Premium v2 or Premium v3 plans, there's no extra cost associated with enabling availability zones as long as you have two or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
+When you're using App Service Isolated v2 plans, there's no extra cost associated with enabling availability zones as long as you have two or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity less than two, the platform enforces a minimum instance count of two. The platform charges you for those two instances.
 

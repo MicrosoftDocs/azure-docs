@@ -107,7 +107,7 @@ You can view the read-only properties defined in an interface on the **Propertie
 1. Preview the payload to be sent to the device.
 1. Submit the change.
 
-After you submit a change, you can track the update status: **synching**, **success**, or **error**. When the synching is complete, you see the new value of your property in the **Reported Value** column. If you navigate to other pages before the synching completes, the tool still notifies you when the update is complete. You can also use the tool's notification center to see the notification history.
+After you submit a change, you can track the update status: **syncing**, **success**, or **error**. When the syncing is complete, you see the new value of your property in the **Reported Value** column. If you navigate to other pages before the syncing completes, the tool still notifies you when the update is complete. You can also use the tool's notification center to see the notification history.
 
 #### Commands
 
