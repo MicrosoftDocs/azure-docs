@@ -118,7 +118,7 @@ The following example performs a stricter validation by cheking whether the subj
     <identities>
         <identity
             thumbprint="AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00"
-            issuer-thumbprint="9d0c166a4446765a87c0ed3aa52650993129eaa4" />
+            issuer-thumbprint="BB22CC33DD44EE55FF66AA77BB88CC99DD00EE11" />
     </identities>
 </validate-client-certificate> 
 ```
