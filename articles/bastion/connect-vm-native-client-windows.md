@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/28/2025
 ms.author: abell
+# Customer intent: "As a system administrator, I want to connect to VMs using a native Windows client via Bastion, so that I can securely access my cloud resources with supported authentication methods."
 ---
 
 # Connect to a VM using Bastion and the Windows native client
