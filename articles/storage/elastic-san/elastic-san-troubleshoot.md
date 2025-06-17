@@ -6,6 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: how-to
 ms.date: 04/15/2025
 ms.author: rogarana
+# Customer intent: As a system administrator managing Azure Elastic SAN, I want to troubleshoot common connectivity and performance issues, so that I can ensure optimal functionality and address any disruptions in service for my workloads.
 ---
 
 # Troubleshoot Elastic SAN

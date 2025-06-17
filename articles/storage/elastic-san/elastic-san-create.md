@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 10/24/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a cloud architect, I want to deploy an Azure Elastic SAN using the portal, PowerShell, or CLI, so that I can efficiently manage storage resources for my cloud applications and ensure optimal performance and scalability.
 ---
 
 # Deploy an Elastic SAN

@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 01/24/2025
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: "As a cloud network administrator, I want to configure network access for Elastic SAN volumes, so that I can secure data access and manage connectivity based on our virtual network infrastructure."
 ---
 
 # Configure network access for Azure Elastic SAN
