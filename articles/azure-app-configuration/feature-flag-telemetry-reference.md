@@ -53,9 +53,6 @@ When the Azure App Configuration provider libraries are used, additional propert
 
 The full schema can be found [here](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEventWithAzureAppConfiguration.v1.0.0.schema.json).
 
-### Feature management libraries
-
-
 ## Next steps
 
 In this document, you learned about the telemetry data available for feature flags. To learn about how to use the telemetry data in your applications, continue to the following document for your language or platform.
