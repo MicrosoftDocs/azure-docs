@@ -384,6 +384,9 @@
           displayName: Cross origin resource sharing
     - name: Security
       items:
+        - name: Overview
+          href: security.md
+          displayName: Security overview
         - name: Configure WAF Application Gateway
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)

@@ -5,17 +5,17 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 07/16/2025
+ms.date: 07/17/2025
 ms.author: cshoe
 ---
 
 # Security principles in Azure Container Apps
 
-Azure Container Apps provides several built-in security features that help you build secure containerized applications. This article introduces the core security principles and capabilities available in Azure Container Apps.
+Azure Container Apps provides several built-in security features that help you build secure containerized applications. This guide explores key security principles, including managed identities, secrets management, and token store, while providing best practices to help you design secure and scalable applications.
 
 ## Managed identities
 
-Managed identities eliminate the need to store credentials in your code or configuration by providing an automatically managed identity in Microsoft Entra ID. Container apps can use these identities to authenticate to any service that supports Microsoft Entra authentication, such as Azure Key Vault, Azure Storage, or Azure SQL Database.
+[Managed identities](managed-identity.md) eliminate the need to store credentials in your code or configuration by providing an automatically managed identity in Microsoft Entra ID. Container apps can use these identities to authenticate to any service that supports Microsoft Entra authentication, such as Azure Key Vault, Azure Storage, or Azure SQL Database.
 
 ### Types of managed identities
 
@@ -44,23 +44,14 @@ Azure Container Apps supports two types of managed identities:
 
 ### Managed identity for image pulls
 
-A common security pattern is using managed identities to pull images from private repositories in Azure Container Registry. This approach:
+A common security pattern is using [managed identities to pull images](managed-identity-image-pull.md) from private repositories in Azure Container Registry. This approach:
 
 - Avoids using administrative credentials for the registry
 - Provides fine-grained access control through the ACRPull role
 - Supports both system-assigned and user-assigned identities
 - Can be controlled to limit access to specific containers
 
-### Controlling managed identity access
-
-Container Apps allows you to control which managed identities are available to different containers:
-
-- **Init**: Available only to init containers
-- **Main**: Available only to main containers
-- **All**: Available to all containers (default)
-- **None**: Not available to any containers
-
-This granular control follows the principle of least privilege, limiting potential attack vectors if a container is compromised.
+For more information, see [Managed identities](managed-identity.md) and [Image pull from Azure Container Registry with managed identity](managed-identity-image-pull.md) for more details on how to set up a managed identities for your application.
 
 ## Secrets management
 
@@ -82,19 +73,7 @@ Azure Container Apps provides built-in mechanisms to securely store and access s
 - Use volume mounts to access secrets as files when appropriate
 - Implement proper secret rotation practices
 
-### Key Vault integration
-
-For production workloads, store secrets in Azure Key Vault and reference them from your container app:
-
-1. Enable managed identity for your container app
-1. Grant the identity access to Key Vault secrets
-1. Reference the Key Vault secret URI in your container app configuration
-
-This approach provides:
-
-- Centralized secret management
-- Access control and audit logging
-- Automatic secret rotation
+For more information, see [Import certificates from Azure Key Vault](key-vault-certificates-manage.md) for more details on how to set up secrets management for your application.
 
 ## Token store for secure authentication
 
@@ -107,14 +86,7 @@ The token store feature provides a secure way to manage authentication tokens in
 - Container Apps handles token refresh automatically
 - The feature reduces the attack surface by eliminating custom token management code
 
-### Setting up token store
-
-To enable token store:
-
-1. Create a private blob container in Azure Storage
-1. Generate a SAS URL with read, write, and delete permissions
-1. Store the SAS URL as a secret in your container app
-1. Enable token store using the container app authentication configuration
+For more information, see [Enable an authentication token store](token-store.md) for more details on how to set up a token store for your application.
 
 ## Security architecture considerations
 
