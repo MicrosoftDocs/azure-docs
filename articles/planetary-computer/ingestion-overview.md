@@ -70,6 +70,13 @@ Given a preexisting STAC collection within a GeoCatalog, users can ingest new or
 
 [ ![Screenshot of single-item ingestion GUI.](media/data-processing-user-interface-collections-items.png) ](media/data-processing-user-interface-collections-items.png#lightbox)
 
+## Troubleshooting Ingestion
+
+If you encounter issues during data ingestion, such as authentication failures, STAC validation errors, or problems with asset transformation, refer to our dedicated troubleshooting documentation:
+
+- [Troubleshooting data ingestion in Microsoft Planetary Computer Pro](./troubleshooting-ingestion.md): This guide helps you identify and resolve common ingestion failures, including access permission problems and STAC validation errors.
+- [Error codes: Microsoft Planetary Computer Pro ingestion](./error-codes-ingestion.md): This reference lists specific error codes you might encounter during ingestion, along with their meanings and resolution steps.
+
 ## Next steps
 Learn more about how to setup an Ingestion Source:
 
@@ -82,3 +89,5 @@ Learn more about how to setup an Ingestion Source:
 - [Configure an ingestion source for Microsoft Planetary Computer Pro using managed identity](./set-up-ingestion-credentials-managed-identity.md)
 - [Add STAC Items to a Collection with GeoCatalog and Python](./add-stac-item-to-collection.md)
 - [Ingest data into GeoCatalog with the Bulk Ingestion API](./bulk-ingestion-api.md)
+- [Troubleshooting data ingestion](./troubleshooting-ingestion.md)
+- [Error codes: Microsoft Planetary Computer Pro ingestion](./error-codes-ingestion.md)
