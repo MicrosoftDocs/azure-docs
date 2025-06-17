@@ -49,7 +49,7 @@ Azure SRE Agent offers several key features that enhance the reliability and per
 
 - **Resource visualization**: Comprehensive views of your resource dependencies and health status.
 
-    :::image type="content" source="media/overview/resources.png" alt-text="Screenshot of an SRE Agent knowledge graph." lightbox="media/overview/resources.png":::
+    :::image type="content" source="media/sre-agent/sre-agent-knowldege-graph.png" alt-text="Screenshot of an SRE Agent knowledge graph." lightbox="media/sre-agent/sre-agent-knowldege-graph.png":::
 
 - **Mitigation support**: SRE Agent can fix application configuration and dependent services. For code issues, the agent provides stack traces and can create GitHub issue to help resolve issues. The following describes service-specific features of the agent:
 
