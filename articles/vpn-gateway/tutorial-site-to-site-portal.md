@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 01/15/2025
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network.
+# Customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises network and Azure, so that I can ensure secure and reliable connectivity for my resources in the cloud.
 ---
 
 # Tutorial: Create a site-to-site VPN connection in the Azure portal

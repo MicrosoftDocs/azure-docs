@@ -9,6 +9,7 @@ ms.date: 11/01/2024
 ms.author: cherylmc
 
 # Do not change VNet-to-VNet to another wording, such as Net-to-Net. VNet-to-VNet is the correct term and is the value used by Azure to denote this specific type of connection. It is different than a typical network connection.
+# Customer intent: "As a network administrator, I want to create a VNet-to-VNet VPN gateway connection in the Azure portal, so that I can securely connect and manage multiple virtual networks across different regions within the same subscription."
 ---
 
 # Configure a VNet-to-VNet VPN connection - Azure portal
