@@ -8,7 +8,7 @@ metadata:
   description: Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure.
   ms.service: azure
   ms.topic: hub-page
-  ms.date: 03/11/2025
+  ms.date: 06/17/2025
   adobe-target: true
 
 productDirectory:
@@ -164,6 +164,9 @@ conceptualContent:
          - text: Connect AWS and Azure using a BGP-enabled VPN gateway
            url: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
            itemType: how-to-guide
+        footerLink:
+          text: See more
+          url: ./migrate-networking-from-aws.md           
       - title: Messaging and integration
         links:
         - text: Azure messaging services map
@@ -180,7 +183,9 @@ conceptualContent:
           - url: /azure/sentinel/migration
             text: Migrate your SIEM in AWS to Microsoft Sentinel
             itemType: how-to-guide
-
+        footerLink:
+          text: See more
+          url: ./migrate-security-from-aws.md
     - title: Migrate workloads from Google Cloud
 
       items:
