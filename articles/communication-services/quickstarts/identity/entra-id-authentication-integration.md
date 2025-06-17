@@ -9,7 +9,7 @@ ms.author: aigerimb
 ms.date: 05/06/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.subservice: acs-entra-id-authentication
+ms.subservice: identity
 ms.reviewer: dominikme, dariac, sanchezjuan
 zone_pivot_groups: acs-js-csharp-java-python
 ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python, has-azure-ad-ps-ref
@@ -22,8 +22,8 @@ This quickstart demonstrates how to use the Communication Services Common SDK al
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Azure Communication Services resource and endpoint URI. For more information, see [Create an Azure Communication Services resource](./create-communication-resource.md).
-- A Microsoft Entra ID instance.  For more information, see [Microsoft Entra ID overview](./entra/fundamentals/whatis).
+- An active Azure Communication Services resource and endpoint URI. For more information, see [Create an Azure Communication Services resource](../create-communication-resource.md).
+- A Microsoft Entra ID instance.  For more information, see [Microsoft Entra ID overview](../../../entra/fundamentals/whatis).
 
 ## Introduction
 
@@ -39,7 +39,7 @@ The Administrator role has extended permissions in Microsoft Entra ID. Members o
 
 1. The Contoso Administrator create a service principal for Communication Services Clients application in Contoso Microsoft Entra ID tenant. This step is required to allow the Contoso application to access Communication Services Clients application API permissions.
 1. The Contoso Administrator creates or selects an existing *application* in Microsoft Entra ID. The property *Supported account types* defines whether users from various tenants can authenticate to the application. The property *Redirect URI* redirects a successful authentication request to the Contoso *client application*.
-1. The Contoso Administrator adds required API permissions from Communication Services Clients application. For the all list of the permissions, see [Access tokens with Microsoft Entra ID](./identity-model.md#access-tokens-with-microsoft-entra-id).
+1. The Contoso Administrator adds required API permissions from Communication Services Clients application. For the all list of the permissions, see [Access tokens with Microsoft Entra ID](../../concepts/identity-model.md#access-tokens-with-microsoft-entra-id).
 1. The Contoso Administrator creates or selects existing communication services. The Contoso Administrator grants Fabrikam Entra ID users access to Contoso Azure Communication Services resource. Azure Communication Services Common SDK will be used for  Microsoft Entra ID user authentication and in the background seamlessly obtain an Azure Communication Services access token for Microsoft Entra ID user.
 1. The Fabrikam Administrator grants admin consent for the required Communication Services Clients application API permissions to the Contoso application.
 
@@ -49,7 +49,7 @@ The Administrator role has extended permissions in Microsoft Entra ID. Members o
 To enable the Contoso application to access Azure Communication Services Clients application API permissions, the Contoso Administrator must create a service principal for Azure Communication Services Clients application in the Contoso Microsoft Entra ID tenant.
 The Contoso Administrator can create a service principal in Contoso tenant by one of the following methods:
 
-- Use the [Microsoft Graph REST API](./graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http#request) to run the following request:
+- Use the [Microsoft Graph REST API](../../../graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http#request) to run the following request:
 
 ```http
 POST https://graph.microsoft.com/v1.0/servicePrincipals
@@ -60,9 +60,9 @@ Content-Type: application/json
 }
 ```
 
-This request can also be executed in [Graph Explorer](./graph/graph-explorer/graph-explorer-overview). Make sure to include your full tenant domain in the URL `https://developer.microsoft.com/graph/graph-explorer?tenant={tenant domain}`, sign in,and provide consent for `Application.ReadWrite.All` permission.
+This request can also be executed in [Graph Explorer](../../../graph/graph-explorer/graph-explorer-overview). Make sure to include your full tenant domain in the URL `https://developer.microsoft.com/graph/graph-explorer?tenant={tenant domain}`, sign in,and provide consent for `Application.ReadWrite.All` permission.
 
-- Use the [Azure CLI](./cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create) to run the following command:
+- Use the [Azure CLI](../../../cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create) to run the following command:
 
 ```azurecli-interactive
 az ad sp create --id 2a04943b-b6a7-4f65-8786-2bb6131b59f6
@@ -98,9 +98,9 @@ The application must declare Azure Communication Services Clients to have access
 
 The Azure Communication Services resource is used to authenticate all requests from Microsoft Entra ID users and to grant them access to the resource.
 
-If you want to create a new Communication Services resource, see [Create and manage Communication Services resources](./create-communication-resource.md).
+If you want to create a new Communication Services resource, see [Create and manage Communication Services resources](../create-communication-resource.md).
 
-The Contoso administrator can provide Fabrikam Entra ID users with access to the Contoso Azure Communication Services resource through the Azure portal or by using the [Entra ID Assignment REST API](./rest/api/communication/identity/entra-id-assignment).
+The Contoso administrator can provide Fabrikam Entra ID users with access to the Contoso Azure Communication Services resource through the Azure portal or by using the [Entra ID Assignment REST API](../../../rest/api/communication/identity/entra-id-assignment).
 
 In the Azure portal follow these steps:
 1. Navigate to your Communication Services resource.
@@ -122,11 +122,11 @@ The following roles can provide consent on behalf of a company:
 - Application admin
 - Cloud application admin
 
-If you want to check roles in Azure portal, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.yml).
+If you want to check roles in Azure portal, see [List Azure role assignments](../../../role-based-access-control/role-assignments-list-portal.yml).
 
 To construct an Administrator consent URL, the Fabrikam Microsoft Entra Administrator does the following steps:
 
-1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam [Tenant ID](../concepts/troubleshooting-info.md#get-a-directory-id), and replaces {Application_ID} with the Contoso [Application ID](../concepts/troubleshooting-info.md#get-an-application-id).
+1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam [Tenant ID](../concepts/troubleshooting-info.md#get-a-directory-id), and replaces {Application_ID} with the Contoso [Application ID](../../concepts/troubleshooting-info.md#get-an-application-id).
 1. The Administrator logs in and grants permissions on behalf of the organization.
 
 The service principal of the Contoso application in the Fabrikam tenant is created if consent is granted. The Fabrikam Administrator can review the consent in Microsoft Entra ID by doing the following steps:

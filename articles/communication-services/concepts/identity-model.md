@@ -125,7 +125,7 @@ Azure App Service or Azure Functions are two alternatives for operating the iden
 ## Microsoft Entra ID: Integrating with Entra ID
 [!INCLUDE [Public Preview Disclaimer](../includes/public-preview-include.md)]
 
-Azure Communication Services now supports Microsoft Entra ID authentication, allowing you to access Azure Communication Services resources directly with Entra ID users. This new support for Entra ID authentication eliminates the need to develop or operate your own identity management or authorization proxy service mentioned in the section [Client-server architecture](#client-server-architecture). 
+Azure Communication Services now supports Microsoft Entra ID authentication, allowing you to access Azure Communication Services resources directly with Entra ID users. This new support for Entra ID authentication eliminates the need to develop or operate your own identity management or authorization proxy service mentioned in the section [Client-server architecture](#client-server-architecture-for-the-bring-your-own-identity-byoi-model). 
 
 The following sections will guide you through the essential aspects of Microsoft Entra ID integration:
 
