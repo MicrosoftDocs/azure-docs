@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/06/2024
+ms.date: 06/16/2025
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -39,7 +39,11 @@ This article shows how to automate backup and restore operations of your API Man
 
 ## Prerequisites
 
-* An API Management service instance. If you don't have one, see [Create an API Management service instance](get-started-create-service-instance.md).
+* An API Management service instance in a supported service tier. If you don't have one, see [Create an API Management service instance](get-started-create-service-instance.md).
+
+   > [!NOTE]
+   > Currently, backup and restore aren't supported in API Management instances with associated [workspace gateways](workspaces-overview#workspace-gateway).
+
 * An Azure storage account. If you don't have one, see [Create a storage account](../storage/common/storage-account-create.md).
     * [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in the storage account to hold the backup data.
         
