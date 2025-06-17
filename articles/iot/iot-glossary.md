@@ -41,20 +41,9 @@ Applies to: Device Provisioning Service
 
 ### Asset
 
-A physical or virtual item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a device, a software component, an entire system, or a physical object of value such as a field of crops, or a building. Assets are typically in a location that you control (such as a factory) and typically can't connect to the public internet.
+In the context of IoT in general, physical item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a device, a software component, an entire system, or a physical object of value such as a field of crops, or a building.
 
-The following items are examples of IoT assets:
-- robotic arms, conveyor belts, elevators
-- industrial CNC machines, lathes, saws, drills
-- medical diagnostic imaging machines
-- security video cameras
-- software or software components
-- programmable logic controllers (PLC)
-- entire manufacturing systems
-- buildings
-- agricultural crops
-
-In Azure IoT Operations, an [asset](../iot-operations/manage-devices-assets/overview-manage-assets.md) is a core element of a solution.
+In the context of Azure IoT Operations, an asset is also a virtual representation of a physical item that you want to manage, monitor, and collect data from. The virtual representation exits in the Azure IoT Operations edge run time, and in Azure Device Registry.
 
 Casing rules: Always lowercase when you're referring to a specific asset.
 
@@ -368,17 +357,37 @@ Applies to: IoT Hub
 
 ### Device
 
-In the context of IoT, a device is a piece of computer hardware that can collect or generate data, and send or exchange data with other devices and systems. Devices can connect to edge or cloud solutions. Typically, a device might be in a location you don't control (such as a third party business) and connects to the public internet.
+In the context of IoT, a device is a piece of computer hardware that can collect or generate data, and send or exchange data with other devices and systems.
 
-The following items are examples of IoT devices:
-- consumer wearables
-- connected cars
-- smart coffee machines
-- smart vending machines
-- crop sensors
-- connected thermostats
-- computers, phones, or tablets
-- other computer hardware with microcontroller units (MCUs) or microprocessor units (MPUs).
+It's helpful to categorize IoT devices as follows:
+
+- **Device category 1**: Devices that connect directly to the cloud. This category includes devices that connect to cloud services such as IoT Hub using standard protocols such as HTTP, MQTT, or AMQP. These devices aren't relevant in edge-based solutions such as Azure IoT Operations.
+
+- **Device category 2**: Devices that connect to the cloud through an edge-based proxy or gateway. Examples in this category include devices that:
+
+  - Connect indirectly to the cloud through the MQTT broker in Azure IoT Operations.
+  - Connect indirectly to IoT Hub through an Azure IoT Edge gateway.
+
+- **Device category 3**: These devices are virtual representations of physical assets such as servers, gateways, and cameras. The virtual representation has inbound endpoints for protocols such as ONVIF and OPC UA to enable connectivity and exists in the edge runtime. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
+
+The following items are examples of category 1 and 2 IoT devices:
+
+- Consumer wearables
+- Connected cars
+- Smart coffee machines
+- Smart vending machines
+- Crop sensors
+- Connected thermostats
+- Computers, phones, or tablets
+- Other computer hardware with microcontroller units (MCUs) or microprocessor units (MPUs).
+
+The following items are examples of category 3 devices:
+
+- Robotic arms and conveyor belts.
+- Industrial CNC machines, lathes, saws, and drills.
+- Medical diagnostic imaging machines.
+- Security video cameras.
+- Programmable logic controllers.
 
 Casing rules: Always lowercase.
 
