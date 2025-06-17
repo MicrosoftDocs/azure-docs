@@ -214,9 +214,9 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 The **Sustainability Benefits** capability is now embedded in Azure Migrate’s Business Case. It empowers IT, finance, and sustainability teams to:
 
 - **Estimate on-premises emissions (in MtCO₂e)**, using a standardized methodology considering compute, storage, power usage, and geographic carbon intensity.
-- **Compare against Azure emissions**, calculated using Microsoft’s internally validated carbon rate cards for each SKU and region.
-- **Visualize year-on-year reduction**, as workloads migrate from on-premises to Azure. 
-- **Align cross-functional stakeholders**, by presenting both **econimic** and **environmental** benefits in one unified view.
+- **Compare against Azure emissions**, calculated using Microsoft’s internally validated **carbon rate cards** for each SKU and region.
+- **Visualize year-on-year reduction** as workloads migrate from on-premises to Azure. 
+- **Align cross-functional stakeholders** by presenting both **econimic** and **environmental** benefits in one unified view.
 
 The method to calculate these emissions is explained below:
 
