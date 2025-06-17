@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial: Access Azure web app data with managed identity'
+title: 'Tutorial: Use managed identity to connect an Azure web app to an Azure SQL database'
 description: Learn how your app can use managed identity for secure access to Azure SQL Database and other Azure services without using passwords or secrets.
 author: cephalin
 ms.author: cephalin
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/06/2025
+ms.date: 06/17/2025
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ---
-# Tutorial: Use a managed identity to connect to an Azure web app and Azure SQL back end
+# Tutorial: Use managed identity to connect an Azure web app to an Azure SQL database without secrets
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. App Service also provides a [managed identity](overview-managed-identity.md) for your app, which is a turnkey solution for securing access to [Azure SQL](/azure/azure-sql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets, such as credentials in connection strings.
 
@@ -41,7 +41,7 @@ For guidance about using Azure Database for MySQL or Azure Database for PostgreS
   - .NET Framework 4.8 and above
   - .NET 6.0 and above
 
-- Allow client connection from your computer to Azure, so you can debug your app in Visual Studio. You can add the client IP address by following the steps at [Manage server-level IP firewall rules using the Azure portal](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+- Allow client connection from your computer to Azure, so you can debug your app in your development environment. You can add the client IP address by following the steps at [Manage server-level IP firewall rules using the Azure portal](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 - Sign in to Azure Cloud Shell or prepare your environment to use the Azure CLI.
   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
@@ -87,7 +87,7 @@ Run the following commands in the Bash environment of Azure Cloud Shell, or afte
    az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id <entra-id>
    ```
 
-## Use managed identity connectivity
+## Set up managed identity connectivity
 
 The following steps configure your app to connect to Azure SQL Database with a system-assigned managed identity. To use a user-assigned identity, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
 
@@ -127,60 +127,33 @@ Grant the identity the minimum permissions your app needs.
 
 The name of a system-assigned identity is always the same as the app name. The name of a system-assigned identity for a deployment slot is `<app-name>/slots/<slot-name>`. To grant permissions for a Microsoft Entra group, use the group's display name, such as `myAzureSQLDBAccessGroup`.
 
-# [Azure CLI](#tab/azcli)
+1. In a PowerShell command line, sign in to SQL Database by using the following SQLCMD command, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<entra-user>` with the Microsoft Entra user name you used to set up the database. This Entra user has admin access to the database server by default.
 
-<!--SQLCMD IS NO LONGER SUPPORTED IN BASH CLOUD SHELL as of April 2025. Use Powershell or portal.-->
-1. In your Bash terminal, sign in to SQL Database by using the following SQLCMD command, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<aad-user-name>` and `<aad-password>` with your Microsoft Entra user credentials.
-
-   ```bash
-   sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P <aad-password> -G -l 30
+   ```azurepowershell
+   sqlcmd -S <servername>.database.windows.net -d <db-name> -U <entra-user> -G -l 30
    ```
 
-1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs, replacing `<identity-name>` with the name of the managed identity in Microsoft Entra ID.
+   Follow the prompts to sign in.
+
+1. At the SQL prompt, run the following commands to grant the minimum permissions your app needs, replacing `<identity-name>` with the name of the managed identity in Microsoft Entra ID.
 
    ```sql
-   CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER With OBJECT_ID='xxx';
+   CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
    ALTER ROLE db_datareader ADD MEMBER [<identity-name>];
    ALTER ROLE db_datawriter ADD MEMBER [<identity-name>];
    ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
    GO
    ```
 
-1. Enter `EXIT` to return to the Bash prompt.
-
-# [Azure portal](#tab/portal)
-
-<!--These portal steps might or might not be correct.-->
-1. On your web app's page in the Azure portal, select **Identity** from the left navigation menu.
-
-1. On the **System assigned** tab, make sure **Status** is set to **On**.
-
-1. Under **Permissions**, select **Azure role assignments**.
-
-1. On the **Azure role assignments** page, select **Add role assignment (Preview)**.
-
-1. Use the **Add role assignment (Preview)** pane to add each of the following roles in turn.
-   - **Scope**: Select **SQL**.
-   - **Subscription**: Select your subscription.
-   - **Resource**: Select your SQL server.
-   - **Role**: Select each of the following roles:
-     - **SQL DB Contributor**
-     - **SQL Server Contributor**
-     - **Reader**
-
-   After adding each role, select **Save**.
-
------
-
 > [!NOTE]
 > The backend managed identity services [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you try to modify your SQL Database permissions after first getting a token with your app, you don't get a new token with updated permissions until the cached token expires.
 
-### Modify the connection string
+### Remove the existing connection string
 
-The same changes you made in *Web.config* or *appsettings.json* work with the managed identity. You can remove the existing connection string that Visual Studio created when it deployed your app the first time. To delete the connection string, run the following command, replacing `<app-name>` with the name of your app.
+The same changes you made in *Web.config* or *appsettings.json* work with the managed identity. You can remove the existing connection string you used when you deployed your app the first time. To delete the connection string, run the following command, replacing `<app-name>` with the name of your app.
 
 ```azurecli
-az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names MyDbConnection
+az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names <connection-string-name>
 ```
 
 ## Set up your development environment
@@ -202,9 +175,9 @@ Visual Studio Code is integrated with Microsoft Entra authentication through the
 1. In the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), select the **Azure** logo.
 1. In the **App Service** explorer, select **Sign in to Azure** and follow the instructions.
 
-# [Azure CLI or Visual Studio macOS](#tab/macosclient)
+# [Azure CLI](#tab/macosclient)
 
-Visual Studio for macOS isn't integrated with Microsoft Entra authentication. However, the Azure Identity client library can use tokens from Azure CLI.
+The Azure Identity client library can use tokens from Azure CLI.
 
 1. To enable development and debugging in Visual Studio, [install Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 1. Use your Microsoft Entra user to sign in to Azure with the command `az login --allow-no-subscriptions`.
@@ -218,52 +191,18 @@ The Azure Identity client library can use tokens from Azure PowerShell.
 
 -----
 
-## Modify your project
+## Modify your project and publish your app
 
-You can now use Microsoft Entra authentication to develop and debug your Azure SQL database-backed web app. The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
+You can now use Microsoft Entra authentication to develop and debug your Azure SQL database-backed web app.
 
-- An ASP.NET app uses [Entity Framework](/ef/ef6/) by default.
+The app uses a database context to connect with the database. You update the code to refer to the Entity Framework SQL Server provider, which depends on the modern [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) ADO.NET provider. The Entity Framework provider replaces the built-in `System.Data.SqlClient` SQL Server provider, and includes support for Microsoft Entra ID authentication methods. For more information, see [Microsoft.EntityFramework.SqlServer}](https://www.nuget.org/packages/Microsoft.EntityFramework.SqlServer).
+
+`[DbConfigurationType(typeof(MicrosoftSqlDbConfiguration))]` works locally to use `Microsoft.Data.SqlClient` for the database context, but because `System.Data.SqlClient` is hardcoded as the provider in Azure App Service, you need to extend `MicrosoftSqlDbConfiguration` to redirect references to `System.Data.SqlClient` to `Microsoft.Data.SqlClient` instead.
+
+The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
+
 - An ASP.NET Core app uses [Entity Framework Core](/ef/core/) by default.
-
-# [ASP.NET app](#tab/ef)
-
-1. With your app project open in Visual Studio, go to the **Package Manager Console**, add the NuGet package [Azure.Identity](https://www.nuget.org/packages/Azure.Identity), and update `Entity Framework`.
-
-   ```powershell
-   Install-Package Azure.Identity
-   Update-Package EntityFramework
-   ```
-   > [!NOTE]
-   > The token caching feature for Managed Identity is available starting from `Azure.Identity` version 1.8.0. To help reduce network port usage, consider updating `Azure.Identity` to this version or later.
-
-1. Open *Models/MyDbContext.cs*, and in the `DbContext` object, add the following code to the default constructor.
-
-   ```csharp
-   Azure.Identity.DefaultAzureCredential credential;
-   var managedIdentityClientId = ConfigurationManager.AppSettings["ManagedIdentityClientId"];
-   if(managedIdentityClientId != null ) {
-       //User-assigned managed identity Client ID is passed in via ManagedIdentityClientId
-       var defaultCredentialOptions = new DefaultAzureCredentialOptions { ManagedIdentityClientId = managedIdentityClientId };
-       credential = new Azure.Identity.DefaultAzureCredential(defaultCredentialOptions);
-   }
-   else {
-       //System-assigned managed identity or logged-in identity of Visual Studio, Visual Studio Code, Azure CLI or Azure PowerShell
-       credential = new Azure.Identity.DefaultAzureCredential();
-   }
-   var conn = (System.Data.SqlClient.SqlConnection)Database.Connection;
-   var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://database.windows.net/.default" }));
-   conn.AccessToken = token.Token;
-   ```
-   
-   The preceding code uses [Azure.Identity.DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to get a usable token for SQL Database from Microsoft Entra ID, and then adds it to the database connection. You can customize `DefaultAzureCredential`, but it's already versatile. When `DefaultAzureCredential` runs in App Service, it uses the app's system-assigned managed identity by default.
-
-   If you prefer to use a user-assigned managed identity, add a new app setting named `ManagedIdentityClientId` and enter the `Client Id` GUID from your user-assigned managed identity in the `value` field. When the code runs locally, it can get a token using the signed-in identity of Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell.
-
-1. Open *Web.config*, find the connection string called `MyDbConnection`, and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>"`, replacing `<server-name` and `<db-name>` with your server name and database name. This connection string is used by the default constructor in *Models/MyDbContext.cs*.
-   
-   You now have everything you need to connect to SQL Database when you debug in Visual Studio. Your code uses the Microsoft Entra user you configured when you set up your dev environment. Later, you can set up SQL Database to allow connection from the managed identity of your App Service app.
-
-1. Press **Ctrl**+**F5** to run the app. The CRUD app in your browser now connects to the Azure SQL database directly, using Microsoft Entra authentication. This setup lets you run database migrations from Visual Studio.
+- An ASP.NET app uses [Entity Framework](/ef/ef6/) by default.
 
 # [ASP.NET Core app](#tab/efcore)
 
@@ -273,35 +212,72 @@ You can now use Microsoft Entra authentication to develop and debug your Azure S
    Install-Package Microsoft.Data.SqlClient
    ```
 
-1. In [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md), the `MyDbConnection` connection string in *appsettings.json* isn't used at all yet. The local and Azure environments both get connection strings from their respective environment variables, to keep connection secrets out of the source file. But Microsoft Entra authentication doesn't use secrets.
-
-   In *appsettings.json*, replace the value of the `MyDbConnection` connection string with the following code, replacing `<server-name` and `<database-name>` with your server name and database name.
+1. In *appsettings.json*, replace the value of the connection string with the following code, replacing `<server-name` and `<database-name>` with your server name and database name.
 
    ```json
    "Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"
    ```
 
    > [!NOTE]
-   > You can use [Active Directory Default](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-default-authentication) authentication both on your local machine and in Azure App Service. The driver can acquire a token from Microsoft Entra ID in several different ways.
+   > You can use [Microsoft Entra Default](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-default-authentication) authentication both on your local machine and in Azure App Service. The driver can acquire a token from Microsoft Entra ID in several different ways.
    >
-   >If the app is deployed, the driver gets a token from the app's system-assigned managed identity. The driver can also authenticate with a user-assigned managed identity if you include `User Id=<client-id-of-user-assigned-managed-identity>;` in your connection string. If the app is running locally, it tries to get a token from Visual Studio, Visual Studio Code, or Azure CLI.
+   >If the app is deployed, the driver gets a token from the app's system-assigned managed identity. The driver can also authenticate with a user-assigned managed identity if you include `User Id=<client-id-of-user-assigned-managed-identity>;` in your connection string.
+   >
+   >The `DefaultAzureCredential` class caches the token in memory and retrieves it from Microsoft Entra ID just before expiration. You don't need any custom code to refresh the token.
 
    You now have everything you need to connect to SQL Database when you debug in Visual Studio. Your code uses the Microsoft Entra user you configured when you set up your dev environment. You can set up SQL Database later to allow connection from the managed identity of your App Service app.
 
-   The `DefaultAzureCredential` class caches the token in memory and retrieves it from Microsoft Entra ID just before expiration. You don't need any custom code to refresh the token.
+1. Run your app. The CRUD app in your browser connects to the Azure SQL database directly, using Microsoft Entra authentication. This setup lets you run database migrations from Visual Studio.
 
-1. When you run your app, the CRUD app in your browser now connects to the Azure SQL database directly, using Microsoft Entra authentication. This setup lets you run database migrations from Visual Studio.
+1. Publish your changes using the following Git commands:
 
----
-
-
-## Publish your changes
-
-Now, publish your changes to Azure. The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
+```bash
+git commit -am "configure managed identity"
+git push azure main
+```
 
 # [ASP.NET app](#tab/ef)
 
-Publish your changes from Visual Studio.
+1. From the Visual Studio **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.
+
+1. In the **Package Manager Console**, install the following packages:
+
+   ```powershell
+   Install-Package Microsoft.Data.SqlClient
+   Install-Package Microsoft.EntityFramework.SqlServer
+   ```
+
+1. In *Models/MyDatabaseContext.cs* or other file that configures the database context, add the following class:
+
+   ```csharp
+       public class AppServiceConfiguration : MicrosoftSqlDbConfiguration
+       {
+           public AppServiceConfiguration()
+           {
+               SetProviderFactory("System.Data.SqlClient", Microsoft.Data.SqlClient.SqlClientFactory.Instance);
+               SetProviderServices("System.Data.SqlClient", MicrosoftSqlProviderServices.Instance);
+               SetExecutionStrategy("System.Data.SqlClient", () => new MicrosoftSqlAzureExecutionStrategy());
+           }
+       }
+   ```
+
+1. Add the following attribute to *MyDatabaseContext.cs*:
+
+   ```csharp
+   [DbConfigurationType(typeof(AppServiceConfiguration))]
+   ```
+
+1. Open *web.config*, find the connection string called `MyDbConnection`, and replace its `connectionString` value with 
+
+   `"server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<db-name>;"`
+
+   replacing `<server-name` and `<db-name>` with your server name and database name. This connection string is used by the default constructor in *Models/MyDatabaseContext.cs*.
+   
+1. In *web.config*, remove the `entityFramework/providers/provider` section and line: `<provider invariantName="System.Data.SqlClient" .../>`.
+
+   You now have everything you need to connect to SQL Database when you debug in Visual Studio. Your code uses the Microsoft Entra user you configured when you set up your dev environment.
+
+1. In Visual Studio, press **Ctrl**+**F5** to run the app. The CRUD app in your browser now connects to the Azure SQL database directly, using Microsoft Entra authentication. This setup lets you run database migrations from Visual Studio.
 
 1. In **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
 
@@ -312,18 +288,9 @@ Publish your changes from Visual Studio.
    > [!IMPORTANT]
    > Ensure that your app service name doesn't duplicate any existing [app registrations](/azure/active-directory/manage-apps/add-application-portal), which leads to Principal ID conflicts.
 
-# [ASP.NET Core app](#tab/efcore)
-
-Publish your changes using the following Git commands:
-
-```bash
-git commit -am "configure managed identity"
-git push azure main
-```
-
 ---
 
-### View and test the app
+### Test the app
 
 When the new webpage shows your to-do list, your app is connecting to the database using the managed identity.
 
