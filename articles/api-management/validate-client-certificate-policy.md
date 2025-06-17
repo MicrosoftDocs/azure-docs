@@ -117,7 +117,7 @@ The following example performs a stricter validation by cheking whether the subj
     ignore-error="false">
     <identities>
         <identity
-            thumbprint="5f53963cfc280280e238424b82bd497d345b2219"
+            thumbprint="AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00"
             issuer-thumbprint="9d0c166a4446765a87c0ed3aa52650993129eaa4" />
     </identities>
 </validate-client-certificate> 
