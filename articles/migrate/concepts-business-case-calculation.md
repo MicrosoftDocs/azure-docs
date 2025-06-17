@@ -220,7 +220,13 @@ The **Sustainability Benefits** capability is now embedded in Azure Migrate’s 
 
 The method to calculate these emissions is explained below:
 
-| Category | Component | Logic |
+|**Category** | **Component** | **Logic** |
+| --- | --- | --- |
+| On-premises emissions  | Scope 1 emissions | Scope 1 includes emissions from on-premises generators that use fossil fuels. </br>  **Scope 1 Emissions** (MtCO₂e) </br> = 
+Number of Generators(1) * Avg Usage Hours(2 hours per year) * Fuel Consumption (0.4 L/hp hour) * Power Output (1000 hp) * Fuel Emission Factor (0.002 MtCO2e/L) * Power Alignment Factor | 
+
+
+|**Category** | **Component** | **Logic** |
 | --- | --- | --- |
 | On-premises emissions  | Scope 1 emissions | Scope 1 includes emissions from on-premises generators that use fossil fuels. </br>  **Scope 1 Emissions** (MtCO₂e) </br> = 
 Number of Generators(1) * Avg Usage Hours(2 hours per year) * Fuel Consumption (0.4 L/hp hour) * Power Output (1000 hp) * Fuel Emission Factor (0.002 MtCO2e/L) * Power Alignment Factor |
