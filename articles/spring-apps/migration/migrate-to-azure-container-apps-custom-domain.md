@@ -125,7 +125,7 @@ To use this feature, your java project must be Spring Boot 3.1+ and adding the f
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-starter-keyvault-jca</artifactId>
-    <version>5.21.0</version>
+    <version>5.23.0</version>
 </dependency>
 ```
 
