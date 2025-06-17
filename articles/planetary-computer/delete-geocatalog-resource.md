@@ -33,8 +33,6 @@ Before you continue with the deletion steps, make sure you're ready to delete th
 
 1. Navigate to your GeoCatalog resource within the Azure portal.
 
-    [ ![Screenshot of the Azure portal showing the GeoCatalog resource page with the 'Delete' button highlighted.](media/delete-geocatalog-resource.png) ](media/delete-geocatalog-resource.png#lightbox)
-
 1. From within the GeoCatalog Azure portal page, select **Delete**. You're presented with a **Delete resource** confirmation dialog box. 
 
    > [!NOTE]
