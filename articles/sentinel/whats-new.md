@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 05/22/2025
+ms.date: 06/15/2025
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 ms.custom:
   - build-2025
@@ -20,16 +20,20 @@ The listed features were released in the last six months. For information about 
 
 ## June 2025
 
-- [Codeless Connector Platform (CCP) renamed.](#microsoft-sentinel-data-connectors)
+- [Codeless Connector Platform (CCP) renamed.](#codeless-connector-platform-ccp-renamed-to-codeless-connector-framework-ccf)
 - [Connector Documentation consolidation](#connector-documentation-consolidation)
 
-### Microsoft Sentinel data connectors
+### Codeless Connector Platform (CCP) renamed to Codeless Connector Framework (CCF)
 
 The Microsoft Sentinel Codeless Connector Platform (CCP) has been renamed to **Codeless Connector Framework (CCF)**. The new name reflects the platform's evolution and avoids confusion with other platform-orineted services, while still providing the same ease of use and flexibility that users have come to expect.
 
-### Connector Documentation consolidation
+For more information, see [Create a codeless connector](create-codeless-connector.md) and [Unlock the potential of Microsoft Sentinel’s Codeless Connector Framework and do more with Microsoft Sentinel faster](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/exciting-announcements-new-data-connectors-released-using-the-codeless-connector/4421104).
 
-We have consolidated the connector reference documentation, merging the separate connector articles into a single, comprehensive reference table. You can find the new connector reference at [Microsoft Sentinel data connectors](/azure/sentinel/data-connectors-reference#sentinel-data-connectors). Select the connector name to expand the row and see the details.
+### Connector documentation consolidation
+
+We have consolidated the connector reference documentation, merging the separate connector articles into a single, comprehensive reference table. You can find the new connector reference at [Microsoft Sentinel data connectors](/azure/sentinel/data-connectors-reference#sentinel-data-connectors). 
+
+Select the connector name to expand the row and see the details.
 
 
 ## May 2025
