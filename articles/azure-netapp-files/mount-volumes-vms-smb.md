@@ -6,6 +6,8 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/29/2025
+ms.custom:
+  - build-2025
 ---
 # Mount SMB volumes for Windows virtual machines
 

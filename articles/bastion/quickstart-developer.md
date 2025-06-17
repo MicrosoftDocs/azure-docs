@@ -1,12 +1,13 @@
 ---
 title: 'Quickstart: Connect to VMs using Azure Bastion Developer: Azure portal'
 description: Learn how to connect to VMs using Bastion Developer.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: quickstart
 ms.date: 05/27/2025
-ms.author: cherylmc
+ms.author: abell
 ms.custom: references_regions
+# Customer intent: As a cloud administrator, I want to connect to virtual machines securely using a browser-based solution, so that I can manage resources without exposing public IP addresses or installing additional software.
 ---
 
 # Quickstart: Connect with Azure Bastion Developer

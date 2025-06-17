@@ -5,7 +5,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: This document describes how to place video on a web page based on resolution size to optimize video placement and enhance overall page performance.
 author: sloanster
 services: azure-communication-services
-ms.date: 04/08/2025
+ms.date: 06/06/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -81,9 +81,7 @@ Conversely, if the optimal count decreases and is [less than the current number 
 - You can place one 1080p incoming video with the rest smaller than 720p.
 - You can place two 720p incoming videos with the rest smaller than 720p.
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
-
-In [version 1.33](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1332-beta1-2025-01-30) and later of the public preview calling SDK supports placing 2 720p videos simultaneously on a web page.
+The WebJS calling SDK supports 1080p video streaming. To send a 1080p from a web desktop browser, you must use version 134.1 or higher of the [GA](https://www.npmjs.com/package/@azure/communication-calling) or [public preview](https://www.npmjs.com/package/@azure/communication-calling?activeTab=beta) caling SDK.
 
 For instance, in a group call where seven participants have their video cameras on, on each client page you can select two participants' videos are displayed at higher resolutions. These two participants set to show their video at 720p by setting their views on the web page to be 720 pixels in height by 1280 pixels in width (or greater). The remaining five participant videos should be set to a lower resolution, such as 360p or lower.
 
@@ -99,9 +97,6 @@ For instance, in a group call where seven participants have their video cameras 
    Simulcast isn't supported on all browsers, specifically mobile browsers and macOS Safari. If a participant using iOS Safari, Android Chrome, or macOS Safari renders a 720p video and another participant tries to render the same video at a lower resolution, both will receive the lower resolution. This happens because these devices prioritize smaller resolutions when simulcast sending is unsupported.
 
 ## How to configure to send a 1080p stream
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
-
-[Version 1.35.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.35.1-beta.1) and higher of the public preview calling SDK supports sending a 1080p video.
 
 When using the WebJS SDK to send video at a 1080p resolution, you must use the [Video Constraints API](../voice-video-calling/get-started-video-constraints.md?pivots=platform-web) and specify that you want to use 1080p. If the Video Constraints API isn't used and 1080p isn't specified, the default video stream resolution is 720p.
 

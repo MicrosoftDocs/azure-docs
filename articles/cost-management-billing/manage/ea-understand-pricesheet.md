@@ -8,6 +8,8 @@ ms.topic: conceptual
 ms.date: 01/22/2025
 ms.author: jkinma
 ms.reviewer: jkinma
+ms.custom:
+  - build-2025
 ---
 
 # Terms in your Enterprise Agreement price sheet

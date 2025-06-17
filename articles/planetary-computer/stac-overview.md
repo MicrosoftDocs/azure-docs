@@ -3,10 +3,12 @@ title: STAC framework in Microsoft Planetary Computer Pro
 description: This article provides an overview of the SpatioTemporal Asset Catalog (STAC) specification and how it's used by Microsoft Planetary Computer Pro.
 author: beharris
 ms.author: brentharris
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: concept-article
 ms.date: 04/09/2025
 #customer intent: As an Microsoft Planetary Computer Pro user, I want to understand the STAC Specification.
+ms.custom:
+  - build-2025
 ---
 
 # STAC overview for Microsoft Planetary Computer Pro

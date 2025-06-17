@@ -226,7 +226,7 @@ Office 365 GCC is paired with Microsoft Entra ID in Azure. Office 365 GCC High a
 
 | Connector | Azure | Azure Government |
 |--|--|--|
-| **[Office IRM](../../sentinel/data-connectors/microsoft-365-insider-risk-management.md)**  |  |  |
+| **[Office IRM](../../sentinel/data-connectors-reference.md#microsoft-365-insider-risk-management)**  |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
@@ -238,39 +238,39 @@ Office 365 GCC is paired with Microsoft Entra ID in Azure. Office 365 GCC High a
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)** |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)** <br>Shadow IT logs |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)** <br>Shadow IT logs |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)**                  <br>Alerts |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-defender-for-cloud-apps)**                  <br>Alerts |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Endpoint](../../sentinel/data-connectors/microsoft-defender-for-endpoint.md)** |  |  |
+| **[Microsoft Defender for Endpoint](../../sentinel/data-connectors-reference.md#microsoft-defender-for-endpoint)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Defender for Identity](../../sentinel/data-connectors/microsoft-defender-for-identity.md)** |  |  |
+| **[Microsoft Defender for Identity](../../sentinel/data-connectors-reference.md#microsoft-defender-for-identity)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| **[Microsoft Defender for Office 365](../../sentinel/data-connectors/microsoft-defender-for-office-365.md)** |  |  |
+| **[Microsoft Defender for Office 365](../../sentinel/data-connectors-reference.md#microsoft-defender-for-office-365-preview)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| - **[Microsoft Power BI](../../sentinel/data-connectors/microsoft-powerbi.md)** | |  |
+| - **[Microsoft Power BI](../../sentinel/data-connectors-reference.md#microsoft-powerbi)** | |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| - **[Microsoft Project](../../sentinel/data-connectors/microsoft-project.md)** |  |  |
+| - **[Microsoft Project](../../sentinel/data-connectors-reference.md#microsoft-project)** |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| **[Office 365](../../sentinel/data-connectors/office-365.md)** |  |  |
+| **[Office 365](../../sentinel/data-connectors-reference.md#microsoft-365-formerly-office-365)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |

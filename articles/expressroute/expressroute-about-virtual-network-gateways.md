@@ -30,12 +30,11 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a higher-capacity gateway SKU, you can use the [Gateway Migration tool](expressroute-about-virtual-network-gateways.md) in either the Azure portal or PowerShell. The following upgrades are supported:
+You can upgrade your gateway to a higher-capacity SKU within the same SKU family, that is  Non-Az-enabled or Az-enabled gateway. 
 
-* Non-Az-enabled SKU on Basic IP to Non-Az-enabled SKU on Standard IP
-* Non-Az-enabled SKU on Basic IP to Az-enabled SKU on Standard IP
-
-For more information, see [Migrate to an availability zone-enabled gateway](expressroute-howto-gateway-migration-powershell.md).
+For example, you can upgrade:
+* From one Non-Az-enabled SKU to another Non-Az-enabled SKU
+* From one Az-enabled SKU to another Az-enabled SKU
 
 For all other downgrade scenarios, you need to delete and re-create the gateway, which incurs downtime.
 
@@ -139,7 +138,7 @@ ErGwScale is free of charge during the preview. For information about ExpressRou
 | Scale unit | Bandwidth (Gbps) | Packets per second | Connections per second | Maximum VM connections <sup>1</sup> | Maximum number of flows |
 |--|--|--|--|--|--|
 | 1-10 | 1 | 100,000 | 7,000 | 2,000 | 100,000 |
-| 11-40 | 1 | 100,000 | 7,000 | 1,000 | 100,000 |
+| 11-40 | 1 | 200,000 | 7,000 | 1,000 | 100,000 |
 
 ### Sample performance with scale unit
 
@@ -147,7 +146,7 @@ ErGwScale is free of charge during the preview. For information about ExpressRou
 |--|--|--|--|--|--|
 | 10 | 10 | 1,000,000 | 70,000 | 20,000 | 1,000,000 |
 | 20 | 20 | 2,000,000 | 140,000 | 30,000 | 2,000,000 |
-| 40 | 40 | 4,000,000 | 280,000 | 50,000 | 4,000,000 |
+| 40 | 40 | 8,000,000 | 280,000 | 50,000 | 4,000,000 |
 
 <sup>1</sup> Maximum VM connections scale differently beyond 10 scale units. The first 10 scale units provide capacity for 2,000 VMs per scale unit. Scale units 11 and above provide 1,000 more VM capacity per scale unit.
 

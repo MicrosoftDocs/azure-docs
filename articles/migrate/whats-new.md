@@ -14,6 +14,11 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (June) 2025
+
+- Public preview: Azure Migrate supports sustainability efforts by offering Sustainability insights in its Business Case. It empowers IT, finance, and sustainability teams estimate on-premise emissions, compare them with Azure emissions, track yearly reductions, and show both cost and environmental benefits in a single view. This enables customers to make smart migration choices that reduce carbon emissions and support their organization’s ESG goals.
+
+
 ## Update (May 2025)
 
 - General availability: Azure Migrate enhances support for [Premium v2 SSD Disks](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli). This offers a seamless experience to migrate their on-premise workloads to Azure and benefit from the with advanced disk options that offer greater flexibility and enhanced performance of Pv2 disks in Azure. 

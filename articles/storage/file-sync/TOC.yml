@@ -214,8 +214,6 @@
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
-  - name: Samples
-    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
   - name: Azure Files and Azure NetApp Files comparison
     href: ../files/storage-files-netapp-comparison.md?toc=/azure/storage/file-sync/toc.json
   - name: Manage storage in Azure-independent clouds
