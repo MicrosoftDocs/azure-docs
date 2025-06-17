@@ -30,7 +30,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
     header-name="name of HTTP header containing the token (alternatively, use query-parameter-name or token-value attribute to specify token)"
     query-parameter-name="name of query parameter used to pass the token (alternative, use header-name or token-value attribute to specify token)"
     token-value="expression returning the token as a string (alternatively, use header-name or query-parameter attribute to specify token)"
-    authentication-endpoint="Microsoft Entra ID environment endpoint, prefix https:// is optional"
+    authentication-endpoint="Microsoft Entra ID environment endpoint"
     failed-validation-httpcode="HTTP status code to return on failure"
     failed-validation-error-message="error message to return on failure"
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
