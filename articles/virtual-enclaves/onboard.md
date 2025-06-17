@@ -111,6 +111,8 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 9. Once `Registered`, proceed to [next steps](#next-steps).
 
+For reference, these are the generic instructions for enabling a [preview feature](../azure-resource-manager/management/preview-features).
+
 
 ## Next Steps
 
