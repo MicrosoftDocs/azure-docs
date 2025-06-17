@@ -28,7 +28,9 @@ The **KQL queries** page under **Data lake exploration** enables you to write an
 The KQL query editor allows you to edit and run KQL queries against data lake resources. You can create jobs to promote data from the lake to the Analytics tier. Jobs can be run on-demand or scheduled. The **Jobs** page provides an interface to manage jobs, enabling, disabling, editing, or deleting jobs. For more information, see [Create jobs in the Microsoft Sentinel data lake (Preview)](kql-jobs.md).
 
 ## Permissions
-To access data lake KQL queries, you must have one of the following roles:
+
+To access data lake KQL queries, you must have one of the following Entra ID roles:
+
 + Global reader 
 + Security reader
 + Security operator 
@@ -130,7 +132,7 @@ Once you have verified that your connection is working, consider exploring addit
 
 ## Sample KQL queries
  
-For sample queries, see [KQL sample queries for the data lake](kql-samples.md). You can use these queries as a starting point and modify them to suit your needs. For examples using machine learning, see [KQL and machine learning in the Microsoft Sentinel data lake](kql-and-machine-learning.md)
+For sample queries, see [KQL sample queries for the data lake](kql-samples.md). You can use these queries as a starting point and modify them to suit your requirements. For examples using machine learning, see [KQL and machine learning in the Microsoft Sentinel data lake](kql-and-machine-learning.md)
 
 
 ### Query limitations
