@@ -22,7 +22,7 @@ The Business case capability helps you build a business proposal to understand h
 - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
 - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
 - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
-- Sustainability insights indicate a reduction in carbon emissions when moving from on-premises to Azure.
+- Sustainability insights to indicate a reduction in carbon emissions when moving from on-premises to Azure.
 
 Other key features:
 
@@ -214,7 +214,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 The **Sustainability Benefits** capability is now embedded in Azure Migrate’s Business Case. It empowers IT, finance, and sustainability teams to:
 
 - **Estimate on-premises emissions (in MtCO₂e)**: It uses a standard method that includes compute, storage, power usage, and location-based carbon intensity.
-- **Compare with Azure emissions**: It uses Microsoft’s verified carbon rate cards for each SKU and region.
+- **Compare against Azure emissions**: It uses Microsoft’s verified carbon rate cards for each SKU and region.
 - **Visualize year-on-year reduction**: It visualizes annual reductions as workloads move from on-premises to Azure.
 - **Align cross-functional stakeholders**: It bring the stakeholders together by presenting both economic and environmental benefits in one unified view.
 
@@ -224,7 +224,7 @@ The method to calculate these emissions is explained below:
 | --- | --- | --- |
 | On-premises emissions | Scope 1 emissions | Scope 1 includes emissions from on-premises generators that use fossil fuels. <br/><br/>  **Scope 1 emissions** (MtCO₂e)  = Number of Generators(1) * Avgerage usage hours(2 hours per year) * Fuel consumption (0.4 L/hp hour) * Power output (1000 hp) * Fuel emission factor (0.002 MtCO2e/L) * Power alignment factor.
 |  | Scope 2 emissions – Compute emissions + Storage emissions | Scope 2 includes indirect emissions from the electricity used by physical servers. <br/><br/> **Scope 2 compute emissions** (MtCO2e) = Total cores count * Hours in a year * on-premises TDP (0.009 kWh per core) * on-premises PUE (1.8) * on-premises carbon intensity (based on region) * (1-% Power from renewable sources). <br/><br/> **Scope 2 storage emissions** (MtCO2e) = Total storage capacity (TB) * on-premises storage power rating (10 kWh/year per TB) * on-premises PUE (1.8) * on-premises carbon intensity (based on region) * (1-% Power from renewable sources). </br><br/> **Note**: These calculations use the market view for emissions. To calculate location view, follow the same steps but skip the adjustment for renewable energy.
-|  | **Scope 3 emissions** | Scope 3 accounts for emissions embedded in the manufacture, transport, and end-of-life of physical servers. <br/><br/> **Scope 3 compute emissions** (MtCO2e) – Total physical servers * {Manufacturing share of total emissions(18.2%) + Transport share of total emissions(0.1%) + End-of-life share of total emissions(0.5%)}  <br/><br/> **Scope 3 storage emissions (MtCO2e)** –  Total storage (in TB) * {Manufacturing share of total emissions(58 MtCO2e) + Transport share of total emissions(2 MtCO2e) + End-of-life share of total emissions(1 MtCO2e)} (MtCO2e) – Total physical servers * {Manufacturing share of total emissions(18.2%) + Transport share of total emissions(0.1%) + End-of-life share of total emissions(0.5%)}
+|  | Scope 3 emissions | Scope 3 accounts for emissions embedded in the manufacture, transport, and end-of-life of physical servers. <br/><br/> **Scope 3 compute emissions** (MtCO2e) – Total physical servers * {Manufacturing share of total emissions(18.2%) + Transport share of total emissions(0.1%) + End-of-life share of total emissions(0.5%)}  <br/><br/> **Scope 3 storage emissions (MtCO2e)** –  Total storage (in TB) * {Manufacturing share of total emissions(58 MtCO2e) + Transport share of total emissions(2 MtCO2e) + End-of-life share of total emissions(1 MtCO2e)} (MtCO2e) – Total physical servers * {Manufacturing share of total emissions(18.2%) + Transport share of total emissions(0.1%) + End-of-life share of total emissions(0.5%)}
 | Azure emissions | Scope 1,Scope 2, and Scope 3 | Azure emissions are powered by Microsoft’s carbon rate card. For more information, see [calculation methodology](/industry/sustainability/sustainability-data-solutions-fabric/azure-emissions-insights-calculation-methodology).The calculation methodology ensures consistency and transparency across Microsoft’s sustainability offerings.|
 
 ### On-premises with Arc and Azure (future state)
