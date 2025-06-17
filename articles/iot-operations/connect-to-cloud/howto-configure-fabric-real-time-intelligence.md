@@ -199,7 +199,8 @@ Then, configure the data flow endpoint with system-assigned managed identity set
 
 # [Operations experience](#tab/portal)
 
-> [!NOTE] Supported?
+> [!NOTE]
+> Supported?
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 

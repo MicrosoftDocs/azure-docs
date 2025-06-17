@@ -544,7 +544,7 @@ This configuration creates a managed identity with the default audience, which i
 Not supported in the operations experience.
 
 
-[Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 ```json
 {
