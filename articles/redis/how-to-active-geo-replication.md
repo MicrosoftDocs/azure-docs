@@ -1,21 +1,22 @@
 ---
-title: Configure active geo-replication for Azure Managed Redis (preview) instances
+title: Configure active geo-replication for Azure Managed Redis instances
 description: Learn how to replicate your Azure Managed Redis instances across Azure regions.
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
-ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
-ms.date: 01/15/2025
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Configure active geo-replication for Azure Managed Redis (preview) instances
+# Configure active geo-replication for Azure Managed Redis instances
 
 In this article, you learn how to configure an active geo-replicated cache using the Azure portal.
 
-Active geo-replication groups up to five instances of Azure Managed Redis (preview) into a single cache that spans across Azure regions. All instances act as the local, primary caches. An application decides which instance or instances to use for read and write requests.
+Active geo-replication groups up to five instances of Azure Managed Redis into a single cache that spans across Azure regions. All instances act as the local, primary caches. An application decides which instance or instances to use for read and write requests.
 
 > [!NOTE]
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
@@ -63,21 +64,13 @@ There are a few restrictions when using active geo replication:
 
 ## Create or join an active geo-replication group
 
-1. When creating a new Azure Managed Redis resource, select the **Advanced** tab. Complete the first part of the form including clustering policy. For more information on choosing **Clustering policy**, see [Clustering in Azure Managed Redis](architecture.md#cluster-policies).
+1. When creating a new Azure Managed Redis resource, select the **Active geo-replication** tab. In the working pane, select either **Create new group** or **Join existing group**. Complete the forms as needed.
 
-1. Select **Configure** to set up **Active geo-replication**.
-
-   :::image type="content" source="media/how-to-active-geo-replication/managed-redis-active-geo-replication-configure.png" alt-text="Screenshot of advanced tab of create new Redis cache page.":::
-
-1. Create a new replication group for a first cache instance. Or, select an existing one from the list.
-
-   :::image type="content" source="media/how-to-active-geo-replication/managed-redis-active-geo-replication-new-group.png" alt-text="Screenshot showing replication groups.":::
+    1. Create a new replication group for a first cache instance. Or, select an existing one from the list.
 
 1. Select **Configure** to finish.
 
-1. Wait for the first cache to be created successfully. When complete, you see **Configured** set for **Active geo-replication**. Repeat the above steps for each cache instance in the geo-replication group.
-
-   :::image type="content" source="media/how-to-active-geo-replication/managed-redis-active-geo-replication-configured.png" alt-text="Screenshot showing active geo-replication is configured.":::
+1. Wait for the first cache to be created successfully. When complete, you see **Configured** set for **Active geo-replication**. Repeat the previous steps for each cache instance in the geo-replication group.
 
 ## Add an existing instance to an active geo-replication group
 
@@ -113,13 +106,9 @@ You should remove the unavailable cache because the remaining caches in the repl
 
 1. Select to **Active geo-replication** in the Resource menu on the left to see the settings in the working pane.
 
-    :::image type="content" source="media/how-to-active-geo-replication/managed-redis-active-geo-replication-group.png" alt-text="Screenshot of active geo-replication group.":::
-
 1. Select the cache that you need to force-unlink by checking the box.
 
 1. Select **Force unlink** and then **OK** to confirm.
-
-    :::image type="content" source="media/how-to-active-geo-replication/managed-redis-cache-active-geo-replication-unlink.png" alt-text="Screenshot of unlinking in active geo-replication.":::
 
 1. Once the affected region's availability is restored, you need to delete the affected cache, and recreate it to add it back to your replication group.
 
@@ -213,8 +202,6 @@ Once each instance is scaled to the same tier and size, all scaling locks are re
 
 Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and `FLUSHDB` Redis commands with any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** working pane.
 
-:::image type="content" source="media/how-to-active-geo-replication/managed-redis-active-flush.png" alt-text="Screenshot showing Active geo-replication selected in the Resource menu and the Flush cache feature has a red box around it.":::
-
 ## Geo-replication Metric
 
 The _Geo Replication Healthy_ metric in the Azure Managed Redis helps monitor the health of geo-replicated clusters. You use this metric to monitor the sync status among geo-replicas.  
@@ -260,7 +247,6 @@ The Azure CLI and PowerShell can also be used to trigger a flush operation. For 
 
 Manage access to the feature using [Azure role-based access control](/azure/role-based-access-control/overview). Only authorized users should be given access to flush all caches.
 
-## Next steps
+## Related content
 
 - [Azure Managed Redis service tiers](overview.md#choosing-the-right-tier)
-- [High availability for Azure Cache for Redis](high-availability.md)

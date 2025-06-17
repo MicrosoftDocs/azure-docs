@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: primittal
+ms.custom: cpx
 ---
 
 # Create SQL Server license assignments for Azure Hybrid Benefit

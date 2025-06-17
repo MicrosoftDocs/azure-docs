@@ -8,12 +8,14 @@ metadata:
   ms.service: azure-active-directory
   
   ms.topic: faq
-  ms.date: 10/01/2024
+  ms.date: 06/12/2024
   ms.author: godonnell
   ms.subservice: b2c
   ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
 title: 'Azure AD B2C: Frequently asked questions (FAQ)'
 summary: | 
+  [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+  
   This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
   
 sections:
@@ -22,7 +24,7 @@ sections:
       - question: |
           Azure AD B2C end of sale
         answer: |
-          Effective May 1, 2025 Azure AD B2C will no longer be available to purchase for new customers, but current Azure AD B2C customers can continue using the product. The product experience, including creating new tenants or user flows, will remain unchanged. The operational commitments, including service level agreements (SLAs), security updates, and compliance, will also remain unchanged. We'll continue supporting Azure AD B2C until at least May 2030. More information, including migration plans will be made available. Contact your account representative for more information and to learn more about Microsoft Entra External ID.
+          Effective **May 1, 2025** Azure AD B2C will no longer be available to purchase for new customers, but current Azure AD B2C customers can continue using the product. The product experience, including creating new tenants or user flows, will remain unchanged. The operational commitments, including service level agreements (SLAs), security updates, and compliance, will also remain unchanged. We'll continue supporting Azure AD B2C until at least May 2030. More information, including migration plans will be made available. Contact your account representative for more information and to learn more about Microsoft Entra External ID.
       - question: |
           What is Microsoft Entra External ID?
         answer: |
@@ -267,7 +269,7 @@ sections:
       - question: |
           Can I purchase Microsoft Entra ID P1 and Microsoft Entra ID P2 licensing for my Azure AD B2C tenant?
         answer: |
-          No, Azure AD B2C tenants don't use Microsoft Entra ID P1 or Microsoft Entra ID P2 licensing. Azure AD B2C uses [Azure AD B2C Premium P1 or P2](billing.md#change-your-azure-ad-pricing-tier) licenses, which are different from Microsoft Entra ID P1 or P2 licenses for a Standard Microsoft Entra tenant. Azure AD B2C tenants natively support some features that are similar to Microsoft Entra ID P1 or P2 features, as explained in [Supported Microsoft Entra ID features](supported-azure-ad-features.md).
+          No, Azure AD B2C tenants don't use Microsoft Entra ID P1 or Microsoft Entra ID P2 licensing. Azure AD B2C uses Premium P1 or P2 licenses, which are no longer available for purchase as of May 1, 2025. They are different from Microsoft Entra ID P1 or P2 licenses for a Standard Microsoft Entra tenant. Azure AD B2C tenants natively support some features that are similar to Microsoft Entra ID P1 or P2 features, as explained in [Supported Microsoft Entra ID features](supported-azure-ad-features.md).
          
       - question: |
           Can I use a group-based assignment for Microsoft Entra Enterprise Applications in my Azure AD B2C tenant?

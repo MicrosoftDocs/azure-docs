@@ -122,4 +122,5 @@ While the redis-cli is a useful tool, you can also use the following other metho
 
 ## Related content
 
-Get started by creating a [new Enterprise-tier cache](quickstart-create-redis-enterprise.md).
+- Azure CLI using [az redis list-keys](/cli/azure/redis#az-redis-list-keys)
+- Azure PowerShell using [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)

@@ -2,11 +2,11 @@
 title: Server-sent events and Application Gateway for Containers
 description: Learn how server-sent events interact with Azure Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 5/8/2025
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Server-sent events

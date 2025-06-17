@@ -5,7 +5,7 @@ description: Learn about the basics of the Azure Digital Twins query language.
 author: baanders
 ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ---
 

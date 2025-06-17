@@ -1,12 +1,12 @@
 ---
 title: Onboard to the Microsoft Customer Agreement (MCA)
 description: This guide helps customers who buy Microsoft software and services through a Microsoft account manager to set up an MCA contract.
-author: bandersmsft
+author: KennyDay
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 03/28/2025
-ms.author: banders
+ms.date: 05/22/2025
+ms.author: kenday
 ms.reviewer: clionabolger
 ---
 
@@ -234,6 +234,7 @@ This section of the onboarding guide describes the steps you follow to migrate f
 - EA API keys - Azure Enterprise Reporting APIs are retired aren't available on MCA. Instead, you use Microsoft Cost Management APIs. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
 - Management groups – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+- Tax exemption certificates - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 Here are some points to consider after migration.
 

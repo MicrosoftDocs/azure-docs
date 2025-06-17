@@ -7,8 +7,10 @@ items:
     href: overview.md 
   - name: About App Service Environments
     href: environment/overview.md
-- name: Compare web hosting options
-  href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Compare web hosting options
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+- name: Integrate AI with App Service
+  href: overview-ai-integration.md
 - name: Get started
   items:
   - name: Get started
@@ -51,7 +53,15 @@ items:
         href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=/azure/bread/toc.json&toc=/azure/app-service/toc.json
     - name: AI
       items:
-        - name: Local SLM with sidecar extension
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-dotnet.md
+        - name: RAG with Azure OpenAI and your data
+          href: tutorial-ai-openai-search-dotnet.md
+        - name: RAG Azure OpenAI and Azure SQL
+          href: deploy-intelligent-apps-dotnet-to-azure-sql.md
+        - name: Invoke OpenAPI app from Azure AI Agent
+          href: invoke-openapi-web-app-from-azure-ai-agent-service.md
+        - name: Chatbot with local SLM
           href: tutorial-ai-slm-dotnet.md
 
   - name: Java
@@ -74,6 +84,8 @@ items:
       items:
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
+        - name: Quarkus with PostgreSQL
+          href: tutorial-java-quarkus-postgresql-app.md
         - name: Tomcat with MySQL
           href: tutorial-java-tomcat-mysql-app.md             
         - name: Java Tomcat to Postgres
@@ -94,7 +106,11 @@ items:
         href: /azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
     - name: AI
       items:
-        - name: Local SLM with sidecar extension
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-java.md
+        - name: RAG with Azure OpenAI with your data
+          href: tutorial-ai-openai-search-java.md
+        - name: Chatbot with local SLM
           href: tutorial-ai-slm-spring-boot.md
   - name: Node.js
     items:
@@ -114,7 +130,11 @@ items:
         href: tutorial-connect-app-access-storage-javascript.md
     - name: AI
       items:
-        - name: Local SLM with sidecar extension
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-node.md
+        - name: RAG with Azure OpenAI and your data
+          href: tutorial-ai-openai-search-nodejs.md
+        - name: Chatbot with local SLM
           href: tutorial-ai-slm-expressjs.md
   - name: Python
     items:
@@ -134,8 +154,14 @@ items:
         href: tutorial-python-postgresql-app-fastapi.md
     - name: AI
       items:
-        - name: Local SLM with sidecar extension
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-python.md
+        - name: RAG with Azure OpenAI and your data
+          href: tutorial-ai-openai-search-python.md
+        - name: Chatbot with local SLM
           href: tutorial-ai-slm-fastapi.md
+        - name: Web app from Azure AI Foundry
+          href: /azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
   - name: PHP
     items:
     - name: Quickstart
@@ -219,6 +245,14 @@ items:
           href: /azure/templates/microsoft.web/allversions
 - name: Logs and monitoring
   items:
+    - name: Troubleshoot and resolve issues with an agent
+      items:
+        - name: Overview
+          href: sre-agent-overview.md
+        - name: Use an SRE agent
+          href: sre-agent-usage.md
+        - name: SRE Agent tutorial
+          href: tutorial-sre-agent.md    
     - name: Monitor App Service
       href: monitor-app-service.md
     - name: Monitoring data reference
@@ -437,7 +471,9 @@ items:
     - name: Manage App Service plan
       href: app-service-plan-manage.md
     - name: Configure PremiumV3 tier
-      href: app-service-configure-premium-tier.md
+      href: app-service-configure-premium-v3-tier.md
+    - name: Configure PremiumV4 tier
+      href: app-service-configure-premium-v4-tier.md      
     - name: Back up and restore app
       href: manage-backup.md
     - name: Clone app
@@ -468,14 +504,6 @@ items:
           href: tutorial-custom-container.md
         - name: Deploy with Azure Pipelines
           href: deploy-container-azure-pipelines.md
-- name: Integrate AI with App Service
-  items:
-    - name: Deploy an application that uses OpenAI on App Service
-      href: deploy-intelligent-apps.md
-    - name: Deploy a .NET app with Azure OpenAI and Azure SQL
-      href: deploy-intelligent-apps-dotnet-to-azure-sql.md
-    - name: Invoke OpenAPI app from Azure AI Agent
-      href: invoke-openapi-web-app-from-azure-ai-agent-service.md
 - name: WebJobs
   items:
     - name: Overview
@@ -534,7 +562,7 @@ items:
     - name: Build your skills with Microsoft Learn training
       href: /training/browse/
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-service/
     - name: Quota Information

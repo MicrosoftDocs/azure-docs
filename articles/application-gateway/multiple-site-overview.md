@@ -2,10 +2,10 @@
 title: Hosting multiple sites on Azure Application Gateway
 description: This article provides an overview of the Azure Application Gateway multi-site support. Examples are provided of rule priority and the order of evaluation for rules applied to incoming requests. Application Gateway rule priority evaluation order is described in detail. Conditions and limitations for using wildcard rules are provided.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.date: 03/05/2025
-ms.author: greglin
+ms.author: mbender
 ms.topic: concept-article
 ---
 
@@ -31,7 +31,7 @@ For example, if you have 2 listeners with associated host names of `*.contoso.co
 
 The ordering of rules can be established by providing a **Priority** field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. If incoming client traffic matches with multiple listeners, the request routing rule with highest priority is used to serve the request. Each request routing rule must have a unique priority value.
 
-The priority field only impacts the order of evaluation of a request routing rule, this wont change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
+The priority field only impacts the order of evaluation of a request routing rule, this won't change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
 
 > [!NOTE]
 > To use rule priority, you must specify rule priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created must have a rule priority field value as part of its configuration. 

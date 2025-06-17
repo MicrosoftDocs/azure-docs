@@ -2,18 +2,15 @@
 title: Deploy Azure NetApp Files application volume group for Oracle using Azure Resource Manager 
 description: Describes how to use an Azure Resource Manager (ARM) template to deploy Azure NetApp Files application volume group for Oracle.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - build-2025
 ms.topic: concept-article
-ms.date: 10/20/2023
+ms.date: 02/20/2025
 ms.author: anfdocs
 ---
 # Deploy application volume group for Oracle using Azure Resource Manager
@@ -67,15 +64,15 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
 
     [ ![Screenshot that shows the required fields on the custom deployment page.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-required.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-required.png#lightbox)   
 
-8.	Click **Review + Create** to continue.
+8.	Select **Review + Create** to continue.
 
     [ ![Screenshot that shows the completed fields on the custom deployment page.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-completed.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-completed.png#lightbox)    
 
-9.	The **Create** button is enabled if there are no validation errors. Click **Create** to continue. 
+9.	The **Create** button is enabled if there are no validation errors. Select **Create** to continue. 
 
     [ ![Screenshot that shows the Create button on the custom deployment page.](./media/volume-hard-quota-guidelines/custom-deploy-oracle-create.png) ](./media/volume-hard-quota-guidelines/custom-deploy-oracle-create.png#lightbox) 
 
-10.	The overview page denotes "Your deployment is in progress" then "Your deployment is complete."
+10.	When in process, the overview page denotes "Your deployment is in progress." When complete, it states "Your deployment is complete."
         
 12.	You can display a summary for the volume group.	You can also display the volumes in the volume group under the NetApp account.
 
