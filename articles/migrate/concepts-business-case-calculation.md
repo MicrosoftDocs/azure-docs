@@ -22,7 +22,7 @@ The Business case capability helps you build a business proposal to understand h
 - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
 - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
 - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
-- Sustainability insights show carbon emissions reduce when moving from on-premises to Azure.
+- Sustainability insights indicate a reduction in carbon emissions when moving from on-premises to Azure.
 
 Other key features:
 
@@ -213,9 +213,9 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 
 The **Sustainability Benefits** capability is now embedded in Azure Migrate’s Business Case. It empowers IT, finance, and sustainability teams to:
 
-- **Estimate on-premises emissions (in MtCO₂e)**: It uses a standard method that includes compute, storage, power use, and location-based carbon intensity.
+- **Estimate on-premises emissions (in MtCO₂e)**: It uses a standard method that includes compute, storage, power usage, and location-based carbon intensity.
 - **Compare with Azure emissions**: It uses Microsoft’s verified carbon rate cards for each SKU and region.
-- **Visualize year-on-year reduction**: It visualizes yearly reduction as workloads move from on-premises to Azure.
+- **Visualize year-on-year reduction**: It visualizes annual reductions as workloads move from on-premises to Azure.
 - **Align cross-functional stakeholders**: It bring the stakeholders together by presenting both economic and environmental benefits in one unified view.
 
 The method to calculate these emissions is explained below:

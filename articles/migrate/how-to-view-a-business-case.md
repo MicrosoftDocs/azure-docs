@@ -43,12 +43,15 @@ There are four major reports that you need to review:
 ## Overview report
 
 ### Potential savings
+
 This card covers your potential total cost of ownership savings based on the chosen migration strategy. It includes one year savings from compute, storage, network, labor, and facilities cost (based on assumptions) to help you envision how Azure benefits can turn into cost savings. You can see the insights of different cost categories in the **On-premises vs Azure** report.
 
 ### Estimated on-premises cost
+
 It covers the cost of running all the servers scoped in the business case using some of the industry benchmarks. It includes one time cost for some of the capital expenditures like hardware acquisition etc., and annual cost for other components that you might pay as operating expenses like maintenance etc.
 
 ### Estimated Azure cost
+
 It covers the cost of all servers and workloads that have been identified as ready for migration/modernization as per the recommendation. Refer to the respective [Azure IaaS](how-to-view-a-business-case.md#azure-iaas-report) and [Azure PaaS](how-to-view-a-business-case.md#azure-paas-report) report for details. The Azure cost is calculated based on the right sized Azure configuration, ideal migration target, and most suitable pricing offers for your workloads. You can override the migration strategy, target location, or other settings in the 'Azure cost' assumptions to see how your savings could change by migrating to Azure.
 
 ### YoY estimated current vs future state cost
