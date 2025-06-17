@@ -7,6 +7,7 @@ ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 02/10/2025
 ms.author: abell
+# Customer intent: "As a cloud administrator, I want to connect to a Windows VM using SSH through a secure service, so that I can manage the VM without exposing sensitive ports to the internet."
 ---
 
 # Create an SSH connection to a Windows VM using Azure Bastion
