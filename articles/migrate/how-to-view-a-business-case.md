@@ -73,10 +73,10 @@ It shows the potential savings with respect to securing your migration with Micr
 
 The **Sustainability Benefits** capability is now embedded in Azure Migrate’s Business Case. It empowers IT, finance, and sustainability teams to:
 
-- **Estimate on-premises emissions (in MtCO₂e)**: It uses a standard method that includes compute, storage, power use, and location-based carbon intensity.
-- **Compare with Azure emissions**: It uses Microsoft’s verified carbon rate cards for each SKU and region.
-- **Visualize year-on-year reduction**: It visualizes yearly reduction as workloads move from on-premises to Azure.
-- **Align cross-functional stakeholders**: It bring the stakeholders together by presenting both economic and environmental benefits in one unified view.
+- **Estimate on-premises emissions** (in MtCO₂e), using a standardized methodology considering compute, storage, power usage, and geographic carbon intensity. 
+- **Compare against Azure emissions**, calculated using Microsoft’s internally validated **carbon rate cards** for each SKU and region. 
+- Visualize year-on-year reductions as workloads migrate from on-premises to Azure. 
+- **Align cross-functional stakeholders** by presenting both **economic** and environmental benefits in one unified view. 
 
 ### Discovery insights
 
@@ -170,7 +170,7 @@ This section contains the cost estimate by recommended target (Annual cost inclu
 - The number and SKU of AVS hosts used in a business case aligns to the SKUs available in the given region and optimized to use the least number of nodes required to host all VMs ready to be migrated.
 - Azure NetApp File (ANF) is used when it can be used to optimize the number of AVS hosts required. ANF Standard tier is used when the VMs have been imported using RVTools. For an Azure Migrate appliance-based business case, the tier of ANF used in the business case depends on the IOPS & throughput data for VMs. 
     - CPU over-subscription of 4:1
-    - Memory overcommit of 100% 
+    - Memory overcommits of 100% 
     - Compression and deduplication factor of 1.5. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). 
 
 **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit. 
