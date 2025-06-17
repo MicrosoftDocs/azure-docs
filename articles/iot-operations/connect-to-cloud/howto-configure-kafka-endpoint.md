@@ -543,18 +543,6 @@ This configuration creates a managed identity with the default audience, which i
 
 Not supported in the operations experience.
 
-# [Bicep](#tab/bicep)
-
-```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'SystemAssignedManagedIdentity'
-    systemAssignedManagedIdentitySettings: {
-        audience: '<YOUR_AUDIENCE_OVERRIDE_VALUE>'
-    }
-  }
-}
-```
 
 [Azure CLI](#tab/cli)
 
@@ -567,6 +555,19 @@ kafkaSettings: {
       "systemAssignedManagedIdentitySettings": {
         "audience": "audience"
       }
+    }
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {
+        audience: '<YOUR_AUDIENCE_OVERRIDE_VALUE>'
     }
   }
 }
@@ -686,19 +687,9 @@ Enter the following settings for the endpoint:
 | Username reference or token secret | The reference to the username or token secret used for SASL authentication.                     |
 | Password reference of token secret | The reference to the password or token secret used for SASL authentication.                     |
 
-# [Bicep](#tab/bicep)
+# [Azure CLI](#tab/cli)
 
-```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'Sasl' // Or ScramSha256, ScramSha512
-    saslSettings: {
-      saslType: 'Plain' // Or ScramSha256, ScramSha512
-      secretRef: '<SECRET_NAME>'
-    }
-  }
-}
-```
+#### Create or replace
 
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create) command with the `--auth-type` parameter set to `Sasl` for SASL authentication.
 
@@ -752,7 +743,6 @@ The supported SASL types are:
 - `ScramSha512`
 
 The secret must be in the same namespace as the Kafka data flow endpoint. The secret must have the SASL token as a key-value pair.
-<!-- TODO: double check! Provide an example? -->
 
 ### Anonymous
 
