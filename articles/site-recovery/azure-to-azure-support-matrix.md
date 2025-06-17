@@ -51,8 +51,6 @@ Azure Site Recovery allows you to perform global disaster recovery. You can repl
 > - If the region in which you want to create a vault doesn't show, make sure your subscription has access to create resources in that region. 
 >
 > - If you can't see a region within a geographic cluster when you enable replication, make sure your subscription has permissions to create VMs in that region. 
->
-> - New Zealand is only supported as a source or target region for Site Recovery Azure to Azure. However, creating recovery services vault isn't supported in New Zealand.
 
 
 ## Cache storage
@@ -433,8 +431,8 @@ General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Trans
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
 Managed Shared Disk| Supported 
-Managed Premium SSD v2 Disk| Supported | Public Preview with PowerShell support in all public regions except Australia East and West Central US.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
-Ultra Disks | Not supported
+Managed Premium SSD v2 Disk| Supported | Public Preview  in all public regions.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported. 
+Ultra Disks | Supported | Public Preview  in all public regions.<br/><br/>Note: Since Block Blob storage accounts are not supported in China North and China East regions, Azure Site Recovery for Premium SSD v2 disks cannot be supported.
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
 Tags  | Supported | User-generated tags are replicated every 24 hours.
