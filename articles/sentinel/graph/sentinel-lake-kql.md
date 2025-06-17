@@ -27,23 +27,24 @@ You can explore data in Lake using Kusto Query Language (KQL) and Jupyter Notebo
 
 This article introduces the core concepts and scenarios of data lake exploration, highlights common use cases, and shows how to interact with your data using familiar tools.
 
+## KQL interactive queries
 
+Use Kusto Query Language (KQL) to run interactive queries directly on lake data. 
 
-## Flexible Querying with KQL
+Using KQL Analysts can:
 
-Use Kusto Query Language (KQL) to run interactive queries directly on long-term data. Analysts can:
++ Investigate and respond using historical data: Use long-term data in the lake to gather forensic evidence, investigate an incident, detect patterns, and respond incidents.
++ Enrich investigations with high-volume logs: Leverage noisy or low-fidelity data stored in the lake to add context and depth to security investigations.
++ Correlate asset and logs data in lake: Query asset inventories and identity logs to connect user activity with resources and uncover broader attack.
 
-- Explore historical data and high volume/low fidelity logs using Lake Explorer.
-- Promote data to analytics tier for detections.
-- Schedule recurring jobs to automate investigations.
+## KQL Jobs 
 
+KQL Jobs run queries against the data in the lake tier and promote the results to the analytics tier.
 
-## Jobs
-
-Jobs are used to run queries against the data in the lake tier and promote the results to the analytics tier and summarize data in lake tier. Microsoft Sentinel data lake supports jobs in both KQL and Jupyter notebooks.
-
-- **KQL Jobs**: Schedule queries to run on historical data and write results to custom tables in the analytics tier. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md).
-- **Notebooks**: Use jobs in Python notebooks to prepare data for machine learning and create summary dat in the lake tier, or promote data to the analytics tier. For more information, see [Create and run notebooks in the Microsoft Sentinel data lake](notebooks.md).
+Using KQL Jobs, analysts can:
++ Promote data from the lake to the Analytics tier to enable incident investigation or log correlation.
++ Schedule recurring jobs to enrich investigations using long-term, high-volume low-fidelity log or asset data stored only in the lake.
++ Automate insights from historical or noisy logs to support threat hunting, create baselines, or use for compliance requirements.
 
 
 
