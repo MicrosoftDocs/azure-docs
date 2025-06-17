@@ -596,7 +596,7 @@ items:
     - name: Samples
       href: https://azure.microsoft.com/resources/samples/?service=app-service
     - name: Videos
-      href: https://azure.microsoft.com/resources/videos/index/?services=app-service
+      href: /shows/browse?products=azure-app-service
     - name: Migrate to App Service
       items:
         - name: Assess .NET
