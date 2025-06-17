@@ -308,6 +308,8 @@ Guest/server network static IP (Linux) | Yes. <br/><br/>VMs are configured to us
 Guest/server network multiple NICs | Yes.
 Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
+> [!NOTE]
+> VM must allow Outbound traffic on Port 443 and 9943 to the appliance. 
 
 ## Azure VM network (after failover)
 
