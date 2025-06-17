@@ -397,7 +397,7 @@
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
     - name: Azure NetApp Files
-      href: reliability-azure-netapp-files.md
+      href: reliability-netapp-files.md
     - name: Azure Storage Actions
       href: reliability-storage-actions.md
     - name: Azure Storage-Disk Storage

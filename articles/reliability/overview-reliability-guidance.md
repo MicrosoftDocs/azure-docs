@@ -93,7 +93,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Migrate | | [Does Azure Migrate offer Backup and Disaster Recovery?](../migrate/resources-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#does-azure-migrate-offer-backup-and-disaster-recovery)|
 |Azure Monitor Logs | | [Enhance data and service resilience in Azure Monitor Logs with availability zones](/azure/azure-monitor/logs/availability-zones) </p> [Azure Monitor Logs workspace replication](/azure/azure-monitor/logs/workspace-replication) | 
 |Azure Notification Hubs| [Reliability in Azure Notification Hubs](reliability-notification-hubs.md)||
-|Azure NetApp Files|| [Reliability in Azure NetApp Files](reliability-azure-netapp-files.md)|
+|Azure NetApp Files|| [Reliability in Azure NetApp Files](reliability-netapp-files.md)|
 |Azure Network Watcher|| [Azure Network Watcher service availability and redundancy](../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy)|
 |Azure Operator Nexus| [Reliability in Azure Operator Nexus](reliability-operator-nexus.md)||
 |Azure Private 5G Core | |[Reliability in Azure Private 5G Core](../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|

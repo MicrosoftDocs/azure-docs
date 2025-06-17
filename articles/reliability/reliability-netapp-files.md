@@ -6,7 +6,7 @@ ms.author: anfdocs
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-netapp-files
-ms.date: 05/09/2025
+ms.date: 06/17/2025
 ---
 # Reliability in Azure NetApp Files
 
