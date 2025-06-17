@@ -23,7 +23,7 @@ Configure custom network rules in the API Management subnet to filter traffic to
 | Inbound | ApiManagement | * | VirtualNetwork | 3443    | TCP | Allow     | Management endpoint for Azure portal and PowerShell        | External & Internal  |
 | Inbound | AzureLoadBalancer | * | VirtualNetwork | 6390      | TCP                | Allow | Azure Infrastructure Load Balancer             | External & Internal  |
 | Inbound | AzureTrafficManager | * | VirtualNetwork | 443 | TCP | Allow | Azure Traffic Manager routing for multi-region deployment | External only |
-| Outbound | VirtualNetwork | * | Internet | 80                  |  TCP | Allow  | Validation and revocation of Microsoft-managed or customer-managed certificates      | External & Internal  |
+| Outbound | VirtualNetwork | * | Internet | 80                  |  TCP | Allow  | Validation and management of Microsoft-managed and customer-managed certificates      | External & Internal  |
 | Outbound | VirtualNetwork | * | Storage | 443                  |  TCP | Allow  | Dependency on Azure Storage for core service functionality                            | External & Internal  |
 | Outbound | VirtualNetwork| * | SQL | 1433                     | TCP           | Allow | Access to Azure SQL endpoints for core service functionality                          | External & Internal  |
 | Outbound | VirtualNetwork | * | AzureKeyVault | 443                     | TCP                | Allow                | Access to Azure Key Vault for core service functionality                         | External & Internal  |
