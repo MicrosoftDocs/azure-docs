@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/22/2024
 ms.topic: how-to
+# Customer intent: As an IT admin, I want to create and customize workbooks for VM insights, so that I can generate detailed reports on update statuses and configurations across my environment.
 ---
 
 # Create reports in Azure Update Manager

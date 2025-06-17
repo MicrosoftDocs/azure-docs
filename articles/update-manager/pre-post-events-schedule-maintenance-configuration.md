@@ -7,6 +7,7 @@ ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba
 zone_pivot_groups: create-pre-post-events-maintenance-configuration
+# Customer intent: As an IT administrator, I want to create pre and post maintenance events in the update management system, so that I can execute specific actions before and after scheduled maintenance windows efficiently.
 ---
 
 # Create pre and post events

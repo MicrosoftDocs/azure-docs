@@ -7,6 +7,7 @@ ms.topic: tutorial
 author: habibaum
 ms.author: v-uhabiba
 #Customer intent: As an IT admin, I want dynamically apply patches or enable periodic assessment on the machines at scale using a policy.
+# Customer intent: "As an IT admin, I want to enable periodic assessment and schedule updates for Azure VMs using policy, so that I can ensure compliance and streamline the management of updates across all machines at scale."
 ---
 
 # Tutorial: Enable periodic assessment and schedule updates on Azure VMs using policy

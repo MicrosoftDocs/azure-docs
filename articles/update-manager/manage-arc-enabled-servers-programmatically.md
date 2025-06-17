@@ -6,6 +6,7 @@ author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 10/17/2024
 ms.topic: how-to
+# Customer intent: "As a systems administrator, I want to automate update management for Azure Arc-enabled servers using the REST API, so that I can efficiently assess and deploy updates without manual intervention."
 ---
 
 # How to programmatically manage updates for Azure Arc-enabled servers

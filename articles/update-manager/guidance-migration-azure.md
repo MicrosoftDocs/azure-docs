@@ -6,6 +6,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 ms.date: 09/06/2024
 ms.author: sudhirsneha
+# Customer intent: As an IT administrator overseeing server management, I want to migrate from Microsoft Configuration Manager to Azure Update Manager, so that I can streamline software update processes and benefit from a cloud-native patch management solution.
 ---
 
 # Guidance on migrating virtual machines from Microsoft Configuration Manager to Azure Update Manager 

@@ -7,6 +7,7 @@ author: snehasudhirG
 ms.author: sudhirsneha
 ms.date: 03/07/2024
 ms.topic: how-to
+# Customer intent: As a system administrator, I want to manage update settings for my Azure virtual machines and servers, so that I can ensure they are properly maintained and compliant with the latest patches and updates.
 ---
 
 # Manage update configuration settings

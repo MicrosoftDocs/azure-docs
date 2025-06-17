@@ -8,6 +8,7 @@ ms.author: sudhirsneha
 author: SnehaSudhirG
 ms.custom:
   - build-2025
+# Customer intent: As an IT administrator, I want to manage pre and post maintenance configuration events in a cloud update management system, so that I can ensure seamless updates and maintain system reliability during scheduled maintenance.
 ---
 
 # Manage pre and post events maintenance configuration events

@@ -7,6 +7,7 @@ ms.topic: tutorial
 author: habibaum
 ms.author: v-uhabiba
 #Customer intent: As an IT admin, I want create pre and post events using a webhook with Automation runbooks.
+# Customer intent: As an IT admin, I want to implement pre and post event webhooks with Automation runbooks, so that I can manage VM operations effectively during scheduled patching processes.
 ---
 
 # Tutorial: Create pre and post events using a webhook with Automation
