@@ -36,7 +36,7 @@ To create an assessment, follow these steps.
 
 1. Select **Create assessment**.
     
-    :::image type="content" source="./media/create-web-app-assessment/select-create-assessment.png" alt-text="Screenshot shows to select and create assessment." lightbox="./media/create-web-app-assessment/select-create-assessment.png" :::
+    :::image type="content" source="./media/create-web-app-assessment/select-create-assessment.png" alt-text="Screenshot shows how to select and create assessment." lightbox="./media/create-web-app-assessment/select-create-assessment.png" :::
 
 1. Provide a suitable name for the assessment and select **Add workloads**. 
 
@@ -44,7 +44,7 @@ To create an assessment, follow these steps.
 
 1. Using the filters, select **web apps**, and select **Add**. 
 
-     :::image type="content" source="./media/create-web-app-assessment/add-workloads-using-filters.png" alt-text="Screenshot shows to use filters and add workloads." lightbox="./media/create-web-app-assessment/add-workloads-using-filters.png" :::
+     :::image type="content" source="./media/create-web-app-assessment/add-workloads-using-filters.png" alt-text="Screenshot shows how to use filters and add workloads." lightbox="./media/create-web-app-assessment/add-workloads-using-filters.png" :::
 
 1. Review the selected workloads and select **Next**. 
 
@@ -64,7 +64,7 @@ To create an assessment, follow these steps.
  
 1. On the **Advanced settings** tab, select **Edit defaults** to choose the preferred Azure targets and target-specific settings. 
 
-    :::image type="content" source="./media/create-web-app-assessment/edit-defaults.png" alt-text="Screenshot shows to edit defaults to choose the preferred target." lightbox="./media/create-web-app-assessment/edit-defaults.png" :::
+    :::image type="content" source="./media/create-web-app-assessment/edit-defaults.png" alt-text="Screenshot shows how to edit defaults to choose the preferred target." lightbox="./media/create-web-app-assessment/edit-defaults.png" :::
 
    **AKS Settings**
 
@@ -83,7 +83,7 @@ To create an assessment, follow these steps.
 
 1. Review and create the assessment. 
 
-     :::image type="content" source="./media/create-web-app-assessment/review-and-create.png" alt-text="Screenshot shows to review and create the assessment." lightbox="./media/create-web-app-assessment/review-and-create.png" :::
+     :::image type="content" source="./media/create-web-app-assessment/review-and-create.png" alt-text="Screenshot shows how to review and create the assessment." lightbox="./media/create-web-app-assessment/review-and-create.png" :::
 
 ## Next steps 
 
