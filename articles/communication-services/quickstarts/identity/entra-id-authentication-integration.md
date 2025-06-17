@@ -204,4 +204,4 @@ In this quickstart, you learned how to:
 Learn about the following concepts:
 
 - [Support Microsoft Entra ID users in Azure Communication Services](../concepts/identity-model.md#microsoft-entra-id-integrating-with-entra-id)
-- [Single-tenant and multitenant authentication for Microsoft Entra ID users](../concepts/entra-id-authentication-overview.md)
+- [Tenancy in Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps.md)

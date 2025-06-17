@@ -174,7 +174,7 @@ The Microsoft Entra ID integration is currently in public preview and has the fo
 
 * To issue tokens, see [Create and manage access tokens for end users](../quickstarts/identity/access-tokens.md).
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
-* For details on how authentication works in single-tenant and multitenant Microsoft Entra ID scenarios, refer to [Single-tenant and multitenant authentication for Microsoft Entra ID users](./entra-id-authentication-overview.md).
+* For details on how authentication works in single-tenant and multitenant Microsoft Entra ID scenarios, refer to [Tenancy in Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps.md).
 * For a quickstart on how to authenticate Microsoft Entra ID users, see [Authenticate Microsoft Entra ID users](../quickstarts/identity/entra-id-authentication-integration.md).
 * To read about data residency and privacy, see [Region availability and data residency](./privacy.md).
 * For a full sample of a simple identity management service, see [Trusted service tutorial](../tutorials/trusted-service-tutorial.md).
