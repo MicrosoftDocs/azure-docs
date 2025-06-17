@@ -100,7 +100,7 @@ You can add a static private IP address prefix to a virtual machine by completin
    | **Private IP address settings** |   |
    | Private IP Address Type | IP address prefix |
    | Allocation | Select **Static**. |
-   | IP address | Enter an unused CIDR of size /28 from the subnet for your virtual machine.</br> For the 10.0.0.0/14 subnet in the example, an IP would be **10.0.0.0/80**. |
+   | IP address | Enter an unused CIDR of size /28 from the subnet for your virtual machine.</br> For the 10.0.0.0/14 subnet in the example, an IP would be **10.0.0.0/28**. |
 
 9. Select **OK**.
 
