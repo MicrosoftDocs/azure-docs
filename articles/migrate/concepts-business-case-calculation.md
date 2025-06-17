@@ -220,7 +220,6 @@ The **Sustainability Benefits** capability is now embedded in Azure Migrate’s 
 
 The method to calculate these emissions is explained below:
 
-
 | Category | Component | Logic |
 | --- | --- | --- |
 | On-premises emissions  | Scope 1 emissions | Scope 1 includes emissions from on-premises generators that use fossil fuels. </br>  **Scope 1 Emissions** (MtCO₂e) </br> = 
