@@ -17,7 +17,7 @@ The Microsoft Planetary Computer Pro [Explorer](./use-explorer.md) allows GeoCat
 
 ## Use cases
 
-Colormaps are used to map single-band, or single dimension, raster data from its native scale into a color spectrum.  Planetary Computer Pro render configurations support a large number of these colorrmaps for rendering raaster data. The following image provides a comprehensive list of the available colormaps by name, a sample representative spectrum of that colormap, and the maximum value map corresponding to that colormap. 
+Colormaps are used to map single-band, or single dimension, raster data from its native scale into a color spectrum.  Planetary Computer Pro render configurations support a large number of these maps for rendering raster data. The following image provides a comprehensive list of the available colormaps by name, a sample representative spectrum of that colormap, and the maximum value map corresponding to that colormap. 
 
 [ ![All colormaps available in Microsoft Planetary Computer Pro.](media/colormaps.png) ](media/colormaps.png#lightbox)
 
@@ -25,4 +25,4 @@ Colormaps are used to map single-band, or single dimension, raster data from its
 
 - [Using Data Explorer](./use-explorer.md)
 - [Render Configuration](./render-configuration.md)
-- [Create a STAC Collection](./create-stac-collection.md)
+- [Create a STAC (SpatioTemporal Access Catalog) Collection](./create-stac-collection.md)
