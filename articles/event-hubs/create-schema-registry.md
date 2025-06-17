@@ -12,7 +12,7 @@ ms.custom: references_regions, mode-other
 
 In this quickstart, you create a schema group with schemas in a schema registry hosted by Azure Event Hubs.
 
-**Azure Schema Registry** is a feature of Event Hubs. It provides a central repository for schemas for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to *exchange data without having to manage and share the schema*. It also provides a simple governance framework for reusable schemas and defines relationship between schemas through a grouping construct (schema groups). For more information, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
+*Azure Schema Registry* is a feature of Event Hubs. It provides a central repository for schemas for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to *exchange data without having to manage and share the schema*. It also provides a simple governance framework for reusable schemas and defines relationship between schemas through a grouping construct (schema groups). For more information, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
 
 
 > [!NOTE]
@@ -22,7 +22,7 @@ In this quickstart, you create a schema group with schemas in a schema registry 
 
 ## Prerequisites
 
-[Create an Event Hubs namespace](event-hubs-create.md#create-an-event-hubs-namespace). You can also use an existing namespace. 
+[Create an Event Hubs namespace](event-hubs-create.md#create-an-event-hubs-namespace). You can instead use an existing namespace. 
 
 ## Create a schema group
 
