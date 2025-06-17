@@ -70,7 +70,7 @@ The events capture in file access logs depend on the protocol of your volume.
 * Set attribute 
 * Unlink
 * Write
-
+<!--
 ## Register the feature
 
 If you're using file access logs for the first time, you need to register the feature. 
@@ -91,7 +91,7 @@ If you're using file access logs for the first time, you need to register the fe
     ```
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
-
+-->
 ## Supported regions
 
 Availability for file access log is limited to the following regions: 
