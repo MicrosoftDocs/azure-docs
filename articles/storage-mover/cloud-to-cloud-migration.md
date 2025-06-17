@@ -43,24 +43,41 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
 1. In the **Basics** tab:
 
-    - From the drop-down lists located in the **Project Details** section, select the subscription and resource group in which you're creating your connector resource. Optionally, you can create a new resource group by selecting **Create new**.
+    - From their respective drop-down lists located in the **Project Details** section, select the **Subscription** and **Resource group** in which you're creating your connector resource. Optionally, you can create a new resource group by selecting **Create new**.
     
-    > [!TIP]
-    > You can filter subscriptions and resource groups by entering a value in the **Filter items...** fields within the respectective drop-down list. Only resources with names containing the specified value will be displayed.
+        > [!TIP]
+        > You can filter subscriptions and resource groups by entering a value in the **Filter items...** fields within the respectective drop-down list. Only resources with names containing the specified value are displayed in your Inventory.
       
     - In the **Connector details** section, provide a value for the **Connector name** field. From the **Azure region** drop-down list, select the region where you want to create and save your connector resource.
     - In the **AWS account** section, select the appropriate AWS account type and provide the AWS account ID from which your connector is reading resources.
     
-    Verify all values are correct and select **Next** to continue to the **Solutions** tab as shown in the following image.
+    Verify that all values are correct and select **Next** to continue to the **Solutions** tab as shown in the following image.
 
     :::image type="content" source="media/cloud-to-cloud-migration/add-aws-connector-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Basics tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-aws-connector.png":::
 
-1. Within the **Solutions** tab:
-    - Add an **Inventory** solution, making sure that `AWS Services: S3` is selected.
-    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solution-inventory-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Inventory tab selected and required Inventory objects displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solution-inventory.png":::
-    - Add a **Storage - Data Management** solution.
+1. Within the **Solutions** tab, Add an **Inventory** and **Storage - Data Management** solution to your connector. The Inventory solution allows you to discover and manage AWS resources, while the Storage - Data Management solution enables data transfer operations for Storage Mover.
+
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solution-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Inventory tab selected and required Inventory objects displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solution.png":::
+
+    First, add an **Inventory** solution. An inventory solution must be created before you can add a Storage - Data Management solution.
+    
+    - Because Storage Mover multicloud migrations support only blob data stored in Amazon S3 buckets, select only the Amazon S3 service in the **AWS Services** drop-down list. Uncheck the **Add all supported AWS services** checkbox. In the **AWS Services** drop-down list, deselect all AWS services by selecting **Select all**. Scroll to the **S3** service and select it.
+    - Select the **Permissions** option you want this connector to have to your AWS account.
+    - Enabling **Periodic sync** allows the connector to scan your AWS account on a regular cadence. To set the cadence, select the **Enable periodic sync** checkbox and select the sync interval by selecting the desired number of hours from the **Recur every** drop-down list. 
+    
+    Your AWS account is scanned once if you choose to disable periodic sync.
+
+    - Within the **Resource filters** section, select the AWS regions that contain S3 buckets you want to display in the Inventory tab of your connector. Select the **Include all supported AWS regions** checkbox to include all AWS regions in the scan. If you want to limit the scan to specific regions, uncheck this checkbox and select the desired regions from the **AWS Regions** drop-down list.
+    - Verify that all values are correct and select **Save** to finish adding the Inventory solution to your connector as shown in the following image.
+
+        :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solution-inventory-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Inventory tab selected and required Inventory objects displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solution-inventory.png":::
+
+    Next, add a **Storage - Data Management** solution by selecting the **Add** link in the **Actions** column of the **Storage - Data Management** solution.
+
+    Confirm that both the **Inventory** and **Storage - Data Management** solutions are created, then select **Next** to continue to the **Authentication template** tab. 
     
 1. Within the **Authentication template** tab, follow the instructions presented to create the *AWS CloudFormation Stack* from the AWS portal.
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-authentication-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Authentication Template tab selected. The AWS CloudFormation template and instructions for creating the stack are displayed.":::
 1. Finally, select **Review + Create** to create the connector.
 
     :::image type="content" source="media/cloud-to-cloud-migration/connectors-available-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/connectors-available.png":::
