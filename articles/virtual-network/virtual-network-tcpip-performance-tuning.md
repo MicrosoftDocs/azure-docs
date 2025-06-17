@@ -255,6 +255,12 @@ The throughput limit applies to the virtual machine. Throughput isn't affected b
 
 For more information, see [Virtual machine network bandwidth](./virtual-machine-network-throughput.md).
 
+### Linux Virtual Machines (VMs) Optimization
+
+Modern Linux kernels have features that can help achieving consistency and performance, sometimes required by certain workloads.
+
+For more information, see [Optimize network bandwidth on Azure VMs](/azure/virtual-network/virtual-network-optimize-network-bandwidth#linux-virtual-machines)
+
 ### Internet performance considerations
 
 As discussed throughout this article, factors on the internet and outside the control of Azure can affect network performance. Here are some of those factors:

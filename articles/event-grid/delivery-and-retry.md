@@ -21,9 +21,9 @@ The following table describes the types of endpoints and errors for which retry 
 
 | Endpoint Type | Error codes |
 | --------------| -----------|
-| Azure Resources | 400 (Bad request), 413 (Request entity is too large) | 
-| Webhook | 400 (Bad request), 413 (Request entity is too large), 401 (Unauthorized) |
- 
+| Azure Resources | 400 (Bad request), 413 (Request entity is too large), 403 (Forbidden)|
+| Webhook | 400 (Bad request), 413 (Request entity is too large), 401 (Unauthorized), 403 (Forbidden)|
+
 > [!NOTE]
 > If dead-letter isn't configured for an endpoint, events will be dropped when the above errors happen. Consider configuring dead-letter if you don't want these kinds of events to be dropped. Dead lettered events will be dropped when the dead-letter destination isn't found.
 

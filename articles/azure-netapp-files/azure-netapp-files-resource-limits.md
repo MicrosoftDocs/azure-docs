@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 04/23/2025
+ms.date: 06/10/2025
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -49,7 +49,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of protected volume  |  100 TiB  |  No  |
 |  Maximum number of volumes that can be backed up per subscription   |  500  |  No  |
 |  Maximum number of manual backups per volume per day |  5  |  No  |
-|  Maximum number of volumes supported for cool access per subscription per region |  10  |  Yes  |
+|  Maximum number of volumes supported for cool access per subscription per region |  500  |  Yes  |
 | Maximum number of [clones](create-short-term-clone.md) per volume | 5 | No | 
 | Maximum number of [clones](create-short-term-clone.md) per subscription | 16 | No | 
 

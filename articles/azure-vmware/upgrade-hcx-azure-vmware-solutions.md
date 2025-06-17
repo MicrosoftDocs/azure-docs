@@ -125,7 +125,7 @@ To ensure smooth migration, customers are required to upgrade any paired HCX con
 
 ### What is the impact of an HCX upgrade? 
 
-Apply service updates during a maintenance window where no new HCX operations and migration are queued up. The upgrade window accounts for a brief disruption to the Network Extension service, while the appliances are redeployed with the updated code.  
+Apply service updates during a maintenance window where no new HCX operations and migration are queued up.  
 For individual HCX component upgrade impact, see [Planning for HCX Updates](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/planning-for-hcx-updates.html). 
 
 ### Do I need to upgrade the service mesh appliances? 
