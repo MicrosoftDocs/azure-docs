@@ -18,7 +18,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
 - The variant feature flag with telemetry enabled from [Enable telemetry for feature flags](./howto-telemetry.md).
 - The application from [Use variant feature flags](./howto-variant-feature-flags-python.md).
 
-## Add telemetry to your python application
+## Add telemetry to your Python application
 
 1. Install the required packages using pip:
 
@@ -148,7 +148,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
     ```
 
     > [!div class="mx-imgBorder"]
-    > ![Application Insights Results.](./media/howto-telemetry-python/telemetry-results.png)
+    > ![Screenshot of Application Insights showing the results table with four rows; All, Simple, Long, and None with their respective user counts and percentages.](./media/howto-telemetry-python/telemetry-results.png)
 
     You see one "FeatureEvaluation" for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
 
