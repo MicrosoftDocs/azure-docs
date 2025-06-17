@@ -1,6 +1,6 @@
 ---
-title: How to create, assign and use a User Assigned Managed Identity in Azure Operator Service Manager
-description: Learn how to create, assign and use a User Assigned Managed Identity in Azure Operator Service Manager.
+title: How to create, assign, and use a User Assigned Managed Identity in Azure Operator Service Manager
+description: Learn how to create, assign, and use a User Assigned Managed Identity in Azure Operator Service Manager.
 author: msftadam
 ms.author: adamdor
 ms.date: 6/9/2025
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
 
-# Create, assign and use a User Assigned Managed Identity
+# Create, assign, and use a User Assigned Managed Identity
 
 In this how-to guide, you learn to:
 - Create a User Assigned Managed Identity (UAMI) to use with Azure Operator Service Manager (AOSM)
@@ -26,17 +26,17 @@ In this how-to guide, you learn to:
 
 - You need either the 'Owner' or 'User Access Administrator' role over the Network Function Definition Version resource from your chosen Publisher. You also must have a Resource Group over which you have the 'Owner' or 'User Access Administrator' role assignment.
 
-## Create a UAMI via portal
+## Create a UAMI
 
 First, create a UAMI. Refer to [Create a User Assigned Managed Identity for your SNS](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) for details.
 
-## Assign custom role to UAMI via portal
+## Create a custom role and assign to UAMI
 
-Next, assign a custom role to your new UAMI. Choose a scope-based approach and then allow the proper permission across that scope.
+Next, create a custom role. Start by considering the best scope-based approach, then create and assign the role to your new UAMI.
 
-### Choose scope for assigning custom role
+### Scope considerations for UAMI custom role
 
-Either assign the custom role individually to a child resource, like an NFDV, or to a parent resource, such as the publisher resource group or Network Function Definition Group (NFDG). Assigning the role to a parent resource grants equal access over all child resources. For proper SNS operations, either the parent resource must include all below resources, or the following resources must be assigned the custom role individually:
+The custom role must be assigned sufficient permissions to access user resourcecs. The custom role can be scoped to individual child resources, like an NFDV, for the most granual control. Or, the custom role can be scope to a parent resource, such as the publisher resource group, which grants equal access over all child resources. For proper operations, either individually or via parent, all below resources must be assigned to the custom role:
 
 - All the Network Function Definition Groups (NFDG) and versions. 
 - All the Network Function Definition (NFD) and versions.
@@ -48,18 +48,18 @@ Either assign the custom role individually to a child resource, like an NFDV, or
 
 The UAMI needs the following individual permissions to execute required SNS operations:
 
-- On the NFDV
+- On the NFD;
   - Microsoft.HybridNetwork/publishers/networkFunctionDefinitionGroups/networkFunctionDefinitionVersions/use/**action**
   - Microsoft.HybridNetwork/Publishers/NetworkFunctionDefinitionGroups/NetworkFunctionDefinitionVersions/**read**
-- On the NSDV
+- On the NSD;
   - Microsoft.HybridNetwork/publishers/networkServiceDesignGroups/networkServiceDesignVersions/use/action
   - Microsoft.HybridNetwork/publishers/networkServiceDesignGroups/networkServiceDesignVersions/**read**
-- On the CGS
+- On the CGS;
   - Microsoft.HybridNetwork/Publishers/ConfigurationGroupSchemas/**read**
-- On the custom location
+- On the custom location;
   - Microsoft.ExtendedLocation/customLocations/deploy/**action**
   - Microsoft.ExtendedLocation/customLocations/**read** 
-- In addition, the UAMI need access on itself
+- In addition, the UAMI need access on itself;
   - Microsoft.ManagedIdentity/userAssignedIdentities/assign/**action**
 
 If using a parent resource scope approach, then the required permissions would be applied to the parent resource.  
@@ -67,7 +67,7 @@ If using a parent resource scope approach, then the required permissions would b
 > [!NOTE]
 > Don't provide write or delete access to any of these publisher resources.
 
-### Assign custom role
+### Assign custom role via portal
 
 1. Access the Azure portal and open your chosen resource scope; for example, Publisher Resource Group or Network Function Definition Version.
 
@@ -87,11 +87,11 @@ If using a parent resource scope approach, then the required permissions would b
 
 6. Select **Review and assign**.
 
-### Repeat the role assignment
+#### Repeat the role assignment
 
 Repeat the role assignment process for any remaining resources given the chosen scope approach.
 
-## Assign Managed Identity Operator role to the Managed Identity itself
+### Assign managed identity operator role via portal
 
 1. Go to the Azure portal and search for **Managed Identities**.
 2. Select *your-identity* from the list of **Managed Identities**.
@@ -110,13 +110,9 @@ Repeat the role assignment process for any remaining resources given the chosen 
 
 Completion of all the tasks outlined in this article ensures that the Site Network Service (SNS) has the necessary permissions to function effectively within the specified Azure environment.
 
-### Assign other required permissions to the Managed Identity
-
-Repeat this process to assign any other permissions to the Managed Identity that your Network Service Designer identified.
-
 ## Create and assign permissions to a UAMI via bicep
 
-The required operations to create and assign permissions are also supported via bicep scripting. This approach may work better where automation of these operations within a workflow pipeline is neccesary. The following example demonstrates the bicep operations required to establish the UAMI with minimum assigned roles. It will be neccesary to expand role assignment based on scope approach.
+The required operations to create and assign permissions are also supported via bicep scripting. This approach may work better where automation of these operations within a workflow pipeline is necessary. The following example demonstrates the bicep operations required to establish the UAMI with minimum assigned roles. Expand role assignment, as necessary, based on scope approach.
 
 ```bicep
 // ----------- MIO Role Definition -----------
