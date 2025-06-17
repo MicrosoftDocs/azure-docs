@@ -34,7 +34,7 @@ To complete this quickstart, you need the following prerequisites:
 
 To create an Event Hubs namespace and an event hub, follow instructions from [Create an Event Hubs namespace and an event hub](event-hubs-create.md).
 
-To get a connection string to your Event Hubs namespace, follow instructions from [Get the connection string](event-hubs-get-connection-string.md) 
+To get a connection string to your Event Hubs namespace, follow instructions from [Get the connection string](event-hubs-get-connection-string.md).
 
 Note down the following settings to use in the current quickstart:
 
