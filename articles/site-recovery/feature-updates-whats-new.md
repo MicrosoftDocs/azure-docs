@@ -18,7 +18,7 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 ### Azure Site Recovery for Virtual Machines with Premium SSD v2 disks
 
-Azure Site Recovery support for Virtual Machines with Premium SSD v2 disks is in piblic preview. Azure Site Recovery provides seamless disaster recovery for Virtual Machines across Azure Regions and from on-premises to Azure, helping organizations maintain business continuity. It offers cost-effective replication, automated failover, and easy disaster recovery simulation, ensuring minimal production impact during disaster events. With built-in security, compliance support, and native integration with Azure services, Azure Site Recovery helps your organization stay resilient and minimize downtime. [Learn more](azure-to-azure-support-matrix.md).
+Azure Site Recovery support for Virtual Machines with Premium SSD v2 disks is in public preview. Azure Site Recovery provides seamless disaster recovery for Virtual Machines across Azure Regions and from on-premises to Azure, helping organizations maintain business continuity. It offers cost-effective replication, automated failover, and easy disaster recovery simulation, ensuring minimal production impact during disaster events. With built-in security, compliance support, and native integration with Azure services, Azure Site Recovery helps your organization stay resilient and minimize downtime. [Learn more](azure-to-azure-support-matrix.md).
 
 ## Updates (April 2025)
 
