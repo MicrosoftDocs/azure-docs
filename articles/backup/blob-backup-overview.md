@@ -2,7 +2,7 @@
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
 ms.topic: overview
-ms.date: 04/17/2025
+ms.date: 06/17/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -127,4 +127,4 @@ For generating the estimate for your scenario see the [Azure Backup pricing calc
 
 - [Create a backup policy for  Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md).
 - [Back up Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
-- [Restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
+- Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
