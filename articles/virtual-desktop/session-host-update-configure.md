@@ -24,7 +24,9 @@ To learn more about how session host update works, see [Session host update](ses
 
 Before you update session hosts using session host update, you need:
 
-- An existing pooled host pool with a session host configuration with session hosts that are all in the same Azure region and resource group. Personal host pools aren't supported.
+- An [existing pooled host pool with a session host configuration](deploy-azure-virtual-desktop.md?pivots=host-pool-session-host-configuration) with session hosts that are all in the same Azure region and resource group.
+
+- RBAC permissions required to [update a session host configuration](deploy-azure-virtual-desktop.md?pivots=host-pool-session-host-configuration#prerequisites).
 
 - The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and match the [generation of virtual machine](/azure/virtual-machines/generation-2). If you're using [Trusted launch virtual machines](security-guide.md#trusted-launch) or [Confidential virtual machines](security-guide.md#azure-confidential-computing-virtual-machines), your image must be for generation 2 VMs. It can be from:
 
@@ -34,52 +36,9 @@ Before you update session hosts using session host update, you need:
 
 - Remove any resource locks on session hosts or the resource group they're in.
 
-- Assign the Azure Virtual Desktop service principal the [**Desktop Virtualization Virtual Machine Contributor**](rbac.md#desktop-virtualization-virtual-machine-contributor) role-based access control (RBAC) role on the resource group or subscription with the host pools and session hosts you want to use with session host update. For more information, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
+- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
-- An Azure account you use to configure session host update with the following Azure RBAC roles to update the following resource types. You can also use another built-in role that includes the same permissions, or create a custom role.
-
-   | Resource type | Built-in Azure RBAC role | Scope |
-   |--|--|--|
-   | Host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor)<br />[Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) | Resource group or subscription |
-   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) | Resource group or subscription |
-
-- You can only join session hosts to an Active Directory domain. Joining session hosts to Microsoft Entra ID isn't supported, but you can use [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join).
-
-   - If you're joining session hosts to a Microsoft Entra Domain Services domain, you need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
-
-   - If you're joining session hosts to an Active Directory Domain Services (AD DS) domain, you need to use an account with more permissions than typically required for joining a domain because the new OS image reuses the existing computer object. The permissions and properties in the following table need to be applied to the account on the Organizational Unit (OU) containing your session hosts:
-
-      | Name | Type | Applies to |
-      |--|--|--|
-      | Reset password | Allow | Descendant Computer objects |
-      | Validated write to DNS host name | Allow | Descendant Computer objects |
-      | Validated write to service principal name | Allow | Descendant Computer objects |
-      | Read account restrictions | Allow | Descendant Computer objects |
-      | Write account restrictions | Allow | Descendant Computer objects |
-
-      Beginning with [KB5020276](https://support.microsoft.com/help/5020276), further protections were introduced for the reuse of computer accounts in an Active Directory domain. To successfully reuse the existing computer object for the session host, either:
-
-      - The user account joining the session host to the domain is the creator of the existing computer account.
-      - The computer account was created by a member of the domain administrators security group.
-      - Apply the Group Policy setting `Domain controller: Allow computer account re-use during domain join` to the owner of the computer account. For more information on the scope of this setting, see [KB5020276](https://support.microsoft.com/help/5020276).
-
-- A key vault containing the secrets you want to use for your virtual machine local administrator account credentials and, if you're joining session hosts to an Active Directory domain, your domain join account credentials. You need one secret for each username and password. The virtual machine local administrator password must meet the [password requirements when creating a VM](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
-
-   - Provide the Azure Virtual Desktop service principal the ability to read the secrets. See [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md) to make sure you're using the correct service principal. Your key vault can be configured to use either:
-
-      - [The Azure RBAC permission model](/azure/key-vault/general/rbac-guide) with the role [Key Vault Secrets User](../role-based-access-control/built-in-roles.md#key-vault-secrets-user) assigned to the Azure Virtual Desktop service principal.
-
-      - [An access policy](/azure/key-vault/general/assign-access-policy) with the *Get* secret permission assigned to the Azure Virtual Desktop service principal.
-
-   - Configure the key vault access configuration to allow [Azure Resource Manager for template deployment](../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
-
-   - Configure the key vault network settings to [Allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security). This requirement is a known issue; support for key vaults that don't allow public access is planned.
-
-- For any custom configuration PowerShell scripts you specify in the session host configuration to run after an update, the URL to the script must be resolvable from the public internet.
-
-- If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](/azure/cloud-shell/overview).
-
-- Azure PowerShell cmdlets for Azure Virtual Desktop that support session host update are in preview. You need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) to use these cmdlets, which are added in version 5.3.0.
+- Azure PowerShell cmdlets for Azure Virtual Desktop that support host pools with a session host configuration are in preview. You need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) to use these cmdlets, which were added in version 5.3.0.
 
 ## Schedule an update and edit a session host configuration
 
