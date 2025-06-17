@@ -9,6 +9,7 @@ ms.author: kendownie
 ms.custom:
   - references_regions
   - build-2025
+# Customer intent: "As a storage administrator, I want to optimize the performance of SSD SMB Azure file shares using techniques like SMB Multichannel and metadata caching, so that I can enhance throughput and efficiency for demanding workloads."
 ---
 
 # Improve performance for SMB Azure file shares
