@@ -93,7 +93,7 @@ Before building the configuration, determine how you want to visualize your data
 
 ## Step 3: Construct the Render Configuration Object
 
-Render configurations are defined as a list of JSON objects (or Python dictionaries if using the API). Each object in the list represents one visualization option that will appear in the [Explorer dropdown](./use-explorer.md#Select-a-different-render-configuration).
+Render configurations are defined as a list of JSON objects (or Python dictionaries if using the API). Each object in the list represents one visualization option that will appear in the [Explorer dropdown](./use-explorer.md#select-a-different-render-configuration).
 
 **Basic Structure:**
 
@@ -245,7 +245,7 @@ For more information on configuring collections, see [Configure a collection wit
 
 **Using the API:**
 
-Define a collection render configuration using the [create stac collection render options](https://learn.microsoft.com/rest/api/planetarycomputer/data-plane/stac-collection-render-options/create) endpoint. The following is an example of using this endpoint using the REST API with Python:
+Define a collection render configuration using the [create stac collection render options](/rest/api/planetarycomputer/data-plane/stac-collection-render-options/create) endpoint. The following is an example of using this endpoint using the REST API with Python:
 
 ```python
 import requests
