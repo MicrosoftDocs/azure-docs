@@ -54,7 +54,10 @@ Queries are run against a single workspace. Choose your workspace in the upper r
 Select **New query** to create a new query tab. Your last query in each tab is saved. Switch between tabs to work on multiple queries simultaneously.   
 
 ### Time range selection
-Use the time picker above the query editor to select the time range for your query. Using the **Custom time range** option, you can set a specific start and end time. Time ranges can be up to 30 days in duration.  You can't specify a time range in query syntax. 
+Use the time picker above the query editor to select the time range for your query. Using the **Custom time range** option, you can set a specific start and end time. Time ranges can be up to 12 years in duration. You can also specify a time range in the KQL query syntax.
+
+>[!NOTE]
+> Queries a re limited to 30,000 rows or 64 MB of data. Selecting a wide If your query exceeds these limits, you will receive an error message. 
 
 ### Schema browser
 
