@@ -531,6 +531,6 @@
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-cdn
     - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+      href: https://learn.microsoft.com/shows/Inside-Azure-for-IT/?products=azure-cdn
   - name: Networking blog
     href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog

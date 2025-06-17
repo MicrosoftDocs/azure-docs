@@ -349,24 +349,14 @@
   - name: ExpressRoute for Cloud Solution Providers (CSP)
     href: expressroute-for-cloud-solution-providers.md
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=expressroute
+    href: https://learn.microsoft.com/shows/Inside-Azure-for-IT/?products=azure-expressroute
     items:
-    - name: Connect a virtual network gateway to a circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/
-    - name: Create a virtual network for ExpressRoute
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/
-    - name: Create a virtual network gateway for ExpressRoute
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/
-    - name: Create an ExpressRoute circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/
+    - name: Microsoft Azure hybrid connectivity overview
+      href: https://learn.microsoft.com/shows/inside-azure-for-it/microsoft-azure-hybrid-connectivity-overview
     - name: Evolve your network infrastructure for connectivity
       href: /events/ignite-2015/brk2481
-    - name: How to set up private peering for your circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/
     - name: 'Hybrid partnerships: Enabling on-premises scenarios'
       href: /events/ignite-2015/brk1454
-    - name: Set up Microsoft peering for your circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
   - name: Classic and legacy articles
     items:
     - name: Modify a circuit
