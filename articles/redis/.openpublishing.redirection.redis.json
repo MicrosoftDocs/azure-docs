@@ -15,6 +15,11 @@
             "source_path_from_root": "/articles/redis/best-practices-managed-cache.md",
             "redirect_url": "/azure/redis/overview",
             "redirect_document_id": false
+        },
+                {
+            "source_path_from_root": "/articles/redis/machine-learning.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
+            "redirect_document_id": false
         }
       ]
 }  
