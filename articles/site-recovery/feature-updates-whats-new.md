@@ -5,7 +5,7 @@ ms.topic: concept-article
 ms.author: jsuri
 ms.service: azure-site-recovery
 author: jyothisuri
-ms.date: 05/11/2025
+ms.date: 06/13/2025
 ---
 
 # Site Recovery feature updates
@@ -13,6 +13,12 @@ ms.date: 05/11/2025
 The Azure Site Recovery service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest feature releases. This page is updated regularly.
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
+
+## Updates (June 2025)
+
+### Azure Site Recovery for Virtual Machines with Premium SSD v2 disks
+
+Azure Site Recovery support for Virtual Machines with Premium SSD v2 disks is in public preview. Azure Site Recovery provides seamless disaster recovery for Virtual Machines across Azure Regions and from on-premises to Azure, helping organizations maintain business continuity. It offers cost-effective replication, automated failover, and easy disaster recovery simulation, ensuring minimal production impact during disaster events. With built-in security, compliance support, and native integration with Azure services, Azure Site Recovery helps your organization stay resilient and minimize downtime. [Learn more](azure-to-azure-support-matrix.md).
 
 ## Updates (April 2025)
 

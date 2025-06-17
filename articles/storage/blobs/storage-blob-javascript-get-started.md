@@ -29,7 +29,6 @@ If you're looking to start with a complete example, see the client library quick
 - [Node.js LTS](https://nodejs.org/)
 - [TypeScript](https://www.typescriptlang.org/download), if applicable
 - For client (browser) applications, you need [bundling tools](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md).
-- 
 
 ## Set up your project
 

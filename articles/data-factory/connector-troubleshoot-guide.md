@@ -54,7 +54,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Cause**: This typically indicates an authentication failure during data transfer operations. This can occur when the remote party closes the transport stream.
 
-- **Reccomendation**:
+- **Recommendation**:
   - Verify the source connection and test it to ensure it is functioning correctly.
   - Check the authentication method used for the connection.
   - Review firewall configuration settings for Azure Cosmos DB to ensure they allow the necessary traffic.

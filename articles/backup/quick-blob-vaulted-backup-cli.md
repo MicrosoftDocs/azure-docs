@@ -3,7 +3,7 @@ title: Quickstart - Configure vaulted backup for Azure Blobs using Azure CLI
 description: In this Quickstart, learn how to configure vaulted backup for Azure Blobs using Azure CLI.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/12/2025
+ms.date: 06/17/2025
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: jyothisuri
 ms.author: jsuri
@@ -36,7 +36,6 @@ Before you configure blob vaulted backup, ensure that:
 
 ## Next step
 
-[Restore Azure Blobs using Azure CLI](/azure/backup/restore-blobs-storage-account-cli).
-
+Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
 
 

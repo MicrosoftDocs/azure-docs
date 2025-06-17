@@ -6,8 +6,6 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2023
-ms.custom:
-  - build-2025
 ---
 
 # Add loops to repeat actions in workflows for Azure Logic Apps
@@ -240,12 +238,41 @@ The following list contains some common scenarios where you can use an **Until**
 
 * Create a record in a database. Wait until a specific field in that record gets approved. Continue processing.
 
-In the following example workflow, starting at 8:00 AM each day, the **Until** action increments a variable until the variable's value equals 10. The workflow then sends an email that confirms the current value.
+By default, the **Until** loop succeeds or fails in the following ways:
 
-> [!NOTE]
->
-> This example uses Office 365 Outlook, but you can use [any email provider that Azure Logic Apps supports](/connectors/). 
-> If you use another email account, the general steps stay the same, but your UI might look slightly different.
+- The **Until** loop succeeds if all the actions inside the loop succeed, and if the loop limit is reached, based on the run after behavior.
+
+- If all actions in last iteration of the **Until** loop succeed, the entire **Until** loop is marked as **Succeeded**.
+
+- If any action fails in the last iteration of the **Until** loop, the entire **Until** loop is marked as **Failed**.
+
+- If any action fails in an iteration other than the last iteration, the next iteration continues to run, and the entire **Until** loop isn't marked as **Failed**.
+
+  To make the loop fail instead, you can change the default behavior in the loop's JSON definition by adding the parameter named **`operationOptions`**, and setting the value to **`FailWhenLimitsReached`**, for example:
+
+  ```json
+  "Until": {
+     "actions": {
+       "Execute_stored_procedure": {
+         <...>
+         }
+       },
+       "expression": "@equals(variables('myUntilStop'), true)",
+       "limit": {
+         "count": 5,
+         "timeout": "PT1H"
+       },
+       "operationOptions": "FailWhenLimitsReached",
+       "runAfter": {
+       "Initialize_variable_8": [
+         "Succeeded"
+       ]
+     },
+  "type": "Until"
+  }
+  ```
+
+In the following example workflow, starting at 8:00 AM each day, the **Until** action increments a variable until the variable's value equals 10. The workflow then sends an email that confirms the current value. The example uses Office 365 Outlook, but you can use [any email provider that Azure Logic Apps supports](/connectors/). If you use another email account, the general steps stay the same, but your UI might look slightly different.
 
 ### [Consumption](#tab/consumption)
 

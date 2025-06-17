@@ -40,7 +40,7 @@ Some common scenarios for real-time serverless messaging that you can implement 
 
 The SignalR Service bindings for Azure Functions allow an Azure Function app to publish messages to clients connected to SignalR Service. Clients can connect to the service using a SignalR client SDK that is available in .NET, JavaScript, and Java, with more languages coming soon.
 
-<!-- Are there more lanaguages now? -->
+<!-- Are there more languages now? -->
 
 ### An example scenario
 

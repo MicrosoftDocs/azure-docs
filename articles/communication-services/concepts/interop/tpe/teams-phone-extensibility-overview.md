@@ -46,7 +46,7 @@ There are four aspects to consider:
 For CCaaS ISVs:
 
 - Grow your business by partnering with the UCaaS market leader: Teams is recognized as the market leader. Teams brings an extensive network of partners and integrations. You can easily connect your UCaaS solution with other critical business applications and workflows.
-- Reach extensibility: Microsoft Teams, in partnership with Azure Communication Services enables you to embed your applications on the server and client side.
+- Reach extensibility: Microsoft Teams, in partnership with Azure Communication Services enables you to embed your applications on the server and client sides.
 
 For Contact Centers and Agents:
 
@@ -248,6 +248,6 @@ The following diagram shows an example call recording flow. In this example, the
 
 ## Related articles
 
-- [Teams Phone client capabilities](./teams-phone-extensibility-client-capabilities.md)
+- [Teams Phone capabilities](./teams-phone-extensibility-capabilities.md)
 - [Teams Phone extensibility FAQ](./teams-phone-extensibility-faq.md)
 - [Teams Phone extensibility troubleshooting](./teams-phone-extensibility-troubleshooting.md)

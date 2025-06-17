@@ -137,6 +137,12 @@ The Azure portal displays *logical Zones*. In the datacenter, actual physical zo
 
 In case the source and target zones are the same, you can't view zone for target configuration while enabling zonal replication.
 
+#### Can I choose a different name for my recovery services vault automation instead of using the existing one?
+
+When you replicate a new VM and specify a new Automation Account name, the vault updates to use this new Automation Account at the vault level. This updated name appears in the vault under **Recovery Services Vault** > **Site Recovery Infrastructure** > **Extension Update Settings**.
+
+Azure Site Recovery uses this new Automation Account to manage the site recovery extension on all replicated VMs.
+
 ### Premium SSD v2 disks (preview)
 
 #### What disk sector size is supported when I protect VMs with Premium SSD v2 disks?

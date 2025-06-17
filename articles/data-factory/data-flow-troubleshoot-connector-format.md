@@ -596,7 +596,7 @@ The escape character either escapes the column delimiter or the escape the chara
 4. The quote character and the escape character both be empty and the column value contains column delimiters.<br/>
 `Column delimiter: \t`<br/>
 `column value: 111\t222\t33\t3`<br/>
-`It will be ambigious if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
+`It will be ambiguous if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
 
 #### Recommendation
 The first symptom and the second symptom can't be solved currently. For the third and fourth symptoms, you can apply the following methods:
