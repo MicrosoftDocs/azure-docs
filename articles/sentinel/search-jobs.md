@@ -91,5 +91,5 @@ View the status and results of your search job by going to the **Saved Searches*
 To learn more, see the following articles.
 
 - [Hunt with bookmarks](bookmarks.md)
-- [Restore archived logs](restore.md)
-- [Configure data retention and archive policies in Azure Monitor Logs (Preview)](/azure/azure-monitor/logs/data-retention-configure)
+- [Restore logs from long-term retention](restore.md)
+- [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure)
