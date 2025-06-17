@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an IT administrator, I want to migrate my high-performance computing environment to the cloud, so that I can enhance performance, scalability, and efficiency while managing component dependencies effectively during the deployment process."
 ---
 
 # Production level environment migration overview

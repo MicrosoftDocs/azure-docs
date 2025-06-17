@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: dougeby
 ms.author: avdcontent
-ms.date: 06/16/2025
+ms.date: 06/17/2025
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -44,6 +44,10 @@ We extended the session host creation functionality from session host update and
 
 For more information, see [Create a host pool with a session host configuration](deploy-azure-virtual-desktop.md?pivots=host-pool-session-host-configuration) and [Add session hosts to a host pool](add-session-hosts-host-pool.md?pivots=host-pool-session-host-configuration).
 
+### Microsoft Teams media optimization for iOS/iPadOS is in preview
+
+You can now use Microsoft Teams media optimization when connecting to Azure Virtual Desktop from iOS/iPadOS, which is now available in preview. Teams Media optimization redirects calling and meeting functionality to the local device when using Windows App. For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [Supported features for Microsoft Teams on Azure Virtual Desktop](teams-supported-features.md).
+
 ## May 2025
 
 Here's what changed in May 2025:
@@ -54,7 +58,7 @@ You can now connect directly to Azure Virtual Desktop using a direct launch URL.
 
 For more information, see [Access desktops and apps using direct launch URLs for Windows App in a web browser](/windows-app/direct-launch-urls?tabs=avd).
 
-## Multiple personal desktops for a single user is now generally available
+### Multiple personal desktops for a single user is now generally available
 
 Multiple personal desktop assignment allows you to assign more than one personal desktop to a single user in a single host pool, and is now generally available. Multiple desktops are useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments.
 
@@ -918,7 +922,7 @@ For more information, see [our blog post](https://techcommunity.microsoft.com/t5
 
 ### Teams media optimizations for macOS now generally available
 
-Teams media optimizations for redirecting audio and video during calls and meetings to a local macOS machine is now generally available. To use this feature, you need to update or install, at a minimum, version 10.7.7 of the Azure Virtual Desktop macOS client. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-media-optimizations-is-now-generally-available/ba-p/3563125).
+Teams media optimizations for redirecting audio and video during calls and meetings to a local macOS machine is now generally available. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-media-optimizations-is-now-generally-available/ba-p/3563125).
 
 ## May 2022
 

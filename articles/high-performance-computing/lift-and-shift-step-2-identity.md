@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As an IT administrator overseeing high performance computing migration, I want to configure identity management systems, so that I can ensure secure access to resources and comply with organizational policies during the migration process.
 ---
 
 # Identity management configuration

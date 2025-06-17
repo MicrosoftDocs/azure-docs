@@ -253,6 +253,10 @@ sections:
           - If you use secure cluster connectivity with the default virtual network that Azure Databricks creates, Azure Databricks automatically creates a NAT gateway for outbound traffic from your workspace's subnets. The NAT gateway is created within the managed resource group that Azure Databricks manages. You can't modify this resource group or any resources provisioned within it.
           - If you enable secure cluster connectivity on your workspace that uses virtual network injection, you can deploy a NAT gateway on both of the workspace's subnets to provide outbound connectivity. You can modify the configuration for customized outbound connectivity requirements in this case. For more information, see [Secure cluster connectivity](/azure/databricks/security/network/classic/secure-cluster-connectivity). 
           
+      - question: Is NAT gateway use supported with Azure SQL managed instance?
+        answer: |
+          No, NAT gateway can't be used on a SQL Managed Instance subnet. If NAT gateway is configured, it will render the SQL Managed Instance unavailable. The SQL Managed Instance currently is limited to use the Basic Load Balancer instead.
+
 additionalContent: |
 
   ## Next steps

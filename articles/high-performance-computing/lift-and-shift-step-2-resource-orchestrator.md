@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As a cloud architect, I want to configure resource orchestration for high-performance computing migrations, so that I can effectively provision and manage computational resources in the cloud while ensuring job execution efficiency and compliance with performance requirements.
 ---
 
 # Resource orchestration

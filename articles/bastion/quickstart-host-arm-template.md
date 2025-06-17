@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 03/31/2025
 ms.custom: template-quickstart, devx-track-arm-template
 #Customer intent: As someone with a networking background, I want to deploy Azure Bastion to a virtual machine by using an ARM template.
+# Customer intent: As a network engineer, I want to deploy Azure Bastion to a virtual network using an ARM template, so that I can securely connect to virtual machines without requiring public IP addresses.
 ---
 
 

@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC administrator, I want to configure accounting systems during migration, so that I can ensure efficient resource utilization, optimize costs, and maintain compliance with organizational policies."
 ---
 
 # Accounting configuration

@@ -270,6 +270,9 @@
           href: authentication-openid.md
 - name: Security
   items:
+    - name: Overview
+      href: security.md
+      displayName: Security overview
     - name: Manage secrets
       href: manage-secrets.md
     - name: Token store

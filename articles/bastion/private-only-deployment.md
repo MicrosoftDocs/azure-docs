@@ -8,6 +8,7 @@ ms.custom:
 ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: abell
+# Customer intent: As a network administrator, I want to deploy Azure Bastion in a private-only mode, so that I can ensure secure access to virtual machines within my virtual network without allowing outbound access outside of the network.
 ---
 
 # Deploy Bastion as private-only

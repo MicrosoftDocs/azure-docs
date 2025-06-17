@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As an IT administrator managing high performance computing resources, I want to configure network access during migration so that I can ensure secure and efficient communication between computational resources while maintaining proper security protocols.
 ---
 
 # Network access configuration

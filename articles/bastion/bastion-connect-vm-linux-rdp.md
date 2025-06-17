@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 03/31/2025
 ms.author: abell
+# Customer intent: As a cloud administrator, I want to securely connect to a Linux VM using RDP through a Bastion host, so that I can manage my virtual machines without exposing them to external threats.
 ---
 
 # Create an RDP connection to a Linux VM using Azure Bastion

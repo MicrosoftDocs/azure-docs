@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC system administrator, I want to configure VM images with the necessary libraries and drivers, so that I can ensure optimal performance for high-performance computing applications during migration."
 ---
 
 # Virtual machine (VM) image configuration

@@ -114,7 +114,7 @@ Create a Windows Server 2019 virtual machine.
     | **Network interface** |  |
     | Virtual network | Select **myPIPVNet**. |
     | Subnet | Select **WebSubnet**. |
-    | Public IP | Take the default public IP. |
+    | Public IP | Take the default Standard SKU public IP. |
     | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **HTTP (80)**, **HTTPS (443)** and **RDP (3389)**. |
@@ -125,7 +125,7 @@ Create a Windows Server 2019 virtual machine.
 This deployment may take a few minutes to complete.
 
 > [!NOTE]
-> **Web-01** virtual machine has an attached NIC with a basic dynamic public IP that changes every time the virtual machine is restarted.
+> **Web-01** virtual machine has an attached NIC with a Standard SKU dynamic public IP that changes every time the virtual machine is restarted.
 
 ### Install IIS web server
 
