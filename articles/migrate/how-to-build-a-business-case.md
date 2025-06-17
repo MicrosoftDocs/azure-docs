@@ -32,7 +32,7 @@ The Business case capability helps you build a business proposal to understand h
 - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
 - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
 - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
-- Sustainability insights indicate a reduction in carbon emissions when migrating from on-premises to Azure.
+- Sustainability insights to indicate a reduction in carbon emissions when migrating from on-premises to Azure.
 - (Optional) Current on-premises vs On-premises with Arc total cost of ownership. 
 - (Optional) the cost savings and other benefits of using Azure security (Microsoft Defender for Cloud) and management (Azure Monitor and Update Management) via Arc, and ESUs enabled by Arc for your on-premises servers.
 
