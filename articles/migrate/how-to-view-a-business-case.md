@@ -25,7 +25,7 @@ There are four major reports that you need to review:
     - Potential savings (TCO).
     - Estimated year on year cashflow savings based on the estimated migration completed that year.
     - Savings from unique Azure benefits like Azure Hybrid Benefit.
-    - Migrating to Azure reduces carbon emissions
+    - Migrating to Azure reduces carbon emissions.
     - Savings from Security and Management capabilities.
     - Discovery insights covering the scope of the business case.
     - Support status of the operating system and database licenses.
