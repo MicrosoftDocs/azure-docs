@@ -161,7 +161,7 @@ With Microsoft Entra ID integration, you can simplify your architecture by direc
 2. The client application authenticates the user via Microsoft Entra ID. The client application obtains an Entra ID user access token with API permissions for the Azure Communication Services Clients application.
 3. The client application obtains an Azure Communication Services access token for Entra ID user using one of the following methods:
    1. Using the Azure Communication Services Common SDKs: The client initializes the [CommunicationTokenCredential](./credentials-best-practices.md#communication-token-credential) with Entra ID token credential options, which automatically handles  obtaining an Azure Communication Services access token for Entra ID user in the background. The application then uses this credential to access Azure Communication Services APIs.
-   1. Custom implementation: The client application calls the [Exchange Entra ID token for Azure Communication Services access token](/rest/api/communication/identity/entra-id-token) API to obtain an Azure Communication Services access token. The resulting Azure Communication Services access token is then used to access  Azure Communication Services APIs.
+   1. Custom implementation: The client application calls the [Exchange Entra ID token for Azure Communication Services access token](https://learn.microsoft.com/rest/api/communication/identity/entra-id-token) API to obtain an Azure Communication Services access token. The resulting Azure Communication Services access token is then used to access  Azure Communication Services APIs.
 
 This architecture eliminates the need for a separate identity management service, as Microsoft Entra ID handles user authentication and authorization directly.
 
@@ -174,7 +174,7 @@ The Microsoft Entra ID integration is currently in public preview and has the fo
 
 * To issue tokens, see [Create and manage access tokens for end users](../quickstarts/identity/access-tokens.md).
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
-* For details on how authentication works in single-tenant and multitenant Microsoft Entra ID scenarios, refer to [Tenancy in Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps.md).
+* For details on how authentication works in single-tenant and multitenant Microsoft Entra ID scenarios, refer to [Tenancy in Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/single-and-multi-tenant-apps).
 * For a quickstart on how to authenticate Microsoft Entra ID users, see [Authenticate Microsoft Entra ID users](../quickstarts/identity/entra-id-authentication-integration.md).
 * To read about data residency and privacy, see [Region availability and data residency](./privacy.md).
 * For a full sample of a simple identity management service, see [Trusted service tutorial](../tutorials/trusted-service-tutorial.md).
