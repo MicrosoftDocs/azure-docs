@@ -349,10 +349,10 @@
   - name: ExpressRoute for Cloud Solution Providers (CSP)
     href: expressroute-for-cloud-solution-providers.md
   - name: Videos
-    href: https://learn.microsoft.com/shows/Inside-Azure-for-IT/?products=azure-expressroute
+    href: /shows/Inside-Azure-for-IT/?products=azure-expressroute
     items:
     - name: Microsoft Azure hybrid connectivity overview
-      href: https://learn.microsoft.com/shows/inside-azure-for-it/microsoft-azure-hybrid-connectivity-overview
+      href: /shows/inside-azure-for-it/microsoft-azure-hybrid-connectivity-overview
     - name: Evolve your network infrastructure for connectivity
       href: /events/ignite-2015/brk2481
     - name: 'Hybrid partnerships: Enabling on-premises scenarios'
