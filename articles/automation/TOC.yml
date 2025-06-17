@@ -315,7 +315,7 @@
 - name: Resources
   items:
   - name: Automation introduction video
-    href: https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/
+    href: https://learn.microsoft.com/shows/azure-friday/azure-automation
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=management-tools&query=automation
   - name: Microsoft Q&A question page
@@ -331,4 +331,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=automation
+    href: https://learn.microsoft.com/shows/data-exposed/?products=azure-automation
