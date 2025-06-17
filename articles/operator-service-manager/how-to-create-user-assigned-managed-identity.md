@@ -1,6 +1,6 @@
 ---
-title: How to create and assign User Assigned Managed Identity in Azure Operator Service Manager
-description: Learn how to create and assign a User Assigned Managed Identity in Azure Operator Service Manager.
+title: How to create, assign and use a User Assigned Managed Identity in Azure Operator Service Manager
+description: Learn how to create, assign and use a User Assigned Managed Identity in Azure Operator Service Manager.
 author: msftadam
 ms.author: adamdor
 ms.date: 6/9/2025
@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
 
-# Create and assign a User Assigned Managed Identity
+# Create, assign and use a User Assigned Managed Identity
 
-In this how-to guide, you learn how to:
-- Create a User Assigned Managed Identity (UAMI) for your Site Network Service (SNS).
-- Assign that User Assigned Managed Identity permissions for use by Azure Operator Service Manager (AOSM)
+In this how-to guide, you learn to:
+- Create a User Assigned Managed Identity (UAMI) to use with Azure Operator Service Manager (AOSM)
+- Assign a UAMI permissions to access required resources.
+- Use a UAMI when executing network function (NF) or site network service (SNS) operations. 
 
 > [!WARNING]
 > UAMI is required where an expected SNS operation may run for four or more hours. If UAMI isn't used during long running SNS operations, the SNS may report a false failed status before component operations complete.
@@ -25,11 +26,11 @@ In this how-to guide, you learn how to:
 
 - You need either the 'Owner' or 'User Access Administrator' role over the Network Function Definition Version resource from your chosen Publisher. You also must have a Resource Group over which you have the 'Owner' or 'User Access Administrator' role assignment.
 
-## Create a UAMI
+## Create a UAMI via portal
 
 First, create a UAMI. Refer to [Create a User Assigned Managed Identity for your SNS](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) for details.
 
-## Assign custom role to UAMI
+## Assign custom role to UAMI via portal
 
 Next, assign a custom role to your new UAMI. Choose a scope-based approach and then allow the proper permission across that scope.
 
@@ -109,6 +110,159 @@ Repeat the role assignment process for any remaining resources given the chosen 
 
 Completion of all the tasks outlined in this article ensures that the Site Network Service (SNS) has the necessary permissions to function effectively within the specified Azure environment.
 
-## Assign other required permissions to the Managed Identity
+### Assign other required permissions to the Managed Identity
 
 Repeat this process to assign any other permissions to the Managed Identity that your Network Service Designer identified.
+
+## Create and assign permissions to a UAMI via bicep
+
+The required operations to create and assign permissions are also supported via bicep scripting. This approach may work better where automation of these operations within a workflow pipeline is neccesary. The following example demonstrates the bicep operations required to establish the UAMI with minimum assigned roles. It will be neccesary to expand role assignment based on scope approach.
+
+```bicep
+// ----------- MIO Role Definition -----------
+// This role is used to assign the Managed Identity Operator role to the User Assigned Managed Identity (UAMI).
+@description('This is the built-in MIO role. See https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#managed-identity-operator')
+resource MIORoleDefinition 'Microsoft.Authorization/roleDefinitions@2018-01-01-preview' existing = {
+  scope: managedIdentity
+  name: 'f1a07417-d97a-45cb-824c-7a7467783830'
+}
+
+// This role is used to assign the Contributor role to the User Assigned Managed Identity (UAMI) at the resource group level.
+resource ContributorRoleDefinition 'Microsoft.Authorization/roleDefinitions@2018-01-01-preview' existing = {
+  scope: subscription()
+  name: 'b24988ac-6180-42a0-ab88-20f7382dd24c'
+}
+
+// Assign the Managed Identity Operator role to the User Assigned Managed Identity (UAMI) at the scope of the managed identity.
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+  name: guid(resourceGroup().id, principalId, MIORoleDefinition.id)
+  scope: managedIdentity
+  properties: {
+    roleDefinitionId: MIORoleDefinition.id
+    principalId: managedIdentity.properties.principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+// Get reference to the target resource group
+resource targetRg 'Microsoft.Resources/resourceGroups@2022-09-01' existing = {
+  name: 'publisherResourceGroupName' // Replace with the actual resource group name
+  scope: subscription('subscriptionId')
+}
+
+// Assign the Contributor role to the User Assigned Managed Identity (UAMI) at the scope of the publisher resource group.
+resource roleAssignmentContributor 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+  name: guid(resourceGroup().id, principalId, ContributorRoleDefinition.id)
+  scope: targetRg
+  properties: {
+    roleDefinitionId: ContributorRoleDefinition.id
+    principalId: managedIdentity.properties.principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+```
+
+## Use a UAMI with NF and SNS operations
+
+### NF template considerations
+
+The NF template must be updated to include the identityObj parameter. The following JSON example demonstrates use of this parameter with a generic NF setup:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nameValue": {
+      "type": "string",
+      "defaultValue": "[concat('anf-', substring(uniqueString(deployment().name), 0, 6))]"
+    },
+    "locationValue": {
+      "type": "string",
+      "defaultValue": "eastus2euap"
+    },
+    "nfviTypeValue": {
+      "type": "string",
+      "defaultValue": "AzureArcKubernetes"
+    },
+    "nfviIdValue": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "nfdvId": {
+      "type": "string"
+    },
+    "identityObj": {
+      "type": "object",
+      "defaultValue": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "/subscriptions/<subscriptionId>/resourceGroups/<rgName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<uaminame>": {}
+        }
+      }
+    }
+  },
+  "variables": {
+    "deploymentValuesValue": "[string(createObject('role1releasenamespace', parameters('config').role1releasenamespace, 'role1releasename',parameters('config').role1releasename, 'role2releasenamespace', parameters('config').role2releasenamespace, 'role2releasename',parameters('config').role2releasename,'role3releasenamespace', parameters('config').role3releasenamespace, 'role3releasename',parameters('config').role3releasename))]",
+    "nfName": "[concat(parameters('nameValue'), '-CNF')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.HybridNetwork/networkFunctions",
+      "apiVersion": "2024-04-15",
+      "name": "[variables('nfName')]",
+      "location": "[parameters('locationValue')]",
+      "identity": "[parameters('identityObj')]",
+      "properties": {
+        "networkFunctionDefinitionVersionResourceReference": {
+          "id": "[parameters('nfdvId')]",
+          "idType": "Open"
+        },
+        "nfviType": "[parameters('nfviTypeValue')]",
+        "nfviId": "[parameters('nfviIdValue')]",
+        "allowSoftwareUpdate": true,
+        "configurationType": "Secret",
+        "secretDeploymentValues": "[string(variables('deploymentValuesValue'))]"
+      }
+    }
+  ]
+}
+```
+### SNS template considerations
+
+The SNS template must be updated to include the identity resource parameter. The following bicep example demonstrates use of this parameter with a generic SNS setup:
+
+```bicep
+resource azCoreSnsUAMI 'Microsoft.HybridNetwork/sitenetworkservices@2023-09-01' = {
+  name: snsNameUAMI
+  location: location
+  sku: {
+    name: 'Standard'
+  }
+  identity:  {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+     '${managedIdentity.id}': {} 
+    }
+  }
+  properties: {
+    siteReference: {
+      id: azCoreSite.id
+    }
+    networkServiceDesignVersionResourceReference: {
+        id: nsdv.id
+        idType: 'Open'
+    }
+    desiredStateConfigurationGroupValueReferences: {
+      Test_Configuration: {
+        id: azCoreCgv.id
+      }
+      Secret_Configuration:{
+        id:azCoreCgvSecret.id
+      }
+    }
+  }
+}
+```
