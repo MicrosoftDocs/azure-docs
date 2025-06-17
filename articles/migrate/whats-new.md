@@ -16,7 +16,8 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (June) 2025
 
-- Public preview: Azure Migrate supports sustainability efforts by offering Sustainability insights in its Business Case. It empowers IT, finance, and sustainability teams estimate on-premises emissions, compare them with Azure emissions, track yearly reductions, and show both cost and environmental benefits in a single view. Teams make informed, carbon-aware migration decisions that align with their organization’s ESG goals.
+- Public preview: Azure Migrate supports sustainability efforts by offering Sustainability insights in its Business Case. It empowers IT, finance, and sustainability teams estimate on-premises emissions, compare them with Azure emissions, track yearly reductions, and show both cost and environmental benefits in a single view. This helps teams make smart migration choices that reduce carbon emissions and support their organization’s ESG goals.
+
 
 ## Update (May 2025)
 
