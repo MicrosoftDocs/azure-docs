@@ -281,7 +281,7 @@ The following table shows the release stage and change logs for different versio
 
 ### <a name="upgrade-the-impala-connector"></a> Upgrade the Impala connector from version 1.0 to version 2.0 (Preview)
 
-1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
+1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0 (Preview)](#version-20).
 
 2. The data type mapping for the Impala linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Impala](#data-type-mapping-for-impala).
 

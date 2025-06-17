@@ -338,11 +338,11 @@ The following table shows the release stage and change logs for different versio
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
 | Version 1.0 | End of support announced | / |
-| Version 2.0 (Preview) | Preview version available | • Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is not supported. <br><br>• HiveServer1 and HiveThriftServer are not supported for `ServerType`.  <br><br>• Username authentication type is not supported. SASL transport protocol only supports UsernameAndPassword authentication type. Binary transport protocol only supports Anonymous authentication type. <br><br>• `serviceDiscoveryMode`, `zooKeeperNameSpace` and `useNativeQuery` are not supported. <br><br>• The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br><br>`enableServerCertificateValidation` is supported. <br><br>• TINYINT is read as SByte data type. <br><br>• TIMESTAMP is read as DateTimeOffset data type. |
+| Version 2.0 (Preview) | Preview version available | • Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is not supported. <br><br>• HiveServer1 and HiveThriftServer are not supported for `ServerType`.  <br><br>• Username authentication type is not supported. SASL transport protocol only supports UsernameAndPassword authentication type. Binary transport protocol only supports Anonymous authentication type. <br><br>• `serviceDiscoveryMode`, `zooKeeperNameSpace` and `useNativeQuery` are not supported. <br><br>• The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br>`enableServerCertificateValidation` is supported. <br><br>• TINYINT is read as SByte data type. <br><br>• TIMESTAMP is read as DateTimeOffset data type. |
 
 ### <a name="upgrade-the-hive-connector"></a> Upgrade the Hive connector from version 1.0 to version 2.0 (Preview)
 
-1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
+1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0 (Preview)](#version-20).
 
 2. The data type mapping for the Hive linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Hive](#data-type-mapping-for-hive).
 
