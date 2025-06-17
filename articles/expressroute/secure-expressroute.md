@@ -68,7 +68,7 @@ Monitoring ExpressRoute connections and related network activity is essential fo
 
 - **Set up alerts for service health and connection issues**: Use Azure Monitor to configure alerts for ExpressRoute circuit outages, performance degradation, configuration changes, and both planned and unplanned maintenance events. These alerts help you proactively manage connectivity and security posture. For more information, see [Monitor ExpressRoute circuits](monitor-expressroute.md).
 
-- **Monitor network traffic patterns**: Use Azure Network Watcher and Traffic Analytics to analyze traffic through your ExpressRoute connection. This helps find unusual patterns that might indicate security threats or misconfigurations. For more information, see [Azure Network Watcher](../network-watcher/overview.md) and [Monitor network traffic with Traffic Analytics](../network-watcher/traffic-analytics-overview.md).
+- **Monitor network traffic patterns**: Use Azure Network Watcher and Traffic Analytics to analyze traffic through your ExpressRoute connection. This helps find unusual patterns that might indicate security threats or misconfigurations. For more information, see [Azure Network Watcher](../network-watcher/network-watcher-overview.md) and [Monitor network traffic with Traffic Analytics](../network-watcher/traffic-analytics-policy-portal.md).
 
 - **Integrate with Microsoft Sentinel**: Send ExpressRoute logs to Microsoft Sentinel to detect advanced threats and correlate them with other security events across your hybrid environment.
 
