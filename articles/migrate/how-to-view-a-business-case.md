@@ -66,7 +66,7 @@ It shows the potential savings with respect to extended security update license.
 
 It shows the potential savings with respect to securing your migration with Microsoft Defender for Cloud and Azure Management services including Azure Monitor, Azure Backup, and Azure Update Manager for streamlining your operations.
 
-### Sustainability insights: Lower emissions with Azure
+## Sustainability insights: Lower emissions with Azure
 
 The **Sustainability Benefits** capability is now embedded in Azure Migrate’s Business Case. It empowers IT, finance, and sustainability teams to:
 
