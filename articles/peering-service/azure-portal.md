@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/03/2025
 
 #CustomerIntent: As an administrator, I want to learn how to create and manage a Peering Service connection using the Azure portal so I can enhance the connectivity to Microsoft services over the public internet.
+# Customer intent: As an IT administrator, I want to create, modify, and delete Peering Service connections using the Azure portal so that I can effectively manage connectivity to Microsoft cloud services over the public internet.
 ---
 
 # Create, change, or delete a Peering Service connection using the Azure portal

@@ -1178,7 +1178,7 @@
     - name: Architecture guidance
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=compute
+      href: https://azure.microsoft.com/updates/?category=compute
     - name: Pricing details
       href: https://azure.microsoft.com/pricing/details/functions/
     - name: Pricing calculator
