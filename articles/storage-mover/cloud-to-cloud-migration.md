@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 06/11/2025
+ms.date: 06/16/2025
 ---
 
 # Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
@@ -57,7 +57,7 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
 1. Within the **Solutions** tab:
     - Add an **Inventory** solution, making sure that `AWS Services: S3` is selected.
-    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-inventory-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Solutions tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-connector-inventory.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solution-inventory-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Inventory tab selected and required Inventory objects displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solution-inventory.png":::
     - Add a **Storage - Data Management** solution.
     
 1. Within the **Authentication template** tab, follow the instructions presented to create the *AWS CloudFormation Stack* from the AWS portal.
