@@ -65,7 +65,7 @@ The following scenarios illustrate how KQL queries in the Microsoft Sentinel Lak
 
 
 
-## Getting Started with KQL on Microsoft Sentinel Lake<<<<rename>>>>
+## Exploring Microsoft Sentinel data lake with KQL
 
 
 Use KQL queries under the Lake exploration in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the Analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with QKL queries see [Data lake exploration - KQL queries (Preview).](kql-queries.md).
@@ -77,6 +77,8 @@ Run one-time KQL jobs on lake data to promote specific historical data from the 
 
 
 ## Known Limitations
+
+<< use include file for known limitations >>
 - Supported Kusto commands.
 - Using out-of-the-box or custom functions isn't currently supported in Lake Explorer.
 - Calling external data via KQL query in Lake isn't supported.
