@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/18/2025
+ms.date: 06/17/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
