@@ -1,7 +1,7 @@
 ---
-title: Architecture - Private clouds and clusters
-description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
-ms.topic: conceptual
+title: Architecture for Private Clouds and Clusters
+description: Understand the key capabilities of Azure VMware Solution software-defined datacenters and VMware vSphere clusters. 
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 4/4/2025
 ms.custom: engagement-fy23, references_regions
@@ -9,57 +9,59 @@ ms.custom: engagement-fy23, references_regions
 
 # Azure VMware Solution private cloud and cluster concepts
 
-Azure VMware Solution provides VMware-based private clouds in Azure. The private cloud hardware and software deployments are fully integrated and automated in Azure. Deploy and manage the private cloud through the Azure portal, CLI, or PowerShell.
+Azure VMware Solution provides VMware-based private clouds in Azure. The private cloud hardware and software deployments are fully integrated and automated in Azure. Deploy and manage the private cloud through the Azure portal, the Azure CLI, or PowerShell.
 
 A private cloud includes clusters with:
 
-- Dedicated bare-metal server hosts provisioned with VMware ESXi hypervisor
-- VMware vCenter Server for managing ESXi and vSAN
-- VMware NSX software-defined networking for vSphere workload VMs
-- VMware vSAN datastore for vSphere workload VMs
-- VMware HCX for workload mobility
-- Resources in the Azure underlay (required for connectivity and to operate the private cloud)
+- Dedicated bare-metal server hosts provisioned with VMware vSphere Hypervisor (ESXi).
+- VMware vCenter Server for managing ESXi and vSAN.
+- VMware NSX software-defined networking for vSphere workload virtual machines (VMs).
+- VMware vSAN datastore for vSphere workload VMs.
+- VMware HCX for workload mobility.
+- Resources in the Azure underlay (required for connectivity and to operate the private cloud).
 
 Private clouds are installed and managed within an Azure subscription. The number of private clouds within a subscription is scalable. Initially, there's a limit of one private cloud per subscription. There's a logical relationship between Azure subscriptions, Azure VMware Solution private clouds, vSAN clusters, and hosts.
 
-The following diagram describes the architectural components of the Azure VMware Solution.
+The following diagram describes the architectural components of Azure VMware Solution.
 
-:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Diagram illustrating a single Azure subscription containing two private clouds for development and production environments." border="false"  lightbox="media/concepts/hosts-clusters-private-clouds-final.png":::
+:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Diagram that shows a single Azure subscription that contains two private clouds for development and production environments." border="false"  lightbox="media/concepts/hosts-clusters-private-clouds-final.png":::
 
 Each Azure VMware Solution architectural component has the following function:
 
-- Azure Subscription: Provides controlled access, budget, and quota management for the Azure VMware Solution.
-- Azure Region: Groups data centers into Availability Zones (AZs) and then groups AZs into regions.
-- Azure Resource Group: Places Azure services and resources into logical groups.
-- Azure VMware Solution Private Cloud: Offers compute, networking, and storage resources using VMware software, including vCenter Server, NSX software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
-- Azure VMware Solution Resource Cluster: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
-- VMware HCX: Delivers mobility, migration, and network extension services.
-- VMware Site Recovery: Automates disaster recovery and storage replication services with VMware vSphere Replication. Third-party disaster recovery solutions Zerto Disaster Recovery and JetStream Software Disaster Recovery are also supported.
-- Dedicated Microsoft Enterprise Edge (D-MSEE): Router that connects Azure cloud and the Azure VMware Solution private cloud instance.
-- Azure Virtual Network (VNet): Connects Azure services and resources together.
-- Azure Route Server: Exchanges dynamic route information with Azure networks.
-- Azure Virtual Network Gateway: Connects Azure services and resources to other private networks using IPSec VPN, ExpressRoute, and VNet to VNet.
-- Azure ExpressRoute: Provides high-speed private connections between Azure data centers and on-premises or colocation infrastructure.
-- Azure Virtual WAN (vWAN): Combines networking, security, and routing functions into a single unified Wide Area Network (WAN).
+- **Azure subscription**: Provides controlled access, budget, and quota management for Azure VMware Solution.
+- **Azure region**: Groups datacenters into availability zones and then groups availability zones into regions.
+- **Azure resource group**: Places Azure services and resources into logical groups.
+- **Azure VMware Solution private cloud**: Offers compute, networking, and storage resources by using VMware software, including vCenter Server, NSX software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
+- **Azure VMware Solution resource cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files, Elastic SAN, and Pure Cloud Block Store are also supported.
+- **VMware HCX**: Delivers mobility, migration, and network extension services.
+- **VMware Site Recovery**: Automates disaster recovery and storage replication services with VMware vSphere Replication. Non-Microsoft disaster recovery solutions Zerto disaster recovery and JetStream Software disaster recovery are also supported.
+- **Dedicated Microsoft Enterprise Edge**: Router that connects Azure Cloud Services and the Azure VMware Solution private cloud instance.
+- **Azure Virtual Network**: Connects Azure services and resources together.
+- **Azure Route Server**: Exchanges dynamic route information with Azure networks.
+- **Azure Virtual Network gateway**: Connects Azure services and resources to other private networks by using IPSec virtual private network, Azure ExpressRoute, and virtual network to virtual network.
+- **Azure ExpressRoute**: Provides high-speed private connections between Azure datacenters and on-premises or colocation infrastructure.
+- **Azure Virtual WAN**: Combines networking, security, and routing functions into a single unified wide area network (WAN).
 
 ## Hosts
 
 [!INCLUDE [disk-capabilities-of-the-host](includes/disk-capabilities-of-the-host.md)]
 
-## Azure Region Availability Zone (AZ) to SKU mapping table
+## Azure region availability zone to host type mapping table
 
-When planning your Azure VMware Solution design, use the following table to understand what SKUs are available in each physical Availability Zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies). 
+When you plan your Azure VMware Solution design, use the following table to understand what host types are available in each physical availability zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
 
 >[!IMPORTANT]
-> This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Store (CBS). 
+> This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Store.
 
-The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the following table. Customer quota for Azure VMware Solution is assigned by Azure region, and you aren't able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "special placement policy" for your subscription, Azure region, Availability Zone, and SKU type. This policy remains in place until you request it be removed or changed.
+The capability for Azure VMware Solution stretched clusters to deploy resources in multiple availability zones (Multi-AZ) is also tagged in the following table. The customer quota for Azure VMware Solution is assigned by Azure region. You can't specify the availability zone during private cloud provisioning. An autoselection algorithm is used to balance deployments across the Azure region.
 
-**SKUs** marked in **bold** are of limited availability due to customer consumption and quota may not be available upon request. The AV64 SKU should be used instead when AV36, AV36P, or AV52 SKUs are limited.
+If you have a particular availability zone to which you want to deploy, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft. Request a "special placement policy" for your subscription, Azure region, availability zone, and host type. This policy remains in place until you request it to be removed or changed.
 
-AV64 SKUs are available per Availability Zone, the table below lists the Azure regions that support this SKU. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven Fault Domains (FDs) are needed respectively, the FD count for each Azure region is listed in the "AV64 FDs Supported" column.
+Host types marked in bold type are of limited availability because of customer consumption and might not be available upon request. Use the AV64 host type when AV36, AV36P, or AV52 host types are limited.
 
-| Azure region | Availability Zone | SKU   | Multi-AZ SDDC | AV64 FDs Supported |
+AV64 host types are available per availability zone. The following table lists the Azure regions that support this host type. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven fault domains are needed, respectively. The fault domain count for each Azure region is listed in the column labeled **AV64 fault domains supported**.
+
+| Azure region | Availability zone | Host type   | Multi-AZ SDDC | AV64 fault domains supported |
 | :---         | :---:             | :---: | :---:         | :---:           |
 | Australia East | AZ01 | AV36P, AV64 | Yes | 7 |
 | Australia East | AZ02 | AV36, AV64| Yes | 7 |
@@ -118,31 +120,34 @@ AV64 SKUs are available per Availability Zone, the table below lists the Azure r
 
 [!INCLUDE [hosts-minimum-initial-deployment-statement](includes/hosts-minimum-initial-deployment-statement.md)]
 
+> [!CAUTION]
+> Deleting a cluster terminates all running workloads and components and is an irreversible operation. Once you delete a cluster, you cannot recover the data.
+
 [!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
 
 ## VMware software versions
 
-Microsoft is a member of the VMware Metal-as-a-Service (MaaS) program and uses the [VMware Cloud Provider Stack (VCPS)](https://docs.vmware.com/en/VMware-Cloud-Provider-Stack/1.1/com.vmware.vcps.gsg.doc/GUID-5D686FB2-9886-44D3-845B-FDEF650C7575.html) for Azure VMware Solution upgrade planning.
+Microsoft is a member of the VMware metal as a service (MaaS) program and uses the [VMware Cloud Provider Stack](https://docs.vmware.com/en/VMware-Cloud-Provider-Stack/1.1/com.vmware.vcps.gsg.doc/GUID-5D686FB2-9886-44D3-845B-FDEF650C7575.html) for Azure VMware Solution upgrade planning.
 
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
 ## Backup and restore
 
-Azure VMware Solution private cloud vCenter Server and HCX Manager (if enabled) configurations are on a daily backup schedule and NSX configuration has an hourly backup schedule. The backups are retained for a minimum of three days. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
+Azure VMware Solution private cloud vCenter Server and HCX Manager (if enabled) configurations are on a daily backup schedule. The NSX configuration has an hourly backup schedule. The backups are retained for a minimum of three days. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
 
 > [!NOTE]
 > Restorations are intended for catastrophic situations only.
 
-Azure VMware Solution continuously monitors the health of both the physical underlay and the VMware Solution components. When Azure VMware Solution detects a failure, it takes action to repair the failed components.
+Azure VMware Solution continuously monitors the health of both the physical underlay and the Azure VMware Solution components. When Azure VMware Solution detects a failure, it takes action to repair the failed components.
 
-## Next steps
+## Related content
 
-Now that you've covered Azure VMware Solution private cloud concepts, you might want to learn about:
+Now that you learned about Azure VMware Solution private cloud concepts, you might want to read:
 
 - [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
 - [Azure VMware Solution private cloud maintenance best practices](azure-vmware-solution-host-remediation.md)
 - [Azure VMware Solution storage concepts](architecture-storage.md)
-- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
+- [Enable an Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md

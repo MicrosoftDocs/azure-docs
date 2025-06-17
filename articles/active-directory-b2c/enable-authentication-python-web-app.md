@@ -15,6 +15,7 @@ ms.subservice: b2c
 ---
 
 # Enable authentication in your own Python web application using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this article, you learn how to add Azure Active Directory B2C (Azure AD B2C) authentication in your own Python web application. You enable users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. This article uses [Microsoft Authentication Library (MSAL) for Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/main) to simplify adding authentication to your Python web application.
 

@@ -8,9 +8,8 @@ ms.author: rifox
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
 ## Record calls
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/Public-Preview-Note-ios.md)]
 
-> [!NOTE]
-> This API is provided as a preview for developers and might change based on feedback that we receive. Don't use this API in a production environment. To use this API, use the beta release of the Azure Communication Services Calling iOS SDK.
 
 Call recording is an extended feature of the core `Call` object.
 
@@ -59,3 +58,22 @@ let serverCallId = call.info.getServerCallId(){ (serverId, error) in }
 ```
 
 When you stop recording from the server, the event `didChangeRecordingState` is triggered and the value of `recordingFeature.isRecordingActive` is `false`.
+
+## Explicit Consent
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/Public-Preview-Note-ios.md)]
+
+When your Teams meeting or call is configured to require explicit consent for recording and transcription, you're required to collect consent from all participants in the call before you can record them. You can provide consent proactively when joining the meeting or reactively when the recording starts. Until explicit consent is given, participants' audio, video, and screen sharing will be disabled during recording.
+
+You can check if the meeting recording requires explicit consent by property `isTeamsConsentRequired`. If the value is set to `true`, then explicit consent is required for the `call`.
+
+```swift
+let isConsentRequired = recordingFeature.isTeamsConsentRequired;
+```
+
+If you have already obtained the user's consent for recording, you can call `grantTeamsConsent()` method to indicate explicit consent to the service. This consent is valid for one `call` session only and users need to provide consent again if they rejoin the meeting.
+
+```swift
+recordingFeature.grantTeamsConsent();
+```
+
+Attempts to enable audio, video, or screen sharing fail when recording is active, explicit consent is required but isn't yet given. You can recognize this situation by checking property `reason` of class `ParticipantCapabilities` for [capabilities](../../capabilities.md) `turnVideoOn`, `unmuteMic` and `shareScreen`. You can find those [capabilities](../../capabilities.md) in the feature `call.feature(Features.Capabilities)`. Those [capabilities](../../capabilities.md) would return reason `ExplicitConsentRequired` as users need to provide explicit consent.

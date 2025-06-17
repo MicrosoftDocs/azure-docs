@@ -1,14 +1,17 @@
 ---
-title: NSG flow logs overview
+title: NSG Flow Logs Overview
 titleSuffix: Azure Network Watcher
 description: Learn about NSG flow logs feature of Azure Network Watcher, which allows you to log information about IP traffic flowing through a network security group.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/26/2024
+ms.date: 05/19/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
+ms.custom:
+  - build-2025
+# Customer intent: As an Azure network administrator, I want to understand how NSG flow logs work, so that I can monitor traffic patterns and enhance the security and performance of my network.
 ---
 
 # Flow logging for network security groups
@@ -399,24 +402,14 @@ Here's an example of bandwidth calculation for flow tuples from a TCP conversati
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
 
-## Managing NSG flow logs
-
-To learn how to create, change, disable, or delete NSG flow logs, see one of the following guides:
-
-- [Azure portal](nsg-flow-logs-portal.md)
-- [PowerShell](nsg-flow-logs-powershell.md)
-- [Azure CLI](nsg-flow-logs-cli.md)
-- [REST API](nsg-flow-logs-rest.md)
-- [Azure Resource Manager](nsg-flow-logs-azure-resource-manager.md)
-
 ## Working with flow logs
 
 ### Read and export flow logs
 
 To learn how to read and export NSG flow logs, see one of the following guides:
 
-- [Download and view flow logs from the portal](nsg-flow-logs-portal.md#download-a-flow-log)
-- [Read flow logs by using PowerShell functions](network-watcher-read-nsg-flow-logs.md)
+- [Download and view flow logs](nsg-flow-logs-manage.md#download-a-flow-log)
+- [Read flow logs using PowerShell functions](network-watcher-read-nsg-flow-logs.md)
 - [Export NSG flow logs to Splunk](https://www.splunk.com/en_us/blog/platform/splunking-azure-nsg-flow-logs.html)
 
 NSG flow log files are stored in a storage account at the following path:
@@ -458,11 +451,22 @@ Flows affected by non-default inbound rules become non-terminating. Additionally
 
 You can resolve this difference by setting the `FlowTimeoutInMinutes` property on the associated virtual networks to a non-null value. You can achieve default stateful behavior by setting `FlowTimeoutInMinutes` to 4 minutes. For long-running connections where you don't want flows to disconnect from a service or destination, you can set `FlowTimeoutInMinutes` to a value of up to 30 minutes. Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to set `FlowTimeoutInMinutes` property:
 
+
 ```azurepowershell-interactive
-$virtualNetwork = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
-$virtualNetwork.FlowTimeoutInMinutes = 4
-$virtualNetwork |  Set-AzVirtualNetwork
+$virtualNetwork = @{
+    Name               = 'myVNet'
+    ResourceGroupName  = 'myResourceGroup'
+}
+
+$virtualNetworkConfig = Get-AzVirtualNetwork @virtualNetwork
+$virtualNetworkConfig.FlowTimeoutInMinutes = 4
+$virtualNetworkConfig | Set-AzVirtualNetwork
 ```
+
+Flow timeout can also be set using the Azure portal:
+
+:::image type="content" source="./media/nsg-flow-logs-overview/virtual-network-flow-timeout-settings.png" alt-text="Screenshot showing the virtual network timeout settings in the Azure portal." lightbox="./media/nsg-flow-logs-overview/virtual-network-flow-timeout-settings.png":::
+
 
 ### Inbound flows logged from internet IPs to VMs without public IPs
 
@@ -486,15 +490,18 @@ NSG flow logs for network security groups associated to Azure Application Gatewa
 
 Currently, these Azure services don't support NSG flow logs:
 
-- [Azure Container Instances](/azure/container-instances/container-instances-overview)
-- [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-- [Azure Functions](../azure-functions/functions-overview.md)
-- [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md)
-- [App Service](../app-service/overview.md)
-- [Azure Database for MariaDB](/azure/mariadb/overview)
-- [Azure Database for MySQL](/azure/mysql/single-server/overview)
-- [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
-- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
+- [Azure Container Instances](/azure/container-instances/container-instances-overview?toc=/azure/network-watcher/toc.json)
+- [Azure Container Apps](/azure/container-apps/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Logic Apps](../logic-apps/logic-apps-overview.md?toc=/azure/network-watcher/toc.json) 
+- [Azure Functions](../azure-functions/functions-overview.md?toc=/azure/network-watcher/toc.json)
+- [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md?toc=/azure/network-watcher/toc.json)
+- [App Service](../app-service/overview.md?toc=/azure/network-watcher/toc.json)
+- [Azure Database for MariaDB](/azure/mariadb/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Database for MySQL](/azure/mysql/single-server/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview?toc=/azure/network-watcher/toc.json)
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?toc=/azure/network-watcher/toc.json)
+- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction?toc=/azure/network-watcher/toc.json)
+- [Microsoft Power Platform](/power-platform?toc=/azure/network-watcher/toc.json)
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support NSG flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
@@ -550,8 +557,14 @@ If traffic analytics is enabled with NSG flow logs, traffic analytics pricing ap
 
 Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
+## Availability
+
+The following tables list the supported regions where you can enable NSG flow logs.
+
+[!INCLUDE [Traffic analytics availability](../../includes/network-watcher-flow-logs-availability.md)]
+
 ## Related content
 
-- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logs-portal.md).
+- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs](nsg-flow-logs-manage.md).
 - To find answers to some of the most frequently asked questions about NSG flow logs, see [Flow logs FAQ](frequently-asked-questions.yml#flow-logs).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).

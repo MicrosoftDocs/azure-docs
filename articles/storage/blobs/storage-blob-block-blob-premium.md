@@ -7,7 +7,7 @@ author: akashdubey-ms
 ms.author: akashdubey
 ms.date: 10/14/2021
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 
 ---
 

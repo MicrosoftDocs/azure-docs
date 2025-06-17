@@ -6,8 +6,8 @@ ms.author: yelevin
 ms.topic: conceptual
 ms.date: 07/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 ---
 # Log retention plans in Microsoft Sentinel

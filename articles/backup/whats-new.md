@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 03/10/2025
+ms.date: 06/02/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -17,6 +17,16 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+
+- June 2025
+  - [Migration of Azure VM backups from Standard to Enhanced policy is now generally available](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-is-now-generally-available)
+- May 2025
+  - [Operational backup support for Azure Elastic SAN (preview)](#operational-backup-support-for-azure-elastic-san-preview)
+  - [Vaulted Backups for Azure Database for PostgreSQL – flexible server is now generally available](#vaulted-backups-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
+  - [Back up SAP ASE (Sybase) database is now generally available](#back-up-sap-ase-sybase-database-is-now-generally-available)
+
+- April 2025
+  - [Vaulted backup support for  Azure Data Lake Storage (preview)](#vaulted-backup-support-for-azure-data-lake-storage-preview)
 - March 2025
   - [Vaulted backup support for Azure Files is now generally available](#vaulted-backup-support-for-azure-files-is-now-generally-available)
 
@@ -104,11 +114,75 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Migration of Azure VM backups from Standard to Enhanced policy is now generally available
+
+Azure Backup now supports migrating VM backups (protected with Standard policy) to the Enhanced policy, offering greater flexibility and resilience.
+
+This feature includes:
+
+- Scheduling multiple backups per day (up to every 4 hours).
+- Retaining snapshots for extended durations.
+- Ensuring multi-disk crash consistency for VM backups.
+- Providing zonally resilient snapshot-tier recovery points.
+- Enabling seamless migration of VMs to Trusted Launch, and using Premium SSD v2 and Ultra disks for the VMs without disrupting existing backups.
+- Migrating protected VMs from Standard policy to Enhanced policy in bulk.
+
+For more information, see [Migrate Azure VM backups from Standard to Enhanced policy](backup-azure-vm-migrate-enhanced-policy.md).
+
+## Operational backup support for Azure Elastic SAN (preview)
+
+Azure Backup now allows secure backup and restoration for Azure Elastic storage area network (SAN) volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution seamlessly allows you to schedule backups, set expiration timelines for restore points, and restore data to a new volume.
+
+Key features include:
+
+- Protects against accidental deletions, ransomware attacks, and application updates.
+- Captures Elastic SAN volumes at specific points in time as independent Managed Disk incremental snapshots with Locally redundant storage (LRS) resiliency.
+- Stores up to **450 restore points**, with backup frequencies from **4 hours** to **24 hours**.
+
+>[!Note]
+>This feature is in preview and [available in specific Azure regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).
+
+For more information, see [About Azure Elastic SAN backup (preview)](azure-elastic-storage-area-network-backup-overview.md).
+
+## Vaulted Backups for Azure Database for PostgreSQL – flexible server is now generally available
+
+Azure Backup now supports vaulted backup for PostgreSQL Flexible Server across all Azure regions, offering a robust and scalable backup solution designed to meet the resiliency and compliance needs of enterprises.
+
+**Key Features include**:
+
+- **Policy-based scheduled backups**: Eliminates manual intervention and increases efficiency.
+- **Long-term retention**: Ensures long-term retention of backups upto 10 years for regulatory and compliance requirements.
+- **Cyber resiliency**: Protects from ransomware threats with immutability and role-based access control.
+ 
+You can  also use Azure [Business Continuity Center](https://ms.portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview) to manage the vaulted backup operations.
+
+For more information, see [Azure Backup for PostgreSQL Flexible Server overview](backup-azure-database-postgresql-flex-overview.md). 
+
+## Back up SAP ASE (Sybase) database is now generally available
+
+Azure Backup now supports SAP ASE (Sybase) database backups on Azure VMs. Backups stream directly to managed Recovery Services vault of Azure Backup, ensuring security with [Immutability](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault), [Soft Delete](backup-azure-security-feature-cloud.md?tabs=azure-portal), [Multiuser Authorization](multi-user-authorization-concept.md?tabs=recovery-services-vault), and [Customer Managed Key (CMK)](encryption-at-rest-with-cmk.md?tabs=portal). Data is stored in a Microsoft-managed subscription, isolating it from user environments for enhanced protection.
+
+With stream-based backup, log backups can occur every **15 minutes**, enabling **Point-In-Time recovery**. Restore options include Alternate Location Restore, Original Location Restore, and Restore as Files.
+
+Azure Backup also offers cost-effective policies (weekly full + daily differential) to reduce storage costs, alongside [Multi-SID](sap-hana-backup-support-matrix.md#support-for-azure-backup-multiple-components-on-one-system-mcos) and [Cross Subscription Restore (CSR)](sap-ase-database-about.md#cross-subscription-restore-for-sap-ase-sybase-database) support. [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables protection, monitoring, and alert configuration for SAP ASE backups.
+
+For more information, see [Back up SAP ASE (Sybase) database](sap-ase-database-about.md).
+
+## Vaulted backup support for Azure Data Lake Storage (preview)
+
+Azure Backup now supports vaulted backups for block blob data in Azure Data Lake Storage ([hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace) enabled storage account), enhancing data protection against ransomware and accidental loss. You can schedule backups, set retention policies, and store recovery points securely in the Backup vault for up to **10 years**. If there is data loss in the source storage account, you can  restore to an alternate account. Security features such as [Immutable vault](backup-azure-immutable-vault-concept.md?tabs=backup-vault) and [Soft delete](backup-azure-security-feature-cloud.md) protect your backup data.
+
+>[!Note]
+>- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
+>- To enroll in this preview feature, fill [this signup form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+
+For more information, see [Overview of Azure Data Lake Storage backup (preview)](azure-data-lake-storage-backup-overview.md).
+
 ## Vaulted backup support for Azure Files is now generally available
 
 Azure Backup now supports vaulted backup File Shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years.
 
-Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+Vaulted backups provide an offsite copy of your data. If there is data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
 
 We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
 
@@ -552,7 +626,7 @@ For more information, see [Archive Tier support](./archive-tier-support.md).
 
 Operational backup for Azure Blobs is a managed-data protection solution that lets you protect your block blob data from various data loss scenarios, such as blob corruptions, blob deletions, and accidental deletion of storage accounts.
 
-Being an operational backup solution, the backup data is stored locally in the source storage account, and can be recovered from a selected point-in-time, giving you a simple and cost-effective means to protect your blob data. To do this, the solution uses the blob point-in-time restore capability available from blob storage.
+Being an operational backup solution, the backup data is stored locally in the source storage account and can be recovered from a selected point-in-time, giving you a simple and cost-effective means to protect your blob data. To do this, the solution uses the blob point-in-time restore capability available from blob storage.
 
 Operational backup for blobs integrates with the Azure Backup management tools, including Backup Center, to help you manage the protection of your blob data effectively and at-scale. In addition to previously available capabilities, you can now configure and manage operational backup for blobs using the **Data protection** view of the storage accounts, also  [through PowerShell](backup-blobs-storage-account-ps.md). Also, Backup now gives you an enhanced experience for managing role assignments required for configuring operational backup.
 

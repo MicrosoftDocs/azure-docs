@@ -5,7 +5,7 @@ description: Deployment, and configuration guide for running Tiger Bridge in Con
 author: dukicn
 ms.author: nikoduki
 ms.date: 04/05/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
 ---

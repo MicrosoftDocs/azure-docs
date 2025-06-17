@@ -3,7 +3,9 @@ title: Azure Service Bus Geo-Replication | Microsoft Docs
 description: How to use geographical regions to promote between regions in Azure Service Bus for metadata and data
 ms.topic: article
 ms.date: 04/29/2024
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Azure Service Bus Geo-Replication (Preview)
@@ -64,7 +66,7 @@ There are two replication modes, synchronous and asynchronous. It's important to
 
 ### Asynchronous replication
 
-Using asynchronous replication, all requests are committed on the primary, after which an acknowledgment is sent to the client. Replication to the secondary regions happens asynchronously. Users can configure the maximum acceptable amount of lag time. The lag time is the service side offset between the latest action on the primary and the secondary regions. If the lag for an active secondary grows beyond user configuration, the primary starts throttling incoming requests.
+Using asynchronous replication, all requests are committed on the primary, after which an acknowledgment is sent to the client. Replication to the secondary regions happens asynchronously. Users can configure the maximum acceptable amount of lag time. The lag time is the service side offset between the latest action on the primary and the secondary regions. The service will continously replicate the data and metadata, ensuring the lag remains as small as possible. If the lag for an active secondary grows beyond the user configured maximum replication lag, the primary starts throttling incoming requests.
 
 ### Synchronous replication
 
@@ -124,7 +126,7 @@ The following section is an overview to set up the Geo-Replication feature on a 
 1. Either check the **Synchronous replication** checkbox, or specify a value for the **Async Replication - Max Replication lag** value in seconds.
 :::image type="content" source="./media/service-bus-geo-replication/create-namespace-with-geo-replication.png" alt-text="Screenshot showing the Create Namespace experience with Geo-Replication enabled.":::
 
-### Using Bicep template
+### Using Bicep file
 
 To create a namespace with the Geo-Replication feature enabled, add the *geoDataReplication* properties section.
 
@@ -179,7 +181,7 @@ To remove a secondary region, click on the **...**-ellipsis next to the region, 
 A promotion is triggered manually by the customer (either explicitly through a command, or through client owned business logic that triggers the command) and never by Azure. It gives the customer full ownership and visibility for outage resolution on Azure's backbone. When choosing **Planned** promotion, the service waits to catch up the replication lag before initiating the promotion. On the other hand, when choosing **Forced** promotion, the service immediately initiates the promotion. The namespace will be placed in read-only mode from the time that a promotion is requested, until the time that the promotion has completed. It is possible to do a forced promotion at any time after a planned promotion has been initiated. This puts the user in control to expedite the promotion, when a planned failover takes longer than desired.
 
 > [!IMPORTANT]
-> When using **Forced** promotion, any data that has not been replicated may be lost.
+> When using **Forced** promotion, any data or metadata that has not been replicated may be lost. Additionally, as specific state changes have not been replicated yet, this may also result in duplicate messages being received, for example when a Complete or Defer state change was not replicated.
 
 After the promotion is initiated:
 

@@ -10,38 +10,38 @@ ms.author: adjohnso
 
 Azure CycleCloud supports monitoring of external services through its pluggable
 architecture. Administrators can enable automatic monitoring
-of these systems going to the **Settings** page under the user menu in the top
-right-hand corner of the web interface, double-clicking the **CycleCloud**
-settings item, and checking the box labelled **Enable monitoring for CycleCloud
+of these systems by going to the **Settings** page under the user menu in the top
+right corner of the web interface, double-clicking the **CycleCloud**
+settings item, and checking the box labeled **Enable monitoring for CycleCloud
 services**.
 
-When this option is enabled, supported services in each cluster will
-automatically register with CycleCloud, which will configure monitoring for that
+When you enable this option, supported services in each cluster automatically
+register with CycleCloud, which configures monitoring for that
 service.
 
 ::: moniker range="=cyclecloud-7"
-## Supported Services
+## Supported services
 
 **[Ganglia](http://ganglia.sourceforge.net/)**
 
 Every version of CycleCloud ships with Ganglia monitoring support for collecting
-performance metrics such as cpu/memory/bandwidth usage. If your cluster is
+performance metrics such as CPU/memory/bandwidth usage. If your cluster is
 configured to use Ganglia (the default in most cases), automatic monitoring
-will work as long as port 8652 is open between CycleCloud and the cluster's
-master node (the one running the gmetad service).
+works as long as port 8652 is open between CycleCloud and the cluster's
+primary node (the one running the `gmetad` service).
 
 ### Ganglia on CentOS/RHEL
 
-Ganglia on CentOS and RHEL is provided by [EPEL](https://fedoraproject.org/wiki/EPEL).
-Azure CycleCloud configures and installs EPEL, and the Ganglia dependencies, by default.
+[EPEL](https://fedoraproject.org/wiki/EPEL) provides Ganglia on CentOS and RHEL.
+Azure CycleCloud configures and installs EPEL and the Ganglia dependencies by default.
 
-One may choose to opt out of using EPEL by setting `cyclecloud.install_epel = false` in a cluster
-template. Opting out of EPEL will skip Ganglia monitoring setup. This will not impact the computational
-functionality of your compute cluster, but will forego data that would have been collected for the reports
-view of your cluster.
+To opt out of using EPEL, set `cyclecloud.install_epel = false` in a cluster
+template. Opting out of EPEL skips Ganglia monitoring setup. This change doesn't affect the computational
+functionality of your compute cluster, but it foregoes data that the reports
+view of your cluster collects.
 
 For informational purposes, here are the "client" dependencies installed on execute cluster nodes,
-and the "server" dependencies installed on master/head cluster nodes.
+and the "server" dependencies installed on primary cluster nodes.
 
 ```bash
 # Ganglia client dependencies from CentOS/RHEL base
@@ -59,21 +59,20 @@ yum -y install ganglia ganglia-gmetad libconfuse
 
 **[Grid Engine](http://gridscheduler.sourceforge.net/)**
 
-If you are running the Grid Scheduling Edition of CycleCloud, Grid Engine
-monitoring will automatically be configured when a Grid Engine cluster is
-started. The only requirement is that CycleCloud can SSH to the node running the
-qmaster service with the keypair configured for the cluster.
+If you run the Grid Scheduling Edition of CycleCloud, Grid Engine
+monitoring is automatically configured when you start a Grid Engine cluster. The only requirement is that CycleCloud can SSH to the node running the
+`qmaster` service with the keypair configured for the cluster.
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
 ## Azure Monitor
-As of CycleCloud 8.0, metrics for a cluster are pulled from [Azure Monitor](/azure/azure-monitor/) instead of Ganglia.
-This removes the need to open port 8652 inbound on nodes.
+Starting with CycleCloud 8.0, metrics for a cluster are pulled from [Azure Monitor](/azure/azure-monitor/) instead of Ganglia.
+This change removes the need to open port 8652 inbound on nodes.
 
 > [!NOTE]
-> Even clusters that are still at version 7 and have Ganglia pre-installed will get their metrics from Azure Monitor in CycleCloud 8.
+> Even clusters that use version 7 with Ganglia preinstalled get their metrics from Azure Monitor in CycleCloud 8.
 
-The metrics that are collected are:
+The collected metrics are:
 
  * Percentage CPU
  * Disk Read Bytes
@@ -81,5 +80,5 @@ The metrics that are collected are:
  * Network In
  * Network Out
 
-It's also possible to store log data from CycleCloud clusters to Log Analytics and create custom metrics dashboards. For more information on creating custom metrics dashboards from Log Analytics for your clusters, see the How-to section and the tutorials in the [Azure Monitor documentation](/azure/azure-monitor/visualize/tutorial-logs-dashboards).
+You can also store log data from CycleCloud clusters to Log Analytics and create custom metrics dashboards. For more information on creating custom metrics dashboards from Log Analytics for your clusters, see the How-to section and the tutorials in the [Azure Monitor documentation](/azure/azure-monitor/visualize/tutorial-logs-dashboards).
 ::: moniker-end

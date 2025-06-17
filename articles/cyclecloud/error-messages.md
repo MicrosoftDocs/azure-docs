@@ -2,12 +2,13 @@
 title: Error Messages
 description: List of common CycleCloud error messages.
 author: adriankjohnson
-ms.date: 11/15/2019
+ms.date: 06/10/2025
 ms.author: adjohnso
 ---
+
 # Error Messages
 
-A list of error messages one encounters in CycleCloud
+A compilation of error messages encountered in Azure CycleCloud.
 
 ## Staging Resources
 

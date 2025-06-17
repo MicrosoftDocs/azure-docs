@@ -1,7 +1,7 @@
 ---
 title: Feature Analysis Cloud Services vs Virtual Machine Scale Sets
 description: Learn about the feature set available in Cloud Services and Virtual Machine Scale Sets
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
@@ -12,7 +12,7 @@ ms.date: 07/24/2024
 # Feature Analysis: Cloud Services (extended support) and Virtual Machine Scale Sets
 
 > [!IMPORTANT]
-> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 This article provides a feature analysis of Cloud Services (extended support) and Virtual Machine Scale Sets. For more information on Virtual Machine Scale Sets, visit the documentation [here](/azure/virtual-machine-scale-sets/overview)
 

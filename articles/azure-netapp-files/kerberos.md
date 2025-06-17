@@ -4,7 +4,7 @@ description: Learn how Kerberos works in Azure NetApp Files.
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/11/2025
 ms.author: anfdocs
 ---
@@ -58,7 +58,7 @@ This section defines key terminology that is used when describing Kerberos proce
 
 | Term | Definition |
 | -- | ------ |
-| Key distribution center (KDC)	| The KDC is the authentication server that includes the ticket-granting service (TGS) and the authentication service (AS). The terms KDC, AS, and TGS are used interchangeably. In Microsoft environments, an Active Directory domain controller is a KDC. |
+| Key distribution center (KDC)	| The KDC is the authentication server that includes the ticket-granting service (TGS) and the authentication service (AS). The terms KDC, AS, and TGS are used interchangeably. In Microsoft environments, an Active Directory (AD) domain controller is a KDC. Modifying KDC values can only be achieved by [modifying AD settings](modify-active-directory-connections.md).  |
 | Realm (or Kerberos realm) | A realm (or Kerberos realm) can use any ASCII string. The standard is to use the domain name in uppercase; for example, contoso.com becomes the realm CONTOSO.COM. Kerberos realms usually are configured in krb5.conf files on clients and servers. <br></br> Administratively, each principal@REALM must be unique. To avoid a single point of failure, each realm can have multiple KDCs that share the same database (principals and their passwords) and have the same KDC master keys. Microsoft Windows Active Directory does this natively by way of Active Directory replication, which takes place every 15 minutes by default.
 | Principal	| The term principal refers to every entity within a Kerberos database. Users, computers, and services are all assigned principals for Kerberos authentication. Every principal must be unique within the Kerberos database and is defined by its distinguished name. A principal can be a user principal name (UPN) or a service principal name (SPN). <br></br> A principal name has three parts: <ul><li>**Primary** - The primary part can be a user or a service such as the NFS service. It can also be the special service "host," which signifies that this service principal is set up to provide multiple various network services.</li><li>**Instance** - This part is optional in the case of a user. A user can have more than one principal, but each principal must be unique in the KDC. For example, Fred might have a principal that is for everyday use (fred@contoso.com) and a principal that allows privileged use such as a sysadmin account (admin-fred@contoso.com). The instance is required for service principals and designates the fully qualified domain name (FQDN) of the host that provides the service.</li><li>**Realm** - A Kerberos realm is the set of Kerberos principals that are registered within a Kerberos server. By convention, the realm name is usually the same as the DNS name, but it's converted to uppercase letters. Uppercase letters aren't obligatory, but the convention provides easy distinction between the DNS name and the realm name.</li></ul> <!-- image --> |
 | Tickets | A ticket is a temporary set of credentials that verifies the identity of a principal for a service and contains the session key. A ticket can be a service, an application ticket, or a ticket-granting ticket (TGT). Tickets are exchanged between client, server, and KDC for Kerberos authentication. |
@@ -148,7 +148,7 @@ SMB services in Azure NetApp Files are initially configured by setting up an [Ac
 - Active Directory DNS name*
 - Active Directory site name (for DC discovery) (required)
 - SMB server prefix name
-- Organizational unit (where where SMB server computer accounts are created)
+- Organizational unit (where SMB server computer accounts are created)
 - AES encryption enable/disable
 - LDAP signing enable/disable
 - LDAP configuration
@@ -438,7 +438,7 @@ When the NFS Kerberos realm is configured, a local hosts entry is added in the s
 
 :::image type="content" source="media/kerberos/nfs-kerberos-configuration.png" alt-text="Diagram of Kerberos realm configuration." lightbox="media/kerberos/nfs-kerberos-configuration.png":::
 
-This local host entry acts as a "last resort" if a KDC outage occurs on the KDC specified in the realm configuration and failure to query redundant KDCs via DNS. 
+This local host entry acts as a last resort if a KDC outage occurs on the KDC specified in the realm configuration and failure to query redundant KDCs via DNS. 
 
 >[!NOTE]
 >If the KDC in the Kerberos realm needs to be brought down for maintenance (such as for upgrades or decommissioning of a server), it's recommended to configure the realm to use a KDC that isn't undergoing maintenance to avoid outages.

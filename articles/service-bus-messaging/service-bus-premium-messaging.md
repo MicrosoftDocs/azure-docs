@@ -3,7 +3,7 @@ title: Azure Service Bus premium messaging tier
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java
-ms.date: 07/22/2024
+ms.date: 05/28/2025
 ---
 
 # Service Bus premium messaging tier
@@ -72,7 +72,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 >
 >  * **Reactive**: If additional workloads are identified by studying the resource usage metrics, then additional resources can be allocated to the namespace to incorporate increasing demand.
 >
-> The billing meters for Service Bus are hourly. In the case of scaling up, you only pay for the additional resources for the hours that these were used.
+> The billing meters for Service Bus are hourly. When scaling up, you only pay for the additional resources for the hours that these were used.
 >
 
 ## Get started with premium messaging
@@ -157,7 +157,7 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 
 
 
-## Java Message Service (JMS) support
+## Java Message Service (JMS) 
 The premium tier supports JMS 1.1 and JMS 2.0. For more information, see [How to use JMS 2.0 with Azure Service Bus Premium](how-to-use-java-message-service-20.md).
 
 The standard tier supports only JMS 1.1 subset focused on queues. For more information, see [Use Java Message Service 1.1 with Azure Service Bus standard](service-bus-java-how-to-use-jms-api-amqp.md).

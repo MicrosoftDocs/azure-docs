@@ -52,9 +52,7 @@
       - name: Install Azure Monitor agent
         href: connection-monitor-install-azure-monitor-agent.md
   - name: Topology
-    items:
-    - name: View topology
-      href: network-insights-topology.md
+    href: network-insights-topology.md
 - name: Network diagnostic tools
   items:
   - name: IP flow verify
@@ -88,9 +86,7 @@
       - name: Azure CLI
         href: diagnose-vm-network-routing-problem-cli.md
   - name: Effective security rules
-    items:
-    - name: Overview
-      href: effective-security-rules-overview.md
+    href: effective-security-rules-overview.md
   - name: VPN troubleshoot
     items:
     - name: Overview
@@ -129,6 +125,8 @@
       href: connection-troubleshoot-overview.md
     - name: Troubleshoot outbound connections
       href: connection-troubleshoot-manage.md
+  - name: VM Network Troubleshooter
+    href: vm-network-troubleshooter.md
 - name: Flow logs
   items:
   - name: VNet flow logs
@@ -146,47 +144,43 @@
     - name: Log VM network traffic
       href: nsg-flow-logs-tutorial.md
     - name: Manage NSG flow logs
+      href: nsg-flow-logs-manage.md
+    - name: Deploy NSG flow logs
       items:
-      - name: Azure portal
-        href: nsg-flow-logs-portal.md
-      - name: PowerShell
-        href: nsg-flow-logs-powershell.md
-      - name: Azure CLI
-        href: nsg-flow-logs-cli.md
       - name: ARM template
         href: nsg-flow-logs-template.md
       - name: Bicep
         href: nsg-flow-logs-bicep.md
       - name: REST
         href: /previous-versions/azure/network-watcher/nsg-flow-logs-rest?toc=/azure/network-watcher/toc.json
-      - name: Built-in Policy
-        href: nsg-flow-logs-policy-portal.md
-    - name: Migrate NSG flow logs
-      href: nsg-flow-logs-migrate.md
+    - name: Audit and deploy using Azure Policy
+      href: nsg-flow-logs-policy-portal.md
     - name: Analyze NSG flow logs
       items:
       - name: Use Power BI
         href: network-watcher-visualize-nsg-flow-logs-power-bi.md
       - name: Use Elastic Stack
-        href: network-watcher-visualize-nsg-flow-logs-open-source-tools.md
+        href: /previous-versions/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools?toc=/azure/network-watcher/toc.json
       - name: Use Grafana
-        href: network-watcher-nsg-grafana.md
+        href: /previous-versions/azure/network-watcher/network-watcher-nsg-grafana?toc=/azure/network-watcher/toc.json
       - name: Use Graylog
-        href: network-watcher-analyze-nsg-flow-logs-graylog.md
+        href: /previous-versions/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog?toc=/azure/network-watcher/toc.json
   - name: Read flow logs
     href: flow-logs-read.md
+  - name: Migrate NSG flow logs
+    href: nsg-flow-logs-migrate.md
   - name: Traffic analytics
     items:
     - name: Overview
       href: traffic-analytics.md
     - name: Usage scenarios
       href: traffic-analytics-usage-scenarios.md
-    - name: Enable traffic analytics using Azure policy
-      href: traffic-analytics-policy-portal.md
     - name: Schema and data aggregation
       href: traffic-analytics-schema.md
-    - name: Schema update (March 2020)
-      href: traffic-analytics-schema-update.md
+    - name: Apply Zero Trust principles to segment Azure network
+      href: traffic-analytics-zero-trust.md    
+    - name: Enable traffic analytics using Azure policy
+      href: traffic-analytics-policy-portal.md
     - name: FAQ
       href: traffic-analytics-faq.yml
 - name: Security

@@ -1,7 +1,7 @@
 ---
 title: Architecture - Internet connectivity design considerations
 description: Options for Azure VMware Solution Internet Connectivity. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: engagement-fy23

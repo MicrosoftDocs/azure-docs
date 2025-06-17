@@ -111,7 +111,7 @@ Arguments:
 Common arguments that are available for every Azure CLI command:
 
 - `--debug` - prints detailed information about CLI execution that is used for debugging purposes. If you find a bug, provide output generated with the `--debug` flag on when submitting a bug report.
-- `--output` or `-o` - specifies the output format. The available output formats are Json, Jsonc (colorized JSON), tsv (Tab-Separated Values), table (human-readable ASCII tables), and yaml. By default the CLI outputs Json.
+- `--output` or `-o` - specifies the output format. The available output formats are Json, Jsonc (colorized JSON), tsv (Tab-Separated Values), table (human-readable ASCII tables), and yaml. By default the CLI outputs JSON.
 - `--query` - uses the JMESPath query language to filter the output returned from Azure services.
 
 ### [Azure PowerShell](#tab/azure-powershell)

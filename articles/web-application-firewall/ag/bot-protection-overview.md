@@ -15,6 +15,9 @@ Roughly 20% of all Internet traffic comes from bad bots. They do things like scr
 
 You can enable a managed bot protection rule set for your WAF to block or log requests from known malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. Intelligent Security Graph powers Microsoft threat intelligence and is used by multiple services including Microsoft Defender for Cloud.
 
+> [!NOTE]
+> The Bot Protection Ruleset is only supported in the Azure public cloud, Azure China, and Azure US Government. 
+
 ## Use with OWASP rulesets
 
 You can use the Bot Protection ruleset alongside any of the OWASP rulesets with the Application Gateway WAF v2 SKU. Only one OWASP ruleset can be used at any given time. The bot protection ruleset contains another rule that appears in its own ruleset. It's titled **Microsoft_BotManagerRuleSet_1.1**, and you can  enable or disable it like the other OWASP rules.

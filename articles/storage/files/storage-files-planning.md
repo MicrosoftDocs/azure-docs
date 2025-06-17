@@ -3,7 +3,7 @@ title: Plan for an Azure Files deployment
 description: Understand how to plan for an Azure Files deployment. You can either direct mount an SMB or NFS Azure file share, or cache SMB Azure file shares on-premises with Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/07/2024
 ms.author: kendownie
 ms.custom: references_regions
@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Plan to deploy Azure Files
 
-You can deploy [Azure Files](storage-files-introduction.md) in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync. Deployment considerations will differ based on which option you choose.
+You can deploy [Azure Files](storage-files-introduction.md) in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync. Deployment considerations differ based on which option you choose.
 
 - **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. 
 
@@ -21,7 +21,7 @@ This article primarily addresses deployment considerations for deploying an Azur
 
 ## Available protocols
 
-Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](files-smb-protocol.md) protocol and the [Network File System (NFS)](files-nfs-protocol.md) protocol, allowing you to choose the protocol that is the best fit for your workload. Azure file shares don't support both the SMB and NFS protocols on the same file share, although you can create SMB and NFS Azure file shares within the same storage account. NFS 4.1 is currently only supported within new **FileStorage** storage account type (premium file shares only).
+Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](files-smb-protocol.md) protocol and the [Network File System (NFS)](files-nfs-protocol.md) protocol, allowing you to choose the protocol that is the best fit for your workload. Azure file shares don't support both the SMB and NFS protocols on the same file share, although you can create SMB and NFS Azure file shares within the same storage account.
 
 With both SMB and NFS file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
@@ -29,10 +29,8 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 |---------|-----|---------------|
 | Supported protocol versions | SMB 3.1.1, SMB 3.0, SMB 2.1 | NFS 4.1 |
 | Recommended OS | <ul><li>Windows 11, version 21H2+</li><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Linux kernel version 5.3+</li></ul> | Linux kernel version 4.3+ |
-| [Available tiers](storage-files-planning.md#storage-tiers)  | Premium, transaction optimized, hot, and cool | Premium |
-| Billing model | <ul><li>[Provisioned capacity for premium file shares](./understanding-billing.md#provisioned-v1-model)</li><li>[Pay-as-you-go for standard file shares](./understanding-billing.md#pay-as-you-go-model)</li></ul> | [Provisioned capacity](./understanding-billing.md#provisioned-v1-model) |
-| [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md#storage-account-endpoints) | Supported | Supported |
-| [Redundancy](storage-files-planning.md#redundancy) | LRS, ZRS, GRS, GZRS | LRS, ZRS |
+| [Available tiers](storage-files-planning.md#storage-tiers)  | SSD and HDD | SSD only |
+| [Redundancy](storage-files-planning.md#redundancy) | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li><li>Geo (GRS)</li><li>GeoZone (GZRS)</li></ul> | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li></ul> |
 | File system semantics | Win32 | POSIX |
 | Authentication | Identity-based authentication (Kerberos), shared key authentication (NTLMv2) | Host-based authentication |
 | Authorization | Win32-style access control lists (ACLs) | UNIX-style permissions |
@@ -62,14 +60,6 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 ## Management concepts
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-When deploying Azure file shares into storage accounts, we recommend:
-
-- Only deploying Azure file shares into storage accounts with other Azure file shares. Although GPv2 storage accounts allow you to have mixed purpose storage accounts, because storage resources such as Azure file shares and blob containers share the storage account's limits, mixing resources together may make it more difficult to troubleshoot performance issues later on. 
-
-- Paying attention to a storage account's IOPS limitations when deploying Azure file shares. Ideally, you would map file shares 1:1 with storage accounts. However, this may not always be possible due to various limits and restrictions, both from your organization and from Azure. When it is not possible to have only one file share deployed in one storage account, consider which shares will be highly active and which shares will be less active to ensure that the hottest file shares don't get put in the same storage account together.
-
-- Only deploying GPv2 and FileStorage accounts, and upgrading GPv1 and classic storage accounts when you find them in your environment. 
-
 ## Identity
 
 To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files supports the following methods of authentication:
@@ -78,9 +68,9 @@ To access an Azure file share, the user of the file share must be authenticated 
 - **Microsoft Entra Domain Services**: Microsoft Entra Domain Services provides a Microsoft-managed domain controller that can be used for Azure resources. Domain joining your storage account to Microsoft Entra Domain Services provides similar benefits to domain joining it to a customer-owned AD DS. This deployment option is most useful for application lift-and-shift scenarios that require AD-based permissions. Since Microsoft Entra Domain Services provides AD-based authentication, this option also uses the Kerberos authentication protocol.
 - **Microsoft Entra Kerberos for hybrid identities**: Microsoft Entra Kerberos allows you to use Microsoft Entra ID to authenticate [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD identities that are synced to the cloud. This configuration uses Microsoft Entra ID to issue Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring network connectivity to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined VMs.
 - **Active Directory authentication over SMB for Linux clients**: Azure Files supports identity-based authentication over SMB for Linux clients using the Kerberos authentication protocol through either AD DS or Microsoft Entra Domain Services.
-- **Azure storage account key**: Azure file shares may also be mounted with an Azure storage account key. To mount a file share this way, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, because the mounted file share will have full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used. If you intend to use the storage account key to access your Azure file shares, we recommend using private endpoints or service endpoints as described in the [Networking](#networking) section.
+- **Azure storage account key**: Although it's not recommended for security reasons, you can also mount Azure file shares using an Azure storage account key instead of using an identity. To mount a file share using the storage account key, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, because the mounted file share has full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used. In nearly all cases, we recommend using [identity-based authentication](storage-files-active-directory-overview.md) instead of the storage account key to access SMB Azure file shares. However, if you must use the storage account key, we recommend using private endpoints or service endpoints as described in the [Networking](#networking) section.
 
-For customers migrating from on-premises file servers, or creating new file shares in Azure Files intended to behave like Windows file servers or NAS appliances, domain joining your storage account to **Customer-owned AD DS** is the recommended option. To learn more about domain joining your storage account to a customer-owned AD DS, see [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md).
+For customers migrating from on-premises file servers or creating new file shares in Azure Files intended to behave like Windows file servers or NAS appliances, domain joining your storage account to **Customer-owned AD DS** is recommended. To learn more about domain joining your storage account to a customer-owned AD DS, see [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md).
 
 ## Networking
 
@@ -95,7 +85,7 @@ This means you'll need to consider the following network configurations:
 
 - If the required protocol is SMB and all access over SMB is from clients in Azure, no special networking configuration is required.
 - If the required protocol is SMB and the access is from clients on-premises, then a VPN or ExpressRoute connection from on-premises to your Azure network is required, with Azure Files exposed on your internal network using private endpoints.
-- If the required protocol is NFS, you can use either service endpoints or private endpoints to restrict the network to specified virtual networks. If you need a static IP address and/or your workload requires high availability, use a private endpoint. With service endpoints, a rare event such as a zonal outage could cause the underlying IP address of the storage account to change. While the data will still be available on the file share, the client would require a remount of the share.
+- If the required protocol is NFS, you can use either service endpoints or private endpoints to restrict the network to specified virtual networks. If you need a static IP address and/or your workload requires high availability, use a private endpoint. With service endpoints, a rare event such as a zonal outage could cause the underlying IP address of the storage account to change. While the data is still available on the file share, the client would require a remount of the share.
 
 To learn more about how to configure networking for Azure Files, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
@@ -110,18 +100,16 @@ Azure Files supports two different types of encryption:
 
 ### Encryption in transit
 
-> [!IMPORTANT]
-> This section covers encryption in transit details for SMB shares. For details regarding encryption in transit with NFS shares, see [Security and networking](files-nfs-protocol.md#security-and-networking).
+By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB or access it via the FileREST protocol (such as through the Azure portal, PowerShell/CLI, or Azure SDKs), Azure Files only allows the connection if it is made with SMB 3.x with encryption or HTTPS. Clients that don't support SMB 3.x or clients that support SMB 3.x but not SMB encryption won't be able to mount the Azure file share if encryption in transit is enabled. For more information about which operating systems support SMB 3.x with encryption, see our documentation for [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and [Linux](storage-how-to-use-files-linux.md). All current versions of the PowerShell, CLI, and SDKs support HTTPS.  
 
-By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB or access it via the FileREST protocol (such as through the Azure portal, PowerShell/CLI, or Azure SDKs), Azure Files will only allow the connection if it is made with SMB 3.x with encryption or HTTPS. Clients that don't support SMB 3.x or clients that support SMB 3.x but not SMB encryption won't be able to mount the Azure file share if encryption in transit is enabled. For more information about which operating systems support SMB 3.x with encryption, see our documentation for [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and [Linux](storage-how-to-use-files-linux.md). All current versions of the PowerShell, CLI, and SDKs support HTTPS.  
-
-You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files will also allow SMB 2.1 and SMB 3.x without encryption, and unencrypted FileREST API calls over HTTP. The primary reason to disable encryption in transit is to support a legacy application that must be run on an older operating system, such as Windows Server 2008 R2 or an older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, won't be able to access the file share.
+You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files also allows SMB 2.1 and SMB 3.x without encryption, and unencrypted FileREST API calls over HTTP. The primary reason to disable encryption in transit is to support a legacy application that must be run on an older operating system, such as Windows Server 2008 R2 or an older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, won't be able to access the file share.
 
 We strongly recommend ensuring encryption of data in-transit is enabled.
 
 For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json).
 
 ### Encryption at rest
+
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
 ## Data protection
@@ -164,17 +152,8 @@ Defender for Storage doesn't access the storage account data and doesn't impact 
 
 For more information about redundancy, see [Azure Files data redundancy](files-redundancy.md).
 
-### Standard ZRS availability
-
-ZRS for standard general-purpose v2 storage accounts is available for a [subset of Azure regions](../common/redundancy-regions-zrs.md).
-
-### Premium ZRS availability
-
-ZRS for premium (SSD) file shares is available for a [subset of Azure regions](redundancy-premium-file-shares.md#zrs-support-for-ssd-azure-file-shares).
-
-### Standard GZRS availability
-
-GZRS is available for a [subset of Azure regions](../common/redundancy-regions-gzrs.md).
+### Availability of zone redundant SSD file shares
+Zone redundant SSD file shares are available for a [subset of Azure regions](redundancy-premium-file-shares.md#zrs-support-for-ssd-azure-file-shares).
 
 ## Disaster recovery and failover
 

@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 # Reference documentation overview
 
-[!INCLUDE [Survey Request](../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
 ## External links and docs
 

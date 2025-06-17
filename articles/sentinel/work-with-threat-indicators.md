@@ -8,15 +8,15 @@ ms.date: 02/21/2025
 ms.author: guywild
 ms.reviewer: alsheheb
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to use threat intelligence managed by Microsoft Sentinel so that I can detect and respond to security threats more effectively.
 ---
 
 # Work with Microsoft Sentinel threat intelligence
 
-Accelerate threat detection and remediation with streamlined creation and management of threat intelligence. This article demonstrates how to make the most of threat intelligence integration in the management interface, whether you're accessing it from Microsoft Sentinel in the Azure portal or the Defender portal.
+Accelerate threat detection and remediation with streamlined creation and management of threat intelligence. This article demonstrates how to make the most of threat intelligence integration in the management interface, whether you're accessing it from Microsoft Sentinel in the Defender portal or the Azure portal.
 
 - Create threat intelligence objects using structured threat information expression (STIX)
 - Manage threat intelligence by viewing, curating, and visualizing 
@@ -165,9 +165,9 @@ This procedure describes how to view your threat intelligence with queries, rega
 Threat indicators are stored in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
 
 >[!IMPORTANT]
-> On April 3, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: `ThreatIntelIndicator` and `ThreatIntelObjects`. Microsoft Sentinel will ingest all threat intelligence into these new tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
->**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
-> For information on using and migrating to the new tables, see (Work with STIX objects to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview))[work-with-styx-objects-and-indicators.md]. 
+> On April 3, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: `ThreatIntelIndicators` and `ThreatIntelObjects`. Microsoft Sentinel will ingest all threat intelligence into these new tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
+>**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+> For information on using and migrating to the new tables, see (Work with STIX objects to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview))[work-with-stix-objects-indicators.md]. 
 
 
 #### [Defender portal](#tab/defender-portal)

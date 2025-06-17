@@ -165,9 +165,9 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 
 ## Configure VLAN settings for the Monitor adapter (if needed)
 
-If the Hyper-V server is located in a different VLAN than the VLAN from which the mirrored traffic originates, set the Monitor adapter to accept traffic from the mirrored VLANs.
+If the mirrored traffic is VLAN tagged, configure the Monitor adapter of the VM to accept traffic from the mirrored VLAN(s).
 
-Use this PowerShell command to enable the Monitor adapter to accept the monitored traffic from different VLANs:
+Use this PowerShell command to enable the Monitor adapter of the VM to accept the monitored traffic from different VLANs:
 ```PowerShell
 Set-VMNetworkAdapterVlan -VMName VK-C1000V-LongRunning-650 -VMNetworkAdapterName Monitor -Trunk -AllowedVlanIdList 1010-1020 -NativeVlanId 10
 ```

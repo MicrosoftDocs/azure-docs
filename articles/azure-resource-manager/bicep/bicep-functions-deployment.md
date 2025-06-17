@@ -3,7 +3,7 @@ title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 05/16/2025
 ---
 
 # Deployment functions for Bicep
@@ -14,18 +14,26 @@ This article describes the Bicep functions for getting values related to the cur
 
 `deployer()`
 
-Returns the information about the current deployment principal.
+Returns information about the principal (identity) that initiated the current deployment. The principal can be a user, service principal, or managed identity, depending on how the deployment was started.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-This function returns the information about the current deployment principal, including tenant ID and object ID.
+This function returns an object with details about the deployment principal, including:
+
+- `objectId`: The Microsoft Entra ID object ID of the principal.
+- `tenantId`: The Microsoft Entra ID tenant ID.
+- `userPrincipalName`: The user principal name (UPN) if available. For service principals or managed identities, this property may be empty.
+
+> [!NOTE]
+> The returned values depend on the deployment context. For example, `userPrincipalName` may be empty for service principals or managed identities.
 
 ```json
 {
-  "objectId": "",
-  "tenantId": ""
+  "objectId": "<principal-object-id>",
+  "tenantId": "<tenant-id>",
+  "userPrincipalName": "<user@domain.com or empty>"
 }
 ```
 
@@ -37,14 +45,17 @@ The following example Bicep file returns the deployer object.
 output deployer object = deployer()
 ```
 
-The preceding example returns the following object:
+Sample output (values differ based on your deployment):
 
 ```json
 {
   "objectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
-  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+  "userPrincipalName":"john.doe@contoso.com"
 }
 ```
+
+For more information about Azure identities, see [What is an Azure Active Directory identity?](/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## deployment
 
@@ -141,7 +152,7 @@ The preceding example returns the following object:
 
 `environment()`
 
-Returns information about the Azure environment used for deployment. The `environment()` function is not aware of resource configurations. It can only return a single default DNS suffix for each resource type.
+Returns information about the Azure environment used for deployment. The `environment()` function isn't aware of resource configurations. It can only return a single default DNS suffix for each resource type.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 

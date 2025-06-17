@@ -8,8 +8,8 @@ ms.date: 02/27/2025
 ms.author: guywild
 ms.reviewer: alsheheb
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #Customer intent: As a security analyst, I want to integrate threat intelligence into Microsoft Sentinel so that I can detect, investigate, and respond to potential security threats effectively.
@@ -126,7 +126,7 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 ## Create and manage threat intelligence
 
-Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in Microsoft's unified SecOps platform.
+Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in the Microsoft Defender portal.
 
 :::image type="content" source="media/understand-threat-intelligence/intel-management-defender-portal.png" alt-text="Screenshot showing intel management page in the Defender portal." lightbox="media/understand-threat-intelligence/intel-management-defender-portal.png":::
 
@@ -215,15 +215,16 @@ View your threat intelligence from the management interface or using queries:
     Either way, the `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics, hunting queries, and workbooks.
 
 >[!IMPORTANT]
-> On April 3, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: `ThreatIntelIndicator` and `ThreatIntelObjects`. Microsoft Sentinel will ingest all threat intelligence into these new tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
->**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
-> For information on using and migrating to the new tables, see (Work with STIX objects to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview))[work-with-styx-objects-and-indicators.md]. 
+> On April 3, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: 
+`ThreatIntelIndicators` and `ThreatIntelObjects`. Microsoft Sentinel will ingest all threat intelligence into these new tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
+>**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelindicators) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+> For information on using and migrating to the new tables, see [Work with STIX objects to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview)](work-with-stix-objects-indicators.md). 
 
 ### Threat intelligence lifecycle
 
-Microsoft Sentinel ingests threat intelligence indicators into the threat intelligence tables in your Log Analytics workspace. For more information on Microsoft Sentinel's threat intelligence tables, see [View your threat intelligence](#view-your-threat-intelligence).
+Microsoft Sentinel stores threat intelligence data in your threat intelligence tables and automatically reingests all data every seven days to optimize query efficiency.
 
-Whenever an indicator is created, updated, or deleted, Microsoft Sentinel creates a new entry in the tables. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `Id` property (the `IndicatorId` property in the legacy `ThreatIntelligenceIndicator`) and chooses the indicator with the newest `TimeGenerated[UTC]`.
+When an indicator is created, updated, or deleted, Microsoft Sentinel creates a new entry in the tables. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `Id` property (the `IndicatorId` property in the legacy `ThreatIntelligenceIndicator`) and chooses the indicator with the newest `TimeGenerated[UTC]`.
 
 The `Id` property is a concatenation of the base64-encoded `SourceSystem` value, `---` (three dashes), and the `stixId` (which is the `Data.Id` value).
 
@@ -264,5 +265,5 @@ For more information on using and customizing the **Threat Intelligence** workbo
 In this article, you learned about threat intelligence capabilities powered by Microsoft Sentinel. For more information, see the following articles:
 
 - [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
-- [Uncover adversaries with threat intelligence in Microsoft's unified SecOps platform](/unified-secops-platform/threat-intelligence-overview)
-- [Hunting in Microsoft's unified SecOps platform](/unified-secops-platform/hunting-overview)
+- [Uncover adversaries with threat intelligence in the Defender portal](/unified-secops-platform/threat-intelligence-overview)
+- [Hunting in the Defender portal](/unified-secops-platform/hunting-overview)

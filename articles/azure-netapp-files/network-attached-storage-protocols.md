@@ -4,7 +4,7 @@ description: Learn how SMB, NFS, and dual protocols operate in Azure NetApp File
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/28/2025
 ms.author: anfdocs
 ---
@@ -114,7 +114,7 @@ For frequently asked questions regarding SMB in Azure NetApp Files, see the [Azu
 
 ## Dual protocols
 
-Some organizations have pure Windows or pure UNIX environments (homogenous) in which all data is accessed using only one of the following approaches:
+Some organizations have pure Windows or pure UNIX environments (homogeneous) in which all data is accessed using only one of the following approaches:
 
 * SMB and [NTFS](/windows-server/storage/file-server/ntfs-overview) file security
 * NFS and UNIX file security - mode bits or [NFSv4.x access control lists (ACLs)](https://wiki.linux-nfs.org/wiki/index.php/ACLs)

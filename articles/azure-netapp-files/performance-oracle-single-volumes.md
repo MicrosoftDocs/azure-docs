@@ -4,7 +4,7 @@ description: Describes performance test results of an Azure NetApp Files single 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/04/2024
 ms.author: anfdocs
 ---

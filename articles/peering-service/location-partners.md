@@ -5,8 +5,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-peering-service
 ms.topic: concept-article
-ms.date: 10/31/2024
+ms.date: 04/10/2025
 ms.custom: references_regions
+# Customer intent: "As a network architect, I want to access a list of Azure Peering Service partners by region and metro, so that I can select the optimal connectivity provider for reliable and high-performance cloud network solutions."
 ---
 
 # Peering Service partners
@@ -24,7 +25,7 @@ The following table provides information on the Peering Service connectivity par
 | Partner | Markets |
 |----------|--------|
 | [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) | Europe |
-| [Atman](https://www.atman.pl/en/atman-internet-maps/) | Europe |
+| [Atman](https://atman.pl/en/connectivity/internet/atman-internet-with-microsoft-azure-peering-service/) | Europe |
 | [BBIX](https://www.bbix.net/en/service/) | Japan |
 | [CCL](https://concepts.co.nz/news) | Oceania |
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) | Africa |
@@ -90,7 +91,7 @@ The following table provides information on the Peering Service connectivity par
 | Sydney | [Kordia](https://www.kordia.co.nz/cloudconnect), |
 | Tokyo | [Colt](https://www.colt.net/product/cloud-prioritisation/), [IIJ](https://www.iij.ad.jp/en/), [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html), [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) |
 | Vienna | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Warsaw | [Atman](https://www.atman.pl/en/atman-internet-maps/) |
+| Warsaw | [Atman](https://atman.pl/en/connectivity/internet/atman-internet-with-microsoft-azure-peering-service/) |
 | Zurich | [Intercloud](https://www.intercloud.com/partners/microsoft-azure), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline.html), [Sunrise](https://www.sunrise.ch/business/en/home) |
 
 # [**IXPs by Metro**](#tab/ixp)

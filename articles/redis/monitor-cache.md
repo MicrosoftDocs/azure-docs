@@ -1,13 +1,14 @@
 ---
 title: Monitor Azure Cache for Redis
 description: Start here to learn how to monitor Azure Cache for Redis.
-ms.date: 03/21/2024
-ms.custom: horz-monitor
+ms.date: 05/18/2025
 ms.topic: conceptual
-
+ms.custom:
+  - horz-monitor
+  - build-2025
 appliesto:
-  - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis
+
 ---
 
 # Monitor Azure Cache for Redis
@@ -78,7 +79,7 @@ Each metric includes two versions: One metric measures performance for the entir
 
 You can view Azure Monitor metrics for Azure Cache for Redis directly from an Azure Cache for Redis resource in the [Azure portal](https://portal.azure.com).
 
-[Select your Azure Cache for Redis instance]/azure-cache-for-redis/cache-configure.md#configure-azure-cache-for-redis-settings) in the portal. The **Overview** page shows the predefined **Memory Usage** and **Redis Server Load** monitoring charts. These charts are useful summaries that allow you to take a quick look at the state of your cache.
+[Select your Azure Cache for Redis instance](../azure-cache-for-redis/cache-configure.md#configure-azure-cache-for-redis-settings) in the portal. The **Overview** page shows the predefined **Memory Usage** and **Redis Server Load** monitoring charts. These charts are useful summaries that allow you to take a quick look at the state of your cache.
 
 :::image type="content" source="media/monitor-cache/cache-overview-metrics.png" alt-text="Screen showing two charts: Memory Usage and Redis Server Load.":::
 
@@ -86,10 +87,10 @@ For more in-depth information, you can monitor the following useful Azure Cache 
 
 | Azure Cache for Redis metric | More information |
 | --- | --- |
-| Network bandwidth usage |[Cache performance - available bandwidth]/azure-cache-for-redis/cache-planning-faq.yml#azure-cache-for-redis-performance) |
-| Connected clients |[Default Redis server configuration - max clients]/azure-cache-for-redis/cache-configure.md#maxclients) |
+| Network bandwidth usage |[Cache performance - available bandwidth](../azure-cache-for-redis/cache-planning-faq.yml#azure-cache-for-redis-performance) |
+| Connected clients |[Default Redis server configuration - max clients](../azure-cache-for-redis/cache-configure.md#maxclients) |
 | Server load |[Redis Server Load](monitor-cache-reference.md#azure-cache-for-redis-metrics) |
-| Memory usage |[Cache performance - size]/azure-cache-for-redis/cache-planning-faq.yml#azure-cache-for-redis-performance) |
+| Memory usage |[Cache performance - size](../azure-cache-for-redis/cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
 :::image type="content" source="media/monitor-cache/cache-monitor-metrics.png" alt-text="Screenshot of monitoring metrics selected in the Resource menu.":::
 

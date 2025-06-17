@@ -1,17 +1,17 @@
 ---
-title: VMware solution software versions
-description: Supported VMware solution software versions for Azure VMware Solution.
+title: VMware Solution software versions
+description: Supported software versions that are used for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 3/20/2025
-author: suzizuber
-ms.author: v-suzuber
+ms.date: 4/2/2025
+author: ju-shim
+ms.author: jushiman
 ms.custom: engagement-fy23
 ---
 
 <!-- Used in faq.md and concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management and introduction#vmware-software-versions-->
 
-The VMware solution software versions used in new deployments of Azure VMware Solution private clouds are:
+The following table lists the software versions that are used in new deployments of Azure VMware Solution private clouds.
 
 | Software                         |    Version   |    Build number   |
 | :---                             |     :---:    |     :---:         |
@@ -26,6 +26,6 @@ The VMware solution software versions used in new deployments of Azure VMware So
 | VMware Site Recovery Manager     |    [8.8.0.3](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/release-notes/vmware-site-recovery-manager-8803-release-notes.html)   | 23263429 |
 | VMware vSphere Replication       |    [8.8.0.3](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8/release-notes/vsphere-replication-8803-release-notes.html)   | 23166649 |
 
-If the listed build number does not match the build number listed in the release notes, it will be due to a custom patch applied for cloud providers.
+If the listed build number doesn't match the build number listed in the release notes, it's because a custom patch was applied for cloud providers.
 
-The current running software version is applied to new clusters added to an existing private cloud, if the vCenter Server version supports it.
+The current running software version is applied to new clusters that are added to an existing private cloud, if the vCenter Server version supports it.

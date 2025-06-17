@@ -134,7 +134,7 @@
       - name: Move Automation account to another subscription
         href: how-to/move-account.md
       - name: Move Automation account to another region
-        href: ../operational-excellence/relocation-automation.md?toc=/azure/private-link/toc.json
+        href: ../azure-resource-manager/management/relocation/relocation-automation.md?toc=/azure/private-link/toc.json
     - name: Manage Automation account
       href: delete-account.md
     - name: Migrate from Orchestrator to Azure Automation (Beta)

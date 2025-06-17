@@ -36,28 +36,17 @@ The following table lists the data formats supported:
 
 ## Prerequisites
 
-Your first step is to create a database where the tables will be created. Before creating a database scoped credential, the database must have a master key to protect the credential. For more information on this, see [CREATE MASTER KEY &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-master-key-transact-sql). Then create the following objects that are used in this sample:
-- DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
+Your first step is to create a database where the tables will be created. The database must have a master key to protect the credentials. For more information on this, see [CREATE MASTER KEY &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-master-key-transact-sql). Then create the following objects that are used in this sample:
+- EXTERNAL DATA SOURCE `sqlondemanddemo` that references public demo storage account, and EXTERNAL DATA SOURCE `nyctlc` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/`.
 
     ```sql
-    CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
-    WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-    SECRET = 'sv=2022-11-02&ss=b&srt=co&sp=rl&se=2042-11-26T17:40:55Z&st=2024-11-24T09:40:55Z&spr=https&sig=DKZDuSeZhuCWP9IytWLQwu9shcI5pTJ%2Fw5Crw6fD%2BC8%3D'
-    ```
-
-- EXTERNAL DATA SOURCE `sqlondemanddemo` that references demo storage account protected with SAS key, and EXTERNAL DATA SOURCE `nyctlc` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/`.
-
-    ```sql
-    CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
-        LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
-        CREDENTIAL = sqlondemand
-    );
+    CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (LOCATION = 'https://fabrictutorialdata.blob.core.windows.net/sampledata/Synapse');
     GO
     CREATE EXTERNAL DATA SOURCE nyctlc
     WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/')
     GO
     CREATE EXTERNAL DATA SOURCE DeltaLakeStorage
-    WITH ( location = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
+    WITH ( location = 'https://fabrictutorialdata.blob.core.windows.net/sampledata/Synapse/delta-lake' );
     ```
 
 - File formats `QuotedCSVWithHeaderFormat` and `ParquetFormat` that describe CSV and parquet file types.
@@ -81,7 +70,7 @@ The queries in this article will be executed on your sample database and use the
 
 You can create external tables that access data on an Azure storage account that allows access to users with some Microsoft Entra identity or SAS key. You can create external tables the same way you create regular SQL Server external tables.
 
-The following query creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`.
+The following query creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source.
 
 > [!NOTE]
 > Change the first line in the query, that is, [mydbname], so you're using the database you created.

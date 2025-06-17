@@ -13,9 +13,6 @@ ms.author: cherylmc
 
 A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN connection using a VPN gateway. Site-to-Site connections can be used to create a hybrid solution, or whenever you want secure connections between your on-premises networks and your virtual networks. This article provides a list of validated VPN devices and a list of IPsec/IKE parameters for VPN gateways.
 
-> [!IMPORTANT]
-> If you're experiencing connectivity issues between your on-premises VPN devices and VPN gateways, refer to [Known device compatibility issues](#known).
->
 
 ### Items to note when viewing the tables:
 
@@ -66,7 +63,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Not compatible |[Configuration guide](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG Next Gen Firewall | XG v17 | Not tested | [Configuration guide](https://community.sophos.com/sophos-xg-firewall/f/recommended-reads/118402/sophos-xg-firewall-v17-x-how-to-establish-a-site-to-site-ipsec-vpn-to-microsoft-azure)<br><br>[Configuration guide - Multiple SAs](https://community.sophos.com/sophos-xg-firewall/f/recommended-reads/118404/sophos-firewall-configure-a-site-to-site-ipsec-vpn-with-multiple-sas-to-a-route-based-azure-vpn-gateway) |
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | Not tested | [Configuration guide](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
-| Ubiquiti | EdgeRouter | EdgeOS v1.10 | Not tested | [BGP over IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI over IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347) |
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 | Not tested | [BGP over IKEv2/IPsec](https://help.uisp.com/hc/en-us/articles/22591174261271-EdgeRouter-Route-Based-Site-to-Site-VPN-to-Azure-BGP-over-IKEv2-IPsec)<br><br>[VTI over IKEv2/IPsec](https://help.uisp.com/hc/en-us/articles/22591212773143-EdgeRouter-Route-Based-Site-to-Site-VPN-to-Azure-VTI-over-IKEv2-IPsec) |
 | Ultra | 3E-636L3 | 5.2.0.T3 Build-13  | Not tested | Configuration guide |
 | WatchGuard |All |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuration guide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuration guide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 | Zyxel |ZyWALL USG series<br>ZyWALL ATP series<br>ZyWALL VPN series | ZLD v4.32+ | Not tested | [VTI over IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br><br>[BGP over IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
@@ -199,18 +196,5 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 * You can specify IPsec ESP NULL encryption with RouteBased and HighPerformance VPN gateways. Null based encryption doesn't provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required. Clients might choose to use this in VNet-to-VNet communication scenarios, or when encryption is being applied elsewhere in the solution.
 * For cross-premises connectivity through the Internet, use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the preceding tables to ensure security of your critical communication.
 
-## <a name="known"></a>Known device compatibility issues
 
-> [!IMPORTANT]
-> These are the known compatibility issues between third-party VPN devices and Azure VPN gateways. The Azure team is actively working with the vendors to address the issues listed here. Once the issues are resolved, this page will be updated with the most up-to-date information. Check back periodically.
->
->
-
-### Feb. 16, 2017
-
-**Palo Alto Networks devices with version prior to 7.1.4** for Azure route-based VPN: If you're using VPN devices from Palo Alto Networks with PAN-OS version prior to 7.1.4 and are experiencing connectivity issues to Azure route-based VPN gateways, perform the following steps:
-
-1. Check the firmware version of your Palo Alto Networks device. If your PAN-OS version is older than 7.1.4, upgrade to 7.1.4.
-2. On the Palo Alto Networks device, change the Phase 2 SA (or Quick Mode SA) lifetime to 28,800 seconds (8 hours) when connecting to the Azure VPN gateway.
-3. If you're still experiencing connectivity issues, open a support request from the Azure portal.
 

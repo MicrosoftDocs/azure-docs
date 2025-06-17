@@ -2,11 +2,11 @@
 title: Azure Application Gateway Resource Health overview 
 description: This article is an overview of the resource health feature for Azure Application Gateway
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
-ms.topic: article
+ms.topic: overview
 ms.date: 7/9/2019
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Azure Application Gateway Resource Health overview

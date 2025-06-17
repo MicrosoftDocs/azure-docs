@@ -4,10 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 02/04/2025
 ms.author: charithg
+ms.custom:
+  - build-2025
 ---
 
 > [!NOTE]
-> This API is provided as a preview for developers and might change based on feedback that we receive. Don't use this API in a production environment. To use this API, use the beta release of the Azure Communication Services Calling Web SDK (1.31.1-beta.1 or higher).
+> This API is available with Azure Communication Services Calling Web SDK (1.35.1 or higher).
 
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 

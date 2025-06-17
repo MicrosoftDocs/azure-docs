@@ -18,7 +18,7 @@ ms.collection: ce-skilling-ai-copilot
 Enable semantic caching of responses to Azure OpenAI API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same. For background, see [Tutorial: Use Azure Cache for Redis as a semantic cache](../redis/tutorial-semantic-cache.md).
 
 > [!NOTE]
-> The configuration steps in this article enable semantic caching for Azure OpenAI APIs. These steps can be generalized to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api). 
+> The configuration steps in this article enable semantic caching for Azure OpenAI APIs. These steps can be generalized to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) or with OpenAI-compatible models served through third-party inference providers. 
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Enable semantic caching of responses to Azure OpenAI API requests to reduce band
     * Chat Completion API - Deployment used for API consumer calls 
     * Embeddings API - Deployment used for semantic caching
 * The API Management instance must be configured to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management ](api-management-authenticate-authorize-azure-openai.md#authenticate-with-managed-identity).
-* An [Azure Cache for Redis Enterprise](../azure-cache-for-redis/quickstart-create-redis-enterprise.md) or [Azure Managed Redis](../redis/quickstart-create-managed-redis.md) instance. The **RediSearch** module must be enabled on the Redis cache.
+* An [Azure Managed Redis](../redis/quickstart-create-managed-redis.md) instance. The **RediSearch** module must be enabled on the Redis cache.
     > [!NOTE]
     > You can only enable the **RediSearch** module when creating a new Azure Redis Enterprise or Azure Managed Redis cache. You can't add a module to an existing cache. [Learn more](../redis/redis-modules.md)
 * External cache configured in the Azure API Management instance. For steps, see [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md).

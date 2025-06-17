@@ -1,18 +1,20 @@
 ---
-title: Shared disks in Azure Site Recovery (preview)
+title: Shared disks in Azure Site Recovery
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 03/26/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 05/15/2025
+ms.author: jsuri
+author: jyothisuri
+ms.custom:
+  - build-2025
 ---
 
-# Setup disaster recovery for Azure virtual machines using shared disk (preview)
+# Set up disaster recovery for Azure virtual machines using shared disk
 
-This article describes how to protect, monitor, failover, and reprotect your workloads that are running on Windows Server Failover Clusters (WSFC) on Azure virtual machines using a shared disk.
+This article describes how to protect, monitor, fail over, and reprotect your workloads that are running on Windows Server Failover Clusters (WSFC) on Azure virtual machines using a shared disk.
 
-Azure shared disks is a feature for Azure managed disks that allow you to attach a managed disk to multiple virtual machines simultaneously. Attaching a managed disk to multiple virtual machines allows you to either deploy new or migrate existing clustered applications to Azure.
+Azure shared disks are a feature for Azure managed disks that allow you to attach a managed disk to multiple virtual machines simultaneously. Attaching a managed disk to multiple virtual machines allows you to either deploy new or migrate existing clustered applications to Azure.
 
 Using Azure Site Recovery for Azure shared disks, you can replicate and recover your WSFC-clusters as a single unit throughout the disaster recovery lifecycle, while you create cluster-consistent recovery points that are consistent across all the disks (including the shared disk) of the cluster.
 
@@ -21,9 +23,12 @@ Using Azure Site Recovery for shared disks, you can:
 - Protect your clusters. 
 - Create recovery points (App and Crash) that are consistent across all the virtual machines and disks of the cluster. 
 - Monitor protection and health of the cluster and all its nodes from a single page. 
-- Failover the cluster with a single click. 
+- Fail over the cluster with a single click. 
 - Change recovery point and reprotect the cluster after failover with a single click. 
-- Failback the cluster to the primary region with minimal data loss and downtime.
+- Fail back the cluster to the primary region with minimal data loss and downtime.
+
+>[!Note]
+>Disaster recovery for Azure virtual machines using shared disk is currently applicable only to Standard and Premium SSD v1 disks.
 
 Follow these steps to protect shared disks with Azure Site Recovery:
 

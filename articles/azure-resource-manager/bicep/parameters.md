@@ -2,8 +2,10 @@
 title: Parameters in Bicep files
 description: Learn how to define and use parameters in a Bicep file.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 05/09/2025
 ---
 
 # Parameters in Bicep
@@ -20,7 +22,7 @@ For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ### Training resources
 
-See the [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
+See the [Build reusable Bicep files by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
 
 ## Define parameters
 
@@ -150,7 +152,7 @@ param storageAccountName string
 
 When you hover your cursor over **storageAccountName** in Visual Studio Code, you see the formatted text:
 
-:::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
+:::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VS Code":::
 
 Make sure the text follows proper Markdown formatting; otherwise, it might not display correctly when rendered.
 
@@ -207,7 +209,7 @@ See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
 
 ### Secure parameters
 
-You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
+You can mark string or object parameters as secure. When a parameter is decorated with `@secure()`, Azure Resource Manager treats the parameter value as sensitive, preventing it from being logged or displayed in deployment history, Azure Portal, or command-line outputs.
 
 ```bicep
 @secure()
@@ -231,6 +233,8 @@ resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
   ...
 }
 ```
+
+The `@secure()` decorator is valid only for parameters of type string or object, as these align with the [secureString](../templates/syntax.md#parameters) and [secureObject](../templates/syntax.md#parameters) types in ARM templates. To pass arrays or numbers securely, wrap them in a secureObject or serialize them as a secureString.
 
 ## Use objects as parameters
 

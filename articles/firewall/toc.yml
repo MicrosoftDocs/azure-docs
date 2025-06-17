@@ -13,8 +13,7 @@ items:
     href: firewall-preview.md
   - name: FAQ
     href: firewall-faq.yml
-  - name: Known issues and limitations
-    href: firewall-known-issues.md
+  expanded: true
 - name: Design & architecture
   items:
   - name: Policy 
@@ -80,6 +79,8 @@ items:
       href: premium-certificates.md
     - name: Enterprise CA Certificates
       href: premium-deploy-certificates-enterprise-ca.md
+  - name: Draft and Deploy
+    href: draft-deploy.md
   - name: To a hybrid Network
     items:
     - name: Portal
@@ -196,7 +197,6 @@ items:
       href: detect-malware-with-sentinel.md
   - name: Network security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-- name: Deploy
 - name: Operational excellence
   items:
   - name: Monitoring
@@ -210,9 +210,13 @@ items:
   - name: Best practices for performance
     href: firewall-best-practices.md
   - name: Relocate to another region
-    href: ../operational-excellence/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+    href: ../azure-resource-manager/management/relocation/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Remote work support
     href: remote-work-support.md
+- name: Troubleshooting
+  items:
+  - name: Known issues and limitations
+    href: firewall-known-issues.md
 - name: Reference
   items:
   - name: Azure CLI

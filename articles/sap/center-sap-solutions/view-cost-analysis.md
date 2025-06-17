@@ -31,7 +31,7 @@ The following Azure resources aren't included in the SAP system-level cost analy
 - Virtual networks
 - Storage accounts
 - Azure NetApp files (ANF)
-- Azure key vaults
+- Azure Key Vault
 - Azure Monitor for SAP solutions resources
 - Azure Backup resources
 

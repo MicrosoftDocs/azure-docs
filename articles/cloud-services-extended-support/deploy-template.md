@@ -13,7 +13,7 @@ ms.date: 07/24/2024
 # Deploy Cloud Services (extended support) by using an ARM template
 
 > [!IMPORTANT]
-> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 This article shows you how to use an [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) to create an Azure Cloud Services (extended support) deployment.
 

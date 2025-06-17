@@ -72,9 +72,9 @@ items:
     href: supported-map-styles.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
-  - name: Weather services concepts
+  - name: Weather service concepts
     href: weather-services-concepts.md
-  - name: Weather services FAQ
+  - name: Weather service FAQ
     href: weather-services-faq.yml
 - name: How-to guides
   items:

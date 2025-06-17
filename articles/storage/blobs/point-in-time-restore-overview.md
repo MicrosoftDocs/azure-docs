@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/21/2023
 ms.author: normesta
 ---

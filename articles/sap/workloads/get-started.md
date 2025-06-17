@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 03/31/2025
+ms.date: 04/29/2025
 ms.author: juergent
 ---
 
@@ -55,7 +55,10 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
-
+- June 3, 2025: Added new HA agent SAPHanaSR-angi for [High availability for SAP HANA scale-out system with HSR on SUSE Linux Enterprise Server](./sap-hana-high-availability-scale-out-hsr-suse.md). SAPHanaSR-angi set as primary displayed tab in [High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md).
+- May 21, 2025: Change in [Set up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Set up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to expand the explanation how azure-events-az works.
+- April 29, 2025: Updated the ENSA2 order constraint in the RHEL pacemaker setup in [High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md), [Azure Virtual Machines HA for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md), [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux](./high-availability-guide-rhel.md), and [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID](./high-availability-guide-rhel-multi-sid.md).
+- April 9, 2025: Add timeout and fail action to IP resource configuration for SAP HANA in [High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server](./sap-hana-high-availability.md) and [High availability for SAP HANA scale-out system with HSR on SUSE Linux Enterprise Server](./sap-hana-high-availability-scale-out-hsr-suse.md)
 - March 31, 2025: Updated Azure NetApp Files Application Volume Group guidelines for SAP HANA in [FAQs for Virtual Machine Scale Set for SAP workload](./virtual-machine-scale-set-sap-faq.md)
 - March 27, 2025: Update meta attributes for health-azure-events resource and clone, to correctly operate with unhealthy nodes with pacemaker versions 2.1.3 and higher. Documents [Set up Pacemaker on Red Hat Enterprise Linux in Azure](./high-availability-guide-rhel-pacemaker.md) and [Set up Pacemaker on SUSE Linux Enterprise Server in Azure](./high-availability-guide-suse-pacemaker.md).
 - March 20, 2025: Spun off troubleshooting section from [New Version of Azure VM extension for SAP solutions](./vm-extension-for-sap-new.md) to its own article: [Troubleshooting the Azure VM Extension for SAP](./vm-extension-for-sap-troubleshooting.md) and added tab panels to [New Version of Azure VM extension for SAP solutions](./vm-extension-for-sap-new.md) for better readability.

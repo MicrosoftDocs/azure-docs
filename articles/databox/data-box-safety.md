@@ -5,7 +5,7 @@ services: databox
 author: stevenmatthew
 
 ms.service: azure-databox
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: shaas
 zone_pivot_groups: data-box-sku

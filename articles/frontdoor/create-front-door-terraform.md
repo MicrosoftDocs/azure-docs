@@ -14,6 +14,8 @@ ai-usage: ai-assisted
 
 # Quickstart: Create an Azure Front Door using Terraform
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 This quickstart describes how to use Terraform to create a Front Door profile to set up high availability for a web endpoint.
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]

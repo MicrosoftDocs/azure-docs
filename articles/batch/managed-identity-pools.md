@@ -1,11 +1,12 @@
 ---
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/02/2025
 ms.devlang: csharp
 ai-usage: ai-assisted
 ms.custom:
+# Customer intent: As a cloud administrator, I want to configure user-assigned managed identities in Batch pools, so that I can securely manage access to Azure resources without handling credentials manually.
 ---
 # Configure managed identities in Batch pools
 

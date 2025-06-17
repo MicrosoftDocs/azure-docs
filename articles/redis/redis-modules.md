@@ -1,19 +1,19 @@
 ---
-title: Using Redis modules with Azure Managed Redis (preview)
+title: Using Redis modules with Azure Managed Redis
 description: You can use Redis modules with your Azure Managed Redis instances to extend your caching use cases.
-
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
 ms.topic: conceptual
-ms.date: 11/15/2024
-ms.custom: template-concept, ignite-2024
+ms.custom:
+  - template-concept
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# Use Redis modules with Azure Managed Redis (preview)
+# Use Redis modules with Azure Managed Redis
 
-With Azure Managed Redis (preview), you can use Redis modules to add more data structures and functionality to the core Redis software. These extend the use-cases of Redis by adding functionality like search capabilities and data structures like bloom and cuckoo filters. You add the modules at the time you're creating your Azure Managed Redis instance.
+With Azure Managed Redis, you can use Redis modules to add more data structures and functionality to the core Redis software. These extend the use-cases of Redis by adding functionality like search capabilities and data structures like bloom and cuckoo filters. You add the modules at the time you're creating your Azure Managed Redis instance.
 
 For more information on creating an AMR cache, see [Quickstart: Create an Azure Managed Redis Instance](quickstart-create-managed-redis.md).
 
@@ -83,7 +83,7 @@ Additionally, **RediSearch** can function as a secondary index, expanding your c
 You can use **RediSearch** is used in a wide variety of use-cases, including real-time inventory, enterprise search, and in indexing external databases. [For more information, see the RediSearch documentation page](https://redis.io/search/).
 
 >[!IMPORTANT]
-> The RediSearch module requires use of the `Enterprise` clustering policy and the `NoEviction` eviction policy. For more information, see [Clustering](architecture.md#clustering) and [Memory Policies](configure.md#memory-policies)
+> The RediSearch module requires use of the `Enterprise` clustering policy and the `NoEviction` eviction policy. For more information, see [Clustering](architecture.md#clustering).
 >
 
 ### RedisBloom

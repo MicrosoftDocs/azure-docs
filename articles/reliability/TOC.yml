@@ -50,8 +50,6 @@
         href: migrate-functions.md
       - name: Azure Cache for Redis
         href: migrate-cache-redis.md
-      - name: Azure AI Search
-        href: migrate-search-service.md
       - name: Azure Backup
         href: migrate-recovery-services-vault.md
       - name: Azure Batch
@@ -200,6 +198,12 @@
       href: reliability-cosmos-db-nosql.md
     - name: Azure Cosmos DB for MongoDB vCore
       href: reliability-cosmos-mongodb.md
+    - name: Azure Cosmos DB for PostgreSQL
+      items: 
+      - name: Availability zones
+        href: /azure/cosmos-db/postgresql/concepts-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Disaster recovery
+        href: /azure/cosmos-db/postgresql/concepts-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Database for MySQL
       href: /azure/mysql/single-server/concepts-business-continuity?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#recover-from-an-azure-regional-data-center-outage
     - name: Azure Database for MySQL - Flexible Server
@@ -347,11 +351,7 @@
     - name: Azure Traffic Manager
       href: reliability-traffic-manager.md
     - name: Azure Virtual Network
-      items:
-      - name: Availability zones
-        href: ../virtual-network/virtual-networks-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#virtual-networks-and-availability-zones
-      - name: Disaster recovery
-        href: ../virtual-network/virtual-network-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#business-continuity
+      href: reliability-virtual-network.md
     - name: Azure Virtual WAN
       items:
       - name: Availability zones

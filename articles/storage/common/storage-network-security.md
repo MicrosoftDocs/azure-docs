@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 05/01/2025
 ms.author: normesta
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement, ignite-2024
@@ -64,7 +64,7 @@ There are two types of virtual network endpoints for storage accounts:
 - [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Private endpoints](storage-private-endpoints.md)
 
-Virtual network service endpoints are public and accessible via the internet. The Azure Storage firewall provides the ability to control access to your storage account over such public endpoints. When you enable public network access to your storage account, all incoming requests for data are blocked by default. Only applications that request data from allowed sources that you configure in your storage account firewall settings will be able to access your data. Sources can include the source IP address or virtual network subnet of a client, or an Azure service or resource instance through which clients or services access your data. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services, unless you explicitly allow access in your firewall configuration.
+Virtual network service endpoints are public and accessible via the internet. The Azure Storage firewall provides the ability to control access to your storage account over such public endpoints. When you disable public network access to your storage account, all incoming requests for data are blocked by default. Only applications that request data from allowed sources that you configure in your storage account firewall settings will be able to access your data. Sources can include the source IP address or virtual network subnet of a client, or an Azure service or resource instance through which clients or services access your data. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services, unless you explicitly allow access in your firewall configuration.
 
 A private endpoint uses a private IP address from your virtual network to access a storage account over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the storage account are secured over a private link. Storage firewall rules only apply to the public endpoints of a storage account, not private endpoints. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. You can use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) to control traffic over private endpoints if you want to refine access rules. If you want to use private endpoints exclusively, you can use the firewall to block all access through the public endpoint.
 
@@ -109,7 +109,7 @@ This preview doesn't support the following services, operations, and protocols o
 - Network file system (NFS) protocol with [Azure Blob Storage](../blobs/network-file-system-protocol-support.md) and [Azure Files](../files/files-nfs-protocol.md).
 - Server message block (SMB) protocol with Azure Files can only be achieved through IP allowlisting at this time.
 - [Azure Blob Inventory](../blobs/blob-inventory.md)
-- [Unmanaged disks](/azure/virtual-machines/unmanaged-disks-deprecation) do not honour network security perimeter rules. 
+- [Unmanaged disks](/azure/virtual-machines/unmanaged-disks-deprecation) do not honor network security perimeter rules. 
 
 - Vaulted backups for Azure Blob Storage
 
@@ -637,14 +637,14 @@ The following table lists services that can access your storage account data if 
 | Azure Cache for Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md).| 
 | Azure AI Search          | `Microsoft.Search/searchServices`       | Enables access to storage accounts for indexing, processing, and querying. |
 | Azure AI services        | `Microsoft.CognitiveService/accounts`   | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
-| Azure Container Registry        | `Microsoft.ContainerRegistry/registries`| Through the ACR Tasks suite of features, enables access to storage accounts when you're building container images. |
 | Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-improved-exports.md).|
-| Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. |
+| Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. Serverless SQL warehouses require additional configuration. [Learn more](/azure/databricks/admin/sql/serverless).|
 | Azure Data Factory              | `Microsoft.DataFactory/factories`       | Enables access to storage accounts through the Data Factory runtime. |
 | Azure Data Explorer           | `Microsoft.Kusto/Clusters`          | Read data for ingestion and external tables, and write data to external tables. [Learn more](/azure/data-explorer/data-explorer-overview). |
 | Azure Backup Vault              | `Microsoft.DataProtection/BackupVaults` | Enables access to storage accounts. |
 | Azure Data Share                | `Microsoft.DataShare/accounts`          | Enables access to storage accounts. |
 | Azure Database for PostgreSQL   | `Microsoft.DBForPostgreSQL`             | Enables access to storage accounts. |
+| Azure Device Registry           | `Microsoft.DeviceRegistry/schemaRegistries`     | Enables access to storage accounts. |
 | Azure IoT Hub                   | `Microsoft.Devices/IotHubs`             | Allows data from an IoT hub to be written to Blob Storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources). |
 | Azure DevTest Labs              | `Microsoft.DevTestLab/labs`             | Enables access to storage accounts. |
 | Azure Event Grid                | `Microsoft.EventGrid/domains`           | Enables access to storage accounts. |
@@ -671,6 +671,7 @@ The following table lists services that can access your storage account data if 
 | Azure Site Recovery             | `Microsoft.RecoveryServices/vaults`     | Enables access to storage accounts. |
 | Security Center                 | `Microsoft.Security/dataScanners`       | Enables access to storage accounts. |
 | Singularity                     | `Microsoft.Singularity/accounts`        | Enables access to storage accounts. |
+| Azure Storage Actions           | `Microsoft.Storageactions/Storagetasks` | Enables access to storage accounts. |
 | Azure SQL Database              | `Microsoft.Sql`                         | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure SQL Servers               | `Microsoft.Sql/servers`                 | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure Synapse Analytics         | `Microsoft.Sql`                         | Allows import and export of data from specific SQL databases via the `COPY` statement or PolyBase (in a dedicated pool), or the `openrowset` function and external tables in a serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |

@@ -88,43 +88,43 @@ To run the Event Hubs emulator locally on Linux or macOS:
 
 2. To spin up containers for Event Hubs emulator, Save the following .yaml file as *docker-compose.yaml*.
 
-  ```
+  ```yaml
   name: microsoft-azure-eventhubs
   services:
-  emulator:
-    container_name: "eventhubs-emulator"
-    image: "mcr.microsoft.com/azure-messaging/eventhubs-emulator:latest"
-    pull_policy: always
-    volumes:
-      - "${CONFIG_PATH}:/Eventhubs_Emulator/ConfigFiles/Config.json"
-    ports:
-      - "5672:5672"
-      - "9092:9092"
-      - "5300:5300" 
-    environment:
-      BLOB_SERVER: azurite
-      METADATA_SERVER: azurite
-      ACCEPT_EULA: ${ACCEPT_EULA}
-    depends_on:
-      - azurite
-    networks:
-      eh-emulator:
-        aliases:
-          - "eventhubs-emulator"
-  azurite:
-    container_name: "azurite"
-    image: "mcr.microsoft.com/azure-storage/azurite:latest"
-    pull_policy: always
-    ports:
-      - "10000:10000"
-      - "10001:10001"
-      - "10002:10002"
-    networks:
-      eh-emulator:
-        aliases:
-          - "azurite"
-networks:
-  eh-emulator:
+    emulator:
+      container_name: "eventhubs-emulator"
+      image: "mcr.microsoft.com/azure-messaging/eventhubs-emulator:latest"
+      pull_policy: always
+      volumes:
+        - "${CONFIG_PATH}:/Eventhubs_Emulator/ConfigFiles/Config.json"
+      ports:
+        - "5672:5672"
+        - "9092:9092"
+        - "5300:5300"
+      environment:
+        BLOB_SERVER: azurite
+        METADATA_SERVER: azurite
+        ACCEPT_EULA: ${ACCEPT_EULA}
+      depends_on:
+        - azurite
+      networks:
+        eh-emulator:
+          aliases:
+            - "eventhubs-emulator"
+    azurite:
+      container_name: "azurite"
+      image: "mcr.microsoft.com/azure-storage/azurite:latest"
+      pull_policy: always
+      ports:
+        - "10000:10000"
+        - "10001:10001"
+        - "10002:10002"
+      networks:
+        eh-emulator:
+          aliases:
+            - "azurite"
+  networks:
+    eh-emulator:
 
 ```
 

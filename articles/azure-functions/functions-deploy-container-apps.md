@@ -11,6 +11,8 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this article, you create a function app running in a Linux container and deploy it to an Azure Container Apps environment from a container registry. By deploying to Container Apps, you're able to integrate your function apps into cloud-native microservices. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
 
+[!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
+
 This article shows you how to create functions running in a Linux container and deploy the container to a Container Apps environment. 
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
@@ -84,7 +86,7 @@ Use these commands to create your required Azure resources:
     principalId=$(az identity create --name <USER_IDENTITY_NAME> --resource-group AzureFunctionsContainers-rg --location eastus --query principalId -o tsv) 
     acrId=$(az acr show --name <REGISTRY_NAME> --query id --output tsv)
     az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --role acrpull --scope $acrId
-    storageId=$(az storage account show --resource-group AzureFunctionsContainers-rg --name glengatestaca2 --query 'id' -o tsv)
+    storageId=$(az storage account show --resource-group AzureFunctionsContainers-rg --name <STORAGE_NAME> --query 'id' -o tsv)
     az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --role "Storage Blob Data Owner" --scope $storageId
     ```
 
@@ -189,7 +191,11 @@ az group delete --name AzureFunctionsContainers-rg
 ## Next steps
 
 > [!div class="nextstepaction"]  
-> [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)   
+> [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)  
+> [!div class="nextstepaction"]  
+> [Native Azure Functions Support in Azure Container Apps](../../articles/container-apps/functions-overview.md)  
+> [!div class="nextstepaction"]  
+> [Create your Native Azure Functions on Azure Container Apps](../../articles/container-apps/functions-usage.md)  
 > [!div class="nextstepaction"]  
 > [Working with containers and Azure Functions](./functions-how-to-custom-container.md)  
 > [!div class="nextstepaction"]  

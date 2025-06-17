@@ -6,8 +6,8 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.author: msangapu
-author: msangapu-msft
+ms.author: cephalin
+author: cephalin
 ---
 # Troubleshoot an app in Azure App Service using Visual Studio
 
@@ -624,7 +624,6 @@ For more information about troubleshooting apps in Azure App Service, see the fo
 
 For help with a specific troubleshooting question, start a thread in one of the following forums:
 
-* [The Azure forum on the ASP.NET site](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
 * [The Azure forum on Microsoft Q&A](/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
@@ -669,8 +668,6 @@ There are no thorough and up-to-date introductions to ASP.NET tracing available 
 
 * [Streaming Diagnostics Trace Logging from the Azure Command Line (plus Glimpse!)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   How to use the command line to do what this tutorial shows how to do in Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) is a tool for debugging ASP.NET applications.
-* [Using Web Apps Logging and Diagnostics - with David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) and [Streaming Logs from Web Apps - with David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
-  Videos by Scott Hanselman and David Ebbo.
 
 For error logging, an alternative to writing your own tracing code is to use an open-source logging framework such as [ELMAH](https://nuget.org/packages/elmah/). For more information, see [Scott Hanselman's blog posts about ELMAH](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
