@@ -36,7 +36,7 @@ Next, create a custom role. Start by considering the best scope-based approach, 
 
 ### Scope considerations for UAMI custom role
 
-The custom role must be assigned sufficient permissions to access user resourcecs. The custom role can be scoped to individual child resources, like an NFDV, for the most granual control. Or, the custom role can be scope to a parent resource, such as the publisher resource group, which grants equal access over all child resources. For proper operations, either individually or via parent, all below resources must be assigned to the custom role:
+The custom role must be assigned sufficient permissions to access user resources. The custom role can be scoped to individual child resources, like an NFDV, for the most granular control. Or, the custom role can be scope to a parent resource, such as the publisher resource group, which grants equal access over all child resources. For proper operations, either individually or via parent, all below resources must be assigned to the custom role:
 
 - All the Network Function Definition Groups (NFDG) and versions. 
 - All the Network Function Definition (NFD) and versions.
