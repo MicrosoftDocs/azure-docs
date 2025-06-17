@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to change a VPN Gateway SKU, so that I can ensure optimal performance and scalability for my virtual network while adhering to deployment best practices."
 ---
 # Change a gateway SKU
 

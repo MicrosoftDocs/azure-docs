@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to resize a VPN Gateway SKU, so that I can optimize performance without deleting and recreating the existing gateway.
 ---
 # Resize a gateway SKU
 

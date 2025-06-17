@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 05/05/2023
 ms.author: kumud
 
+# Customer intent: As an IT administrator, I want to implement Network Virtual Appliances for secure remote access, so that I can effectively support my employees working from home during increased demand.
 ---
 
 # Working remotely: Network Virtual Appliance (NVA) considerations for remote work

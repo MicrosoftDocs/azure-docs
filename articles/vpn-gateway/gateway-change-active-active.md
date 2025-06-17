@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/05/2024
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to change a VPN gateway from active-standby to active-active mode, so that I can ensure high availability and improved performance for my network connections.
 ---
 
 # Change a VPN gateway mode: active-active
