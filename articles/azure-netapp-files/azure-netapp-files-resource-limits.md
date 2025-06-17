@@ -50,8 +50,8 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of volumes that can be backed up per subscription   |  500  |  No  |
 |  Maximum number of manual backups per volume per day |  5  |  No  |
 |  Maximum number of volumes supported for cool access per subscription per region |  10  |  Yes  |
-| Maximum number of [clones](create-short-term-clone.md) per volume | 5 | Yes | 
-| Maximum number of [clones](create-short-term-clone.md) per subscription | 16 | Yes | 
+| Maximum number of [clones](create-short-term-clone.md) per volume | 5 | No | 
+| Maximum number of [clones](create-short-term-clone.md) per subscription | 16 | No | 
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
