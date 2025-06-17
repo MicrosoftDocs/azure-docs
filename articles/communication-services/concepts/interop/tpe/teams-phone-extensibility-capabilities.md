@@ -102,9 +102,9 @@ The following list of capabilities is supported for scenarios where at least one
 | Dial Plan | Outbound PSTN call from the Teams Resource account honors its assigned Dial plan policy in the Teams Admin Center | N/A | ✔️ |
 | | Outbound emergency call from the Teams user account honors its assigned dial plan policy in the Teams Admin center | ✔️ | N/A | -->
 
-- \* Participants joining via phone number can't see video content. So actions involving video don't affect them but can apply when VoIP participants join.
+\* Participants joining via phone number can't see video content. So actions involving video don't affect them but can apply when VoIP participants join.
 
-## Next Steps
+## Next steps
 
 - [Microsoft Teams Phone overview](/microsoftteams/what-is-phone-system-in-office-365)
 - [Set up Microsoft Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system)

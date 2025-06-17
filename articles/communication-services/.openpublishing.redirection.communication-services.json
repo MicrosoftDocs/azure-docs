@@ -481,5 +481,10 @@
             "redirect_url": "/azure/communication-services/concepts/interop/teams-user-calling",
             "redirect_document_id": false
         }
+        {
+            "source_path_from_root": "/azure/communication-services/concepts/interop/tpe/teams-phone-extensibility-client-capabilities.md",
+            "redirect_url": "/azure/communication-services/concepts/interop/tpe/teams-phone-extensibility-capabilities",
+            "redirect_document_id": false
+        }
     ]
 }
