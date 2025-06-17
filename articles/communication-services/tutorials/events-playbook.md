@@ -108,7 +108,7 @@ Attendee experience can be directly embedded into an application or platform usi
 
 2.	Before developers dive into using [Azure Communication Services](../overview.md), they must [create a resource](../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows&preserve-view=true).
 
-3.	Once a resource is created, developers must [generate access tokens](../quickstarts/identity/access-tokens.md?pivots=programming-language-javascript&preserve-view=true) for attendees to access Azure Communication Services. We recommend using a [trusted service architecture](../concepts/identity-model.md#client-server-architecture).
+3.	Once a resource is created, developers must [generate access tokens](../quickstarts/identity/access-tokens.md?pivots=programming-language-javascript&preserve-view=true) for attendees to access Azure Communication Services. We recommend using a [trusted service architecture](../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model).
 
 4.	Developers can leverage [headless SDKs](../concepts/teams-interop.md) or [UI Library](../concepts/ui-library/ui-library-overview.md) using the join link URL to join the Teams meeting through [Teams Interoperability](../concepts/teams-interop.md). Details below:
 
