@@ -88,19 +88,18 @@ The token store feature provides a secure way to manage authentication tokens in
 
 For more information, see [Enable an authentication token store](token-store.md) for more details on how to set up a token store for your application.
 
-## Security architecture considerations
+## Network security
 
-When designing secure applications on Azure Container Apps, consider these architectural principles:
+Implementing proper network security measures helps safeguard your workloads from unauthorized access and potential threats while enabling secure communication between your apps and other services.
 
-- **Defense in depth**: Implement multiple layers of security controls
-- **Least privilege**: Grant only the minimum permissions necessary
-- **Managed service advantages**: Use the security benefits of Azure's managed services
-- **Secure defaults**: Start with secure configurations and only open what's necessary
-- **Identity as the primary security perimeter**: Center your security architecture around identity controls
+For more information on network security in Azure Container Apps, see the following articles:
 
-## Next steps
-
-- Implement [managed identities](./managed-identity.md) for secure authentication
-- Set up [secrets management](./manage-secrets.md) for sensitive configuration
-- Configure [secure image pull](./managed-identity-image-pull.md) with managed identities
-- Enable [token store](./token-store.md) for secure user authentication
+- [Configure WAF Application Gateway](./waf-app-gateway.md)
+- [Enable User Defined Routes (UDR)](user-defined-routes.md)
+- Rule based routing
+  - [Use rule-based routing](./rule-based-routing.md)
+  - [Configure a custom domain](./rule-based-routing-custom-domain.md)
+  - [Securing a custom VNET with an NSG](firewall-integration.md)
+  - [Use a private endpoint](./how-to-use-private-endpoint.md)
+  - [Use mTLS](./mtls.md)
+  - [Integrate with Azure Front Door](./how-to-integrate-with-azure-front-door.md)
