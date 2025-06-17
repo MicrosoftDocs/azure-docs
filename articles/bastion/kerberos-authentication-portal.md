@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/09/2024
 ms.author: abell
 
+# Customer intent: "As a cloud administrator, I want to configure Azure Bastion to use Kerberos authentication, so that I can ensure secure access to my virtual machines without relying on less secure authentication methods."
 ---
 
 # Configure Bastion for Kerberos authentication using the Azure portal
