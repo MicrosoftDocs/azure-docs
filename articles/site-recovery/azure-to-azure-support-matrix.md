@@ -132,6 +132,8 @@ Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-
 
 > [!NOTE]
 > For Linux versions, Azure Site Recovery doesn't support custom OS kernels. Only the stock kernels that are part of the distribution minor version release/update are supported.
+>
+> VMs created on ARM64 CPU architecture aren't supported by Azure Site Recovery. 
 
 ##### Linux Kernel support timelines
 
@@ -475,6 +477,7 @@ Internal Load balancer | Supported | Associate the preconfigured load balancer u
 Public IP address | Supported | Associate an existing public IP address with the NIC. Or, create a public IP address and associate it with the NIC using an Azure Automation script in a recovery plan.
 NSG on NIC | Supported | Associate the NSG with the NIC using an Azure Automation script in a recovery plan.
 NSG on subnet | Supported | Associate the NSG with the subnet using an Azure Automation script in a recovery plan.
+ASG | Unsupported | Azure Site Recovery doesn't support ASGs.
 Reserved (static) IP address | Supported | If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the failed over VM.<br/><br/> If the target subnet doesn't have the same IP address available, one of the available IP addresses in the subnet is reserved for the VM.<br/><br/> You can also specify a fixed IP address and subnet in **Replicated items** > **Settings** > **Network** > **Network interfaces**.
 Dynamic IP address | Supported | If the NIC on the source has dynamic IP addressing, the NIC on the failed over VM is also dynamic by default.<br/><br/> You can modify this to a fixed IP address if required.
 Multiple IP addresses | Supported | When you fail over a VM that has a NIC with multiple IP addresses, only the primary IP address of the NIC in the source region is kept by default. To failover Secondary IP Configurations, go to the **Network** blade and configure them. <br> This is supported only for region replication, zone to zone replication isn't supported.
