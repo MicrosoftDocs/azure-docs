@@ -3,10 +3,10 @@ title: IoT asset and device management and control
 description: An overview of asset and device management and control options in an Azure IoT solution.
 ms.service: azure-iot
 services: iot
-author: asergaz
-ms.author: sergaz
+author: dominicbetts
+ms.author: dobett
 ms.topic: overview
-ms.date: 03/24/2025
+ms.date: 06/17/2025
 # Customer intent: As a solution builder or device developer I want a high-level overview of the issues around asset and device management and control so that I can easily find relevant content.
 ---
 
@@ -21,14 +21,14 @@ The following diagram shows a high-level view of the components in a typical [ed
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-management/iot-edge-management-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting asset management areas." border="false" lightbox="media/iot-overview-device-management/iot-edge-management-architecture.svg":::
 
-In an edge-based IoT solution, operational technologists (OT) can manage and control assets from the cloud, by leveraging a *Unified registry*. OT users can use the *operations experience web UI*, while IT administrators can use the CLI and Azure portal. To locate and manage assets, OT users can use *Sites*, that are created by the IT administrator and typically group Azure IoT Operations instances by physical location.
+In an edge-based IoT solution, operational technologists (OT) can manage and control assets from the cloud, by using Azure Device Registry. OT users can use the *operations experience web UI*, while IT administrators can use the CLI and Azure portal. To locate and manage assets, OT users can use *Sites* that the IT administrator creates. Sites typically group Azure IoT Operations instances by physical location.
 
-Asset management refers to processes such as registering assets and defining asset endpoints. Asset management includes the following tasks:
+Device and asset management refers to processes such as registering assets and defining devices. Device and asset management includes the following tasks:
 
-- Asset endpoint creation
-- Asset, tags, and events creation
-- Asset endpoints secrets management
-- Enabling and disabling assets
+- Device creation
+- Asset, data points, and events creation
+- Device secrets management
+- Enabling and disabling devices
 
 In an edge-based IoT solution, *command and control* refers to the processes that let you send commands to assets and optionally receive responses from them. For example, you can:
 
@@ -40,12 +40,12 @@ In an edge-based IoT solution, *command and control* refers to the processes tha
 
 An edge-based IoT solution can use the following components for asset management and control:
 
-- *Asset endpoints* to describe southbound edge connectivity information for one or more assets.
-- *Asset tags* to describe a data point that can be collected from an asset.
+- *Devices* to describe southbound edge connectivity information for one or more assets.
+- *Asset data points* to describe values that can be collected from an asset.
 - *Asset events* that inform you about state changes to your asset.
 - *Data flows* to connect various data sources and perform data operations, simplifying the setup of data paths to move, transform, and enrich data.
 - *Operations experience web UI* that lets you create and configure assets in your solution. The web UI simplifies the task of managing assets.
-- *Unified registry* that enables the cloud and edge management of assets. Azure Device Registry projects assets defined in your edge environment as Azure resources in the cloud. It provides a single unified registry so that all apps and services that interact with your assets can connect to a single source. Device Registry also manages the synchronization between assets in the cloud and assets as custom resources in Kubernetes on the edge.
+- *Azure Device Registry* that enables the cloud and edge management of assets. Device Registry projects assets defined in your edge environment as Azure resources in the cloud. It provides a single unified registry so that all apps and services that interact with your assets can connect to a single source. Device Registry also manages the synchronization between assets in the cloud and assets as custom resources in Kubernetes on the edge.
 - *Schema registry* that lets you define and manage the schema for your assets. Data flows use schemas to deserialize and serialize messages.
 - *Akri services* that let you deploy and configure connectivity protocols, such as OPC UA and ONVIF, at the edge. The connector for ONVIF is a service that discovers and registers ONVIF assets such as cameras. The connector for OPC UA is a service that connects to OPC UA servers and registers assets such as robotic arms.
 - *Secret Store extension* to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets.
@@ -95,18 +95,18 @@ To learn more, see [Cloud-to-device communications guidance](../iot-hub/iot-hub-
 
 ### [Edge-based solution](#tab/edge)
 
-### Asset endpoint creation
+### Device creation
 
-Azure IoT Operations uses Azure resources called assets and asset endpoints to connect and manage components of your industrial edge environment. Before you can create an asset, you need to define an asset endpoint profile. An *asset endpoint* is a profile that describes southbound edge connectivity information for one or more assets.
+Azure IoT Operations uses Azure resources called assets and devices to connect and manage components of your industrial edge environment. Before you can create an asset, you need to define a device. A *device* is a profile that describes southbound edge connectivity information for one or more assets.
 
-Currently, the southbound connectors available in Azure IoT Operations are the connector for OPC UA, the media connector (preview), and the connector for ONVIF (preview). Asset endpoints are configurations for a connector that enable it to connect to an asset. For example:
+Currently, the southbound connectors available in Azure IoT Operations are the connector for OPC UA, the media connector (preview), the connector for ONVIF (preview), the SQL connector (preview), and the REST connector (preview). Devices are configurations for a connector that enable it to connect to one or more physical assets. For example:
 
-- An asset endpoint for OPC UA stores the information you need to connect to an OPC UA server.
-- An asset endpoint for the media connector stores the information you need to connect to a media source.
+- A device stores the information you need to connect to an OPC UA server.
+- A device stores the information you need to connect to a media source and ONVIF compliant source.
 
 For more information, see [What is the connector for OPC UA?](../iot-operations/discover-manage-assets/overview-opcua-broker.md).
 
-### Asset, tags, and events creation
+### Asset, data points, and events creation
 
 An *asset* is a logical entity that represents a device or component in the cloud as an Azure Resource Manager resource and at the edge as a Kubernetes custom resource. When you create an asset, you can define its metadata and the datapoints (also called tags) and events that it emits.
 
@@ -180,10 +180,10 @@ During the lifecycle of your IoT solution, you might need to roll over the keys 
 As part of overall solution monitoring, you might want to monitor the health of your devices. For example, you might want to monitor the health of your devices or detect when a device is no longer connected to the cloud. Options for monitoring devices include:
 
 - Devices use the device twin to report its current state to the cloud. For example, a device can report its current internal temperature or its current battery level.
-- Devices can raise alerts by sending telemetry messages to the cloud.
+- Devices can raise alerts by sending messages to the cloud.
 - IoT Hub can [raise events](../iot-hub/iot-hub-event-grid.md) when devices connect or disconnect from the cloud.
 - IoT Central can use [rules](../iot-central/core/howto-configure-rules.md) to run actions when specified criteria are met.
-- Use machine learning tools to analyze device telemetry streams to identify anomalies that indicate a problem with the device.
+- Use machine learning tools to analyze device data streams to identify anomalies that indicate a problem with the device.
 
 To learn more, see [Monitor device connection status (IoT Hub)](../iot-hub/monitor-device-connection-state.md).
 
@@ -209,7 +209,7 @@ To send commands to your devices to control their behavior, use:
 
 - *Direct methods* for communications that require immediate confirmation of the result. Direct methods are often used for interactive control of devices such as turning on a fan.
 
-- Device twin *desired properties* for long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes.
+- Device twin *desired properties* for long-running commands intended to put the device into a certain desired state. For example, set the message send interval to 30 minutes.
 
 - *Cloud-to-device messages* for one-way notifications to the device.
 

@@ -9,11 +9,11 @@ items:
     - name: IoT solution components
       expanded: true
       items:
-      - name: Asset and device development
+      - name: Device development
         href: iot-overview-device-development.md
-      - name: Asset and device connectivity
+      - name: Device connectivity
         href: iot-overview-device-connectivity.md
-      - name: Asset and device management and control
+      - name: Device management and control
         href: iot-overview-device-management.md
       - name: Process and route messages
         href: iot-overview-message-processing.md
@@ -127,7 +127,7 @@ items:
         href: ../time-series-insights/index.yml
     - name: Azure IoT SDKs
       items:
-      - name: Device and Service SDKs
+      - name: Device and service SDKs
         href: iot-sdks.md
       - name: Azure IoT Operations SDKs
         href: https://github.com/Azure/iot-operations-sdks
