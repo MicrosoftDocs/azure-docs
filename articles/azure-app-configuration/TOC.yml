@@ -78,11 +78,15 @@
   - name: Go
     items:
     - name: Configuration
-      items:
-      - name: Console app
-        href: quickstart-go-console-app.md
-      - name: Gin web app
-        href: quickstart-go-web-app.md
+      href: quickstart-go-console-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-go-console-app.md
+  - name: Go Gin
+    items:
+    - name: Configuration
+      href: quickstart-go-web-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-gin-web-app.md
   - name: Azure Functions
     items:
     - name: Configuration
@@ -216,6 +220,12 @@
       href: howto-variant-feature-flags-python.md
     - name: JavaScript
       href: howto-variant-feature-flags-javascript.md
+  - name: Enable telemetry for feature flags
+    items:
+    - name: Overview
+      href: howto-telemetry.md
+    - name: Python
+      href: howto-telemetry-python.md
 - name: CI/CD integration
   items:
   - name: Use configuration files
