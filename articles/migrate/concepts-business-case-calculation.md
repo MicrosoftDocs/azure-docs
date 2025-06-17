@@ -220,8 +220,8 @@ The **Sustainability Benefits** capability is now embedded in Azure Migrate’s 
 
 The method to calculate these emissions is explained below:
 
-|**Category** | **Component** | **Logic** |
-| --- | --- | --- |
+|**Category** | **Component** | **Logic** | </br>
+| --- | --- | --- | </br>
 | On-premises emissions  | Scope 1 emissions | Scope 1 includes emissions from on-premises generators that use fossil fuels. </br>  **Scope 1 Emissions** (MtCO₂e)  = Number of Generators(1) * Avg Usage Hours(2 hours per year) * Fuel Consumption (0.4 L/hp hour) * Power Output (1000 hp) * Fuel Emission Factor (0.002 MtCO2e/L) * Power Alignment Factor |
 |  | Scope 2 emissions – Compute emissions + Storage emissions | Scope 2 includes indirect emissions from the electricity used by physical servers. </br> **Scope 2 compute emissions** (MtCO2e) = Total cores count * Hours in a year * on-prem TDP (0.009 kWh per core) * on-prem PUE (1.8) * on-prem carbon intensity (based on region) * (1-% Power from renewable sources) </br> **Scope 2 storage emissions** (MtCO2e) = Total storage capacity (TB) * on-prem storage power rating (10 kWh/year per TB) * on-prem PUE (1.8) * on-prem carbon intensity (based on region) * (1-% Power from renewable sources) </br> **Note**: These calculations use the market view for emissions. To calculate location view, follow the same steps but skip the adjustment for renewable energy.| 
 |   | **Scope 3 emissions** | Scope 3 accounts for emissions embedded in the manufacture, transport, and end-of-life of physical servers. </br> **Scope 3 compute emissions** </br> **Scope 3 storage emissions (MtCO2e)** –  Total storage (in TB) * {Manufacturing share of total emissions(58 MtCO2e) + Transport share of total emissions(2 MtCO2e) + End-of-life share of total emissions(1 MtCO2e)}
