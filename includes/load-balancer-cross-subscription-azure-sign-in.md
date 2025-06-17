@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 05/31/2024
  ms.author: mbender-ms
-ms.custom: include-file
+ms.custom:
+  - include-file
+  - build-2025
 ---
 
 ## Sign in to Azure

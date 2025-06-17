@@ -7,6 +7,8 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/06/2025
+ms.custom:
+  - build-2025
 ---
 
 # Web Application Firewall DRS and CRS rule groups and rules

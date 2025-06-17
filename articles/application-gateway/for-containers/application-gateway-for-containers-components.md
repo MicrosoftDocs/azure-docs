@@ -98,7 +98,7 @@ Application Gateway for Containers inserts three extra headers to all requests b
 - x-forwarded-proto
 - x-request-id
 
-**x-forwarded-for** is the original requestor's client IP address. If the request is coming through a proxy, the header value appends the address received, comma delimited. In example: 1.2.3.4,5.6.7.8; where 1.2.3.4 is the client IP address to the proxy in front of Application Gateway for Containers, and 5.6.7.8 is the address of the proxy forwarding traffic to Application Gateway for Containers.
+**x-forwarded-for** is the original requester's client IP address. If the request is coming through a proxy, the header value appends the address received, comma delimited. In example: 1.2.3.4,5.6.7.8; where 1.2.3.4 is the client IP address to the proxy in front of Application Gateway for Containers, and 5.6.7.8 is the address of the proxy forwarding traffic to Application Gateway for Containers.
 
 **x-forwarded-proto** returns the protocol received by Application Gateway for Containers from the client. The value is either http or https.
 

@@ -4,6 +4,8 @@
  ms.topic: include
  ms.date: 05/15/2025
  ms.author: normesta
+ms.custom:
+  - build-2025
 ---
 
 The following tables include sample (fictitious) prices for each request to the Blob Service endpoint (`blob.core.windows.net`). 

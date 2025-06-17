@@ -5,8 +5,9 @@ author: RoseHJM
 ms.service: dev-box  
 ms.topic: reference  
 ms.date: 05/09/2025  
-ms.author: rosemalcolm  
-
+ms.author: rosemalcolm
+ms.custom:
+  - build-2025
 ---  
 
 # Customizations schema reference
