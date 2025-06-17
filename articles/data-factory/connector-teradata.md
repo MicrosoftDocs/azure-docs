@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/14/2025
+ms.date: 06/06/2025
 ms.author: jianleishen
 ---
 
@@ -15,6 +15,9 @@ ms.author: jianleishen
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Teradata Vantage. It builds on the [copy activity overview](copy-activity-overview.md).
+
+> [!IMPORTANT]
+> The Teradata connector version 2.0 provides improved native Teradata support. If you are using Teradata connector version 1.0 in your solution, please [upgrade the Teradata connector](#upgrade-the-teradata-connector) before **September 30, 2025**. Refer to this [section](#differences-between-teradata-connector-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 

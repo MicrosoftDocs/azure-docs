@@ -5,7 +5,7 @@ services: healthcare-apis
 author: evachen96
 ms.service: azure-health-data-services
 ms.topic: reference
-ms.date: 03/11/2024
+ms.date: 06/09/2025
 ms.author: evach
 ---
 

@@ -50,8 +50,6 @@
         href: migrate-functions.md
       - name: Azure Cache for Redis
         href: migrate-cache-redis.md
-      - name: Azure AI Search
-        href: migrate-search-service.md
       - name: Azure Backup
         href: migrate-recovery-services-vault.md
       - name: Azure Batch
