@@ -4,7 +4,7 @@ description: Learn how to use Azure SRE Agent (preview) and Azure App Service to
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 06/13/2025
+ms.date: 06/17/2025
 ms.service: azure
 ---
 
@@ -97,11 +97,11 @@ Now that your App Service app is created, deploy the sample application from Git
 
 1. In the *Settings* tab, configure:
 
-| Property   | Value                                                        |
-|------------|--------------------------------------------------------------|
-| Source     | **External Git**                                             |
-| Repository | `https://github.com/Azure-Samples/app-service-dotnet-agent-tutorial`|
-| Branch     | `main`                                                    |
+    | Property   | Value                                                        |
+    |------------|--------------------------------------------------------------|
+    | Source     | **External Git**                                             |
+    | Repository | `https://github.com/Azure-Samples/app-service-dotnet-agent-tutorial`|
+    | Branch     | `main`                                                    |
 
 1. Select **Save** to apply the deployment settings.
 
