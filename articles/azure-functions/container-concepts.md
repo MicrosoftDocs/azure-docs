@@ -95,6 +95,6 @@ In some cases, we're required to make platform-level changes that could mean tha
 + [Working with containers and Azure Functions](functions-how-to-custom-container.md)
 
 
-[Azure Container Apps]: functions-container-apps-hosting.md
+[Azure Container Apps]: ../container-apps/functions-overview.md
 [Kubernetes]: functions-kubernetes-keda.md
 [Azure Functions]: functions-how-to-custom-container.md?pivots=azure-functions#azure-portal-create-using-containers
