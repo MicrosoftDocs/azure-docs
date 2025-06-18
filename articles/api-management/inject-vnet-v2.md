@@ -103,12 +103,15 @@ When you [create](get-started-create-service-instance.md) a Premium v2 instance 
 
 When a Premium v2 API Management instance is injected in a virtual network, you have to manage your own DNS to enable inbound access to API Management. 
 
-While you have the option to use your own custom DNS server, we recommend:
+While you have the option to use a private or custom DNS server, we recommend:
 
 1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
 1. Link the Azure DNS private zone to the virtual network. 
 
 Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
+
+> [!NOTE]
+> When the instance is injected into a virtual network with a private or custom DNS resolver, you must ensure name resolution for Azure Key Vault endpoints (`*.vault.azure.net`). We recommend configuring an Azure private DNS zone, which doesn't require this additional configuration.
 
 ### Endpoint access on default hostname
 
