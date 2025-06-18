@@ -1,7 +1,7 @@
 ---
 author: JanSchietse
 ms.author: janschietse
-ms.date: 01/25/2024
+ms.date: 03/17/2025
 ms.topic: include
 ms.service: azure-health-insights
 ---
@@ -34,12 +34,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-04-16"
+    "modelVersion": "2025-03-17"
   },
-  "id": "followupCommunication",
-  "createdAt": "2024-05-14T15:34:48Z",
-  "expiresAt": "2024-05-15T15:34:48Z",
-  "updatedAt": "2024-05-14T15:34:51Z",
+  "id": "fca108",
+  "createdAt": "2025-04-30T09:49:47Z",
+  "expiresAt": "2025-05-01T09:49:47Z",
+  "updatedAt": "2025-04-30T09:49:50Z",
   "status": "succeeded"
 }
 ```

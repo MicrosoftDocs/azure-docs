@@ -6,8 +6,10 @@ ms.author: jianleishen
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.custom: references_regions
-ms.date: 05/12/2025
+ms.custom:
+  - references_regions
+  - build-2025
+ms.date: 06/06/2025
 ---
 
 # Connector upgrade guidance
@@ -45,10 +47,12 @@ Here's the steps to get your objects which still rely on the deprecated connecto
 
 Users can run a PowerShell script to programmatically extract a list of Azure Data Factory or Synapse linked services that are using integration runtimes running on versions that are either out of support or nearing end-of-support. The script can be customized to query each data factory under a specified subscription, enumerate a list of specified linked services, and inspect configuration properties such as connection types, connector versions. It can then cross-reference these details against known version EOS timelines, flagging any linked services using unsupported or soon-to-be unsupported connector versions. This automated approach enables users to proactively identify and remediate outdated components to ensure continued support, security compliance, and service availability. 
 
+You can find an example of the script [here](https://github.com/Azure/Azure-DataFactory/blob/main/Connector/FindImpactedObjects.ps1) and customize it as needed. 
+
 ## Related content
 
 - [Connector overview](connector-overview.md)  
 - [Connector lifecycle overview](connector-lifecycle-overview.md) 
-- [Connector upgrade assistant](connector-upgrade-advisor.md)  
+- [Connector upgrade advisor](connector-upgrade-advisor.md)  
 - [Connector release stages and timelines](connector-release-stages-and-timelines.md)  
 - [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)

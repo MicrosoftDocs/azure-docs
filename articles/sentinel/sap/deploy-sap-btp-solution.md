@@ -68,7 +68,7 @@ To set up the BTP account and the solution:
 1. In the search bar, enter **BTP**, and then select **SAP BTP**.
 1. Select **Open connector page**.
 1. On the connector page, make sure that you meet the required prerequisites listed and complete the configuration steps. When you're ready, select **Add account**.
-1. Specify the parameters that you defined earlier during the configuration. The subaccount name specified is projected as a column in the `SAPBTPAuditLog_CL` table, and can be used to filter the logs when you have multiple subaccounts.
+1. Specify the parameters that you defined earlier during the configuration. The subaccount name specified is projected as a column in the `SAPBTPAuditLog_CL` table and can be used to filter the logs when you have multiple subaccounts.
 
     > [!NOTE]
     > Retrieving audits for the global account doesn't automatically retrieve audits for the subaccount. Follow the connector configuration steps for each of the subaccounts you want to monitor, and also follow these steps for the global account. Review these [account auditing configuration considerations](#consider-your-account-auditing-configurations).

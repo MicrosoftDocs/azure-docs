@@ -24,9 +24,6 @@ Following are examples of Fast Healthcare Interoperability Resources (FHIR&#174;
 
 ```
 
-> [!NOTE]
-> The FHIR service in Azure Health Data Services limits searches with `_include` and `_revinclude` to return a maximum of 100 items.
-
 ### `_revinclude`
 
 `_revinclude` allows you to search for resource instances, and include in the results other resources that reference the target resource instances. For example, you can search for patients and then reverse include all encounters that reference the patients.

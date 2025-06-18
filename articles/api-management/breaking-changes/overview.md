@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/15/2024
+ms.date: 05/30/2025
 ms.author: danlep
 ---
 
@@ -30,7 +30,7 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [Git repository retirement][git2025] | March 15, 2025 |
 | [Direct management API retirement][mgmtapi2025] | March 15, 2025 |
 | [Workspaces preview breaking changes, part 2][workspaces2025march] | March 31, 2025 |
-| [ADAL-based Microsoft Entra ID or Azure AD B2C identity provider retirement][msal2025] | September 30, 2025 |
+| [ADAL-based Microsoft Entra ID identity provider retirement][msal2025] | September 30, 2025 |
 | [CAPTCHA endpoint update][captcha2025] | September 30, 2025 |
 | [Built-in analytics dashboard retirement][analytics2027] | March 15, 2027 |
 

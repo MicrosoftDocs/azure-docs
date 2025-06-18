@@ -2,10 +2,10 @@
 title: New feature updates in Azure Site Recovery
 description: Provides a summary of new features updates in the Azure Site Recovery service.
 ms.topic: concept-article
-ms.author: ankitadutta
+ms.author: jsuri
 ms.service: azure-site-recovery
-author: ankitaduttaMSFT
-ms.date: 05/11/2025
+author: jyothisuri
+ms.date: 06/13/2025
 ---
 
 # Site Recovery feature updates
@@ -14,11 +14,17 @@ The Azure Site Recovery service is updated and improved on an ongoing basis. To 
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
 
+## Updates (June 2025)
+
+### Azure Site Recovery for Virtual Machines with Premium SSD v2 disks
+
+Azure Site Recovery support for Virtual Machines with Premium SSD v2 disks is in public preview. Azure Site Recovery provides seamless disaster recovery for Virtual Machines across Azure Regions and from on-premises to Azure, helping organizations maintain business continuity. It offers cost-effective replication, automated failover, and easy disaster recovery simulation, ensuring minimal production impact during disaster events. With built-in security, compliance support, and native integration with Azure services, Azure Site Recovery helps your organization stay resilient and minimize downtime. [Learn more](azure-to-azure-support-matrix.md).
+
 ## Updates (April 2025)
 
 ### Azure Site Recovery for Shared Disks
 
-Azure Site Recovery for Shared Disk feature enables you to protect, monitor, recover, and re-protect your workloads running on [Windows Server Failover Clusters (WSFC)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server.md) on Azure VMs with Shared Disk. 
+Azure Site Recovery for Shared Disk feature enables you to protect, monitor, recover, and re-protect your workloads running on [Windows Server Failover Clusters (WSFC)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) on Azure VMs with Shared Disk. 
 
 You can use the benefits of Shared Disk for your mission-critical applications such as SQL FCI, SAP ASCS, Scale-out File Servers, etc., while ensuring business continuity and disaster recovery (BCDR) with Azure Site Recovery. [Learn more](tutorial-shared-disk.md). 
 

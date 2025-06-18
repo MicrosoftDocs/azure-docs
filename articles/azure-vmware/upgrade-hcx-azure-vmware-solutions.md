@@ -2,7 +2,7 @@
 title: Upgrade HCX on Azure VMware Solution 
 description: This article explains how to upgrade HCX on Azure VMware Solution. 
 ms.topic: how-to
-ms.date: 02/26/2025
+ms.date: 05/23/2025
 ms.custom: engagement-fy23
 ---
 
@@ -21,7 +21,7 @@ You can update HCX Connector and HCX Cloud systems during separate maintenance w
 
 - For more information about the upgrade path, see the [Product Interoperability Matrix](https://interopmatrix.broadcom.com/Upgrade?productId=660). 
 - For information regarding VMware product compatibility by version, see the [Compatibility Matrix](https://interopmatrix.broadcom.com/Interoperability?col=660,&row=0,).
-- Review VMware Software Versioning, Skew and Legacy Support Policies [here](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-support-and-lifecycle-policies-4-10/software-versioning-skew-and-legacy-support-policies.html).
+- Review VMware Software Versioning, Skew, and Legacy Support Policies [here](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-support-and-lifecycle-policies-4-10/software-versioning-skew-and-legacy-support-policies.html).
 
 - Ensure HCX manager and site pair configurations are healthy.  
 
@@ -29,7 +29,7 @@ You can update HCX Connector and HCX Cloud systems during separate maintenance w
 
 - Ensure that you have a backup and snapshot of HCX connector in the on-premises environment, if applicable.
 - For more information, see the [HCX support policy for legacy vSphere environment](https://knowledge.broadcom.com/external/article?legacyId=82702).
-- Check that you are using the [latest VMware HCX version validated with Azure VMware Solution](introduction.md#vmware-software-versions).
+- Check that you're using the [latest VMware HCX version validated with Azure VMware Solution](introduction.md#vmware-software-versions).
 
 ### Backup HCX 
 - Azure VMware Solution backs up HCX Cloud Manager configuration daily.
@@ -81,14 +81,51 @@ While Service Mesh appliances are upgraded independently to the HCX Manager, the
 - No VM migrations should be in progress during this upgrade. 
 
 **Procedure**
- 
-To follow the Service Mesh appliances upgrade process, see [Upgrading the HCX Service Mesh Appliances](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/hcx-service-update-procedures/upgrade-the-hcx-service-mesh-appliances.html)   
+
+To follow the Service Mesh appliances upgrade process, see [Upgrading the HCX Service Mesh Appliances](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/hcx-service-update-procedures/upgrade-the-hcx-service-mesh-appliances.html)
+
+## HCX 4.11.0 Upgrade and what it means for current HCX users
+
+### Overview
+
+Broadcom has announced the end-of-support (EOS) for VMware HCX version 4.10.x, effective July 27, 2025. To proactively address this change and ensure continued support, Microsoft will begin upgrading all Azure VMware Solution customers using HCX Manager to HCX version 4.11.0.
+The upgrade process will commence in June 2025. Each customer will receive a notification at least one week prior to their scheduled upgrade window.
+
+### What changes are introduced as part of HCX 4.11.0?
+
+Refer to [HCX 4.11.0 release notes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/hcx-4-11-release-notes/vmware-hcx-411-release-notes.html) for more information on what’s new with HCX 4.11. Some noteworthy changes are listed below: 
+
+#### Local Mode
+
+From HCX 4.11.0 onwards, only HCX local mode is available. This means that HCX systems running 4.11.0 or later will no longer receive upgrade notifications under the System Updates section from Broadcom. Connected Sites that upgrade to 4.11.0 using offline bundles will operate in Local Mode after the upgrade.
+
+#### Connection to VMware & Hybridity Depot
+
+Activation Keys-based licensing is deprecated as of HCX 4.11.0. Activation Keys in HCX 4.11.0 will stop working 450 days after the upgrade to HCX 4.11.0 takes place. HCX systems running older versions that are currently using Activation Keys will stop working when connect.hcx.vmware.com is decommissioned.
+
+- <ins>hybridity-depot.vmware.com</ins> and <ins>connect.hcx.vmware.com</ins> endpoints for licensing, activation, and updates are removed post-activation or upgrade to HCX 4.11.0. HCX services of <ins>hybridity-depot.vmware.com</ins> and <ins>connect.hcx.vmware.com</ins> will be decommissioned.
+- All connected systems automatically transition to local licensing mode as part of upgrade to 4.11.0.
+
+Moving forward, until customers are upgraded to HCX 4.11.0, they'll need to submit a Support Request to receive the requested upgrade bundle for their chosen HCX connection version. After the upgrade has taken place, customers will find previous and current versions of HCX Connector bundles, including HCX 4.11.0, in their vSAN datastores under a folder named _"AVS_Official_HCX_Connector_Binaries"_.
+
+>[!NOTE]
+> The following HCX functionality is **deprecated** in HCX 4.11.0 and will be **removed** in a future release. HCX 4.11.0 will no longer be supported as of December 24, 2025. Customers should plan to migrate to an alternative solution at the earliest if they use any of the following features:
+> - HCX V2T Migration 
+> - HCX WAN Optimization 
+> - HCX Disaster Recovery 
+> - vCenter Server Plug-in for HCX 
+> - HCX UI - Tracking page in Migration interface
+
+
+### What actions will the customer need to take?
+
+To ensure smooth migration, customers are required to upgrade any paired HCX connectors and service mesh appliances to HCX 4.11.0.  Furthermore, customers may be required to execute a resync operation on each HCX service mesh on both the source and connector sides to ensure that no errors have occurred due to the upgrade.
 
 ## FAQ 
 
 ### What is the impact of an HCX upgrade? 
 
-Apply service updates during a maintenance window where no new HCX operations and migration are queued up. The upgrade window accounts for a brief disruption to the Network Extension service, while the appliances are redeployed with the updated code.  
+Apply service updates during a maintenance window where no new HCX operations and migration are queued up.  
 For individual HCX component upgrade impact, see [Planning for HCX Updates](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/planning-for-hcx-updates.html). 
 
 ### Do I need to upgrade the service mesh appliances? 
@@ -100,6 +137,6 @@ The HCX Service Mesh can be upgraded once all paired HCX Manager systems are upd
 See [Rolling Back an Upgrade Using Snapshots](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/hcx-service-update-procedures/rolling-back-an-upgrade-using-snapshots.html) to roll back the upgrade. 
 
 ## Next steps 
-[Software Versioning, Skew and Legacy Support Policies](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-support-and-lifecycle-policies-4-10/software-versioning-skew-and-legacy-support-policies.html)  
+[Software Versioning, Skew, and Legacy Support Policies](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-support-and-lifecycle-policies-4-10/software-versioning-skew-and-legacy-support-policies.html)  
 
 [Updating VMware HCX](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx.html) 

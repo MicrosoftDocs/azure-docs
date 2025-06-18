@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As a cloud architect, I want to implement a reliable data migration strategy for high performance computing, so that I can ensure data integrity, security, and performance during the transition to the cloud environment.
 ---
 
 # Data migration

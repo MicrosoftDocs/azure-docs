@@ -4,7 +4,7 @@ description: Details about upcoming deprecation of classic experience to protect
 ms.service: azure-site-recovery
 ms.topic: overview
 ms.date: 03/26/2025
-ms.author: ankitadutta
+ms.author: jsuri
 
 ---
 
