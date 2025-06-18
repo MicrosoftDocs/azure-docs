@@ -122,8 +122,6 @@ To generate the project key, follow the steps:
 
     :::image type="content" source="./media/tutorial-discover-physical/discover-generate-key.png" alt-text="Screenshot that shows how to generate the key." lightbox="./media/tutorial-discover-physical/discover-generate-key.png" :::
 
-     ![Screenshot that shows how to generate the key.](./media/tutorial-discover-physical/discover-generate-key.png)
-
 ## Download the installer script
 
 1. In **Download Azure Migrate appliance**, select **Download**.
@@ -151,9 +149,9 @@ To run the installer script:
 Run the script named `AzureMigrateInstaller.ps1` using this command: 
     `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 1. Select from the scenario, cloud, and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** *(or servers running on other clouds like AWS, GCP, Xen, etc.)* to an Azure Migrate project with **default (public endpoint) connectivity** on **Azure public cloud**.
-
-    ![Screenshot that shows how to setup appliance.](./media/tutorial-discover-physical/set-up-appliance.png)
-
+    
+    :::image type="content" source="./media/tutorial-discover-physical/set-up-appliance.png" alt-text="Screenshot that shows how to setup appliance." lightbox="./media/tutorial-discover-physical/set-up-appliance.png" :::
+  
 1. The installer script does the following:
     1. Installs agents and a web application. 
     1. Installs Windows roles like Windows Activation Service, IIS, and PowerShell ISE.
@@ -197,7 +195,7 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 
 1. **Install updates and register appliance**: Follow the steps to run auto-update and register the appliance.
 
-    ![Screenshot that shows to install updates and register the appliance.](./media/tutorial-discover-physical/install-updates-register-appliance.png)
+    :::image type="content" source="./media/tutorial-discover-physical/install-updates-register-appliance.png" alt-text="Screenshot that shows to install updates and register the appliance." lightbox="./media/tutorial-discover-physical/install-updates-register-appliance.png" :::
 
 1. To enable automatic updates on the appliance, paste the project key you copied from the portal.
 1. If you don't have the key, go to **Azure Migrate**: **Discovery and assessment** > **Overview** > **Manage existing appliances**.
@@ -205,8 +203,8 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 1. The appliance verifies the key and starts the auto-update service. This service updates all appliance components to their latest versions. After the update finishes, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
 1. To register the appliance, select Login. In **Continue with Azure Login** select **Copy code & Login** to copy the device code. You need this code to sign in to Azure. The browser opens a new tab with the Azure sign-in prompt. Make sure you turn off the pop-up blocker to see the prompt.
 
-    ![Screenshot that shows that how to continue azure login.](./media/tutorial-discover-physical/continue-azure-login.png)
-
+    :::image type="content" source="./media/tutorial-discover-physical/continue-azure-login.png" alt-text="Screenshot that shows how to continue to azure login." lightbox="./media/tutorial-discover-physical/continue-azure-login.png" :::
+   
 1. In a new browser tab, paste the device code and sign in using your Azure username and password. You cannot sign in with a PIN.
 
 > [!Note]
@@ -254,15 +252,15 @@ Now, connect the appliance to the physical servers and start discovery:
 1. Select **Add discovery source** to enter the server IP address or FQDN and the friendly name for the credentials used to connect to the server.
     1. The appliance uses WinRM port 5986 (HTTPS) by default to communicate with Windows servers, and port 22 (TCP) for Linux servers.
     1. If the target Hyper-V servers do not have HTTPS [prerequisites](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) set up, the appliance switches to WinRM port 5985 (HTTP).
-    
-    ![Screenshot that shows the physical or virtual server details.](./media/tutorial-discover-physical/physical-virtual-server-details.png)
-
+    1. 
+    :::image type="content" source="./media/tutorial-discover-physical/physical-virtual-server-details.png" alt-text="Screenshot that shows the physical or virtual server details." lightbox="./media/tutorial-discover-physical/physical-virtual-server-details.png" :::    
+   
     1. To use HTTPS communication without fallback, turn on the HTTPS protocol toggle in Appliance Config Manager.
     1. After you turn on the checkbox, ensure that the prerequisites are configured on the target servers. If the servers do not have certificates, discovery fails on both current and newly added servers.
         1. WinRM HTTPS needs a local computer Server Authentication certificate. The certificate must have a CN that matches the hostname. It must not be expired, revoked, or self-signed. [Learn more](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https).
 1. You can **Add single item** at a time or **Add multiple items** together. You can also provide server details through **Import a CSV file**. 
-
-    ![Screenshot that shows how to add physical discovery source.](./media/tutorial-discover-physical/add-discovery-source.png)
+    
+    :::image type="content" source="./media/tutorial-discover-physical/add-discovery-source.png" alt-text="Screenshot that shows how to add physical discovery source." lightbox="./media/tutorial-discover-physical/add-discovery-source.png" :::  
     
     1. If you choose **Add single item**, select the OS type. 
     1. Enter a friendly name for the credentials, add the server **IP address or FQDN**.
@@ -298,6 +296,7 @@ Select **Start discovery** to begin discovering the validated servers. After dis
 
 
 ### Verify servers in the portal
+
 After discovery finishes, you can verify that the servers appear in the portal.
 1.	Open the Azure Migrate dashboard.
 2.	In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for discovered servers.
