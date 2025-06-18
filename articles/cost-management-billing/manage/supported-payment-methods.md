@@ -6,11 +6,11 @@ ms.reviewer: lishepar, jobailey
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: reference
-ms.date: 05/01/2025
+ms.date: 06/18/2025
 ms.author: lishepar
 ms.custom:
-  - references_regions
-  - build-2025
+- references_regions
+- build-2025
 ---
 
 # Supported payment methods for Azure subscriptions
