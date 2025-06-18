@@ -21,26 +21,44 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 ## Recent releases
 
-### Routing
+### Community
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
 | | | | | | |
 
 
-### ExpressRoute
+### Enclave
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
 | | | | | | |
 
-### Site-to-site
+### Workloads
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
 | | | | | | |
 
-### User VPN (point-to-site)
+### Community Endpoints
+
+| Type |Area |Name |Description | Date added | Limitations |
+| --- |---|---|---|---|---|
+| | | | | | |
+
+### Enclave Endpoints
+
+| Type |Area |Name |Description | Date added | Limitations |
+| --- |---|---|---|---|---|
+| | | | | | |
+
+### Enclave Connections
+
+| Type |Area |Name |Description | Date added | Limitations |
+| --- |---|---|---|---|---|
+| | | | | | |
+
+### Transit Hubs
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
@@ -52,7 +70,7 @@ The following features are currently in gated preview. After working with the li
 
 |Type of preview|Feature |Description|Contact alias|Limitations|
 |---|---|---|---|---|
-| | | | | | |
+| Private Preview | Approvals | Approvals require more oversight on critical Azure Virtual Enclaves actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. [Learn more](./understand-approvals.md) | vepm@microsoft.com | |
 
 ## Known issues
 
