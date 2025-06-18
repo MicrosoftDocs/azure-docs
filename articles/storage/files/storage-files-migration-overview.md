@@ -61,7 +61,7 @@ Learn more about [identity-based authentication for Azure Files over SMB](storag
 The following table lists supported metadata for Azure Files.
 
 > [!IMPORTANT]
-> The *LastAccessTime* timestamp isn't currently supported for files or directories on the target share. However, Azure Files will return the *LastAccessTime* value for a file when requested. Because the *LastAccessTime* timestamp isn't updated on read operations, it will always be equal to the *LastModifiedTime*.
+> The *LastAccessTime* timestamp isn't currently supported for files or directories on the target share. However, Azure Files will return the *LastAccessTime* value for a file when requested. Because the *LastModifiedTime* timestamp isn't updated on read operations, it will always be equal to the *CreationTime*.
 
 | **Source** | **Target** |
 |------------|------------|

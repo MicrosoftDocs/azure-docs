@@ -13,9 +13,6 @@ ms.collection: ce-skilling-ai-copilot
 
 # Experimentation (preview)
 
-> [!NOTE]
-> We appreciate the feedback we have received during the preview phases of Experimentation on Azure App Configuration, and our teams are using it to make updates to the feature. During this time, Experimentation Workspace will be temporarily unavailable.
-
 Experimentation is the process of systematically testing hypotheses or changes to improve user experience or software functionality. This definition also holds true for most scientific fields including technology, where all experiments have four common steps:
 
 - **Developing a hypothesis** to document the purpose of this experiment,
