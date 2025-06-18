@@ -6,24 +6,24 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
 
-# Azure Resource Graph (ARG) GET/LIST API 
+# Azure Resources Graph (ARG) GET/LIST API 
 
-The ARG GET/LIST API is designed to significantly reduce READ throttling by offloading GET and LIST requests to an alternate ARG platform. This is achieved through intelligent control plane routing, which directs requests to the alternate platform when a specific parameter is present. If the parameter is absent, requests are seamlessly routed back to the original Resource Provider, ensuring flexibility.
+The ARG GET/LIST API is designed to significantly reduce READ throttling by offloading GET and LIST requests to an alternate ARG platform. This action is achieved through intelligent control plane routing, which directs requests to the alternate platform when a specific parameter is present. If the parameter is absent, requests are seamlessly routed back to the original Resource Provider, ensuring flexibility.
 
-ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, on a moving window. This means that the default quota of 4k per minute allows you to make up to 4,000 requests per minute using these APIs. This quota is enforced per user per subscription. This means:
+ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, on a moving window, which means that the default quota of 4k per minute allows you to make up to 4,000 requests per minute using these APIs. This quota is enforced per user per subscription. This means:
 - If User A is accessing Subscription X, they get up to 4,000 requests per minute.
 - If User A accesses Subscription Y, that’s a separate quota.
 - If User B accesses Subscription X, that’s also a separate quota.
 - The API provides a response header “x-ms-user-quota-remaining" indicating remaining quota and "x-ms-user-quota-resets-after" indicating the time for a full quota reset based on which you can understand your quota consumption.  
 
 > [!NOTE]
-> Keep in mind that the Azure Resource Manager quota applies to these calls. Read about the [Azure Resource Manager limits](../../../azure-resource-manager/management/request-limits-and-throttling.md#azure-resource-graph-throttling), which are the new limits that ARM follows for Azure Public cloud.  
+> Keep in mind that the Azure Resource Manager quota applies to these calls. Read about the [Azure Resource Manager limits](../../../azure-resource-manager/management/request-limits-and-throttling.md#azure-resource-graph-throttling), which are the new limits that Azure Resource Manager follows for Azure Public cloud.  
 
 ## Using the ARG GET/LIST API 
 
-To use the [ARG GET/LIST API](./guidance-for-throttled-requests.md#still-being-throttled), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which will route the request to this ARG backend for response.
+To use the [ARG GET/LIST API](./guidance-for-throttled-requests.md#still-being-throttled), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which routes the request to this ARG backend for response.
 
-You are required to contact the ARG product group by sending an email to [Azure Resource Graph team](mailto:azureresourcegraphsupport@microsoft.com) sharing a brief overview of your scenario and the ARG team will reach out to you with next steps.
+You're required to contact the ARG product group by sending an email to [Azure Resource Graph team](mailto:azureresourcegraphsupport@microsoft.com) sharing a brief overview of your scenario and the ARG team will reach out to you with next steps.
 
  This opt-in model was deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
 
@@ -79,7 +79,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}?api-version={apiVersion}&useResourceGraph=true 
 ```
 > [!NOTE]
-> The API-version parameter is mandatory for all Azure Resource Graph GET/LIST API calls. However, the value of this parameter is currently ignored by the service. Regardless of the api-version specified, ARG always returns results based on the latest generally available (GA) non-preview version of the API.
+> The API-version parameter is mandatory for all Azure Resource Graph GET/LIST API calls. However, the value of this parameter is ignored by the service. Regardless of the api-version specified, ARG always returns results based on the latest generally available (GA) non-preview version of the API.
 
 ## Some frequently used examples
 
@@ -105,7 +105,7 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 
 ### List VMSS VM (Uniform) with InstanceView 
 
-For this specific example, use the following request to retrieve the list of VMSS VM with InstanceView. This is for VMSS VM in Flexible orchestration mode.
+For this specific example, use the following request to retrieve the list of VMSS VM with InstanceView. This scenario is for VMSS VM in Flexible orchestration mode.
 
 #### ARG GET/LIST Request 
 
@@ -135,10 +135,10 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 
 ## Known Limitations  
 
-1. **VMSS VM health status** is not currently supported. If you require this data, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
-2. **VM and VMSS VM extensions** - The running states of VM and VMSS VM extensions is not supported. If you require this data, you can share your scenario and propose the feature addition on our  [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
-3. **Supported resources** - The ARG GET/LIST API supports all resource types as part of the [`resources`](../reference/supported-tables-resources.md#resources) and [`computeresources`](../reference/supported-tables-resources.md#computeresources) table.  If you require a resource type which is not part of these tables, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
-4. **Single API version support** - ARG GET/LIST today only supports a single API version for each resource type, which is generally the latest non-preview version of the type that exists in the Azure REST API spec. The ARG GET/LIST functionality returns the `apiVersion` field in the resource payload of the response which indicates the version of the resource type that was used when retrieving the resource details. Callers can apply this field to understand the API version to use, if its relevant for their scenario.  
+1. **VMSS VM health status** isn't currently supported. If you require this data, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
+2. **VM and VMSS VM extensions** - The running states of VM and VMSS VM extensions isn't supported. If you require this data, you can share your scenario and propose the feature addition on our  [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
+3. **Supported resources** - The ARG GET/LIST API supports all resource types as part of the [`resources`](../reference/supported-tables-resources.md#resources) and [`computeresources`](../reference/supported-tables-resources.md#computeresources) table.  If you require a resource type that isn't part of these tables, you can share your scenario and propose the feature addition on our [feedback forums](https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0).
+4. **Single API version support** - ARG GET/LIST today only supports a single API version for each resource type, which is generally the latest non-preview version of the type that exists in the Azure REST API spec. The ARG GET/LIST functionality returns the `apiVersion` field in the resource payload of the response that indicates the version of the resource type that was used when retrieving the resource details. Callers can apply this field to understand the API version to use, if its relevant for their scenario.  
 5. **Client support** 
     - Azure REST API: Supported
     - Azure SDK: Supported [sample .NET code](#sample-sdk-code)
@@ -149,7 +149,7 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
     - If a client uses REST API to issue GET calls, there should generally be no concerns regarding deserialization due to API version differences. 
     - If a client uses Azure SDK to issue GET calls, due to relaxed deserialization setting across all languages, the deserialization issue shouldn't be a concern, unless there are contract breaking changes among different versions for the target resource type. 
 7. **Unprocessable resource request**
-    - There are rare scenarios where ARG GET/LIST isn't able to index a resource correctly, other than the existence of the resource. To not sacrifice data quality, ARG GET/LIST refuses serving GET calls for these resources and returns an error code of HTTP 422. 
+    - There are rare scenarios where ARG GET/LIST isn't able to index a resource correctly, other than the existence of the resource. To not sacrifice data quality, ARG GET/LIST refuses to serve GET calls for these resources and returns an error code of HTTP 422. 
     - Clients of ARG GET/LIST should treat HTTP 422 as a permanent error. Clients should retry by falling back to the resource provider (by removing `useResourceGraph=true` flag). Since the error is applicable specifically to ARG GET/LIST, fallback to resource providers should result in an E2E success. 
 8. **Supported consistency level** 
     - When using ARG GET or LIST, the data you receive reflects recent changes with a slight delay—typically just a few seconds—rather than real-time updates. This is known as 'bounded staleness' and ensures fast, scalable queries while still providing a consistent and up-to-date view of your Azure resources. Unlike direct calls to Resource Providers, which guarantee real-time accuracy (strong consistency), ARG is optimized for performance with predictable, near-real-time data. 
@@ -177,7 +177,7 @@ What if we want to create an ARMClient using a default subscription? We would se
 ArmClient resourceGraphClient = new ArmClient(new DefaultAzureCredential(), defaultSubId, armClientOptions);
 ```
 
-Optionally, to create a default client that does not add the `useResourceGraph` flag, the client code chooses which client to use based on the specific scenario and needs. To do so, use the following:
+Optionally, to create a default client that doesn't add the `useResourceGraph` flag, the client code chooses which client to use based on the specific scenario and needs. To do so, use the following code block:
  
 ```bicep
 ArmClient defaultClient = new ArmClient(new DefaultAzureCredential(), null, new ArmClientOptions()); 
@@ -234,7 +234,7 @@ If onboarded through the flag `useResourceGraph=true`, the caller may choose to 
 
 This is a common scenario with many services where customers create resources and immediately issue a GET in 1-2 seconds part of another WRITE workflow. For example, customers create a new resource and right after trying to create a metric alert that monitors it. The resource might not have been indexed by ARG GET/LIST yet. There are two ways to work around this situation:
 - Retry on ARG GET/LIST a few times until it returns status code 200.  
-- Retry without ARG GET/LIST flag to fall back on the resource provider. True status code 404 doesn't hit the resource provider since ARM returns the error directly, whereas a false 404 should be served by the resource providers to get actual data. 
+- Retry without ARG GET/LIST flag to fall back on the resource provider. True status code 404 doesn't hit the resource provider since Azure Resource Manager returns the error directly, whereas a false 404 should be served by the resource providers to get actual data. 
 
 7. What URI parameters are supported by the ARG GET/LIST API?
 
@@ -253,4 +253,4 @@ eq
 
 8. What should I do if I encounter issues while using the useResourceGraph parameter when calling Azure Resource Graph?
 
-If you experience any issues while using the `useResourceGraph` parameter with ARG, please create a support ticket under the Azure Resource Graph service in the [Azure Portal](https://ms.portal.azure.com/#home) under **Help + Support.**
+If you experience any issues while using the `useResourceGraph` parameter with ARG, create a support ticket under the Azure Resource Graph service in the [Azure portal](https://ms.portal.azure.com/#home) under **Help + Support.**
