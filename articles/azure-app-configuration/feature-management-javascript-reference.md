@@ -526,7 +526,7 @@ app.use((req, res, next) => {
 const targetingContextAccessor = {
     getTargetingContext: () => {
         // Get the current request from AsyncLocalStorage
-        const request = requestContext.getStore();
+        const request = requestAccesor.getStore();
         if (!request) {
             return undefined; // Return undefined if there's no current request
         }
