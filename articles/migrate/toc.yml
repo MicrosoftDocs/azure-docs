@@ -31,7 +31,7 @@ items:
     href: migrate-support-matrix.md
 - name: Discover methods in Azure Migrate
   items:
-  - name: Discovery methods Appliance and Import
+  - name: Discovery methods-Appliance and Import
     items:
     - name: Discovery methods 
       items:
