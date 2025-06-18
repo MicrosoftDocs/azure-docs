@@ -33,7 +33,7 @@ items:
   items:
   - name: Discovery methods Appliance and Import
     items:
-    - name: Discovery methods in Azure Migrate
+    - name: Discovery methods 
       items:
       - name: Discovery methods overview
         href: discovery-methods-modes.md
