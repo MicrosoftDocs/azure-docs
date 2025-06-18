@@ -5,7 +5,7 @@ ms.topic: reference
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 05/14/2025
+ms.date: 06/18/2025
 ---
 
 # Resource functions for Bicep
@@ -825,7 +825,46 @@ Expected output:
 | ---- | ---- | ----- |
 | logicalZone | String | `1` |
 
----
+## toLogicalZones
+
+`toLogicalZones(subscriptionId, location, physicalZones)`
+
+Returns the logical availability zones (e.g., `1`, `2`, or `3`) corresponding to physical availability zones for a specified subscription in a given Azure region. To convert a single physical zone, use the [`toLogicalZone`](#tologicalzone) function.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions)
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| subscriptionId | Yes | string | The ID of the Azure subscription (for example, `12345678-1234-1234-1234-1234567890ab`). |
+| location | Yes | string | The Azure region that supports availability zones (for example, `westus2`). |
+| physicalZones | Yes | array | An array of physical zone names to convert to logical zones (for example, a data center-specific identifier like `westus2-az1`, `westus2-az2`, ...). |
+
+### Return value
+
+An array of logical zone names corresponding to the provided physical zones, (e.g., `1`, `2`, or `3`). If a physical zone is invalid or not supported, an empty string (`''`) is returned.
+
+### Remarks
+
+The `toLogicalZones` function maps physical zone names to their logical zone equivalents for a specified Azure subscription and region. This is useful for configuring or querying resources based on logical zones within an Azure region. The function requires a valid subscription ID, a supported Azure location, and an array of physical zone names. If a physical zone is invalid or not available in the specified location, the function may return an empty string for that zone or throw an error, depending on the context.
+
+### Examples
+
+The following example retrieves the logical zone for a physical zone in West US 2 for a specific subscription:
+
+```bicep
+param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param physicalZones array = ['westus2-az1', 'westus2-az2', 'westus2-az3']
+
+output logicalZones array = toLogicalZones(subscriptionId, 'westus2', physicalZones)
+```
+
+Expected output:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| logicalZone | array | ["1","2","3"] |
 
 ## toPhysicalZone
 
@@ -900,7 +939,46 @@ Expected output:
 | ---- | ---- | ----- |
 | physicalZone | String | `westus2-az1` |
 
----
+## toPhysicalZones
+
+`toPhysicalZones(subscriptionId, location, logicalZones)`
+
+Returns the physical availability zone identifiers (e.g., a data center-specific identifier like `westus2-az1`) corresponding to logical availability zones for a specified subscription in a given Azure region. To convert a single logical zone, use the [`toPhysicalZone`](#tophysicalzone) function.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions)
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| subscriptionId | Yes | string | The ID of the Azure subscription (for example, `12345678-1234-1234-1234-1234567890ab`). |
+| location | Yes | string | The Azure region that supports availability zones (for example, `westus2`). |
+| logicalZone | Yes | string[] | The logical availability zones (e.g., `1`, `2`, or `3`) to onvert to physical zones. |
+
+### Return value
+
+An array of physical zone names (e.g., `westus2-az1`, `westus2-az2` )corresponding to the provided logical zones. If a logical zone is invalid or not supported, an empty string (`''`) is returned.
+
+### Remarks
+
+The `toPhysicalZones` function maps logical zone names to their physical zone equivalents for a specified Azure subscription and region. This is useful for deploying or configuring resources in specific physical zones within an Azure region. The function requires a valid subscription ID, a supported Azure location, and an array of logical zone names. If a logical zone is invalid or not available in the specified location, the function may return an empty string for that zone or throw an error, depending on the context.
+
+### Examples
+
+The following example retrieves the physical zone for a logical zone in West US 2 for a specific subscription:
+
+```bicep
+param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param logicalZones array = ['1', '2', '3']
+
+output physicalZones array = toPhysicalZones(subscriptionId, 'westus2', logicalZones)
+```
+
+Expected output (assuming logical zone `1` maps to `westus2-az1`, logical zone `1` maps to `westus2-az1`, and logical zone `3` maps to `westus2-az3`):
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| physicalZone | array | ["westus2-az1","westus2-az2","westus2-az3"] |
 
 ## Next steps
 
