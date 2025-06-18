@@ -7058,6 +7058,11 @@
       "source_path": "articles/cyclecloud/release-notes/ccws/2025.02.06.md",
       "redirect_url": "/azure/cyclecloud/release-notes/ccws/2025-02-06",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/whats-new.md",
+      "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
     }
   ]
 }
