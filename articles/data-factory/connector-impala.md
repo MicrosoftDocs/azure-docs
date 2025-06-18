@@ -277,7 +277,7 @@ The following table shows the release stage and change logs for different versio
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
 | Version 1.0 | End of support announced | / |
-| Version 2.0 (Preview) | Preview version available | • SASLUsername authentication type is not supported. <br><br>• The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br>`enableServerCertificateValidation` is supported.  <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• TINYINT is read as SByte data type. |
+| Version 2.0 (Preview) | GA version available | • SASLUsername authentication type is not supported. <br><br>• The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br>`enableServerCertificateValidation` is supported.  <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• TINYINT is read as SByte data type. |
 
 ### <a name="upgrade-the-impala-connector"></a> Upgrade the Impala connector from version 1.0 to version 2.0 (Preview)
 
