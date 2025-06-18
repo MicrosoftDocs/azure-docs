@@ -50,6 +50,6 @@ If logs are being emitted and diagnostic settings remain active on monitored res
 
 If logs are being emitted even after the Azure Native New Relic resource is deleted, it could be because there is a resource lock present on one of the Azure resources being monitored. It will take 24 hours for the log forwarding to stop for the resources where the resource lock is present. 
 
-## Any updates made to the tag rules within the Azure Native New Relic resource doesn't change the log flow immediately 
+## Updates made to the tag rules within the Azure Native New Relic resource don't change the log flow immediately 
 
 It takes an hour for any modification of the tag rules to reflect in the log flow. For example, if a new resource is added in tag rules, it would take an hour for the log forwarding to start for that particular resource  
