@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.custom: horz-security
-ms.date: 06/03/2025
+ms.date: 06/18/2025
 ai-usage: ai-assisted
 ---
 
@@ -24,7 +24,7 @@ Network security for Virtual Networks focuses on controlling traffic flow, imple
 
 - **Enable NSG flow logs for traffic monitoring**: Configure NSG flow logs to capture information about IP traffic flowing through your network security groups. Send these logs to Azure Monitor Log Analytics and use Traffic Analytics to visualize network activity and identify security threats. For more information, see [NSG flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal).
 
-- **Deploy Azure Firewall with threat intelligence and IDPS**: Use Azure Firewall with threat intelligence-based filtering enabled to automatically alert on and deny traffic to known malicious IP addresses and domains. For enhanced protection, use Azure Firewall Premium with intrusion detection and prevention system (IDPS) features to monitor and block malicious network traffic. Position the firewall at network boundaries to provide centralized protection. For more information, see [Azure Firewall threat intelligence](/azure/firewall/threat-intel).
+- **Deploy Azure Firewall for centralized, stateful protection**: Use Azure Firewall to control both inbound and outbound traffic across your virtual networks with fully stateful packet inspection. Define and manage application and network rules at scale using centralized Firewall Policies. Azure Firewall supports DNAT for secure inbound access and SNAT for consistent outbound connectivity. For enhanced security, enable threat intelligence-based filtering to automatically alert on and deny traffic to known malicious IP addresses and domains, and use Azure Firewall Premium with intrusion detection and prevention system (IDPS) to monitor and block malicious network traffic. Integrate with Azure Monitor for full traffic visibility and log analysis. For more information, see [Azure Firewall](/azure/firewall/overview).
 
 - **Enable DDoS Protection Standard**: Activate DDoS Protection Standard on your virtual networks to defend against distributed denial-of-service attacks. This service provides enhanced DDoS mitigation capabilities and real-time monitoring for your public IP addresses. For more information, see [Azure DDoS Protection Standard](/azure/ddos-protection/manage-ddos-protection).
 
@@ -34,7 +34,7 @@ Network security for Virtual Networks focuses on controlling traffic flow, imple
 
 - **Implement Azure Bastion for secure RDP/SSH access**: Use Azure Bastion to securely connect to virtual machines over RDP or SSH without exposing them to the public internet. Bastion eliminates the need for public IP addresses on VMs and reduces attack surface. For more information, see [Azure Bastion](/azure/bastion/bastion-overview).
 
-- **Implement Azure NAT Gateway for outbound traffic**: Use Azure NAT Gateway to provide a static outbound IP address for virtual network resources, ensuring consistent egress traffic and simplifying firewall rules. NAT Gateway also provides protection against port exhaustion. For more information, see [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview).
+- **Implement Azure NAT Gateway for outbound traffic**: Use Azure NAT Gateway to provide a static outbound IP address for virtual network resources, ensuring secure and scalable egress traffic. NAT Gateway also provides protection against port exhaustion. For more information, see [Azure NAT Gateway](/azure/virtual-network/nat-gateway/nat-overview).
 
 - **Use private endpoints and Private Link for Azure services**: Use Azure Private Link to access Azure PaaS services (like Azure Storage, SQL Database) over a private endpoint within your virtual network. Private Link eliminates exposure to the public internet and enhances security by keeping traffic within the Azure backbone network. For more information, see [Azure Private Link](/azure/private-link/private-link-overview).
 
