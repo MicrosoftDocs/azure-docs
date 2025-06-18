@@ -167,8 +167,8 @@ This architecture eliminates the need for a separate identity management service
 
 ### Limitations
 The Microsoft Entra ID integration is currently in public preview and has the following limitations:
-- [Continuous Access Evaluation](/entra/identity/conditional-access/concept-continuous-access-evaluation) is not available. To revoke access tokens immediately, follow the instructions in [Create and manage access tokens for end users](../quickstarts/identity/access-tokens.md#create-and-manage-access-tokens-for-end-users).
-- Removing an Entra ID user does not automatically remove all associated data from the Communication Services resource. To ensure all data is deleted, follow the instructions in [Create and manage access tokens for end users](../quickstarts/identity/access-tokens.md#create-and-manage-access-tokens-for-end-users).
+- [Continuous Access Evaluation](/entra/identity/conditional-access/concept-continuous-access-evaluation) is not available. To revoke access tokens immediately, follow the instructions in [Revoke access tokens](../quickstarts/identity/access-tokens.md?pivots=platform-azcli#revoke-access-tokens).
+- Removing an Entra ID user does not automatically remove all associated data from the Communication Services resource. To ensure all data is deleted, follow the instructions in [Delete an identity](../quickstarts/identity/access-tokens.md?pivots=platform-azcli#delete-an-identity).
 
 ## Next steps
 

@@ -18,7 +18,7 @@ ms.custom: mode-other, devx-track-js, has-azure-ad-ps-ref
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
-This quickstart demonstrates how to use the Communication Services Common SDK along with Azure Identity SDK in a console application to authenticate a Microsoft Entra ID user, obtain an Azure Communication Services access token for Microsoft Entra ID user. The resulting Azure Communication Services access token allows you to integrate calling and chat features using the Communication Services Calling and Chat SDKs.
+This quickstart demonstrates how to use the Communication Services Common SDK along with Azure Identity SDK in a console application to authenticate a Microsoft Entra ID user and obtain an Azure Communication Services access token. The resulting Azure Communication Services access token allows you to integrate calling and chat features using the Communication Services Calling and Chat SDKs.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -76,7 +76,7 @@ Users must be authenticated against Microsoft Entra applications with Azure Comm
 
 The following application settings influence the experience:
 - The *Supported account types* property defines whether the application is single tenant ("Accounts in this organizational directory only") or multitenant ("Accounts in any organizational directory"). For this scenario, you can use multitenant.
-- *Redirect URI* defines the URI where the authentication request is redirected after authentication. For this scenario, you can use **Public client/native (mobile & desktop)** and enter **`http://localhost`** as the URI.
+- *Redirect URI* defines the URI where the authentication request is redirected after authentication.
 
 For more detailed information, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app#register-an-application). 
 
@@ -112,6 +112,7 @@ In the Azure portal follow these steps:
 7. In the **Client ID** field, enter the client ID of Contoso application from [step 2](entra-id-authentication-integration.md#step-2-create-a-microsoft-entra-application-registration-or-select-a-microsoft-entra-application).
 8. Click **Save and exit** to apply the changes.
 
+![Providing Entra ID users with access to the Azure Communication Services resource through the Azure portal](./media/entra-id/acs-resource-access-managing.png)
 
 ### Step 5: Provide Administrator consent and group access to Azure Communication Services Clients application
 

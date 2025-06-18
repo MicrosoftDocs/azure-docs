@@ -48,7 +48,7 @@ dotnet add package Azure.Identity
 dotnet add package Azure.Communication.Common
 ```
 
-### Set up the app framework
+### Implement the credential flow
 
 From the project directory:
 
@@ -117,7 +117,7 @@ var credential = new CommunicationTokenCredential(entraTokenCredentialOptions);
 
 ```
 
-Providing scopes is optional. When not specified, the `https://communication.azure.com/clients/.default` scope is automatically used, requesting all API permissions for Communication Services Clients.
+Providing scopes is optional. When not specified, the `https://communication.azure.com/clients/.default` scope is automatically used, requesting all API permissions for Communication Services Clients that have been registered on the client application.
 
 <a name='step-3-obtain-acs-access-token-of-the-entra-id-user'></a>
 

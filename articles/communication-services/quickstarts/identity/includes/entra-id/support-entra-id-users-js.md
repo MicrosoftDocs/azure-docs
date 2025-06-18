@@ -15,8 +15,8 @@ ms.author: aigerimb
 
 ## Set up prerequisites
 
-- [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-- [Azure Identify SDK for JavaScript](https://www.npmjs.com/package/@azure/identity) to authenticate with Microsoft Entra ID.
+- [Node.js](https://nodejs.org/)
+- [Azure Identity SDK for JavaScript](https://www.npmjs.com/package/@azure/identity) to authenticate with Microsoft Entra ID.
 - [Azure Communication Services Common SDK for JavaScript](https://www.npmjs.com/package/@azure/communication-common) to obtain Azure Communication Services access tokens for Microsoft Entra ID user.
 
 ## Final code
@@ -43,24 +43,24 @@ npm init -y
 Use the `npm install` command to install the Azure Identity and Azure Communication Services Common SDKs for JavaScript.The Azure Communication Services Common SDK version should be `2.4.0` or later.
 
 ```console
-npm install @azure/communication-common@latest --save
-npm install --save @azure/identity
+npm install @azure/communication-common --save
+npm install @azure/identity --save
 npm install express --save
 npm install dotenv --save
 ```
 
 The `--save` option lists the library as a dependency in your **package.json** file.
 
-## Set up the app framework
+## Implement the credential flow
 
 From the project directory:
 
 1. Open a new text file in your code editor
-1. Create the structure for the program, including basic exception handling and importing following SDK classes:
+1. Create a basic NodeJS Express server and add the following imports:
 
     ```javascript
     const { AzureCommunicationTokenCredential } = require('@azure/communication-common');    
-    const {InteractiveBrowserCredential} = require('@azure/identity');
+    const { InteractiveBrowserCredential } = require('@azure/identity');
     const express = require("express");
 
     // You will need to set environment variables in .env
@@ -125,7 +125,7 @@ app.get('/', async (req, res) => {
     }
 });
 ```
-Providing scopes is optional. When not specified, the `https://communication.azure.com/clients/.default` scope is automatically used, requesting all API permissions for Communication Services Clients.
+Providing scopes is optional. When not specified, the `https://communication.azure.com/clients/.default` scope is automatically used, requesting all API permissions for Communication Services Clients that have been registered on the client application.
 
 <a name='step-3-obtain-acs-access-token-of-the-entra-id-user'></a>
 
