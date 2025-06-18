@@ -426,7 +426,7 @@ When you deploy to an Azure Container Apps environment, the following considerat
 
 + Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control systems. You can [encrypt the local.settings.json file](#encrypt-the-local-settings-file) for added security.
 
-For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+For more information, see [Azure Container Apps hosting of Azure Functions](../container-apps/functions-overview.md). 
 
 ### [Kubernetes cluster](#tab/kubernetes)
 
