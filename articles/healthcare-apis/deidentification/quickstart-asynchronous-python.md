@@ -89,7 +89,7 @@ az storage account update --name $StorageAccountName --public-network-access Dis
 ```
 
 ## Use the python SDK
-The code below contains a sample from the [Azure Health Deidentification SDK for Python](/python/api/overview/azure/health-deidentification?view=azure-python). 
+The code below contains a sample from the [Azure Health Deidentification SDK for Python](/python/api/overview/azure/health-deidentification). 
 
 ```Bash
 
