@@ -19,6 +19,9 @@ This article helps determine you which credit and debit cards are supported for 
 
 For more information about payment methods, see [Add, update, or remove a payment method](change-credit-card.md).
 
+> [!NOTE]
+> Prepaid cards (aka stored value cards, Visa gift cards, MasterCard gift cards, etc.) are not accepted as valid payment instruments.
+
 ## Supported credit and debit cards
 
 | **Country or region** | **American Express** | **Discover** | **JCB** | **Mastercard** | **Visa** | **UPI** | **Netbanking** | **SEPA** |
