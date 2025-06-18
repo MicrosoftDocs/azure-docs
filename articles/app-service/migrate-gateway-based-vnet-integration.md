@@ -1,10 +1,10 @@
 ---
 title: Migrate from gateway-based virtual network integration
 description: Migrate your virtual network integration from gateway-based integration to regional integration.
-author: madsd
+author: jordanselig
 ms.topic: how-to
 ms.date: 10/01/2024
-ms.author: madsd
+ms.author: jordanselig
 
 ---
 # Migrate from gateway-based virtual network integration
