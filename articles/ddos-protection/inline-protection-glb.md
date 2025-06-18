@@ -84,8 +84,7 @@ To ensure effective DDoS protection using Gateway Load Balancer and partner NVAs
   Periodically simulate DDoS attack scenarios and perform failover tests to ensure your protection setup is working as intended. Validate that traffic flows through the NVAs as expected and that mitigation actions are triggered appropriately. Document your test results and update your configuration or runbooks as needed to address any issues. Learn more about [testing DDoS protection](../ddos-protection/test-through-simulations.md).
 
 ## Next steps
-
-
+- Learn more about our launch partner [A10 Networks](https://www.a10networks.com/blog/introducing-l3-7-ddos-protection-for-microsoft-azure-tenants/)
 - Learn more about [Gateway Load Balancer](../load-balancer/gateway-overview.md).
 - Learn more about [Azure Private Link](../private-link/private-link-overview.md) and how it can be used with Gateway Load Balancer.
 - Learn more about [Azure DDoS Protection architecture](../ddos-protection/fundamental-best-practices.md).
