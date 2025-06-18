@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, make sure you have:
 
-- an Azure subscription. To use Azure services, including Azure Service Bus, you need a subscription. You can create a [free account][] before you begin.
+- An Azure subscription. To use Azure services, including Azure Service Bus, you need a subscription. You can create a [free account][] before you begin.
 - [Visual Studio 2019](https://www.visualstudio.com/vs) or later.
 
 ## Service Bus topics and subscriptions
