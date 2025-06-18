@@ -91,8 +91,6 @@ To discover Linux servers, you can create a sudo user account like this:
 ```
 
 - Ensure that you enable `NOPASSWD` for the account so it can run the required commands without asking for a password each time it uses sudo.
-
-
 - The list of commands run on the target servers and the information they collect. [Learn more](discovered-metadata.md#linux-server-metadata).
 - Below is the list of supported Linux operating system distributions.
 
@@ -122,7 +120,9 @@ To generate the project key, follow the steps:
 1. After the resources are created successfully, a **project key** is generated.
 1. Copy the key as you’ll need it to register the appliance during its setup.
 
- ![Screenshot that shows how to generate the key.](./media/tutorial-discover-physical/discover-generate-key.png)
+    :::image type="content" source="./media/tutorial-discover-physical/discover-generate-key.png" alt-text="Screenshot that shows how to generate the key." lightbox="./media/tutorial-discover-physical/discover-generate-key.png" :::
+
+     ![Screenshot that shows how to generate the key.](./media/tutorial-discover-physical/discover-generate-key.png)
 
 ## Download the installer script
 
