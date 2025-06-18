@@ -19,7 +19,7 @@ You can import AI model endpoints deployed in [Azure OpenAI in Foundry Models](/
 
 This article shows two options to import an Azure OpenAI API into an Azure API Management instance as a REST API:
 
-- [Import an Azure OpenAI API directly from Azure OpenAI in Foundry Models](#option-1-import-api-from-azure-openai-service) (recommended)
+- [Import an Azure OpenAI API directly from Azure OpenAI in Foundry Models](#option-1-import-api-from-azure-openai) (recommended)
 - [Download and add the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
 
 Learn more about managing AI APIs in API Management:
