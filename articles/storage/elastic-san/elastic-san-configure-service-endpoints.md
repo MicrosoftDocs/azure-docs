@@ -12,7 +12,8 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 # Configure service endpoints for Azure Elastic SAN
 
 A service endpoint enables secure connectivity to Elastic SAN from a subnet within your virtual network, without requiring a private IP. Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints.
-To use a service endpoint, you must configure [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) on your Elastic SAN volume group to allow traffic from specific subnets. These network rules apply only to the public endpoint of the volume group — they are not used for private endpoints. In other words, traffic from a subnet using a service endpoint must be explicitly permitted through a configured rule at the volume group level.Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. 
+
+To use a service endpoint, you must configure [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) on your Elastic SAN volume group to allow traffic from specific subnets. These network rules apply only to the public endpoint of the volume group — they are not used for private endpoints. In other words, traffic from a subnet using a service endpoint must be explicitly permitted through a configured rule at the volume group level. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. 
 
 This article configures service endpoint connections to your Elastic SAN.
 

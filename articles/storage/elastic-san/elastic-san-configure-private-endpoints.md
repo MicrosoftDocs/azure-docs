@@ -189,10 +189,13 @@ az network private-endpoint-connection approve \
 > Follow the steps in this [article](/azure/private-link/how-to-approve-private-link-cross-subscription) to approve and register private endpoints. 
 
 
+## Optional - network policies
+
+Virtual network rules don't apply to private endpoints. So, if you need to refine access rules and control traffic over a private endpoint, use network policies. By default, network policies are disabled for a subnet in a virtual network. To use network policies like user-defined routes and network security group support, enable network policy support for the subnet. This setting only applies to private endpoints in the subnet and affects all private endpoints in the subnet. For other resources in the subnet, access is controlled based on security rules in the network security group. For details, see [Network Policies](../../private-link/disable-private-endpoint-network-policy.md).
 
 ## Configure client connections
 
-After you have enabled the desired endpoints and granted access in your network rules, you're ready to configure your clients to connect to the appropriate Elastic SAN volumes.
+After you have enabled the desired endpoints, you're ready to configure your clients to connect to the appropriate Elastic SAN volumes.
 
 If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
 
