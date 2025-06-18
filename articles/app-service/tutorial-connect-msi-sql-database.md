@@ -93,7 +93,7 @@ The following steps configure your app to connect to Azure SQL Database with a s
 
 ### Enable managed identity for the app
 
-To enable a managed identity for your Azure app, use the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command, replacing `<app-name>` with your app name.
+To enable a managed identity for your Azure app, use the [az webapp identity assign](/cli/azure/webapp/identity#az-webapp-identity-assign) command, replacing `<app-name>` with your app name. The name of a system-assigned identity is always the same as the app name.
 
 ```azurecli
 az webapp identity assign --resource-group myResourceGroup --name <app-name>
@@ -110,9 +110,9 @@ Here's an example of the output:
 }
 ```
 
-To enable managed identity for a [deployment slot](deploy-staging-slots.md), add `--slot <slot-name>` and use the name of the slot in `<slot-name>`.
+To enable managed identity for a [deployment slot](deploy-staging-slots.md), add `--slot <slot-name>` and use the name of the slot in `<slot-name>`. The name of a system-assigned identity for a deployment slot is `<app-name>/slots/<slot-name>`.
 
-You can also add the identity to a [Microsoft Entra group](/azure/active-directory/fundamentals/active-directory-manage-groups), then grant SQL Database access to the Microsoft Entra group instead of to the identity. The following commands add the example managed identity to a new group called `myAzureSQLDBAccessGroup`.
+You can also add the identity to a [Microsoft Entra group](/azure/active-directory/fundamentals/active-directory-manage-groups), then grant SQL Database access to the Microsoft Entra group instead of to the identity. To grant permissions for a Microsoft Entra group, use the group's display name. The following commands add the example managed identity to a new group called `myAzureSQLDBAccessGroup`.
 
 ```azurecli
 $groupid=(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -125,9 +125,7 @@ az ad group member list -g $groupid
 
 Grant the identity the minimum permissions your app needs.
 
-The name of a system-assigned identity is always the same as the app name. The name of a system-assigned identity for a deployment slot is `<app-name>/slots/<slot-name>`. To grant permissions for a Microsoft Entra group, use the group's display name, such as `myAzureSQLDBAccessGroup`.
-
-1. In a PowerShell command line, sign in to SQL Database by using the following SQLCMD command, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<entra-user>` with the Microsoft Entra user name you used to set up the database. This Entra user has admin access to the database server by default.
+1. Open a PowerShell command line and sign in to SQL Database by using the following SQLCMD command, replacing `<server-name>` with your server name, `<db-name>` with your database name, and `<entra-user>` with the Microsoft Entra user name you used to set up the database. This Entra user has admin access to the database server by default.
 
    ```azurepowershell
    sqlcmd -S <servername>.database.windows.net -d <db-name> -U <entra-user> -G -l 30
@@ -135,7 +133,7 @@ The name of a system-assigned identity is always the same as the app name. The n
 
    Follow the prompts to sign in.
 
-1. At the SQL prompt, run the following commands to grant the minimum permissions your app needs, replacing `<identity-name>` with the name of the managed identity in Microsoft Entra ID.
+1. At the SQL prompt, run the following commands to grant the minimum permissions your app needs. Replace `<identity-name>` with the name of the managed identity in Microsoft Entra ID, which is the same as the app name.
 
    ```sql
    CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
@@ -148,9 +146,9 @@ The name of a system-assigned identity is always the same as the app name. The n
 > [!NOTE]
 > The backend managed identity services [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you try to modify your SQL Database permissions after first getting a token with your app, you don't get a new token with updated permissions until the cached token expires.
 
-### Remove the existing connection string
+### Remove the original connection string
 
-The same changes you made in *Web.config* or *appsettings.json* work with the managed identity. You can remove the existing connection string you used when you deployed your app the first time. To delete the connection string, run the following command, replacing `<app-name>` with the name of your app.
+Any changes you made in *web.config* or *appsettings.json* work with the managed identity. You can remove the original connection string you used when you deployed your app the first time. To delete the connection string, run the following Azure CLI command, replacing `<app-name>` with the name of your app.
 
 ```azurecli
 az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names <connection-string-name>
@@ -193,18 +191,15 @@ The Azure Identity client library can use tokens from Azure PowerShell.
 
 ## Modify your project and publish your app
 
-You can now use Microsoft Entra authentication to develop and debug your Azure SQL database-backed web app.
+You can now use Microsoft Entra authentication to work with your Azure SQL database-backed web app. The app uses a database context to connect with the database. You update the database context to refer to the Entity Framework SQL Server provider, which depends on the modern [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) ADO.NET provider.
 
-The app uses a database context to connect with the database. You update the code to refer to the Entity Framework SQL Server provider, which depends on the modern [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) ADO.NET provider. The Entity Framework provider replaces the built-in `System.Data.SqlClient` SQL Server provider, and includes support for Microsoft Entra ID authentication methods. For more information, see [Microsoft.EntityFramework.SqlServer}](https://www.nuget.org/packages/Microsoft.EntityFramework.SqlServer).
+The Entity Framework provider replaces the built-in `System.Data.SqlClient` SQL Server provider, and includes support for Microsoft Entra ID authentication methods. For more information, see [Microsoft.EntityFramework.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFramework.SqlServer).
 
-`[DbConfigurationType(typeof(MicrosoftSqlDbConfiguration))]` works locally to use `Microsoft.Data.SqlClient` for the database context, but because `System.Data.SqlClient` is hardcoded as the provider in Azure App Service, you need to extend `MicrosoftSqlDbConfiguration` to redirect references to `System.Data.SqlClient` to `Microsoft.Data.SqlClient` instead.
-
-The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
-
-- An ASP.NET Core app uses [Entity Framework Core](/ef/core/) by default.
-- An ASP.NET app uses [Entity Framework](/ef/ef6/) by default.
+`[DbConfigurationType(typeof(MicrosoftSqlDbConfiguration))]` works locally to use `Microsoft.Data.SqlClient` for the database context, but because `System.Data.SqlClient` is hardcoded as the provider in Azure App Service, you need to extend `MicrosoftSqlDbConfiguration` to redirect references to `System.Data.SqlClient` to `Microsoft.Data.SqlClient` instead. The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
 
 # [ASP.NET Core app](#tab/efcore)
+
+An ASP.NET Core app uses [Entity Framework Core](/ef/core/) by default.
 
 1. In the Visual Studio **Package Manager Console**, add the NuGet package [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient).
 
@@ -219,7 +214,7 @@ The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
    ```
 
    > [!NOTE]
-   > You can use [Microsoft Entra Default](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-default-authentication) authentication both on your local machine and in Azure App Service. The driver can acquire a token from Microsoft Entra ID in several different ways.
+   > You can use [Active Directory Default](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-default-authentication) authentication both on your local machine and in Azure App Service. The driver can acquire a token from Microsoft Entra ID in several different ways.
    >
    >If the app is deployed, the driver gets a token from the app's system-assigned managed identity. The driver can also authenticate with a user-assigned managed identity if you include `User Id=<client-id-of-user-assigned-managed-identity>;` in your connection string.
    >
@@ -237,6 +232,8 @@ git push azure main
 ```
 
 # [ASP.NET app](#tab/ef)
+
+An ASP.NET app uses [Entity Framework](/ef/ef6/) by default.
 
 1. From the Visual Studio **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.
 
@@ -267,11 +264,13 @@ git push azure main
    [DbConfigurationType(typeof(AppServiceConfiguration))]
    ```
 
-1. Open *web.config*, find the connection string called `MyDbConnection`, and replace its `connectionString` value with 
+1. In *web.config*, replace the value of the connection string with the following code, replacing `<server-name` and `<database-name>` with your server name and database name.
 
-   `"server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<db-name>;"`
+   ```json
+   "Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"
+   ```
 
-   replacing `<server-name` and `<db-name>` with your server name and database name. This connection string is used by the default constructor in *Models/MyDatabaseContext.cs*.
+   This connection string is used by the default constructor in *Models/MyDatabaseContext.cs*.
    
 1. In *web.config*, remove the `entityFramework/providers/provider` section and line: `<provider invariantName="System.Data.SqlClient" .../>`.
 
@@ -279,7 +278,7 @@ git push azure main
 
 1. In Visual Studio, press **Ctrl**+**F5** to run the app. The CRUD app in your browser now connects to the Azure SQL database directly, using Microsoft Entra authentication. This setup lets you run database migrations from Visual Studio.
 
-1. In **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
+1. To publish your app, in **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
 
    ![Screenshot of selecting Publish from Solution Explorer.](media//tutorial-connect-msi-sql-database/solution-explorer-publish.png)
 
