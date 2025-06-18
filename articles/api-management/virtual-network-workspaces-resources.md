@@ -91,7 +91,7 @@ Configure other NSG rules to meet your organization's network access requirement
 
 For virtual network injection, you have to manage your own DNS to enable inbound access to your workspace gateway. 
 
-While you have the option to use your a private or custom DNS server, we recommend:
+While you have the option to use a private or custom DNS server, we recommend:
 
 1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
 1. Link the Azure DNS private zone to the virtual network into which you've deployed your workspace gateway. 
