@@ -17,7 +17,7 @@ ms.date: 06/09/2025
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, you are recommended to [upgrade your Google BigQuery connector](#upgrade-the-google-bigquery-v2-connector-from-version-10-to-version-11) before **September 30, 2025**. Refer to this [section](#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between V2 and V1.
+> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, please [upgrade your Google BigQuery connector](#upgrade-the-google-bigquery-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 
@@ -223,7 +223,6 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-
 ## <a name="differences-between-google-bigquery-and-google-bigquery-legacy"></a> Google BigQuery connector lifecycle and upgrade
 
 The following table shows the release stage and change logs for different versions of the Google BigQuery connector:
@@ -233,6 +232,90 @@ The following table shows the release stage and change logs for different versio
 | Google BigQuery V1 | GA version available | / |
 | Google BigQuery V2 (version 1.0) | GA version available | • Service authentication is supported by the Azure integration runtime and the self-hosted integration runtime. <br>The properties `trustedCertPath`, `useSystemTrustStore`, `email` and `keyFilePath` are not supported as they are available on the self-hosted integration runtime only. <br><br> • `requestGoogleDriveScope` is not supported. You need additionally apply the permission in Google BigQuery service by referring to [Choose Google Drive API scopes](https://developers.google.com/drive/api/guides/api-specific-auth) and [Query Drive data](https://cloud.google.com/bigquery/docs/query-drive-data). <br><br> • `additionalProjects` is not supported. As an alternative, [query a public dataset with the Google Cloud console](https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console).<br><br> • NUMBER is read as Decimal data type. <br><br> • Timestamp and Datetime are read as DateTimeOffset data type.|
 | Google BigQuery V2 (version 1.1) | GA version available | • When executing multiple statements, the `query` returns the complete set of results instead of only the result of the first statement. |
+
+### <a name="upgrade-the-google-bigquery-linked-service"></a> Upgrade the Google BigQuery connector from V1 to V2
+
+To upgrade the Google BigQuery connector from V1 to V2, you can do a side-by-side upgrade, or an in-place upgrade.
+
+#### Side-by-side upgrade
+
+To perform a side-by-side upgrade, complete the following steps:
+
+1. Create a new Google BigQuery linked service and configure it by referring to the V2 linked service properties.  
+1. Create a dataset based on the newly created Google BigQuery linked service.
+1. Replace the new linked service and dataset with the existing ones in the pipelines that targets the V1 objects. 
+
+#### In-place upgrade
+
+To perform an in-place upgrade, you need to edit the existing linked service payload and update dataset to use the new linked service.
+
+1. Update the type from **GoogleBigQuery** to **GoogleBigQueryV2**.
+1. Modify the linked service payload from its V1 format to V2. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties. The following examples show the differences in payload for the V1 and V2 Google BigQuery linked services:
+
+   **Google BigQuery V1 linked service JSON payload:**
+   ```json
+     {
+        "name": "GoogleBigQuery1",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "annotations": [],
+            "type": "GoogleBigQuery",
+            "typeProperties": {
+                "project" : "<project ID>",
+                "additionalProjects" : "<additional project IDs>",
+                "requestGoogleDriveScope" : true,
+                "authenticationType" : "UserAuthentication",
+                "clientId": "<id of the application used to generate the refresh token>",
+                "clientSecret": {
+                    "type": "SecureString",
+                    "value":"<secret of the application used to generate the refresh token>"
+                },
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }
+            },
+            "connectVia": {
+                "referenceName": "AzureIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+            }
+        }
+    }
+   ```
+
+   **Google BigQuery V2 linked service JSON payload:**
+   ```json
+    {
+        "name": "GoogleBigQuery2",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "annotations": [],
+            "type": "GoogleBigQueryV2",
+            "typeProperties": {
+                "projectId" : "<project ID>",
+                "authenticationType" : "UserAuthentication",
+                "clientId": "<client ID>",
+                "clientSecret": {
+                    "type": "SecureString",
+                    "value":"<client secret>"
+                },
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }
+            },
+            "connectVia": {
+                "referenceName": "AutoResolveIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+            }
+        }
+    }
+   ```
+
+1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from **GoogleBigQueryObject** to **GoogleBigQueryV2Object**.
+
+>[!NOTE]
+>When transitioning linked services, the override template parameter section might only display database properties. You can resolve this by manually editing the parameters. After that the **Override template parameters** section will show the connection strings.
 
 ### Upgrade the Google BigQuery V2 connector from version 1.0 to version 1.1
 
