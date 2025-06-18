@@ -10,380 +10,381 @@
       url: ../networking/hybrid-connectivity/hybrid-connectivity.md
     - name: Before you start using ExpressRoute
       items:
-      - name: Prerequisites
-        href: expressroute-prerequisites.md
-      - name: Understand connectivity models
-        href: expressroute-connectivity-models.md
-      - name: Workflows
-        href: expressroute-workflows.md
-      - name: Connect Azure to public cloud
-        href: expressroute-connect-azure-to-public-cloud.md
-      - name: Routing requirements
-        href: expressroute-routing.md
+        - name: Prerequisites
+          href: expressroute-prerequisites.md
+        - name: Understand connectivity models
+          href: expressroute-connectivity-models.md
+        - name: Workflows
+          href: expressroute-workflows.md
+        - name: Connect Azure to public cloud
+          href: expressroute-connect-azure-to-public-cloud.md
+        - name: Routing requirements
+          href: expressroute-routing.md
     - name: Peering locations and partners
       items:
-      - name: Providers by location
-        href: expressroute-locations-providers.md
-      - name: Locations by provider
-        href: expressroute-locations.md
+        - name: Providers by location
+          href: expressroute-locations-providers.md
+        - name: Locations by provider
+          href: expressroute-locations.md
     - name: FAQ
       href: expressroute-faqs.md
     - name: Service limitations
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/expressroute/toc.json#azure-expressroute-limits
     - name: Quickstarts
       items:
-      - name: Create an ExpressRoute circuit - Portal
-        href: expressroute-howto-circuit-portal-resource-manager.md
-      - name: Create an ExpressRoute circuit - PowerShell
-        href: expressroute-howto-circuit-arm.md
-      - name: Create an ExpressRoute circuit - CLI
-        href: howto-circuit-cli.md
-      - name: Create an ExpressRoute circuit - Bicep
-        displayName: ARM, Resource Manager, Template
-        href: quickstart-create-expressroute-vnet-bicep.md
-      - name: Create an ExpressRoute circuit - ARM template
-        displayName: Resource Manager
-        href: quickstart-create-expressroute-vnet-template.md
-      - name: Create an ExpressRoute circuit - Terraform
-        href: quickstart-create-expressroute-vnet-terraform.md
-  expanded: true
+        - name: Create an ExpressRoute circuit - Portal
+          href: expressroute-howto-circuit-portal-resource-manager.md
+        - name: Create an ExpressRoute circuit - PowerShell
+          href: expressroute-howto-circuit-arm.md
+        - name: Create an ExpressRoute circuit - CLI
+          href: howto-circuit-cli.md
+        - name: Create an ExpressRoute circuit - Bicep
+          href: quickstart-create-expressroute-vnet-bicep.md
+          displayName: ARM, Resource Manager, Template
+        - name: Create an ExpressRoute circuit - ARM template
+          href: quickstart-create-expressroute-vnet-template.md
+          displayName: Resource Manager
+        - name: Create an ExpressRoute circuit - Terraform
+          href: quickstart-create-expressroute-vnet-terraform.md
 - name: Configure
   items:
-  - name: Circuit configuration
-    items:
-    - name: Overview
-      href: expressroute-circuit-peerings.md
-    - name: Create and modify peering configuration
+    - name: Circuit configuration
       items:
-      - name: Azure portal
-        href: expressroute-howto-routing-portal-resource-manager.md
-      - name: Azure PowerShell
-        href: expressroute-howto-routing-arm.md
-      - name: Azure CLI
-        href: howto-routing-cli.md
-    - name: Private peering
+        - name: Overview
+          href: expressroute-circuit-peerings.md
+        - name: Create and modify peering configuration
+          items:
+            - name: Azure portal
+              href: expressroute-howto-routing-portal-resource-manager.md
+            - name: Azure PowerShell
+              href: expressroute-howto-routing-arm.md
+            - name: Azure CLI
+              href: howto-routing-cli.md
+        - name: Private peering
+          items:
+            - name: Link a virtual network to an ExpressRoute circuit
+              items:
+                - name: Azure portal
+                  href: expressroute-howto-linkvnet-portal-resource-manager.md
+                - name: Azure PowerShell
+                  href: expressroute-howto-linkvnet-arm.md
+                - name: Azure CLI
+                  href: expressroute-howto-linkvnet-cli.md
+                - name: Convert legacy connections
+                  href: howto-recreate-connections.md
+            - name: Cross-network connectivity
+              href: cross-network-connectivity.md
+            - name: Establish a private connection to a virtual network
+              href: configure-expressroute-private-peering.md
+            - name: BGP community
+              href: bgp-communities.md
+            - name: Configure BGP community for VNet
+              items:
+                - name: Azure portal
+                  href: how-to-configure-custom-bgp-communities-portal.md
+                - name: Azure PowerShell
+                  href: how-to-configure-custom-bgp-communities.md
+            - name: Add IPv6 support for private peering
+              items:
+                - name: Azure portal
+                  href: expressroute-howto-add-ipv6-portal.md
+                - name: Azure PowerShell
+                  href: expressroute-howto-add-ipv6-powershell.md
+                - name: Azure CLI
+                  href: expressroute-howto-add-ipv6-cli.md
+            - name: Connectivity between virtual networks
+              href: virtual-network-connectivity-guidance.md
+        - name: Microsoft peering
+          items:
+            - name: Routing Microsoft 365 traffic over ExpressRoute
+              href: /microsoft-365/enterprise/azure-expressroute?toc=/azure/expressroute/TOC.json
+            - name: Configure route filters for Microsoft peering
+              items:
+                - name: Azure portal
+                  href: how-to-routefilter-portal.md
+                - name: Azure PowerShell
+                  href: how-to-routefilter-powershell.md
+                - name: Azure CLI
+                  href: how-to-routefilter-cli.md
+            - name: QoS requirements
+              href: expressroute-qos.md
+            - name: Routing Microsoft PSTN traffic over ExpressRoute
+              href: using-expressroute-for-microsoft-pstn.md
+        - name: Enable and disable peerings
+          items:
+            - name: Azure portal
+              href: expressroute-howto-reset-peering-portal.md
+            - name: Azure PowerShell
+              href: expressroute-howto-reset-peering.md
+        - name: Bandwidth
+          items:
+            - name: Overview
+              href: about-upgrade-circuit-bandwidth.md
+            - name: Upgrade circuit bandwidth
+              items:
+                - name: Azure portal
+                  href: expressroute-howto-circuit-portal-resource-manager.md#modify
+                - name: Azure PowerShell
+                  href: expressroute-howto-circuit-arm.md#to-update-the-expressroute-circuit-bandwidth
+                - name: Azure CLI
+                  href: howto-circuit-cli.md#to-update-the-expressroute-circuit-bandwidth
+    - name: Configure site-to-site coexisting connections
       items:
-      - name: Link a virtual network to an ExpressRoute circuit
-        items:
         - name: Azure portal
-          href: expressroute-howto-linkvnet-portal-resource-manager.md
+          href: how-to-configure-coexisting-gateway-portal.md
         - name: Azure PowerShell
-          href: expressroute-howto-linkvnet-arm.md
-        - name: Azure CLI
-          href: expressroute-howto-linkvnet-cli.md
-        - name: Convert legacy connections
-          href: howto-recreate-connections.md
-      - name: Cross-network connectivity
-        href: cross-network-connectivity.md
-      - name: Establish a private connection to a virtual network
-        href: configure-expressroute-private-peering.md
-      - name: BGP community
-        href: bgp-communities.md
-      - name: Configure BGP community for VNet
-        items:
-        - name: Azure portal
-          href: how-to-configure-custom-bgp-communities-portal.md
-        - name: Azure PowerShell
-          href: how-to-configure-custom-bgp-communities.md
-      - name: Add IPv6 support for private peering
-        items:
-        - name: Azure portal
-          href: expressroute-howto-add-ipv6-portal.md
-        - name: Azure PowerShell
-          href: expressroute-howto-add-ipv6-powershell.md
-        - name: Azure CLI
-          href: expressroute-howto-add-ipv6-cli.md
-      - name: Connectivity between virtual networks
-        href: virtual-network-connectivity-guidance.md
-    - name: Microsoft peering
+          href: expressroute-howto-coexist-resource-manager.md
+    - name: Global Reach
       items:
-      - name: Routing Microsoft 365 traffic over ExpressRoute
-        href: /microsoft-365/enterprise/azure-expressroute?toc=/azure/expressroute/TOC.json
-      - name: Configure route filters for Microsoft peering
-        items:
-        - name: Azure portal
-          href: how-to-routefilter-portal.md
-        - name: Azure PowerShell
-          href: how-to-routefilter-powershell.md
-        - name: Azure CLI
-          href: how-to-routefilter-cli.md
-      - name: QoS requirements
-        href: expressroute-qos.md
-      - name: Routing Microsoft PSTN traffic over ExpressRoute
-        href: using-expressroute-for-microsoft-pstn.md
-    - name: Enable and disable peerings
+        - name: Overview
+          href: expressroute-global-reach.md
+        - name: Configure Global Reach
+          items:
+            - name: Azure portal
+              href: expressroute-howto-set-global-reach-portal.md
+            - name: Azure PowerShell
+              href: expressroute-howto-set-global-reach.md
+    - name: FastPath
       items:
-      - name: Azure portal
-        href: expressroute-howto-reset-peering-portal.md
-      - name: Azure PowerShell
-        href: expressroute-howto-reset-peering.md
-    - name: Bandwidth
-      items:
-      - name: Overview
-        href: about-upgrade-circuit-bandwidth.md
-      - name: Upgrade circuit bandwidth
-        items:
-        - name: Azure portal
-          href: expressroute-howto-circuit-portal-resource-manager.md#modify
-        - name: Azure PowerShell
-          href: expressroute-howto-circuit-arm.md#to-update-the-expressroute-circuit-bandwidth
-        - name: Azure CLI
-          href: howto-circuit-cli.md#to-update-the-expressroute-circuit-bandwidth
-  - name: Configure site-to-site coexisting connections
-    items:
-    - name: Azure portal
-      href: how-to-configure-coexisting-gateway-portal.md
-    - name: Azure PowerShell
-      href: expressroute-howto-coexist-resource-manager.md
-  - name: Global Reach
-    items:
-    - name: Overview
-      href: expressroute-global-reach.md
-    - name: Configure Global Reach
-      items:
-      - name: Azure portal
-        href: expressroute-howto-set-global-reach-portal.md
-      - name: Azure PowerShell
-        href: expressroute-howto-set-global-reach.md
-  - name: FastPath
-    items:
-    - name: Overview
-      href: about-fastpath.md
-    - name: Configure FastPath
-      items:
-      - name: Azure portal
-        href: expressroute-howto-linkvnet-portal-resource-manager.md#configure-expressroute-fastpath
-      - name: Azure PowerShell
-        href: expressroute-howto-linkvnet-arm.md?tabs=maximum#configure-expressroute-fastpath
+        - name: Overview
+          href: about-fastpath.md
+        - name: Configure FastPath
+          items:
+            - name: Azure portal
+              href: expressroute-howto-linkvnet-portal-resource-manager.md#configure-expressroute-fastpath
+            - name: Azure PowerShell
+              href: expressroute-howto-linkvnet-arm.md?tabs=maximum#configure-expressroute-fastpath
 - name: Deploy
   items:
-  - name: ExpressRoute Metro
-    href: metro.md
-  - name: ExpressRoute Direct
-    items:
-    - name: Overview
-      href: expressroute-erdirect-about.md
-    - name: Configure ExpressRoute Direct
+    - name: ExpressRoute Metro
+      href: metro.md
+    - name: ExpressRoute Direct
       items:
-      - name: Azure portal
-        href: how-to-expressroute-direct-portal.md
-      - name: Azure PowerShell
-        href: expressroute-howto-erdirect.md
-      - name: Azure CLI
-        href: expressroute-howto-expressroute-direct-cli.md
-    - name: Configure MACsec for ExpressRoute Direct ports
-      href: expressroute-howto-macsec.md
-    - name: Rate limit for ExpressRoute Direct circuit
-      href: rate-limit.md
-  - name: ExpressRoute gateway
-    items:
-    - name: Overview
-      href: expressroute-about-virtual-network-gateways.md
-    - name: Configure a virtual network gateway
+        - name: Overview
+          href: expressroute-erdirect-about.md
+        - name: Configure ExpressRoute Direct
+          items:
+            - name: Azure portal
+              href: how-to-expressroute-direct-portal.md
+            - name: Azure PowerShell
+              href: expressroute-howto-erdirect.md
+            - name: Azure CLI
+              href: expressroute-howto-expressroute-direct-cli.md
+        - name: Configure MACsec for ExpressRoute Direct ports
+          href: expressroute-howto-macsec.md
+        - name: Rate limit for ExpressRoute Direct circuit
+          href: rate-limit.md
+    - name: ExpressRoute gateway
       items:
-      - name: Azure portal
-        href: expressroute-howto-add-gateway-portal-resource-manager.md
-      - name: Azure PowerShell
-        href: expressroute-howto-add-gateway-resource-manager.md
-  - name: Zone-redundant gateway
-    items:
-    - name: Overview
-      href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/expressroute/toc.json
-    - name: Deploy a zone-redundant gateway
-      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/expressroute/toc.json
-    - name: Migrate to zone-redundant gateway
+        - name: Overview
+          href: expressroute-about-virtual-network-gateways.md
+        - name: Configure a virtual network gateway
+          items:
+            - name: Azure portal
+              href: expressroute-howto-add-gateway-portal-resource-manager.md
+            - name: Azure PowerShell
+              href: expressroute-howto-add-gateway-resource-manager.md
+    - name: Zone-redundant gateway
       items:
-      - name: Overview
-        href: gateway-migration.md
-      - name: Migrate
-        items:
-        - name: Azure portal
-          href: expressroute-howto-gateway-migration-portal.md
-        - name: Azure PowerShell
-          href: expressroute-howto-gateway-migration-powershell.md
-  - name: Traffic collector
-    items:
-    - name: Overview
-      href: traffic-collector.md
-    - name: Configure Traffic Collector
-      href: how-to-configure-traffic-collector.md
+        - name: Overview
+          href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/expressroute/toc.json
+        - name: Deploy a zone-redundant gateway
+          href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/expressroute/toc.json
+        - name: Migrate to zone-redundant gateway
+          items:
+            - name: Overview
+              href: gateway-migration.md
+            - name: Migrate
+              items:
+                - name: Azure portal
+                  href: expressroute-howto-gateway-migration-portal.md
+                - name: Azure PowerShell
+                  href: expressroute-howto-gateway-migration-powershell.md
+    - name: Traffic collector
+      items:
+        - name: Overview
+          href: traffic-collector.md
+        - name: Configure Traffic Collector
+          href: how-to-configure-traffic-collector.md
 - name: Resiliency
   items:
-  - name: Design and architecture
-    items:
-    - name: Overview
-      href: design-architecture-for-resiliency.md
-    - name: High Availability
-      href: designing-for-high-availability-with-expressroute.md
-    - name: Disaster recovery
+    - name: Design and architecture
       items:
-      - name: Private peering
-        href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
-      - name: Using VPN as a backup
-        href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
-  - name: Evaluate ExpressRoute circuit resiliency
-    href: evaluate-circuit-resiliency.md
-  - name: Resiliency Insights
-    href: resiliency-insights.md
-  - name: Resiliency Validation
-    href: resiliency-validation.md
+        - name: Overview
+          href: design-architecture-for-resiliency.md
+        - name: High Availability
+          href: designing-for-high-availability-with-expressroute.md
+        - name: Disaster recovery
+          items:
+            - name: Private peering
+              href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
+            - name: Using VPN as a backup
+              href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
+    - name: Evaluate ExpressRoute circuit resiliency
+      href: evaluate-circuit-resiliency.md
+    - name: Resiliency Insights
+      href: resiliency-insights.md
+    - name: Resiliency Validation
+      href: resiliency-validation.md
 - name: Security
   items:
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
-  - name: Roles and permissions
-    href: roles-permissions.md
-  - name: Encryption
-    items:
-    - name: Overview
-      href: expressroute-about-encryption.md
-    - name: Encrypt traffic over circuits
+    - name: Secure your Expressroute
+      href: secure-expressroute.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
+    - name: Roles and permissions
+      href: roles-permissions.md
+    - name: Encryption
       items:
-      - name: Configure a site-to-site VPN over Microsoft peering
-        href: site-to-site-vpn-over-microsoft-peering.md
-      - name: IPsec VPN over private peering
-        href: ../vpn-gateway/site-to-site-vpn-private-peering.md?toc=/azure/expressroute/toc.json
-      - name: Configure IPsec transport mode for Windows hosts
-        href: expressroute-howto-ipsec-transport-private-windows.md
-  - name: Network security blog
-    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+        - name: Overview
+          href: expressroute-about-encryption.md
+        - name: Encrypt traffic over circuits
+          items:
+            - name: Configure a site-to-site VPN over Microsoft peering
+              href: site-to-site-vpn-over-microsoft-peering.md
+            - name: IPsec VPN over private peering
+              href: ../vpn-gateway/site-to-site-vpn-private-peering.md?toc=/azure/expressroute/toc.json
+            - name: Configure IPsec transport mode for Windows hosts
+              href: expressroute-howto-ipsec-transport-private-windows.md
+    - name: Network security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Operational excellence
   items:
-  - name: Plan and manage costs
-    href: plan-manage-cost.md
-  - name: Rate limit for service provider ports
-    href: provider-rate-limit.md
-  - name: BFD over ExpressRoute
-    href: expressroute-bfd.md
-  - name: Migrate to a new circuit
-    href: circuit-migration.md
-  - name: Best practices
-    items:
-    - name: Best practices for network security and cloud services
-      href: /azure/cloud-adoption-framework/reference/networking-vdc
-    - name: Optimize routing
-      href: expressroute-optimize-routing.md
-    - name: Asymmetric routing
-      href: expressroute-asymmetric-routing.md
-    - name: NAT for ExpressRoute
-      href: expressroute-nat.md
-  - name: Monitoring
-    items:
-    - name: Monitor ExpressRoute
-      href: monitor-expressroute.md
-    - name: Network Insights
-      href: expressroute-network-insights.md
-    - name: Configure Connection Monitoring for ExpressRoute
-      href: how-to-configure-connection-monitor.md
-    - name: Configure ExpressRoute Traffic Collector
-      href: how-to-configure-traffic-collector.md
-    - name: View and configure maintenance alerts
-      href: maintenance-alerts.md
-    - name: Configure custom alerts to monitor advertised routes
-      href: how-to-custom-route-alert.md
-  - name: Planned maintenance
-    items:
-      - name: Guidance
-        href: planned-maintenance.md
-      - name: Configure controlled gateway maintenance
-        href: customer-controlled-gateway-maintenance.md
-  - name: Work remotely
-    items:
-    - name: Support for working remotely
-      href: ../networking/working-remotely-support.md?toc=/azure/expressroute/toc.json
-    - name: Hybrid connectivity for remote users
-      href: work-remotely-support.md
+    - name: Plan and manage costs
+      href: plan-manage-cost.md
+    - name: Rate limit for service provider ports
+      href: provider-rate-limit.md
+    - name: BFD over ExpressRoute
+      href: expressroute-bfd.md
+    - name: Migrate to a new circuit
+      href: circuit-migration.md
+    - name: Best practices
+      items:
+        - name: Best practices for network security and cloud services
+          href: /azure/cloud-adoption-framework/reference/networking-vdc
+        - name: Optimize routing
+          href: expressroute-optimize-routing.md
+        - name: Asymmetric routing
+          href: expressroute-asymmetric-routing.md
+        - name: NAT for ExpressRoute
+          href: expressroute-nat.md
+    - name: Monitoring
+      items:
+        - name: Monitor ExpressRoute
+          href: monitor-expressroute.md
+        - name: Network Insights
+          href: expressroute-network-insights.md
+        - name: Configure Connection Monitoring for ExpressRoute
+          href: how-to-configure-connection-monitor.md
+        - name: Configure ExpressRoute Traffic Collector
+          href: how-to-configure-traffic-collector.md
+        - name: View and configure maintenance alerts
+          href: maintenance-alerts.md
+        - name: Configure custom alerts to monitor advertised routes
+          href: how-to-custom-route-alert.md
+    - name: Planned maintenance
+      items:
+        - name: Guidance
+          href: planned-maintenance.md
+        - name: Configure controlled gateway maintenance
+          href: customer-controlled-gateway-maintenance.md
+    - name: Work remotely
+      items:
+        - name: Support for working remotely
+          href: ../networking/working-remotely-support.md?toc=/azure/expressroute/toc.json
+        - name: Hybrid connectivity for remote users
+          href: work-remotely-support.md
 - name: Troubleshoot
   items:
-  - name: Troubleshoot gateway migration
-    href: gateway-migration-error-messaging.md
-  - name: Obtain correlation ID
-    href: get-correlation-id.md
-  - name: Verifying ExpressRoute connectivity
-    href: expressroute-troubleshooting-expressroute-overview.md
-  - name: Resolving network performance issues
-    href: expressroute-troubleshooting-network-performance.md
-  - name: Reset a failed circuit
-    href: reset-circuit.md
-  - name: Getting ARP tables
-    href: expressroute-troubleshooting-arp-resource-manager.md
-  - name: Getting ARP tables (Classic)
-    href: expressroute-troubleshooting-arp-classic.md
-  - name: Questions & answers
-    href: /answers/tags/225/azure-expressroute
+    - name: Troubleshoot gateway migration
+      href: gateway-migration-error-messaging.md
+    - name: Obtain correlation ID
+      href: get-correlation-id.md
+    - name: Verifying ExpressRoute connectivity
+      href: expressroute-troubleshooting-expressroute-overview.md
+    - name: Resolving network performance issues
+      href: expressroute-troubleshooting-network-performance.md
+    - name: Reset a failed circuit
+      href: reset-circuit.md
+    - name: Getting ARP tables
+      href: expressroute-troubleshooting-arp-resource-manager.md
+    - name: Getting ARP tables (Classic)
+      href: expressroute-troubleshooting-arp-classic.md
+    - name: Questions & answers
+      href: /answers/tags/225/azure-expressroute
 - name: Reference
   items:
-  - name: Monitoring data reference
-    href: monitor-expressroute-reference.md
-  - name: Azure PowerShell
-    href: /powershell/module/az.network#expressroute
-  - name: Azure CLI
-    href: /cli/azure/network/express-route
-  - name: REST
-    href: /rest/api/expressroute/
-  - name: REST (classic)
-    href: /previous-versions/azure/reference/dn606310(v=azure.100)
-  - name: Resource Manager template
-    displayName: ARM,resource manager template
-    href: /azure/templates/microsoft.network/expressroutecircuits
+    - name: Monitoring data reference
+      href: monitor-expressroute-reference.md
+    - name: Azure PowerShell
+      href: /powershell/module/az.network#expressroute
+    - name: Azure CLI
+      href: /cli/azure/network/express-route
+    - name: REST
+      href: /rest/api/expressroute/
+    - name: REST (classic)
+      href: /previous-versions/azure/reference/dn606310(v=azure.100)
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.network/expressroutecircuits
+      displayName: ARM,resource manager template
 - name: Resources
   items:
-  - name: Configure a router for ExpressRoute
-    items:
-    - name: Configure a router
-      href: expressroute-config-samples-routing.md
-    - name: Router configuration samples for NAT
-      href: expressroute-config-samples-nat.md
-  - name: Backend connectivity interoperability
-    items:
-    - name: Control plane analysis
-      href: ../networking/connectivity-interoperability-control-plane.md?toc=/azure/expressroute/toc.json
-  - name: Networking blog
-    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/expressroute/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=expressroute&filters=%5B%22Azure+ExpressRoute%22%5D
-  - name: SLA
-    href: https://azure.microsoft.com/support/legal/sla/
-  - name: ExpressRoute for Cloud Solution Providers (CSP)
-    href: expressroute-for-cloud-solution-providers.md
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=expressroute
-    items:
-    - name: Connect a virtual network gateway to a circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/
-    - name: Create a virtual network for ExpressRoute
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/
-    - name: Create a virtual network gateway for ExpressRoute
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/
-    - name: Create an ExpressRoute circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/
-    - name: Evolve your network infrastructure for connectivity
-      href: /events/ignite-2015/brk2481
-    - name: How to set up private peering for your circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/
-    - name: 'Hybrid partnerships: Enabling on-premises scenarios'
-      href: /events/ignite-2015/brk1454
-    - name: Set up Microsoft peering for your circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
-  - name: Classic and legacy articles
-    items:
-    - name: Modify a circuit
-      href: expressroute-howto-circuit-classic.md
-    - name: Create and modify peering configuration
-      href: expressroute-howto-routing-classic.md
-    - name: Link a virtual network to an ExpressRoute circuit
-      href: expressroute-howto-linkvnet-classic.md
-    - name: Configure ExpressRoute and S2S coexisting connections
-      href: expressroute-howto-coexist-classic.md
-    - name: Change circuit from classic to Resource Manager
-      items: 
-      - name: Overview
-        href: expressroute-move.md
-      - name: Move a circuit from classic to Resource Manager
-        href: expressroute-howto-move-arm.md
-      - name: Migrate associated virtual networks from classic to Resource Manager
-        href: expressroute-migration-classic-resource-manager.md
+    - name: Configure a router for ExpressRoute
+      items:
+        - name: Configure a router
+          href: expressroute-config-samples-routing.md
+        - name: Router configuration samples for NAT
+          href: expressroute-config-samples-nat.md
+    - name: Backend connectivity interoperability
+      items:
+        - name: Control plane analysis
+          href: ../networking/connectivity-interoperability-control-plane.md?toc=/azure/expressroute/toc.json
+    - name: Networking blog
+      href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/expressroute/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Service updates
+      href: https://azure.microsoft.com/updates/?product=expressroute&filters=%5B%22Azure+ExpressRoute%22%5D
+    - name: SLA
+      href: https://azure.microsoft.com/support/legal/sla/
+    - name: ExpressRoute for Cloud Solution Providers (CSP)
+      href: expressroute-for-cloud-solution-providers.md
+    - name: Videos
+      href: https://azure.microsoft.com/documentation/videos/index/?services=expressroute
+      items:
+        - name: Connect a virtual network gateway to a circuit
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/
+        - name: Create a virtual network for ExpressRoute
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/
+        - name: Create a virtual network gateway for ExpressRoute
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/
+        - name: Create an ExpressRoute circuit
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/
+        - name: Evolve your network infrastructure for connectivity
+          href: /events/ignite-2015/brk2481
+        - name: How to set up private peering for your circuit
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/
+        - name: "Hybrid partnerships: Enabling on-premises scenarios"
+          href: /events/ignite-2015/brk1454
+        - name: Set up Microsoft peering for your circuit
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
+    - name: Classic and legacy articles
+      items:
+        - name: Modify a circuit
+          href: expressroute-howto-circuit-classic.md
+        - name: Create and modify peering configuration
+          href: expressroute-howto-routing-classic.md
+        - name: Link a virtual network to an ExpressRoute circuit
+          href: expressroute-howto-linkvnet-classic.md
+        - name: Configure ExpressRoute and S2S coexisting connections
+          href: expressroute-howto-coexist-classic.md
+        - name: Change circuit from classic to Resource Manager
+          items:
+            - name: Overview
+              href: expressroute-move.md
+            - name: Move a circuit from classic to Resource Manager
+              href: expressroute-howto-move-arm.md
+            - name: Migrate associated virtual networks from classic to Resource Manager
+              href: expressroute-migration-classic-resource-manager.md
