@@ -73,7 +73,7 @@ Once the Azure Event Hubs namespace and event hub is configured, you can create 
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create eventhub](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-eventhub) command to create or replace an Azure Event Hubs data flow endpoint.
+Use the `az iot ops dataflow endpoint create eventhub` command to create or replace an Azure Event Hubs data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint create eventhub --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --eventhub-namespace <EventHubsNamespace>
@@ -89,7 +89,7 @@ az iot ops dataflow endpoint create eventhub --resource-group myResourceGroup --
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Event Hubs data flow endpoint.
+Use the `az iot ops dataflow endpoint apply` command to create or change an Azure Event Hubs data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
@@ -231,7 +231,7 @@ To learn more about secrets, see [Create and manage secrets in Azure IoT Operati
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create eventhub](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-eventhub) command to create or replace an Azure Event Hubs data flow endpoint.
+Use the `az iot ops dataflow endpoint create eventhub` command to create or replace an Azure Event Hubs data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint create eventhub --auth-type Sasl --sasl-type <SaslType> --secret-name <SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --eventhub-namespace <EventHubsNamespace>
@@ -247,7 +247,7 @@ az iot ops dataflow endpoint create eventhub --resource-group myResourceGroup --
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Event Hubs data flow endpoint.
+Use the `az iot ops dataflow endpoint apply` command to create or change an Azure Event Hubs data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
@@ -359,7 +359,7 @@ To configure a data flow endpoint for non-Event-Hub Kafka brokers, set the host,
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create kafka](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-kafka) command to create or replace a custom Kafka broker data flow endpoint.
+Use the `az iot ops dataflow endpoint create kafka` command to create or replace a custom Kafka broker data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint create custom-kafka --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --hostname <KafkaBrokerHostName> --port <Port>
@@ -375,7 +375,7 @@ az iot ops dataflow endpoint create custom-kafka --resource-group myResourceGrou
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change a custom Kafka broker data flow endpoint.
+Use the `az iot ops dataflow endpoint apply` command to create or change a custom Kafka broker data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
@@ -486,7 +486,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create kafka](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-kafka) command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for system-assigned managed identity authentication.
+Use the `az iot ops dataflow endpoint create kafka` command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for system-assigned managed identity authentication.
 
 ```azurecli
 az iot ops dataflow endpoint create <Command> --auth-type SystemAssignedManagedIdentity --audience <Audience> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
@@ -494,7 +494,7 @@ az iot ops dataflow endpoint create <Command> --auth-type SystemAssignedManagedI
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command with the `--config-file` parameter.
+Use the `az iot ops dataflow endpoint apply` command with the `--config-file` parameter.
 
 In this example, assume a configuration file with the following content:
 
@@ -605,7 +605,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create) command with the `--auth-type` parameter set to `UserAssignedManagedIdentity` for with user-assigned managed identity authentication.
+Use the `az iot ops dataflow endpoint create` command with the `--auth-type` parameter set to `UserAssignedManagedIdentity` for with user-assigned managed identity authentication.
 
 ```azurecli
 az iot ops dataflow endpoint create <Command> --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
@@ -613,7 +613,7 @@ az iot ops dataflow endpoint create <Command> --auth-type UserAssignedManagedIde
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter
+Use the `az iot ops dataflow endpoint apply` with the `--config-file` parameter
 
 In this example, assume a configuration file with the following content:
 
@@ -691,7 +691,7 @@ Enter the following settings for the endpoint:
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create) command with the `--auth-type` parameter set to `Sasl` for SASL authentication.
+Use the `az iot ops dataflow endpoint create` command with the `--auth-type` parameter set to `Sasl` for SASL authentication.
 
 ```azurecli
 az iot ops dataflow endpoint create <Command> --auth-type Sasl --sasl-type <SaslType> --secret-name <SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
@@ -699,7 +699,7 @@ az iot ops dataflow endpoint create <Command> --auth-type Sasl --sasl-type <Sasl
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter
+Use the `az iot ops dataflow endpoint apply` with the `--config-file` parameter
 
 In this example, assume a configuration file with the following content:
 
@@ -770,7 +770,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create) command with the `--no-auth` parameter for anonymous authentication.
+Use the `az iot ops dataflow endpoint create` command with the `--no-auth` parameter for anonymous authentication.
 
 ```azurecli
 az iot ops dataflow endpoint create <Command> --no-auth --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
@@ -778,7 +778,7 @@ az iot ops dataflow endpoint create <Command> --no-auth --resource-group <Resour
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter.
+Use the `az iot ops dataflow endpoint apply` with the `--config-file` parameter.
 
 In this example, assume a configuration file with the following content:
 

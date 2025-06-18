@@ -47,7 +47,7 @@ Use the local storage option to send data to a locally available persistent volu
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create local storage](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-local-storage) command to create or replace a local storage data flow endpoint.
+Use the `az iot ops dataflow endpoint create local-storage` command to create or replace a local storage data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint create local-storage --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --pvc-ref <PersistentVolumeClaimName>
@@ -63,7 +63,7 @@ az iot ops dataflow endpoint create local-storage --resource-group myResourceGro
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change a local storage data flow endpoint.
+Use the `az iot ops dataflow endpoint apply` command to create or change a local storage data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>

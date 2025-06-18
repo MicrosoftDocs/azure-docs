@@ -86,7 +86,7 @@ If using system-assigned managed identity, in Azure portal, go to your Azure IoT
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create adx](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint.
+Use the `az iot ops dataflow endpoint create adx` command to create or replace an Azure Data Explorer data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint create adx --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <ClusterName> --database <DatabaseName>
@@ -102,7 +102,7 @@ az iot ops dataflow endpoint create adx --resource-group myResourceGroup --insta
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Explorer data flow endpoint.
+Use the `az iot ops dataflow endpoint apply` command to create or change an Azure Data Explorer data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
@@ -232,7 +232,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create adx](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint.
+Use the `az iot ops dataflow endpoint create adx` command to create or replace an Azure Data Explorer data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint create adx --auth-type SystemAssignedManagedIdentity --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <ClusterName> --database <DatabaseName>
@@ -248,7 +248,7 @@ az iot ops dataflow endpoint create adx --auth-type SystemAssignedManagedIdentit
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Explorer data flow endpoint.
+Use the `az iot ops dataflow endpoint apply` command to create or change an Azure Data Explorer data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
@@ -315,7 +315,7 @@ In most cases, you don't need to specify other settings. This configuration crea
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create adx](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint with system-assigned managed identity.
+Use the `az iot ops dataflow endpoint create adx` command to create or replace an Azure Data Explorer data flow endpoint with system-assigned managed identity.
 
 ```azurecli
 az iot ops dataflow endpoint create adx --auth-type SystemAssignedManagedIdentity --audience https://<cluster>.<region>.kusto.windows.net --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <cluster>.<region>.kusto.windows.net --database <DatabaseName>
@@ -331,7 +331,7 @@ az iot ops dataflow endpoint create adx --auth-type SystemAssignedManagedIdentit
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Explorer data flow endpoint with system-assigned managed identity.
+Use the `az iot ops dataflow endpoint apply` command to create or change an Azure Data Explorer data flow endpoint with system-assigned managed identity.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
@@ -414,7 +414,7 @@ Enter the user assigned managed identity client ID and tenant ID in the appropri
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create adx](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint with user-assigned managed identity.
+Use the `az iot ops dataflow endpoint create adx` command to create or replace an Azure Data Explorer data flow endpoint with user-assigned managed identity.
 
 ```azurecli
 az iot ops dataflow endpoint create adx --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --scope <Scope> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <cluster>.<region>.kusto.windows.net --database <DatabaseName>
@@ -430,7 +430,7 @@ az iot ops dataflow endpoint create adx --auth-type UserAssignedManagedIdentity 
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Explorer data flow endpoint with user-assigned managed identity.
+Use the `az iot ops dataflow endpoint apply` command to create or change an Azure Data Explorer data flow endpoint with user-assigned managed identity.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
@@ -522,7 +522,7 @@ In the operations experience, select the **Advanced** tab for the data flow endp
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Explorer data flow endpoint with advanced settings.
+Use the `az iot ops dataflow endpoint apply` command to create or change an Azure Data Explorer data flow endpoint with advanced settings.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
