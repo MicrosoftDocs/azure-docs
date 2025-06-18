@@ -98,14 +98,20 @@ Premium V4 is available in the following regions:
 
 - Australia East
 - Canada Central
+- Central US
 - East US
 - East US 2
 - France Central
+- North Central US
 - North Europe
+- Norway East
 - Southeast Asia
 - Sweden Central
+- Switzerland North
+- UK South
 - West Central US
 - West Europe
+- West US
 - West US 3
 
 ## Scale up from an unsupported resource group and region combination
