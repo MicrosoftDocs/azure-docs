@@ -308,12 +308,14 @@
       href: connect-logstash-data-connection-rules.md
   - name: Connection instructions for service
     items:
-    - name: Amazon Web Services logs
-      href: connect-aws.md
-    - name: AWS S3 WAF logs
-      href: connect-aws-s3-waf.md
-    - name: CloudWatch events via Lambda function
-      href: cloudwatch-lambda-function.yml      
+    - name: Amazon Web Services
+      items:
+      - name: Connect Microsoft Sentinel to AWS 
+        href: connect-aws-configure-environment.md
+      - name: AWS service logs
+        href: connect-aws.md
+      - name: AWS S3 WAF logs
+        href: connect-aws-s3-waf.md 
     - name: Cisco FTD firewall
       href: cisco-ftd-firewall.md
     - name: Google Cloud Platform connectors 
