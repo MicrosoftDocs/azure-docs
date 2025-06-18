@@ -1,8 +1,8 @@
 ---
 title: Discover physical servers with Azure Migrate discovery and assessment
 description: Learn how to discover on-premises physical servers with Azure Migrate discovery and assessment.
-author: Vikram1988
-ms.author: vibansa
+author: molishv
+ms.author: v-uhabiba
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 02/07/2025
