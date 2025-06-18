@@ -4,7 +4,7 @@ description: include file
 author: spelluru
 ms.service: azure-service-bus
 ms.topic: include
-ms.date: 06/17/2025
+ms.date: 06/19/2025
 ms.author: spelluru
 ms.custom: "include file"
 

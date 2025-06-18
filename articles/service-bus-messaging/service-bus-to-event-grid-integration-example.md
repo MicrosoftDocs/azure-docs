@@ -3,7 +3,7 @@ title: Handle Service Bus Events Using Event Grid Using Azure Logic Apps
 description: This article provides steps for handling Service Bus events by using Event Grid using Azure Logic Apps.
 author: spelluru
 ms.topic: tutorial
-ms.date: 06/17/2025
+ms.date: 06/19/2025
 ms.author: spelluru
 #customer intent: As a developer, I want to learn how to respond to Azure Service Bus events that are received over Azure Event Grid to support my Azure Logic Apps. 
 ---
@@ -76,7 +76,7 @@ In this section, create an Azure logic app that receives Service Bus events by u
    
       :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-service-bus.png" alt-text="Screenshot that shows the selection of Service Bus.":::        
 
-   1. Select **See more** and then select **Get messages from a topic subscription (peek-lock)**. 
+   1. Select **See more** and then select **Get messages from a topic subscription (peek-lock)**.
 
       :::image type="content" source="./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png" alt-text="Screenshot that shows the Logic Apps Designer with Get messages from a topic subscription selected.":::
 
@@ -104,7 +104,7 @@ In this section, you add steps to send the received message in an email and then
 
    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-for-each.png" alt-text="Screenshot that shows the For-each operation selected.":::
 
-1. For **Select an output from previous steps**, select the lightning bolt or enter "/" and select **Insert dynamic content**.
+1. For **Select an output from previous steps**, select the lightning bolt or enter */* and select **Insert dynamic content**.
 1. Select **Body** under **Get messages from a topic subscription (peek-lock)**.
 
    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-input-for-each.png" alt-text="Screenshot that shows the selection of For each input.":::
@@ -115,8 +115,8 @@ In this section, you add steps to send the received message in an email and then
 
    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-add-action.png" alt-text="Screenshot that shows the selection of + button in the For-each loop.":::
 
-1. Search for **Office 365** and then select **See more**. 
-1. Select **Office 365 Outlook** in the search results. 
+1. Search for **Office 365** and then select **See more**.
+1. Select **Office 365 Outlook** in the search results.
 
    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-office-365.png" alt-text="Screenshot that shows the selection of Office 365.":::
 
@@ -163,8 +163,8 @@ In this section, you add steps to send the received message in an email and then
 
 ## Test the app
 
-1. If you haven't already sent test messages to the topic, follow instructions in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic. 
-1. Switch to the **Overview** page of your logic app. Then switch to the **Run history** tab in the bottom pane. You see the logic app runs messages that were sent to the topic. It could take a few minutes before you see the logic app runs. Select **Refresh** on the toolbar to refresh the page.
+1. If you haven't already sent test messages to the topic, follow instructions in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic.
+1. Navigate to the **Overview** page of your logic app. Then select the **Run history** tab in the bottom pane. You see the logic app runs messages that were sent to the topic. It could take a few minutes before you see the logic app runs. Select **Refresh** on the toolbar to refresh the page.
 
    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-app-runs.png" alt-text="Screenshot that shows the Logic app run history." lightbox="./media/service-bus-to-event-grid-integration-example/logic-app-runs.png":::
 
@@ -194,7 +194,7 @@ If you don't see any invocations after waiting and refreshing for sometime, foll
 
    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/event-subscription-page.png" alt-text="Screenshot that shows the Events page of the Service Bus Namespace page." lightbox="./media/service-bus-to-event-grid-integration-example/event-subscription-page.png":::
 
-1. You can also see that the events are delivered on the **Event Subscription** page. You can get to this page by selecting the event subscription on the **Events** page. 
+1. You can also see that the events are delivered on the **Event Subscription** page. You can get to this page by selecting the event subscription on the **Events** page.
 
    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/event-subscription-delivered-events.png" alt-text="Screenshot that shows the Event Subscription page with the delivered event count selected." lightbox="./media/service-bus-to-event-grid-integration-example/event-subscription-delivered-events.png":::
 
