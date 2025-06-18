@@ -45,25 +45,17 @@ Optionally, you can create a cache using Azure CLI, PowerShell, or any means tha
 
 ## Code to connect to a AMR Cache
 
+<!-- similar to python code. Use very basic defaultcredential with Redis extension-->
+
 ## Code to test a connection
 
+<!--  similar to P -->
 
 ## Code set a key, get a key
 
+<!-- simple set key, get value  -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- clean up resoureces include -->
+<!-- clean up resources include -->
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
