@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/05/2024
 ms.author: kendownie
+# Customer intent: As an IT administrator, I want to recover an Azure File Sync server after a failure so that I can restore access to my data without significant downtime or loss.
 ---
 
 # Recover an Azure File Sync server from a server-level failure

@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 06/12/2025
+ms.date: 06/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -121,7 +121,8 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 1. Select **Restore** to trigger the restore operation.
 
 >[!Note]
->Before you modify any NSG settings, ensure the VM restore operation is complete. Learn about [tracking the restore operation](#track-the-restore-operation).
+>- Before you modify any NSG settings, ensure the VM restore operation is complete. Learn about [tracking the restore operation](#track-the-restore-operation).
+>- During an Alternate Location Restore (Create new VM), the restored VM retains the same SKU as the original VM at the time of the recovery point creation. Any SKU changes made after the backup date don't reflect in the restored VM.
 
 ## Restore disks
 
