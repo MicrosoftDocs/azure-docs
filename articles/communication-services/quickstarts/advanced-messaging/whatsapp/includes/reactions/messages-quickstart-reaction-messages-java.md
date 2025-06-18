@@ -5,7 +5,7 @@ services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 01/28/2025
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: armohamed
@@ -27,7 +27,7 @@ To set up an environment for sending messages, complete the steps in the followi
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Python.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Java.
 
 | Class Name | Description  |
 | --- | --- |
@@ -59,7 +59,7 @@ The Messages SDK enables Contoso to send reaction WhatsApp messages, when initia
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - Unicode escape sequence of the emoji.
-- Message Id of message you want to apply the emoji to.
+- Message ID of message you want to apply the emoji to.
 
 > [!IMPORTANT]
 > To send a reaction to user message, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
@@ -96,4 +96,4 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
+Find the finalized code for this sample on GitHub at [Java Messages SDK](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).

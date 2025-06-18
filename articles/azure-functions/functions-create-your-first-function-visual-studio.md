@@ -79,6 +79,7 @@ Your function definition should now look like the following code:
 [Function("HttpExample")]
 public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
 {
+    _logger. LogInformation("C# HTTP trigger function processed a request.");
     return new OkObjectResult("Hello, functions");
 }
 ```

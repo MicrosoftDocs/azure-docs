@@ -116,7 +116,7 @@
     href: ./durable-task-scheduler/durable-task-scheduler.md
   - name: Choosing an orchestration framework
     href: ./durable-task-scheduler/choose-orchestration-framework.md
-  - name: Create Durable Task Scheduler resources
+  - name: Develop with Durable Task Scheduler
     href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
   - name: Identity
     href: ./durable-task-scheduler/durable-task-scheduler-identity.md
@@ -229,7 +229,7 @@
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-functions
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=compute
+    href: https://azure.microsoft.com/updates/?category=compute
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/functions/
   - name: Pricing calculator

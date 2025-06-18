@@ -3,8 +3,8 @@ title: Deploy an Azure Application Gateway with an IPv6 frontend
 titleSuffix: Azure Application Gateway
 description: This template helps you deploys an Azure Application Gateway with an IPv6 frontend in a dual-stack virtual network with two load-balanced VMs.
 services: application-gateway
-author: greg-lindsay
-ms.author: greglin
+author: mbender-ms
+ms.author: mbender
 ms.date: 11/06/2022
 ms.topic: quickstart
 ms.service: azure-application-gateway

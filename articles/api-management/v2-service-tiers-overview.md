@@ -6,9 +6,11 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/17/2025
+ms.date: 06/16/2025
 ms.author: danlep
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Azure API Management v2 tiers
@@ -26,9 +28,6 @@ The following v2 tiers are generally available:
 The following v2 tier is in preview:
 
 * **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation and scaling for high volume workloads.
-
-    > [!NOTE]
-    > The Premium v2 tier is currently in limited preview. To sign up, fill [this form](https://aka.ms/premiumv2).
 
 ## Key capabilities
 
@@ -51,7 +50,7 @@ The latest capabilities of the v2 tiers are supported in API Management API vers
 
 * **Standard v2** and **Premium v2** support **virtual network integration** to allow your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
-    In preview, *Standard v2* also supports inbound [private endpoint connections](private-endpoint.md) to the API Management gateway.
+* **Standard v2** also supports inbound [private endpoint connections](private-endpoint.md) to the API Management gateway.
 
 * **Premium v2** also supports simplified **virtual network injection** for complete isolation of inbound and outbound gateway traffic without requiring network security group rules, route tables, or service endpoints. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](inject-vnet-v2.md).
 
@@ -78,7 +77,6 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Multiple custom domain names 
 * Capacity metric - *replaced by CPU Percentage of Gateway and Memory Percentage of Gateway metrics*
 * Built-in analytics - *replaced by Azure Monitor-based dashboard*
-* Autoscaling
 * Upgrade to v2 tiers from classic tiers 
 * CA Certificates
 * Sending events to Event Grid
@@ -109,7 +107,7 @@ The following limits apply to the developer portal in the v2 tiers.
 
 ## Deployment
 
-Deploy a v2 tier instance using the Azure portal or using tools such as the Azure REST API, Azure Resource Manager, Bicep template, or Terraform.
+Deploy a v2 tier instance using the Azure portal or using tools such as the Azure REST API, Azure Resource Manager, Bicep file, or Terraform.
 
 ## Frequently asked questions
 

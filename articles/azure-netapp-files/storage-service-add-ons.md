@@ -1,5 +1,5 @@
 ---
-title: Storage service add-ons for Azure NetApp Files | Microsoft Docs
+title: Storage service add-ons for Azure NetApp Files
 description: Describes the services provided through the storage service add-ons for Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen

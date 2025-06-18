@@ -1,15 +1,17 @@
 ---
 title: "Tutorial: ASP.NET Core chatbot with SLM extension"
-description: "Learn how to deploy a ASP.NET Core application integrated with a Phi-3 sidecar extension on Azure App Service."
+description: "Learn how to deploy a ASP.NET Core application integrated with a Phi-4 sidecar extension on Azure App Service."
 author: cephalin
 ms.author: cephalin
 ms.date: 05/07/2025
 ms.topic: tutorial
+ms.custom:
+  - build-2025
 ---
 
-# Tutorial: Run chatbot in App Service with a Phi-3 sidecar extension (ASP.NET Core)
+# Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (ASP.NET Core)
 
-This tutorial guides you through deploying a ASP.NET Core chatbot application integrated with the Phi-3 sidecar extension on Azure App Service. By following the steps, you'll learn how to set up a scalable web app, add an AI-powered sidecar for enhanced conversational capabilities, and test the chatbot's functionality.
+This tutorial guides you through deploying a ASP.NET Core chatbot application integrated with the Phi-4 sidecar extension on Azure App Service. By following the steps, you'll learn how to set up a scalable web app, add an AI-powered sidecar for enhanced conversational capabilities, and test the chatbot's functionality.
 
 [!INCLUDE [advantages](includes/tutorial-ai-slm/advantages.md)]
 
@@ -37,7 +39,7 @@ This tutorial guides you through deploying a ASP.NET Core chatbot application in
 
 This startup command is a common setup for deploying ASP.NET Core applications to Azure App Service. For more information, see [Quickstart: Deploy an ASP.NET web app](quickstart-dotnetcore.md).
 
-[!INCLUDE [phi-3-extension-create-test](includes/tutorial-ai-slm/phi-3-extension-create-test.md)]
+[!INCLUDE [phi-4-extension-create-test](includes/tutorial-ai-slm/phi-4-extension-create-test.md)]
 
 ## How the sample application works
 

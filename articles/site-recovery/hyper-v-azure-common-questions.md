@@ -4,8 +4,8 @@ description: This article summarizes common questions about setting up disaster 
 ms.date: 04/26/2025
 ms.service: azure-site-recovery
 ms.topic: overview
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.custom: engagement-fy23
 ---
 # Common questions about Hyper-V to Azure disaster recovery

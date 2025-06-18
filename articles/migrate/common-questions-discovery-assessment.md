@@ -3,7 +3,7 @@ title: Questions about assessments in Azure Migrate
 description: Get answers to common questions about assessments in Azure Migrate.
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 08/06/2024
+ms.date: 05/08/2025
 ms.custom: engagement-fy25
 ---
 
@@ -301,4 +301,4 @@ For machines imported via a CSV file, the default migration tool in an AVS asses
 
 ## Next steps
 
-Learn more about discovering [VMware VMs](./vmware/tutorial-discover-vmware.md?context=/azure/migrate/context/migrate-context), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).
+Learn more about discovering [VMware VMs](tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).

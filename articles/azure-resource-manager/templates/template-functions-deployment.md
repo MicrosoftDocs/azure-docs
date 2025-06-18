@@ -52,7 +52,7 @@ The following example returns the deployer object.
   "outputs": {
     "developerOutput": {
       "type": "object",
-      "value": "[developer()]"
+      "value": "[deployer()]"
     }
   }
 }

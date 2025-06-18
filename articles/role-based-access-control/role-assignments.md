@@ -4,7 +4,7 @@ description: Learn about Azure role assignments in Azure role-based access contr
 author: rolyon
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 11/11/2024
+ms.date: 05/28/2025
 ms.author: rolyon
 ---
 # Understand Azure role assignments
@@ -111,6 +111,10 @@ Principals include users, security groups, managed identities, workload identiti
 
 When you create a role assignment by using Azure PowerShell, the Azure CLI, Bicep, or another infrastructure as code (IaC) technology, you specify the *principal type*. Principal types include *User*, *Group*, and *ServicePrincipal*. It's important to specify the correct principal type. Otherwise, you might get intermittent deployment errors, especially when you work with service principals and managed identities.
 
+### Role assignments with identity not found
+
+When you delete a user, group, service principal, or managed identity from Microsoft Entra ID, it's a good practice to remove any role assignments. The role assignments aren't removed automatically. Role assignments that refer to a deleted principal ID are listed as **Identity not found** in the Azure portal. Role assignments will continue to grant access to the deleted security principals if there are valid Microsoft Entra ID tokens and the tokens have not expired. For more information, see [Symptom - Role assignments with identity not found](troubleshooting.md#symptom---role-assignments-with-identity-not-found).
+
 ## Name
 
 A role assignment's resource name must be a globally unique identifier (GUID).
@@ -122,9 +126,7 @@ Role assignment resource names must be unique within the Microsoft Entra tenant,
 >
 > If you create a role assignment by using Bicep or another infrastructure as code (IaC) technology, you need to carefully plan how you name your role assignments. For more information, see [Create Azure RBAC resources by using Bicep](../azure-resource-manager/bicep/scenarios-rbac.md).
 
-### Resource deletion behavior
-
-When you delete a user, group, service principal, or managed identity from Microsoft Entra ID, it's a good practice to delete any role assignments. They aren't deleted automatically. Any role assignments that refer to a deleted principal ID become invalid.
+### Reusing a role assignment name
 
 If you try to reuse a role assignment's name for another role assignment, the deployment will fail. This issue is more likely to occur when you use Bicep or an Azure Resource Manager template (ARM template) to deploy your role assignments, because you have to explicitly set the role assignment name when you use these tools. To work around this behavior, you should either remove the old role assignment before you recreate it, or ensure that you use a unique name when you deploy a new role assignment.
 

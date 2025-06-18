@@ -2,8 +2,8 @@
 title: Azure Update Manager support matrix for updates
 description: This article provides a summary of support for updates, one time updates, periodic assessments and scheduled patching.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 03/18/2025
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates
@@ -32,9 +32,12 @@ The Azure Marketplace image has the following attributes:
 Update Manager supports the following operating system versions on VMs for all operations except automatic VM guest patching. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
 
 >[!NOTE]
-> Only x64 operating systems are currently supported. Neither ARM64 nor x86 are supported for any operating system.
+> * Only x64 operating systems are currently supported. Neither ARM64 nor x86 are supported for any operating system.
+> * Updates might fail to install on SUSE machines if they require accepting the EULA.
 
 Following is the list of supported images and no other marketplace images released by any other publisher are supported for use with Azure Update Manager.
+
+The asterisk (*) in the Offer or Plan columns acts as a wildcard. * means all possible values are supported.
 
 #### [Supported Windows OS images](#tab/mpir-winos)
 
@@ -154,7 +157,7 @@ Following is the list of supported images and no other marketplace images releas
 |credativ| debian| 8||
 |credativ|| 9-backports||
 |credativ|| 9||
-|debian| | 11-backports-gen2 ||
+|debian| debian - 11| 11-backports-gen2 | |
 |debian| debian-10-daily| 10||
 |debian| debian-10| 10||
 |debian| debian-11-daily| 11| |
@@ -165,11 +168,13 @@ Following is the list of supported images and no other marketplace images releas
 |debian|| 10-backports||
 |debian|| 10-gen2||
 |debian|| 10-gen2||
-|debian|| 11-backports-gen2||
-|debian|| 11-backports||
-|debian|| 11-backports||
-|debian|| 11-gen2||
-|debian|| 11-gen2||
+|debian| debian-11-daily |11 |  |
+|debian|debian-11| 11-backports||
+|debian|debian-11-daily|11 backports ||
+|debian| debian-11|11-gen2||
+|debian|debian-11-daily| 11-gen2||
+|debian|debian-12| 12 </br> 12-arm64 </br>  12-gen2| |
+|debian|debian-12-daily| 12 </br> 12-arm64  </br> 12-gen2 </br> 12-backports </br> 12-backports-arm64 </br> 12-backports-gen2 ||
 |erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux| free||
 |erockyenterprisesoftwarefoundationinc1653071250513| rockylinux-9| rockylinux-9||
 |kali-linux | kali | kali-2024-3 |
@@ -342,7 +347,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 ## Next steps
 
 - Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
-- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manger.
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manager.
 - Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).
 - Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).
 - Learn about [security vulnerabilities and Ubuntu Pro support](security-awareness-ubuntu-support.md).

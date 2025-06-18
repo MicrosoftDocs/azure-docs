@@ -1,11 +1,11 @@
 ---
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
-ms.date: 03/28/2025
+ms.date: 06/04/2025
 ms.custom: horz-monitor
 ms.topic: reference
-author: greg-lindsay
-ms.author: greglin
+author: mbender-ms
+ms.author: mbender
 ms.service: azure-application-gateway
 ---
 
@@ -109,7 +109,9 @@ https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/loc
 
 ### TLS/TCP proxy metrics
 
-Application Gateway supports TLS/TCP proxy monitoring. With layer 4 proxy feature now available with Application Gateway, there are some Common metrics that apply to both layer 7 and layer 4. There are some layer 4 specific metrics. The following list summarizes the metrics are the applicable for layer 4 usage.
+The following metrics are available for monitoring Application Gateway's TLS/TCP proxy. In addition to Layer 4-specific metrics, there are several common metrics with Layer 7 (HTTP/S). For details of each, visit the complete [metrics listing](#supported-metrics-for-microsoftnetworkapplicationgateways).
+
+**Metrics that also apply to L4 proxy**
 
 - Current Connections
 - New Connections per second
@@ -118,14 +120,16 @@ Application Gateway supports TLS/TCP proxy monitoring. With layer 4 proxy featur
 - Unhealthy host count
 - Client RTT
 - Backend Connect Time
-- Backend First Byte Response Time. `BackendHttpSetting` dimension includes both layer 7 and layer 4 backend settings.
+- Backend First Byte Response Time (`BackendHttpSetting` dimension applies to both Layer 7 and 4 backend settings).
+- Bytes Sent
+- Bytes Received
+- Compute Units
+- Capacity Units
 
-For more information, see previous descriptions and the [metrics table](#supported-metrics-for-microsoftnetworkapplicationgateways).
+**L4 proxy-specific metrics**
 
-These metrics apply to layer 4 only.
-
-- **Backend Session Duration**. The total time of a backend connection. The average time duration from the start of a new connection to its termination. `BackendHttpSetting` dimension includes both layer 7 and layer 4 backend settings.
-- **Connection Lifetime**. The total time of a client connection to application gateway. The average time duration from the start of a new connection to its termination in milliseconds.
+- Backend Session Duration - The total time of a backend connection. The average time duration from the start of a new connection to its termination. `BackendHttpSetting` dimension includes both layer 7 and layer 4 backend settings.
+- Connection Lifetime - The total time of a client connection to application gateway. The average time duration from the start of a new connection to its termination in milliseconds.
 
 ### TLS/TCP proxy backend health
 
@@ -490,6 +494,7 @@ Application Gateway's Layer 4 proxy provides log data through access logs. These
 | sslProtocol | SSL/TLS protocol being used (for TLS protocol listeners). |
 | serverRouted | The backend server IP and port number to which the traffic was routed. |
 | serverStatus | 200 - session completed successfully. 400 - client data couldn't be parsed. 500 - internal server error. 502 - bad gateway. For example, when an upstream server couldn't be reached. 503 - service unavailable. For example, if access is limited by the number of connections. |
+| error_info | The reason for the error as per serverStatus code. |
 | ResourceId | Application Gateway resource URI. |
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]

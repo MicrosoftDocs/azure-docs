@@ -55,8 +55,8 @@ items:
       displayName: template specs
       href: template-specs-deploy-linked-template.md
     - name: Create portal form
-      href: template-specs-create-portal-forms.md
       displayName: UI,form,blade
+      href: template-specs-create-portal-forms.md
   - name: Advanced templates
     items:
     - name: Use template reference
@@ -246,8 +246,6 @@ items:
       href: ../../firewall-manager/quick-firewall-policy.md?toc=/azure/azure-resource-manager/template/toc.json
     - name: Firewall Manager - virtual hub
       href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Front Door
-      href: ../../frontdoor/quickstart-create-front-door-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Front Door - Standard/Premium
       href: ../../frontdoor/create-front-door-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Load Balancer - internal
@@ -527,7 +525,7 @@ items:
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+    href: https://azure.microsoft.com/updates/?category=monitoring-management
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates

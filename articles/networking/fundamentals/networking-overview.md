@@ -192,7 +192,7 @@ Azure DDoS Protection consists of two tiers:
 
 ### <a name="container-security"></a> Container network security
 
-Container network security is part of [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview). It provides enhanced control over AKS network security. With features like fully qualified domain name (FQDN) filtering, clusters using Azure CNI Powered by Cilium can implement FQDN-based network policies to achieve a Zero Trust security architecture in AKS.
+Container network security is part of [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview). Advanced Container Networking Services provides enhanced control over AKS network security. With features like fully qualified domain name (FQDN) filtering, clusters using Azure CNI Powered by Cilium can implement FQDN-based network policies to achieve a Zero Trust security architecture in AKS.
 
 ## <a name="management"></a>Network Management and monitoring
 
@@ -216,7 +216,7 @@ This section describes network management and monitoring services in Azure - Net
 
 ### <a name="container-monitoring"></a> Container network observability
 
-Container network observability is part of [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview). ACNS uses Hubble’s control plane to provide comprehensive visibility into AKS networking and performance. It offers real-time, detailed insights across node-level, pod-level, TCP, and DNS metrics, ensuring thorough monitoring of your network infrastructure. 
+Container network observability is part of [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview). Advanced Container Networking Services uses Hubble’s control plane to provide comprehensive visibility into AKS networking and performance. It offers real-time, detailed insights across node-level, pod-level, TCP, and DNS metrics, ensuring thorough monitoring of your network infrastructure. 
 
 :::image type="content" source="./media/networking-overview/advanced-network-observability.png" alt-text="Diagram of Container Network Observability.":::
 

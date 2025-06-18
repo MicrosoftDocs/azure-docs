@@ -4,13 +4,14 @@ description: Learn about using Azure Virtual Desktop on Azure Local, enabling yo
 ms.topic: conceptual
 author: dougeby
 ms.author: avdcontent
-ms.date: 09/17/2024
+ms.date: 05/20/2025
 ---
 
 # Azure Virtual Desktop on Azure Local
 
 > [!IMPORTANT]
->- Azure Virtual Desktop on Azure Local for Azure Government and Azure operated by 21Vianet (Azure in China) is currently in preview with HCI version 22H2. Portal provisioning isn't available.
+>- Azure Virtual Desktop on Azure Local for Azure Government is currently in preview with HCI version 23H2 (and newer). Portal provisioning isn't available.
+>
 >- See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 Using Azure Virtual Desktop on Azure Local, you can deploy session hosts for Azure Virtual Desktop where you need them. If you already have an existing on-premises virtual desktop infrastructure (VDI) deployment, Azure Virtual Desktop on Azure Local can improve your experience. If you're already using Azure Virtual Desktop with your session hosts in Azure, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
@@ -45,6 +46,7 @@ Once your instance is ready, you can use the following 64-bit operating system i
 - Windows 11 Enterprise
 - Windows 10 Enterprise multi-session
 - Windows 10 Enterprise
+- Windows Server 2025
 - Windows Server 2022
 - Windows Server 2019
 
@@ -96,7 +98,7 @@ Azure Virtual Desktop on Azure Local has the following limitations:
 
 - You can only join session hosts on Azure Local to an Active Directory Domain Services (AD DS) domain. This includes using [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join), where you can benefit from some of the functionality provided by Microsoft Entra ID.
 
-- Azure Local isn't supported for disconnected Azure Virtual Desktop sessions.
+- Azure Virtual Desktop for Azure Local requires a connection to the Azure Virtual Desktop service hosted in Azure for brokering connections and connecting users.
 
 ## Next step
 

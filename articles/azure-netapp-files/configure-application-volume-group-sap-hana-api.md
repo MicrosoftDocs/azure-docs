@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 04/22/2025
+ms.date: 05/22/2025
 ms.author: b-ahibbard
 ---
 # Configure application volume groups for SAP HANA using REST API
@@ -116,6 +116,9 @@ This table describes the request body parameters and volume properties for creat
 | `protocolTypes` | Protocol to use | This should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
 | `networkFeatures` | Network features | Both `basic` and `standard` are supported |
 | `zones` | Availability zone | Enter logical zone in the following format: `[“1”]` |
+| `endpointType` | Endpoint type for a replication configuration. | The allowed value is `dst` |
+| `remoteVolumeResourceId` |  The resource ID of the remote volume | The volume ID |
+| `replicationSchedule` |  The frequency of replication (daily, hourly, or every 10 minutes) | The allowed values are `daily`, `hourly`, or `_10minutely`. For guidance on which volume type supports which schedule, see [Replication schedules, RTO, and RPO](application-volume-group-disaster-recovery.md#replication-schedules-rto-and-rpo). |
 
 ## Example API request content: application volume group creation
 

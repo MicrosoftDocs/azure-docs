@@ -9,6 +9,9 @@ ms.date: 11/18/2024
 ---
 
 # Troubleshooting Azure Front Door file compression
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 This article helps you troubleshoot file compression issues in Azure Front Door.
 
 ## Symptom

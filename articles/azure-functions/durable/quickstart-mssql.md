@@ -76,11 +76,6 @@ Another file, *HelloOrchestration.cs*, contains the basic building blocks of a D
 
 For more information about these functions, see [Durable Functions types and features](./durable-functions-types-features-overview.md).
 
-#### Check for latest extension version
-For .NET apps, check the `.csproj` file and make sure the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) package is referenced.
-
-"Non-.NET apps" references the extension bundles, which automatically use the latest package.
-
 ## Set up your database
 
 > [!NOTE]
@@ -181,7 +176,7 @@ In _local.settings.json_, assign the connection string of the Docker-based SQL s
 
 ### Test locally
 
-Open a termimal window in your app's root folder and run `azurite start`. Azurite is the Azure Storage emulator, which is needed for running any Function app. 
+Open a terminal window in your app's root folder and run `azurite start`. Azurite is the Azure Storage emulator, which is needed for running any Function app. 
 
 Open another terminal window in your app's root folder and start the Function app by running `func host start`.
 
@@ -218,12 +213,12 @@ To run your app in Azure, you need to create various resources. For convenient c
 
 > [!NOTE]
 > If you already have an Azure SQL database or another publicly accessible SQL Server instance that you would like to use, you can go to the next section.
+>
+> Refrain from enabling the **Allow Azure services and resources to access this [SQL] server** setting for production scenarios. Real applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
 
 In the Azure portal, you can [create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart). During creation:
 - Enable Azure services and resources to access this server (under _Networking_)
 - Set the value for _Database collation_ (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
-
-Enabling the **Allow Azure services and resources to access this server** setting is _not_ a recommended security practice for production scenarios. Real applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
 
 ### Create an Azure Functions app and supporting resources
 
@@ -289,8 +284,8 @@ principalId=$(az identity show --name $identity --resource-group $resourceGroup 
 
 ### Grant access to Azure Storage and Azure SQL Database
 #### Azure Storage
-Assign the identity `Storage Blob Data Owner` role for access to the storage account. 
-```
+Assign the identity **Storage Blob Data Owner** role for access to the storage account. 
+```azurecli
 # Set the scope of the access
 scope="/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Storage/storageAccounts/$storage"
 
@@ -301,7 +296,7 @@ az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner
 
 #### Azure SQL Database
 >[!NOTE]
-> Authenticating to the MSSQL database using managed identity is _not_ supported when hosting a Durable Functions app in the Flex Consumption plan. Use connection string for now. Thus, if your app is hosted in the Flex Consumption plan, skip to the [set app application settings](#set-required-app-settings) section. 
+> Authenticating to Azure SQL database using managed identity is _not_ supported when hosting a Durable Functions app in the Flex Consumption plan. If your app is hosted in the Flex Consumption plan, skip to the [set app settings](#set-required-app-settings) section. 
 
 1. Start by setting your developer identity as the database's admin.
   
@@ -315,7 +310,7 @@ az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner
     az sql server ad-admin create --resource-group $resourceGroup --server-name <SQL_SERVER_NAME> --display-name ADMIN --object-id "$assignee"
     ```
 
-1. Connect to the SQL database created previously using tools such as [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Management Server Studio](/ssms/download-sql-server-management-studio-ssms) to grant access to the managed identity. Or you can run the following [SQLCMD](/sql/tools/sqlcmd/sqlcmd-utility) command to connect:
+1. Connect to the SQL database created previously using tools such as [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Management Server Studio](/ssms/download-sql-server-management-studio-ssms). Or you can run the following [SQLCMD](/sql/tools/sqlcmd/sqlcmd-utility) command to connect:
     ```bash
     sqlcmd -S <SQL_SERVER_NAME>.database.windows.net -d <DATABASE_NAME> -U <someone@example.com> -P "ACCOUNT_PASSWORD" -G -l 30
     ```
@@ -349,7 +344,7 @@ If you're using user-assigned managed identity to authenticate to the SQL databa
   sqlconnstr="Server=tcp:$dbserver.database.windows.net,1433;Initial Catalog=$sqlDB;Persist Security Info=False;User ID=$clientId;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication='Active Directory Managed Identity';"
   ```
 
-If you're using a simple connection string to authenticate, you can find it by going to the SQL database resource on Azure portal, navigating to the **Settings** tab, then clicking on **Connection strings**:
+For Flex Consumption apps, use a connection string to authenticate for now. You can find it by going to the SQL database resource on Azure portal, navigating to the **Settings** tab, then clicking on **Connection strings**:
 
   :::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
 
