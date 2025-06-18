@@ -693,7 +693,6 @@ az monitor metrics list --resource <ResourceId> --metric "InstanceCount" --inter
 az monitor metrics list --resource <ResourceId> --metric "CpuPercentage" --interval PT1H --output table
 ```
 
-> **Note**: Flex Consumption metrics are different from Linux Consumption metrics. When comparing performance before and after migration, keep in mind that you'll need to use different metrics to track similar performance characteristics.
 
 ##### [Azure portal](#tab/azure-portal)
 
@@ -733,6 +732,10 @@ az monitor metrics list --resource <ResourceId> --metric "CpuPercentage" --inter
      | summarize successCount=countif(success == true), failureCount=countif(success == false) by bin(timestamp, 1h), cloud_RoleName
      | render timechart
      ```
+### [Visual Studio Code](#tab/vs-code)
+
+You can't currently review and set metrics using Visual Studio Code. 
+
 ---
 
 ## Related content

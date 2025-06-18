@@ -4,9 +4,8 @@ description: Learn how to migrate an existing function app in Azure running in a
 ms.service: azure-functions
 ms.collection: 
  - migration
-ms.date: 06/13/2025
+ms.date: 06/18/2025
 ms.topic: concept-article
-zone_pivot_groups: programming-languages-set-functions
 
 #customer intent: As a developer, I want to learn how to migrate my existing serverless applications in Azure Functions from the Consumption host plan to the Flex Consumption hosting plan.
 ---
@@ -15,15 +14,23 @@ zone_pivot_groups: programming-languages-set-functions
 
 This article provides step-by-step instructions for migrating your existing function apps hosted in the [Consumption plan](../consumption-plan.md) in Azure Functions to instead use the [Flex Consumption plan](../flex-consumption-plan.md). 
 
+By migrating your existing serverless apps, your functions can easily take advantage of these benefits of the Flex Consumption plan:
+
++ Improved scalability
++ Enhanced performance
++ Improved security and networking. 
+
+For more information, see [Flex Consumption plan benefits](../flex-consumption-plan.md#benefits). For a detailed comparison between hosting plans, see [Azure Functions hosting options](../functions-scale.md). 
+
 ## Considerations
+
+Before staring a migration, keep these considerations in mind:
 
 + Due to the significant configuration and behavior differences between the two plans, you aren't able to simply _shift_ an existing Consumption plan app to the Flex Consumption plan. The migration process instead has you create a new Flex Consumption plan app that is equivalent to your current app and running in the same resource group and with the same dependencies.
 
-+ By migrating your existing serverless apps, your functions can take advantage of the benefits of the Flex Consumption plan, such as improved scalability, enhanced performance, and improved security and networking. For more information about, see [Flex Consumption plan benefits](../flex-consumption-plan.md#benefits). For a detailed comparison between hosting plans, see [Azure Functions hosting options](../functions-scale.md). 
-
 + You should prioritize the migration of your apps that run in a Consumption plan on Linux.  
 
-+ This article assumes that you have a general understanding of Functions concepts and architectures and are familiar with features of any apps being migrated, such as triggers and bindings, authentication, and any networking customizations. 
++ This article assumes that you have a general understanding of Functions concepts and architectures and are familiar with features of your apps being migrated. Such concepts include triggers and bindings, authentication, and networking customization. 
 
 + Where possible, this article is targeted to a specific language runtime stack. Make sure to choose your app's language at the top of the article. 
 
@@ -48,7 +55,7 @@ This article provides step-by-step instructions for migrating your existing func
 
 + [Azure CLI](/cli/azure), version v2.71.0, or a later version. Scripts are testing using Azure CLI in [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-+ The [resource-graph](https://learn.microsoft.com/en-us/azure/governance/resource-graph/first-query-azurecli) extension, which you can install by using the [`az extension add`](/cli/azure/extension#az-extension-add) command: 
++ The [resource-graph](../../governance/resource-graph/first-query-azurecli.md) extension, which you can install by using the [`az extension add`](/cli/azure/extension#az-extension-add) command: 
 
     ```azurecli
     az extension add --name resource-graph
@@ -117,9 +124,9 @@ az graph query -q "resources | where subscriptionId == '$(az account show --quer
    --query data --output table
 ```
 
-This command generates a table with the app name, location, and resource group for all Consumption apps running on Windows in the current subscription.
-
 ---
+
+This command generates a table with the app name, location, and resource group for all Consumption apps running on Windows in the current subscription.
 
 You're promoted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed. 
 
@@ -151,6 +158,8 @@ You're promoted to install the [resource-graph extension](/cli/azure/graph), if 
     	| where properties.sku == 'Dynamic'
     	| project name, location, resourceGroup
     ```
+
+    ---
 
 This command generates a table with the app name, location, and resource group for all Consumption apps running on Windows in the current subscription.
 
@@ -215,33 +224,22 @@ The Flex Consupmtion plan doesn't currently support all of the language stack ve
 
 Use this [`az functionapp list-flexconsumption-runtimes`](/cli/azure/functionapp#az-functionapp-list-flexconsumption-runtimes) command to verify Flex Consumption plan support for your language stack version in a specific region: 
 
-::: zone pivot="programming-language-csharp" 
 ```azurecli 
-az functionapp list-flexconsumption-runtimes --location <REGION> --runtime dotnet-isolated --query '[].{version:version}' -o tsv
+az functionapp list-flexconsumption-runtimes --location <REGION> --runtime <LANGUAGE_STACK> --query '[].{version:version}' -o tsv
 ```
-::: zone-end  
-::: zone pivot="programming-language-python"  
-```azurecli
-az functionapp list-flexconsumption-runtimes --location <REGION> --runtime python --query '[].{version:version}' -o tsv
-```
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-```azurecli
-az functionapp list-flexconsumption-runtimes --location <REGION> --runtime node --query '[].{version:version}' -o tsv
-```
-::: zone-end  
-::: zone pivot="programming-language-java"  
-```azurecli
-az functionapp list-flexconsumption-runtimes --location <REGION> --runtime java --query '[].{version:version}' -o tsv
-```
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
-```azurecli
-az functionapp list-flexconsumption-runtimes --location <REGION> --runtime powershell --query '[].{version:version}' -o tsv
-```
-::: zone-end 
 
-In this example, replace `<REGION>` with your current region. This command displays all versions of the specified language stack  supported by the Flex Consumption plan in your region. 
+In this example, replace `<REGION>` with your current region and `<LANGUAGE_STACK>` with one of these vaules:
+
+| Language stack | Value |
+| ------- | ----- |
+| [C# (isolated worker model)](../dotnet-isolated-process-guide.md) | `dotnet-isolated` |
+| [Java](../functions-reference-java.md)    | `java` |
+| [JavaScript](../functions-reference-node.md) | `node` |
+| [PowerShell](../functions-reference-powershell.md) | `powershell` |
+| [Python](../functions-reference-python.md)     | `python` |
+| [TypeScript](../functions-reference-node.md) | `node` |
+
+ This command displays all versions of the specified language stack  supported by the Flex Consumption plan in your region. 
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -814,7 +812,7 @@ There are various ways to create a function app in the Flex Consumption plan alo
     + [azd](../create-first-function-azure-developer-cli.md)
     + [Bicep](../functions-create-first-function-bicep.md)
     + [Terraform](../functions-create-first-function-terraform.md)
-+ [Visual Studio Code](../functions-develop-vs-code.md#create-azure-resources)
++ [Visual Studio Code](../functions-develop-vs-code.md#publish-to-azure)
 + [Visual Studio](../functions-develop-vs.md#publish-to-azure)
 
 >[!TIP]  
@@ -831,10 +829,10 @@ Before deploying your code, you must configure the new app with the relevant Fle
 
 Run this script that performs these tasks:
 
-    1. Gets app settings from the old app, ignoring settings that don't apply in a Flex Consumption plan or that already exist in the new app. 
-    1. Writes the collected settings locally to a temporary file.
-    1. Applies settings from the file to your new app.
-    1. Deletes the temporary file.
+1. Gets app settings from the old app, ignoring settings that don't apply in a Flex Consumption plan or that already exist in the new app. 
+1. Writes the collected settings locally to a temporary file.
+1. Applies settings from the file to your new app.
+1. Deletes the temporary file.
 
 ```azurecli
 sourceAppName=<SOURCE_APP_NAME>
@@ -1414,9 +1412,13 @@ If your app hasn't
 
 After migrating to Flex Consumption, implement a structured monitoring approach to ensure optimal performance and detect any issues. For more information, see [Configure monitoring](../flex-consumption-how-to.md#configure-monitoring).
 
+
+
+
 ### Capture performance and cost benchmarks 
 
-
+>[!NOTE]  
+>Flex Consumption plan metrics differ from Consumption plan metrics. When comparing performance before and after migration, keep in mind that you must use different metrics to track similar performance characteristics.
 
 ### Shut down the original app (optional)
 
@@ -1594,6 +1596,10 @@ Remember to continue monitoring your application in its new environment and fine
 Thank you for following this migration guide. Your investment in modernizing your Azure Functions will pay dividends in improved performance, scalability, and security for your applications.
 
 Happy coding!
+
+## Providing feedback
+
+If you encounter issues with your migration using this article or want to provide other feedback on this guidance, please use this Microsoft Q&A question to provide your feedback: `<<QUESTION>>`
 
 ## Related articles
 
