@@ -59,10 +59,12 @@ items:
           href: tutorial-ai-openai-search-dotnet.md
         - name: RAG Azure OpenAI and Azure SQL
           href: deploy-intelligent-apps-dotnet-to-azure-sql.md
-        - name: Integrate into Foundry Agent with OpenAPI
+        - name: AI Foundry Agent with OpenAPI app
           href: tutorial-ai-integrate-azure-ai-agent-openapi-dotnet.md
         - name: Invoke OpenAPI app from Azure AI Agent
           href: invoke-openapi-web-app-from-azure-ai-agent-service.md
+        - name: Add MCP server to app
+          href: tutorial-ai-mcp-server-dotnet.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-dotnet.md
 
