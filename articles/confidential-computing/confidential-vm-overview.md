@@ -121,14 +121,14 @@ Pricing depends on your confidential VM size. For more information, see the [Pri
 
 Confidential VMs *don't support*:
 
-- [Azure Backup](https://learn.microsoft.com/azure/backup/backup-overview)
+- [Azure Backup](/azure/backup/backup-overview)
 - [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery/)
-- Limited [Azure Compute Gallery](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery) support
-- [Shared disks](https://learn.microsoft.com/azure/virtual-machines/disks-shared)
-- [Accelerated Networking](https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview)
-- [Live migration](https://learn.microsoft.com/windows-server/virtualization/hyper-v/manage/live-migration-overview)
-- [Screenshots under boot diagnostics](https://learn.microsoft.com/azure/virtual-machines/boot-diagnostics#boot-diagnostics-view)
-- [Dynamic memory](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11))
+- Limited [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) support
+- [Shared disks](/azure/virtual-machines/disks-shared)
+- [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview)
+- [Live migration](/windows-server/virtualization/hyper-v/manage/live-migration-overview)
+- [Screenshots under boot diagnostics](/azure/virtual-machines/boot-diagnostics#boot-diagnostics-view)
+- [Dynamic memory](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11))
 
 ## Next steps
 
