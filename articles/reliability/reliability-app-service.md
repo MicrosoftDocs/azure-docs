@@ -152,7 +152,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 ::: zone pivot="free-shared-basic"
 
-To deploy a new zone-redundant App Service plan, you must use either the [Premium v2-4 plan types](/azure/app-service/overview-hosting-plans). To view more information, ensure that you select the appropriate tier at the top of this page.
+To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 plan types](/azure/app-service/overview-hosting-plans). To view more information, ensure that you select the appropriate tier at the top of this page.
 
 ::: zone-end
 
