@@ -1,11 +1,11 @@
 ---
-title: Edit Host and App Settings for Standard Logic Apps
+title: Edit App and Host Settings for Standard Logic Apps
 description: Learn how to change runtime and environment settings for Standard logic apps in single-tenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/12/2025
+ms.date: 06/17/2025
 ms.custom: fasttrack-edit
 # Customer intent: As a logic app workflow developer, I want to learn about application settings and host settings that I can edit to customize the way that my Standard workflows run.
 ---
@@ -14,7 +14,7 @@ ms.custom: fasttrack-edit
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This guide explains how to manage environment and runtime settings for Standard logic apps in single-tenant Azure Logic Apps.
+This guide explains how to manage runtime and environment settings for Standard logic apps in single-tenant Azure Logic Apps.
 
 The *app settings* for a Standard logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
 
