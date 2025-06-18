@@ -6,7 +6,9 @@ ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ms.date: 05/15/2025
 ---
 

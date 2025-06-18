@@ -7,6 +7,8 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 05/13/2025
 ms.author: phjensen
+ms.custom:
+  - build-2025
 ---
 
 # Configure the database for Azure Application Consistent Snapshot tool

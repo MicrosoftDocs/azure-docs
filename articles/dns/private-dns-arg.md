@@ -3,10 +3,10 @@ title: Private DNS information in Azure Resource Graph
 titleSuffix: Azure DNS
 description: Learn how to query Azure Private DNS zones using Azure Resource Graph.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.date: 03/20/2024
-ms.author: greglin
+ms.author: allensu
 ms.topic: how-to
 ---
 

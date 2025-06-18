@@ -14,14 +14,10 @@ items:
       items: 
       - name: Create an Azure Managed Redis instance
         href: quickstart-create-managed-redis.md 
-      - name: Create an Azure Cache for Redis instance in the Basic, Standard and Premium tiers
-        href: ../azure-cache-for-redis/quickstart-create-redis.md
       - name: Create and manage with Azure PowerShell
         href: how-to-manage-redis-cache-powershell.md
       - name: Create and manage with Azure CLI
         href: scripts/create-manage-cache.md
-      - name: Create and manage a premium cache with Azure CLI
-        href: ../azure-cache-for-redis/scripts/create-manage-premium-cache-cluster.md
       - name: Create Redis cache - Bicep
         displayName: ARM, Resource Manager, Template
         href: redis-cache-bicep-provision.md
@@ -75,12 +71,8 @@ items:
       href: architecture.md
     - name: Create and manage with Azure PowerShell
       href: how-to-manage-redis-cache-powershell.md
-    - name: Use Azure CLI
-      items:
-      - name: Overview
-        href: ../azure-cache-for-redis/cli-samples.md
-      - name: Create and manage a cache
-        href: scripts/create-manage-cache.md
+    - name: Create and manage a cache with Azure CLI
+      href: scripts/create-manage-cache.md
 
   - name: Development and client libraries
     items:
@@ -98,10 +90,7 @@ items:
       href: overview-vector-similarity.md
     - name: Connection resilience best practices
       href: best-practices-connection.md
-    # - name: Use Azure Functions triggers and bindings
-    #   items:
-    #   - name: Create a simple Function app for Redis triggers 
-    #     href: tutorial-functions-getting-started.md 
+
 
   - name: Logs and monitoring
     items:
@@ -237,14 +226,14 @@ items:
     items:
     - name: Use Spring Boot Initializer
       href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
-  - name: Azure Event Grid
-    items:
-    - name: Route events with Azure portal  
-      href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md
-    - name: Route events with Azure CLI 
-      href: ../azure-cache-for-redis/cache-event-grid-quickstart-cli.md
-    - name: Route events with PowerShell 
-      href: ../azure-cache-for-redis/cache-event-grid-quickstart-powershell.md
+  # - name: Azure Event Grid
+  #   items:
+  #   - name: Route events with Azure portal  
+  #     href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md
+  #   - name: Route events with Azure CLI 
+  #     href: ../azure-cache-for-redis/cache-event-grid-quickstart-cli.md
+  #   - name: Route events with PowerShell 
+  #     href: ../azure-cache-for-redis/cache-event-grid-quickstart-powershell.md
   - name: Create leaderboards
     href: web-app-cache-aside-leaderboard.md
   # - name: Deploy a machine learning model 
@@ -258,55 +247,33 @@ items:
 
 - name: Reference
   items:
-    - name: Azure Managed Redis
-      items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/resourcemanager.redisenterprise-readme
-        - name: Java
-          href: /java/api/overview/azure/resourcemanager-redisenterprise-readme
-        - name: Azure PowerShell
-          href: /powershell/module/az.redisenterprisecache
-        - name: Azure CLI
-          href: /cli/azure/redisenterprise
-        - name: REST
-          href: /rest/api/redis/redisenterprisecache/operation-groups
-        - name: Resource Manager template
-          href: /azure/templates/microsoft.cache/redisenterprise
-    - name: Azure Cache for Redis
-      items: 
-        - name: .NET
-          href: /dotnet/api/microsoft.azure.management.redis
-        - name: Java
-          href: /java/api/com.microsoft.azure.management.redis.rediscache
-        - name: Azure PowerShell
-          href: /powershell/module/az.rediscache
-        - name: Azure CLI
-          href: /cli/azure/redis
-        - name: REST
-          href: /rest/api/redis/
-        - name: Resource Manager template
-          href: /azure/templates/microsoft.cache/allversions
-        - name: Azure Policy built-ins
-          displayName: samples, policies, definitions
-          href: ../azure-cache-for-redis/policy-reference.md
-        - name: Redis commands
-          href: https://redis.io/commands#
-        - name: Monitoring data reference
-          href: monitor-cache-reference.md
+    - name: .NET
+      href: /dotnet/api/overview/azure/resourcemanager.redisenterprise-readme
+    - name: Java
+      href: /java/api/overview/azure/resourcemanager-redisenterprise-readme
+    - name: Azure PowerShell
+      href: /powershell/module/az.redisenterprisecache
+    - name: Azure CLI
+      href: /cli/azure/redisenterprise
+    - name: REST
+      href: /rest/api/redis/redisenterprisecache/operation-groups
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.cache/redisenterprise
+    - name: Redis commands
+      href: https://redis.io/commands#
+    - name: Monitoring data reference
+      href: monitor-cache-reference.md
 
 - name:  Resources
   items:
-  - name: Azure Cache for Redis FAQs
-    href: ../azure-cache-for-redis/cache-faq.yml
-  - name: Retirements from Azure Cache for Redis
-    href: ../azure-cache-for-redis/cache-retired-features.md
+  - name: Azure Redis FAQ
+    href: /azure/redis/faq
   - name: Videos
-    href: https://www.youtube.com/results?search_query=azure+cache+redis
+    href: https://www.youtube.com/results?search_query=azure+managed+redis
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-cache-redis.html
+    href: https://learn.microsoft.com/search/?terms=azure%20managed%20redis&category=QnA
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cache/
-  - name: Build your skills with Microsoft Learn training
-    href: /training/browse/?products=azure-redis-cache
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=databases
+    href: https://azure.microsoft.com/pricing/details/managed-redis/
+
+
+

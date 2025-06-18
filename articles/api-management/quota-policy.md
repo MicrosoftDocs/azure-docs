@@ -70,7 +70,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
