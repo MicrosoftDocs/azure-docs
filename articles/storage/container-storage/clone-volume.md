@@ -6,6 +6,7 @@ ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 07/23/2024
 ms.author: kendownie
+# Customer intent: "As a cloud engineer, I want to clone persistent volumes in Azure Container Storage, so that I can create duplicates for my applications while ensuring they meet the same size and storage pool requirements."
 ---
 
 # Clone persistent volumes in Azure Container Storage
