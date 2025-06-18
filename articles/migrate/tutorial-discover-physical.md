@@ -65,14 +65,14 @@ To discover Linux servers, you can create a sudo user account like this:
 - The user account must have sudo access to the required file paths.
 
 ```
-/usr/sbin/dmidecode -s system-uuid           
-/usr/sbin/dmidecode -t 1                     
-/usr/sbin/dmidecode -s system-manufacturer   
-/usr/sbin/fdisk -l                           
-/usr/sbin/fdisk -l /dev/sdX                  
-/usr/bin/ls                                  
-/usr/bin/netstat                             
-/usr/sbin/lvdisplay    
+/usr/sbin/dmidecode -s system-uuid
+/usr/sbin/dmidecode -t 1
+/usr/sbin/dmidecode -s system-manufacturer
+/usr/sbin/fdisk -l
+/usr/sbin/fdisk -l
+/usr/bin/ls
+/usr/bin/netstat
+/usr/sbin/lvdisplay   
 
 ```
 - For example, you can add an entry like this in the `/etc/sudoers` file.
