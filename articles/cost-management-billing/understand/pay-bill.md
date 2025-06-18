@@ -76,7 +76,7 @@ Refunds are treated as a regular charge. They go to your bank account.
 
 ## Partial payments
 
-Partial payment is available for Azure global pay-as-you-go customers in China and in Egypt. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
+Partial payment is available for Azure global pay-as-you-go customers who experience a payment failure during the [Pay Now](https://learn.microsoft.com/azure/cost-management-billing/understand/pay-bill#pay-now-in-the-azure-portal) flow. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
 
 A minimum payment has a minimum value that you can pay, which varies by country/region.
 
