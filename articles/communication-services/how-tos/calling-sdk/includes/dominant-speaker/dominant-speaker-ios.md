@@ -2,7 +2,7 @@
 author: jsaurezlee-msft
 ms.service: azure-communication-services
 ms.topic: article
-ms.date: 27/01/2022
+ms.date: 06/15/2025
 ms.author: jsaurezlee
 ---
 
@@ -10,14 +10,15 @@ ms.author: jsaurezlee
 
 [!INCLUDE [common](dominant-speaker-common.md)]
 
-In order to use the Dominant Speakers call feature for iOS, the first step is to obtain the Dominant Speakers feature API object:
+To use the Dominant Speakers call feature for iOS, the first step is to obtain the Dominant Speakers object:
 
 ```swift
 let dominantSpeakersFeature = call.feature(Features.dominantSpeakers)
 ```
-The Dominant Speakers feature object have the following API structure:
+The Dominant Speakers feature object has the following structure:
+
 - `didChangeDominantSpeakers`: Event for listening for changes in the dominant speakers list.
-- `dominantSpeakersInfo`: Which gets the `DominantSpeakersInfo` object. This object has:
+- `dominantSpeakersInfo`: Which gets the `DominantSpeakersInfo` object, this object has:
     - `speakers`: A list of participant identifiers representing the dominant speakers list.
     - `lastUpdatedAt`: The date when the dominant speakers list was updated.
 

@@ -2,21 +2,22 @@
 author: jsaurezlee-msft
 ms.service: azure-communication-services
 ms.topic: article
-ms.date: 27/01/2022
+ms.date: 06/15/2025
 ms.author: jsaurezlee
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 [!INCLUDE [common](dominant-speaker-common.md)]
 
-In order to use the Dominant Speakers call feature for Android, the first step is to obtain the Dominant Speakers feature API object:
+To use the Dominant Speakers call feature for Android, the first step is to obtain the Dominant Speakers object:
 
 ```java
 DominantSpeakersFeature dominantSpeakersFeature = call.feature(Features.DOMINANT_SPEAKERS);
 ```
-The Dominant Speakers feature object have the following API structure:
+The Dominant Speakers feature object has the following structure:
+
 - `OnDominantSpeakersChanged`: Event for listening for changes in the dominant speakers list.
-- `getDominantSpeakersInfo()`: Gets the `DominantSpeakersInfo` object. This object has:
+- `getDominantSpeakersInfo()`: Gets the `DominantSpeakersInfo` object, this object has:
     - `getSpeakers()`: A list of participant identifiers representing the dominant speakers list.
     - `getLastUpdatedAt()`: The date when the dominant speakers list was updated. 
 
