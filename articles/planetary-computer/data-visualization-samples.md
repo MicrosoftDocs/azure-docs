@@ -23,9 +23,6 @@ ms.custom:
 ## Configuration details
 
 # [STAC](#tab/stac)
-# [Mosaics](#tab/mosaics)
-# [Render Options](#tab/render-options)
-# [Tile Settings](#tab/tile-settings)
 
 ## STAC Configuration
 
