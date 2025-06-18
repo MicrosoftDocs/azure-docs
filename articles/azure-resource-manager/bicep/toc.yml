@@ -340,7 +340,7 @@ items:
       displayName: fail
       href: bicep-functions-flow-control.md
     - name: Lambda functions
-      displayName: filter,map,reduce,sort,toObject,groupBy,mapValue
+      displayName: filter,groupBy,map,mapValue,reduce,sort,toObject
       href: bicep-functions-lambda.md
     - name: Logical functions
       displayName: bool
