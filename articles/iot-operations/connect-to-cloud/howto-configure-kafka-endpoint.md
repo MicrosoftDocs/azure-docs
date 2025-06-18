@@ -718,6 +718,20 @@ In this example, assume a configuration file with the following content:
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+kafkaSettings: {
+  authentication: {
+    method: 'Sasl' // Or ScramSha256, ScramSha512
+    saslSettings: {
+      saslType: 'Plain' // Or ScramSha256, ScramSha512
+      secretRef: '<SECRET_NAME>'
+    }
+  }
+}
+```
+
 # [Kubernetes (preview)](#tab/kubernetes)
 
 ```bash
