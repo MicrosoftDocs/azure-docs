@@ -14,7 +14,7 @@ ms.collection: ce-skilling-ai-copilot
 
 In this tutorial, you'll learn how to expose your app's functionality through Model Context Protocol (MCP), add it as a tool to GitHub Copilot, and interact with your app using natural language in Copilot Chat agent mode.
 
-:::image type="content" source="media/tutorial-ai-mcp-server-dotnet/mcp-call-intro.png" alt-text="Screenshot showing GitHub Copilot calling Todos MCP server hosted in Azure App Service.":::
+:::image type="content" source="media/tutorial-ai-model-context-protocol-server-dotnet/model-context-protocol-call-intro.png" alt-text="Screenshot showing GitHub Copilot calling Todos MCP server hosted in Azure App Service.":::
 
 If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available for:
 
@@ -173,7 +173,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 1. Select the **Tools** button, then select **Add More Tools...** in the dropdown.
 
-    :::image type="content" source="media/tutorial-ai-mcp-server-dotnet/add-mcp-tool.png" alt-text="Screenshot showing how to add an MCP server in GitHub Copilot Chat agent mode.":::
+    :::image type="content" source="media/tutorial-ai-model-context-protocol-server-dotnet/add-model-context-protocol-tool.png" alt-text="Screenshot showing how to add an MCP server in GitHub Copilot Chat agent mode.":::
 
 1. Select **Add MCP Server**.
 
@@ -189,11 +189,11 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 1. By default, GitHub Copilot shows you a security confirmation when you invoke an MCP server. Select **Continue**.
 
-    :::image type="content" source="media/tutorial-ai-mcp-server-dotnet/mcp-call-confirmation.png" alt-text="Screenshot showing the default security message from an MCP invocation in GitHub Copilot Chat.":::
+    :::image type="content" source="media/tutorial-ai-model-context-protocol-server-dotnet/model-context-protocol-call-confirmation.png" alt-text="Screenshot showing the default security message from an MCP invocation in GitHub Copilot Chat.":::
 
     You should now see a response that indicates that the MCP tool call is successful.
 
-    :::image type="content" source="media/tutorial-ai-mcp-server-dotnet/mcp-call-success.png" alt-text="Screenshot showing that the response from the MCP tool call in the GitHub Copilot Chat window.":::
+    :::image type="content" source="media/tutorial-ai-model-context-protocol-server-dotnet/model-context-protocol-call-success.png" alt-text="Screenshot showing that the response from the MCP tool call in the GitHub Copilot Chat window.":::
 
 ## Deploy your MCP server to App Service
 
@@ -212,7 +212,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 1. Above your modified MCP server configuration, select **Start**.
 
-    :::image type="content" source="media/tutorial-ai-mcp-server-dotnet/mcp-server-start.png" alt-text="Screenshot showing how to manually start an MCP server from the local mcp.json file.":::
+    :::image type="content" source="media/tutorial-ai-model-context-protocol-server-dotnet/model-context-protocol-server-start.png" alt-text="Screenshot showing how to manually start an MCP server from the local mcp.json file.":::
 
 1. Start a new GitHub Copilot Chat window. You should be able to view, create, update, and delete tasks in the Copilot agent.
 
