@@ -39,7 +39,7 @@ The following table summarizes how the agent behaves based on its operational mo
 | Review | Yes  | If given approval from a human reviewer, the agent executes commands related to the action. |
 | Review | No  | If given approval from a human reviewer, the agent responds with a chance to grant the necessary permissions to the agent, use the reviewer's permissions, or return manual instructions on how to achieve the action. |
 | Autonomous | Yes | The agent performs actions using the agent identity.  |
-| Autonomous | No | The agent is forced to prompt for approval from a reviewer. If granted approval, then the agent responds with a chance for the reviewer to grant the agent the necessary permissions, user the reviewer's permissions, or return manual instructions on how to achieve the action.  |
+| Autonomous | No | The agent is forced to prompt for approval from a reviewer. If granted approval, then the agent responds with a chance for the reviewer to grant the agent the necessary permissions, use the reviewer's permissions, or return manual instructions on how to achieve the action.  |
 
 > [!NOTE]
 > You can't directly remove specific permissions from the agent. To restrict the agent's access, you must remove the entire resource group from the agent's scope.
