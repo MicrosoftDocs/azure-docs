@@ -239,7 +239,7 @@ In a Consumption workflow, only the Azure Blob Storage managed connector is avai
 
 - Managed connector actions are available in Consumption or Standard workflows.
 
-- uilt-in connector actions are available only in Standard workflows.
+- Built-in connector actions are available only in Standard workflows.
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to build logic app workflows:
 
