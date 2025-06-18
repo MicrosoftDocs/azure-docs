@@ -34,7 +34,9 @@ items:
   - name: Discovery methods Appliance and Import
     items:
     - name: Discovery methods in Azure Migrate
-      href: discovery-methods-modes.md
+      items:
+      - name: Discovery methods overview
+        href: discovery-methods-modes.md
     - name: Discovery using appliance
       items:
         - name: Appliance requirements
