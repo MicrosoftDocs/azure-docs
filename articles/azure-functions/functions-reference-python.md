@@ -483,7 +483,7 @@ import logging
 app = func.FunctionApp()
 
 @app.route(route="req")
-@app.read_blob(arg_name="obj", path="samples/{id}", 
+@app.blob_input(arg_name="obj", path="samples/{id}", 
                connection="STORAGE_CONNECTION_STRING")
 def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
@@ -1397,10 +1397,10 @@ The Python standard library contains a list of built-in Python modules that are 
 To view the library for your Python version, go to:
 
 
-* [Python 3.8 standard library](https://docs.python.org/3.8/library/)
 * [Python 3.9 standard library](https://docs.python.org/3.9/library/)
 * [Python 3.10 standard library](https://docs.python.org/3.10/library/)
 * [Python 3.11 standard library](https://docs.python.org/3.11/library/)
+* [Python 3.12 standard library](https://docs.python.org/3.12/library/)
 
 ### Azure Functions Python worker dependencies
 

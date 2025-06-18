@@ -301,19 +301,20 @@ import azure.functions as func
 
 app = func.FunctionApp()
 
-@app.route(route="table_out_binding", binding_arg_name="message")
-@app.table_output(arg_name="$return",
+@app.route(route="table_out_binding")
+@app.table_output(arg_name="message",
                   connection="AzureWebJobsStorage",
                   table_name="messages")
-def table_out_binding(req: func.HttpRequest, message: func.Out[func.HttpResponse]):
-    rowKey = str(uuid.uuid4())
+def table_out_binding(req: func.HttpRequest, message: func.Out[str]):
+    row_key = str(uuid.uuid4())
     data = {
         "Name": "Output binding message",
         "PartitionKey": "message",
-        "RowKey": rowKey
+        "RowKey": row_key
     }
-    message.set(json.dumps(data))
-    return func.HttpResponse(f"Message created with the rowKey: {rowKey}")
+    table_json = json.dumps(data)
+    message.set(table_json)
+    return table_json
 ```
 
 # [v1](#tab/python-v1)
