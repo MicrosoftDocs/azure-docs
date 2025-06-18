@@ -13,7 +13,7 @@ ms.date: 06/16/2025
 
 # Troubleshooting data ingestion in Microsoft Planetary Computer Pro
 
-Data ingestion issues in Microsoft Planetary Computer Pro GeoCatalog typically fall into two categories: access permission problems and STAC validation errors. This article helps you identify and resolve these common ingestion failures.
+Data ingestion issues in Microsoft Planetary Computer Pro GeoCatalog typically fall into two categories: access permission problems and STAC (SpatioTemporal Asset Catalog) validation errors. This article helps you identify and resolve these common ingestion failures.
 
 ## Prerequisites
 
@@ -31,9 +31,9 @@ Data ingestion workflows fail with specific [error codes](./error-codes-ingestio
 
 ## Identifying Errors during Ingestion
 
-For [Single Item Ingestion](./ingestion-overview#single-item-ingestion), if an ingestion error occurs, the error code will be returned by the API response or in the user interface.
+For [Single Item Ingestion](./ingestion-overview#single-item-ingestion), if an ingestion error occurs, the API response or user interface returns the error code.
 
-For [Bulk Ingestion](./ingestion-overview/#bulk-ingestion), the errors can be different for each of the individual STAC Items you have attempted to ingest. To see the individual errors, navigate to the Azure portal and locate the **Diagnostic Settings** for your Geocatalog resource. Here, you can enable **Ingestion Logs.**
+For [Bulk Ingestion](./ingestion-overview/#bulk-ingestion), the errors can be different for each of the individual STAC Items. To see the individual errors, navigate to the Azure portal and locate the **Diagnostic Settings** for your GeoCatalog resource. Here, you can enable **Ingestion Logs.**
 
    [ ![Screenshot of searching for GeoCatalogs in the Azure portal.](media/ingestion-diagnostic-settings.png) ](media/ingestion-diagnostic-settings.png#lightbox)
 
@@ -41,7 +41,7 @@ Once logging is enabled, attempt your ingestion again. If the ingestion fails, g
 
 ## Cause 1: GeoCatalog can't access source data
 
-The GeoCatalog service lacks the necessary permissions to read your STAC metadata (for example, `catalog.json`) and the associated data assets (for example, GeoTIFF files). This is because a valid [ingestion source](./ingestion-source.md) hasn't been configured for the storage location. This applies to both the metadata files and the asset files, which may be in different locations.
+The GeoCatalog service lacks the necessary permissions to read your STAC metadata (for example, `catalog.json`) and the associated data assets (for example, GeoTIFF files). This error is because a valid [ingestion source](./ingestion-source.md) isn't configured for the storage location. Ingestion sources must be configured for both the metadata files and the asset files if they're configured in different locations.
 
 ### Solution 1: Configure ingestion source permissions
 
@@ -58,7 +58,7 @@ The GeoCatalog service lacks the necessary permissions to read your STAC metadat
    - Check that the managed identity is associated with your GeoCatalog
    
    For SAS tokens:
-   - Verify the token hasn't expired
+   - Verify the token isn't expired
    - Ensure the token has `read` and `list` permissions
    - Confirm the token is scoped to the correct container
 
@@ -78,24 +78,24 @@ After verifying and correcting the ingestion source configuration, try the inges
 
 ## Cause 2: STAC metadata validation failed
 
-The ingestion service strictly enforces the [STAC specification](./stac-overview.md). Your ingestion will fail if your STAC Catalog, Collection, or Item JSONs don't conform to the standard or meet specific GeoCatalog requirements.
+The ingestion service strictly enforces the [STAC specification](./stac-overview.md). Your ingestion fails if your STAC Catalog, Collection, or Item JSONs don't conform to the standard or meet specific GeoCatalog requirements.
 
 ### Solution 2.1: Fix invalid STAC format and values
 
-1.  **Validate Locally:** Before ingesting, use a library like `pystac` to validate your STAC objects. This can catch many common formatting issues.
+1.  **Validate Locally:** Before ingesting, use a library like `pystac` to validate your STAC objects. This approach can catch many common formatting issues before ingesting data.
 2.  **Check Required Fields:**
     *   Ensure all mandatory STAC fields are present in your metadata.
     *   For single-item ingestion, the STAC Item JSON **must** include the `collection` field, with its value set to the ID of the target collection in your GeoCatalog.
 3.  **Format Datetime:** Verify that all `datetime` fields conform to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard (for example, `YYYY-MM-DDTHH:MM:SSZ`). The `pystac` library provides utilities to format datetimes correctly.
 4.  **Check for Invalid Characters and Lengths:**
-    *   STAC Collection IDs, Item IDs, and Asset keys must not contain the following characters: `-`, `_`, `+`, `(`, `)`, and `.`.
-    *   Item IDs must be less than 150 characters.
-    *   Asset keys must be less than 256 characters.
+    *   STAC `Collection IDs`, `Item IDs`, and `Asset keys` must not contain the following characters: `-`, `_`, `+`, `(`, `)`, and `.`.
+    *   `Item IDs` must be fewer than 150 characters.
+    *   `Asset keys` must be fewer than 256 characters.
 5.  **Retry Ingestion:** After correcting the STAC metadata, try the ingestion again.
 
 ### Solution 2.2: Simplify STAC extensions
 
-1.  **Identify Extensions:** Check if your STAC Items use any [STAC extensions](https://stac-extensions.github.io/). While powerful, they add complexity to validation, and many are not finalized.
+1.  **Identify Extensions:** Check if your STAC Items use any [STAC extensions](https://stac-extensions.github.io/). While powerful, they add complexity to validation, and many aren't in a finalized status.
 2.  **Remove Non-Essential Extensions:** If you suspect an extension is causing a `StacValidationFailed` error, try removing it from your STAC Item's `stac_extensions` list and any associated fields.
 3.  **Re-validate and Retry:** Validate the simplified STAC Item locally, then retry the ingestion.
 
