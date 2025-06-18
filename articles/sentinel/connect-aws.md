@@ -209,7 +209,7 @@ Setting up this connector has two steps:
 
 ## Send formatted CloudWatch events to S3 using a lambda function (optional)
 
-If your CloudWatch logs aren't in the format accepted by Microsoft Sentinel - .csv file in a GZIP format without a header - use a lambda function ([view the source code](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLambdaFunction.py)) within AWS to send CloudWatch events to an S3 bucket in the accepted format.
+If your CloudWatch logs aren't in the format accepted by Microsoft Sentinel - .csv file in a GZIP format without a header - use a lambda function [view the source code](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/CloudWatchLambdaFunction.py) within AWS to send CloudWatch events to an S3 bucket in the accepted format.
 
 The lambda function uses Python 3.9 runtime and x86_64 architecture.
 
