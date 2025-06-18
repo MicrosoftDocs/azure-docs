@@ -227,7 +227,7 @@ If you use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/
 {
   "endpointType": "FabricOneLake",
   "fabricOneLakeSettings": {
-    "oneLakePathType": "Tables" // Or "Files"
+    "oneLakePathType": "Tables"
   }
 }
 ```

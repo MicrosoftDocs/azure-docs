@@ -1156,8 +1156,6 @@ You can set a client ID prefix for the MQTT client. The client ID is generated b
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Client ID prefix** field to specify the prefix.
 
-# [Bicep](#tab/bicep)
-
 # [Azure CLI](#tab/cli)
 
 ```json
@@ -1167,6 +1165,8 @@ In the operations experience data flow endpoint settings page, select the **Adva
     }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 mqttSettings: {

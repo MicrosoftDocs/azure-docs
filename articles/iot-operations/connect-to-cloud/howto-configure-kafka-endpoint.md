@@ -1425,7 +1425,7 @@ In the operations experience data flow endpoint settings page, select the **Adva
 {
     "endpointType": "Kafka",
     "kafkaSettings": {
-        "cloudEventAttributes": "Propagate" // Or CreateOrRemap
+        "cloudEventAttributes": "Propagate"
     }
 }
 ```
