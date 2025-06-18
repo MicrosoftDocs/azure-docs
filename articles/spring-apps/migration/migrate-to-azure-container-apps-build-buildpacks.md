@@ -29,7 +29,7 @@ This article shows you how to create a builder with a TOML file, and then build 
 
 ## Standard plan
 
-The Azure Spring Apps Standard plan comes with a built-in builder, which you can't customize. To replace this builder, you need to create a TOML file for your own builder. Below is an example TOML file that can be customized to build a Java Spring Boot app with Application Insights. Adjust the TOML file based on your app's requirements. For more information about open-source Paketo Buildpacks, please refer to [Paketo Buildpacks](https://github.com/paketo-buildpacks).
+The Azure Spring Apps Standard plan comes with a built-in builder, which you can't customize. To replace this builder, you need to create a TOML file for your own builder. Below is an example TOML file that can be customized to build a Java Spring Boot app with Application Insights. Adjust the TOML file based on your app's requirements. You can refer to the configuration of [Paketo Java Azure Composite Buildpack](https://github.com/paketo-buildpacks/java-azure). Please note that Paketo Java Azure Buildpack has been sunset. For more information, refer to [Paketo Buildpacks Sunsets Java Azure Composite Buildpack](https://blog.paketo.io/posts/paketo-java-azure-sunsets/)
 
 ```toml
 # filename: standard-builder.toml
@@ -202,14 +202,44 @@ The following table shows the Paketo Buildpack equivalents to the buildpacks use
 | `tanzu-buildpacks/python`            | [paketo-buildpacks/python](https://github.com/paketo-buildpacks/python)                       |
 | `tanzu-buildpacks/web-servers`       | [paketo-buildpacks/web-servers](https://github.com/paketo-buildpacks/web-servers)             |
 
-Take the default builder in the Enterprise plan as an example. With the following TOML file, named **enterprise-builder.toml**, you can create a similar builder on your local machine:
+Please note that [paketo-buildpacks/java-azure](https://github.com/paketo-buildpacks/java-azure) has been sunset. It has to be replaced by an alternative solution. For more information, refer to [Paketo Buildpacks Sunsets Java Azure Composite Buildpack](https://blog.paketo.io/posts/paketo-java-azure-sunsets/).
+
+To replace the builder in the Enterprise plan, you need to create a TOML file for your own builder. Below is an example TOML file that can be customized. With this TOML file, you can create a similar builder on your local machine. Please adjust the TOML file based on your app's requirements. You can refer to the configuration of [paketo-buildpacks/java-azure](https://github.com/paketo-buildpacks/java-azure).
 
 ```toml
 # filename: enterprise-builder.toml
 
 [[buildpacks]]
-uri = "docker://docker.io/paketobuildpacks/java-azure:latest"
-id = "paketo-buildpacks/java-azure"
+uri = "docker://docker.io/paketobuildpacks/ca-certificates:3.9.0"
+id = "paketo-buildpacks/ca-certificates"
+
+[[buildpacks]]
+uri = "docker://docker.io/paketobuildpacks/microsoft-openjdk:4.0.1"
+id = "paketo-buildpacks/microsoft-openjdk"
+
+[[buildpacks]]
+uri = "docker://docker.io/paketobuildpacks/syft:2.6.1"
+id = "paketo-buildpacks/syft"
+
+[[buildpacks]]
+uri = "docker://docker.io/paketobuildpacks/maven:6.19.2"
+id = "paketo-buildpacks/maven"
+
+[[buildpacks]]
+uri = "docker://docker.io/paketobuildpacks/executable-jar:6.12.0"
+id = "paketo-buildpacks/executable-jar"
+
+[[buildpacks]]
+uri = "docker://docker.io/paketobuildpacks/spring-boot:5.32.0"
+id = "paketo-buildpacks/spring-boot"
+
+[[buildpacks]]
+uri = "docker://docker.io/paketobuildpacks/azure-application-insights:5.23.0"
+id = "paketo-buildpacks/azure-application-insights"
+
+[[buildpacks]]
+uri = "docker://docker.io/paketobuildpacks/environment-variables:4.8.0"
+id = "paketo-buildpacks/environment-variables"
 
 [[buildpacks]]
 uri = "docker://docker.io/paketobuildpacks/dotnet-core:latest"
@@ -232,35 +262,75 @@ uri = "docker://docker.io/paketobuildpacks/python:latest"
 id = "paketo-buildpacks/python"
 
 [[order]]
-[[order.group]]
-id = "paketo-buildpacks/java-azure"
+  [[order.group]]
+    id = "paketo-buildpacks/ca-certificates"
+    optional = true
+    version = "3.9.0"
+
+  [[order.group]]
+    id = "paketo-buildpacks/microsoft-openjdk"
+    version = "4.0.1"
+
+  [[order.group]]
+    id = "paketo-buildpacks/syft"
+    optional = true
+    version = "2.6.1"
+
+  [[order.group]]
+    id = "paketo-buildpacks/maven"
+    optional = true
+    version = "6.19.2"
+
+  [[order.group]]
+    id = "paketo-buildpacks/executable-jar"
+    optional = true
+    version = "6.12.0"
+
+  [[order.group]]
+    id = "paketo-buildpacks/spring-boot"
+    optional = true
+    version = "5.32.0"
+
+  [[order.group]]
+    id = "paketo-buildpacks/azure-application-insights"
+    optional = true
+    version = "5.23.0"
+
+  [[order.group]]
+    id = "paketo-buildpacks/environment-variables"
+    optional = true
+    version = "4.8.0"
 
 [[order]]
-[[order.group]]
-id = "paketo-buildpacks/dotnet-core"
+  [[order.group]]
+  id = "paketo-buildpacks/java-azure"
 
 [[order]]
-[[order.group]]
-id = "paketo-buildpacks/go"
+  [[order.group]]
+  id = "paketo-buildpacks/dotnet-core"
 
 [[order]]
-[[order.group]]
-id = "paketo-buildpacks/web-servers"
+  [[order.group]]
+  id = "paketo-buildpacks/go"
 
 [[order]]
-[[order.group]]
-id = "paketo-buildpacks/nodejs"
+  [[order.group]]
+  id = "paketo-buildpacks/web-servers"
 
 [[order]]
-[[order.group]]
-id = "paketo-buildpacks/python"
+  [[order.group]]
+  id = "paketo-buildpacks/nodejs"
+
+[[order]]
+  [[order.group]]
+  id = "paketo-buildpacks/python"
 
 [build]
-image = "paketobuildpacks/build-jammy-base:latest"
+  image = "paketobuildpacks/build-jammy-base:latest"
 
 [run]
-[[run.images]]
-image = "paketobuildpacks/run-jammy-base:latest"
+  [[run.images]]
+  image = "paketobuildpacks/run-jammy-base:latest"
 ```
 
 To create a build with this TOML file, use the following command:
