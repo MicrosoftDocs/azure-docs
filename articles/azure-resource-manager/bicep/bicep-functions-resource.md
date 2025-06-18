@@ -851,7 +851,7 @@ The `toLogicalZones` function maps physical zone names to their logical zone equ
 
 ### Examples
 
-The following example retrieves the logical zone for a physical zone in West US 2 for a specific subscription:
+The following example retrieves the logical zones for a list of physical zones in West US 2 for a specific subscription:
 
 ```bicep
 param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
@@ -965,7 +965,7 @@ The `toPhysicalZones` function maps logical zone names to their physical zone eq
 
 ### Examples
 
-The following example retrieves the physical zone for a logical zone in West US 2 for a specific subscription:
+The following example retrieves the physical zones for a list of logical zones in West US 2 for a specific subscription:
 
 ```bicep
 param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
