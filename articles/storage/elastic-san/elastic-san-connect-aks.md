@@ -4,7 +4,7 @@ description: Use the Kubernetes iSCSI CSI driver to configure Azure Elastic SAN 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 05/31/2024
+ms.date: 06/18/2025
 ms.author: rogarana
 ---
 

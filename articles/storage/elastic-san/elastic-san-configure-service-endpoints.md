@@ -4,7 +4,7 @@ description: Learn how to configure service endpoints to access Azure Elastic SA
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 01/24/2025
+ms.date: 06/18/2025
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -13,19 +13,19 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 
 A service endpoint enables secure connectivity to Elastic SAN from a subnet within your virtual network, without requiring a private IP. Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints.
 
-To use a service endpoint, you must configure [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) on your Elastic SAN volume group to allow traffic from specific subnets. These network rules apply only to the public endpoint of the volume group — they are not used for private endpoints. In other words, traffic from a subnet using a service endpoint must be explicitly permitted through a configured rule at the volume group level. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. 
-
-This article configures service endpoint connections to your Elastic SAN.
+This article shows you how to configure service endpoint connections to your Elastic SAN.
 
 ## Prerequisites
 
+- [Deploy an Elastic SAN](elastic-san-create.md).
+- Read through [Learn about networking configurations for Elastic SAN](elastic-san-networking.md) to understand whether private endpoints or service endpoints work better for your environment.
 - If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
 - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
 
 ## Configure public network access
 
-You enable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
+You enable public internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
 
 You can enable public network access when you create an elastic SAN, or enable it for an existing SAN using the Azure PowerShell module or the Azure CLI.
 
@@ -88,7 +88,7 @@ Virtual network service endpoints are public and accessible via the internet. Yo
 
 ### [PowerShell](#tab/azure-powershell)
 
-Use this sample code to create a storage service endpoint for your Elastic SAN volume group with PowerShell.
+Use the following sample code to create a storage service endpoint for your Elastic SAN volume group.
 
 ```powershell
 # Define some variables
@@ -106,7 +106,7 @@ $Vnet | Set-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $Subne
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use this sample code to create a storage service endpoint for your Elastic SAN volume group with the Azure CLI.
+Use the following sample code to create a storage service endpoint for your Elastic SAN volume group:
 
 ```azurecli
 # Define some variables
@@ -139,46 +139,42 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ### [PowerShell](#tab/azure-powershell)
 
-- List virtual network rules.
-- Enable service endpoint for Azure Storage on an existing virtual network and subnet.
-- Add a network rule for a virtual network and subnet.
+The following script lists enables the service endpoint for Azure Storage on an existing virtual network and subnet, then adds a network rule for a virtual network and subnet.
 
-    > [!TIP]
-    > To add a network rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
+> [!TIP]
+> To add a network rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
 
-    ```azurepowershell
-    $Rules = Get-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSanName $sanName -Name $volGroupName
-    $Rules.NetworkAclsVirtualNetworkRule
+```azurepowershell
+$Rules = Get-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSanName $sanName -Name $volGroupName
+$Rules.NetworkAclsVirtualNetworkRule
 
-    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
+Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
 
-    $rule = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId $Subnet.Id -Action Allow
-    
-    Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $RgName -ElasticSanName $EsanName -VolumeGroupName $EsanVgName -NetworkAclsVirtualNetworkRule $rule
-    ```
+$rule = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId $Subnet.Id -Action Allow
 
-- Remove a virtual network rule.
+Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $RgName -ElasticSanName $EsanName -VolumeGroupName $EsanVgName -NetworkAclsVirtualNetworkRule $rule
+```
 
-    ```azurepowershell
-    ## You can remove a virtual network rule by object, by resource ID, or by removing all the rules in a volume group
-    ### remove by networkRule object
-    Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName -NetworkAclsVirtualNetworkRule $virtualNetworkRule1,$virtualNetworkRule2
-    ### remove by networkRuleResourceId
-    Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName -NetworkAclsVirtualNetworkResourceId "myResourceID"
-    ### Remove all network rules in a volume group by pipeline
-    ((Get-AzElasticSanVolumeGroup -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName).NetworkAclsVirtualNetworkRule) | Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName
-    ```
+If you need to, you can use the following script to remove a virtual network rule:
+
+```azurepowershell
+## You can remove a virtual network rule by object, by resource ID, or by removing all the rules in a volume group
+### remove by networkRule object
+Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName -NetworkAclsVirtualNetworkRule $virtualNetworkRule1,$virtualNetworkRule2
+### remove by networkRuleResourceId
+Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName -NetworkAclsVirtualNetworkResourceId "myResourceID"
+### Remove all network rules in a volume group by pipeline
+((Get-AzElasticSanVolumeGroup -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName).NetworkAclsVirtualNetworkRule) | Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName
+```
 
 ### [Azure CLI](#tab/azure-cli)
 
-- List information from a particular volume group, including their virtual network rules.
-- Enable service endpoint for Azure Storage on an existing virtual network and subnet.
-- Add a network rule for a virtual network and subnet.
+The following script lists information from a particular volume group, enables the service endpoint for Azure Storage on an existing virtual network and subnet, and adds a networking rule for a virtual network and subnet.
 
-    > [!TIP]
-    > To add a rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully-qualified subnet ID in the form `/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>`.
-    >
-    > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Microsoft Entra tenant.
+> [!TIP]
+> To add a rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully-qualified subnet ID in the form `/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>`.
+>
+> You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Microsoft Entra tenant.
 
 ```azurecli
 az elastic-san volume-group show -e $sanName -g $RgName -n $volumeGroupName

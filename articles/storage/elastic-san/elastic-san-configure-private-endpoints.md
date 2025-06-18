@@ -4,7 +4,7 @@ description: Learn how to configure private endpoint connections to Azure Elasti
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 06/09/2025
+ms.date: 06/18/2025
 ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -17,9 +17,11 @@ This article covers configuring your Elastic SAN volume group to use private end
 
 ## Prerequisites
 
-- If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
-- If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli)
-- Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN
+- [Deploy an Elastic SAN](elastic-san-create.md).
+- Read through [Learn about networking configurations for Elastic SAN](elastic-san-networking.md) to understand whether private endpoints or service endpoints work better for your environment.
+- If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
+- If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
+- Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
 
 ## Configure a private endpoint
 

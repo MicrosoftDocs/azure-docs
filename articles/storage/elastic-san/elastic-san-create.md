@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Elastic SAN with the Azure portal, Azu
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 06/10/2025
+ms.date: 06/18/2025
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -37,7 +37,7 @@ This article explains how to deploy and configure an Elastic SAN.
 
     Increasing your SAN's base size will also increase its IOPS and bandwidth. Increasing additional capacity only increase its total size (base+additional) but won't increase IOPS or bandwidth, however, it's cheaper than increasing base.
 
-1. Select **Next : Volume groups**.
+1. Select **Next**.
 
     :::image type="content" source="media/elastic-san-create/elastic-san-create-flow.png" alt-text="Screenshot of creation flow." lightbox="media/elastic-san-create/elastic-san-create-flow.png":::
 

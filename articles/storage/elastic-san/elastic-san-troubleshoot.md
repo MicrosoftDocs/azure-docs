@@ -4,7 +4,7 @@ description: Troubleshoot issues with Azure Elastic SAN
 author: adarshv98
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 04/15/2025
+ms.date: 06/18/2025
 ms.author: rogarana
 ---
 

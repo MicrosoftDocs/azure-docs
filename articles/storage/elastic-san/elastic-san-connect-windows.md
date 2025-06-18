@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN volume from an individ
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 06/18/2025
 ms.author: rogarana
 ms.custom: references_regions
 ---
