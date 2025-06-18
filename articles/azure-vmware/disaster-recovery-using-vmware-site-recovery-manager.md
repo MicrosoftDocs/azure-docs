@@ -178,7 +178,7 @@ If you no longer require VMware SRM, you must uninstall it in a clean manner. Be
 2. On the **Site Recovery** home tab, select a site pair and select **View Details**.
 3. Select the **Recovery Plans** tab, right-click on a recovery plan and select **Delete**.
 4. Select the **Protection Groups** tab, select a protection group, and select the **Virtual Machines** tab.
-5. Highlight all virtual machines, right-click, and select **Remove Protection**.Removing protection from a VM deletes the placeholder VM from the recovery site. Repeat this operation for all protection groups.
+5. Highlight all virtual machines, right-click, and select **Remove Protection**. Removing protection from a VM deletes the placeholder VM from the recovery site. Repeat this operation for all protection groups.
 6. In the **Protection Groups** tab, right-click a protection group and select **Delete**.
 7. Select **Site Pair** > **Configure** and remove all inventory mappings. Select each of the **Network Mappings**, **Folder Mappings**, and **Resource Mappings** tabs. In each tab, select a site, right-click a mapping, and select **Delete**.
 8. For both sites, select **Placeholder Datastores**, right-click the placeholder datastore, and select **Remove**.
