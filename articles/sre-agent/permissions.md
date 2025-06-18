@@ -4,15 +4,15 @@ description: Learn how to configure and manage permissions for Azure SRE Agent t
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 06/17/2025
+ms.date: 06/18/2025
 ms.service: azure
 ---
 
 # Configure permissions modes in Azure SRE Agent (preview)
 
-Azure SRE Agent allows you to decide if you want the agent to act on its own (*autonomous mode*), or with your input (*review mode*).
+Azure SRE Agent allows you to decide if you want the agent to act on it's own (*autonomous mode*), or with your input (*review mode*).
 
-As the agent works in review mode, it requires your approval for every action or write operation it performs. In autonomous mode, the agent performs these actions on your behalf, without stopping for explicit approval.
+When working in review mode, the agent requires your approval for every action or write operation it performs. In autonomous mode, the agent performs these actions on your behalf, without stopping for explicit approval.
 
 ## Permission requirements
 
@@ -36,10 +36,10 @@ The following table summarizes how the agent behaves based on its operational mo
 
 | Mode | Identity has permissions | Behavior |
 |---|---|---|
-| Review | Yes  | ▪ Prompt user for approval<br>▪ If the user approves, perform action using the agent identity<br>▪ If the user declines, doesn't take any action and finishes the thread. |
-| Review | No  | ▪ Prompt user for approval<br>▪ If user approves, provide 3 options (give agent permissions, use user permissions, give instructions for user to execute)<br>▪ If the user declines, doesn't take any action and finishes the thread |
-| Autonomous | Yes | ▪ Perform action using the agent identity  |
-| Autonomous | No | ▪ Provides 3 options (give agent permissions, use user permissions, give instructions for user to execute)  |
+| Review | Yes  | If given approval from a human reviewer, the agent executes commands related to the action. |
+| Review | No  | If given approval from a human reviewer, then the agent responds with a chance for the reviewer to grant the agent the necessary permissions, user the reviewer's permissions, or return manual instructions on how to achieve the action. |
+| Autonomous | Yes | The agent performs actions using the agent identity.  |
+| Autonomous | No | The agent is forced to prompt for approval from a reviewer. If granted approval, then the agent responds with a chance for the reviewer to grant the agent the necessary permissions, user the reviewer's permissions, or return manual instructions on how to achieve the action.  |
 
 > [!NOTE]
 > You can't directly remove specific permissions from the agent. To restrict the agent's access, you must remove the entire resource group from the agent's scope.
