@@ -33,7 +33,7 @@ A data flow profile named *default* is created when Azure IoT Operations is depl
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot operations dataflow profile show](/cli/azure/iot/ops/dataflow/profile/show#az-iot-ops-dataflow-profile-show) command to view the default data flow profile:
+Use the [az iot operations dataflow profile show](/cli/azure/iot/ops/dataflow/profile#az-iot-ops-dataflow-profile-show) command to view the default data flow profile:
 
 ```azurecli
 az iot operations dataflow profile show --resource-group <ResourceGroupName> --instance <AioInstanceName> --name default
@@ -110,7 +110,7 @@ To create a new data flow profile, specify the name of the profile and the insta
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot operations dataflow profile create](/cli/azure/iot/ops/dataflow/profile/create#az-iot-ops-dataflow-profile-create) command to create a new data flow profile:
+Use the [az iot operations dataflow profile create](/cli/azure/iot/ops/dataflow/profile#az-iot-ops-dataflow-profile-create) command to create a new data flow profile:
 
 ```azurecli
 az iot operations dataflow profile create --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <ProfileName>
@@ -166,7 +166,7 @@ To manually scale the data flow profile, specify the number of instances you wan
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot operations dataflow profile update](/cli/azure/iot/ops/dataflow/profile/update#az-iot-ops-dataflow-profile-update) command to update the instance count of a data flow profile:
+Use the [az iot operations dataflow profile update](/cli/azure/iot/ops/dataflow/profile#az-iot-ops-dataflow-profile-update) command to update the instance count of a data flow profile:
 
 ```azurecli
 az iot operations dataflow profile update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <ProfileName> --profile-instance <InstanceCount>
@@ -214,7 +214,7 @@ To learn how to configure these diagnostic settings, see [ProfileDiagnostics](/r
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot operations dataflow profile update](/cli/azure/iot/ops/dataflow/profile/update#az-iot-ops-dataflow-profile-update) command to update the diagnostics settings of a data flow profile:
+Use the [az iot operations dataflow profile update](/cli/azure/iot/ops/dataflow/profile#az-iot-ops-dataflow-profile-update) command to update the diagnostics settings of a data flow profile:
 
 ```azurecli
 az iot operations dataflow profile update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <ProfileName> --log-level <level>
