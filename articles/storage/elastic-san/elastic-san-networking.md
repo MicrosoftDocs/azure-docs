@@ -1,198 +1,86 @@
 ---
-title: Configure networking for Azure Elastic SAN
-description: Learn how to secure Azure Elastic SAN volumes through access configuration.
+title: Azure Elastic SAN networking concepts
+description: Learn about available Azure Elastic SAN networking options, including storage service endpoints, private endpoints, and iSCSI.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: how-to
-ms.date: 01/24/2025
+ms.topic: concept-article
+ms.date: 06/10/2025
 ms.author: rogarana
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Configure network access for Azure Elastic SAN
+# Learn about networking configurations for Elastic SAN
 
-You must configure a path for network traffic to connect to your Azure Elastic SAN volumes. There are two configurations you can setup: Private Endpoints or service endpoints. Generally, if you can, you should use Private Endpoints as they privately route all traffic between your virtual network and your volume groups over a private link, through the Microsoft backbone network. Whereas service endpoints are public, and accessible via the internet. 
+Azure Elastic SAN allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
-This article describes how to configure your Elastic SAN to allow access from your Azure virtual network infrastructure.
+You can configure Elastic SAN volume groups to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets can belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Microsoft Entra tenant. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
 
-## Prerequisites
+Depending on your configuration, applications on peered virtual networks or on-premises networks can also access volumes in the group. On-premises networks must be connected to the virtual network by a VPN or ExpressRoute. For more information about virtual network configurations, see [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
-- [Deploy an Elastic SAN](elastic-san-create.md)
-- If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
-- If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli)
-    - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN
+There are two types of virtual network endpoints you can configure to allow access to an Elastic SAN volume group:
 
-## Configure public network access
+- [Storage service endpoints](#storage-service-endpoints)
+- [Private endpoints](#private-endpoints)
 
-You enable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
+Generally, you should use private endpoints instead of service endpoints since they offer better capabilities. For more information, see [Azure Private Link](../../private-link/private-endpoint-overview.md). For more details on the differences between the two, see [Compare private endpoints and service endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints). 
 
-You can enable public network access when you create an elastic SAN, or enable it for an existing SAN using the Azure PowerShell module or the Azure CLI.
+After configuring endpoints, you can configure network rules to further control access to your Elastic SAN volume group. Once the endpoints and network rules have been configured, clients can connect to volumes in the group to process their workloads.
 
-# [Portal](#tab/azure-portal)
+## Private endpoints
 
-Use the Azure PowerShell module or the Azure CLI to enable public network access.
+Azure [Private Link](../../private-link/private-link-overview.md) lets you access an Elastic SAN volume group securely over a [private endpoint](../../private-link/private-endpoint-overview.md) from a virtual network subnet. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating the risk of exposing your service to the public internet. An Elastic SAN private endpoint uses a set of IP addresses from the subnet address space for each volume group. The maximum number used per endpoint is 20.
 
-# [PowerShell](#tab/azure-powershell)
+Private endpoints have several advantages over service endpoints. For a complete comparison of private endpoints to service endpoints, see [Compare private endpoints and service endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
-Use this sample code to update an Elastic SAN to enable public network access using PowerShell. Replace the values of `RgName` and `EsanName` with your own, then run the sample:
+### How it works
 
-```powershell
-# Set the variable values.
-$RgName       = "<ResourceGroupName>"
-$EsanName     = "<ElasticSanName>"
-# Update the Elastic San.
-Update-AzElasticSan -Name $EsanName -ResourceGroupName $RgName -PublicNetworkAccess Enabled
-```
+Traffic between the virtual network and the Elastic SAN is routed over an optimal path on the Azure backbone network. Unlike service endpoints, you don't need to configure network rules to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints.
 
-# [Azure CLI](#tab/azure-cli)
+For details on how to configure private endpoints, see [Configure private endpoints for Azure Elastic SAN](elastic-san-configure-private-endpoints.md).
 
-Use this sample code to update an Elastic SAN to enable public network access using the Azure CLI. Replace the values of `RgName` and `EsanName` with your own values:
+## Public network access
 
-```azurecli
-# Set the variable values.
-$RgName="<ResourceGroupName>"
-$EsanName="<ElasticSanName>"
-# Update the Elastic San.
-az elastic-san update \
-    --elastic-san-name $EsanName \
-    --resource-group $RgName \
-    --public-network-access enabled
-```
+When you create a SAN, you can enable or disable public internet access to your Elastic SAN endpoints at the SAN level. If you're exclusively using private endpoints, disable public network access, only enable it if you're using service endpoints. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups in that SAN over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints.
 
----
+## Storage service endpoints
 
-## Configure iSCSI error detection
+[Azure Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) provide secure and direct connectivity to Azure services using an optimized route over the Azure backbone network. Service endpoints allow you to secure your critical Azure service resources so only specific virtual networks can access them.
 
-### Enable iSCSI error detection
+[Cross-region service endpoints for Azure Storage](../common/storage-network-security.md#azure-storage-cross-region-service-endpoints) work between virtual networks and storage service instances in any region. With cross-region service endpoints, subnets no longer use a public IP address to communicate with any storage account, including those in another region. Instead, all the traffic from a subnet to a storage account uses a private IP address as a source IP.
 
-To enable CRC-32C checksum verification for iSCSI headers or data payloads, set CRC-32C on header or data digests for all connections on your clients that connect to Elastic SAN volumes. To do this, connect your clients to Elastic SAN volumes using multi-session scripts generated either in the Azure portal or provided in either the [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-Linux.md) Elastic SAN connection articles.
+> [!TIP]
+> The original local service endpoints, identified as **Microsoft.Storage**, are supported for backward compatibility, but you should create cross-region endpoints, identified as **Microsoft.Storage.Global**, for new deployments.
+>
+> Cross-region service endpoints and local ones can't coexist on the same subnet. To use cross-region service endpoints, delete existing **Microsoft.Storage** endpoints and recreate them as **Microsoft.Storage.Global**.
 
-If you need to, you can do this without the multi-session connection scripts. On Windows, you can do this by setting header or data digests to 1 during login to the Elastic SAN volumes (`LoginTarget` and `PersistentLoginTarget`). On Linux, you can do this by updating the global iSCSI configuration file (iscsid.conf, generally found in /etc/iscsi directory). When a volume is connected, a node is created along with a configuration file specific to that node (for example, on Ubuntu it can be found in /etc/iscsi/nodes/$volume_iqn/portal_hostname,$port directory) inheriting the settings from global configuration file. If you have already connected volumes to your client before updating your global configuration file, update the node specific configuration file for each volume directly, or using the following command:
+## Control network traffic
 
-```sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n $iscsi_setting_name -v $setting_value```
+### Private endpoints
 
-Where
-- $volume_iqn: Elastic SAN volume IQN
-- $portal_hostname: Elastic SAN volume portal hostname
-- $port: 3260
-- $iscsi_setting_name: node.conn[0].iscsi.HeaderDigest (or) node.conn[0].iscsi.DataDigest 
-- $setting_value: CRC32C
+When you approve the creation of a private endpoint, it grants implicit access to all traffic from the subnet hosting the private endpoint. If you need to control traffic at a more granular level, use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md).
 
-### Enforce iSCSI error detection
+### Service endpoints
 
-To enforce iSCSI error detection, set CRC-32C for both header and data digests on your clients and enable the CRC protection property on the volume group that contains volumes already connected to or have yet to be connected to from your clients. If your Elastic SAN volumes are already connected and don't have CRC-32C for both digests, disconnect the volumes and reconnect them using multi-session scripts generated in the Azure portal when connecting to an Elastic SAN volume, or from the [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-Linux.md) Elastic SAN connection articles.
+You need to configure virtual network rules when using service endpoints because Service endpoints block all incoming requests for data by blocked by default. Each volume group in your Elastic SAN supports up to 200 virtual network rules. If you delete a subnet that has been included in a network rule, it's removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group. Clients granted access via these network rules must also be granted the appropriate permissions to the Elastic SAN to volume group. To learn how to define network rules, see [Configure virtual network rules](elastic-san-configure-service-endpoints.md#configure-virtual-network-rules)
+
+## Data Integrity
+
+Data integrity is important for preventing data corruption in cloud storage. TCP provides a foundational level of data integrity through its checksum mechanism, it can be enhanced over iSCSI with more robust error detection with a cyclic redundancy check (CRC), specifically CRC-32C. CRC-32C can be used to add checksum verification for iSCSI headers and data payloads.
+
+Elastic SAN supports CRC-32C checksum verification when enabled on the client side for connections to Elastic SAN volumes. Elastic SAN also offers the ability to enforce this error detection through a property that can be set at the volume group level, which is inherited by any volume within that volume group. When you enable this property on a volume group, Elastic SAN rejects all client connections to any volumes in the volume group if CRC-32C isn't set for header or data digests on those connections. When you disable this property, Elastic SAN volume checksum verification depends on whether CRC-32C is set for header or data digests on the client, but your Elastic SAN won't reject any connections. You can enable CRC protection when creating an Elastic SAN or enable it on an existing Elastic SAN.
 
 > [!NOTE]
-> CRC protection feature isn't currently available in North Europe and South Central US.
+> Some operating systems may not support iSCSI header or data digests. Fedora and its downstream Linux distributions like Red Hat Enterprise Linux, CentOS, Rocky Linux, etc. don't support data digests. Don't enable CRC protection on your volume groups if your clients use operating systems like these that don't support iSCSI header or data digests because connections to the volumes will fail.
 
-To enable CRC protection on the volume group:
+## Client connections
 
-# [Portal](#tab/azure-portal)
+After you have enabled the desired endpoints and granted access in your network rules, you can connect to the appropriate Elastic SAN volumes using the iSCSI protocol. To learn how to configure client connections, see the articles on how to connect to [Linux](elastic-san-connect-linux.md), [Windows](elastic-san-connect-windows.md), or [Azure Kubernetes Service cluster](elastic-san-connect-aks.md).
 
-Enable CRC protection on a new volume group:
+iSCSI sessions can periodically disconnect and reconnect over the course of the day. These disconnects and reconnects are part of regular maintenance or the result of network fluctuations. You shouldn't experience any performance degradation as a result of these disconnects and reconnects, and the connections should re-establish by themselves. If a connection doesn't re-establish itself, or you're experiencing performance degradation, raise a support ticket.
 
-:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-create-volume-group.png" alt-text="Screenshot of CRC protection enablement on new volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-create-volume-group.png":::
-
-Enable CRC protection on an existing volume group:
-
-:::image type="content" source="media/elastic-san-networking/elastic-san-crc-protection-update-volume-group.png" alt-text="Screenshot of CRC protection enablement on an existing volume group." lightbox="media/elastic-san-networking/elastic-san-crc-protection-update-volume-group.png":::
-
-# [PowerShell](#tab/azure-powershell)
-
-Use this script to enable CRC protection on a new volume group using the Azure PowerShell module. Replace the values of `$RgName`, `$EsanName`, `$EsanVgName` before running the script.
-
-```powershell
-# Set the variable values.
-# The name of the resource group where the Elastic San is deployed.
-$RgName = "<ResourceGroupName>"
-# The name of the Elastic SAN.
-$EsanName = "<ElasticSanName>"
-# The name of volume group within the Elastic SAN.
-$EsanVgName = "<VolumeGroupName>"
-
-# Create a volume group by enabling CRC protection
-New-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName -Name $EsanVgName -EnforceDataIntegrityCheckForIscsi $true
-
-```
-
-Use this script to enable CRC protection on an existing volume group using the Azure PowerShell module. Replace the values of `$RgName`, `$EsanName`, `$EsanVgName` before running the script.
-
-```powershell
-# Set the variable values.
-$RgName = "<ResourceGroupName>"
-$EsanName = "<ElasticSanName>"
-$EsanVgName = "<VolumeGroupName>"
-
-# Edit a volume group to enable CRC protection
-Update-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName -Name $EsanVgName -EnforceDataIntegrityCheckForIscsi $true
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-The following code sample enable CRC protection on a new volume group using Azure CLI. Replace the values of `RgName`, `EsanName`, `EsanVgName`, before running the sample.
-
-```azurecli
-# Set the variable values.
-# The name of the resource group where the Elastic San is deployed.
-RgName="<ResourceGroupName>"
-# The name of the Elastic SAN.
-EsanName="<ElasticSanName>"
-# The name of volume group within the Elastic SAN.
-EsanVgName= "<VolumeGroupName>"
-
-# Create the Elastic San.
-az elastic-san volume-group create \
-    --elastic-san-name $EsanName \
-    --resource-group $RgName \
-    --volume-group-name $EsanVgName \
-    --data-integrity-check true
-```
-
-The following code sample enable CRC protection on an existing volume group using Azure CLI. Replace the values of `RgName`, `EsanName`, `EsanVgName`, before running the sample.
-
-```azurecli
-# Set the variable values.
-RgName="<ResourceGroupName>"
-EsanName="<ElasticSanName>"
-EsanVgName= "<VolumeGroupName>"
-
-# Create the Elastic San.
-az elastic-san volume-group update \
-    --elastic-san-name $EsanName \
-    --resource-group $RgName \
-    --volume-group-name $EsanVgName \
-    --data-integrity-check true
-```
-
----
-
-
-## Configure a virtual network endpoint
-
-You can configure your Elastic SAN volume groups to allow access only from endpoints on specific virtual network subnets. The allowed subnets can belong to virtual networks in the same subscription, or those in a different subscription, including a subscription belonging to a different Microsoft Entra tenant.
-
-You can allow access to your Elastic SAN volume group from two types of Azure virtual network endpoints:
-
-- [Private endpoints](../../private-link/private-endpoint-overview.md)
-- [Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
-
-A private endpoint uses one or more private IP addresses from your virtual network subnet to access an Elastic SAN volume group over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the volume group are secured over a private link.
-
-Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints. 
-
-Network rules only apply to the public endpoints of a volume group, not private endpoints. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. You can use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md) to control traffic over private endpoints if you want to refine access rules. If you want to use private endpoints exclusively, don't enable service endpoints for the volume group.
-
-To decide which type of endpoint works best for you, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
-
-Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
-
-The process for enabling each type of endpoint follows:
-
-- [Configure a private endpoint](#configure-a-private-endpoint)
-- [Configure an Azure Storage service endpoint](#configure-an-azure-storage-service-endpoint)
+> [!NOTE]
+> If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection retries for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
 
 ## Next steps
 
-- [Connect Azure Elastic SAN volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
-- [Connect to Elastic SAN volumes - Linux](elastic-san-connect-linux.md)
-- [Connect to Elastic SAN volumes - Windows](elastic-san-connect-windows.md)
+- [Configure private endpoints for Azure Elastic SAN](elastic-san-configure-private-endpoints.md)
+- [Configure service endpoints for Azure Elastic SAN](elastic-san-configure-service-endpoints.md)

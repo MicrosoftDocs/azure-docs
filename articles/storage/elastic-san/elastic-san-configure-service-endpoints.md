@@ -200,7 +200,6 @@ az elastic-san volume-group update -e $sanName -g $RgName -n $volumeGroupName --
 
 ---
 
-
 ## Configure client connections
 
 After you have enabled the desired endpoints and granted access in your network rules, you're ready to configure your clients to connect to the appropriate Elastic SAN volumes.
