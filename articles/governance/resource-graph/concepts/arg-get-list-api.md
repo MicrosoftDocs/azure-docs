@@ -44,7 +44,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 **ARG Point Get Request:**
 
 ```api
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}?api-version={apiVersion}&**useResourceGraph=true** 
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}?api-version={apiVersion}&useResourceGraph=true 
 ```
 
 ## Subscription Collection Get
@@ -60,7 +60,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/{pro
 **ARG Subscription Collection Get Request:**
 
 ```api
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/{providerNamespace}/{resourceType}?api-version={apiVersion}&**useResourceGraph=true** 
+GET https://management.azure.com/subscriptions/{subscriptionId}/providers/{providerNamespace}/{resourceType}?api-version={apiVersion}&useResourceGraph=true 
 ```
 
 ## Resource Group Collection Get
@@ -76,7 +76,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 **ARG GET/LIST Point Get Request:**
 
 ```api
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}?api-version={apiVersion}&**useResourceGraph=true** 
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}?api-version={apiVersion}&useResourceGraph=true 
 ```
 > [!NOTE]
 > The API-version parameter is mandatory for all Azure Resource Graph GET/LIST API calls. However, the value of this parameter is currently ignored by the service. Regardless of the api-version specified, ARG always returns results based on the latest generally available (GA) non-preview version of the API.
