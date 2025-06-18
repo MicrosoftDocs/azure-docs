@@ -6,7 +6,7 @@ ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: how-to
-ms.date: 04/10/2025
+ms.date: 05/14/2025
 ms.author: prsaini
 ---
 
@@ -73,14 +73,16 @@ Later in this article, you give permission to the Microsoft Entra app to act by 
 | Role | Actions allowed | Role definition ID |
 | --- | --- | --- |
 | EnrollmentReader | Enrollment readers can view data at the enrollment, department, and account scopes. The data contains charges for all of the subscriptions under the scopes, including across tenants. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
-| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
+| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4 |
 | DepartmentReader | Download the usage details for the department they administer. Can view the usage and charges associated with their department. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
+| Partner Admin Reader | Partner Admins can view data for all enrollments under the partner organization. This is only available for the following APIs:<br>- [Balances](https://learn.microsoft.com/en-us/rest/api/consumption/balances/get-by-billing-account?view=rest-consumption-2024-08-01&tabs=HTTP)<br>- [Exports V2 (api-version 2025-03-01 only)](https://learn.microsoft.com/en-us/rest/api/cost-management/exports?view=rest-cost-management-2025-03-01)<br>- [Generate Cost Details Report](https://learn.microsoft.com/en-us/rest/api/cost-management/generate-cost-details-report?view=rest-cost-management-2025-03-01)<br>- [Marketplaces](https://learn.microsoft.com/en-us/rest/api/consumption/marketplaces/list?view=rest-consumption-2024-08-01&tabs=HTTP)<br>- [Consumption Pricesheet](https://learn.microsoft.com/en-us/rest/api/consumption/price-sheet?view=rest-consumption-2024-08-01)<br>- [Cost Management Pricesheet Download](https://learn.microsoft.com/en-us/rest/api/cost-management/price-sheet/download-by-billing-account?view=rest-cost-management-2025-03-01&tabs=HTTP)<br>- [Generate Reservation Details Report](https://learn.microsoft.com/en-us/rest/api/cost-management/generate-reservation-details-report/by-billing-account-id?view=rest-cost-management-2025-03-01&tabs=HTTP)<br>- [Reservation Summaries](https://learn.microsoft.com/en-us/rest/api/consumption/reservations-summaries?view=rest-consumption-2024-08-01)<br>- [Reservation Recommendations](https://learn.microsoft.com/en-us/rest/api/consumption/reservation-recommendations/list?view=rest-consumption-2024-08-01&tabs=HTTP)<br>- [Reservation Transactions](https://learn.microsoft.com/en-us/rest/api/consumption/reservation-transactions?view=rest-consumption-2024-08-01) | 4f6144c0-a809-4c55-b3c8-7f9b7b15a1bf |
 
 - An EnrollmentReader role can be assigned to a service principal only by a user who has an enrollment writer role. The EnrollmentReader role assigned to a service principal isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
 - A DepartmentReader role can be assigned to a service principal only by a user who has an enrollment writer or department writer role.
 - A SubscriptionCreator role can be assigned to a service principal only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
 - The EA purchaser role isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
+- The Partner Admin Reader role can be assigned to a service principal only by a user who has Partner Administrator role. The EnrollmentReader role assigned to a service principal isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
 
 When you grant an EA role to a service principal, you must use the `billingRoleAssignmentName` required property. The parameter is a unique GUID that you must provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
@@ -96,7 +98,7 @@ A service principal can have only one role.
 
 1. Provide the following parameters as part of the API request.
 
-   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing** overview page.
+   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing** overview page. For the **Partner Admin Reader Role**, the format is "pcn.{PCN}" where {PCN} is the partner organization number.
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 
