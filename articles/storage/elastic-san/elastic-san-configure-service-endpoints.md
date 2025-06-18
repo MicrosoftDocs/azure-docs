@@ -180,103 +180,23 @@ You can manage virtual network rules for volume groups through the Azure portal,
     >
     > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Microsoft Entra tenant.
 
-    ```azurecli
-    az elastic-san volume-group show -e $sanName -g $RgName -n $volumeGroupName
+```azurecli
+az elastic-san volume-group show -e $sanName -g $RgName -n $volumeGroupName
 
-    az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage.Global"
+az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage.Global"
 
-    # First, get the current length of the list of virtual networks to ensure you append a new network instead of replacing existing ones.
-    virtualNetworkListLength = az elastic-san volume-group show -e $sanName -n $volumeGroupName -g $RgName --query 'length(networkAcls.virtualNetworkRules)'
-    
-    az elastic-san volume-group update -e $sanName -g $RgName --name $volumeGroupName --network-acls virtual-network-rules[$virtualNetworkListLength] "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/default, action:Allow}]}"
-    ```
+# First, get the current length of the list of virtual networks to ensure you append a new network instead of replacing existing ones.
+virtualNetworkListLength = az elastic-san volume-group show -e $sanName -n $volumeGroupName -g $RgName --query 'length(networkAcls.virtualNetworkRules)'
+
+az elastic-san volume-group update -e $sanName -g $RgName --name $volumeGroupName --network-acls virtual-network-rules[$virtualNetworkListLength] "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/default, action:Allow}]}"
+```
 
 
 If you need to, you can remove network rules. As an example, the following command removes the first network rule, modify it to remove the network rule you'd like.
     
-    ```azurecli
-    az elastic-san volume-group update -e $sanName -g $RgName -n $volumeGroupName --network-acls virtual-network-rules[1]=null
-    ```
-
----
-
-
-#### Configure virtual network rules
-
-All incoming requests for data over a service endpoint are blocked by default. Only applications that request data from allowed sources that you configure in your network rules are able to access your data. 
-
-You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI.
-
-> [!IMPORTANT]
-> To enable access to your storage account from a virtual network/subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal doesn't show subnets in other Microsoft Entra tenants.
->
-> If you delete a subnet that has been included in a network rule, it will be removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
-
-### [Portal](#tab/azure-portal)
-
-1. Navigate to your SAN and select **Volume groups**.
-1. Select a volume group and select **Create**.
-1. Add an existing virtual network and subnet and select **Save**.
-
-### [PowerShell](#tab/azure-powershell)
-
-- List virtual network rules.
-- Enable service endpoint for Azure Storage on an existing virtual network and subnet.
-- Add a network rule for a virtual network and subnet.
-
-    ```azurepowershell
-    $Rules = Get-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSanName $sanName -Name $volGroupName
-    $Rules.NetworkAclsVirtualNetworkRule
-
-    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
-
-    $rule = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId $Subnet.Id -Action Allow
-    
-    Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $RgName -ElasticSanName $EsanName -VolumeGroupName $EsanVgName -NetworkAclsVirtualNetworkRule $rule
-    ```
-
-    > [!TIP]
-    > To add a network rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
-
-- Remove a virtual network rule.
-
-    ```azurepowershell
-    ## You can remove a virtual network rule by object, by resource ID, or by removing all the rules in a volume group
-    ### remove by networkRule object
-    Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName -NetworkAclsVirtualNetworkRule $virtualNetworkRule1,$virtualNetworkRule2
-    ### remove by networkRuleResourceId
-    Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName -NetworkAclsVirtualNetworkResourceId "myResourceID"
-    ### Remove all network rules in a volume group by pipeline
-    ((Get-AzElasticSanVolumeGroup -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName).NetworkAclsVirtualNetworkRule) | Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName
-    ```
-
-### [Azure CLI](#tab/azure-cli)
-
-- List information from a particular volume group, including their virtual network rules.
-- Enable service endpoint for Azure Storage on an existing virtual network and subnet.
-- Add a network rule for a virtual network and subnet.
-
-    > [!TIP]
-    > To add a rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully-qualified subnet ID in the form `/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>`.
-    >
-    > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Microsoft Entra tenant.
-
-    ```azurecli
-    az elastic-san volume-group show -e $sanName -g $RgName -n $volumeGroupName
-
-    az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage.Global"
-
-    # First, get the current length of the list of virtual networks. This is needed to ensure you append a new network instead of replacing existing ones.
-    virtualNetworkListLength = az elastic-san volume-group show -e $sanName -n $volumeGroupName -g $RgName --query 'length(networkAcls.virtualNetworkRules)'
-    
-    az elastic-san volume-group update -e $sanName -g $RgName --name $volumeGroupName --network-acls virtual-network-rules[$virtualNetworkListLength] "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/default, action:Allow}]}"
-    ```
-
-- Remove a network rule. The following command removes the first network rule, modify it to remove the network rule you'd like.
-    
-    ```azurecli
-    az elastic-san volume-group update -e $sanName -g $RgName -n $volumeGroupName --network-acls virtual-network-rules[1]=null
-    ```
+```azurecli
+az elastic-san volume-group update -e $sanName -g $RgName -n $volumeGroupName --network-acls virtual-network-rules[1]=null
+```
 
 ---
 

@@ -52,13 +52,15 @@ When you create a SAN, you can enable or disable public internet access to your 
 >
 > Cross-region service endpoints and local ones can't coexist on the same subnet. To use cross-region service endpoints, delete existing **Microsoft.Storage** endpoints and recreate them as **Microsoft.Storage.Global**.
 
-## Virtual network rules
+## Control network traffic
 
-To further secure access to your Elastic SAN volumes, you can create virtual network rules for volume groups configured with service endpoints to allow access from specific subnets. You don't need network rules to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints.
+### Private endpoints
 
-Each volume group supports up to 200 virtual network rules. If you delete a subnet that has been included in a network rule, it's removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group. Clients granted access via these network rules must also be granted the appropriate permissions to the Elastic SAN to volume group. To learn how to define network rules, see [Configure virtual network rules](elastic-san-configure-service-endpoints.md#configure-virtual-network-rules).
+When you approve the creation of a private endpoint, it grants implicit access to all traffic from the subnet hosting the private endpoint. If you need to control traffic at a more granular level, use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md).
 
-Network rules only apply to the public endpoints of a volume group, not private endpoints. Approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. To refine access rules and control traffic over private endpoints, use [Network Policies](../../private-link/disable-private-endpoint-network-policy.md).
+### Service endpoints
+
+You need to configure virtual network rules when using service endpoints because Service endpoints block all incoming requests for data by blocked by default. Each volume group in your Elastic SAN supports up to 200 virtual network rules. If you delete a subnet that has been included in a network rule, it's removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group. Clients granted access via these network rules must also be granted the appropriate permissions to the Elastic SAN to volume group. To learn how to define network rules, see [Configure virtual network rules](elastic-san-configure-service-endpoints.md#configure-virtual-network-rules)
 
 ## Data Integrity
 
