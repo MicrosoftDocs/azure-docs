@@ -350,7 +350,7 @@ If you created a custom MQTT or Kafka data flow endpoint (for example, to use wi
 
 1. Select **Apply**.
 
-[Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 Replace placeholder values with your custom endpoint name and topics.
 
