@@ -1,11 +1,11 @@
 ---
-title: Call External HTTP Endpoints From Workflows
-description: Learn how to create workflows that send outbound requests to HTTP or HTTPS endpoints in Azure Logic Apps.
+title: Call External HTTPS Endpoints from Workflows
+description: Learn how to send calls to external HTTP or HTTPS endpoints from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/09/2025
+ms.date: 06/17/2025
 ---
 
 # Call external HTTP or HTTPS endpoints from workflows in Azure Logic Apps
@@ -21,9 +21,9 @@ Some scenarios might require that you create a logic app workflow that sends out
 
 This guide shows how to use the HTTP trigger and HTTP action so that your workflow can send outbound calls to other services and systems, for example:
 
-* To check or *poll* an endpoint on a recurring schedule, [add an HTTP trigger](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your workflow runs. The trigger passes any content from the endpoint's response to the actions in your workflow.
+* To check or *poll* an endpoint on a recurring schedule, [add the built-in trigger named **HTTP**](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your workflow runs. The trigger passes any content from the endpoint's response to the actions in your workflow.
 
-* To call an endpoint from anywhere else in your workflow, [add an HTTP action](#http-action). The endpoint's response determines how your workflow's remaining actions run.
+* To call an endpoint from anywhere else in your workflow, [add the built-in action named **HTTP**](#http-action). The endpoint's response determines how your workflow's remaining actions run.
 
 ## Prerequisites
 
@@ -31,7 +31,14 @@ This guide shows how to use the HTTP trigger and HTTP action so that your workfl
 
 * The URL for the destination endpoint that you want to call.
 
-* The logic app workflow from where you want to call the destination endpoint. To start with the HTTP trigger, you need a blank workflow. To use the HTTP action, start your workflow with any trigger that you want. This example uses the HTTP trigger as the first step.
+* The logic app resource with the workflow from where you want to call the external endpoint.
+
+  To start your workflow with the **HTTP** trigger, you need to have a blank workflow. To use the **HTTP** action, your workflow can start with a trigger that best fits your scenario. The example workflows in this article use the **HTTP** trigger.
+
+  If you don't have a logic app resource and workflow, create them now by following the steps for the logic app that you want:
+  
+  * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
+  * [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
 ## Connector technical reference
 
@@ -48,17 +55,19 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app. Under **Get started**, select **Create a workflow in designer**.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Select **+ Add** to create a new workflow. Enter a name for your workflow and choose the state type.
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your blank workflow.
 
-1. Add the built-in trigger named **HTTP** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
+1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
 
-   This example renames the trigger to **HTTP trigger - Call endpoint URL** so that the trigger has a more descriptive name. Also, the example later adds an HTTP action, and operation names in your workflow must be unique.
+1. Add the **HTTP** built-in trigger to your workflow by following the [general steps to add a trigger](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
+
+   This example renames the trigger to **HTTP trigger - Call endpoint URL** so that the trigger has a more descriptive name. Also, the example later adds an **HTTP** action, and operation names in your workflow must be unique.
 
 1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) that you want to include in the call to the destination endpoint. Set up the recurrence for how often you want the trigger to check the destination endpoint.
 
-1. Select the **Advanced parameters** dropdown, and choose **Authentication**.
+1. From the **Advanced parameters** list, select **Authentication**.
 
    If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see the following articles:
 
@@ -71,15 +80,17 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app. Under **Development Tools** in the sidebar menu, select **Logic app designer** to open a blank workflow.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. Add the built-in trigger named **HTTP** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger).
+1. On the sidebar menu, under **Development Tools**, select the designer to open the blank workflow.
 
-   This example renames the trigger to **HTTP trigger - Call endpoint URL** so that the trigger has a more descriptive name. Also, the example later adds an HTTP action, and operation names in your workflow must be unique.
+1. Add the **HTTP** built-in trigger to your workflow by following the [general steps to add a trigger](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger).
+
+   This example renames the trigger to **HTTP trigger - Call endpoint URL** so that the trigger has a more descriptive name. Also, the example later adds an **HTTP** action, and operation names in your workflow must be unique.
 
 1. Provide the values for the [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) that you want to include in the call to the destination endpoint. Set up the recurrence for how often you want the trigger to check the destination endpoint.
 
-1. Select the **Advanced parameters** dropdown, and choose **Authentication**.
+1. From the **Advanced parameters** list, select **Authentication**.
 
    If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see the following articles:
 
@@ -96,21 +107,25 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 ## Add an HTTP action
 
-This built-in action makes an HTTP call to the specified URL for an endpoint and returns a response.
+This built-in action sends an HTTPS or HTTP call to the specified URL for an endpoint and returns with a response.
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-   This example uses the HTTP trigger added in the previous section as the first step.
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your workflow.
 
-1. Add the built-in action named **HTTP** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
+1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
 
-   This example renames the action to **HTTP action - Call endpoint URL** so that the step has a more descriptive name. Also, operation names in your workflow must be unique.
+   This example uses the **HTTP** trigger added in the previous section.
+
+1. Add the **HTTP** built-in action to your workflow by following the [general steps to add a action](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
+
+   This example renames the action to **HTTP action - Call endpoint URL** so that the action has a more descriptive name. Also, operation names in your workflow must be unique.
 
 1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) that you want to include in the call to the destination endpoint.
 
-1. Select the **Advanced parameters** dropdown, and choose **Authentication**.
+1. From the **Advanced parameters** list, select **Authentication**.
 
    If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see the following articles:
 
@@ -127,13 +142,13 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
    This example uses the HTTP trigger added in the previous section as the first step.
 
-1. Add the built-in action named **HTTP** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action).
+1. Add the **HTTP** built-in action to your workflow by following the [general steps to add an action](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action).
 
-   This example renames the action to **HTTP action - Call endpoint URL** so that the step has a more descriptive name. Also, operation names in your workflow must be unique.
+   This example renames the action to **HTTP action - Call endpoint URL** so that the action has a more descriptive name. Also, operation names in your workflow must be unique.
 
 1. Provide the values for the [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) that you want to include in the call to the destination endpoint.
 
-1. Select the **Advanced parameters** dropdown, and choose **Authentication**.
+1. From the **Advanced parameters** list, select **Authentication**.
 
    If you select an authentication type other than **None**, the authentication settings differ based on your selection. For more information about authentication types available for HTTP, see the following articles:
 
@@ -319,7 +334,7 @@ For *stateless* workflows in single-tenant Azure Logic Apps, HTTP-based actions 
 
   To find the **Asynchronous pattern** setting:
 
-  1. In the workflow designer, select the HTTP action.
+  1. In the workflow designer, select the **HTTP** action.
   1. On the information pane that opens, select **Settings**.
   1. Under **Networking**, find the **Asynchronous pattern** setting.
 
@@ -373,7 +388,7 @@ Here's the same example that shows the HTTP action response that contains `Retry
 
 ## Pagination support
 
-Sometimes, the destination service responds by returning the results one page at a time. If the response specifies the next page with the `nextLink` or `@odata.nextLink` property, you can turn on the **Pagination** setting on the HTTP action. This setting causes the HTTP action to automatically follow these links and get the next page. However, if the response specifies the next page with any other tag, you might have to add a loop to your workflow. Make this loop follow that tag and manually get each page until the tag is null.
+Sometimes, the destination service responds by returning the results one page at a time. If the response specifies the next page with the `nextLink` or `@odata.nextLink` property, you can turn on the **Pagination** setting in the **HTTP** action. This setting causes the **HTTP** action to automatically follow these links and get the next page. However, if the response specifies the next page with any other tag, you might have to add a loop to your workflow. Make this loop follow that tag and manually get each page until the tag is null.
 
 <a id="disable-location-header-check"></a>
 
@@ -414,5 +429,5 @@ The HTTP action throws a **BadRequest** error if the HTTP action calls the backe
 
 ## Related content
 
-* [List of all Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Managed connectors for Azure Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)
 * [Built-in connectors for Azure Logic Apps](built-in.md)
