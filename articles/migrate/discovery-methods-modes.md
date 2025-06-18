@@ -12,10 +12,8 @@ ms.custom: engagement-fy24
 
 # Discovery methods in Azure Migrate 
 
-This article explains the two main discovery methods that Azure Migrate uses to find on-premises and cloud-based resources. Each approach serves specific purposes and suits different scenarios. The following are the two methods:
-
-1. Appliance-Based Discovery
-1. Import-Based Discovery
+This article explains the different discovery methods in Azure Migrate and gives guidance to choose the most suitable approach based on your requirements.
+ 
 
 ## Prerequisites
 

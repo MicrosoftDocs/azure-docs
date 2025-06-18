@@ -64,14 +64,25 @@ To discover Linux servers, you can create a sudo user account like this:
 - This account helps collect configuration and performance data, perform software inventory (find installed applications), and enable agentless dependency analysis using SSH.
 - The user account must have sudo access to the required file paths.
 
-`/usr/bin/ls``/usr/bin/netstat` 
+```powershell
 
-- Ensure that you enable `NOPASSWD` for the account so it can run the required commands without asking for a password each time it uses sudo.
+/usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls, /usr/bin/netstat, /usr/sbin/lvdisplay "" 
+
+```
 - For example, you can add an entry like this in the `/etc/sudoers` file.
 
-`AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l /proc/*/exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay ""[`
+```powershell
 
-- You can find the list of commands run on the target servers and the information they collect. [Learn more](discovered-metadata.md#linux-server-metadata).
+`AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l /proc/*/exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay ""[
+
+```
+
+- Ensure that you enable `NOPASSWD` for the account so it can run the required commands without asking for a password each time it uses sudo.
+
+
+
+
+- The list of commands run on the target servers and the information they collect. [Learn more](discovered-metadata.md#linux-server-metadata).
 - Below is the list of supported Linux operating system distributions.
 
 | Operating system| Versions |
