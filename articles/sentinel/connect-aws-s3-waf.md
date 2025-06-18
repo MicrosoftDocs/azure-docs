@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 Use the Amazon Web Services (AWS) S3-based Web Application Firewall (WAF) connector to ingest AWS WAF logs, collected in AWS S3 buckets, to Microsoft Sentinel. AWS WAF logs are detailed records of the web traffic analyzed by the AWS WAF against web access control lists (ACLs). These records contain information such as the time AWS WAF received the request, the specifics of the request, and the action taken by the rule that the request matched. These logs and this analysis are essential for maintaining the security and performance of web applications.
 
-This connector features the debut of a new *AWS CloudFormation*-based onboarding script, to streamline the creation of the AWS resources used by the connector.
+This connector features an *AWS CloudFormation*-based onboarding script to streamline the creation of the AWS resources used by the connector.
 
 > [!IMPORTANT]
 > - The **Amazon Web Services S3 WAF** data connector is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
