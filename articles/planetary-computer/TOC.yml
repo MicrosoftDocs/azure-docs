@@ -47,8 +47,10 @@
     href: create-stac-item.md
   - name: Add a STAC item to a collection
     href: add-stac-item-to-collection.md
-  - name: Bulk ingest data
-    href: bulk-ingestion-api.md
+  - name: Troubleshooting ingestion
+    href: troubleshooting-ingestion.md
+  - name: Error codes from ingestion
+    href: error-codes-ingestion.md
 - name: Configure collections for visualization
   items:
   - name: Collection configuration overview

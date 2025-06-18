@@ -31,9 +31,9 @@ Data ingestion workflows fail with specific [error codes](./error-codes-ingestio
 
 ## Identifying Errors during Ingestion
 
-For [Single Item Ingestion](./ingestion-overview#single-item-ingestion), if an ingestion error occurs, the API response or user interface returns the error code.
+For [Single Item Ingestion](./ingestion-overview.md#single-item-ingestion), if an ingestion error occurs, the API response or user interface returns the error code.
 
-For [Bulk Ingestion](./ingestion-overview/#bulk-ingestion), the errors can be different for each of the individual STAC Items. To see the individual errors, navigate to the Azure portal and locate the **Diagnostic Settings** for your GeoCatalog resource. Here, you can enable **Ingestion Logs.**
+For [Bulk Ingestion](./ingestion-overview.md#bulk-ingestion), the errors can be different for each of the individual STAC Items. To see the individual errors, navigate to the Azure portal and locate the **Diagnostic Settings** for your GeoCatalog resource. Here, you can enable **Ingestion Logs.**
 
    [ ![Screenshot of searching for GeoCatalogs in the Azure portal.](media/ingestion-diagnostic-settings.png) ](media/ingestion-diagnostic-settings.png#lightbox)
 
