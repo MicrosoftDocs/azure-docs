@@ -3294,6 +3294,11 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/subscription-based-microsoft-defender-for-cloud-legacy.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/cloudwatch-lambda-function.md",
+            "redirect_url": "/azure/sentinel/connect-aws#send-formatted-cloudwatch-events-to-s3-using-a-lambda-function-optional",
+            "redirect_document_id": false
         }
     ]
 }

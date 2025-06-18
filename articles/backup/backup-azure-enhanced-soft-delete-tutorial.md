@@ -2,7 +2,7 @@
 title: Tutorial - Recover soft deleted data and recovery points using enhanced soft delete in Azure Backup
 description: Learn how to enable enhanced soft delete and recover your data and recover backups, if they're deleted.
 ms.topic: tutorial
-ms.date: 09/11/2023
+ms.date: 06/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -17,8 +17,10 @@ This tutorial describes how to enable enhanced soft delete and recover your data
 >[!Note]
 >Once you enable the *always-on* state for soft delete, you can't disable it for that vault.
 
-## Before you start
+## Considerations
  
+Before you start using the Enhanced soft delete feature, review the following considetations:
+
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults.
 - Enhanced soft delete applies to all vaulted workloads alike in Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, and Disk and VM snapshot backups.
 - For hybrid backups (using MARS, DPM, or MABS), enabling always-on soft delete will disallow server deregistration and  deletion of backups via the Azure portal. If you don't want to retain the backed-up data, we recommend you not to enable the *always-on soft-delete* for the vault or perform *stop protection with delete data* before the server is decommissioned.
@@ -32,7 +34,7 @@ Soft delete is enabled by default for all new vaults you create. To make enabled
 
 # [Recovery Services vault](#tab/recovery-services-vault)
 
-Follow these steps:
+To enable soft delete with always-on state on a Recovery Services vault, follow these steps:
 
 1. Go to **Recovery Services vault** > **Properties**.
 
@@ -64,7 +66,7 @@ Follow these steps:
 
 # [Backup vault](#tab/backup-vault)
 
-Follow these steps:
+To enable soft delete with always-on state on a Backup vault, follow these steps:
 
 1. Go to **Backup vault** > **Properties**.
 
@@ -100,7 +102,7 @@ You can delete backup items/instances even if the soft delete settings are enabl
 
 # [Recovery Services vault](#tab/recovery-services-vault)
 
-Follow these steps:
+To delete a backup item from a Recovery Services vault, follow these steps:
 
 1. Go to the *backup item* that you want to delete.
 1. Select **Stop backup**.
@@ -120,7 +122,7 @@ Follow these steps:
 
 # [Backup vault](#tab/backup-vault)
 
-Follow these steps:
+To delete a backup item from a Backup vault, follow these steps:
 
 1. In the **Backup center**, go to the *backup instance* that you want to delete.
 
@@ -150,7 +152,7 @@ If a backup item/ instance is soft deleted, you can recover it before it's perma
 
 # [Recovery Services vault](#tab/recovery-services-vault)
 
-Follow these steps:
+To recover a soft-deleted backup item to a Recovery Services vault, follow these steps:
 
 1. Go to the *backup item* that you want to retrieve from the *soft deleted* state.
 
@@ -166,7 +168,7 @@ Follow these steps:
 
 # [Backup vault](#tab/backup-vault)
 
-Follow these steps:
+To recover a soft-deleted backup item to a Backup vault, follow these steps:
 
 1. Go to the *deleted backup instance* that you want to recover.
 
@@ -188,7 +190,7 @@ Follow these steps:
 
 >- MUA for soft delete is currently supported for Recovery Services vaults only.
 
-## Next steps
+## Related content
 
-- Learn more about [enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
-- Learn more about [soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).
+- [About enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
+- [About soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).

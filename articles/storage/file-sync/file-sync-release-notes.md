@@ -9,6 +9,7 @@ ms.date: 05/13/2025
 ms.author: wgries
 ms.custom:
   - build-2025
+# Customer intent: "As a system administrator managing file synchronization, I want to keep my organization's file shares centralized in the cloud with local cache capabilities, so that I can enhance data accessibility and streamline backup processes while ensuring compliance and security."
 ---
 
 # Release notes for Azure File Sync

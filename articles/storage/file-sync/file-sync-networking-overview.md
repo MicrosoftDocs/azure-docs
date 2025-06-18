@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/06/2024
 ms.author: kendownie
+# Customer intent: As an IT administrator, I want to configure networking for Azure File Sync on my on-premises Windows Server, so that I can efficiently cache files while maintaining secure and optimized access to Azure file shares.
 ---
 
 # Networking considerations for Azure File Sync

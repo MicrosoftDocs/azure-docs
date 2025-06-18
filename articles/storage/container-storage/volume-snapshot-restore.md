@@ -6,6 +6,7 @@ ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 07/23/2024
 ms.author: kendownie
+# Customer intent: As a Kubernetes operator, I want to create and restore volume snapshots in Azure Container Storage, so that I can easily manage persistent data and recover from potential data loss.
 ---
 
 # Use volume snapshots with Azure Container Storage

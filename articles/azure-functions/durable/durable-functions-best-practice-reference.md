@@ -80,7 +80,7 @@ As with activity functions, external events have an _at-least-once_ delivery gua
 
 ### Invest in stress testing
 
-As with anything performance related, the ideal concurrency settings and architechture of your app ultimately depends on your application's workload. Therefore, it's recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app.
+As with anything performance related, the ideal concurrency settings and architecture of your app ultimately depends on your application's workload. Therefore, it's recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app.
 
 ### Avoid sensitive data in inputs, outputs, and exceptions
 

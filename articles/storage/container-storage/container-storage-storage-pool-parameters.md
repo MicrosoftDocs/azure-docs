@@ -6,6 +6,7 @@ ms.service: azure-container-storage
 ms.date: 07/23/2024
 ms.author: kendownie
 ms.topic: reference
+# Customer intent: As a cloud architect, I want to understand the mandatory and optional storage pool parameters for Azure Container Storage, so that I can configure storage effectively for my container deployments.
 ---
 
 # Azure Container Storage storage pool parameters

@@ -8,6 +8,7 @@ ms.date: 08/02/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: As a system administrator, I want to deploy Azure File Sync using the portal, PowerShell, or CLI, so that I can centralize file shares in Azure while maintaining local access and performance.
 ---
 
 # Deploy Azure File Sync

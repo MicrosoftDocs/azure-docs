@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 05/11/2023
 ms.author: kendownie
+# Customer intent: As a system administrator managing cloud tiering, I want to monitor cloud tiering metrics through both the server endpoint and Azure Monitor, so that I can optimize storage efficiency and improve performance for my organization's data management needs.
 ---
 
 # Monitor cloud tiering

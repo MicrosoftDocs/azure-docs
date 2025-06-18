@@ -7,6 +7,7 @@ ms.date: 10/15/2024
 ms.author: kendownie
 ms.topic: faq
 ms.custom: references_regions
+# Customer intent: "As a cloud architect, I want to understand the capabilities and limitations of Azure Container Storage, so that I can effectively plan and optimize stateful container applications on Azure Kubernetes Service."
 ---
 
 # Frequently asked questions (FAQ) about Azure Container Storage

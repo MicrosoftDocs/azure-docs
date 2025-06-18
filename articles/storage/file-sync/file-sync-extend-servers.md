@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 08/08/2024
 ms.author: kendownie
 #Customer intent: As an IT administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending the storage capacity of my Windows servers.
+# Customer intent: As an IT administrator, I want to learn how to extend the storage capacity of Windows file servers with cloud integration, so that I can effectively manage data storage and access across local and cloud environments.
 ---
 
 # Tutorial: Extend Windows file servers with Azure File Sync
