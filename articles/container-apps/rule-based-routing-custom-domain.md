@@ -21,12 +21,37 @@ HTTP route configurations support custom domains, allowing you to route traffic 
 - SSL certificate for your domain (unless using automatic certificates)
 - Container apps deployed to your environment
 
-> [!NOTE]
-> To set up your own custom domain and certificate, see [Custom domain names and free managed certificates](./custom-domains-managed-certificates.md).
->
-> If you set `bindingType: "Auto"`, you don't need a `certificateId`. Create the route first so the certificate registration check for ownership succeeds. Once you set up the certificate, Container Apps automatically adds it to the route spec and binds it to the domain. The site is only accessible over HTTP (not HTTPS) until setup is complete.
+## Custom domain configuration
 
-## Configuration
+Using the DNS provider that is hosting your domain, create DNS records for your custom domain.
+
+- If you are using the root domain (for example, contoso.com), create the following DNS records:
+
+	| Record type | Host | Value |
+	|--|--|--|
+	| A | `@` | The IP address of your Container Apps environment. |
+	| TXT | `asuid` | The domain verification code. |
+	
+	
+- If you are using a subdomain (for example, www.contoso.com), create the following DNS records:
+
+	| Record type | Host | Value |
+	|--|--|--|
+	| A | The subdomain (for example, www) | The IP address of your Container Apps environment. |
+	| TXT | `asuid.{subdomain}` (for example, asuid.www) | The domain verification code. |
+
+> [!NOTE]
+> The IP address of your Container Apps environment and the domain verification code can be found in the [Custom DNS suffix settings](https://learn.microsoft.com/azure/container-apps/environment-custom-dns-suffix#add-a-custom-dns-suffix-and-certificate) of the Container App Environment.
+>
+> Don't bind the custom domain to the Container App Environment or to a Container App.
+
+## Route configuration
+
+> [!NOTE]
+> If you set bindingType: "Auto" or "Disabled", you don't need a certificateId. Create the route before you [add the certificate](#add-a-certificate) so that the certificate registration check for ownership succeeds. If you are bringing your own certificate, set the bindingType to "Auto" or "Disabled" when you first create the route, and then set bindingType to "SniEnabled" and set the certificateId after you add the certificate to the environment.
+Once you add the certificate, Container Apps automatically adds it to the route spec and binds it to the domain. The site is only accessible over HTTP (not HTTPS) until setup is complete.
+>
+> The certificateId is in the format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/certificates/{CertificateFriendlyName}
 
 Update your Container Apps YAML file to include a `customDomains` section. The following example demonstrates how to set up this configuration.
 
@@ -80,21 +105,11 @@ Other properties not listed that may affect your routes include the following.
 | `target.label` | Route to a specific labeled revision within a container app. |
 | `target.revision` | Route to a specific revision within a container app. |
 
-## Work with your custom domain
+## Work with your route configuration
 
-Use the following commands to configure and use your custom domain mapping.
+Use the following commands to manage your route configuration.
 
 Before running the following commands, make sure to replace placeholders surrounded by `<>` with your own values.
-
-### List route configurations
-
-Use `az containerapp env http-route-config list` to list all the defined route configurations.
-
-```azurecli
-az containerapp env http-route-config list \
-    --resource-group <RESOURCE_GROUP_NAME> \
-    --name <ENVIRONMENT_NAME>
-```
 
 ### Create a new route configuration
 
@@ -106,6 +121,16 @@ az containerapp env http-route-config create \
     --name <ENVIRONMENT_NAME> \
     --http-route-config-name <CONFIGURATION_NAME> \
     --yaml <CONTAINER_APPS_CONFIG_FILE>
+```
+
+### List route configurations
+
+Use `az containerapp env http-route-config list` to list all the defined route configurations.
+
+```azurecli
+az containerapp env http-route-config list \
+    --resource-group <RESOURCE_GROUP_NAME> \
+    --name <ENVIRONMENT_NAME>
 ```
 
 ### Update a route configuration
@@ -141,6 +166,15 @@ az containerapp env http-route-config delete \
     --name <ENVIRONMENT_NAME> \
     --http-route-config-name <CONFIGURATION_NAME>
 ```
+
+## Add a certificate
+
+To add a certificate to your environment, use one of the following methods:
+- To add a Container Apps managed certificate, use the [az containerapp env certificate create](https://learn.microsoft.com/cli/azure/containerapp/env/certificate?view=azure-cli-latest#az-containerapp-env-certificate-create) CLI command.
+- To bring your own existing certificate, use the [az containerapp env certificate upload](https://learn.microsoft.com/cli/azure/containerapp/env/certificate?view=azure-cli-latest#az-containerapp-env-certificate-upload) CLI command.
+
+> [!NOTE]
+> Don't bind the certificate to a Container App.
 
 ## Verify HTTP routing
 
