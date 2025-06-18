@@ -11,15 +11,18 @@ ms.custom:
 appliesto:
   - ✅ Azure Cache for Redis
 ms.devlang: golang
+zone_pivot_groups: redis-type
 ---
 
-# Quickstart: Use Azure Cache for Redis with Go
+# Quickstart: Use Azure Redis with Go
 
-In this article, you learn how to build a REST API in Go that stores and retrieves user information backed by a [HASH](https://redis.io/topics/data-types-intro#redis-hashes) data structure in [Azure Cache for Redis](overview.md).
+In this article, you learn how to use a Azure Redis cache with the Go language.
 
-## Skip to the code on GitHub
+<!-- ## Skip to the code on GitHub
 
 If you want to skip straight to the code, see the [Go quickstart](https://github.com/Azure-Samples/azure-redis-cache-go-quickstart/) on GitHub.
+
+We are breaking the connection to this. -->
 
 ## Prerequisites
 
@@ -28,171 +31,44 @@ If you want to skip straight to the code, see the [Go quickstart](https://github
 - [Git](https://git-scm.com/downloads)
 - An HTTP client such [curl](https://curl.se/)
 
-## Create an Azure Cache for Redis instance
+## Create an Azure Managed Redis instance
 
-[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
+First you must create a cache. You can create a cache using Azure Managed Redis or Azure Cache for Redis using the Azure portal.
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
+When you create the cache you should create it with both Access keys enabled. Microsoft Entra ID is enabled by default. Your cache must also public endpoint for this Quickstart.
+- [Azure Managed Redis](includes/managed-redis-create.md)
+- [Azure Cache for Redis](/azure/azure-cache-for-redis/quickstart-create-redis)
 
-## Review the code (Optional)
+Optionally, you can create a cache using Azure CLI, PowerShell, or any means that you prefer.
 
-If you're interested in learning how the code works, you can review the following snippets. Otherwise, feel free to skip ahead to [Run the application](#run-the-application).
+[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
 
-The open source [go-redis](https://github.com/go-redis/redis) library is used to interact with Azure Cache for Redis.
+## Code to connect to a AMR Cache
 
-The `main` function starts off by reading the host name and password (Access Key) for the Azure Cache for Redis instance.
+## Code to test a connection
 
-```go
-func main() {
-    redisHost := os.Getenv("REDIS_HOST")
-    redisPassword := os.Getenv("REDIS_PASSWORD")
-...
-```
 
-Then, we establish connection with Azure Cache for Redis. We use [tls.Config](https://go.dev/pkg/crypto/tls/#Config)--Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version]/azure-cache-for-redis/cache-remove-tls-10-11.md).
+## Code set a key, get a key
 
-```go
-...
-op := &redis.Options{Addr: redisHost, Password: redisPassword, TLSConfig: &tls.Config{MinVersion: tls.VersionTLS12}}
-client := redis.NewClient(op)
 
-ctx := context.Background()
-err := client.Ping(ctx).Err()
-if err != nil {
-    log.Fatalf("failed to connect with redis instance at %s - %v", redisHost, err)
-}
-...
-```
 
-If the connection is successful, [HTTP handlers](https://go.dev/pkg/net/http/#HandleFunc) are configured to handle `POST` and `GET` operations and the HTTP server is started.
 
-> [!NOTE]
-> [gorilla mux library](https://github.com/gorilla/mux) is used for routing (although it's not strictly necessary and we could have gotten away by using the standard library for this sample application).
->
 
-```go
-uh := userHandler{client: client}
 
-router := mux.NewRouter()
-router.HandleFunc("/users/", uh.createUser).Methods(http.MethodPost)
-router.HandleFunc("/users/{userid}", uh.getUser).Methods(http.MethodGet)
 
-log.Fatal(http.ListenAndServe(":8080", router))
-```
 
-`userHandler` struct encapsulates a [redis.Client](https://pkg.go.dev/github.com/go-redis/redis/v8#Client), which is used by the `createUser`, `getUser` methods - code for these methods isn't included for brevity.
 
-- `createUser`: accepts a JSON payload (containing user information) and saves it as a `HASH` in Azure Cache for Redis.
-- `getUser`: fetches user info from `HASH` or returns an HTTP `404` response if not found.
 
-```go
-type userHandler struct {
-    client *redis.Client
-}
-...
 
-func (uh userHandler) createUser(rw http.ResponseWriter, r *http.Request) {
-    // details omitted
-}
-...
 
-func (uh userHandler) getUser(rw http.ResponseWriter, r *http.Request) {
-    // details omitted
-}
-```
 
-## Clone the sample application
 
-Start by cloning the application from GitHub.
-
-1. Open a command prompt and create a new folder named `git-samples`.
-
-    ```bash
-    md "C:\git-samples"
-    ```
-
-1. Open a git terminal window, such as git bash. Use the `cd` command to change to the new folder where you want to clone the sample app.
-
-    ```bash
-    cd "C:\git-samples"
-    ```
-
-1. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
-
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-redis-cache-go-quickstart.git
-    ```
-
-## Run the application
-
-The application accepts connectivity and credentials in the form of environment variables.
-
-1. Fetch the **Host name** and **Access Keys** (available via Access Keys) for Azure Cache for Redis instance in the [Azure portal](https://portal.azure.com/)
-
-1. Set them to the respective environment variables:
-
-    ```console
-    set REDIS_HOST=<Host name>:<port> (e.g. <name of cache>.redis.cache.windows.net:6380)
-    set REDIS_PASSWORD=<Primary Access Key>
-    ```
-
-1. In the terminal window, change to the correct folder. For example:
-
-    ```console
-    cd "C:\git-samples\azure-redis-cache-go-quickstart"
-    ```
-
-1. In the terminal, run the following command to start the application.
-
-    ```console
-    go run main.go
-    ```
-
-The HTTP server will start on port `8080`.
-
-## Test the application
-
-1. Create a few user entries. The below example uses curl:
-
-    ```bash
-    curl -i -X POST -d '{"id":"1","name":"foo1", "email":"foo1@baz.com"}' localhost:8080/users/
-    curl -i -X POST -d '{"id":"2","name":"foo2", "email":"foo2@baz.com"}' localhost:8080/users/
-    curl -i -X POST -d '{"id":"3","name":"foo3", "email":"foo3@baz.com"}' localhost:8080/users/
-    ```
-
-1. Fetch an existing user with its `id`:
-
-    ```bash
-    curl -i localhost:8080/users/1
-    ```
-
-    You should get JSON response as such:
-
-    ```json
-    {
-        "email": "foo1@bar",
-        "id": "1",
-        "name": "foo1"
-    }
-    ```
-
-1. If you try to fetch a user who doesn't exist, you get an HTTP `404`. For example:
-
-    ```bash
-    curl -i localhost:8080/users/100
-    
-    #response
-
-    HTTP/1.1 404 Not Found
-    Date: Fri, 08 Jan 2021 13:43:39 GMT
-    Content-Length: 0
-    ```
+<!-- clean up resoureces include -->
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-## Next steps
+## Related content
 
-In this quickstart, you learned how to get started using Go with Azure Cache for Redis. You configured and ran a simple REST API-based application to create and get user information backed by a Redis `HASH` data structure.
-
-> [!div class="nextstepaction"]
-> [Create a simple ASP.NET web app that uses an Azure Cache for Redis.](web-app-cache-howto.md)
+[Create a simple ASP.NET web app that uses an Azure Cache for Redis.](web-app-cache-howto.md)
+<!-- Link to Redis Extension for connecting -->
+<!-- Link to any Redis code sample on their site that are germane -->
