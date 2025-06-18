@@ -125,3 +125,5 @@ To resize the Elastic SAN-based datastore, use the following steps from the Azur
 1. On the packages, go to the latest Azure VMware Solution VMFS package and select **Resize-VmfsVolume**.
 1. In the run command, enter the ClusterName, DeviceNaaID or DatastoreName details and click **Run**.
 
+![Resize-VmfsVolume.](media/configure-azure-elastic-san/resize-vmfsvolume.png)
+
