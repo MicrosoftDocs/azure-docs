@@ -7,6 +7,8 @@ metadata:
   title: Microsoft Azure Migration Hub 
   description: Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure.
   ms.service: azure
+  author: robbyatmicrosoft
+  manager: robbyatmicrosoft
   ms.topic: hub-page
   ms.date: 06/17/2025
   adobe-target: true
