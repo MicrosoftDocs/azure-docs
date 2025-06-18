@@ -33,9 +33,9 @@ items:
   - name: Deploy an Elastic SAN
     href: elastic-san-create.md
   - name: Configure private endpoints
-    href: elastic-san-private-endpoints.md
+    href: elastic-san-configure-private-endpoints.md
   - name: Configure service endpoints
-    href: elastic-san-service-endpoints.md
+    href: elastic-san-configure-service-endpoints.md
   - name: Connect to an Elastic SAN volume - Windows
     href: elastic-san-connect-windows.md
   - name: Connect to an Elastic SAN volume - Linux
