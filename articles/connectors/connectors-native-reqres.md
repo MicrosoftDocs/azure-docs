@@ -423,7 +423,6 @@ When you use the **Request** trigger to receive inbound requests, you can model 
 
 1. Add the **Response** built-in action to your workflow by following the [general steps to add an action](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action).
 
-
 1. In the action information box, add the required values for the response message.
 
    | Property name | JSON property name | Required | Description |

@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/17/2025
+ms.date: 06/18/2025
 ms.custom: fasttrack-edit
 # Customer intent: As a logic app workflow developer, I want to learn about application settings and host settings that I can edit to customize the way that my Standard workflows run.
 ---
 
-# Edit host and app settings for Standard logic apps in single-tenant Azure Logic Apps
+# Edit app and host settings for Standard logic apps in single-tenant Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
