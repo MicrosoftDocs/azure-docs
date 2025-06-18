@@ -48,7 +48,7 @@ Retrieve the [Kafka-compatible connection details for the custom endpoint](/fabr
 
 ## Create a Microsoft Fabric Real-Time Intelligence data flow endpoint
 
-Microsoft Fabric Real-Time Intelligence, supports Simple Authentication and Security Layer (SASL), System-assigned managed identity, and User-assigned managed identity authentication methods. The following sections describe how to configure a data flow endpoint for Microsoft Fabric Real-Time Intelligence using these authentication methods. For details on the available authentication methods, see [Available authentication methods](#available-authentication-methods).
+Microsoft Fabric Real-Time Intelligence, supports Simple Authentication and Security Layer (SASL), System-assigned managed identity, and User-assigned managed identity authentication methods. For details on the available authentication methods, see [Available authentication methods](#available-authentication-methods).
 
 # [Operations experience](#tab/portal)
 
@@ -62,8 +62,14 @@ Microsoft Fabric Real-Time Intelligence, supports Simple Authentication and Secu
     | --------------------- | ----------------------------------------------------------------- |
     | Name                  | The name of the data flow endpoint. |
     | Host                  | The hostname of the event stream custom endpoint in the format `*.servicebus.windows.net:9093`. Use the bootstrap server address noted previously. |
-    | Authentication method | *SASL* is currently the only supported authentication method in operations experience. Use Azure CLI, Bicep, or Kubernetes manifests to configure other authentication methods. |
-    | SASL type             | Choose *Plain* |
+    | Authentication method | The method used for authentication. Choose [*System assigned managed identity*](#system-assigned-managed-identity), [*User assigned managed identity*](#user-assigned-managed-identity), or [*SASL*](#sasl). |
+
+
+    If you choose the SASL authentication method, you must also enter the following settings:
+
+    | Setting               | Description                                                       |
+    | --------------------- | ----------------------------------------------------------------- |
+    | SASL type             | Choose *Plain*. |
     | Synced secret name    | Enter a name for the synced secret. A Kubernetes secret with this name is created on the cluster. |
 
     Select **Add reference** to create a new or choose an existing Key Vault reference for the username and password references.
@@ -198,9 +204,6 @@ Before you configure the data flow endpoint, assign a role to the Azure IoT Oper
 Then, configure the data flow endpoint with system-assigned managed identity settings.
 
 # [Operations experience](#tab/portal)
-
-> [!NOTE]
-> Supported?
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
