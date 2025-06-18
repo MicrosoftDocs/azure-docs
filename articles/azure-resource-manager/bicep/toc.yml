@@ -331,7 +331,7 @@ items:
       displayName: dateTimeAdd,dateTimeFromEpoch,dateTimeToEpoch,utcNow
       href: bicep-functions-date.md
     - name: Deployment functions
-      displayName: deployment,environment, deployer
+      displayName: deployer,deployment,environment
       href: bicep-functions-deployment.md
     - name: File functions
       displayName: loadFileAsBase64,loadJsonContent,loadYamlContent,loadTextContent

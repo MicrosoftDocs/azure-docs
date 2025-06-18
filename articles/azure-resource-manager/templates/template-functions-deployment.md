@@ -31,7 +31,7 @@ In Bicep, use the [deployer](../bicep/bicep-functions-deployment.md#deployer) fu
 
 ### Return value
 
-This function returns the information about the current deployment principal, including tenant ID and object ID.
+This function returns the information about the current deployment principal, including tenant ID, object ID, and user principal name.
 
 ```json
 {
