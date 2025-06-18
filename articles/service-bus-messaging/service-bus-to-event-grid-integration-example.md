@@ -41,7 +41,7 @@ In this section, create an Azure logic app that receives Service Bus events by u
 
 1. Expand **Development Tools** and select **Logic app templates**.
 
-   :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-blank-logic-app.png" alt-text="Screenshot that shows the Logic app designer page with the Blank workflow option selected.":::
+   :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-blank-logic-app.png" alt-text="Screenshot that shows the Logic app designer page with the Blank workflow option selected." lightbox="./media/service-bus-to-event-grid-integration-example/select-blank-logic-app.png":::
 
 1. Select **Blank workflow**. The **Logic app designer** opens.
 1. On the designer, do the following steps:
@@ -107,7 +107,7 @@ In this section, you add steps to send the received message in an email and then
 1. For **Select an output from previous steps**, select the lightning bolt or enter */* and select **Insert dynamic content**.
 1. Select **Body** under **Get messages from a topic subscription (peek-lock)**.
 
-   :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-input-for-each.png" alt-text="Screenshot that shows the selection of For each input.":::
+   :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-input-for-each.png" alt-text="Screenshot that shows the selection of For each input." lightbox="./media/service-bus-to-event-grid-integration-example/select-input-for-each.png":::
 
 #### Add a step inside the foreach loop to send an email with the message body
 
@@ -155,7 +155,7 @@ In this section, you add steps to send the received message in an email and then
    1. In **Lock Token Of The Message**, select the expression or enter */* and select Insert expression.
    1. Select **Dynamic content** and the select **Lock Token**. Select **Add**.
 
-      :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png" alt-text="Screenshot that shows the lock token field.":::
+      :::image type="content" source="./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png" lightbox="./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png" alt-text="Screenshot that shows the lock token field.":::
 
 1. Select **Save** on the toolbar on the Logic Apps Designer to save the logic app. 
 
@@ -188,7 +188,7 @@ If you don't see any invocations after waiting and refreshing for sometime, foll
 
    If you don't see any events on this page, verify that the **Service Bus Subscription** page doesn't show any **Active message count**. If the number for this counter is greater than zero, the messages at the subscription aren't forwarded to the handler function (event subscription handler) for some reason. Verify that you set up the event subscription properly.
 
-   :::image type="content" source="./media/service-bus-to-event-grid-integration-example/subscription-active-message-count.png" alt-text="Screenshot that shows the Service Bus Subscription page with the active message count selected.":::
+   :::image type="content" source="./media/service-bus-to-event-grid-integration-example/subscription-active-message-count.png" alt-text="Screenshot that shows the Service Bus Subscription page with the active message count selected." lightbox="./media/service-bus-to-event-grid-integration-example/subscription-active-message-count.png":::
 
 1. You also see **delivered events** on the **Events** page of the Service Bus namespace. 
 
