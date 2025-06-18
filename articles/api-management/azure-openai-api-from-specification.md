@@ -34,7 +34,7 @@ Learn more about managing AI APIs in API Management:
     Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
 
     > [!NOTE]
-    > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) are supported for certain API endpoints exposed through specific Azure OpenAI models. For more information, see [Supported Azure OpenAI in Foundry Models](azure-openai-token-limit-policy.md#supported-azure-openai-service-models).
+    > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) are supported for certain API endpoints exposed through specific Azure OpenAI models. For more information, see [Supported Azure OpenAI in Foundry Models](azure-openai-token-limit-policy.md).
 
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.
 
