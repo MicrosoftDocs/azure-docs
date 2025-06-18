@@ -1677,7 +1677,7 @@ Select the data flow you want to export and select **Export** from the toolbar.
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops dataflow show](/cli/azure/iot/ops/dataflow/endpoint/apply#az-iot-ops-dataflow-endpoint-apply) command to export a data flow.
+Use the [az iot ops dataflow show](/cli/azure/iot/ops/dataflow/#az-iot-ops-dataflow-show) command to export a data flow.
 
 ```azurecli
 az iot ops dataflow show --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <DataflowName> --profile <DataflowProfileName> --output json > my-dataflow.json
