@@ -210,6 +210,8 @@
       href: virtual-network-troubleshoot-cannot-delete-vnet.md
 - name: Security
   items:
+    - name: Secure your Virtual Network
+      href: secure-virtual-network.md
     - name: Azure Kubernetes network policies
       href: kubernetes-network-policies.md
     - name: Azure Policy Regulatory Compliance controls
