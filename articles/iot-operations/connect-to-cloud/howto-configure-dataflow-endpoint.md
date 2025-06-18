@@ -66,7 +66,7 @@ For example, you can use the default MQTT broker data flow endpoint. You can use
 # [Azure CLI](#tab/cli)
 
 
-Use the `az iot ops dataflow apply` command to create or change a data flow.
+Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
 az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
@@ -165,7 +165,7 @@ Similarly, you can create multiple data flows that use the same MQTT endpoint fo
 
 # [Azure CLI](#tab/cli)
 
-Use the `az iot ops dataflow apply` command to create or change a data flow.
+Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
 az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>

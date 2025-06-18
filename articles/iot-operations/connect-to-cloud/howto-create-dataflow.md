@@ -84,7 +84,7 @@ Once you have the prerequisites, you can start to create a data flow.
 
 # [Azure CLI](#tab/cli)
 
-Use the `az iot ops dataflow apply` command to create or change a data flow.
+Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
 az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
@@ -1419,7 +1419,7 @@ The following example is a data flow configuration that uses the MQTT endpoint f
 
 # [Azure CLI](#tab/cli)
 
-Use the `az iot ops dataflow apply` command to create or change a data flow.
+Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
 az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>

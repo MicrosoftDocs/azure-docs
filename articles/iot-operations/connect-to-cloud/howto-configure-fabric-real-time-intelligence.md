@@ -88,7 +88,7 @@ Microsoft Fabric Real-Time Intelligence, supports Simple Authentication and Secu
 
 #### Create or replace
 
-Use the `az iot ops dataflow endpoint create fabric-realtime` command to create or replace a Microsoft Fabric Real-Time Intelligence data flow endpoint.
+Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-fabric-realtime) command to create or replace a Microsoft Fabric Real-Time Intelligence data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint create fabric-realtime --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host "<BootstrapServerAddress>"
@@ -102,7 +102,7 @@ az iot ops dataflow endpoint create fabric-realtime --resource-group myResourceG
 
 #### Create or change
 
-Use the `az iot ops dataflow endpoint apply` command to create or change a Microsoft Fabric Real-Time Intelligence data flow endpoint.
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change a Microsoft Fabric Real-Time Intelligence data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
@@ -211,7 +211,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 
 #### Create or replace
 
-Use the `az iot ops dataflow endpoint create` command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for system-assigned managed identity authentication.
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for system-assigned managed identity authentication.
 
 ```azurecli
 az iot ops dataflow endpoint create <Command> --auth-type SystemAssignedManagedIdentity --audience <Audience> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
@@ -219,7 +219,7 @@ az iot ops dataflow endpoint create <Command> --auth-type SystemAssignedManagedI
 
 #### Create or change
 
-Use the `az iot ops dataflow endpoint apply` command with the `--config-file` parameter.
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command with the `--config-file` parameter.
 
 In this example, assume a configuration file with the following content:
 
@@ -282,7 +282,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 
 #### Create or replace
 
-Use the `az iot ops dataflow endpoint create` command with the `--auth-type` parameter set to `UserAssignedManagedIdentity` for with user-assigned managed identity authentication.
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `UserAssignedManagedIdentity` for with user-assigned managed identity authentication.
 
 ```azurecli
 az iot ops dataflow endpoint create <Command> --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
@@ -290,7 +290,7 @@ az iot ops dataflow endpoint create <Command> --auth-type UserAssignedManagedIde
 
 #### Create or change
 
-Use the `az iot ops dataflow endpoint apply` with the `--config-file` parameter
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter
 
 In this example, assume a configuration file with the following content:
 
@@ -366,7 +366,7 @@ Enter the following settings for the endpoint:
 
 #### Create or replace
 
-Use the `az iot ops dataflow endpoint create` command with the `--auth-type` parameter set to `Sasl` for SASL authentication.
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `Sasl` for SASL authentication.
 
 ```azurecli
 az iot ops dataflow endpoint create <Command> --auth-type Sasl --sasl-type <SaslType> --secret-name <SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
@@ -374,7 +374,7 @@ az iot ops dataflow endpoint create <Command> --auth-type Sasl --sasl-type <Sasl
 
 #### Create or change
 
-Use the `az iot ops dataflow endpoint apply` with the `--config-file` parameter
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter
 
 In this example, assume a configuration file with the following content:
 
