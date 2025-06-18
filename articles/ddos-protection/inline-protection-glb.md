@@ -17,7 +17,7 @@ This article describes how to implement inline Layer 7 (L7) DDoS protection for 
 
 Azure DDoS Protection provides robust, always-on defense at the network layer (L3/4), quickly detecting and mitigating attacks within 30-60 seconds. While it focuses on protecting against volumetric and protocol-based threats, application layer (L7) inspection can be added for even greater security.
 
-Some workloads, such as gaming, web applications, financial services, and streaming services, demand ultra-low latency and continuous protection. For these scenarios, inline protection ensures that all traffic is proactively routed through the DDoS protection pipeline at all times. This approach not only delivers immediate mitigation but also enables deep inspection of packet payloads, helping to detect and block low-volume attacks that target vulnerabilities at the application layer (L7).
+Some workloads, such as gaming, web applications, financial services, and streaming services, demand ultra-low latency, and continuous protection. For these scenarios, inline protection ensures that all traffic is proactively routed through the DDoS protection pipeline at all times. This approach not only delivers immediate mitigation but also enables deep inspection of packet payloads, helping to detect and block low-volume attacks that target vulnerabilities at the application layer (L7).
 
 Partner NVAs deployed with Gateway Load Balancer and integrated with Azure DDoS Protection offer comprehensive inline L7 DDoS Protection for high-performance and high-availability scenarios. This combination provides L3-L7 protection against volumetric and low-volume DDoS attacks.
 
@@ -34,17 +34,17 @@ Partner NVAs provide advanced capabilities, including deep packet inspection, an
 
 ## What is a Gateway Load Balancer?
 
-Gateway Load Balancer is a SKU of Azure Load Balancer designed for high-performance and high-availability scenarios with third-party Network Virtual Appliances (NVAs).
+Gateway Load Balancer is a SKU of Azure Load Balancer designed for high-performance and high-availability scenarios with third-party NVAs.
 
-With Gateway Load Balancer, you can easily deploy, scale, and manage network virtual appliances (NVAs). You can connect a Gateway Load Balancer to your public endpoint with a single configuration step. This allows you to insert appliances into the network path for scenarios such as firewalls, advanced packet analytics, intrusion detection and prevention systems, or other custom needs. Gateway Load Balancer also maintains flow symmetry to a specific instance in the backend pool, ensuring session consistency.
+With Gateway Load Balancer, you can easily deploy, scale, and manage NVAs. You can connect a Gateway Load Balancer to your public endpoint with a single configuration step. This capability lets you add NVAs to the network path for scenarios such as firewalls, advanced packet analytics, intrusion detection systems, intrusion prevention systems, or other custom solutions. Gateway Load Balancer also maintains flow symmetry to a specific instance in the backend pool, ensuring session consistency.
 
 For more information, see [Gateway Load Balancer](../load-balancer/gateway-overview.md).
 
 ## Architecture
 
-DDoS attacks on latency-sensitive workloads like gaming can cause outages lasting 2-10 seconds, disrupting availability. Gateway Load Balancer enables protection of such workloads by ensuring the relevant NVAs are injected into the ingress path of the internet traffic. After connecting to a Standard Public Load Balancer frontend or IP configuration on a virtual machine, no extra configuration is needed to route traffic to and from the application endpoint through the Gateway Load Balancer.
+DDoS attacks on latency-sensitive workloads like gaming can cause outages lasting 2-10 seconds, disrupting availability. Gateway Load Balancer enables protection of such workloads by ensuring the relevant NVAs are injected into the ingress path of the internet traffic. After you connect the Gateway Load Balancer to a Standard Public Load Balancer frontend or to the IP configuration of a virtual machine, traffic to and from the application endpoint is automatically routed through the Gateway Load Balancer—no additional configuration is required.
 
-Inbound traffic is always inspected by the NVAs, and clean traffic returns to the backend infrastructure (such as game servers).
+Inbound traffic is inspected by the NVAs, and clean traffic returns to the backend infrastructure (such as game servers).
 
 Traffic flows from the consumer virtual network to the provider virtual network and then returns to the consumer virtual network. The consumer and provider virtual networks can be in different subscriptions, tenants, or regions, enabling greater flexibility and ease of management.
 
@@ -69,7 +69,7 @@ To ensure effective DDoS protection using Gateway Load Balancer and partner NVAs
 
 - **Scale NVAs appropriately to handle peak traffic volumes.**  
 
-  Ensure that your network virtual appliances (NVAs) are sized and configured to accommodate the highest expected levels of traffic. Under-provisioned NVAs can become a bottleneck, reducing the effectiveness of DDoS mitigation and potentially impacting application performance. Use Azure monitoring tools to track traffic patterns and adjust scaling as needed. Learn more about [Azure Monitor](/azure/azure-monitor/fundamentals/overview) and [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
+  Ensure that your NVAs are sized and configured to accommodate the highest expected levels of traffic. Under-provisioned NVAs can become a bottleneck, reducing the effectiveness of DDoS mitigation and potentially impacting application performance. Use Azure monitoring tools to track traffic patterns and adjust scaling as needed. Learn more about [Azure Monitor](/azure/azure-monitor/fundamentals/overview) and [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
 
 - **Deploy NVAs in a high-availability configuration to avoid single points of failure.**  
 
