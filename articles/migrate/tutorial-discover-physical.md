@@ -64,7 +64,7 @@ To discover Linux servers, you can create a sudo user account like this:
 - This account helps collect configuration and performance data, perform software inventory (find installed applications), and enable agentless dependency analysis using SSH.
 - The user account must have sudo access to the required file paths.
 
-```bash
+```
 /usr/sbin/dmidecode -s system-uuid           
 /usr/sbin/dmidecode -t 1                     
 /usr/sbin/dmidecode -s system-manufacturer   
@@ -77,7 +77,7 @@ To discover Linux servers, you can create a sudo user account like this:
 ```
 - For example, you can add an entry like this in the `/etc/sudoers` file.
 
-```bash
+```
 
     AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: \
     /usr/sbin/dmidecode -s system-uuid, \
