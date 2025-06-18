@@ -25,18 +25,18 @@ Learn more about managing AI APIs in API Management:
 
 API Management supports two client compatibility options for AI APIs. Choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
 
-* **Azure AI** - Manage model endpoints in Azure AI Foundry that are exposed through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
+* **Azure AI** - Manage model endpoints in Azure AI Foundry that are exposed through the [ Azure AI Foundry Models API](/azure/ai-studio/reference/reference-model-inference-api).
 
-    Clients call the deployment at a `/models` endpoint such as `/my-model/models/chat/completions`. Deployment name is passed in the request body. Use this option if you want flexibility to switch between models exposed through the Azure AI Model Inference API and those deployed in Azure OpenAI Service.
+    Clients call the deployment at a `/models` endpoint such as `/my-model/models/chat/completions`. Deployment name is passed in the request body. Use this option if you want flexibility to switch between models exposed through the Azure AI Foundry Models API and those deployed in Azure OpenAI in Foundry Models.
 
-* **Azure OpenAI Service** - Manage model endpoints deployed in Azure OpenAI Service. 
+* **Azure OpenAI** - Manage model endpoints deployed in Azure OpenAI. 
 
-    Clients call the deployment at an `/openai` endpoint such as `/openai/deployments/my-deployment/chat/completions`. Deployment name is passed in the request path. Use this option if your AI service only includes Azure OpenAI Service model deployments. 
+    Clients call the deployment at an `/openai` endpoint such as `/openai/deployments/my-deployment/chat/completions`. Deployment name is passed in the request path. Use this option if your AI service only includes Azure OpenAI model deployments. 
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An Azure AI service in your subscription with one or more models deployed. Examples include models deployed in Azure AI Foundry or Azure OpenAI Service.
+- An Azure AI service in your subscription with one or more models deployed. Examples include models deployed in Azure AI Foundry or Azure OpenAI.
 
 ## Import AI Foundry API using the portal
 
@@ -67,7 +67,7 @@ To import an AI Foundry API to API Management:
     1. In **Base path**, enter a path that your API Management instance uses to access the deployment endpoint.
     1. Optionally select one or more **Products** to associate with the API.  
     1. In **Client compatibility**, select either of the following based on the types of client you intend to support. See [Client compatibility options](#client-compatibility-options) for more information.
-        * **Azure OpenAI** - Select this option if your clients only need to access Azure OpenAI Service model deployments.
+        * **Azure OpenAI** - Select this option if your clients only need to access Azure OpenAI model deployments.
         * **Azure AI** - Select this option if your clients need to access other models in Azure AI Foundry. 
     1. Select **Next**.
 

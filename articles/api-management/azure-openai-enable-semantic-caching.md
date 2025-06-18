@@ -18,12 +18,12 @@ ms.collection: ce-skilling-ai-copilot
 Enable semantic caching of responses to Azure OpenAI API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same. For background, see [Tutorial: Use Azure Cache for Redis as a semantic cache](../redis/tutorial-semantic-cache.md).
 
 > [!NOTE]
-> The configuration steps in this article enable semantic caching for Azure OpenAI APIs. These steps can be generalized to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) or with OpenAI-compatible models served through third-party inference providers. 
+> The configuration steps in this article enable semantic caching for Azure OpenAI APIs. These steps can be generalized to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Foundry Models API](/azure/ai-studio/reference/reference-model-inference-api) or with OpenAI-compatible models served through third-party inference providers. 
 
 ## Prerequisites
 
-* One or more Azure OpenAI Service APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI Service API to Azure API Management](azure-openai-api-from-specification.md).
-* The Azure OpenAI service must have deployments for the following:
+* One or more Azure OpenAI in Foundry Models APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI in Foundry Models API to Azure API Management](azure-openai-api-from-specification.md).
+* Azure OpenAI must have deployments for the following:
     * Chat Completion API - Deployment used for API consumer calls 
     * Embeddings API - Deployment used for semantic caching
 * The API Management instance must be configured to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management ](api-management-authenticate-authorize-azure-openai.md#authenticate-with-managed-identity).
@@ -57,17 +57,17 @@ Configure a [backend](backends.md) resource for the embeddings API deployment wi
 
 * **Name** - A name of your choice, such as `embeddings-backend`. You use this name to reference the backend in policies.
 * **Type** - Select **Custom URL**.
-* **Runtime URL** - The URL of the embeddings API deployment in the Azure OpenAI Service, similar to:
+* **Runtime URL** - The URL of the embeddings API deployment in Azure OpenAI, similar to:
         ```
         https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings
         ```
 * **Authorization credentials** - Go to **Managed Identity** tab.
   * **Client identity** - Select *System assigned identity* or type in a User assigned managed identity client ID.
-  * **Resource ID** - Enter `https://cognitiveservices.azure.com/` for Azure OpenAI Service.
+  * **Resource ID** - Enter `https://cognitiveservices.azure.com/` for Azure OpenAI.
 
 ### Test backend 
 
-To test the backend, create an API operation for your Azure OpenAI Service API:
+To test the backend, create an API operation for your Azure OpenAI API:
 
 1. On the **Design** tab of your API, select **+ Add operation**.
 1. Enter a **Display name** and optionally a **Name** for the operation.
