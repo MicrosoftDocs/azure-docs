@@ -68,11 +68,11 @@ To ensure effective DDoS protection using Gateway Load Balancer and partner NVAs
 
 - **Scale NVAs appropriately to handle peak traffic volumes.**  
 
-    Ensure that your NVAs are sized and configured to accommodate the highest expected levels of traffic. Under-provisioned NVAs can become a bottleneck, reducing the effectiveness of DDoS mitigation and potentially impacting application performance. Use Azure monitoring tools to track traffic patterns and adjust scaling as needed. Learn more about [Azure Monitor](/azure/azure-monitor/fundamentals/overview) and [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
+    Ensure that your NVAs are sized and configured to accommodate the highest expected levels of traffic. Under-provisioned NVAs can become a bottleneck, reducing the effectiveness of DDoS mitigation and potentially impacting application performance. Use Azure monitoring tools to track traffic patterns and adjust scaling as needed. for more information, see [Azure Monitor](/azure/azure-monitor/fundamentals/overview) and [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
 
 - **Deploy NVAs in a high-availability configuration to avoid single points of failure.**  
 
-    Configure multiple NVAs in an active-active or active-passive configuration to ensure continuous protection, even if one appliance fails or requires maintenance. Use Azure Load Balancer health probes to monitor NVA health and automatically reroute traffic if an instance becomes unavailable. Learn more about [Azure Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md).
+    Configure multiple NVAs in an active-active or active-passive configuration to ensure continuous protection, even if one appliance fails or requires maintenance. Use Azure Load Balancer health probes to monitor NVA health and automatically reroute traffic if an instance becomes unavailable. For more information, see [Azure Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md).
 
 - **Regularly monitor and tune NVAs to maintain optimal performance.** 
 
@@ -80,7 +80,7 @@ To ensure effective DDoS protection using Gateway Load Balancer and partner NVAs
 
 - **Test your DDoS protection setup to validate end-to-end traffic flow and mitigation.**  
 
-     Periodically simulate DDoS attack scenarios and perform failover tests to ensure your protection setup is working as intended. Validate that traffic flows through the NVAs as expected and that mitigation actions are triggered appropriately. Document your test results and update your configuration or runbooks as needed to address any issues. Learn more about [testing DDoS protection](../ddos-protection/test-through-simulations.md).
+     Periodically simulate DDoS attack scenarios and perform failover tests to ensure your protection setup is working as intended. Validate that traffic flows through the NVAs as expected and that mitigation actions are triggered appropriately. Document your test results and update your configuration or runbooks as needed to address any issues. For more information, see [testing DDoS protection](../ddos-protection/test-through-simulations.md).
 
 ## Next steps
 
