@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 06/16/2025
+ms.date: 06/17/2025
 ---
 
 # Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
@@ -26,7 +26,6 @@ Before you begin, ensure that you have:
 - An active Azure subscription with [permissions to create and manage Azure Storage mover and Azure Arc resources](/azure/azure-arc/multicloud-connector/connect-to-aws#azure-prerequisites).
 - An AWS account with access to the Amazon S3 bucket from which you want to migrate.
 - An [Azure Storage account](../storage/common/storage-account-create.md) to use as the destination.
-<!--- Azure Arc for AWS configured to enable secure authentication and access to AWS resources via Multicloud connectors.-->
 - A [Storage Mover resource](storage-mover-create.md) deployed in your Azure subscription.
 
 ## Create a multicloud connector for AWS
@@ -74,10 +73,14 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
     Next, add a **Storage - Data Management** solution by selecting the **Add** link in the **Actions** column of the **Storage - Data Management** solution.
 
-    Confirm that both the **Inventory** and **Storage - Data Management** solutions are created, then select **Next** to continue to the **Authentication template** tab. 
+    Ensure that both solutions are added by validating the presence of **Edit** links within the **Actions** column of the **Solutions** list. Select **Next** to continue to the **Authentication template** tab as shown in the following image.
+
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solutions-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Solutions tab selected. The Edit link is present in the Actions column of the Solutions list, confirming that the required solutions are added." lightbox="media/cloud-to-cloud-migration/add-connector-solutions.png":::
     
 1. Within the **Authentication template** tab, follow the instructions presented to create the *AWS CloudFormation Stack* from the AWS portal.
+
     :::image type="content" source="media/cloud-to-cloud-migration/add-connector-authentication-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Authentication Template tab selected. The AWS CloudFormation template and instructions for creating the stack are displayed.":::
+
 1. Finally, select **Review + Create** to create the connector.
 
     :::image type="content" source="media/cloud-to-cloud-migration/connectors-available-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/connectors-available.png":::
