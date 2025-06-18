@@ -307,6 +307,8 @@ items:
         items:
         - name: Firewalls and virtual networks
           href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Deny access over public endpoints
+          href: ../common/storage-network-security-deny-public-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Grant access from virtual networks
           href: ../common/storage-network-security-virtual-networks.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Grant access from IP address ranges

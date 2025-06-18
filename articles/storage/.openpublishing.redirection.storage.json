@@ -1575,6 +1575,41 @@
             "redirect_url": "/previous-versions/azure/storage/storage-common-transfer-between-storage-accounts",
             "redirect_document_id": false
         },
+                {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#change-the-default-network-access-rule",
+            "redirect_url": "/azure/storage/common/storage-network-security-deny-public-endpoints.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#exceptions",
+            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#manage-exceptions",
+            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range",
+            "redirect_url": "/azure/storage/common/storage-network-security-ip-address-range.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#grant-access-from-a-virtual-network",
+            "redirect_url": "/azure/storage/common/storage-network-security-virtual-networks.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#grant-access-to-trusted-azure-services",
+            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#azure-storage-cross-region-service-endpoints",
+            "redirect_url": "/azure/storage/common/storage-network-security-virtual-networks#azure-storage-cross-region-service-endpoints.md",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/storage/storage-analytics.md",
             "redirect_url": "/azure/storage/common/storage-analytics",

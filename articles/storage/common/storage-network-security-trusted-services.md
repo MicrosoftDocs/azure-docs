@@ -11,10 +11,9 @@ ms.author: normesta
 
 ---
 
-# Manage exceptions
+# Manage Network security exceptions
 
-<a id="exceptions"></a>
-<a id="trusted-microsoft-services"></a>
+Something goes here.
 
 ## Grant access to trusted Azure services
 

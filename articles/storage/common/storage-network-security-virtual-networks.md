@@ -21,7 +21,7 @@ You can configure storage accounts to allow access only from specific subnets. T
 
 You can enable a [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage within the virtual network. The service endpoint routes traffic from the virtual network through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a virtual network. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
 
-Each storage account supports up to 400 virtual network rules. You can combine these rules with [IP network rules](#grant-access-from-an-internet-ip-range).
+Each storage account supports up to 400 virtual network rules. You can combine these rules with [IP network rules](storage-network-security-ip-address-range.md).
 
 > [!IMPORTANT]
 > When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.

@@ -1,6 +1,6 @@
 ---
-title: Grant Access to Azure Storage from IP Address Ranges
-description: Configure the Azure Storage firewall to accept requests from IP address ranges.
+title: Grant Access to Azure Storage from Resource Instances
+description: Configure the Azure Storage firewall to accept requests from from resource instances.
 services: storage
 author: normesta
 ms.service: azure-storage

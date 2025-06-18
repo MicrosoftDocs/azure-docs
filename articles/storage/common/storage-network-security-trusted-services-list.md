@@ -1,6 +1,6 @@
 ---
 title: Azure trusted services list
-description: Put description here.
+description: Put description here for Azure trusted list.
 services: storage
 author: normesta
 ms.service: azure-storage
@@ -95,7 +95,7 @@ You can use the same technique for an account that has the hierarchical namespac
 
 You can also combine Azure roles and ACLs together to grant access. To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
 
-We recommend that you [use resource instance rules to grant access to specific resources](#grant-access-from-azure-resource-instances).
+We recommend that you [use resource instance rules to grant access to specific resources](storage-network-security-resource-instances.md).
 
 ## Next steps
 

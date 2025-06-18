@@ -50,11 +50,11 @@ Storage firewall rules apply to the public endpoint of a storage account. You do
 You can control access to the data in your storage account over network endpoints, or through trusted services or resources in any combination including:
 
 - [Allow access from selected virtual network subnets using private endpoints](storage-private-endpoints.md).
-- [Allow access from selected virtual network subnets using service endpoints](#grant-access-from-a-virtual-network).
-- [Allow access from specific public IP addresses or ranges](#grant-access-from-an-internet-ip-range).
-- [Allow access from selected Azure resource instances](#grant-access-from-azure-resource-instances).
-- [Allow access from trusted Azure services](#grant-access-to-trusted-azure-services) (using [Manage exceptions](#manage-exceptions)).
-- [Configure exceptions for logging and metrics services](#manage-exceptions).
+- [Allow access from selected virtual network subnets using service endpoints](storage-network-security-virtual-networks.md).
+- [Allow access from specific public IP addresses or ranges](storage-network-security-ip-address-range.md).
+- [Allow access from selected Azure resource instances](storage-network-security-resource-instances.md).
+- [Allow access from trusted Azure services](storage-network-security-trusted-services.md).
+- [Configure exceptions for logging and metrics services](storage-network-security-trusted-services.md).
 
 ### About virtual network endpoints
 
