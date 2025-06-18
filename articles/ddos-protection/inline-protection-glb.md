@@ -30,7 +30,6 @@ Inline L7 DDoS protection is valuable for:
 - **Streaming services:** Ensures uninterrupted streaming by mitigating low-volume, targeted attacks.
 - **Gaming workloads:** Prevents short outages and disruptions caused by targeted attacks on game servers.
 
-Partner NVAs provide advanced capabilities, including deep packet inspection, anomaly detection, and real-time analytics, enabling precise mitigation of sophisticated L7 attacks.
 
 ## What is a Gateway Load Balancer?
 
@@ -69,21 +68,22 @@ To ensure effective DDoS protection using Gateway Load Balancer and partner NVAs
 
 - **Scale NVAs appropriately to handle peak traffic volumes.**  
 
-  Ensure that your NVAs are sized and configured to accommodate the highest expected levels of traffic. Under-provisioned NVAs can become a bottleneck, reducing the effectiveness of DDoS mitigation and potentially impacting application performance. Use Azure monitoring tools to track traffic patterns and adjust scaling as needed. Learn more about [Azure Monitor](/azure/azure-monitor/fundamentals/overview) and [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
+    Ensure that your NVAs are sized and configured to accommodate the highest expected levels of traffic. Under-provisioned NVAs can become a bottleneck, reducing the effectiveness of DDoS mitigation and potentially impacting application performance. Use Azure monitoring tools to track traffic patterns and adjust scaling as needed. Learn more about [Azure Monitor](/azure/azure-monitor/fundamentals/overview) and [Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
 
 - **Deploy NVAs in a high-availability configuration to avoid single points of failure.**  
 
- Configure multiple NVAs in an active-active or active-passive configuration to ensure continuous protection, even if one appliance fails or requires maintenance. Use Azure Load Balancer health probes to monitor NVA health and automatically reroute traffic if an instance becomes unavailable. Learn more about [Azure Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md).
+    Configure multiple NVAs in an active-active or active-passive configuration to ensure continuous protection, even if one appliance fails or requires maintenance. Use Azure Load Balancer health probes to monitor NVA health and automatically reroute traffic if an instance becomes unavailable. Learn more about [Azure Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md).
 
 - **Regularly monitor and tune NVAs to maintain optimal performance.** 
 
-  Continuously monitor the performance and health of your NVAs using Azure Monitor, Network Watcher, and NVA-specific dashboards. Review logs and alerts for unusual activity or performance degradation. Update NVA software and signatures regularly to protect against the latest threats and vulnerabilities. 
+    Continuously monitor the performance and health of your NVAs using Azure Monitor, Network Watcher, and NVA-specific dashboards. Review logs and alerts for unusual activity or performance degradation. Update NVA software and signatures regularly to protect against the latest threats and vulnerabilities. 
 
 - **Test your DDoS protection setup to validate end-to-end traffic flow and mitigation.**  
 
-  Periodically simulate DDoS attack scenarios and perform failover tests to ensure your protection setup is working as intended. Validate that traffic flows through the NVAs as expected and that mitigation actions are triggered appropriately. Document your test results and update your configuration or runbooks as needed to address any issues. Learn more about [testing DDoS protection](../ddos-protection/test-through-simulations.md).
+     Periodically simulate DDoS attack scenarios and perform failover tests to ensure your protection setup is working as intended. Validate that traffic flows through the NVAs as expected and that mitigation actions are triggered appropriately. Document your test results and update your configuration or runbooks as needed to address any issues. Learn more about [testing DDoS protection](../ddos-protection/test-through-simulations.md).
 
 ## Next steps
+
 - Learn more about our launch partner [A10 Networks](https://www.a10networks.com/blog/introducing-l3-7-ddos-protection-for-microsoft-azure-tenants/)
 - Learn more about [Gateway Load Balancer](../load-balancer/gateway-overview.md).
 - Learn more about [Azure Private Link](../private-link/private-link-overview.md) and how it can be used with Gateway Load Balancer.
