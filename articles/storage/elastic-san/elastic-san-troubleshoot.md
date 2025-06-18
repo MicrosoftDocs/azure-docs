@@ -26,27 +26,6 @@ This article lists common issues related to Azure Elastic SAN. It also provides 
 - If not, check if your VM is running Fedora or its downstream Linux distributions like Red Hat Enterprise Linux, CentOS, or Rocky Linux that don't support data digests. 
 - If either of the above scenarios is true, disable the CRC protection flag. You have to uncheck the box on portal and change the parameter for EnforceDataIntegrityCheckForIscsi (PowerShell)) or data-integrity-check (CLI) to false.
 
-## Unable to connect to your Elastic SAN via service endpoints
-
-- [Configure public network access](elastic-san-configure-service-endpoints.md#configure-public-network-access) on the SAN 
-```powershell
-# Set the variable values.
-$RgName       = "<ResourceGroupName>"
-$EsanName     = "<ElasticSanName>"
-# Update the Elastic San.
-Update-AzElasticSan -Name $EsanName -ResourceGroupName $RgName -PublicNetworkAccess Enabled
-```
-- [Enable the storage service endpoint](elastic-san-configure-service-endpoints.md#enable-the-storage-service-endpoint) on the volume group 
-```powershell
-# Define some variables
-$RgName = "<ResourceGroupName>" 
-$VnetName = "<VnetName>" 
-$SubnetName = "<SubnetName>" 
-# Get the virtual network and subnet 
-$Vnet = Get-AzVirtualNetwork -ResourceGroupName $RgName -Name $VnetName $Subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $Vnet -Name $SubnetName 
-# Enable the storage service endpoint 
-$Vnet | Set-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $Subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
-```
 
 ## Elastic SAN volume performance or latency isn't as expected
 
