@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.date: 07/24/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-content
+# Customer intent: As a cloud engineer, I want to install Azure Container Storage on my AKS cluster, so that I can manage container volumes efficiently and choose the appropriate storage options for my workloads.
 ---
 
 # Quickstart: Use Azure Container Storage with Azure Kubernetes Service
