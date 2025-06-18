@@ -281,7 +281,7 @@ Azure Functions has a custom GitHub Action and Azure DevOps Task to support cont
 
 ### [Core Tools](#tab/core-tools)
 
-[!INCLUDE [functions-publish-project-CLI-clean](../../includes/functions-publish-project-cli-clean.md)]
+[!INCLUDE [functions-publish-project-cli-clean](../../includes/functions-publish-project-cli-clean.md)]
 
 ### [Visual Studio Code](#tab/vs-code-publish)
 
@@ -661,6 +661,79 @@ To view the list of regions that currently support Flex Consumption plans:
 [!INCLUDE [functions-flex-supported-regions-cli](../../includes/functions-flex-supported-regions-cli.md)]
 
 When you create an app in the [Azure portal](flex-consumption-how-to.md?tabs=azure-portal#create-a-flex-consumption-app) or by using [Visual Studio Code](flex-consumption-how-to.md?tabs=vs-code#create-a-flex-consumption-app), currently unsupported regions are filtered out of the region list.
+
+## Configure monitoring
+
+The following metrics are specifically available for Flex Consumption apps:
+
+##### [Azure CLI](#tab/azure-cli)
+
+```azurecli
+# First, get the resource ID of your Flex Consumption function app (required for metrics commands)
+ResourceId=$(az functionapp show --name <FunctionAppName> --resource-group <ResourceGroupName> --query id -o tsv)
+echo "Function App Resource ID: $ResourceId"
+
+# Monitor Always Ready and On Demand execution counts
+az monitor metrics list --resource $ResourceId --metric "AlwaysReadyFunctionExecutionCount" --interval PT1H --output table
+az monitor metrics list --resource $ResourceId --metric "OnDemandFunctionExecutionCount" --interval PT1H --output table
+
+# Monitor execution units (MB-milliseconds) in Always Ready and On Demand instances
+az monitor metrics list --resource $ResourceId --metric "AlwaysReadyFunctionExecutionUnits" --interval PT1H --output table
+az monitor metrics list --resource $ResourceId --metric "OnDemandFunctionExecutionUnits" --interval PT1H --output table
+
+# Monitor Always Ready resource utilization
+az monitor metrics list --resource $ResourceId --metric "AlwaysReadyUnits" --interval PT1H --output table
+
+# Monitor memory utilization
+az monitor metrics list --resource <ResourceId> --metric "AverageMemoryWorkingSet" --interval PT1H --output table
+az monitor metrics list --resource <ResourceId> --metric "MemoryWorkingSet" --interval PT1H --output table
+
+# Monitor instance count and CPU utilization
+az monitor metrics list --resource <ResourceId> --metric "InstanceCount" --interval PT1H --output table
+az monitor metrics list --resource <ResourceId> --metric "CpuPercentage" --interval PT1H --output table
+```
+
+> **Note**: Flex Consumption metrics are different from Linux Consumption metrics. When comparing performance before and after migration, keep in mind that you'll need to use different metrics to track similar performance characteristics.
+
+##### [Azure portal](#tab/azure-portal)
+
+1. **Function App Metrics**:
+   + Navigate to your Flex Consumption function app in Azure Portal
+   + Go to "Metrics" under the "Monitoring" section
+   + Click "Add metric" and explore the available metrics:
+     + **Always Ready metrics**: Always Ready Function Execution Count, Always Ready Function Execution Units, Always Ready Units
+     + **On Demand metrics**: On Demand Function Execution Count, On Demand Function Execution Units
+     + **Memory metrics**: Average Memory Working Set, Memory Working Set
+     + **Performance metrics**: Instance Count, Cpu Percentage
+   + Create custom charts combining related metrics for better visibility
+   + Use "Add filter" to focus on specific functions or dimensions
+
+2. **Custom Monitoring Dashboards**:
+   + Create a dedicated dashboard for monitoring your Flex Consumption app
+   + Add multiple metric charts to track different aspects of performance
+   + Include both Always Ready and On Demand metrics for complete visibility
+   + Set up alerts for key metrics that exceed expected thresholds
+
+3. **Application Insights Integration (Recommended)**:
+   + While platform metrics provide infrastructure-level insights, Application Insights gives you code-level visibility
+   + If not already enabled, add Application Insights to your function app
+   + Within Application Insights, you can:
+     + Track detailed execution times and dependencies
+     + Monitor individual function performance
+     + Analyze failures and exceptions
+     + Create custom queries to correlate platform metrics with application behavior
+   + Use "Performance" to analyze response times and dependencies
+   + Use "Failures" to identify any errors occurring after migration
+   + Create custom queries in "Logs" to analyze function behavior:
+
+     ```kusto
+     // Compare success rates by instance
+     requests
+     | where timestamp > ago(7d)
+     | summarize successCount=countif(success == true), failureCount=countif(success == false) by bin(timestamp, 1h), cloud_RoleName
+     | render timechart
+     ```
+---
 
 ## Related content
 
