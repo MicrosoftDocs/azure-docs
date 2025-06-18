@@ -64,8 +64,7 @@ To discover Linux servers, you can create a sudo user account like this:
 - This account helps collect configuration and performance data, perform software inventory (find installed applications), and enable agentless dependency analysis using SSH.
 - The user account must have sudo access to the required file paths.
 
-```powershell
-
+```bash
 /usr/sbin/dmidecode -s system-uuid           
 /usr/sbin/dmidecode -t 1                     
 /usr/sbin/dmidecode -s system-manufacturer   
@@ -78,7 +77,7 @@ To discover Linux servers, you can create a sudo user account like this:
 ```
 - For example, you can add an entry like this in the `/etc/sudoers` file.
 
-```powershell
+```bash
 
     AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: \
     /usr/sbin/dmidecode -s system-uuid, \
@@ -92,8 +91,6 @@ To discover Linux servers, you can create a sudo user account like this:
 ```
 
 - Ensure that you enable `NOPASSWD` for the account so it can run the required commands without asking for a password each time it uses sudo.
-
-
 
 
 - The list of commands run on the target servers and the information they collect. [Learn more](discovered-metadata.md#linux-server-metadata).
@@ -123,7 +120,7 @@ To generate the project key, follow the steps:
 1. **Generate project key**, enter a name for the Azure Migrate appliance you want to set up to discover physical or virtual servers. The name should be alphanumeric and 14 characters or fewer.
 1. Select **Generate key** to start creating the required Azure resources. Keep the Discover servers page open while the resources are created.
 1. After the resources are created successfully, a **project key** is generated.
-1. Copy the key ad you’ll need it to register the appliance during its setup.
+1. Copy the key as you’ll need it to register the appliance during its setup.
 
  ![Screenshot that shows how to generate the key.](./media/tutorial-discover-physical/discover-generate-key.png)
 

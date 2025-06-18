@@ -35,7 +35,7 @@ The appliance-based discovery method involves deploying a virtual appliance that
 
 **Hyper-V environments**: For Hyper-V environments, we recommend to [deploy Hyper-V stack of Azure Migrate appliance](tutorial-discover-vmware.md). Also, download the [Hyper-V replication provider](tutorial-migrate-hyper-v.md) to migrate Hyper-V servers.  
 
-**Physical & public Cloud servers**: To discover and assess physical servers and servers running in any public cloud, we recommend setting up a [physical stack of appliance](tutorial-discover-physical.md). For migrating of physical servers, install a secondary [replication appliance](tutorial-migrate-physical-virtual-machines.md).
+**Physical & public Cloud servers**: To discover and assess physical servers and servers running in any public cloud, we recommend setting up a [physical stack of appliance](tutorial-discover-physical.md). To migrate physical servers, install a secondary [replication appliance](tutorial-migrate-physical-virtual-machines.md).
 
 ## Import-based discovery 
 
@@ -45,7 +45,7 @@ Import-based discovery is a simpler and faster alternative, relying on manual up
 
 - Manual data entry via CSV file uploads. 
 - Add output inventory from CMDB tools to CSV templates. 
-- Supports VMware inventory exported from RV tools XLSX file. 
+- Supports VMware inventory exported from RVTools XLSX file. 
 - Build a quick business case using the servers discovered via import. 
 
 
