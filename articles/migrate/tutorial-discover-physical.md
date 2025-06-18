@@ -66,14 +66,28 @@ To discover Linux servers, you can create a sudo user account like this:
 
 ```powershell
 
-/usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls, /usr/bin/netstat, /usr/sbin/lvdisplay "" 
+/usr/sbin/dmidecode -s system-uuid           
+/usr/sbin/dmidecode -t 1                     
+/usr/sbin/dmidecode -s system-manufacturer   
+/usr/sbin/fdisk -l                           
+/usr/sbin/fdisk -l /dev/sdX                  
+/usr/bin/ls                                  
+/usr/bin/netstat                             
+/usr/sbin/lvdisplay    
 
 ```
 - For example, you can add an entry like this in the `/etc/sudoers` file.
 
 ```powershell
 
-`AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l /proc/*/exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay ""[
+    AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: \
+    /usr/sbin/dmidecode -s system-uuid, \
+    /usr/sbin/dmidecode -t 1, \
+    /usr/sbin/dmidecode -s system-manufacturer, \
+    /usr/sbin/fdisk -l, \
+    /usr/bin/ls -l /proc/*/exe, \
+    /usr/bin/netstat -atnp, \
+    /usr/sbin/lvdisplay
 
 ```
 
@@ -188,13 +202,10 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 
     ![Screenshot that shows to install updates and register the appliance.](./media/tutorial-discover-physical/install-updates-register-appliance.png)
 
-> [!Note]
-> This is a new user experience in Azure Migrate appliance. It is available only when you set up the appliance using the latest OVA or installer script from the portal. Appliances that are already registered keep using the older version of the experience and continue to work without any issues.
-
 1. To enable automatic updates on the appliance, paste the project key you copied from the portal.
 1. If you don't have the key, go to **Azure Migrate**: **Discovery and assessment** > **Overview** > **Manage existing appliances**.
 1. Select the appliance name you used when you created the project key, then copy the key shown there.
-1. The appliance verifies the key and starts the auto-update service. This service updates all appliance components to their latest versions. After the update finishes, you can select 'View appliance services' to see the status and versions of the services running on the appliance server.
+1. The appliance verifies the key and starts the auto-update service. This service updates all appliance components to their latest versions. After the update finishes, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
 1. To register the appliance, select Login. In **Continue with Azure Login** select **Copy code & Login** to copy the device code. You need this code to sign in to Azure. The browser opens a new tab with the Azure sign-in prompt. Make sure you turn off the pop-up blocker to see the prompt.
 
     ![Screenshot that shows that how to continue azure login.](./media/tutorial-discover-physical/continue-azure-login.png)
@@ -254,18 +265,18 @@ Now, connect the appliance to the physical servers and start discovery:
         1. WinRM HTTPS needs a local computer Server Authentication certificate. The certificate must have a CN that matches the hostname. It must not be expired, revoked, or self-signed. [Learn more](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https).
 1. You can **Add single item** at a time or **Add multiple items** together. You can also provide server details through **Import a CSV file**. 
 
-  ![Screenshot that shows how to add physical discovery source.](./media/tutorial-discover-physical/add-discovery-source.png)
-
-  1. If you choose **Add single item**, select the OS type.
-  1. Enter a friendly name for the credentials, add the server **IP address or FQDN**.
-  1. Select **Save**.
-  1. If you choose **Add multiple items**, enter multiple records at once by specifying the server **IP address or FQDN**. 
-  1. Enter the friendly name for the credentials in the text box. 
-  1. Verify the records and then select **Save**.
-  1. If you choose **Import CSV** *(this is selected by default)*, download the CSV template file.
-  1. Fill it with the server **IP address or FQDN**.
-  1. Enter the friendly name for the credentials. Then import the file into the appliance.
-  1. Verify the records, and then select **Save**.
+    ![Screenshot that shows how to add physical discovery source.](./media/tutorial-discover-physical/add-discovery-source.png)
+    
+    1. If you choose **Add single item**, select the OS type. 
+    1. Enter a friendly name for the credentials, add the server **IP address or FQDN**.
+    1. Select **Save**.
+    1. If you choose **Add multiple items**, enter multiple records at once by specifying the server **IP address or FQDN**. 
+    1. Enter the friendly name for the credentials in the text box. 
+    1. Verify the records and then select **Save**.
+    1. If you choose **Import CSV** *(this is selected by default)*, download the CSV template file. 
+    1. Fill it with the server **IP address or FQDN**.
+    1. Enter the friendly name for the credentials. Then import the file into the appliance.
+    1. Verify the records, and then select **Save**.
 
 1. When you select **Save**, the appliance validates the connection to the added servers and shows the **Validation status** in the table next to each server. 
     1. If validation fails for a server, you can review the error by selecting **Validation failed** in the Status column. Fix the issue and validate again.
