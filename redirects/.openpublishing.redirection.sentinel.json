@@ -2219,6 +2219,11 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/awake-security.md",
             "redirect_url": "/previous-versions/azure/sentinel/data-connectors/awake-security-via-legacy-agent",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/cloudwatch-lambda-function.md",
+            "redirect_url": "/azure/sentinel/connect-aws#send-formatted-cloudwatch-events-to-s3-using-a-lambda-function-optional",
+            "redirect_document_id": false
         }
     ]
 }

@@ -1,5 +1,5 @@
 ---
-title: Set up your Amazon Web Services environment to collect AWS logs to Microsoft Sentinel
+title: Set up your Amazon Web Services (AWS) environment to collect AWS logs to Microsoft Sentinel
 description: Set up your Amazon Web Services environment to send AWS logs to Microsoft Sentinel using one of the Microsoft Sentinel AWS connectors.
 author: guywi-ms
 ms.author: guywild
@@ -11,7 +11,7 @@ ms.date: 05/28/2025
 
 ---
 
-# Set up your Amazon Web Services environment to collect AWS logs to Microsoft Sentinel
+# Set up your Amazon Web Services (AWS) environment to collect AWS logs to Microsoft Sentinel
 
 Amazon Web Services (AWS) connectors simplify the process of collecting logs from Amazon S3 (Simple Storage Service) and ingesting them into Microsoft Sentinel. The connectors provide tools to help you configure your AWS environment for Microsoft Sentinel log collection.
 
@@ -47,7 +47,7 @@ This diagram shows how to set up your AWS environment to send logs to Azure:
 
 ### Manual setup
 
-Although you can set up the AWS environment manually, as described below, we strongly recommend using the automated tools provided when you [deploy AWS connectors](#deploy-aws-connectors) instead.
+Although you can set up the AWS environment manually, as described below, we strongly recommend using the automated tools provided when you [deploy AWS connectors](#4-deploy-aws-connectors) instead.
 
 #### 1. Create an S3 bucket and SQS queue
 
@@ -117,7 +117,7 @@ Follow these instructions in the AWS documentation:<br>[Creating OpenID Connect 
      ]
    }
    ```
-
+ 
    - `XXXXXXXXXXXX` is your AWS Account ID.
    - `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` is your Microsoft Sentinel workspace ID.
 

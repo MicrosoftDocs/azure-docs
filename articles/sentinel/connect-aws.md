@@ -40,7 +40,7 @@ This tab explains how to configure the AWS S3 connector using one of two methods
     - **Amazon VPC**: .csv file in GZIP format with headers; delimiter: space.
     - **Amazon GuardDuty**: json-line and GZIP formats.
     - **AWS CloudTrail**: .json file in a GZIP format.
-    - **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.yml).
+    - **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](#send-formatted-cloudwatch-events-to-s3-using-a-lambda-function-optional).
 
 
 ## Automatic setup
@@ -148,7 +148,7 @@ Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troub
 This tab explains how to configure the AWS CloudTrail connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
 
 > [!NOTE]
-> AWS CloudTrail has [built-in limitations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in its LookupEvents API. It allows no more than two transactions per second (TPS) per account, and each query can return a maximum of 50 records. Consequently, if a single tenant constantly generates more than 100 records per second in one region, backlogs and delays in data ingestion will result.
+> AWS CloudTrail has [built-in limitations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in its LookupEvents API. It allows no more than two transactions per second (TPS) per account, and each query can return a maximum of 50 records. If a single tenant constantly generates more than 100 records per second in one region, backlogs and delays in data ingestion will result.
 >
 > Currently, you can only connect your AWS Commercial CloudTrail to Microsoft Sentinel and not AWS GovCloud CloudTrail.
 
