@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 06/17/2025
 ---
 
-# Roll out features to targeted audiences in an ASP.NET Core application
+# Roll out features to targeted audiences in a Node.js application
 
 In this guide, you'll use the targeting filter to roll out a feature to targeted audiences for your Node.js application. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
 
