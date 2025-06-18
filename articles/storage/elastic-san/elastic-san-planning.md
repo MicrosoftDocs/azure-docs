@@ -48,13 +48,9 @@ Here's an example of how an autoscale policy works. Say you have an elastic SAN 
 
 ## Networking
 
-In the Elastic SAN, you can enable or disable public network access at the Elastic SAN level. You can also configure access to volume groups in the SAN over both public [Storage service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) and [private endpoints](../../private-link/private-endpoint-overview.md) from selected virtual network subnets. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints, regardless of individual configurations for the volume group.
+To configure networking access for an individual volume group, you must either [Configure private endpoints for Azure Elastic SAN](elastic-san-configure-private-endpoints.md) or [Configure service endpoints for Azure Elastic SAN](elastic-san-configure-service-endpoints.md). Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints, regardless of individual configurations for the volume group.
 
-To configure networking access for an individual volume group, you must either [Configure private endpoints for Azure Elastic SAN](elastic-san-configure-private-endpoints.md) or [Configure service endpoints for Azure Elastic SAN](elastic-san-configure-service-endpoints.md). 
-
-fix this
-
- then [setup a network rule](elastic-san-networking.md#configure-virtual-network-rules) on the volume group for any service endpoints. You don't need a network rule to allow traffic from a private endpoint since the storage firewall only controls access through public endpoints. You can then mount volumes from [AKS](elastic-san-connect-aks.md), [Linux](elastic-san-connect-linux.md), or [Windows](elastic-san-connect-windows.md) clients in the subnet with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.
+Once you've either configured private endpoints or service endpoints for your volume groups, you can then mount volumes from [AKS](elastic-san-connect-aks.md), [Linux](elastic-san-connect-linux.md), or [Windows](elastic-san-connect-windows.md) clients in the subnet with the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.
 
 ## Redundancy
 

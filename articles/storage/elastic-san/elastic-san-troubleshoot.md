@@ -28,7 +28,7 @@ This article lists common issues related to Azure Elastic SAN. It also provides 
 
 ## Unable to connect to your Elastic SAN via service endpoints
 
-- [Enable](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-public-network-access) Public Network Access on the SAN 
+- [Configure public network access](elastic-san-configure-service-endpoints.md#configure-public-network-access) on the SAN 
 ```powershell
 # Set the variable values.
 $RgName       = "<ResourceGroupName>"
@@ -36,7 +36,7 @@ $EsanName     = "<ElasticSanName>"
 # Update the Elastic San.
 Update-AzElasticSan -Name $EsanName -ResourceGroupName $RgName -PublicNetworkAccess Enabled
 ```
-- [Configure](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-an-azure-storage-service-endpoint) service endpoints on the volume group 
+- [Enable the storage service endpoint](elastic-san-configure-service-endpoints.md#enable-the-storage-service-endpoint) on the volume group 
 ```powershell
 # Define some variables
 $RgName = "<ResourceGroupName>" 
@@ -51,8 +51,8 @@ $Vnet | Set-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $Subne
 ## Elastic SAN volume performance or latency isn't as expected
 
 - Check your SAN size and configuration via portal (SAN homepage -> Configuration blade) and ensure that the I/O per second (IOPS) and throughput numbers can handle the requirements of the workload
--  Check your VM throughput and IOPS limits and ensure that the VM can handle the workload requirements
-- Ensure that you're following the best practices outlined in this [document](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-best-practices). 
+- Check your VM throughput and IOPS limits and ensure that the VM can handle the workload requirements
+- Ensure that you're following the best practices outlined in [Optimize the performance of your Elastic SAN](elastic-san-best-practices.md). 
 
 
 ## Unable to establish connectivity from new nodes in a cluster
@@ -89,8 +89,7 @@ Variables:
 
 
 ## Next steps
-- [Deploy an Elastic SAN](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-create)
-- [Connect to Windows](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-connect-windows)
-- [Connect to Linux](https://learn.microsoft.com/azure/storage/elastic-san/elastic-san-connect-linux)
-- [Connect to Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/configure-azure-elastic-san?toc=/azure/storage/elastic-san/toc.json)
-
+- [Deploy an Elastic SAN](elastic-san-create.md)
+- [Connect to Windows](elastic-san-connect-windows.md)
+- [Connect to Linux](elastic-san-connect-linux.md)
+- [Use Azure VMware Solution with Azure Elastic SAN](../../azure-vmware/configure-azure-elastic-san.md?toc=/azure/storage/elastic-san/toc.json)
