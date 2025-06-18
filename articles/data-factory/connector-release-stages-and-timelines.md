@@ -6,10 +6,8 @@ ms.author: jianleishen
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.custom:
-  - references_regions
-  - build-2025
-ms.date: 05/27/2025
+ms.custom: references_regions
+ms.date: 06/17/2025
 ---
 
 # Connector release stages and timelines
@@ -25,9 +23,17 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md) | /              | Removed                 | /                     | /                     |
 | [Amazon RDS for Oracle](connector-amazon-rds-for-oracle.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | August 31, 2025         | October 31, 2025    |
+| [Amazon Redshift](connector-amazon-redshift.md)                          | version 2.0    | Public Preview                                | /                   | /                   |
+|                                    | version 1.0    | GA          | To be determined      | /                   |
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)         | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md)   | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | GA                                | To be determined      | /                     |
+| [Azure SQL Database](connector-azure-sql-database.md) | version 2.0  | GA                           | /                      | /                      |
+|                                                       | version 1.0  | GA                           | To be determined       |/      |
+| [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md) | version 2.0  | GA                | /                      | /                      |
+|                                                       | version 1.0  | GA                           | To be determined       | /     |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | version 2.0  | GA                  | /                      | /                      |
+|                                                       | version 1.0  | GA                           | To be determined       | /    |
 | [Cassandra](connector-cassandra.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | July 31, 2025         | September 30, 2025    |
 | [Concur (Preview)](connector-concur.md)                   | /              | End of support                    | December 31, 2024     | December 31, 2024     |
@@ -38,6 +44,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Greenplum](connector-greenplum.md)                        | version 2.0    | GA                   | /                   | /                   |
 |                                    | version 1.0    | End of support announced                                | August 31, 2025     | September 30, 2025                    |
 | [HBase](connector-hbase.md)                              | /              | End of support                    | December 31, 2024     | December 31, 2024     |
+| [Impala](connector-impala.md)                          | version 2.0    | GA                                | /                   | /                   |
+|                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
 | [Magento (Preview)](connector-magento.md)                  | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [MariaDB](connector-mariadb.md)                            | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support                    | October 31, 2024      | September 30, 2025    |
@@ -67,6 +75,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Snowflake V1](connector-snowflake-legacy.md)              | /              | End of support announced          | June 30, 2025         | September 30, 2025    |
 | [Spark](connector-spark.md)                               | version 2.0    | GA                 | /                   | /                   |
 |                                    | version 1.0    | End of support announced                                |September 30, 2025     | October 31, 2025                  |
+| [SQL Server](connector-sql-server.md)                 | version 2.0  | GA                           | /                      | /                      |
+|                                                       | version 1.0  | GA                           | To be determined       | /       |
 | [Teradata](connector-teradata.md)                          | version 2.0    | GA                  | /                   | /                   |
 |                                    | version 1.0    | End of support announced                                | September 30, 2025     | October 31, 2025                     |
 | [Vertica](connector-vertica.md)                            | version 2.0    | GA                                | /                   | /                   |
