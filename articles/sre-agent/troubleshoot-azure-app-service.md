@@ -11,7 +11,7 @@ ms.service: azure
 # Troubleshoot an App Service app using Azure SRE Agent (preview)
 
 > [!NOTE]
-> Azure SRE Agent is in preview. By using SRE Agent, you consent the product-specific [Preview Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure SRE Agent is in preview. By using SRE Agent, you consent to the product-specific [Preview Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. An SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
 

@@ -67,7 +67,7 @@ To create an SRE Agent, follow these steps:
     |---|---|
     | Agent name | Enter a name for your agent. |
     | Region | Select **Sweden Central**.<br><br>During preview, Azure SRE Agent is only available in the *Sweden Central* region, but the agent can monitor resources in any Azure region. |
-    | Run mode| Select **Review*.<br><br>When in *review mode*, the agent works on your behalf only with your approval. |
+    | Run mode| Select **Review**.<br><br>When in *review mode*, the agent works on your behalf only with your approval. |
 
 1. Select **Choose resource groups**.
 

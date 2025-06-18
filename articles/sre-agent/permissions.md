@@ -10,7 +10,7 @@ ms.service: azure
 
 # Configure permissions modes in Azure SRE Agent (preview)
 
-Azure SRE Agent allows you to decide if you want the agent to act on it's own (*autonomous mode*), or with your input (*review mode*).
+Azure SRE Agent allows you to decide if you want the agent to act on its own (*autonomous mode*), or with your input (*review mode*).
 
 When working in review mode, the agent requires your approval for every action or write operation it performs. In autonomous mode, the agent performs these actions on your behalf, without stopping for explicit approval.
 
@@ -37,7 +37,7 @@ The following table summarizes how the agent behaves based on its operational mo
 | Mode | Identity has permissions | Behavior |
 |---|---|---|
 | Review | Yes  | If given approval from a human reviewer, the agent executes commands related to the action. |
-| Review | No  | If given approval from a human reviewer, then the agent responds with a chance for the reviewer to grant the agent the necessary permissions, user the reviewer's permissions, or return manual instructions on how to achieve the action. |
+| Review | No  | If given approval from a human reviewer, the agent responds with a chance to grant the necessary permissions to the agent, use the reviewer's permissions, or return manual instructions on how to achieve the action. |
 | Autonomous | Yes | The agent performs actions using the agent identity.  |
 | Autonomous | No | The agent is forced to prompt for approval from a reviewer. If granted approval, then the agent responds with a chance for the reviewer to grant the agent the necessary permissions, user the reviewer's permissions, or return manual instructions on how to achieve the action.  |
 

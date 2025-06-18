@@ -3,7 +3,7 @@ title: Azure SRE Agent overview (preview)
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 06/17/2025
+ms.date: 06/18/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -23,7 +23,7 @@ Azure SRE Agent also integrates with [Azure Monitor Alerts](/azure/azure-monitor
 > [!NOTE]
 > The SRE Agent feature is in public preview. To sign up for the wait list, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
 
-By using an SRE Agent, you consent the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+By using an SRE Agent, you consent to the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Key features
 
