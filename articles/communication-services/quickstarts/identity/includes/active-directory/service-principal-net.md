@@ -161,6 +161,6 @@ You should now be able to run your application, using `dotnet run` from your app
 Retrieving new Access Token, using Service Principals
 Retrieved Access Token: ey....
 Sending SMS using Service Principals
-Sms id: Outgoing_..._noam
+Sms id: ...
 Send Result Successful: True
 ```

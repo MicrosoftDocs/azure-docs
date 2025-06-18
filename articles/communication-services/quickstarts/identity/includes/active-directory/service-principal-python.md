@@ -138,6 +138,6 @@ With everything complete, you can run the file by entering `python authenticatio
     Retrieving new Access Token, using Service Principals
     Retrieved Access Token: ey...Q
     Sending SMS using using Service Principals
-    SMS ID: Outgoing_2021040602194...._noam
+    SMS ID: ...
     Send Result Successful: true
 ```
