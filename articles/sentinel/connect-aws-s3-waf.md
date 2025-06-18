@@ -1,10 +1,10 @@
 ---
 title: Connect Microsoft Sentinel to Amazon Web Services to ingest AWS WAF logs
 description: Use the Amazon Web Services (AWS) S3-based Web Application Firewall (WAF) connector to ingest AWS WAF logs, collected in AWS S3 buckets, to Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
-ms.date: 11/26/2024
+ms.date: 04/06/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -63,7 +63,7 @@ The process of enabling and configuring the connector consists of the following 
 
 ## Set up the AWS environment
 
-To simplify the onboarding process, the **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable templates for you to use with the AWS CloudFormation service. The CloudFormation service uses these templates to automatically create resource stacks in AWS. These stacks include the resources themselves as described in this article, as well as credentials, permissions, and policies.
+To simplify the onboarding process, the **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable templates for you to use with the AWS CloudFormation service. The CloudFormation service uses these templates to automatically create resource stacks in AWS. These stacks include the resources themselves as described in this article, and credentials, permissions, and policies.
 
 > [!NOTE]
 > We strongly recommend using the automatic setup process. For special cases, see the [manual setup instructions](connect-aws-configure-environment.md#manual-setup).
@@ -72,7 +72,7 @@ To simplify the onboarding process, the **Amazon Web Services S3 WAF** connector
 
 To run the script to set up the AWS environment, use the following steps:
 
-1. In the Azure portal, from the Microsoft Sentinel navigation menu, expand **Configuration** and select **Data connectors**.
+1. In the Azure portal, from the Microsoft Sentinel navigation menu, expand **Configuration**, and select **Data connectors**.
 
     In the Defender portal, from the quick launch menu, expand **Microsoft Sentinel > Configuration** and select **Data connectors**.
 
@@ -99,7 +99,7 @@ To run the script to set up the AWS environment, use the following steps:
 
 Return to the AWS Console browser tab, which is open to the AWS CloudFormation page for creating a stack.
 
-If you're not already logged in to AWS, log in now, and you are redirected to the AWS CloudFormation page.
+If you're not already logged in to AWS, log in now, and you're redirected to the AWS CloudFormation page.
 
 #### Create the OIDC web identity provider
 
@@ -157,4 +157,4 @@ When the resource stacks are all created, return to the browser tab open to the 
     | take 10
     ```
 
-1. If you haven't already done so, we recommend that you implement **data connector health monitoring** so that you can know when connectors are not receiving data or any other issues with connectors. For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md).
+1. If you haven't already done so, we recommend that you implement **data connector health monitoring** so that you can know when connectors aren't receiving data or any other issues with connectors. For more information, see [Monitor the health of your data connectors](monitor-data-connector-health.md).

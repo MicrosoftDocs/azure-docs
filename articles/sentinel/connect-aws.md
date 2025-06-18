@@ -84,7 +84,7 @@ To run the script to set up the connector, use the following steps:
 
 1. Now run the script. Copy the command from the connector page (under "Run script to set up the environment") and paste it in your command line.
 
-1. The script will prompt you to enter your Workspace ID. This ID appears on the connector page. Copy it and paste it at the prompt of the script.
+1. The script prompts you to enter your Workspace ID. This ID appears on the connector page. Copy it and paste it at the prompt of the script.
 
    :::image type="content" source="media/connect-aws/aws-run-script.png" alt-text="Screenshot of command to run setup script and workspace ID." lightbox="media/connect-aws/aws-run-script.png":::
 
@@ -94,14 +94,14 @@ To run the script to set up the connector, use the following steps:
 
    :::image type="content" source="media/connect-aws/aws-add-connection.png" alt-text="Screenshot of pasting the A W S role information from the script, to the S3 connector." lightbox="media/connect-aws/aws-add-connection.png":::
 
-1. Select a data type from the **Destination table** drop-down list. This tells the connector which AWS service's logs this connection is being established to collect, and into which Log Analytics table it will store the ingested data. Then select **Add connection**.
+1. Select a data type from the **Destination table** drop-down list. This tells the connector which AWS service's logs this connection is being established to collect, and into which Log Analytics table it stores the ingested data. Then select **Add connection**.
 
 > [!NOTE]
 > The script may take up to 30 minutes to finish running.
 
 ## Manual setup
 
-We recommend using the automatic setup script to deploy this connector. If for whatever reason you do not want to take advantage of this convenience, follow the steps below to set up the connector manually.
+We recommend using the automatic setup script to deploy this connector. If for whatever reason you don't want to take advantage of this convenience, follow the steps below to set up the connector manually.
 
 1. Set up your AWS environment as described in [Set up your Amazon Web Services environment to collect AWS logs to Microsoft Sentinel](connect-aws-configure-environment.md#manual-setup).  
 
@@ -124,7 +124,7 @@ We recommend using the automatic setup script to deploy this connector. If for w
 1. Under **2. Add connection**:
     1. Paste the IAM role ARN you copied two steps ago into the **Role to add** field.
     1. Paste the URL of the SQS queue you copied in the last step into the **SQS URL** field.
-    1. Select a data type from the **Destination table** drop-down list. This tells the connector which AWS service's logs this connection is being established to collect, and into which Log Analytics table it will store the ingested data.
+    1. Select a data type from the **Destination table** drop-down list. This tells the connector which AWS service's logs this connection is being established to collect, and into which Log Analytics table it stores the ingested data.
     1. Select **Add connection**.
 
    :::image type="content" source="media/connect-aws/aws-add-connection.png" alt-text="Screenshot of adding an A W S role connection to the S3 connector." lightbox="media/connect-aws/aws-add-connection.png":::
@@ -133,11 +133,11 @@ We recommend using the automatic setup script to deploy this connector. If for w
 
 ### Known issues
 
-- Different types of logs can be stored in the same S3 bucket, but should not be stored in the same path.
+- Different types of logs can be stored in the same S3 bucket, but shouldn't be stored in the same path.
 
-- Each SQS queue should point to one type of message, so if you want to ingest GuardDuty findings *and* VPC flow logs, you should set up separate queues for each type.
+- Each SQS queue should point to one type of message. If you want to ingest GuardDuty findings *and* VPC flow logs, set up separate queues for each type.
 
-- Similarly, a single SQS queue can serve only one path in an S3 bucket, so if for any reason you are storing logs in multiple paths, each path requires its own dedicated SQS queue.
+- A single SQS queue can serve only one path in an S3 bucket. If you're storing logs in multiple paths, each path requires its own dedicated SQS queue.
 
 ### Troubleshooting
 
@@ -158,7 +158,7 @@ This tab explains how to configure the AWS CloudTrail connector. The process of 
 - Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 > [!NOTE]
-> Microsoft Sentinel collects CloudTrail management events from all regions. It is recommended that you do not stream events from one region to another.
+> Microsoft Sentinel collects CloudTrail management events from all regions. We recommend that you don't stream events from one region to another.
 
 ## Connect AWS CloudTrail
 
