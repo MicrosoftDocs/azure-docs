@@ -6,7 +6,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/19/2025
+ms.date: 06/18/2025
 ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
@@ -52,7 +52,7 @@ To install the Spring Cloud Azure Config starter module, add the following depen
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.20.0</version>
+        <version>5.22.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
