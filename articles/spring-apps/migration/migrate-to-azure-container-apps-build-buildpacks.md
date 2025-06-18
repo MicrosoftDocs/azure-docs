@@ -303,10 +303,6 @@ id = "paketo-buildpacks/python"
 
 [[order]]
   [[order.group]]
-  id = "paketo-buildpacks/java-azure"
-
-[[order]]
-  [[order.group]]
   id = "paketo-buildpacks/dotnet-core"
 
 [[order]]
