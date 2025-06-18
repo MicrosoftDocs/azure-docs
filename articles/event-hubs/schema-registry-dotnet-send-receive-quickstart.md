@@ -14,8 +14,7 @@ ms.author: spelluru
 
 In this quickstart, you learn how to send events to and receive events from an event hub with schema validation using the **Azure.Messaging.EventHubs** .NET library. 
 
-> [!NOTE]
-> **Azure Schema Registry** is a feature of Event Hubs. The registry provides a central repository for schemas for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to **exchange data without having to manage and share the schema**. It also provides a simple governance framework for reusable schemas and defines relationship between schemas through a grouping construct (schema groups). For more information, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
+*Azure Schema Registry* is a feature of Event Hubs. The registry provides a central repository for schemas for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to *exchange data without having to manage and share the schema*. It also provides a simple governance framework for reusable schemas and defines relationship between schemas through a grouping construct (schema groups). For more information, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
 
 ## Prerequisites
 
@@ -45,7 +44,7 @@ Note down the following settings to use in the current quickstart:
 
 To create a schema group and a schema, follow instructions from [Create schemas using Schema Registry](create-schema-registry.md).
 
-1. Create a schema group named **contoso-sg** using the Schema Registry portal. Use **Avro** as the serialization type and **None** for the compatibility mode. 
+1. Create a schema group named *contoso-sg* using the Schema Registry portal. Use **Avro** as the serialization type and **None** for the compatibility mode. 
 1. In that schema group, create a new Avro schema with schema name: `Microsoft.Azure.Data.SchemaRegistry.example.Order`. Use the following schema content. 
 
     ```json 
@@ -75,7 +74,7 @@ To create a schema group and a schema, follow instructions from [Create schemas 
 Add your user account to the **Schema Registry Reader** role at the namespace level. You can also use the **Schema Registry Contributor** role, but that's not necessary for this quickstart.  
 
 1. On the **Event Hubs Namespace** page, on the left menu, select **Access control (IAM)**.
-1. On the **Access control (IAM)** page, select **+ Add** -> **Add role assignment**.
+1. On the **Access control (IAM)** page, select **+ Add** > **Add role assignment**.
 1. On the **Roles** page, select **Schema Registry Reader**, and then select **Next**.
 1. Use the **+ Select members** link to add your user account to the role, and then select **Next**. 
 1. On the **Review + assign** page, select **Review + assign**.
@@ -109,8 +108,8 @@ Add your user account to the **Schema Registry Reader** role at the namespace le
     Install-Package Azure.ResourceManager.Compute
     ```
 
-1. Authenticate producer applications to connect to Azure via Visual Studio. For more information, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme#authenticate-via-visual-studio).  
-1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure role-based access control](schema-registry-concepts.md#azure-role-based-access-control). 
+1. Authenticate producer applications to connect to Azure by using Visual Studio. For more information, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme#authenticate-via-visual-studio).  
+1. Sign in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure role-based access control](schema-registry-concepts.md#azure-role-based-access-control). 
 
 ### Code generation using the Avro schema
 
@@ -178,7 +177,7 @@ Add your user account to the **Schema Registry Reader** role at the namespace le
     // Send the batch of events to the event hub. 
     await producerClient.SendAsync(eventBatch);
     Console.WriteLine("A batch of 1 order has been published.");        
-    ```    
+    ```
 
 1. Replace the following placeholder values with the real values.
 
@@ -368,6 +367,7 @@ This section shows how to write a .NET Core console application that receives ev
    ```bash
    Received order with ID: 1234, amount: 45.29, description: First sample order.
    ```
+
    These events are the three events you sent to the event hub earlier by running the sender program. 
 
 ## Samples
