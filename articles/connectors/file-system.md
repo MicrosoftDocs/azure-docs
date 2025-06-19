@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 06/19/2025
 ---
 
 # Connect to on-premises file systems from workflows in Azure Logic Apps
@@ -83,9 +83,9 @@ The File System connector has different versions, based on [logic app type and h
   To use a **File System** action, your workflow can start with any trigger that best fits your scenario.
 
   If you don't have a logic app resource and workflow, see the following articles:
-	  
-	  * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
-	  * [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
+
+  * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
+  * [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
 <a name="add-file-system-trigger"></a>
 

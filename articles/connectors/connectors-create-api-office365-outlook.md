@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 06/19/2025
 ---
 
 # Connect to Office 365 Outlook from workflows in Azure Logic Apps
@@ -22,8 +22,8 @@ For example, your workflow can perform the following tasks:
 
 > [!NOTE]
 >
-> The Office 365 Outlook connector works only with a [work or school account](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool), for example, *@fabrikam.onmicrosoft.com*.  
-> If you have an *@outlook.com* or *@hotmail.com* account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md). 
+> The Office 365 Outlook connector works only with a [work or school account](https://support.microsoft.com/office/what-account-to-use-with-office-and-you-need-one-914e6610-2763-47ac-ab36-602a81068235#bkmk_msavsworkschool), for example, @fabrikam.onmicrosoft.com.
+> If you have an @outlook.com or @hotmail.com account, use the [Outlook.com connector](../connectors/connectors-create-api-outlook.md). 
 > To connect to Outlook with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
 
 ## Connector technical reference

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 06/19/2025
 ## As a developer, I want to access my SQL database from my logic app workflow.
 ---
 
@@ -260,15 +260,9 @@ In the connection information box, complete the following steps:
    | [**Microsoft Entra integrated**](/azure/azure-sql/database/authentication-aad-overview) | Supported with the SQL Server managed connector. <br><br>Requires a valid managed identity in Microsoft Entra that's [enabled on your logic app resource](../logic-apps/authenticate-with-managed-identity.md) and has access to your database. For more information, see these articles: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) <br>- [Microsoft Entra authentication for Azure SQL](/azure/azure-sql/database/authentication-aad-overview) |
    | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | Supported with the SQL Server managed connector. <br><br>Requires the following items: <br><br>- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multitenant Azure Logic Apps. <br><br>- A valid user name and strong password that are created and stored in your SQL Server database. For more information, see the following articles: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) |
 
-   The following examples show how the connection information box might appear if you use the SQL Server *managed* connector and select **Microsoft Entra integrated** authentication:
+   The following example shows how the connection information box might appear if you use the SQL Server *managed* connector and select **Microsoft Entra integrated** authentication:
 
-   **Consumption workflows**
-
-   :::image type="content" source="media/connectors-create-api-sqlazure/select-azure-ad-sql-cloud-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow, and SQL Server cloud connection information with selected authentication type.":::
-
-   **Standard workflows**
-
-   :::image type="content" source="media/connectors-create-api-sqlazure/select-azure-ad-sql-cloud-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow, and SQL Server cloud connection information with selected authentication type.":::
+   :::image type="content" source="media/connectors-create-api-sqlazure/select-azure-ad-sql-cloud-standard.png" alt-text="Screenshot shows SQL Server cloud connection information with selected authentication type.":::
 
 1. After you select **Microsoft Entra integrated**, select **Sign in**. Based on whether you use Azure SQL Database or SQL Managed Instance, select your user credentials for authentication.
 
@@ -292,13 +286,7 @@ In the connection information box, complete the following steps:
 
    This database information box looks similar to the following example:
 
-   **Consumption workflows**
-
-   :::image type="content" source="media/connectors-create-api-sqlazure/azure-sql-database-information-consumption.png" alt-text="Screenshot shows SQL cloud database cloud information with sample values for Consumption." lightbox="media/connectors-create-api-sqlazure/azure-sql-database-information-consumption.png":::
-
-   **Standard workflows**
-
-   :::image type="content" source="media/connectors-create-api-sqlazure/azure-sql-database-information-standard.png" alt-text="Screenshot shows SQL cloud database information with sample values for Standard." lightbox="media/connectors-create-api-sqlazure/azure-sql-database-information-standard.png":::
+   :::image type="content" source="media/connectors-create-api-sqlazure/azure-sql-database-information-standard.png" alt-text="Screenshot shows SQL cloud database information with sample values." lightbox="media/connectors-create-api-sqlazure/azure-sql-database-information-standard.png":::
 
 1. Now, continue with the steps that you haven't completed yet in either [Add a SQL trigger](#add-sql-trigger) or [Add a SQL action](#add-sql-action).
 
@@ -338,15 +326,9 @@ In the connection information box, complete the following steps:
    > * `User ID={your-user-name}`
    > * `Password={your-password}`
 
-   The following examples show how the connection information box might appear if you select **Windows** authentication.
+   The following example shows how the connection information box might appear if you select **Windows** authentication.
 
-   **Consumption workflows**
-
-   :::image type="content" source="media/connectors-create-api-sqlazure/select-windows-authentication-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow, and SQL Server on-premises connection information with selected authentication." lightbox="media/connectors-create-api-sqlazure/select-windows-authentication-consumption.png":::
-
-   **Standard workflows**
-
-   :::image type="content" source="media/connectors-create-api-sqlazure/select-windows-authentication-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow, and SQL Server on-premises connection information with selected authentication." lightbox="media/connectors-create-api-sqlazure/select-windows-authentication-standard.png":::
+   :::image type="content" source="media/connectors-create-api-sqlazure/select-windows-authentication-standard.png" alt-text="Screenshot shows SQL Server on-premises connection information with selected authentication." lightbox="media/connectors-create-api-sqlazure/select-windows-authentication-standard.png":::
 
 1. When you're ready, select **Create**.
 
