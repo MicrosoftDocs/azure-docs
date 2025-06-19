@@ -98,7 +98,7 @@ Collections in GeoCatalog are defined in JSON format and include the following f
 
 ### Item assets
 
-The `item_assets` fiel, at the collection level, provides a way to determine what assets (data files) are available in any child Item. The listed assets in this field don't imply that all assets are available for all Items (it should be the union of the available assets, not the intersection of the available assets). This field is enabled in a GeoCatalog via the [item_assets extension](https://github.com/stac-extensions/item-assets) of the STAC specification. The items assets extension is required if you want to visualize Items in the GeoCatalog Explorer.
+The `item_assets` field, at the collection level, provides a way to determine what assets (data files) are available in any child Item. The listed assets in this field don't imply that all assets are available for all Items (it should be the union of the available assets, not the intersection of the available assets). This field is enabled in a GeoCatalog via the [item_assets extension](https://github.com/stac-extensions/item-assets) of the STAC specification. The items assets extension is required if you want to visualize Items in the GeoCatalog Explorer.
 
 The `item_assets` field is itself an object, with at least two of the following fields:
 
