@@ -62,7 +62,7 @@ See these articles to learn how to assign a storage task:
 - [Azure roles for storage task assignments](storage-tasks/storage-task-authorization-roles.md)
 
 > [!NOTE]
-> Storage task assignment can't target general-purpose v1 accounts because those accounts don't support the latest features. If you have a general-purpose v1 account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
+> Storage task assignment can't target general-purpose v1 & Legacy Blob Storage accounts because those accounts don't support the latest features. If you have a general-purpose v1 or Legacy Blob Storage account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
 
 ## Events
 
