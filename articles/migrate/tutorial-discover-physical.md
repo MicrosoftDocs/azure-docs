@@ -56,7 +56,7 @@ To set up:
 
 ### Prepare Linux server
 
-To discover Linux servers, you can create a sudo user account like this:
+For discovering Linux servers, you can set up a least privileged sudo account by following these steps:
 
 **Set up Least privileged Linux user accounts** 
 
@@ -107,7 +107,7 @@ To discover Linux servers, you can create a sudo user account like this:
 | Rocky Linux | 8.x, 9.x|
 
 > [!Note]
-> We recommend setting up least-privileged sudo accounts. You can also use any account, like root, that already has all the required permissions for Linux discovery.
+>  We recommend setting up the least privileged sudo accounts. Any account, such as root, that has the superset of the mentioned permissions can also be used for Linux discovery.
 
 ## Generate the project key
 
