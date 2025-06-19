@@ -14,7 +14,7 @@ ms.custom: engagement-fy24
 
 [Elastic SAN](../storage/elastic-san/elastic-san-introduction.md) optimizes workload performance and integrates large-scale databases with mission-critical applications. It simplifies SAN deployment, scaling, management, and configuration while ensuring high availability. It also interoperates with Azure Virtual Machines, Azure VMware Solutions, and Azure Kubernetes Service for versatile compute compatibility.
 
-Azure Backup enables Elastic SAN backups via Backup vault. It offers a fully managed solution to schedule backups, set expiration timelines for restore points, and restore data to a new volume. It helps protect against data loss from accidental deletions, ransomware, and application updates.
+Azure Backup enables Elastic SAN backups via Backup vault. It offers a fully managed solution to schedule backups, set expiration timelines for recovery points, and recovery data to a new volume. It helps protect against data loss from accidental deletions, ransomware, and application updates.
 
 >[!Important]
 >As this solution is covered by Microsoft's Supplemental Terms for Azure Previews, use it for testing, and not for production use. For any queries, write to [AzureEsanBackup@microsoft.com](mailto:AzureEsanBackup@microsoft.com).
@@ -24,24 +24,24 @@ Azure Backup enables Elastic SAN backups via Backup vault. It offers a fully man
 Elastic SAN backup includes the following key features:
 
 - **Region availability**: The feature is currently [available in specific regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions) only. 
-- **Snapshot export**: Exports the selected Elastic SAN volume to an independent managed disk incremental snapshot (operational tier) at a given point in time.
-- **Storage and resiliency**: Managed Disk incremental snapshot is stored in Locally redundant storage (LRS) resiliency (in LRS-[supported regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions)), independent of the Elastic SAN volume lifecycle.
-- **Restore points**: Supports up to **450 restore points**, with backup frequency of **24 hours**.
+- **Snapshot export**: Exports the selected Elastic SAN to an independent managed disk incremental snapshot (operational tier) at a given point in time.
+- **Storage and resiliency**: Managed Disk incremental snapshot is stored in Locally redundant storage (LRS) resiliency (in LRS-[supported regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions)), independent of the Elastic SAN lifecycle.
+- **Recovery points**: Supports up to **450 recovery points**, with backup frequency of **24 hours**.
 - **Backup tier**: Supports operational tier.
 
   >[!Note]
   >Long-term vaulted backups are currently not supported.
-- **Volume size limit**: Supports Elastic SAN volumes size of **<= 4 TB**.
+- **Volume size limit**: Supports Elastic SAN size of **<= 4 TB**.
 - **Snapshot deletion**: Deletion of snapshots isn't possible if **Delete Lock** is enabled on the resource group. Ensure that you disable  **Delete Lock** to use this feature.
 
 ## How the backup process for Elastic SAN works
 
 Azure Backup manages the backup operations for Elastic SAN by performing the following actions:
 
-- After you configure the Elastic SAN backup, Azure Backup captures a snapshot, extracts changed data to a managed disk incremental snapshot (recovery point), and then removes the volume snapshot.
+- After you configure the Elastic SAN backup, Azure Backup captures a snapshot, extracts changed data to a managed disk incremental snapshot (recovery point), and then removes the snapshot.
 
    >[!Note]
-   >- The Elastic SAN volume snapshot is temporary and isn't a recovery point.
+   >- The Elastic SAN snapshot is temporary and isn't a recovery point.
    >- Azure Backup manages the lifecycle of these incremental snapshots as per the backup policy.
  
 - During restore, Azure Backup reads the managed disk incremental snapshot, and then recovers it as a new volume in an existing Elastic SAN instance using the Elastic SAN import APIs.
