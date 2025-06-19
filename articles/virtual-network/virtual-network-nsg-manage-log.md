@@ -11,6 +11,7 @@ ms.date: 03/22/2023
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: "As a network administrator, I want to enable resource logging for a network security group so that I can monitor traffic and analyze the application of security rules within my virtual network."
 ---
 
 # Resource logging for a network security group
