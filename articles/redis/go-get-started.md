@@ -28,20 +28,17 @@ We are breaking the connection to this. -->
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Go](https://go.dev/doc/install) (preferably version 1.13 or above)
-- [Git](https://git-scm.com/downloads)
-- An HTTP client such [curl](https://curl.se/)
 
 ## Create an Azure Managed Redis instance
 
 First you must create a cache. You can create a cache using Azure Managed Redis or Azure Cache for Redis using the Azure portal.
 
-When you create the cache you should create it with both Access keys enabled. Microsoft Entra ID is enabled by default. Your cache must also public endpoint for this Quickstart.
+When you create the cache you should create it with Access keys enabled. Microsoft Entra ID is enabled by default. Your cache must also use public endpoint for this Quickstart.
 - [Azure Managed Redis](includes/managed-redis-create.md)
 - [Azure Cache for Redis](/azure/azure-cache-for-redis/quickstart-create-redis)
 
 Optionally, you can create a cache using Azure CLI, PowerShell, or any means that you prefer.
 
-[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
 
 ## Code to connect to a AMR Cache
 
@@ -61,6 +58,5 @@ Optionally, you can create a cache using Azure CLI, PowerShell, or any means tha
 
 ## Related content
 
-[Create a simple ASP.NET web app that uses an Azure Cache for Redis.](web-app-cache-howto.md)
 <!-- Link to Redis Extension for connecting -->
 <!-- Link to any Redis code sample on their site that are germane -->
