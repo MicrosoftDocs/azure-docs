@@ -14,7 +14,7 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
-## Update (June) 2025
+## Update (June 2025)
 
 - Public preview: Azure Migrate supports end-to-end migration of Gen2 VMs—(VM with UEFI boot type)—to Trusted Launch virtual machines (TVMs). This is available for all migration scenarios (VMware, Hyper-V, and Physical). Users can now assess their Gen2 VMs for TVM readiness and perform direct migrations to TVMs using Azure Migrate. It includes full support for  Secure boot, **test migrations** and **scaled migrations**, enabling a seamless and secure transition to Trusted Launch VMs.
 
