@@ -17,7 +17,7 @@ This guide shows how to access your SQL database from a workflow in Azure Logic 
 
 For example, your workflow can run actions that get, insert, and delete data or that can run SQL queries and stored procedures. Your workflow can check for new records in a non-SQL database, do some processing work, use the results to create new records in your SQL database, and send email alerts about the new records.
 
-If you're new to Azure Logic Apps, review the following articles to get started:
+If you're new to Azure Logic Apps, see the following articles to get started:
 
 * [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 * [Quickstart: Create an example Consumption logic app workflow using the Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md)
@@ -115,11 +115,13 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app. Under **Development Tools** in the sidebar menu, select **Logic app designer** to open a workflow.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. Follow these [general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger) to add the [SQL Server managed trigger you want](/connectors/sql/#triggers).
+1. On the resource sidebar menu, under **Development Tools**, select the designer to open your blank workflow.
 
-   This example continues with the trigger named **When an item is created**. You can find this trigger under **SQL Server**.
+1. Add the [**SQL Server** managed trigger](/connectors/sql/#triggers) that you want for your scenario by following the [general steps to add a trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
+
+   This example continues with the **SQL Server** trigger named **When an item is created**.
 
 1. If prompted, provide the [information for your connection](#create-connection). When you're done, select **Create new**.
 
@@ -139,11 +141,13 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app. Under **Get started**, select **Create a workflow in designer**.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Select **+ Add** to create a new workflow. Enter a name for your workflow and choose the state type.
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your blank workflow.
 
-1. Follow these [general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to find and add the SQL Server [built-in trigger](/azure/logic-apps/connectors/built-in/reference/sql/#triggers) or [managed trigger](/connectors/sql/#triggers) you want.
+1. On the workflow sidebar menu, under **Tools**, select the designer to open your blank workflow.
+
+1. Add the **SQL Server** [built-in trigger](/azure/logic-apps/connectors/built-in/reference/sql/#triggers) or [managed trigger](/connectors/sql/#triggers) that you want for your scenario by following the [general steps to add a trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
    For example, you might select the built-in trigger named **When a row is inserted** or the managed trigger named **When a row is created**. This example continues with the built-in trigger named **When a row is inserted**.
 
@@ -155,7 +159,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    :::image type="content" source="media/connectors-create-api-sqlazure/when-row-inserted-standard.png" alt-text="Screenshot shows Standard workflow designer and built-in action named When a row is inserted.":::
 
-1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
+1. Add any other available parameters that you want from the **Advanced parameters** list.
 
    In this example, the **When a row is inserted** built-in trigger returns the row that you inserted in the selected table, and nothing else. To perform other tasks, continue by adding either another SQL Server action or another action that performs the next task that you want in your logic app workflow.
 
@@ -180,11 +184,13 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. Follow these [general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to add the [SQL Server managed action you want](/connectors/sql/#actions).
+1. On the resource sidebar menu, under **Development Tools**, select the designer to open your workflow.
 
-   This example continues with the action named **Get row**, which gets a single record.
+1. Add the [**SQL Server** managed action](/connectors/sql/#actions) that you want by following the [general steps to add an action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+
+   This example continues with the **SQL Server** action named **Get row**, which gets a single record.
 
 1. If prompted, provide the [information for your connection](#create-connection). When you're done, select **Create**.
 
@@ -200,9 +206,11 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Follow these [general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to find and add the SQL Server [built-in action](/azure/logic-apps/connectors/built-in/reference/sql/#actions) or [managed action](/connectors/sql/#actions) you want.
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select the designer to open your workflow.
+
+1. Add the **SQL Server** [built-in action](/azure/logic-apps/connectors/built-in/reference/sql/#actions) or [managed action](/connectors/sql/#actions) that you want for your scenario by following the [general steps to add an action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    For example, you might select the built-in action named **Execute query** or the managed action named **Get row**, which gets a single record. This example continues with the managed action named **Get row**. 
 
@@ -397,5 +405,5 @@ When you call a stored procedure by using the SQL Server connector, the returned
 
 ## Related content
 
-* [List of all Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 * [Built-in connectors in Azure Logic Apps](built-in.md)

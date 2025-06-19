@@ -1,6 +1,6 @@
 ---
-title: Connect to Office 365 Outlook
-description: Learn how to automate tasks in Office 365 Outlook by connecting to workflows in Azure Logic Apps.
+title: Connect to Office 365 Outlook from Workflows
+description: Learn how to automate tasks in Office 365 Outlook by using workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/18/2025
 ---
 
-# Connect to Office 365 Outlook from Azure Logic Apps
+# Connect to Office 365 Outlook from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -42,7 +42,16 @@ For information about this connector's operations and any limits, see the [conne
   > Microsoft Entra authentication works only with an account for 
   > Microsoft Office 365 operated by 21Vianet (.cn), not .com accounts.
 
-* The logic app workflow from where you want to access your Outlook account. To add an Office 365 Outlook trigger, you need to start with a blank workflow. To add an Office 365 Outlook action, your workflow can start with any trigger.
+* The logic app resource with the workflow from where you want to access your Outlook account.
+
+  To start your workflow with an **Office 365 Outlook** trigger, you need to have a blank workflow.
+
+  To use an **Office 365 Outlook** action, your workflow can start with any trigger that best fits your scenario.
+
+  If you don't have a logic app resource and workflow, see the following articles:
+  
+  * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
+  * [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
 ## Add an Office 365 Outlook trigger
 
@@ -50,9 +59,11 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app. Under **Development Tools** in the sidebar menu, select **Logic app designer** to open a blank workflow.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. Follow these [general steps to add a trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger) to your workflow.
+1. On the sidebar menu, under **Development Tools**, select the designer to open your blank workflow.
+
+1. Add the **Office 365 Outlook** trigger that suits your scenario by following the [general steps to add a trigger to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
    This example continues with the trigger named **When an upcoming event is starting soon**. This *polling* trigger regularly checks for any updated calendar event in your email account, based on the specified schedule.
 
@@ -71,7 +82,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
    | **Interval** | Yes | **15** | The number of intervals |
    | **Frequency** | Yes | **Minute** | The unit of time |
 
-   You can add other available parameters, such as **Time zone**.
+   You can add any other available parameters, such as **Time zone**, from the **Advanced parameters** list.
 
    :::image type="content" source="media/connectors-create-api-office365-outlook/calendar-settings-consumption.png" alt-text="Screenshot showing the Consumption workflow trigger parameters." lightbox="media/connectors-create-api-office365-outlook/calendar-settings-consumption.png":::
 
@@ -79,11 +90,14 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app. Under **Get started**, select **Create a workflow in designer**.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Select **+ Add** to create a new workflow. Enter a name for your workflow and choose the state type.
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your blank workflow.
 
-1. Follow these [general steps to add a trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
+1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
+
+
+1. Add the **Office 365 Outlook** trigger that best suits your scenario by following the [general steps to add a trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
    This example continues with the trigger named **When an upcoming event is starting soon**. This *polling* trigger regularly checks for any updated calendar event in your email account, based on the specified schedule.
 
@@ -102,7 +116,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
    | **Interval** | Yes | **15** | The number of intervals |
    | **Frequency** | Yes | **Minute** | The unit of time |
 
-   You can add other available parameters, such as **Time zone**.
+   You can add any other available parameters, such as **Time zone**, from the **Advanced parameters** list.
 
    :::image type="content" source="media/connectors-create-api-office365-outlook/calendar-settings-standard.png" alt-text="Screenshot showing the Standard workflow trigger parameters." lightbox="media/connectors-create-api-office365-outlook/calendar-settings-standard.png":::
 
@@ -122,9 +136,9 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    This example continues with the Office 365 Outlook trigger named **When a new email arrives**.
 
-1. Follow these [general steps to add an action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to your workflow.
+1. Add the **Office 365 Outlook** action that best suits your scenario by following the [general steps to add an action to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   This example continues with the Office 365 Outlook action named **Create contact**. Select the version under **Office 365 Outlook** in the search results.
+   This example continues with the **Office 365 Outlook** action named **Create contact**.
 
    This operation creates a new contact in Office 365 Outlook. You can use the output from a previous operation in the workflow to create the contact.
 
@@ -147,7 +161,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    :::image type="content" source="media/connectors-create-api-office365-outlook/create-contact-consumption.png" alt-text="Screenshot showing the Consumption workflow action parameters." lightbox="media/connectors-create-api-office365-outlook/create-contact-consumption.png":::
 
-   To add other available parameters, select the **Advanced parameters** dropdown, and choose the parameters that you want.
+   You can add any other available parameters from the **Advanced parameters** list.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -157,9 +171,9 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    This example continues with the Office 365 Outlook trigger named **When a new email arrives**.
 
-1. Follow these [general steps to add an action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
+1. Add an **Office 365 Outlook** action to your workflow by following the [general steps to add an action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   This example continues with the Office 365 Outlook action named **Create contact**. This operation creates a new contact in Office 365 Outlook. You can use the output from a previous operation in the workflow to create the contact.
+   This example continues with the **Office 365 Outlook** action named **Create contact**. This operation creates a new contact in Office 365 Outlook. You can use the output from a previous operation in the workflow to create the contact.
 
 1. If prompted, sign in to your Office 365 Outlook account, which creates a connection. To connect with a different user account, such as a service account, see [Connect using other accounts](#connect-using-other-accounts).
 
@@ -180,7 +194,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    :::image type="content" source="media/connectors-create-api-office365-outlook/create-contact-standard.png" alt-text="Screenshot showing the Standard workflow action parameters." lightbox="media/connectors-create-api-office365-outlook/create-contact-standard.png":::
 
-   To add other available parameters, select the **Advanced parameters** dropdown, and choose the parameters that you want.
+   You can add any other available parameters from the **Advanced parameters** list.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -210,7 +224,7 @@ If you try connecting to Outlook by using a different account than the one curre
 
    For example, the **Send an email** action has an optional parameter, **From (Send as)**, which you can add to the action and use your service account's email address as the sender. To add this parameter, follow these steps:
 
-   1. In the **Send an email** action, open the **Advanced parameters** dropdown, and select the **From (Send as)** parameter.
+   1. In the **Send an email** action, from the **Advanced parameters** list, select the **From (Send as)** parameter.
 
    1. Enter the service account's email address.
 
