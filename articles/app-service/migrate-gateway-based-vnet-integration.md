@@ -265,4 +265,4 @@ After successfully migrating to regional virtual network integration, explore th
 * [Azure NAT Gateway integration](./overview-nat-gateway-integration.md)
 * [App Service networking features overview](./networking-features.md)
 * [Virtual network integration overview](./overview-vnet-integration.md)
-* [Troubleshoot virtual network integration](../includes/app-service-web-vnet-troubleshooting.md)
+* [Troubleshoot virtual network integration](./troubleshoot/azure/app-service/troubleshoot-vnet-integration-apps.md)
