@@ -11,6 +11,7 @@ ms.date: 10/17/2023
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a cloud engineer, I want to use Terraform to deploy an Azure Firewall and configure IP Groups, so that I can manage network security and access efficiently within my Azure environment.
 ---
 
 # Quickstart: Create an Azure Firewall and IP Groups - Terraform

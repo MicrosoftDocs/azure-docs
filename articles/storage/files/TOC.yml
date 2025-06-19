@@ -23,52 +23,6 @@
     href: storage-how-to-create-file-share.md
   - name: Create an NFS file share
     href: storage-files-quick-create-use-linux.md
-- name: Mount file shares
-  items:
-  - name: Mount SMB file share on Windows
-    href: storage-how-to-use-files-windows.md
-  - name: Mount SMB file share on Linux
-    href: storage-how-to-use-files-linux.md
-  - name: Mount NFS file share on Linux
-    href: storage-files-how-to-mount-nfs-shares.md
-  - name: Mount SMB file share on macOS
-    href: storage-how-to-use-files-mac.md
-- name: Data transfer and migration
-  items:
-  - name: Migrate to SMB Azure file shares
-    href: storage-files-migration-overview.md
-  - name: Migrate to NFS Azure file shares
-    href: storage-files-migration-nfs.md
-  - name: Migrate files between Azure file shares
-    href: migrate-files-between-shares.md
-  - name: Target a cloud-only deployment
-    items:
-    - name: Use Azure Storage Mover to migrate to SMB Azure file shares
-      href: migrate-files-storage-mover.md
-    - name: Use Robocopy to migrate to SMB Azure file shares
-      href: storage-files-migration-robocopy.md
-    - name: Migrate from an on-premises NAS to Azure file shares with DataBox
-      href: storage-files-migration-nas-cloud-databox.md
-  - name: Target a hybrid deployment with Azure File Sync
-    items:
-    - name: Replace Windows file servers with Azure File Sync
-      href: windows-server-to-azure-files.md
-    - name: Migrate from Linux to a hybrid file server with Azure File Sync
-      href: storage-files-migration-linux-hybrid.md
-    - name: Migrate from on-premises NAS to a hybrid file server using Azure File Sync
-      href: storage-files-migration-nas-hybrid.md
-    - name: Migrate from on-premises NAS to a hybrid file server using DataBox
-      href: storage-files-migration-nas-hybrid-databox.md
-  - name: Transfer files with AzCopy
-    items:
-    - name: Get started with AzCopy
-      href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json
-    - name: Use AzCopy with Files
-      href: ../common/storage-use-azcopy-files.md?toc=/azure/storage/files/toc.json
-    - name: Configure, optimize, and troubleshoot AzCopy
-      href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
-  - name: Migrate GlusterFS to Azure Files
-    href: glusterfs-migration-guide.md      
 - name: Authentication and authorization
   items:
   - name: Overview of identity-based authentication
@@ -115,6 +69,52 @@
       href: authorize-data-operations-portal.md
     - name: Authorize access with Microsoft Entra ID using OAuth over REST
       href: authorize-oauth-rest.md
+- name: Mount file shares
+  items:
+  - name: Mount SMB file share on Windows
+    href: storage-how-to-use-files-windows.md
+  - name: Mount SMB file share on Linux
+    href: storage-how-to-use-files-linux.md
+  - name: Mount NFS file share on Linux
+    href: storage-files-how-to-mount-nfs-shares.md
+  - name: Mount SMB file share on macOS
+    href: storage-how-to-use-files-mac.md
+- name: Data transfer and migration
+  items:
+  - name: Migrate to SMB Azure file shares
+    href: storage-files-migration-overview.md
+  - name: Migrate to NFS Azure file shares
+    href: storage-files-migration-nfs.md
+  - name: Migrate files between Azure file shares
+    href: migrate-files-between-shares.md
+  - name: Target a cloud-only deployment
+    items:
+    - name: Use Azure Storage Mover to migrate to SMB Azure file shares
+      href: migrate-files-storage-mover.md
+    - name: Use Robocopy to migrate to SMB Azure file shares
+      href: storage-files-migration-robocopy.md
+    - name: Migrate from an on-premises NAS to Azure file shares with DataBox
+      href: storage-files-migration-nas-cloud-databox.md
+  - name: Target a hybrid deployment with Azure File Sync
+    items:
+    - name: Replace Windows file servers with Azure File Sync
+      href: windows-server-to-azure-files.md
+    - name: Migrate from Linux to a hybrid file server with Azure File Sync
+      href: storage-files-migration-linux-hybrid.md
+    - name: Migrate from on-premises NAS to a hybrid file server using Azure File Sync
+      href: storage-files-migration-nas-hybrid.md
+    - name: Migrate from on-premises NAS to a hybrid file server using DataBox
+      href: storage-files-migration-nas-hybrid-databox.md
+  - name: Transfer files with AzCopy
+    items:
+    - name: Get started with AzCopy
+      href: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json
+    - name: Use AzCopy with Files
+      href: ../common/storage-use-azcopy-files.md?toc=/azure/storage/files/toc.json
+    - name: Configure, optimize, and troubleshoot AzCopy
+      href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
+  - name: Migrate GlusterFS to Azure Files
+    href: glusterfs-migration-guide.md
 - name: Security and networking
   items:
   - name: Networking

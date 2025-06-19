@@ -10,6 +10,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 02/04/2025
 ms.custom: references_regions
+# Customer intent: "As a network engineer, I want to understand the characteristics and allocation methods of public IP addresses in Azure, so that I can effectively manage connectivity for Azure resources and comply with any budgeting and security requirements."
 ---
 
 # Public IP addresses
