@@ -12,6 +12,7 @@ ms.custom:
 
 # Microsoft Planetary Computer Pro Data Visualization Gallery
 
+
 ## Sentinel-2-l2a Collection Configuration
 
 [Collection description to be added here]
@@ -685,6 +686,7 @@ The STAC Collection configuration defines the core metadata for this collection.
 }
 ```
 
+---
 
 ## Umbra SAR Imagery Collection Configuration
 
@@ -867,3 +869,5 @@ The STAC Collection configuration defines the core metadata for this collection.
   "msft:short_description": "Umbra Synthetic Aperture Radar (SAR) Imagery"
 }
 ```
+
+---
