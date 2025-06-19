@@ -30,7 +30,7 @@ In alignment with the guidelines set by the [Confidential Computing Consortium](
 *	Code integrity: Runtime enforcement is always available through customer defined policies for containers and container configuration, such as immutable policies and container signing. 
 *	Isolation from operator: Security designs that assume least privilege and highest isolation shielding from all untrusted parties including customer/tenant admins. It includes hardening existing Kubernetes control plane access (kubelet) to confidential pods.
 
-But with these features of confidentiality, the product should additionally its ease of use: it supports all unmodified Linux containers with high Kubernetes feature conformance. Additionally, it supports  heterogeneous node pools (GPU, general-purpose nodes) in a single cluster to optimize for cost.  
+With these confidentiality features fulfilled, the product should additionally support all unmodified Linux containers with high Kubernetes feature conformance. Additionally, it supports heterogeneous node pools (GPU, general-purpose nodes) in a single cluster to optimize cost.  
 
 ## What forms Confidential Containers on AKS?
 
