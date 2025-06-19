@@ -1,7 +1,7 @@
 ---
 title: Publish and Subscribe MQTT Messages Using Azure MQTT Broker
 description: Use MQTT broker to publish and subscribe to messages. Destinations include other MQTT brokers, data flows, and Azure cloud services.
-#customer intent: As a solution architect, I want to learn about the architecture of the Azure MQTT Broker so that I can design fault-tolerant and scalable IoT solutions.  
+#customer intent: As a solution architect, I want to learn about the architecture of the Azure MQTT Broker so that I can design fault-tolerant and scalable IoT solutions.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
@@ -59,7 +59,7 @@ The relationship between Broker and BrokerListener is *one-to-many*, while the r
 erDiagram
     Broker ||--|{ BrokerListener : "exposes"
     BrokerListener ||--|{ Port : "contains"
-    Port }|..o{ BrokerAuthentication : "uses" 
+    Port }|..o{ BrokerAuthentication : "uses"
     Port }|..o{ BrokerAuthorization : "uses"
 ``` -->
 
@@ -78,7 +78,7 @@ erDiagram
            name default
            serviceType ClusterIP
     }
-    Port ||..|| BrokerAuthentication : "uses" 
+    Port ||..|| BrokerAuthentication : "uses"
     Port {
            port *18883
     }
@@ -92,10 +92,10 @@ erDiagram
 
 > [!IMPORTANT]
 > To avoid disrupting communication between IoT Operations internal components, don't modify any default configuration.
-> 
+>
 > To customize the MQTT broker deployment, add new resources such as BrokerListeners, BrokerAuthentication, and BrokerAuthorization to the default Broker.
-> 
-> The Broker resource is immutable and can't be modified after deployment, but it requires customization only in advanced scenarios. To learn more about customizing the Broker resource, see [Customize default Broker](#customize-default-broker).
+>
+> Only some settings in the the persistence part of the broker are mutable, the rest is immutable (to learn more about persistence, See [Persistence](./howto-broker-persistence.md)). To learn more about customizing the Broker resource, see [Customize default Broker](#customize-default-broker).
 
 In a full deployment, you could have multiple BrokerListeners, each with multiple ports, and each port could have different BrokerAuthentication and BrokerAuthorization resources associated with it.
 
@@ -126,7 +126,7 @@ erDiagram
            name example-lb-listener
            serviceType LoadBalancer
     }
-    Port ||..|| BrokerAuthentication : "uses" 
+    Port ||..|| BrokerAuthentication : "uses"
     Port {
            port *18883
     }
@@ -186,6 +186,7 @@ Customizing the default broker resource isn't required for most setups. The sett
 - [Diagnostics settings](./howto-broker-diagnostics.md): Configuration for diagnostic settings like log level and metrics endpoint.
 - [Advanced MQTT client options](./howto-broker-mqtt-client-options.md): Configuration for advanced MQTT client options like session expiry, message expiry, and keep-alive settings.
 - [Encryption of internal traffic](./howto-encrypt-internal-traffic.md): Configuration for encrypting internal traffic between broker frontend and backend pods.
+- [Persistence](./howto-broker-persistence.md): Configuration for broker data persistence.
 
 You can customize the default broker only during the initial deployment, by using the Azure CLI or the Azure portal. A new deployment is required if you need different broker configuration settings.
 
@@ -209,7 +210,7 @@ Use the Azure portal or the Azure CLI to customize the default Broker resource.
 
 ---
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > You can't update the broker resource after the initial deployment. Configuration changes to cardinality, memory profile, or the disk buffer aren't allowed post-deployment.
 >
 > As a workaround, when deploying Azure IoT Operations with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md).
