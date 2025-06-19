@@ -7,6 +7,7 @@ ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 08/08/2024
 ms.author: allensu
+# Customer intent: "As a cloud architect, I want to configure endpoint monitoring in Traffic Manager, so that I can ensure high availability and automatic failover for my applications in the event of endpoint failures."
 ---
 
 # Traffic Manager endpoint monitoring
