@@ -41,7 +41,7 @@ Using the DNS provider that is hosting your domain, create DNS records for your 
 	| TXT | `asuid.{subdomain}` (for example, asuid.www) | The domain verification code. |
 
 > [!NOTE]
-> The IP address of your Container Apps environment and the domain verification code can be found in the [Custom DNS suffix settings](./environment-custom-dns-suffix.md#add-a-custom-dns-suffix-and-certificate.md) of the Container App Environment.
+> The IP address of your Container Apps environment and the domain verification code can be found in the [Custom DNS suffix settings](./environment-custom-dns-suffix.md#add-a-custom-dns-suffix-and-certificate) of the Container App Environment.
 >
 > Don't bind the custom domain to the Container App Environment or to a Container App.
 
