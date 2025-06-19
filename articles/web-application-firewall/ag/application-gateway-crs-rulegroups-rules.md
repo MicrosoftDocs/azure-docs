@@ -7,6 +7,8 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/06/2025
+ms.custom:
+  - build-2025
 ---
 
 # Web Application Firewall DRS and CRS rule groups and rules
@@ -116,6 +118,16 @@ If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the req
 
 For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there's a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
 
+## Paranoia level
+
+Each rule is asigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they are expected to trigger false positives which should be fine-tuned.
+
+By default, DRS 2.1 and CRS 3.2 rule versions are pre-configured in Paranoia Level 2, including rules assigned in both PL1 and in PL2.
+If you want to use WAF exclusively with PL1, you can disable any or all PL2 rules or change their action to 'log'. PL3 and PL4 are currently not supported in Azure WAF.
+
+> [!NOTE]
+> CRS 3.2 ruleset includes rules in PL3 and PL4, but these rules are always inactive and can't be enabled, regardless of their configured state or action.
+
 ### Upgrading or changing ruleset version
 
 If you're upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it's recommended to use PowerShell, CLI, REST API, or a template to make ruleset version changes. A new version of a ruleset can have newer rules, additional rule groups, and may have updates to existing signatures to enforce better security and reduce false positives. It's recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
@@ -175,272 +187,266 @@ The following rule groups and rules are available when using Web Application Fir
 ## <a name="drs21"></a> 2.1 rule sets 
 
 ### <a name="general-21"></a> General
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|200002|Critical - 5|Failed to parse request body|
-|200003|Critical - 5|Multipart request body failed strict validation|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|200002|Critical - 5|PL1|Failed to parse request body|
+|200003|Critical - 5|PL1|Multipart request body failed strict validation|
 
 
 ### <a name="drs911-21"></a> METHOD ENFORCEMENT
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|911100|Critical - 5|Method isn't allowed by policy|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|911100|Critical - 5|PL1|Method isn't allowed by policy|
 
 ### <a name="drs920-21"></a> PROTOCOL-ENFORCEMENT
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|920100|Notice - 2|Invalid HTTP Request Line|
-|920120|Critical - 5|Attempted multipart/form-data bypass|
-|920121|Critical - 5|Attempted multipart/form-data bypass|
-|920160|Critical - 5|Content-Length HTTP header isn't numeric|
-|920170|Critical - 5|GET or HEAD Request with Body Content|
-|920171|Critical - 5|GET or HEAD Request with Transfer-Encoding|
-|920180|Notice - 2|POST request missing Content-Length Header|
-|920181|Warning - 3|Content-Length and Transfer-Encoding headers present 99001003|
-|920190|Warning - 3|Range: Invalid Last Byte Value|
-|920200|Warning - 3|Range: Too many fields (6 or more)|
-|920201|Warning - 3|Range: Too many fields for pdf request (35 or more)|
-|920210|Critical - 5|Multiple/Conflicting Connection Header Data Found|
-|920220|Warning - 3|URL Encoding Abuse Attack Attempt|
-|920230|Warning - 3|Multiple URL Encoding Detected|
-|920240|Warning - 3|URL Encoding Abuse Attack Attempt|
-|920260|Warning - 3|Unicode Full/Half Width Abuse Attack Attempt|
-|920270|Error - 4|Invalid character in request (null character)|
-|920271|Critical - 5|Invalid character in request (non printable characters)|
-|920280|Warning - 3|Request Missing a Host Header|
-|920290|Warning - 3|Empty Host Header|
-|920300|Notice - 2|Request Missing an Accept Header|
-|920310|Notice - 2|Request Has an Empty Accept Header|
-|920311|Notice - 2|Request Has an Empty Accept Header|
-|920320|Notice - 2|Missing User Agent Header|
-|920330|Notice - 2|Empty User Agent Header|
-|920340|Notice - 2|Request Containing Content, but Missing Content-Type header|
-|920341|Critical - 5|Request containing content requires Content-Type header|
-|920350|Warning - 3|Host header is a numeric IP address|
-|920420|Critical - 5|Request content type isn't allowed by policy|
-|920430|Critical - 5|HTTP protocol version isn't allowed by policy|
-|920440|Critical - 5|URL file extension is restricted by policy|
-|920450|Critical - 5|HTTP header is restricted by policy|
-|920470|Critical - 5|Illegal Content-Type header|
-|920480|Critical - 5|Request content type charset isn't allowed by policy|
-|920500|Critical - 5|Attempt to access a backup or working file|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|920100|Notice - 2|PL1|Invalid HTTP Request Line|
+|920120|Critical - 5|PL1|Attempted multipart/form-data bypass|
+|920121|Critical - 5|PL2|Attempted multipart/form-data bypass|
+|920160|Critical - 5|PL1|Content-Length HTTP header isn't numeric|
+|920170|Critical - 5|PL1|GET or HEAD Request with Body Content|
+|920171|Critical - 5|PL1|GET or HEAD Request with Transfer-Encoding|
+|920180|Notice - 2|PL1|POST request missing Content-Length Header|
+|920181|Warning - 3|PL1|Content-Length and Transfer-Encoding headers present 99001003|
+|920190|Warning - 3|PL1|Range: Invalid Last Byte Value|
+|920200|Warning - 3|PL2|Range: Too many fields (6 or more)|
+|920201|Warning - 3|PL2|Range: Too many fields for pdf request (35 or more)|
+|920210|Critical - 5|PL1|Multiple/Conflicting Connection Header Data Found|
+|920220|Warning - 3|PL1|URL Encoding Abuse Attack Attempt|
+|920230|Warning - 3|PL2|Multiple URL Encoding Detected|
+|920240|Warning - 3|PL1|URL Encoding Abuse Attack Attempt|
+|920260|Warning - 3|PL1|Unicode Full/Half Width Abuse Attack Attempt|
+|920270|Error - 4|PL1|Invalid character in request (null character)|
+|920271|Critical - 5|PL2|Invalid character in request (non printable characters)|
+|920280|Warning - 3|PL1|Request Missing a Host Header|
+|920290|Warning - 3|PL1|Empty Host Header|
+|920300|Notice - 2|PL2|Request Missing an Accept Header|
+|920310|Notice - 2|PL1|Request Has an Empty Accept Header|
+|920311|Notice - 2|PL1|Request Has an Empty Accept Header|
+|920320|Notice - 2|PL2|Missing User Agent Header|
+|920330|Notice - 2|PL1|Empty User Agent Header|
+|920340|Notice - 2|PL1|Request Containing Content, but Missing Content-Type header|
+|920341|Critical - 5|PL1|Request containing content requires Content-Type header|
+|920350|Warning - 3|PL1|Host header is a numeric IP address|
+|920420|Critical - 5|PL1|Request content type isn't allowed by policy|
+|920430|Critical - 5|PL1|HTTP protocol version isn't allowed by policy|
+|920440|Critical - 5|PL1|URL file extension is restricted by policy|
+|920450|Critical - 5|PL1|HTTP header is restricted by policy|
+|920470|Critical - 5|PL1|Illegal Content-Type header|
+|920480|Critical - 5|PL1|Request content type charset isn't allowed by policy|
+|920500|Critical - 5|PL1|Attempt to access a backup or working file|
 
 ### <a name="drs921-21"></a> PROTOCOL-ATTACK
 
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|921110|Critical - 5|HTTP Request Smuggling Attack|
-|921120|Critical - 5|HTTP Response Splitting Attack|
-|921130|Critical - 5|HTTP Response Splitting Attack|
-|921140|Critical - 5|HTTP Header Injection Attack via headers|
-|921150|Critical - 5|HTTP Header Injection Attack via payload (CR/LF detected)|
-|921151|Critical - 5|HTTP Header Injection Attack via payload (CR/LF detected)|
-|921160|Critical - 5|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
-|921190|Critical - 5|HTTP Splitting (CR/LF in request filename detected)|
-|921200|Critical - 5|LDAP Injection Attack|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|921110|Critical - 5|PL1|HTTP Request Smuggling Attack|
+|921120|Critical - 5|PL1|HTTP Response Splitting Attack|
+|921130|Critical - 5|PL1|HTTP Response Splitting Attack|
+|921140|Critical - 5|PL1|HTTP Header Injection Attack via headers|
+|921150|Critical - 5|PL1|HTTP Header Injection Attack via payload (CR/LF detected)|
+|921151|Critical - 5|PL2|HTTP Header Injection Attack via payload (CR/LF detected)|
+|921160|Critical - 5|PL1|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
+|921190|Critical - 5|PL1|HTTP Splitting (CR/LF in request filename detected)|
+|921200|Critical - 5|PL1|LDAP Injection Attack|
 
 
 ### <a name="drs930-21"></a> LFI - Local File Inclusion
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|930100|Critical - 5|Path Traversal Attack (/../)|
-|930110|Critical - 5|Path Traversal Attack (/../)|
-|930120|Critical - 5|OS File Access Attempt|
-|930130|Critical - 5|Restricted File Access Attempt|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|930100|Critical - 5|PL1|Path Traversal Attack (/../)|
+|930110|Critical - 5|PL1|Path Traversal Attack (/../)|
+|930120|Critical - 5|PL1|OS File Access Attempt|
+|930130|Critical - 5|PL1|Restricted File Access Attempt|
 
 ### <a name="drs931-21"></a> RFI - Remote File Inclusion
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|931100|Critical - 5|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
-|931110|Critical - 5|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
-|931120|Critical - 5|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
-|931130|Critical - 5|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|931100|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
+|931110|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
+|931120|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
+|931130|Critical - 5|PL2|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
 ### <a name="drs932-21"></a> RCE - Remote Command Execution
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|932100|Critical - 5|Remote Command Execution: Unix Command Injection|
-|932105|Critical - 5|Remote Command Execution: Unix Command Injection|
-|932110|Critical - 5|Remote Command Execution: Windows Command Injection|
-|932115|Critical - 5|Remote Command Execution: Windows Command Injection|
-|932120|Critical - 5|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Critical - 5|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
-|932140|Critical - 5|Remote Command Execution: Windows FOR/IF Command Found|
-|932150|Critical - 5|Remote Command Execution: Direct Unix Command Execution|
-|932160|Critical - 5|Remote Command Execution: Unix Shell Code Found|
-|932170|Critical - 5|Remote Command Execution: Shellshock (CVE-2014-6271)|
-|932171|Critical - 5|Remote Command Execution: Shellshock (CVE-2014-6271)|
-|932180|Critical - 5|Restricted File Upload Attempt|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|932100|Critical - 5|PL1|Remote Command Execution: Unix Command Injection|
+|932105|Critical - 5|PL1|Remote Command Execution: Unix Command Injection|
+|932110|Critical - 5|PL1|Remote Command Execution: Windows Command Injection|
+|932115|Critical - 5|PL1|Remote Command Execution: Windows Command Injection|
+|932120|Critical - 5|PL1|Remote Command Execution: Windows PowerShell Command Found|
+|932130|Critical - 5|PL1|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) Found|
+|932140|Critical - 5|PL1|Remote Command Execution: Windows FOR/IF Command Found|
+|932150|Critical - 5|PL1|Remote Command Execution: Direct Unix Command Execution|
+|932160|Critical - 5|PL1|Remote Command Execution: Unix Shell Code Found|
+|932170|Critical - 5|PL1|Remote Command Execution: Shellshock (CVE-2014-6271)|
+|932171|Critical - 5|PL1|Remote Command Execution: Shellshock (CVE-2014-6271)|
+|932180|Critical - 5|PL1|Restricted File Upload Attempt|
 
 ### <a name="drs933-21"></a> PHP Attacks
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|933100|Critical - 5|PHP Injection Attack: Opening/Closing Tag Found|
-|933110|Critical - 5|PHP Injection Attack: PHP Script File Upload Found|
-|933120|Critical - 5|PHP Injection Attack: Configuration Directive Found|
-|933130|Critical - 5|PHP Injection Attack: Variables Found|
-|933140|Critical - 5|PHP Injection Attack: I/O Stream Found|
-|933150|Critical - 5|PHP Injection Attack: High-Risk PHP Function Name Found|
-|933151|Critical - 5|PHP Injection Attack: Medium-Risk PHP Function Name Found|
-|933160|Critical - 5|PHP Injection Attack: High-Risk PHP Function Call Found|
-|933170|Critical - 5|PHP Injection Attack: Serialized Object Injection|
-|933180|Critical - 5|PHP Injection Attack: Variable Function Call Found|
-|933200|Critical - 5|PHP Injection Attack: Wrapper scheme detected|
-|933210|Critical - 5|PHP Injection Attack: Variable Function Call Found|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|933100|Critical - 5|PL1|PHP Injection Attack: Opening/Closing Tag Found|
+|933110|Critical - 5|PL1|PHP Injection Attack: PHP Script File Upload Found|
+|933120|Critical - 5|PL1|PHP Injection Attack: Configuration Directive Found|
+|933130|Critical - 5|PL1|PHP Injection Attack: Variables Found|
+|933140|Critical - 5|PL1|PHP Injection Attack: I/O Stream Found|
+|933150|Critical - 5|PL1|PHP Injection Attack: High-Risk PHP Function Name Found|
+|933151|Critical - 5|PL2|PHP Injection Attack: Medium-Risk PHP Function Name Found|
+|933160|Critical - 5|PL1|PHP Injection Attack: High-Risk PHP Function Call Found|
+|933170|Critical - 5|PL1|PHP Injection Attack: Serialized Object Injection|
+|933180|Critical - 5|PL1|PHP Injection Attack: Variable Function Call Found|
+|933200|Critical - 5|PL1|PHP Injection Attack: Wrapper scheme detected|
+|933210|Critical - 5|PL1|PHP Injection Attack: Variable Function Call Found|
 
 ### <a name="drs934-21"></a> Node JS Attacks
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|934100|Critical - 5|Node.js Injection Attack|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|934100|Critical - 5|PL1|Node.js Injection Attack|
 
 ### <a name="drs941-21"></a> XSS - Cross-site Scripting
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|941100|Critical - 5|XSS Attack Detected via libinjection|
-|941101|Critical - 5|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header|
-|941110|Critical - 5|XSS Filter - Category 1: Script Tag Vector|
-|941120|Critical - 5|XSS Filter - Category 2: Event Handler Vector|
-|941130|Critical - 5|XSS Filter - Category 3: Attribute Vector|
-|941140|Critical - 5|XSS Filter - Category 4: JavaScript URI Vector|
-|941150|Critical - 5|XSS Filter - Category 5: Disallowed HTML Attributes|
-|941160|Critical - 5|NoScript XSS InjectionChecker: HTML Injection|
-|941170|Critical - 5|NoScript XSS InjectionChecker: Attribute Injection|
-|941180|Critical - 5|Node-Validator Blocklist Keywords|
-|941190|Critical - 5|XSS Using style sheets|
-|941200|Critical - 5|XSS using VML frames|
-|941210|Critical - 5|XSS using obfuscated JavaScript|
-|941220|Critical - 5|XSS using obfuscated VB Script|
-|941230|Critical - 5|XSS using 'embed' tag|
-|941240|Critical - 5|XSS using 'import' or 'implementation' attribute|
-|941250|Critical - 5|IE XSS Filters - Attack Detected|
-|941260|Critical - 5|XSS using 'meta' tag|
-|941270|Critical - 5|XSS using 'link' href|
-|941280|Critical - 5|XSS using 'base' tag|
-|941290|Critical - 5|XSS using 'applet' tag|
-|941300|Critical - 5|XSS using 'object' tag|
-|941310|Critical - 5|US-ASCII Malformed Encoding XSS Filter - Attack Detected|
-|941320|Critical - 5|Possible XSS Attack Detected - HTML Tag Handler|
-|941330|Critical - 5|IE XSS Filters - Attack Detected|
-|941340|Critical - 5|IE XSS Filters - Attack Detected|
-|941350|Critical - 5|UTF-7 Encoding IE XSS - Attack Detected|
-|941360|Critical - 5|JavaScript obfuscation detected|
-|941370|Critical - 5|JavaScript global variable found|
-|941380|Critical - 5|AngularJS client side template injection detected|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|941100|Critical - 5|PL1|XSS Attack Detected via libinjection|
+|941101|Critical - 5|PL2|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header|
+|941110|Critical - 5|PL1|XSS Filter - Category 1: Script Tag Vector|
+|941120|Critical - 5|PL1|XSS Filter - Category 2: Event Handler Vector|
+|941130|Critical - 5|PL1|XSS Filter - Category 3: Attribute Vector|
+|941140|Critical - 5|PL1|XSS Filter - Category 4: JavaScript URI Vector|
+|941150|Critical - 5|PL2|XSS Filter - Category 5: Disallowed HTML Attributes|
+|941160|Critical - 5|PL1|NoScript XSS InjectionChecker: HTML Injection|
+|941170|Critical - 5|PL1|NoScript XSS InjectionChecker: Attribute Injection|
+|941180|Critical - 5|PL1|Node-Validator Blocklist Keywords|
+|941190|Critical - 5|PL1|XSS Using style sheets|
+|941200|Critical - 5|PL1|XSS using VML frames|
+|941210|Critical - 5|PL1|XSS using obfuscated JavaScript|
+|941220|Critical - 5|PL1|XSS using obfuscated VB Script|
+|941230|Critical - 5|PL1|XSS using 'embed' tag|
+|941240|Critical - 5|PL1|XSS using 'import' or 'implementation' attribute|
+|941250|Critical - 5|PL1|IE XSS Filters - Attack Detected|
+|941260|Critical - 5|PL1|XSS using 'meta' tag|
+|941270|Critical - 5|PL1|XSS using 'link' href|
+|941280|Critical - 5|PL1|XSS using 'base' tag|
+|941290|Critical - 5|PL1|XSS using 'applet' tag|
+|941300|Critical - 5|PL1|XSS using 'object' tag|
+|941310|Critical - 5|PL1|US-ASCII Malformed Encoding XSS Filter - Attack Detected|
+|941320|Critical - 5|PL2|Possible XSS Attack Detected - HTML Tag Handler|
+|941330|Critical - 5|PL2|IE XSS Filters - Attack Detected|
+|941340|Critical - 5|PL2|IE XSS Filters - Attack Detected|
+|941350|Critical - 5|PL1|UTF-7 Encoding IE XSS - Attack Detected|
+|941360|Critical - 5|PL1|JavaScript obfuscation detected|
+|941370|Critical - 5|PL1|JavaScript global variable found|
+|941380|Critical - 5|PL2|AngularJS client side template injection detected|
 
 ### <a name="drs942-21"></a> SQLI - SQL Injection
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|942100|Critical - 5|SQL Injection Attack Detected via libinjection|
-|942110|Warning - 3|SQL Injection Attack: Common Injection Testing Detected|
-|942120|Critical - 5|SQL Injection Attack: SQL Operator Detected|
-|942130|Critical - 5|SQL Injection Attack: SQL Tautology Detected|
-|942140|Critical - 5|SQL Injection Attack: Common DB Names Detected|
-|942150|Critical - 5|SQL Injection Attack|
-|942160|Critical - 5|Detects blind sqli tests using sleep() or benchmark()|
-|942170|Critical - 5|Detects SQL benchmark and sleep injection attempts including conditional queries|
-|942180|Critical - 5|Detects basic SQL authentication bypass attempts 1/3|
-|942190|Critical - 5|Detects MSSQL code execution and information gathering attempts|
-|942200|Critical - 5|Detects MySQL comment-/space-obfuscated injections and backtick termination|
-|942210|Critical - 5|Detects chained SQL injection attempts 1/2|
-|942220|Critical - 5|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
-|942230|Critical - 5|Detects conditional SQL injection attempts|
-|942240|Critical - 5|Detects MySQL charset switch and MSSQL DoS attempts|
-|942250|Critical - 5|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
-|942260|Critical - 5|Detects basic SQL authentication bypass attempts 2/3|
-|942270|Critical - 5|Looking for basic sql injection. Common attack string for mysql, oracle, and others|
-|942280|Critical - 5|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
-|942290|Critical - 5|Finds basic MongoDB SQL injection attempts|
-|942300|Critical - 5|Detects MySQL comments, conditions, and ch(a)r injections|
-|942310|Critical - 5|Detects chained SQL injection attempts 2/2|
-|942320|Critical - 5|Detects MySQL and PostgreSQL stored procedure/function injections|
-|942330|Critical - 5|Detects classic SQL injection probings 1/2|
-|942340|Critical - 5|Detects basic SQL authentication bypass attempts 3/3|
-|942350|Critical - 5|Detects MySQL UDF injection and other data/structure manipulation attempts|
-|942360|Critical - 5|Detects concatenated basic SQL injection and SQLLFI attempts|
-|942361|Critical - 5|Detects basic SQL injection based on keyword alter or union|
-|942370|Critical - 5|Detects classic SQL injection probings 2/2|
-|942380|Critical - 5|SQL Injection Attack|
-|942390|Critical - 5|SQL Injection Attack|
-|942400|Critical - 5|SQL Injection Attack|
-|942410|Critical - 5|SQL Injection Attack|
-|942430|Warning - 3|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
-|942440|Critical - 5|SQL Comment Sequence Detected|
-|942450|Critical - 5|SQL Hex Encoding Identified|
-|942460|Warning - 3|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
-|942470|Critical - 5|SQL Injection Attack|
-|942480|Critical - 5|SQL Injection Attack|
-|942500|Critical - 5|MySQL in-line comment detected|
-|942510|Critical - 5|SQLi bypass attempt by ticks or backticks detected|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|942100|Critical - 5|PL1|SQL Injection Attack Detected via libinjection|
+|942110|Warning - 3|PL2|SQL Injection Attack: Common Injection Testing Detected|
+|942120|Critical - 5|PL2|SQL Injection Attack: SQL Operator Detected|
+|942130|Critical - 5|PL2|SQL Injection Attack: SQL Tautology Detected|
+|942140|Critical - 5|PL1|SQL Injection Attack: Common DB Names Detected|
+|942150|Critical - 5|PL2|SQL Injection Attack|
+|942160|Critical - 5|PL1|Detects blind sqli tests using sleep() or benchmark()|
+|942170|Critical - 5|PL1|Detects SQL benchmark and sleep injection attempts including conditional queries|
+|942180|Critical - 5|PL2|Detects basic SQL authentication bypass attempts 1/3|
+|942190|Critical - 5|PL1|Detects MSSQL code execution and information gathering attempts|
+|942200|Critical - 5|PL2|Detects MySQL comment-/space-obfuscated injections and backtick termination|
+|942210|Critical - 5|PL2|Detects chained SQL injection attempts 1/2|
+|942220|Critical - 5|PL1|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
+|942230|Critical - 5|PL1|Detects conditional SQL injection attempts|
+|942240|Critical - 5|PL1|Detects MySQL charset switch and MSSQL DoS attempts|
+|942250|Critical - 5|PL1|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
+|942260|Critical - 5|PL2|Detects basic SQL authentication bypass attempts 2/3|
+|942270|Critical - 5|PL1|Looking for basic sql injection. Common attack string for mysql, oracle, and others|
+|942280|Critical - 5|PL1|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
+|942290|Critical - 5|PL1|Finds basic MongoDB SQL injection attempts|
+|942300|Critical - 5|PL2|Detects MySQL comments, conditions, and ch(a)r injections|
+|942310|Critical - 5|PL2|Detects chained SQL injection attempts 2/2|
+|942320|Critical - 5|PL1|Detects MySQL and PostgreSQL stored procedure/function injections|
+|942330|Critical - 5|PL2|Detects classic SQL injection probings 1/2|
+|942340|Critical - 5|PL2|Detects basic SQL authentication bypass attempts 3/3|
+|942350|Critical - 5|PL1|Detects MySQL UDF injection and other data/structure manipulation attempts|
+|942360|Critical - 5|PL1|Detects concatenated basic SQL injection and SQLLFI attempts|
+|942361|Critical - 5|PL2|Detects basic SQL injection based on keyword alter or union|
+|942370|Critical - 5|PL2|Detects classic SQL injection probings 2/2|
+|942380|Critical - 5|PL2|SQL Injection Attack|
+|942390|Critical - 5|PL2|SQL Injection Attack|
+|942400|Critical - 5|PL2|SQL Injection Attack|
+|942410|Critical - 5|PL2|SQL Injection Attack|
+|942430|Warning - 3|PL2|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
+|942440|Critical - 5|PL2|SQL Comment Sequence Detected|
+|942450|Critical - 5|PL2|SQL Hex Encoding Identified|
+|942470|Critical - 5|PL2|SQL Injection Attack|
+|942480|Critical - 5|PL2|SQL Injection Attack|
+|942500|Critical - 5|PL1|MySQL in-line comment detected|
+|942510|Critical - 5|PL2|SQLi bypass attempt by ticks or backticks detected|
 
 ### <a name="drs943-21"></a> SESSION-FIXATION
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|943100|Critical - 5|Possible Session Fixation Attack: Setting Cookie Values in HTML|
-|943110|Critical - 5|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
-|943120|Critical - 5|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|943100|Critical - 5|PL1|Possible Session Fixation Attack: Setting Cookie Values in HTML|
+|943110|Critical - 5|PL1|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
+|943120|Critical - 5|PL1|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
 
 ### <a name="drs944-21"></a> JAVA Attacks
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|944100|Critical - 5|Remote Command Execution: Apache Struts, Oracle WebLogic|
-|944110|Critical - 5|Detects potential payload execution|
-|944120|Critical - 5|Possible payload execution and remote command execution|
-|944130|Critical - 5|Suspicious Java classes|
-|944200|Critical - 5|Exploitation of Java deserialization Apache Commons|
-|944210|Critical - 5|Possible use of Java serialization|
-|944240|Critical - 5|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
-|944250|Critical - 5|Remote Command Execution: Suspicious Java method detected|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|944100|Critical - 5|PL1|Remote Command Execution: Apache Struts, Oracle WebLogic|
+|944110|Critical - 5|PL1|Detects potential payload execution|
+|944120|Critical - 5|PL1|Possible payload execution and remote command execution|
+|944130|Critical - 5|PL1|Suspicious Java classes|
+|944200|Critical - 5|PL2|Exploitation of Java deserialization Apache Commons|
+|944210|Critical - 5|PL2|Possible use of Java serialization|
+|944240|Critical - 5|PL2|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
+|944250|Critical - 5|PL2|Remote Command Execution: Suspicious Java method detected|
 
 ### <a name="drs9905-21"></a> MS-ThreatIntel-WebShells
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|99005002|Critical - 5|Web Shell Interaction Attempt (POST)|
-|99005003|Critical - 5|Web Shell Upload Attempt (POST) - CHOPPER PHP|
-|99005004|Critical - 5|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
-|99005005|Critical - 5|Web Shell Interaction Attempt|
-|99005006|Critical - 5|Spring4Shell Interaction Attempt|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99005002|Critical - 5|PL2|Web Shell Interaction Attempt (POST)|
+|99005003|Critical - 5|PL2|Web Shell Upload Attempt (POST) - CHOPPER PHP|
+|99005004|Critical - 5|PL2|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
+|99005005|Critical - 5|PL2|Web Shell Interaction Attempt|
+|99005006|Critical - 5|PL2|Spring4Shell Interaction Attempt|
 
 ### <a name="drs9903-21"></a> MS-ThreatIntel-AppSec
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|99030001|Critical - 5|Path Traversal Evasion in Headers (/.././../)|
-|99030002|Critical - 5|Path Traversal Evasion in Request Body (/.././../)|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99030001|Critical - 5|PL2|Path Traversal Evasion in Headers (/.././../)|
+|99030002|Critical - 5|PL2|Path Traversal Evasion in Request Body (/.././../)|
 
 ### <a name="drs99031-21"></a> MS-ThreatIntel-SQLI
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|99031001|Warning - 3|SQL Injection Attack: Common Injection Testing Detected|
-|99031002|Critical - 5|SQL Comment Sequence Detected|
-|99031003|Critical - 5|SQL Injection Attack|
-|99031004|Critical - 5|Detects basic SQL authentication bypass attempts 2/3|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99031001|Warning - 3|PL2|SQL Injection Attack: Common Injection Testing Detected|
+|99031002|Critical - 5|PL2|SQL Comment Sequence Detected|
+|99031003|Critical - 5|PL2|SQL Injection Attack|
+|99031004|Critical - 5|PL2|Detects basic SQL authentication bypass attempts 2/3|
 
 ### <a name="drs99001-21"></a> MS-ThreatIntel-CVEs
-|Rule ID|Anomaly score severity|Description|
-|---|---|--|
-|99001001|Critical - 5|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
-|99001002|Critical - 5|Attempted Citrix NSC_USER directory traversal [CVE-2019-19781](https://www.cve.org/CVERecord?id=CVE-2019-19781)|
-|99001003|Critical - 5|Attempted Atlassian Confluence Widget Connector exploitation [CVE-2019-3396](https://www.cve.org/CVERecord?id=CVE-2019-3396)|
-|99001004|Critical - 5|Attempted Pulse Secure custom template exploitation [CVE-2020-8243](https://www.cve.org/CVERecord?id=CVE-2019-8243)|
-|99001005|Critical - 5|Attempted SharePoint type converter exploitation [CVE-2020-0932](https://www.cve.org/CVERecord?id=CVE-2019-0932)|
-|99001006|Critical - 5|Attempted Pulse Connect directory traversal [CVE-2019-11510](https://www.cve.org/CVERecord?id=CVE-2019-11510)|
-|99001007|Critical - 5|Attempted Junos OS J-Web local file inclusion [CVE-2020-1631](https://www.cve.org/CVERecord?id=CVE-2019-1631)|
-|99001008|Critical - 5|Attempted Fortinet path traversal [CVE-2018-13379](https://www.cve.org/CVERecord?id=CVE-2019-13379)|
-|99001009|Critical - 5|Attempted Apache struts ognl injection [CVE-2017-5638](https://www.cve.org/CVERecord?id=CVE-2019-5638)|
-|99001010|Critical - 5|Attempted Apache struts ognl injection [CVE-2017-12611](https://www.cve.org/CVERecord?id=CVE-2019-12611)|
-|99001011|Critical - 5|Attempted Oracle WebLogic path traversal [CVE-2020-14882](https://www.cve.org/CVERecord?id=CVE-2019-14882)|
-|99001012|Critical - 5|Attempted Telerik WebUI insecure deserialization exploitation [CVE-2019-18935](https://www.cve.org/CVERecord?id=CVE-2019-18935)|
-|99001013|Critical - 5|Attempted SharePoint insecure XML deserialization [CVE-2019-0604](https://www.cve.org/CVERecord?id=CVE-2019-0604)|
-|99001014|Critical - 5|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
-|99001015|Critical - 5|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
-|99001016|Critical - 5|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
-|99001017*|N/A|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|99001001|Critical - 5|PL2|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
+|99001002|Critical - 5|PL2|Attempted Citrix NSC_USER directory traversal [CVE-2019-19781](https://www.cve.org/CVERecord?id=CVE-2019-19781)|
+|99001003|Critical - 5|PL2|Attempted Atlassian Confluence Widget Connector exploitation [CVE-2019-3396](https://www.cve.org/CVERecord?id=CVE-2019-3396)|
+|99001004|Critical - 5|PL2|Attempted Pulse Secure custom template exploitation [CVE-2020-8243](https://www.cve.org/CVERecord?id=CVE-2019-8243)|
+|99001005|Critical - 5|PL2|Attempted SharePoint type converter exploitation [CVE-2020-0932](https://www.cve.org/CVERecord?id=CVE-2019-0932)|
+|99001006|Critical - 5|PL2|Attempted Pulse Connect directory traversal [CVE-2019-11510](https://www.cve.org/CVERecord?id=CVE-2019-11510)|
+|99001007|Critical - 5|PL2|Attempted Junos OS J-Web local file inclusion [CVE-2020-1631](https://www.cve.org/CVERecord?id=CVE-2019-1631)|
+|99001008|Critical - 5|PL2|Attempted Fortinet path traversal [CVE-2018-13379](https://www.cve.org/CVERecord?id=CVE-2019-13379)|
+|99001009|Critical - 5|PL2|Attempted Apache struts ognl injection [CVE-2017-5638](https://www.cve.org/CVERecord?id=CVE-2019-5638)|
+|99001010|Critical - 5|PL2|Attempted Apache struts ognl injection [CVE-2017-12611](https://www.cve.org/CVERecord?id=CVE-2019-12611)|
+|99001011|Critical - 5|PL2|Attempted Oracle WebLogic path traversal [CVE-2020-14882](https://www.cve.org/CVERecord?id=CVE-2019-14882)|
+|99001012|Critical - 5|PL2|Attempted Telerik WebUI insecure deserialization exploitation [CVE-2019-18935](https://www.cve.org/CVERecord?id=CVE-2019-18935)|
+|99001013|Critical - 5|PL2|Attempted SharePoint insecure XML deserialization [CVE-2019-0604](https://www.cve.org/CVERecord?id=CVE-2019-0604)|
+|99001014|Critical - 5|PL2|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Critical - 5|PL2|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Critical - 5|PL2|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|99001017*|N/A|N/A|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 
 *<sup>This rule's action is set to log by default. Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule.</sup>
-
-> [!NOTE]
-> When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
->
-> This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring](./ag-overview.md#anomaly-scoring-mode).
 
 
 # [OWASP 3.2](#tab/owasp32)
@@ -448,250 +454,253 @@ The following rule groups and rules are available when using Web Application Fir
 ## <a name="owasp32"></a> 3.2 rule sets
 
 ### <a name="general-32"></a> General
-|RuleId|Description|
-|---|---|
-|200002|Failed to Parse Request Body|
-|200003|Multipart Request Body Strict Validation|
-|200004|Possible Multipart Unmatched Boundary|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|200002|Critical - 5|PL1|Failed to Parse Request Body|
+|200003|Critical - 5|PL1|Multipart Request Body Strict Validation|
+|200004|Critical - 5|PL1|Possible Multipart Unmatched Boundary|
 
 ### <a name="crs800-32"></a> KNOWN-CVES
-|RuleId|Description|
-|---|---|
-|800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
-|800110|Spring4Shell Interaction Attempt|
-|800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
-|800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
-|800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
-|800114*|Attempted Apache Struts file upload exploitation - [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|800100|Critical - 5|PL2|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
+|800110|Critical - 5|PL2|Spring4Shell Interaction Attempt|
+|800111|Critical - 5|PL2|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|800112|Critical - 5|PL2|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|800113|Critical - 5|PL2|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+|800114*|Critical - 5|PL2|Attempted Apache Struts file upload exploitation - [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 
 *<sup>This rule's action is set to log by default. Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule.</sup>
 
 ### <a name="crs911-32"></a> REQUEST-911-METHOD-ENFORCEMENT
-|RuleId|Description|
-|---|---|
-|911100|Method isn't allowed by policy|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|911100|Critical - 5|PL1|Method isn't allowed by policy|
 
 ### <a name="crs913-32"></a> REQUEST-913-SCANNER-DETECTION
-|RuleId|Description|
-|---|---|
-|913100|Found User-Agent associated with security scanner|
-|913101|Found User-Agent associated with scripting/generic HTTP client|
-|913102|Found User-Agent associated with web crawler/bot|
-|913110|Found request header associated with security scanner|
-|913120|Found request filename/argument associated with security scanner|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|913100|Critical - 5|PL1|Found User-Agent associated with security scanner|
+|913101|Critical - 5|PL2|Found User-Agent associated with scripting/generic HTTP client|
+|913102|Critical - 5|PL2|Found User-Agent associated with web crawler/bot|
+|913110|Critical - 5|PL1|Found request header associated with security scanner|
+|913120|Critical - 5|PL1|Found request filename/argument associated with security scanner|
 
 ### <a name="crs920-32"></a> REQUEST-920-PROTOCOL-ENFORCEMENT
-|RuleId|Description|
-|---|---|
-|920100|Invalid HTTP Request Line|
-|920120|Attempted multipart/form-data bypass|
-|920121|Attempted multipart/form-data bypass|
-|920160|Content-Length HTTP header isn't numeric|
-|920170|GET or HEAD Request with Body Content|
-|920171|GET or HEAD Request with Transfer-Encoding|
-|920180|POST request missing Content-Length Header|
-|920190|Range: Invalid Last Byte Value|
-|920200|Range: Too many fields (6 or more)|
-|920201|Range: Too many fields for pdf request (35 or more)|
-|920202|Range: Too many fields for pdf request (6 or more)|
-|920210|Multiple/Conflicting Connection Header Data Found|
-|920220|URL Encoding Abuse Attack Attempt|
-|920230|Multiple URL Encoding Detected|
-|920240|URL Encoding Abuse Attack Attempt|
-|920250|UTF8 Encoding Abuse Attack Attempt|
-|920260|Unicode Full/Half Width Abuse Attack Attempt|
-|920270|Invalid character in request (null character)|
-|920271|Invalid character in request (non printable characters)|
-|920272|Invalid character in request (outside of printable chars below ascii 127)|
-|920273|Invalid character in request (outside of very strict set)|
-|920274|Invalid character in request headers (outside of very strict set)|
-|920280|Request Missing a Host Header|
-|920290|Empty Host Header|
-|920300|Request Missing an Accept Header|
-|920310|Request Has an Empty Accept Header|
-|920311|Request Has an Empty Accept Header|
-|920320|Missing User Agent Header|
-|920330|Empty User Agent Header|
-|920340|Request Containing Content, but Missing Content-Type header|
-|920341|Request containing content requires Content-Type header|
-|920350|Host header is a numeric IP address|
-|920420|Request content type isn't allowed by policy|
-|920430|HTTP protocol version isn't allowed by policy|
-|920440|URL file extension is restricted by policy|
-|920450|HTTP header is restricted by policy (%{MATCHED_VAR})|
-|920460|Abnormal Escape Characters|
-|920470|Illegal Content-Type header|
-|920480|Restrict charset parameter within the content-type header|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|920100|Warning - 3|PL1|Invalid HTTP Request Line|
+|920120|Critical - 5|PL1|Attempted multipart/form-data bypass|
+|920121|Critical - 5|PL2|Attempted multipart/form-data bypass|
+|920160|Critical - 5|PL1|Content-Length HTTP header isn't numeric|
+|920170|Critical - 5|PL1|GET or HEAD Request with Body Content|
+|920171|Critical - 5|PL1|GET or HEAD Request with Transfer-Encoding|
+|920180|Warning - 3|PL1|POST request missing Content-Length Header|
+|920190|Warning - 3|PL1|Range: Invalid Last Byte Value|
+|920200|Warning - 3|PL2|Range: Too many fields (6 or more)|
+|920201|Warning - 3|PL2|Range: Too many fields for pdf request (35 or more)|
+|920210|Warning - 3|PL1|Multiple/Conflicting Connection Header Data Found|
+|920220|Warning - 3|PL1|URL Encoding Abuse Attack Attempt|
+|920230|Warning - 3|PL2|Multiple URL Encoding Detected|
+|920240|Warning - 3|PL1|URL Encoding Abuse Attack Attempt|
+|920250|Warning - 3|PL1|UTF8 Encoding Abuse Attack Attempt|
+|920260|Warning - 3|PL1|Unicode Full/Half Width Abuse Attack Attempt|
+|920270|Critical - 5|PL1|Invalid character in request (null character)|
+|920271|Critical - 5|PL2|Invalid character in request (non printable characters)|
+|920280|Warning - 3|PL1|Request Missing a Host Header|
+|920290|Warning - 3|PL1|Empty Host Header|
+|920300|Notice - 2|PL2|Request Missing an Accept Header|
+|920310|Notice - 2|PL1|Request Has an Empty Accept Header|
+|920311|Notice - 2|PL1|Request Has an Empty Accept Header|
+|920320|Notice - 2|PL2|Missing User Agent Header|
+|920330|Notice - 2|PL1|Empty User Agent Header|
+|920340|Notice - 2|PL1|Request Containing Content, but Missing Content-Type header|
+|920341|Critical - 5|PL2|Request containing content requires Content-Type header|
+|920350|Warning - 3|PL1|Host header is a numeric IP address|
+|920420|Critical - 5|PL1|Request content type isn't allowed by policy|
+|920430|Critical - 5|PL1|HTTP protocol version isn't allowed by policy|
+|920440|Critical - 5|PL1|URL file extension is restricted by policy|
+|920450|Critical - 5|PL1|HTTP header is restricted by policy (%{MATCHED_VAR})|
+|920470|Critical - 5|PL1|Illegal Content-Type header|
+|920480|Critical - 5|PL1|Restrict charset parameter within the content-type header|
 
 ### <a name="crs921-32"></a> REQUEST-921-PROTOCOL-ATTACK
 
-|RuleId|Description|
-|---|---|
-|921110|HTTP Request Smuggling Attack|
-|921120|HTTP Response Splitting Attack|
-|921130|HTTP Response Splitting Attack|
-|921140|HTTP Header Injection Attack via headers|
-|921150|HTTP Header Injection Attack via payload (CR/LF detected)|
-|921151|HTTP Header Injection Attack via payload (CR/LF detected)|
-|921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
-|921170|HTTP Parameter Pollution|
-|921180|HTTP Parameter Pollution (%{TX.1})|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|921110|Critical - 5|PL1|HTTP Request Smuggling Attack|
+|921120|Critical - 5|PL1|HTTP Response Splitting Attack|
+|921130|Critical - 5|PL1|HTTP Response Splitting Attack|
+|921140|Critical - 5|PL1|HTTP Header Injection Attack via headers|
+|921150|Critical - 5|PL1|HTTP Header Injection Attack via payload (CR/LF detected)|
+|921151|Critical - 5|PL2|HTTP Header Injection Attack via payload (CR/LF detected)|
+|921160|Critical - 5|PL1|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
 
 ### <a name="crs930-32"></a> REQUEST-930-APPLICATION-ATTACK-LFI
-|RuleId|Description|
-|---|---|
-|930100|Path Traversal Attack (/../)|
-|930110|Path Traversal Attack (/../)|
-|930120|OS File Access Attempt|
-|930130|Restricted File Access Attempt|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|930100|Critical - 5|PL1|Path Traversal Attack (/../)|
+|930110|Critical - 5|PL1|Path Traversal Attack (/../)|
+|930120|Critical - 5|PL1|OS File Access Attempt|
+|930130|Critical - 5|PL1|Restricted File Access Attempt|
 
 ### <a name="crs931-32"></a> REQUEST-931-APPLICATION-ATTACK-RFI
-|RuleId|Description|
-|---|---|
-|931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
-|931110|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
-|931120|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
-|931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|931100|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
+|931110|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
+|931120|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
+|931130|Critical - 5|PL2|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
 ### <a name="crs932-32"></a> REQUEST-932-APPLICATION-ATTACK-RCE
-|RuleId|Description|
-|---|---|
-|932100|Remote Command Execution: Unix Command Injection|
-|932105|Remote Command Execution: Unix Command Injection|
-|932106|Remote Command Execution: Unix Command Injection|
-|932110|Remote Command Execution: Windows Command Injection|
-|932115|Remote Command Execution: Windows Command Injection|
-|932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
-|932140|Remote Command Execution: Windows FOR/IF Command Found|
-|932150|Remote Command Execution: Direct Unix Command Execution|
-|932160|Remote Command Execution: Unix Shell Code Found|
-|932170|Remote Command Execution: Shellshock (CVE-2014-6271)|
-|932171|Remote Command Execution: Shellshock (CVE-2014-6271)|
-|932180|Restricted File Upload Attempt|
-|932190|Remote Command Execution: Wildcard bypass technique attempt|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|932100|Critical - 5|PL1|Remote Command Execution: Unix Command Injection|
+|932105|Critical - 5|PL1|Remote Command Execution: Unix Command Injection|
+|932110|Critical - 5|PL1|Remote Command Execution: Windows Command Injection|
+|932115|Critical - 5|PL1|Remote Command Execution: Windows Command Injection|
+|932120|Critical - 5|PL1|Remote Command Execution: Windows PowerShell Command Found|
+|932130|Critical - 5|PL1|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
+|932140|Critical - 5|PL1|Remote Command Execution: Windows FOR/IF Command Found|
+|932150|Critical - 5|PL1|Remote Command Execution: Direct Unix Command Execution|
+|932160|Critical - 5|PL1|Remote Command Execution: Unix Shell Code Found|
+|932170|Critical - 5|PL1|Remote Command Execution: Shellshock (CVE-2014-6271)|
+|932171|Critical - 5|PL1|Remote Command Execution: Shellshock (CVE-2014-6271)|
+|932180|Critical - 5|PL1|Restricted File Upload Attempt|
 
 ### <a name="crs933-32"></a> REQUEST-933-APPLICATION-ATTACK-PHP
-|RuleId|Description|
-|---|---|
-|933100|PHP Injection Attack: Opening/Closing Tag Found|
-|933110|PHP Injection Attack: PHP Script File Upload Found|
-|933111|PHP Injection Attack: PHP Script File Upload Found|
-|933120|PHP Injection Attack: Configuration Directive Found|
-|933130|PHP Injection Attack: Variables Found|
-|933131|PHP Injection Attack: Variables Found|
-|933140|PHP Injection Attack: I/O Stream Found|
-|933150|PHP Injection Attack: High-Risk PHP Function Name Found|
-|933151|PHP Injection Attack: Medium-Risk PHP Function Name Found|
-|933160|PHP Injection Attack: High-Risk PHP Function Call Found|
-|933161|PHP Injection Attack: Low-Value PHP Function Call Found|
-|933170|PHP Injection Attack: Serialized Object Injection|
-|933180|PHP Injection Attack: Variable Function Call Found|
-|933190|PHP Injection Attack: PHP Closing Tag Found|
-|933200|PHP Injection Attack: Wrapper scheme detected|
-|933210|PHP Injection Attack: Variable Function Call Found|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|933100|Critical - 5|PL1|PHP Injection Attack: Opening/Closing Tag Found|
+|933110|Critical - 5|PL1|PHP Injection Attack: PHP Script File Upload Found|
+|933120|Critical - 5|PL1|PHP Injection Attack: Configuration Directive Found|
+|933130|Critical - 5|PL1|PHP Injection Attack: Variables Found|
+|933140|Critical - 5|PL1|PHP Injection Attack: I/O Stream Found|
+|933150|Critical - 5|PL1|PHP Injection Attack: High-Risk PHP Function Name Found|
+|933151|Critical - 5|PL2|PHP Injection Attack: Medium-Risk PHP Function Name Found|
+|933160|Critical - 5|PL1|PHP Injection Attack: High-Risk PHP Function Call Found|
+|933170|Critical - 5|PL1|PHP Injection Attack: Serialized Object Injection|
+|933180|Critical - 5|PL1|PHP Injection Attack: Variable Function Call Found|
+|933200|Critical - 5|PL1|PHP Injection Attack: Wrapper scheme detected|
+|933210|Critical - 5|PL1|PHP Injection Attack: Variable Function Call Found|
 
 ### <a name="crs941-32"></a> REQUEST-941-APPLICATION-ATTACK-XSS
-|RuleId|Description|
-|---|---|
-|941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection <br />This rule detects requests with a *Referer* header|
-|941110|XSS Filter - Category 1: Script Tag Vector|
-|941120|XSS Filter - Category 2: Event Handler Vector|
-|941130|XSS Filter - Category 3: Attribute Vector|
-|941140|XSS Filter - Category 4: JavaScript URI Vector|
-|941150|XSS Filter - Category 5: Disallowed HTML Attributes|
-|941160|NoScript XSS InjectionChecker: HTML Injection|
-|941170|NoScript XSS InjectionChecker: Attribute Injection|
-|941180|Node-Validator Blacklist Keywords|
-|941190|XSS Using style sheets|
-|941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
-|941220|XSS using obfuscated VB Script|
-|941230|XSS using 'embed' tag|
-|941240|XSS using 'import' or 'implementation' attribute|
-|941250|IE XSS Filters - Attack Detected|
-|941260|XSS using 'meta' tag|
-|941270|XSS using 'link' href|
-|941280|XSS using 'base' tag|
-|941290|XSS using 'applet' tag|
-|941300|XSS using 'object' tag|
-|941310|US-ASCII Malformed Encoding XSS Filter - Attack Detected|
-|941320|Possible XSS Attack Detected - HTML Tag Handler|
-|941330|IE XSS Filters - Attack Detected|
-|941340|IE XSS Filters - Attack Detected|
-|941350|UTF-7 Encoding IE XSS - Attack Detected|
-|941360|JavaScript obfuscation detected|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|941100|Critical - 5|PL1|XSS Attack Detected via libinjection|
+|941101|Critical - 5|PL2|XSS Attack Detected via libinjection <br />This rule detects requests with a *Referer* header|
+|941110|Critical - 5|PL1|XSS Filter - Category 1: Script Tag Vector|
+|941120|Critical - 5|PL1|XSS Filter - Category 2: Event Handler Vector|
+|941130|Critical - 5|PL1|XSS Filter - Category 3: Attribute Vector|
+|941140|Critical - 5|PL1|XSS Filter - Category 4: JavaScript URI Vector|
+|941150|Critical - 5|PL2|XSS Filter - Category 5: Disallowed HTML Attributes|
+|941160|Critical - 5|PL1|NoScript XSS InjectionChecker: HTML Injection|
+|941170|Critical - 5|PL1|NoScript XSS InjectionChecker: Attribute Injection|
+|941180|Critical - 5|PL1|Node-Validator Blacklist Keywords|
+|941190|Critical - 5|PL1|XSS Using style sheets|
+|941200|Critical - 5|PL1|XSS using VML frames|
+|941210|Critical - 5|PL1|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
+|941220|Critical - 5|PL1|XSS using obfuscated VB Script|
+|941230|Critical - 5|PL1|XSS using 'embed' tag|
+|941240|Critical - 5|PL1|XSS using 'import' or 'implementation' attribute|
+|941250|Critical - 5|PL1|IE XSS Filters - Attack Detected|
+|941260|Critical - 5|PL1|XSS using 'meta' tag|
+|941270|Critical - 5|PL1|XSS using 'link' href|
+|941280|Critical - 5|PL1|XSS using 'base' tag|
+|941290|Critical - 5|PL1|XSS using 'applet' tag|
+|941300|Critical - 5|PL1|XSS using 'object' tag|
+|941310|Critical - 5|PL1|US-ASCII Malformed Encoding XSS Filter - Attack Detected|
+|941320|Critical - 5|PL2|Possible XSS Attack Detected - HTML Tag Handler|
+|941330|Critical - 5|PL2|IE XSS Filters - Attack Detected|
+|941340|Critical - 5|PL2|IE XSS Filters - Attack Detected|
+|941350|Critical - 5|PL1|UTF-7 Encoding IE XSS - Attack Detected|
+|941360|Critical - 5|PL1|JavaScript obfuscation detected|
 
 ### <a name="crs942-32"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
-|RuleId|Description|
-|---|---|
-|942100|SQL Injection Attack Detected via libinjection|
-|942110|SQL Injection Attack: Common Injection Testing Detected|
-|942120|SQL Injection Attack: SQL Operator Detected|
-|942130|SQL Injection Attack: SQL Tautology Detected|
-|942140|SQL Injection Attack: Common DB Names Detected|
-|942150|SQL Injection Attack|
-|942160|Detects blind sqli tests using sleep() or benchmark()|
-|942170|Detects SQL benchmark and sleep injection attempts including conditional queries|
-|942180|Detects basic SQL authentication bypass attempts 1/3|
-|942190|Detects MSSQL code execution and information gathering attempts|
-|942200|Detects MySQL comment-/space-obfuscated injections and backtick termination|
-|942210|Detects chained SQL injection attempts 1/2|
-|942220|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
-|942230|Detects conditional SQL injection attempts|
-|942240|Detects MySQL charset switch and MSSQL DoS attempts|
-|942250|Detects MATCH AGAINST, MERGE, and EXECUTE IMMEDIATE injections|
-|942251|Detects HAVING injections|
-|942260|Detects basic SQL authentication bypass attempts 2/3|
-|942270|Looking for basic sql injection. Common attack string for mysql, oracle, and others|
-|942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
-|942290|Finds basic MongoDB SQL injection attempts|
-|942300|Detects MySQL comments, conditions, and ch(a)r injections|
-|942310|Detects chained SQL injection attempts 2/2|
-|942320|Detects MySQL and PostgreSQL stored procedure/function injections|
-|942330|Detects classic SQL injection probings 1/2|
-|942340|Detects basic SQL authentication bypass attempts 3/3|
-|942350|Detects MySQL UDF injection and other data/structure manipulation attempts|
-|942360|Detects concatenated basic SQL injection and SQLLFI attempts|
-|942361|Detects basic SQL injection based on keyword alter or union|
-|942370|Detects classic SQL injection probings 2/2|
-|942380|SQL Injection Attack|
-|942390|SQL Injection Attack|
-|942400|SQL Injection Attack|
-|942410|SQL Injection Attack|
-|942420|Restricted SQL Character Anomaly Detection (cookies): # of special characters exceeded (8)|
-|942421|Restricted SQL Character Anomaly Detection (cookies): # of special characters exceeded (3)|
-|942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
-|942431|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (6)|
-|942432|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (2)|
-|942440|SQL Comment Sequence Detected|
-|942450|SQL Hex Encoding Identified|
-|942460|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
-|942470|SQL Injection Attack|
-|942480|SQL Injection Attack|
-|942490|Detects classic SQL injection probings 3/3|
-|942500|MySQL in-line comment detected|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|942100|Critical - 5|PL1|SQL Injection Attack Detected via libinjection|
+|942110|Warning - 3|PL2|SQL Injection Attack: Common Injection Testing Detected|
+|942120|Critical - 5|PL2|SQL Injection Attack: SQL Operator Detected|
+|942130|Critical - 5|PL2|SQL Injection Attack: SQL Tautology Detected|
+|942140|Critical - 5|PL1|SQL Injection Attack: Common DB Names Detected|
+|942150|Critical - 5|PL2|SQL Injection Attack|
+|942160|Critical - 5|PL1|Detects blind sqli tests using sleep() or benchmark()|
+|942170|Critical - 5|PL1|Detects SQL benchmark and sleep injection attempts including conditional queries|
+|942180|Critical - 5|PL2|Detects basic SQL authentication bypass attempts 1/3|
+|942190|Critical - 5|PL1|Detects MSSQL code execution and information gathering attempts|
+|942200|Critical - 5|PL2|Detects MySQL comment-/space-obfuscated injections and backtick termination|
+|942210|Critical - 5|PL2|Detects chained SQL injection attempts 1/2|
+|942220|Critical - 5|PL1|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
+|942230|Critical - 5|PL1|Detects conditional SQL injection attempts|
+|942240|Critical - 5|PL1|Detects MySQL charset switch and MSSQL DoS attempts|
+|942250|Critical - 5|PL1|Detects MATCH AGAINST, MERGE, and EXECUTE IMMEDIATE injections|
+|942260|Critical - 5|PL2|Detects basic SQL authentication bypass attempts 2/3|
+|942270|Critical - 5|PL1|Looking for basic sql injection. Common attack string for mysql, oracle, and others|
+|942280|Critical - 5|PL1|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
+|942290|Critical - 5|PL1|Finds basic MongoDB SQL injection attempts|
+|942300|Critical - 5|PL2|Detects MySQL comments, conditions, and ch(a)r injections|
+|942310|Critical - 5|PL2|Detects chained SQL injection attempts 2/2|
+|942320|Critical - 5|PL1|Detects MySQL and PostgreSQL stored procedure/function injections|
+|942330|Critical - 5|PL2|Detects classic SQL injection probings 1/2|
+|942340|Critical - 5|PL2|Detects basic SQL authentication bypass attempts 3/3|
+|942350|Critical - 5|PL1|Detects MySQL UDF injection and other data/structure manipulation attempts|
+|942360|Critical - 5|PL1|Detects concatenated basic SQL injection and SQLLFI attempts|
+|942361|Critical - 5|PL2|Detects basic SQL injection based on keyword alter or union|
+|942370|Critical - 5|PL2|Detects classic SQL injection probings 2/2|
+|942380|Critical - 5|PL2|SQL Injection Attack|
+|942390|Critical - 5|PL2|SQL Injection Attack|
+|942400|Critical - 5|PL2|SQL Injection Attack|
+|942410|Critical - 5|PL2|SQL Injection Attack|
+|942430|Warning - 3|PL2|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
+|942440|Critical - 5|PL2|SQL Comment Sequence Detected|
+|942450|Critical - 5|PL2|SQL Hex Encoding Identified|
+|942470|Critical - 5|PL2|SQL Injection Attack|
+|942480|Critical - 5|PL2|SQL Injection Attack|
+|942500|Critical - 5|PL1|MySQL in-line comment detected|
 
 ### <a name="crs943-32"></a> REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
-|RuleId|Description|
-|---|---|
-|943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
-|943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referer|
-|943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referer|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|943100|Critical - 5|PL1|Possible Session Fixation Attack: Setting Cookie Values in HTML|
+|943110|Critical - 5|PL1|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referer|
+|943120|Critical - 5|PL1|Possible Session Fixation Attack: SessionID Parameter Name with No Referer|
 
 ### <a name="crs944-32"></a> REQUEST-944-APPLICATION-ATTACK-JAVA
-|RuleId|Description|
-|---|---|
-|944100|Remote Command Execution: Apache Struts, Oracle WebLogic|
-|944110|Detects potential payload execution|
-|944120|Possible payload execution and remote command execution|
-|944130|Suspicious Java classes|
-|944200|Exploitation of Java deserialization Apache Commons|
-|944210|Possible use of Java serialization|
-|944240|Remote Command Execution: Java serialization|
-|944250|Remote Command Execution: Suspicious Java method detected|
-|944300|Base64 encoded string matched suspicious keyword|
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|944100|Critical - 5|PL1|Remote Command Execution: Apache Struts, Oracle WebLogic|
+|944110|Critical - 5|PL1|Detects potential payload execution|
+|944120|Critical - 5|PL1|Possible payload execution and remote command execution|
+|944130|Critical - 5|PL1|Suspicious Java classes|
+|944200|Critical - 5|PL2|Exploitation of Java deserialization Apache Commons|
+|944210|Critical - 5|PL2|Possible use of Java serialization|
+|944240|Critical - 5|PL1|Remote Command Execution: Java serialization|
+|944250|Critical - 5|PL1|Remote Command Execution: Suspicious Java method detected|
+
+### <a name="crs944-32"></a> Inactive Rules
+|Rule ID|Anomaly score severity|Paranoia Level|Description|
+|---|---|--|--|
+|920202|Warning - 3|PL4|(Inactive rule, should be ignored) Range: Too many fields for pdf request (6 or more)|
+|920272|Critical - 5|PL3|(Inactive rule, should be ignored) Invalid character in request (outside of printable chars below ascii 127)|
+|920273|Critical - 5|PL4|(Inactive rule, should be ignored) Invalid character in request (outside of very strict set)|
+|920274|Critical - 5|PL4|(Inactive rule, should be ignored) Invalid character in request headers (outside of very strict set)|
+|920460|Critical - 5|PL4|(Inactive rule, should be ignored) Abnormal Escape Characters|
+|921170|N/A|PL3|(Inactive rule, should be ignored) HTTP Parameter Pollution|
+|921180|Critical - 5|PL3|(Inactive rule, should be ignored) HTTP Parameter Pollution (%{TX.1})|
+|932106|Critical - 5|PL3|(Inactive rule, should be ignored) Remote Command Execution: Unix Command Injection|
+|932190|Critical - 5|PL3|(Inactive rule, should be ignored) Remote Command Execution: Wildcard bypass technique attempt|
+|933111|Critical - 5|PL3|(Inactive rule, should be ignored) PHP Injection Attack: PHP Script File Upload Found|
+|933131|Critical - 5|PL3|(Inactive rule, should be ignored) PHP Injection Attack: Variables Found|
+|933161|Critical - 5|PL3|(Inactive rule, should be ignored) PHP Injection Attack: Low-Value PHP Function Call Found|
+|933190|Critical - 5|PL3|(Inactive rule, should be ignored) PHP Injection Attack: PHP Closing Tag Found|
+|942251|Critical - 5|PL3|(Inactive rule, should be ignored) Detects HAVING injections|
+|942420|Warning - 3|PL3|(Inactive rule, should be ignored) Restricted SQL Character Anomaly Detection (cookies): # of special characters exceeded (8)|
+|942421|Warning - 3|PL4|(Inactive rule, should be ignored) Restricted SQL Character Anomaly Detection (cookies): # of special characters exceeded (3)|
+|942431|Warning - 3|PL3|(Inactive rule, should be ignored) Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (6)|
+|942432|Warning - 3|PL4|(Inactive rule, should be ignored) Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (2)|
+|942460|Warning - 3|PL3|(Inactive rule, should be ignored) Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
+|942490|Critical - 5|PL3|(Inactive rule, should be ignored) Detects classic SQL injection probings 3/3|
 
 # [OWASP 3.1](#tab/owasp31)
 
@@ -1015,11 +1024,15 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
 
 ---
 
-The following rule groups and rules are no longer supported on Web Application Firewall on Application Gateway.
 > [!NOTE]
-> CRS 3.0 and CRS 2.2.9 are no longer supported in Azure WAF. We recommend you upgrade to DRS 2.1 / CRS 3.2
+> When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
+>
+> This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring](./ag-overview.md#anomaly-scoring-mode).
 
-# [OWASP 3.0](#tab/owasp30)
+
+The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer supported in Azure Web Application Firewall on Application Gateway. We recommend you upgrade to DRS 2.1 / CRS 3.2
+
+# [OWASP 3.0 - no longer supported](#tab/owasp30)
 
 ## <a name="owasp30"></a> 3.0 rule sets
 
@@ -1227,7 +1240,7 @@ The following rule groups and rules are no longer supported on Web Application F
 |943110|Possible Session Fixation Attack = SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack = SessionID Parameter Name with No Referrer|
 
-# [OWASP 2.2.9](#tab/owasp2)
+# [OWASP 2.2.9 - no longer supported](#tab/owasp2)
 
 ## <a name="owasp229"></a> 2.2.9 rule sets
 

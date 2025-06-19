@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Enable authentication in your own web app by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own ASP.NET web application. Learn how create an ASP.NET Core web application with ASP.NET Core middleware that uses the [OpenID Connect](openid-connect.md) protocol. 
 

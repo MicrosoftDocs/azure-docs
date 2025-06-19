@@ -1,14 +1,16 @@
 ---
+ROBOTS: NOINDEX
 title: 'Quickstart: Create a profile and endpoint - Bicep'
 titleSuffix: Azure Content Delivery Network
 description: In this quickstart, learn how to create an Azure Content Delivery Network profile and endpoint by using a Bicep file
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+# Customer intent: "As a cloud engineer, I want to deploy an Azure Content Delivery Network profile and endpoint using a Bicep file, so that I can efficiently manage content delivery and performance for my applications."
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint - Bicep

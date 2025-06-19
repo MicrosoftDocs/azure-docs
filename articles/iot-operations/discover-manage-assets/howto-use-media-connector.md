@@ -29,49 +29,22 @@ A deployed instance of Azure IoT Operations. If you don't already have an instan
 
 A camera connected to your network and accessible from your Azure IoT Operations cluster. The camera must support the Real Time Streaming Protocol for video streaming. You also need the camera's username and password to authenticate with it.
 
-> [!NOTE]
-> Microsoft validated this preview release with the A-MTK AH6016O camera.
+## Deploy the media connector
 
-## Update the media connector
+[!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
-To update the version of the media connector in your Azure IoT Operations deployment, run the following PowerShell commands:
-
-```powershell
-$clusterName="<YOUR AZURE IOT OPERATIONS CLUSTER NAME>"
-$clusterResourceGroup="<YOUR RESOURCE GROUP NAME>"
-
-$extension = az k8s-extension list `
---cluster-name $clusterName `
---cluster-type connectedClusters `
---resource-group $clusterResourceGroup `
---query "[?extensionType == 'microsoft.iotoperations']" `
-| ConvertFrom-Json
-
-
-az k8s-extension update `
---version $extension.version `
---name $extension.name `
---release-train $extension.releaseTrain `
---cluster-name $clusterName `
---resource-group $clusterResourceGroup `
---cluster-type connectedClusters `
---auto-upgrade-minor-version false `
---config connectors.image.registry=mcr.microsoft.com `
---config connectors.image.repository=aio-connectors/helmchart/microsoft-aio-connectors `
---config connectors.image.tag=1.1.0 `
---config connectors.values.enablePreviewFeatures=true `
---yes
-```
-
-> [!NOTE]
-> This update process is for preview components only. The media connector is currently a preview component.
+> [!IMPORTANT]
+> If you don't enable preview features, you see the following error message in the `aio-supervisor-...` pod logs when you try to use the media or ONVIF connectors: `No connector configuration present for AssetEndpointProfile: <AssetEndpointProfileName>`.
 
 ## Deploy the media server
 
-If you're using the media connector to stream live video, you need to install your own media server. To deploy a sample media server to use with the media connector, run the following command:
+If you're using the media connector to stream live video, you need to install your own media server. To deploy a sample media server to use with the media connector, run the following commands:
 
 ```console
-kubectl create namespace media-server --dry-run=client -o yaml | kubectl apply -f - & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-deployment.yaml --validate=false & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service.yaml --validate=false & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service-public.yaml --validate=false
+kubectl create namespace media-server
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-server/media-server-deployment.yaml 
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-server/media-server-service.yaml
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-server/media-server-service-public.yaml
 ```
 
 > [!IMPORTANT]
@@ -213,6 +186,9 @@ You can use the following settings to configure individual tasks:
 
 The following examples show how to deploy assets for each task type.
 
+> [!TIP]
+> The media pods aren't created in Kubernetes until you deploy an asset that uses the media connector. If you try to run the `kubectl get pods` command before deploying an asset, you see no media pods.
+
 ## Snapshot to MQTT
 
 To configure an asset that captures snapshots from a camera and publishes them to an MQTT topic:
@@ -303,7 +279,7 @@ To verify that snapshots are publishing to the MQTT broker, use the **mosquitto_
 When you finish testing the asset, you can delete it by running the following command:
 
 ```console
-az iot ops asset delete -n asset-clip-to-mqtt -g $RESOURCE_GROUP
+az iot ops asset delete -n asset-snapshot-to-mqtt -g $RESOURCE_GROUP
 ```
 
 ## Snapshot to file system
@@ -371,7 +347,7 @@ kubectl get pods -n azure-iot-operations
 To view the files, run the `ls` command in the pod. Use the full name of the pod in the following command:
 
 ```console
-kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-snapshot-to-fs/snapshot/
+kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-snapshot-to-fs/snapshots/
 ```
 
 When you finish testing the asset, you can delete it by running the following command:
@@ -445,7 +421,7 @@ kubectl get pods -n azure-iot-operations
 To view the files, run the `ls` command in the pod. Use the full name of the pod in the following command:
 
 ```console
-kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-clip-to-fs/clip/
+kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-clip-to-fs/clips/
 ```
 
 When you finish testing the asset, you can delete it by running the following command:
@@ -526,9 +502,9 @@ The media server logs the connection from the asset and the creation of the stre
 
 ```log
 2025/02/20 15:31:10 INF [RTSP] [conn <INTERNAL IP ADDRESS OF ASSET>:41384] opened
-2025/02/20 15:31:10 INF [RTSP] [session 180ce9ad] created by INTERNAL IP ADDRESS OF ASSET>:41384
+2025/02/20 15:31:10 INF [RTSP] [session 180ce9ad] created by <INTERNAL IP ADDRESS OF ASSET>:41384
 2025/02/20 15:31:10 INF [RTSP] [session 180ce9ad] is publishing to path 'azure-iot-operations/data/asset-stream-to-rtsp', 2 tracks (H264, LPCM)
-2025/02/20 15:31:18 INF [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] created (requested by 10.42.0.1:16831)
+2025/02/20 15:31:18 INF [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] created (requested by <IP ADDRESS OF EXTERNAL CLIENT>:16831)
 2025/02/20 15:31:18 WAR [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] skipping track 2 (LPCM)
 2025/02/20 15:31:18 INF [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] is converting into HLS, 1 track (H264)
 ```
@@ -538,7 +514,3 @@ When you finish testing the asset, you can delete it by running the following co
 ```console
 az iot ops asset delete -n asset-stream-to-rtsp -g $RESOURCE_GROUP
 ```
-
-## Samples
-
-For more examples that show how to configure and use the media connector, see the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/media-connector-invoke-test/README.md).

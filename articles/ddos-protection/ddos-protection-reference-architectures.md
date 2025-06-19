@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 11/20/2024
+ms.date: 03/17/2025
 ms.author: abell
 ms.custom: fasttrack-edit, linux-related-content
 ---
@@ -35,7 +35,7 @@ Unsupported resources include:
 
 * Azure Virtual WAN.
 * Azure API Management in deployment modes other than the supported modes.
-* PaaS services (multi-tenant) including Azure App Service Environment for Power Apps.
+* PaaS services (multitenant) including Azure App Service Environment for Power Apps.
 * NAT Gateway.
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
@@ -79,7 +79,7 @@ There are many ways to implement an N-tier architecture. The following diagrams 
  In this architecture diagram DDoS IP Protection is enabled on the public IP address.
 
 > [!NOTE]
-> Scenarios in which a single VM is running behind a public IP is not recommended. DDoS mitigation may not initiate instantaneously when a DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases.
+> Scenarios in which a single VM is running behind a public IP isn't recommended. DDoS mitigation may not initiate instantaneously when a DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases.
 
 ### PaaS web application
 
@@ -125,7 +125,7 @@ documentation.
 
 This reference architecture details a hub-and-spoke topology with Azure Firewall inside the hub as a DMZ for scenarios that require central control over security aspects. Azure Firewall is a managed firewall as a service and is placed in its own subnet. Azure Bastion is deployed and placed in its own subnet.
 
-There are two spokes that are connected to the hub using VNet peering and there's no spoke-to-spoke connectivity. If you require spoke-to-spoke connectivity, then you need to create routes to forward traffic from one spoke to the firewall, which can then route it to the other spoke. All the Public IPs that are inside the hub are protected by DDoS Protection. In this scenario, the firewall in the hub helps control the ingress traffic from the internet, while the firewall's public IP is being protected. Azure DDoS Protection also protects the public IP of the bastion.
+There are two spokes that are connected to the hub using virtual network peering and there's no spoke-to-spoke connectivity. If you require spoke-to-spoke connectivity, then you need to create routes to forward traffic from one spoke to the firewall, which can then route it to the other spoke. All the Public IPs that are inside the hub are protected by DDoS Protection. In this scenario, the firewall in the hub helps control the ingress traffic from the internet, while the firewall's public IP is being protected. Azure DDoS Protection also protects the public IP of the bastion.
 
 DDoS Protection is designed for services that are deployed in a virtual network. For more information, see [Deploy dedicated Azure service into virtual networks](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
 

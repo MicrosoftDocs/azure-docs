@@ -193,9 +193,9 @@ The following steps create an Azure function in C# that removes HTML from each i
 
    > [!NOTE]
    >
-   > If you don't see the **Create** button, [select an option to create your function locally](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-your-functions-locally).
+   > If you don't see the **Create** button, [you must instead create your function locally](../azure-functions/functions-develop-local.md#local-development-environments).
 
-1. [Follow these generic steps to create your function in C# using the **HTTP trigger** template](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-function), and provide the following information for your function:
+1. [Follow these generic steps to create your function in C# using the **HTTP trigger** template](../azure-functions/functions-create-http-endpoint.md?pivots=programming-language-csharp#create-function), and provide the following information for your function:
 
    | Parameter | Value |
    |-----------|-------|

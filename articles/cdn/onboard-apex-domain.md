@@ -1,12 +1,14 @@
 ---
+ROBOTS: NOINDEX
 title: Onboard a root or apex domain to an existing Azure CDN endpoint - Azure portal
 description: Learn how to onboard a root or apex domain to an existing Azure CDN endpoint using the Azure portal.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+# Customer intent: As a domain owner, I want to onboard my root or apex domain to an existing CDN endpoint, so that I can ensure proper DNS configuration and HTTPS support for my web applications.
 ---
 
 # Onboard a root or apex domain to an existing Azure CDN endpoint

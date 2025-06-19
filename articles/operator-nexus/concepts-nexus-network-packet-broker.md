@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus Network Packet Broker Overview"
 description: Overview of Network Packet Broker for Azure Operator Nexus.
-author: joemarshallmsft
-ms.author: joemarshall
+author: scottsteinbrueck
+ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 02/16/2024

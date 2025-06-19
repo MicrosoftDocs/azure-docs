@@ -1,8 +1,8 @@
 ---
 title: Built-in policy definitions for Azure Web PubSub
 description: Lists Azure Policy built-in policy definitions for Azure Web PubSub. These built-in policy definitions provide common approaches to managing your Azure resources.
-author: cebundy
-ms.author: v-catherbund
+author: yjin81
+ms.author: yajin1
 ms.date: 01/03/2022
 ms.topic: reference
 ms.service: azure-web-pubsub

@@ -1,15 +1,16 @@
 ---
-title: "Deployment step 2: base services - monitoring component"
-description: Learn about the configuration of monitoring during migration deployment step two.
+title: "Monitoring configuration"
+description: Learn how to configure monitoring during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC administrator, I want to configure comprehensive monitoring for my cloud environment, so that I can ensure optimal performance, detect issues promptly, and optimize resource utilization during the migration process."
 ---
 
-# Deployment step 2: base services - monitoring component
+# Monitoring configuration
 
 Monitoring is a crucial aspect of managing an HPC environment in the cloud, ensuring optimal performance, reliability, and security. Effective monitoring allows administrators to gain real-time insights into system performance, detect and address issues promptly, and make informed decisions to optimize resource utilization. Key metrics such as CPU and memory usage, job execution times, and network throughput provide valuable information about the health and efficiency of the infrastructure.
 
@@ -138,7 +139,7 @@ This section provides a comprehensive guide for setting up Azure Monitor and con
 ### Configuring Prometheus
 
 **Deploy Azure Managed Prometheus:**
-  - Navigate to the Azure Marketplace
+  - Navigate to Azure Marketplace
   - Search for "Azure Managed Prometheus" and select "Create."
   - Fill in the required details:
     - Provide necessary information such as subscription, resource group, and instance details.

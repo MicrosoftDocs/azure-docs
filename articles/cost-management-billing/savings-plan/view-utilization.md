@@ -2,13 +2,13 @@
 title: View Azure savings plan utilization
 titleSuffix: Microsoft Cost Management
 description: Learn how to view saving plan utilization in the Azure portal.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # View savings plan utilization after purchase

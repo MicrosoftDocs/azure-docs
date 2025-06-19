@@ -4,6 +4,9 @@ description: Learn how to use Microsoft Power BI to visualize Hive data processe
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/13/2024
 ---
 

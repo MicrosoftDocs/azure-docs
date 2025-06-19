@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.date: 02/23/2022
 ms.author: duau
 ms.topic: how-to
+# Customer intent: As a network administrator, I want to add or modify multiple Azure Firewall rules using PowerShell, so that I can efficiently manage firewall policies and reduce update times for better network security.
 ---
 
 # Add or modify multiple Azure Firewall rules using Azure PowerShell

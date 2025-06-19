@@ -1,5 +1,5 @@
 ---
-title: Web PubSub Application Firewall (Preview)
+title: Web PubSub Application Firewall
 description: An introduction about why and how to set up Application Firewall for Azure Web PubSub service
 author: biqian
 ms.service: azure-web-pubsub
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 07/10/2024
 ms.author: biqian
 ---
-# Application Firewall (Preview) for Azure Web PubSub Service
+# Application Firewall for Azure Web PubSub Service
 
 The Application Firewall provides sophisticated control over client connections in a distributed system. Before diving into its functionality and setup, let's clarify what the Application Firewall does not do:
 
@@ -128,7 +128,7 @@ The application firewall rules only take effect when the access token contains t
 Below is an example to add userId and insert a unique placeholder in the access token:
 
 ```cs
-// The GUID role wont have any effect. But it ensures this token's uniqueness when using rule ThrottleByJwtSignatureRule.
+// The GUID role won't have any effect. But it ensures this token's uniqueness when using rule ThrottleByJwtSignatureRule.
 var url = service.GetClientAccessUri((userId: "user1" , roles: new string[] {  "webpubsub.joinLeaveGroup.group1", Guid.NewGuid().ToString()});
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Install and use Azure IoT explorer | Microsoft Docs
+title: Install and use Azure IoT explorer
 description: Install the Azure IoT explorer tool and use it to interact with devices (including IoT Plug and Play devices) connected to your IoT hub.
 author: dominicbetts
 ms.author: dobett
@@ -38,7 +38,7 @@ Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/
 
 ## Use Azure IoT explorer
 
-For a device, you can either connect your own device, or use one of the sample simulated devices. For some example simulated devices written in different languages, see the [Connect a sample IoT Plug and Play device application to IoT Hub](./tutorial-connect-device.md) tutorial.
+For a device, you can either connect your own device, or use one of the sample simulated devices.
 
 ### Connect to your hub
 
@@ -107,7 +107,7 @@ You can view the read-only properties defined in an interface on the **Propertie
 1. Preview the payload to be sent to the device.
 1. Submit the change.
 
-After you submit a change, you can track the update status: **synching**, **success**, or **error**. When the synching is complete, you see the new value of your property in the **Reported Value** column. If you navigate to other pages before the synching completes, the tool still notifies you when the update is complete. You can also use the tool's notification center to see the notification history.
+After you submit a change, you can track the update status: **syncing**, **success**, or **error**. When the syncing is complete, you see the new value of your property in the **Reported Value** column. If you navigate to other pages before the syncing completes, the tool still notifies you when the update is complete. You can also use the tool's notification center to see the notification history.
 
 #### Commands
 
@@ -125,7 +125,3 @@ To view the telemetry for the selected interface, go to its **Telemetry** tab. S
 #### Known Issues
 
 For a list of the IoT features supported by the latest version of the tool, see [Feature list](https://github.com/Azure/azure-iot-explorer/wiki).
-
-## Next steps
-
-In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Manage IoT Plug and Play digital twins](./howto-manage-digital-twin.md).

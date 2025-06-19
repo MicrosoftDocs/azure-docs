@@ -8,8 +8,13 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want PowerShell scripts for resetting Azure Cloud Service deployments so that I can efficiently manage and recover service instances.
 ---
 # Reset an Azure Cloud Service (extended support) 
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 These samples cover various ways to reset an existing Azure Cloud Service (extended support) deployment.
 
 ## Reimage role instances of cloud service

@@ -1,26 +1,541 @@
 ---
 title: Azure built-in roles for Hybrid + multicloud - Azure RBAC
-description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Hybrid + multicloud category. It lists Actions, NotActions, DataActions, and NotDataActions.
+description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Hybrid + multicloud category (Azure Stack HCI). It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
 # Azure built-in roles for Hybrid + multicloud
 
-This article lists the Azure built-in roles in the Hybrid + multicloud category.
+This article lists the Azure built-in roles in the Hybrid + multicloud category (Azure Stack HCI).
 
+
+## Azure Arc ScVmm Administrator role
+
+Arc ScVmm VM Administrator has permissions to perform all ScVmm actions.
+
+[Learn more](/azure/azure-arc/system-center-virtual-machine-manager/built-in-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ScVmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/Read | Gets an Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/assessPatches/action | Assesses any Azure Arc machines to get missing software patches |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/installPatches/action | Installs patches on any Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/operations/read | Read all Operations for Azure Arc for Servers |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/locations/operationresults/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/locations/operationstatus/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchAssessmentResults/read | Reads any Azure Arc patchAssessmentResults |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchAssessmentResults/softwarePatches/read | Reads any Azure Arc patchAssessmentResults/softwarePatches |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchInstallationResults/read | Reads any Azure Arc patchInstallationResults |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchInstallationResults/softwarePatches/read | Reads any Azure Arc patchInstallationResults/softwarePatches |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/locations/updateCenterOperationResults/read | Reads the status of an update center operation on machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/hybridIdentityMetadata/read | Read any Azure Arc machines's Hybrid Identity Metadata |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/osType/agentVersions/read | Read all Azure Connected Machine Agent versions available |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/osType/agentVersions/latest/read | Read the latest Azure Connected Machine Agent version |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runcommands/read | Reads any Azure Arc runcommands |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runcommands/write | Installs or Updates an Azure Arc runcommands |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runcommands/delete | Deletes an Azure Arc runcommands |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/read | Reads any Azure Arc licenses |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/write | Installs or Updates an Azure Arc licenses |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/delete | Deletes an Azure Arc licenses |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Arc ScVmm VM Administrator has permissions to perform all ScVmm actions.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/a92dfd61-77f9-4aec-a531-19858b406c87",
+  "name": "a92dfd61-77f9-4aec-a531-19858b406c87",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ScVmm/*",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/delete",
+        "Microsoft.Resources/deployments/cancel/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deployments/whatIf/action",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/operationstatuses/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.ExtendedLocation/customLocations/Read",
+        "Microsoft.ExtendedLocation/customLocations/deploy/action",
+        "Microsoft.HybridCompute/machines/read",
+        "Microsoft.HybridCompute/machines/write",
+        "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
+        "Microsoft.HybridCompute/machines/assessPatches/action",
+        "Microsoft.HybridCompute/machines/installPatches/action",
+        "Microsoft.HybridCompute/machines/extensions/read",
+        "Microsoft.HybridCompute/machines/extensions/write",
+        "Microsoft.HybridCompute/machines/extensions/delete",
+        "Microsoft.HybridCompute/operations/read",
+        "Microsoft.HybridCompute/locations/operationresults/read",
+        "Microsoft.HybridCompute/locations/operationstatus/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches/read",
+        "Microsoft.HybridCompute/locations/updateCenterOperationResults/read",
+        "Microsoft.HybridCompute/machines/hybridIdentityMetadata/read",
+        "Microsoft.HybridCompute/osType/agentVersions/read",
+        "Microsoft.HybridCompute/osType/agentVersions/latest/read",
+        "Microsoft.HybridCompute/machines/runcommands/read",
+        "Microsoft.HybridCompute/machines/runcommands/write",
+        "Microsoft.HybridCompute/machines/runcommands/delete",
+        "Microsoft.HybridCompute/machines/licenseProfiles/read",
+        "Microsoft.HybridCompute/machines/licenseProfiles/write",
+        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
+        "Microsoft.HybridCompute/licenses/read",
+        "Microsoft.HybridCompute/licenses/write",
+        "Microsoft.HybridCompute/licenses/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Arc ScVmm Administrator role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Arc ScVmm Private Cloud User
+
+Azure Arc ScVmm Private Cloud User has permissions to use the ScVmm resources to deploy VMs.
+
+[Learn more](/azure/azure-arc/system-center-virtual-machine-manager/built-in-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/virtualnetworks/join/action | Join virtual network. |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/virtualnetworks/Read | Read virtualnetworks |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/virtualmachinetemplates/clone/action | Clones virtualmachinetemplates |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/virtualmachinetemplates/Read | Read virtualmachinetemplates |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/clouds/deploy/action | Deploy on resource pool. |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/clouds/Read | Read clouds |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/Read | Gets an Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/enabledresourcetypes/read | Gets EnabledResourceTypes for a Custom Location resource |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Azure Arc ScVmm Private Cloud User has permissions to use the ScVmm resources to deploy VMs.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c0781e91-8102-4553-8951-97c6d4243cda",
+  "name": "c0781e91-8102-4553-8951-97c6d4243cda",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/delete",
+        "Microsoft.Resources/deployments/cancel/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deployments/whatIf/action",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/operationstatuses/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "microsoft.scvmm/virtualnetworks/join/action",
+        "microsoft.scvmm/virtualnetworks/Read",
+        "microsoft.scvmm/virtualmachinetemplates/clone/action",
+        "microsoft.scvmm/virtualmachinetemplates/Read",
+        "microsoft.scvmm/clouds/deploy/action",
+        "microsoft.scvmm/clouds/Read",
+        "Microsoft.ExtendedLocation/customLocations/Read",
+        "Microsoft.ExtendedLocation/customLocations/deploy/action",
+        "Microsoft.ExtendedLocation/customLocations/enabledresourcetypes/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Arc ScVmm Private Cloud User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Arc ScVmm Private Clouds Onboarding
+
+Azure Arc ScVmm Private Clouds Onboarding role has permissions to provision all the required resources for onboard and deboard vmm server instances to Azure.
+
+[Learn more](/azure/azure-arc/system-center-virtual-machine-manager/built-in-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/vmmservers/Read | Read vmmservers |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/vmmservers/Write | Writes vmmservers |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/vmmservers/Delete | Deletes vmmservers |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/Read | Gets an Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Azure Arc ScVmm Private Clouds Onboarding role has permissions to provision all the required resources for onboard and deboard vmm server instances to Azure.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6aac74c4-6311-40d2-bbdd-7d01e7c6e3a9",
+  "name": "6aac74c4-6311-40d2-bbdd-7d01e7c6e3a9",
+  "permissions": [
+    {
+      "actions": [
+        "microsoft.scvmm/vmmservers/Read",
+        "microsoft.scvmm/vmmservers/Write",
+        "microsoft.scvmm/vmmservers/Delete",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/delete",
+        "Microsoft.Resources/deployments/cancel/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deployments/whatIf/action",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/operationstatuses/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.ExtendedLocation/customLocations/Read",
+        "Microsoft.ExtendedLocation/customLocations/deploy/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Arc ScVmm Private Clouds Onboarding",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Arc ScVmm VM Contributor
+
+Arc ScVmm VM Contributor has permissions to perform all VM actions.
+
+[Learn more](/azure/azure-arc/system-center-virtual-machine-manager/built-in-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/virtualmachines/* |  |
+> | [microsoft.scvmm](../permissions/hybrid-multicloud.md#microsoftscvmm)/virtualMachineInstances/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/Read | Gets an Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/assessPatches/action | Assesses any Azure Arc machines to get missing software patches |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/installPatches/action | Installs patches on any Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/operations/read | Read all Operations for Azure Arc for Servers |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/locations/operationresults/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/locations/operationstatus/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchAssessmentResults/read | Reads any Azure Arc patchAssessmentResults |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchAssessmentResults/softwarePatches/read | Reads any Azure Arc patchAssessmentResults/softwarePatches |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchInstallationResults/read | Reads any Azure Arc patchInstallationResults |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchInstallationResults/softwarePatches/read | Reads any Azure Arc patchInstallationResults/softwarePatches |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/locations/updateCenterOperationResults/read | Reads the status of an update center operation on machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/hybridIdentityMetadata/read | Read any Azure Arc machines's Hybrid Identity Metadata |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/osType/agentVersions/read | Read all Azure Connected Machine Agent versions available |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/osType/agentVersions/latest/read | Read the latest Azure Connected Machine Agent version |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runcommands/read | Reads any Azure Arc runcommands |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runcommands/write | Installs or Updates an Azure Arc runcommands |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runcommands/delete | Deletes an Azure Arc runcommands |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/read | Reads any Azure Arc licenses |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/write | Installs or Updates an Azure Arc licenses |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/delete | Deletes an Azure Arc licenses |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Arc ScVmm VM Contributor has permissions to perform all VM actions.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/e582369a-e17b-42a5-b10c-874c387c530b",
+  "name": "e582369a-e17b-42a5-b10c-874c387c530b",
+  "permissions": [
+    {
+      "actions": [
+        "microsoft.scvmm/virtualmachines/*",
+        "microsoft.scvmm/virtualMachineInstances/*",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/delete",
+        "Microsoft.Resources/deployments/cancel/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deployments/whatIf/action",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/operationstatuses/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.ExtendedLocation/customLocations/Read",
+        "Microsoft.ExtendedLocation/customLocations/deploy/action",
+        "Microsoft.HybridCompute/machines/read",
+        "Microsoft.HybridCompute/machines/write",
+        "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
+        "Microsoft.HybridCompute/machines/assessPatches/action",
+        "Microsoft.HybridCompute/machines/installPatches/action",
+        "Microsoft.HybridCompute/machines/extensions/read",
+        "Microsoft.HybridCompute/machines/extensions/write",
+        "Microsoft.HybridCompute/machines/extensions/delete",
+        "Microsoft.HybridCompute/operations/read",
+        "Microsoft.HybridCompute/locations/operationresults/read",
+        "Microsoft.HybridCompute/locations/operationstatus/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches/read",
+        "Microsoft.HybridCompute/locations/updateCenterOperationResults/read",
+        "Microsoft.HybridCompute/machines/hybridIdentityMetadata/read",
+        "Microsoft.HybridCompute/osType/agentVersions/read",
+        "Microsoft.HybridCompute/osType/agentVersions/latest/read",
+        "Microsoft.HybridCompute/machines/runcommands/read",
+        "Microsoft.HybridCompute/machines/runcommands/write",
+        "Microsoft.HybridCompute/machines/runcommands/delete",
+        "Microsoft.HybridCompute/machines/licenseProfiles/read",
+        "Microsoft.HybridCompute/machines/licenseProfiles/write",
+        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
+        "Microsoft.HybridCompute/licenses/read",
+        "Microsoft.HybridCompute/licenses/write",
+        "Microsoft.HybridCompute/licenses/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Arc ScVmm VM Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## Azure Resource Bridge Deployment Role
 
-Azure Resource Bridge Deployment Role
+> [!IMPORTANT] 
+> This deployment role only applies to Azure Stack HCI. It does not apply to any other Arc Private Cloud and does not work for other private clouds.
 
-[Learn more](/azure-stack/hci/deploy/deployment-azure-resource-manager-template)
+Azure Resource Bridge Deployment Role is used only for Azure Stack HCI.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -161,6 +676,8 @@ Grants full access to the cluster and its resources, including the ability to re
 > | [Microsoft.Management](../permissions/management-and-governance.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/EdgeMachines/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/DevicePools/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
@@ -232,6 +749,11 @@ Grants full access to the cluster and its resources, including the ability to re
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Write | Creates/Updates storage containers resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
 > | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/register/action | Register the subscription for Microsoft.HybridContainerService |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/write | Writes an Azure Arc settings |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/settings/read | Reads any Azure Arc settings |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/read | Reads any Azure Arc gateways |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/write | Writes an Azure Arc gateways |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/delete | Deletes an Azure Arc gateways |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -277,6 +799,8 @@ Grants full access to the cluster and its resources, including the ability to re
         "Microsoft.Management/managementGroups/read",
         "Microsoft.Support/*",
         "Microsoft.AzureStackHCI/*",
+        "Microsoft.AzureStackHCI/EdgeMachines/*",
+        "Microsoft.AzureStackHCI/DevicePools/*",
         "Microsoft.Insights/AlertRules/Write",
         "Microsoft.Insights/AlertRules/Delete",
         "Microsoft.Insights/AlertRules/Read",
@@ -347,7 +871,12 @@ Grants full access to the cluster and its resources, including the ability to re
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.AzureStackHCI/StorageContainers/Write",
         "Microsoft.AzureStackHCI/StorageContainers/Read",
-        "Microsoft.HybridContainerService/register/action"
+        "Microsoft.HybridContainerService/register/action",
+        "Microsoft.HybridCompute/settings/write",
+        "Microsoft.HybridCompute/settings/read",
+        "Microsoft.HybridCompute/gateways/read",
+        "Microsoft.HybridCompute/gateways/write",
+        "Microsoft.HybridCompute/gateways/delete"
       ],
       "notActions": [],
       "dataActions": [],
@@ -424,7 +953,40 @@ Microsoft.AzureStackHCI Device Management Role
 > | --- | --- |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/* |  |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/EdgeDevices/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/DevicePools/*/read |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/EdgeMachines/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/register/action | Register the subscription for Microsoft.HybridContainerService |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/kubernetesVersions/read | Lists the supported kubernetes versions from the underlying custom location |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/kubernetesVersions/write | Puts the kubernetes version resource type |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/skus/read | Lists the supported VM SKUs from the underlying custom location |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/skus/write | Puts the VM SKUs resource type |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleassignments/read | Get information about a role assignment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Write | Creates/Updates storage containers resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Register/Action | Registers the subscription for the Azure Local resource provider and enables the creation of Azure Local resources. |
+> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/namespaces/read | Get Namespace Resource |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/operations/read | Gets available operations of the Microsoft.KubernetesConfiguration resource provider. |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/read | Gets an Appliance resource |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/write | Creates or Updates Appliance resource |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/delete | Deletes Appliance resource |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/locations/operationresults/read | Get result of Appliance operation |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/locations/operationsstatus/read | Get result of Appliance operation |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/listClusterUserCredential/action | Get an appliance cluster user credential |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/listKeys/action | Get an appliance cluster customer user keys |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/upgradeGraphs/read | Gets the upgrade graph of Appliance cluster |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/telemetryconfig/read | Get Appliances telemetry config utilized by Appliances CLI |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/operations/read | Gets list of Available Operations for Appliances |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/read | Gets an Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/write | Creates or Updates Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/delete | Deletes Custom Location resource |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -445,7 +1007,40 @@ Microsoft.AzureStackHCI Device Management Role
       "actions": [
         "Microsoft.AzureStackHCI/Clusters/*",
         "Microsoft.AzureStackHCI/EdgeDevices/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
+        "Microsoft.AzureStackHCI/DevicePools/*/read",
+        "Microsoft.AzureStackHCI/EdgeMachines/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.HybridContainerService/register/action",
+        "Microsoft.HybridContainerService/kubernetesVersions/read",
+        "Microsoft.HybridContainerService/kubernetesVersions/write",
+        "Microsoft.HybridContainerService/skus/read",
+        "Microsoft.HybridContainerService/skus/write",
+        "Microsoft.Authorization/roleassignments/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.AzureStackHCI/StorageContainers/Write",
+        "Microsoft.AzureStackHCI/StorageContainers/Read",
+        "Microsoft.AzureStackHCI/Register/Action",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
+        "Microsoft.KubernetesConfiguration/extensions/write",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.KubernetesConfiguration/extensions/delete",
+        "Microsoft.KubernetesConfiguration/extensions/operations/read",
+        "Microsoft.KubernetesConfiguration/namespaces/read",
+        "Microsoft.KubernetesConfiguration/operations/read",
+        "Microsoft.ResourceConnector/appliances/read",
+        "Microsoft.ResourceConnector/appliances/write",
+        "Microsoft.ResourceConnector/appliances/delete",
+        "Microsoft.ResourceConnector/locations/operationresults/read",
+        "Microsoft.ResourceConnector/locations/operationsstatus/read",
+        "Microsoft.ResourceConnector/appliances/listClusterUserCredential/action",
+        "Microsoft.ResourceConnector/appliances/listKeys/action",
+        "Microsoft.ResourceConnector/appliances/upgradeGraphs/read",
+        "Microsoft.ResourceConnector/telemetryconfig/read",
+        "Microsoft.ResourceConnector/operations/read",
+        "Microsoft.ExtendedLocation/customLocations/deploy/action",
+        "Microsoft.ExtendedLocation/customLocations/read",
+        "Microsoft.ExtendedLocation/customLocations/write",
+        "Microsoft.ExtendedLocation/customLocations/delete"
       ],
       "notActions": [],
       "dataActions": [],
@@ -496,7 +1091,7 @@ Grants permissions to perform all VM actions
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |

@@ -1,7 +1,7 @@
 ---
 title: Define an OpenID Connect technical profile in a custom policy
 titleSuffix: Azure AD B2C
-description: Define an OpenID Connect technical profile in a custom policy in Azure Active Directory B2C.
+description: Define an OpenID Connect technical profile in a custom policy in Azure AD B2C. Integrate with OpenID Connect identity providers for social or enterprise sign-in.
 
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Define an OpenID Connect technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -89,7 +91,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | HttpBinding | No | The expected HTTP binding to the access token and claims token endpoints. Possible values: `GET` or `POST`.  |
 | ValidTokenIssuerPrefixes | No | A key that can be used to sign in to each of the tenants when using a multi-tenant identity provider such as Microsoft Entra ID. |
 | UsePolicyInRedirectUri | No | Indicates whether to use a policy when constructing the redirect URI. When you configure your application in the identity provider, you need to specify the redirect URI. The redirect URI points to Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.  If you specify `true`, you need to add a redirect URI for each policy you use. For example: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
-| MarkAsFailureOnStatusCode5xx | No | Indicates whether a request to an external service should be marked as a failure if the Http status code is in the 5xx range. The default is `false`. |
+| MarkAsFailureOnStatusCode5xx | No | Indicates whether a request to an external service should be marked as a failure if the HTTP status code is in the 5xx range. The default is `false`. |
 | DiscoverMetadataByTokenIssuer | No | Indicates whether the OIDC metadata should be discovered by using the issuer in the JWT.If you need to build the metadata endpoint URL based on Issuer, set this to `true`.|
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 |token_endpoint_auth_method| No | Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic`, `private_key_jwt`. For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |

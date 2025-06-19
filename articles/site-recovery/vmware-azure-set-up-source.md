@@ -1,11 +1,11 @@
 ---
 title: Set up source settings for VMware disaster recovery to Azure with Azure Site Recovery
 description: This article describes how to set up your on-premises environment to replicate VMware VMs to Azure with Azure Site Recovery.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: ankitadutta
-ms.date: 07/08/2024
+ms.author: jsuri
+ms.date: 04/26/2025
 
 ---
 
@@ -79,7 +79,7 @@ Exclude following folders from Antivirus software
 
 ### If Antivirus Software is active on the Linux Master Target
 
-Exclude following folders from Antivirus software
+Exclude following folders from Antivirus software:
 
 1.	/usr/local/ASR
 2.	/usr/local/InMage
@@ -88,6 +88,14 @@ Exclude following folders from Antivirus software
 5.	/var/log/ApplicationPolicyLogs
 6.	/var/log/ASRsetuptelemetry
 7.	/var/log/ASRsetuptelemetry_uploaded
+
+Exclude the following registries from Antivirus software:
+
+1. HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\SV Systems
+1. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\Registration
+1. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings
+1. HKEY_LOCAL_MACHINE\SOFTWARE\InMage Systems
+1. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\InMageMT
 
 
 ## Next steps

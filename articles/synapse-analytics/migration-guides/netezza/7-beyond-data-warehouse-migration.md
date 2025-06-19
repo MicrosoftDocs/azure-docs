@@ -6,7 +6,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
-ms.reviewer: wiassaf
+
 ms.date: 07/12/2022
 ---
 

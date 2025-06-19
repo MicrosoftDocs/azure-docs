@@ -2,12 +2,12 @@
 title: Azure built-in roles for Monitor - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Monitor category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -151,6 +151,8 @@ Can manage Azure Managed Grafana resources, without providing access to the work
 > | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnections/delete | Delete PrivateEndpointConnection |
 > | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/managedPrivateEndpoints/write | Write Managed Private Endpoints |
 > | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/managedPrivateEndpoints/delete | Delete Managed Private Endpoints |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/integrationFabrics/write | Write Integration Fabrics |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/integrationFabrics/delete | Delete Integration Fabrics |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
@@ -163,7 +165,7 @@ Can manage Azure Managed Grafana resources, without providing access to the work
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
@@ -199,6 +201,8 @@ Can manage Azure Managed Grafana resources, without providing access to the work
         "Microsoft.Dashboard/grafana/privateEndpointConnections/delete",
         "Microsoft.Dashboard/grafana/managedPrivateEndpoints/write",
         "Microsoft.Dashboard/grafana/managedPrivateEndpoints/delete",
+        "Microsoft.Dashboard/grafana/integrationFabrics/write",
+        "Microsoft.Dashboard/grafana/integrationFabrics/delete",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/AlertRules/Write",
         "Microsoft.Insights/AlertRules/Delete",
@@ -451,7 +455,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/virtualMachines/extensions/* |  |
 > | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/* |  |
@@ -518,7 +522,7 @@ Log Analytics Reader can view and search all monitoring data as well as and view
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
@@ -572,6 +576,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/alerts/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/alertsSummary/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/issues/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/actiongroups/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/activityLogAlerts/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/* | Create and manage a classic metric alert |
@@ -633,6 +638,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "*/read",
         "Microsoft.AlertsManagement/alerts/*",
         "Microsoft.AlertsManagement/alertsSummary/*",
+        "Microsoft.AlertsManagement/issues/*",
         "Microsoft.Insights/actiongroups/*",
         "Microsoft.Insights/activityLogAlerts/*",
         "Microsoft.Insights/AlertRules/*",

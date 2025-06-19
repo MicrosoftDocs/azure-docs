@@ -5,7 +5,8 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: azure-batch
-ms.date: 01/09/2024
+ms.date: 03/27/2025
+# Customer intent: As a cloud administrator, I want to effectively plan and manage costs for Azure Batch workloads, so that I can monitor expenses and optimize resource allocation to stay within budget while minimizing overall cloud spending.
 ---
 
 # Plan to manage costs for Azure Batch
@@ -110,7 +111,7 @@ For Batch accounts created with the Batch service pool allocation mode:
 The resulting cost analysis shows the cost of the pool as well as the resources that contribute to this cost. In this example, the VMs used in the pool are the most costly resource.
 
 > [!NOTE]
-> The pool in this example uses **Virtual Machine Configuration**, which is [recommended for most pools](batch-pool-cloud-service-to-virtual-machine-configuration.md) and are charged based on the Virtual Machines pricing structure. Pools that use **Cloud Services Configuration** are charged based on the Cloud Services pricing structure.
+> The pool in this example uses **Virtual Machine Configuration**, and are charged based on the Virtual Machines pricing structure. Pools that use **Cloud Services Configuration** are charged based on the Cloud Services pricing structure.
 
 [Tags](../azure-resource-manager/management/tag-resources.md) can be associated with Batch accounts, allowing tags to be used for further cost filtering. For example, tags can be used to associate project, user, or group information with a Batch account. Tags cannot currently be associated with Batch pools.
 

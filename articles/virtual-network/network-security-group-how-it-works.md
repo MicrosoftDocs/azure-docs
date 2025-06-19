@@ -5,7 +5,7 @@ description: Learn how network security groups help you filter network traffic b
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 05/03/2023
+ms.date: 03/31/2025
 ms.author: allensu
 ---
 
@@ -20,19 +20,19 @@ The following picture illustrates different scenarios for how network security g
 
 :::image type="content" source="./media/network-security-group-how-it-works/network-security-group-interaction.png" alt-text="Diagram of NSG processing.":::
 
-Reference the previous picture, along with the following text, to understand how Azure processes inbound and outbound rules for network security groups:
+Refer to the preceding diagram to understand how Azure processes inbound and outbound rules. The picture illustrates how network security groups handle traffic filtering. 
 
 ## Inbound traffic
 
 For inbound traffic, Azure processes the rules in a network security group associated to a subnet first, if there's one, and then the rules in a network security group associated to the network interface, if there's one. This process includes intra-subnet traffic as well.
 
-- **VM1**: The security rules in *NSG1* are processed, since it's associated to *Subnet1* and *VM1* is in *Subnet1*. Unless you've created a rule that allows port 80 inbound, the [DenyAllInbound](./network-security-groups-overview.md#denyallinbound) default security rule denies the traffic. This blocked traffic then doesn't get evaluated by NSG2 because it's associated with the network interface. However if *NSG1* allows port 80 in its security rule, then *NSG2* processes the traffic. To allow port 80 to the virtual machine, both *NSG1* and *NSG2* must have a rule that allows port 80 from the internet.
+- **VM1**: *NSG1* processes the security rules because **NSG1** is associated with *Subnet1*, and *VM1* resides in *Subnet1*. The [DenyAllInbound](./network-security-groups-overview.md#denyallinbound) default security rule blocks the traffic unless a rule explicitly allows port 80 inbound. The network interface associated with *NSG2* doesn't evaluate the blocked traffic. However, if *NSG1* allows port 80 in its security rule, *NSG2* then evaluates the traffic. To permit port 80 to the virtual machine, both *NSG1* and *NSG2* must include a rule that allows port 80 from the internet.
 
 - **VM2**: The rules in *NSG1* are processed because *VM2* is also in *Subnet1*. Since *VM2* doesn't have a network security group associated to its network interface, it receives all traffic allowed through *NSG1* or is denied all traffic denied by *NSG1*. Traffic is either allowed or denied to all resources in the same subnet when a network security group is associated to a subnet.
 
 - **VM3**: Since there's no network security group associated to *Subnet2*, traffic is allowed into the subnet and processed by *NSG2*, because *NSG2* is associated to the network interface attached to *VM3*.
 
-- **VM4**: Traffic is blocked to *VM4,* because a network security group isn't associated to *Subnet3*, or the network interface in the virtual machine. All network traffic is blocked through a subnet and network interface if they don't have a network security group associated to them.
+- **VM4**: Traffic is blocked to *VM4,* because a network security group isn't associated to *Subnet3*, or the network interface in the virtual machine. All network traffic is blocked through a subnet and network interface if they don't have a network security group associated to them. The virtual machine with a Standard public IP address is secure by default. For traffic to flow from the internet, an NSG must be assigned to the subnet or NIC of the virtual machine. For more information see, [IP address version](/azure/virtual-network/ip-services/public-ip-addresses#ip-address-version)
 
 ## Outbound traffic
 
@@ -48,21 +48,18 @@ For outbound traffic, Azure processes the rules in a network security group asso
 
 ## Intra-Subnet traffic
 
-It's important to note that security rules in an NSG associated to a subnet can affect connectivity between VMs within it. By default, virtual machines in the same subnet can communicate based on a default NSG rule allowing intra-subnet traffic. If you add a rule to *NSG1* that denies all inbound and outbound traffic, *VM1* and *VM2* won't be able to communicate with each other.
+It's important to note that security rules in an NSG associated to a subnet can affect connectivity between VMs within it. By default, virtual machines in the same subnet can communicate based on a default NSG rule allowing intra-subnet traffic. If you add a rule to *NSG1* that denies all inbound and outbound traffic, *VM1* and *VM2* can't communicate with each other.
 
 You can easily view the aggregate rules applied to a network interface by viewing the [effective security rules](virtual-network-network-interface.md#view-effective-security-rules) for a network interface. You can also use the [IP flow verify](../network-watcher/ip-flow-verify-overview.md) capability in Azure Network Watcher to determine whether communication is allowed to or from a network interface. You can use IP flow verify to determine whether a communication is allowed or denied. Additionally, Use IP flow verify to surface the identity of the network security rule responsible for allowing or denying the traffic.
 
-> [!NOTE]
-> Network security groups are associated to subnets or to virtual machines and cloud services deployed in the classic deployment model, and to subnets or network interfaces in the Resource Manager deployment model. To learn more about Azure deployment models, see [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
 > [!TIP]
-> Unless you have a specific reason to, we recommend that you associate a network security group to a subnet, or a network interface, but not both. Since rules in a network security group associated to a subnet can conflict with rules in a network security group associated to a network interface, you can have unexpected communication problems that require troubleshooting.
+> Unless you have a specific reason to, we recommend that you associate a network security group to a subnet, or a network interface, but not both. Rules in a network security group associated to a subnet can conflict with rules in a network security group associated to a network interface. You might have unexpected communication problems that require troubleshooting.
 
 ## Next steps
 
-* To learn about which Azure resources can be deployed into a virtual network and have network security groups associated to them, see [Virtual network integration for Azure services](virtual-network-for-azure-services.md).
+* Learn which Azure resources you can deploy into a virtual network. See [Virtual network integration for Azure services](virtual-network-for-azure-services.md) to find resources that support network security groups.
 
-* If you have never created a network security group, you can complete a quick [tutorial](tutorial-filter-network-traffic.md) to get some experience creating one.
+* To create a network security group, complete a quick [tutorial](tutorial-filter-network-traffic.md) to get experience creating one.
 
 * If you're familiar with network security groups and need to manage them, see [Manage a network security group](manage-network-security-group.md). 
 

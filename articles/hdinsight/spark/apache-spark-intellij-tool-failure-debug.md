@@ -5,6 +5,9 @@ keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdi
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive, devx-track-extended-java
 ms.topic: conceptual
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 07/12/2024
 ---
 

@@ -6,15 +6,13 @@
     href: overview.md
   - name: Compare with App Service
     href: ase-multi-tenant-comparison.md
-  - name: Version comparison
-    href: version-comparison.md
-  - name: Upgrade to App Service Environment v3
-    href: upgrade-to-asev3.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create App Service Environment in portal
     href: creation.md
+  - name: Create an App Service Environment using Terraform
+    href: creation-terraform.md
 - name: Tutorials
   items:
   - name: Integrate with Application Gateway
@@ -47,66 +45,14 @@
     href: how-to-custom-domain-suffix.md
   - name: Upgrade preference for planned maintenance
     href: how-to-upgrade-preference.md
-  - name: Migrate to App Service Environment v3
-    items:
-    - name: In-place migration feature
-      href: migrate.md
-    - name: Side-by-side migration feature
-      href: side-by-side-migrate.md
-    - name: Manually migrate to App Service Environment v3
-      href: migration-alternatives.md
-    - name: Auto-migration overview
-      href: auto-migration.md
-- name: Reference
+- name: Migrate to App Service Environment v3
   items:
-  - name: Management addresses
-    href: management-addresses.md
-  - name: ASEv1 documentation
-    items:
-    - name: About App Service Environment v1
-      href: app-service-app-service-environment-intro.md
-    - name: Create ASEv1 from template
-      href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
-    - name: Configure ASEv1
-      href: app-service-web-configure-an-app-service-environment.md
-    - name: Configure Auto Scale in ASEv1
-      href: app-service-environment-auto-scale.md
-    - name: Scale out app in ASEv1
-      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
-    - name: Network architecture
-      href: app-service-app-service-environment-network-architecture-overview.md
-    - name: Connect to back end
-      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
-    - name: Configure ExpressRoute
-      href: app-service-app-service-environment-network-configuration-expressroute.md
-    - name: Control inbound traffic to public app
-      href: app-service-app-service-environment-control-inbound-traffic.md
-    - name: Use layered security
-      href: app-service-app-service-environment-layered-security.md
-  - name: ASEv2 documentation
-    items:
-    - name: About App Service Environment v2
-      href: intro.md
-    - name: Create ASE v2 from template
-      href: create-from-template.md
-    - name: Create internal ASE v2
-      href: create-ilb-ase.md
-    - name: Use an ASE v2
-      href: using-an-ase.md
-    - name: Network architecture
-      href: network-info.md
-    - name: Zone redundancy
-      href: zone-redundancy.md
-    - name: Certificates
-      href: certificates.md
-    - name: Forced tunnel configuration
-      href: forced-tunnel-support.md
-    - name: Firewall integration
-      href: firewall-integration.md
+  - name: Auto-migration overview
+    href: auto-migration.md
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information

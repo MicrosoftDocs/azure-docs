@@ -4,7 +4,7 @@ metadata:
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
   ms.service: azure-site-recovery
-  ms.date: 04/10/2024
+  ms.date: 05/30/2025
 
 
 title: General questions about Azure Site Recovery
@@ -97,12 +97,12 @@ sections:
       - question: |
          Where can I find pricing information?
         answer: |
-              Review [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/) details.
+              Review [Site Recovery pricing](https://learn.microsoft.com/azure/site-recovery/site-recovery-cost) details.
 
       - question: |
          How can I calculate approximate charges during the use of Site Recovery?
         answer: |
-              You can use the [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Site Recovery.
+              You can use the [pricing calculator](https://aka.ms/asr_a2a_calculator) to estimate costs while using Site Recovery.
 
               For detailed estimate on costs, run the deployment planner tool for [VMware](./site-recovery-deployment-planner.md) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
@@ -124,7 +124,7 @@ sections:
       - question: |
          Is there a cost associated to perform disaster recovery drills/test failover?
         answer: |
-              There isn't any separate cost for disaster recovery drill. There is compute charges after the virtual machine is created after the test failover.
+              There isn't any separate cost for disaster recovery drill. There are compute charges after the virtual machine is created after the test failover.
 
 
   - name: Security
@@ -331,10 +331,10 @@ sections:
                       echo "Usage: $0 [--pre | --post]"
                       exit 1
                   elif [ "$1" == "--pre" ]; then
-                      echo "Freezing app IO"
-                      exit 0
+                     echo "Freezing app IO"  ##command to freeze the application 
+                     exit 0
                   elif [ "$1" == "--post" ]; then
-                      echo "Thawed app IO"
+                      echo "Thawed app IO"  ##command to unfreeze the application 
                       exit 0
                   fi
               ```

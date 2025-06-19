@@ -4,7 +4,7 @@ description: Describes performance benchmarks that Azure NetApp Files datastores
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/03/2024
 ms.author: anfdocs
 ---
@@ -21,7 +21,7 @@ The following `read:write` I/O ratios were tested for each scenario: `100:0, 75:
 
 Benchmarks documented in this article were performed with sufficient volume throughput to prevent soft limits from affecting performance. Benchmarks can be achieved with Azure NetApp Files Premium and Ultra service levels, and in some cases with Standard service level. For more information on volume throughput, see [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md).
 
-Consult the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://aka.ms/anfavscalc) to understand the sizing and associated cost benefits of Azure NetApp Files datastores.
+Consult the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://azure.github.io/azure-netapp-files/avs-calc/) to understand the sizing and associated cost benefits of Azure NetApp Files datastores.
 
 ## Latency
 

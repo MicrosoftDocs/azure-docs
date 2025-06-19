@@ -2,14 +2,16 @@
 title: Tutorial - Set Azure Content Delivery Network caching rules
 description: In this tutorial, you set an Azure Content Delivery Network global caching rule and a custom caching rule.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: danielgi
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: mvc
 #Customer intent: As an Azure Content Delivery Network administrator, I want to create custom rules on my content delivery network endpoint so that I can control how content is cached.
+ROBOTS: NOINDEX
+# Customer intent: "As an Azure Content Delivery Network administrator, I want to set global and custom caching rules for my endpoints, so that I can efficiently manage content expiration and improve delivery performance."
 ---
 
 # Tutorial: Set Azure Content Delivery Network caching rules

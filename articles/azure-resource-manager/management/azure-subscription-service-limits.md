@@ -63,12 +63,6 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-<a name='azure-active-directory-limits'></a>
-
-## Microsoft Entra ID limits
-
-[!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
-
 ## Azure API Center limits
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
@@ -174,13 +168,13 @@ See [Limits in Azure Cosmos DB](/azure/cosmos-db/concepts-limits) for Azure Cosm
 
 [!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
-## Azure Database for MySQL
+## Azure Database for MySQL flexible server
 
-See [Limitations in Azure Database for MySQL](/azure/mysql/concepts-limits) for Azure Database for MySQL limits.
+See [Limitations in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-limitations) for Azure Database for MySQL - Flexible Server limits.
 
-## Azure Database for PostgreSQL
+## Azure Database for PostgreSQL flexible server
 
-See [Limitations in Azure Database for PostgreSQL](/azure/postgresql/concepts-limits) for Azure Database for PostgreSQL limits.
+See [Limits in Azure Database for PostgreSQL flexible server](/azure/postgresql/flexible-server/concepts-limits) for Azure Database for PostgreSQL flexible server limits.
 
 ## Azure Deployment Environments limits
 
@@ -364,7 +358,7 @@ The following table details the features and limits of the Basic, Standard, and 
 > [!NOTE]
 > Some areas of this service have adjustable limits, and others do not. The following tables use the *Adjustable?* column to represent this condition. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
 
-[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
+[!INCLUDE [digital-twins-limits](../../digital-twins/includes/digital-twins-limits.md)]
 
 ## Azure Event Grid limits
 
@@ -403,10 +397,6 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 ## Azure Mobile Services limits
 
 [!INCLUDE [mobile-services-limits](../../../includes/mobile-services-limits.md)]
-
-## Microsoft Entra service limits
-
-[!INCLUDE [microsoft-entra-service-limits](../../../includes/entra-service-limits-include.md)]
 
 ## Azure networking limits
 
@@ -481,6 +471,12 @@ Unless stated otherwise, the following limits apply to Azure VPN Gateway resourc
 ## Microsoft Dev Box limits
 
 [!INCLUDE [dev-box-limits](../../../includes/dev-box-limits.md)]
+
+<a name='azure-active-directory-limits'></a>
+
+## Microsoft Entra service limits
+
+See [Microsoft Entra service limits](/entra/identity/users/directory-service-limits-restrictions) for Microsoft Entra service limits.
 
 ## Microsoft Purview limits
 

@@ -2,15 +2,16 @@
 title: Azure OpenAI assistant create output binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant create output binding to create Azure OpenAI assistants from your function code executions.
 ms.topic: reference
-ms.custom: 
+ms.custom:
   - build-2024
   - devx-track-extended-java
   - devx-track-js
   - devx-track-python
   - devx-track-ts
+  - build-2025
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 01/07/2025
+ms.date: 05/15/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -29,13 +30,13 @@ For information on setup and configuration details of the Azure OpenAI extension
 ::: zone pivot="programming-language-csharp"  
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="20-45"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="19-56"::: 
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="33-58":::  
+:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="30-77":::  
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -43,7 +44,7 @@ This example demonstrates the creation process, where the HTTP PUT function that
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="6-33" :::
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-33" :::
 
 ::: zone-end 
 ::: zone pivot="programming-language-typescript"
@@ -67,7 +68,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="7-22" :::
+:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="6-31" :::
 
 ::: zone-end  
 <!--- End code examples section -->    
@@ -80,6 +81,8 @@ Apply the `CreateAssistant` attribute to define an assistant create output bindi
 | --------- | ----------- |
 | **Id** | The identifier of the assistant to create. |
 | **Instructions** | _Optional_. The instructions that are provided to assistant to follow. |
+| **ChatStorageConnectionSetting** | _Optional_. The configuration section name for the table settings for chat storage. The default value is `AzureWebJobsStorage`. |
+| **CollectionName** | _Optional_. The table collection name for chat storage. The default value is `ChatState`. |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -92,6 +95,8 @@ The `CreateAssistant` annotation enables you to define an assistant create outpu
 | **name** | Gets or sets the name of the output binding. |
 | **id** | The identifier of the assistant to create. |
 | **instructions** | _Optional_. The instructions that are provided to assistant to follow. |
+| **chatStorageConnectionSetting** | _Optional_. The configuration section name for the table settings for chat storage. The default value is `AzureWebJobsStorage`. |
+| **collectionName** | _Optional_. The table collection name for chat storage. The default value is `ChatState`. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -104,6 +109,8 @@ During the preview, define the output binding as a `generic_output_binding` bind
 | **arg_name** | The name of the variable that represents the binding parameter. |
 | **id** | The identifier of the assistant to create. |
 | **instructions** | _Optional_. The instructions that are provided to assistant to follow. |
+| **chat_storage_connection_setting** | _Optional_. The configuration section name for the table settings for chat storage. The default value is `AzureWebJobsStorage`. |
+| **collection_name** | _Optional_. The table collection name for chat storage. The default value is `ChatState`. |
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -118,6 +125,8 @@ The binding supports these configuration properties that you set in the function
 | **name** | The name of the output binding. |
 | **id** | The identifier of the assistant to create. |
 | **instructions** | _Optional_. The instructions that are provided to assistant to follow. |
+| **chatStorageConnectionSetting** | _Optional_. The configuration section name for the table settings for chat storage. The default value is `AzureWebJobsStorage`. |
+| **collectionName** | _Optional_. The table collection name for chat storage. The default value is `ChatState`. |
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -129,6 +138,8 @@ The binding supports these properties, which are defined in your code:
 |-----------------------|-------------|
 | **id** | The identifier of the assistant to create. |
 | **instructions** | _Optional_. The instructions that are provided to assistant to follow. |
+| **chatStorageConnectionSetting** | _Optional_. The configuration section name for the table settings for chat storage. The default value is `AzureWebJobsStorage`. |
+| **collectionName** | _Optional_. The table collection name for chat storage. The default value is `ChatState`. |
 ::: zone-end  
 
 ## Usage

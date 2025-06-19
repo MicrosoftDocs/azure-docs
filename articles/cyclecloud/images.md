@@ -2,13 +2,13 @@
 title: Images
 description: Attach and manage images within Azure CycleCloud. You can specify standard operating systems using Image, ImageName, ImageId, or ImageUrl.
 author: KimliW
-ms.date: 08/01/2018
+ms.date: 06/10/2025
 ms.author: adjohnso
 ---
 
 # Images
 
-Azure CycleCloud ships with support for standard operating systems. You can specify the image with `ImageName`, which may be a CycleCloud image name, an image URN, or the resource ID of a custom image: 
+Azure CycleCloud ships with support for standard operating systems. You can specify the image with `ImageName`, which can be a CycleCloud image name, an image URN, or the resource ID of a custom image: 
 
 ``` ini
 # CycleCloud image name
@@ -24,17 +24,17 @@ ImageName = MicrosoftWindowsServer:WindowsServer:2022-datacenter-g2:latest
 ImageName = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyCustomImage
 ```
 
-Alternatively, you can use `Image` which supports image labels:
+Alternatively, use `Image` which supports image labels:
 
 ``` ini
 [[node defaults]]
 Image = Windows 2022 DataCenter
 ```
 
-When an exact version is not specified, CycleCloud automatically uses the latest released version of the image for the region that the node is in.
+When you don't specify an exact version, CycleCloud automatically uses the latest released version of the image for the region of the node.
 
 > [!NOTE]
-> If you are using a custom (non-standard) image that was created with Jetpack, you can set `AwaitInstallation=true` on the node, specifying that the image supports sending status messages back to CycleCloud. This will allow for more accurate representations of the node's state within CycleCloud.
+> If you're using a custom (nonstandard) image that you created with Jetpack, set `AwaitInstallation=true` on the node. This setting specifies that the image supports sending status messages back to CycleCloud. With this setting, CycleCloud can provide more accurate representations of the node's state.
 
 CycleCloud currently includes the following images:
 
@@ -54,4 +54,4 @@ CycleCloud currently includes the following images:
 | Windows 2022 DataCenter | Windows 2022 DataCenter | cycle.image.win2022   | |
 
 > [!NOTE]
-> Standard images referenced in CycleCloud are the latest known versions of publicly-available operating system images hosted in Marketplace and are not created, maintained, or supported by Microsoft for the CycleCloud product.
+> Standard images referenced in CycleCloud are the latest known versions of publicly available operating system images hosted in the Marketplace. Microsoft doesn't create, maintain, or support these images for the CycleCloud product.

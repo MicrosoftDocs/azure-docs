@@ -2,11 +2,11 @@
 title: Trusted launch VMs with Azure Site Recovery 
 description: Describes how to use trusted launch virtual machines with Azure Site Recovery for disaster recovery and migration.
 services: site-recovery
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 03/04/2025
-ms.author: ankitadutta
+ms.topic: concept-article
+ms.date: 06/05/2025
+ms.author: jsuri
 
 ---
 # Azure Site Recovery support for Azure trusted launch virtual machines 
@@ -18,11 +18,9 @@ ms.author: ankitadutta
 
 Find the support matrix for Azure trusted launch virtual machines with Azure Site Recovery:
 
-- **Operating system**: Support for Windows OS is generally available. Linux OS is currently in *Public preview*. [Learn more](#supported-linux-distributions-and-kernels) on supported Linux distributions and kernels.
+- **Operating system**: Support for Windows and Linux OS is generally available. [Learn more](#supported-linux-distributions-and-kernels) on supported Linux distributions and kernels.
 - **Region**: Available in all [Azure Site Recovery supported regions](./azure-to-azure-support-matrix.md#region-support).
-    > [!IMPORTANT] 
-    > Linux OS isn't supported yet for recovery services vault in UAE North region.
-
+    
     > [!NOTE]
     > For [Azure Government regions](../azure-government/documentation-government-overview-dod.md), both source and target location should either be in `US Gov` regions or both should be in `US DoD` regions. Setting source location of US Gov regions and target location of US DoD regions or vice versa isn't supported.
 - **Private endpoints**: Azure trusted virtual machines can be protected using private endpoint configured recovery services vault
@@ -36,16 +34,13 @@ Find the support matrix for Azure trusted launch virtual machines with Azure Sit
 
 ## Supported Linux distributions and kernels
 
-> [!NOTE]
-> Support for Linux OS is currently in *Public preview*.
-
 The following Linux distributions and kernels are supported for trusted launch virtual machines:
 
-Following are the distros supported in *Public preview*:
+Following are the supported distros:
 - **Ubuntu**: 18.04, 20.04, 22.04, 24.04
-- **RHEL**: 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4 
+- **RHEL**: 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5
 - **SUSE 15**: SP3, SP4, SP5, SP6
-- **Alma Linux**: 8.10, 9.4
+- **Alma Linux**: 8.10, 9.4, 9.5
 - **Debian**: 12
 
 Azure Site Recovery supports the same kernels for Azure Trusted VMs as for Azure Standard VMs across the listed Linux distributions. For SUSE, however, Azure Site Recovery support only the following kernels for Azure Trusted launch VMs, provided these kernels are also supported for Azure Standard VMs by Azure Site Recovery:

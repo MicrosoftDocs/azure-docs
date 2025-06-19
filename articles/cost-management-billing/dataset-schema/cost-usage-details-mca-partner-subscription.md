@@ -1,13 +1,13 @@
 ---
 title: Cloud Solution Provider (CSP) subscription cost and usage details file schema
 description: Learn about the data fields available in the CSP subscription cost and usage details file schema.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 01/24/2025
-ms.author: banders
+ms.author: jojoh
 ---
 
 # Cloud Solution Provider subscription cost and usage details file schema
@@ -43,7 +43,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |23|ProductName|Name of the product.|
 |24|SubscriptionId|Unique identifier for the Azure subscription.|
 |25|subscriptionName|Name of the Azure subscription.|
-|26|publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+|26|publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 |27|publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 |28|publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 |29|resourceGroupName|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -73,7 +73,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |53|unitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |54|benefitId| Unique identifier for the purchased savings plan instance. |
 |55|benefitName| Unique identifier for the purchased savings plan instance. |
-|56|provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
+|56|provider|Identifier for product category or Line of Business. For example, Azure and Microsoft 365.|
 
 ## Version 2021-10-01
 
@@ -104,7 +104,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |23|ProductName|Name of the product.|
 |24|SubscriptionId|Unique identifier for the Azure subscription.|
 |25|subscriptionName|Name of the Azure subscription.|
-|26|publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+|26|publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 |27|publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 |28|publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 |29|resourceGroupName|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or` Not applicable`.|
@@ -134,7 +134,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |53|unitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |54|benefitId| Unique identifier for the purchased savings plan instance. |
 |55|benefitName| Unique identifier for the purchased savings plan instance. |
-|56|provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
+|56|provider|Identifier for product category or Line of Business. For example, Azure and Microsoft 365.|
 
 ## Version 2021-01-01
 
@@ -165,7 +165,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |23|ProductName|Name of the product.|
 |24|SubscriptionId|Unique identifier for the Azure subscription.|
 |25|subscriptionName|Name of the Azure subscription.|
-|26|publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+|26|publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 |27|publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 |28|publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 |29|resourceGroupName|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or` Not applicable`.|
@@ -223,7 +223,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |23|product| Name of the product.   |
 |24|subscriptionId|Unique identifier for the Azure subscription.|
 |25|subscriptionName|Name of the Azure subscription.|
-|26|publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+|26|publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 |27|publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 |28|publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 |29|resourceGroupName|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or` Not applicable`.|

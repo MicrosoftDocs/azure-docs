@@ -4,7 +4,7 @@ description: Learn about the different data plane security features in Azure Net
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/25/2024
 ms.author: anfdocs
 ---
@@ -146,7 +146,7 @@ Private endpoints are specialized network interfaces that facilitate a secure an
 
 ### Network security groups (NSGs)
 
-NSGs are collections of security rules that govern inbound and outbound traffic to network interfaces, virtual machines (VMs), and subnets within Azure. These rules are instrumental in defining the access controls and traffic patterns within your network. NSGs are only supported when using the Standard network feature in Azure NetApp Files.
+NSGs are collections of security rules that govern inbound and outbound traffic to network interfaces, virtual machines (VMs), and subnets within Azure. These rules are instrumental in defining the access controls and traffic patterns within your network. NSGs are only supported when using Standard network features in Azure NetApp Files.
 
 #### Security benefits
 

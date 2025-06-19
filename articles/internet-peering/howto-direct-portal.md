@@ -7,13 +7,12 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/03/2025
+# Customer intent: As an Internet Service Provider, I want to create or modify Direct peering connections in the cloud, so that I can efficiently manage my network resources and ensure optimal connectivity to Microsoft's infrastructure.
 ---
 
 # Create or modify a Direct peering using the Azure portal
 
-In this article, you learn how to create a Microsoft Direct peering for an Internet Service Provider or Internet Exchange Provider using the Azure portal. This article also shows how to check the status of the resource, update it, or delete it.
-
-If you prefer, you can complete this guide by using Azure [PowerShell](howto-direct-powershell.md).
+In this article, you learn how to create a Microsoft Direct peering for an Internet Service Provider or Internet Exchange Provider using the Azure portal. This article also shows you how to check the status of the resource, update it, or delete it.
 
 ## Prerequisites
 
@@ -128,7 +127,7 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 
 ## Deprovision a Direct peering
 
-[!INCLUDE [peering-direct-delete-portal](./includes/delete.md)]
+Currently, deprovisioning isn't supported using the Azure portal or PowerShell. To deprovision, contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
 
 ## Related content
 

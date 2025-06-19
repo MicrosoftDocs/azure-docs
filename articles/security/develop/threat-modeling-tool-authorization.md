@@ -170,7 +170,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
-| **References**              | [Iot Hub Access Control](../../iot-hub/iot-hub-devguide.md) |
+| **References**              | [IoT Hub Access Control](../../iot-hub/iot-hub-devguide.md) |
 | **Steps** | Provide least privilege permissions to various components that connect to Cloud Gateway (IoT Hub). Typical example is – Device management/provisioning component uses registryread/write, Event Processor (ASA) uses Service Connect. Individual devices connect using Device credentials|
 
 ## <a id="sendonly-sas"></a>Use a send-only permissions SAS Key for generating device tokens

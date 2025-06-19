@@ -71,7 +71,7 @@ ms.custom: devx-track-csharp
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [IdentityServer3 - Keys, Signatures and Cryptography](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html), [IdentityServer3 - Deployment](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
+| **References**              | N/A |
 | **Steps** | By default, IdentityServer requires all incoming connections to come over HTTPS. It is absolutely mandatory that communication with IdentityServer is done over secured transports only. There are certain deployment scenarios like TLS offloading where this requirement can be relaxed. See the Identity Server deployment page in the references for more information. |
 
 ## <a id="x509-ssltls"></a>Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections
@@ -192,8 +192,8 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - File |
-| **References**              | [Azure Files](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Azure Files SMB Support for Windows Clients](../../storage/files/storage-dotnet-how-to-use-files.md#understanding-the-net-apis) |
-| **Steps** | Azure Files supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.x supports encryption, and can be used with Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop. |
+| **References**              | [Azure Files](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Azure Files SMB Support for Windows Clients](../../storage/files/storage-dotnet-how-to-use-files.md#about-net-app-development-with-azure-files) |
+| **Steps** | Azure Files supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.x supports encryption and can be used with Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing cross-region access and even access on the desktop. |
 
 ## <a id="cert-pinning"></a>Implement Certificate Pinning
 
@@ -372,7 +372,7 @@ public class ValuesController : ApiController
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Azure Redis TLS support](../../azure-cache-for-redis/cache-faq.yml) |
+| **References**              | [Azure Redis TLS support](../../redis/faq.yml) |
 | **Steps** | Redis server does not support TLS out of the box, but Azure Cache for Redis does. If you are connecting to Azure Cache for Redis and your client supports TLS, like StackExchange.Redis, then you should use TLS. By default non-TLS port is disabled for new Azure Cache for Redis instances. Ensure that the secure defaults are not changed unless there is a dependency on TLS support for redis clients. |
 
 Please note that Redis is designed to be accessed by trusted clients inside trusted environments. This means that usually it is not a good idea to expose the Redis instance directly to the internet or, in general, to an environment where untrusted clients can directly access the Redis TCP port or UNIX socket. 

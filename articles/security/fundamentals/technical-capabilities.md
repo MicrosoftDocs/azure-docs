@@ -8,7 +8,7 @@ manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 06/28/2024
+ms.date: 05/23/2025
 ms.author: mbaldwin
 
 ---
@@ -103,11 +103,11 @@ In the [Azure portal](https://portal.azure.com), [reports](../../active-director
 
 #### Consumer identity and access management
 
-[Azure Active Directory B2C](../../active-directory-b2c/overview.md) is a highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can log on to all your applications through customizable experiences by using their existing social accounts or by creating new credentials.
+ [Microsoft Entra External ID](../../active-directory/external-identities/external-identities-overview.md) is a highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can log on to all your applications through customizable experiences by using their existing social accounts or by creating new credentials.
 
-In the past, application developers who wanted to sign up and sign in consumers into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Active Directory B2C offers your organization a better way to integrate consumer identity management into applications with the help of a secure, standards-based platform, and a large set of extensible policies.
+In the past, application developers who wanted to sign up and sign in consumers into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Microsoft Entra External ID offers your organization a better way to integrate consumer identity management into applications with the help of a secure, standards-based platform, and a large set of extensible policies.
 
-When you use Azure Active Directory B2C, your consumers can sign up for your applications by using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address and password, or username and password).
+When you use Microsoft Entra External ID, your consumers can sign up for your applications by using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address and password, or username and password).
 
 #### Device registration
 

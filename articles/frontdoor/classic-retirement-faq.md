@@ -1,17 +1,17 @@
 ---
 title: Azure Front Door (classic) retirement FAQ
-titleSuffix:  Azure Front Door
 description: Common questions about the retirement of Azure Front Door (classic).
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: faq
 ms.date: 03/27/2024
-ms.author: duau
 ms.custom: ai-usage
 ---
 
 # Azure Front Door (classic) retirement FAQ
+
+**Applies to:** :heavy_check_mark: Front Door (classic)
 
 Azure Front Door introduced two new tiers named Standard and Premium on March 29, 2022. These tiers offer improvements over the current product offerings of Azure Front Door (Classic), incorporating capabilities such as Azure Private Link integration, Bot management, advanced Web Application Firewall (WAF) enhancements with DRS 2.1, anomaly scoring-based detection and bot management, out-of-the-box reports and enhanced diagnostic logs, a simplified pricing model, and much more.
 

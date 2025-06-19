@@ -553,7 +553,7 @@ To access specifically the `body` property, you can use the [`@triggerBody()` ex
 
 Sometimes you want to respond to certain requests that trigger your workflow by returning content to the caller. To construct the status code, header, and body for your response, use the Response action. This action can appear anywhere in your workflow, not just at the end of your workflow. If your workflow doesn't include a Response action, the endpoint responds *immediately* with the **202 Accepted** status.
 
-For the original caller to successfully get the response, all the required steps for the response must finish within the [request timeout limit](logic-apps-limits-and-config.md#timeout-duration) unless the triggered workflow is called as a nested workflow. If no response is returned within this limit, the incoming request times out and receives the **408 Client timeout** response.
+For the original caller to successfully get the response, all the required steps for the response must finish within the [request time-out limit](logic-apps-limits-and-config.md#time-out-duration) unless the triggered workflow is called as a nested workflow. If no response is returned within this limit, the incoming request times out and receives the **408 Client timeout** response.
 
 For nested workflows, the parent workflow continues to wait for a response until all the steps are completed, regardless of how much time is required.
 

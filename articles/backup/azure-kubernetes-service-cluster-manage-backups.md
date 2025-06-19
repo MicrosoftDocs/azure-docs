@@ -7,7 +7,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
   - ignite-2024
-ms.date: 01/16/2025
+ms.date: 06/18/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -22,8 +22,9 @@ In addition, it helps to describe how to manage backup for the Azure Kubernetes 
 
 ## Resource provider registrations
 
-- You must register these resource providers on the subscription before initiating any backup and restore operation.
-- Once the registration is complete, you can perform backup and restore operations on all the cluster under the subscription.
+Resource Provider registration is required for installing the Backup Extension, and initiating any backup and restore operation. You can  do this registration as a Subscription Owner. Generally, the Resource Provider is already registered in an Azure subscription. If not, register the `Microsoft.KubernetesConfiguration` resource provider.
+
+After the registration is complete, you can perform backup and restore operations on all the cluster under the subscription.
 
 ### Register the Backup Extension
 
@@ -106,6 +107,50 @@ Learn more about [other commands related to Trusted Access](/azure/aks/trusted-a
 
 This section describes several Azure Backup supported management operations that make it easy to manage Azure Kubernetes Service cluster backups.
 
+### Adjusting CPU and Memory for Azure Backup for AKS
+
+Azure Backup for AKS relies on pods deployed within the AKS cluster as part of the backup extension under the namespace `dataprotection-microsoft`. To perform backup and restore operations, these pods have specific CPU and memory requirements.
+
+#### Default Resource Reservations
+
+```
+       1. Memory: requests - 256Mi, limits - 1280Mi
+       2. CPU: requests - 500m, limits - 1000m
+```
+
+However, if the number of resources in the cluster exceeds 1000, the extension pod `dataprotection-microsoft-kubernetes-agent` may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a UserErrorBackupPluginPodRestartedDuringBackup or UserErrorBackupPluginPodRestartedDuringRestore error due to OOMKilled (Out of Memory) error during backup or restore operation.
+
+#### Resolving OOMKilled Errors by Increasing CPU and Memory
+
+To ensure successful backup and restore operations, manually update the resource settings for the extension pods by following these steps:
+
+1. Open the AKS cluster in the Azure portal.
+
+    ![Screenshot shows AKS cluster in Azure portal.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster.png)
+
+1. Navigate to Extensions + Applications under Settings in the left-hand pane.
+
+    ![Screenshot shows how to select Extensions + Applications.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-applications.png)
+
+1. Click on the extension titled "azure-aks-backup".
+
+    ![Screenshot shows how to open Backup extension settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup.png)
+
+1. Scroll down, add new value under configuration settings and then click Save. 
+ 
+   `resources.limits.memory : 4400Mi`
+
+    ![Screenshot shows how to add values under configuration settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup-configuration-update.png)
+
+> [!NOTE]
+>
+> If the node where the extension pod is provisioned doesn't have the required CPU or memory, and you've only updated the resource limits, the pod may be repeatedly killed. To resolve this, update the configuration settings using `resources.requests.cpu` and `resources.requests.memory`. This ensures the pod is scheduled on a node that meets the requested resource requirements.
+
+ 
+#### Verifying the Changes
+
+After applying the changes, either wait for a scheduled backup to run or initiate an on-demand backup. If you still experience an OOMKilled failure, repeat the steps above and gradually increase memory limits and if it still persists increase `resources.limits.cpu` parameter also.
+
 ### Monitor a backup operation
 
 The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
@@ -155,7 +200,7 @@ For AKS backup, backup and restore jobs can show the status **Completed with War
 
 :::image type="content" source="./media/azure-kubernetes-service-cluster-manage-backups/backup-restore-jobs-completed-with-warnings.png" alt-text="Screenshot shows the backup and restore jobs completed with warnings." lightbox="./media/azure-kubernetes-service-cluster-manage-backups/backup-restore-jobs-completed-with-warnings.png":::
 
-For example, if a backup job for an AKS cluster completes with the status **Completed with Warnings**, a restore point is created, but it does not have all the resources in the cluster backed up as per the backup configuration. The job shows warning details, providing the *issues* and *resources* that were impacted during the operation. 
+For example, if a backup job for an AKS cluster completes with the status **Completed with Warnings**, a restore point is created, but it does not have all the resources in the cluster backed-up as per the backup configuration. The job shows warning details, providing the *issues* and *resources* that were impacted during the operation. 
 
 To view these warnings, select **View Details** next to **Warning Details**.
 
@@ -186,7 +231,7 @@ You can change the associated policy with a backup instance.
 
 There are three ways by which you can stop protecting an Azure Disk:
 
-- **Stop Protection and Retain Data (Retain forever)**: This option helps you stop all future backup jobs from protecting your cluster. However, Azure Backup service retains the recovery points that are backed up forever. You need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You are able to restore the disk, if needed. To resume cluster protection, use the **Resume backup** option.
+- **Stop Protection and Retain Data (Retain forever)**: This option helps you stop all future backup jobs from protecting your cluster. However, Azure Backup service retains the recovery points that are backed-up forever. You need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You are able to restore the disk, if needed. To resume cluster protection, use the **Resume backup** option.
 
 - **Stop Protection and Retain Data (Retain as per Policy)**: This option helps you stop all future backup jobs from protecting your cluster. The recovery points are retained as per policy and will be chargeable according to [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). However, the latest recovery point is retained forever.
 

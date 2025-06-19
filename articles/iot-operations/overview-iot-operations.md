@@ -12,17 +12,16 @@ ms.date: 10/22/2024
 
 # What is Azure IoT Operations?
 
-_Azure IoT Operations_ is a unified data plane for the edge. It's a collection of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters such as [AKS Edge Essentials](#supported-environments). It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
+_Azure IoT Operations_ is a unified data plane for the edge. It's a collection of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters such as [AKS Edge Essentials](#supported-environments). It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse in an edge-based solution.
 
 Azure IoT Operations:
 
 * Is built from ground up by using Kubernetes native applications.
-* Is part of the Microsoft [adaptive cloud approach](/collections/5pq5hojn6xzogr) that unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model.
+* Is part of the Microsoft [adaptive cloud approach](/azure/adaptive-cloud/) that unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model.
 * Includes an industrial-grade, edge-native MQTT broker that powers event-driven architectures.
 * Is highly extensible, scalable, resilient, and secure.
 * Lets you manage edge services and resources from the cloud by using [Azure Arc](/azure/azure-arc/overview).
 * Can integrate customer workloads into the platform to create a unified solution.
-* Supports GitOps configuration as code for deployment and updates.
 * Natively integrates with [Azure Event Hubs](../event-hubs/azure-event-hubs-apache-kafka-overview.md), [Azure Event Grid's MQTT broker](../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
 
 Use Azure IoT Operations to:
@@ -52,7 +51,9 @@ With Azure IoT Operations, you can use data collected from assets and equipment 
 
 ## Architecture overview
 
-:::image type="content" source="media/overview-iot-operations/azure-iot-operations-architecture.svg" alt-text="Diagram that shows the high-level architecture of Azure IoT Operations." lightbox="media/overview-iot-operations/azure-iot-operations-architecture-high-resolution.png" border="false":::
+<!-- Art Library Source# ConceptArt-0-000-067 -->
+
+:::image type="content" source="media/overview-iot-operations/azure-iot-operations-architecture.svg" alt-text="Diagram that shows the high-level architecture of Azure IoT Operations." lightbox="media/overview-iot-operations/azure-iot-operations-architecture.png" border="false":::
 
 There are two core elements in the Azure IoT Operations architecture:
 
@@ -109,9 +110,9 @@ Azure IoT Operations support max offline time for 72 hours. Degradation may occu
 
 [Data flows](connect-to-cloud/overview-dataflow.md) provide enhanced data transformation and data contextualization capabilities within Azure IoT Operations. Data flows can use schemas stored in the schema registry to deserialize and serialize messages.
 
-## Visualize and analyze telemetry
+## Visualize and analyze sensor data
 
-To visualize and analyze telemetry from your devices and assets, you can use cloud services such as:
+To visualize and analyze sensor data and messages from your devices and assets, you can use cloud services such as:
 
 * [Microsoft Fabric](/fabric/get-started/fabric-trial)
 * [Power BI](https://powerbi.microsoft.com/)

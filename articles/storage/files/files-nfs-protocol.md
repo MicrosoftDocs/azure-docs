@@ -3,8 +3,8 @@ title: NFS file shares in Azure Files
 description: Learn about file shares hosted in Azure Files using the Network File System (NFS) protocol, including security, networking, feature support, and regional availability.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 02/19/2025
+ms.topic: concept-article
+ms.date: 05/20/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -17,6 +17,20 @@ This article covers NFS Azure file shares. For information about SMB Azure file 
 
 > [!IMPORTANT]
 > NFS Azure file shares aren't supported for Windows. Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json) for a list of known issues. NFS access control lists (ACLs) aren't supported.
+
+## Applies to
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Common scenarios
 
@@ -31,7 +45,7 @@ NFS file shares are often used in the following scenarios:
 - Fully POSIX-compliant file system.
 - Hard link support.
 - Symbolic link support.
-- NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, ACLs, and encryption-in-transit aren't supported.
+- NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, and ACLs aren't supported.
 
 > [!NOTE]
 > Creating a hard link from an existing symbolic link isn't currently supported.
@@ -40,7 +54,8 @@ NFS file shares are often used in the following scenarios:
 
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
 
-For encryption in transit, Azure provides a layer of encryption for all data in transit between Azure datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure data centers.
+For [encryption in transit](encryption-in-transit-for-nfs-shares.md), Azure Files NFS v4.1 volumes enhance network security by enabling secure TLS connections between the server and the client, protecting data in transit from interception. 
+Azure provides a layer of encryption for all data in transit between Azure datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure data centers.
 
 Unlike Azure Files using the SMB protocol, file shares using the NFS protocol don't offer user-based authentication. Authentication for NFS shares is based on the configured network security rules. Due to this, to ensure only secure connections are established to your NFS share, you must set up either a private endpoint or a service endpoint for your storage account.
 
@@ -70,7 +85,7 @@ The status of items that appear in this table might change over time as support 
 | [File management plane REST API](/rest/api/storagerp/file-shares)	| ✔️ |
 | [File data plane REST API](/rest/api/storageservices/file-service-rest-api)| ✔️ |
 | Encryption at rest|	✔️ |
-| Encryption in transit| ⛔ |
+| Encryption in transit| ✔️ ([preview](encryption-in-transit-for-nfs-shares.md))|
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
 | [LRS to ZRS conversion](files-redundancy.md) (private endpoints only) | ✔️ |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md#storage-account-endpoints) | ✔️  |
@@ -78,8 +93,8 @@ The status of items that appear in this table might change over time as support 
 | Subdirectory mounts|	✔️ |
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks)|  ✔️  |
 | [Grant network access to specific IP addresses](../common/storage-network-security.md?toc=/azure/storage/files/toc.json#grant-access-from-an-internet-ip-range)| ⛔ |
-| [Premium tier](storage-files-planning.md#storage-tiers) |  ✔️  |
-| [Standard tiers (Hot, Cool, and Transaction optimized)](storage-files-planning.md#storage-tiers)| ⛔ |
+| [SSD media tier](storage-files-planning.md#storage-tiers) |  ✔️  |
+| [HDD media tier](storage-files-planning.md#storage-tiers)| ⛔ |
 | [POSIX-permissions](https://en.wikipedia.org/wiki/File-system_permissions#Notation_of_traditional_Unix_permissions)|  ✔️  |
 | [Root squash](nfs-root-squash.md)|  ✔️  |
 | Access same data from Windows and Linux client|  ⛔   |
@@ -96,11 +111,11 @@ The status of items that appear in this table might change over time as support 
 
 ## Regional availability
 
-NFS Azure file shares are supported in all the same regions that support premium file storage. See [Azure products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
+NFS Azure file shares are supported in all regions that support SSD file shares. See [Azure products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
 
 ## Performance
 
-NFS Azure file shares are only offered on premium file shares, which store data on solid-state drives (SSD). The IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned v1 model](understanding-billing.md#provisioned-v1-model) section of the **Understanding billing** article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress might face additional latencies due to the high number of open and close operations.
+NFS Azure file shares are only offered on SSD file shares, which store data on solid-state drives (SSD). The IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned v1 model](understanding-billing.md#provisioned-v1-model) section of the **Understanding billing** article to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress might face additional latencies due to the high number of open and close operations.
 
 > [!NOTE]
 > You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).

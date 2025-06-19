@@ -8,7 +8,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.author: danlep
-ms.date: 04/17/2023
+ms.date: 04/17/2025
 ms.custom: engagement-fy23, devx-track-azurepowershell
 ---
 # Integrate API Management in an internal virtual network with Application Gateway
@@ -50,7 +50,7 @@ To follow the steps described in this article, you must have:
 
 ## Scenario
 
-In this article, you learn how to use a single API Management instance for internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You create an API Management instance of the newer single-tenant version 2 (stv2) type. You learn how to use public and private listeners in Application Gateway. You understand how to expose only a subset of your APIs for external consumption by using routing functionality available in Application Gateway. In the example, the APIs are highlighted in green.
+In this article, you learn how to use a single API Management instance for internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You create an API Management instance and deploy it in an Azure virtual network. You learn how to use public and private listeners in Application Gateway. You understand how to expose only a subset of your APIs for external consumption by using routing functionality available in Application Gateway. In the example, the APIs are highlighted in green.
 
 In the first setup example, all your APIs are managed only from within your virtual network. Internal consumers can access all your internal and external APIs. Traffic never goes out to the internet. High-performance connectivity can be delivered via Azure ExpressRoute circuits. In the example, the internal consumers are highlighted in orange.
 
@@ -170,7 +170,7 @@ The following example shows how to create a virtual network by using Resource Ma
         "nsg-agw" -SecurityRules $appGwRule1, $appGwRule2
     ```
     
-1. Create a network security group (NSG) and NSG rules for the API Management subnet. [API Management stv2 requires several specific NSG rules](api-management-using-with-internal-vnet.md#enable-vnet-connection).
+1. Create a network security group (NSG) and NSG rules for the API Management subnet. [API Management requires several specific NSG rules](api-management-using-with-internal-vnet.md#enable-vnet-connection).
 
     ```powershell
     $apimRule1 = New-AzNetworkSecurityRuleConfig -Name APIM-Management -Description "APIM inbound" `
@@ -223,7 +223,7 @@ The following example shows how to create a virtual network by using Resource Ma
 
 The following example shows how to create an API Management instance in a virtual network configured for internal access only.
 
-1. API Management stv2 requires a public IP with a unique `DomainNameLabel`.
+1. API Management requires a public IP with a unique `DomainNameLabel`.
 
     ```powershell
     $apimPublicIpAddressId = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "pip-apim" -location $location `
@@ -544,7 +544,7 @@ The Application Gateway now has private and public pathways. Using the same doma
 
 API Management configured in a virtual network provides a single gateway interface for all configured APIs, whether they're hosted on-premises or in the cloud. Integrating Application Gateway with API Management provides you with the flexibility to selectively enable particular APIs to be accessible on the internet. Integration also provides a WAF as a front end to your API Management instance.
 
-## Next steps
+## Related content
 
 * Set up using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-application-gateway)
   

@@ -2,12 +2,14 @@
 title: Match conditions in the Standard rules engine for Azure Content Delivery Network
 description: Reference documentation for match conditions in the Standard rules engine for Azure Content Delivery Network.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: As a content delivery network administrator, I want to configure match conditions in the rules engine, so that I can effectively filter and manage incoming requests based on specific criteria like device type or IP address.
 ---
 
 # Match conditions in the Standard rules engine for Azure Content Delivery Network

@@ -616,7 +616,9 @@ If you require a higher level of assurance that your data is secure, you can ena
 
 When infrastructure encryption is enabled, data in the Azure Service Bus is encrypted twice, once at the service level and once at the infrastructure level, using two different encryption algorithms and two different keys. Hence, infrastructure encryption of Azure Service Bus data protects against a scenario where one of the encryption algorithms or keys can be compromised.
 
-You can enable infrastructure encryption by updating the Azure Resource Manager template with `requireInfrastructureEncryption` property in the **UpdateServiceBusNamespaceWithEncryption.json** as shown in the following example. 
+Also, infrastructure encryption can be enabled only while switching from "Microsoft-managed key" to "Customer-managed key". 
+
+You can enable infrastructure encryption later even by updating the Azure Resource Manager template with `requireInfrastructureEncryption` property in the **UpdateServiceBusNamespaceWithEncryption.json** as shown in the following example. 
 
 ```json
 "properties":{

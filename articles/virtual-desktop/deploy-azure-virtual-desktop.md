@@ -4,12 +4,12 @@ description: Learn how to deploy Azure Virtual Desktop by creating a host pool, 
 ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 10/18/2024
+author: dougeby
+ms.author: avdcontent
+ms.date: 06/11/2025
 ---
 
-# Deploy Azure Virtual Desktop
+# Deploy Azure Virtual Desktop 
 
 > [!IMPORTANT]
 > The following features are currently in preview:
@@ -48,78 +48,64 @@ For more information on the terminology used in this article, see [Azure Virtual
 
 ::: zone pivot="host-pool-session-host-configuration"
 Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a general idea of what's required and supported, such as operating systems (OS), virtual networks, and identity providers. It also includes a list of the [supported Azure regions](prerequisites.md#azure-regions) in which you can deploy host pools, workspaces, and application groups. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region. For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
-::: zone-end
-
-::: zone pivot="host-pool-standard"
-For a general idea of what's required and supported, such as operating systems (OSs), virtual networks, and identity providers, review [Prerequisites for Azure Virtual Desktop](prerequisites.md). That article also includes a list of the [supported Azure regions](prerequisites.md#azure-regions) in which you can deploy host pools, workspaces, and application groups. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region and on-premises with [Azure Local](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
-::: zone-end
-
-For more prerequisites, including role-based access control (RBAC) roles, select the relevant tab for your scenario.
-
-::: zone pivot="host-pool-session-host-configuration"
-# [Azure portal](#tab/portal-session-host-configuration)
 
 In addition to the general prerequisites, you need:
 
 - The Azure account you use to create a host pool must have the following built-in role-based access control (RBAC) roles or equivalent as a minimum on the resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you need to create this first.
 
-   | Resource type | RBAC role |
-   |--|--|
-   | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
-   | Session hosts (Azure) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+   | Resource type | RBAC role | Scope |
+   |--|--|--|
+   | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) | Resource group or subscription |
+   | Session hosts (Azure) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) | Resource group or subscription |
+   | Key Vault | [Key Vault Secrets User](../role-based-access-control/built-in-roles.md#key-vault-secrets-user) | Key vault containing local and/or domain credentials|
 
    For ongoing management of host pools, workspaces, and application groups, you can use more granular roles for each resource type. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
 
-- Assign the Azure Virtual Desktop service principal the [**Desktop Virtualization Virtual Machine Contributor**](rbac.md#desktop-virtualization-virtual-machine-contributor) role-based access control (RBAC) role on the resource group or subscription with the host pools and session hosts you want to use with session host update. For more information, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
+- If you're joining session hosts to an Active Directory domain or using [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join) you need additional permissions:
 
-- A key vault containing the secrets you want to use for your virtual machine local administrator account credentials and, if you're joining session hosts to an Active Directory domain, your domain join account credentials. You need one secret for each username and password.
+   - For Microsoft Entra Domain Services domain, you need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
-   - You need to provide the Azure Virtual Desktop service principal the ability to read the secrets. Your key vault can be configured to use either:
+   - For an Active Directory Domain Services (AD DS) domain, you need to use an account with more permissions than typically required for joining a domain because the new OS image reuses the existing computer object. The permissions and properties in the following table need to be applied to the account on the Organizational Unit (OU) containing your session hosts:
 
-      - [The Azure RBAC permission model](/azure/key-vault/general/rbac-guide) with the custom role you created assigned to the Azure Virtual Desktop service principal.
+      | Name | Type | Applies to |
+      |--|--|--|
+      | Reset password | Allow | Descendant Computer objects |
+      | Validated write to DNS host name | Allow | Descendant Computer objects |
+      | Validated write to service principal name | Allow | Descendant Computer objects |
+      | Read account restrictions | Allow | Descendant Computer objects |
+      | Write account restrictions | Allow | Descendant Computer objects |
 
-      - [An access policy](/azure/key-vault/general/assign-access-policy) with the *Get* secret permission assigned to the Azure Virtual Desktop service principal.
+      Beginning with [KB5020276](https://support.microsoft.com/help/5020276), further protections were introduced for the reuse of computer accounts in an Active Directory domain. To successfully reuse the existing computer object for the session host, either:
 
-   - The key vault must allow [Azure Resource Manager for template deployment](../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
-
-- An Active Directory domain that you can join session hosts to. Joining session hosts to Microsoft Entra ID isn't supported, but you can use [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join).
-
-- Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as [PowerShell DSC](/powershell/dsc/overview) requires it.
-
-# [Azure PowerShell](#tab/powershell-session-host-configuration)
-
-In addition to the general prerequisites, you need:
-
-- The Azure account you use to create a host pool must have the following built-in role-based access control (RBAC) roles or equivalent as a minimum on the resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you need to create this first.
-
-   | Resource type | RBAC role |
-   |--|--|
-   | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
-   | Session hosts (Azure) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
-
-   For ongoing management of host pools, workspaces, and application groups, you can use more granular roles for each resource type. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
-
-- Assign the Azure Virtual Desktop service principal the [**Desktop Virtualization Virtual Machine Contributor**](rbac.md#desktop-virtualization-virtual-machine-contributor) role-based access control (RBAC) role on the resource group or subscription with the host pools and session hosts you want to use with session host update. For more information, see [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
+      - The user account joining the session host to the domain is the creator of the existing computer account.
+      - The computer account was created by a member of the domain administrators security group.
+      - Apply the Group Policy setting `Domain controller: Allow computer account re-use during domain join` to the owner of the computer account. For more information on the scope of this setting, see [KB5020276](https://support.microsoft.com/help/5020276).
 
 - A key vault containing the secrets you want to use for your virtual machine local administrator account credentials and, if you're joining session hosts to an Active Directory domain, your domain join account credentials. You need one secret for each username and password. The virtual machine local administrator password must meet the [password requirements when creating a VM](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
-   - You need to provide the Azure Virtual Desktop service principal the ability to read the secrets. Your key vault can be configured to use either:
+   - Provide the Azure Virtual Desktop service principal the ability to read the secrets. See [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md) to make sure you're using the correct service principal. Your key vault can be configured to use either:
 
-      - [The Azure RBAC permission model](/azure/key-vault/general/rbac-guide) with the custom role you created assigned to the Azure Virtual Desktop service principal.
+      - [The Azure RBAC permission model](/azure/key-vault/general/rbac-guide) with the role [Key Vault Secrets User](../role-based-access-control/built-in-roles.md#key-vault-secrets-user) assigned to the Azure Virtual Desktop service principal.
 
       - [An access policy](/azure/key-vault/general/assign-access-policy) with the *Get* secret permission assigned to the Azure Virtual Desktop service principal.
 
-   - The key vault must allow [Azure Resource Manager for template deployment](../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
+   - Configure the key vault access configuration to allow [Azure Resource Manager for template deployment](../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
+
+   - Configure the key vault network settings to [Allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+
+- For any custom configuration PowerShell scripts you specify in the session host configuration to run after an update, the URL to the script must be resolvable from the public internet.
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as [PowerShell DSC](/powershell/dsc/overview) requires it.
 
 - If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
-- Azure PowerShell cmdlets for Azure Virtual Desktop that support host pools with a session host configuration are in preview. You need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) to use these cmdlets, which are added in version 5.3.0.
+- Azure PowerShell cmdlets for Azure Virtual Desktop that support host pools with a session host configuration are in preview. You need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) to use these cmdlets, which were added in version 5.3.0.
+::: zone-end
 
-   > [!NOTE]
-   > You can't use PowerShell to add session hosts to a host pool with a session host configuration. You need to use the Azure portal to specify the number of session hosts you want to add, then Azure Virtual Desktop automatically creates them based on the session host configuration. 
+::: zone pivot="host-pool-standard"
+For a general idea of what's required and supported, such as operating systems (OSs), virtual networks, and identity providers, review [Prerequisites for Azure Virtual Desktop](prerequisites.md). That article also includes a list of the [supported Azure regions](prerequisites.md#azure-regions) in which you can deploy host pools, workspaces, and application groups. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region and on-premises with [Azure Local](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
+For more prerequisites, including role-based access control (RBAC) roles, select the relevant tab for your scenario.
 ::: zone-end
 
 ::: zone pivot="host-pool-standard"
@@ -429,7 +415,7 @@ Here's how to create a host pool by using the Azure portal:
    | **Location** | Select the Azure region where you want to create your host pool. |
    | **Validation environment** | Select **Yes** to create a host pool that's used as a [validation environment](create-validation-host-pool.md).<br /><br />Select **No** (*default*) to create a host pool that isn't used as a validation environment. |
    | **Preferred app group type** | Select the [preferred application group type](preferred-application-group-type.md) for this host pool: **Desktop** or **RemoteApp**. A desktop application group is created automatically when you use the Azure portal. |
-   | **Host pool type** | Select whether you want your host pool to be **Personal** or **Pooled**.<br /><br />If you select **Personal**, a new option appears for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users that you want load-balanced to a single session host. For more information, see [Host pool load-balancing algorithms](host-pool-load-balancing.md). |
+   | **Host pool type** | Select whether you want your host pool to be **Pooled** or **Personal**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br /><details><summary>Expand this section for the pooled options.</summary><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users that you want load-balanced to a single session host. For more information, see [Host pool load-balancing algorithms](host-pool-load-balancing.md).</details><br />If you select **Personal**, two new options appear for **Assignment type** and **Assign multiple desktops to a single user**.<br /><br /><details><summary>Expand this section for the personal options.</summary><br />For **Assignment type**, select **Automatic** for the service to assign any personal desktop not already assigned to a user, or select **Direct** to assign a specific personal desktop to a user. With the **Direct** assignment type you can also check the box to **Assign multiple desktops to a single user**. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).</details> |
 
    > [!TIP]
    > After you complete this tab, you can continue to optionally create session hosts, create a workspace, register the default desktop application group from this host pool, and enable diagnostic settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these resources separately, select **Next: Review + create** and go to step 9.
@@ -450,7 +436,7 @@ Here's how to create a host pool by using the Azure portal:
       | **Security type** | Select from **Standard**, [Trusted launch virtual machines](/azure/virtual-machines/trusted-launch), or [Confidential virtual machines](/azure/confidential-computing/confidential-vm-overview).<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
       | **Image** | Select the OS image that you want to use from the list, or select **See all images** to see more. The full list includes any images that you created and stored as an [Azure Compute Gallery shared image](/azure/virtual-machines/shared-image-galleries) or a [managed image](/azure/virtual-machines/windows/capture-image-resource). |
       | **Virtual machine size** | Select a size. If you want to use a different size, select **Change size**, and then select from the list. |
-      | **Hibernate** | Select the box to enable hibernation. Hibernation is available only for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Microsoft Teams media optimizations, you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).<br /><br />FSLogix and app attach currently don't support hibernation. Don't enable hibernation if you're using FSLogix or app attach for your personal host pools. |
+      | **Hibernate** | Select the box to enable hibernation. Hibernation is available only for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Microsoft Teams media optimizations, you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).<br /><br />FSLogix and App Attach currently don't support hibernation. Don't enable hibernation if you're using FSLogix or App Attach for your personal host pools. |
       | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can deploy up to 400 session hosts at this point if you want (depending on your [subscription quota](/azure/quotas/view-quotas)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits) and [Virtual Machines limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-machines-limits---azure-resource-manager). |
       | **OS disk type** | Select the disk type to use for your session hosts. We recommend that you use only **Premium SSD** for production workloads. |
       | **OS disk size** | Select a size for the OS disk.<br /><br />If you enable hibernation, ensure that the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |

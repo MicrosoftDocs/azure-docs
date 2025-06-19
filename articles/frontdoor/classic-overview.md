@@ -1,16 +1,18 @@
 ---
 title: Azure Front Door (classic) overview
 description: This article provides an overview of the Azure Front Door (classic) service.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: overview
 ms.date: 11/15/2024
-ms.author: duau
+
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
 ---
 
 # What is Azure Front Door (classic)?
+
+**Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 

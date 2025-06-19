@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 10/28/2024
 
 #CustomerIntent: As an Azure administrator, I want to migrate my network security group flow logs to the new virtual network flow logs so that I can use all the benefits of virtual network flow logs, which overcome some of the network security group flow logs limitations.
+# Customer intent: As an Azure administrator, I want to migrate my network security group flow logs to virtual network flow logs using a migration script, so that I can take advantage of the enhanced features of virtual network flow logs and address the limitations of the existing setup.
 ---
 
 # Migrate from network security group flow logs to virtual network flow logs
@@ -37,7 +38,7 @@ In this article, you learn how to migrate your existing network security group f
 
 - Necessary RBAC permissions for the subscriptions of the flow logs and Log Analytics workspaces (if traffic analytics is enabled for any of the network security group flow logs). For more information, see [Network Watcher permissions](required-rbac-permissions.md).
 
-- Network security group flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-portal.md#create-a-flow-log).
+- Network security group flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-manage.md#create-a-flow-log).
 
 ## Generate migration script
 

@@ -226,9 +226,9 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WE
 
 You can use the */home* directory in your custom container file system to persist files across restarts and share them across instances. The */home* directory is provided to enable your custom container to access persistent storage. Saving data within */home* contributes to the [storage space quota](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits) included with your App Service Plan.
 
-When persistent storage is disabled, writes to the *C:\home* directory aren't persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the *\home* directory persist. All instances of a scaled-out app can access them. Any existing files already present on the persistent storage when the container starts overwrite any contents in the *\home* directory of the container.
+When persistent storage is disabled, writes to the */home* directory aren't persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the */home* directory persist. All instances of a scaled-out app can access them. Any existing files already present on the persistent storage when the container starts overwrite any contents in the */home* directory of the container.
 
-The only exception is the *\home\LogFiles* directory. This directory stores the container and application logs. This folder always persists upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) with the **File System** option, whether or not persistent storage is enabled. In other words, enabling or disabling the persistent storage doesn't affect the application logging behavior.
+The only exception is the */home/LogFiles* directory. This directory stores the container and application logs. This folder always persists upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) with the **File System** option, whether or not persistent storage is enabled. In other words, enabling or disabling the persistent storage doesn't affect the application logging behavior.
 
 We recommend that you write data to */home* or a [mounted Azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data written outside these paths isn't persistent during restarts. The data is saved to platform-managed host disk space separate from the App Service Plans file storage quota.
 
@@ -489,7 +489,7 @@ For more troubleshooting information, see the Azure App Service blog: [Enabling 
 ## Configure multi-container apps
 
 > [!NOTE]
-> Sidecar containers succeed multi-container apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md).
+> The Docker Compose feature will be retired on March 31, 2027. Sidecar containers succeed multi-container apps in App Service. For new services, refer to [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md). For existing multi-container apps in App Service, refer to [Migrating your Docker Compose applications to the Sidecar feature](https://azure.github.io/AppService/2025/04/01/Docker-compose-migration.html).
 
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Preview limitations](#preview-limitations)
@@ -581,4 +581,4 @@ The following lists show supported and unsupported Docker Compose configuration 
 Or, see more resources:
 
 - [Environment variables and app settings reference](reference-app-settings.md)
-- [Load certificate in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)
+- [Load certificates in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers)

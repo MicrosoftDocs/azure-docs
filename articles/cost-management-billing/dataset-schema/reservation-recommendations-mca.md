@@ -1,13 +1,13 @@
 ---
 title: Microsoft Customer Agreement reservation recommendations file schema
 description: Learn about the data fields available in the Microsoft Customer Agreement reservation recommendations file.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 01/24/2025
-ms.author: banders
+ms.author: jojoh
 ---
 
 # Microsoft Customer Agreement reservation recommendations file schema
@@ -33,6 +33,6 @@ This article lists all of the data fields available in the Microsoft Customer Ag
 | 13 |scope|Shared or single recommendation.|
 | 14 |SkuName|The Azure Resource Manager SKU name.|
 | 15 |Sku Properties|List of SKU properties|
-| 16 |SubscriptionId| Unique identifier for the Azure subscription. |
+| 16 |SubscriptionId| Unique identifier for the Azure subscription. This field will be shown only for 'single' scoped requests and will be empty if the scope is 'shared', as recommendations will be returned at the billing account scope. |
 | 17 |Term|Reservation recommendations in one or three-year terms.|
 | 18 |Total Cost With ReservedInstances|Cost of reservation recommendations in one or three-year terms.|

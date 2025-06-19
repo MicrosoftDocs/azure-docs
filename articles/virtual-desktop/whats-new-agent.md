@@ -1,12 +1,13 @@
 ---
-title: What's new in the Azure Virtual Desktop Agent? - Azure
-description: New features and product updates for the Azure Virtual Desktop Agent.
-author: sipastak
+title: What's new in the Azure Virtual Desktop Agent?
+description: Learn about new features and product updates for the Azure Virtual Desktop Agent.
+author: dougeby
 ms.topic: release-notes
-ms.date: 02/04/2025
-ms.author: sipastak
+ms.date: 06/17/2025
+ms.author: avdcontent
 ms.custom: references_regions
 ---
+
 # What's new in the Azure Virtual Desktop Agent?
 
 The Azure Virtual Desktop agent links your session hosts with the Azure Virtual Desktop service. It acts as the intermediate communicator between the service and the virtual machines, enabling connectivity. 
@@ -30,23 +31,94 @@ Here's information about the Azure Virtual Desktop Agent.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.10292.900 |
-| Validation | 1.0.10648.200 |
+| Production | 1.0.11262.1900 |
+| Validation | 1.0.11262.1600 |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
-## Version 1.0.10292.900
-*Published: January 2025*
+## Version 1.0.11262.1900
+
+*Published: June 2025*
 
 In this update, we made the following changes:
 
-- Improved RD Agent reconnection on machines with active sessions using throttling delay logic.
-- Added support for App Attach third party client connections regardless of previous client connection status.
-- Improved App Attach third party telemetry.
-- General improvements and bug fixes. 
+- Resolved an issue that impacted Microsoft Entra ID joins. 
+- Improved telemetry flows.  
+- Enhanced resiliency checks for Microsoft Intune enrollment. 
 
-## Version 1.0.10648.200 (validation) 
+## Version 1.0.11262.1600 (validation)
+
+*Published: May 2025*
+
+In this update, we made the following changes:
+
+- Resolved an issue that impacted Microsoft Entra ID joins. 
+- Improved telemetry flows.  
+- Enhanced resiliency checks for Microsoft Intune enrollment. 
+
+## Version 1.0.11212.1600
+
+*Published: May 2025*
+
+In this update, we made the following changes:
+
+- Added messaging updates for the Remote Desktop client from the Microsoft Store.
+- Improved response handling during token refresh.
+- Resolved an issue causing App-V registration timeouts.
+
+## Version 1.0.11212.600
+
+*Published: May 2025*
+
+In this update, we made the following changes:
+
+- Added messaging updates for the Remote Desktop client from the Microsoft Store.
+- Improved response handling during token refresh.
+- Resolved an issue causing App-V registration timeouts.
+
+## Version 1.0.11106.400
+
+*Published: May 2025*
+
+In this update, we made the following changes:
+
+- Session hosts now indicate when they need help with specific Entra ID Join error codes.
+- Enhanced the process of debugging join failures.
+- Session hosts now show a **Needs Assistance** state when certain checks fail, preventing disconnections.
+
+## Version 1.0.11106.300
+
+*Published: April 2025*
+
+In this update, we made the following changes:
+
+- Session hosts now indicate when they need help with specific Entra ID Join error codes. 
+- Resolved an issue where the FPE service caused the session host to stay in an upgrading state. 
+- Improved the process for debugging join failures. 
+- Session hosts now show a **Needs Assistance** state when certain checks fail, preventing disconnections. 
+- Added support for using Managed Service Identity (MSI) credentials to access external key vaults during session host provisioning. 
+- Addressed an issue with determining the initial version of RdrSxS after an agent restarts. 
+  
+## Version 1.0.10806.600
+
+*Published: March 2025*
+
+In this update, we made the following changes:
+
+- The agent now reports additional telemetry for pending OS reboots, improving system reboot tracking and management. 
+- Added support for automatic restarts if Intune enrollment encounters an error, ensuring smoother enrollment processes.
+
+## Version 1.0.10673.700
+
+*Published: March 2025*
+
+In this update, we made the following changes:
+
+- Resolved an issue that caused device enrollment to fail under certain conditions, ensuring a smoother and more reliable enrollment process. 
+- Added new fields to better track user identity, even for sessions where users have logged off, improving overall session management and reporting.
+
+## Version 1.0.10648.200 
 
 *Published: January 2025*
 
@@ -58,18 +130,6 @@ In this update, we made the following changes:
 - Updated handling for 403 errors between RDAgent and RDBroker communication. 
 - General improvements and bug fixes. 
 
-## Version 1.0.10159.600 
-
-*Published: January 2025*
-
-In this update, we made the following changes:
-
-- Perform RDAgent monitoring cleanup, 15 minutes after RDAgent starts. 
-- Increase timeout for Intune Provisioning.  
-- Updated Security Nuget packages to meet compliance requirements.  
-- Added detection time in RDAgent diagnostics.  
-- General improvements and bug fixes. 
-
 ## Version 1.0.10434.200
 
 *Published: December 2024*
@@ -79,12 +139,35 @@ In this update, we made the following changes:
 - This version supports Windows 365 Frontline Shared scenarios. 
 - General improvements and bug fixes.
 
+## Version 1.0.10292.900
+
+*Published: December 2024*
+
+In this update, we made the following changes:
+
+- Improved RD Agent reconnection on machines with active sessions using throttling delay logic.
+- Added support for App Attach third party client connections regardless of previous client connection status.
+- Improved App Attach third party telemetry.
+- General improvements and bug fixes. 
+
 ## Version 1.0.10292.500
 
 *Published: November 2024*
 
 In this update, we made the following changes:
 
+- General improvements and bug fixes.
+
+## Version 1.0.10159.600 
+
+*Published: November 2024*
+
+In this update, we made the following changes:
+
+- Perform RDAgent monitoring cleanup, 15 minutes after RDAgent starts. 
+- Increase timeout for Intune Provisioning.  
+- Updated Security Nuget packages to meet compliance requirements.  
+- Added detection time in RDAgent diagnostics.  
 - General improvements and bug fixes.
 
 ## Version 1.0.10159.300
@@ -109,7 +192,7 @@ In this update, we made the following changes:
 
 In this update, we made the following changes:
 
-- Fixed an issue relating to app attach expansion from the portal.
+- Fixed an issue relating to App Attach expansion from the portal.
 - General improvements and bug fixes. 
 
 ## Version 1.0.9742.1900
@@ -170,7 +253,7 @@ In this update, we made the following changes:
 
 - Enable customers to change relative path while leaving image path the same. 
 
-- Update app attach packages to fetch and store timestamp info from certificate. 
+- Update App Attach packages to fetch and store timestamp info from certificate. 
 
 ## Version 1.0.8431.2300
 
@@ -178,7 +261,7 @@ In this update, we made the following changes:
 
 In this update, we made the following changes:
 
-- Fixed an issue with App Attach diagnostics that caused the agent to always report timeout exceptions. Now the agent only reports timeout exceptions to diagnostics when app attach registration is unsuccessful.
+- Fixed an issue with App Attach diagnostics that caused the agent to always report timeout exceptions. Now the agent only reports timeout exceptions to diagnostics when App Attach registration is unsuccessful.
 
 - General improvements and bug fixes. 
 
@@ -396,7 +479,7 @@ In this release, we made the following changes:
 In this release, we made the following changes:
 
 - Fixed a bug that prevented the Agent MSI from downloading on the first try.
-- Modified app attach on-demand registration.
+- Modified App Attach on-demand registration.
 - Enhanced the AgentUpdateTelemetry parameter to help with StackFlighting data.
 - Removed unnecessary WebRTC health check.
 - Fixed an issue with the RDAgentMetadata parameter.

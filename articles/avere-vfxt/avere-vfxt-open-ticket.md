@@ -3,7 +3,7 @@ title: How to get support for Avere vFXT for Azure
 description: Learn how to address issues that may arise while deploying or using Avere vFXT for Azure by creating a support ticket through the Azure portal.
 author: ekpgh
 ms.service: azure-avere-vfxt
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/13/2020
 ms.author: rohogue
 ---

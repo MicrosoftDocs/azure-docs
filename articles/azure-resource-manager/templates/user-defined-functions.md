@@ -3,7 +3,7 @@ title: User-defined functions in templates
 description: Describes how to define and use user-defined functions in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ---
 
 # User-defined functions in ARM template

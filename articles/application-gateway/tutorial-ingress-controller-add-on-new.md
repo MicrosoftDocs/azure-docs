@@ -2,11 +2,11 @@
 title: 'Tutorial: Enable the Ingress Controller add-on for a new AKS cluster with a new Azure application gateway'
 description: Use this tutorial to learn how to enable the Ingress Controller add-on for your new AKS cluster with a new application gateway instance.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 02/07/2024
-ms.author: greglin
+ms.author: mbender
 ms.custom: devx-track-azurecli
 ---
 
@@ -58,6 +58,9 @@ az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-ma
 
 > [!NOTE] 
 > Please ensure the identity used by AGIC has the proper permissions. A list of permissions needed by the identity can be found here: [Configure Infrastructure - Permissions](configuration-infrastructure.md#permissions). If a custom role is not defined with the required permissions, you may use the _Network Contributor_ role.
+
+>[!NOTE]
+>If you are planning on using AGIC with an AKS cluster using CNI Overlay, specify the parameter `--aks-custom-headers AKSHTTPCustomFeatures=Microsoft.ContainerService/AppGatewayWithOverlayPreview` to configure AGIC to handle connectivity to the CNI Overlay enabled cluster.
 
 ```azurecli-interactive
 # Get application gateway id from AKS addon profile

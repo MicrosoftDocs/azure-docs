@@ -1,3 +1,4 @@
+items:
 - name: ARM template documentation
   href: index.yml
 - name: Overview
@@ -54,8 +55,8 @@
       displayName: template specs
       href: template-specs-deploy-linked-template.md
     - name: Create portal form
-      href: template-specs-create-portal-forms.md
       displayName: UI,form,blade
+      href: template-specs-create-portal-forms.md
   - name: Advanced templates
     items:
     - name: Use template reference
@@ -148,7 +149,7 @@
   - name: Databases
     items:
     - name: Cache for Redis
-      href: ../../azure-cache-for-redis/cache-redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../redis/redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Azure Cosmos DB
       href: /azure/cosmos-db/sql/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MariaDB
@@ -245,8 +246,6 @@
       href: ../../firewall-manager/quick-firewall-policy.md?toc=/azure/azure-resource-manager/template/toc.json
     - name: Firewall Manager - virtual hub
       href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Front Door
-      href: ../../frontdoor/quickstart-create-front-door-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Front Door - Standard/Premium
       href: ../../frontdoor/create-front-door-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Load Balancer - internal
@@ -288,7 +287,7 @@
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Redis Web App
-      href: ../../azure-cache-for-redis/cache-web-app-arm-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../redis/web-app-arm-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Concepts
@@ -484,10 +483,10 @@
       displayName: dateTimeAdd,dateTimeFromEpoch,dateTimeToEpoch,utcNow
       href: template-functions-date.md
     - name: Deployment functions
-      displayName: deployment,environment,parameters,variables
+      displayName: deployer,deployment,environment,parameters,variables
       href: template-functions-deployment.md
     - name: Lambda functions
-      displayName: filter,map,reduce,sort,toObject
+      displayName: filter,groupBy,map,reduce,sort,toObject
       href: template-functions-lambda.md
     - name: Logical functions
       displayName: and,bool,false,if,not,or,true
@@ -496,10 +495,10 @@
       displayName: add,copyIndex,div,float,int,max,min,mod,mul,sub
       href: template-functions-numeric.md
     - name: Object functions
-      displayName: contains,createObject,empty,intersection,items,json,length,null,union
+      displayName: contains,createObject,empty,intersection,items,json,length,null,objectKeys,shallowMerge,union
       href: template-functions-object.md
     - name: Resource functions
-      displayName: extensionResourceId,list*,pickZones,providers,reference,references,resourceGroup,resourceId,subscription,subscriptionResourceId,managementGroupResourceId,tenantResourceId
+      displayName: extensionResourceId,listAccountSas,listKeys,listSecrets,list*,pickZones,providers,reference,references,resourceId,subscriptionResourceId,managementGroupResourceId,tenantResourceId
       href: template-functions-resource.md
     - name: Scope functions
       displayName: managementGroup,resourceGroup,subscription,tenant
@@ -526,7 +525,7 @@
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+    href: https://azure.microsoft.com/updates/?category=monitoring-management
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates

@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 05/22/2025
 ms.author: shaas
 ms.reviewer: dineshm
 ---
@@ -72,6 +72,9 @@ The host name is the storage endpoint URL without the protocol identifier and th
 #### Step 2: Create a canonical name (CNAME) record with your domain provider
 
 Create a CNAME record to point to your host name. A CNAME record is a type of Domain Name System (DNS) record that maps a source domain name to a destination domain name.
+
+> [!NOTE]
+> CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure will not succeed. 
 
 1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
 
@@ -201,6 +204,9 @@ The host name is the storage endpoint URL without the protocol identifier and th
 #### Step 2: Create an intermediary canonical name (CNAME) record with your domain provider
 
 Create a temporary CNAME record to point to your host name. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name.
+
+> [!NOTE]
+> CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure will not succeed.
 
 1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
 
@@ -385,6 +391,8 @@ This approach involves more steps, but it enables HTTPS access.
 If you don't need users to access your blob or web content by using HTTPS, then see the [Map a custom domain with only HTTP enabled](#enable-http) section of this article.
 The approach involves using [Azure Front Door (preferred)](../../frontdoor/front-door-overview.md) or [Azure CDN](../../cdn/cdn-overview.md) which are Content Delivery Network services offered by Azure.
 
+> [!NOTE]
+> Custom domain mapping requires the use of CNAME records. CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure will not succeed.
 
 ### Using Azure Front Door
 1. Enable [Azure Front Door](../../frontdoor/front-door-overview.md) on your blob or website endpoint.

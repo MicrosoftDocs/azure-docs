@@ -1,8 +1,8 @@
 ---
 title: Reference Data Value Syncing in Microsoft Azure Data Manager for Energy
 description: This article describes Reference Values and syncing of Reference Values with Azure Data Manager for Energy data partitions.
-author: sharad4u
-ms.author: sharadag
+author: bharathim
+ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 08/28/2024

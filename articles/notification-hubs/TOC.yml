@@ -10,7 +10,7 @@
   expanded: true
   items:
   - name: Create notification hub - Azure portal
-    href: create-notification-hub-portal.md  
+    href: create-notification-hub-portal.md
   - name: Create notification hub - Azure CLI
     href: create-notification-hub-azure-cli.md
   - name: Create notification hub - Bicep
@@ -22,10 +22,10 @@
   - name: Create notification hub - Terraform
     href: create-notification-hub-terraform.md
   - name: Configure a notification hub
-    href: configure-notification-hub-portal-pns-settings.md  
+    href: configure-notification-hub-portal-pns-settings.md
 - name: Tutorials
   items:
-  - name: Android 
+  - name: Android
     items:
     - name: Firebase Cloud Messaging
       items:
@@ -37,8 +37,6 @@
         href: push-notifications-android-specific-users-firebase-cloud-messaging.md
       - name: Send push notifications using Firebase SDK version 0.6
         href: notification-hubs-android-push-notification-google-fcm-get-started.md
-      - name: Send push notifications to Xamarin Android apps 
-        href: xamarin-notification-hubs-push-notifications-android-gcm.md
   - name: iOS
     items:
     - name: Notification Hubs updates for iOS 13+
@@ -50,9 +48,7 @@
     - name: Send push notifications to specific devices
       href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
     - name: Send push notifications to specific users
-      href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-    - name: Send push notifications to Xamarin iOS apps
-      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md                
+      href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md             
     - name: Send localized push notifications to iOS devices
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
   - name: Windows
@@ -62,11 +58,11 @@
     - name: Send push notifications to specific devices
       href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
     - name: Send push localized notifications to apps
-      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md      
+      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
     - name: Send push notifications to specific users
-      href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md 
+      href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
     - name: Send push location-based notifications
-      href: notification-hubs-push-bing-spatial-data-geofencing-notification.md               
+      href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
 - name: Samples
   items:
   - name: Code samples
@@ -88,12 +84,12 @@
   - name: Enterprise push architecture guidance
     href: notification-hubs-enterprise-push-notification-architecture.md
   - name: Device registrations
-    href: notification-hubs-push-notification-registration-management.md    
+    href: notification-hubs-push-notification-registration-management.md
     items:
     - name: Tags for registrations
       href: notification-hubs-tags-segment-push-message.md
     - name: Template registrations
-      href: notification-hubs-templates-cross-platform-push-messages.md    
+      href: notification-hubs-templates-cross-platform-push-messages.md
   - name: Security model
     href: notification-hubs-push-notification-security.md
 - name: How-to guides
@@ -119,9 +115,9 @@
   - name: Send browser push notifications
     href: browser-push.md
   - name: Send scheduled notifications
-    href: notification-hubs-send-push-notifications-scheduled.md      
+    href: notification-hubs-send-push-notifications-scheduled.md
   - name: Deploy and manage notification hubs using Azure PowerShell
-    href: notification-hubs-deploy-and-manage-powershell.md            
+    href: notification-hubs-deploy-and-manage-powershell.md
   - name: Send secure notifications to users
     href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
   - name: Export and import registrations in bulk
@@ -151,7 +147,7 @@
     - name: Configure Microsoft Push Notification Service
       href: configure-microsoft-push-notification-service.md
     - name: Configure Baidu Cloud Push
-      href: configure-baidu-cloud-push.md     
+      href: configure-baidu-cloud-push.md
   - name: Register with application backend
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Use token-based authentication with Apple devices
@@ -161,13 +157,13 @@
   - name: Push notifications using Baidu cloud push
     href: notification-hubs-baidu-china-android-notifications-get-started.md
   - name: Use APNS VOIP through Notification Hubs
-    href: voip-apns.md  
+    href: voip-apns.md
   - name: Monitor Notification Hubs
     href: monitor-notification-hubs.md
   - name: Enable resource logs
     href: notification-hubs-diagnostic-logs.md
 - name: Reference
-  items:  
+  items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: Azure CLI
@@ -189,7 +185,7 @@
   - name: SDKs
     href: notification-hubs-sdks.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/notification-hubs/
   - name: Microsoft Q&A question page

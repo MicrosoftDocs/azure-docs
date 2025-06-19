@@ -4,7 +4,7 @@ description: Learn about data encryption at-rest and in-transit in Azure NetApp 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/02/2024
 ms.author: anfdocs
 ---

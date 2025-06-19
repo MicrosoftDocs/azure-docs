@@ -31,7 +31,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `TemplateNotificationContent` | Defines the "who" and the "what" of the template message you intend to send. |
 
 > [!NOTE]
-> For more information, see the Azure SDK for JavaScript reference [@azure-rest/communication-messages package](/javascript/api/@azure-rest/communication-messages)
+> For more information, see the Azure SDK for JavaScript reference [@Azure-rest/communication-messages package](/javascript/api/@azure-rest/communication-messages)
 
 ### Supported WhatsApp template types
 

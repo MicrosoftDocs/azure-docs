@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure reliability documentation
-summary: Azure reliability documentation, which includes guidance for reliability in Azure services, Azure platform reliability feature support including availability zones and multi-region support, and fundamental cloud reliability concepts.
+summary: Azure reliability documentation, which includes guidance for reliability in Azure services, Azure platform reliability such as availability zones and multi-region support, and fundamental cloud reliability concepts.
 
 metadata:
   title: Azure reliability documentation
-  description: Azure reliability documentation, which includes guidance for reliability in Azure services, Azure platform reliability feature support including availability zones and multi-region support, and fundamental cloud reliability concepts.
+  description: Azure reliability documentation, which includes guidance for reliability in Azure services, Azure platform reliability such as availability zones and multi-region support, and fundamental cloud reliability concepts.
   keywords: Azure reliability, business continuity, high availability, disaster recovery, redundancy, replication, backup, failover, failback, shared responsibility, availability zones, paired regions, nonpaired regions, multi-region support.
   ms.topic: landing-page
   ms.author: anaharris
@@ -22,8 +22,6 @@ landingContent:
         links:
           - text: Azure reliability overview
             url: overview.md          
-          - text: What's new
-            url: whats-new.md
   # Card
   - title: Reliability fundamentals
     linkLists:
@@ -43,11 +41,15 @@ landingContent:
       - linkListType: concept
         links:
           - text: What are Azure regions?
-            url: concept-business-continuity-high-availability-disaster-recovery.md
-          - text: Azure region pairs and nonpaired regions
-            url: concept-shared-responsibility.md
+            url: regions-overview.md
+          - text: Paired and nonpaired regions
+            url: regions-paired.md
           - text: Multi-region solutions in nonpaired regions
             url: regions-multi-region-nonpaired.md
+          - text: Nonregional Azure services
+            url: regions-nonregional-services.md
+          - text: Azure regions list
+            url: regions-list.md
   # Card
   - title: Azure availability zones
     linkLists:
@@ -57,8 +59,6 @@ landingContent:
             url: availability-zones-overview.md
           - text: Services with availability zone support
             url: availability-zones-service-support.md
-          - text: Regions with availability zone support
-            url: availability-zones-region-support.md
           - text: Azure availability zone migration
             url: availability-zones-migration-overview.md
       - linkListType: how-to-guide

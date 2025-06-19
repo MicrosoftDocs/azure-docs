@@ -5,8 +5,8 @@ ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/10/2020
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.custom: azure-synapse
 ---
 

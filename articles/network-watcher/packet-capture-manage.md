@@ -6,9 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 02/07/2025
+ms.date: 03/21/2025
 
 #CustomerIntent: As an administrator, I want to capture IP packets to and from a virtual machine (VM) so I can review and analyze the data to help diagnose and solve network problems.
+# Customer intent: As a network administrator, I want to manage packet captures on Azure virtual machines so that I can analyze network traffic and troubleshoot issues effectively.
 ---
 
 # Start, stop, download, and delete packet captures with Azure Network Watcher
@@ -25,7 +26,9 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 - Network Watcher Agent VM extension installed on the target virtual machine. Whenever you use Network Watcher packet capture in the Azure portal, the agent is automatically installed on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
 
-- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json). The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
+- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
+    - The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
+    - The storage account key access must be enabled to allow requests from Network Watcher using shared access signature (SAS) tokens.
 
 - Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
@@ -37,7 +40,9 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 - Network Watcher Agent VM extension installed on the target virtual machine. For more information, see [Manage Network Watcher Agent VM extension for Windows](network-watcher-agent-windows.md?tabs=powershell) or [Manage Network Watcher Agent VM extension for Linux](network-watcher-agent-linux.md?tabs=powershell).
 
-- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell&toc=/azure/network-watcher/toc.json). The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-powershell&toc=/azure/network-watcher/toc.json).
+- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell&toc=/azure/network-watcher/toc.json).
+    - The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-powershell&toc=/azure/network-watcher/toc.json).
+    - The storage account key access must be enabled to allow requests from Network Watcher using shared access signature (SAS) tokens.
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -53,7 +58,9 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 - Network Watcher Agent VM extension installed on the target virtual machine. For more information, see [Manage Network Watcher Agent VM extension for Windows](network-watcher-agent-windows.md?tabs=cli) or [Manage Network Watcher Agent VM extension for Linux](network-watcher-agent-linux.md?tabs=cli).
 
-- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli&toc=/azure/network-watcher/toc.json). The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-cli&toc=/azure/network-watcher/toc.json).
+- An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli&toc=/azure/network-watcher/toc.json).
+    - The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-cli&toc=/azure/network-watcher/toc.json).
+    - The storage account key access must be enabled to allow requests from Network Watcher using shared access signature (SAS) tokens.
 
 - Azure Cloud Shell or Azure CLI.
 
@@ -64,9 +71,9 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 ---
 
 > [!NOTE]
-> Azure creates a Network Watcher instance in the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
-
-If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity over the previous ports. Similarly, ensure outbound connectivity over the previous ports when adding user-defined routes to your network.
+> - Azure creates a Network Watcher instance in the virtual machine's region if Network Watcher wasn't enabled for that region. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
+> 
+> - If a network security group is associated to the virtual machine's network interface, or subnet that the network interface is in, ensure that rules exist to allow outbound connectivity. Similarly, ensure outbound connectivity when adding user-defined routes to your network.
 
 ## Start a packet capture
 

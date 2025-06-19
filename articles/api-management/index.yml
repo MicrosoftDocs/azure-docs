@@ -104,19 +104,21 @@ landingContent:
     linkLists:
       -  linkListType: how-to-guide
          links:
-          - text: Import API from Azure OpenAI service
+          - text: Import Azure AI Foundry API
+            url: azure-ai-foundry-api.md
+          - text: Import Azure OpenAI API
             url: azure-openai-api-from-specification.md
-          - text: Enable semantic caching for Azure OpenAI APIs
-            url: azure-openai-enable-semantic-caching.md   
-          - text: Authenticate and authorize to Azure OpenAI APIs
-            url: api-management-authenticate-authorize-azure-openai.md
+          - text: Import OpenAI-compatible LLM API
+            url: openai-compatible-llm-api.md
+          - text: Expose REST API as MCP server
+            url: export-rest-mcp-server.md
       - linkListType: concept
         links:
           - text: Premium v2 tier (preview)
             url: v2-service-tiers-overview.md
           - text: Workspaces
             url: workspaces-overview.md
-          - text: GenAI gateway capabilities
+          - text: AI gateway capabilities
             url: genai-gateway-capabilities.md       
 # Card
   - title: Related services

@@ -1,0 +1,86 @@
+### YamlMime:Landing
+
+title: Migrate from Google Cloud Platform (GCP) to Microsoft Azure
+summary: Replatforming an entire workload from Google Cloud Platform (GCP) to Azure involves migrating various components, including compute, databases, storage, and applications. This section offers service comparisons between both platforms and example scenarios to help integrate components for transition to Azure.
+metadata:
+  title: Migrate from Google Cloud Platform (GCP) to Microsoft Azure
+  description: Learn about resources that can help you transition your workload components from Google Cloud Platform (GCP) to Azure.
+  ms.topic: landing-page
+  ms.service: azure-migrate
+  author: robbyatmicrosoft
+  ms.author: robbymillsap
+  ms.reviewr: robbymillsap, chkittel, prwilk
+  ms.date: 03/26/2025
+  ms.collection:
+   - migration
+   - gcp-to-azure
+
+landingContent:
+  - title: Migration strategy
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure for Google Cloud Professionals
+            url:  /azure/architecture/gcp-professional
+
+  - title: Component migration
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migrate databases
+            url:  migrate-databases-from-google-cloud.md
+
+
+  - title: Start with component comparisons
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Google Cloud to Azure services comparison
+            url:  /azure/architecture/gcp-professional/services
+          - text: Azure compute services map
+            url:  /azure/architecture/gcp-professional/services#compute            
+          - text: Azure databases services map
+            url:  /azure/architecture/gcp-professional/services#data-platform
+          - text: Azure storage services map
+            url:  /azure/architecture/gcp-professional/services#storage            
+          - text: Azure networking services map
+            url:  /azure/architecture/gcp-professional/services#networking
+          - text: Azure security and identity services map
+            url:  /azure/architecture/gcp-professional/services#security-and-identity            
+
+  - title: Migration examples
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Migrate to Azure Database for PostgreSQL (online)
+            url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-online
+          - text: Migrate MySQL on Google Cloud to Azure Database for MySQL
+            url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
+          - text: Migrate your SIEM in Google Cloud to Microsoft Sentinel
+            url: /azure/sentinel/migration
+          - text: Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel
+            url:  /azure/sentinel/data-connectors/google-cloud-platform-iam-using-azure-functions               
+
+  - title: Migration training modules
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Introduction to migrating from Google Cloud to Microsoft Azure
+            url: /training/modules/introduction-to-migrating-gcp-to-azure
+          - text: Configure and migrate to Azure Database for PostgreSQL
+            url:  /training/paths/microsoft-learn-azure-database-for-postgresql/
+          - text: Migrate to Azure Database for PostgreSQL
+            url:  /training/modules/migrate-azure-database-postgresql-flexible-server/
+
+  - title: Explore related resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure for Google Cloud Professionals
+            url: /azure/architecture/gcp-professional/
+          - text: Azure Migrate documentation
+            url: /azure/migrate/
+          - text: Assess Google Cloud Platform (GCP) VM instances for migration to Azure
+            url: /azure/migrate/tutorial-assess-gcp
+
+

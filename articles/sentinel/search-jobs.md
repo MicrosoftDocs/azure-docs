@@ -3,11 +3,11 @@ title: Search across long time spans in large datasets - Microsoft Sentinel
 description: Learn how to use search jobs to search large datasets.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 03/07/2024
+ms.date: 03/17/2025
 ms.author: austinmc
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -29,15 +29,17 @@ Use a search job when you start an investigation to find specific events in logs
 
 Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft Defender portal to enter your search criteria. Depending on the size of the target dataset, search times vary. While most search jobs take a few minutes to complete, searches across massive data sets that run up to 24 hours are also supported. 
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **General**, select **Search**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Search**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Search**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **General**, select **Search**.
+
 1. Select the **Table** menu and choose a table for your search.
+
 1. In the **Search** box, enter a search term.
 
-   #### [Azure portal](#tab/azure-portal)
-   :::image type="content" source="media/search-jobs/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-criteria.png":::
-
-   #### [Defender portal](#tab/defender-portal)
+   ### [Defender portal](#tab/defender-portal)
    :::image type="content" source="media/search-jobs/search-job-defender-portal.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-defender-portal.png":::
+   ### [Azure portal](#tab/azure-portal)
+   :::image type="content" source="media/search-jobs/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-criteria.png":::
+   ---
 
 1. Select the **Start**  to open the advanced Kusto Query Language (KQL) editor and preview of the results for a set time range.
 
@@ -48,10 +50,15 @@ Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft De
 1. When you're satisfied with the query and the search results preview, select the ellipses **...** and toggle  **Search job mode** on.
 
    :::image type="content" source="media/search-jobs/search-job-advanced-kql-ellipsis.png" alt-text="Screenshot of KQL editor with revised search with ellipsis highlighted for Search job mode." lightbox="media/search-jobs/search-job-advanced-kql-ellipsis.png":::
-1. Select the appropriate **Time range**.
+
+1. Specify the search job date range using the **Time range** selector. Don't include a time range in your KQL query as it is ignored.
+
 1. Resolve any KQL issues indicated by a squiggly red line in the editor.
+
 1. When you're ready to start the search job, select **Search job**.
+
 1. Enter a new table name to store the search job results.
+
 1. Select **Run a search job**.
 
 1. Wait for the notification **Search job is done** to view the results.

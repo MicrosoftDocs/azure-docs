@@ -1,10 +1,10 @@
 ---
 title: SMB file shares in Azure Files
-description: Learn about file shares hosted in Azure Files using the Server Message Block (SMB) protocol, including features, security, and SMB Multichannel for premium file shares.
+description: Learn about file shares hosted in Azure Files using the Server Message Block (SMB) protocol, including features, security, and SMB Multichannel.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 02/27/2025
+ms.topic: concept-article
+ms.date: 03/19/2025
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,9 +15,23 @@ Azure Files offers two industry-standard protocols for mounting Azure file share
 
 This article covers SMB Azure file shares. For information about NFS Azure file shares, see [NFS Azure file shares](files-nfs-protocol.md).
 
+## Applies to
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Common scenarios
 
-SMB file shares are used for a variety of applications including end-user file shares and file shares that back databases and applications. SMB file shares are often used in the following scenarios:
+SMB file shares are used for many applications including end-user file shares and file shares that back databases and applications. SMB file shares are often used in the following scenarios:
 
 - End-user file shares such as team shares, home directories, etc.
 - Backing storage for Windows-based applications, such as SQL Server databases or line-of-business applications written for Win32 or .NET local file system APIs. 
@@ -30,7 +44,7 @@ Azure Files supports the major features of SMB and Azure needed for production d
 - AD domain join and discretionary access control lists (DACLs).
 - Integrated serverless backup with Azure Backup.
 - Network isolation with Azure private endpoints.
-- High network throughput using SMB Multichannel (premium file shares only).
+- High network throughput using SMB Multichannel (SSD file shares only).
 - SMB channel encryption including AES-256-GCM, AES-128-GCM, and AES-128-CCM.
 - Previous version support through VSS integrated share snapshots.
 - Automatic soft delete on Azure file shares to prevent accidental deletes.
@@ -42,11 +56,11 @@ SMB file shares can be mounted directly on-premises or can also be [cached on-pr
 
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
 
-By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB (or access it via the FileREST protocol), Azure Files will only allow the connection if it is made with SMB 3.x with encryption or HTTPS. Clients that do not support SMB 3.x with SMB channel encryption will not be able to mount the Azure file share if encryption in transit is enabled. 
+By default, all Azure file shares have encryption in transit enabled, so only SMB mounts using SMB 3.x with encryption are allowed. Mounts from clients that do not support SMB 3.x with SMB channel encryption are rejected if encryption in transit is enabled. 
 
 Azure Files supports AES-256-GCM with SMB 3.1.1 when used with Windows Server 2022 or Windows 11. SMB 3.1.1 also supports AES-128-GCM and SMB 3.0 supports AES-128-CCM. AES-128-GCM is negotiated by default on Windows 10, version 21H1 for performance reasons.
 
-You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files will also allow SMB 2.1 and SMB 3.x without encryption. The primary reason to disable encryption in transit is to support a legacy application that must be run on an older operating system, such as Windows Server 2008 R2 or older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, will not be able to access the file share.
+You can disable encryption in transit for an Azure file share. When encryption is disabled, Azure Files allows SMB 2.1 and SMB 3.x without encryption. The primary reason to disable encryption in transit is to support a legacy application that must be run on an older operating system, such as Windows Server 2008 R2 or older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, can't access the file share.
 
 ## SMB protocol settings
 
@@ -54,10 +68,10 @@ Azure Files offers multiple settings that affect the behavior, performance, and 
 
 ### SMB Multichannel
 
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind). There is no additional cost for enabling SMB Multichannel in Azure Files. SMB Multichannel is now enabled by default in all Azure regions.
+SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD file shares. SMB Multichannel is now enabled by default in all Azure regions.
 
 # [Portal](#tab/azure-portal)
-To view the status of SMB Multichannel, navigate to the storage account containing your premium file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. You should see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
+To view the status of SMB Multichannel, navigate to the storage account containing your SSD file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. You should see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
 
 :::image type="content" source="media/files-smb-protocol/smb-multichannel-enabled.png" alt-text="A screenshot of the file shares section within the storage account highlighting the SMB Multichannel setting." lightbox="media/files-smb-protocol/smb-multichannel-enabled.png":::
 
@@ -198,13 +212,13 @@ You can view and change the SMB security settings using the Azure portal, PowerS
 # [Portal](#tab/azure-portal)
 To view or change the SMB security settings using the Azure portal, follow these steps:
 
-1. Search for **Storage accounts** and select the storage account for which you want to view the security settings.
+1. Sign in to the Azure portal and search for **Storage accounts**. Select the storage account for which you want to view or change the SMB security settings.
 
-1. Select **Data storage** > **File shares**.
+1. From the service menu, select **Data storage** > **File shares**.
 
 1. Under **File share settings**, select the value associated with **Security**. If you haven't modified the security settings, this value defaults to **Maximum compatibility**.
 
-   :::image type="content" source="media/files-smb-protocol/file-share-settings.png" alt-text="A screenshot showing where to change SMB security settings.":::
+   :::image type="content" source="media/files-smb-protocol/file-share-settings.png" alt-text="A screenshot showing where to view and change SMB security settings.":::
 
 1. Under **Profile**, select **Maximum compatibility**, **Maximum security**, or **Custom**. Selecting **Custom** allows you to create a custom profile for SMB protocol versions, SMB channel encryption, authentication mechanisms, and Kerberos ticket encryption.
 
@@ -386,7 +400,7 @@ SMB file shares in Azure Files support a subset of features supported by SMB pro
 
 ## Regional availability
 
-SMB Azure file shares are available in every Azure region, including all public and sovereign regions. Premium SMB file shares are available in [a subset of regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
+SMB Azure file shares are available in every Azure region, including all public and sovereign regions. SSD file shares are available in [a subset of regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
 ## Next steps
 

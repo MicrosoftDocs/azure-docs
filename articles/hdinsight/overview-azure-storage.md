@@ -3,6 +3,9 @@ title: Azure Storage overview in HDInsight
 description: Overview of Azure Storage in HDInsight.
 ms.service: azure-hdinsight
 ms.topic: conceptual
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/13/2024
 ---
 

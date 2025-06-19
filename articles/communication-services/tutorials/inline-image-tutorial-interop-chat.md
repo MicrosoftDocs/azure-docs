@@ -1,7 +1,7 @@
 ---
-title: Enable inline image using UI Library in Teams Interoperability Chat
+title: Add inline image support in Teams interop chat
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to use UI Library to enable inline image support in Teams Interoperability Chat.
+description: This article describes how to add inline image support in Teams interop chat.
 author: jpeng-ms
 services: azure-communication-services
 ms.author: jopeng
@@ -11,28 +11,28 @@ ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
-# Enable inline image by using UI Library in Teams Interoperability Chat
+# Add inline image support in Teams interop chat
 
-With Teams Interoperability Chat ("Interop Chat"), you can enable Azure Communication Services users to receive inline images sent by Teams users. When a rich text editor is enabled, Azure Communication Services users can send inline images to Teams users. To learn more, see [UI Library use cases](../concepts/ui-library/ui-library-use-cases.md).
+With Teams Interoperability Chat, or *Interop Chat*, you can enable Azure Communication Services users to receive inline images sent by Teams users. When you enable a rich text editor, Azure Communication Services users can send inline images to Teams users. For more information, see [UI Library use cases](../concepts/ui-library/ui-library-use-cases.md).
 
 The feature in Azure Communication Services for receiving inline images comes with the `CallWithChat` composite without extra setup. To enable the feature in Azure Communication Services for sending inline images, set `richTextEditor` to `true` under `CallWithChatCompositeOptions`.
 
 > [!IMPORTANT]
 > The feature in Azure Communication Services for sending inline images is currently in preview.
 >
-> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
+> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or capabilities might be limited.
 >
 > For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Download code
 
-Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-quickstart-teams-interop-meeting-chat).
+To access the code for this tutorial, see GitHub Azure Samples article [UI Library - Teams Interop Chat](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-quickstart-teams-interop-meeting-chat).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-- [Node.js](https://nodejs.org/), Active Long-Term Support (LTS) and Maintenance LTS versions. Use the `node --version` command to check your version.
+- [Node.js](https://nodejs.org/), Active Long-Term Support (LTS), and Maintenance LTS versions. Use the `node --version` command to check your version.
 - An active Azure Communication Services resource and connection string. For more information, see [Create an Azure Communication Services resource](../quickstarts/create-communication-resource.md).
 - UI Library version [1.15.0](https://www.npmjs.com/package/@azure/communication-react/v/1.15.0) or the latest version for receiving inline images. Use the UI Library version [1.19.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.19.0-beta.1) or the latest beta version for sending inline images.
 - A Teams meeting created and the meeting link ready.
@@ -40,15 +40,15 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 
 ## Background
 
-First of all, Teams Interop Chat must be part of a Teams meeting currently. When the Teams user creates an online meeting, a chat thread is created and associated with the meeting. To enable the Azure Communication Services user to join the chat and start to send or receive messages, a meeting participant (a Teams user) must admit them to the call first. Otherwise, they don't have access to the chat.
+Teams Interop Chat needs to be to part of an existing Teams meeting. When the Teams user creates an online meeting, a chat thread is created and associated with the meeting. To enable the Azure Communication Services end user joining the chat and starting to send/receive messages, a meeting participant (a Teams user) needs to admit them to the call first. Otherwise, they don't have access to the chat.
 
-After the Azure Communication Services user is admitted to the call, they can start to chat with other participants on the call. In this tutorial, you learn how the feature for sending and receiving inline images works in Interop Chat.
+Once the Azure Communication Services end user is admitted to the call, they can start to chat with other participants on the call. This article describes how inline image sharing works in Teams Interop chat.
 
 ## Overview
 
-Because you need to join a Teams meeting first, we need to use the `ChatWithChat` composite from UI Library.
+Because you need to join a Teams meeting first, use the `ChatWithChat` composite from UI Library.
 
-Let's follow the basic example from the [storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-callwithchatcomposite--docs) to create a `ChatWithChat` composite.
+To create a `ChatWithChat` composite, follow the example at [CallWithChatComposite tutorial](https://azure.github.io/communication-ui-library/?path=/docs/composites-callwithchatcomposite--docs).
 
 From the sample code, it needs `CallWithChatExampleProps`, which is defined as the following code snippet:
 
@@ -116,7 +116,7 @@ When the feature for sending inline images is enabled, you should see something 
 > [!div class="nextstepaction"]
 > [Check the rest of UI Library](https://azure.github.io/communication-ui-library/)
 
-You might also want to:
+## Related articles
 
 - [Check UI Library use cases](../concepts/ui-library/ui-library-use-cases.md)
 - [Add chat to your app](../quickstarts/chat/get-started.md)

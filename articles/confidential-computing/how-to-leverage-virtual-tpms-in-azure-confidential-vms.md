@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/02/2023
 ms.author: simranparkhe
 ms.custom:
+  - build-2025
 ---
 
 # Leverage virtual TPMs in Azure confidential VMs
@@ -24,7 +25,7 @@ Some of the steps mentioned use the tpm2-tools library that is source repository
 
 ## How to get the direct AMD SEV-SNP hardware report
 
-The guest attestation feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity. When a confidential VM boots it generates a SEV-SNP hardware report containing a signed report issued by AMD SEV-SNP, platform boot settings, and platform measurements. This report is stored in a predefined nonvolatile index (NVIndex) of the vTPM, where data can be securely and persistently stored. Today our [guest attestation library](https://github.com/Azure/confidential-computing-cvm-guest-attestation) can be used to access and retrieve the SEV-SNP hardware report.  Customers can use Microsoft Azure Attestation to verify the reports or verify the raw AMD SEV-SNP report on their own by following steps [here](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#linux). 
+The guest attestation feature helps you to confirm that a confidential VM runs on a hardware-based trusted execution environment (TEE) with security features enabled for isolation and integrity. When a confidential VM boots it generates a SEV-SNP hardware report containing a signed report issued by AMD SEV-SNP, platform boot settings, and platform measurements. This report is stored in a predefined nonvolatile index (NVIndex) of the vTPM, where data can be securely and persistently stored. Today our [guest attestation library](https://github.com/Azure/cvm-attestation-tools/blob/main/cvm-attestation/How_to_read_attestation_report.md) can be used to access and retrieve the SEV-SNP hardware report.  Customers can use Microsoft Azure Attestation to verify the reports or verify the raw AMD SEV-SNP report on their own by following steps [here](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#linux).
 
 ## How to extend a measurement to a PCR and validate it through the vTPM
 

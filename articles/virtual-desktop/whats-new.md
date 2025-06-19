@@ -3,9 +3,9 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: Learn about new features and product updates for Azure Virtual Desktop.
 ms.topic: release-notes
 ms.custom: references_regions
-author: sipastak
-ms.author: sipastak
-ms.date: 03/03/2025
+author: dougeby
+ms.author: avdcontent
+ms.date: 06/17/2025
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,108 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## June 2025
+
+Here's what changed in June 2025:
+
+### High Efficiency Video Coding (HEVC/H.265) hardware acceleration support is now generally available
+
+Azure Virtual Desktop graphics processing unit (GPU) acceleration support for frame encoding using HEVC/H.265 is now generally available. GPU acceleration improves graphical experiences when using the Remote Desktop Protocol (RDP) with a compatible GPU-enabled Azure Virtual Machine.
+
+For more information, see [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md).
+
+### Session host creation using a session host configuration
+
+We extended the session host creation functionality from session host update and dynamic autoscaling to apply to all session hosts created in a host pool with a session host configuration. We also added support for Microsoft Entra-joined devices. This update brings the following changes:
+
+- You can configure a host pool to use Microsoft Entra-join without needing to assign the **Virtual Machine User** RBAC role to a user.
+- Error reporting is consistent across services and auto-retry functionality is added to session host creation to mitigate transient errors.
+- Log analytics for a host pool now includes session host creation activity, providing a consolidated view of session host management. Resource group deployments no longer contain per-session host creation details.
+- The host pool user interface, including banners, provides session host creation status on the session host menu item, though you should also enable log analytics on a host pool to see a detailed diagnostic history.
+- You can now increase the host pool size via API or custom ARM templates, which triggers the Azure Virtual Desktop service to create new session hosts.
+
+For more information, see [Create a host pool with a session host configuration](deploy-azure-virtual-desktop.md?pivots=host-pool-session-host-configuration) and [Add session hosts to a host pool](add-session-hosts-host-pool.md?pivots=host-pool-session-host-configuration).
+
+### Microsoft Teams media optimization for iOS/iPadOS is in preview
+
+You can now use Microsoft Teams media optimization when connecting to Azure Virtual Desktop from iOS/iPadOS, which is now available in preview. Teams Media optimization redirects calling and meeting functionality to the local device when using Windows App. For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [Supported features for Microsoft Teams on Azure Virtual Desktop](teams-supported-features.md).
+
+## May 2025
+
+Here's what changed in May 2025:
+
+### Connect directly to Azure Virtual Desktop with a direct launch URL
+
+You can now connect directly to Azure Virtual Desktop using a direct launch URL. The direct launch URL opens Windows App in a web browser and connects directly to a specific resource, such as a desktop or application, without requiring the user to select it from a list. This feature is useful for scenarios where you want to provide a direct link to a specific resource.
+
+For more information, see [Access desktops and apps using direct launch URLs for Windows App in a web browser](/windows-app/direct-launch-urls?tabs=avd).
+
+### Multiple personal desktops for a single user is now generally available
+
+Multiple personal desktop assignment allows you to assign more than one personal desktop to a single user in a single host pool, and is now generally available. Multiple desktops are useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments.
+
+For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).
+
+## April 2025
+
+Here's what changed in April 2025:
+
+### Control Windows App in a web browser using Microsoft Edge on personal Windows devices
+
+Use Microsoft Intune mobile application management (MAM) to enable protected access an Azure Virtual Desktop session when using Windows App in a web browser using Microsoft Edge on personal Windows devices. You can check the security posture of a local device before granting access, and secure organization data by disabling drive, clipboard, and printer redirection.
+
+For more information, see [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune?tabs=web).
+
+### Windows App on Android is now generally available
+
+Windows App on Android is now generally available, with an enhanced user experience, increased reliability, and features such as Microsoft Intune mobile application management and Passkey authentication. Windows App replaces the Remote Desktop client on Android. Installations of the Remote Desktop client on Android change to Windows App next time the app is updated.
+
+For more information, see [Windows App](https://aka.ms/WindowsApp).
+
+### Every time sign-in frequency Conditional Access option is now generally available
+
+Using Microsoft Entra sign-in frequency with Azure Virtual Desktop prompts users to reauthenticate when launching a new connection after a period of time, and is now generally available You can now require reauthentication after a shorter period of time. 
+
+For more information, see [Configure sign-in frequency](set-up-mfa.md?tabs=avd#configure-sign-in-frequency). 
+
+### Using Microsoft Entra Conditional Access token protection with Windows App on Windows devices to connect to Azure Virtual Desktop is now in preview
+
+You can now use Microsoft Entra Conditional Access token protection with Windows App on Windows devices to connect to Azure Virtual Desktop, which is now in preview. Token protection helps reduce token theft attacks by ensuring a token is usable only from the intended device.
+
+For more information, see [Microsoft Entra Conditional Access: token protection](/entra/identity/conditional-access/concept-token-protection).
+
+## March 2025
+
+Here's what changed in March 2025:
+
+### Quickstart for Azure Virtual Desktop is now generally available 
+
+Quickstart enables you to easily evaluate a Windows 11 Enterprise multi-session remotely and become familiar with the service before deploying it in production. 
+
+When you use QuickStart, it deploys a sample Azure Virtual Desktop environment consisting of minimal resources and configuration. A user then signs into Windows App and connects to a full virtual desktop session. Deployment takes approximately 20 minutes to complete. 
+
+For more information, see [Quickstart: deploy a sample Azure Virtual Desktop environment](quickstart.md). 
+
+### Improved drive redirection performance
+
+When a user opens or lists the contents of a redirected drive, the remote session enumerates files and folders of the current directory. If you have a large number of files and folders on the redirected drives, the enumeration process can take a long time and impact the performance of the remote session. For session hosts running Windows 11 24H2, we improved the performance of enumerating files and folders on redirected drives is greatly improved. To get the improved performance, you need to configure your session hosts.
+
+For more information, see [Improve performance of enumerating files and folders on redirected drives](redirection-configure-drives-storage.md?pivots=azure-virtual-desktop).
+
+### Assign multiple personal desktops to a single user (preview)
+
+Multiple personal desktop assignment allows you to assign more than one personal desktop to a single user in a single host pool. Multiple desktops are useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments.
+
+For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).
+
+### Added Asia-Pacific as a data location
+
+We now support storing customer input data and service-generated data in the Asia-Pacific geography. For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
+
+### MSIX App Attach deprecation
+
+MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date. For more information, see [App Attach and MSIX App Attach in Azure Virtual Desktop](app-attach-overview.md).
 
 ## February 2025
 
@@ -44,13 +146,7 @@ Windows App and the Remote Desktop app for Android now support FIDO devices and 
 
 The current capabilities of managing devices connecting to Azure Virtual Desktop using Microsoft Intune have been expanded to include Intune for US Government GCC, [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
 
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](/azure/virtual-desktop/client-device-redirection-intune).
-
-### Windows App running on Android 15 now supports Microsoft Intune Mobile Application Management (MAM) policies
-
-Intune MAM policies can now be applied to Windows App on Android (preview) when the device is running on Android 15. Previously, Windows App could run on Android 15, but MAM policies wouldn't take effect.
-
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](/azure/virtual-desktop/client-device-redirection-intune).
+For more information, see [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune?context=/azure/virtual-desktop/context/context).
 
 ## January 2025
 
@@ -74,7 +170,7 @@ For more information, see [Screen capture protection in Azure Virtual Desktop](s
 
 Intune MAM policies can now be applied to Windows App on Android (preview) when the device is running on Android 15. Previously, Windows App could run on Android 15, but MAM policies wouldn’t take effect.   
 
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md). 
+For more information, see [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune?context=/azure/virtual-desktop/context/context).
 
 ## December 2024
 
@@ -100,13 +196,13 @@ For more information, see [Create and assign an autoscale scaling plan for Azure
 
 Microsoft Application Virtualization (App-V) for Windows delivers Win32 applications to users as virtual applications. Virtual applications are installed on centrally managed servers and delivered to users as a service in real time and on an as-needed basis. Users launch virtual applications from familiar access points and interact with them as if they were installed locally.  
 
-For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md). 
+For more information, see [App Attach and MSIX App Attach in Azure Virtual Desktop](app-attach-overview.md). 
 
-### Applications can be delivered from partner solutions with app attach is now available 
+### Applications can be delivered from partner solutions with App Attach is now available 
 
-Several partners provide application delivery solutions to Azure Virtual Desktop via integration with app attach.  
+Several partners provide application delivery solutions to Azure Virtual Desktop via integration with App Attach.  
 
-For more information, and a list of supported solutions, see [Deliver applications from partner solutions to Azure Virtual Desktop with app attach](app-attach-partner-solutions.md). 
+For more information, and a list of supported solutions, see [Deliver applications from partner solutions to Azure Virtual Desktop with App Attach](app-attach-partner-solutions.md). 
 
 ### Azure Virtual Desktop on Azure Extended Zones is now available 
 
@@ -178,7 +274,7 @@ For additional information to configure languages other than English, see [Insta
 
 You can now use Microsoft Intune Mobile Application Management to check for device posture and manage redirections for Windows App on iOS and iPadOS, You can use Microsoft Intune on both corporate managed and personal devices.   
 
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ## September 2024
 
@@ -286,11 +382,11 @@ You can granularly control how RDP Shortpath is used by configuring the networki
 
 For more information, see [Configure RDP Shortpath for Azure Virtual Desktop](configure-rdp-shortpath.md). 
 
-### Adding and managing app attach applications in Azure Virtual Desktop is now available 
+### Adding and managing App Attach applications in Azure Virtual Desktop is now available 
 
-App attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with app attach also gives you greater control over which applications your users can access in a remote session. 
+App Attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with App Attach also gives you greater control over which applications your users can access in a remote session. 
 
-For more information and instructions, see [Add and manage app attach and MSIX app attach applications](app-attach-setup.md). 
+For more information and instructions, see [Add and manage App Attach and MSIX App Attach applications](app-attach-setup.md). 
 
 ## May 2024 
 
@@ -304,7 +400,7 @@ Images for Windows 11 multi-session with Microsoft 365 Apps in the Azure Marketp
 
 You can now use Microsoft Intune to configure client device redirection settings for Windows App and the Remote Desktop app in preview. IT admins can configure different redirection scenarios based on group membership and whether the device is managed by Intune or unmanaged. Additional capabilities include the ability to check and restrict access to Azure Virtual Desktop based on criteria such as OS version, allowed app (Windows App or the Remote Desktop app), allowed app version number, whether a threat is detected by Mobile Threat Defense (MTD), the device is jailbroken/rooted, and more.
 
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ### Hibernate support for session hosts in a personal host pool is generally available
 
@@ -386,11 +482,11 @@ There were no major releases or new features in January 2024.
 
 Here's what changed in December 2023:
 
-### New app attach features for Azure Virtual Desktop in preview
+### New App Attach features for Azure Virtual Desktop in preview
 
-The preview of *app attach* is now available. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host.
+The preview of *App Attach* is now available. App Attach brings many benefits over MSIX App Attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host.
 
-For more information, see [New app attach features for Azure Virtual Desktop in preview](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-app-attach-features-for-azure-virtual-desktop-in-public/ba-p/4002826) and [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+For more information, see [New App Attach features for Azure Virtual Desktop in preview](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-app-attach-features-for-azure-virtual-desktop-in-public/ba-p/4002826) and [MSIX App Attach and App Attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
 
 ### The new Microsoft Teams desktop client is now generally available to use with Azure Virtual Desktop
 
@@ -826,7 +922,7 @@ For more information, see [our blog post](https://techcommunity.microsoft.com/t5
 
 ### Teams media optimizations for macOS now generally available
 
-Teams media optimizations for redirecting audio and video during calls and meetings to a local macOS machine is now generally available. To use this feature, you need to update or install, at a minimum, version 10.7.7 of the Azure Virtual Desktop macOS client. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-media-optimizations-is-now-generally-available/ba-p/3563125).
+Teams media optimizations for redirecting audio and video during calls and meetings to a local macOS machine is now generally available. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-media-optimizations-is-now-generally-available/ba-p/3563125).
 
 ## May 2022
 
@@ -1136,7 +1232,7 @@ On September 30, 2021, the Azure Virtual Desktop web client will no longer suppo
 
 ### Microsoft Intune preview
 
-We've started the preview for Microsoft Intune support in Windows 10 Enterprise multi-session. Intune support lets you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+We've started the preview for Microsoft Intune support in Windows 10 Enterprise multi-session. Intune support lets you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manager documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 ### FSLogix version 2105 preview
 
@@ -1200,9 +1296,9 @@ Here's what's new for Teams on Azure Virtual Desktop:
 - Resolved an issue that caused striations during screen sharing.
 - Resolved an issue that prevented meeting members from seeing incoming video or screen sharing.
 
-### MSIX app attach is now generally available
+### MSIX App Attach is now generally available
 
-MSIX app attach for Azure Virtual Desktop has now come out of preview and is available to all users. Learn more about MSIX app attach at [our TechCommunity announcement](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-is-now-generally-available/m-p/2270468).
+MSIX App Attach for Azure Virtual Desktop has now come out of preview and is available to all users. Learn more about MSIX App Attach at [our TechCommunity announcement](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-is-now-generally-available/m-p/2270468).
 
 ### The macOS client now supports Apple Silicon and Big Sur
 
@@ -1264,7 +1360,7 @@ Here's what changed in February 2021.
 We've improved the Azure portal experience in the following ways:
 
 - Bulk drain mode on hosts in the session host grid tab. 
-- MSIX app attach is now available for preview.
+- MSIX App Attach is now available for preview.
 - Fixed host pool overview info for dark mode.
 
 ### EU metadata storage now in preview
@@ -1328,9 +1424,9 @@ The preview for Azure Virtual Desktop Insights is now available. This new featur
 
 In the latest update, we've removed all public IP address parameter from the Azure Resource Manager template for creating and provisioning host pools. We highly recommend you avoid using public IPs for Azure Virtual Desktop to keep your deployment secure. If your deployment relied on public IPs, you need to reconfigure it to use private IPs instead, otherwise your deployment won't work properly.
 
-### MSIX app attach preview 
+### MSIX App Attach preview 
 
-MSIX app attach is another service that began its preview this month. MSIX app attach is a service that dynamically presents MSIX applications to your Azure Virtual Desktop Session host VMs. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231) for more details. 
+MSIX App Attach is another service that began its preview this month. MSIX App Attach is a service that dynamically presents MSIX applications to your Azure Virtual Desktop Session host VMs. Check out [the announcement on our blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231) for more details. 
 
 ### Screen capture protection 
 

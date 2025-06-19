@@ -5,13 +5,13 @@ description: Learn how to create a self-signed root certificate for User VPN, ex
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 02/13/2025
+ms.date: 03/20/2025
 ms.author: cherylmc
 
 ---
 # Generate and export certificates for User VPN P2S connections using MakeCert
 
-This article shows you how to create a self-signed root certificate and generate client certificates using MakeCert. The steps in this article help you create **.pfx** and **.cer** files. For **.pem** files, see [Generate .pem certificate files](../vpn-gateway/point-to-site-certificates-linux-openssl.md).
+This article shows you how to create a self-signed root certificate and generate client certificates using MakeCert. The steps in this article help you create **.pfx** and **.cer** files. For **.pem** files, see [Generate .pem certificate files](point-to-site-certificates-linux-openssl.md).
 
 > [!NOTE]
 > We recommend using the [PowerShell steps](certificates-point-to-site.md) instead to create your certificates. We provide these MakeCert instructions as an optional method.

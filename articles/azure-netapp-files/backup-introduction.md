@@ -4,7 +4,7 @@ description: Describes what Azure NetApp Files backup does, supported regions, a
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/18/2024
 ms.author: anfdocs
 ms.custom: references_regions

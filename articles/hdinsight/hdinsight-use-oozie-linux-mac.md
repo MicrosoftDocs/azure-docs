@@ -4,6 +4,9 @@ description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an O
 ms.service: azure-hdinsight
 ms.custom: linux-related-content
 ms.topic: how-to
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/14/2024
 ---
 

@@ -24,7 +24,7 @@ The shared responsibility model for reliability is composed of three levels:
 - [Resilience-enhancing capabilities](#resilience-enhancing-capabilities) Azure offers a suite of built-in features and services that enhance resiliency, such as using availability zones, deploying across multiple regions, and implementing backup strategies. While Azure provides these capabilities, it's your responsibility to evaluate and configure them to align with your specific requirements. Requirements can include reliability, cost, performance, and compliance with regulatory standards.
 - [Applications](#applications). To make effective use of the other levels, your application and workload must be designed for resiliency.
 
-:::image type="content" source="media/shared-responsibility/shared-responsibility-model.jpg" alt-text="Diagram showing shared responsibility model for reliability: Core platform reliability, resilience-enhancing capabilities, and applications." border="false":::
+:::image type="content" source="media/shared-responsibility-model.jpg" alt-text="Diagram showing shared responsibility model for reliability: Core platform reliability, resilience-enhancing capabilities, and applications." border="false":::
 
 Microsoft is solely responsible for core platform reliability. Microsoft is also responsible for providing resilience-enhancing capabilities that you can use. You're responsible for selecting and using the appropriate components.
 

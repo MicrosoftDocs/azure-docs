@@ -53,5 +53,4 @@ Here're a few important points to consider:
 See the following documentation for more information.
 
 - [Configure the minimum TLS version for a Service Bus namespace](transport-layer-security-configure-minimum-version.md)
-- [Configure Transport Layer Security (TLS) for a Service Bus client application](transport-layer-security-configure-client-version.md)
 - [Use Azure Policy to audit for compliance of minimum TLS version for a Service Bus namespace](transport-layer-security-audit-minimum-version.md)

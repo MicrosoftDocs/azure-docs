@@ -3,6 +3,9 @@ title: Exception when running queries from Apache Ambari Hive View in Azure HDIn
 description: Troubleshooting steps when running Apache Hive queries through Apache Ambari Hive View in Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 07/12/2024
 ---
 

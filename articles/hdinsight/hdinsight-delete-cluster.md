@@ -5,6 +5,9 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017, hdinsightactive, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 09/06/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI

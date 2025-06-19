@@ -1,15 +1,16 @@
 ---
 title: 'Reports - Azure Front Door'
 description: This article explains how reporting works in Azure Front Door.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 03/31/2024
-ms.author: duau
 ---
 
 # Azure Front Door reports
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door analytics reports provide a built-in, all-around view of how your Azure Front Door profile behaves, along with associated web application firewall (WAF) metrics. You can also take advantage of [Azure Front Door's logs](../front-door-diagnostics.md?pivot=front-door-standard-premium) to do further troubleshooting and debugging.
 

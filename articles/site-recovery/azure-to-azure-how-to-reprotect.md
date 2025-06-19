@@ -2,11 +2,11 @@
 title: Reprotect Azure virtual machines to the primary region with Azure Site Recovery
 description: Describes how to reprotect Azure virtual machines after failover, the secondary to primary region, using Azure Site Recovery.
 services: site-recovery
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 05/23/2024
-ms.author: ankitadutta
+ms.date: 03/17/2025
+ms.author: jsuri
 ---
 
 # Reprotect failed over Azure virtual machines to the primary region
@@ -57,6 +57,12 @@ By default, the following occurs:
 1. If your virtual machine uses managed disks, replica managed disks are created in the primary region to store the data replicated from the secondary virtual machine's disks.
 1. Temporary replicas of the source disks (disks attached to the virtual machines in secondary region) are created with the name `ms-asr-<GUID>`, that are used to transfer / read data. The temp disks let us utilize the complete bandwidth of the disk instead of only 16% bandwidth of the original disks (that are connected to the virtual machine). The temp disks are deleted once the reprotection completes.
 1. If the target availability set doesn't exist, a new one is created as part of the reprotect job if necessary. If you've customized the reprotection settings, then the selected set is used.
+
+> [!NOTE]
+> After re-protecting virtual machines in the secondary region, Azure Site Recovery locks the source machine as Read-only. It applies the lock to prevent deletion during reprotection and replication from the failed-over VM back to the source machine. 
+>
+> The lock remains until the failback to the source region completes. This Read-only lock name follows this naming convention: ```SiteRecovery-<Recovery Services vault's resource ID>-<Vault's name>-<Vault's location>```.
+
 
 **When you trigger a reprotect job, and the target virtual machine exists, the following occurs:**
 

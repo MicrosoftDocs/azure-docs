@@ -10,7 +10,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Collect and manipulate user inputs by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) custom policies allows you to collect user inputs. You can then use inbuilt methods to manipulate the user inputs.  
 
@@ -504,7 +505,7 @@ After the policy finishes execution, you're redirected to `https://jwt.ms`, and 
     }.[Signature]
 ``` 
 
-## Next steps 
+## Related content
 
 Next, learn:
 

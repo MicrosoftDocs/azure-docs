@@ -1,24 +1,24 @@
 ---
-title: Connect applications in Azure Container Apps
-description: Learn to deploy multiple applications that communicate together in Azure Container Apps.
+title: Communicate between container apps in Azure Container Apps
+description: Learn how to communicate between different container apps in the same environment in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 07/23/2024
+ms.date: 04/07/2025
 ms.author: cshoe
 ---
 
-# Connect applications in Azure Container Apps
+# Communicate between container apps in Azure Container Apps
 
 Azure Container Apps exposes each container app through a domain name if [ingress](ingress-overview.md) is enabled. You can expose ingress endpoints either publicly to the world or to the other container apps in the same environment. Alternatively, you can limit ingress to only other container apps in the same [environment](environment.md).
 
-Application code can call other container apps in the same environment using one of the following methods: 
+Application code can call other container apps in the same environment using one of the following methods:
 
-- default fully qualified domain name (FQDN)
-- a custom domain name
-- the container app name, for instance `http://<APP_NAME>` for internal requests
-- a Dapr URL
+- Default fully qualified domain name (FQDN)
+- A custom domain name
+- The container app name, for instance `http://<APP_NAME>` for internal requests
+- A Dapr URL
 
 > [!NOTE]
 > When you call another container in the same environment using the FQDN or app name, the network traffic never leaves the environment.
@@ -29,9 +29,9 @@ A sample solution showing how you can call between containers using both the FQD
 
 A container app's location is composed of values associated with its environment, name, and region. Available through the `azurecontainerapps.io` top-level domain, the fully qualified domain name (FQDN) uses:
 
-- the container app name
-- the environment unique identifier
-- region name
+- The container app name
+- The environment unique identifier
+- Region name
 
 The following diagram shows how these values are used to compose a container app's fully qualified domain name.
 

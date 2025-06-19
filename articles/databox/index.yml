@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: stevenmatthew
   ms.author: shaas
-  ms.date: 08/16/2019
+  ms.date: 03/06/2025
   ms.custom: seo-azure-migrate
   keywords: cloud data transfer, data migration to cloud, azure data box, data transfer service, data transfer services, azure data transfer 
 
@@ -24,8 +24,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: What is Data Box Next-Gen?
+            url: data-box-overview.md?pivots=dbx-ng
           - text: What is Data Box?
-            url: data-box-overview.md
+            url: data-box-overview.md?pivots=dbx
           - text: What is Data Box Disk?
             url: data-box-disk-overview.md
           - text: What is Data Box Heavy?
