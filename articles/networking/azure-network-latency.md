@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 05/05/2025
 ms.author: mbender
 ms.custom: references_regions,updatedFY24S2
+# Customer intent: "As a network engineer, I want to access Azure round-trip latency statistics for different regions, so that I can optimize inter-region connectivity and improve the performance of applications deployed across multiple Azure locations."
 ---
 
 # Azure network round-trip latency statistics
