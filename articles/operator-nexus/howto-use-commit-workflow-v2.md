@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # How to use Commit Workflow v2 in Azure Operator Nexus
 
-The **Commit Workflow v2** ensures that device-impacting changes to a Network Fabric instance are explicitly acknowledged and committed before being applied to the underlying infrastructure. This structured workflow increases reliability and control over configuration changes.
+This article describes how to use Commit Workflow Version 2 (Commit V2) in Azure Operator Nexus to safely stage, review, commit, or discard configuration changes across supported resources. Commit V2 provides a more efficient and robust method of applying changes to Nexus fabric resources compared to the earlier commit model.
 
 ## Prerequisites
 
@@ -27,14 +27,39 @@ The **Commit Workflow v2** ensures that device-impacting changes to a Network Fa
 
 ## Commit Workflow v2 overview
 
-Any `patch` operation on parent resources or `Create`/`Update`/`Delete` (CUD) operation on connected child resources now requires an explicit commit step. Changes are **batched** until you lock, validate (optional), and commit them.
+Commit V2 enables you to update supported resources in a draft state, validate configuration changes, view configuration differences, and explicitly commit or discard the changes. It ensures atomicity, operational control, and improved user experience for complex network fabric operations.
 
-### Step 1: Update resources
+### Benefits of Commit V2
 
-Make patch or CUD operations via Azure CLI, Portal, or ARM template.
-Once these changes are made, the fabric's configuration state changes to `Accepted (Pending Commit)`.
+- Faster commit operations: Reduces the time to apply configuration changes.
 
-#### Example scenarios
+- Review pending configuration: View and validate configuration differences before committing.
+
+- Discard commit batch: Revert staged changes if necessary.
+
+- Lock configuration: Prevent conflicting changes during staging and review.
+
+- Foundation for advanced scenarios: Enables A/B commit strategy and multi-user sessions in future releases.
+
+### Workflow summary
+
+The Commit V2 workflow includes the following steps:
+
+- Update supported resources in draft mode using PATCH operations.
+
+- Lock the fabric configuration to review or discard staged changes.
+
+- Optionally, view configuration differences for each device.
+
+- Either commit or discard the changes.
+
+- After commit/discard, the fabric and all related resources return to a Provisioned state.
+
+### Step 1: Update resources in draft mode
+
+Resources can be updated using PATCH operations that leave the resource in a draft (ConfigurationState: `Accepted`) until explicitly committed. These changes are not applied to the data plane until committed.
+
+#### Example scenario
 
 * Create a new **Route Policy** and attach it to **Internal Network 1**
 
@@ -43,7 +68,9 @@ Once these changes are made, the fabric's configuration state changes to `Accept
 All these changes are **batched**, but **not applied** to devices yet.
 
 
-### Step 2: Lock Configuration (Mandatory)
+### Step 2: Lock fabric configuration
+
+Before you can view the configuration diff or discard the commit, the fabric must be locked in configuration mode.
 
 Lock the configuration to signal that all intended updates are completed. After this lock, **no further updates** can be made to any fabric-related resources until you unlock.
 
@@ -57,17 +84,21 @@ az networkfabric fabric lock-fabric \
     --resource-group "example-rg"
 ```
 
-- Successful execution transitions the fabric to a **locked state**.
-
-- Check CLI output for success or failure status.
-
+> [!Note]
+> Ensure fabric configuration state is Accepted.<br> 
+> Fabric is not under maintenance due to unrelated (non-commit) operations.<br>
+> Network Fabric version is >= 5.0.1.<br>
+> Fabric is in ProvisioningState: Succeeded.<br>
 
 ### Step 3: Validate updates (Optional but recommended)
+
+Another key functionality commit V2 provides is to view the pending commit configuration and last committed configuration for each device (except NPB devices) so that users can compare them to validate the intended configuration. In case of any discrepancy, users can unlock the fabric, make necessary change, lock fabric, review pending commit followed by commit operation.
 
 Validate the configuration using the `view-device-configuration` post-action. This step provides insight into the expected configuration outcomes.
 
 > [!Important] 
-> BYOS must be configured on the Network Fabric.
+> The fabric must be locked in configuration mode.<br>
+> [BYOS](./howto-configure-bring-your-own-storage-network-fabric.md) must be configured on the Network Fabric.
 
 #### Azure CLI Command
 
@@ -78,12 +109,19 @@ az networkfabric fabric view-device-configuration \
     --resource-group "example-rg"
 ```
 
-- **Pre-Device Changes**: Current config for all devices (CE, TOR, Management Switches)
+#### Configuration diff location
 
-- **Post-Device Changes**: Preview of what will be applied after commit
+Configuration diff files are stored in the customer-provided storage account in the following format:
+
+```Location
+https://<storageAccountName>.blob.core.windows.net/<NF_name>/CommitOperations/DeviceConfigDiff/<CommitBatchId>
+```
+
+Additionally, to retrieve the current CommitBatchId, perform a GET request on the fabric resource using API version `2024-06-15-preview` or above.
 
 ### Step 3a: Discard commit batch (Optional)
 
+Commit Discard is a POST action on NetworkFabric, allowed before a commit is performed. This operation allows a user to revert the changes made to the resources via PATCH operations for a specific commit session.
 After validating with ViewDeviceConfiguration, users may choose to discard pending configuration updates if issues are found. This operation restores the ARM resource state to its last known good configuration and resets the fabric state from Accepted & Locked to Succeeded.
 
 
@@ -91,6 +129,7 @@ After validating with ViewDeviceConfiguration, users may choose to discard pendi
 az networkfabric fabric discard-commit-batch \
   --resource-group "example-rg" \
   --network-fabric-name "example-fabric"
+  --commit-id "commit-guid"
 ```
 
 > [!Note]
