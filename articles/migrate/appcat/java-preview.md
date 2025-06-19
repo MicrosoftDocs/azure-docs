@@ -360,7 +360,7 @@ Then, for each file or class affected by the issue, you can jump into the source
 
 This release contains the following fixes and enhancements.
 
-- Support to analyze Gradle-based Spring Apps.
+- Support to analyze Gradle-based Spring apps.
 - Support to analyze Open Liberty projects.
 - Show assessment progress by displaying the number of rules processed during assessment.
 - Removed Maven from prerequisites.
