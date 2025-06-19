@@ -78,11 +78,14 @@ Later in this article, you give permission to the Microsoft Entra app to act by 
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 | Partner Admin Reader | Partner Admins can view data for all enrollments under the partner organization. This role is only available for the following APIs:<br>- [Balances](/rest/api/consumption/balances/get-by-billing-account)<br>- [Exports V2 (api-version 2025-03-01 only)](/rest/api/cost-management/exports)<br>- [Generate Cost Details Report](/rest/api/cost-management/generate-cost-details-report)<br>- [Marketplaces](/rest/api/consumption/marketplaces/list)<br>- [Consumption Price sheet](/rest/api/consumption/price-sheet)<br>- [Cost Management Price sheet Download](/rest/api/cost-management/price-sheet/download-by-billing-account)<br>- [Generate Reservation Details Report](/rest/api/cost-management/generate-reservation-details-report/by-billing-account-id)<br>- [Reservation Summaries](/rest/api/consumption/reservations-summaries)<br>- [Reservation Recommendations](/rest/api/consumption/reservation-recommendations/list)<br>- [Reservation Transactions](/rest/api/consumption/reservation-transactions) | 4f6144c0-a809-4c55-b3c8-7f9b7b15a1bf |
 
-- An EnrollmentReader role can be assigned to a service principal only by a user who has an enrollment writer role. The EnrollmentReader role assigned to a service principal isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
-- A DepartmentReader role can be assigned to a service principal only by a user who has an enrollment writer or department writer role.
-- A SubscriptionCreator role can be assigned to a service principal only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
-- The EA purchaser role isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
-- The Partner Admin Reader role can be assigned to a service principal only by a user who has Partner Administrator role. The EnrollmentReader role assigned to a service principal isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
+- The following user roles are required to assign each service principal role:
+  - **EnrollmentReader**: Can be assigned only by a user with the enrollment writer role.
+  - **DepartmentReader**: Can be assigned only by a user with the enrollment writer or department writer role.
+  - **SubscriptionCreator**: Can be assigned only by a user who is the owner of the enrollment account (EA administrator).
+  - **EA purchaser**: Can be assigned only by a user with the enrollment writer role.
+  - **Partner Admin Reader**: Can be assigned only by a user with the Partner Administrator role.
+
+All of these roles are created by programmatic means, are not shown in the Azure portal, and are only for programmatic use.
 
 When you grant an EA role to a service principal, you must use the `billingRoleAssignmentName` required property. The parameter is a unique GUID that you must provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
@@ -98,7 +101,9 @@ A service principal can have only one role.
 
 1. Provide the following parameters as part of the API request.
 
-   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing** overview page. For the **Partner Admin Reader Role**, the format is "pcn.{PCN}" where {PCN} is the partner organization number.
+   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing** overview page. 
+     - For the **Partner Admin Reader** role, use the format `pcn.{PCN}` for the billing account name, where `{PCN}` is your partner organization's Partner Customer Number.
+     - For all other roles, use the standard billing account ID as shown in the Azure portal.
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 
