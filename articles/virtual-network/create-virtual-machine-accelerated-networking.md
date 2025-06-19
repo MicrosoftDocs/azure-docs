@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 01/07/2025
 ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content, innovation-engine
+# Customer intent: "As a cloud engineer, I want to create Azure virtual machines with Accelerated Networking enabled, so that I can improve their network performance for resource-intensive applications."
 ---
 
 # Create an Azure Virtual Machine with Accelerated Networking
