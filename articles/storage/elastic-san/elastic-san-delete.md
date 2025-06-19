@@ -52,6 +52,8 @@ You can delete your SAN by using the Azure portal, Azure PowerShell, or Azure CL
 
 The following commands delete your volumes. These commands use `ForceDelete false`, `-DeleteSnapshot false`, `--x-ms-force-delete false`, and `--x-ms-delete-snapshots false` parameters for PowerShell and CLI, respectively. If you set `ForceDelete` or `--x-ms-force-delete` to `true`, it causes volume deletion to succeed even if you have active iSCSI connections. If you set `-DeleteSnapshot` or `--x-ms-delete-snapshots` to `true`, it deletes all snapshots associated with the volume, and the volume itself.
 
+### Delete a volume 
+
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -65,7 +67,7 @@ az elastic-san volume delete -e $sanName -g $resourceGroupName -v $volumeGroupNa
 ```
 ---
 
-To delete volume groups, run the following commands.
+### Delete a volume group 
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -80,7 +82,7 @@ az elastic-san volume-group delete -e $sanName -g $resourceGroupName -n $volumeG
 ```
 ---
 
-To delete the Elastic SAN itself, run the following commands.
+### Delete the entire SAN 
 
 # [PowerShell](#tab/azure-powershell)
 
