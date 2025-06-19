@@ -73,7 +73,7 @@ Use KQL queries under the Lake exploration in the Defender portal to run ad-hoc 
 
 Use Azure Data Explorer to run interactive queries on Lake. Connect to Microsoft Sentinel Lake via ADX to run interactive KQL queries across Lake tables. This is ideal for data engineers or advanced analysts who prefer the ADX interface or need to integrate with broader analytics workflow. For more information, see [Exploring and interacting with lake data using Azure Data Explorer and KQL](kql-adx-data-lake-access.md).
 
-Run one-time KQL jobs on lake data to promote specific historical data from the lake tier to the analytics tier. Promoting data is useful for root cause analysis or zero-day detection when investigating incidents that span beyond the hot tier window. Submit a scheduled job on lake to automate recurring queries to detect anomalies or build baselines using historical data. Threat hunters can use this to monitor for unusual patterns over time and feed results into detections or dashboards. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md) and [Manage jobs in the Microsoft Sentinel data lake](manage-jobs.md).
+Run one-time KQL jobs on lake data to promote specific historical data from the lake tier to the analytics tier. Promoting data is useful for root cause analysis or zero-day detection when investigating incidents that span beyond the hot tier window. Submit a scheduled job on lake to automate recurring queries to detect anomalies or build baselines using historical data. Threat hunters can use this to monitor for unusual patterns over time and feed results into detections or dashboards. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md) and [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
 
 
 
@@ -92,5 +92,5 @@ Run one-time KQL jobs on lake data to promote specific historical data from the 
 - [Microsoft Sentinel data lake overview (Preview)](overview.md)
 - [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
 - [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md)
-- [Manage jobs in the Microsoft Sentinel data lake](manage-jobs.md)
+- [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
 - [Create and run notebooks in the Microsoft Sentinel data lake](notebooks.md)

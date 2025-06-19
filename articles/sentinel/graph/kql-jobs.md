@@ -16,10 +16,10 @@ ms.collection: ms-security
 ---  
  
 
-#  Create jobs in the Microsoft Sentinel data lake (Preview)
+#  Create KQL jobs in the Microsoft Sentinel data lake (Preview)
  
 
-A job is an on-demand or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the Advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
+A job is an one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the Advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
 
 + Combine current and historical data in the analytics tier to run advanced analytics and machine learning models on your data.
 
@@ -31,9 +31,9 @@ Storage in the analytics tier incurs higher billing rates than in the lake tier.
 
 When promoting data to the analytics tier, make sure that the destination workspace is visible in the Advanced hunting query editor. You can only query connected workspaces in the Advanced hunting query editor. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace)
 
-You can create a job by selecting the **Create job** button a KQL query tab or directly from the **Jobs** management page or by. For more information on the Jobs management page, see [Manage jobs in the Microsoft Sentinel data lake](manage-jobs.md).
+You can create a job by selecting the **Create job** button a KQL query tab or directly from the **Jobs** management page or by. For more information on the Jobs management page, see [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
 
-To create jobs to run on a schedule or on-demand, follow the steps below:
+To create jobs to run on a schedule or one-time, follow the steps below:
 
 1. You can start the job creation process from KQL query editor, or from the jobs management page.
     1. To create a job from the KQL query editor, select the **Create job** button in the upper right corner of the query editor. 
@@ -81,11 +81,18 @@ In the **Schedule the query job** panel, select whether you want to run the job 
 1. Review the job details and select **Submit** to create the job. If the job is an one-time job, it runs after you select **Submit**. If the job is scheduled, it's added to the list of jobs in the **Jobs** page of the data Data lake exploration and runs according to the start data and time.
     :::image type="content" source="media/kql-jobs/review-job-details.png" alt-text="A screenshot showing the review job details panel." lightbox="media/kql-jobs/review-job-details.png":::
 
+1. The job is sheduled and the fllowing page is displayed. You can view the job by selecting the link.
+    :::image type="content" source="media/kql-jobs/job-successfully-scheduled.png" alt-text="A screenshot showing the job created page." lightbox="media/kql-jobs/job-successfully-scheduled.png":::
+
+## Manage jobs
+
+You can manage jobs in the Microsoft Sentinel data lake from the **Jobs** management page. From this page, you can view all jobs, their status, and their details. You can also run, edit, or delete jobs from this page. For more information on managing jobs, see [Manage KQL jobs](kql-manage-jobs.md).
+
 
 
 ## Related content
 
-- [Manage jobs in the Microsoft Sentinel data lake](manage-jobs.md)
+- [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
 - [Microsoft Sentinel data lake overview (Preview)](overview.md)
 - [KQL queries in the Microsoft Sentinel data lake](kql-queries.md)
 - [Jupyter notebooks and the Microsoft Sentinel data lake (Preview)](spark-notebooks.md)
