@@ -5,13 +5,15 @@
 
 ### Create a new Python application
 
-Open your terminal or command window create a new directory for your app, and navigate to it.
+Let us set up your working directory for the application. For that, open your terminal or command window, create a new directory, and navigate to it:
 
 ```console
 mkdir active-directory-authentication-quickstart && cd active-directory-authentication-quickstart
 ```
 
 ### Install the SDK packages
+
+Next we need to install the required Azure SDK packages. Run these commands:
 
 ```console
 pip install azure-identity
@@ -20,11 +22,11 @@ pip install azure-communication-sms
 ```
 
 ### Create a new file
-Open and save a new file within your created folder called `authentication.py`, we'll be placing our code inside this file.
+Now we need a Python file to hold your code. Open and save a new file called `authentication.py` within your directory.
 
 ### Use the SDK packages
 
-Add the following `import` statements to the top of your file to use the SDKs that we installed.
+Our next goal is to import the necessary Azure SDK modules to work with identity and SMS. Add the following statements at the top of your file:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -34,7 +36,9 @@ from azure.communication.sms import SmsClient
 
 ### Create a DefaultAzureCredential
 
-We'll be using the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential). This credential is suitable for production and development environments. As we'll be using it throughout this quickstart we'll create it at the top of the file.
+We need to initialize a credential for both production and development environments.
+
+Place this line with [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) after previously inserted lines:
 
 ```python
      credential = DefaultAzureCredential()
@@ -42,7 +46,7 @@ We'll be using the [DefaultAzureCredential](/python/api/azure-identity/azure.ide
 
 ## Create an identity and issue a token with service principals
 
-Now we'll add code which uses the created credential, to issue a VoIP Access Token. We'll call this code later on:
+Create an identity and request a Voice over Internet Protocol (VoIP) access token:
 
 ```python
 def create_identity_and_get_token(resource_endpoint):
@@ -53,7 +57,8 @@ def create_identity_and_get_token(resource_endpoint):
 ```
 
 ### Send an SMS with service principals
-As another example of using service principals, we'll add this code which uses the same credential to send an SMS:
+
+Alternetively, you can utilize your credential to send a Short Message Service (SMS) as shown in the example below:
 
 ```python
 def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_content):
@@ -69,11 +74,13 @@ def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_cont
 
 ## Write our main code
 
-With our functions created we can now write the main code which will call the functions we've previous written.
+Now we have all the necessary code blocks to execute the functions to create an identity, obtain an access token, and send an SMS.
+
+Include the main code that calls your functions:
 
 ```python
-# You can find your endpoint and access key from your resource in the Azure portal
-# e.g. "https://<RESOURCE_NAME>.communication.azure.com";
+# Retrieve your endpoint and access key from your resource in the Azure portal
+# For example: "https://<RESOURCE_NAME>.communication.azure.com"
 endpoint = "https://<RESOURCE_NAME>.communication.azure.com/"
 
 print("Retrieving new Access Token, using Service Principals");
@@ -82,13 +89,13 @@ print(f'Retrieved Access Token: {result.token}');
 
 print("Sending SMS using Service Principals");
 
-# You will need a phone number from your resource to send an SMS.
+# Provide a valid phone number from your Azure resource to send an SMS.
 sms_result = send_sms(endpoint, "<FROM_NUMBER>", "<TO_NUMBER>", "Hello from Service Principals");
 print(f'SMS ID: {sms_result[0].message_id}');
 print(f'Send Result Successful: {sms_result[0].successful}');
 ```
 
-The final `authentication.py` file should look something like this:
+This is how the `authentication.py` looks after all changes you made:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -131,12 +138,15 @@ print(f'Send Result Successful: {sms_result[0].successful}');
 ```
 ## Run the program
 
-With everything complete, you can run the file by entering `python authentication.py` from your project's directory. If everything went well you should see something similar to the following.
-
+It is time to execute your Python script to verify functionality. Run the file from your project's directory with the command:
+```console
+python authentication.py
+``` 
+If successful, you see output similar to this:
 ```Bash
     $ python authentication.py
     Retrieving new Access Token, using Service Principals
-    Retrieved Access Token: ey...Q
+    Retrieved Access Token: ...
     Sending SMS using using Service Principals
     SMS ID: ...
     Send Result Successful: true
