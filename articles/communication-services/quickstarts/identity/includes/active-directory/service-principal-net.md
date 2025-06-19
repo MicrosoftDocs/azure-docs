@@ -36,7 +36,7 @@ dotnet add package Azure.Communication.Sms
 dotnet add package Azure.Identity
 ```
 
-### Update the Program.cs File
+### Update the Program.cs file
 
 To use the installed Azure SDK packages, include the following `using` directives at the top of your `Program.cs` file:
 
