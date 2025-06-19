@@ -68,7 +68,7 @@
     - name: FAQs
       href: traffic-manager-FAQs.md
     - name: IPv6 and DNS record types
-      href: dns-record-types-ipv-6.md
+      href: dns-record-types.md
 - name: How-to guides
   items:
     - name: Use Azure App Gateway with Azure Traffic Manager
