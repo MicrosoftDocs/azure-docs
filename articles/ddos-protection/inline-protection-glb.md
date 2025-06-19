@@ -80,7 +80,7 @@ To ensure effective DDoS protection using Gateway Load Balancer and partner NVAs
 
 - **Test your DDoS protection setup to validate end-to-end traffic flow and mitigation:**  
 
-     Periodically simulate DDoS attack scenarios and perform failover tests to ensure your protection setup is working as intended. Validate that traffic flows through the NVAs as expected and that mitigation actions are triggered appropriately. Document your test results and update your configuration or runbooks as needed to address any issues. For more information, see [testing DDoS protection](../ddos-protection/test-through-simulations.md).
+     Periodically simulate DDoS attack scenarios and perform failover tests to ensure your protection setup is working as intended. Validate that traffic flows through the NVAs as expected and that mitigation actions are triggered appropriately. Document your test results and update your configuration or runbooks as needed to address any issues. For more information, see [Testing DDoS Protection](../ddos-protection/test-through-simulations.md).
 
 ## Next steps
 
