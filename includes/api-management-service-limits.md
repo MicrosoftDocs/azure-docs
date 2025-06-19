@@ -88,5 +88,5 @@ To request a limit increase, create a support request from the Azure portal. For
 
 APIs (including revisions)?
 APIs per product
-
+Operations
 -->
