@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: article
 ms.date: 01/27/2025
 ms.author: allensu
+# Customer intent: "As a DNS administrator, I want to implement DNSSEC for my Azure public DNS zones, so that I can enhance data integrity and prevent DNS spoofing attacks."
 ---
 
 # DNSSEC overview
