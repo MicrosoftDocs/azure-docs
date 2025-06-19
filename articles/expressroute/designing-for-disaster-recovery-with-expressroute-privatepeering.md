@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 04/28/2025
 ms.author: duau
+# Customer intent: "As a network architect, I want to implement disaster recovery plans using geo-redundant ExpressRoute circuits, so that I can ensure continuous connectivity and business operations during regional outages or failures."
 ---
 
 # Designing for disaster recovery with ExpressRoute private peering

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: duau
 ms.custom: template-tutorial
+# Customer intent: As a network administrator, I want to configure route filters for Microsoft peering in my ExpressRoute circuit, so that I can selectively manage and reduce the size of advertised prefixes for services, optimizing network performance.
 ---
 # Configure route filters for Microsoft peering using the Azure portal
 

@@ -9,6 +9,7 @@ ms.date: 06/06/2023
 ms.author: allensu
 ms.custom: template-tutorial
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
+# Customer intent: As a network administrator, I want to deploy Azure Firewall with DDoS Protection so that I can secure my virtual network and control outbound access for my resources effectively.
 ---
 
 # Tutorial: Deploy a firewall with Azure DDoS Protection

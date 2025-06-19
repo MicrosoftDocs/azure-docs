@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
 ms.date: 02/10/2025
 ms.author: duau
+# Customer intent: "As a network administrator, I want to create and manage IP Groups for Azure Firewall, so that I can efficiently organize and apply IP address rules across multiple firewalls and enhance network security."
 ---
 
 # IP Groups in Azure Firewall

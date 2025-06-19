@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 03/30/2023
 ms.author: magakman
+# Customer intent: As a network administrator, I want to configure an explicit proxy on Azure Firewall, so that I can manage outbound traffic efficiently without using a user-defined route.
 ---
 
 # Azure Firewall Explicit proxy (preview)

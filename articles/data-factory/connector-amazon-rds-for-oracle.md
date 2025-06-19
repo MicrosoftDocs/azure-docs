@@ -17,7 +17,7 @@ ms.author: jianleishen
 This article outlines how to use the copy activity in Azure Data Factory to copy data from an Amazon RDS for Oracle database. It builds on the [copy activity overview](copy-activity-overview.md).
 
 > [!IMPORTANT]
-> The Amazon RDS for Oracle connector version 2.0 provides improved native Amazon RDS for Oracle support. If you are using Amazon RDS for Oracle connector version 1.0 in your solution, please [upgrade the Amazon RDS for Oracle connector](#upgrade-the-amazon-rds-for-oracle-connector) before **August 31, 2025**. Refer to this [section](#differences-between-amazon-rds-for-oracle-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Amazon RDS for Oracle connector version 2.0 provides improved native Amazon RDS for Oracle support. If you are using Amazon RDS for Oracle connector version 1.0 in your solution, please [upgrade the Amazon RDS for Oracle connector](#upgrade-the-amazon-rds-for-oracle-connector) before **October 31, 2025**. Refer to this [section](#differences-between-amazon-rds-for-oracle-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 

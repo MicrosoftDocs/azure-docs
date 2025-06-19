@@ -80,7 +80,7 @@ export MY_SUBNET_ID="$(az network vnet subnet show \
 
 ## Set up the admin password
 
-Set up a password that meets the [password requirements for Azure VMs](https://learn.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
+Set up a password that meets the [password requirements for Azure VMs](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
 ```bash
 export ADMIN_PASSWORD="Azure compliant password"

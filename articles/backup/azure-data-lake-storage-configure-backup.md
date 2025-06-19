@@ -1,15 +1,15 @@
 ---
 title: Configure Vaulted Backup for Azure Data Lake Storage using Azure Portal (preview)
-description: Learn how to configure vaulted backup for Azure Data Lake Storage (preview) using Azure portal.
+description: Learn how to configure vaulted backup for Azure Data Lake Storage using Azure portal.
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 06/19/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
 # Configure vaulted backup for Azure Data Lake Storage using Azure portal (preview)
 
-This article describes how to configure vaulted backup for Azure Data Lake Storage (preview) using Azure portal.
+This article describes how to configure vaulted backup for Azure Data Lake Storage using Azure portal.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ For more information about the supported scenarios, limitations, and availabilit
 
 To back up Azure Data Lake Storage, ensure you have a Backup Vault in the same region. You can use an existing vault, or [create a new one](create-manage-backup-vault.md#create-backup-vault).
 
-## Create a backup policy for Azure Data Lake Storage (preview)
+## Create a backup policy for Azure Data Lake Storage
 
 A backup policy defines the schedule and frequency for backing up Azure Data Lake Storage. You can either create a backup policy from the Backup vault, or create it on the go during the backup configuration.
 
@@ -71,7 +71,7 @@ To assign the required role for storage accounts that you want to protect, follo
 >[!Note]
 > The role assignment might take up to **30 minutes** to take effect.
 
-## Configure backup for the Azure Data Lake Storage (preview)
+## Configure backup for the Azure Data Lake Storage
 
 You can configure backup on multiple Azure Data Lake Storage.
 
@@ -80,7 +80,7 @@ To configure backup, follow these steps:
 1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault**, and then select **+ Backup**. 
 1. On the **Configure Backup** pane, on the **Basics** tab, review the **Datasource type** is selected as **Azure Data Lake Storage (preview)**.
 1. On the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
-   If you want to create a new backup policy, select **Create new**. learn how to [create a backup policy](#create-a-backup-policy-for-azure-data-lake-storage-preview).
+   If you want to create a new backup policy, select **Create new**. learn how to [create a backup policy](#create-a-backup-policy-for-azure-data-lake-storage).
  
 1. On the **Datasources** tab, Select**Add**. 
 

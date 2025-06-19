@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 09/06/2023
 ms.author: jonor
 manager: tracsman
+# Customer intent: "As a network administrator, I want to configure ExpressRoute Microsoft Peering for PSTN services, so that I can ensure reliable and high-quality voice connectivity for my organization’s communication needs."
 ---
 
 # Using ExpressRoute for routing traffic to Microsoft PSTN services

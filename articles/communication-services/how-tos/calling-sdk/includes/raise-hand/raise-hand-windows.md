@@ -2,13 +2,14 @@
 author: ruslanzdor
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 02/06/2022
-ms.author: ruslanzdor
+ms.date: 06/15/2025
+ms.author: chpalm
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
-The Raise Hand feature allows participants in a call to indicate that they have a question, comment, or concern without interrupting the speaker or other participants. This feature can be used in any call type, including 1:1 calls and calls with many participants, in Azure Communication Service and in Teams calls.
-You first need to import calling Features from the Calling SDK:
+The Raise Hand feature enables participants in a call to indicate that they have a question, comment, or concern without interrupting the speaker or other participants. You can use this feature in any call type, including 1:1 calls and calls with many participants, in Azure Communication Service and in Teams calls.
+
+First you need to import calling Features from the Calling SDK:
 
 ```csharp
 using Azure.Communication.Calling.WindowsClient;
@@ -22,9 +23,12 @@ private RaiseHandCallFeature raiseHandCallFeature;
 raiseHandCallFeature = (RaiseHandCallFeature)call.GetCallFeatureExtension(CallFeatureType.RaiseHand);
 ```
 
-### Raise and lower hand for current participant:
+### Raise and lower hand for current participant
+
 To change the Raise Hand state for the current participant, you can use the `raiseHand()` and `lowerHand()` methods.
-This is async methods, to verify results can be used `RaisedHandReceived` and `LoweredhandReceived` listeners.
+
+These methods are async. To verify results, use `RaisedHandReceived` and `LoweredhandReceived` listeners.
+
 ```csharp
 //publish raise hand state for local participant
 raiseHandCallFeature.RaiseHandAsync();
@@ -35,9 +39,11 @@ raiseHandCallFeature.LowerHandAsync();
 ```
 
 ### Lower hands for other participants
-This feature allows users with the Organizer and Presenter roles to lower all hands for other participants on Teams calls. In Azure Communication calls, changing the state of other participants is not allowed unless roles have been added.
 
-To use this feature, you can use the following code:
+The lower hand for other participants feature enables users with the Organizer and Presenter roles to lower all hands for other participants on Teams calls. In Azure Communication calls, you can't change the state of other participants unless you add their roles first.
+
+To use this feature, implement the following code:
+
 ```csharp
 
 // remove raise hand states for all participants on the call
@@ -55,9 +61,11 @@ raiseHandCallFeature.LowerHandsAsync(identifiers);
 ```
 
 ### Handle changed states
-With the Raise Hand API, you can subscribe to the `RaisedHandReceived` and `LoweredHandReceived` events to handle changes in the state of participants on a call. These events are triggered by a call instance and provide information about the participant whose state has changed.
 
-To subscribe to these events, you can use the following code:
+With the Raise Hand API, you can subscribe to the `RaisedHandReceived` and `LoweredHandReceived` events to handle changes in the state of participants on a call. The call instance triggers these events and provides information about the participant whose state changed.
+
+To subscribe to these events, use the following code:
+
 ```swift
 raiseHandCallFeature = (RaiseHandCallFeature)call.GetCallFeatureExtension(CallFeatureType.RaiseHand);
 raiseHandCallFeature.RaisedHandReceived += OnRaisedHandChange;
@@ -73,14 +81,18 @@ private async void OnLoweredHandChange(object sender, RaisedHandChangedEventArgs
     Trace.WriteLine("RaiseHandEvent: participant " + args.Identifier + " is lowered hand");
 }
 ```
-The `RaisedHandReceived` and `LoweredHandReceived` events contain an object with the `identifier` property, which represents the participant's communication identifier. In the example above, we log a message to the console indicating that a participant has raised their hand.
+
+The `RaisedHandReceived` and `LoweredHandReceived` events contain an object with the `identifier` property, which represents the participant's communication identifier. In the preceding example, we log a message to the console indicating that a participant raised their hand.
 
 To unsubscribe from the events, you can use the `off` method.
 
 
 ### List of all participants with active state
-To get information about all participants that have raised hand state on current call, you can use the `getRaisedHands` api. he returned array is sorted by the order field.
-Here's an example of how to use the `RaisedHands` API:
+
+To get information about all participants with raised hand state on current call, you can use `getRaisedHands`. The returned array is sorted by the order field.
+
+Here's an example of how to use `RaisedHands`:
+
 ```swift
 raiseHandCallFeature = (RaiseHandCallFeature)call.GetCallFeatureExtension(CallFeatureType.RaiseHand);
 foreach (RaiseHand rh in raiseHandCallFeature.RaisedHands.ToList())
@@ -90,7 +102,10 @@ foreach (RaiseHand rh in raiseHandCallFeature.RaisedHands.ToList())
 ```
 
 ### Order of raised Hands
-The `RaisedHands` variable will contain an array of participant objects, where each object has the following properties:
-`identifier`: the communication identifier of the participant
-`order`: the order in which the participant raised their hand
+
+The `RaisedHands` variable contains an array of participant objects, where each object has the following properties:
+
+- `identifier`: the communication identifier of the participant.
+- `order`: the order in which the participant raised their hand.
+
 You can use this information to display a list of participants with the Raise Hand state and their order in the queue.

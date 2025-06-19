@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/20/2025
 ms.author: rmareddy
 ms.custom: template-concept, references_regions, engagement-fy23
+# Customer intent: As a network administrator, I want to configure ExpressRoute FastPath, so that I can enhance data path performance by bypassing the gateway and improve connectivity between my on-premises network and Azure virtual networks.
 ---
 
 # About ExpressRoute FastPath

@@ -7,6 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.custom: subject-policy-compliancecontrols
+# Customer intent: As a compliance officer, I want to access built-in Azure Policy definitions for networking services so that I can ensure our Azure resources meet regulatory compliance standards efficiently.
 ---
 # Azure Policy Regulatory Compliance controls for Azure networking services
 

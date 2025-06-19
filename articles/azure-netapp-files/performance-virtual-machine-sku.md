@@ -25,7 +25,7 @@ Storage performance involves more than the speed of the storage itself. The proc
 For the most consistent performance when selecting virtual machines, select from SKUs with a single type of chipset – newer SKUs are preferred over the older models where available. Keep in mind that, aside from using a dedicated host, predicting correctly which type of hardware the E_v3 or D_v3 virtual machines land on is unlikely. When using the E_v3 or D_v3 SKU:
 
 * When a virtual machine is turned off, deallocated, and then turned on again, the virtual machine is likely to change hosts and as such hardware models.
-* When applications are deployed across multiple virtual machines, expect the virtual machines to run on heterogenous hardware.
+* When applications are deployed across multiple virtual machines, expect the virtual machines to run on heterogeneous hardware.
 
 ## Differences within and between SKUs
  

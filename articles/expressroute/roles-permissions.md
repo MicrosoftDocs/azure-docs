@@ -7,6 +7,7 @@ author: mbender-ms
 ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 12/18/2024
+# Customer intent: As a network administrator, I want to understand the roles and permissions for managing ExpressRoute circuits and gateways, so that I can ensure proper access controls and functionality when creating and using network resources.
 ---
 
 # About roles and permissions for ExpressRoute circuits and gateways

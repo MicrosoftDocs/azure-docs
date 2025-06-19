@@ -2,12 +2,12 @@
 title: Raise hand states
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to send raised hand state.
-author: rzdor
-ms.author: ruslanzdor
+author: tophpalmer
+ms.author: chpalm
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
-ms.date: 09/09/2022
+ms.date: 06/15/2025
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android-windows
 
@@ -15,6 +15,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Raise hand states
+
 ::: zone pivot="platform-android"
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
@@ -26,7 +27,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ::: zone pivot="platform-windows"
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
-During an active call, you may want to send or receive states from other users. Let's learn how. 
+
+During an active call, we recommend sending and receiving states from other participants. Let's learn how. 
 
 ## Prerequisites
 
@@ -51,12 +53,13 @@ During an active call, you may want to send or receive states from other users. 
 [!INCLUDE [Manage Video Calls Windows](./includes/raise-hand/raise-hand-windows.md)]
 ::: zone-end
 
-Additional resources
-For more information about using the Raise Hand feature in Teams calls and meetings, see the [Microsoft Teams documentation](https://support.microsoft.com/en-us/office/raise-your-hand-in-a-teams-meeting-bb2dd8e1-e6bd-43a6-85cf-30822667b372).
+## Next Steps
 
-
-## Next steps
 - [Learn how to manage calls](./manage-calls.md)
 - [Learn how to manage video](./manage-video.md)
 - [Learn how to record calls](./record-calls.md)
 - [Learn how to transcribe calls](./call-transcription.md)
+
+## Related articles
+
+For more information about using the Raise Hand feature in Teams calls and meetings, see the [Microsoft Teams documentation](https://support.microsoft.com/en-us/office/raise-your-hand-in-a-teams-meeting-bb2dd8e1-e6bd-43a6-85cf-30822667b372).
