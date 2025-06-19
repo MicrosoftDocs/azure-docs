@@ -351,14 +351,14 @@
       href: expressroute-for-cloud-solution-providers.md
     - name: Videos
       items:
-      - name: Videos
-        href: /shows/Inside-Azure-for-IT/?products=azure-expressroute
-      - name: Microsoft Azure hybrid connectivity overview
-        href: /shows/inside-azure-for-it/microsoft-azure-hybrid-connectivity-overview
-      - name: Evolve your network infrastructure for connectivity
-        href: /events/ignite-2015/brk2481
-      - name: 'Hybrid partnerships: Enabling on-premises scenarios'
-        href: /events/ignite-2015/brk1454
+        - name: Videos
+          href: /shows/Inside-Azure-for-IT/?products=azure-expressroute
+        - name: Microsoft Azure hybrid connectivity overview
+          href: /shows/inside-azure-for-it/microsoft-azure-hybrid-connectivity-overview
+        - name: Evolve your network infrastructure for connectivity
+          href: /events/ignite-2015/brk2481
+        - name: 'Hybrid partnerships: Enabling on-premises scenarios'
+          href: /events/ignite-2015/brk1454
     - name: Classic and legacy articles
       items:
         - name: Modify a circuit
