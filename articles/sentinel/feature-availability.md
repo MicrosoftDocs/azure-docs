@@ -53,7 +53,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |---------|---------|---------|---------|---------|
 |[Amazon Web Services](connect-aws.md?tabs=ct) |GA |Yes |Yes |No |
 |[Amazon Web Services S3](connect-aws.md?tabs=s3) |GA|Yes |Yes |No |
-|[Microsoft Entra ID](connect-azure-active-directory.md) |GA |Yes |Yes|Yes |
+|[Microsoft Entra ID](connect-azure-active-directory.md) |GA |Yes |Yes|Yes<sup>[1](#logsavailable)</sup> |
 |[Microsoft Entra ID Protection](connect-services-api-based.md) |GA |Yes |Yes |No |
 |[Azure Activity](data-connectors-reference.md#azure-activity) |GA |Yes |Yes |Yes |
 |[Azure DDoS Protection](connect-services-diagnostic-setting-based.md) |GA |Yes| Yes|No |
