@@ -70,7 +70,7 @@ public AccessToken CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
 }
 ```
 
-## Send an SMS with Service Principals
+## Send an SMS with service principals
 
 To demonstrate sending an SMS, add the following method to your `Program.cs` file. This method uses the Azure Communication Services SDK to send an SMS message:
 
