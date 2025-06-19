@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 01/07/2025
+# Customer intent: As a network administrator, I want to manage public IP configurations for Azure Firewall so that I can optimize network security and connectivity for my Azure Virtual Network resources.
 ---
 
 # Manage a public IP address by using Azure Firewall

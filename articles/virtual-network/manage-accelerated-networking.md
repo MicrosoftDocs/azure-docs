@@ -9,6 +9,7 @@ ms.date: 01/07/2025
 
 #customer intent: As a network or virtual machine administrator, I want to manage the accelerated networking feature of my Azure Virtual Machines. I want to enable or disable accelerated networking using the Azure portal, Azure CLI, or PowerShell.
 
+# Customer intent: As a network administrator, I want to manage the accelerated networking feature on my Azure Virtual Machines, so that I can optimize network performance and ensure consistent packet delivery for my applications.
 ---
 
 # Manage accelerated networking for Azure Virtual Machines
