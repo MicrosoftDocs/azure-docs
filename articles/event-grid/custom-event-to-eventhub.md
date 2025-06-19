@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli, mode-api
 
 # Quickstart: Route custom events to an event hub by using Event Grid and the Azure CLI
 
-[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications via events. Event Grid delivers events to [supported event handlers](event-handlers.md), and Azure Event Hubs is one of them.
+[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications via events. Event Grid delivers events to supported event handlers, such as Azure Event Hubs. [Event handlers](event-handlers.md).
 
 In this quickstart, you use the Azure CLI to create an Event Grid custom topic and an Event Hubs subscription for that topic. You then send sample events to the custom topic and verify that those events are delivered to an event hub.
 
@@ -113,7 +113,7 @@ In the Azure portal, on the **Overview** page for your Event Hubs namespace, not
 
 Typically, you create an application that retrieves event messages from the event hub. For more information, see:
 
-- [Get started receiving messages with the event processor host in .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+- [Send events to and receive events from Azure Event Hubs using .NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 - [Receive events from Azure Event Hubs by using Java](../event-hubs/event-hubs-java-get-started-send.md)
 - [Receive events from Event Hubs by using Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
@@ -132,7 +132,7 @@ Now that you know how to create topics and event subscriptions, learn more about
 - [About Event Grid](overview.md)
 - [Route Azure Blob Storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md)
-- [Stream big data into a data warehouse](event-hubs-integration.md)
+- [Migrate Event Hubs captured data from Azure Storage to Azure Synapse Analytics](event-hubs-integration.md)
 
 To learn about publishing events to, and consuming events from, Event Grid by using various programming languages, see the following samples:
 
