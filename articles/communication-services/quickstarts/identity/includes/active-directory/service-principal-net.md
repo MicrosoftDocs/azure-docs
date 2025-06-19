@@ -89,7 +89,7 @@ public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, strin
 }
 ```
 
-## Write the Main Method
+## Write the Main method
 
 In the `Main` method of your `Program.cs` file, add code to call the methods you created for issuing a token and sending an SMS. Your `Main` method should look similar to this:
 
