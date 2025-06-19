@@ -12,17 +12,19 @@ ms.author: allensu
 
 ## DNS record types
 
-Azure Traffic Manager uses DNS to direct incoming client requests to the best service endpoint based on the selected routing method. Traffic Manager supports three types of DNS records: AAAA, A, and CNAME records, enabling you to route traffic across both IPv4 and IPv6 networks. This flexibility is essential for modern internet applications where dual-stack environments are increasingly common.
+Azure Traffic Manager is a DNS-based traffic load balancer that distributes traffic across global Azure regions. To effectively route traffic to your applications, Traffic Manager supports multiple DNS record types that work with both IPv4 and IPv6 protocols.
+
+This article explains the DNS record types that Traffic Manager supports and how they enable dual-stack networking environments. You learn about AAAA records for IPv6 addresses, A records for IPv4 addresses, and CNAME records for domain aliasing. Understanding these record types helps you choose the right configuration for your network infrastructure and ensures optimal traffic routing for your applications.
 
 ## AAAA records for IPv6 support
 
-AAAA records map domain names to IPv6 addresses. Azure Traffic Manager supports IPv6 records, enabling traffic routing to services accessible over IPv6 addresses. As the internet transitions towards IPv6, ATM is equipped to handle this newer protocol, ensuring seamless reachability for services.
+AAAA records map domain names to IPv6 addresses. Azure Traffic Manager supports IPv6 records, enabling traffic routing to services accessible over IPv6 addresses. As the internet transitions towards IPv6, Azure Traffic Manager is equipped to handle this newer protocol, ensuring seamless reachability for services.
 
-ATM now includes these IPv6 capabilities:
+Azure Traffic Manager now includes these IPv6 capabilities:
 
-- **IPv6 Maps in DNS Nameservers**: Lets you efficiently manage and resolve IPv6 addresses. This includes IPv6 address space in its internal DNS maps, letting global IPv6 clients get low-latency resolution.
+- **IPv6 Maps in DNS Nameservers**: Enables efficient IPv6 address management and resolution by including IPv6 address space in internal DNS maps, providing low-latency resolution for global IPv6 clients.
 
-- **IPv6 Client Subnet (ECS) Support**: ECS (EDNS Client Subnet) for IPv6 lets ATM make geographically accurate routing decisions based on part of the client’s IPv6 address. This helps shape traffic and minimize latency for end users.
+- **IPv6 Client Subnet (ECS) Support**: Enables geographically accurate traffic routing by using part of the client's IPv6 address through EDNS Client Subnet extension, reducing latency for end users.
 
 - **IPv6 Subnet Overrides**: Lets you control traffic routing based on the source IP address of DNS queries, supporting both IPv4 and IPv6 addresses.
 
@@ -34,11 +36,11 @@ A records map domain names to IPv4 addresses. IPv4 is the backbone of the intern
 
 ## CNAME records for domain aliasing
 
-CNAME (canonical name) records map an alias name to a trafficmanager.net domain name. Azure Traffic Manager supports CNAME records as endpoints, so you can route traffic to a domain name instead of a specific IP address.
+CNAME (canonical name) records map an alias name to a `trafficmanager.net` domain name. Azure Traffic Manager supports CNAME records as endpoints, so you can route traffic to a domain name instead of a specific IP address.
 
 CNAME records simplify DNS configuration management. You can handle changes to IP addresses at the authoritative DNS level without changing settings in Azure Traffic Manager, so DNS management is more efficient and scalable.
 
-For example, a domain like www.contoso.com can point to contoso.trafficmanager.net. You can manage changes to backend service IP addresses centrally without updating the user-facing domain.
+For example, a domain like `www.contoso.com` can point to `contoso.trafficmanager.net`. You can manage changes to backend service IP addresses centrally without updating the user-facing domain.
 
 ## Dual-stack support in Traffic Manager
 
