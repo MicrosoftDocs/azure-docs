@@ -100,7 +100,7 @@ The Azure Communication Services resource is used to authenticate all requests f
 
 If you want to create a new Communication Services resource, see [Create and manage Communication Services resources](../create-communication-resource.md).
 
-The Contoso administrator can provide Fabrikam Entra ID users with access to the Contoso Azure Communication Services resource through the Azure portal or by using the [Entra ID Assignment REST API](https://learn.microsoft.com/rest/api/communication/identity/communication-identity/entra-id-assignment).
+The Contoso administrator can provide Fabrikam Entra ID users with access to the Contoso Azure Communication Services resource through the Azure portal or by using the [Entra ID Assignment REST API](https://github.com/Azure/communication-preview/blob/master/Entra%20ID%20Support/entra-id-support-rest-api.md).
 
 Currently, assigning access to Azure Communication Services resources via the Azure portal is a private preview feature. To access it, launch the Azure Portal using this URL - [Azure Portal with Access Assignment Preview Enabled](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_CommunicationServices=entraIdAccess). In the Azure portal follow these steps:
 1. Navigate to your Communication Services resource.
