@@ -9,6 +9,7 @@ ms.date: 08/07/2024
 ms.custom: devx-track-arm-template
 
 #CustomerIntent: As an Azure administrator, I want to learn about Network Watcher Agent VM extension so that I can use Network watcher features to diagnose and monitor my virtual machines (VMs).
+# Customer intent: As an Azure administrator, I want to manage the Network Watcher Agent VM extension on my virtual machines, so that I can effectively diagnose and monitor network traffic and performance.
 ---
 
 # Manage Network Watcher Agent virtual machine extension for Windows

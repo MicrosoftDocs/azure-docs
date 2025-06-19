@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 12/26/2024
 ms.author: duau
+# Customer intent: As a network engineer, I want to compare the performance metrics of Azure Firewall Basic, Standard, and Premium, so that I can choose the appropriate version to meet my organization’s security and performance requirements.
 ---
 
 # Azure Firewall performance

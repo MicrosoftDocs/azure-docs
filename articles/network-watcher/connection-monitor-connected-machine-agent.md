@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/25/2025
 
 #CustomerIntent: As an Azure administrator, I need to install the Azure Connected Machine agent so I can monitor a connection using the Connection Monitor.
+# Customer intent: As an Azure administrator, I want to install the Azure Connected Machine agent on my hybrid machines, so that I can manage them through Azure Arc and effectively monitor their connectivity.
 ---
 
 # Install the Azure Connected Machine agent to enable Azure Arc 

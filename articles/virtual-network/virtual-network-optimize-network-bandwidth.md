@@ -47,53 +47,34 @@ For all other Windows VMs, using Receive Side Scaling (RSS) can reach higher max
 
 ## Linux virtual machines
 
-RSS is always enabled by default in an Azure Linux VM. Linux kernels released since October 2017 include new network optimizations options that enable a Linux VM to achieve higher network throughput.
+RSS is always enabled by default in a Linux Virtual Machine (VM) in Azure. Linux kernels released since October 2017 include new network optimizations options that enable a Linux VM to achieve higher network throughput.
 
-### Ubuntu for new deployments
+### Enable Azure Accelerated Networking for optimal throughput
 
-The Ubuntu on Azure kernel is heavily optimized for excellent network performance on Azure. Currently, all Ubuntu images by Canonical come by default with the optimized Azure kernel installed.
+Azure provides accelerated networking which can really improve network performance, latency, jitter. There are currently two different technologies that are used depending on the virtual machine size, [Mellanox](/azure/virtual-network/accelerated-networking-how-it-works) which is wide available and [MANA](/azure/virtual-network/accelerated-networking-mana-overview) which is developed by Microsoft.
 
-Use the following command to make sure that you're using the Azure kernel, which has `-azure` at the end of the version.
+### Azure Tuned Kernels
+
+Some distributions such as Ubuntu (Canonical) and SUSE have [Azure tuned kernels](/azure/virtual-machines/linux/endorsed-distros#azure-tuned-kernels).
+
+Use the following command to make sure that you're using the Azure kernel, which has usually the `azure` string in the naming.
 
 ```bash
 uname -r
 
-#sample output on Azure kernel:
+#sample output on Azure kernel on a Ubuntu Linux VM
 6.8.0-1017-azure
 ```
 
-#### Ubuntu on Azure kernel upgrade for existing VMs
+### Other Linux distributions
 
-You can get significant throughput performance by upgrading to the Azure Linux kernel. To verify whether you have this kernel, check your kernel version. It should be the same or later than the example.
+Most modern distributions have significant improvements with newer kernels. Check the current kernel version to make sure that you're running a kernel that is newer than 4.19, which includes some great improvements in networking, for example support for the *BBR Congestion-Based Congestion Control*.
 
-```bash
-#Azure kernel name ends with "-azure"
-uname -r
+## Achieving consistent transfer speeds in Linux VMs in Azure
 
-#sample output on Azure kernel:
-#4.13.0-1007-azure
-```
+Linux VMs often experience network performance issues, particularly when transferring large files (1 GB to 50 GB) between regions, such as West Europe and West US. These issues are caused by older kernel versions as well as, default kernel configurations, default network buffer settings and default congestion control algorithms, which result in delayed packets, limited throughput, and inefficient resource usage. 
 
-If your VM doesn't have the Azure kernel, the version number usually begins with 4.4. If the VM doesn't have the Azure kernel, run the following commands as root:
-
-```bash
-#run as root or preface with sudo
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get dist-upgrade -y
-sudo apt-get install "linux-azure"
-sudo reboot
-```
-
-### Other distributions
-
-Most modern distributions should have significant improvements with kernels newer than 4.19+. Check the current kernel version to make sure that you're running a newer kernel.
-
-## Optimizing cross-region transfer speeds in Azure Linux VMs
-
-Azure Linux VMs often experience network performance issues, particularly when transferring large files (1 GB to 50 GB) between regions, such as West Europe and West US. These issues are caused by generic kernel configurations, network buffer settings, and default congestion control algorithms, which result in delayed packets, limited throughput, and inefficient resource usage. 
-
-To enhance network performance, consider implementing the following optimizations that are proven effective in many situations on Azure:
+To get consistent network performance, consider implementing the following optimizations that are proven effective in many situations on Azure:
 
 - **Network buffer settings**: Adjust kernel parameters to maximize read and write memory buffers. Add these configurations to `/etc/sysctl.d/99-azure-network-buffers.conf`: 
 
@@ -112,7 +93,7 @@ net.core.busy_poll = 50
 net.core.busy_read = 50
 ```
  
-- **Congestion control for kernels 4.19+**: Enabling Bottleneck Bandwidth and Round-trip propagation time (BBR) congestion control can often result in better throughput. Add this configuration to `/etc/sysctl.d/99-azure-congestion-control.conf`: 
+- **Congestion-Based Congestion control for kernels 4.19 and above**: Enabling Bottleneck Bandwidth and Round-trip propagation time (BBR) congestion control can often result in better throughput. Add this configuration to `/etc/sysctl.d/99-azure-congestion-control.conf`: 
 
 ```plaintext
 net.ipv4.tcp_congestion_control = bbr 
@@ -168,10 +149,14 @@ ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="enP*", PROGRAM="/sbin/tc qdisc 
 ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="eth*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root fq“ 
 ```
 
-- **Interrupt Request (IRQ) scheduling**: Depending on your workload, you may wish to restrict the irqbalance service from scheduling IRQs on certain nodes. Update `/etc/default/irqbalance` to specify which CPUs shouldn't have IRQs scheduled: 
+- **Interrupt Request (IRQ) scheduling**: Depending on your workload, you may wish to restrict the irqbalance service from scheduling IRQs on certain nodes. When using IRQBalance, you can update `/etc/default/irqbalance` to specify which CPUs shouldn't have IRQs scheduled you will need to determine [the mask](https://manpages.debian.org/testing/irqbalance/irqbalance.1.en.html#IRQBALANCE_BANNED_CPUS) that will exclude the CPUs that need exclusion.
+
+More information about how to calculate the mask available [here](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_real_time/7/html/tuning_guide/interrupt_and_process_binding).
+
+The example below would assume that you want to exclude CPUs 8-15
 
 ```bash
-IRQBALANCE_BANNED_CPULIST=0-2 
+IRQBALANCE_BANNED_CPULIST=0000ff00
 ```
 
 - **UDEV rules**: Add rules to optimize queue length and manage device flags efficiently. Create the following rule in `/etc/udev/rules.d/99-azure-txqueue-len.rules`: 
@@ -180,7 +165,7 @@ IRQBALANCE_BANNED_CPULIST=0-2
 SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="eth*", ATTR{tx_queue_len}="10000“ 
 ```
 
-### For Packets delayed twice 
+### For Packets delayed twice
 
 When it comes to Linux performance networking we use SR-IOV with Mellanox drivers (mlx4 or mlx5), something specific to Azure is that this creates two interfaces a synthetic and a virtual interface. [Learn More](/azure/virtual-network/accelerated-networking-how-it-works).  
  
