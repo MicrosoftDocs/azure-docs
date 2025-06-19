@@ -5,7 +5,7 @@
 
 This quickstart demonstrates how to use managed identities via Azure Service Principals to authenticate with Azure Communication Services. It provides examples for issuing an access token for Voice over IP (VoIP) calls and sending SMS messages.
 
-## Setting Up
+## Setting up
 
 ### Create a New C# Application
 
