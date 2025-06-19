@@ -1597,7 +1597,7 @@
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#trusted-access-for-resources-registered-in-your-microsoft-entra-tenant",
-            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list#trusted-access-for-resources-registered-in-your-microsoft-entra-tenant",
+            "redirect_url": "/azure/storage/common/storage-network-security-manage-exceptions#trusted-access-for-resources-registered-in-your-microsoft-entra-tenant",
             "redirect_document_id": false
         },
         {
@@ -1617,22 +1617,22 @@
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#grant-access-to-trusted-azure-services",
-            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list",
+            "redirect_url": "/azure/storage/common/storage-network-security-manage-exceptions",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#trusted-microsoft-services",
-            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list",
+            "redirect_url": "/azure/storage/common/storage-network-security-manage-exceptions#trusted-microsoft-services",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity",
-            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list#trusted-access-based-on-a-managed-identity",
+            "redirect_url": "/azure/storage/common/storage-network-security-manage-exceptions#trusted-access-based-on-a-managed-identity",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#trusted-access-based-on-system-assigned-managed-identity",
-            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list#trusted-access-based-on-system-assigned-managed-identity",
+            "redirect_url": "/azure/storage/common/storage-network-security-manage-exceptions#trusted-access-based-on-system-assigned-managed-identity",
             "redirect_document_id": false
         },
         {

@@ -301,39 +301,37 @@ items:
         href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: Networking
       items:
-      - name: Private endpoints
-        href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Public endpoints
+      - name: Network security overview
+        href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Manage public access
         items:
-        - name: Firewalls and virtual networks
-          href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Deny access over public endpoints
+        - name: Set default access
           href: ../common/storage-network-security-deny-public-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Grant access from virtual networks
+        - name: Permit virtual networks
           href: ../common/storage-network-security-virtual-networks.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Grant access from IP address ranges
+        - name: Permit IP address ranges
           href: ../common/storage-network-security-ip-address-range.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Grant access to resource instances
+        - name: Permit resource instances
           href: ../common/storage-network-security-resource-instances.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Grant access to Azure trusted services
-          href: ../common/storage-network-security-trusted-services.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Manage exceptions
           href: ../common/storage-network-security-manage-exceptions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Network security perimeter (preview)
+        - name: Use a network security perimeter
           href: ../common/storage-network-security-perimeter.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Copy operation restrictions
+      - name: Use private endpoints
+        href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Restrict scope of copy operations
         href: ../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json
-      - name: Manage Transport Layer Security (TLS)
+      - name: Manage secure transfer
         items:
         - name: Require secure transfer
           href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Enforce minimum TLS version for incoming requests
+        - name: Enforce minimum TLS version
           href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Configure TLS version for a client application
+        - name: Configure TLS version for a client
           href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Migrate to TLS 1.2
           href: ../common/transport-layer-security-configure-migrate-to-TLS2.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Network routing preference
+      - name: Manage network routing
         href: ../common/network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         items:
         - name: Configure network routing preference
