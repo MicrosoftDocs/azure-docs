@@ -58,7 +58,7 @@ def create_identity_and_get_token(resource_endpoint):
 
 ### Send an SMS with service principals
 
-Alternetively, you can utilize your credential to send a Short Message Service (SMS) as shown in the example below:
+Alternatively, you can utilize your credential to send a Short Message Service (SMS) as shown in the example below:
 
 ```python
 def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_content):
@@ -147,7 +147,7 @@ If successful, you see output similar to this:
     $ python authentication.py
     Retrieving new Access Token, using Service Principals
     Retrieved Access Token: ...
-    Sending SMS using using Service Principals
+    Sending SMS using Service Principals
     SMS ID: ...
     Send Result Successful: true
 ```
