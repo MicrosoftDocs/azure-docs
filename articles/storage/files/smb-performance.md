@@ -188,6 +188,10 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 ```
 ---
 
+> [!IMPORTANT]
+> - Although listed under Preview Features, we honor GA SLAs and will soon make this the default for all accounts, removing the need for registration.
+> - Allow 2-6 hours for accounts to be onboarded once registration is complete.
+
 ### Regional availability for metadata caching
 
 Supported regions:
@@ -284,10 +288,6 @@ Connect-AzAccount -SubscriptionId <your-subscription-id> -TenantId <your-tenant-
 Register-AzProviderFeature -FeatureName HigherHandlesCountOnSmb -ProviderNamespace Microsoft.Storage 
 ```
 ---
-
-> [!IMPORTANT]
-> - Although listed under Preview Features, we honor GA SLAs and will soon make this the default for all accounts, removing the need for registration.
-> - Allow 2-6 hours for accounts to be onboarded once registration is complete.
 
 ## Next steps
 
