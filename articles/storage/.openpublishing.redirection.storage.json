@@ -1575,9 +1575,9 @@
             "redirect_url": "/previous-versions/azure/storage/storage-common-transfer-between-storage-accounts",
             "redirect_document_id": false
         },
-                {
+        {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#change-the-default-network-access-rule",
-            "redirect_url": "/azure/storage/common/storage-network-security-deny-public-endpoints",
+            "redirect_url": "/azure/storage/common/storage-network-security-deny-public-access",
             "redirect_document_id": false
         },
         {
