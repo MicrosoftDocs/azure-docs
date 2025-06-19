@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 06/17/2025
+ms.date: 06/18/2025
 ---
 
 # Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
@@ -54,7 +54,7 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
     :::image type="content" source="media/cloud-to-cloud-migration/add-aws-connector-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Basics tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-aws-connector.png":::
 
-1. Within the **Solutions** tab, Add an **Inventory** and **Storage - Data Management** solution to your connector. The Inventory solution allows you to discover and manage AWS resources, while the Storage - Data Management solution enables data transfer operations for Storage Mover.
+1. Within the **Solutions** tab, add an **Inventory** and **Storage - Data Management** solution to your connector. The Inventory solution allows you to discover and manage AWS resources, while the Storage - Data Management solution enables data transfer operations for Storage Mover.
 
     :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solution-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Inventory tab selected and required Inventory objects displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solution.png":::
 
@@ -77,11 +77,19 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
     :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solutions-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Solutions tab selected. The Edit link is present in the Actions column of the Solutions list, confirming that the required solutions are added." lightbox="media/cloud-to-cloud-migration/add-connector-solutions.png":::
     
-1. Within the **Authentication template** tab, follow the instructions presented to create the *AWS CloudFormation Stack* from the AWS portal.
+1. Within the **Authentication template** tab, follow the on-screen instructions to create the *AWS CloudFormation Stack* using the AWS portal.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-authentication-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Authentication Template tab selected. The AWS CloudFormation template and instructions for creating the stack are displayed.":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-authentication-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Authentication Template tab selected. The AWS CloudFormation template and instructions for creating the stack are displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solutions.png":::
 
-1. Finally, select **Review + Create** to create the connector.
+    Select **Next** to continue to the **Tags** tab.
+
+1. Within the **Tags** tab, you have the option to add key-value pairs that help you identify resources based on settings that are relevant to your organization. Add tags as needed. For example, you can add an **Environment** tag with a value of **Production** or **Development**. For more information about tags, refer to the [Azure Resource Manager documentation](../azure-resource-manager/management/tag-resources.md).
+
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-tags-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Tags tab selected. A sample key-value pair has been added." lightbox="media/cloud-to-cloud-migration/add-connector-tags.png":::
+
+    Select **Next** to continue to the **Review + Create** tab.
+
+1. The **Review + Create** tab displays a summary of the configuration settings you provided in the previous steps. Review these settings to ensure they are correct. If you need to make changes, select the **Previous** button to return to the appropriate tab. If all settings are correct, select **Create** to create your multicloud connector.
 
     :::image type="content" source="media/cloud-to-cloud-migration/connectors-available-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/connectors-available.png":::
 
@@ -99,10 +107,12 @@ Follow the steps in this section to configure an AWS S3 source endpoint and an A
 1. Under **Storage endpoints**, select **Source endpoints** and then **Add endpoint**.
 
     :::image type="content" source="media/cloud-to-cloud-migration/storage-endpoints-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/storage-endpoints.png":::
+
 1. Select **AWS S3** as the source.
 1. Choose the Multicloud connector you created in the previous section.
 
     :::image type="content" source="media/cloud-to-cloud-migration/create-aws-endpoint-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint with the S3 Connector drop down list displayed." lightbox="media/cloud-to-cloud-migration/create-aws-endpoint.png":::
+
 1. Select the S3 bucket you want to migrate and verify that access is properly configured.
 1. Select **Save** to commit your changes.
 
