@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/14/2025
+ms.date: 06/18/2025
 ## As a developer, I want to access my SQL database from my logic app workflow.
 ---
 

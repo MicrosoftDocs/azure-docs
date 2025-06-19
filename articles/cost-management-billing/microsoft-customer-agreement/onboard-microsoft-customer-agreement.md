@@ -1,12 +1,12 @@
 ---
 title: Onboard to the Microsoft Customer Agreement (MCA)
 description: This guide helps customers who buy Microsoft software and services through a Microsoft account manager to set up an MCA contract.
-author: bandersmsft
+author: KennyDay
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
 ms.date: 05/22/2025
-ms.author: banders
+ms.author: kenday
 ms.reviewer: clionabolger
 ---
 

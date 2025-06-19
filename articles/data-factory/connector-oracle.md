@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/07/2025
+ms.date: 06/04/2025
 ms.author: jianleishen
 ---
 
@@ -108,7 +108,7 @@ The Oracle linked service supports the following properties when apply version 2
 | password | The Oracle database password. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
-More connection properties you can set in linked service per your case:
+You can set the following additional connection properties in the linked service depending on your case.
 
 | Property | Description | Required | Default value |
 |:--- |:--- |:--- |:--- |
@@ -507,8 +507,8 @@ When you copy data from and to Oracle, the following interim data type mappings 
 | LONG RAW |Byte[] |Byte[] |
 | NCHAR |String |String |
 | NCLOB |String |String |
-| NUMBER (p,s) |Int16, Int32, Int64, Double, Single, Decimal |Decimal, String (if p > 28) |
-| NUMBER without precision and scale | Decimal |Double |
+| NUMBER (p,s) |Int16, Int32, Int64, Single, Double, Decimal |Decimal, String (if p > 28) |
+| NUMBER without precision and scale | Decimal (256,130)  |Double |
 | NVARCHAR2 |String |String |
 | RAW |Byte[] |Byte[] |
 | TIMESTAMP |DateTime |DateTime |
@@ -517,8 +517,17 @@ When you copy data from and to Oracle, the following interim data type mappings 
 | VARCHAR2 |String |String |
 | XMLTYPE |String |String |
 
-> [!NOTE]
-> NUMBER(p,s) is mapped to the appropriate interim service data type depending on the precision (p) and scale (s).
+
+NUMBER(p,s) is mapped to the appropriate version 2.0 interim service data type depending on the precision (p) and scale (s):
+
+| Interim service data type | Condition                                                                                                    |
+|:--------------------------|:----------------------------------------------------------------------------------------------------------------|
+| Int16                    | scale <= 0 AND (precision - scale) < 5                                                                         |
+| Int32                    | scale <= 0 AND 5 <= (precision - scale) < 10                                                                   |
+| Int64                    | scale <= 0 AND 10 <= (precision - scale) < 19                                                                  |
+| Single                   | precision < 8 AND ((scale <= 0 AND (precision - scale) <= 38) OR (scale &gt; 0 AND scale <= 44))                  |
+| Decimal                  | precision &gt;= 16 
+| Double                   | If none of the above conditions are met.                                                                       |
 
 ## Lookup activity properties
 
@@ -672,8 +681,8 @@ The Oracle connector version 2.0 offers new functionalities and is compatible wi
 
 | Version 2.0 | Version 1.0  | 
 |:--- |:--- |
-|The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Double, Single, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
+|The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Single, Double, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
 | Support convertDecimalToInteger in copy source when `supportV1DataTypes` is set to `true`. | Support convertDecimalToInteger in copy source.  | 
 | Using `?` as a placeholder for script activity query parameters is not support. You can use the named parameter (such as `:paramA`) or the positional parameter (such as `:1`) as a replacement.    | Support using `?` as a placeholder for script activity query parameters.  | 
 | Support TLS 1.3.| TLS 1.3 is not supported. | 
-
+| Two-way TLS/SSL with Oracle SSO wallet is supported. For more information, see this [article](https://docs.oracle.com/en/database/oracle/oracle-database/23/odpnt/featConnecting.html#GUID-0DF481DD-2BBE-4746-936C-1AF7830423F2)| Two-way TLS/SSL with Oracle wallet is not supported. | 

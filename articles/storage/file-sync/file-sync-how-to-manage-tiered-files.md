@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/10/2024
 ms.author: kendownie
+# Customer intent: As an IT administrator, I want to manage cloud tiering settings and file exclusions in Azure File Sync, so that I can optimize storage usage and ensure important files remain accessible locally.
 ---
 
 # How to manage tiered files

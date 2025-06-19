@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
-ms.date: 03/28/2025
+ms.date: 05/26/2025
 ms.author: mbender
 ---
 
@@ -97,10 +97,7 @@ Other reasons for clients receiving 403 responses include:
 
 #### 404 – Page not found
 
-An HTTP 404 response can be returned if a request is sent to an application gateway that is:
-- Using a [v2 sku](overview-v2.md).
-- Without a hostname match defined in any [multi-site listeners](multiple-site-overview.md).
-- Not configured with a [basic listener](application-gateway-components.md#types-of-listeners).
+An HTTP 404 response is generated when a request is made to Application Gateway (V2 SKUs) with a hostname that doesn’t corresponds to any of the configured Multi-site listeners, and there is no Basic listener present. Learn more about [types of listeners](application-gateway-components.md#types-of-listeners).
 
 #### 408 – Request Time-out
 

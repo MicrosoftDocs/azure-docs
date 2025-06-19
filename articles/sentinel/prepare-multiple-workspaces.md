@@ -47,7 +47,7 @@ When determining how many tenants and workspaces to use, consider that most Micr
 
 In case of an MSSP, many if not all of the above requirements apply, making multiple workspaces, across tenants, the best practice. Specifically, we recommend that you create at least one workspace for each Microsoft Entra tenant to support built-in, [service to service data connectors](connect-data-sources.md#service-to-service-integration-for-data-connectors) that work only within their own Microsoft Entra tenant.
 
-- Connectors that are based on diagnostics settings can't be connected to a workspace that isn't located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](./data-connectors/azure-firewall.md), [Azure Storage](./data-connectors/azure-storage-account.md), [Azure Activity](./data-connectors/azure-activity.md) or [Microsoft Entra ID](connect-azure-active-directory.md).
+- Connectors that are based on diagnostics settings can't be connected to a workspace that isn't located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](./data-connectors-reference.md#azure-firewall), [Azure Storage](./data-connectors-reference.md#azure-storage-account), [Azure Activity](./data-connectors-reference.md#azure-activity) or [Microsoft Entra ID](connect-azure-active-directory.md).
 
 - [Partner data connectors](data-connectors-reference.md) are often based on API or agent collections, and therefore are not attached to a specific Microsoft Entra tenant.
 

@@ -44,7 +44,7 @@ Consider the following articles when you migrate compute services. The platform-
 
 Compute services make up only part of your workload. Explore other components that you might migrate:
 
-- [Storage](./migrate-storage-from-aws.md)
-- [Databases](./migrate-databases-from-aws.md)
-
-Use the table of contents to explore other articles related to your workload's architecture.
+- [Databases](migrate-databases-from-aws.md)
+- [Storage](migrate-storage-from-aws.md)
+- [Networking](migrate-networking-from-aws.md)
+- [Security](migrate-security-from-aws.md)

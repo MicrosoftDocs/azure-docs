@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/16/2025
+ms.date: 06/18/2025
 ---
 
 # Connect to on-premises file systems from workflows in Azure Logic Apps

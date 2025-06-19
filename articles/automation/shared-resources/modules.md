@@ -3,10 +3,15 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/01/2024
+ms.date: 05/27/2025
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell, devx-track-python
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-python
+  - build-2025
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage modules in Azure Automation

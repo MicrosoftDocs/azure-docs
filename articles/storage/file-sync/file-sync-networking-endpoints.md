@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 06/05/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to configure private and public network endpoints for Azure File Sync, so that I can securely manage access to file shares and enhance network security.
 ---
 
 # Configure Azure File Sync public and private network endpoints
