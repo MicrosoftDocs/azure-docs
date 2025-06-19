@@ -282,8 +282,8 @@ app = func.FunctionApp()
 
 @app.route(route="put_message")
 @app.service_bus_topic_output(arg_name="message",
-                              connection="<CONNECTION_SETTING>",
-                              topic_name="<TOPIC_NAME>")
+                              connection="AzureServiceBusConnectionString",
+                              topic_name="outTopic")
 def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('message')
     message.set(input_msg)
@@ -300,8 +300,8 @@ app = func.FunctionApp()
 @app.route(route="put_message")
 @app.service_bus_queue_output(
     arg_name="msg",
-    connection="<CONNECTION_SETTING>",
-    queue_name="<QUEUE_NAME>")
+    connection="AzureServiceBusConnectionString",
+    queue_name="outqueue")
 def put_message(req: func.HttpRequest, msg: func.Out[str]):
     msg.set(req.get_body().decode('utf-8'))
     return 'OK'

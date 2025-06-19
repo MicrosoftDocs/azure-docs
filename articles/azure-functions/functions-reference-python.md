@@ -509,7 +509,7 @@ For select triggers and bindings, you can work with data types implemented by th
 ### Prerequisites
 
 * [Azure Functions runtime version](functions-versions.md?pivots=programming-language-python) version 4.34, or a later version.
-* [Python](https://www.python.org/downloads/) version 3.9, or a later [supported version](#python-version).
+* [Python](https://www.python.org/downloads/) version 3.10, or a later [supported version](#python-version).
 
 ### SDK Types
 
@@ -1075,8 +1075,7 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.12<br/>3.11<br/>3.10<br/>3.9<br/> |
-| 3.x | 3.9<br/> |
+| 4.x | 3.12<br/>3.11<br/>3.10<br/>|
 
 \* Official Python distributions
 
@@ -1397,7 +1396,6 @@ The Python standard library contains a list of built-in Python modules that are 
 To view the library for your Python version, go to:
 
 
-* [Python 3.9 standard library](https://docs.python.org/3.9/library/)
 * [Python 3.10 standard library](https://docs.python.org/3.10/library/)
 * [Python 3.11 standard library](https://docs.python.org/3.11/library/)
 * [Python 3.12 standard library](https://docs.python.org/3.12/library/)
