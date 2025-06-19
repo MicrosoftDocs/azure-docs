@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 05/31/2025
-ms.author: wsugarman
+ms.author: wisuga
 ---
 
 # Azure Data Lake Storage Indexing (Preview)
