@@ -205,7 +205,7 @@ The following table shows the Paketo Buildpack equivalents to the buildpacks use
 | `tanzu-buildpacks/python`            | [paketo-buildpacks/python](https://github.com/paketo-buildpacks/python)                       |
 | `tanzu-buildpacks/web-servers`       | [paketo-buildpacks/web-servers](https://github.com/paketo-buildpacks/web-servers)             |
 
-To replace the builder in the Enterprise plan, you need to create a TOML file for your own builder. The following TOML file is an example that you can be customize. With this TOML file, you can create a similar builder on your local machine. Adjust the TOML file based on your app's requirements.
+To replace the builder in the Enterprise plan, you need to create a TOML file for your own builder. The following TOML file is an example that you can customize. With this TOML file, you can create a similar builder on your local machine. Adjust the TOML file based on your app's requirements.
 
 ```toml
 # filename: enterprise-builder.toml
