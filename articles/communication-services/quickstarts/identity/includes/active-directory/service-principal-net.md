@@ -96,11 +96,11 @@ In the `Main` method of your `Program.cs` file, add code to call the methods you
 ```csharp
 static void Main(string[] args)
 {
-    // You can find your endpoint and access key from your resource in the Azure portal
-    // e.g. "https://<RESOURCE_NAME>.communication.azure.com";
+    // Replace <RESOURCE_NAME> with your Communication Services resource name,
+    // for example: "https://<RESOURCE_NAME>.communication.azure.com".
     Uri endpoint = new("https://<RESOURCENAME>.communication.azure.com/");
 
-    // We need an instance of the program class to use within this method.
+    // Create an instance of the Program class to invoke instance methods.
     Program instance = new();
 
     Console.WriteLine("Retrieving new Access Token, using Service Principals");
@@ -109,7 +109,7 @@ static void Main(string[] args)
 
     Console.WriteLine("Sending SMS using Service Principals");
 
-    // You will need a phone number from your resource to send an SMS.
+    // Replace with your Azure Communication Services phone number and the target phone number.
     SmsSendResult result = instance.SendSms(endpoint, "<Your Azure Communication Services Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from using Service Principals");
     Console.WriteLine($"Sms id: {result.MessageId}");
     Console.WriteLine($"Send Result Successful: {result.Successful}");
@@ -124,11 +124,11 @@ class Program
           private DefaultAzureCredential credential = new DefaultAzureCredential();
           static void Main(string[] args)
           {
-               // You can find your endpoint and access key from your resource in the Azure portal
-               // e.g. "https://<RESOURCE_NAME>.communication.azure.com";
+               // Replace <RESOURCE_NAME> with your Communication Services resource name,
+               // for example: "https://<RESOURCE_NAME>.communication.azure.com".
                Uri endpoint = new("https://acstestingrifox.communication.azure.com/");
 
-               // We need an instance of the program class to use within this method.
+               // Create an instance of the Program class to invoke instance methods.
                Program instance = new();
 
                Console.WriteLine("Retrieving new Access Token, using Service Principals");
@@ -137,7 +137,7 @@ class Program
 
                Console.WriteLine("Sending SMS using Service Principals");
 
-               // You will need a phone number from your resource to send an SMS.
+               // Replace with your Azure Communication Services phone number and the target phone number.
                SmsSendResult result = instance.SendSms(endpoint, "<Your Azure Communication Services Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from Service Principals");
                Console.WriteLine($"Sms id: {result.MessageId}");
                Console.WriteLine($"Send Result Successful: {result.Successful}");
