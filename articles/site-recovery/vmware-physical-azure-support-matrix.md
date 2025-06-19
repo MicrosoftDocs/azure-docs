@@ -4,8 +4,8 @@ description: Summarizes support for disaster recovery of VMware VMs and physical
 ms.topic: concept-article
 ms.service: azure-site-recovery
 ms.date: 03/11/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -308,6 +308,8 @@ Guest/server network static IP (Linux) | Yes. <br/><br/>VMs are configured to us
 Guest/server network multiple NICs | Yes.
 Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
+> [!NOTE]
+> VM must allow Outbound traffic on Port 443 and 9943 to the appliance. 
 
 ## Azure VM network (after failover)
 

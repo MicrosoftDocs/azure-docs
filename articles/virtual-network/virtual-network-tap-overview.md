@@ -65,7 +65,6 @@ Following are limitations during our preview.
 |Partner|Product|
 |-------------|----------|
 |**Gigamon**|[GigaVUE Cloud Suite for Azure](https://www.gigamon.com/solutions/cloud/public-cloud/gigavue-cloud-suite-azure.html)|
-|**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
 |**Keysight**|[CloudLens](https://www.keysight.com/us/en/products/network-visibility/cloud-visibility/cloudlens-software-suite.html)|
 
 ### Security analytics, network/application performance management
@@ -78,6 +77,7 @@ Following are limitations during our preview.
 |**Vectra**|[Vectra NDR](https://www.vectra.ai/products/ndr)|
 |**Fortinet**|[FortiNDR Cloud](https://www.fortinet.com/products/network-detection-and-response)|
 ||[FortiGate VM](https://azuremarketplace.microsoft.com/en/marketplace/apps/fortinet.fortinet_fortigate-vm_v5?tab=Overview)|
+|**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
 |**TrendMicro**|[Trend Vision One™ Network Security](https://www.trendmicro.com/en_ca/business/products/network.html)|
 |**Extrahop**|[Reveal(x)](https://www.extrahop.com/platform/revealx)|
 |**Bitdefender**|[GravityZone Extended Detection and Response for Network](https://www.bitdefender.com/en-us/business/products/gravityzone-xdr)|

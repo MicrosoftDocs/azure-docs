@@ -9,6 +9,7 @@ ms.date: 06/13/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 
 #CustomerIntent: As an Azure administrator, I want to manage Network Watcher instance in Azure regions based on my team's needs to Network Watcher capabilities in those regions.
+# Customer intent: As an Azure administrator, I want to enable or disable Network Watcher instances in my regions, so that I can effectively monitor and diagnose network conditions to ensure optimal performance and reliability of my Azure resources.
 ---
 
 # Enable or disable Azure Network Watcher

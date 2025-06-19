@@ -6,7 +6,10 @@ tags: azure-service-management
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 05/05/2025
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom:
+  - mvc
+  - devx-track-azurepowershell
+  - build-2025
 ms.author: msangapu
 author: msangapu-msft
 ---

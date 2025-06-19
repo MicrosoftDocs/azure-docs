@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/03/2025
+# Customer intent: "As a network engineer, I want to enable Azure Peering Service for voice on a Direct peering, so that I can ensure reliable voice communication over our network infrastructure."
 ---
 
 # Enable Azure Peering Service Voice on a Direct peering by using the Azure portal

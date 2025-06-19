@@ -1,21 +1,23 @@
 ---
-title: 'Invoke an OpenAPI App Service web app from Azure AI Agent Service'
-description: Learn how to integrate App Service with AI Agent Service and get started with agentic AI
+title: 'Invoke an App Service web app from Azure AI Foundry Agent Service'
+description: Learn how to integrate App Service with AI Foundry Agent Service and get started with agentic AI
 author: seligj95
 ms.author: jordanselig
-ms.date: 04/25/2025
+ms.date: 06/13/2025
 ms.topic: article
-ms.custom: devx-track-dotnet
+ms.custom:
+  - devx-track-dotnet
+  - build-2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Invoke an OpenAPI App Service web app from Azure AI Agent Service
+# Invoke an App Service web app from Azure AI Foundry Agent Service
 
-[Azure AI Agent Service](/azure/ai-services/agents/overview) allows you to create AI agents tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. You can now connect your Azure AI Agent to an external API using an [OpenAPI 3.0](https://www.openapis.org/what-is-openapi) specified tool, allowing for scalable interoperability with various applications. 
+[Azure AI Foundry Agent Service](/azure/ai-services/agents/overview) allows you to create AI agents tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. You can now connect your Azure AI Agent to an external API using an [OpenAPI 3.0](https://www.openapis.org/what-is-openapi) specified tool, allowing for scalable interoperability with various applications. 
 
-Azure App Service is a fully managed platform for building, deploying, and scaling web apps and APIs. If your API is hosted on Azure App Service, you can connect your AI Agent to the API using the OpenAPI specification. The OpenAPI specification defines the API and how to interact with it. You can then use natural language to invoke the API through your AI Agent.
+Azure App Service is a fully managed platform for building, deploying, and scaling web apps and APIs. If your API is hosted on Azure App Service, you can connect your AI Agent to the API using the OpenAPI specification. The OpenAPI specification defines the API and how to interact with it. You can then use natural language to invoke the API through your AI Agent. This tool is powerful because it allows you to add AI agent capabilities to your existing apps with minimal code changes. Also, this agent has the ability to directly interact with your app. There's no need for significant code changes or implementation work other thank minor updates to interact with the agent using the available SDKs.
 
-In this tutorial, you're using an Azure AI Agent to invoke an API hosted on Azure App Service. By the end of this tutorial, you have a fashion assistant chat application running in App Service using an AI agent from the Azure AI Agent Service.
+In this tutorial, you're using an Azure AI Foundry Agent to invoke an existing API hosted on Azure App Service. By the end of this tutorial, you have a fashion assistant chat application running in App Service using an AI agent from the Azure AI Foundry Agent Service.
 
 :::image type="content" source="media/invoke-openapi-web-app-from-azure-ai-agent-service/browse-app.png" alt-text="A screenshot showing an AI agent running within App Service.":::
 
@@ -82,7 +84,7 @@ For detailed guidance with screenshots and additional information, see [Add Open
     </pre>
 
 1. Leave the authentication method as anonymous. There's no authentication on the web app. If the app required an API key or managed identity to access it, this location is where you would specify this information.
-1. Copy and paste the OpenAPI specification in the text box. The OpenAPI specification is provided in the Codespace in the `src/webapp` directory and is called `swagger.json`.
+1. Copy and paste the OpenAPI specification in the text box. The OpenAPI specification is provided in the Codespace in the `src/webapp` directory and is called [swagger.json](https://github.com/Azure-Samples/ai-agent-openai-web-app/blob/main/src/webapp/swagger.json).
 1. Before you complete creating the tool, you need to copy and paste your app's URL into the OpenAPI specification. Replace the placeholder `<APP-SERVICE-URL>` in line 10 of the OpenAPI specification with your app's URL. It's in the format `https://<app-name>.azurewebsites.net`.
     - To find your app's URL, go back to your resource group and navigate to your **App Service**. The URL is on the **Overview** page of your App Service.
 1. Select **Next**, review the details you provided, and then select **Create Tool**.
@@ -137,10 +139,10 @@ azd down
 1. **Chat Not Working**
    - Verify that the environment variables (`AzureAIAgent__ConnectionString` and `AzureAIAgent__AgentId`) are correctly set in the App Service environment variables.
    - Check that the AI Agent is properly created and configured with the correct OpenAPI tool.
-   - Ensure the OpenAPI specification URL is accessible from the Azure AI Agent Service.
+   - Ensure the OpenAPI specification URL is accessible from the Azure AI Foundry Agent Service.
    - Ensure the App Service URL is updated in the `swagger.json` provided to the OpenAPI Specified Tool.
 1. **Permission Issues**
-   - If you encounter authentication errors, ensure that your App Service's managed identity has proper permissions to access the Azure AI Agent Service. The managed identity needs at least the `Microsoft.MachineLearningServices/workspaces/agents/action` permission to interact with the Agent. The provided "Azure AI Developer role" has this permission and should be sufficient. If you decide to change this role, be sure it has the necessary permission.
+   - If you encounter authentication errors, ensure that your App Service's managed identity has proper permissions to access the Azure AI Foundry Agent Service. The managed identity needs at least the `Microsoft.MachineLearningServices/workspaces/agents/action` permission to interact with the Agent. The provided "Azure AI Developer role" has this permission and should be sufficient. If you decide to change this role, be sure it has the necessary permission.
 1. **API Issues**
    - If the agent is unable to perform actions on the inventory or cart, check the API routes in the OpenAPI specification.
    - Verify that the API endpoints are responding correctly by testing them directly in the Swagger UI at `/api/docs`.
@@ -183,7 +185,7 @@ Beyond basic interactions, the AI agent can handle more complex scenarios:
 
 ## Security Considerations
 
-- The application uses Azure managed identities for secure authentication to Azure AI Agent Service in production environments.
+- The application uses Azure managed identities for secure authentication to Azure AI Foundry Agent Service in production environments.
 - You can further secure your app and agent using any of the standard practices and Azure resources. For secure Azure AI Agent infrastructure templates, see the [azureai-samples repo](https://github.com/Azure-Samples/azureai-samples/tree/main/scenarios/Agents/setup).
 
 ## Next steps

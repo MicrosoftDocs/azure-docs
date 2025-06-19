@@ -59,7 +59,7 @@ landingContent:
           - text: Migrate your SIEM in Google Cloud to Microsoft Sentinel
             url: /azure/sentinel/migration
           - text: Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel
-            url:  /azure/sentinel/data-connectors/google-cloud-platform-iam               
+            url:  /azure/sentinel/data-connectors/google-cloud-platform-iam-using-azure-functions               
 
   - title: Migration training modules
     linkLists:
