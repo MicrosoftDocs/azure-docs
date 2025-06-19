@@ -19,9 +19,9 @@ In this document, you:
 > - Learn what telemetry data is available using the Azure App Configuration provider libraries
 > - Learn what telemetry data is available using the Feature Management libraries
 
-## Viewing telemetry data
+## Evaluation Event
 
-With telemetry enabled no other properties are added to the feature flag besides the setting enabling telemetry. The use of one of the Azure App Configuration provider libraries along with the Feature Management libraries is required to start collecting telemetry data.
+Telemetry for feature flags is available when using the Feature Management libraries.
 
 ### Basic fields
 
@@ -35,11 +35,8 @@ The feature management libraries provide the following properties to telemetry d
 - **DefaultWhenEnabled**: The default variant of the feature flag when it's enabled.
 - **Version**: The version of this schema.
 - **VariantAssignmentPercentage**: Specifies the percentage of the user base the assigned variant is allocated for. This field is only present for percentile-based assignments.
-- **AllocationID**: A unique identifier for the feature flag in its current state.
-- **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
 
-The full schema can be found [here](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEvent.v1.0.0.schema.json).
+The full schema can be found in the [Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEvent.v1.0.0.schema.json).
 
 This data can then be sent to locations to be viewed, such as Azure Monitor. When using our provided connections to Azure Monitor, a **custom_event** is published with the following properties whenever a telemetry enabled feature flag is evaluated.
 
@@ -47,9 +44,11 @@ This data can then be sent to locations to be viewed, such as Azure Monitor. Whe
 
 When the Azure App Configuration provider libraries are used, additional properties are added to the telemetry data. These properties provide more context about the feature flag and its evaluation:
 
-- **AllocationID**: A unique identifier for the feature flag in its current state.
+- **AllocationID**: A unique identifier representing the state of the feature flag's allocation.
 - **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`. When a label is present, the reference includes it as a query parameter: `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.```
+
+The full schema can be found in the [App Configuration Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/AppConfigurationFeatureEvaluationEvent/FeatureEvaluationEvent.v1.0.0.schema.json).
 
 ## Next steps
 
