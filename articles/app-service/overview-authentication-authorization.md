@@ -42,6 +42,22 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 
 When you configure this feature with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options.
 
+### Identity Information in Request Headers
+
+The App Service middleware injects user identity information into HTTP request headers before your application processes the request. These headers are **not visible in browser DevTools** because they are added server-side, after the request passes through the middleware.
+The most commonly used headers include:
+
+| Header Name                  | Description                                                                                 |
+|------------------------------|---------------------------------------------------------------------------------------------|
+| `X-MS-CLIENT-PRINCIPAL`      | Base64-encoded JSON with all principal claims                                               |
+| `X-MS-CLIENT-PRINCIPAL-ID`   | Unique user identifier set by the identity provider                                         |
+| `X-MS-CLIENT-PRINCIPAL-NAME` | Human-readable name (e.g., email or user principal name)                                    |
+| `X-MS-CLIENT-PRINCIPAL-IDP`  | Name of the identity provider used (e.g., "aad" for Microsoft Entra ID)                     |
+| `X-MS-TOKEN-AAD-ACCESS-TOKEN`| Access token for Microsoft Entra ID (if configured)                                         |
+| `X-MS-TOKEN-AAD-ID-TOKEN`    | ID token for Microsoft Entra ID (if configured)                                             |
+
+Your application can access these headers in its backend code to obtain user identity information. For more details, see [Work with user identities in Azure App Service authentication](configure-authentication-user-identities.md).
+
 ## Considerations for using built-in authentication
 
 Enabling built-in authentication causes all requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to enforce HTTPS. You can disable this automatic redirection by using the `requireHttps` setting in the V2 configuration. However, we recommend that you keep using HTTPS and ensure that no security tokens are ever transmitted over nonsecure HTTP connections.
