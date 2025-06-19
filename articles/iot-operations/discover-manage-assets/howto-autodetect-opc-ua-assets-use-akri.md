@@ -42,7 +42,7 @@ In this article, you learn how to automatically discover and configure OPC UA as
     Run `rsync enable` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
 
     ```bash
-    az iot ops rsync enable
+    az iot ops rsync enable - n <my instance> -g <my resource group>
     ```
 
     If the signed-in CLI user doesn't have permission to look up the object ID of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
