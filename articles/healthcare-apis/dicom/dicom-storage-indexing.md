@@ -1,7 +1,7 @@
 ---
 title: Automatically index Azure Data Lake Storage Changes for DICOM Files
 description: Learn how to configure the DICOM service to react to Data Lake Storage events
-author: wisuga
+author: wsugarman
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: how-to
@@ -32,7 +32,7 @@ With the Storage Queue in place, events must be published from the Storage Accou
 
 > [!NOTE]
 > By default, event subscriptions send all of the subscribed event types to their designated output. However, while the DICOM service gracefully handles any message, it can only successfully process ones that meet the following criteria:
->- The message must be a Base64 [CloudEvent](../../event-grid/event-schema-subscriptions.md#cloud-event-schema)
+>- The message must be a Base64 [CloudEvent](../../event-grid/event-schema-subscriptions.md)
 >- The event type must be one of the following event types:
   >- `Microsoft.Storage.BlobCreated`
   >- `Microsoft.Storage.BlobDeleted`
