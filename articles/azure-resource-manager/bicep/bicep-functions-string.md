@@ -3,7 +3,7 @@ title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/09/2025
+ms.date: 06/19/2025
 ---
 
 # String functions for Bicep
@@ -141,9 +141,9 @@ The output from the preceding example with the default values is:
 
 ## buildUri
 
-`buildUri(scheme, host, path, query, fragment)`
+`buildUri(uriComponent)`
 
-Constructs a URI by combining the provided scheme, host, path, query, and fragment components into a single URI string. To parse a URI, see [parseUri](#parseuri).
+Constructs a URI by combining the provided scheme, host, port, path, and query component object into a single URI string. To parse a URI, see [parseUri](#parseuri).
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -151,16 +151,11 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| scheme | Yes | string | The protocol of the URI (e.g., `http`, `https`, `ftp`). |
-| host | Yes | string | The domain or hostname (e.g., `example.com`). |
-| path | Yes | string | The path component (e.g., `/path/to/resource`). |
-| query | No | string | The query string, including the leading `?` if present (e.g., `?key=value`). Defaults to an empty string if not provided. |
-| fragment | No | string | The fragment identifier, including the leading `#` if present (e.g., `#section`). Defaults to an empty string if not provided. |
-
-* The `scheme`, `host`, and `path` parameters are required to ensure a valid URI structure.
-* The `query` and `fragment` parameters are optional and can be omitted or set to an empty string (`''`) if not needed.
-* The function handles proper formatting, ensuring correct separators (e.g., `://` between scheme and host, `/` for paths, `?` for queries, `#` for fragments) and avoids issues like double slashes.
-* For complete details, the URI is constructed as specified in [RFC 3986, section 3](https://tools.ietf.org/html/rfc3986#section-3).
+| scheme | Yes | String | The protocol of the URI (e.g., `http`, `https`, `ftp`). |
+| host | Yes | String | The domain or hostname (e.g., `example.com`). |
+| port | No | Int or Null | The port number (e.g., `443`). If not specified, defaults to `null`, which means the default port for the scheme is used. |
+| path | Yes | String | The path component (e.g., `/path/to/resource`). |
+| query | No | String | The query string, including the leading `?` if present (e.g., `?key=value`). Defaults to an empty string if not provided. |
 
 ### Return Value
 
@@ -171,44 +166,46 @@ A string representing the absolute URI constructed from the provided components.
 The following example shows how to use `buildUri` to construct a URI from individual components:
 
 ```bicep
-var scheme = 'https'
-var host = 'mystorage.blob.core.windows.net'
-var path = '/templates/nestedTemplate.json'
-var query = '?st=2025-05-09'
-var fragment = '#section'
+param uriComponents object = {
+  scheme: 'https'
+  host: 'mystorage.blob.core.windows.net'
+  port: 8080
+  path: '/templates/nestedTemplate.json'
+  query: '?st=2025-05-09'
+}
 
-var constructedUri = buildUri(scheme, host, path, query, fragment)
-
-output uriOutput string = constructedUri
+output constructedUri string = buildUri((uriComponents))
 ```
 
 The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| uriOutput | String | `https://mystorage.blob.core.windows.net/templates/nestedTemplate.json?st=2025-05-09#section` |
+| constructedUri | String | `https://mystorage.blob.core.windows.net:8080/templates/nestedTemplate.json?st=2025-05-09` |
 
 The following example shows how to use `parseUri` to extract components from an existing URI, modify them, and then use `buildUri` to reconstruct a new URI:
 
 ```bicep
-param originalUri string = 'https://mystorage.blob.core.windows.net/data/file.json?st=2025-05-09'
+param uriComponents object = parseUri('https://mystorage.blob.core.windows.net:8080/templates/nestedTemplate.json?st=2025-05-09')
+param newQuery string = 'st-2025-06-19'
 
-var parsedUri = parseUri(originalUri)
-var newPath = '/newdata/newfile.json'
-var newQuery = '?newParam=value'
+var updatedUriComponents object = { 
+  scheme: uriComponents.schema
+  host: uriComponents.host
+  port: uriComponents.port
+  path: uriComponents.path
+  query: newQuery
+}
 
-var newUri = buildUri(parsedUri.scheme, parsedUri.host, newPath, newQuery, parsedUri.fragment)
-
-output originalHost string = parsedUri.host
-output newUri string = newUri
+// Reconstruct the URI using buildUri
+output reconstructedUri string = buildUri(updatedUriComponents)
 ```
 
 The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| originalHost | String | `mystorage.blob.core.windows.net` |
-| newUri | String | `https://mystorage.blob.core.windows.net/newdata/newfile.json?newParam=value` |
+| reconstrcutedUri | String | `https://mystorage.blob.core.windows.net/newdata/newfile.json?newParam=value` |
 
 ## concat
 
@@ -969,7 +966,7 @@ The output from the preceding example with the default values is:
 
 `parseUri(uriString)`
 
-Parses a URI string into its constituent components, such as scheme, host, path, query, and fragment. To build a URI string, see [buildUri](#builduri).
+Parses a URI string into its constituent components, such as scheme, host, port, path, and query. To build a URI string, see [buildUri](#builduri).
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -985,14 +982,11 @@ An object containing the parsed URI components with the following properties:
 
 | Property | Type | Description |
 |:--- |:--- |:--- |
-| scheme | string | The protocol of the URI (e.g., `http`, `https`, `ftp`). |
-| host | string | The domain or hostname (e.g., `example.com`). |
-| port | int or null | The port number (e.g., `443`), or `null` if not specified. |
-| path | string | The path component (e.g., `/path/to/resource`). |
-| query | string | The query string, including the leading `?` (e.g., `?key=value`), or empty string if not present. |
-| fragment | string | The fragment identifier, including the leading `#` (e.g., `#section`), or empty string if not present. |
-| authority | string | The full authority component (e.g., `example.com:443`), combining host and port if present. |
-| isAbsolute | bool | Indicates whether the URI is absolute (i.e., includes a scheme). |
+| scheme | String | The protocol of the URI (e.g., `http`, `https`, `ftp`). |
+| host | String | The domain or hostname (e.g., `example.com`). |
+| port | Int or null | The port number (e.g., `443`), or `null` if not specified. |
+| path | String | The path component (e.g., `/path/to/resource`). |
+| query | String | The query string, including the leading `?` (e.g., `?key=value`), or empty string if not present. |
 
 For complete details, the URI is parsed as specified in [RFC 3986, section 3](https://tools.ietf.org/html/rfc3986#section-3).
 
@@ -1001,16 +995,15 @@ For complete details, the URI is parsed as specified in [RFC 3986, section 3](ht
 The following example shows how to use `parseUri` to extract components from a URI:
 
 ```bicep
-param inputUri string = 'https://mystorage.blob.core.windows.net/templates/nestedTemplate.json?st=2025-05-09#section'
+param inputUri string = 'https://mystorage.blob.core.windows.net:8080/templates/nestedTemplate.json?st=2025-05-09'
 
 var parsedUri = parseUri(inputUri)
 
 output scheme string = parsedUri.scheme
 output host string = parsedUri.host
+output port int = parsedUri.port
 output path string = parsedUri.path
 output query string = parsedUri.query
-output fragment string = parsedUri.fragment
-output isAbsolute bool = parsedUri.isAbsolute
 ```
 
 The output from the preceding example with the default values is:
@@ -1019,10 +1012,9 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | scheme | String | `https` |
 | host | String | `mystorage.blob.core.windows.net` |
+| port | Int | `8080` |
 | path | String | `/templates/nestedTemplate.json` |
 | query | String | `?st=2025-05-09` |
-| fragment | String | `#section` |
-| isAbsolute | Bool | `true` |
 
 The following example shows how to use `parseUri` to extract the host and scheme, then reconstruct a new URI with a different path using the `uri` function:
 
