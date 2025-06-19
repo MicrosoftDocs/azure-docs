@@ -20,7 +20,7 @@ In this section, create an Azure logic app that receives Service Bus events by u
 
 1. Select **+ Create a resource**, select **Integration**, and then select **Logic App**. 
     
-   :::image type="content" source="./media/service-bus-to-event-grid-integration-example/create-resource-logic-app.png" alt-text="Screenshot that shows the Create a resource -> Integration -> Logic app menu.":::
+   :::image type="content" source="./media/service-bus-to-event-grid-integration-example/create-resource-logic-app.png" alt-text="Screenshot that shows the Create a resource > Integration > Logic app menu.":::
 
 1. On the **Create Logic App** page, follow these steps:
 
@@ -53,7 +53,7 @@ In this section, create an Azure logic app that receives Service Bus events by u
 
 1. Select **Sign in**.
 
-   :::image type="content" source="./media/service-bus-to-event-grid-integration-example/designer-credentials.png" alt-text="Screenshot that shows the Logic Apps Designer with the Sign-in button selected.":::
+   :::image type="content" source="./media/service-bus-to-event-grid-integration-example/designer-credentials.png" alt-text="Screenshot that shows the Logic Apps Designer with the Sign in button selected.":::
 
 1. On the **Sign in to your account** page, select the account you want to use to sign in to Azure. 
 1. On the **When a resource event occurs** page, do the following steps:

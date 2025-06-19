@@ -39,4 +39,4 @@ In this section, you use a sample application to send messages to the Service Bu
 
 1. Build and run the program to send five test messages (`const int numberOfMessages = 5;`) to the Service Bus topic. 
 
-   :::image type="content" source="./media/service-bus-event-grid-prerequisites/console-app-output.png" alt-text="Console app output":::
+   :::image type="content" source="./media/service-bus-event-grid-prerequisites/console-app-output.png" alt-text="Screenshot shows the console app output, sending 5 messages.":::
