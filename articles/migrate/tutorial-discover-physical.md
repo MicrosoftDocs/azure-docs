@@ -134,7 +134,7 @@ To generate the project key, follow the steps:
 
 | Download | Hash value | 
 | --- | --- |
-| [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)| 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731|
+| [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)| c88e90691ebf87166243dafb2d3a18dd34066b4624595ee3f9b4fbe6885e81da |
 
 >[!Note]
 > You can use the same script to set up the physical appliance for both Azure Public and Azure Government cloud.
