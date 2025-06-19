@@ -48,7 +48,7 @@ The event subscription can be configured to filter out irrelevant data to avoid 
 
 ### Enable Storage Indexing
 
-Once the Event Grid subscription is configured, the DICOM service must know from where to read the storage events. While in preview, storage indexing may only be configured using an [Azure Resource Manager (ARM) template](../../azure-resource-manager/templates/overview.md) using version `2025-04-01-preview` which introduced a new property called `storageConfiguration.storageIndexingConfiguration.storageEventQueueName`. It's currently unavailable to configure via the Azure portal.
+Once the Event Grid subscription is configured, the DICOM service must know from where to read the storage events. While in preview, storage indexing may only be configured using an [Azure Resource Manager (ARM) template](../../azure-resource-manager/templates/overview.md) using version `2025-04-01-preview`, which introduced a new property called `storageConfiguration.storageIndexingConfiguration.storageEventQueueName`. It's currently unavailable to configure via the Azure portal.
 
 The following example ARM template may be deployed using the [Azure CLI](../../azure-resource-manager/templates/deploy-cli.md). It includes all of the necessary resources for a DICOM service:
 
