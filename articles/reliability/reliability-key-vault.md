@@ -202,7 +202,7 @@ Both features are strongly recommended for production environments. For a detail
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Azure Key Vault describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. For more information, see [SLA for Azure Key Vault](https://azure.microsoft.com/support/legal/sla/key-vault/).
+The service-level agreement (SLA) for Azure Key Vault describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. For more information, see the [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Related content
 - [Azure Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance)
