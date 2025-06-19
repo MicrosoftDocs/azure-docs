@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 author: ju-shim
 ms.author: jushiman
-ms.date: 3/22/2024
+ms.date: 6/18/2024
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -41,6 +41,7 @@ You can use the following host types when Azure Elastic SAN is the backing stora
 
 - AV36
 - AV36P
+- AV48
 - AV52
 - AV64
 
@@ -127,3 +128,5 @@ To resize the Elastic SAN-based datastore, use the following steps from the Azur
 
 ![Resize-VmfsVolume.](media/configure-azure-elastic-san/resize-vmfsvolume.png)
 
+   > [!NOTE]
+   > Run Commands are executed one at a time in the order submitted.
