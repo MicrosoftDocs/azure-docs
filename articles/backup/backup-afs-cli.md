@@ -1,22 +1,22 @@
 ---
-title: Back up Azure file shares with Azure CLI
-description: Learn how to use Azure CLI to back up Azure file shares in the Recovery Services vault
+title: Back up Azure Files with Azure CLI
+description: Learn how to use Azure CLI to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
-ms.date: 03/20/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 05/22/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Back up Azure file shares with Azure CLI
+# Back up Azure Files with Azure CLI
 
-The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article details how to back up Azure file shares with Azure CLI. You can also perform these steps via [Azure PowerShell](./backup-azure-afs-automation.md) or the [Azure portal](backup-afs.md).
+The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article details how to back up Azure Files with Azure CLI. You can also perform these steps via [Azure PowerShell](./backup-azure-afs-automation.md) or the [Azure portal](backup-afs.md).
 
 By the end of this tutorial, you'll learn how to perform the operations below with Azure CLI:
 
 * Create a Recovery Services vault
-* Enable backup for Azure file shares
-* Trigger an on-demand backup for file shares
+* Enable backup for Azure Files
+* Trigger an on-demand backup for File Shares
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -54,13 +54,13 @@ Follow these steps to create a Recovery Services vault:
     eastus      azurefilesvault     azurefiles
     ```
 
-## Enable backup for Azure file shares
+## Enable backup for Azure Files
 
-This section assumes that you already have an Azure file share for which you want to configure backup. If you don't have one, create an Azure file share using the [az storage share create](/cli/azure/storage/share#az-storage-share-create) command.
+This section assumes that you already have an Azure Files for which you want to configure backup. If you don't have one, create an Azure Files using the [az storage share create](/cli/azure/storage/share#az-storage-share-create) command.
 
-To enable backup for file shares, you need to create a protection policy that defines when a backup job runs and how long recovery points are stored. You can create a backup policy using the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) cmdlet.
+To enable backup for File Shares, you need to create a protection policy that defines when a backup job runs and how long recovery points are stored. You can create a backup policy using the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) cmdlet.
 
-The following example uses the [az backup protection enable-for-azurefileshare](/cli/azure/backup/protection#az-backup-protection-enable-for-azurefileshare) cmdlet to enable backup for the *azurefiles* file share in the *afsaccount* storage account using the *schedule 1* backup policy:
+The following example uses the [az backup protection enable-for-azurefileshare](/cli/azure/backup/protection#az-backup-protection-enable-for-azurefileshare) cmdlet to enable backup for the *azurefiles* File Share in the *afsaccount* storage account using the *schedule 1* backup policy:
 
 ```azurecli-interactive
 az backup protection enable-for-azurefileshare --vault-name azurefilesvault --resource-group  azurefiles --policy-name schedule1 --storage-account afsaccount --azure-file-share azurefiles  --output table
@@ -74,14 +74,14 @@ Name                                  ResourceGroup
 
 The **Name** attribute in the output corresponds to the name of the job that's created by the backup service for your **enable backup** operation. To track status of the job, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
-## Trigger an on-demand backup for file share
+## Trigger an on-demand backup for File Share
 
-If you want to trigger an on-demand backup for your file share instead of waiting for the backup policy to run the job at the scheduled time, use the [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) cmdlet.
+If you want to trigger an on-demand backup for your File Share instead of waiting for the backup policy to run the job at the scheduled time, use the [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) cmdlet.
 
 You need to define the following parameters to trigger an on-demand backup:
 
-* **--container-name** is the name of the storage account hosting the file share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az-backup-container-list) command.
-* **--item-name** is the name of the file share for which you want to trigger an on-demand backup. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](/cli/azure/backup/item#az-backup-item-list) command.
+* **--container-name** is the name of the storage account hosting the File Share. To retrieve the **name** or **friendly name** of your container, use the [az backup container list](/cli/azure/backup/container#az-backup-container-list) command.
+* **--item-name** is the name of the File Share for which you want to trigger an on-demand backup. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](/cli/azure/backup/item#az-backup-item-list) command.
 * **--retain-until** specifies the date until when you want to retain the recovery point. The value should be set in UTC time format (dd-mm-yyyy).
 
 The following example triggers an on-demand backup for the *azurefiles* fileshare in the *afsaccount* storage account with retention until *20-01-2020*.
@@ -100,5 +100,6 @@ The **Name** attribute in the output corresponds to the name of the job that's c
 
 ## Next steps
 
-* Learn how to [Restore Azure file shares with CLI](restore-afs-cli.md)
-* Learn how to [Manage Azure file share backups with CLI](manage-afs-backup-cli.md)
+* [Restore Azure Files with CLI](restore-afs-cli.md).
+* Restore Azure Files using [Azure portal](restore-afs.md), [Azure PowerShell](restore-afs-powershell.md), [REST API](restore-azure-file-share-rest-api.md).
+* Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

@@ -40,7 +40,19 @@
     - name: Move across resource groups/subscriptions
       href: move-resource-group-and-subscription.md
     - name: Move across regions
-      href: ../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
+      items: 
+      - name: Relocation overview
+        href: relocate-index.md
+      - name: Initiate relocation
+        href: relocate-initiate.md
+      - name: Evaluate workload
+        href: relocate-evaluate.md
+      - name: Select relocation strategy
+        href: relocate-select.md
+      - name: Migrate workload
+        href: relocate-migrate.md
+      - name: Cut over traffic
+        href: relocate-cutover.md
     - name: Resources supported for move
       href: move-support-resources.md
     - name: Azure services
@@ -65,64 +77,121 @@
           href: ./move-limitations/virtual-machines-move-limitations.md
       - name: Across regions
         items:
-        - name: Azure API Management
-          href: ../../api-management/api-management-howto-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure App Service
-          href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Automation
-          href: ../../operational-excellence/relocation-automation.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Backup (Recovery Services vault)
-          href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Batch
-          href: ../../batch/account-move.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Cache for Redis
-          href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure AI Search
-          href: /azure/search/search-howto-move-across-regions?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Container Registry
-          href: /azure/container-registry/manual-regional-move
-        - name: Azure Cosmos DB
-          href: /azure/cosmos-db/how-to-move-regions?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Database for MariaDB Server
-          href: /azure/mariadb/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Database for MySQL Server
-          href: /azure/mysql/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Database for PostgreSQL Server
-          href: /azure/postgresql/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Event Hubs
-          href: ../../operational-excellence/relocation-event-hub.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Functions
-          href: ../../azure-functions/functions-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure IoT Hub
-          href: ../../iot-hub/iot-hub-how-to-clone.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Resource Manager
-          href: microsoft-resources-move-regions.md
-        - name: Azure Storage Account
-          href: ../../operational-excellence/relocation-storage-account.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure SQL DB & MI
-          href: /azure/azure-sql/database/move-resources-across-regions?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Stream Analytics
+        - name: AI + Machine Learning
           items:
-          - name: Move Stream Analytics jobs
-            href: ../../stream-analytics/copy-job.md?toc=/azure/azure-resource-manager/management/toc.json
-          - name: Move Stream Analytics cluster
-            href: ../../stream-analytics/move-cluster.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure VMs
-          href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Logic apps
-          href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Maintenance Control configuration
-          href: /azure/virtual-machines/move-region-maintenance-configuration?toc=/azure/azure-resource-manager/management/toc.json
+          - name: Azure AI Search
+            href: /azure/search/search-howto-move-across-regions?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Analytics
+          items:
+          - name: Event Hubs
+            href: ./relocation/relocation-event-hub.md
+          - name: Event Hubs Cluster
+            href: ./relocation/relocation-event-hub-cluster.md
+          - name: HDInsight
+            href: ./relocation/relocation-hdinsight.md
+          - name: Power BI
+            href: /power-bi/admin/service-admin-region-move?toc=/azure/azure-resource-manager/management/toc.json
+          - name: Stream Analytics
+            items:
+            - name: Move Stream Analytics jobs
+              href: ../../stream-analytics/copy-job.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Move Stream Analytics cluster
+              href: ../../stream-analytics/move-cluster.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Compute
+          items:
+          - name: App Service
+            href: ./relocation/relocation-app-service.md
+          - name: Batch
+            href: ../../batch/account-move.md?toc=/azure/azure-resource-manager/management/toc.json
+          - name: Functions
+            href: ./relocation/relocation-functions.md
+          - name: Static Web Apps
+            href: ./relocation/relocation-static-web-apps.md
+          - name: Virtual Machines
+            items:
+            - name: Move VMs to another region
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: Move encrypted VMs to another region
+              href: ../../resource-mover/tutorial-move-region-encrypted-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+          - name: Virtual Machine Scale Sets
+            href: ./relocation/relocation-virtual-machine-scale-sets.md
+        - name: Containers
+          items:
+          - name: Container Registry
+            href: ./relocation/relocation-container-registry.md
+          - name: Kubernetes Service
+            href: ./relocation/relocation-kubernetes-service.md
+        - name: Databases
+          items:
+          - name: Cache for Redis
+            href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
+          - name: Cosmos DB
+            href: ./relocation/relocation-cosmos-db.md
+          - name: Database for MariaDB Server
+            href: /azure/mariadb/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
+          - name: Database for MySQL Server
+            href: /azure/mysql/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
+          - name: Database for PostgreSQL
+            href: ./relocation/relocation-postgresql-flexible-server.md
+        - name: Integration
+          items:
+          - name: Logic apps
+            href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Internet of Things
+          items:
+          - name: Event Grid
+            items:
+            - name: Relocate Event Grid domains
+              href: ./relocation/relocation-event-grid-domains.md
+            - name: Relocate Event Grid custom topics
+              href: ./relocation/relocation-event-grid-custom-topics.md
+            - name: Relocate Event Grid system topics
+              href: ./relocation/relocation-event-grid-system-topics.md
+          - name: IoT Hub
+            href: ../../iot-hub/iot-hub-how-to-clone.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Management and governance
+          items:
+          - name: Automation
+            href: ./relocation/relocation-automation.md
+          - name: Backup
+            href: ./relocation/relocation-backup.md
+          - name: Monitor - Log Analytics Workspace
+            href: ./relocation/relocation-log-analytics.md    
+          - name: Site Recovery (Recovery Services vaults)
+            href: ./relocation/relocation-site-recovery.md  
         - name: Networking
-          href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Managed identities for Azure Resources
-          href: ../../operational-excellence/relocation-managed-identity.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Power BI
-          href: /power-bi/admin/service-admin-region-move
-        - name: Site Recovery (Recovery Services vaults)
-          href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: SQL Server on Azure VM
-          href: /azure/azure-sql/virtual-machines/windows/move-sql-vm-different-region?toc=/azure/azure-resource-manager/management/toc.json
+          items:
+          - name: App Gateway and Web App Firewall
+            displayname: Application Gateway, Web Application Firewall
+            href: ./relocation/relocation-app-gateway.md
+          - name: Load Balancer
+            href: ../../load-balancer/move-across-regions-external-load-balancer-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+          - name: Private Link Service
+            href: ./relocation/relocation-private-link.md 
+          - name: Virtual Network
+            items:
+            - name: Virtual Network
+              href: ./relocation/relocation-virtual-network.md 
+            - name: Network Security Groups (NSG)
+              href: ./relocation/relocation-virtual-network-nsg.md
+        - name: Security
+          items:
+          - name: Firewall
+            href: ./relocation/relocation-firewall.md
+          - name: Key Vault
+            href: ./relocation/relocation-key-vault.md
+          - name: Managed identities for Azure resources
+            href: /entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move?toc=/azure/azure-resource-manager/management/toc.json&bc=/azure/operational-excellence/breadcrumb/toc.json
+        - name: Storage
+          items:
+          - name: NetApp Files
+            href: ./relocation/relocation-netapp.md
+          - name: Storage Account
+            href: ./relocation/relocation-storage-account.md
+        - name: Web
+          items:
+          - name: API Management
+            href: ../../api-management/api-management-howto-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
   - name: Tags
     items:
     - name: Decision guide
@@ -149,6 +218,8 @@
       href: tag-support.md
     - name: Azure Resource Graph queries
       href: ./resource-graph-samples.md
+    - name: Mission critical workload labeling
+      href: tag-mission-critical-workload.md
   - name: Private link access
     items:
     - name: Create - portal
@@ -206,6 +277,9 @@
     href: monitor-resource-manager.md
   - name: Resource group insights
     href: resource-group-insights.md
+  - name: Configure data boundary
+    displayName: eudb
+    href: manage-data-boundary.md
 - name: Reference
   items:
   - name: REST
@@ -234,7 +308,7 @@
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-resource-manager
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+    href: https://azure.microsoft.com/updates/?category=monitoring-management
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates

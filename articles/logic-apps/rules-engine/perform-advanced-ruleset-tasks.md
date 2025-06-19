@@ -7,18 +7,17 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to perform more advanced tasks and operations on rulesets using the Microsoft Rules Composer.
+ms.custom:
+  - build-2025
 ---
 
-# Perform advanced tasks on rulesets with the Microsoft Rules Composer (Preview)
+# Perform advanced tasks on rulesets with the Microsoft Rules Composer
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This guide describes more advanced operations that you can perform on rulesets in the Microsoft Rules Composer.
 

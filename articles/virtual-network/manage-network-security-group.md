@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 04/07/2025
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -20,6 +20,7 @@ When you use security rules in network security groups (NSGs), you can filter th
 If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before you start the remainder of this article:
 
 - **Portal users**: Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+
 - **PowerShell users**: Either run the commands in [Azure Cloud Shell](https://shell.azure.com/powershell) or run PowerShell locally from your computer. Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools that are preinstalled and configured to use with your account. On the Cloud Shell browser tab, find the **Select environment** dropdown list. Then select **PowerShell** if it isn't already selected.
 
     If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). Run `Connect-AzAccount` to sign in to Azure.
@@ -55,8 +56,6 @@ The number of NSGs that you can create for each Azure region and subscription is
     | Network security group name | Enter a name for the NSG that you're creating. |
     | Region | Select the region that you want. |
 
-    :::image type="content" source="./media/manage-network-security-group/create-network-security-group.png" alt-text="Screenshot that shows creating a NSG in the Azure portal.":::
-
 1. Select **Review + create**.
 
 1. After you see the **Validation passed** message, select **Create**.
@@ -66,7 +65,15 @@ The number of NSGs that you can create for each Azure region and subscription is
 Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create an NSG named `myNSG` in the **East US** region. The NSG named `myNSG` is created in the existing `myResourceGroup` resource group.
 
 ```azurepowershell-interactive
-New-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup  -Location  eastus
+# Define parameters for the new network security group
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+    Location          = "eastus"
+}
+
+# Create the network security group
+New-AzNetworkSecurityGroup @NSGParams
 ```
 
 # [**Azure CLI**](#tab/network-security-group-cli)
@@ -74,7 +81,9 @@ New-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup  -Loca
 Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create an NSG named `myNSG` in the existing `myResourceGroup` resource group.
 
 ```azurecli-interactive
-az network nsg create --resource-group MyResourceGroup --name myNSG
+az network nsg create \
+    --resource-group myResourceGroup \
+    --name myNSG
 ```
 
 ---
@@ -111,18 +120,24 @@ az network nsg list --out table
 
 1. Select the name of your NSG.
 
-   - Under **Settings**, view the **Inbound security rules**, **Outbound security rules**, **Network interfaces**, and **Subnets** to which the NSG is associated.
-   - Under **Monitoring**, enable or disable **Diagnostic settings**. For more information, see [Resource logging for a network security group](virtual-network-nsg-manage-log.md).
-   - Under **Help**, view **Effective security rules**. For more information, see [Diagnose a virtual machine (VM) network traffic filter problem](diagnose-network-traffic-filter-problem.md).
+   - In **Settings**, view the **Inbound security rules**, **Outbound security rules**, **Network interfaces**, and **Subnets** to which the NSG is associated.
+   
+   - In **Monitoring**, enable or disable **Diagnostic settings**. For more information, see [Resource logging for a network security group](virtual-network-nsg-manage-log.md).
+   
+   - In **Help**, view **Effective security rules**. For more information, see [Diagnose a virtual machine (VM) network traffic filter problem](diagnose-network-traffic-filter-problem.md).
 
    :::image type="content" source="./media/manage-network-security-group/network-security-group-details-inline.png" alt-text="Screenshot that shows the Network security group page in the Azure portal." lightbox="./media/manage-network-security-group/network-security-group-details-expanded.png":::
 
 To learn more about the common Azure settings that are listed, see the following articles:
 
 - [Activity log](/azure/azure-monitor/essentials/platform-logs-overview)
+
 - [Access control identity and access management (IAM)](../role-based-access-control/overview.md)
+
 - [Tags](../azure-resource-manager/management/tag-resources.md)
+
 - [Locks](../azure-resource-manager/management/lock-resources.md)
+
 - [Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 # [**PowerShell**](#tab/network-security-group-powershell)
@@ -130,14 +145,24 @@ To learn more about the common Azure settings that are listed, see the following
 Use [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) to view the details of an NSG.
 
 ```azurepowershell-interactive
-Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
+# Define parameters for the network security group
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+
+# Retrieve the network security group
+Get-AzNetworkSecurityGroup @NSGParams
 ```
 
 To learn more about the common Azure settings that are listed, see the following articles:
 
 - [Activity log](/azure/azure-monitor/essentials/platform-logs-overview)
+
 - [Access control (IAM)](../role-based-access-control/overview.md)
+
 - [Tags](../azure-resource-manager/management/tag-resources.md)
+
 - [Locks](../azure-resource-manager/management/lock-resources.md)
 
 # [**Azure CLI**](#tab/network-security-group-cli)
@@ -145,14 +170,19 @@ To learn more about the common Azure settings that are listed, see the following
 Use [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show) to view the details of an NSG.
 
 ```azurecli-interactive
-az network nsg show --resource-group myResourceGroup --name myNSG
+az network nsg show \
+    --resource-group myResourceGroup \
+    --name myNSG
 ```
 
 To learn more about the common Azure settings that are listed, see the following articles:
 
 - [Activity log](/azure/azure-monitor/essentials/platform-logs-overview)
+
 - [Access control (IAM)](../role-based-access-control/overview.md)
+
 - [Tags](../azure-resource-manager/management/tag-resources.md)
+
 - [Locks](../azure-resource-manager/management/lock-resources.md)
 
 ---
@@ -161,8 +191,11 @@ To learn more about the common Azure settings that are listed, see the following
 The most common changes to an NSG are:
 
 - [Associate or dissociate a network security group to or from a network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface)
+
 - [Associate or dissociate a network security group to or from a subnet](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet)
+
 - [Create a security rule](#create-a-security-rule)
+
 - [Delete a security rule](#delete-a-security-rule)
 
 ### Associate or dissociate a network security group to or from a network interface
@@ -190,13 +223,24 @@ For more information about the association and dissociation of an NSG, see [Asso
 Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate or dissociate an NSG to or from a subnet.
 
 ```azurepowershell-interactive
-## Place the virtual network configuration into a variable. ##
-$virtualNetwork = Get-AzVirtualNetwork -Name myVNet -ResourceGroupName myResourceGroup
-## Place the network security group configuration into a variable. ##
-$networkSecurityGroup = Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
-## Update the subnet configuration. ##
-Set-AzVirtualNetworkSubnetConfig -Name mySubnet -VirtualNetwork $virtualNetwork -AddressPrefix 10.0.0.0/24 -NetworkSecurityGroup $networkSecurityGroup
-## Update the virtual network. ##
+# Define parameters for the virtual network and subnet configuration
+$VNetParams = @{
+    Name              = "myVNet"
+    ResourceGroupName = "myResourceGroup"
+}
+$SubnetParams = @{
+    Name              = "mySubnet"
+    AddressPrefix     = "10.0.0.0/24"
+    NetworkSecurityGroup = $networkSecurityGroup
+}
+
+# Retrieve the virtual network
+$virtualNetwork = Get-AzVirtualNetwork @VNetParams
+
+# Update the subnet configuration
+Set-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork @SubnetParams
+
+# Update the virtual network
 Set-AzVirtualNetwork -VirtualNetwork $virtualNetwork
 ```
 
@@ -205,7 +249,11 @@ Set-AzVirtualNetwork -VirtualNetwork $virtualNetwork
 Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to associate or dissociate an NSG to or from a subnet.
 
 ```azurecli-interactive
-az network vnet subnet update --resource-group myResourceGroup --vnet-name myVNet --name mySubnet --network-security-group myNSG
+az network vnet subnet update \
+    --resource-group myResourceGroup \
+    --vnet-name myVNet \
+    --name mySubnet \
+    --network-security-group myNSG
 ```
 
 ---
@@ -228,7 +276,14 @@ If an NSG is associated to any subnets or network interfaces, it can't be delete
 Use [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup) to delete an NSG.
 
 ```azurepowershell-interactive
-Remove-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
+# Define parameters for the network security group to be removed
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+
+# Remove the network security group
+Remove-AzNetworkSecurityGroup @NSGParams
 ```
 
 # [**Azure CLI**](#tab/network-security-group-cli)
@@ -236,7 +291,9 @@ Remove-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
 Use [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete) to delete an NSG.
 
 ```azurecli-interactive
-az network nsg delete --resource-group myResourceGroup --name myNSG
+az network nsg delete \
+    --resource-group myResourceGroup \
+    --name myNSG
 ```
 
 ---
@@ -256,7 +313,7 @@ The number of rules per NSG that you can create for each Azure location and subs
 
 1. Select **Inbound security rules** or **Outbound security rules**.
 
-    Several existing rules are listed, including some that you might not have added. When you create an NSG, several default security rules are created in it. To learn more, see [Default security rules](./network-security-groups-overview.md#default-security-rules). You can't delete default security rules, but you can override them with rules that have a higher priority.
+    When you create an NSG, several default security rules are created in it. To learn more, see [Default security rules](./network-security-groups-overview.md#default-security-rules). You can't delete default security rules, but you can override them with rules that have a higher priority.
 
 1. <a name="security-rule-settings"></a>Select **+ Add**. Select or add values for the following settings, and then select **Add**.
 
@@ -286,13 +343,31 @@ The number of rules per NSG that you can create for each Azure location and subs
 Use [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig) to create an NSG rule.
 
 ```azurepowershell-interactive
-## Place the network security group configuration into a variable. ##
-$networkSecurityGroup = Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
-## Create the security rule. ##
-Add-AzNetworkSecurityRuleConfig -Name RDP-rule -NetworkSecurityGroup $networkSecurityGroup `
--Description "Allow RDP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 300 `
--SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
-## Updates the network security group. ##
+# Define parameters for the network security group and security rule
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+$RuleParams = @{
+    Name                 = "RDP-rule"
+    Description          = "Allow RDP"
+    Access               = "Allow"
+    Protocol             = "Tcp"
+    Direction            = "Inbound"
+    Priority             = 300
+    SourceAddressPrefix  = "*"
+    SourcePortRange      = "*"
+    DestinationAddressPrefix = "*"
+    DestinationPortRange = 3389
+}
+
+# Retrieve the network security group
+$networkSecurityGroup = Get-AzNetworkSecurityGroup @NSGParams
+
+# Add the security rule to the network security group
+Add-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup @RuleParams
+
+# Update the network security group
 Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
 ```
 
@@ -301,9 +376,37 @@ Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
 Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create an NSG rule.
 
 ```azurecli-interactive
-az network nsg rule create --resource-group myResourceGroup --nsg-name myNSG --name RDP-rule --priority 300 \
-    --destination-address-prefixes '*' --destination-port-ranges 3389 --protocol Tcp --description "Allow RDP"
+az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name RDP-rule \
+    --priority 300 \
+    --destination-address-prefixes '*' \
+    --destination-port-ranges 3389 \
+    --protocol Tcp \
+    --description "Allow RDP"
 ```
+---
+
+#### Duplicate security rules
+
+To duplicate existing security rules, you can export the JSON of the existing NSG, extract the `securityRules`, and include it in your ARM template.
+
+1. In the search box at the top of the portal, enter **Network security group**. Then select **Network security groups** in the search results.
+
+1. Select the name of the NSG for which you want to duplicate the rules.
+
+1. In the NSG's **Overview** page, expand the **Essentials** section and select the **JSON View** link on the far right.
+
+1. In the **Resource JSON** half-pane, find `"properties"`. Within `"properties"`, find `"securityRules"`. Copy the full object of the security rule or rules you want to duplicate.
+
+1. In the search box at the top of the portal, enter **Deploy a custom template** and select it in the search results.
+
+1. In the **Custom deployment** page, select **Build your own template in the editor**.
+
+1. In the **Edit template** page, specify the existing NSG where you want to duplicate the rules to through its name and location. Within the `"properties"` -> `"securityRules"` of the NSG, paste the copied security rule object or objects.
+
+1. Select **Save**. Select the desired subscription, resource group, and region, then select **Review + create**.
 
 ---
 ### View all security rules
@@ -327,10 +430,17 @@ An NSG contains zero or more rules. To learn more about the list of information 
 Use [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig) to view the security rules of an NSG.
 
 ```azurepowershell-interactive
-## Place the network security group configuration into a variable. ##
-$networkSecurityGroup = Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
-## List security rules of the network security group in a table. ##
-Get-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup | format-table Name, Protocol, Access, Priority, Direction, SourcePortRange, DestinationPortRange, SourceAddressPrefix, DestinationAddressPrefix
+# Define parameters for the network security group
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+
+# Retrieve the network security group
+$networkSecurityGroup = Get-AzNetworkSecurityGroup @NSGParams
+
+# List security rules of the network security group in a table
+Get-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup | Format-Table Name, Protocol, Access, Priority, Direction, SourcePortRange, DestinationPortRange, SourceAddressPrefix, DestinationAddressPrefix
 ```
 
 # [**Azure CLI**](#tab/network-security-group-cli)
@@ -338,7 +448,9 @@ Get-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup | fo
 Use [az network nsg rule list](/cli/azure/network/nsg/rule#az-network-nsg-rule-list) to view the security rules of an NSG.
 
 ```azurecli-interactive
-az network nsg rule list --resource-group myResourceGroup --nsg-name myNSG
+az network nsg rule list \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG
 ```
 
 ---
@@ -364,10 +476,20 @@ az network nsg rule list --resource-group myResourceGroup --nsg-name myNSG
 Use [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig) to view the details of a security rule.
 
 ```azurepowershell-interactive
-## Place the network security group configuration into a variable. ##
-$networkSecurityGroup = Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
-## View details of the security rule. ##
-Get-AzNetworkSecurityRuleConfig -Name RDP-rule -NetworkSecurityGroup $networkSecurityGroup
+# Define parameters for the network security group and security rule
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+$RuleParams = @{
+    Name = "RDP-rule"
+}
+
+# Retrieve the network security group
+$networkSecurityGroup = Get-AzNetworkSecurityGroup @NSGParams
+
+# View details of the security rule
+Get-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup @RuleParams
 ```
 
 > [!NOTE]
@@ -378,7 +500,10 @@ Get-AzNetworkSecurityRuleConfig -Name RDP-rule -NetworkSecurityGroup $networkSec
 Use [az network nsg rule show](/cli/azure/network/nsg/rule#az-network-nsg-rule-show) to view the details of a security rule.
 
 ```azurecli-interactive
-az network nsg rule show --resource-group myResourceGroup --nsg-name myNSG --name RDP-rule
+az network nsg rule show \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name RDP-rule
 ```
 
 > [!NOTE]
@@ -409,13 +534,31 @@ az network nsg rule show --resource-group myResourceGroup --nsg-name myNSG --nam
 Use [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig) to update an NSG rule.
 
 ```azurepowershell-interactive
-## Place the network security group configuration into a variable. ##
-$networkSecurityGroup = Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
-## Make changes to the security rule. ##
-Set-AzNetworkSecurityRuleConfig -Name RDP-rule -NetworkSecurityGroup $networkSecurityGroup `
--Description "Allow RDP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 200 `
--SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 3389
-## Updates the network security group. ##
+# Define parameters for the network security group and security rule
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+$RuleParams = @{
+    Name                 = "RDP-rule"
+    Description          = "Allow RDP"
+    Access               = "Allow"
+    Protocol             = "Tcp"
+    Direction            = "Inbound"
+    Priority             = 200
+    SourceAddressPrefix  = "*"
+    SourcePortRange      = "*"
+    DestinationAddressPrefix = "*"
+    DestinationPortRange = 3389
+}
+
+# Retrieve the network security group
+$networkSecurityGroup = Get-AzNetworkSecurityGroup @NSGParams
+
+# Update the security rule in the network security group
+Set-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup @RuleParams
+
+# Update the network security group
 Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
 ```
 
@@ -427,7 +570,11 @@ Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
 Use [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update) to update an NSG rule.
 
 ```azurecli-interactive
-az network nsg rule update --resource-group myResourceGroup --nsg-name myNSG --name RDP-rule --priority 200
+az network nsg rule update \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name RDP-rule \
+    --priority 200
 ```
 
 > [!NOTE]
@@ -458,11 +605,22 @@ az network nsg rule update --resource-group myResourceGroup --nsg-name myNSG --n
 Use [Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-aznetworksecurityruleconfig) to delete a security rule from an NSG.
 
 ```azurepowershell-interactive
-## Place the network security group configuration into a variable. ##
-$networkSecurityGroup = Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
-## Remove the security rule. ##
-Remove-AzNetworkSecurityRuleConfig -Name RDP-rule -NetworkSecurityGroup $networkSecurityGroup
-## Updates the network security group. ##
+# Define parameters for the network security group and security rule
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+$RuleParams = @{
+    Name = "RDP-rule"
+}
+
+# Retrieve the network security group
+$networkSecurityGroup = Get-AzNetworkSecurityGroup @NSGParams
+
+# Remove the security rule from the network security group
+Remove-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup @RuleParams
+
+# Update the network security group
 Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
 ```
 
@@ -474,7 +632,10 @@ Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
 Use [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete) to delete a security rule from an NSG.
 
 ```azurecli-interactive
-az network nsg rule delete --resource-group myResourceGroup --nsg-name myNSG --name RDP-rule
+az network nsg rule delete \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name RDP-rule
 ```
 
 > [!NOTE]
@@ -504,7 +665,6 @@ An application security group contains zero or more network interfaces. To learn
     | Name | Enter a name for the application security group that you're creating. |
     | Region | Select the region in which you want to create the application security group. |
 
-    :::image type="content" source="./media/manage-network-security-group/create-application-security-group.png" alt-text="Screenshot that shows creating an application security group in the Azure portal.":::
 
 1. Select **Review + create**.
 
@@ -515,7 +675,15 @@ An application security group contains zero or more network interfaces. To learn
 Use [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup) to create an application security group.
 
 ```azurepowershell-interactive
-New-AzApplicationSecurityGroup -ResourceGroupName myResourceGroup -Name myASG -Location eastus
+# Define parameters for the new application security group
+$ASGParams = @{
+    ResourceGroupName = "myResourceGroup"
+    Name              = "myASG"
+    Location          = "eastus"
+}
+
+# Create the application security group
+New-AzApplicationSecurityGroup @ASGParams
 ```
 
 # [**Azure CLI**](#tab/network-security-group-cli)
@@ -523,7 +691,10 @@ New-AzApplicationSecurityGroup -ResourceGroupName myResourceGroup -Name myASG -L
 Use [az network asg create](/cli/azure/network/asg#az-network-asg-create) to create an application security group.
 
 ```azurecli-interactive
-az network asg create --resource-group myResourceGroup --name myASG --location eastus
+az network asg create \
+    --resource-group myResourceGroup \
+    --name myASG \
+    --location eastus
 ```
 
 ---
@@ -548,7 +719,9 @@ Get-AzApplicationSecurityGroup | format-table Name, ResourceGroupName, Location
 Use [az network asg list](/cli/azure/network/asg#az-network-asg-list) to list all the application security groups in a resource group.
 
 ```azurecli-interactive
-az network asg list --resource-group myResourceGroup --out table
+az network asg list \
+    --resource-group myResourceGroup \
+    --out table
 ```
 
 ---
@@ -573,7 +746,9 @@ Get-AzApplicationSecurityGroup -Name myASG
 Use [az network asg show](/cli/azure/network/asg#az-network-asg-show) to view the details of an application security group.
 
 ```azurecli-interactive
-az network asg show --resource-group myResourceGroup --name myASG
+az network asg show \
+    --resource-group myResourceGroup \
+    --name myASG
 ```
 
 ---
@@ -598,14 +773,28 @@ az network asg show --resource-group myResourceGroup --name myASG
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
-You can't change an application security group by using PowerShell.
+```azurepowershell-interactive
+# Define parameters for the application security group
+$ASGParams = @{
+    ResourceGroupName = "myResourceGroup"
+    Name              = "myASG"
+}
+
+# Retrieve the application security group
+$applicationSecurityGroup = Get-AzApplicationSecurityGroup @ASGParams
+
+New-AzTag -ResourceId $applicationSecurityGroup.Id -Tag @{ Dept = "Finance" }
+```
 
 # [**Azure CLI**](#tab/network-security-group-cli)
 
 Use [az network asg update](/cli/azure/network/asg#az-network-asg-update) to update the tags for an application security group.
 
 ```azurecli-interactive
-az network asg update --resource-group myResourceGroup --name myASG --tags Dept=Finance
+az network asg update \
+    --resource-group myResourceGroup \
+    --name myASG \
+    --tags Dept=Finance
 ```
 
 > [!NOTE]
@@ -632,7 +821,14 @@ You can't delete an application security group if it contains any network interf
 Use [Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup) to delete an application security group.
 
 ```azurepowershell-interactive
-Remove-AzApplicationSecurityGroup -ResourceGroupName myResourceGroup -Name myASG
+# Define parameters for the application security group to be removed
+$ASGParams = @{
+    ResourceGroupName = "myResourceGroup"
+    Name              = "myASG"
+}
+
+# Remove the application security group
+Remove-AzApplicationSecurityGroup @ASGParams
 ```
 
 # [**Azure CLI**](#tab/network-security-group-cli)
@@ -640,7 +836,9 @@ Remove-AzApplicationSecurityGroup -ResourceGroupName myResourceGroup -Name myASG
 Use [az network asg delete](/cli/azure/network/asg#az-network-asg-delete) to delete an application security group.
 
 ```azurecli-interactive
-az network asg delete --resource-group myResourceGroup --name myASG
+az network asg delete \
+    --resource-group myResourceGroup \
+    --name myASG
 ```
 
 ---
@@ -684,4 +882,5 @@ To manage NSGs, security rules, and application security groups, your account mu
 ## Related content
 
 - Add or remove [a network interface to or from an application security group](./virtual-network-network-interface.md?tabs=network-interface-portal#add-or-remove-from-application-security-groups).
+
 - Create and assign [Azure Policy definitions](./policy-reference.md) for virtual networks.

@@ -1,13 +1,15 @@
 ---
+ROBOTS: NOINDEX
 title: Use managed identities for Azure Content Delivery Network to access Azure Key Vault certificates
 titleSuffix: Azure Content Delivery Network
 description: This article shows you how to set up managed identities with Azure Content Delivery Network to access certificates in an Azure key vault.
 services: networking
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+# Customer intent: As a cloud administrator, I want to configure managed identities for my content delivery network, so that I can securely access Azure Key Vault certificates without managing secrets or passwords.
 ---
 
 # Use managed identities for Azure Content Delivery Network to access Azure Key Vault certificates
@@ -34,8 +36,6 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
 
 1. Go to an existing Azure Content Delivery Network profile. Select **Identity** from under **Settings** on the left side menu pane.
 
-    :::image type="content" source="./media/managed-identity/overview.png" alt-text="Screenshot of the identity button under settings for a content delivery network profile.":::
-
 1. Select either a **System assigned** or a **User assigned** managed identity.
 
     - **[System assigned](#system-assigned)** - a managed identity is created for the Azure Content Delivery Network profile lifecycle and is used to access Azure Key Vault.
@@ -50,11 +50,7 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
 
     1. You're prompted with a message to confirm that you would like to create a system managed identity for your Azure Front Door profile. Select **Yes** to confirm.
 
-        :::image type="content" source="./media/managed-identity/system-assigned-confirm.png" alt-text="Screenshot of the system assigned managed identity confirmation message.":::
-
     1. Once the system assigned managed identity gets created and registered with Microsoft Entra ID, you can use the **Object (principal) ID** to grant Azure Content Delivery Network access to your Azure key vault.
-
-        :::image type="content" source="./media/managed-identity/system-assigned-created.png" alt-text="Screenshot of the system assigned managed identity registered with Microsoft Entra ID.":::
 
     ### User assigned
 
@@ -66,8 +62,6 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
 
     1. Search and select the user assigned manage identity. Then select **Add** to add the user managed identity to the Azure Content Delivery Network profile.
 
-        :::image type="content" source="./media/managed-identity/add-user-managed-identity.png" alt-text="Screenshot of the add a user assigned managed identity page.":::
-
     1. You see the name of the user assigned managed identity you selected show in the Azure Content Delivery Network profile.
 
         :::image type="content" source="./media/managed-identity/user-assigned-configured.png" alt-text="Screenshot of the add a user assigned managed identity added to an Azure Content Delivery Network profile.":::
@@ -75,8 +69,6 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
 ## Configure Key Vault access policy
 
 1. Navigate to your Azure key vault. Select **Access policies** from under *Settings* and then select **+ Create**.
-
-    :::image type="content" source="./media/managed-identity/access-policies.png" alt-text="Screenshot of the access policies page for a key vault.":::
 
 1. On the **Permissions** tab of the *Create an access policy* page, select **List** and **Get** for *Secret permissions*. Then select **Next** to configure the principal tab.
 
@@ -87,8 +79,6 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
     :::image type="content" source="./media/managed-identity/system-principal.png" alt-text="Screenshot of the principal tab for the Key Vault access policy.":::
 
 1. Review the access policy settings and then select **Create** to set up the access policy.
-
-    :::image type="content" source="./media/managed-identity/create.png" alt-text="Screenshot of the review and create tab for the Key Vault access policy.":::
 
 ## Next steps
 

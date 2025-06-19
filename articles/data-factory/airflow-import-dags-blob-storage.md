@@ -5,7 +5,7 @@ description: This article shows the steps required to import DAGs by using Azure
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/20/2023
+ms.date: 02/13/2025
 ---
 
 # Import DAGs by using Azure Blob Storage

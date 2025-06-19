@@ -1,13 +1,15 @@
 ---
+ROBOTS: NOINDEX
 title: Analyze Azure CDN usage patterns
 description: This article describes the different types of analysis reports available for Azure CDN products.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+# Customer intent: "As a CDN administrator, I want to analyze usage patterns through various report options, so that I can monitor performance, troubleshoot issues, and optimize content delivery for my application."
 ---
 
 # Analyze Azure CDN usage patterns
@@ -31,29 +33,6 @@ For more information, see [Azure CDN HTTP raw logs](monitoring-and-access-log.md
 ## Core analytics via Azure diagnostic logs
 
 Core analytics is available for content delivery network endpoints for all pricing tiers. Azure Diagnostics logs allow core analytics to be exported to Azure Storage, Event Hubs, or Azure Monitor logs. Azure Monitor logs offers a solution with graphs that are user-configurable and customizable. For more information about Azure diagnostic logs, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
-
-<a name='verizon-core-reports'></a>
-
-## Edgio core reports
-
-**Azure CDN Standard from Edgio** or **Azure CDN Premium from Edgio** profiles provide core reports. You can view core reports in the Edgio supplemental portal. Edgio core reports are accessible via the **Manage** option from the Azure portal and offers different kinds of graphs and views. For more information, see [Core Reports from Edgio](cdn-analyze-usage-patterns.md).
-
-<a name='verizon-custom-reports'></a>
-
-## Edgio custom reports
-
-**Azure CDN Standard from Edgio** or **Azure CDN Premium from Edgio** profiles provide custom reports. You can view custom reports in the Edgio supplemental portal. Edgio custom reports are accessible via the **Manage** option from the Azure portal.
-
-The custom reports display the number of hits or data transferred for each edge CNAME. Data gets grouped by HTTP response code or cache status over period of time. For more information, see [Custom Reports from Edgio](cdn-verizon-custom-reports.md).
-
-<a name='azure-cdn-premium-from-verizon-reports'></a>
-
-## Azure CDN Premium from Edgio reports
-
-With **Azure CDN Premium from Edgio**, you can also access the following reports:
-   - [Advanced HTTP reports](cdn-advanced-http-reports.md)
-   - [Real-time stats](cdn-real-time-stats.md)
-   - [Azure CDN edge node performance](cdn-edge-performance.md)
 
 ## Next steps
 

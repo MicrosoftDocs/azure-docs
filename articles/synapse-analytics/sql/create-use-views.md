@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 12/06/2024
 ms.author: stefanazaric
-ms.reviewer: whhender, wiassaf
+
 ---
 
 # Create and use views using serverless SQL pool in Azure Synapse Analytics
@@ -151,15 +151,22 @@ The `OPENJSON` function parses each line from the JSONL file containing one JSON
 
 The views can be created on top of the Azure Cosmos DB containers if the Azure Cosmos DB analytical storage is enabled on the container. The Azure Cosmos DB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
 
+This example script uses a database and container you can set up by [following these instructions](query-cosmos-db-analytical-store.md#sample-dataset).
+
+>[!IMPORTANT]
+>In the script, replace these values with your own values:
+>- **your-cosmosdb** - the name of your Cosmos DB account
+>- **access-key** - your Cosmos DB account key
+
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'access-key';
 GO
 CREATE OR ALTER VIEW Ecdc
 AS SELECT *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      CONNECTION = 'Account=your-cosmosdb;Database=covid',
       OBJECT = 'Ecdc',
       CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows

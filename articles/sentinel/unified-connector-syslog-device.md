@@ -37,7 +37,7 @@ This data connector was developed using Cisco ACI Release 1.x.
 
 ## Cisco Identity Services Engine (ISE)
 
-[Follow these instructions](https://www.cisco.com/c/en/us/td/docs/security/ise/2-7/admin_guide/b_ise_27_admin_guide/b_ISE_admin_27_maintain_monitor.html#ID58) to configure remote syslog collection locations in your Cisco ISE deployment.
+[Follow these instructions](https://www.cisco.com/c/en/us/td/docs/security/ise/3-1/admin_guide/b_ise_admin_3_1.html#ID58) to configure remote syslog collection locations in your Cisco ISE deployment.
 
 ## Cisco Stealthwatch
 
@@ -239,7 +239,7 @@ Complete the following steps.
 
 ## Pulse Connect Secure
 
-[Follow the instructions](https://help.ivanti.com/ps/help/en_US/PPS/9.1R13/ag/configuring_an_external_syslog_server.htm) to enable syslog streaming of Pulse Connect Secure logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
+[Follow the instructions](https://help.ivanti.com/ps/help/en_US/IPS/22.x/ag/configuring_an_external_syslog_server.htm) to enable syslog streaming of Pulse Connect Secure logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.

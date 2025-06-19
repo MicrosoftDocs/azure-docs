@@ -1,8 +1,8 @@
 ---
 title: Azure SQL and SQL Server 
 description: This article provides information on how to use the  connector for moving data between Azure MS SQL and serverless Apache Spark pools.
-author: ekote
-ms.author: eskot 
+author: ms-arali
+ms.author: arali
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
@@ -13,14 +13,14 @@ ms.custom: has-adal-ref
 # Azure SQL Database and SQL Server connector for Apache Spark
 The Apache Spark connector for Azure SQL Database and SQL Server enables these databases to act as input data sources and output data sinks for Apache Spark jobs. It allows you to use real-time transactional data in big data analytics and persist results for ad-hoc queries or reporting.
 
-Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into SQL databases. It can outperform row-by-row insertion with 10x to 20x faster performance. The Spark connector for SQL Server and Azure SQL Database also supports Microsoft Entra [authentication](/sql/connect/spark/connector#azure-active-directory-authentication), enabling you to connect securely to your Azure SQL databases from Azure Synapse Analytics. 
+Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into SQL databases. It can outperform row-by-row insertion with 10 to 20 times faster performance. The Spark connector for SQL Server and Azure SQL Database also supports Microsoft Entra [authentication](/sql/connect/spark/connector#azure-active-directory-authentication), enabling you to connect securely to your Azure SQL databases from Azure Synapse Analytics. 
 
 This article covers how to use the DataFrame API to connect to SQL databases using the MS SQL connector. This article provides detailed examples using the PySpark API. For all of the supported arguments and samples for connecting to SQL databases using the MS SQL connector, see [Azure Data SQL samples](https://github.com/microsoft/sql-server-samples#azure-data-sql-samples-repository).
 
 
   
 ## Connection details
-In this example, we will use the Microsoft Spark utilities to facilitate acquiring secrets from a pre-configured Key Vault. To learn more about Microsoft Spark utilities, please visit [introduction to Microsoft Spark Utilities](../microsoft-spark-utilities.md).
+In this example, we'll use the Microsoft Spark utilities to facilitate acquiring secrets from a preconfigured Key Vault. To learn more about Microsoft Spark utilities, visit [introduction to Microsoft Spark Utilities](../microsoft-spark-utilities.md).
 
 ```python
 # The servername is in the format "jdbc:sqlserver://<AzureSQLServerName>.database.windows.net:1433"
@@ -35,7 +35,7 @@ password = mssparkutils.credentials.getSecret('azure key vault name','secret nam
 ```
 
 > [!NOTE]
-> Currently, there is no linked service or Microsoft Entra pass-through support with the Azure SQL connector.
+> Currently, there's no linked service or Microsoft Entra pass-through support with the Azure SQL connector.
 
 ## Use the Azure SQL and SQL Server connector
 
@@ -144,12 +144,12 @@ jdbc_df = spark.read \
 > - A required dependency must be installed in order to authenticate using Active Directory. 
 > - The format of `user` when using ActiveDirectoryPassword should be the UPN format, for example `username@domainname.com`. 
 >   - For **Scala**, the `com.microsoft.aad.adal4j` artifact will need to be installed.
->   - For **Python**, the `adal` library will need to be installed.  This is available via pip.
+>   - For **Python**, the `adal` library will need to be installed. This is available via pip.
 > - Check the [sample notebooks](https://github.com/microsoft/sql-spark-connector/tree/master/samples) for examples and for latest drivers and versions, visit [Apache Spark connector: SQL Server & Azure SQL](/sql/connect/spark/connector).
 
 ## Support
 
-The Apache Spark Connector for Azure SQL and SQL Server is an open-source project. This connector does not come with any Microsoft support. For issues with or questions about the connector, create an Issue in this project repository. The connector community is active and monitoring submissions.
+The Apache Spark Connector for Azure SQL and SQL Server is an open-source project. This connector doesn't come with any Microsoft support. For issues with or questions about the connector, create an Issue in this project repository. The connector community is active and monitoring submissions.
 
 ## Next steps
 - [Learn more about the SQL Server and Azure SQL connector](/sql/connect/spark/connector)

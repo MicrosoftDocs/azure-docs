@@ -1,6 +1,6 @@
 ---
 title: Policy keys overview - Azure Active Directory B2C
-description: Learn about the types of encryption policy keys that can be used in Azure Active Directory B2C for signing and validating tokens, client secrets, certificates, and passwords.
+description: Learn about policy keys in Azure AD B2C for signing and validating tokens, client secrets, certificates, and passwords. Manage policy keys for secure integration.
 
 author: kengaderdus
 manager: CelesteDG
@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -19,6 +19,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Overview of policy keys in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -58,23 +59,23 @@ We recommend setting the key activation and expiration values according to your 
 To create a key, you can choose one of the following methods:
 
 - **Manual** - Create a secret with a string you define. The secret is a symmetric key. You can set the activation and expiration dates.
-- **Generated** - Auto-generate a key. You can set activation and expiration dates. There are two options:
+- **Generated** - Autogenerate a key. You can set activation and expiration dates. There are two options:
   - **Secret** - Generates a symmetric key.
   - **RSA** - Generates a key pair (asymmetric keys).
 - **Upload** - Upload a certificate, or a PKCS12 key. The certificate must contain the private and public keys (asymmetric keys).
 
 ## Key rollover
 
-For security purposes, Azure AD B2C can roll over keys periodically, or immediately in case of emergency. Any application, identity provider, or REST API that integrates with Azure AD B2C should be prepared to handle a key rollover event, no matter how frequently it may occur. Otherwise, if your application or Azure AD B2C attempts to use an expired key to perform a cryptographic operation, the sign-in request will fail.
+For security purposes, Azure AD B2C can roll over keys periodically, or immediately if there is emergency. Any application, identity provider, or REST API that integrates with Azure AD B2C should be prepared to handle a key rollover event, no matter how frequently it may occur. Otherwise, if your application or Azure AD B2C attempts to use an expired key to perform a cryptographic operation, the sign-in request fails.
 
 If an Azure AD B2C keyset has multiple keys, only one of the keys is active at any one time, based on the following criteria:
 
 - The key activation is based on the **activation date**.
   - The keys are sorted by activation date in ascending order. Keys with activation dates further into the future appear lower in the list. Keys without an activation date are located at the bottom of the list.
-  - When the current date and time is greater than a key's activation date, Azure AD B2C will activate the key and stop using the prior active key.
-- When the current key's expiration time has elapsed and the key container contains a new key with valid *nbf (not before)* and *exp (expiration)* times, the new key will become active automatically. New tokens will be signed with the newly active key. It is possible to keep an expired key published for token validation until disabled by an admin, but this must be requested by [filing a support request](/azure/active-directory-b2c/find-help-open-support-ticket).
+  - When the current date and time is greater than a key's activation date, Azure AD B2C activates the key and stop using the prior active key.
+- When the current key's expiration time has elapsed and the key container contains a new key with valid *nbf (not before)* and *exp (expiration)* times, the new key becomes active automatically. New tokens are signed with the newly active key. It's possible to keep an expired key published for token validation until disabled by an admin, but this must be requested by [filing a support request](/azure/active-directory-b2c/find-help-open-support-ticket).
 
-- When the current key's expiration time has elapsed and the key container *does not* contain a new key with valid *not before* and *expiration* times, Azure AD B2C won't be able to use the expired key. Azure AD B2C will raise an error message within a dependant component of your custom policy. To avoid this issue, you can create a default key without activation and expiration dates as a safety net.
+- When the current key's expiration time has elapsed and the key container *doesn't* contain a new key with valid *not before* and *expiration* times, Azure AD B2C won't be able to use the expired key. Azure AD B2C raises an error message within a dependent component of your custom policy. To avoid this issue, you can create a default key without activation and expiration dates as a safety net.
 - The key's endpoint (JWKS URI) of the OpenId Connect well-known configuration endpoint reflects the keys configured in the Key Container, when the Key is referenced in the [JwtIssuer Technical Profile](./jwt-issuer-technical-profile.md). An application using an OIDC library will automatically fetch this metadata to ensure it uses the correct keys to validate tokens. For more information, learn how to use [Microsoft Authentication Library](../active-directory/develop/msal-b2c-overview.md), which always fetches the latest token signing keys automatically.
 
 :::image type="content" source="media/policy-keys-overview/key-rollover.png" alt-text="A diagram describing the process for key rollover in Azure AD B2C." lightbox="media/policy-keys-overview/key-rollover.png":::
@@ -82,7 +83,7 @@ If an Azure AD B2C keyset has multiple keys, only one of the keys is active at a
 
 ## Key caching
 
-When a key is uploaded, the activation flag on the key is set to false by default. You can then set the state of this key to **Enabled**. If a key enabled and valid (current time is between NBF and EXP), then the key will be used.
+When a key is uploaded, the activation flag on the key is set to false by default. You can then set the state of this key to **Enabled**. If a key enabled and valid (current time is between NBF and EXP), then the key is used.
 
 ### Key state
 
@@ -100,16 +101,16 @@ To add or delete signing and encryption keys:
 1. On the overview page, under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy Keys** 
     1. To add a new key, select **Add**.
-    1. To remove a new key, select the key, and then select **Delete**. To delete the key, type the name of the key container to delete. Azure AD B2C will delete the key and create a copy of the key with the suffix .bak.
+    1. To remove a new key, select the key, and then select **Delete**. To delete the key, type the name of the key container to delete. Azure AD B2C deletes the key and create a copy of the key with the suffix .bak.
 
 ### Replace a key
 
-The keys in a keyset are not replaceable or removable. If you need to change an existing key:
+The keys in a keyset aren't replaceable or removable. If you need to change an existing key:
 
-- We recommend adding a new key with the **activation date** set to the current date and time. Azure AD B2C will activate the new key and stop using the prior active key.
+- We recommend adding a new key with the **activation date** set to the current date and time. Azure AD B2C activates the new key and stop using the prior active key.
 - Alternatively, you can create a new keyset with the correct keys. Update your policy to use the new keyset, and then remove the old keyset. 
 
-## Next steps
+## Related content
 
 - Learn how to use Microsoft Graph to automate a [keyset](microsoft-graph-operations.md#trust-framework-policy-keyset) and [policy keys](microsoft-graph-operations.md#trust-framework-policy-key) deployment.
 

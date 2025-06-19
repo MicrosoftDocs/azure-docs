@@ -4,8 +4,10 @@ description: Understand how to develop functions by using PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.devlang: powershell
-ms.custom: devx-track-dotnet
-ms.date: 04/22/2019
+ms.custom:
+  - devx-track-dotnet
+  - build-2025
+ms.date: 05/08/2025
 # Customer intent: As a PowerShell developer, I want to understand Azure Functions so that I can leverage the full power of the platform.
 ---
 
@@ -13,17 +15,17 @@ ms.date: 04/22/2019
 
 This article provides details about how you write Azure Functions using PowerShell.
 
-A PowerShell Azure function (function) is represented as a PowerShell script that executes when triggered. Each function script has a related `function.json` file that defines how the function behaves, such as how it's triggered and its input and output parameters. To learn more, see the [Triggers and binding article](functions-triggers-bindings.md). 
+A PowerShell Azure function (function) is represented as a PowerShell script that executes when triggered. Each function script has a related `function.json` file that defines how the function behaves, such as how it's triggered and its input and output parameters. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 Like other kinds of functions, PowerShell script functions take in parameters that match the names of all the input bindings defined in the `function.json` file. A `TriggerMetadata` parameter is also passed that contains additional information on the trigger that started the function.
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should have also completed the [Functions quickstart for PowerShell](./create-first-function-vs-code-powershell.md) to create your first PowerShell function.
+This article assumes that you have already read the [Azure Functions developer guide](functions-reference.md). It also assumes that you completed the [Functions quickstart for PowerShell](./create-first-function-vs-code-powershell.md) to create your first PowerShell function.
 
 ## Folder structure
 
-The required folder structure for a PowerShell project looks like the following. This default can be changed. For more information, see the [scriptFile](#configure-function-scriptfile) section below.
+The required folder structure for a PowerShell project looks like the following. This default can be changed. For more information, see the [scriptFile](#configure-function-scriptfile) section.
 
-```
+```text
 PSFunctionApp
  | - MyFirstFunction
  | | - run.ps1
@@ -48,15 +50,15 @@ PSFunctionApp
 
 At the root of the project, there's a shared [`host.json`](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.ps1) and binding configuration file (`function.json`). The name of the function.json file's parent directory is always the name of your function.
 
-Certain bindings require the presence of an `extensions.csproj` file. Binding extensions, required in [version 2.x and later versions](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
+Certain bindings require the presence of an `extensions.csproj` file. Binding extensions, required in [version 2.x and later versions](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](extension-bundles.md). When you develop functions in the Azure portal, this registration is done for you.
 
-In PowerShell Function Apps, you may optionally have a `profile.ps1` which runs when a function app starts to run (otherwise know as a *[cold start](#cold-start)*). For more information, see [PowerShell profile](#powershell-profile).
+In PowerShell Function Apps, you might optionally have a `profile.ps1` which runs when a function app starts to run (otherwise know as a *[cold start](#cold-start)*). For more information, see [PowerShell profile](#powershell-profile).
 
 ## Defining a PowerShell script as a function
 
 By default, the Functions runtime looks for your function in `run.ps1`, where `run.ps1` shares the same parent directory as its corresponding `function.json`.
 
-Your script is passed a number of arguments on execution. To handle these parameters, add a `param` block to the top of your script as in the following example:
+Your script is passed several arguments on execution. To handle these parameters, add a `param` block to the top of your script as in the following example:
 
 ```powershell
 # $TriggerMetadata is optional here. If you don't need it, you can safely remove it from the param block
@@ -65,7 +67,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 
 ### TriggerMetadata parameter
 
-The `TriggerMetadata` parameter is used to supply additional information about the trigger. The additional metadata varies from binding to binding but they all contain a `sys` property that contains the following data:
+The `TriggerMetadata` parameter is used to supply additional information about the trigger. This metadata varies from binding to binding but they all contain a `sys` property that contains the following data:
 
 ```powershell
 $TriggerMetadata.sys
@@ -81,7 +83,7 @@ Every trigger type has a different set of metadata. For example, the `$TriggerMe
 
 ## Bindings
 
-In PowerShell, [bindings](functions-triggers-bindings.md) are configured and defined in a function's function.json. Functions interact with bindings a number of ways.
+In PowerShell, [bindings](functions-triggers-bindings.md) are configured and defined in a function's function.json. Functions interact with bindings in many ways.
 
 ### Reading trigger and input data
 
@@ -95,7 +97,7 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 
 In Functions, an output binding has a `direction` set to `out` in the function.json. You can write to an output binding by using the `Push-OutputBinding` cmdlet, which is available to the Functions runtime. In all cases, the `name` property of the binding as defined in `function.json` corresponds to the `Name` parameter of the `Push-OutputBinding` cmdlet.
 
-The following shows how to call `Push-OutputBinding` in your function script:
+The following example shows how to call `Push-OutputBinding` in your function script:
 
 ```powershell
 param($MyFirstInputBinding, $MySecondInputBinding)
@@ -113,12 +115,11 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 `Push-OutputBinding` behaves differently based on the value specified for `-Name`:
 
-* When the specified name cannot be resolved to a valid output binding, then an error
-      is thrown.
+- When the specified name can't be resolved to a valid output binding, then an error is thrown.
 
-* When the output binding accepts a collection of values, you can call `Push-OutputBinding` repeatedly to push multiple values.
+- When the output binding accepts a collection of values, you can call `Push-OutputBinding` repeatedly to push multiple values.
 
-* When the output binding only accepts a singleton value, calling `Push-OutputBinding` a second time raises an error.
+- When the output binding only accepts a singleton value, calling `Push-OutputBinding` a second time raises an error.
 
 #### Push-OutputBinding syntax
 
@@ -128,18 +129,19 @@ The following are valid parameters for calling `Push-OutputBinding`:
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | The name of the output binding you want to set. |
 | **`-Value`** | Object | 2 | The value of the output binding you want to set, which is accepted from the pipeline ByValue. |
-| **`-Clobber`** | SwitchParameter | Named | (Optional) When specified, forces the value to be set for a specified output binding. | 
+| **`-Clobber`** | SwitchParameter | Named | (Optional) When specified, forces the value to be set for a specified output binding. |
 
-The following common parameters are also supported: 
-* `Verbose`
-* `Debug`
-* `ErrorAction`
-* `ErrorVariable`
-* `WarningAction`
-* `WarningVariable`
-* `OutBuffer`
-* `PipelineVariable`
-* `OutVariable` 
+The following common parameters are also supported:
+
+- `Verbose`
+- `Debug`
+- `ErrorAction`
+- `ErrorVariable`
+- `WarningAction`
+- `WarningVariable`
+- `OutBuffer`
+- `PipelineVariable`
+- `OutVariable`
 
 For more information, see [About CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
@@ -148,27 +150,27 @@ For more information, see [About CommonParameters](/powershell/module/microsoft.
 An HTTP trigger returns a response using an output binding named `response`. In the following example, the output binding of `response` has the value of "output #1":
 
 ```powershell
-PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
-    StatusCode = [System.Net.HttpStatusCode]::OK
-    Body = "output #1"
+Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
+StatusCode = [System.Net.HttpStatusCode]::OK
+Body = "output #1"
 })
 ```
 
 Because the output is to HTTP, which accepts a singleton value only, an error is thrown when `Push-OutputBinding` is called a second time.
 
 ```powershell
-PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
-    StatusCode = [System.Net.HttpStatusCode]::OK
-    Body = "output #2"
+Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
+StatusCode = [System.Net.HttpStatusCode]::OK
+Body = "output #2"
 })
 ```
 
 For outputs that only accept singleton values, you can use the `-Clobber` parameter to override the old value instead of trying to add to a collection. The following example assumes that you have already added a value. By using `-Clobber`, the response from the following example overrides the existing value to return a value of "output #3":
 
 ```powershell
-PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
-    StatusCode = [System.Net.HttpStatusCode]::OK
-    Body = "output #3"
+Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
+StatusCode = [System.Net.HttpStatusCode]::OK
+Body = "output #3"
 }) -Clobber
 ```
 
@@ -177,19 +179,19 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 `Push-OutputBinding` is used to send data to output bindings, such as an [Azure Queue storage output binding](functions-bindings-storage-queue-output.md). In the following example, the message written to the queue has a value of "output #1":
 
 ```powershell
-PS >Push-OutputBinding -Name outQueue -Value "output #1"
+Push-OutputBinding -Name outQueue -Value "output #1"
 ```
 
 The output binding for a Storage queue accepts multiple output values. In this case, calling the following example after the first writes to the queue a list with two items: "output #1" and "output #2".
 
 ```powershell
-PS >Push-OutputBinding -Name outQueue -Value "output #2"
+Push-OutputBinding -Name outQueue -Value "output #2"
 ```
 
 The following example, when called after the previous two, adds two more values to the output collection:
 
 ```powershell
-PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
+Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 ```
 
 When written to the queue, the message contains these four values: "output #1", "output #2", "output #3", and "output #4".
@@ -198,7 +200,7 @@ When written to the queue, the message contains these four values: "output #1", 
 
 You can use the `Get-OutputBinding` cmdlet to retrieve the values currently set for your output bindings. This cmdlet retrieves a hashtable that contains the names of the output bindings with their respective values. 
 
-The following is an example of using `Get-OutputBinding` to return current binding values:
+The following example uses `Get-OutputBinding` to return current binding values:
 
 ```powershell
 Get-OutputBinding
@@ -232,15 +234,15 @@ Logging in PowerShell functions works like regular PowerShell logging. You can u
 | Functions logging level | Logging cmdlet |
 | ------------- | -------------- |
 | Error | **`Write-Error`** |
-| Warning | **`Write-Warning`**  | 
-| Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`** <br/> Writes to the `Information` log level. |
+| Warning | **`Write-Warning`**  |
+| Information | **`Write-Information`** <br/> **`Write-Host`** <br/> **`Write-Output`** <br/> Writes to the `Information` log level. |
 | Debug | **`Write-Debug`** |
-| Trace | **`Write-Progress`** <br /> **`Write-Verbose`** |
+| Trace | **`Write-Progress`** <br/> **`Write-Verbose`** |
 
 In addition to these cmdlets, anything written to the pipeline is redirected to the `Information` log level and displayed with the default PowerShell formatting.
 
 > [!IMPORTANT]
-> Using the `Write-Verbose` or `Write-Debug` cmdlets is not enough to see verbose and debug level logging. You must also configure the log level threshold, which declares what level of logs you actually care about. To learn more, see [Configure the function app log level](#configure-the-function-app-log-level).
+> Using the `Write-Verbose` or `Write-Debug` cmdlets isn't enough to see verbose and debug level logging. You must also configure the log level threshold, which declares what level of logs you actually care about. To learn more, see [Configure the function app log level](#configure-the-function-app-log-level).
 
 ### Configure the function app log level
 
@@ -269,17 +271,17 @@ If you're running your Function App locally for development, logs default to the
 
 ## Triggers and bindings types
 
-There are a number of triggers and bindings available to you to use with your function app. The full list of triggers and bindings [can be found here](functions-triggers-bindings.md#supported-bindings).
+There are many triggers and bindings available to you to use with your function app. For the full list of triggers and bindings, see [Supported bindings](functions-triggers-bindings.md#supported-bindings).
 
 All triggers and bindings are represented in code as a few real data types:
 
-* Hashtable
-* string
-* byte[]
-* int
-* double
-* HttpRequestContext
-* HttpResponseContext
+- Hashtable
+- string
+- byte[]
+- int
+- double
+- HttpRequestContext
+- HttpResponseContext
 
 The first five types in this list are standard .NET types. The last two are used only by the [HttpTrigger trigger](#http-triggers-and-bindings).
 
@@ -291,7 +293,7 @@ HTTP and webhook triggers and HTTP output bindings use request and response obje
 
 #### Request object
 
-The request object that's passed into the script is of the type `HttpRequestContext`, which has the following properties:
+The request object that is passed into the script is of the type `HttpRequestContext`, which has the following properties:
 
 | Property  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
@@ -319,7 +321,7 @@ The response object that you should send back is of the type `HttpResponseContex
 
 When you work with HTTP triggers, you can access the HTTP request the same way you would with any other input binding. It's in the `param` block.
 
-Use an `HttpResponseContext` object to return a response, as shown in the following:
+Use an `HttpResponseContext` object to return a response, as shown in the following example:
 
 `function.json`
 
@@ -355,8 +357,8 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 The result of invoking this function would be:
 
-```
-PS > irm http://localhost:5001?Name=Functions
+```output
+irm http://localhost:5001?Name=Functions
 Hello Functions!
 ```
 
@@ -377,11 +379,11 @@ In PowerShell, there's the concept of a PowerShell profile. If you're not famili
 In PowerShell Functions, the profile script is executed once per PowerShell worker instance in the app when first deployed and after being idled ([cold start](#cold-start). When concurrency is enabled by setting the [PSWorkerInProcConcurrencyUpperBound](#concurrency) value, the profile script is run for each runspace created.
 
 When you create a function app using tools, such as Visual Studio Code and Azure Functions Core Tools, a default `profile.ps1` is created for you. The default profile is maintained
-[on the Core Tools GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/main/src/Azure.Functions.Cli/StaticResources/profile.ps1)
+[on the Core Tools GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/main/src/Cli/func/StaticResources/profile.ps1)
 and contains:
 
-* Automatic MSI authentication to Azure.
-* The ability to turn on the Azure PowerShell `AzureRM` PowerShell aliases if you would like.
+- Automatic MSI authentication to Azure.
+- The ability to turn on the Azure PowerShell `AzureRM` PowerShell aliases if you would like.
 
 ## PowerShell versions
 
@@ -394,14 +396,14 @@ The following table shows the PowerShell versions available to each major versio
 
 You can see the current version by printing `$PSVersionTable` from any function.
 
-To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
+To learn more about Azure Functions runtime support policy, refer to this [article](./language-support-policy.md)
 
 > [!NOTE]
-> Support for PowerShell 7.2 in Azure Functions ends on November 8, 2024. You might have to resolve some breaking changes when upgrading your PowerShell 7.2 functions to run on PowerShell 7.4. Follow this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) to upgrade to PowerShell 7.4. 
+> Support for PowerShell 7.2 in Azure Functions ends on November 8, 2024. You might have to resolve some breaking changes when upgrading your PowerShell 7.2 functions to run on PowerShell 7.4. Follow this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) to upgrade to PowerShell 7.4.
 
 ### Running local on a specific version
 
-When running your PowerShell functions locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.4"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.4, your local.settings.json file looks like the following example: 
+When you run PowerShell functions locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.4"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.4, your local.settings.json file looks like the following example:
 
 ```json
 {
@@ -415,40 +417,41 @@ When running your PowerShell functions locally, you need to add the setting `"FU
 ```
 
 > [!NOTE]
-> In PowerShell Functions, the value "~7" for FUNCTIONS_WORKER_RUNTIME_VERSION refers to "7.0.x". We do not automatically upgrade PowerShell Function apps that have "~7" to "7.4". Going forward, for PowerShell Function Apps, we will require that apps specify both the major and minor version they want to target. Hence, it is necessary to mention "7.4" if you want to target "7.4.x"
+> In PowerShell Functions, the value "~7" for FUNCTIONS_WORKER_RUNTIME_VERSION refers to "7.0.x". We don't automatically upgrade PowerShell Function apps that have "~7" to "7.4". Going forward, for PowerShell Function Apps, we require that apps specify both the major and minor version they want to target. It's necessary to mention "7.4" if you want to target "7.4.x"
 
 ### Changing the PowerShell version
 
-Take these considerations into account before you migrate your PowerShell function app to PowerShell 7.4: 
-+ Because the migration might introduce breaking changes in your app, review this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) before upgrading your app to PowerShell 7.4.
+Take these considerations into account before you migrate your PowerShell function app to PowerShell 7.4:
 
-+ Make sure that your function app is running on the latest version of the Functions runtime in Azure, which is version 4.x. For more information, see [View and update the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
+- Because the migration might introduce breaking changes in your app, review this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) before upgrading your app to PowerShell 7.4.
 
-Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
+- Make sure that your function app is running on the latest version of the Functions runtime in Azure, which is version 4.x. For more information, see [View the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
+
+Use the following steps to change the PowerShell version used by your function app. You can perform this operation either in the Azure portal or by using PowerShell.
 
 # [Portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), browse to your function app.
 
-1. Under **Settings**, choose **Configuration**. In the **General settings** tab, locate the **PowerShell version**. 
- 
- 	![image](https://user-images.githubusercontent.com/108835427/199586564-25600629-44c7-439c-91f9-a500ad2989c4.png)
- 
+1. Under **Settings**, choose **Configuration**. In the **General settings** tab, locate the **PowerShell version**.
+
+   :::image type="content" source="https://user-images.githubusercontent.com/108835427/199586564-25600629-44c7-439c-91f9-a500ad2989c4.png" alt-text="Screenshot shows how to select the PowerShell version.":::
+
 1. Choose your desired **PowerShell Core version** and select **Save**. When warned about the pending restart choose **Continue**. The function app restarts on the chosen PowerShell version. 
 
 > [!NOTE]
-> Azure Functions support for PowerShell 7.4 is generally available (GA). You may see PowerShell 7.4 still indicated as preview in the Azure portal, but this will be updated soon to reflect the GA status.
+> Azure Functions support for PowerShell 7.4 is generally available (GA). You might see PowerShell 7.4 still indicated as preview in the Azure portal, but this value will be updated soon to reflect the GA status.
 
 # [PowerShell](#tab/powershell)
 
-Run the following script to change the PowerShell version: 
+Run the following script to change the PowerShell version:
 
 ```powershell
 Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<FUNCTION_APP>/config/web" -Properties @{  powerShellVersion  = '<VERSION>' } -Force -UsePatchSemantics
 
 ```
 
-Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively.  Also, replace `<VERSION>` with `7.4`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
+Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively. Also, replace `<VERSION>` with `7.4`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
 
 ---
 
@@ -456,95 +459,77 @@ The function app restarts after the change is made to the configuration.
 
 ## Dependency management
 
-Functions lets you leverage [PowerShell gallery](https://www.powershellgallery.com) for managing dependencies. With dependency management enabled, the requirements.psd1 file is used to automatically download required modules. You enable this behavior by setting the `managedDependency` property to `true` in the root of the [host.json file](functions-host-json.md), as in the following example:
+Managing modules in Azure Functions written in PowerShell can be approached in two ways: using the Managed Dependencies feature or including the modules directly in your app content. Each method has its own advantages, and choosing the right one depends on your specific needs.
 
-```json
-{
-  "managedDependency": {
-          "enabled": true
-       }
-}
-```
+### Choosing the right module management approach
 
-When you create a new PowerShell functions project, dependency management is enabled by default, with the Azure [`Az` module](/powershell/azure/new-azureps-module-az) included. The maximum number of modules currently supported is 10. The supported syntax is *`MajorNumber.*`* or exact module version, as shown in the following requirements.psd1 example:
+**Why use the Managed Dependencies feature?**
+
+- **Simplified initial installation**: Automatically handles module installation based on your `requirements.psd1` file.
+- **Auto-upgrades**: Modules are updated automatically, including security fixes, without requiring manual intervention.
+
+**Why include modules in app content?**
+
+- **No dependency on the PowerShell Gallery**: Modules are bundled with your app, eliminating external dependencies.
+- **More control**: Avoids the risk of regressions caused by automatic upgrades, giving you full control over which module versions are used.
+- **Compatibility**: Works on Flex Consumption and is recommended for other Linux SKUs.
+
+### Managed Dependencies feature
+
+The Managed Dependencies feature allows Azure Functions to automatically download and manage PowerShell modules specified in the `requirements.psd1` file. This feature is enabled by default in new PowerShell function apps.
+
+#### Configuring requirements.psd1
+
+To use Managed Dependencies in Azure Functions with PowerShell, you need to configure a `requirements.psd1` file. This file specifies the modules your function requires, and Azure Functions automatically downloads and updates these modules to ensure that your environment stays up-to-date.
+
+Here's how to set up and configure the `requirements.psd1` file:
+
+1. Create a `requirements.psd1` file in the root directory of your Azure Function if one doesn't already exist.
+1. Define the modules and their versions in a PowerShell data structure.
+
+Example `requirements.psd1` file:
 
 ```powershell
 @{
-	Az = '1.*'
-	SqlServer = '21.1.18147'
+    'Az' = '9.*'  # Specifies the Az module and will use the latest version with major version 9
 }
 ```
 
-When you update the requirements.psd1 file, updated modules are installed after a restart.
+### Including modules in app content
 
-### Target specific versions
+For more control over your module versions and to avoid dependencies on external resources, you can include modules directly in your function app’s content.
 
-You may want to target a specific version of a module in your requirements.psd1 file. For example, if you wanted to use an older version of Az.Accounts than the one in the included Az module, you would need to target a specific version as shown in the following example: 
+To include custom modules:
 
-```powershell
-@{
-	'Az.Accounts' = '1.9.5'
-}
-```
+1. **Create a `Modules` folder** at the root of your function app.
 
-In this case, you also need to add an import statement to the top of your profile.ps1 file, which looks like the following example:
+    ```powershell
+    mkdir ./Modules
+    ```
 
-```powershell
-Import-Module Az.Accounts -RequiredVersion '1.9.5'
-```
+2. **Copy modules to the `Modules` folder** using one of the following methods:
 
-In this way, the older version of the Az.Account module is loaded first when the function is started.
+    - **If modules are already available locally**:
 
-### Dependency management considerations
+      ```powershell
+      Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
+      ```
 
-The following considerations apply when using dependency management:
+    - **Using `Save-Module` to retrieve from the PowerShell Gallery**:
 
-+ Managed dependencies requires access to `https://www.powershellgallery.com` to download modules. When running locally, make sure that the runtime can access this URL by adding any required firewall rules.
+      ```powershell
+      Save-Module -Name MyCustomModule -Path ./Modules
+      ```
 
-+ Managed dependencies currently don't support modules that require the user to accept a license, either by accepting the license interactively, or by providing `-AcceptLicense` switch when invoking `Install-Module`.
+    - **Using `Save-PSResource` from the `PSResourceGet` module**:
 
-+ Managed dependencies aren't supported when you host your function app in a [Flex Consumption plan](flex-consumption-plan.md). You must instead [define your own custom modules](#custom-modules).
+      ```powershell
+      Save-PSResource -Name MyCustomModule -Path ./Modules
+      ```
 
-### Dependency management app settings
+Your function app should have the following structure:
 
-The following application settings can be used to change how the managed dependencies are downloaded and installed. 
-
-| Function App setting              | Default value             | Description                                         |
-|   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **MDMaxBackgroundUpgradePeriod**      | `7.00:00:00` (seven days)     | Controls the background update period for PowerShell function apps. To learn more, see [MDMaxBackgroundUpgradePeriod](functions-app-settings.md#mdmaxbackgroundupgradeperiod). | 
-| **MDNewSnapshotCheckPeriod**         | `01:00:00` (one hour)       | Specifies how often each PowerShell worker checks whether managed dependency upgrades have been installed. To learn more, see [MDNewSnapshotCheckPeriod](functions-app-settings.md#mdnewsnapshotcheckperiod).|
-| **MDMinBackgroundUpgradePeriod**      | `1.00:00:00` (one day)     | The period of time after a previous upgrade check before another upgrade check is started. To learn more, see [MDMinBackgroundUpgradePeriod](functions-app-settings.md#mdminbackgroundupgradeperiod).|
-
-Essentially, your app upgrade starts within `MDMaxBackgroundUpgradePeriod`, and the upgrade process completes within approximately the `MDNewSnapshotCheckPeriod`.
-
-## Custom modules
-
-Leveraging your own custom modules in Azure Functions differs from how you would do it normally for PowerShell.
-
-On your local computer, the module gets installed in one of the globally available folders in your `$env:PSModulePath`. When running in Azure, you don't have access to the modules installed on your machine. This means that the `$env:PSModulePath` for a PowerShell function app differs from `$env:PSModulePath` in a regular PowerShell script.
-
-In Functions, `PSModulePath` contains two paths:
-
-* A `Modules` folder that exists at the root of your function app.
-* A path to a `Modules` folder that is controlled by the PowerShell language worker.
-
-### Function app-level modules folder
-
-To use custom modules, you can place modules on which your functions depend in a `Modules` folder. From this folder, modules are automatically available to the functions runtime. Any function in the function app can use these modules. 
-
-> [!NOTE]
-> Modules specified in the [requirements.psd1 file](#dependency-management) are automatically downloaded and included in the path so you don't need to include them in the modules folder. These are stored locally in the `$env:LOCALAPPDATA/AzureFunctions` folder and in the `/data/ManagedDependencies` folder when run in the cloud.
-
-To take advantage of the custom module feature, create a `Modules` folder in the root of your function app. Copy the modules you want to use in your functions to this location.
-
-```powershell
-mkdir ./Modules
-Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
-```
-
-With a `Modules` folder, your function app should have the following folder structure:
-
-```
+```text
 PSFunctionApp
  | - MyFunction
  | | - run.ps1
@@ -560,16 +545,65 @@ PSFunctionApp
 
 When you start your function app, the PowerShell language worker adds this `Modules` folder to the `$env:PSModulePath` so that you can rely on module autoloading just as you would in a regular PowerShell script.
 
-### Language worker level modules folder
+> [!NOTE]
+> If your function app is under source control, you should confirm that all the content in the Modules folder that you add isn't excluded by .gitignore. For example, if one of your modules has a bin folder that is getting excluded, you would want to modify the .gitignore by replacing `bin` with
+>
+> ```text
+> **/bin/**
+> !Modules/**
+> ```
+>
 
-Several modules are commonly used by the PowerShell language worker. These modules are defined in the last position of `PSModulePath`. 
+### Troubleshooting Managed Dependencies
 
-The current list of modules is as follows:
+#### Enabling Managed Dependencies
 
-* [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): module used for working with archives, like `.zip`, `.nupkg`, and others.
-* **ThreadJob**: A thread-based implementation of the PowerShell job APIs.
+In order for Managed Dependencies to function, the feature must be enabled in host.json:
 
-By default, Functions uses the most recent version of these modules. To use a specific module version, put that specific version in the `Modules` folder of your function app.
+```json
+{
+  "managedDependency": {
+          "enabled": true
+       }
+}
+```
+
+#### Target specific versions
+
+When targeting specific module versions, it’s important to follow both of the following steps to ensure the correct module version is loaded:
+
+1. **Specify the module version in `requirements.psd1`:**
+
+    ```powershell
+    @{
+      'Az.Accounts' = '1.9.5'
+    }
+    ```
+
+1. **Add an import statement to `profile.ps1`:**
+
+    ```powershell
+    Import-Module Az.Accounts -RequiredVersion '1.9.5'
+    ```
+
+Following these steps ensures the specified version is loaded when your function starts. 
+
+#### Configure specific Managed Dependency interval settings
+
+You can configure how Managed Dependencies are downloaded and installed using the following app settings:
+
+| Setting                     | Default Value             | Description  |
+|-----------------------------|---------------------------|--------------|
+| **MDMaxBackgroundUpgradePeriod** | `7.00:00:00` (seven days) | Controls the background update period for PowerShell function apps. |
+| **MDNewSnapshotCheckPeriod** | `01:00:00` (one hour)     | Specifies how often the PowerShell worker checks for updates. |
+| **MDMinBackgroundUpgradePeriod** | `1.00:00:00` (one day)   | Minimum time between upgrade checks. |
+
+#### Dependency management considerations
+
+- **Internet Access**: Managed Dependencies require access to `https://www.powershellgallery.com` to download modules. Ensure that your environment allows this access, including modifying firewall/VNet rules as needed. The required endpoints are described in [Troubleshooting Cmdlets](/powershell/gallery/how-to/getting-support/troubleshooting-cmdlets#required-network-endpoints). These endpoints can be added to the allow list, as required.
+- **License Acceptance**: Managed Dependencies doesn't support modules that require license acceptance.
+- **Flex Consumption Plan**: The Managed Dependencies feature isn't supported in the Flex Consumption plan. Use custom modules instead.
+- **Module Locations**: On your local computer, modules are typically installed in one of the globally available folders in your `$env:PSModulePath`. When running in Azure, the `$env:PSModulePath` for a PowerShell function app differs from `$env:PSModulePath` in a regular PowerShell script and contains both the `Modules` folder uploaded with your app contents and a separate location managed by Managed Dependencies.
 
 ## Environment variables
 
@@ -591,25 +625,25 @@ When running locally, app settings are read from the [local.settings.json](funct
 
 By default, the Functions PowerShell runtime can only process one invocation of a function at a time. However, this concurrency level might not be sufficient in the following situations:
 
-* When you're trying to handle a large number of invocations at the same time.
-* When you have functions that invoke other functions inside the same function app.
+- When you're trying to handle a large number of invocations at the same time.
+- When you have functions that invoke other functions inside the same function app.
 
 There are a few concurrency models that you could explore depending on the type of workload:
 
-* Increase ```FUNCTIONS_WORKER_PROCESS_COUNT```. This allows handling function invocations in multiple processes within the same instance, which introduces certain CPU and memory overhead. In general, I/O-bound functions will not suffer from this overhead. For CPU-bound functions, the impact may be significant.
+- Increase `FUNCTIONS_WORKER_PROCESS_COUNT`. Increasing this setting allows handling function invocations in multiple processes within the same instance, which introduces certain CPU and memory overhead. In general, I/O-bound functions don't suffer from this overhead. For CPU-bound functions, the impact might be significant.
 
-* Increase the ```PSWorkerInProcConcurrencyUpperBound``` app setting value. This allows creating multiple runspaces within the same process, which significantly reduces CPU and memory overhead.
+- Increase the `PSWorkerInProcConcurrencyUpperBound` app setting value. Increasing this setting allows creating multiple runspaces within the same process, which significantly reduces CPU and memory overhead.
 
 You set these environment variables in the [app settings](functions-app-settings.md) of your function app.
 
-Depending on your use case, Durable Functions may significantly improve scalability. To learn more, see [Durable Functions application patterns](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
+Depending on your use case, Durable Functions might significantly improve scalability. To learn more, see [Durable Functions application patterns](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
-> You might get "requests are being queued due to no available runspaces" warnings, please note that this is not an error. The message is telling you that requests are being queued and they will be handled when the previous requests are completed.
+> You might get "requests are being queued due to no available runspaces" warnings. This message isn't an error. The message is telling you that requests are being queued. They're handled when the previous requests are completed.
 
 ### Considerations for using concurrency
 
-PowerShell is a *single_threaded* scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The number of runspaces created, and therefore the number of concurrent threads per worker, is limited by the `PSWorkerInProcConcurrencyUpperBound` application setting. By default, the number of runspaces is set to 1,000 in version 4.x of the Functions runtime. In versions 3.x and below, the maximum number of runspaces is set to 1. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
+PowerShell is a *single_threaded* scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The number of runspaces created, and therefore the number of concurrent threads per worker, is limited by the `PSWorkerInProcConcurrencyUpperBound` application setting. By default, the number of runspaces is set to 1,000 in version 4.x of the Functions runtime. In versions 3.x and below, the maximum number of runspaces is set to 1. The throughput of your function app is affected by the amount of CPU and memory available in the selected plan.
 
 Azure PowerShell uses some *process-level* contexts and state to help save you from excess typing. However, if you turn on concurrency in your function app and invoke actions that change state, you could end up with race conditions. These race conditions are difficult to debug because one invocation relies on a certain state and the other invocation changed the state.
 
@@ -621,7 +655,7 @@ By default, a PowerShell function is executed from `run.ps1`, a file that shares
 
 The `scriptFile` property in the `function.json` can be used to get a folder structure that looks like the following example:
 
-```
+```text
 FunctionApp
  | - host.json
  | - myFunction
@@ -643,14 +677,14 @@ In this case, the `function.json` for `myFunction` includes a `scriptFile` prope
 
 ## Use PowerShell modules by configuring an entryPoint
 
-This article has shown PowerShell functions in the default `run.ps1` script file generated by the templates.
+PowerShell functions in this article are shown with the default `run.ps1` script file generated by the templates.
 However, you can also include your functions in PowerShell modules. You can reference your specific function code in the module by using the `scriptFile` and `entryPoint` fields in the function.json` configuration file.
 
 In this case, `entryPoint` is the name of a function or cmdlet in the PowerShell module referenced in `scriptFile`.
 
 Consider the following folder structure:
 
-```
+```text
 FunctionApp
  | - host.json
  | - myFunction
@@ -671,7 +705,7 @@ function Invoke-PSTestFunc {
 Export-ModuleMember -Function "Invoke-PSTestFunc"
 ```
 
-In this example, the configuration for `myFunction` includes a `scriptFile` property that references `PSFunction.psm1`, which is a PowerShell module in another folder.  The `entryPoint` property references the `Invoke-PSTestFunc` function, which is the entry point in the module.
+In this example, the configuration for `myFunction` includes a `scriptFile` property that references `PSFunction.psm1`, which is a PowerShell module in another folder. The `entryPoint` property references the `Invoke-PSTestFunc` function, which is the entry point in the module.
 
 ```json
 {
@@ -693,16 +727,18 @@ When you work with PowerShell functions, be aware of the considerations in the f
 
 When developing Azure Functions in the [serverless hosting model](consumption-plan.md), cold starts are a reality. *Cold start* refers to period of time it takes for your function app to start running to process a request. Cold start happens more frequently in the Consumption plan because your function app gets shut down during periods of inactivity.
 
-### Bundle modules instead of using Install-Module
+#### Avoid using Install-Module
 
-Your script is run on every invocation. Avoid using `Install-Module` in your script. Instead use `Save-Module` before publishing so that your function doesn't have to waste time downloading the module. If cold starts are impacting your functions, consider deploying your function app to an [App Service plan](dedicated-plan.md) set to *always on* or to a [Premium plan](functions-premium-plan.md).
+Running `Install-Module` in your function script on each invocation can cause performance issues. Instead, use `Save-Module` or `Save-PSResource` before publishing your function app to bundle the necessary modules.
+
+For more information, see [Dependency management](#dependency-management).
 
 ## Next steps
 
 For more information, see the following resources:
 
-* [Best practices for Azure Functions](functions-best-practices.md)
-* [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+- [Best practices for Azure Functions](functions-best-practices.md)
+- [Azure Functions developer reference](functions-reference.md)
+- [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 
 [host.json reference]: functions-host-json.md

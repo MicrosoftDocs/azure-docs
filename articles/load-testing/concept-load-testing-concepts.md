@@ -24,15 +24,21 @@ A virtual user runs a particular test case against your server application and r
 
 Apache JMeter also refers to virtual users as *threads*. In the JMeter test script, a *thread group* element lets you specify the pool of virtual users. Learn about [thread groups](https://jmeter.apache.org/usermanual/test_plan.html#thread_group) in the Apache JMeter documentation.
 
+Locust refers to virtual users as *users*. You can specify the users needed for your test in the web interface, as a command line argument, through an environment variable, or through a configuration file. For more information, see [configuration options](https://docs.locust.io/en/stable/configuration.html) in the Locust documentation. 
+
 The total number of virtual users for your load test depends on the number of virtual users in the test script and the number of [test engine instances](#test-engine).
 
-The formula is: Total virtual users = (virtual users in the JMX file) * (number of test engine instances).
+For JMeter based load tests, the formula is: Total virtual users = (virtual users in the JMX file) * (number of test engine instances).
 
-You can achieve the target number of virtual users by [configuring the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users), the number of virtual users in the test script, or a combination of both.
+You can achieve the target number of virtual users by [configuring the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users-for-jmeter-based-tests), the number of virtual users in the test script, or a combination of both.
+
+For Locust based load tests, the total number of virtual users is the number of users specified through any of the configuration options. You can then [configure the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users-for-locust-based-tests) required to generate the total number of users. 
 
 ### Ramp-up time
 
 The ramp-up time is the amount of time to get to the full number of [virtual users](#virtual-users) for the load test. If the number of virtual users is 20, and the ramp-up time is 120 seconds, then it takes 120 seconds to get to all 20 virtual users. Each virtual user will start 6 (120/20) seconds after the previous user was started.
+
+For Locust, you can configure ramp-up using *spawn rate*. Spawn rate is the number of users added per second. For example, if the number of users is 20 and the spawn rate is 2, 2 users will get added every second and it takes 10 seconds to get to all the 20 users. 
 
 ### Response time
 
@@ -72,7 +78,7 @@ To run a load test for your application, you add a [test](#test) to your load te
 
 You can use [Azure role-based access control](./how-to-assign-roles.md) to grant access to your load testing resource and related artifacts.
 
-Azure Load Testing lets you [use managed identities](./how-to-use-a-managed-identity.md) to access Azure Key Vault for storing [load test secret parameters or certificates](./how-to-parameterize-load-tests.md). You can use either a user-assigned or system-assigned managed identity.
+Azure Load Testing allows you to [use managed identities](./how-to-use-a-managed-identity.md) for various purposes, such as accessing Azure Key Vault to store [load test secret parameters or certificates](./how-to-parameterize-load-tests.md), accessing Azure Monitor metrics to [configure failure criteria](./how-to-define-test-criteria.md#access-app-component-for-test-criteria-on-server-metrics), or simulating [managed identity-based authentication flows](./how-to-test-secured-endpoints.md#authenticate-with-a-managed-identity).
 
 ### Test
 
@@ -84,7 +90,7 @@ A test contains a test plan, which describes the steps to invoke the application
 - [Upload a Locust test script](./quickstart-create-run-load-test-with-locust.md).
 - [Specify the list of URL endpoints to test](./quickstart-create-and-run-load-test.md).
 
-Azure Load Testing supports all communication protocols that JMeter supports, not only HTTP-based endpoints. For example, you might want to read from or write to a database or message queue in the test script.
+Azure Load Testing supports all communication protocols that JMeter and Locust support, not only HTTP-based endpoints. For example, you might want to read from or write to a database or message queue in the test script.
 
 Azure Load Testing currently does not support other testing frameworks than Apache JMeter and Locust.
 
@@ -107,7 +113,7 @@ A test run represents one execution of a load test. When you run a test, the tes
 
 After the test run completes, you can [view and analyze the load test results in the Azure Load Testing dashboard](./tutorial-identify-bottlenecks-azure-portal.md) in the Azure portal. 
 
-Alternately, you can [download the test logs](./how-to-diagnose-failing-load-test.md#download-apache-jmeter-worker-logs-for-your-load-test) and [export the test results file](./how-to-export-test-results.md).
+Alternately, you can [download the test logs](./how-to-diagnose-failing-load-test.md#download-apache-jmeter-or-locust-worker-logs-for-your-load-test) and [export the test results file](./how-to-export-test-results.md).
 
 > [!IMPORTANT]
 > When you update a test, the existing test runs don't automatically inherit the new settings from the test. The new settings are only used by new test runs when you run the *test*. If you rerun an existing *test run*, the original settings of the test run are used.
@@ -117,6 +123,8 @@ Alternately, you can [download the test logs](./how-to-diagnose-failing-load-tes
 A test engine is computing infrastructure, managed by Microsoft that runs the test script. The test engine instances run the test script in parallel. You can [scale out your load test](./how-to-high-scale-load.md) by configuring the number of test engine instances. Learn how to configure the number of [virtual users](#virtual-users), or simulate a target number of [requests per second](#requests-per-second-rps).
 
 The test engines are hosted in the same location as your Azure Load Testing resource. You can configure the Azure region when you create the Azure load testing resource.
+
+Azure Load Testing uses Standard_D4d_v4 size virtual machines with four vCPUs, 16GB memory and Azure Linux operating system as the test engines. For JMeter based tests, the test engines use JDK 21 and Apache JMeter version 5.6.3. For Locust based tests, the test engines use Python 3.9.19 and Locust version 2.33.2. 
 
 While the test script runs, Azure Load Testing collects and aggregates the testing framework logs from all test engine instances. You can [download the logs for analyzing errors during the load test](./how-to-diagnose-failing-load-test.md).
 
@@ -134,7 +142,7 @@ During a load test, Azure Load Testing collects metrics about the test execution
 
 - *Client-side metrics* are reported by the test engines. These metrics include the number of virtual users, the request response time, the number of failed requests, or the number of requests per second. You can [define test fail criteria](./how-to-define-test-criteria.md) based on these client-side metrics.
 
-- *Server-side metrics* are available for Azure-hosted applications and provide information about your Azure [application components](#app-component). Azure Load Testing integrates with Azure Monitor, including Application Insights and Container insights, to capture details from the Azure services. Depending on the type of service, different metrics are available. For example, metrics can be for the number of database reads, the type of HTTP responses, or container resource consumption.
+- *Server-side metrics* are available for Azure-hosted applications and provide information about your Azure [application components](#app-component). Azure Load Testing integrates with Azure Monitor, including Application Insights and Container insights, to capture details from the Azure services. Depending on the type of service, different metrics are available. For example, metrics can be for the number of database reads, the type of HTTP responses, or container resource consumption. You can [define test fail criteria](./how-to-define-test-criteria.md) based on these server-side metrics also.
 
 ## Related content
 

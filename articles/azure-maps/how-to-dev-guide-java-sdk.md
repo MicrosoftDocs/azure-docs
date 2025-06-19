@@ -86,7 +86,7 @@ Once the maven project is created, there should be a `pom.xml` file with basic i
 </dependency> 
 ```
 
-Run `mvn clean install` on your project, then create a java file named `demo.java` and import what you need from Azure maps into the file:
+Run `mvn clean install` on your project, then create a java file named `demo.java` and import what you need from Azure Maps into the file:
 
 ```powershell
 cd DemoProject

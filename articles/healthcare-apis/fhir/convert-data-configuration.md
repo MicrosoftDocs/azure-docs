@@ -1,12 +1,12 @@
 ---
 title: Configure $convert-data settings for the FHIR service in Azure Health Data Services
 description: Learn how to configure settings for the $convert-data operation to convert healthcare data into FHIR R4 format.
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 05/13/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Configure settings for $convert-data by using the Azure portal

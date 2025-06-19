@@ -3,7 +3,7 @@ title: Upgrading Azure Blob Storage to Azure Data Lake Storage
 description: Description goes here.
 author: normesta
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/26/2024
 ms.author: normesta
 

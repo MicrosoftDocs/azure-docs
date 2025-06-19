@@ -2,11 +2,11 @@
 title: Scenarios for Azure Private DNS zones
 description: In this article, learn about common scenarios for using Azure Private DNS zones.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
-ms.date: 04/25/2023
-ms.author: greglin
+ms.date: 02/10/2025
+ms.author: allensu
 ---
 
 # Azure Private DNS zones scenarios
@@ -42,7 +42,7 @@ In this scenario, you need a different naming resolution that depends on where t
 
 The following diagram demonstrates this scenario. You have a virtual network A that has two VMs (VNETA-VM1 and VNETA-VM2). Both have a private IP and public IP configured. A public DNS zone called `contoso.com` was created and registers the public IPs for these VMs as DNS records within the zone. A private DNS zone is also created called `contoso.com`. You defined virtual network A as a registration virtual network. Azure then automatically registers the VMs as A records into the Private Zone, pointing to their private IPs.
 
-Now when an internet client does a DNS query for `VNETA-VM1.contoso.com`, Azure will return the public IP record from the public zone. If the same DNS query is issued from another VM (for example: VNETA-VM2) in the same virtual network A, Azure will return the Private IP record from the private zone. 
+Now when an internet client does a DNS query for `VNETA-VM1.contoso.com`, Azure will return the public IP record from the public zone (203.0.113.1). If the same DNS query is issued from another VM (for example: VNETA-VM2) in the same virtual network A, Azure will return the Private IP record from the private zone. 
 
 ![Split Brian resolution](./media/private-dns-scenarios/split-brain-resolution.png)
 

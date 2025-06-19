@@ -12,14 +12,15 @@ ms.author: kpunjabi
 ---
 
 ## Create a call and provide the transcription details
-Define the TranscriptionOptions for ACS to know whether to start the transcription straight away or at a later time, which locale to transcribe in, and the web socket connection to use for sending the transcript.
+Define the TranscriptionOptions for ACS to specify when to start the transcription, the locale for transcription, and the web socket connection for sending the transcript.
 
 ```javascript
 const transcriptionOptions = {
     transportUrl: "",
     transportType: "websocket",
     locale: "en-US",
-    startTranscription: false
+    startTranscription: false,
+    speechRecognitionModelEndpointId: "YOUR_CUSTOM_SPEECH_RECOGNITION_MODEL_ID"
 };
 
 const options = {
@@ -31,6 +32,35 @@ const options = {
 
 console.log("Placing outbound call...");
 acsClient.createCall(callInvite, process.env.CALLBACK_URI + "/api/callbacks", options);
+```
+
+## Connect to a Rooms call and provide transcription details
+If you're connecting to an ACS room and want to use transcription, configure the transcription options as follows:
+
+```javascript
+const transcriptionOptions = {
+    transportUri: "",
+    locale: "en-US",
+    transcriptionTransport: "websocket",
+    startTranscription: false,
+    speechRecognitionModelEndpointId: "YOUR_CUSTOM_SPEECH_RECOGNITION_MODEL_ID"
+};
+
+const callIntelligenceOptions = {
+    cognitiveServicesEndpoint: process.env.COGNITIVE_SERVICES_ENDPOINT
+};
+
+const connectCallOptions = {
+    callIntelligenceOptions: callIntelligenceOptions,
+    transcriptionOptions: transcriptionOptions
+};
+
+const callLocator = {
+    id: roomId,
+    kind: "roomCallLocator"
+};
+
+const connectResult = await client.connectCall(callLocator, callBackUri, connectCallOptions);
 ```
 
 ## Start Transcription
@@ -49,8 +79,11 @@ await callMedia.startTranscription(startTranscriptionOptions);
 // await callMedia.startTranscription();
 ```
 
+### Additional Headers:
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`.
+
 ## Receiving Transcription Stream
-When transcription starts, your websocket will receive the transcription metadata payload as the first packet. This payload carries the call metadata and locale for the configuration.
+When transcription starts, your websocket receives the transcription metadata payload as the first packet.
 
 ```json
 {
@@ -147,10 +180,19 @@ console.log('WebSocket server running on port 8081');
 ```
 
 ## Update Transcription
-For situations where your application allows users to select their preferred language, you may also want to capture the transcription in that language. To do this, the Call Automation SDK allows you to update the transcription locale.
+For situations where your application allows users to select their preferred language, you may also want to capture the transcription in that language. To do this task, the Call Automation SDK allows you to update the transcription locale.
 
 ```javascript
-await callMedia.updateTranscription("en-US-NancyNeural");
+async function updateTranscriptionAsync() {
+  const options: UpdateTranscriptionOptions = {
+operationContext: "updateTranscriptionContext",
+speechRecognitionModelEndpointId: "YOUR_CUSTOM_SPEECH_RECOGNITION_MODEL_ID"
+  };
+  await acsClient
+.getCallConnection(callConnectionId)
+.getCallMedia()
+.updateTranscription("en-au", options);
+}
 ```
 
 ## Stop Transcription

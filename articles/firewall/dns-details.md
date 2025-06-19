@@ -2,11 +2,12 @@
 title: Azure Firewall DNS Proxy details
 description: Learn how Azure Firewall DNS Proxy works
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 06/11/2024
-ms.author: victorh
+ms.author: duau
+# Customer intent: As a network administrator, I want to configure Azure Firewall as a DNS proxy, so that I can ensure consistent and reliable DNS resolution for client virtual machines in my network.
 ---
 
 # Azure Firewall DNS Proxy details

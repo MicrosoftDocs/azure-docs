@@ -6,9 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/22/2024
+ms.date: 02/07/2025
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
+# Customer intent: "As a network administrator, I want to understand the traffic analytics schema and data aggregation methods so that I can effectively analyze flow logs and enhance network performance and security."
 ---
 
 # Traffic analytics schema and data aggregation
@@ -328,10 +329,13 @@ List of threat types:
     - `S2S` (Site-To-Site): One of the IP addresses belongs to an Azure virtual network, while the other IP address belongs to customer network (Site) connected to the virtual network through VPN gateway or ExpressRoute.
     - `P2S` (Point-To-Site): One of the IP addresses belongs to an Azure virtual network, while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway.
     - `AzurePublic`: One of the IP addresses belongs to an Azure virtual network, while the other IP address is an Azure Public IP address owned by Microsoft. Customer owned Public IP addresses aren't part of this flow type. For instance, any customer owned VM sending traffic to an Azure service (Storage endpoint) would be categorized under this flow type.
-    - `ExternalPublic`: One of the IP addresses belongs to an Azure virtual network, while the other IP address is a public IP that isn't in Azure and isn't reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”.
-    - `MaliciousFlow`: One of the IP addresses belong to an Azure virtual network, while the other IP address is a public IP that isn't in Azure and is reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”.
+    - `ExternalPublic`: One of the IP addresses belongs to an Azure virtual network, while the other IP address is a public IP that is neither owned by Microsoft nor part of a customer-owned subscription visible to traffic analytics and isn't reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
+    - `MaliciousFlow`: One of the IP addresses belong to an Azure virtual network, while the other IP address is a public IP that is neither owned by Microsoft nor part of a customer-owned subscription visible to traffic analytics and is reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
     - `UnknownPrivate`: One of the IP addresses belong to an Azure virtual network, while the other IP address belongs to the private IP range defined in RFC 1918 and couldn't be mapped by traffic analytics to a customer owned site or Azure virtual network.
     - `Unknown`: Unable to map either of the IP addresses in the flow with the customer topology in Azure and on-premises (site).
+
+    > [!NOTE]
+    > A subscription is visible to traffic analytics in a Log Analytics workspace if it contains a flow log configured to that workspace.
 
 ## Related content
 

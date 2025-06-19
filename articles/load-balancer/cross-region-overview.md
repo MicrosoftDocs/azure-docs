@@ -1,19 +1,19 @@
 ---
-title: Cross-region load balancer
+title: Global load balancer
 titleSuffix: Azure Load Balancer
-description: Overview of cross region load balancer tier for Azure Load Balancer.
+description: Overview of global load balancer tier for Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 02/20/2025
 ms.author: mbender
 ms.custom: references_regions
 ---
 
 # Global Load Balancer
 
-Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant high availability scenarios such as:
+Azure Standard Load Balancer supports global load balancing enabling geo-redundant high availability scenarios such as:
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
@@ -34,7 +34,7 @@ The frontend IP configuration of your global load balancer is static and adverti
 
 Configure regional redundancy by seamlessly linking a global load balancer to your existing regional load balancers. 
 
-If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
+If one region fails, the traffic is routed to the next closest healthy regional load balancer. 
 
 The health probe of the global load balancer gathers information about availability of each regional load balancer every 5 seconds. If one regional load balancer drops its availability to 0, global load balancer detects the failure. The regional load balancer is then taken out of rotation. 
 
@@ -55,7 +55,7 @@ If a flow is started from Seattle, traffic enters West US. This region is the cl
 
 Azure global load balancer uses geo-proximity load-balancing algorithm for the routing decision. 
 
-The configured load distribution mode of the regional load balancers is used for making the final routing decision when multiple regional load balancers are used for geo-proximity.  
+The configured load distribution mode of the regional load balancers is used for making the final routing decision when multiple regional load balancers are used for geo-proximity. 
 
 For more information, see [Configure the distribution mode for Azure Load Balancer](./load-balancer-distribution-mode.md).
 
@@ -73,7 +73,7 @@ Global load balancer comes with a static public IP, which ensures the IP address
 
 ### Client IP Preservation
 
-Global load balancer is a Layer-4 pass-through network load balancer. This pass-through preserves the original IP of the packet.  The original IP is available to the code running on the virtual machine. This preservation allows you to apply logic that is specific to an IP address.
+Global load balancer is a Layer-4 pass-through network load balancer. This pass-through preserves the original IP of the packet. The original IP is available to the code running on the virtual machine. This preservation allows you to apply logic that is specific to an IP address.
 
 ### Floating IP
 
@@ -83,7 +83,7 @@ It's important to note that floating IP configured on the Azure global Load Bala
 
 ### Health Probes
 
-Azure global Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by global load balancer are done automatically every 5 seconds, given that health probes are set up on their regional load balancer.  
+Azure global Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by global load balancer are done automatically every 5 seconds, given that health probes are set up on their regional load balancer. 
 
 ## Build cross region solution on existing Azure Load Balancer
 
@@ -145,7 +145,7 @@ Global load balancer routes the traffic to the appropriate regional load balance
 * West US 2 
 
 > [!NOTE]
-> The backend regional load balancers can be deployed in any publicly available Azure Region and is not limited to just participating regions.
+> The backend regional load balancers can be deployed in any publicly available Azure Region and isn't limited to just participating regions.
 
 ## Limitations of global load balancer
 

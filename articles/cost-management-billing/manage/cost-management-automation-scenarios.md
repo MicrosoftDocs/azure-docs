@@ -1,13 +1,13 @@
 ---
 title: Automation scenarios for Azure billing and cost management
 description: Learn how common billing and cost management scenarios are mapped to different APIs.
-author: bandersmsft
-ms.reviewer: adwise
+author: maddieminn
+ms.reviewer: maminn
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/26/2021
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: maminn
 ---
 
 # Automation scenarios for billing and cost management
@@ -75,29 +75,7 @@ Web Direct and Enterprise customers can use all the following APIs, except where
 
 -    [Invoices API](/rest/api/billing/2019-10-01-preview/invoices): Get the download URL for an invoice for a billing period in PDF form.
 
-### Enterprise consumption
-The following APIs are for Enterprise only:
-
--    Balance Summary API: Get a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges. You can get this information for the current billing period or any period in the past. Enterprises can use this data to compare with manually calculated summary charges. This API does not provide resource-specific information or an aggregate view of costs.
-
--    Usage Details API: Get information about Azure usage (of Microsoft offerings) for the current month, a specific billing period, or a custom date period. Enterprises can use this data to manually calculate bills based on rate and consumption. Enterprises can also use department/organization information to attribute costs across organizations. The data provides a resource-specific view of usage/cost.
-
--    Marketplace Store Charge API: Get information about Azure usage (of partner offerings) for the current month, a specific billing period, or a custom date period. Enterprises can use this data to manually calculate bills based on rate and consumption. Enterprises can also use department/organization information to attribute costs across organizations. This API provides a resource-specific view of usage/cost.
-
--    Price Sheet API: Get the applicable rate for each meter for the given enrollment and billing period. You can use this rate information in combination with usage details and marketplace usage information to manually calculate the expected bill.
-
--    Billing Periods API: Get a list of billing periods. The API also gives you a property that points to the API route for the four sets of Enterprise API data that pertain to the billing period: BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet.
-
--    Reserved Instance Recommendations API: Look at 7 days, 30 days, or 60 days of virtual machine usage and get Single and Shared Purchase recommendations. You can use this API to analyze expected cost savings and recommended purchase amounts. For more information, see [APIs for Azure reservation automation](../reservations/reservation-apis.md).
-
 ## Frequently asked questions
-
-### What's the difference between the Enterprise Reporting APIs and the Consumption APIs? When should I use each?
-These APIs have a similar set of functionality and can answer the same broad set of questions in the billing and cost management space. But they target different audiences:
-
-- Enterprise Reporting APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated Azure Prepayment (previously called monetary commitment) and custom pricing. The APIs require a key that you can get from the Azure portal.
-
-- Consumption APIs are available to all customers, with a few exceptions. For more information, see [Cost Management automation overview](../automate/automation-overview.md). We recommend the provided APIs as the solution for the latest development scenarios.
 
 ### What's the difference between the Invoice API and the Usage Details API?
 These APIs provide a different view of the same data:

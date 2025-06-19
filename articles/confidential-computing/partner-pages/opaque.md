@@ -5,7 +5,7 @@ services: virtual-machines
 author: ananyagarg
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/03/2024
 ms.author: ananyagarg
 ---
@@ -31,7 +31,7 @@ Organizations need a privacy-preserving AI solution that bridges the gap between
 
 Opaque Gateway serves as a privacy layer around your LLM of choice. With Opaque Gateway, you can securely and provably sanitize LLM prompts seamlessly to hide sensitive data from external parties and LLM providers. Opaque’s Confidential Computing technology ensures that no third party, not even Opaque Gateway, gets any visibility into the underlying prompt or data being sanitized.
 
-Get started today with the Azure Marketplace solution, [you can check it out here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/opaquesystemsinc1638314744398.opaque_analytics_001?tab=Overview).
+Get started today with the Azure Marketplace solution, [you can check it out here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/opaquesystemsinc1638314744398.opaque_analytics_managed_app?tab=overview).
 
 ## Learn more
 

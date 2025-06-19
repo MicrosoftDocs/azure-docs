@@ -4,8 +4,8 @@ description: Create automated tasks to receive periodic reports via email
 ms.topic: how-to
 ms.date: 09/20/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

@@ -1,104 +1,34 @@
 ---
 title: Authorize a managed identity request
-description: Learn how to authorize a managed identity request to your Web PubSub resources by using Microsoft Entra ID.
+description: This article provides information about authorizing requests to Azure Web PubSub resources with Managed identities for Azure resources.
 author: terencefan
 ms.author: tefa
-ms.date: 08/16/2024
+ms.date: 03/11/2025
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
-# Authorize a managed identity request by using Microsoft Entra ID
+# Authorize requests to Azure Web PubSub resources with Managed identities for Azure resources
 
-Azure Web PubSub Service supports Microsoft Entra ID for authorizing requests from [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
+Azure Web PubSub Service supports Microsoft Entra ID for authorizing requests from [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-This article shows you how to configure your Web PubSub resource and code to authorize the request to a Web PubSub resource from a managed identity.
+This article explains how to set up your resource and code to authorize requests to the resource using a managed identity.
 
 ## Configure managed identities
 
-The first step is to configure managed identities.
+The first step is to configure managed identities on your app or virtual machine.
 
-In this section, you set up a system-assigned managed identity on a virtual machine by using the Azure portal.
-
-1. In the [Azure portal](https://portal.azure.com/), search for and then select a virtual machine (VM).
-1. Under **Settings**, select **Identity**.
-1. On the **System assigned** tab, set **Status** to **On**.
-
-   :::image type="content" source="media/howto-authorize-from-managed-identity/identity-virtual-machine.png" alt-text="Screenshot that shows creating a system identity for a virtual machine.":::
-
-1. Select **Save** to confirm the change.
-
-### Create a user-assigned managed identity
-
-Learn how to [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
-
-### Configure managed identities on other platforms
-
-- [Configure managed identities for Azure resources on a VM by using the Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
-- [Configure managed identities for Azure resources on an Azure VM by using Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [Configure managed identities for Azure resources on an Azure VM by using the Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Configure managed identities for Azure resources on an Azure VM by using a template](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Configure managed identities for Azure resources on a VM by using the Azure SDK](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
-
-### Configure managed identities for Azure App Service and Azure Functions
-
-Learn how to [use managed identities for App Service and Functions](../app-service/overview-managed-identity.md).
+- [Configure managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity)
+- [Configure managed identities on Azure virtual machines (VMs)](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities)
+- [Configure managed identities for Azure resources on a virtual machine scale set](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities-scale-sets)
 
 ## Add a role assignment in the Azure portal
 
-This section demonstrates how to assign the Web PubSub Service Owner role to a system-assigned identity for a Web PubSub resource.
+[!INCLUDE [add role assignments](includes/web-pubsub-add-role-assignments.md)]
 
-> [!NOTE]
-> You can assign a role to any scope, including management group, subscription, resource group, and single resource. For more information about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
+## Code samples with Microsoft Entra authorization
 
-1. In the [Azure portal](https://portal.azure.com/), go to your Web PubSub resource.
-
-1. On the left menu, select **Access control (IAM)** to display access control settings for your Web PubSub instance.
-
-1. Select the **Role assignments** tab and view the role assignments at this scope.
-
-   The following screenshot shows an example of the Access control (IAM) pane for a Web PubSub resource:
-
-   :::image type="content" source="media/howto-authorize-from-managed-identity/access-control.png" alt-text="Screenshot that shows an example of the Access control (IAM) pane.":::
-
-1. Select **Add** > **Add role assignment**.
-
-1. Select the **Roles** tab, and then select **Web PubSub Service Owner**.
-
-1. Select **Next**.
-
-   :::image type="content" source="media/howto-authorize-from-managed-identity/add-role-assignment.png" alt-text="Screenshot that shows adding a role assignment.":::
-
-1. Select the **Members** tab. Under **Assign access to**, select **Managed identity**.
-
-1. Choose **Select Members**.
-
-1. On the **Select managed identities** pane, select **System-assigned managed identity** > **Virtual machine**.
-
-1. Search for and then select the virtual machine that you want to assign the role to.
-
-1. Choose **Select** to confirm the selection.
-
-1. Select **Next**.
-
-   :::image type="content" source="media/howto-authorize-from-managed-identity/assign-role-to-managed-identities.png" alt-text="Screenshot that shows assigning a role to managed identities.":::
-
-1. Select **Review + assign** to confirm the change.
-
-> [!IMPORTANT]
-> Azure role assignments might take up to 30 minutes to propagate.
-
-To learn more about how to assign and manage Azure role assignments, see these articles:
-
-- [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
-- [Assign Azure roles by using REST API](../role-based-access-control/role-assignments-rest.md)
-- [Assign Azure roles by using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-- [Assign Azure roles by using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
-- [Assign Azure roles by using an Azure Resource Manager template](../role-based-access-control/role-assignments-template.md)
-
-## Sample codes that use Microsoft Entra authorization
-
-Get samples that use Microsoft Entra authorization in our four officially supported programming languages:
+Check out our samples that show how to use Microsoft Entra authorization in programming languages we officially support.
 
 - [C#](./howto-create-serviceclient-with-net-and-azure-identity.md)
 - [Python](./howto-create-serviceclient-with-python-and-azure-identity.md)

@@ -2,11 +2,11 @@
 title: Azure permissions for Containers - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Containers category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -86,8 +86,6 @@ Azure service: [Container Registry](/azure/container-registry/)
 > | Microsoft.ContainerRegistry/registries/regenerateCredential/action | Regenerates one of the login credentials for the specified container registry. |
 > | Microsoft.ContainerRegistry/registries/generateCredentials/action | Generate keys for a token of a specified container registry. |
 > | Microsoft.ContainerRegistry/registries/importImage/action | Import Image to container registry with the specified parameters. |
-> | Microsoft.ContainerRegistry/registries/getBuildSourceUploadUrl/action | Gets the upload location for the user to be able to upload the source. |
-> | Microsoft.ContainerRegistry/registries/queueBuild/action | Creates a new build based on the request parameters and add it to the build queue. |
 > | Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action | Get source upload url location for a container registry. |
 > | Microsoft.ContainerRegistry/registries/scheduleRun/action | Schedule a run against a container registry. |
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnectionsApproval/action | Auto Approves a Private Endpoint Connection |
@@ -98,18 +96,6 @@ Azure service: [Container Registry](/azure/container-registry/)
 > | Microsoft.ContainerRegistry/registries/agentpools/operationResults/status/read | Gets an agentpool async operation result status |
 > | Microsoft.ContainerRegistry/registries/agentpools/operationStatuses/read | Gets an agentpool async operation status |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | Delete artifact in a container registry. |
-> | Microsoft.ContainerRegistry/registries/builds/read | Gets the properties of the specified build or lists all the builds for the specified container registry. |
-> | Microsoft.ContainerRegistry/registries/builds/write | Updates a build for a container registry with the specified parameters. |
-> | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | Gets a link to download the build logs. |
-> | Microsoft.ContainerRegistry/registries/builds/cancel/action | Cancels an existing build. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/read | Gets the properties of the specified build task or lists all the build tasks for the specified container registry. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/write | Creates or updates a build task for a container registry with the specified parameters. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/delete | Deletes a build task from a container registry. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/listSourceRepositoryProperties/action | Lists the source control properties for a build task. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/steps/read | Gets the properties of the specified build step or lists all the build steps for the specified build task. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | Creates or updates a build step for a build task with the specified parameters. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | Deletes a build step from a build task. |
-> | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | Lists the build arguments for a build step including the secret arguments. |
 > | Microsoft.ContainerRegistry/registries/cacheRules/read | Gets the properties of the specified cache rule or lists all the cache rules for the specified container registry |
 > | Microsoft.ContainerRegistry/registries/cacheRules/write | Creates or updates a cache rule for a container registry with the specified parameters |
 > | Microsoft.ContainerRegistry/registries/cacheRules/delete | Deletes a cache rule from a container registry |
@@ -237,6 +223,7 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/fleets/autoUpgradeProfiles/read | Get a fleet auto upgrade profile |
 > | Microsoft.ContainerService/fleets/autoUpgradeProfiles/write | Create or Update a fleet auto upgrade profile |
 > | Microsoft.ContainerService/fleets/autoUpgradeProfiles/delete | Delete a fleet auto upgrade profile |
+> | Microsoft.ContainerService/fleets/autoUpgradeProfiles/generateUpdateRun/action | Generate a fleet update run based off the auto upgrade profile |
 > | Microsoft.ContainerService/fleets/members/read | Get a fleet member |
 > | Microsoft.ContainerService/fleets/members/write | Create or Update a fleet member |
 > | Microsoft.ContainerService/fleets/members/delete | Delete a fleet member |
@@ -281,6 +268,9 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/agentPools/delete | Deletes an agent pool |
 > | Microsoft.ContainerService/managedClusters/agentPools/upgradeNodeImageVersion/action | Upgrade the node image version of agent pool |
 > | Microsoft.ContainerService/managedClusters/agentPools/abort/action | Latest ongoing operation on agent pool gets aborted |
+> | Microsoft.ContainerService/managedClusters/agentPools/deleteMachines/action | Deletes machines |
+> | Microsoft.ContainerService/managedClusters/agentPools/machines/read | Gets a machine |
+> | Microsoft.ContainerService/managedClusters/agentPools/machines/write | Creates a new machine or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/agentPools/upgradeNodeImageVersion/write | Upgrade the node image version of agent pool |
 > | Microsoft.ContainerService/managedClusters/agentPools/upgradeProfiles/read | Gets the upgrade profile of the Agent Pool |
 > | Microsoft.ContainerService/managedClusters/availableAgentPoolVersions/read | Gets the available agent pool versions of the cluster |
@@ -299,6 +289,10 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/read | Gets a maintenance configuration |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/write | Creates a new MaintenanceConfiguration or updates an existing one |
 > | Microsoft.ContainerService/managedClusters/maintenanceConfigurations/delete | Deletes a maintenance configuration |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/read | Get a namespace of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/write | Create a namespace of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/delete | Delete a namespace of a managed cluster |
+> | Microsoft.ContainerService/managedClusters/managedNamespaces/listCredential/action | List cluster credentials of a managed namespace |
 > | Microsoft.ContainerService/managedClusters/meshUpgradeProfiles/read | Read service mesh upgrade profiles for a managed cluster |
 > | Microsoft.ContainerService/managedClusters/networkSecurityPerimeterAssociationProxies/read | Get ManagedCluster NetworkSecurityPerimeter Association |
 > | Microsoft.ContainerService/managedClusters/networkSecurityPerimeterAssociationProxies/write | Create or update ManagedCluster NetworkSecurityPerimeter Association |
@@ -768,6 +762,9 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/coordination.k8s.io/leases/read | Reads leases |
 > | Microsoft.ContainerService/managedClusters/coordination.k8s.io/leases/write | Writes leases |
 > | Microsoft.ContainerService/managedClusters/coordination.k8s.io/leases/delete | Deletes leases |
+> | Microsoft.ContainerService/managedClusters/customresources/read | Reads custom resources |
+> | Microsoft.ContainerService/managedClusters/customresources/write | Writes custom resources |
+> | Microsoft.ContainerService/managedClusters/customresources/delete | Deletes custom resources |
 > | Microsoft.ContainerService/managedClusters/discovery.k8s.io/endpointslices/read | Reads endpointslices |
 > | Microsoft.ContainerService/managedClusters/discovery.k8s.io/endpointslices/write | Writes endpointslices |
 > | Microsoft.ContainerService/managedClusters/discovery.k8s.io/endpointslices/delete | Deletes endpointslices |
@@ -1001,6 +998,7 @@ Azure service: [Azure Red Hat OpenShift](/azure/openshift/)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.RedHatOpenShift/locations/listInstallVersions/read |  |
+> | Microsoft.RedHatOpenShift/locations/listPlatformWorkloadIdentityRoleSets/read |  |
 > | Microsoft.RedHatOpenShift/locations/operationresults/read |  |
 > | Microsoft.RedHatOpenShift/locations/operationsstatus/read |  |
 > | Microsoft.RedHatOpenShift/openShiftClusters/read |  |
@@ -1009,15 +1007,6 @@ Azure service: [Azure Red Hat OpenShift](/azure/openshift/)
 > | Microsoft.RedHatOpenShift/openShiftClusters/listCredentials/action |  |
 > | Microsoft.RedHatOpenShift/openShiftClusters/listAdminCredentials/action |  |
 > | Microsoft.RedHatOpenShift/openShiftClusters/detectors/read |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/machinePools/read |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/machinePools/write |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/machinePools/delete |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncIdentityProviders/read |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncIdentityProviders/write |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncIdentityProviders/delete |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncSets/read |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncSets/write |  |
-> | Microsoft.RedHatOpenShift/openShiftClusters/syncSets/delete |  |
 > | Microsoft.RedHatOpenShift/operations/read |  |
 
 ## Next steps

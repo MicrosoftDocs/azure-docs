@@ -10,9 +10,9 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an instance - Portal
+  - name: Create a workspace - Portal
     href: quickstart-managed-grafana-portal.md
-  - name: Create an instance - Azure CLI
+  - name: Create a workspace - Azure CLI
     href: quickstart-managed-grafana-cli.md
 - name: Tutorial
   expanded: true
@@ -30,22 +30,20 @@ items:
     href: encryption.md
   - name: Grafana settings
     href: grafana-settings.md
-  - name: Azure RBAC  
-    href: concept-role-based-access-control.md
 - name: How-to guides
   expanded: true
   items:
   - name: Access and sharing
     expanded: false
     items:
-    - name: Configure authentication and permissions
+    - name: Configure Grafana resource authentication and permissions
       href: how-to-authentication-permissions.md
     - name: Modify access permissions to Azure Monitor
       href: how-to-permissions.md
-    - name: Sync teams with Microsoft Entra groups
+    - name: Manage access and permissions for users and identities
+      href: how-to-manage-access-permissions-users-identities.md
+    - name: Use Grafana Team Sync
       href: how-to-sync-teams-with-entra-groups.md
-    - name: Share a workspace
-      href: how-to-share-grafana-workspace.md
   - name: Data sources
     expanded: false
     items:
@@ -94,12 +92,22 @@ items:
     items:
     - name: Use service accounts
       href: how-to-service-accounts.md
-    - name: Monitor Azure Managed Grafana
+    - name: Monitor using metrics
+      href: how-to-monitor-managed-grafana-metrics.md      
+    - name: Monitor using diagnostic settings
       href: how-to-monitor-managed-grafana-workspace.md
   - name: Migrate to Azure Managed Grafana
     href: how-to-migrate.md
-  - name: Troubleshoot common issues
-    href: troubleshoot-managed-grafana.md
+  - name: Configure Grafana settings
+    href: grafana-settings.md
+  - name: Upgrade to Grafana 11
+    href: how-to-upgrade-grafana-11.md   
+  - name: Troubleshoot issues  
+    items:
+    - name: Troubleshoot common issues
+      href: troubleshoot-managed-grafana.md
+    - name: Troubleshoot connecting managed private endpoint to a private link service
+      href: troubleshoot-mpe-connection.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -124,3 +132,6 @@ items:
     href: https://aka.ms/managed-grafana/feature-request
   - name: Support
     href: find-help-open-support-ticket.md
+  - name: VS Code extension for Grafana
+    href: https://marketplace.visualstudio.com/items?itemName=Grafana.grafana-vscode
+    

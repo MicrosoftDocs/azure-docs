@@ -2,10 +2,10 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 11/11/2024
+ms.date: 02/17/2025
 ms.topic: troubleshooting
-ms.author: sudhirsneha
-author: SnehaSudhirG
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # Troubleshoot issues with Azure Update Manager
@@ -44,7 +44,7 @@ To review the logs related to all actions performed by the extension, check for 
 
 For Azure Arc-enabled servers, see [Troubleshoot VM extensions](/azure/azure-arc/servers/troubleshoot-vm-extensions) for general troubleshooting steps.
 
-To review the logs related to all actions performed by the extension, on Windows, check for more information in `C:\ProgramData\GuestConfig\extension_Logs\Microsoft.SoftwareUpdateManagement\WindowsOsUpdateExtension`. It includes the following two log files of interest:
+To review the logs related to all actions performed by the extension, on Windows, check for more information in `C:\ProgramData\GuestConfig\extension_logs\Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension`. It includes the following log files of interest:
 
 * `WindowsUpdateExtension.log`: Contains information related to the patch actions. This information includes the patches assessed and installed on the machine and any problems encountered in the process.
 * `cmd_execution_<numeric>_stdout.txt`: There's a wrapper above the patch action. It's used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
@@ -90,22 +90,22 @@ The Virtual Machine Contributor role doesn’t have enough permissions.
 -	Also, in scenarios where the Contributor role doesn’t work when the linked resources (gallery image or disk) is in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md).
 
 
-### Unable to generate periodic assessment for Arc-enabled servers
+## Unable to generate periodic assessment for Arc-enabled servers
 
-#### Issue
+### Issue
 
 The subscriptions in which the Arc-enabled servers are onboarded aren't producing assessment data.
 
-#### Resolution
+### Resolution
 Ensure that the Arc servers subscriptions are registered to Microsoft.Compute resource provider so that the periodic assessment data is generated periodically as expected. [Learn more](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
-### Maintenance configuration isn't applied when VM is moved to a different subscription or resource group
+## Maintenance configuration isn't applied when VM is moved to a different subscription or resource group
 
-#### Issue
+### Issue
 
 When a VM is moved to another subscription or resource group, the scheduled maintenance configuration associated to the VM isn't running.
 
-#### Resolution
+### Resolution
 
 Maintenance configurations do not currently support the moving of assigned resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a prerequisite, first remove the assignment before following the steps.** 
 
@@ -125,26 +125,26 @@ If any of the steps are missed, please move the resource to the previous resourc
 > [!NOTE]
 > If the resource group is deleted, recreate it with the same name. If the subscription ID is deleted, reach out to the support team for mitigation.
 
-### Unable to change the patch orchestration option to manual updates from automatic updates
+## Unable to change the patch orchestration option to manual updates from automatic updates
 
-#### Issue
+### Issue
 
 You want to ensure that the Windows Update client won't install patches on your Windows Server so you want to set the patch setting to Manual. The Azure machine has the patch orchestration option as `AutomaticByOS/Windows` automatic updates and you're unable to change the patch orchestration to Manual Updates by using **Change update settings**.
 
-#### Resolution
+### Resolution
 
 If you don't want any patch installation to be orchestrated by Azure or aren't using custom patching solutions, you can change the patch orchestration option to **Customer Managed Schedules (Preview)** or `AutomaticByPlatform` and `ByPassPlatformSafetyChecksOnUserSchedule` and not associate a schedule/maintenance configuration to the machine. This setting ensures that no patching is performed on the machine until you change it explicitly. For more information, see **Scenario 2** in [User scenarios](prerequsite-for-schedule-patching.md#user-scenarios).
 
 :::image type="content" source="./media/troubleshoot/known-issue-update-settings-failed.png" alt-text="Screenshot that shows a notification of failed update settings.":::
 
-### Machine shows as "Not assessed" and shows an HRESULT exception
+## Machine shows as "Not assessed" and shows an HRESULT exception
 
-#### Issue
+### Issue
 
 * You have machines that show as `Not assessed` under **Compliance**, and you see an exception message below them.
 * You see an `HRESULT` error code in the portal.
 
-#### Cause
+### Cause
 
 The Update Agent (Windows Update Agent on Windows and the package manager for a Linux distribution) isn't configured correctly. Update Manager relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Manager can't properly report on the patches that are needed or installed.
 
@@ -270,10 +270,27 @@ The property should be set to true to allow extensions to work properly.
 
 #### Issue
 
-Sudo privileges are not granted to the extensions for assessment or patching operations on Linux machines.
+Sudo privileges are not granted to the extensions for assessment or patching operations on Linux machines. You may see the following exception:
+```
+EXCEPTION: Exception('Unable to invoke sudo successfully. Output: root is not in the sudoers file. This incident will be reported. False ',)
+```
+
+Azure Update Manager (*AUM*) requires a high level of permissions due to the many different components that may be updated with AUM (*Kernel drivers, OS Security Patching, etc.*). The AUM extensions use the `root` account for operations.
 
 #### Resolution
-Grant sudo privileges to ensure assessment or patching operations succeed. 
+Grant sudo privileges to ensure assessment or patching operations succeed. You will need to add the root account to the sudoers file.
+
+1. Open the sudoers file for editing:
+   ```bash
+   sudo visudo
+   ```
+
+2. Add the following entry to the end of `/etc/sudoers` file:
+   ```
+   root ALL=(ALL) ALL
+   ```
+
+3. When done, save and exit the editor using the `Ctrl-X` command. If you are using the *vi* editor you can type `:wq` and press <kbd>⏎ ENTER</kbd>.
 
 ### Proxy is configured
 

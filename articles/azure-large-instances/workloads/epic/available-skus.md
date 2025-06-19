@@ -3,12 +3,13 @@ title: Available Azure Large Instances SKUs
 description: Provides a list of Azure Large Instances for Epic SKUs.
 titleSuffix: Azure Large Instances for Epic
 ms.title: Available Azure Large Instances SKUs
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
-ms.date: 06/01/2023
+ms.date: 2/7/2024
+# Customer intent: As a cloud architect, I want to review the available Azure Large Instances SKUs for Epic workloads, so that I can choose the appropriate resources for my organization's high-performance compute and storage needs.
 ---
 
 # Azure Large Instances for Epic workload SKUs
@@ -70,7 +71,7 @@ A deployed tenant in the Azure Large Instances stamp is assigned to one Azure su
 If you deploy with another Azure subscription in the same Azure region, you also request for a separated Azure Large Instances tenant.
 
 ### Operational model
-In addition to its BareMetal offering, Azure Large Instances also has an offering where Microsoft deploys a foundational ESXi environment onto the host servers and subsequent configuration of VMware vCenter by Microsoft as an ESXi VM in the cluster. Microsoft owns the ESXi licenses. On the storage configurations, Azure Large Instances comes with highly redundant Fiber Channel storage provisioned. Microsoft retains the root admin access to ESXi and provides a cloud admin role for customer’s use. The Cloud Admin role in Azure Large Instances Solution has the following privileges on vCenter Server. 
+In addition to its BareMetal offering, Azure Large Instances also has an offering where Microsoft deploys a foundational ESXi environment onto the host servers and subsequent configuration of VMware vCenter Server by Microsoft as an ESXi VM in the vSphere cluster. Microsoft owns the ESXi licenses. On the storage configurations, Azure Large Instances comes with highly redundant Fiber Channel storage provisioned. Microsoft retains the root administrator access to ESXi and provides a cloud administrator role for customer’s use. The Cloud Admin role in Azure Large Instances Solution has the following privileges on vCenter Server. 
 
 The following table color-codes areas of management responsibility, where:
 

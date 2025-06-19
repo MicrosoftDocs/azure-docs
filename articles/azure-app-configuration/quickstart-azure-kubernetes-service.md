@@ -5,7 +5,10 @@ services: azure-app-configuration
 author: junbchen
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-other
+ms.custom:
+  - devx-track-csharp
+  - mode-other
+  - build-2025
 ms.topic: quickstart
 ms.date: 04/24/2024
 ms.author: junbchen
@@ -227,23 +230,49 @@ Add following key-values to the App Configuration store and leave **Label** and 
 
 ### Set up the App Configuration Kubernetes Provider
 
-1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
+1. Install the Azure App Configuration Kubernetes Provider on your AKS cluster. You can do this either as an AKS extension or by using a Helm chart. The AKS extension allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep files. Additionally, using the AKS extension facilitates automatic minor and patch version updates, ensuring your system remains up-to-date.
    
-    ```console
-    az aks get-credentials --name <your-aks-instance-name> --resource-group <your-aks-resource-group>
+    #### [AKS extension](#tab/extension)
+
+    Add the `k8s-extension` to your Azure CLI extensions:
+
+    ```azurecli
+    az extension add --name k8s-extension
     ```
 
-1. Install Azure App Configuration Kubernetes Provider to your AKS cluster using `helm`:
-   
-    ```console
-    helm install azureappconfiguration.kubernetesprovider \
-         oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
-         --namespace azappconfig-system \
-         --create-namespace
+    Register the `KubernetesConfiguration` resource provider:
+    
+    ```azurecli
+    az provider register --namespace Microsoft.KubernetesConfiguration
+    ```
+
+    Install the AKS extension for App Configuration. Replace the `cluster-name` and `resource-group` parameter values with those of your AKS instance:
+
+    ```azurecli
+    az k8s-extension create --cluster-type managedClusters \
+        --cluster-name <your-aks-instance-name> \
+        --resource-group <your-aks-resource-group> \
+        --name appconfigurationkubernetesprovider \
+        --extension-type Microsoft.AppConfiguration
     ```
     
-    > [!TIP]
-    > The App Configuration Kubernetes Provider is also available as an AKS extension. This integration allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep templates. Utilizing the AKS extension facilitates automatic minor/patch version updates, ensuring your system is always up-to-date. For detailed installation instructions, please refer to the [Azure App Configuration extension for Azure Kubernetes Service](/azure/aks/azure-app-configuration).
+    For more information see [Install Azure App Configuration AKS extension](/azure/aks/azure-app-configuration).
+  
+    #### [Helm chart](#tab/helm)
+
+    Run the following command to obtain access credentials for your AKS cluster. Replace the `name` and `resource-group` parameter values with those of your AKS instance:
+   
+    ```azurecli
+    az aks get-credentials --name <your-aks-instance-name> --resource-group <your-aks-resource-group>
+    ```
+    
+    Install the helm chart:
+    ```console
+    helm install azureappconfiguration.kubernetesprovider \
+        oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
+        --namespace azappconfig-system \
+        --create-namespace
+    ```
 
 1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
    
@@ -357,7 +386,7 @@ Use the logs for further troubleshooting. Refer to the [FAQ](#faq) section for c
 
 ## FAQ
 
-#### Why isn’t the ConfigMap or Secret being generated?
+#### Why isn't the ConfigMap or Secret being generated?
 
 You can follow the steps in the [Troubleshooting](#troubleshooting) guide to collect logs for detailed error information. Here are some common causes.
 
@@ -374,7 +403,7 @@ You can customize the installation by providing additional Helm values when inst
 
 #### How to trigger on-demand refresh of ConfigMap and Secret
 
-While you can set up automatic data refresh, there are times when you might want to trigger an on-demand refresh to get the latest data from App Configuration and Key Vault. To do this, you can restart the deployment of the Azure App Configuration Kubernetes provider controller. The Kubernetes provider will then reconcile and update the ConfigMap and Secret with the latest data from your App Configuration store and Key Vault.
+While you can set up automatic data refresh, there are times when you might want to trigger an on-demand refresh to get the latest data from App Configuration and Key Vault. To do this, you can modify the `metadata.annotations` section of `AzureAppConfigurationProvider`. The Kubernetes provider will then reconcile and update the ConfigMap and Secret with the latest data from your App Configuration store and Key Vault. See [On-demand Refresh](./reference-kubernetes-provider.md#on-demand-refresh) for an example.
 
 It is not recommended to delete or modify the ConfigMap and Secret generated by the Kubernetes provider. Although new ones will be generated from the latest data, this could cause downtime for your applications in the event of any failures.
 

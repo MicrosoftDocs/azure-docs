@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 09/27/2024
+ms.topic: reference
+ms.date: 01/27/2025
 ms.author: danlep
 ---
 
@@ -14,10 +14,10 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `validate-jwt` policy enforces existence and validity of a supported JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
+The `validate-jwt` policy enforces existence and validity of a supported JSON web token (JWT) that was provided by an identity provider. The JWT can be extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
 
 > [!NOTE]
->  To validate a JWT that was provided by the Microsoft Entra service, API Management also provides the [`validate-azure-ad-token`](validate-azure-ad-token-policy.md) policy. 
+>  Use the [`validate-azure-ad-token`](validate-azure-ad-token-policy.md) policy to validate a JWT that was provided by Microsoft Entra. 
 
 [!INCLUDE [api-management-policy-form-alert](../../includes/api-management-policy-form-alert.md)]
 
@@ -109,13 +109,13 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
-* The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
+* The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT, unless `require-expiration-time` attribute is specified and set to `false`.
 * The policy supports both symmetric and asymmetric signing algorithms: 
     * **Symmetric** - The following encryption algorithms are supported: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
     	* If used in the policy, the key must be provided inline within the policy in the Base64-encoded form.
@@ -123,7 +123,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
     	* If used in the policy, the key may be provided either via an OpenID configuration endpoint, or by providing the ID of an uploaded certificate (in PFX format) that contains the public key, or the modulus-exponent pair of the public key.
 * To configure the policy with one or more OpenID configuration endpoints for use with a self-hosted gateway, the OpenID configuration endpoints URLs must also be reachable by the cloud gateway.
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Microsoft Entra authentication by applying the `validate-jwt` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
-* When using a custom header (`header-name`), the configured required scheme (`require-scheme`) will be ignored. To use a required scheme, JWT tokens must be provided in the `Authorization` header.
+* When using a custom header (`header-name`), the configured required scheme (`require-scheme`) will be ignored. To use a required scheme, JWTs must be provided in the `Authorization` header.
 
 ## Examples
 
@@ -206,6 +206,34 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 </validate-jwt>
 ```
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+### Token validation using decryption key
+
+This example shows how to use the `validate-jwt` policy to validate a token that is decrypted using a decryption key. The key is specified using the ID of an uploaded certificate (in PFX format) that contains the public key.
+
+```xml
+<validate-jwt header-name="Authorization" require-scheme="Bearer" output-token-variable-name="jwt">
+    <issuer-signing-keys>
+        <key>{{jwt-signing-key}}</key> <!-- signing key is stored in a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>
+    </audiences>
+    <issuers>
+        <issuer>contoso.com</issuer>
+    </issuers>
+    <required-claims>
+        <claim name="group" match="any">
+            <value>finance</value>
+            <value>logistics</value>
+        </claim>
+    </required-claims>
+    <decryption-keys>
+        <key certificate-id="my-certificate-in-api-management" /> <!-- decryption key specified as certificate ID -->
+    </decryption-keys>
+</validate-jwt>
+```
 
 ### Authorize access to operations based on token claims
 

@@ -5,9 +5,10 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: quickstart
-ms.date: 06/30/2023
+ms.date: 01/31/2025
 ms.author: duau
 ms.custom: devx-track-azurecli, mode-api
+# Customer intent: As a network engineer, I want to create and manage an ExpressRoute circuit using the command line interface, so that I can efficiently provision, update, and monitor my organization's dedicated connection to Azure.
 ---
 
 # Quickstart: Create and modify an ExpressRoute circuit using Azure CLI
@@ -191,7 +192,7 @@ az network express-route list -h
 
 ### Send the service key to your connectivity provider for provisioning
 
-'ServiceProviderProvisioningState' provides information about the current state of provisioning on the service-provider side. The status provides the state on the Microsoft side. For more information, see the [Workflows article](expressroute-workflows.md#expressroute-circuit-provisioning-states).
+'ServiceProviderProvisioningState' provides information about the current state of provisioning on the service-provider side. The status provides the state on the Microsoft side. For more information, see the [Workflows article](expressroute-workflows.md#expressroute-partner-circuit-provisioning-states).
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 

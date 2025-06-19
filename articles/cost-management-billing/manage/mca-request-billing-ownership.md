@@ -1,13 +1,13 @@
 ---
 title: Transfer Azure product billing ownership to a Microsoft Customer Agreement
 description: Learn how to transfer billing ownership of Azure subscriptions, reservations, and savings plans.
-author: bandersmsft
-ms.reviewer: sgautam
+ms.topic: how-to
+ms.date: 05/21/2025
+author: kendayMS
+ms.author: macyso
+ms.reviewer: macyso
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: how-to
-ms.date: 06/26/2024
-ms.author: banders
 ---
 
 # Transfer Azure product billing ownership to a Microsoft Customer Agreement
@@ -72,6 +72,15 @@ The subscription, reservation, or savings plan product owner (transfer request r
 - For an Enterprise Agreement savings plan or reservation, the person must be an EA administrator
 - For a Microsoft Online Subscription Agreement, the person must be an Account Administrator.
 
+### Marketplace purchases
+
+When you transfer a subscription from an Enterprise Agreement to a Microsoft Customer Agreement, Marketplace purchases transfer with it when the following conditions are met:
+
+- The Marketplace purchase in the EA subscription must be active.
+- The Marketplace purchase must pass all eligibility checks before transfer. For example, the purchase must be available for use in the target agreement.
+- All other assets in the source subscription must also be able to successfully be transferred. Otherwise, the transfer fails.
+
+
 ## Create the product transfer request
 
 The person creating the transfer request uses the following procedure to create the transfer request. The transfer request essentially asks the owner of the product to allow subscriptions and or reservations associated with a subscription to be transferred.
@@ -112,10 +121,10 @@ The recipient of the transfer request uses the following procedure to review and
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-subscriptions-select.png" alt-text="Screenshot showing the Subscriptions tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-subscriptions-select.png" :::  
     *Disabled subscriptions can't be transferred.*
 1. If there are reservations available to transfer, select the **Reservations** tab, and then select them. If you don't want to transfer reservations, make sure that no reservations are selected.  
-If reservations are transferred, they're applied to the scope that’s set in the request. If you want to change the scope of the reservation after it’s transferred, see [Change the reservation scope](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
+If reservations are transferred, they're applied to the scope set in the request. If you want to change the scope of the reservation after it’s transferred, see [Change the reservation scope](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-reservations-select.png" alt-text="Screenshot showing the Reservations tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-reservations-select.png" :::
 1. If there are savings plans available to transfer, select the **Saving plan** tab, and then select them. If you don't want to transfer savings plans, make sure that no savings plans are selected.  
-If savings plans are transferred, they're applied to the scope that’s set in the request. If you want to change the scope of the savings plan after it’s transferred, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope).
+If savings plans are transferred, they're applied to the scope set in the request. If you want to change the scope of the savings plan after it gets transferred, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope).
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-savings-plan-select.png" alt-text="Screenshot showing the Savings plan tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-savings-plan-select.png" :::
 
 1. Select the **Review request** tab and verify the information about the products to transfer. If there are Warnings or Failed status messages, see the following information. When you're ready to continue, select **Transfer**.   
@@ -125,7 +134,7 @@ If savings plans are transferred, they're applied to the scope that’s set in t
 
 On the Review request tab, the following status messages might be displayed.
 
-* **Ready to transfer** - Validation for this Azure product has passed and can be transferred.
+* **Ready to transfer** - Validation for this Azure product passed and can be transferred.
 * **Warnings** - There's a warning for the selected Azure product. While the product can still be transferred, doing so has some consequence that the user should be aware of in case they want to take mitigating actions. For example, the Azure subscription being transferred is benefitting from a reservation. After transfer, the subscription will no longer receive that benefit. To maximize savings, ensure that the reservation is associated to another subscription that can use its benefits. Instead, the user can also choose to go back to the selection page and unselect this Azure subscription. Select **Check details** for more information.
 * **Failed** - The selected Azure product can't be transferred because of an error. The user needs to go back to the selection page and unselect this product to transfer the other selected Azure products.  
 
@@ -162,7 +171,7 @@ The transfer request can have one of the following states:
 
 As the user that approved the transfer:
 
-1. Select a transfer request to view details. The transfer details page displays the following information:  
+Select a transfer request to view details. The transfer details page displays the following information:  
   :::image type="content" source="./media/mca-request-billing-ownership/transfer-status-success-approver-view.png" alt-text="Screenshot that shows the Transfer status page with example status." lightbox="./media/mca-request-billing-ownership/transfer-status-success-approver-view.png" :::
 
 |Column  |Definition|

@@ -2,9 +2,8 @@
 title: Understanding the IP address of your DPS instance
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Query your DPS IP address and its properties. The IP address of your DPS instance can change during scenarios like disaster recovery or regional failover.
-author: kgremban
-
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/22/2022

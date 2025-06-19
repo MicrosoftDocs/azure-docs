@@ -2,9 +2,9 @@
 ms.service: azure-policy
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: include
-ms.date: 06/04/2024
-author: davidsmatlak
-ms.author: davidsmatlak
+ms.date: 02/25/2025
+author: michaeltlombardi
+ms.author: mlombardi
 ---
 
 ### Count machines in scope of guest configuration policies
@@ -87,18 +87,19 @@ Search-AzGraph -Query "GuestConfigurationResources | where type =~ 'microsoft.gu
 
 ### Find all reasons a machine is non-compliant for guest configuration assignments
 
-Display all [guest configuration assignment reasons](../../../../articles/governance/policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) for a specific machine. Remove the first `where` clause to also include audits where the machine is compliant.
+Display all [guest configuration assignment reasons](../../../../articles/governance/policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) for a specific machine. Replace `MACHINENAME` with a valid machine name.
 
 ```kusto
 GuestConfigurationResources
 | where type =~ 'microsoft.guestconfiguration/guestconfigurationassignments'
-| where properties.complianceStatus == 'NonCompliant'
-| project id, name, resources = properties.latestAssignmentReport.resources, machine = split(properties.targetResourceId,'/')[(-1)], status = tostring(properties.complianceStatus)
+| project id, name, resources = properties.latestAssignmentReport.resources, machine = split(properties.targetResourceId,'/')[(-1)]
 | extend resources = iff(isnull(resources[0]), dynamic([{}]), resources)
-| mvexpand resources
+| mv-expand resources
 | extend reasons = resources.reasons
 | extend reasons = iff(isnull(reasons[0]), dynamic([{}]), reasons)
-| mvexpand reasons
+| mv-expand reasons
+| extend status = iff(resources.complianceStatus == true, 'Compliant', 'NonCompliant')
+| where status == 'NonCompliant'
 | where machine == 'MACHINENAME'
 | project id, machine, name, status, resource = resources.resourceId, reason = reasons.phrase
 ```
@@ -106,22 +107,22 @@ GuestConfigurationResources
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "GuestConfigurationResources | where type =~ 'microsoft.guestconfiguration/guestconfigurationassignments' | where properties.complianceStatus == 'NonCompliant' | project id, name, resources = properties.latestAssignmentReport.resources, machine = split(properties.targetResourceId,'/')[(-1)], status = tostring(properties.complianceStatus) | extend resources = iff(isnull(resources[0]), dynamic([{}]), resources) | mvexpand resources | extend reasons = resources.reasons | extend reasons = iff(isnull(reasons[0]), dynamic([{}]), reasons) | mvexpand reasons | where machine == 'MACHINENAME' | project id, machine, name, status, resource = resources.resourceId, reason = reasons.phrase"
+az graph query -q "GuestConfigurationResources | where type =~ 'microsoft.guestconfiguration/guestconfigurationassignments' | project id, name, resources = properties.latestAssignmentReport.resources, machine = split(properties.targetResourceId,'/')[(-1)] | extend resources = iff(isnull(resources[0]), dynamic([{}]), resources) | mv-expand resources | extend reasons = resources.reasons | extend reasons = iff(isnull(reasons[0]), dynamic([{}]), reasons) | mv-expand reasons | extend status = iff(resources.complianceStatus == true, 'Compliant', 'NonCompliant') | where status == 'NonCompliant' | where machine == 'MACHINENAME' | project id, machine, name, status, resource = resources.resourceId, reason = reasons.phrase"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "GuestConfigurationResources | where type =~ 'microsoft.guestconfiguration/guestconfigurationassignments' | where properties.complianceStatus == 'NonCompliant' | project id, name, resources = properties.latestAssignmentReport.resources, machine = split(properties.targetResourceId,'/')[(-1)], status = tostring(properties.complianceStatus) | extend resources = iff(isnull(resources[0]), dynamic([{}]), resources) | mvexpand resources | extend reasons = resources.reasons | extend reasons = iff(isnull(reasons[0]), dynamic([{}]), reasons) | mvexpand reasons | where machine == 'MACHINENAME' | project id, machine, name, status, resource = resources.resourceId, reason = reasons.phrase"
+Search-AzGraph -Query "GuestConfigurationResources | where type =~ 'microsoft.guestconfiguration/guestconfigurationassignments' | project id, name, resources = properties.latestAssignmentReport.resources, machine = split(properties.targetResourceId,'/')[(-1)] | extend resources = iff(isnull(resources[0]), dynamic([{}]), resources) | mv-expand resources | extend reasons = resources.reasons | extend reasons = iff(isnull(reasons[0]), dynamic([{}]), reasons) | mv-expand reasons | extend status = iff(resources.complianceStatus == true, 'Compliant', 'NonCompliant') | where status == 'NonCompliant' | where machine == 'MACHINENAME' | project id, machine, name, status, resource = resources.resourceId, reason = reasons.phrase"
 ```
 
 # [Portal](#tab/azure-portal)
 
 
 
-- Azure portal: <a href="https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/GuestConfigurationResources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.guestconfiguration%2fguestconfigurationassignments%27%0a%7c%20where%20properties.complianceStatus%20%3d%3d%20%27NonCompliant%27%0a%7c%20project%20id%2c%20name%2c%20resources%20%3d%20properties.latestAssignmentReport.resources%2c%20machine%20%3d%20split(properties.targetResourceId%2c%27%2f%27)%5b(-1)%5d%2c%20status%20%3d%20tostring(properties.complianceStatus)%0a%7c%20extend%20resources%20%3d%20iff(isnull(resources%5b0%5d)%2c%20dynamic(%5b%7b%7d%5d)%2c%20resources)%0a%7c%20mvexpand%20resources%0a%7c%20extend%20reasons%20%3d%20resources.reasons%0a%7c%20extend%20reasons%20%3d%20iff(isnull(reasons%5b0%5d)%2c%20dynamic(%5b%7b%7d%5d)%2c%20reasons)%0a%7c%20mvexpand%20reasons%0a%7c%20where%20machine%20%3d%3d%20%27MACHINENAME%27%0a%7c%20project%20id%2c%20machine%2c%20name%2c%20status%2c%20resource%20%3d%20resources.resourceId%2c%20reason%20%3d%20reasons.phrase" target="_blank">portal.azure.com</a>
-- Azure Government portal: <a href="https://portal.azure.us/#blade/HubsExtension/ArgQueryBlade/query/GuestConfigurationResources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.guestconfiguration%2fguestconfigurationassignments%27%0a%7c%20where%20properties.complianceStatus%20%3d%3d%20%27NonCompliant%27%0a%7c%20project%20id%2c%20name%2c%20resources%20%3d%20properties.latestAssignmentReport.resources%2c%20machine%20%3d%20split(properties.targetResourceId%2c%27%2f%27)%5b(-1)%5d%2c%20status%20%3d%20tostring(properties.complianceStatus)%0a%7c%20extend%20resources%20%3d%20iff(isnull(resources%5b0%5d)%2c%20dynamic(%5b%7b%7d%5d)%2c%20resources)%0a%7c%20mvexpand%20resources%0a%7c%20extend%20reasons%20%3d%20resources.reasons%0a%7c%20extend%20reasons%20%3d%20iff(isnull(reasons%5b0%5d)%2c%20dynamic(%5b%7b%7d%5d)%2c%20reasons)%0a%7c%20mvexpand%20reasons%0a%7c%20where%20machine%20%3d%3d%20%27MACHINENAME%27%0a%7c%20project%20id%2c%20machine%2c%20name%2c%20status%2c%20resource%20%3d%20resources.resourceId%2c%20reason%20%3d%20reasons.phrase" target="_blank">portal.azure.us</a>
-- Azure operated by 21Vianet portal: <a href="https://portal.azure.cn/#blade/HubsExtension/ArgQueryBlade/query/GuestConfigurationResources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.guestconfiguration%2fguestconfigurationassignments%27%0a%7c%20where%20properties.complianceStatus%20%3d%3d%20%27NonCompliant%27%0a%7c%20project%20id%2c%20name%2c%20resources%20%3d%20properties.latestAssignmentReport.resources%2c%20machine%20%3d%20split(properties.targetResourceId%2c%27%2f%27)%5b(-1)%5d%2c%20status%20%3d%20tostring(properties.complianceStatus)%0a%7c%20extend%20resources%20%3d%20iff(isnull(resources%5b0%5d)%2c%20dynamic(%5b%7b%7d%5d)%2c%20resources)%0a%7c%20mvexpand%20resources%0a%7c%20extend%20reasons%20%3d%20resources.reasons%0a%7c%20extend%20reasons%20%3d%20iff(isnull(reasons%5b0%5d)%2c%20dynamic(%5b%7b%7d%5d)%2c%20reasons)%0a%7c%20mvexpand%20reasons%0a%7c%20where%20machine%20%3d%3d%20%27MACHINENAME%27%0a%7c%20project%20id%2c%20machine%2c%20name%2c%20status%2c%20resource%20%3d%20resources.resourceId%2c%20reason%20%3d%20reasons.phrase" target="_blank">portal.azure.cn</a>
+- Azure portal: <a href="https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/GuestConfigurationResources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.guestconfiguration%2Fguestconfigurationassignments%27%0D%0A%7C%20project%20id%2C%20name%2C%20resources%20%3D%20properties.latestAssignmentReport.resources%2C%20machine%20%3D%20split%28properties.targetResourceId%2C%27%2F%27%29%5B%28-1%29%5D%0D%0A%7C%20extend%20resources%20%3D%20iff%28isnull%28resources%5B0%5D%29%2C%20dynamic%28%5B%7B%7D%5D%29%2C%20resources%29%0D%0A%7C%20mv-expand%20resources%0D%0A%7C%20extend%20reasons%20%3D%20resources.reasons%0D%0A%7C%20extend%20reasons%20%3D%20iff%28isnull%28reasons%5B0%5D%29%2C%20dynamic%28%5B%7B%7D%5D%29%2C%20reasons%29%0D%0A%7C%20mv-expand%20reasons%0D%0A%7C%20extend%20status%20%3D%20iff%28resources.complianceStatus%20%3D%3D%20true%2C%20%27Compliant%27%2C%20%27NonCompliant%27%29%0D%0A%7C%20where%20status%20%3D%3D%20%27NonCompliant%27%0D%0A%7C%20where%20machine%20%3D%3D%20%27MACHINENAME%27%0D%0A%7C%20project%20id%2C%20machine%2C%20name%2C%20status%2C%20resource%20%3D%20resources.resourceId%2C%20reason%20%3D%20reasons.phrase" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/#blade/HubsExtension/ArgQueryBlade/query/GuestConfigurationResources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.guestconfiguration%2Fguestconfigurationassignments%27%0D%0A%7C%20project%20id%2C%20name%2C%20resources%20%3D%20properties.latestAssignmentReport.resources%2C%20machine%20%3D%20split%28properties.targetResourceId%2C%27%2F%27%29%5B%28-1%29%5D%0D%0A%7C%20extend%20resources%20%3D%20iff%28isnull%28resources%5B0%5D%29%2C%20dynamic%28%5B%7B%7D%5D%29%2C%20resources%29%0D%0A%7C%20mv-expand%20resources%0D%0A%7C%20extend%20reasons%20%3D%20resources.reasons%0D%0A%7C%20extend%20reasons%20%3D%20iff%28isnull%28reasons%5B0%5D%29%2C%20dynamic%28%5B%7B%7D%5D%29%2C%20reasons%29%0D%0A%7C%20mv-expand%20reasons%0D%0A%7C%20extend%20status%20%3D%20iff%28resources.complianceStatus%20%3D%3D%20true%2C%20%27Compliant%27%2C%20%27NonCompliant%27%29%0D%0A%7C%20where%20status%20%3D%3D%20%27NonCompliant%27%0D%0A%7C%20where%20machine%20%3D%3D%20%27MACHINENAME%27%0D%0A%7C%20project%20id%2C%20machine%2C%20name%2C%20status%2C%20resource%20%3D%20resources.resourceId%2C%20reason%20%3D%20reasons.phrase" target="_blank">portal.azure.us</a>
+- Azure operated by 21Vianet portal: <a href="https://portal.azure.cn/#blade/HubsExtension/ArgQueryBlade/query/GuestConfigurationResources%0D%0A%7C%20where%20type%20%3D~%20%27microsoft.guestconfiguration%2Fguestconfigurationassignments%27%0D%0A%7C%20project%20id%2C%20name%2C%20resources%20%3D%20properties.latestAssignmentReport.resources%2C%20machine%20%3D%20split%28properties.targetResourceId%2C%27%2F%27%29%5B%28-1%29%5D%0D%0A%7C%20extend%20resources%20%3D%20iff%28isnull%28resources%5B0%5D%29%2C%20dynamic%28%5B%7B%7D%5D%29%2C%20resources%29%0D%0A%7C%20mv-expand%20resources%0D%0A%7C%20extend%20reasons%20%3D%20resources.reasons%0D%0A%7C%20extend%20reasons%20%3D%20iff%28isnull%28reasons%5B0%5D%29%2C%20dynamic%28%5B%7B%7D%5D%29%2C%20reasons%29%0D%0A%7C%20mv-expand%20reasons%0D%0A%7C%20extend%20status%20%3D%20iff%28resources.complianceStatus%20%3D%3D%20true%2C%20%27Compliant%27%2C%20%27NonCompliant%27%29%0D%0A%7C%20where%20status%20%3D%3D%20%27NonCompliant%27%0D%0A%7C%20where%20machine%20%3D%3D%20%27MACHINENAME%27%0D%0A%7C%20project%20id%2C%20machine%2C%20name%2C%20status%2C%20resource%20%3D%20resources.resourceId%2C%20reason%20%3D%20reasons.phrase" target="_blank">portal.azure.cn</a>
 
 ---
 

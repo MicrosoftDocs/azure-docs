@@ -35,11 +35,7 @@ To view virtual hubs, go to your Virtual WAN **Overview** page. The **Overview**
 
 2. On the virtual hub page, select **Azure Firewall and Firewall Manager** under the "Security" section on the left.
 
-   :::image type="content" source="./media/howto-firewall/vwan-convert-firewall-start.png" alt-text="Screenshot showing Azure Virtual WAN Hub properties." lightbox="./media/howto-firewall/vwan-convert-firewall-start.png":::
-
 3. Select **Next: Azure Firewall** button at the bottom of screen to advance to the next page.  
-
-   :::image type="content" source="./media/howto-firewall/vwan-select-hub.png" alt-text="Screenshot showing [Select virtual hubs] step in the conversion flow" lightbox="./media/howto-firewall/vwan-select-hub.png":::
 
 4. Select the Azure Firewall properties and status desired, then complete the wizard up to the **Review + confirm** tab:
 
@@ -50,19 +46,13 @@ To view virtual hubs, go to your Virtual WAN **Overview** page. The **Overview**
 
 5. After the hub has been converted to a secured hub, you can view the status for the **Azure Firewall** on the virtual hub **Overview** page. The status shows **Secured**.
 
-   :::image type="content" source="./media/howto-firewall/vwan-firewall-secured-final.png" alt-text="Screenshot showing end result of the conversion flow." lightbox="./media/howto-firewall/vwan-firewall-secured-final.png":::
-
 ## View hub resources
 
 From the virtual WAN **Overview** page, select the secured hub. On the hub page, you can view all the virtual hub resources, including Azure Firewall.
 
 To view Azure Firewall settings from the secured hub, select on **Azure Firewall and Firewall Manager** under the "Security" section on the left:
 
-:::image type="content" source="./media/howto-firewall/vwan-secured-hub-status.png" alt-text="Screenshot showing Azure Virtual WAN status view in Firewall Manager." lightbox="./media/howto-firewall/vwan-secured-hub-status.png":::
-
 Usage of Availability Zones for Azure Firewall in the Azure Virtual WAN Hub, can be checked accessing the security properties of the hub.
-
-:::image type="content" source="./media/howto-firewall/vwan-firewall-hub-az-correct-zone.png" alt-text="Screenshot showing Availability Zones property in Virtual WAN secured hub." lightbox="./media/howto-firewall/vwan-firewall-hub-az-correct-zone.png":::
 
 
 ## Configure additional settings

@@ -1,14 +1,14 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-ms.date: 12/27/2024
+ms.date: 04/26/2025
 ms.service: azure-site-recovery
 ms.topic: overview
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.custom: engagement-fy23
 ---
-# Common questions - Hyper-V to Azure disaster recovery
+# Common questions about Hyper-V to Azure disaster recovery
 
 This article provides answers to common questions we see when replicating on-premises Hyper-V VMs to Azure. 
 
@@ -35,14 +35,14 @@ Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.
 For the Hyper-V host server what you need depends on the deployment scenario. Check out the Hyper-V prerequisites in:
 
 * [Replicating Hyper-V VMs (without VMM) to Azure](./hyper-v-azure-tutorial.md)
-* [Replicating Hyper-V VMs (with VMM) to Azure](./hyper-v-vmm-azure-tutorial.md)
+* [Replicating Hyper-V VMs (with VMM) to Azure](hyper-v-azure-powershell-resource-manager.md)
 * [Replicating Hyper-V VMs to a secondary datacenter](./hyper-v-vmm-disaster-recovery.md)
 * If you're replicating to a secondary datacenter read about [Supported guest operating systems for Hyper-V VMs](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/mt126277(v=ws.11)).
 * If you're replicating to Azure, Site Recovery supports all the guest operating systems that are [supported by Azure](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794868(v=ws.10)).
 
 ### Can I protect VMs when Hyper-V is running on a client operating system?
 
-No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](physical-server-enable-replication.md) or a [secondary datacenter](./vmware-physical-secondary-disaster-recovery.md). 
+No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](physical-server-enable-replication.md) or a [secondary datacenter](/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica). 
 
 ### Do Hyper-V hosts need to be in VMM clouds?
 
@@ -77,6 +77,16 @@ Yes. When you create a vault in a region, we ensure that all metadata used by Si
 
 ### Does Site Recovery encrypt replication?
 Yes, both encryption-in-transit and [encryption in Azure](../storage/common/storage-service-encryption.md) are supported.
+
+### Does backup recovery services agent (MARS) installation on Hyper-V host impact the replication?
+
+
+Without VMM, the Azure Site Recovery provider and Recovery Services agent are installed on each Hyper-V host. 
+
+With VMM, the Recovery Services agent is installed on each Hyper-V host, while the Azure Site Recovery Provider runs on the VMM server. 
+
+> [!IMPORTANT]
+> Installing the Recovery Services agent designed for Microsoft Azure Backup (MARS) is not supported. Ensure you install the correct version of the Recovery Services agent specifically tailored for Azure Site Recovery.
 
 
 ## Deployment
@@ -113,9 +123,6 @@ Yes, Site Recovery supports clustered Hyper-V hosts. Note that:
 
 No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could [replicate it as a physical machine](./physical-server-enable-replication.md) to Azure.
 
-### Can I replicate Hyper-V generation 2 virtual machines to Azure?
-
-Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2.
 
 ### Can I automate Site Recovery scenarios with an SDK?
 
@@ -151,7 +158,7 @@ You can replicate any app or workload running a Hyper-V VM that complies with [r
 
 ### Can I replicate to Azure with a site-to-site VPN?
 
-Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPSec tunneling over the internet, leveraging existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or 3rd party options such as Check Point CloudGuard, Palo Alto NextGen Firewall. Replicating to Azure with site-to-site VPN is only supported when using [private endpoints](../private-link/private-endpoint-overview.md).
+Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPsec tunneling over the internet, leveraging existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or 3rd party options such as Check Point CloudGuard, Palo Alto NextGen Firewall. Replicating to Azure with site-to-site VPN is only supported when using [private endpoints](../private-link/private-endpoint-overview.md).
 
 ### Why can't I replicate over VPN?
 
@@ -171,7 +178,7 @@ Hyper-V VMs can be replicated every 30 seconds (except for premium storage) or 5
 
 ### Can Azure Site Recovery and Hyper-V Replica be configured together on a Hyper-V machine?
 
-Yes, both Azure Site Recovery and Hyper-V Replica can be configured together for a machine. But the machine will have to be protected as a physical machine and will be replicated to Azure using Modern Appliance. Learn more about protecting physical machines [here](./physical-server-azure-architecture-modernized.md).
+Yes, both Azure Site Recovery and Hyper-V Replica can be configured together for a machine. But the machine will have to protected as a physical machine and will be replicated to Azure using Modern Appliance. Learn more about protecting physical machines [here](./physical-server-azure-architecture-modernized.md).
 
 ### Can I extend replication?
 

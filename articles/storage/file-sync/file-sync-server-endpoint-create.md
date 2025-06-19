@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/08/2024
 ms.author: kendownie
+# Customer intent: As an IT admin deploying Azure File Sync, I want to create a server endpoint, so that I can synchronize files between my registered server and Azure cloud storage effectively.
 ---
 
 # Create an Azure File Sync server endpoint
@@ -27,6 +28,7 @@ To create a server endpoint, you must first ensure that the following criteria a
 - Ensure that a Storage Sync Service has been deployed. See [How to deploy Azure File Sync](file-sync-deployment-guide.md) for details on how to deploy a Storage Sync Service. 
 - Ensure that a sync group has been deployed. Learn how to [Create a sync group](file-sync-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint).
 - Ensure that the server is connected to the internet and that Azure is accessible. Azure File Sync uses port 443 for all communication between the server and cloud service.
+- Ensure that you're within the allowed limits for creating endpoints. See [Azure File Sync Scale Targets](../files/storage-files-scale-targets.md#azure-file-sync-scale-targets) for details on scalability and performance targets.
 
 ## Create a server endpoint
 

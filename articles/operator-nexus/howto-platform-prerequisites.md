@@ -6,7 +6,9 @@ ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/13/2023
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - build-2025
 ---
 
 # Operator Nexus platform prerequisites
@@ -67,8 +69,7 @@ ordering errors because of complex parts lists.
 
 #### Placing a SKU-based order
 
-Operator Nexus has created a series of SKUs with vendors such as Dell, Pure
-Storage and Arista that the operator can reference when they place
+Operator Nexus has created a series of SKUs with vendors such as Dell, Pure Storage, and Arista that the operator can reference when they place
 an order. Thus, an operator simply needs to place an order based on the SKU
 information provided by Operator Nexus to the vendor to receive the correct
 parts list for the build.
@@ -136,13 +137,19 @@ Now that the physical installation and validation has completed, the next steps 
 
 ### Set up Terminal Server
 
+>[!Note]
+> This guide has been validated with Opengear firmware version 24.11.2, which was upgraded from version 22.06.0, and is supported with Nexus Network Fabric runtime version 5.0.0.
+
 Terminal Server has been deployed and configured as follows:
-  - Terminal Server is configured for Out-of-Band management
-    - Authentication credentials have been set up
-    - DHCP client is enabled on the out-of-band management port
-    - HTTP access is enabled
-  - Terminal Server interface is connected to the operators on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
-  - Terminal Server is accessible from the management VPN
+
+- Terminal Server is configured for Out-of-Band management
+  - Authentication credentials have been set up
+  - DHCP client is enabled on the out-of-band management port
+  - HTTP access is enabled
+- Terminal Server interface is connected to the operators on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
+- Terminal Server is accessible from the management VPN
+- To upgrade the terminal server to OS version 24.11.2 [refer](./howto-upgrade-os-of-terminal-server.md)
+- To set up single session and session timeout for serial console [refer](./howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md)
 
 ### Step 1: Setting up hostname
 
@@ -466,7 +473,7 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
 >[!NOTE]
 >Verify that the output matches your expectations and that all configurations are correct.
 
-## Set up storage array
+## Set up first storage array
 
 1. Operator needs to install the storage array hardware as specified by the BOM and rack elevation
    within the Aggregation Rack.
@@ -508,6 +515,70 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
      - Bond: not set by operator during setup
    - Management: Controller 1
      - IP Address: 172.27.255.253
+     - Gateway: not set by operator during setup
+     - Subnet Mask: 255.255.255.0
+     - MTU: 1500
+     - Bond: not set by operator during setup
+   - ct0.eth10: not set by operator during setup
+   - ct0.eth11: not set by operator during setup
+   - ct0.eth18: not set by operator during setup
+   - ct0.eth19: not set by operator during setup
+   - ct1.eth10: not set by operator during setup
+   - ct1.eth11: not set by operator during setup
+   - ct1.eth18: not set by operator during setup
+   - ct1.eth19: not set by operator during setup
+   - Pure Tunable to be applied:
+     - `puretune -set PS_ENFORCE_IO_ORDERING 1 "PURE-209441";`
+     - `puretune -set PS_STALE_IO_THRESH_SEC 4 "PURE-209441";`
+     - `puretune -set PS_LANDLORD_QUORUM_LOSS_TIME_LIMIT_MS 0 "PURE-209441";`
+     - `puretune -set PS_RDMA_STALE_OP_THRESH_MS 5000 "PURE-209441";`
+     - `puretune -set PS_BDRV_REQ_MAXBUFS 128 "PURE-209441";`
+
+## (Optional) Set up second storage array
+
+>[!NOTE]
+> This section is optional. You only need to execute it if you are deploying an Azure Operator Nexus instance with two storage appliances. For more information, including restrictions on supported hardware, see [Azure Operator Nexus multiple storage appliances](./concepts-storage-multiple-appliances.md).
+
+1. Operator needs to install the storage array hardware as specified by the BOM and rack elevation
+   within the Aggregation Rack.
+2. Operator needs to provide the storage array Technician with information, in order for the storage
+   array Technician to arrive on-site to configure the appliance.
+3. Required location-specific data that is shared with storage array technician:
+   - Customer Name:
+   - Physical Inspection Date:
+   - Chassis Serial Number:
+   - Storage array Array Hostname:
+   - CLLI code (Common Language location identifier):
+   - Installation Address:
+   - FIC/Rack/Grid Location:
+4. Data provided to the operator and shared with storage array technician, which will be common to
+   all installations:
+   - Purity Code Level: Refer to [supported Purity versions]
+   - Safe Mode: Disabled
+   - Array Timezone: UTC
+   - DNS (Domain Name System) Server IP Address: not set by operator during setup
+   - DNS Domain Suffix: not set by operator during setup
+   - NTP (Network Time Protocol) Server IP Address or FQDN: not set by operator during setup
+   - Syslog Primary: not set by operator during setup
+   - Syslog Secondary: not set by operator during setup
+   - SMTP Gateway IP address or FQDN: not set by operator during setup
+   - Email Sender Domain Name: domain name of the sender of the email (example.com)
+   - Email Addresses to be alerted: not set by operator during setup
+   - Proxy Server and Port: not set by operator during setup
+   - Management: Virtual Interface
+     - IP Address: 172.27.255.201
+     - Gateway: not set by operator during setup
+     - Subnet Mask: 255.255.255.0
+     - MTU: 1500
+     - Bond: not set by operator during setup
+   - Management: Controller 0
+     - IP Address: 172.27.255.251
+     - Gateway: not set by operator during setup
+     - Subnet Mask: 255.255.255.0
+     - MTU: 1500
+     - Bond: not set by operator during setup
+   - Management: Controller 1
+     - IP Address: 172.27.255.252
      - Gateway: not set by operator during setup
      - Subnet Mask: 255.255.255.0
      - MTU: 1500
@@ -594,7 +665,68 @@ An example design of three on-premises instances from the same NFC/CM pair, usin
 ### Default setup for other devices installed
 
 - All network fabric devices (except for the Terminal Server) are set to `ZTP` mode
-- Servers have default factory settings
+- Servers have default factory settings, inclusive of minimum BIOS settings.
+
+#### Minimum recommended BIOS and firmware versions for Nexus Cluster runtime
+
+As a best practice, starting from the following minimum recommended BIOS and firmware versions are deployed based on your Nexus Cluster, based on the selected runtime version and BOM:
+
+#### Nexus Cluster runtime version 4.4.x
+
+##### BOM 1.7.3
+
+| Component                                                               | Version       |
+|-------------------------------------------------------------------------|---------------|
+| BIOS                                                                    | 1.15.2        |
+| Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
+| iDRAC                                                                   | 7.10.90.00    |
+| Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
+| CPLD                                                                    | 1.1.1         |
+| Mellanox ConnectX-6 DX Adapter                                          | 22.41.1000    |
+| NVIDIA ConnectX-6 Lx 2x 25G SFP28                                       | 26.41.1000    |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.91.5       |
+
+##### BOM 2.0.0
+
+| Component                                           | Version       |
+|-----------------------------------------------------|---------------|
+| BIOS                                                | 2.4.4         |
+| Storage Array Controller (PERC H755)                | 52.26.0-5179  |
+| iDRAC                                               | 7.10.90.00    |
+| SAS Expander Backplane Firmware (R760)              | 1.61          |
+| Non-Expander Storage Backplane Firmware (R660)      | 7.10          |
+| CPLD                                                | 1.2.6         |
+| Mellanox ConnectX-6 DX Adapter                      | 22.41.10.00   |
+| NVIDIA ConnectX-6 Lx 2x 25G SFP28                   | 26.41.10.00   |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter         | 22.91.5       |
+
+#### Nexus Cluster runtime version 4.1.x
+
+##### BOM 1.7.3
+
+| Component                                                               | Version       |
+|-------------------------------------------------------------------------|---------------|
+| BIOS                                                                    | 1.13.2        |
+| Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
+| iDRAC                                                                   | 7.10.30.00    |
+| Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
+| CPLD                                                                    | 1.0.9         |
+| Mellanox ConnectX-6 DX Adapter                                          | 22.35.10.12   |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.61.8       |
+
+##### BOM 2.0.0
+
+| Component                                           | Version       |
+|-----------------------------------------------------|---------------|
+| BIOS                                                | 2.2.7         |
+| Storage Array Controller (PERC H755)                | 52.26.0-5179  |
+| iDRAC                                               | 7.10.30.00    |
+| SAS Expander Backplane Firmware (R760)              | 1.61          |
+| Non-Expander Storage Backplane Firmware (R660)      | 7.10          |
+| CPLD                                                | 1.2.1         |
+| Mellanox ConnectX-6 DX Adapter                      | 22.39.10.02   |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter         | 22.91.5       |
+
 
 ## Firewall rules between Azure to Nexus Cluster.
 

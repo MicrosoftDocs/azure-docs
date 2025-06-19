@@ -2,9 +2,9 @@
 title: About Azure VM backup
 description: In this article, learn how the Azure Backup service backs up Azure Virtual machines, and how to follow best practices.
 ms.topic: overview
-ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 06/17/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # An overview of Azure VM backup
@@ -53,6 +53,9 @@ If you have opted for application or file-system-consistent backups, the VM need
   - Azure Backup invokes only the pre/post scripts written by you.
   - If the pre-scripts and post-scripts execute successfully, Azure Backup marks the recovery point as application-consistent. However, when you're using custom scripts, you're ultimately responsible for the application consistency.
   - [Learn more](backup-azure-linux-app-consistent.md) about how to configure scripts.
+
+>[!Note]
+>The snapshot process starts with invoking the backup extension (agent-based), using tools such as VSS for Windows or freeze for Linux to ensure data consistency. When consistent, the Restore Point Collection monitors the extension and initiates snapshot creation. Afterward, metadata is updated with restore point paths and commit details to finalize the backup for restoration.
 
 ## Snapshot consistency
 

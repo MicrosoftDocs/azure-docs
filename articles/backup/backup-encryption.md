@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 09/11/2024
 ms.custom: references_regions, engagement-fy23 
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Encryption in Azure Backup

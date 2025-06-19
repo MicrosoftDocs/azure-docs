@@ -2,8 +2,9 @@
 title: Estimated wait time and position of a Job in queue
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to get estimated wait time and position for a job in a queue
-author: williamzhao
-ms.author: williamzhao
+manager: chpalm
+ms.author: chpalm
+author: tophpalmer
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 06/08/2023

@@ -39,7 +39,7 @@ landingContent:
           - text: Regional availability 
             url: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&rar=true&regions=all
           - text: Feature availability
-            url: https://aka.ms/anfmap
+            url: https://azure.github.io/azure-netapp-files/map/
           - text: SLA
             url: https://azure.microsoft.com/support/legal/sla/netapp/
           - text: Videos

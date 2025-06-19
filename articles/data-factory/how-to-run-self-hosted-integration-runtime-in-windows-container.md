@@ -31,7 +31,7 @@ Azure Data Factory provides Windows container support for the Self-Hosted Integr
 
 1. If you need to use a specific version of the SHIR, you can download it and move it to the *SHIR* folder.
 
-   Otherwise, skip this step. The container image build process will download the latest version of the SHIR automatically.
+   Otherwise, skip this step. The container image build process downloads the latest version of the SHIR automatically.
 
 1. Open your folder in the shell: 
 
@@ -63,13 +63,13 @@ Azure Data Factory provides Windows container support for the Self-Hosted Integr
 | `NODE_NAME` | Optional | `hostname` | The specified name of the node. |
 | `ENABLE_HA` | Optional | `false` | The flag to enable high availability and scalability.<br/> It supports up to 4 nodes registered to the same IR when `HA` is enabled, otherwise only 1 is allowed. |
 | `HA_PORT` | Optional | `8060` | The port to set up a high availability cluster. |
-| `ENABLE_AE` | Optional | `false` | The flag to enable offline nodes auto-expiration.<br/> If enabled, the expired nodes will be removed automatically from the IR when a new node is attempting to register.<br/> Only works when `ENABLE_HA=true`. |
-| `AE_TIME` | Optional | `600` |  The expiration timeout duration for offline nodes in seconds. <br/>Should be no less than 600 (10 minutes). |
+| `ENABLE_AE` | Optional | `false` | The flag to enable offline nodes auto-expiration.<br/> If enabled, the expired nodes are removed automatically from the IR when a new node is attempting to register.<br/> Only works when `ENABLE_HA=true`. |
+| `AE_TIME` | Optional | `600` |  The expiration time out duration for offline nodes in seconds. <br/>Should be no less than 600 (10 minutes). |
 
 
 ## Container health check
 
-After the 120 second startup period, the health check runs periodically every 30 seconds. It provides the SHIR's health status to the container engine.
+After the 120-second startup period, the health check runs periodically every 30 seconds. It provides the SHIR's health status to the container engine.
 
 ## Limitations
 
@@ -81,7 +81,7 @@ Currently we don't support the below features when running the Self-Hosted Integ
 - Daemon service 
 - Auto-update 
 
-There is a known issue when hosting an Azure Data Factory self-hosted integration runtime in Azure App Service. Azure App Service creates a new container instead of reusing existing container after restarting. This may cause self-hosted integration runtime node leak problem.
+There's a known issue when hosting an Azure Data Factory self-hosted integration runtime in Azure App Service, where a restart creates a new container instead of reusing the existing one. This causes configuration settings, such as concurrency adjustments, to be lost, changes to the host file for FQDN-to-IP mapping to reset, and the node name to change.
 
 ### Related content
 

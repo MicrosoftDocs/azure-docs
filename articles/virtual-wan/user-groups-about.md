@@ -5,7 +5,7 @@ description: Learn about using user groups to assign IP addresses from specific 
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 07/31/2023
+ms.date: 03/27/2025
 ms.author: cherylmc
 
 ---
@@ -68,13 +68,13 @@ This section lists configuration requirements and limitations for user groups an
 
 ## Use cases
 
-Contoso corporation is composed of multiple functional departments, such as Finance, Human Resources and Engineering. Contoso uses Azure Virtual WAN to allow remote workers (users) to connect to the virtual WAN and access resources hosted on-premises or in a virtual network connected to the virtual WAN hub.
+Contoso corporation is composed of multiple functional departments, such as Finance, Human Resources, and Engineering. Contoso uses Azure Virtual WAN to allow remote workers (users) to connect to the virtual WAN and access resources hosted on-premises or in a virtual network connected to the virtual WAN hub.
 
 However, Contoso has internal security policies where users from the Finance department can only access certain databases and virtual machines, and users from Human Resources have access to other sensitive applications.
 
 * Contoso can configure different user groups for each of their functional departments. This ensures users from each department are assigned IP addresses from a department-level predefined address pool.
 
-* Contoso's network administrator can then configure Firewall rules, network security groups (NSG) or access control lists (ACLs) to allow or deny certain users access to resources based on their IP addresses.
+* Contoso's network administrator can then configure Firewall rules, network security groups (NSG), or access control lists (ACLs) to allow or deny certain users access to resources based on their IP addresses.
 
 ## Next steps
 

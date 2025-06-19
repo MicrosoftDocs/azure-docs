@@ -2,12 +2,12 @@
 title: Azure built-in roles for AI + machine learning - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the AI + machine learning category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -232,10 +232,14 @@ Can perform all actions within an Azure AI resource besides managing the resourc
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/hubs/delete | Deletes the Machine Learning Services Hub Workspace(s) |
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/featurestores/write | Creates or Updates the Machine Learning Services FeatureStore(s) |
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/featurestores/delete | Deletes the Machine Learning Services FeatureStore(s) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/evaluations/results/labels/read | Reads evaluation results' label from a Machine Learning Services Workspace |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/evaluations/results/reasonings/read | Reads evaluation results' reasoning from a Machine Learning Services Workspace |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/simulations/results/images/read | Reads image simulation results from a Machine Learning Services Workspace |
 > | **DataActions** |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/* |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/* |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/ContentSafety/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/MaaS/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -265,12 +269,16 @@ Can perform all actions within an Azure AI resource besides managing the resourc
         "Microsoft.MachineLearningServices/workspaces/hubs/write",
         "Microsoft.MachineLearningServices/workspaces/hubs/delete",
         "Microsoft.MachineLearningServices/workspaces/featurestores/write",
-        "Microsoft.MachineLearningServices/workspaces/featurestores/delete"
+        "Microsoft.MachineLearningServices/workspaces/featurestores/delete",
+        "Microsoft.MachineLearningServices/workspaces/evaluations/results/labels/read",
+        "Microsoft.MachineLearningServices/workspaces/evaluations/results/reasonings/read",
+        "Microsoft.MachineLearningServices/workspaces/simulations/results/images/read"
       ],
       "dataActions": [
         "Microsoft.CognitiveServices/accounts/OpenAI/*",
         "Microsoft.CognitiveServices/accounts/SpeechServices/*",
-        "Microsoft.CognitiveServices/accounts/ContentSafety/*"
+        "Microsoft.CognitiveServices/accounts/ContentSafety/*",
+        "Microsoft.CognitiveServices/accounts/MaaS/*"
       ],
       "notDataActions": []
     }
@@ -290,6 +298,10 @@ Can approve private endpoint connections to Azure AI common dependency resources
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/privateEndpointConnections/read | Get Private Endpoint Connections |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/privateEndpointConnections/write | Approve Or Reject Private Endpoint Connections |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/privateLinkResources/read | Get Private Link Group resources |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/read | Read metadata for an API Management Service instance |
 > | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnectionsApproval/action | Auto Approves a Private Endpoint Connection |
 > | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/read | Gets the properties of private endpoint connection or list all the private endpoint connections for the specified container registry |
 > | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/write | Approves/Rejects the private endpoint connection |
@@ -307,6 +319,20 @@ Can approve private endpoint connections to Azure AI common dependency resources
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/privateEndpointConnections/read | Reads private endpoint connections. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/privateEndpointConnections/write | Writes a private endpoint connections. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/privateLinkResources/read | Reads private link resources for an account. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/privateEndpointConnectionsApproval/action | Determines if the user is allowed to approve a private endpoint connection |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/privateLinkResources/read | Return a list containing private link resource or gets the specified private link resource. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/read | Return the list of servers or gets the properties for the specified server. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/serverGroupsv2/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection for PostgreSQL SGv2 |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/serverGroupsv2/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/serverGroupsv2/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/serverGroupsv2/privateLinkResources/read | Get the private link resources for the corresponding PostgreSQL SGv2 |
+> | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
+> | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/privateEndpointConnections/read |  |
+> | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
+> | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/privateLinkResources/read | Get the private link resources for the corresponding MySQL Server |
+> | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/read | Returns the list of servers or gets the properties for the specified server. |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnectionsApproval/action | Manage a private endpoint connection of Database Account |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnections/read | Read a private endpoint connection or list all the private endpoint connections of a Database Account |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnections/write | Create or update a private endpoint connection of a Database Account |
@@ -317,6 +343,11 @@ Can approve private endpoint connections to Azure AI common dependency resources
 > | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/privateEndpointConnections/write | Change the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/privateLinkResources/read | Get the available private link resources for the specified instance of Key Vault |
 > | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/read | View the properties of a key vault |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/privateEndpointConnections/read | View the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/privateEndpointConnections/write | Change the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/privateLinkResources/read | Gets the available private link resources for the specified instance of the Machine Learning Services registry(ies) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/read | Gets the Machine Learning Services registry(ies) |
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/privateEndpointConnections/read | View the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/privateEndpointConnections/write | Change the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
@@ -326,11 +357,35 @@ Can approve private endpoint connections to Azure AI common dependency resources
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/privateEndpointConnections/write | Put Private Endpoint Connection |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/privateLinkResources/read | Get StorageAccount groupids |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection. |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateLinkResources/read | Get the private link resources for the corresponding sql server |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/read | Return the list of servers or gets the properties for the specified server. |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/privateEndpointConnections/read | Get Private Endpoint Connection |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/privateEndpointConnections/write | Create or Update Private Endpoint Connection |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/privateLinkResources/read | Gets the resource types that support private endpoint connections |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/read | Get the list of Namespace Resource Description |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connections |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/privateEndpointConnections/write | Creates a private endpoint connections with the specified parameters or updates the properties or tags for the specified private endpoint connections |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/sharedPrivateLinkResources/read | Returns the list of shared private link resources or gets the properties for the specified shared private link resource |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/read | Reads the search service. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateEndpointConnections/read | Read a private endpoint connection |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateEndpointConnections/write | Create or update a private endpoint connection |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateLinkResources/read | Read a private link resource |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/read | Read a private link scope |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateLinkServices/privateEndpointConnectionsApproval/action | Approve or reject PrivateEndpoint connection on PrivateLinkService |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateLinkServices/privateEndpointConnections/read | Gets an private endpoint connection definition. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateLinkServices/privateEndpointConnections/write | Creates a new private endpoint connection, or updates an existing private endpoint connection. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateLinkServices/read | Gets an private link service resource. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationGateways/privateEndpointConnections/read | Gets Application Gateway PrivateEndpoint Connections |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationGateways/privateEndpointConnections/write | Updates Application Gateway PrivateEndpoint Connection |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationGateways/privateLinkResources/read | Gets ApplicationGateway PrivateLink Resources |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationGateways/read | Gets an application gateway |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -349,6 +404,10 @@ Can approve private endpoint connections to Azure AI common dependency resources
   "permissions": [
     {
       "actions": [
+        "Microsoft.ApiManagement/service/privateEndpointConnections/read",
+        "Microsoft.ApiManagement/service/privateEndpointConnections/write",
+        "Microsoft.ApiManagement/service/privateLinkResources/read",
+        "Microsoft.ApiManagement/service/read",
         "Microsoft.ContainerRegistry/registries/privateEndpointConnectionsApproval/action",
         "Microsoft.ContainerRegistry/registries/privateEndpointConnections/read",
         "Microsoft.ContainerRegistry/registries/privateEndpointConnections/write",
@@ -366,6 +425,20 @@ Can approve private endpoint connections to Azure AI common dependency resources
         "Microsoft.CognitiveServices/accounts/privateEndpointConnections/read",
         "Microsoft.CognitiveServices/accounts/privateEndpointConnections/write",
         "Microsoft.CognitiveServices/accounts/privateLinkResources/read",
+        "Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionsApproval/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/read",
+        "Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/write",
+        "Microsoft.DBforPostgreSQL/flexibleServers/privateLinkResources/read",
+        "Microsoft.DBforPostgreSQL/flexibleServers/read",
+        "Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnectionsApproval/action",
+        "Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnections/read",
+        "Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnections/write",
+        "Microsoft.DBforPostgreSQL/serverGroupsv2/privateLinkResources/read",
+        "Microsoft.DBforMySQL/flexibleServers/privateEndpointConnectionsApproval/action",
+        "Microsoft.DBforMySQL/flexibleServers/privateEndpointConnections/read",
+        "Microsoft.DBforMySQL/flexibleServers/privateEndpointConnections/write",
+        "Microsoft.DBforMySQL/flexibleServers/privateLinkResources/read",
+        "Microsoft.DBforMySQL/flexibleServers/read",
         "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnectionsApproval/action",
         "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read",
         "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/write",
@@ -376,6 +449,11 @@ Can approve private endpoint connections to Azure AI common dependency resources
         "Microsoft.KeyVault/vaults/privateEndpointConnections/write",
         "Microsoft.KeyVault/vaults/privateLinkResources/read",
         "Microsoft.KeyVault/vaults/read",
+        "Microsoft.MachineLearningServices/registries/privateEndpointConnectionsApproval/action",
+        "Microsoft.MachineLearningServices/registries/privateEndpointConnections/read",
+        "Microsoft.MachineLearningServices/registries/privateEndpointConnections/write",
+        "Microsoft.MachineLearningServices/registries/privateLinkResources/read",
+        "Microsoft.MachineLearningServices/registries/read",
         "Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionsApproval/action",
         "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read",
         "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write",
@@ -385,11 +463,35 @@ Can approve private endpoint connections to Azure AI common dependency resources
         "Microsoft.Storage/storageAccounts/privateEndpointConnections/write",
         "Microsoft.Storage/storageAccounts/privateLinkResources/read",
         "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/PrivateEndpointConnectionsApproval/action",
         "Microsoft.Sql/servers/privateEndpointConnectionsApproval/action",
         "Microsoft.Sql/servers/privateEndpointConnections/read",
         "Microsoft.Sql/servers/privateEndpointConnections/write",
         "Microsoft.Sql/servers/privateLinkResources/read",
-        "Microsoft.Sql/servers/read"
+        "Microsoft.Sql/servers/read",
+        "Microsoft.EventHub/namespaces/privateEndpointConnectionsApproval/action",
+        "Microsoft.EventHub/namespaces/privateEndpointConnections/read",
+        "Microsoft.EventHub/namespaces/privateEndpointConnections/write",
+        "Microsoft.EventHub/namespaces/privateLinkResources/read",
+        "Microsoft.EventHub/namespaces/read",
+        "Microsoft.Search/searchServices/privateEndpointConnectionsApproval/action",
+        "Microsoft.Search/searchServices/privateEndpointConnections/read",
+        "Microsoft.Search/searchServices/privateEndpointConnections/write",
+        "Microsoft.Search/searchServices/sharedPrivateLinkResources/read",
+        "Microsoft.Search/searchServices/read",
+        "Microsoft.Insights/privatelinkscopes/privateEndpointConnectionsApproval/action",
+        "Microsoft.Insights/privatelinkscopes/privateEndpointConnections/read",
+        "Microsoft.Insights/privatelinkscopes/privateEndpointConnections/write",
+        "Microsoft.Insights/privatelinkscopes/privateLinkResources/read",
+        "Microsoft.Insights/privatelinkscopes/read",
+        "Microsoft.Network/privateLinkServices/privateEndpointConnectionsApproval/action",
+        "Microsoft.Network/privateLinkServices/privateEndpointConnections/read",
+        "Microsoft.Network/privateLinkServices/privateEndpointConnections/write",
+        "Microsoft.Network/privateLinkServices/read",
+        "Microsoft.Network/applicationGateways/privateEndpointConnections/read",
+        "Microsoft.Network/applicationGateways/privateEndpointConnections/write",
+        "Microsoft.Network/applicationGateways/privateLinkResources/read",
+        "Microsoft.Network/applicationGateways/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1026,7 +1128,7 @@ Lets you perform detect, verify, identify, group, and find similar operations on
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/identify/action | 1-to-many identification to find the closest matches of the specific query person face from a person group or large person group. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/group/action | Divide candidate faces into groups based on face similarity. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/findsimilars/action | Given query face's faceId, to search the similar-looking faces from a faceId array, a face list or a large face list. faceId |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/detectliveness/multimodal/action | <p>Performs liveness detection on a target face in a sequence of infrared, color and/or depth images, and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/detectliveness/multimodal/action |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/detectliveness/singlemodal/action | <p>Performs liveness detection on a target face in a sequence of images of the same modality (e.g. color or infrared), and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/detectlivenesswithverify/singlemodal/action | Detects liveness of a target face in a sequence of images of the same stream type (e.g. color) and then compares with VerifyImage to return confidence score for identity scenarios. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/*/sessions/action |  |
@@ -1650,9 +1752,12 @@ Read access to view files, models, deployments. The ability to create completion
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/extensions/chat/completions/action | Creates a completion for the chat message with extensions |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/embeddings/action | Return the embeddings for a given prompt. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/images/generations/action | Create image generations. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/video/generations/*/action |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/video/generations/*/delete |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/assistants/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/responses/* |  |
 > | **NotDataActions** |  |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/stored-completions/read | Query completions data using filters or Get single completion data using completion Id or Get traffic metadata for the given account |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/stored-completions/read | Query completions data using filters or Get single completion data using completion Id or Get metadata for the given account |
 
 ```json
 {
@@ -1683,7 +1788,10 @@ Read access to view files, models, deployments. The ability to create completion
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action",
-        "Microsoft.CognitiveServices/accounts/OpenAI/assistants/*"
+        "Microsoft.CognitiveServices/accounts/OpenAI/video/generations/*/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/video/generations/*/delete",
+        "Microsoft.CognitiveServices/accounts/OpenAI/assistants/*",
+        "Microsoft.CognitiveServices/accounts/OpenAI/responses/*"
       ],
       "notDataActions": [
         "Microsoft.CognitiveServices/accounts/OpenAI/stored-completions/read"
@@ -2148,7 +2256,7 @@ Lets you read and list keys of Cognitive Services.
 }
 ```
 
-## Health Bot Admin
+## Healthcare Agent Admin
 
 Users with admin access can sign in, view and edit all of the bot resources, scenarios and configuration setting including the bot instance keys & secrets.
 
@@ -2161,9 +2269,9 @@ Users with admin access can sign in, view and edit all of the bot resources, sce
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Admin/Action | Sign in to the management portal, view and edit all of the bot resources, scenarios, configuration settings, instance keys & secrets. |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/* |  |
 > | **NotDataActions** |  |
-> | *none* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/HealthSafeguards/* |  |
 
 ```json
 {
@@ -2178,18 +2286,20 @@ Users with admin access can sign in, view and edit all of the bot resources, sce
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.HealthBot/healthBots/Admin/Action"
+        "Microsoft.HealthBot/healthBots/*"
       ],
-      "notDataActions": []
+      "notDataActions": [
+        "Microsoft.HealthBot/healthBots/HealthSafeguards/*"
+      ]
     }
   ],
-  "roleName": "Health Bot Admin",
+  "roleName": "Healthcare Agent Admin",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Health Bot Editor
+## Healthcare Agent Editor
 
 Users with editor access can sign in, view and edit all the bot resources, scenarios and configuration setting except for the bot instance keys & secrets and the end-user inputs (including Feedback, Unrecognized utterances and Conversation logs). A read-only access to the bot skills and channels.
 
@@ -2202,9 +2312,10 @@ Users with editor access can sign in, view and edit all the bot resources, scena
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Editor/Action | Sign in to the management portal, view and edit all the bot resources, scenarios and configuration settings except for the bot instance keys & secrets and the end-user inputs. Read-only access to the bot skills and channels. |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/* |  |
 > | **NotDataActions** |  |
-> | *none* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Admin/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/HealthSafeguards/* |  |
 
 ```json
 {
@@ -2219,18 +2330,21 @@ Users with editor access can sign in, view and edit all the bot resources, scena
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.HealthBot/healthBots/Editor/Action"
+        "Microsoft.HealthBot/healthBots/*"
       ],
-      "notDataActions": []
+      "notDataActions": [
+        "Microsoft.HealthBot/healthBots/Admin/*",
+        "Microsoft.HealthBot/healthBots/HealthSafeguards/*"
+      ]
     }
   ],
-  "roleName": "Health Bot Editor",
+  "roleName": "Healthcare Agent Editor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Health Bot Reader
+## Healthcare Agent Reader
 
 Users with reader access can sign in, have read-only access to the bot resources, scenarios and configuration setting except for the bot instance keys & secrets (including Authentication, Data Connection and Channels keys) and the end-user inputs (including Feedback, Unrecognized utterances and Conversation logs).
 
@@ -2243,9 +2357,11 @@ Users with reader access can sign in, have read-only access to the bot resources
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/*/Read |  |
 > | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Reader/Action | Sign in to the management portal, with read-only access to resources, scenarios and configuration settings except for the bot instance keys & secrets and the end-user inputs. |
 > | **NotDataActions** |  |
-> | *none* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Admin/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/HealthSafeguards/* |  |
 
 ```json
 {
@@ -2260,12 +2376,16 @@ Users with reader access can sign in, have read-only access to the bot resources
       "actions": [],
       "notActions": [],
       "dataActions": [
+        "Microsoft.HealthBot/healthBots/*/Read",
         "Microsoft.HealthBot/healthBots/Reader/Action"
       ],
-      "notDataActions": []
+      "notDataActions": [
+        "Microsoft.HealthBot/healthBots/Admin/*",
+        "Microsoft.HealthBot/healthBots/HealthSafeguards/*"
+      ]
     }
   ],
-  "roleName": "Health Bot Reader",
+  "roleName": "Healthcare Agent Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

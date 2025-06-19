@@ -1,28 +1,23 @@
 ---
-title: 'Create a P2S User VPN connection - Microsoft Entra authentication'
+title: 'Configure a P2S User VPN - Microsoft Entra ID authentication - manually registered Azure VPN Client App ID'
 titleSuffix: Azure Virtual WAN
-description: Learn how to configure Microsoft Entra authentication for Virtual WAN User VPN (point-to-site).
+description: Learn how to configure Microsoft Entra ID authentication for Virtual WAN User VPN (point-to-site) using a manually registered Azure VPN Client App ID.
 services: virtual-wan
 author: cherylmc
-
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 01/15/2025
+ms.date: 02/25/2025
 ms.author: cherylmc 
 
 #Audience ID values are not sensitive data.
 
 ---
-# Create a P2S User VPN connection using Azure Virtual WAN - Microsoft Entra authentication
+# Configure P2S User VPN gateway for Microsoft Entra ID authentication – manually registered app
 
-This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra authentication. Microsoft Entra authentication is only available for gateways that use the OpenVPN protocol.
+This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra ID authentication. Microsoft Entra ID authentication is only available for gateways that use the OpenVPN protocol. While the steps and Audience values in this article do result in a working configuration, we recommend that you use the [Configure P2S VPN Gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway.md) article instead.
 
-> [!NOTE]
-> Instead of using the steps in this article, we recommend that you use the new [Microsoft-registered Azure VPN Client App ID](point-to-site-entra-gateway.md) article for your User VPN configuration when possible.
-
-[!INCLUDE [About Microsoft-registered app](../../includes/virtual-wan-entra-app-id-descriptions.md)]
-
-[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+> [!IMPORTANT]
+> We recommend using the new [Configure P2S VPN Gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway.md) article. The new article offers a more efficient setup process using the new **Microsoft-registered Azure VPN Client App ID** Audience value. Additionally, the new Audience value now supports the Azure VPN Client for Linux. If your P2S User VPN gateway is already set up with the manually configured Azure VPN Client Audience values, you can [migrate](point-to-site-entra-gateway-update.md) to the new Microsoft-registered App ID.
 
 In this article, you learn how to:
 
@@ -31,7 +26,7 @@ In this article, you learn how to:
 * Download a virtual WAN User VPN profile
 * Create a virtual hub
 * Edit a hub to add P2S gateway
-* Connect a VNet to a virtual hub
+* Connect a virtual network to a virtual hub
 * Download and apply the User VPN client configuration
 * View your virtual WAN
 
@@ -61,7 +56,6 @@ A User VPN configuration defines the parameters for connecting remote clients. I
 
 1. Navigate to your **Virtual WAN ->User VPN configurations** page and click **+Create user VPN config**.
 
-   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/user-vpn.png" alt-text="Screenshot of the Create User V P N configuration." lightbox="./media/virtual-wan-point-to-site-azure-ad/user-vpn.png":::
 1. On the **Basics** page, specify the parameters.
 
    :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/basics.png" alt-text="Screenshot of the Basics page." lightbox="./media/virtual-wan-point-to-site-azure-ad/basics.png":::
@@ -69,7 +63,7 @@ A User VPN configuration defines the parameters for connecting remote clients. I
     * **Configuration name** - Enter the name you want to call your User VPN Configuration.
     * **Tunnel type** - Select OpenVPN from the dropdown menu.
 
-1. Click **Microsoft Entra ID** to open the page.
+1. Click **Microsoft Entra ID** to open the page. This page might also still be labeled **Azure Active Directory**.
 
    :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/values.png" alt-text="Screenshot of the Microsoft Entra ID page." lightbox="./media/virtual-wan-point-to-site-azure-ad/values.png":::
 
@@ -77,7 +71,7 @@ A User VPN configuration defines the parameters for connecting remote clients. I
    * **Authentication method** - Select Microsoft Entra ID.
    * **Audience** - Type the Application ID of the Azure VPN Client Enterprise Application registered in your Microsoft Entra tenant. For values, see: [Azure VPN Client Audience values](openvpn-azure-ad-tenant.md)
    * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
-   * **Microsoft Entra tenant:** TenantID for the Microsoft Entra tenant. Make sure there is no `/` at the end of the Microsoft Entra tenant URL.
+   * **Microsoft Entra tenant:** TenantID for the Microsoft Entra tenant. Make sure there isn't a `/` at the end of the Microsoft Entra tenant URL.
 
      * Enter `https://login.microsoftonline.com/<your Directory Tenant ID>` for Azure Public AD
      * Enter `https://login.microsoftonline.us/<your Directory Tenant ID>` for Azure Government AD
@@ -94,7 +88,7 @@ For this exercise, we create an empty virtual hub in this step and, in the next 
 
 ## <a name="hub"></a>Add a P2S gateway to a hub
 
-This section shows you how to add a gateway to an already existing virtual hub. This step can take up to 30 minutes for the hub to complete updating. 
+This section shows you how to add a gateway to an already existing virtual hub. This step can take up to 30 minutes for the hub to complete updating.
 
 1. Navigate to the **Hubs** page under the virtual WAN.
 1. Click the name of the hub that you want to edit to open the page for the hub.
@@ -109,9 +103,9 @@ This section shows you how to add a gateway to an already existing virtual hub. 
 
 1. After configuring the settings, click **Confirm** to update the hub. It can take up to 30 minutes to update a hub.
 
-## <a name="connect-vnet"></a>Connect VNet to hub
+## <a name="connect-vnet"></a>Connect virtual network to hub
 
-In this section, you create a connection between your virtual hub and your VNet.
+In this section, you create a connection between your virtual hub and your virtual network.
 
 [!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
@@ -125,63 +119,7 @@ All of the necessary configuration settings for the VPN clients are contained in
 
 Each computer that connects must have a client installed. You configure each client by using the VPN User client profile files that you downloaded in the previous steps. Use the article that pertains to the operating system that you want to connect.
 
-### To configure macOS VPN clients (Preview)
-
-For **macOS** client instructions, see [Configure a VPN client - macOS (Preview)](openvpn-azure-ad-client-mac.md).
-
-### To configure Windows VPN clients
-
-[!INCLUDE [Download Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
-
-#### <a name="import"></a>To import a VPN client profile (Windows)
-
-1. On the page, select **Import**.
-
-   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/import/import-1.png" alt-text="Screenshot shows import page.":::
-
-1. Browse to the profile xml file and select it. With the file selected, select **Open**.
-
-    ![Screenshot shows an Open dialog box where you can select a file.](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
-
-1. Specify the name of the profile and select **Save**.
-
-    ![Screenshot shows the Connection Name added and the Save button selected.](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
-
-1. Select **Connect** to connect to the VPN.
-
-    ![Screenshot shows the Connect button for the for the connection you just created.](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
-
-1. Once connected, the icon will turn green and say **Connected**.
-
-    ![Screenshot shows the connection in a Connected status with the option to disconnect.](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
-
-#### <a name="delete"></a>To delete a client profile - Windows
-
-1. Select the ellipsis (...) next to the client profile that you want to delete. Then, select **Remove**.
-
-    ![Screenshot shows Remove selected from the menu.](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
-
-1. Select **Remove** to delete.
-
-    ![Screenshot shows a confirmation dialog box with the option to Remove or Cancel.](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
-
-#### <a name="diagnose"></a>Diagnose connection issues - Windows
-
-1. To diagnose connection issues, you can use the **Diagnose** tool. Select the ellipsis (...) next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**.
-
-    ![Screenshot shows Diagnose selected from the menu.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
-
-1. On the **Connection Properties** page, select **Run Diagnosis**.
-
-    ![Screenshot shows the Run Diagnosis button for a connection.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
-
-1. Sign in with your credentials.
-
-    ![Screenshot shows the Sign in dialog box for this action.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
-
-1. View the diagnosis results.
-
-    ![Screenshot shows the results of the diagnosis.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
+[!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
 ## <a name="viewwan"></a>View your virtual WAN
 

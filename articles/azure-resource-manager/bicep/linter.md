@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 09/19/2024
+ms.date: 06/06/2025
 ---
 
 # Use Bicep linter
@@ -35,18 +35,19 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md)
 - [no-unnecessary-dependson](./linter-rule-no-unnecessary-dependson.md)
 - [no-unused-existing-resources](./linter-rule-no-unused-existing-resources.md)
+- [no-unused-imports](./linter-rule-no-unused-imports.md)
 - [no-unused-params](./linter-rule-no-unused-parameters.md)
 - [no-unused-vars](./linter-rule-no-unused-variables.md)
 - [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
 - [prefer-unquoted-property-names](./linter-rule-prefer-unquoted-property-names.md)
+- [protect-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [secure-params-in-nested-deploy](./linter-rule-secure-params-in-nested-deploy.md)
 - [secure-secrets-in-params](./linter-rule-secure-secrets-in-parameters.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 - [simplify-json-null](./linter-rule-simplify-json-null.md)
 - [use-parent-property](./linter-rule-use-parent-property.md)
-- [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
 - [use-recent-api-versions](./linter-rule-use-recent-api-versions.md)
 - [use-recent-module-versions](./linter-rule-use-recent-module-versions.md)
 - [use-resource-id-functions](./linter-rule-use-resource-id-functions.md)
@@ -57,7 +58,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)
 - [what-if-short-circuiting](./linter-rule-what-if-short-circuiting.md)
 
-You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
+You can enable or disable all linter rules and control how they are applied using a configuration file. To override the default behavior, create a **bicepconfig.json** file with your custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
 
 ## Use in Visual Studio Code
 

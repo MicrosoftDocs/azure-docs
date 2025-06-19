@@ -143,7 +143,7 @@ If you're seeing issues related to your authentication flow:
 | 401 | The authorization token can't be validated. For example, it has expired or doesn't apply to the request's URI. This error code is also returned to devices as part of the TPM attestation flow. | Ensure that your device has the correct credentials. |
 | 404 | The Device Provisioning Service instance, or a resource such as an enrollment doesn't exist. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 412 | The `ETag` in the request doesn't match the `ETag` of the existing resource, as per RFC7232. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
-| 429 | The service is throttling operations. For specific service limits, see [IoT Hub Device Provisioning Service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
+| 429 | The service is throttling operations. For specific service limits, see [IoT Hub Device Provisioning Service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
 | 500 | An internal error occurred. | [File a ticket with customer support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to see if they can help you further. |
 
 ### Detailed authorization error codes

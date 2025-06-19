@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/21/2024
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts

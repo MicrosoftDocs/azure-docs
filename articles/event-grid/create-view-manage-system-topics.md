@@ -1,8 +1,9 @@
 ---
-title: Create, view, and manage system topics in Azure Event Grid (portal)
+title: Manage system topics in Azure Event Grid (portal)
 description: This article shows how view existing system topic, create Azure Event Grid system topics using the Azure portal. 
-ms.topic: conceptual
-ms.date: 11/30/2023
+ms.topic: how-to
+ms.date: 01/21/2025
+# Customer intent: I want to know how to create, manage, and delete Azure Event Grid system topics in the Azure portal. 
 ---
 
 # Create, view, and manage Event Grid system topics in the Azure portal
@@ -20,7 +21,7 @@ You can create a system topic for an Azure resource (Storage account, Event Hubs
     2. In the search box at the top, type **Event Grid System Topics**, and then press **ENTER**. 
     
         :::image type="content" source="./media/create-view-manage-system-topics/search-system-topics.png" alt-text="Screenshot that shows the Azure portal with Event Grid System Topics in the search box.":::
-    3. On the **Event Grid System Topics** page, select **+ Create** on the toolbar.
+    3. Select **System Topics** on the left navigation bar. Then, on the **Event Grid System Topics** page, select **+ Create** on the toolbar.
     
         :::image type="content" source="./media/create-view-manage-system-topics/add-system-topic-menu.png" alt-text="Screenshot that shows in the Event Grid System Topics page with the Create button selected." lightbox="./media/create-view-manage-system-topics/add-system-topic-menu.png":::
     4. On the **Create Event Grid System Topic** page, do the following steps:
@@ -56,14 +57,6 @@ Follow these steps to view all existing Event Grid system topics.
     :::image type="content" source="./media/create-view-manage-system-topics/system-topic-delete-button.png" alt-text="Screenshot that shows the System Topic page with the Delete button selected.":::
 3. On the confirmation page, select **OK** to confirm the deletion. It deletes the system topic and also all the event subscriptions for the system topic.  
 
-## Create an event subscription
-1. Follow instructions from the [View system topics](#view-all-system-topics) section to view all system topics, and select the system topic that you want to delete from the list. 
-2. On the **Event Grid System Topic** page, select **+ Event Subscription** from the toolbar. 
 
-    :::image type="content" source="./media/create-view-manage-system-topics/add-event-subscription-button.png" alt-text="Screenshot that shows the System Topic page with Add Event Subscription button selected.":::
-3. Confirm that the **Topic Type**, **Source Resource**, and **Topic Name** are automatically populated. Enter a name, select an **Endpoint Type**, and specify the **endpoint**. Then, select **Create** to create the event subscription. 
-
-    ![System topic - create event subscription](./media/create-view-manage-system-topics/create-event-subscription.png)
-
-## Next steps
+## Related content
 See the [System topics in Azure Event Grid](system-topics.md) section to learn more about system topics and topic types supported by Azure Event Grid. 

@@ -3,7 +3,9 @@ title: Azure Automation subscription limits and quotas
 description: This article provides automation subscription and service limits and includes answers to frequently asked questions.
 services: automation
 ms.topic: faq
-ms.date: 01/15/2025
+ms.date: 03/10/2025
+ms.author: v-jasmineme
+author: jasminemehndir
 ms.custom: references_regions
 #Customer intent: As an implementer, I want answers to various questions.
 ---
@@ -23,11 +25,11 @@ Azure Automation offers Limits and Quotas to resources assigned for your Azure s
 
 **Resource** | **Limit** | **Notes** |
 |---|--- | --- |
-| Maximum number of active Automation accounts in a subscription in a region | 10 | Enterprise and CSP subscriptions would be able to create Automation accounts in any of the public [regions supported](https://azure.microsoft.com/pricing/details/automation/) by the service.  Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for Quota increase 
-| | 2 | Pay-as-you-go, Sponsored, MSDN, MPN, Azure Pass subscriptions can create Automation accounts in any of the [regions supported](https://azure.microsoft.com/pricing/details/automation/) by the service. Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for Quota increase |
+| Maximum number of active Automation accounts in a subscription in a region | 10 | Enterprise and CSP subscriptions would be able to create Automation accounts in any of the public [regions supported](https://azure.microsoft.com/pricing/details/automation/) by the service.  Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for Quota increase. [Learn more](automation-limits-quotas.md).
+| | 2 | Pay-as-you-go, Sponsored, MSDN, MPN, Azure Pass subscriptions can create Automation accounts in any of the [regions supported](https://azure.microsoft.com/pricing/details/automation/) by the service. Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for Quota increase. [Learn more](automation-limits-quotas.md). |
 | | 1 | Free trial, Azure for Student, Azure in Open subscriptions can create only one Automation account per region per subscription. Allowed list of regions: EastUS, EastUS2, WestUS, NorthEurope, SoutheastAsia, and JapanWest2 <sup>2</sup> |
-|Maximum number of concurrent running jobs at the same instance of time per Automation account per region | 50 | When this limit is reached, the subsequent requests to create a job fail. The client receives an error response. Enterprise and CSP subscriptions in public regions. Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for Quota increase.|
-| | 10 | Pay-as-you-go, Sponsored, MSDN, MPN, Azure Pass subscriptions in public regions. Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for a Quota increase |
+|Maximum number of concurrent running jobs at the same instance of time per Automation account per region | 50 | When this limit is reached, the subsequent requests to create a job fail. The client receives an error response. Enterprise and CSP subscriptions in public regions. Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for Quota increase. [Learn more](automation-limits-quotas.md).|
+| | 10 | Pay-as-you-go, Sponsored, MSDN, MPN, Azure Pass subscriptions in public regions. Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for a Quota.  [Learn more](automation-limits-quotas.md). |
 | | 5  | Free trial, Azure for Student, Azure in Open subscriptions in public regions <sup>2</sup>.|  
 |Maximum number of new jobs that can be submitted every 30 seconds per Azure Automation account | 100 | When this limit is reached, the subsequent requests to create a job fail. The client receives an error response. |
 |Maximum storage size of job metadata for a 30-day rolling period | 10 GB (approximately 4 million jobs) | When this limit is reached, the subsequent requests to create a job fail. |
@@ -41,6 +43,7 @@ Azure Automation offers Limits and Quotas to resources assigned for your Azure s
 |Maximum amount of memory given to a sandbox <sup>1</sup> | 400 MB | Applies to Azure sandboxes only. |
 |Maximum number of network sockets allowed per sandbox <sup>1</sup> | 1,000 | Applies to Azure Sandboxes only|
 |Maximum runtime allowed per runbook <sup>1<sup> | Three hours | Applies to Azure Sandboxes only |
+|Maximum number of runbooks per Automation account | 800 |
 |Maximum number of system hybrid runbook workers per Automation Account | 4,000 | |
 |Maximum number of user hybrid runbook workers per Automation account | 4,000| |
 |Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker | 50 | |

@@ -24,6 +24,12 @@ sections:
           answer: >
             Azure Data Manager for Energy is available to all customers and partners who have a valid Azure subscription. You can create an instance by going to Azure Marketplace and searching for **Azure Data Manager for Energy**.
 
+    - name: Legal Tags
+      questions:
+        - question: Why cannot the Country Of Origin (COO) specific configuration be updated by the customer? 
+          answer: >
+            The OSDU&reg; platform does not offer APIs for making country/region specific configuration changes. These configuration settings are stored in .json files within the legal service container, and any changes require a service restart to take effect. Additionally, the Azure Data Manager for Energy service architecture does not expose the underlying infrastructure to customers, preventing them from making these changes directly.
+
     - name: External Data Sources
       questions:
         - question:  What is the impact of data sharing across tenancy boundaries on security, privacy, and compliance?

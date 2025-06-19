@@ -3,7 +3,7 @@ title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 12/10/2024
+ms.date: 02/12/2025
 ---
 
 # ARM template functions
@@ -222,8 +222,8 @@ Resource Manager provides several functions for working with objects.
 * [items](template-functions-object.md#items)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
-* [objectKeys](template-functions-object.md#objectkeys)
 * [null](template-functions-object.md#null)
+* [objectKeys](template-functions-object.md#objectkeys)
 * [shallowMerge](template-functions-object.md#shallowmerge)
 * [union](template-functions-object.md#union)
 

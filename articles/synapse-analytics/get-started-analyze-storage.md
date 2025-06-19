@@ -1,9 +1,8 @@
 ---
 title: 'Tutorial: Get started analyze data in Storage accounts' 
 description: In this tutorial, you'll learn how to analyze data located in a storage account.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+author: juluczni
+ms.author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
@@ -51,7 +50,7 @@ You can analyze the data in your workspace default Azure Data Lake Storage (ADLS
     display(df.limit(10))
     ```
 
-1. Attach to the Spark pool named **Spark1**. Run the cell. If you run into an error related to lack of cores, another session could be using this spark pool this spark pool. Cancel all the existing sessions and retry.
+1. Attach to the Spark pool named **Spark1**. Run the cell. If you run into an error related to lack of cores, another session could be using this spark pool. Cancel all the existing sessions and retry.
 1. Select back to the **users** folder. Right-click the **.parquet** file again, and then select **New SQL script** > **SELECT TOP 100 rows**. It creates a SQL script like this:
 
     ```sql

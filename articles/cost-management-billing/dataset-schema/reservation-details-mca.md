@@ -1,13 +1,13 @@
 ---
 title: Microsoft Customer Agreement reservation details file schema
 description: Learn about the data fields available in the Microsoft Customer Agreement reservation details file.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 05/02/2024
-ms.author: banders
+ms.date: 01/24/2025
+ms.author: jojoh
 ---
 
 # Microsoft Customer Agreement reservation details file schema

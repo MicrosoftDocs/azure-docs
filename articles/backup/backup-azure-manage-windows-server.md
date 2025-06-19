@@ -2,9 +2,9 @@
 title: Manage Azure Recovery Services vaults and servers
 description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
 ms.topic: how-to
-ms.date: 01/17/2025
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 05/20/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 # Monitor and manage Recovery Services vaults
 
@@ -194,12 +194,26 @@ Use **Export jobs** to create a spreadsheet containing all Jobs menu information
 
 To export the jobs information to a spreadsheet, select **Export jobs**. The service creates a spreadsheet using the name of the vault and date, but you can change the name.
 
+>[!Note]
+>Azure Backup currently doesn't support exporting jobs with a filter applied, triggerring this operation fails for SQL and SAP HANA workload types. Alternatively, enable a Log Analytics workspace and [export workload-specific jobs](backup-azure-monitoring-use-azuremonitor.md#queries-specific-to-recovery-services-vault-workloads).
+
 ## Monitor Backup usage
 
 The Backup Storage tile in the dashboard shows the storage consumed in Azure. Storage usage is provided for:
 
 * Cloud LRS storage usage associated with the vault
 * Cloud GRS storage usage associated with the vault
+
+## Optimize backup and recovery with Azure Business Continuity Center Copilot
+
+Azure Business Continuity Center Copilot introduces new capabilities in the Recovery Services vaults pane, enabling you to configure/manage a secure, resilient backup and recovery environment:
+
+- [Increase security level](../business-continuity-center/tutorial-manage-data-using-copilot.md#increase-security-level-of-recovery-service-vault-and-backup-vault) to strengthen protection for backup data and disaster recovery operations.
+- [Analyze job failures](../business-continuity-center/tutorial-manage-data-using-copilot.md#analyze-job-failures-for-recovery-service-vault-and-backup-vault) to gain insights into failures for precise analysis and faster resolution.
+- [Troubleshoot common errors efficiently](../business-continuity-center/tutorial-manage-data-using-copilot.md#troubleshoot-error-codes-for-recovery-service-vaults-and-backup-vaults).
+
+Learn more about [managing the Business Continuity and Disaster Recovery estate using Copilot (preview)](../business-continuity-center/tutorial-manage-data-using-copilot.md).
+
 
 ## Next steps
 

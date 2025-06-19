@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 03/15/2023
 ms.author: yexu
-ms.reviewer: whhender, wiassaf
+
 ---
 
 # Configure Azure Synapse Link for SQL Server 2022 with network security

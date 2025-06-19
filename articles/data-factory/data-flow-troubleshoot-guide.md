@@ -6,7 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 01/05/2024
+ms.date: 06/03/2025
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory (ADF)
@@ -1115,7 +1115,7 @@ Note: Please check that the given database is of type 'Dedicated SQL pool (forme
 ### Error code: 4502
 
 - **Message**: There are substantial concurrent MappingDataflow executions that are causing failures due to throttling under Integration Runtime.
-- **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
+- **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
 - **Recommendation**: If you want to run more Data Flow activities in parallel, distribute them across multiple integration runtimes.
 
 ### Error code: 4503
@@ -1158,6 +1158,11 @@ Note: Please check that the given database is of type 'Dedicated SQL pool (forme
 - **Message**: java.sql.SQLTransactionRollbackException. Deadlock found when trying to get lock; try restarting transaction. If the problem persists, please contact Azure Support
 - **Cause**: Transient error
 - **Recommendation**: Retry the request after a wait period.
+
+### Error code: SystemErrorSynapseSparkJobFailed (Ongoing)
+- **Message**: Job failed during run time with state=[dead]. Credentials were not provided for the WASB URI.
+- **Cause**: Data flow is unsupported in Synapse workspaces using Spark version 3.4 when DEP (Data Exfiltration Protection) is enabled by selecting "Allow outbound data traffic only to approved targets" during workspace network configuration.
+- **Recommendation**: Disable the above settings during workspace creation. For more information, see this [document](/azure/synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection) 
 
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.
@@ -1287,6 +1292,6 @@ For more help with troubleshooting, see these resources:
 
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [X information about Data Factory](https://x.com/hashtag/DataFactory)

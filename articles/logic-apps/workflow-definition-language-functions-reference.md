@@ -4,9 +4,8 @@ description: Reference guide to workflow expression functions for Azure Logic Ap
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, niding, azla
-ms.topic: reference
-ms.custom: engagement-fy23
-ms.date: 12/13/2023
+ms.topic: conceptual
+ms.date: 03/27/2025
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
@@ -16,6 +15,7 @@ ms.date: 12/13/2023
 For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/power-automate/getting-started), some [expressions](logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference or process the values in these expressions, you can use *expression functions* provided by the [Workflow Definition Language](logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
+>
 > This reference page applies to both Azure Logic Apps and Power Automate, but appears in the 
 > Azure Logic Apps documentation. Although this page refers specifically to logic app workflows, 
 > these functions work for both flows and logic app workflows. For more information about functions 
@@ -3397,6 +3397,7 @@ parseDateTime('20/10/2014', 'fr-fr') // Returns '2014-10-20T00:00:00.0000000'.
 parseDateTime('20 octobre 2010', 'fr-FR') // Returns '2010-10-20T00:00:00.0000000'.
 parseDateTime('martes 20 octubre 2020', 'es-es') // Returns '2020-10-20T00:00:00.0000000'.
 parseDateTime('21052019', 'fr-fr', 'ddMMyyyy') // Returns '2019-05-21T00:00:00.0000000'.
+parseDateTime('20190521', 'fr-fr', 'yyyyMMdd') // Returns '2019-05-21T00:00:00.0000000'.
 parseDateTime('10/20/2014 15h', 'en-US', 'MM/dd/yyyy HH\h') // Returns '2014-10-20T15:00:00.0000000'.
 ```
 

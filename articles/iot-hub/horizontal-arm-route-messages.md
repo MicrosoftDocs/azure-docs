@@ -2,9 +2,9 @@
 title: Quickstart - route messages to storage (ARM template)
 titleSuffix: Azure IoT Hub
 description: Learn how to use an ARM template to publish Azure IoT Hub, storage account, route messages in this quickstart
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: quickstart-arm
 ms.date: 01/04/2024

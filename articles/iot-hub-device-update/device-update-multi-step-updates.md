@@ -1,26 +1,43 @@
 ---
-title: Using multiple steps for Updates with Device Update for Azure IoT Hub
-description: Using multiple steps for Updates with Device Update for Azure IoT Hub
-author: kgremban
-ms.author: kgremban
-ms.date: 11/12/2021
+title: Azure Device Update for IoT Hub multistep ordered execution
+description: Learn about using multiple steps to execute preinstall and postinstall tasks when you deploy over-the-air updates with Device Update for Azure IoT Hub.
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.date: 01/15/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Multi-step ordered execution
+# Multistep ordered execution
 
-Multi-step ordered execution gives you the ability to run pre-install and post-install tasks when deploying an over-the-air update. This capability is part of the Public Preview Refresh Update Manifest v4 schema.  
+Multistep ordered execution in Azure Device Update for IoT Hub lets you run preinstall and postinstall tasks when you deploy an over-the-air update. This capability is part of the Device Update update manifest schema version 4. For more information, see [Device Update update manifest](update-manifest.md).
 
-See the [Update Manifest](update-manifest.md) documentation before reviewing the following changes as part of the public preview refresh release.
+Multistep ordered execution can have two types of steps, *inline steps* and *reference steps*. An inline step is an instruction that executes code and is the default type. A reference step is a step that contains an identifier for another update.
 
-With multi-step ordered execution there are two types of steps:
+## Parent updates and child updates
 
-- Inline step (default)
-- Reference step
+When an update manifest references another update manifest, the top-level manifest is called the *parent update*, and the manifest specified in the reference step is called a *child update*. A child update can't contain any reference steps, only inline steps. Device Update validates this restriction at import time and fails the update if it isn't met.
 
-An example update manifest with one inline step:
+### Inline steps in a parent update
+
+The Device Update agent applies inline steps specified in a parent update to the host device. The `ADUC_WorkflowData` object that passes to the step handler, also called an update content handler, doesn't contain any `Selected Components` data. The handler for this type of step shouldn't be a `Component-Aware` handler.
+
+The Device Update agent's step content handler applies `IsInstalled` validation logic for each step. The step handler checks to see if the update is already installed by checking whether `IsInstalled()` returns result code `900`, or true, and uses this result to determine whether to perform the step. To avoid reinstalling an update that's already on the device, the Device Update agent skips future steps if an update is already installed.
+
+To report an update result, write the result of a step handler execution to the `ADUC_Result` struct in a desired result file as specified in the `--result-file` option. Based on results of the execution, return `0` for success and return `-1` or `0xFF` for fatal errors.
+
+For more information, see [Step handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/step_handlers) and [How to implement a custom component-aware content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md).
+
+### Reference steps in a parent update
+
+The Device Update agent applies reference steps specified in a parent update to components on, or connected to, the host device. When it processes a reference step, the step handler downloads a detached update manifest file specified in the step, and validates the file integrity.
+
+The step handler then parses the child update manifest and creates an `ADUC_Workflow` object, also called child workflow data, by combining the data from the child update manifest and file URL information from the parent update manifest. This child workflow data has a `level` property set to `1`.
+
+## Examples
+
+The following example update manifest has one inline step:
 
 ```json
 {
@@ -35,7 +52,7 @@ An example update manifest with one inline step:
     "instructions": {
         "steps": [
             {
-                "description": "Example APT update that install libcurl4-doc on a host device.",
+                "description": "Example APT update that installs libcurl4-doc on a host device.",
                 "handler": "microsoft/apt:1",
                 "files": [
                     "apt-manifest-1.0.json"
@@ -52,7 +69,7 @@ An example update manifest with one inline step:
 }
 ```
 
-An example update manifest with two inline steps:
+The following example update manifest has two inline steps:
 
 ```json
 {
@@ -94,9 +111,7 @@ An example update manifest with two inline steps:
 }
 ```
 
-An example update manifest with one reference step:
-
-- The parent update that references a child update
+The following parent update manifest has one reference step that references a child update:
 
   ```json
   {
@@ -127,7 +142,7 @@ An example update manifest with one reference step:
   }
   ```
 
-- The child update with inline steps
+The child update contains inline steps.
 
   ```json
   {
@@ -145,7 +160,7 @@ An example update manifest with one reference step:
       "instructions": {
           "steps": [
               {
-                  "description": "Cameras Update - pre-install step",
+                  "description": "Cameras Update - preinstall step",
                   "handler": "microsoft/script:1",
                   "files": [
                       "contoso-camera-installscript.sh"
@@ -170,7 +185,7 @@ An example update manifest with one reference step:
                   }
               },
               {
-                  "description": "Cameras Update - post-install step",
+                  "description": "Cameras Update - postinstall step",
                   "handler": "microsoft/script:1",
                   "files": [
                       "contoso-camera-installscript.sh"
@@ -178,7 +193,7 @@ An example update manifest with one reference step:
                   "handlerProperties": {
                       "scriptFileName": "contoso-camera-installscript.sh",
                       "arguments": "--post-install-sim-success --component-name --component-name-val --component-group --component-group-val --component-prop path --component-prop-val path",
-                      "installedCriteria": "contoso-virtual-camera-1.2-stop-2"
+                      "installedCriteria": "contoso-virtual-camera-1.2-step-2"
                   }
               }
           ]
@@ -198,39 +213,15 @@ An example update manifest with one reference step:
   ```
 
 > [!NOTE]
-> In the [update manifest](update-manifest.md), each step should have a different **installedCriteria** string if that string is being used to determine whether the step should be performed or not.
-
-## Parent updates and child updates
-
-When update manifests reference each other, the top-level manifest is called the **parent update** and a manifest specified in a reference step is called a **child update**.  
-
-Currently, a child update can't contain any reference steps. This restriction is validated at import time and if not followed the import will fail.
-
-### Inline steps in a parent update
-
-Inline step(s) specified in a parent update are applied to the host device. Here the ADUC_WorkflowData object that is passed to a step handler (also known as an update content handler) and it will not contain the `Selected Components` data. The handler for this type of step should *not* be a `Component-Aware` handler.
-
-The steps content handler applies **IsInstalled** validation logic for each step. The Device Update agent’s step handler checks to see if particular update is already installed by checking whether IsInstalled() resulted in a result code “900” which means ‘true’. If an update is already installed, to avoid reinstalling an update that is already on the device, the DU agent will skip future steps because we use it to determine whether to perform the step or not.
-
-To report an update result, the result of a step handler execution must be written to ADUC_Result struct in a desired result file as specified in --result-file option. Then based on results of the execution, for success return 0, for any fatal errors return -1 or 0xFF.
-
-For more information, see [Steps content handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/step_handlers) and [Implementing a custom component-aware content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md).
-
-### Reference steps in a parent update
-
-Reference step(s) specified in a parent update are applied to components on or connected to the host device. A **reference step** is a step that contains update identifier of another update, called a child update.
-
-When processing a reference step, the steps handler downloads a detached update manifest file specified in the reference step data, then validates the file integrity. Next, the steps handler parses the child update manifest and creates an **ADUC_Workflow** object (also known as child workflow data) by combining the data from the child update manifest and file URLs information from the parent update manifest.  This child workflow data also has a 'level' property set to '1'.
-
-> [!NOTE]
-> Currently, child updates can't contain any reference steps.
+> If you use `installedCriteria` to determine whether or not the step should execute, you should give each step a different `installedCriteria` value in the update manifest.
 
 ## Detached update manifests
 
-To avoid deployment failure because of IoT Hub twin data size limits, any large update manifest will be delivered in the form of a JSON data file, also called a **detached update manifest**.
+To avoid deployment failure because of Azure IoT Hub twin data size limits, Device Update delivers large update manifests to devices as JSON data files called *detached update manifests*. When you import a large content update into Device Update, the generated update manifest contains another payload file called `Detached Update Manifest`, which contains the full update manifest data.
 
-If an update with large content is imported into Device Update for IoT Hub, the generated update manifest will contain another payload file called `Detached Update Manifest`, which contains the full data of the Update Manifest.
+The `UpdateManifest` property in the device or module twin contains the detached update manifest file information. When it processes the PnP `PropertyChanged` event, the Device Update agent automatically downloads the detached update manifest file and creates an `ADUC_WorkflowData` object that contains the full update manifest data.
 
-The `UpdateManifest` property in the device or module twin will contain the detached update manifest file information.
+## Related content
 
-When processing PnP property changed event, the Device Update agent will automatically download the detached update manifest file and create an ADUC_WorkflowData object that contains the full update manifest data.
+- [Device Update update manifest](update-manifest.md)
+- [Device Update and IoT Plug and Play](device-update-plug-and-play.md)

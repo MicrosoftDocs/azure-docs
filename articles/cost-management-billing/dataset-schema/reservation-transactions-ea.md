@@ -1,13 +1,13 @@
 ---
 title: Enterprise Agreement reservation transactions file schema
 description: Learn about the data fields available in the Enterprise Agreement reservation transactions file.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 05/02/2024
-ms.author: banders
+ms.date: 01/24/2025
+ms.author: jojoh
 ---
 
 # Enterprise Agreement reservation transactions file schema
@@ -18,7 +18,7 @@ This article lists all of the data fields available in the Enterprise Agreement 
 
 | Column |Fields|Description|
 |---|------|------|
-| 1 |AccountName|The name of the account that made the transaction.|
+| 1 |AccountName|Display name of the EA enrollment account or pay-as-you-go billing account.|
 | 2 |AccountOwnerEmail|The email address of the account owner that made the transaction.|
 | 3 |Amount|The charge of the transaction.|
 | 4 |ArmSkuName|The Azure Resource Manager SKU name. It can be used to join with the `serviceType` field in `additionalinfo` in usage records.|

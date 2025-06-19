@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 6/26/2024
+ms.date: 4/23/2025
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -17,15 +17,13 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure SQL trigger for Functions
 
+The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted. For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](functions-bindings-azure-sql.md).
+
+The Azure SQL trigger scaling decisions for the [Consumption and Premium plans](functions-scale.md) are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md) and review the [Azure Functions hosting options](functions-scale.md). 
+
 > [!NOTE]
-> In consumption plan functions, automatic scaling is not supported for SQL trigger. If the automatic scaling process stops the function, all processing of events will stop and it will need to be manually restarted.
->
-> Use premium or dedicated plans for [scaling benefits](functions-scale.md) with SQL trigger.
+> Support for Consumption plans requires [release v3.1.284 or later](https://github.com/Azure/azure-functions-sql-extension/releases) of the [Azure SQL bindings for Azure Functions](functions-bindings-azure-sql.md).
 > 
-
-The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted. For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
-
-The Azure SQL trigger scaling decisions for the Consumption and Premium plans are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
 
 ## Functionality Overview
 
@@ -41,12 +39,13 @@ while (true) {
 
 Changes are processed in the order that their changes were made, with the oldest changes being processed first. A couple notes about change processing:
 
-1. If changes to multiple rows are made at once the exact order that they are sent to the function is based on the order returned by the CHANGETABLE function
+1. If changes to multiple rows are made at once the exact order that they’re sent to the function is based on the order returned by the CHANGETABLE function
 2. Changes are "batched" together for a row. If multiple changes are made to a row between each iteration of the loop then only a single change entry exists for that row which will show the difference between the last processed state and the current state
 3. If changes are made to a set of rows, and then another set of changes are made to half of those same rows, then the half of the rows that weren't changed a second time are processed first. This processing logic is due to the above note with the changes being batched - the trigger will only see the "last" change made and use that for the order it processes them in
 
 For more information on change tracking and how it's used by applications such as Azure SQL triggers, see [work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) .
 
+[!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 
@@ -661,7 +660,7 @@ Note that these retries are outside the built-in idle connection retry logic tha
 ### Function exception retries
 If an exception occurs in the user function when processing changes then the batch of rows currently being processed are retried again in 60 seconds. Other changes are processed as normal during this time, but the rows in the batch that caused the exception are ignored until the timeout period has elapsed.
 
-If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch are not deterministic, rows in a failed batch might end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows might end up in a different batch that doesn't fail in future invocations.
+If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch aren't deterministic, rows in a failed batch might end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows might end up in a different batch that doesn't fail in future invocations.
 
 ## Next steps
 

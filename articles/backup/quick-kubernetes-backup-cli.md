@@ -3,11 +3,15 @@ title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AK
 description: Learn how to quickly configure backup for a Kubernetes cluster using Azure CLI.
 ms.service: azure-backup
 ms.topic: quickstart
-ms.date: 05/31/2024
-ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
+ms.date: 04/01/2025
+ms.custom:
+  - devx-track-terraform
+  - devx-track-extended-azdevcli
+  - ignite-2024
+  - build-2025
 ms.reviewer: rajats
-ms.author: v-abhmallick
-author: AbhishekMallick-MS
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure CLI
@@ -27,7 +31,7 @@ Before you configure vaulted backup for AKS cluster, ensure the following prereq
 To create the Backup vault, run the following command:
 
 ```azurecli
-az dataprotection backup-vault create --resource-group $backupvaultresourcegroup --vault-name $backupvault --location $region --type SystemAssigned --storage-settings datastore-type="VaultStore" type="GloballyRedundant"
+az dataprotection backup-vault create --resource-group $backupvaultresourcegroup --vault-name $backupvault --location $region --type SystemAssigned --storage-settings datastore-type="VaultStore" type="GeoRedundant"
 ```
 
 The newly created vault has storage settings set as Globally Redundant, thus backups stored in vault tier will be available in the Azure paired region. Once the vault creation is complete, create a backup policy to protect AKS clusters.
@@ -53,7 +57,7 @@ az dataprotection backup-policy retention-rule set --lifecycles ./retentionrule.
 Once the policy JSON has all the required values, proceed to create a new policy from the policy object.
 
 ```azurecli
-az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n mypolicy --policy policy.json
+az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n mypolicy --policy akspolicy.json
 ```
 
 ## Prepare AKS cluster for backup

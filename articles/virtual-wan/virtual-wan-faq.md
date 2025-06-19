@@ -3,9 +3,11 @@ title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 ms.topic: faq
-ms.date: 03/27/2024
+ms.date: 03/26/2025
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
@@ -34,21 +36,21 @@ Virtual WAN comes in two flavors: Basic and Standard. In Basic Virtual WAN, hubs
 
 ### Why am I seeing an error about invalid scope and authorization to perform operations on Virtual WAN resources?
 
-If you see an error in the below format, then please make sure you have the following permissions configured: [Virtual WAN Roles and Permissions](roles-permissions.md#required-permissions)
+If you see an error in the following format, then make sure you have the following permissions configured: [Virtual WAN Roles and Permissions](roles-permissions.md#required-permissions)
 
-Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. For details on the required permissions, please visit {}. If access was recently granted, please refresh your credentials."
+Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. For details on the required permissions, please visit {}. If access was recently granted, refresh your credentials."
 
 ### How are Availability Zones and resiliency handled in Virtual WAN?
 
-Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across Availability Zones (except Azure Firewall), if the region supports Availability Zones. If a region becomes an Availability Zone after the initial deployment in the hub, the user can recreate the gateways, which will trigger an Availability Zone deployment. All gateways are provisioned in a hub as active-active, implying there's resiliency built in within a hub. Users can connect to multiple hubs if they want resiliency across regions.
+Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute, etc. Each of these services is automatically deployed across Availability Zones (except Azure Firewall), if the region supports Availability Zones. If a region becomes an Availability Zone after the initial deployment in the hub, the user can recreate the gateways, which will trigger an Availability Zone deployment. All gateways are provisioned in a hub as active-active, implying there's resiliency built in within a hub. Users can connect to multiple hubs if they want resiliency across regions.
 
-Currently, Azure Firewall can be deployed to support Availability Zones using Azure Firewall Manager Portal, [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) or CLI. There's currently no way to configure an existing Firewall to be deployed across availability zones. You'll need to delete and redeploy your Azure Firewall.
+Currently, Azure Firewall can be deployed to support Availability Zones using Azure Firewall Manager Portal, [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones), or CLI. There's currently no way to configure an existing Firewall to be deployed across availability zones. You need to delete and redeploy your Azure Firewall.
 
-While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself were to have an issue, all hubs in that virtual WAN will continue to function as is, but the user won't be able to create new hubs until the virtual WAN region is available.
+While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself were to have an issue, all hubs in that virtual WAN will continue to function. However, the user won't be able to create new hubs until the virtual WAN region is available.
 
 ### Is it possible to share the Firewall in a protected hub with other hubs?
 
-No, each Azure Virtual Hub must have their own Firewall. The deployment of custom routes to point the Firewall of another secured hub's will fail and will not complete successfully. Please consider to convert those hubs to [secured hubs](/azure/virtual-wan/howto-firewall) with their own Firewalls.
+No, each Azure Virtual Hub must have their own Firewall. The deployment of custom routes to point the Firewall of another secured hub's will fail and won't complete successfully. Please consider to convert those hubs to [secured hubs](/azure/virtual-wan/howto-firewall) with their own Firewalls.
 
 ### What client does the Azure Virtual WAN User VPN (point-to-site) support?
 
@@ -107,39 +109,39 @@ There are two options to add DNS servers for the P2S clients. The first method i
 
 ### <a name="p2s-concurrent"></a>For User VPN (point-to-site)- how many clients are supported?
 
-The table below describes the number of concurrent connections and aggregate throughput of the Point-to-site VPN gateway supported at different scale units.
+The following table describes the number of concurrent connections and aggregate throughput of the Point-to-site VPN gateway supported at different scale units.
 
-Scale Unit | Gateway Instances | Supported Concurrent Connections | Aggregate Throughput|
-| ---- | ---| ---| ---|
-|1|2|500| 0.5 Gbps|
-|2|2|500| 1 Gbps|
-|3|2|500| 1.5 Gbps |
-|4|2|1000| 2 Gbps|
-|5|2|1000| 2.5 Gbps|
-|6|2|1000| 3 Gbps|
-|7|2|5000| 3.5 Gbps|
-|8|2|5000| 4 Gbps|
-|9|2|5000| 4.5 Gbps|
-|10|2|5000| 5 Gbps|
-|11|2|10000| 5.5 Gbps|
-|12|2|10000| 6 Gbps|
-|13|2|10000| 6.5 Gbps|
-|14|2|10000| 7 Gbps|
-|15|2|10000| 7.5 Gbps|
-|16|2|10000| 8 Gbps|
-|17|2|10000| 8.5 Gbps|
-|18|2|10000| 9 Gbps|
-|19|2|10000| 9.5 Gbps|
-|20|2|10000| 10 Gbps|
-|40|4|20000| 20 Gbps|
-|60|6|30000| 30 Gbps|
-|80|8|40000| 40 Gbps|
-|100|10|50000| 50 Gbps|
-|120|12|60000| 60 Gbps|
-|140|14|70000| 70 Gbps|
-|160|16|80000| 80 Gbps|
-|180|18|90000| 90 Gbps|
-|200|20|100000| 100 Gbps|
+| Scale Unit | Gateway Instances | Supported Concurrent Connections | Aggregate Throughput |
+|------------|-------------------|----------------------------------|----------------------|
+| 1          | 2                 | 500                              | 0.5 Gbps            |
+| 2          | 2                 | 500                              | 1 Gbps              |
+| 3          | 2                 | 500                              | 1.5 Gbps            |
+| 4          | 2                 | 1000                             | 2 Gbps              |
+| 5          | 2                 | 1000                             | 2.5 Gbps            |
+| 6          | 2                 | 1000                             | 3 Gbps              |
+| 7          | 2                 | 5000                             | 3.5 Gbps            |
+| 8          | 2                 | 5000                             | 4 Gbps              |
+| 9          | 2                 | 5000                             | 4.5 Gbps            |
+| 10         | 2                 | 5000                             | 5 Gbps              |
+| 11         | 2                 | 10000                            | 5.5 Gbps            |
+| 12         | 2                 | 10000                            | 6 Gbps              |
+| 13         | 2                 | 10000                            | 6.5 Gbps            |
+| 14         | 2                 | 10000                            | 7 Gbps              |
+| 15         | 2                 | 10000                            | 7.5 Gbps            |
+| 16         | 2                 | 10000                            | 8 Gbps              |
+| 17         | 2                 | 10000                            | 8.5 Gbps            |
+| 18         | 2                 | 10000                            | 9 Gbps              |
+| 19         | 2                 | 10000                            | 9.5 Gbps            |
+| 20         | 2                 | 10000                            | 10 Gbps             |
+| 40         | 4                 | 20000                            | 20 Gbps             |
+| 60         | 6                 | 30000                            | 30 Gbps             |
+| 80         | 8                 | 40000                            | 40 Gbps             |
+| 100        | 10                | 50000                            | 50 Gbps             |
+| 120        | 12                | 60000                            | 60 Gbps             |
+| 140        | 14                | 70000                            | 70 Gbps             |
+| 160        | 16                | 80000                            | 80 Gbps             |
+| 180        | 18                | 90000                            | 90 Gbps             |
+| 200        | 20                | 100000                           | 100 Gbps            |
 
 For example, let's say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support up to 500 connections. Since you can get 500 connections * 2 per gateway, it doesn't mean that you plan for 1000 instead of the 500 for this scale unit. Instances might need to be serviced during which connectivity for the extra 500 might be interrupted if you surpass the recommended connection count.
 
@@ -149,7 +151,7 @@ Also, be sure to plan for downtime in case you decide to scale up or down on the
 
 ### For User VPN (point-to-site) is Microsoft registered app in Entra Id Authentication supported?
 
-Yes, [Microsoft-registered app](/azure/vpn-gateway/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
+Yes, [Microsoft-registered app](/azure/virtual-wan/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
 
 ### What are Virtual WAN gateway scale units?
 
@@ -219,7 +221,7 @@ A connection from a branch or VPN device into Azure Virtual WAN is a VPN connect
 
 ### What happens if the on-premises VPN device only has 1 tunnel to an Azure Virtual WAN VPN gateway?
 
-An Azure Virtual WAN connection is composed of 2 tunnels. A Virtual WAN VPN gateway is deployed in a virtual hub in active-active mode, which implies that there are separate tunnels from on-premises devices terminating on separate instances. This is the recommendation for all users. However, if the user chooses to only have 1 tunnel to one of the Virtual WAN VPN gateway instances, if for any reason (maintenance, patches etc.) the gateway instance is taken offline, the tunnel will be moved to the secondary active instance and the user might experience a reconnect. BGP sessions won't move across instances.
+An Azure Virtual WAN connection is composed of 2 tunnels. A Virtual WAN VPN gateway is deployed in a virtual hub in active-active mode, which implies that there are separate tunnels from on-premises devices terminating on separate instances. This is the recommendation for all users. However, if the user chooses to only have 1 tunnel to one of the Virtual WAN VPN gateway instances, if for any reason (maintenance, patches, etc.) the gateway instance is taken offline, the tunnel will be moved to the secondary active instance and the user might experience a reconnect. BGP sessions won't move across instances.
 
 ### What happens during a gateway reset in a Virtual WAN VPN gateway?
 
@@ -347,7 +349,7 @@ For any reason, if the VPN connection becomes the primary medium for the virtual
 
 ### Does ExpressRoute support Equal-Cost Multi-Path (ECMP) routing in Virtual WAN?
 
-When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. ECMP is currently not enabled by default for Virtual WAN hubs. 
+When 1 or more ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across 2 ExpressRoute circuits (corresponding to up to 4 ExpressRoute links) advertising the same on-premises routes. ECMP is currently not enabled by default for Virtual WAN hubs. To enable ECMP for your environment, you can create a [route-map](route-maps-how-to.md) for your virtual hub. When you create a route-map, your virtual hub will automatically be upgraded to the latest software version that supports ECMP, regardless of whether this route-map is applied on any connections. As a result, you only need to follow steps 1-7 [here](route-maps-how-to.md#configuration-workflow). If you do not plan to use the route-map, you can delete the route-map after step 7 is complete, as hubs with a route-map will incur additional cost. It is also recommended to first try creating a route-map in your test environment and validating routing and connectivity before creating a route-map in your production environment. 
 
 ### <a name="expressroute-bow-tie"></a>When two hubs (hub 1 and 2) are connected and there's an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 
@@ -381,7 +383,9 @@ The recommended Virtual WAN hub address space is /23. Virtual WAN hub assigns su
 
 ### Is there support for IPv6 in Virtual WAN?
 
-IPv6 isn't supported in the Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported.
+IPv6 isn't supported in the Virtual WAN hub and its gateways. If you connect a spoke VNet with an IPv6 address range to the Virtual WAN hub, then only IPv4 connectivity with this spoke VNet will function. IPv6 connectivity with this spoke VNet is not supported. 
+
+If you advertise IPv6 prefixes from on-premises, this will break IPv4 connectivity for your Azure resources. 
 
 For the point-to-site User VPN scenario with internet breakout via Azure Firewall, you'll likely have to turn off IPv6 connectivity on your client device to force traffic to the Virtual WAN hub. This is because modern devices, by default, use IPv6 addresses.
 
@@ -391,7 +395,7 @@ A minimum version of 05-01-2022 (May 1, 2022) is required.
 
 ### Are there any Virtual WAN limits?
 
-See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) section on the Subscription and service limits page.
+See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-wan-limits) section on the Subscription and service limits page.
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
@@ -432,11 +436,9 @@ You can use your own public ASNs or private ASNs for your on-premises networks. 
   * Private ASNs: 65515, 65517, 65518, 65519, 65520
   * ASNs reserved by IANA: 23456, 64496-64511, 65535-65551
  
-    
+### Is there a way to change the ASNs in Virtual WAN?
 
-### Is there a way to change the ASN for a VPN gateway?
-
-No. Virtual WAN doesn't support ASN changes for VPN gateways.
+No. Virtual WAN doesn't support ASN changes for Virtual Hubs or any gateways.
 
 ### In Virtual WAN, what are the estimated performances by ExpressRoute gateway SKU?
 
@@ -470,7 +472,7 @@ You can find more information on how to change the VNet address space [here](../
 
 The maximum number of address spaces across all Virtual Networks directly connected to a single Virtual WAN hub is 400. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to remote (other Virtual WAN hubs in the same Virtual WAN) hubs are not counted towards this limit.
 
-This limit is adjustable. For more information on the limit, the procedure to request a limit increase and sample scripts to determine the number of address spaces across Virtual Networks connected to a Virtual WAN hub, see [routing intent virtual network address space limits](how-to-routing-policies.md#virtual-network-address-space-limits).
+This limit is adjustable. For more information on the limit, the procedure to request a limit increase and sample scripts to determine the number of address spaces across Virtual Networks connected to a Virtual WAN hub, see [routing intent virtual network address space limits](how-to-routing-policies.md#address-limits).
 
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
 

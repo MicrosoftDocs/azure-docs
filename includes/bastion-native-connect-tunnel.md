@@ -2,15 +2,15 @@
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: include
-ms.date: 06/22/2023
+ms.date: 01/28/2025
 ms.author: cherylmc
 ---
-The **az network bastion tunnel** command is another way that you can connect to your VMs.  When you use this command, you can do the following:
+The **az network bastion tunnel** command is another way that you can connect to your VMs. When you use this command, you can do the following:
 
 * Connect from native clients on *non*-Windows local computers. (For example,  a Linux computer.)
 * Connect to a VM using SSH or RDP. (The bastion tunnel doesn't relay web servers or hosts.)
 * Use the native client of your choice.
-* [Upload files](../articles/bastion/vm-upload-download-native.md#tunnel-command) to your target VM from your local computer. File download from the target VM to the local client is currently not supported for this command.
+* [Transfer files](../articles/bastion/vm-upload-download-native.md#tunnel-command) to your target VM from your local computer.
 
 Limitations:
 

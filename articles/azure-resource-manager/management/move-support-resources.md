@@ -1,18 +1,19 @@
 ---
-title: Move operation support by resource type
+title: Azure resource types for move operations
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 09/24/2024
+ms.date: 04/29/2025
+ms.custom: tbd
 ---
 
-# Move operation support for resources
+# Azure resource types for move operations
 
-This article lists whether an Azure resource type supports the move operation. It also provides information about special conditions to consider when moving a resource.
+This article discusses special considerations for when moving a resource and lists which Azure resource types supports move operations.
 
-Before starting your move operation, review the [checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure you have satisfied prerequisites. Moving resources across [Microsoft Entra tenants](../../active-directory/develop/quickstart-create-new-tenant.md) isn't supported.
+Review the [Checklist before moving resources](./move-resource-group-and-subscription.md#checklist-before-moving-resources) to make sure that you've satisfied the prerequisites. Moving resources across [Microsoft Entra tenants](../../active-directory/develop/quickstart-create-new-tenant.md) isn't supported.
 
 > [!IMPORTANT]
-> In most cases, a child resource can't be moved independently from its parent resource. Child resources have a resource type in the format of `<resource-provider-namespace>/<parent-resource>/<child-resource>`. For example, `Microsoft.ServiceBus/namespaces/queues` is a child resource of `Microsoft.ServiceBus/namespaces`. When you move the parent resource, the child resource is automatically moved with it. If you don't see a child resource in this article, you can assume it is moved with the parent resource. If the parent resource doesn't support move, the child resource can't be moved.
+> In most cases, a child resource can't be moved apart from its parent resource. Child resources have a resource type in the format of `<resource-provider-namespace>/<parent-resource>/<child-resource>`. For example, `Microsoft.ServiceBus/namespaces/queues` is a child resource of `Microsoft.ServiceBus/namespaces`. When you move the parent resource, the child resource automatically moves with it. If you don't see a child resource in this article, you can assume that it moves with the parent resource. If the parent resource doesn't support moving, then the child resource won't move.
 
 ## Microsoft.AAD
 
@@ -135,7 +136,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | attestationproviders | **Yes** | **Yes** | No |
+> | attestationproviders | No | No | No |
 
 ## Microsoft.Authorization
 
@@ -161,8 +162,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 ## Microsoft.Automation
 
 > [!IMPORTANT]
-> Runbooks must exist in the same resource group as the Automation Account. 
-> The movement of System assigned managed identity, and User-assigned managed identity takes place automatically with the Automation account. For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
+> Runbooks must exist in the same resource group as the Azure Automation account.
+> System- and user-assigned managed identities move automatically with the Automation account. See [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -231,7 +232,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | batchaccounts | **Yes** | **Yes** | Batch accounts can't be moved directly from one region to another, but you can use a template to export a template, modify it, and deploy the template to the new region. <br/><br/> Learn about [moving a Batch account across regions](../../batch/account-move.md) |
+> | batchaccounts | **Yes** | **Yes** | Azure Batch accounts can't be moved directly from one region to another, but you can use a template to export a template, modify it, and deploy the template to the new region. <br/><br/> See [moving a Batch account across regions](../../batch/account-move.md) to learn more. |
 
 ## Microsoft.Billing
 
@@ -297,7 +298,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 ## Microsoft.Cache
 
 > [!IMPORTANT]
-> If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Networking move limitations](./move-limitations/networking-move-limitations.md).
+> If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Networking move limitations](./move-limitations/networking-move-limitations.md) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -346,7 +347,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 ## Microsoft.ClassicCompute
 
 > [!IMPORTANT]
-> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
+> Specific operations can help to move classic deployment model resources across subscriptions. See the corresponding [move guidance](./move-limitations/classic-model-move-limitations.md) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -361,7 +362,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 ## Microsoft.ClassicInfrastructureMigrate
 
 > [!IMPORTANT]
-> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
+> Specific operations can help to move classic deployment model resources across subscriptions. See the corresponding [move guidance](./move-limitations/classic-model-move-limitations.md) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -371,7 +372,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 ## Microsoft.ClassicNetwork
 
 > [!IMPORTANT]
-> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
+> Specific operations can help to move classic deployment model resources across subscriptions. See the corresponding [move guidance](./move-limitations/classic-model-move-limitations.md) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -388,7 +389,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 ## Microsoft.ClassicStorage
 
 > [!IMPORTANT]
-> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
+> Specific operations can help to move classic deployment model resources across subscriptions. See the corresponding [move guidance](./move-limitations/classic-model-move-limitations.md) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -405,7 +406,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 ## Microsoft.ClassicSubscription
 
 > [!IMPORTANT]
-> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
+> Specific operations can help to move classic deployment model resources across subscriptions. See the corresponding [move guidance](./move-limitations/classic-model-move-limitations.md) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -418,7 +419,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No |
-> | Cognitive Search | **Yes** | **Yes** | Supported with manual steps.<br/><br/> Learn about [moving your Azure AI Search service to another region](/azure/search/search-howto-move-across-regions) |
+> | Cognitive Search | **Yes** | **Yes** | Manual steps support this.<br/><br/> See [Move your Azure AI Search service to another Azure region](/azure/search/search-howto-move-across-regions) to learn more. |
 
 ## Microsoft.Commerce
 
@@ -433,12 +434,12 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | communicationservices | **Yes** | **Yes** <br/><br/> Note that resources with attached phone numbers cannot be moved to subscriptions in different data locations, nor subscriptions that do not support having phone numbers. | No |
+> | communicationservices | **Yes** | **Yes** <br/><br/> Note that resources with attached phone numbers can't be moved to subscriptions in different data locations or subscriptions that don't support phone numbers. | No |
 
 ## Microsoft.Compute
 
 > [!IMPORTANT]
-> See [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md).
+> See [guidance for moving virtual machines to resource groups or subscriptions](./move-limitations/virtual-machines-move-limitations.md) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -459,15 +460,15 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | sharedvmextensions | No | No | No |
 > | sharedvmimages | No | No | No |
 > | sharedvmimages / versions | No | No | No |
-> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> **Yes** - Incremental |
+> | snapshots | **Yes** - Full <br> No - Incremental | **Yes** - Full <br> No - Incremental | No - Full <br> No - Incremental |
 > | sshpublickeys | No | No | No |
-> | virtualmachines | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs. |
+> | virtualmachines | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure Virtual Machines. |
 > | virtualmachines / extensions | **Yes** | **Yes** | No |
 > | virtualmachinescalesets | **Yes** | **Yes** | No |
 
 
 > [!IMPORTANT]
-> See [Cloud Services (extended support) deployment move guidance](./move-limitations/cloud-services-extended-support.md). Cloud Services (extended support) deployment resources can be moved across subscriptions with an operation specific to that scenario.
+> Specific operations can help to move Cloud Services (extended support) deployment model resources across subscriptions. See the corresponding [move guidance](./move-limitations/cloud-services-extended-support.md) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -714,7 +715,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. [Learn more](/azure/postgresql/howto-move-regions-portal).<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](/azure/mariadb/concepts-business-continuity#recovery-from-an-azure-regional-datacenter-outage).
+> | servers | **Yes** | **Yes** | You can use a cross-region read replica to move an existing server. See the corresponding [move guidance](/azure/postgresql/howto-move-regions-portal) to learn more.<br/><br/> If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](/azure/mariadb/concepts-business-continuity#recovery-from-an-azure-regional-datacenter-outage).
 
 ## Microsoft.DBforMySQL
 
@@ -755,15 +756,16 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | hostpools | **Yes** | **Yes** | No |
 > | scalingplans | **Yes** | **Yes** | No |
 > | workspaces | **Yes** | **Yes** | No |
+> | appattachpackages | **Yes** | **Yes** | No |
 
 ## Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | elasticpools | No | No | No. Resource isn't exposed. |
-> | elasticpools / iothubtenants | No | No | No. Resource isn't exposed. |
-> | iothubs | **Yes** | **Yes** | **Yes**. [Learn more](../../iot-hub/iot-hub-how-to-clone.md) |
+> | elasticpools | No | No | No. The resource isn't exposed. |
+> | elasticpools / iothubtenants | No | No | No. The resource isn't exposed. |
+> | iothubs | **Yes** | **Yes** | **Yes**. [Learn more](../../iot-hub/iot-hub-how-to-clone.md). |
 > | provisioningservices | **Yes** | **Yes** | No |
 
 ## Microsoft.DevOps
@@ -789,8 +791,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | labcenters | No | No | No |
 > | labs | **Yes** | No | No |
-> | labs / environments | **Yes** | **Yes** | No |
-> | labs / servicerunners | **Yes** | **Yes** | No |
+> | labs / environments | **Yes** |No| No |
+> | labs / servicerunners | **Yes** |No| No |
 > | labs / virtualmachines | **Yes** | No | No |
 > | schedules | **Yes** | **Yes** | No |
 
@@ -799,7 +801,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | digitaltwinsinstances | No | No | **Yes**, by recreating resources in new region. [Learn more](../../digital-twins/how-to-move-regions.md) |
+> | digitaltwinsinstances | No | No | **Yes** by recreating resources in new region. [Learn more](../../digital-twins/how-to-move-regions.md). |
 
 ## Microsoft.DocumentDB
 
@@ -810,7 +812,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | mongoClusters | No | No | No |
 > | cassandraClusters | No | No | No |
 
-Moves between Resource groups and subscriptions are supported for APIs that use the RU architecture (Microsoft.DocumentDB/databaseAccounts), but not for those based on the vCore architecture, such as:
+Moves between resource groups and subscriptions are supported for APIs that use the RU architecture (Microsoft.DocumentDB/databaseAccounts) but not for those based on the vCore architecture, including:
 
 - MongoDB vCore (Microsoft.DocumentDB/mongoClusters)
 - Azure Managed Instance for Apache Cassandra (Microsoft.DocumentDB/cassandraClusters)
@@ -845,7 +847,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | domains | **Yes** | **Yes** | No |
-> | eventsubscriptions | No - can't be moved independently but automatically moved with subscribed resource. | No - can't be moved independently but automatically moved with subscribed resource. | No |
+> | eventsubscriptions | No; can't be moved independently but move automatically with a subscribed resource. | No; can't be moved independently but move automatically with a subscribed resource. | No |
 > | extensiontopics | No | No | No |
 > | partnernamespaces | **Yes** | **Yes** | No |
 > | partnerregistrations | No | No | No |
@@ -860,7 +862,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | clusters | **Yes** | **Yes** | No |
-> | namespaces | **Yes** | **Yes** | **Yes** (with template)<br/><br/> [Move an Event Hub namespace to another region](../../event-hubs/move-across-regions.md) |
+> | namespaces | **Yes** | **Yes** | **Yes** (with template)<br/><br/> [Relocate Azure Event Hubs to another region](../../event-hubs/move-across-regions.md). |
 > | sku | No | No | No |
 
 ## Microsoft.Experimentation
@@ -931,9 +933,9 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 ## Microsoft.HDInsight
 
 > [!IMPORTANT]
-> You can move HDInsight clusters to a new subscription or resource group. However, you can't move across subscriptions the networking resources linked to the HDInsight cluster (such as the virtual network, NIC, or load balancer). In addition, you can't move to a new resource group a NIC that is attached to a virtual machine for the cluster.
+> You can move HDInsight clusters to a new subscription or resource group. However, you can't move HDInsight cluster networking resources across subscriptions (e.g., network interface cards [NICs], or load balancers). You also can't move an NIC to a new resource group that's attached to a virtual machine for the cluster.
 >
-> When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
+> When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster on its own.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -993,13 +995,13 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > Make sure moving to new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
 
 > [!WARNING]
-> Moving or renaming any Application Insights resource changes the resource ID. When the ID changes for a workspace-based resource, data sent for the prior ID is accessible only by querying the underlying Log Analytics workspace. The data will not be accessible from within the renamed or moved Application Insights resource.
+> Moving or renaming any Azure Application Insights resource changes the resource ID. When the ID changes for a workspace-based resource, the data sent for the prior ID is accessible only when you query the underlying Log Analytics workspace. The data won't be accessible from within the renamed or moved Application Insights resource.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No. [Learn more](/azure/azure-monitor/app/create-workspace-resource#how-do-i-move-an-application-insights-resource-to-a-new-region). |
-> | actiongroups | No | No | No |
+> | actiongroups | Yes | Yes | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
 > | autoscalesettings | **Yes** | **Yes** | No |
@@ -1050,7 +1052,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | iothub | **Yes** | **Yes** | **Yes** (clone hub) <br/><br/> [Clone an IoT hub to another region](../../iot-hub/iot-hub-how-to-clone.md) |
+> | iothub | **Yes** | **Yes** | **Yes** (clone hub) <br/><br/> [Clone an Azure IoT Hub to another region](../../iot-hub/iot-hub-how-to-clone.md). |
 
 ## Microsoft.IoTSpaces
 
@@ -1062,7 +1064,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 ## Microsoft.KeyVault
 
 > [!IMPORTANT]
-> Key Vaults used for disk encryption can't be moved to a resource group in the same subscription or across subscriptions.
+> Key Vaults used to encrypt disks can't be moved to a resource group in the same subscription or across subscriptions.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -1233,7 +1235,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | **Yes** | **Yes** | No, Azure Maps is a geospatial service. |
+> | accounts | **Yes** | **Yes** | No; Azure Maps is a geospatial service. |
 > | accounts / privateatlases | **Yes** | **Yes** | No |
 
 ## Microsoft.Marketplace
@@ -1303,18 +1305,18 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | mobileNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | mobileNetworks / dataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | mobileNetworks / simPolicies | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | mobileNetworks / sites | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | mobileNetworks / slices | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | packetCoreControlPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | packetCoreControlPlanes / packetCoreDataPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | simGroups | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | simGroups / sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
-> | packetCoreControlPlaneVersions | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md) |
+> | mobileNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | mobileNetworks / dataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | mobileNetworks / simPolicies | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | mobileNetworks / sites | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | mobileNetworks / slices | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | packetCoreControlPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | packetCoreControlPlanes / packetCoreDataPlanes | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | simGroups | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | simGroups / sims | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
+> | packetCoreControlPlaneVersions | No | No | Yes<br><br>[Move your private mobile network resources to a different region](../../private-5g-core/region-move-private-mobile-network-resources.md). |
 
 ## Microsoft.NetApp
 
@@ -1330,7 +1332,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 ## Microsoft.Network
 
 > [!IMPORTANT]
-> See [Networking move guidance](./move-limitations/networking-move-limitations.md).
+> See [networking move guidance](./move-limitations/networking-move-limitations.md) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -1359,7 +1361,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > | networkintentpolicies | **Yes** | **Yes** | No |
 > | networkinterfaces | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. |
 > | networkprofiles | No | No | No |
-> | networksecuritygroups | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NSGs). |
+> | networksecuritygroups | **Yes** | **Yes** | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups. |
 > | networkwatchers | **Yes** | No | No |
 > | networkwatchers / connectionmonitors | **Yes** | No | No |
 > | networkwatchers / flowlogs | **Yes** | No | No |
@@ -1371,7 +1373,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > | privateendpointredirectmaps | No | No | No |
 > | privateendpoints | **Yes** - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | **Yes** - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | No |
 > | privatelinkservices | No | No | No |
-> | publicipaddresses | **Yes** | **Yes** - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | **Yes**<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
+> | publicipaddresses | **Yes** | **Yes** - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | **No**<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | **Yes** | **Yes** | No |
 > | routefilters | No | No | No |
 > | routetables | **Yes** | **Yes** | No |
@@ -1538,14 +1540,14 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 ## Microsoft.RecoveryServices
 
 >[!IMPORTANT]
->- See [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
->- See [Continue backups in Recovery Services vault after moving resources across regions](../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/toc.json).
+>- See [Recovery Services vault move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json) to learn more.
+>- See [Relocate Azure Backup to another region](../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/toc.json) to learn more.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | replicationeligibilityresults | No | No | No |
-> | vaults | **Yes** | **Yes** | No.<br/><br/> Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br/><br/> In Recovery Services vaults for Azure Site Recovery, you can [disable and recreate the vault](../../site-recovery/move-vaults-across-regions.md) in the target region. |
+> | vaults | **Yes** | **Yes** | No<br/><br/> Using Azure Backup to move Recovery Services vaults across Azure regions isn't supported.<br/><br/> You can use Azure Site Recovery to [disable and recreate the vault](../../site-recovery/move-vaults-across-regions.md) in the target region for Recovery Services vaults. |
 
 ## Microsoft.RedHatOpenShift
 
@@ -1590,7 +1592,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | deployments | No | No | No |
-> | deploymentscripts | No | No | **Yes**<br/><br/>[Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | deploymentscripts | No | No | **Yes**<br/><br/>[Move Microsoft.Resources resources to new regions](microsoft-resources-move-regions.md). |
 > | deploymentscripts / logs | No | No | No |
 > | links | No | No | No |
 > | providers | No | No | No |
@@ -1598,14 +1600,14 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > | resources | No | No | No |
 > | subscriptions | No | No | No |
 > | tags | No | No | No |
-> | templatespecs | No | No | [Move Microsoft.Resources resources to new region](microsoft-resources-move-regions.md) |
+> | templatespecs | No | No | [Move Microsoft.Resources resources to new regions](microsoft-resources-move-regions.md). |
 > | templatespecs / versions | No | No | No |
 > | tenants | No | No | No |
 
 ## Microsoft.SaaS
 
 > [!IMPORTANT]
-> Marketplace offerings that are implemented through the Microsoft.Saas resource provider support resource group and subscription moves. These offerings are represented by the `resources` type below. For example, **SendGrid** is implemented through Microsoft.Saas and supports move operations. However, limitations defined in the [move requirements checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) may limit the supported move scenarios. For example, you can't move the resources from a Cloud Solution Provider (CSP) partner.
+> Marketplace offerings implemented through a Microsoft.Saas resource provider support resource group and subscription moves. The `resources` types below detail these offerings. For example, **SendGrid** is implemented through Microsoft.Saas and supports move operations. However, limitations defined in the [move requirements checklist](./move-resource-group-and-subscription.md#checklist-before-moving-resources) can limit which move scenarios are supported. For example, you can't move the resources from a Cloud Solution Provider, CSP, partner.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -1617,7 +1619,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 ## Microsoft.Search
 
 > [!IMPORTANT]
-> You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
+> You can't move several Microsoft Search resources from different regions within one operation. Instead, move them in individual operations.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -1708,7 +1710,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | namespaces | **Yes** | **Yes** | Yes (with template)<br/><br/> [Move an Azure Service Bus namespace to another region](../../service-bus-messaging/move-across-regions.md) |
+> | namespaces | **Yes** | **Yes** | Yes (with template)<br/><br/> [Move an Azure Service Bus namespace to another region](../../service-bus-messaging/move-across-regions.md). |
 > | premiummessagingregions | No | No | No |
 > | sku | No | No | No |
 
@@ -1781,7 +1783,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 ## Microsoft.Sql
 
 > [!IMPORTANT]
-> A database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure Synapse Analytics databases.
+> A database and server must be in the same resource group. When you move a SQL server, all of its databases move also. These conditions apply to Azure SQL Database and Azure Synapse Analytics databases.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -1803,15 +1805,17 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | sqlvirtualmachinegroups | **Yes** | **Yes** | No |
-> | sqlvirtualmachines | **Yes** | **Yes** | No |
+> | sqlvirtualmachinegroups | **No** | **No** | No |
+> | sqlvirtualmachines | **No** | **No** | No |
+
+If you need to move your SQL virtual machines resource, first delete the [SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#delete-the-extension) from the virtual machine, move the virtual machine to a different resource group or subscription, and then [re-register](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#register-with-extension) your SQL Server VM with the SQL IaaS Agent extension again. 
 
 ## Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | storageaccounts | **Yes** | **Yes** | [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
+> | storageaccounts | **Yes** | **Yes** | [Relocate an Azure Storage account to another region](../../storage/common/storage-account-move.md). |
 
 ## Microsoft.StorageCache
 
@@ -1917,7 +1921,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 ## Microsoft.VisualStudio
 
 > [!IMPORTANT]
-> To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+> See [Manage billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json) to learn learn how to change the subscription for Azure DevOps.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -2030,11 +2034,10 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 
 ## Third-party services
 
-Third-party services currently don't support the move operation.
+Third-party services don't support move operations at this time.
 
 ## Next steps
 
-- For commands to move resources, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
-- [Learn more](../../resource-mover/overview.md) about the Resource Mover service.
-- To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) for resource group and subscription move support. If you want those properties and region move support, download [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).
-
+- For commands to move resources, see [Move Azure resources to a new resource group or subscription](move-resource-group-and-subscription.md).
+- [Learn more](../../resource-mover/overview.md) about the Azure Resource Mover service.
+- To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) for resource group and subscription move support. If you need those properties and support for how to move regions, download [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).

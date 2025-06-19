@@ -1,13 +1,13 @@
 ---
 title: Set up billing for Microsoft Customer Agreement - Azure
 description: Learn how to set up your billing account for a Microsoft Customer Agreement. See prerequisites for the setup and view other available resources.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/23/2024
-ms.author: banders
+ms.date: 05/22/2025
+ms.author: jkinma
 ---
 
 # Set up your billing account for a Microsoft Customer Agreement
@@ -381,6 +381,58 @@ Enterprise administrators are listed as billing profile owners while the enterpr
     :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-department-account-admins-access-post-transition.png" alt-text="Screenshot that shows access of department and account admins post transition." lightbox="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-department-account-admins-access-post-transition.png":::
 
 Enterprise administrators and department administrators are listed as invoice section owners or invoice section readers while account owners in the department are listed as Azure subscription creators. Repeat the step for all invoice sections to check access for all departments in your Enterprise Agreement enrollment. Account owners that weren't part of any department get permission on an invoice section named **Default invoice section**. If you believe the access for any administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+### Changes after migration
+
+- MCA remit-to information differs - The MCA remit-to information differs from the EA remit-to information. Your accounts payable need to create two records: one for EA invoices and another for MCA invoices. For more information about MCA payment details, see [Bank details used to send wire transfer payments](../understand/pay-bill.md#wire-bank-details)
+- Custom or shared views under Cost Management - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
+- Budgets - You need to recreate them.
+- Azure usage file enhancement - The MCA Azure usage file has more columns and slight changes in naming conventions compared to the EA file. For more information, see:
+    - [Changes from Azure EA usage and charges](../understand/mca-understand-your-usage.md#changes-from-azure-ea-usage-and-charges)
+    - [List of fields and descriptions](../automate/understand-usage-details-fields.md#list-of-fields-and-descriptions)
+- Power BI integration - The billing parameters for MCA differ from EA. When using the Azure Cost Management connector in Power BI, you need to choose `Billing Profile ID` instead of the enrollment number in the `Scope` list. Then enter the 14-character Billing profile ID. For more information, see:
+    - [Connect to Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+    - [Tutorial: Shape and combine data in Power BI Desktop](/power-bi/connect-data/desktop-shape-and-combine-data)
+- Changes to subscription vending using Terraform - For more information, see:
+    - [Azure/lz-vending/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest?tab=inputs)
+    - [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
+    - [Azure Landing Zones Subscription Vending with Terraform, Terraform Cloud, and GitHub](/samples/azure-samples/alz-terraform-sub-vending-demo-with-terraform-cloud-and-github/alz-terraform-sub-vending/)
+- Cost Management using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
+- Historical data – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
+    - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.
+- Reservations - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration.
+- Savings Plans - If they were purchased in a non-USD currency, they get canceled during migration. You can repurchase them after migration.
+- API changes - API endpoints differ between EA and MCA. Existing EA API calls don't work with MCA. You need to use Microsoft Cost Management APIs instead if using consumption APIs. For more information, see:
+    - [Migrate EA to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md)
+    - [Azure Billing REST API](/rest/api/billing/)
+- EA API keys - Azure Enterprise Reporting APIs are retired aren't available on MCA. Instead, you use Microsoft Cost Management APIs. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
+- Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
+- Management groups – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+- Tax exemption certificates - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+Here are some points to consider after migration.
+
+| Consideration | EA  | MCA | Notes |
+| --- | --- | --- | --- |
+| Agreement duration | Expires and gets a new enrollment number at renewal | Doesn’t expire | Billing profile IDs never change |
+| Power BI Cost Management connector | Available | Available | The scope differs. There are more attributes in MCA. You can create a combined view using common elements. |
+| API | OAuth authentication using an API key | OAuth2 authentication using service principal | More attributes are available in MCA. Common data elements can get used to combine data sets for continuity. |
+| Invoicing | One invoice per enrollment number | Can be configured to receive more than one invoice for the same MCA by adding billing profiles |     |
+
+| Consideration | EA  | MCA |
+| --- | --- | --- |
+| Billing roles | - Enterprise Admin  <br>- Department Admin  <br>- Account owner  <br>- Service Admin  <br>- Notification contact | - Owner  <br>- Contributor  <br>- Reader for Billing Account  <br>- Billing profile  <br>- Invoice Section  <br>- Invoice manager (for billing profile)  <br>- Subscription creator (for invoice section) |
+| Multi-tenancy | - Multiple enrollments.  <br>- Sharing Microsoft Azure Consumption Commitment (MACC) benefit and Azure Consumption Discount (ACD) across multiple enrollments is complex. | - A single MCA supports multiple tenants.  <br>- Associate multiple tenants to a billing account in the primary tenant.  <br>- Provides access to MCA for users in associated tenants without guesting users into the primary tenant.  <br>- MACC and ACD can be shared. |
+| Historical charges | Cost data stays under your EA enrollment billing scope. | MCA scope shows cost data starting from the migration date. |
+| EA accounts | They’re supported by your EA. | - Not supported in MCA. <br>- The account’s subscriptions belong to the invoice section created for their respective departments. <br>- Account owners become Azure subscription creators. They can create and manage subscriptions for their invoice sections. |
+| Marketplace | Marketplace offers can be purchased with an EA | - Marketplace offers can be purchased with an MCA.  <br>- Invoices can be configured to show Marketplace purchases on the same invoice with Azure or on a separate invoice. |
+
+For more information, see the following articles:
+
+- [Cost Management + Billing documentation](../index.yml)
+- [Azure Product Transfer Hub](subscription-transfer.md)
+- [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md)
+- [Migrate from an EA to an MCA](../microsoft-customer-agreement/onboard-microsoft-customer-agreement.md#migrate-from-an-ea-to-an-mca)
 
 ## Need help? Contact support
 

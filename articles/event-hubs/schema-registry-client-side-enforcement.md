@@ -1,5 +1,5 @@
 ---
-title: Client-side schema enforcement - Schema Registry
+title: Client-Side Schema Enforcement - Schema Registry
 description: This article provides information on using schemas in a schema registry when publishing or consuming events from Azure Event Hubs. 
 ms.topic: conceptual
 ms.date: 04/26/2023
@@ -9,30 +9,32 @@ ms.author: spelluru
 
 # Client-side schema enforcement
 
-Client-side schema enforcement ensures that the data sent by the producer application and received by the consumer application is validated against the schemas defined in the Schema Registry on the client side itself (that is, rather than on the broker/server side).
+Client-side schema enforcement ensures that data is validated against schemas defined in the schema registry on the client side rather than the broker/server side. The producer application can use schemas to validate and serialize data before sending the data to an event hub. Similarly, a consumer application can deserialize and validate data after it receives events from an event hub.
 
-This flow is illustrated as shown - 
+Client-side schema enforcement ensures that data is validated on the client side. The producer application sends the data, and the consumer application receives it. That data is validated against schemas defined in the schema registry on the client side rather than the broker/server side.
 
-:::image type="content" source="./media/schema-registry-overview/information-flow.svg" alt-text="Image showing the Schema Registry information flow." border="false":::
+This diagram illustrates the flow:
+
+:::image type="content" source="./media/schema-registry-overview/information-flow.svg" alt-text="Diagram that shows the schema registry information flow." border="false":::
 
 > [!NOTE]
-> While the diagram showcases the information flow when event producers and consumers use Schema Registry with the **Kafka** protocol and **Avro** schema, it doesn't really change for other protocols and schema formats.
+> The diagram showcases the information flow when event producers and consumers use a schema registry with the Kafka protocol and Avro schema. Other protocols and schema formats work in a similar way.
 >
 
-### Producer  
+### Producer
 
-1. Kafka producer application uses `KafkaAvroSerializer` to serialize event data using the specified schema. Producer application provides details of the schema registry endpoint and other optional parameters that are required for schema validation. 
+1. The Kafka producer application uses `KafkaAvroSerializer` to serialize event data by using the specified schema. The producer application provides details of the schema registry endpoint and other optional parameters that are required for schema validation.
 
-2. The serializer looks for the schema in the schema registry to serialize event data. If it finds the schema, then the corresponding schema ID is returned. You can configure the producer application to auto register the schema with the schema registry if it doesn't exist.
+1. The serializer looks for the schema in the schema registry to serialize event data. If it finds the schema, then the corresponding schema ID is returned. You can configure the producer application to automatically register the schema with the schema registry if it doesn't exist.
 
-3. Then the serializer prepends the schema ID to the serialized data that is published to the Event Hubs. 
+1. The serializer prepends the schema ID to the serialized data that's published to the event hub.
 
-### Consumer 
+### Consumer
 
-1. Kafka consumer application uses `KafkaAvroDeserializer` to deserialize data that it receives from the event hub.
+1. The Kafka consumer application uses `KafkaAvroDeserializer` to deserialize data that it receives from the event hub.
 
-2. The deserializer uses the schema ID (prepended by the producer) to retrieve schema from the schema registry.
+1. The deserializer uses the schema ID (prepended by the producer) to retrieve the schema from the schema registry.
 
-3. The deserializer uses the schema to deserialize event data that it receives from the event hub. 
+1. The deserializer uses the schema to deserialize event data that it receives from the event hub.
 
-4. The schema registry client uses caching to prevent redundant schema registry lookups in the future.  
+1. The schema registry client uses caching to prevent redundant schema registry lookups in the future.  

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 02/20/2025
 ---
 
 # Update schema for Workflow Definition Language in Azure Logic Apps - June 1, 2016

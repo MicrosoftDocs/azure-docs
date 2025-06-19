@@ -6,6 +6,8 @@ ms.subservice:
 ms.topic: overview
 ms.date: 02/01/2025
 ms.custom: references_regions
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # What's new in Azure Automation?
@@ -47,7 +49,7 @@ Azure Automation now supports PowerShell 7.2 runbooks in Government clouds.
  
 ### Changes in Process Automation subscription and service limits and quotas
  
-Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
+Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
 
 ## February 2024
 
@@ -83,7 +85,7 @@ On **31 August 2024**, Azure Automation will  retire [Automation Update manageme
 
 ### General Availability: Azure Automation supports PowerShell 7.2 runbooks
 
-Azure Automation announces General Availability of PowerShell 7.2 runbooks. This enables you to author runbooks in the long-term supported version of PowerShell using [Azure Automation extension for VS code](how-to/runbook-authoring-extension-for-vscode.md) and execute them on a secure and reliable platform. [Learn more](automation-runbook-types.md).
+Azure Automation announces General Availability of PowerShell 7.2 runbooks. This enables you to author runbooks in the long-term supported version of PowerShell using [Azure Automation extension for VS Code](how-to/runbook-authoring-extension-for-vscode.md) and execute them on a secure and reliable platform. [Learn more](automation-runbook-types.md).
 
 ## October 2023
 

@@ -2,10 +2,10 @@
 title: Remote Desktop Protocol bandwidth requirements Azure Virtual Desktop - Azure
 titleSuffix: Azure
 description: Understanding RDP bandwidth requirements for Azure Virtual Desktop.
-author: dknappettmsft
+author: dougeby
 ms.topic: conceptual
 ms.date: 11/16/2020
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

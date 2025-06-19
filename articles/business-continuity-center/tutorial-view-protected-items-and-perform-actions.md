@@ -6,9 +6,9 @@ ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
   - ignite-2024
-ms.date: 11/19/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 03/30/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: View protected items and perform actions
@@ -155,4 +155,5 @@ With the protected items view, you can choose to perform actions from:
 
 ## Next steps
 
-For more information about Azure Business Continuity center and how it works, check out [Configure protection from ABC Center](./tutorial-configure-protection-datasource.md).
+- For more information about Azure Business Continuity center and how it works, check out [Configure protection from ABC Center](./tutorial-configure-protection-datasource.md).
+- [Cloud-Adoption Framework for business continuity and disaster recovery of SAP migration](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery#backup-and-restore).

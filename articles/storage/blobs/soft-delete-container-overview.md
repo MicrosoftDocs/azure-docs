@@ -5,7 +5,7 @@ description: Soft delete for containers protects your data so that you can more 
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/22/2022
 ms.author: normesta
 ms.custom: references_regions

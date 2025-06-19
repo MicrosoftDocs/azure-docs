@@ -7,18 +7,17 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to create rules for my Azure Logic Apps Rules Engine project using the Microsoft Rules Composer so that I can integrate business logic with my Standard logic app workflows.
+ms.custom:
+  - build-2025
 ---
 
-# Create rules using the Microsoft Rules Composer (Preview)
+# Create rules using the Microsoft Rules Composer
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Rules govern the business logic for how business processes work. To help you create these rules for use with your Azure Logic Apps Rules Engine project, the Microsoft Rules Composer provides a visual tool for authoring and versioning rulesets and vocabularies.
 

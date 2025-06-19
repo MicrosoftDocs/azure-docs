@@ -2,8 +2,10 @@
 title: Bicep functions overview
 description: Learn about the functions that can be used in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
-ms.date: 01/10/2025
-ms.custom: devx-track-bicep
+ms.date: 02/12/2025
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Bicep functions overview
@@ -87,6 +89,12 @@ The following functions are available for loading the content from external file
 * [loadYamlContent](bicep-functions-files.md#loadyamlcontent)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
 
+## Flow-control functions
+
+The following function is available for influencing execution flow. This function is in the `sys` namespace:
+
+* [fail](bicep-functions-flow-control.md#fail)
+
 ## Lambda functions
 
 The following functions are available for working with lambda expressions. All of these functions are in the `sys` namespace:
@@ -151,6 +159,8 @@ The following functions are available for getting resource values. Most of these
 * [resourceId](./bicep-functions-resource.md#resourceid) - This can be used at any scope, but the valid parameters change depending on the scope.
 * [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](./bicep-functions-resource.md#tenantresourceid)
+* [toLogicalZone](./bicep-functions-resource.md#tologicalzone)
+* [toPhysicalZone](./bicep-functions-resource.md#tophysicalzone)
 
 ## Scope functions
 

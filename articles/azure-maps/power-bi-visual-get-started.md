@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article discusses how to use Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 09/29/2023
+ms.date: 02/25/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -70,7 +70,7 @@ Take the following steps to load the Azure Maps visual:
 
     :::image type="content" source="media/power-bi-visual/bubble-layer.png" alt-text="A screenshot of the Azure Maps visual displaying points as bubbles on the map after latitude and longitude fields are provided." lightbox="media/power-bi-visual/bubble-layer.png":::
 
-1. To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we're using the **City** column.  
+1. To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we're using the **BussinessName** column.  
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored bubbles on the map after legend field is provided." lightbox="media/power-bi-visual/bubble-layer-with-legend-color.png":::
 
@@ -78,15 +78,24 @@ Take the following steps to load the Azure Maps visual:
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored and scaled bubbles on the map that demonstrate the size field." lightbox="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png":::
 
-1. Use the options in the **Format** pane to customize how data is rendered. The following image is the same map as shown previously, but with the bubble layers fill transparency option set to 25%, smaller radius, and the black border.  
+    > [!NOTE]
+    > Unlike the other screenshots in this section, this screenshot demonstrates [Geocoding in Azure Maps Power BI Visual], using coordinate fields (lat/lon) instead of providing a physical address.
+
+1. Use the options in the **Format** pane to customize how data is rendered. The following image is the same map as shown previously, but with the bubble layers fill transparency option set to 25%, smaller radius, and a black border.  
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-styled.png" alt-text="A screenshot of the Azure Maps visual displaying points as bubbles on the map with a custom style." lightbox="media/power-bi-visual/bubble-layer-styled.png":::
 
-1. You can also show or hide labels in the **Format** pane. The following two images show maps with the **Show labels** setting turned on and off:  
+1. You can also show or hide labels in the **Format** pane. The following two images show maps with the **Labels** setting turned on and off:  
 
     :::image type="content" source="media/power-bi-visual/show-labels-on.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the show labels setting turned on in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/show-labels-on.png":::
 
     :::image type="content" source="media/power-bi-visual/show-labels-off.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the show labels setting turned off in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/show-labels-off.png":::
+
+1. You can also show or hide country/region borders, state or province borders, county borders, building, and road details in the **Format** pane. The following two images show maps with the **Country/Region borders** settings turned on and off:
+
+    :::image type="content" source="media/power-bi-visual/country-region-borders-on.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the country/region borders setting turned on in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/country-region-borders-on.png":::
+
+    :::image type="content" source="media/power-bi-visual/country-region-borders-off.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the country/region borders setting turned off in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/country-region-borders-off.png":::
 
 ## Fields pane buckets
 
@@ -114,7 +123,30 @@ The following settings are available in the **Style** section:
 | Setting     | Description  |
 |-------------|--------------|
 | Style       | The style of the map. The dropdown list contains [blank and blank accessible], [grayscale dark], [grayscale light], [high contrast dark], [high contrast light], [night], [road], [road shaded relief], [satellite] and [satellite road labels]. |
-| Show labels | A toggle switch that enables you to either show or hide map labels. For more information, see list item number five in the previous section. |
+| Labels | A toggle switch that allows you to show or hide map labels. For more information, see item number five in the previous section titled [Use the Azure Maps Power BI visual](#use-the-azure-maps-power-bi-visual). |
+| Country/Region borders | A toggle switch that controls the visibility of country/region borders. |
+| State or province borders | A toggle switch that controls the visibility of the borders for the first-level administrative divisions, such as state or province borders. |
+| County borders | A toggle switch that controls the visibility of the borders for the second-level administrative divisions, such as county borders. |
+| Buildings | A toggle switch that controls the visibility of building footprints |
+| Road details | A toggle switch that adjusts the level of detail for visible roads. Turning this off will reduce the number of roads shown on the map. |
+
+The availability of the above toggles depends on the selected style. Below is a table showing the supported options for different styles:
+
+| Map styles | Labels | Country/Region borders | State or province borders | County borders | Buildings | Road details |
+|-|-|-|-|-|-|-|
+| [blank and blank accessible] | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [grayscale dark] | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| [grayscale light] | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| [high contrast dark] | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [high contrast light] | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [night] | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [road] | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [road shaded relief] | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [satellite] | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| [satellite road labels] | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ |
+
+If an option is not supported by the currently selected style, it will have no effect until you choose a style that supports it.
+
 
 ### View
 
@@ -123,6 +155,7 @@ The following settings available in the **View** section enable the user to spec
 | Setting          | Description   |
 |------------------|---------------|
 | Auto zoom        | Automatically zooms the map into the data loaded through the **Fields** pane of the visual. As the data changes, the map updates its position accordingly. When **Auto zoom** is set to **Off**, the remaining settings in this section become active that enable to user to define the default map view. |
+| Include reference layer | Includes reference layer data when the map automatically zooms. This option is only available when **Auto zoom** is set to **On**. |
 | Zoom             | The default zoom level of the map. Can be a number between 0 and 22. |
 | Center latitude  | The default latitude of the center of the map. |
 | Center longitude | The default longitude of the center of the map. |
@@ -150,11 +183,13 @@ The Azure Maps Power BI visual is available in the following services and applic
 | Power BI Desktop                         | Yes          |
 | Power BI service (app.powerbi.com)       | Yes          |
 | Power BI mobile applications             | Yes          |
-| Power BI publish to web                  | No           |
+| Power BI publish to web                  | Yes          |
 | Power BI Embedded                        | Yes          |
 | Power BI service embedding (PowerBI.com) | Yes          |
+| Power BI export                          | No           |
+| Power BI subscriptions                   | No           |
 
-**Where is Azure Maps available?**
+**Where is Azure Maps Visual for Power BI available?**
 
 At this time, Azure Maps is currently available in all countries and regions except:
 
@@ -219,3 +254,4 @@ Customize the visual:
 [Understanding layers in the Azure Maps Power BI visual]: power-bi-visual-understanding-layers.md
 [view]: #view
 [The location field]: power-bi-visual-geocode.md#the-location-field
+[Geocoding in Azure Maps Power BI Visual]: power-bi-visual-geocode.md

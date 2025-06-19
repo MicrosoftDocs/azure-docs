@@ -3,8 +3,8 @@ title: Control storage account access for serverless SQL pool
 description: Describes how serverless SQL pool accesses Azure Storage and how you can control storage access for serverless SQL pool in Azure Synapse Analytics.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: SQLStijn-MSFT, wiassaf
-ms.date: 07/24/2023
+ms.reviewer: SQLStijn-MSFT
+ms.date: 01/22/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: overview
@@ -26,11 +26,11 @@ A serverless SQL pool in Synapse Analytics workspace can read the content of fil
 - **Access Control Lists (ACL)** enable you to define a fine grained [Read(R), Write(W), and Execute(X) permissions](../../storage/blobs/data-lake-storage-access-control.md#levels-of-permission) on the files and directories in Azure storage. ACL can be assigned to Microsoft Entra users. If readers want to read a file on a path in Azure Storage, they must have Execute(X) ACL on every folder in the file path, and Read(R) ACL on the file. [Learn more how to set ACL permissions in storage layer](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls).
 - **Shared access signature (SAS)** enables a reader to access the files on the Azure Data Lake storage using the time-limited token. The reader doesn't even need to be authenticated as Microsoft Entra user. SAS token contains the permissions granted to the reader as well as the period when the token is valid. SAS token is good choice for time-constrained access to any user that doesn't even need to be in the same Microsoft Entra tenant. SAS token can be defined on the storage account or on specific directories. Learn more about [granting limited access to Azure Storage resources using shared access signatures](../../storage/common/storage-sas-overview.md).
 
-As an alternative, you can make your files publicly available by allowing anonymous access. This approach should NOT be used if you have non-public data. 
+As an alternative, you can make your files publicly available by allowing anonymous access. This approach should NOT be used if you have nonpublic data. 
 
 ## Supported storage authorization types
 
-A user that has logged into a serverless SQL pool must be authorized to access and query the files in Azure Storage if the files aren't publicly available. You can use four authorization types to access non-public storage: [user identity](?tabs=user-identity), [shared access signature](?tabs=shared-access-signature), [service principal](?tab/service-principal), and [managed identity](?tabs=managed-identity).
+A user that has logged into a serverless SQL pool must be authorized to access and query the files in Azure Storage if the files aren't publicly available. You can use four authorization types to access nonpublic storage: user identity, shared access signature, service principal, and managed identity.
 
 > [!NOTE]
 > **Microsoft Entra pass-through** is the default behavior when you create a workspace.
@@ -40,7 +40,7 @@ A user that has logged into a serverless SQL pool must be authorized to access a
 **User identity**, also known as "Microsoft Entra pass-through", is an authorization type where the identity of the Microsoft Entra user that logged into serverless SQL pool is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Microsoft Entra user. As indicated in the [Supported authorization types for database users table](#supported-authorization-types-for-databases-users), it's not supported for the SQL user type.
 
 > [!IMPORTANT]
-> A Microsoft Entra authentication token might be cached by the client applications. For example, Power BI caches Microsoft Entra tokens and reuses the same token for an hour. Long-running queries might fail if the token expires in the middle of the query execution. If you are experiencing query failures caused by the Microsoft Entra access token that expires in the middle of the query, consider switching to a [service principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types), [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+> A Microsoft Entra authentication token might be cached by the client applications. For example, Power BI caches Microsoft Entra tokens and reuses the same token for an hour. Long-running queries might fail if the token expires in the middle of the query execution. If you are experiencing query failures caused by the Microsoft Entra access token that expires in the middle of the query, consider switching to a [service principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types), [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types), or [shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
 
 You need to be a member of the Storage Blob Data Owner, Storage Blob Data Contributor, or Storage Blob Data Reader role to use your identity to access the data. As an alternative, you can specify fine-grained ACL rules to access files and folders. Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
 To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
@@ -546,7 +546,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE 
 GO
 ```
 
-## Next steps
+## Related content
 
 These articles help you learn how query different folder types, file types, and create and use views:
 

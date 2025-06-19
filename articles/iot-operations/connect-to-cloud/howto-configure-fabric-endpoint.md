@@ -1,22 +1,22 @@
 ---
-title: Configure dataflow endpoints for Microsoft Fabric OneLake
-description: Learn how to configure dataflow endpoints for Microsoft Fabric OneLake in Azure IoT Operations.
+title: Configure data flow endpoints for Microsoft Fabric OneLake
+description: Learn how to configure data flow endpoints for Microsoft Fabric OneLake in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 04/03/2025
 ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Microsoft Fabric OneLake in Azure IoT Operations so that I can send data to Microsoft Fabric OneLake.
+#CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Microsoft Fabric OneLake in Azure IoT Operations so that I can send data to Microsoft Fabric OneLake.
 ---
 
-# Configure dataflow endpoints for Microsoft Fabric OneLake
+# Configure data flow endpoints for Microsoft Fabric OneLake
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-To send data to Microsoft Fabric OneLake in Azure IoT Operations, you can configure a dataflow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
+To send data to Microsoft Fabric OneLake in Azure IoT Operations, you can configure a data flow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ To send data to Microsoft Fabric OneLake in Azure IoT Operations, you can config
 
 ## Assign permission to managed identity
 
-To configure a dataflow endpoint for Microsoft Fabric OneLake, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
+To configure a data flow endpoint for Microsoft Fabric OneLake, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
 
 After the Microsoft Fabric OneLake is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to write to the Fabric lakehouse.
 
@@ -41,14 +41,14 @@ Go to Microsoft Fabric workspace you created, select **Manage access** > **+ Add
 1. Search for the name of your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) or the system-assigned managed identity. For example, *azure-iot-operations-xxxx7* .
 1. Select **Contributor** as the role, then select **Add**. This gives the managed identity the necessary permissions to write to the Fabric lakehouse. To learn more, see [Roles in workspaces in Microsoft Fabric](/fabric/get-started/roles-workspaces).
 
-## Create dataflow endpoint for Microsoft Fabric OneLake
+## Create data flow endpoint for Microsoft Fabric OneLake
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-1. In the operations experience, select the **Dataflow endpoints** tab.
-1. Under **Create new dataflow endpoint**, select **Microsoft Fabric OneLake** > **New**.
+1. In the operations experience, select the **Data flow endpoints** tab.
+1. Under **Create new data flow endpoint**, select **Microsoft Fabric OneLake** > **New**.
 
-    :::image type="content" source="media/howto-configure-fabric-endpoint/create-fabric-endpoint.png" alt-text="Screenshot using operation experience to create a Microsoft Fabric OneLake dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-fabric-endpoint/create-fabric-endpoint.png" alt-text="Screenshot using operation experience to create a Microsoft Fabric OneLake data flow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
@@ -149,9 +149,9 @@ kubectl apply -f <FILE>.yaml
 
 The `oneLakePathType` setting determines the type of path to use in the OneLake path. The default value is `Tables`, which is the recommended path type for the most common use cases. The `Tables` path type is a table in the OneLake lakehouse that is used to store the data. It can also be set as `Files`, which is a file in the OneLake lakehouse that is used to store the data. The `Files` path type is useful when you want to store the data in a file format that isn't supported by the `Tables` path type.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-The OneLake path type is set in the **Basic** tab for the dataflow endpoint.
+The OneLake path type is set in the **Basic** tab for the data flow endpoint.
 
 # [Bicep](#tab/bicep)
 
@@ -172,11 +172,11 @@ fabricOneLakeSettings:
 
 ## Available authentication methods
 
-The following authentication methods are available for Microsoft Fabric OneLake dataflow endpoints.
+The following authentication methods are available for Microsoft Fabric OneLake data flow endpoints.
 
 ### System-assigned managed identity
 
-Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the Fabric lakehouse:
+Before you configure the data flow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the Fabric lakehouse:
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
@@ -184,11 +184,11 @@ Before you configure the dataflow endpoint, assign a role to the Azure IoT Opera
 1. Search for the name of your system-assigned managed identity. For example, *azure-iot-operations-xxxx7* .
 1. Select an appropriate role, then select **Add**.
 
-Then, configure the dataflow endpoint with system-assigned managed identity settings.
+Then, configure the data flow endpoint with system-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
 # [Bicep](#tab/bicep)
 
@@ -215,7 +215,7 @@ fabricOneLakeSettings:
 
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
@@ -248,17 +248,17 @@ fabricOneLakeSettings:
 
 To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the Fabric lakehouse.:
+Before you configure the data flow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the Fabric lakehouse.:
 
 1. Go to Microsoft Fabric workspace, select **Manage access** > **+ Add people or groups**. 
 1. Search for the name of your user-assigned managed identity.
 1. Select an appropriate role, then select **Add**.
 
-Then, configure the dataflow endpoint with user-assigned managed identity settings.
+Then, configure the data flow endpoint with user-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
@@ -299,7 +299,7 @@ Here, the scope is optional and defaults to `https://storage.azure.com/.default`
 
 ## Advanced settings
 
-You can set advanced settings for the Fabric OneLake endpoint, such as the batching latency and message count. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
+You can set advanced settings for the Fabric OneLake endpoint, such as the batching latency and message count. You can set these settings in the data flow endpoint **Advanced** portal tab or within the data flow endpoint custom resource.
 
 ### Batching
 
@@ -312,9 +312,9 @@ Use the `batching` settings to configure the maximum number of messages and the 
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-In the operations experience, select the **Advanced** tab for the dataflow endpoint.
+In the operations experience, select the **Advanced** tab for the data flow endpoint.
 
 :::image type="content" source="media/howto-configure-fabric-endpoint/fabric-advanced.png" alt-text="Screenshot using operations experience to set Microsoft Fabric advanced settings.":::
 
@@ -342,4 +342,4 @@ fabricOneLakeSettings:
 
 ## Next steps
 
-To learn more about dataflows, see [Create dataflow](howto-create-dataflow.md).
+To learn more about data flows, see [Create data flow](howto-create-dataflow.md).

@@ -2,12 +2,12 @@
 title: Migrate from V1 to V2 - Azure Application Gateway
 description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from V1 to V2.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/15/2024
-ms.author: greglin
+ms.date: 01/23/2025
+ms.author: mbender
 ---
 
 # Migrate Azure Application Gateway and Web Application Firewall from V1 to V2
@@ -16,7 +16,7 @@ We announced the deprecation of Application Gateway V1 SKU (Standard and WAF) on
 
 [Azure Application Gateway and Web Application Firewall (WAF) V2](application-gateway-autoscaling-zone-redundant.md) now offer additional features such as autoscaling, availability, zone redundancy, higher performance, faster operations and improved throughput compared to V1. Also, all new features are released for V2 SKU. It's highly recommended for you to create a migration plan now. 
 
-V1 gateways aren't automatically upgraded to V2. Use this migration guide to help you plan and carry out the migrations. 
+V1 gateways aren't automatically upgraded to V2. Use this migration guide to help you plan and carry out the migrations.
 
 There are two stages in a migration:
 
@@ -44,9 +44,9 @@ This article primarily helps with the configuration migration. Client traffic mi
 >Run the `Set-AzContext -Subscription <V1 application gateway SubscriptionId>` cmdlet every time before running the migration script. This is necessary to set the active Azure context to the correct subscription, because the migration script might clean up the existing resource group if it doesn't exist in current subscription context. This is not a mandatory step for version 1.0.11 & above of the migration script.
 
 > [!IMPORTANT]
->A new stable version of the migration script, version 1.0.11 is available now, which contains important bug fixes and updates.Use this version to avoid potential issues.
+>A new stable version of the migration script, version 1.0.11 is available now, which contains important bug fixes and updates. Use this version to avoid potential issues.
 
-## Configuration migration 
+## Configuration migration
 
 An Azure PowerShell script is provided in this document. It performs the following operations to help you with the configuration:
 
@@ -56,7 +56,6 @@ An Azure PowerShell script is provided in this document. It performs the followi
 ## Downloading the script
 
 You can download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).A new stable release (Version 1.0.11) of the migration script is available, which includes major updates and  bug fixes. It's recommended to use this stable version.
-
 
 ## Using the script
 
@@ -182,7 +181,7 @@ To run the script:
       $password = ConvertTo-SecureString  <password> -AsPlainText -Force 
       $cert = New-AzApplicationGatewaySSLCertificate -Name <certname> -CertificateFile <Cert-File-Path-1> -Password $password 
        ```
-     
+
    * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Optional**. A comma-separated list of PSApplicationGatewayTrustedRootCertificate objects that you create to represent the [Trusted Root certificates](ssl-overview.md) for authentication of your backend instances from your v2 gateway.
 
       ```azurepowershell
@@ -260,10 +259,9 @@ The V2 SKU comes with a range of advantages such as a performance boost of 5x, i
 
 There are five variants available in V1 SKU based on the Tier and Size - Standard_Small, Standard_Medium, Standard_Large, WAF_Medium and WAF_Large.
 
-
 | SKU      | V1 Fixed Price/mo          | V2 Fixed Price/mo | Recommendation|
 | ------------- |:-------------:|:-----:|:-----: | 
-|Standard Medium     | 102.2 | 179.8|V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits). We recommend 3:1 consolidation. |
+|Standard Medium     | 102.2 | 179.8|V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits). We recommend 3:1 consolidation. |
 | WAF Medium    | 183.96     |   262.8 |Same as for Standard Medium |
 | Standard Large | 467.2      |    179.58 | For these variants, in most cases, moving to a V2 gateway can provide you with a better price benefit compared to V1.|
 | WAF Large | 654.08     |    262.8 |Same as for Standard Large |
@@ -272,10 +270,10 @@ There are five variants available in V1 SKU based on the Tier and Size - Standar
 > The calculations shown here are based on East US and for a gateway with 2 instances in V1. The variable cost in V2 is based on one of the 3 dimensions with highest usage: New connections (50/sec), Persistent connections (2500 persistent connections/min), Throughput (1 CU can handle 2.22 Mbps). <br>
 > <br>
 > The scenarios described here are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
- 
+
 For further concerns regarding the pricing, work with your CSAM or get in touch with our support team for assistance.
 
-## Common questions 
+## Common questions
 
 Common questions on migration can be found [here](./retirement-faq.md#faq-on-v1-to-v2-migration)
 

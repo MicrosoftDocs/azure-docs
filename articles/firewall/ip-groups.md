@@ -2,12 +2,13 @@
 title: IP Groups in Azure Firewall 
 description: IP groups allow you to group and manage IP addresses for Azure Firewall rules.
 services: firewall
-author: vhorne
+author: duau
 ms.service: azure-firewall
 ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
-ms.date: 10/10/2023
-ms.author: victorh
+ms.date: 02/10/2025
+ms.author: duau
+# Customer intent: "As a network administrator, I want to create and manage IP Groups for Azure Firewall, so that I can efficiently organize and apply IP address rules across multiple firewalls and enhance network security."
 ---
 
 # IP Groups in Azure Firewall
@@ -37,18 +38,17 @@ An IP Group can be created using the Azure portal, Azure CLI, or REST API. For m
 
 ## Browse IP Groups
 1. In the Azure portal search bar, type **IP Groups** and select it. You can see the list of the IP Groups, or you can select **Add** to create a new IP Group.
-2. Select an IP Group to open the overview page. You can edit, add, or delete IP addresses or IP Groups.
+1. Select an IP Group to open the overview page. You can edit, add, or delete IP addresses or IP Groups.
 
-   ![IP Groups overview](media/ip-groups/overview.png)
 
 ## Manage an IP Group
 
 You can see all the IP addresses in the IP Group and the rules or resources that are associated with it. To delete an IP Group, you must first dissociate the IP Group from the resource that is using it.
 
 1. To view or edit the IP addresses, select **IP Addresses** under **Settings** on the left pane.
-2. To add a single or multiple IP address(es), select **Add IP Addresses**. This opens the **Drag or Browse** page for an upload, or you can enter the address manually.
-3.    Selecting the ellipses (**…**) to the right to edit or delete IP addresses. To edit or delete multiple IP addresses, select the boxes and select **Edit** or **Delete** at the top.
-4. Finally, can export the file in the CSV file format.
+1. To add a single or multiple IP address(es), select **Add IP Addresses**. This opens the **Drag or Browse** page for an upload, or you can enter the address manually.
+1.    Selecting the ellipses (**…**) to the right to edit or delete IP addresses. To edit or delete multiple IP addresses, select the boxes and select **Edit** or **Delete** at the top.
+1. Finally, can export the file in the CSV file format.
 
 > [!NOTE]
 > If you delete all the IP addresses in an IP Group while it is still in use in a rule, that rule is skipped.
@@ -58,44 +58,27 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
 
-![IP Groups in Firewall](media/ip-groups/fw-ipgroup.png)
+## Parallel IP Group updates
 
-## Parallel IP Group updates (preview)
+You can now update multiple IP Groups in parallel at the same time. This is particularly useful for environments requiring faster changes at scale, especially when making those changes using a dev ops approach (templates, ARM, CLI, and Azure PowerShell).
 
-You can now update multiple IP Groups in parallel at the same time. This is particularly useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM, CLI, and Azure PowerShell).
+With this support, you can perform the following:
 
-With this support, you can now:
+- **Update 20 IP Groups at a time:** Perform simultaneous updates up to 20 IP Groups in one operation, referenced by firewall policy or classic firewall. 
+- **Update Azure Firewall and IP Groups together:** You can update IP Groups simultaneously with the firewall or with firewall policies. 
+- **Improved efficiency:** Parallel IP Group updates now run twice as fast. 
+- **Receive new and improved error messages:**
 
-- Update 50 IP Groups at a time
-- Update the firewall and firewall policy during IP Group updates
-- Use the same IP Group in parent and child policy
-- Update multiple IP Groups referenced by firewall policy or classic firewall simultaneously
-- Receive new and improved error messages
-   - Fail and succeed states
-
-     For example, if there is an error with one IP Group update out of 20 parallel updates, the other updates proceed, and the errored IP Group fails. In addition, if the IP Group update fails, and the firewall is still healthy, the firewall remains in a *Succeeded* state. To check if the IP Group update has failed or succeeded, you can view the status on the IP Group resource.
-
-To activate Parallel IP Group support, you can register the feature using either Azure PowerShell or the Azure portal.
-
-### Azure PowerShell
-
-Use the following Azure PowerShell commands:
-
-```azurepowershell
-Connect-AzAccount
-Select-AzSubscription -Subscription <subscription_id> or <subscription_name>
-Register-AzProviderFeature -FeatureName AzureFirewallParallelIPGroupUpdate -ProviderNamespace Microsoft.Network
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
-It can take several minutes for this to take effect. Once the feature is completely registered, consider performing an update on Azure Firewall for the change to take effect immediately.
-
-### Azure portal
-
-1. Navigate to **Preview features** in the Azure portal.
-2. Search and register **AzureFirewallParallelIPGroupUpdate**.
-3. Ensure the feature is enabled.
-
-:::image type="content" source="media/ip-groups/preview-features-parallel.png" alt-text="Screenshot showing the parallel IP groups feature.":::
+   |Error message  |Description  |Recommended action|
+   |---------|---------|---------|
+   |**In failed state (skipping update)**  |Azure Firewall or Firewall Policy is in a failed state. Updates cannot proceed until the resource is healthy. |Review previous operations and correct any misconfigurations to ensure the resource is healthy.|
+   | **Backend server could not update Firewall at this time** | The backend server was unable to successfully process the request.| Create a support request.|
+   | **Error occurred during FW update** | The error is related to the underlying backend servers.| Retry the operation or create a support request if the issue persists.|
+   | **Internal server error** | An unexpected backend error has occurred. | Retry the operation or create a support request.|
+  
+Additionally, note the following status updates:
+- **One or more IP Group failure:** If one IP Group update (out of 20 parallel updates) fails, the provisioning state changes to "Failed" while the remaining IP Groups will continue to update and succeed.
+- **Status update:** If an IP Group update fails, and if the firewall remains healthy, its state will still show as "Succeeded." To verify, check the status on the IP Group resource itself. 
 
 ## Region availability
 

@@ -11,7 +11,7 @@ In this quickstart, you create an instance of Azure Native New Relic Service.
 
 ## Prerequisites
 
-- [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 - You must [subscribe to New Relic](overview.md#subscribe-to-new-relic).
 
 ## Create a New Relic resource

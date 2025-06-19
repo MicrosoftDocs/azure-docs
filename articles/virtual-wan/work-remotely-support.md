@@ -1,12 +1,12 @@
 ---
 title: 'Azure Virtual WAN and working remotely'
-description: Learn how you can leverage Azure Virtual WAN to enable working remotely due to the COVID-19 pandemic.
+description: Learn how you can leverage Azure Virtual WAN to enable working remotely.
 services: virtual-wan
 author: cherylmc
 
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 02/03/2023
+ms.date: 03/27/2025
 ms.author: cherylmc
 
 
@@ -14,9 +14,8 @@ ms.author: cherylmc
 
 # Azure Virtual WAN and supporting remote work
 
->[!NOTE]
->This article describes how you can leverage Azure Virtual WAN, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of COVID-19 crisis.
->
+> [!NOTE]
+> This article describes how you can leverage Azure Virtual WAN, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues.
 
 Are you scrambling to provide connectivity for remote users?
 Do you suddenly see a need to support a surge of users beyond what you had planned for?
@@ -45,7 +44,7 @@ You have two options here:
 
 ## <a name="basic vWAN"></a>Existing basic Virtual WAN customer
 
-Basic Virtual WAN provides Site-to-site VPN only. In order for remote users to connect, you will need to upgrade the virtual WAN to Standard Virtual WAN. For steps to upgrade a virtual WAN, see [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md)
+Basic Virtual WAN provides Site-to-site VPN only. In order for remote users to connect, you'll need to upgrade the virtual WAN to Standard Virtual WAN. For steps to upgrade a virtual WAN, see [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md)
 
 ## <a name="other considerations"></a>Additional information
 

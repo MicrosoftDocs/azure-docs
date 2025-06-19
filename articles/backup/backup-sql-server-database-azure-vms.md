@@ -2,10 +2,10 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 06/03/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up multiple SQL Server VMs from the Recovery Services vault
 
@@ -26,7 +26,7 @@ Before you back up a SQL Server database, check the following criteria:
 1. Make sure that .NET 4.6.2 version or above is installed on the VM.
 
    >[!Caution]
-   >The support for backups of SQL VMs running .NET Framework 4.6.1 or below will soon be deprecated because these versions are [officially out of support](/lifecycle/products/microsoft-net-framework). We recommend that you upgrade the .NET Framework to version 4.6.2 or above to ensure that there are no backup failures.
+   >Support for backups of SQL VMs running .NET Framework 4.6.1 is deprecated due to the end of [official support](/lifecycle/products/microsoft-net-framework). We recommend upgrading to .NET Framework 4.6.2 or above to avoid backup failures.
 
 1. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
 1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
@@ -82,7 +82,7 @@ If you're using Azure Firewall, create an application rule by using the *AzureBa
 
 #### Allow access to service IP ranges
 
-If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
+If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/details.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
 
 #### Allow access to service FQDNs
 
@@ -116,7 +116,7 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
   - Forward slash (/)
   - Percentage (%)
 
-- SQL Backup configuration doesn't support the single quotation in the database name and causes deployment failure. If there is any database with single quote, we recommend that you rename the database or take the native backup approach.
+- SQL Backup configuration doesn't support the single quotation in the database name and causes deployment failure. If there's any database with single quote, we recommend that you rename the database or take the native backup approach.
 - Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 - Multiple databases on the same SQL instance with casing difference aren't supported.
@@ -264,7 +264,7 @@ To create a backup policy:
 1. After you complete the edits to the backup policy, select **OK**.
 
 > [!NOTE]
-> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume you have a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume you have a weekly full backup, daily differential, and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22. Until this log is available until Dec 22, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22.
 
 ## Enable auto-protection  
 
@@ -295,3 +295,10 @@ Learn how to:
 
 * [Restore backed-up SQL Server databases](restore-sql-database-azure-vm.md)
 * [Manage backed-up SQL Server databases](manage-monitor-sql-database-backup.md)
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).
+

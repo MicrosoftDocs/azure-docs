@@ -1,14 +1,14 @@
 ---
-title: Troubleshooting SAP ASE (Sybase) database backup (preview) using Azure Backup
+title: Troubleshooting SAP ASE (Sybase) database backup using Azure Backup
 description: Learn to troubleshoot SAP ASE (Sybase) database backup using Azure Backup.
 ms.topic: troubleshooting
-ms.date: 11/23/2024
+ms.date: 05/13/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Troubleshooting SAP ASE (Sybase) database backup (preview)
+# Troubleshooting SAP ASE (Sybase) database backup
 
 This article provides troubleshooting details for error codes that appears when protecting SAP ASE (Sybase) databases using Azure Backup.
 
@@ -189,6 +189,57 @@ This article provides troubleshooting details for error codes that appears when 
 **Error message**: Compression has been enabled but there's no associated compression level.
 
 **Recommended action**: Run the updated pre-registration script in the virtual machine, which will add the default configuration in the `config` file and retry. If the error persists after that, contact Microsoft Support.
+
+### DatabaseConnectionError
+
+**Error code**: `DatabaseConnectionError`
+
+**Error message**: An error occurred while executing the query on the database. The database is already open and can only have one user at a time.
+
+**Cause**: The database might be set to single user mode, which prevents additional connections.
+
+**Recommended action**: To resolve the error, follow these steps:
+
+1. Check the database configuration to ensure that it allows multiple connections if required. 
+1. Validate and disable the single user mode if it is enabled using `sp_dboption`. Learn how to [use `sp_dboption`](https://help.sap.com/docs/SAP_ASE/29a04b8081884fb5b715fe4aa1ab4ad2/ab5c9f3abc2b1014978feb816ba90fa0.html). 
+
+If the issue persists, contact Microsoft support.
+
+### SingleUserModeIsEnabled
+
+**Error code**: `SingleUserModeIsEnabled`
+
+**Error message**: Database (`{databaseName}`) is currently in single user mode.
+
+**Cause**: The database is currently in single user mode, which might cause the restore operation to fail. Attempt to disable single user mode was unsuccessful.
+
+**Recommended action**: Sign in to the ASE server and disable the single user mode for the database using the `sp_dboption` stored procedure. Learn how to [use `sp_dboption`](https://help.sap.com/docs/SAP_ASE/29a04b8081884fb5b715fe4aa1ab4ad2/ab5c9f3abc2b1014978feb816ba90fa0.html). 
+
+If the issue persists, contact Microsoft support.
+
+
+### NotAbleToEnableSingleUserMode
+
+**Error code**: `NotAbleToEnableSingleUserMode`
+
+**Error message**: The single user mode didn't change for database (`{databaseName}`) after you attempt to enable it.
+
+**Cause**: This issue may occur due to a problem preventing the change of single user mode.
+
+**Recommended action**: Sign in to the ASE server and manually attempt to enable and disable the single user mode for the database, then retry the operation. Learn how to [use `sp_dboption`](https://help.sap.com/docs/SAP_ASE/29a04b8081884fb5b715fe4aa1ab4ad2/ab5c9f3abc2b1014978feb816ba90fa0.html). 
+
+If the issue persists, contact Microsoft support.
+
+
+### NotAbleToDisableSingleUserMode
+
+**Error code**: `NotAbleToDisableSingleUserMode`
+
+**Error message**: The single user mode didn't change for database (`{databaseName}`) after you attempt to disable it.
+
+**Recommended action**: Sign in to the SAP ASE server and disable the single user mode for the database using the `sp_dboption` stored procedure. Learn how to [use `sp_dboption`](https://help.sap.com/docs/SAP_ASE/29a04b8081884fb5b715fe4aa1ab4ad2/ab5c9f3abc2b1014978feb816ba90fa0.html). 
+
+If the issue persists, contact Microsoft support.
 
 ## Restore errors
 

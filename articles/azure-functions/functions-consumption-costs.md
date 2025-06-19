@@ -1,11 +1,12 @@
 ---
 title: Estimating consumption-based costs in Azure Functions
 description: Learn how to better estimate the costs that you might incur when running your function app in either the Consumption plan or the Flex Consumption plan in Azure Functions.
-ms.date: 11/05/2024
+ms.date: 02/10/2025
 ms.topic: conceptual
 ms.custom:
   - build-2024
   - ignite-2024
+  - build-2025
 # Customer intent: As a cloud developer, I want to understand the overall costs of running my code in a dynamic plan in Azure Functions so that I can make better architectural and business decisions.
 ---
 
@@ -50,26 +51,26 @@ Consider a function app that is comprised only of HTTP triggers with and these b
 
 + HTTP triggers handle 40 constant requests per second.
 + HTTP triggers handle 10 concurrent requests.
-+ The instance memory size setting is `2048 MB`. 
++ The instance memory size is 2,048 MB. 
 + There are _no always ready instances configured_, which means the app can scale to zero.
-<!--- Update these example calculations after 12/1 based on GA pricing -->
+
 In a situation like this, the pricing depends more on the kind of work being done during code execution. Let's look at two workload scenarios:
 
 + **CPU-bound workload:** In a CPU-bound workload, there's no advantage to processing multiple requests in parallel in the same instance. This means that you're better off distributing each request to its own instance so requests complete as a quickly as possible without contention. In this scenario, you should set a low [HTTP trigger concurrency](./functions-concurrency.md#http-trigger-concurrency) of `1`. With 10 concurrent requests, the app scales to a steady state of roughly 10 instances, and each instance is continuously active processing one request at a time. 
 
-    Because the size of each instance is ~2 GB, the consumption for a single continuously active instance is `2 GB * 3600 s = 7200 GB-s`, which at the assumed on-demand execution rate (without any free grants applied) is `$0.1152 USD` per hour per instance. Because the CPU-bound app is scaled to 10 instance, the total hourly rate for execution time is `$1.152 USD`.
+    Because the size of each instance is ~2 GB, the consumption for a single continuously active instance is `2 GB * 3600 s = 7200 GB-s`. Assuming an on-demand execution rate of $0.000026 GB-s (without any free grants applied) becomes `$0.1872 USD` per hour per instance. Because the CPU-bound app is scaled to 10 instance, the total hourly rate for execution time is `$1.872 USD`.
 
-    Similarly, the on-demand per-execution charge (without any free grants) of 40 requests per second is equal to `40 * 3600 = 144,000` or 0.144 million executions per hour. The total (grant-free) hourly cost of executions is then `0.144 * $0.20`, which is `$0.0288` per hour.
+    Similarly, the on-demand per-execution charge (without any free grants) of 40 requests per second is equal to `40 * 3600 = 144,000` or `0.144 million` executions per hour. Assuming an on-demand rate of `$0.40` per million executions, the total (grant-free) hourly cost of executions is `0.144 * $0.40`, which is `$0.0576` per hour.
     
-    In this scenario, the total hourly cost of running on-demand on 10 instances is `$1.152 + $0.0288 = $1.1808 USD`.
+    In this scenario, the total hourly cost of running on-demand on 10 instances is `$1.872 + $0.0576s = $1.9296 USD`.
 
 + **IO bound workload:** In an IO-bound workload, most of the application time is spent waiting on incoming request, which might be limited by network throughput or other upstream factors. Because of the limited inputs, the code can process multiple operations concurrently without negative impacts. In this scenario, assume you can process all 10 concurrent requests on the same instance. 
 
-    Because consumption charges are based only on the memory of each active instance, the consumption charge calculation is simply `2 GB * 3600 s = 7200 GB-s`, which at the assumed on-demand execution rate (without any free grants applied) is `$0.1152 USD` per hour for the single instance.
+    Because consumption charges are based only on the memory of each active instance, the consumption charge calculation is simply `2 GB * 3600 s = 7200 GB-s`, which at the assumed on-demand execution rate (without any free grants applied) is `$0.1872 USD` per hour for the single instance.
 
-    As in the CPU-bound scenario, the on-demand per-execution charge (without any free grants) of 40 requests per second is equal to `40 * 3600 = 144,000` or 0.144 million executions per hour. In this case, the total (grant-free) hourly cost of executions `0.144 * $0.20`, which is `$0.0288` per hour.
+    As in the CPU-bound scenario, the on-demand per-execution charge (without any free grants) of 40 requests per second is equal to `40 * 3600 = 144,000` or 0.144 million executions per hour. In this case, the total (grant-free) hourly cost of executions `0.144 * $0.40`, which is `$0.0576` per hour.
 
-    In this scenario, the total hourly cost of running on-demand on a single instance is `$0.1152 + $0.0288 = $0.144 USD`. 
+    In this scenario, the total hourly cost of running on-demand on a single instance is `$0.1872 + $0.0576 = $0.245 USD`. 
 
 ### [Consumption plan](#tab/consumption-plan)
 

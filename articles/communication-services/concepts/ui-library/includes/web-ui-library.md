@@ -25,7 +25,7 @@ These UI client libraries all use [Microsoft's Fluent design language](https://d
 
 In conjunction to the UI components, the UI Library exposes a stateful client library for calling and chat.
 This client is agnostic to any specific state management framework and can be integrated with common state managers like Redux or React Context.
-This stateful client library can be used with the UI Components to pass props and methods for the UI Components to render data. For more information, see [Stateful Client Overview](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page).
+This stateful client library can be used with the UI Components to pass props and methods for the UI Components to render data. For more information, see [Stateful Client Overview](https://azure.github.io/communication-ui-library/?path=/docs/stateful-client-overview--docs).
 
 > [!NOTE]
 > The same components and composites offered in the UI Library are available in the [Design Kit for Figma](https://www.figma.com/community/file/1095841357293210472), so you can quickly design and prototype your calling and chat experiences.  
@@ -37,9 +37,9 @@ Developers can easily instantiate the Composite using an Azure Communication Ser
 
 | Composite    | Use Cases  | 
 | ------------ | ---------- |
-| [CallwithChatComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) | Experience combining calling and chat features to allow users to start or join a call and chat thread. In the experience, the user has the ability to both communicate using voice and video, and access to a rich chat thread where messages can be exchanged between participants. It includes support for Teams Interop. |
-| [CallComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-basicexample--basic-example) | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those participants with video turn-on. For Teams Interop, is included lobby functionality for user to wait to be admitted. |
-| [ChatComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-chat-basicexample--basic-example)    | Chat experience where user can send and receive messages. Thread events like typing, reads, participants entering and leaving are displayed to the user as part of the chat thread.                                                                                                                          |
+| [CallwithChatComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-callwithchatcomposite--docs) | Experience combining calling and chat features to allow users to start or join a call and chat thread. In the experience, the user has the ability to both communicate using voice and video, and access to a rich chat thread where messages can be exchanged between participants. It includes support for Teams Interop. |
+| [CallComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-callcomposite--docs) | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those participants with video turn-on. For Teams Interop, is included lobby functionality for user to wait to be admitted. |
+| [ChatComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-chatcomposite--docs)    | Chat experience where user can send and receive messages. Thread events like typing, reads, participants entering and leaving are displayed to the user as part of the chat thread.                                                                                                                          |
 ## UI Component overview
 
 Pure UI Components can be used for the developers, to compose communication experiences, from stitching video tiles into a grid to showcase remote participants, to organizing components to fit your applications specifications.
@@ -47,18 +47,18 @@ UI Components support customization to give the components the right feel and lo
 
 | Area    | Component    | Description       |
 | ------- | ------------ | ----------------- |
-| Calling | [Grid Layout](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout)                | Grid component to organize Video Tiles into an NxN grid                                            |
-|         | [Video Tile](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile)                   | Component that displays video stream when available and a default static component when not        |
-|         | [Control Bar](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar)                | Container to organize DefaultButtons to hook up to specific call actions like mute or share screen |
-|         | [VideoGallery](https://azure.github.io/communication-ui-library/?path=/story/ui-components-video-gallery--video-gallery)                                           | Turn-key video gallery component, which dynamically changes as participants are added               |
-|         | [Dialpad](https://azure.github.io/communication-ui-library/?path=/docs/ui-components-dialpad--dialpad) | Component to support phone number input and DTMF tones |
-| Chat    | [Message Thread](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagethread--message-thread)       | Container that renders chat messages, system messages, and custom messages                          |
-|         | [Send Box](https://azure.github.io/communication-ui-library/?path=/story/ui-components-sendbox--send-box)                         | Text input component with a discrete send button                                                   |
-|         | [Rich Text Send Box](https://azure.github.io/communication-ui-library/?path=/docs/ui-components-richtextsendbox--rich-text-send-box) | Rich text input component with formatting options and a discrete send button |
-|         | [Message Status Indicator](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagestatusindicator--message-status-indicator)        | Multi-state read receipt component to show state of sent message                                   |
-|         | [Typing indicator](https://azure.github.io/communication-ui-library/?path=/story/ui-components-typingindicator--typing-indicator) | Text component to render the participants who are actively typing on a thread                      |
-| Common  | [Participant Item](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantitem--participant-item) | Common component to render a call or chat participant including avatar and display name            |
-|         | [Participant List](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantlist--participant-list)                                 | Common component to render a call or chat participant list including avatar and display name       |
+| Calling | [Grid Layout](https://azure.github.io/communication-ui-library/?path=/docs/components-grid-layout--docs)                | Grid component to organize Video Tiles into an NxN grid                                            |
+|         | [Video Tile](https://azure.github.io/communication-ui-library/?path=/docs/components-video-tile--docs)                   | Component that displays video stream when available and a default static component when not        |
+|         | [Control Bar](https://azure.github.io/communication-ui-library/?path=/docs/components-controlbar-control-bar--docs)                | Container to organize DefaultButtons to hook up to specific call actions like mute or share screen |
+|         | [VideoGallery](https://azure.github.io/communication-ui-library/?path=/docs/components-video-gallery--docs)                                           | Turn-key video gallery component, which dynamically changes as participants are added               |
+|         | [Dialpad](https://azure.github.io/communication-ui-library/?path=/docs/components-dialpad--docs) | Component to support phone number input and DTMF tones |
+| Chat    | [Message Thread](https://azure.github.io/communication-ui-library/?path=/docs/components-message-thread--docs)       | Container that renders chat messages, system messages, and custom messages                          |
+|         | [Send Box](https://azure.github.io/communication-ui-library/?path=/docs/components-sendbox-send-box--docs)                         | Text input component with a discrete send button                                                   |
+|         | [Rich Text Send Box](https://azure.github.io/communication-ui-library/?path=/docs/components-sendbox-rich-text-send-box--docs) | Rich text input component with formatting options and a discrete send button |
+|         | [Message Status Indicator](https://azure.github.io/communication-ui-library/?path=/story/components-message-status-indicator--message-status-indicator)        | Multi-state read receipt component to show state of sent message                                   |
+|         | [Typing indicator](https://azure.github.io/communication-ui-library/?path=/docs/components-typing-indicator--docs) | Text component to render the participants who are actively typing on a thread                      |
+| Common  | [Participant Item](https://azure.github.io/communication-ui-library/?path=/docs/components-participant-item--docs) | Common component to render a call or chat participant including avatar and display name            |
+|         | [Participant List](https://azure.github.io/communication-ui-library/?path=/docs/components-participant-list--docs)                                 | Common component to render a call or chat participant list including avatar and display name       |
 
 ## Installing Web UI Library
 
@@ -75,7 +75,7 @@ Understanding these requirements help you choose the right client library:
 - **How much customization do you desire?** Azure Communication core client libraries don't have a UX and are designed so you can build whatever UX you want. UI Library components provide UI assets at the cost of reduced customization.
 - **What platforms are you targeting?** Different platforms have different capabilities.
 
-Details about feature availability in the [UI Library is available here](https://azure.github.io/communication-ui-library/?path=/story/use-cases--page), but key trade-offs are summarized in the next table.
+Details about feature availability in the [UI Library is available here](https://azure.github.io/communication-ui-library/?path=/docs/use-cases--docs), but key trade-offs are summarized in the next table.
 
 | Client library / SDK  | Implementation Complexity | Customization Ability | Calling | Chat | [Teams Interop](../../teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- | ------- | ---- | ----------------------------------------------------------------------------------------------------- |

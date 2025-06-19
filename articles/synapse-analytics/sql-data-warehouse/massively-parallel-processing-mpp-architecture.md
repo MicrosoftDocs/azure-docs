@@ -1,12 +1,12 @@
 ---
 title: Dedicated SQL pool (formerly SQL DW) architecture
 description: Learn how Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.date: 07/20/2022
+author: ajagadish-24
+ms.author: ajagadish
+ms.date: 01/22/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics
@@ -35,7 +35,7 @@ With decoupled storage and compute, when using a dedicated SQL pool (formerly SQ
 
 ### Azure Storage
 
-Dedicated SQL pool SQL (formerly SQL DW) leverages Azure Storage to keep your user data safe.  Since your data is stored and managed by Azure Storage, there is a separate charge for your storage consumption. The data is sharded into **distributions** to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
+Dedicated SQL pool SQL (formerly SQL DW) leverages Azure Storage to keep your user data safe. Since your data is stored and managed by Azure Storage, there is a separate charge for your storage consumption. The data is sharded into **distributions** to optimize the performance of the system. You can choose which sharding pattern to use to distribute the data when you define the table. These sharding patterns are supported:
 
 - Hash
 - Round Robin
@@ -70,12 +70,12 @@ A hash distributed table can deliver the highest query performance for joins and
 
 To shard data into a hash-distributed table, a hash function is used to deterministically assign each row to one distribution. In the table definition, one of the columns is designated as the distribution column. The hash function uses the values in the distribution column to assign each row to a distribution.
 
-The following diagram illustrates how a full (non-distributed table) gets stored as a hash-distributed table.
+The following diagram illustrates how a full (nondistributed table) gets stored as a hash-distributed table.
 
 ![Distributed table](./media/massively-parallel-processing-mpp-architecture/hash-distributed-table.png "Distributed table")  
 
-- Each row belongs to one distribution.  
-- A deterministic hash algorithm assigns each row to one distribution.  
+- Each row belongs to one distribution. 
+- A deterministic hash algorithm assigns each row to one distribution. 
 - The number of table rows per distribution varies as shown by the different sizes of tables.
 
 There are performance considerations for the selection of a distribution column, such as distinctness, data skew, and the types of queries that run on the system.
@@ -90,20 +90,20 @@ A round-robin distributed table distributes data evenly across the table but wit
 
 A replicated table provides the fastest query performance for small tables.
 
-A table that is replicated caches a full copy of the table on each compute node. Consequently, replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data, which make large tables impractical.  
+A table that is replicated caches a full copy of the table on each compute node. Consequently, replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data, which make large tables impractical. 
 
-The diagram below shows a replicated table that is cached on the first distribution on each compute node.  
+The diagram below shows a replicated table that is cached on the first distribution on each compute node. 
 
 ![Replicated table](./media/massively-parallel-processing-mpp-architecture/replicated-table.png "Replicated table")
 
-## Next steps
+## Related content
 
-Now that you know a bit about Azure Synapse, learn how to quickly [create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md) and [load sample data](./load-data-from-azure-blob-storage-using-copy.md). If you are new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources.  
+Now that you know a bit about Azure Synapse, learn how to quickly [create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md) and [load sample data](./load-data-from-azure-blob-storage-using-copy.md). If you are new to Azure, you may find the [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources. 
 
-- [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
+- [Customer success stories](https://azure.microsoft.com/resources/customer-stories)
 - [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Feature requests](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
-- [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+- [Videos](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-videos)
 - [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
 - [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

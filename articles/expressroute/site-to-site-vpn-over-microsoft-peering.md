@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/31/2024
 ms.author: duau
 ms.custom: devx-track-azurepowershell, FY23 content-maintenance
+# Customer intent: As a network administrator, I want to configure a site-to-site VPN over ExpressRoute Microsoft peering, so that I can establish secure and efficient connectivity between my on-premises network and Azure virtual networks.
 ---
 
 # Configure a site-to-site VPN over ExpressRoute Microsoft peering
@@ -54,8 +55,6 @@ To configure a site-to-site VPN connection over ExpressRoute, you must use Expre
 * If you already have an ExpressRoute circuit, but don't have Microsoft peering configured, configure Microsoft peering using the [Create and modify peering for an ExpressRoute circuit](expressroute-howto-routing-arm.md#msft) article.
 
 Once you configured your circuit and Microsoft peering, you can easily view it using the **Overview** page in the Azure portal.
-
-:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/circuit.png" alt-text="Screenshot of the overview page of an ExpressRoute circuit.":::
 
 ## <a name="routefilter"></a>2. Configure route filters
 

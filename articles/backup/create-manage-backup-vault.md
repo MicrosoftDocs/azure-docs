@@ -2,11 +2,11 @@
 title: Create and delete Backup vaults
 description: Learn how to create and delete the Backup vaults.
 ms.topic: how-to
-ms.date: 11/23/2024
+ms.date: 03/19/2025
 ms.custom: references_regions
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Create and delete Backup vaults
 
@@ -43,6 +43,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 9. Select the Review + create button at the bottom of the page.
 
     ![Select Review + Create](./media/backup-vault-overview/review-and-create.png)
+
+Learn more about [creating a Backup vault using Azure Business Continuity Center](../business-continuity-center/backup-vaults.md).
 
 ## Delete a Backup vault
 

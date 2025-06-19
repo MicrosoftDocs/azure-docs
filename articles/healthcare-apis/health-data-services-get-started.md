@@ -5,7 +5,7 @@ author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/10/2024
+ms.date: 05/24/2025
 ms.author: kesheth
 ---
 
@@ -58,7 +58,7 @@ You can also:
 - Grant access permissions.
 - Perform create, read (search), update, and delete (CRUD) transactions against the FHIR service in healthcare applications.
 - Get an access token for the FHIR service. 
-- Access the FHIR service by using tools such as cURL, Postman, and REST client.
+- Access the FHIR service by using tools such as cURL and REST client.
 - Load data directly by using the POST or PUT method against the FHIR service.
 - Export ($export) data to Azure Storage.
 - Convert [HL7 v2](./../healthcare-apis/fhir/convert-data-overview.md) and other format data to FHIR
@@ -74,9 +74,9 @@ The DICOM service is secured by Microsoft Entra ID, which can't be disabled. To 
 
 You can also:
 - Grant access permissions or assign roles in the [Azure portal](./../healthcare-apis/configure-azure-rbac.md), or by using PowerShell and Azure CLI scripts.
-- Perform create, read (search), update, and delete (CRUD) transactions against the DICOM service in healthcare applications or by using tools such as Postman, REST client, cURL, and Python.
+- Perform create, read (search), update, and delete (CRUD) transactions against the DICOM service in healthcare applications or by using tools such as REST client, cURL, and Python.
 - Get a Microsoft Entra access token by using PowerShell, Azure CLI, REST CLI, or .NET SDK.
-- Access the DICOM service by using tools such as .NET C#, cURL, Python, Postman, and REST client.
+- Access the DICOM service by using tools such as .NET C#, cURL, Python, and REST client.
 
 For more information, see [Manage medical imaging data with the DICOM service](./../healthcare-apis/dicom/dicom-data-lake.md).
 

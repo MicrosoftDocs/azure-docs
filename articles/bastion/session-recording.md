@@ -2,12 +2,13 @@
 title: 'Record Bastion sessions'
 titleSuffix: Azure Bastion
 description: Learn how to configure and record Bastion sessions.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 06/21/2024
-ms.author: cherylmc
+ms.date: 01/21/2025
+ms.author: abell
 
+# Customer intent: As a cloud administrator, I want to configure and enable session recording for Bastion, so that I can ensure all remote sessions are captured for auditing and compliance purposes.
 ---
 
 # Configure Bastion session recording
@@ -33,6 +34,7 @@ The following sections outline considerations, limitations, and prerequisites fo
 * Azure Bastion is deployed to your virtual network. See [Tutorial - Deploy Bastion using specified settings](tutorial-create-host-portal.md) for steps.
 * Bastion must be configured to use **Premium SKU** for this feature. You can update to the Premium SKU from a lower SKU when you configure the session recording feature. To check your SKU and upgrade, if necessary, see [View or upgrade a SKU](upgrade-sku.md).
 * The virtual machine that you connect to must either be deployed to the virtual network that contains the bastion host, or to a virtual network that is directly peered to the Bastion virtual network.
+* To view/list the session recordings, user must have the **Storage Blob Data Reader** role.
 
 ## Enable session recording
 
@@ -57,7 +59,7 @@ If you've already deployed Bastion, use the following steps to enable session re
 1. In the Azure portal, go to your Bastion resource.
 1. On your Bastion page, in the left pane, select **Configuration**.
 1. On the Configuration page, for Tier, select **Premium** if it isn't already selected. This feature requires the Premium SKU.
-1. Select **Session Recording (Preview)** from the listed features.
+1. Select **Session Recording** from the listed features.
 1. Select **Apply**. Bastion immediately begins updating the settings for your bastion host. Updates take about 10 minutes.
 
 ## Configure storage account container
@@ -93,6 +95,7 @@ The following steps help you configure the required settings directly on the **G
 1. For **Start and expiry date/time**, use the following recommendations:
    * Set **Start time** to be at least 15 minutes before the present time.
    * Set **Expiry time** to be long into the future.
+1. Under **Allowed IP addresses**, please select the IP address or the IP range to accept requests from. For more information, click [here](/rest/api/storageservices/create-account-sas#specify-an-ip-address-or-ip-range)
 1. Under **Allowed Protocols**, select **HTTPS** only.
 1. Click **Generate SAS token and URL**. You'll see the Blob SAS token and Blob SAS URL generated at the bottom of the page.
 1. Copy the **Blob SAS URL**.

@@ -1,14 +1,14 @@
 ---
-title: Azure virtual machine stock-keeping units (SKUs) best practices for Azure NetApp Files | Microsoft Docs
+title: Azure virtual machine stock-keeping unit (SKUs) best practices for Azure NetApp Files | Microsoft Docs
 description: Describes Azure NetApp Files best practices about Azure virtual machine stocking-keeping units (SKUs), including differences within and between SKUs.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 07/02/2021
+ms.topic: concept-article
+ms.date: 10/02/2024
 ms.author: anfdocs
 ---
-# Azure virtual machine stock-keeping unit best practices for Azure NetApp Files
+# Azure virtual machine stock-keeping unit (SKU) best practices for Azure NetApp Files
 
 This article describes Azure NetApp Files best practices about Azure virtual machine stock-keeping units (SKUs), including differences within and between SKUs.  
 

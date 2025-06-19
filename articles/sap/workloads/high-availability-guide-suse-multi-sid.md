@@ -325,7 +325,7 @@ This documentation assumes that:
    Start_Program_01 = local $(_EN) pf=$(_PF)
    
    # Add the following lines
-   service/halib = $(DIR_CT_RUN)/saphascriptco.so
+   service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
    
    # Add the keep alive parameter, if using ENSA1
@@ -344,7 +344,7 @@ This documentation assumes that:
    Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
    
    # Add the following lines
-   service/halib = $(DIR_CT_RUN)/saphascriptco.so
+   service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
    
    # remove Autostart from ERS profile

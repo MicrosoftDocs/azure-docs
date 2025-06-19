@@ -116,7 +116,6 @@ productDirectory:
       - url: ./quickstarts/advanced-messaging/whatsapp/get-started.md
         text: Add Advanced Messaging to your app
 
-
 #------------------------------------------------------------------
 additionalContent:
   sections:

@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about VPN Gateway connect
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 07/10/2024
+ms.date: 05/09/2025
 ms.author: cherylmc
 ---
 
@@ -69,6 +69,8 @@ To help ensure proper functionality and healthy state for your VPN gateway, cons
 
 * Revert to the Azure DNS default by removing the custom DNS within the VNet settings (recommended configuration).
 * Add in your custom DNS configuration a DNS forwarder that points to Azure DNS (168.63.129.16). Depending on the specific rules and nature of your custom DNS, this setup might not resolve the issue as expected.
+
+When configuring the Azure DNS Private Resolver's forwarding rule in the VNet where the VPN Gateway is deployed, if you include a wildcard in the DNS forwarding ruleset, ensure that the forwarding destination IP points to the built-in Azure DNS service (168.63.129.16) to resolve public URLs.
 
 ### Can two VPN clients connected in point-to-site to the same VPN gateway communicate?
 
@@ -138,7 +140,7 @@ No.
 
 ### Can I get my VPN gateway IP address before I create it?
 
-Azure Standard SKU public IP resources must use a static allocation method. You'll have the public IP address for your VPN gateway as soon as you create the Standard SKU public IP resource that you intend to use for it.
+Azure Standard SKU public IP resources must use a static allocation method. You have the public IP address for your VPN gateway as soon as you create the Standard SKU public IP resource that you intend to use for it.
 
 ### Can I request a static public IP address for my VPN gateway?
 
@@ -148,7 +150,7 @@ For non-zone-redundant and non-zonal gateways that were previously created (gate
 
 ### How does the retirement of Basic SKU public IP addresses affect my VPN gateways?
 
-We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses until the retirement of Basic IP in September 2025. Before this retirement, we will provide customers with a migration path from Basic to Standard IP. 
+We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses until the retirement of Basic IP in September 2025. Before this retirement, we'll provide customers with a migration path from Basic to Standard IP. 
 
 However, Basic SKU public IP addresses are being phased out. Going forward, when you create a VPN gateway, you must use the Standard SKU public IP address. You can find details on the retirement of Basic SKU public IP addresses in the [Azure Updates announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
 
@@ -163,6 +165,10 @@ Yes. You can use the Set Pre-Shared Key REST API and PowerShell cmdlet to config
 ### Can I use other authentication options?
 
 You're limited to using preshared keys for authentication.
+
+### Does Azure VPN Gateway support IPv6?
+
+Yes. For additional information see [Configure IPv6 for VPN Gateway](ipv6-configuration.md).
 
 ### How do I specify which traffic goes through the VPN gateway?
 
@@ -206,15 +212,42 @@ The Standard and High Performance SKUs will be deprecated on September 30, 2025.
 
 *At this time, there's no action that you need to take.*
 
+
 [!INCLUDE [legacy SKU deprecation](../../includes/vpn-gateway-deprecate-sku-faq.md)]
 
+## Migrating a Basic SKU public IP address to Standard SKU
+
+This section outlines important questions and considerations for migrating from a Basic SKU public IP address to a Standard SKU public IP address for VPN Gateway deployments currently using a Basic SKU public IP address. This does not pertain to deployments that are already using a Standard SKU public IP address. For more information, see [Basic SKU IP deprecation Announcement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
+ 
+### What is the expected customer impact?
+
+The expected customer impact includes new [pricing](https://azure.microsoft.com/pricing/details/ip-addresses/) changes and up to 10 minutes of downtime during customer-controlled migration. Customers will have three months to migrate after the release of the migration tool. To qualify for a successful migration, ensure you have the correct IP address space and subnet size.
+ 
+### What is the anticipated timeline for the migration?
+
+These timelines may be subject to change. Please revisit this for the most updated timeline. Here's the anticipated timeline for the migration tool availability.
+
+  | Date                | Event                                                      |
+  |---------------------|------------------------------------------------------------|
+  | Apr/May 2025        | Migration tooling availability for Active-Passive Gateways. |
+  | Jul/Aug 2025        | Migration tooling availability for Active-Active Gateways.  |
+  | May 2025 to Sep 2025| Customer-controlled migration can be initiated after tool availability. |
+  | Sep 2025            | Basic SKU IP addresses are deprecated.                     |
+
+
+### What are the required customer actions?
+
+Ensure you have the correct IP address space and subnet size to support the migration. If your gateway is using a Basic IP, you need to migrate it to a Standard IP to avoid service disruption. This migration is necessary because Basic IP addresses will be deprecated by September 2025. If your gateway is already using a Standard IP, no action is required.
+ 
 ## <a name="s2s"></a>Site-to-site connections and VPN devices
+
 
 ### What should I consider when selecting a VPN device?
 
 We've validated a set of standard site-to-site VPN devices in partnership with device vendors. You can find a list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specifications in the [About VPN devices](vpn-gateway-about-vpn-devices.md) article.
 
 All devices in the device families listed as known compatible should work with virtual networks. To help configure your VPN device, refer to the device configuration sample or link that corresponds to the appropriate device family.
+
 
 ### Where can I find VPN device configuration settings?
 
@@ -302,7 +335,15 @@ RADIUS authentication is supported for the OpenVPN protocol.
 
 ## <a name="V2VMulti"></a>VNet-to-VNet and multi-site connections
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)] 
+
+### How do I configure a cross tenant scenario?
+
+ * If you're using REST API or ARM templates for connection resources referencing a gateway in a different tenant, follow this authentication procedure: [Header values for authentication](../azure-resource-manager/management/authenticate-multi-tenant.md#header-values-for-authentication).
+ * For [site-to-site](vpn-gateway-create-site-to-site-rm-powershell.md#tenants).
+ * For [VNet-to-VNet](vpn-gateway-vnet-vnet-rm-ps.md#tenant).
+
+If you are using PowerShell commands, verify that you're running [Az.Network 7.15.1](https://www.powershellgallery.com/packages/Az.Network/7.15.1)
 
 ### How do I enable routing between my site-to-site VPN connection and ExpressRoute?
 

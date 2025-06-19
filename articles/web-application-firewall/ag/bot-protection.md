@@ -1,12 +1,11 @@
 ---
 title: Configure bot protection for Azure Web Application Firewall (WAF)
 description: Learn how to configure bot protection for Web Application Firewall (WAF) on Azure Application Gateway.
-services: web-application-firewall
-ms.topic: how-to
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: how-to
 ms.date: 06/01/2023
-ms.author: victorh
 ---
 
 # Configure bot protection for Web Application Firewall on Azure Application Gateway
@@ -23,13 +22,14 @@ Create a WAF policy for Application Gateway by following the instructions descri
 
 1. In the Application Gateway WAF policy that you created previously, under **Settings**, select **Managed Rules**.
 
-2. Select **Assign**.
+1. Select **Assign**.
+
 1. On the **Assign managed rule sets** page, under **Additional rule set**, select the desired Bot Manager rule set.
+
+    :::image type="content" source="../media/bot-protection/managed-rule-sets.png" alt-text="Screenshot show WAF managed rule sets.":::
+
 1. Select **Save**.
 
-:::image type="content" source="../media/bot-protection/managed-rule-sets.png" alt-text="Screenshot show WAF managed rule sets.":::
-
-
-## Next steps
+## Next step
 
 For more information about the Bot Manager rule set, see [Web Application Firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md?tabs=bot).

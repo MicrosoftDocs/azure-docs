@@ -71,11 +71,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/virtual-desktop/user-documentation/linux-overview.md",
-            "redirect_url": "/azure/virtual-desktop/users/connect-thin-clients",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/virtual-desktop/azure-monitor.md",
             "redirect_url": "/azure/virtual-desktop/insights",
             "redirect_document_id": true
@@ -302,7 +297,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-desktop/whats-new-client-web.md",
-            "redirect_url": "/azure/virtual-desktop/users/remote-desktop-clients-overview",
+            "redirect_url": "/previous-versions/remote-desktop-client/overview",
             "redirect_document_id": false
         },
         {
@@ -398,7 +393,7 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/whats-new-client-windows-azure-virtual-desktop-app.md",
             "redirect_url": "/azure/virtual-desktop/whats-new-client-windows",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-desktop/whats-new-client-microsoft-store.md",
@@ -533,6 +528,141 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/troubleshoot-quickstart.md",
             "redirect_url": "/azure/virtual-desktop/quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/compare-remote-desktop-clients.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/compare-remote-desktop-clients",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/install-windows-client-per-user.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/install-windows-client-per-user",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/connect-thin-clients.md",
+            "redirect_url": "/azure/virtual-desktop/thin-clients",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-android-chrome-os.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-android-chrome-os",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-ios-ipados.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-ios-ipados",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-macos.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-macos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-microsoft-store.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-web.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-web",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-windows-azure-virtual-desktop-app.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-windows-basic-shared.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-windows-basic-shared",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-windows.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-android-chrome-os.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/client-features-android-chrome-os",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-ios-ipados.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/client-features-ios-ipados",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-macos.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/client-features-macos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-web.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/client-features-web-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-windows.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/client-features-windows-msrdc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/connect-legacy-windows.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/connect-windows-cloud-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/connect-remote-desktop-client.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/connect-windows-cloud-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/index.yml",
+            "redirect_url": "/azure/virtual-desktop/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/remote-desktop-clients-overview.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-android-chrome-os.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-android-chrome-os",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-ios-ipados.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-ios-ipados",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-macos.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-macos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-windows.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/linux-overview.md",
+            "redirect_url": "/azure/virtual-desktop/thin-clients",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/client-device-redirection-intune.md",
+            "redirect_url": "/windows-app/require-device-security-compliance-intune",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/msix-app-attach-migration.md",
+            "redirect_url": "/azure/virtual-desktop/app-attach-overview",
             "redirect_document_id": false
         }
     ]

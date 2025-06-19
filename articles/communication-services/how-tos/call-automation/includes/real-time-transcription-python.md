@@ -12,14 +12,17 @@ ms.author: kpunjabi
 ---
 
 ## Create a call and provide the transcription details
-Define the TranscriptionOptions for ACS to know whether to start the transcription straight away or at a later time, which locale to transcribe in, and the web socket connection to use for sending the transcript.
+Define the TranscriptionOptions for ACS to specify when to start the transcription, the locale for transcription, and the web socket connection for sending the transcript.
 
 ```python
 transcription_options = TranscriptionOptions(
-    transport_url=" ",
+    transport_url="WEBSOCKET_URI_HOST",
     transport_type=TranscriptionTransportType.WEBSOCKET,
     locale="en-US",
-    start_transcription=False
+    start_transcription=False,
+    #Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    speech_recognition_model_endpoint_id = "YourCustomSpeechRecognitionModelEndpointId"
+);
 )
 
 call_connection_properties = call_automation_client.create_call(
@@ -27,6 +30,28 @@ call_connection_properties = call_automation_client.create_call(
     CALLBACK_EVENTS_URI,
     cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
     source_caller_id_number=source_caller,
+    transcription=transcription_options
+)
+```
+
+## Connect to a Rooms call and provide transcription details
+If you're connecting to an ACS room and want to use transcription, configure the transcription options as follows:
+
+```python
+transcription_options = TranscriptionOptions(
+    transport_url="",
+    transport_type=TranscriptionTransportType.WEBSOCKET,
+    locale="en-US",
+    start_transcription=False,
+    #Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    speech_recognition_model_endpoint_id = "YourCustomSpeechRecognitionModelEndpointId"
+)
+
+connect_result = client.connect_call(
+    room_id="roomid",
+    CALLBACK_EVENTS_URI,
+    cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
+    operation_context="connectCallContext",
     transcription=transcription_options
 )
 ```
@@ -45,8 +70,11 @@ call_connection_client.start_transcription()
 # call_connection_client.start_transcription(operation_context="startTranscriptionContext")
 ```
 
+### Additional Headers:
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`.
+
 ## Receiving Transcription Stream
-When transcription starts, your websocket will receive the transcription metadata payload as the first packet. This payload carries the call metadata and locale for the configuration.
+When transcription starts, your websocket receives the transcription metadata payload as the first packet.
 
 ```json
 {
@@ -141,10 +169,17 @@ asyncio.get_event_loop().run_forever()
 ```
 
 ## Update Transcription
-For situations where your application allows users to select their preferred language, you may also want to capture the transcription in that language. To do this, the Call Automation SDK allows you to update the transcription locale.
+For situations where your application allows users to select their preferred language, you may also want to capture the transcription in that language. To do this task, the Call Automation SDK allows you to update the transcription locale.
 
 ```python
-await call_connection_client.update_transcription(locale="en-US-NancyNeural")
+await call_automation_client.get_call_connection(
+    call_connection_id=call_connection_id
+).update_transcription(
+    operation_context="UpdateTranscriptionContext",
+    locale="en-au",
+    #Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    speech_recognition_model_endpoint_id = "YourCustomSpeechRecognitionModelEndpointId"
+)
 ```
 
 ## Stop Transcription

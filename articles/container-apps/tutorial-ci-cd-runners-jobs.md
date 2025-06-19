@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 12/10/2024
+ms.date: 03/20/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 ---
@@ -35,6 +35,9 @@ In this tutorial, you learn how to run GitHub Actions runners as an [event-drive
 > [!IMPORTANT]
 > Self-hosted runners are only recommended for *private* repositories. Using them with public repositories can allow dangerous code to execute on your self-hosted runner. For more information, see [Self-hosted runner security](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security).
 
+> [!NOTE]
+> Every personal access token (PAT) has an expiration date. You need to make sure PATs are regularly rotated before their expiration date. For more information about managing your PAT, see [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+
 ::: zone-end
 
 ::: zone pivot="container-apps-jobs-self-hosted-ci-cd-azure-pipelines"
@@ -52,10 +55,13 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 > [!IMPORTANT]
 > Self-hosted agents are only recommended for *private* projects. Using them with public projects can allow dangerous code to execute on your self-hosted agent. For more information, see [Self-hosted agent security](/azure/devops/pipelines/agents/linux-agent#permissions).
 
+> [!NOTE]
+> Every personal access token (PAT) has an expiration date. You need to make sure PATs are regularly rotated before their expiration date. For more information about managing your PAT, see [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+
 ::: zone-end
 
 > [!NOTE]
-> Container apps and jobs don't support running Docker in containers. Any steps in your workflows that use Docker commands will fail when run on a self-hosted runner or agent in a Container Apps job.
+> Container apps and jobs don't support running Docker in containers. Any steps in your workflows that use Docker commands fail when run on a self-hosted runner or agent in a Container Apps job.
 
 ## Prerequisites
 
@@ -84,7 +90,7 @@ ENVIRONMENT="env-jobs-sample"
 JOB_NAME="github-actions-runner-job"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 ```powershell
 $RESOURCE_GROUP="jobs-sample"
 $LOCATION="northcentralus"
@@ -107,7 +113,7 @@ JOB_NAME="azure-pipelines-agent-job"
 PLACEHOLDER_JOB_NAME="placeholder-agent-job"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 ```powershell
 $RESOURCE_GROUP="jobs-sample"
 $LOCATION="northcentralus"
@@ -136,7 +142,7 @@ The Azure Container Apps environment acts as a secure boundary around container 
         --location "$LOCATION"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     New-AzResourceGroup `
         --name "$RESOURCE_GROUP" `
@@ -155,7 +161,7 @@ The Azure Container Apps environment acts as a secure boundary around container 
         --location "$LOCATION"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
    
     ```powershell
     New-AzContainerAppManagedEnvironment `
@@ -237,13 +243,15 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     GITHUB_PAT="<GITHUB_PAT>"
     REPO_OWNER="<REPO_OWNER>"
     REPO_NAME="<REPO_NAME>"
+    REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     $GITHUB_PAT="<GITHUB_PAT>"
     $REPO_OWNER="<REPO_OWNER>"
     $REPO_NAME="<REPO_NAME>"
+    $REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     ---
@@ -255,6 +263,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     | `<GITHUB_PAT>` | The GitHub PAT you generated. |
     | `<REPO_OWNER>` | The owner of the repository you created earlier. This value is usually your GitHub username. |
     | `<REPO_NAME>` | The name of the repository you created earlier. This value is the same name you entered in the *Repository name* field. |
+    | `<YOUR_REGISTRATION_TOKEN_API_URL>` | The registration token API URL in the *entrypoint.sh* file. | For example, 'https://myapi.example.com/get-token' |
 
 ## Build the GitHub Actions runner container image
 
@@ -271,7 +280,7 @@ To create a self-hosted runner, you need to build a container image that execute
     CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     $CONTAINER_IMAGE_NAME="github-actions-runner:1.0"
     $CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
@@ -292,7 +301,7 @@ To create a self-hosted runner, you need to build a container image that execute
         --sku Basic
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr create `
         --name "$CONTAINER_REGISTRY_NAME" `
@@ -312,7 +321,7 @@ To create a self-hosted runner, you need to build a container image that execute
     az acr config authentication-as-arm show --registry "$CONTAINER_REGISTRY_NAME"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr config authentication-as-arm show --registry "$CONTAINER_REGISTRY_NAME"
     ```
@@ -334,7 +343,7 @@ To create a self-hosted runner, you need to build a container image that execute
     az acr config authentication-as-arm update --registry "$CONTAINER_REGISTRY_NAME" --status enabled
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr config authentication-as-arm update --registry "$CONTAINER_REGISTRY_NAME" --status enabled
     ```
@@ -352,7 +361,7 @@ To create a self-hosted runner, you need to build a container image that execute
         "https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial.git"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr build `
         --registry "$CONTAINER_REGISTRY_NAME" `
@@ -383,7 +392,7 @@ To avoid using administrative credentials, pull images from private repositories
         --resource-group $RESOURCE_GROUP
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
     ```powershell
     $IDENTITY="<YOUR_IDENTITY_NAME>"
@@ -406,7 +415,7 @@ To avoid using administrative credentials, pull images from private repositories
         --output tsv)
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
     ```powershell
     IDENTITY_ID=$(az identity show `
@@ -420,7 +429,7 @@ To avoid using administrative credentials, pull images from private repositories
 
 ## Deploy a self-hosted runner as a job
 
-You can now create a job that uses to use the container image. In this section, you create a job that executes the self-hosted runner and authenticates with GitHub using the PAT you generated earlier. The job uses the [`github-runner` scale rule](https://keda.sh/docs/latest/scalers/github-runner/) to create job executions based on the number of pending workflow runs.
+You can now create a job that uses the container image. In this section, you create a job that executes the self-hosted runner and authenticates with GitHub using the PAT you generated earlier. The job uses the [`github-runner` scale rule](https://keda.sh/docs/latest/scalers/github-runner/) to create job executions based on the number of pending workflow runs.
 
 1. Create a job in the Container Apps environment.
 
@@ -452,7 +461,7 @@ You can now create a job that uses to use the container image. In this section, 
         --registry-identity "$IDENTITY_ID"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job create `
         --name "$JOB_NAME" `
@@ -544,7 +553,7 @@ To verify the job was configured correctly, you modify the workflow to use a sel
         --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job execution list `
         --name "$JOB_NAME" `
@@ -609,7 +618,7 @@ Create a new agent pool to run the self-hosted runner.
 
 To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps. It's also used by the scale rule to determine the number of pending pipeline runs and trigger new job executions.
 
-[!NOTE]
+> [!NOTE]
 > Personal Access Tokens (PATs) have an expiration date. Regularly rotate your tokens to ensure they remain valid (not expired) to maintain uninterrupted service.
 
 1. In Azure DevOps, select *User settings* next to your profile picture in the upper-right corner.
@@ -641,15 +650,13 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     AZP_TOKEN="<AZP_TOKEN>"
     ORGANIZATION_URL="<ORGANIZATION_URL>"
     AZP_POOL="container-apps"
-    REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     $AZP_TOKEN="<AZP_TOKEN>"
     $ORGANIZATION_URL="<ORGANIZATION_URL>"
     $AZP_POOL="container-apps"
-    $REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
     ---
@@ -660,7 +667,6 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     |---|---|---|
     | `<AZP_TOKEN>` | The Azure DevOps PAT you generated. | |
     | `<ORGANIZATION_URL>` | The URL of your Azure DevOps organization. Make sure no trailing `/` is present at the end of the URL. | For example, `https://dev.azure.com/myorg` or `https://myorg.visualstudio.com`. |
-    | `<YOUR_REGISTRATION_TOKEN_API_URL>` | The registration token API URL in the *entrypoint.sh* file. | For example, 'https://myapi.example.com/get-token' |
 
 ## Build the Azure Pipelines agent container image
 
@@ -677,7 +683,7 @@ To create a self-hosted agent, you need to build a container image that runs the
     CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     $CONTAINER_IMAGE_NAME="azure-pipelines-agent:1.0"
     $CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
@@ -701,7 +707,7 @@ To create a self-hosted agent, you need to build a container image that runs the
         --admin-enabled true
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr create `
         --name "$CONTAINER_REGISTRY_NAME" `
@@ -724,7 +730,7 @@ To create a self-hosted agent, you need to build a container image that runs the
         "https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial.git"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr build `
         --registry "$CONTAINER_REGISTRY_NAME" `
@@ -761,7 +767,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
         az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
         --trigger-type Manual `
@@ -800,7 +806,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
     az containerapp job start -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job start -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
     ```
@@ -818,7 +824,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
         --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job execution list `
         --name "$PLACEHOLDER_JOB_NAME" `
@@ -842,7 +848,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
     az containerapp job delete -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job delete -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
     ```
@@ -876,7 +882,7 @@ az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$E
     --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 ```powershell
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
     --trigger-type Event `
@@ -953,7 +959,7 @@ Once a self-hosted agent job is configured, you can run a pipeline and verify it
         --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job execution list `
         --name "$JOB_NAME" `
@@ -974,7 +980,7 @@ Once a self-hosted agent job is configured, you can run a pipeline and verify it
 Once you're done, run the following command to delete the resource group that contains your Container Apps resources.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they're also deleted.
 
 # [Bash](#tab/bash)
 ```bash
@@ -982,7 +988,7 @@ az group delete \
     --resource-group $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 ```powershell
 az group delete `
     --resource-group $RESOURCE_GROUP

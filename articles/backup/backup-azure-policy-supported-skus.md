@@ -4,8 +4,8 @@ description: 'An article describing the supported VM SKUs (by Publisher, Image O
 ms.topic: reference
 ms.date: 10/16/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Supported VM SKUs for Azure Policy

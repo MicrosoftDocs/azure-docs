@@ -30,7 +30,10 @@ Azure Communication Services provides monitoring and analytics features via [Azu
 
 The following instructions configure your Azure Monitor resource to start creating logs and metrics for your Communication Services instance. For detailed documentation about using diagnostic settings across all Azure resources, see [Enable logging in diagnostic settings](../enable-logging.md).
 
-Under the diagnostic setting name, select **Operation Call Automation Logs** and **Call Automation Events Summary Logs** to enable the logs for Call Automation.
+Under the diagnostic setting name, select the following to enable the logs for Call Automation:
+* **Operation Call Automation Logs**
+* **Call Automation Events Summary Logs**
+* **Call Automation Media Streaming features usage information Logs**
 
 :::image type="content" source="..\media\log-analytics\call-automation-log.png" alt-text="Screenshot of diagnostic settings for Call Automation.":::
 
@@ -41,6 +44,7 @@ Communication Services offers the following types of logs that you can enable:
 * **Usage logs**: Provide usage data associated with each billed service offering.
 * **Call automation operational logs**: Provide operational information on Call Automation API requests. You can use these logs to identify failure points and query all requests made in a call (by using the correlation ID or server call ID).
 * **Call Automation media summary logs**: Provide information about the outcome of media operations. These logs come to you asynchronously when you're making media requests by using Call Automation APIs. You can use these logs to help identify failure points and possible patterns on how users interact with your application.
+* **Call Automation Media Streaming features usage information Logs**: Provide usage information about real-time streaming features such as Media Streaming and Transcription. These logs come to you asynchronously when any real-time streaming has stopped or completed. You can use these logs to help identify calls with real-time streaming enabled, participants being streamed in unmixed streaming cases, streaming start-times, durations and possible streaming trends being used in your application.
 
 ## Usage log schema
 
@@ -63,7 +67,7 @@ Communication Services offers the following types of logs that you can enable:
 | -------- | ---------------|
 | `TimeGenerated` | The time stamp (UTC) of when the log was generated. |
 | `OperationName` | The operation associated with the log record. |
-| `CorrelationID` | The identifier to identify a call and correlate events for a unique call.  |
+| `CorrelationID` | An identifier used to correlate events for a call. This identifier may change for the duration of the call depending on events like participants joining or leaving the call. For a fully stable call identifier, please consider using `CallConnectionId`. |
 | `OperationVersion` | The `api-version` version associated with the operation, if the `operationName` operation was performed through an API. If no API corresponds to this operation, the version represents the version of the operation, in case the properties associated with the operation change in the future. |
 | `Category` | The log category of the event. The category is the granularity at which you can enable or disable logs on a resource. The properties that appear within the `properties` blob of an event are the same within a log category and resource type. |
 | `ResultType` | The status of the operation. |
@@ -82,7 +86,6 @@ Communication Services offers the following types of logs that you can enable:
 Here's an example of a Call Automation operational log:
 
 ```json
-[
 {
 "TimeGenerated [UTC]": "5/25/2023, 5:43:25.746 PM",
 "Level": "Informational",
@@ -112,7 +115,7 @@ Here's an example of a Call Automation operational log:
 | `resourceId` | The ID of the resource that emitted the event. |
 | `durationMs` | The duration of the operation in milliseconds. |
 | `callerIpAddress` | |
-| `correlationId` | The Skype chain ID.   |
+| `correlationId` | Identify correlated requests made by using Call Automation. |
 | `operationName` | The name of the operation that this event represents.|
 | `operationVersion` | |
 | `resultType` | The status of the event. Typical values include `Completed`, `Canceled`, and `Failed`.|
@@ -129,7 +132,6 @@ Here's an example of a Call Automation operational log:
 Here's an example of a Call Automation media summary log:
 
 ```json
-[
 {
 "TimeGenerated [UTC]": "5/24/2023, 7:57:40.480 PM",
 "Level": "Informational",
@@ -144,6 +146,35 @@ Here's an example of a Call Automation media summary log:
 "ResultCode": "200",
 "ResultSubcode": "0",
 "ResultMessage": "Action completed successfully."
+}
+
+````
+
+## Call Automation Media Streaming features usage information Logs
+
+| Property | Description |
+| -------- | ---------------|
+| `TimeGenerated` | The time stamp (UTC) of the event.|
+| `CorrelationId` | Identify correlated requests made by using Call Automation. |
+| `CallConnectionId` | The ID that represents the call connection, if available. This ID is different for each participant and is used to identify their connection to the call.  |
+| `StreamingModality` | The type of real-time streaming (eg. AudioStreamingUnmixed, AudioStreamingMixed, Transcription) that this event represents. |
+| `StreamingStartTime` | The time stamp (UTC) at which the real-time streaming session started. |
+| `StreamingDurationInMs` | The duration of the real-time streaming session in milliseconds. |
+| `StreamingSessionId` | Unique identifier for each real-time streaming session which is defined as the time between the start and end of a single modality of real-time streaming in any given call. |
+| `ParticipantId` | Unique identifier for each participant who was present in the streaming session identified by `StreamingSessionId` whose streaming started at `StreamingStartTime` and lasted a duration of `StreamingDurationInMs`. This only applies to the `StreamingModality` AudioStreamingUnmixed and Transcription where each participant is represented with their own record in this table.  |
+
+Here's an example of a Call Automation Media Streaming features usage information Logs:
+
+```json
+{
+"TimeGenerated [UTC]": "5/24/2023, 7:57:40.480 PM",
+"CorrelationId": "bbbb1111-cc22-3333-44dd-555555eeeeee",
+"CallConnectionId": "401f3500-fcb6-4b84-927e-81cd6372560b",
+"StreamingModality": "AudioStreamingUnmixed",
+"StreamingStartTime [UTC]": "5/24/2023, 7:57:45.480 PM",
+"StreamingDurationInMs": "1172487.9394",
+"StreamingSessionId": "8dc674eb-0313-46e1-8326-326ea71c7a45",
+"ParticipantId": "7a5ae46f-efb0-4abb-bc9f-c1f1ccfd1470"
 }
 
 ````

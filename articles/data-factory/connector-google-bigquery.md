@@ -1,23 +1,23 @@
 ---
-title: Copy data from Google BigQuery
+title: Copy data from Google BigQuery V2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from Google BigQuery V2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/05/2024
+ms.date: 04/14/2025
 ---
 
-# Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics
+# Copy data from Google BigQuery V2 using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
->[!IMPORTANT]
->The new Google BigQuery connector provides improved native Google BigQuery support. If you are using the legacy Google BigQuery connector in your solution, please [upgrade your Google BigQuery connector](#upgrade-the-google-bigquery-linked-service) before **October 31, 2024**. Refer to this [section](#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, please [upgrade your Google BigQuery connector](#upgrade-the-google-bigquery-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 
@@ -225,11 +225,11 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 To upgrade the Google BigQuery connector, create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
-## Differences between Google BigQuery and Google BigQuery (legacy)
+## <a name="differences-between-google-bigquery-and-google-bigquery-legacy"></a> Differences between Google BigQuery V2 and V1
 
-The Google BigQuery connector offers new functionalities and is compatible with most features of Google BigQuery (legacy) connector. The table below shows the feature differences between Google BigQuery and Google BigQuery (legacy).
+The Google BigQuery V2 connector offers new functionalities and is compatible with most features of Google BigQuery V1 connector. The table below shows the feature differences between Google BigQuery V2 and V1.
 
-| Google BigQuery  | Google BigQuery (legacy) | 
+| Google BigQuery V2 | Google BigQuery V1 | 
 | :----------- | :------- |
 | Service authentication is supported by the Azure integration runtime and the self-hosted integration runtime.<br>The properties trustedCertPath, useSystemTrustStore, email and keyFilePath are not supported as they are available on the self-hosted integration runtime only. | Service authentication is only supported by the self-hosted integration runtime. <br>Support trustedCertPath, useSystemTrustStore, email and keyFilePath properties. | 
 | The following mappings are used from Google BigQuery data types to interim data types used by the service internally. <br><br>Numeric -> Decimal<br>Timestamp -> DateTimeOffset<br>Datetime -> DatetimeOffset | The following mappings are used from Google BigQuery data types to interim data types used by the service internally. <br><br>Numeric -> String<br>Timestamp -> DateTime<br>Datetime -> DateTime | 

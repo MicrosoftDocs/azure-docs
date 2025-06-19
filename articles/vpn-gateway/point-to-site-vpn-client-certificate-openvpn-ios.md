@@ -51,7 +51,7 @@ For information about working with certificates, see [Point-to site: Generate ce
 
 ## Configure the OpenVPN client
 
-The following example uses **OpenVPN Connect** from the App store.
+The following example uses **OpenVPN Connect** from the App Store.
 
 [!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 

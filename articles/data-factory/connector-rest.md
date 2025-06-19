@@ -88,7 +88,7 @@ The following properties are supported for the REST linked service:
 | url | The base URL of the REST service. | Yes |
 | enableServerCertificateValidation | Whether to validate server-side TLS/SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
 | authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal**, **OAuth2ClientCredential**, and **ManagedServiceIdentity**. You can additionally configure authentication headers in `authHeaders` property. Refer to corresponding sections below on more properties and examples respectively.| Yes |
-| authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
+| authHeaders | Other HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as "Anonymous" and specify API key in the header. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, this property uses the default Azure Integration Runtime. |No |
 
 For different authentication types, see the corresponding sections for details.
@@ -148,7 +148,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 |  |  |  |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
-| aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| aadResourceId | Specify the Microsoft Entra resource you're requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 | azureCloudType | For Service Principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 
 **Example 1: Using service principal key authentication**                                                                          
@@ -272,7 +272,7 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| aadResourceId | Specify the Microsoft Entra resource you're requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 
 **Example**
 
@@ -299,7 +299,7 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| aadResourceId | Specify the Microsoft Entra resource you're requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
 
 
@@ -369,7 +369,7 @@ To copy data from REST, the following properties are supported:
 | type | The **type** property of the dataset must be set to **RestResource**. | Yes |
 | relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
 
-If you were setting `requestMethod`, `additionalHeaders`, `requestBody` and `paginationRules` in dataset, it is still supported as-is, while you are suggested to use the new model in activity going forward.
+If you were setting `requestMethod`, `additionalHeaders`, `requestBody`, and `paginationRules` in dataset, it's still supported as-is, while you're suggested to use the new model in activity going forward.
 
 **Example:**
 
@@ -404,15 +404,15 @@ The following properties are supported in the copy activity **source** section:
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity source must be set to **RestSource**. | Yes |
 | requestMethod | The HTTP method. Allowed values are **GET** (default) and **POST**. | No |
-| additionalHeaders | Additional HTTP request headers. | No |
+| additionalHeaders | Other HTTP request headers. | No |
 | requestBody | The body for the HTTP request. | No |
 | paginationRules | The pagination rules to compose next page requests. Refer to [pagination support](#pagination-support) section on details. | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**.  | No |
+| httpRequestTimeout | The time-out (the **TimeSpan** value) for the HTTP request to get a response. This value is the time-out to get a response, not the time-out to read response data. The default value is **00:01:40**.  | No |
 | requestInterval | The time to wait before sending the request for next page. The default value is **00:00:01** |  No |
 
 >[!NOTE]
->REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`. <br>
->The array of object as the response body is not supported in pagination.
+>The REST connector ignores any "Accept" header specified in `additionalHeaders`. Since it only supports JSON responses, it automatically sets the header to `Accept: application/json`. <br>
+>Pagination isn't supported for REST API responses where the top-level structure is a JSON array.
 
 **Example 1: Using the Get method with pagination**
 
@@ -494,8 +494,8 @@ The following properties are supported in the copy activity **sink** section:
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to **RestSink**. | Yes |
 | requestMethod | The HTTP method. Allowed values are **POST** (default), **PUT**, and **PATCH**. | No |
-| additionalHeaders | Additional HTTP request headers. | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| additionalHeaders | Other HTTP request headers. | No |
+| httpRequestTimeout | The time-out (the **TimeSpan** value) for the HTTP request to get a response. This value is the time-out to get a response, not the time-out to write the data. The default value is **00:01:40**.  | No |
 | requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
 | httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
 | writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
@@ -556,8 +556,8 @@ REST is supported in data flows for both integration datasets and inline dataset
 |:--- |:--- |:--- |
 | requestMethod | The HTTP method. Allowed values are **GET** and **POST**. | Yes |
 | relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
-| additionalHeaders | Additional HTTP request headers. | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| additionalHeaders | Other HTTP request headers. | No |
+| httpRequestTimeout | The time-out (the **TimeSpan** value) for the HTTP request to get a response. This value is the time-out to get a response, not the time-out to write the data. The default value is **00:01:40**.  | No |
 | requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is user-defined, which references one query parameter name in the next HTTP request URL. | No |
 
@@ -565,8 +565,8 @@ REST is supported in data flows for both integration datasets and inline dataset
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| additionalHeaders | Additional HTTP request headers. | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| additionalHeaders | Other HTTP request headers. | No |
+| httpRequestTimeout | The time-out (the **TimeSpan** value) for the HTTP request to get a response. This value is the time-out to get a response, not the time-out to write the data. The default value is **00:01:40**.  | No |
 | requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
 | httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
 | writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
@@ -577,7 +577,7 @@ You can set the delete, insert, update, and upsert methods as well as the relati
 
 ## Sample data flow script
 
-Notice the use of an alter row transformation prior to the sink to instruct ADF what type of action to take with your REST sink. I.e. insert, update, upsert, delete.
+Notice the use of an alter row transformation before the sink to instruct ADF what type of action to take with your REST sink. That is, insert, update, upsert, delete.
 
 ```
 AlterRow1 sink(allowSchemaDrift: true,
@@ -631,12 +631,12 @@ This generic REST connector supports the following pagination patterns:
 | Value | Description |
 |:--- |:--- |
 | Headers.*response_header* OR Headers['response_header'] | "response_header" is user-defined, which references one header name in the current HTTP response, the value of which will be used to issue next request. |
-| A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object and the array of object as the response body is not supported. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
+| A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object and the array of object as the response body isn't supported. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
 
 >[!NOTE]
 > The pagination rules in mapping data flows is different from it in copy activity in the following aspects:
->1. Range is not supported in mapping data flows.
->2. `['']` is not supported in mapping data flows. Instead, use `{}` to escape special character. For example, `body.{@odata.nextLink}`, whose JSON node `@odata.nextLink` contains special character `.` .
+>1. Range isn't supported in mapping data flows.
+>2. `['']` isn't supported in mapping data flows. Instead, use `{}` to escape special character. For example, `body.{@odata.nextLink}`, whose JSON node `@odata.nextLink` contains special character `.` .
 >3. The end condition is supported in mapping data flows, but the condition syntax is different from it in copy activity. `body` is used to indicate the response body instead of `$`. `header` is used to indicate the response header instead of `headers`. Here are two examples showing this difference:  
 >    - Example 1:  
 >      Copy activity: **"EndCondition:$.data": "Empty"**  
@@ -702,22 +702,25 @@ or
 
 This example provides the configuration steps to send multiple requests whose variables are in Headers.
 
-**Multiple requests:**<br/>
-RequestUrl: *https://example/table*<br/> 
-Request 1: `Header(id->0)`<br/>
-Request 2: `Header(id->10)`<br/>
-......<br/>
-Request 100: `Header(id->100)`<br/>
+**Multiple requests:**
+
+```
+RequestUrl: https://example/table
+Request 1: Header(id->0)
+Request 2: Header(id->10)
+......
+Request 100: Header(id->100)
+```
 
 *Step 1*: Input `{id}` in **Additional headers**.
-    
+
 *Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RANGE:0:100:10"**.
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-3.png" alt-text="Screenshot showing the pagination rule to send multiple requests whose variables are in Headers."::: 
 
-#### Example 4：Variables are in AbsoluteUrl/QueryParameters/Headers, the end variable is not pre-defined and the end condition is based on the response
+#### Example 4：Variables are in AbsoluteUrl/QueryParameters/Headers, the end variable isn't predefined and the end condition is based on the response
 
-This example provides configuration steps to send multiple requests whose variables are in AbsoluteUrl/QueryParameters/Headers but the end variable is not defined. For different responses, different end condition rule settings are shown in Example 4.1-4.6.
+This example provides configuration steps to send multiple requests whose variables are in AbsoluteUrl/QueryParameters/Headers but the end variable isn't defined. For different responses, different end condition rule settings are shown in Example 4.1-4.6.
 
 **Multiple requests:**
 
@@ -780,7 +783,7 @@ Response 2：
     ```json
     {}
     ```
-    Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response does not exist.
+    Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response doesn't exist.
         
     :::image type="content" source="media/connector-rest/pagination-rule-example-4-2.png" alt-text="Screenshot showing the End Condition setting for Example 4.2."::: 
 
@@ -860,9 +863,9 @@ Response 2：
 
     :::image type="content" source="media/connector-rest/pagination-rule-example-4-6.png" alt-text="Screenshot showing the End Condition setting for Example 4.6."::: 
 
-#### Example 5：Set end condition to avoid endless requests when range rule is not defined
+#### Example 5：Set end condition to avoid endless requests when range rule isn't defined
 
-This example provides the configuration steps to send multiple requests when the range rule is not used. The end condition can be set refer to Example 4.1-4.6 to avoid endless requests. The REST API returns response in the following structure, in which case next page's URL is represented in ***paging.next***.
+This example provides the configuration steps to send multiple requests when the range rule isn't used. The end condition can be set refer to Example 4.1-4.6 to avoid endless requests. The REST API returns response in the following structure, in which case next page's URL is represented in ***paging.next***.
 
 ```json
 {
@@ -985,7 +988,7 @@ The pagination rule syntax is the same as in Example 8 and should be set as belo
 
 ## Export JSON response as-is
 
-You can use this REST connector to export REST API JSON response as-is to various file-based stores. To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
+You can use the REST connector to export a REST API's JSON response as-is to various file-based storage systems (sinks). To enable this schema-agnostic copy behavior, use default schema mapping (don’t define any mapping in the Copy Activity's Mapping tab.)
 
 ## Schema mapping
 

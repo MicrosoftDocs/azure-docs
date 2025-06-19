@@ -5,10 +5,9 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 12/04/2024
+ms.date: 06/13/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.reviewer: fryu
+ms.topic: concept-article
 ---
 
 # Access tiers for blob data
@@ -45,7 +44,7 @@ To learn how to move a blob to the hot, cool, or cold tier, see [Set a blob's ac
 Data in the cool and cold tiers have slightly lower availability, but offer the same high durability, retrieval latency, and throughput characteristics as the hot tier. For data in the cool or cold tiers, slightly lower availability and higher access costs may be acceptable trade-offs for lower overall storage costs, as compared to the hot tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 Blobs are subject to an early deletion penalty if they are deleted, overwritten or moved to a different tier before the minimum number of days required by the tier have transpired. For example, a blob in the cool tier in a general-purpose v2 account is subject to an early deletion penalty if it's deleted or moved to a different tier before 30 days has elapsed. For a blob in the cold tier, the deletion penalty applies if it's deleted or moved to a different tier before 90 days has elapsed. This charge is prorated. For example, if a blob is moved to the cool tier and then deleted after 21 days, you'll be charged an early deletion fee equivalent to 9 (30 minus 21) days of storing that blob in the cool tier.
-Early deletion charges also occur if the entire object is rewritten through any operation (i.e. Put Blob, Put Block List, or Copy Blob) within the specified time window.
+Early deletion charges also occur if the entire object is rewritten through any operation (i.e. Put Blob, Put Block List, or Copy Blob) within the specified time window. This charge is prorated based on the data storage price of the corresponding tier, i.e. deleting an archived blob after 120 days will lead to this object being charged for 180 days. 
 
 > [!NOTE]
 > In an account that has soft delete enabled, a blob is considered deleted after it is deleted and retention period expires. Until that period expires, the blob is only  _soft-deleted_ and is not subject to the early deletion penalty.
@@ -93,7 +92,7 @@ Migrating a storage account from LRS to GRS is supported as long as no blobs wer
 
 ## Default account access tier setting
 
-Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot or cool. Users can override the default setting for an individual blob when uploading the blob or changing its tier.
+Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot, cool or cold. Users can override the default setting for an individual blob when uploading the blob or changing its tier.
 
 The default access tier for a new general-purpose v2 storage account is set to the hot tier by default. You can change the default access tier setting when you create a storage account or after it's created. If you don't change this setting on the storage account or explicitly set the tier when uploading a blob, then a new blob is uploaded to the hot tier by default.
 
@@ -123,7 +122,10 @@ Changing a blob's tier from a warmer tier to a cooler one is instantaneous, as i
 
 Keep in mind the following points when changing a blob's tier:
 
-- You can't call **Set Blob Tier** on a blob that uses an encryption scope. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
+- You can't use **Set Blob Tier** to archive a a blob that uses an encryption scope. You can only use **Set Blob Tier** to move between online access tiers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
+ 
+- If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
+
 - If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
 
 ## Blob lifecycle management

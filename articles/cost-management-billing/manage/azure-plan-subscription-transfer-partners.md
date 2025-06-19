@@ -1,13 +1,13 @@
 ---
 title: Transfer subscriptions under an Azure plan from one partner to another
 description: This article helps you understand what you need to know before and after you transfer billing ownership of your Azure subscription.
-author: bandersmsft
-ms.reviewer: mcville
+author: kendayMS
+ms.reviewer: macyso
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 05/29/2025
+ms.author: macyso
 ---
 
 # Transfer subscriptions under an Azure plan from one partner to another

@@ -1,13 +1,15 @@
 ---
+ROBOTS: NOINDEX
 title: Media streaming optimization with Azure Content Delivery Network
 description: Learn about options to optimize streaming media in Azure Content Delivery Network, such as partial cache sharing and cache fill wait time.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+# Customer intent: As a media content manager, I want to optimize media streaming delivery through a content delivery network, so that I can ensure smooth playback and minimize latency for live and on-demand viewers worldwide.
 ---
 
 # Media streaming optimization with Azure Content Delivery Network
@@ -32,18 +34,3 @@ The general media delivery or video-on-demand media delivery optimization types 
 
 Partial cache sharing allows the content delivery network to serve partially cached content to new requests. For example, if the first request to the content delivery network results in a cache miss, the request is sent to the origin. Although this incomplete content is loaded into the content delivery network cache, other requests to the content delivery network can start getting this data.
 
-<a name='media-streaming-optimizations-for-azure-cdn-from-verizon'></a>
-
-<a name='media-streaming-optimizations-for-azure-cdn-from-edgio'></a>
-
-## Media streaming optimizations for Azure Content Delivery Network from Edgio
-
-**Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** endpoints deliver streaming media assets directly by using the general web delivery optimization type. A few features on the content delivery network directly help delivering media assets by default.
-
-### Partial cache sharing
-
-Partial cache sharing allows the content delivery network to serve partially cached content to new requests. For example, if the first request to the content delivery network results in a cache miss, the request is sent to the origin. Although this incomplete content is loaded into the content delivery network cache, other requests to the content delivery network can start getting this data.
-
-### Cache fill wait time
-
-The cache fill wait time feature forces the edge server to hold any subsequent requests for the same resource until HTTP response headers arrive from the origin server. If HTTP response headers from the origin arrive before the timer expires, all requests that were put on hold are served out of the growing cache. At the same time, the cache is filled by data from the origin. By default, the cache fill wait time is set to 3,000 milliseconds.

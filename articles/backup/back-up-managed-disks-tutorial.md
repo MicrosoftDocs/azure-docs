@@ -2,10 +2,10 @@
 title: Tutorial - Back up Azure Managed Disks using Azure Backup
 description: In this tutorial, learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: tutorial
-ms.date: 06/11/2024
+ms.date: 06/11/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: Back up Azure Managed Disks using Azure Backup
@@ -197,4 +197,4 @@ To run an on-demand disk backup, follow these steps:
 
 ## Next step
 
-- [Restore Azure Managed Disks](restore-managed-disks.md)
+- Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).

@@ -2,12 +2,14 @@
 title: Quickstart - Create an Azure Content Delivery Network profile and endpoint
 titleSuffix: Azure Content Delivery Network
 description: This quickstart shows how to enable Azure Content Delivery Network by creating a new content delivery network profile and content delivery network endpoint.
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: As a website administrator, I want to create a content delivery network profile and endpoint, so that I can efficiently deliver content to my users and improve load times for my web applications.
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint
@@ -37,8 +39,6 @@ After you've created a content delivery network profile, you use it to create an
 
 1. On the content delivery network profile page, select **+ Endpoint**.
 
-    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-select-endpoint.png" alt-text="Screenshot of create Content Delivery Network endpoint.":::
-
     The **Add an endpoint** pane appears.
 
 3. Enter the following setting values:
@@ -54,16 +54,11 @@ After you've created a content delivery network profile, you use it to create an
     | **Origin port** | Leave the default port values. |
     | **Optimized for** | Leave the default selection, **General web delivery**. |
 
-    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-add-endpoint.png" alt-text="Add endpoint pane.":::
-
 3. Select **Add** to create the new endpoint. After the endpoint is created, it appears in the list of endpoints for the profile.
 
     :::image type="content" source="./media/cdn-create-new-endpoint/cdn-endpoint-success.png" alt-text="View added endpoint.":::
 
-   The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Microsoft** usually completes within one minute in 10 minutes, and **Standard Edgio** and **Premium Edgio** in up to 30 minutes.
-
-> [!NOTE]
-> For *Edgio CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Edgio supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make the configuration change again.
+    It can take up to ten minutes for the endpoint to propagate and be ready to serve content.
 
 ## Clean up resources
 

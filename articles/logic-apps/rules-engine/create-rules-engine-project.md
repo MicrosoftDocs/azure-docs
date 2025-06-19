@@ -7,18 +7,17 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to learn how to create an Azure Logic Apps Rules Engine project using Visual Studio Code so that I can integrate business rules with my Standard logic app workflows.
+ms.custom:
+  - build-2025
 ---
 
-# Create an Azure Logic Apps Rules Engine project using Visual Studio Code (Preview)
+# Create an Azure Logic Apps Rules Engine project using Visual Studio Code
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When you want to integrate business logic with your Standard workflows in Azure Logic Apps, you can create and build an Azure Logic Apps Rules Engine project using Visual Studio Code. Rules govern the business logic for how business processes work.
 
@@ -98,7 +97,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
 
    This example continues with **MyLogicAppRulesWorkspace**.
 
-1. When the **Select a project template for your logic app workspace** prompt box appears, select **Logic app with rules engine project (preview)**.
+1. When the **Select a project template for your logic app workspace** prompt box appears, select **Logic app with rules engine project**.
 
    :::image type="content" source="media/create-rules-engine-project/project-template.png" alt-text="Screenshot shows Visual Studio Code with prompt to select project template for logic app workspace." lightbox="media/create-rules-engine-project/project-template.png":::
 
@@ -107,7 +106,8 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    | Item | Example value |
    |------|---------------|
    | Function name for functions project | **RulesFunction** |
-   | Namespace name for functions project | **Contoso.Enterprise** |
+   | Namespace name for functions project | **Contoso** |
+   | Logic App: | **LogicApp** |
    | Workflow template: <br>- **Stateful Workflow** <br>- **Stateless Workflow** | **Stateful Workflow** |
    | Workflow name | **MyRulesWorkflow** |
 
@@ -144,127 +144,151 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    //------------------------------------------------------------
    // Copyright (c) Microsoft Corporation. All rights reserved.
    //------------------------------------------------------------
-
-   namespace Contoso.Enterprise
+    
+   namespace Contoso
    {
-       using System;
-       using System.Collections.Generic;
-       using System.Threading.Tasks;
-       using Microsoft.Azure.Functions.Extensions.Workflows;
-       using Microsoft.Azure.WebJobs;
-       using Microsoft.Azure.Workflows.RuleEngine;
-       using Microsoft.Extensions.Logging;
-       using System.Xml;
-
-       /// <summary>
-       /// Represents the RulesFunction flow invoked function.
-       /// </summary>
-       public class RulesFunction
-       {
-           private readonly ILogger<RulesFunction> logger;
-
-           public RulesFunction(ILoggerFactory loggerFactory)
-           {
-               logger = loggerFactory.CreateLogger<RulesFunction>();
-           }
-
-           /// <summary>
-           /// Execute the logic app workflow.
-           /// </summary>
-           /// <param name="ruleSetName">The ruleset name.</param>
-           /// <param name="documentType">The document type for the input XML.</param>
-           /// <param name="inputXml">The input XML type fact.</param>
-           /// <param name="purchaseAmount">The purchase amount value used to create a .NET fact.</param>
-           /// <param name="zipCode">The zip code value used to create a .NET fact.</param>
-           [FunctionName("RulesFunction")]
-           public Task<RuleExecutionResult> RunRules([WorkflowActionTrigger] string ruleSetName, string documentType, string inputXml, int purchaseAmount, string zipCode)
-           {
-               /***** Summary of steps below *****
-               * 1. Get the ruleset to execute.
-               * 2. Check if the ruleset was successfully retrieved.
-               * 3. Create the rules engine object.
-               * 4. Create TypedXmlDocument facts for all XML document facts.
-               * 5. Initialize .NET facts.
-               * 6. Execute rules engine.
-               * 7. Retrieve relevant updates facts and send them back.
-               */
-           
-               try
-               {
-                   // Get the ruleset based on the ruleset name.
-                    var ruleExplorer = new FileStoreRuleExplorer();
-                    var ruleSet = ruleExplorer.GetRuleSet(ruleSetName);
-
-                   // Check if ruleset exists.
-                   if(ruleSet == null)
-                   {
-                       // Log an error if ruleset not found.
-                       this.logger.LogCritical($"RuleSet instance for '{ruleSetName}' was not found(null)");
-                       throw new Exception($"RuleSet instance for '{ruleSetName}' was not found.");
-                   }
-
-                   // Create rules engine instance.
-                   var ruleEngine = new RuleEngine(ruleSet: ruleSet);
-
-                   // Create one or more typedXmlDocument facts from one or more input XML documents.
-                   XmlDocument doc = new XmlDocument();
-                   doc.LoadXml(inputXml);
-                   var typedXmlDocument = new TypedXmlDocument(documentType, doc);
-
-                   // Initialize .NET facts.
-                   var currentPurchase = new ContosoNamespace.ContosoPurchase(purchaseAmount, zipCode);
-
-                   // Provide facts and run the rules engine.
-                   ruleEngine.Execute(new object[] { typedXmlDocument, currentPurchase });
-
-                   // Send back the relevant results (facts).
-                   var updatedDoc = typedXmlDocument.Document as XmlDocument;
-                   var ruleExecutionOutput = new RuleExecutionResult()
-                   {
-                       XmlDoc = updatedDoc.OuterXml,
-                       PurchaseAmountPostTax = currentPurchase.PurchaseAmount + currentPurchase.GetSalesTax()
-                   };
-
-                   return Task.FromResult(ruleExecutionOutput);
-               }
-               catch(RuleEngineException ruleEngineException)
-               {
-                   // Log any rules engine exceptions.
-                   this.logger.LogCritical(ruleEngineException.ToString());
-                   throw;
-               }
-           }
-
-           /// <summary>
-           /// Results from rules execution
-           /// </summary>
-           public class RuleExecutionResult
-           {
-               /// <summary>
-               /// Rules updated XML document
-               /// </summary>
-               public string XmlDoc { get; set;}
-
-               /// <summary>
-               /// Purchase amount after tax
-               /// </summary>
-               public int PurchaseAmountPostTax { get; set;}
-           }
-       }
+        using System;
+        using System.Collections.Generic;
+        using System.Threading.Tasks;
+        using Microsoft.Azure.Functions.Extensions.Workflows;
+        using Microsoft.Azure.WebJobs;
+        using Microsoft.Azure.Workflows.RuleEngine;
+        using Microsoft.Azure.Workflows.RuleEngine.Common;
+        using Microsoft.Extensions.Logging;
+        using System.Xml;
+        using System.Text;
+    
+        /// <summary>
+        /// Represents the RulesFunction flow invoked function.
+        /// </summary>
+        public class RulesFunction
+        {
+            private readonly ILogger<RulesFunction> logger;
+    
+            private FileStoreRuleExplorer ruleExplorer;
+    
+            public RulesFunction(ILoggerFactory loggerFactory)
+            {
+                logger = loggerFactory.CreateLogger<RulesFunction>();
+                this.ruleExplorer = new FileStoreRuleExplorer(loggerFactory); 
+            }
+    
+            /// <summary>
+            /// Executes the logic app workflow.
+            /// </summary>
+            /// <param name="ruleSetName">The rule set name.</param>
+            /// <param name="documentType">document type of input xml.</param>
+            /// <param name="inputXml">input xml type fact</param>
+            /// <param name="purchaseAmount">purchase amount, value used to create .NET fact </param>
+            /// <param name="zipCode">zip code value used to create .NET fact .</param>
+            [FunctionName("RulesFunction")]
+            public Task<RuleExecutionResult> RunRules(
+                [WorkflowActionTrigger] string ruleSetName, 
+                string documentType, 
+                string inputXml, 
+                int purchaseAmount, 
+                string zipCode)
+            {
+            /***** Summary of steps below *****
+                 * 1. Get the rule set to Execute 
+                 * 2. Check if the rule set was retrieved successfully
+                 * 3. create the rule engine object
+                 * 4. Create TypedXmlDocument facts for all xml document facts
+                 * 5. Initialize .NET facts
+                 * 6. Execute rule engine
+                 * 7. Retrieve relevant updates facts and send them back
+            */
+                
+                try
+                {
+                    var ruleSet = this.ruleExplorer.GetRuleSet(ruleSetName);
+    
+                    // Check if ruleset exists
+                    if(ruleSet == null)
+                    {
+                        // Log an error in finding the rule set
+                        this.logger.LogCritical($"RuleSet instance for '{ruleSetName}' was not found(null)");
+                        throw new Exception($"RuleSet instance for '{ruleSetName}' was not found.");
+                    }             
+    
+                    // Create rule engine instance
+                    var ruleEngine = new RuleEngine(ruleSet: ruleSet);
+    
+                    // Create a typedXml Fact(s) from input xml(s)
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(inputXml);
+                    var typedXmlDocument = new TypedXmlDocument(documentType, doc);
+    
+                    // Initialize .NET facts
+                    var currentPurchase = new ContosoNamespace.ContosoPurchase(purchaseAmount, zipCode);
+    
+                    // Provide facts to rule engine and run it
+                    ruleEngine.Execute(new object[] { typedXmlDocument, currentPurchase });
+    
+                    // Send the relevant results(facts) back
+                    var updatedDoc = typedXmlDocument.Document as XmlDocument;
+                    var ruleExectionOutput = new RuleExecutionResult()
+                    {
+                        XmlDoc = updatedDoc.OuterXml,
+                        PurchaseAmountPostTax = currentPurchase.PurchaseAmount + currentPurchase.GetSalesTax()
+                    };
+    
+                    return Task.FromResult(ruleExectionOutput);
+                }
+                catch(RuleEngineException ruleEngineException)
+                {
+                    // Log any rule engine exceptions
+                    this.logger.LogCritical(ruleEngineException.ToString());
+                    throw;
+                }
+                catch(XmlException xmlException)
+                {
+                    // Log any xml exceptions
+                    this.logger.LogCritical("Encountered exception while handling xml. " + xmlException.ToString());
+                    throw;
+                }
+                catch(Exception ex)
+                {
+                    // Log any other exceptions
+                    this.logger.LogCritical(ex.ToString());
+                    throw;
+                }
+            }
+    
+            /// <summary>
+            /// Results of the rule execution
+            /// </summary>
+            public class RuleExecutionResult
+            {
+                /// <summary>
+                /// rules updated xml document
+                /// </summary>
+                public string XmlDoc { get; set;}
+    
+                /// <summary>
+                /// Purchase amount post tax
+                /// </summary>
+                public int PurchaseAmountPostTax { get; set;}
+            }
+        }
    }
    ```
 
    The function definition for **`RulesFunction`** includes a default **`RunRules`** method that you can use to get started. This sample **`RunRules`** method shows how to pass parameters to the Azure Logic Apps Rules Engine. In this example, the method passes the ruleset name, the input document type, an XML fact, and other values for further processing.
 
-   The **<*function-name*>.cs** file also includes the **`ILogger`** interface, which provides support for logging events to an Application Insights resource. You can send tracing information to Application Insights and store that information alongside the trace information from your workflows, for example:
+   The **<*function-name*>.cs** file also includes the **`ILogger`** interface, which provides support for logging events to an Application Insights resource. You can send tracing information to Application Insights and store that information alongside the trace information from your workflows. The **<*function-name*>.cs** file also includes the **`FileStoreRuleExplorer`** object that accesses the ruleset. As you can observe, the constructor for the **`FileStoreRuleExplorer`** uses the **`loggerFactory`** to send telemetry information also to Application Insights:
 
    ```csharp
    private readonly ILogger<RulesFunction> logger;
 
-       public RulesFunction(ILoggerFactory loggerFactory)
-       {
-           logger = loggerFactory.CreateLogger<RulesFunction>();
-       }
+   private FileStoreRuleExplorer ruleExplorer;
+
+   public RulesFunction(ILoggerFactory loggerFactory)
+        {
+            logger = loggerFactory.CreateLogger<RulesFunction>();
+            this.ruleExplorer = new FileStoreRuleExplorer(loggerFactory); 
+        }
+
        <...>
 
    ```
@@ -275,18 +299,17 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    
       For this example, the ruleset file is called **`SampleRuleSet.xml`**, which was created using either the **Microsoft Rules Composer** or exported using **Microsoft BizTalk Server**.
 
-      ```csharp
-      var ruleExplorer = new FileStoreRuleExplorer();
-      var ruleSet = ruleExplorer.GetRuleSet(ruleSetName);
-
-      // Check if the ruleset exists.
-      if(ruleSet == null)
-      {
-          // Log an error if the ruleset isn't found.
-          this.logger.LogCritical($"RuleSet instance for '{ruleSetName}' was not found(null)");
-          throw new Exception($"RuleSet instance for '{ruleSetName}' was not found.");
-      }
-      ```
+   ```csharp
+   var ruleSet = this.ruleExplorer.GetRuleSet(ruleSetName);
+   
+   // Check if ruleset exists
+   if(ruleSet == null)
+   {
+   // Log an error in finding the rule set
+     this.logger.LogCritical($"RuleSet instance for '{ruleSetName}' was not found(null)");
+     throw new Exception($"RuleSet instance for '{ruleSetName}' was not found.");
+   }             
+   ```
 
       > [!IMPORTANT]
       >
@@ -302,36 +325,32 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
 
       After the engine runs, the facts' values are overwritten with the values that result from the engine execution:
 
-      ```csharp
-      // Create rules engine instance.
-      var ruleEngine = new RuleEngine(ruleSet: ruleSet);
-
-      // Create one or more typedXml facts from one or more input XML documents.
-      XmlDocument doc = new XmlDocument();
-      doc.LoadXml(inputXml);
-      var typedXmlDocument = new TypedXmlDocument(documentType, doc);
-
-      // Initialize .NET facts.
-      var currentPurchase = new ContosoNamespace.ContosoPurchase(purchaseAmount, zipCode);
-
-      // Provide facts and run the rules engine.
-      ruleEngine.Execute(new object[] { typedXmlDocument, currentPurchase });
-
-      // Send back the relevant results (facts).
+   ```csharp
+   // Create rule engine instance
+   var ruleEngine = new RuleEngine(ruleSet: ruleSet);
+   // Create a typedXml Fact(s) from input xml(s)
+   XmlDocument doc = new XmlDocument();
+   doc.LoadXml(inputXml);
+   var typedXmlDocument = new TypedXmlDocument(documentType, doc);
+   // Initialize .NET facts
+   var currentPurchase = new ContosoNamespace.ContosoPurchase(purchaseAmount, zipCode);
+   // Provide facts to rule engine and run it
+   ruleEngine.Execute(new object[] { typedXmlDocument, currentPurchase });
+   // Send the relevant results(facts) back
       var updatedDoc = typedXmlDocument.Document as XmlDocument;
-      ```
+   ```
 
    1. The engine uses the **`RuleExecutionResult`** custom class to return the values to the **`RunRules`** method:
 
-      ```csharp
-      var ruleExecutionOutput = new RuleExecutionResult()
-      {
-          XmlDoc = updatedDoc.OuterXml,
-          PurchaseAmountPostTax = currentPurchase.PurchaseAmount + currentPurchase.GetSalesTax()
-      };
-
-      return Task.FromResult(ruleExecutionOutput);
-      ```
+   ```csharp
+   var ruleExectionOutput = new RuleExecutionResult()
+                {
+                    XmlDoc = updatedDoc.OuterXml,
+                    PurchaseAmountPostTax = currentPurchase.PurchaseAmount + currentPurchase.GetSalesTax()
+                };
+   
+                return Task.FromResult(ruleExectionOutput);
+   ```
 
    1. Replace the sample function code with your own, and edit the default **`RunRules`** method for your own scenarios.
 
@@ -419,10 +438,6 @@ After you confirm that your code compiles and that your logic app rules engine p
 
    The **Terminal** window opens and shows the started debugging process. The **Debug Console** window then appears and shows the debugging statuses. At the bottom of Visual Studio Code, the task bar turns orange, indicating that the .NET debugger is loaded.
 
-1. From the **Run and Debug** list, select **Attach to .NET Functions (Functions)**, and then select **Play** (green arrow).
-
-   :::image type="content" source="media/create-rules-engine-project/attach-debugger-net-functions.png" alt-text="Screenshot shows Run and Debug list with Attach to NET Functions selected and Play button selected." lightbox="media/create-rules-engine-project/attach-debugger-net-functions.png":::
-
 1. To set any breakpoints, in your function definition (**<*function-name*>.cs**) or workflow definition (**workflow.json**), find the line number where you want the breakpoint, and select the column to the left side, for example:
 
    :::image type="content" source="media/create-rules-engine-project/set-breakpoint.png" alt-text="Screenshot shows Visual Studio Code and the open function code file with a breakpoint set for a line in code." lightbox="media/create-rules-engine-project/set-breakpoint.png":::
@@ -446,6 +461,10 @@ After you confirm that your code compiles and that your logic app rules engine p
 1. To review more information about the workflow run, select the finished run. Or, from the list next to the **Duration** column, select **Show run**.
 
    :::image type="content" source="media/create-rules-engine-project/workflow-run-history.png" alt-text="Screenshot shows Visual Studio Code and finished workflow run." lightbox="media/create-rules-engine-project/workflow-run-history.png":::
+
+1. To deploy your logic apps with the Rules Engine project to Azure Logic Apps, follow the steps at [Prepare for deployment](../create-standard-workflows-visual-studio-code.md#prepare-for-deployment).
+
+   
 
 ## Related content
 

@@ -2,11 +2,11 @@
 title: Reverse DNS for Azure services - Azure DNS
 description: With this learning path, get started configuring reverse DNS lookups for services hosted in Azure.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 09/11/2024
-ms.author: greglin
+ms.date: 04/21/2025
+ms.author: allensu
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-This article explains how to configure reverse DNS lookups for services hosted in Azure.
+This article explains how to configure reverse DNS lookups for services hosted in Azure. To host and configure reverse DNS for public IP address ranges assigned to you by your ISP, see [Host reverse DNS lookup zones in Azure DNS](dns-reverse-dns-hosting.md).
 
 Services in Azure use IP addresses assigned by Azure and owned by Microsoft. These reverse DNS records (PTR records) must be created in the corresponding Microsoft-owned reverse DNS lookup zones.
 
@@ -32,12 +32,12 @@ A third party shouldn't have access to create reverse DNS records for Azure serv
 
 Validation is only done when the reverse DNS record is set or modified. Periodic revalidation isn't done.
 
-For example, suppose the public IP address resource has the DNS name `contosoapp1.northus.cloudapp.azure.com` and IP address `23.96.52.53`. The reverse FQDN for the public IP address can be specified as:
+For example, suppose the public IP address resource has the DNS name `contosoapp1.northus.cloudapp.azure.com` and IP address `A.B.C.D`. The reverse FQDN for the public IP address can be specified as:
 
 * The DNS name for the public IP address: `contosoapp1.northus.cloudapp.azure.com`.
 * The DNS name for a different PublicIpAddress in the same subscription, such as: `contosoapp2.westus.cloudapp.azure.com`.
 * A vanity DNS name, such as: `app1.contoso.com`. As long as the name is *first* configured as a CNAME pointing to `contosoapp1.northus.cloudapp.azure.com`. The name can also be pointed to a different public IP address in the same subscription.
-* A vanity DNS name, such as: `app1.contoso.com`. As long as this name is *first* configured as an A record pointing to the IP address 23.96.52.53. The name can also be pointed to another IP address in the same subscription.
+* A vanity DNS name, such as: `app1.contoso.com`. As long as this name is *first* configured as an A record pointing to the IP address A.B.C.D. The name can also be pointed to another IP address in the same subscription.
 
 The same constraints apply to reverse DNS for Cloud Services.
 
@@ -241,7 +241,7 @@ No. Azure supports a single reverse DNS record for each Azure Cloud Service or P
 
 ### Can I configure reverse DNS for IPv6 PublicIpAddress resources?
 
-No. Azure DNS does not currently support reverse DNS (PTR records) for public IPv6 addresses.
+No. Azure DNS does not currently support reverse DNS (PTR records) for Azure-owned public IPv6 addresses. To configure reverse DNS for IPv6 addresses issued to you by your ISP, see [Host reverse DNS lookup zones in Azure DNS](dns-reverse-dns-hosting.md).
 
 ### Can I send emails to external domains from my Azure Compute services?
 

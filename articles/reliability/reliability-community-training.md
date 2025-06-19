@@ -15,7 +15,7 @@ ms.subservice: azure-reliability
 
 Microsoft Community Training is an Azure-powered cloud-based solution that can deliver large-scale, far-spread training programs with high quality and efficiency. With Community Training, organizations of all sizes and types can run large scale training programs for their internal and external communities. Communities can include frontline workers, extended workforces, a partner ecosystem, a volunteer network, and program beneficiaries. 
 
-This article describes reliability support in Community Training, and covers  both regional resiliency with [availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli) and [disaster recovery and business continuity](/azure/reliability/disaster-recovery-overview). For a more detailed overview of a reliability principle in Azure, see [Azure reliability](/azure/reliability/overview).
+This article describes reliability support in Community Training, and covers  both regional resiliency with [availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli) and disaster recovery and business continuity. For a more detailed overview of a reliability principle in Azure, see [Azure reliability](/azure/reliability/overview).
 
 ## Availability zone support
 
@@ -81,7 +81,7 @@ The Microsoft Community Training team manages the entire disaster recovery proce
 
 
 >[!NOTE]
-> RTO depends on database and storage size, latency between the paired region. Database or storage VM capacity (SKU). RPO depends on underlying Azure resources, such as [Azure SQL](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal&preserve-view=true#geo-restore-considerations) and Azure storage. For more information on RTO and RPO, see [Overview of Disaster Recovery](./disaster-recovery-overview.md).
+> RTO depends on database and storage size, and latency between the paired regions. Database or storage VM capacity (SKU). RPO depends on underlying Azure resources, such as [Azure SQL](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal&preserve-view=true#geo-restore-considerations) and Azure storage. For more information on RTO and RPO, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).
 
 
 #### Outage detection, notification, and management

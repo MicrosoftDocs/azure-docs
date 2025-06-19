@@ -8,7 +8,7 @@ manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 06/28/2024
+ms.date: 05/23/2025
 ms.author: mbaldwin
 
 ---
@@ -103,11 +103,11 @@ In the [Azure portal](https://portal.azure.com), [reports](../../active-director
 
 #### Consumer identity and access management
 
-[Azure Active Directory B2C](../../active-directory-b2c/overview.md) is a highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can log on to all your applications through customizable experiences by using their existing social accounts or by creating new credentials.
+ [Microsoft Entra External ID](../../active-directory/external-identities/external-identities-overview.md) is a highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can log on to all your applications through customizable experiences by using their existing social accounts or by creating new credentials.
 
-In the past, application developers who wanted to sign up and sign in consumers into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Active Directory B2C offers your organization a better way to integrate consumer identity management into applications with the help of a secure, standards-based platform, and a large set of extensible policies.
+In the past, application developers who wanted to sign up and sign in consumers into their applications would have written their own code. And they would have used on-premises databases or systems to store usernames and passwords. Azure Microsoft Entra External ID offers your organization a better way to integrate consumer identity management into applications with the help of a secure, standards-based platform, and a large set of extensible policies.
 
-When you use Azure Active Directory B2C, your consumers can sign up for your applications by using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address and password, or username and password).
+When you use Microsoft Entra External ID, your consumers can sign up for your applications by using their existing social accounts (Facebook, Google, Amazon, LinkedIn) or by creating new credentials (email address and password, or username and password).
 
 #### Device registration
 
@@ -186,7 +186,7 @@ You can learn more about Azure VPN option by reading the article [Planning and d
 While Azure is responsible for securing the infrastructure and platform that your application runs on, it is your responsibility to secure your application itself. In other words, you need to develop, deploy, and manage your application code and content in a secure way. Without this, your application code or content can still be vulnerable to threats.
 
 ### Web application firewall
-[Web application firewall (WAF)](../../web-application-firewall/ag/ag-overview.md) is a feature of [Application Gateway](../../application-gateway/overview.md) that provides centralized protection of your web applications from common exploits and vulnerabilities.
+[Web application firewall (WAF)](../../web-application-firewall/overview.md) is a feature of [Application Gateway](../../application-gateway/overview.md) and [Azure Front Door](../../frontdoor/front-door-overview.md) that provides centralized protection of your web applications from common exploits and vulnerabilities.
 
 Web application firewall is based on rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/). Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
 
@@ -207,7 +207,7 @@ Some of the common web vulnerabilities which web application firewall protects a
 - Detection of common application misconfigurations (that is, Apache, IIS, etc.)
 
 > [!Note]
-> For a more detailed list of rules and their protections see the following [Core rule sets](../../web-application-firewall/ag/ag-overview.md).
+> For a more detailed list of rules and their protections see the following core rule sets for [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) and [Azure Front Door](../../web-application-firewall/afds/afds-overview.md).
 
 Azure provides several easy-to-use features to help secure both inbound and outbound traffic for your app. Azure helps customers secure their application code by providing externally provided functionality to scan your web application for vulnerabilities. See [Azure App Services](../../app-service/overview.md) to learn more.
 
@@ -224,7 +224,7 @@ If you need basic network level access control (based on IP address and the TCP 
 
 [Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
-Azure Firewall is offered in two SKUs: Standard and Premium. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
+Azure Firewall is offered in three SKUs: Basic, Standard and Premium. [Azure Firewall Basic](../../firewall/basic-features.md) offers simplified security similar to the Standard SKU but without advanced features. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
 
 Azure networking supports the ability to customize the routing behavior for network traffic on your Azure Virtual Networks. You can do this by configuring [User-Defined Routes](../../virtual-network/virtual-networks-udr-overview.md) in Azure.
 

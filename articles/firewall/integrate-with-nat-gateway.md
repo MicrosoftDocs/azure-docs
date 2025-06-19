@@ -2,12 +2,13 @@
 title: Scale SNAT ports with Azure NAT Gateway
 description: You can integrate Azure Firewall with a NAT gateway to increase SNAT ports.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 10/25/2023
-ms.author: victorh 
+ms.date: 01/31/2025
+ms.author: duau 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a network architect, I want to integrate Azure NAT Gateway with Azure Firewall, so that I can efficiently scale SNAT ports to accommodate high outbound traffic demands without compromising on IP address management.
 ---
 
 # Scale SNAT ports with Azure NAT Gateway
@@ -23,9 +24,9 @@ When a NAT gateway resource is associated with an Azure Firewall subnet, all out
 There’s no double NAT with this architecture. Azure Firewall instances send the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
 
 > [!NOTE]
-> Deploying NAT gateway with a [zone redundant firewall](deploy-availability-zone-powershell.md) is not recommended deployment option, as a single instance of NAT gateway does not support zonal redundant deployment at this time. 
+> Deploying NAT gateway with a [zone redundant firewall](deploy-availability-zone-powershell.md) isn't recommended deployment option, as a single instance of NAT gateway doesn't support zonal redundant deployment at this time. 
 >
-> In addition, Azure NAT Gateway integration is not currently supported in secured virtual hub network (vWAN) architectures. You must deploy using a hub virtual network architecture. For detailed guidance on integrating NAT gateway with Azure Firewall in a hub and spoke network architecture refer to the [NAT gateway and Azure Firewall integration tutorial](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md).
+> In addition, Azure NAT Gateway integration isn't currently supported in secured virtual hub network (vWAN) architectures. You must deploy using a hub virtual network architecture. For detailed guidance on integrating NAT gateway with Azure Firewall in a hub and spoke network architecture, refer to the [NAT gateway and Azure Firewall integration tutorial](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md).
 
 ## Associate a NAT gateway with an Azure Firewall subnet - Azure PowerShell
 
@@ -67,6 +68,6 @@ az network vnet subnet update --name AzureFirewallSubnet --vnet-name nat-vnet --
 
 ## Next steps
 
-- For more information, see [Scale Azure Firewall SNAT ports with NAT Gateway for large workloads](https://azure.microsoft.com/blog/scale-azure-firewall-snat-ports-with-nat-gateway-for-large-workloads/).
+- [Scale Azure Firewall SNAT ports with NAT Gateway for large workloads](https://azure.microsoft.com/blog/scale-azure-firewall-snat-ports-with-nat-gateway-for-large-workloads/).
 - [Design virtual networks with NAT gateway](../virtual-network/nat-gateway/nat-gateway-resource.md)
 - [Integrate NAT gateway with Azure Firewall in a hub and spoke network](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md)

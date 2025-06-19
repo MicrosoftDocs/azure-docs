@@ -157,19 +157,13 @@ Hybrid connections are configured from the networking section of the function ap
 1. Name the setting **ContosoUserPassword**, and enter the password. Select **OK**.
 1. Select **Save** to store the password in the function application.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="Save the password for the administrator account." border="true":::
-
 ## Create a function HTTP trigger
 
 1. In your function app, select **Functions**, and then select **+ Add**.
 
     :::image type="content" source="./media/functions-hybrid-powershell/create-http-trigger-function.png" alt-text="Create new HTTP trigger." border="true":::
 
-1. Select the **HTTP trigger** template.
-
-    :::image type="content" source="./media/functions-hybrid-powershell/select-http-trigger-template.png" alt-text="Select the HTTP trigger template." border="true":::
-
-1. Name the new function and select **Create Function**.
+1. Select the **HTTP trigger** template, name the new function, and select **Create Function**.
 
     :::image type="content" source="./media/functions-hybrid-powershell/create-new-http-function.png" alt-text="Name and create the new HTTP trigger function." border="true":::
 
@@ -210,13 +204,9 @@ Hybrid connections are configured from the networking section of the function ap
                    -SessionOption (New-PSSessionOption -SkipCACheck)
     ```
 
-1. Select **Save**.
+1. Select **Save** to save your changes, then select **Test** > **Run** to test the function. 
 
-    :::image type="content" source="./media/functions-hybrid-powershell/save-http-function.png" alt-text="Change the PowerShell code and save the HTTP trigger function." border="true":::
-
- 1. Select **Test**, and then select **Run** to test the function. Review the logs to verify that the test was successful.
-
-     :::image type="content" source="./media/functions-hybrid-powershell/test-function-hybrid.png" alt-text="Test HTTP trigger function." border="true":::
+1. Select **Logs** to review the logs and verify that the test was successful.
 
 ## Managing other systems on-premises
 

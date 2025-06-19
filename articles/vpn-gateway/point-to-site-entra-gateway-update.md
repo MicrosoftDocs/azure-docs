@@ -5,13 +5,13 @@ description: Learn how to update Audience values for P2S VPN gateway connections
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 02/10/2025
 ms.author: cherylmc
 
 # Customer intent: As an VPN Gateway administrator, I want to update point-to-site Audience values for Microsoft Entra ID authentication.
 ---
 
-# Migrate a manually registered Azure VPN Client to the Microsoft-registered client
+# Migrate a manually registered Azure VPN Client to the Microsoft-registered client for Microsoft Entra ID User VPN connections
 
 This article helps you migrate from a manually registered Azure VPN Client to the Microsoft-registered Azure VPN Client for point-to-site (P2S) Microsoft Entra ID authentication. The Microsoft-registered Azure VPN client uses a different Audience value. When you update an Audience value, you must make the change on both the P2S VPN gateway, and on any previously configured VPN clients. For more information about Audience values, see [About point-to-site VPN - Microsoft Entra ID authentication](point-to-site-about.md#entra-id).
 
@@ -19,7 +19,7 @@ The following table shows the available supported Audience values.
 
 [!INCLUDE [Audience values](../../includes/vpn-gateway-entra-audience-values.md)]
 
-The examples in this article use the new Audience value for Azure Public. This article doesn't apply to **custom Audience** value configurations. To modify a custom audience app ID, see [Create or modify a custom audience app ID for P2S VPN Microsoft Entra ID authentication](point-to-site-entra-register-custom-app.md#change).
+This article doesn't apply to **custom Audience** value configurations. To modify a custom audience app ID, see [Create or modify a custom audience app ID for P2S VPN Microsoft Entra ID authentication](point-to-site-entra-register-custom-app.md#change).
 
 ## Workflow
 
@@ -38,7 +38,7 @@ When you update audience values on an existing gateway, you incur fewer than 5 m
 
    :::image type="content" source="./media/update-entra-audience/audience.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Microsoft Entra settings." lightbox="././media/update-entra-audience/audience.png":::
 
-1. Change the **Audience** value. For this example, we changed the Audience value to the Azure Public value for the Microsoft-registered Azure VPN Client; **c632b3df-fb67-4d84-bdcf-b95ad541b5c8**.
+1. Change the **Audience** value to: **c632b3df-fb67-4d84-bdcf-b95ad541b5c8**.
 1. Leave the other settings the same, unless you have changed tenants and need to change the tenant IDs. If you update the Issuer field, take care to include the trailing slash at the end. For more information about each of the fields, see [Microsoft Entra ID](point-to-site-entra-gateway.md#configure-vpn) values.
 1. Once you finish configuring settings, click **Save** at the top of the page.
 1. The new settings save to the P2S gateway and the gateway updates. This takes about 5 minutes to complete.

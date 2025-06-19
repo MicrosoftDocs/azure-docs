@@ -2,13 +2,13 @@
 title: Monitor usage and spending with cost alerts in Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article describes how cost alerts help you monitor usage and spending in Cost Management.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Use cost alerts to monitor usage and spending

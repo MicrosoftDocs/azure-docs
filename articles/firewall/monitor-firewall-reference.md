@@ -4,9 +4,10 @@ description: This article contains important reference material you need when yo
 ms.date: 10/26/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: vhorne
-ms.author: victorh
+author: duongau
+ms.author: duau
 ms.service: azure-firewall
+# Customer intent: As a network administrator, I want to monitor metrics and logs for Azure Firewall, so that I can ensure its performance and proactively identify any issues affecting traffic management.
 ---
 # Azure Firewall monitoring data reference
 

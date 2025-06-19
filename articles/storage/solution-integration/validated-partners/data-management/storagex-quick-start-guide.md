@@ -5,7 +5,7 @@ description: Getting started guide to implement Data Dynamics StorageX. Guide sh
 author: dukicn
 ms.author: nikoduki
 ms.date: 06/15/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
 ---

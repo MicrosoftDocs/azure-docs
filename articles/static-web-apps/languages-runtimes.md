@@ -2,11 +2,11 @@
 title: Supported languages and runtimes in Azure Static Web Apps
 description: Supported languages and runtimes in Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 05/28/2024
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Supported languages and runtimes in Azure Static Web Apps
@@ -45,7 +45,8 @@ The following versions are supported for managed functions in Static Web Apps. I
 
 Azure Functions supports [re-enabling proxies in v4.x](../azure-functions/legacy-proxies.md#re-enable-proxies-in-functions-v4x). To enable proxy support in managed functions for your static web app, set `SWA_ENABLE_PROXIES_MANAGED_FUNCTIONS` to `true` in your application settings. 
 
-[!NOTE] While proxies are supported in v4.x, consider using Azure API Management integration with your managed function apps, so your app isn't reliant on proxies.
+> [!NOTE]
+> While proxies are supported in v4.x, consider using Azure API Management integration with your managed function apps, so your app isn't reliant on proxies.
 
 ## Deprecations
 

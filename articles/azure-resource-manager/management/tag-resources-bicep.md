@@ -2,8 +2,10 @@
 title: Tag resources, resource groups, and subscriptions with Bicep
 description: Shows how to use Bicep to apply tags to Azure resources.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 05/14/2025
 ---
 
 # Apply tags with Bicep
@@ -11,7 +13,7 @@ ms.date: 09/26/2024
 This article describes how to use Bicep to tag resources, resource groups, and subscriptions during deployment. For tag recommendations and limitations, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
 
 > [!NOTE]
-> The tags you apply through a Bicep file overwrite any existing tags.
+> The tags you apply through a Bicep file will replace any existing tags on the resource. If you want to retain existing tags, you need to explicitly include them in the template.
 
 ## Apply values
 
@@ -38,7 +40,7 @@ resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
 
 ## Apply an object
 
-You can define an object parameter that stores several tags and apply that object to the tag element. This approach provides more flexibility than the previous example because the object can have different properties. Each property in the object becomes a separate tag for the resource. The following example has a parameter named `tagValues` that's applied to the tag element.
+You can define an object parameter that stores several tags and apply that object to the tag element. This approach provides more flexibility than the previous example because the object can have different properties. Each property in the object becomes a separate tag for the resource. The following example has a parameter named `tagValues` that you apply to the tag element.
 
 ```Bicep
 param location string = resourceGroup().location
@@ -101,7 +103,7 @@ resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
 
 ## Apply tags to resource groups or subscriptions
 
-You can add tags to a resource group or subscription by deploying the `Microsoft.Resources/tags` resource type. You can apply the tags  to the target resource group or subscription you want to deploy. Each time you deploy the template you replace any previous tags.
+You can add tags to a resource group or subscription by deploying the `Microsoft.Resources/tags` resource type. You can apply the tags to the target resource group or subscription you want to deploy. Each time you deploy the template, you replace any previous tags.
 
 ```Bicep
 param tagName string = 'TeamName'
@@ -117,7 +119,7 @@ resource applyTags 'Microsoft.Resources/tags@2021-04-01' = {
 }
 ```
 
-The following Bicep adds the tags from an object to the subscription it's deployed to. For more information about subscription deployments, see [Create resource groups and resources at the subscription level](../bicep/deploy-to-subscription.md).
+The following Bicep adds the tags from an object to the subscription that you deploy to. For more information about subscription deployments, see [Create resource groups and resources at the subscription level](../bicep/deploy-to-subscription.md).
 
 ```Bicep
 targetScope = 'subscription'
@@ -136,8 +138,26 @@ resource applyTags 'Microsoft.Resources/tags@2021-04-01' = {
 }
 ```
 
+## Read Tags
+
+You can read existing tags with the following approaches.
+
+> [!WARNING]
+> The `tags` property on the `Microsoft.Resources/tags` resource is not set if there are no tags set.
+> To avoid errors, ensure you use the safe-dereference operator (`.?`) on `properties`.
+
+```Bicep
+resource readTags 'Microsoft.Resources/tags@2021-04-01' existing = {
+  name: 'default'
+}
+var tagValue = readTags.properties?.tags?.myTag
+
+// Equivalent to above:
+var tagValue2 = reference(subscriptionResourceId('Microsoft.Resources/tags', 'default'), '2021-04-01', 'Full').properties.?tags.?myTag2
+```
+
 ## Next steps
 
-* Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
+* For a list of resource types that support tags, see [Tag support for Azure resources](tag-support.md).
 * For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 * For tag recommendations and limitations, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).

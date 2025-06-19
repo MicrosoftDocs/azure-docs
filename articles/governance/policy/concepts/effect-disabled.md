@@ -1,7 +1,7 @@
 ---
 title: Azure Policy definitions disabled effect
 description: Azure Policy definitions disabled effect determines how compliance is managed and reported.
-ms.date: 04/08/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 

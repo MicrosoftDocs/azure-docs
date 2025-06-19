@@ -1,0 +1,258 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions about Azure Backup for Azure Kubernetes Service
+  description: Get answers to frequently asked questions about Azure Backup for Azure Kubernetes Service
+  ms.topic: faq
+  ms.service: azure-backup
+  ms.date: 04/14/2025
+  author: jyothisuri
+  ms.author: jsuri
+title: Frequently asked questions about Azure Backup for Azure Kubernetes Service
+summary: |
+  This article answers frequently asked questions about Azure Backup for Azure Kubernetes Service. For more information on the [Azure Backup for AKS](azure-kubernetes-service-backup-overview.md) region availability, supported scenarios, and limitations, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
+  
+  ## Frequently asked questions
+
+sections:
+  - name: Frequently asked questions
+    questions:
+
+      - question: |
+          Why do I need to install AKS Backup Extension in my AKS Cluster to enable backup for my AKS cluster?
+        answer: |
+          You need to install the AKS Backup Extension in your AKS cluster to enable backup because it integrates your cluster with Azure’s native backup service, providing centralized management, automation, and security for your backups. The extension interacts with Kubernetes APIs to ensure Kubernetes workloads (persistent volumes, configurations, and metadata) are properly backed up and restored.
+
+      - question: |
+          What are inputs required for AKS Backup Extension installation? Do these inputs have any specific requirements?
+        answer: | 
+          The AKS Backup Extension installation requires a storage account and blob container as inputs. The storage account must be in the same region as the AKS cluster and the blob container must be in the same storage account. The blob container is used to store both the backup data and associated metadata. Specific requirements for the storage account and blob container include:
+
+          - The storage account must be of `Standard general-purpose v2` type.
+          - The blob container must be created in the storage account before installing the AKS Backup Extension.
+          - The blob container should preferably be empty before installation or at least shouldn't have nonbackup related data in it, as the extension will create its own folder structure within the container to store backup data and metadata.
+          - In case the AKS cluster is within a Private Network, the storage account must be accessible from the AKS cluster. This can be achieved by using a Private Endpoint for the storage account or by configuring the necessary network rules to allow access from the AKS cluster to the storage account.
+
+      - question: |
+          What are the requirements to be fulfilled by the NodePools of the AKS cluster to install Backup Extension in it?
+        answer: | 
+          The pods associated with the AKS Backup Extension are deployed on the NodePools of the AKS cluster. To successfully deploy these pods and prevent them from interfering with your application resources, ensure the following:
+          - The AKS cluster must have the agent node pool with the `Linux` operating system including both Azure Linux and Ubuntu.
+          - The agent node pool must have VMSS SKUs based on non-ARM64 based architecture.
+          - The agent node pool must have the taint `CriticalAddOnOnly` associated with it. This taint is automatically added to the node pool when the AKS Cluster is created via Portal. It ensures that only critical add-on pods, such as the AKS Backup Extension pods, are scheduled on the node pool. This prevents interference with your application workloads and ensures that backup operations are isolated from other workloads in the cluster. In case the taint isn't present, you can add it manually before installing the AKS Backup Extension.
+
+      - question: |
+          What are the CPU and Memory requirements for the AKS Backup Extension? 
+        answer: |    
+           Azure Backup for AKS relies on pods deployed within the AKS cluster as part of the backup extension under the namespace `dataprotection-microsoft`. To perform backup and restore operations, these pods have specific CPU and memory requirements.
+           
+           - Memory: requests - 256Mi, limits - 1280Mi
+           - CPU: requests - 500m, limits - 1000m           
+
+      -  question: |
+          When I install AKS Backup Extension, what Kubernetes Resources get deployed in the cluster?
+         answer: |
+          When you install the AKS Backup Extension, backup-related resources are deployed in the cluster under the `dataprotection-microsoft` namespace. The following three deployments are created within this namespace:
+          
+          `dataprotection-microsoft-controller`
+          `dataprotection-microsoft-geneva-service`
+          `dataprotection-microsoft-kubernetes-agent`
+          
+          Additionally, since the AKS Backup Extension is built on top of the Arc Extensions for AKS platform, two more deployments are created in the `kube-system` namespace:
+          
+          `extension-agent`
+          `extension-operator`
+          
+          These deployments not only support the backup extension but are also required for other extensions, such as Flux and Azure Machine Learning.
+
+      - question: |
+          During AKS Backup Extension installation, what other Azure resources are created in the subscription?
+        answer: | 
+          As part of the Backup Extension installation, a User Identity also gets created in the Node Resource Group of the cluster. This identity is used by the AKS Backup Extension to access the Azure resources required for backup operations. The User Identity is assigned `Storage Blob Data Contributor` role over the storage account to enable access for the Extension. Whenever extension is uninstalled from the AKS cluster, the identity also gets deleted.
+
+      - question: |
+          Why should Velero shouldn't be used in the cluster alongside of AKS Backup Extension?
+        answer: | 
+          Velero is a third-party backup solution for Kubernetes that can conflict with the AKS Backup Extension. It's recommended to use only the AKS Backup Extension for backup operations in a cluster, but not both simultaneously. 
+          AKS Backup Extension also deploys Velero CRDs in the cluster. In case standalone Velero is installed in the AKS cluster along with Backup Extension and the versions used by each installation differ at any point in time can lead to failures due to contract mismatches. Additionally, custom Velero configurations created by the you—such as a VolumeSnapshotClass for Velero CSI-based snapshotting—might interfere with the AKS Backup snapshotting setup. Velero annotations containing `velero.io` applied to various resources in the cluster can also impact the behavior of AKS Backup in unsupported ways.
+          
+      - question: |
+           What is a snapshot resource group?
+        answer: | 
+           Azure Backup for AKS offers operational tier backup for AKS Clusters. Thus, the snapshots of Azure Disk based Persistent Volumes that are created during the scheduled and on-demand backup operations are stored in a resource group within your subscription. Azure Backup offers instant restore because the incremental snapshots are stored within your subscription. This resource group is known as the snapshot resource group. It's mandatory to provide a snapshot resource group during the backup configuration and once assigned it can't be modified. 
+
+      - question: |
+          What is a staging resource group and storage account?
+        answer: |
+          When backups are to be restored from Vault Tier, a staging resource group and storage account are required. During such restore, backup data in the vault is first hydrated in the staging location and then the extension installed in the cluster restore this data into the target AKS cluster. The staging resource group is used to temporarily recreate backed up Disks. The staging storage account is used to store the Kubernetes resources stored in the backup data in the Vault Tier. The backup items once created in the staging location has to be cleaned up manually. 
+
+      - question: |
+           What are the types of Persistent Volumes that are supported by Azure Backup for AKS?
+        answer: | 
+           Azure Backup for AKS relies on CSI driver-based snapshots for its backup and restore operations. Because of this dependency, only Azure Disk-based Persistent Volumes attached via the CSI driver are currently supported. Other Azure storage options—such as Azure File Share, Azure Blob, Azure Container Storage, Azure NetApp Files, Azure Managed Lustre, and third-party storage solutions—aren't supported at this time. Within Azure Disks, the following SKUs are supported:
+            
+           - Premium SSD
+           - Standard SSD
+           - Standard HDD
+           
+           However, Premium SSD v2 and Ultra Disks aren't supported. Additionally, when it comes to Azure Disks with network access settings:
+
+           - The Operational Tier supports both Public and Private access disks of any size.
+           - The Vault Tier supports only Public access disks, with a maximum size of up to 1TB.
+
+      - question: |
+           If an AKS cluster has Persistent Volumes of unsupported types, what happens during the backup operation?
+        answer: | 
+           If an AKS cluster contains Persistent Volumes of unsupported types, those volumes are skipped during the backup operation. The overall backup will still succeed, but the unsupported volumes won't be included in the backup.
+
+      - question: |
+          What are the backup storage tiers available in Azure Backup for AKS?
+        answer: |    
+          Azure Backup for AKS supports two types of backup storage tiers:
+          - **Operational Tier**: This tier is used for short-term retention of backups. It stores incremental snapshots of Persistent Volumes within your subscription as backup. This tier is ideal for quick restores and operational recovery scenarios.
+          - **Vault Tier**: This tier is used for long-term retention of backups. It stores backup data stored in Operational Tier, convert it into block blobs and then store them in storage accounts (termed as Vault) within a secured Azure tenant managed by Microsoft. This tier is ideal for compliance and regulatory requirements, as it allows you to retain backups for extended periods in low cost storage tier.
+
+          You can define the backup storage tier when you create a backup policy. The default rule is to use the Operational Tier for backup. You can add more rules to backup data in the Vault Tier along with Operational tier.
+
+      - question: |
+          How frequently are backups taken in the Operational Tier and Vault Tier?
+        answer: | 
+          The backup frequency is defined in the backup policy.
+          
+          - In the Operational Tier, backups can be taken as frequently as every 4 hours.
+          - In the Vault Tier, only one backup per day can be stored.
+          
+          You can configure rules to move the first successful backup of the day, week, month, or year into the Vault Tier. These settings can be customized based on your recovery point objectives (RPOs) and retention requirements.
+
+      - question: |
+          What is the maximum delay I can expect in backup start time from the scheduled backup time for Azure Backup for AKS?
+        answer: |
+          Scheduled Backups are performed within a 2-hour window from the time scheduled as per the backup policy. Thus, you can expect a maximum delay of 2 hours in backup start time from the scheduled backup time for the AKS Backup.
+     
+      - question: |
+          How quickly backups created in Operational Tier and eligible to be moved to the vault, are moved to Vault Tier?
+        answer: | 
+          Once a backup is created in the Operational Tier and if it's as per the rules defined in the backup policy, it becomes eligible for vaulting immediately. After that the transfer to the Vault Tier is initiated within the next 4 hours.
+
+      - question: |
+           How does Azure Backup determine which recovery points are retained under weekly, monthly, or yearly retention in a backup policy?
+        answer: | 
+           A backup policy that includes "first successful of the week/month/year" retention selects the first successful backup of every week, month, or year and retains it according to the specified retention duration. The definition of "first" is system-defined—for example:
+          
+           - *Week:* Sunday is considered the start of the week
+           - *Month:* The first day of the month
+           - *Year:* January 1
+
+           This behavior isn't based on the date the policy was created or enabled. 
+
+      - question: |
+          Can I back up an AKS cluster using the Azure Backup solution multiple times as per my application definition?
+        answer: |
+             An AKS cluster can host multiple applications simultaneously, each scoped to different namespaces. Azure Backup allows you to back up an AKS cluster multiple times as per different application configurations, either in different Backup Vaults or using different Backup Policies within the same Backup Vault.   
+  
+      - question: |
+           How can I make my backups for AKS cluster geographically redundant and available for restore if there is a regional outage?
+        answer: | 
+            Azure Backup for AKS supports geo-redundant backups, allowing you to restore your data in a different Azure region if there is a regional outage. The backup data is made redundant by replicating it to an Azure paired region.
+
+            To make your backups geographically redundant, the first step is to configure them in a Backup Vault that has Geo-Redundancy enabled and Cross Region Restore turned on.
+            
+            Next, configure the backup instance with a backup policy that includes retention rules for the Vault Tier.
+            
+            With these settings in place, once a backup is moved to the Vault Tier, it's automatically replicated to the paired secondary Azure region.
+
+            In the event of a regional outage, you can restore the backup from the secondary region using either the Azure portal or the Azure CLI.
+
+      - question: |
+           What is the RPO supported by Azure Backup for AKS if there is backup data availability in secondary region?
+        answer: | 
+            Once a backup is moved in the Vault Tier, then it can take upto 12 hours for it to be replicated in the secondary region. Thus, the maximum RPO for a restore point to be available in secondary regions supported by Azure Backup for AKS if there is backup data availability in the secondary region is  hours. This means that in the event of a regional outage, you can restore your backup data from the secondary region with a maximum data loss of 24 hours.
+        
+      - question: |
+           Why do I need to provide role assignments to be able to configure backups, perform scheduled and on-demand backups, and restore operations?
+        answer: |
+           Azure Backup for AKS uses the least privilege approach to discover, protect, and restore the AKS clusters in your subscriptions. To achieve this, Azure Backup uses the managed identity of the Backup vault to access other Azure resources. You can grant permissions to the managed identity, System assigned, or User assigned by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. By default, the Backup vault won't have permission to access the AKS cluster to be backed up, create periodic snapshots, delete snapshots after retention period, and to restore a backup. By explicitly granting role assignments to the Backup vault's managed identity, you're in control of managing permissions to the resources on the subscriptions.
+
+      - question: |
+          What are the permissions used by Azure Backup during backup and restore operation?
+        answer: |
+          Following are the actions used in the **Contributor** role assigned on the AKS Cluster to be backed up or restored to:
+
+          1. Microsoft.Compute/snapshots/read
+          2. Microsoft.Compute/snapshots/write
+          3. Microsoft.Compute/snapshots/delete
+
+          Following are the actions used in the **Storage Blob Data Contributor** role assigned to the Extension identity of the backed up or restored to AKS cluster over the storage account:
+
+          1. Microsoft.Storage/storageAccounts/blobServices/containers/read
+          2. Microsoft.Storage/storageAccounts/blobServices/containers/write
+          3. Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read
+          4. Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write
+          5. Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete
+          6. Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action
+
+          Following are the actions used in the **Reader** role assigned on the Backup Vault over the AKS cluster:
+    
+          1. */read
+
+          Following are the actions used in the **Reader** role assigned on the Backup Vault over the Snapshot Resource Group:
+
+          1. Microsoft.Authorization/*/read
+          2. Microsoft.Resources/subscriptions/resourceGroups/read
+
+          Following are the actions used in the **Disk Snapshot Contributor** role assigned on the Backup Vault over the Snapshot Resource Group in case backups are to be stored in Vault Tier:
+
+          1. Microsoft.Compute/snapshots/delete
+          2. Microsoft.Compute/snapshots/write
+          3. Microsoft.Compute/snapshots/read
+          4. Microsoft.Compute/snapshots/beginGetAccess/action
+          5. Microsoft.Compute/snapshots/endGetAccess/action
+          6. Microsoft.Compute/disks/beginGetAccess/action
+
+          Following are the actions used in the **Data Operator for Managed Disks** role assigned on the Backup Vault over the Snapshot Resource Group in case backups are to be stored in Vault Tier:
+
+          1. Microsoft.Compute/disks/download/action
+          2. Microsoft.Compute/snapshots/download/action
+
+          Following are the actions used in the **Storage Blob Data Reader** role assigned on the Backup Vault over the Storage Account in case backups are to be stored in Vault Tier:
+
+          1. Microsoft.Storage/storageAccounts/blobServices/containers/read
+          2. Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action
+          3. Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read
+          
+          Following are the actions used in the **Contributor** role assigned on the Backup Vault over the Staging Resource Group in case backups are to be restored from Vault Tier:
+          
+          1. Microsoft.Resources/subscriptions/resourceGroups/read
+          2. Microsoft.Authorization/*/read
+          3. Microsoft.Compute/snapshots/*
+          4. Microsoft.Compute/disks/*
+
+          Following are the actions used in the **Storage Account Contributor** role assigned on the Backup Vault over the Staging Storage Account in case backups are to be restored from Vault Tier:
+
+          1. Microsoft.Authorization/*/read
+          2. Microsoft.Storage/storageAccounts/*
+
+          Following are the actions used in the **Storage Blob Data Owner** role assigned on the Backup Vault over the Staging Storage Account in case backups are to be restored from Vault Tier:
+
+          1. Microsoft.Storage/storageAccounts/blobServices/containers/blobs/*
+
+      - question: |
+          Will snapshots for all Persistent Volumes (PVs) in a backup configuration be taken at the exact same time, or is there a delay?
+        answer: |
+          Azure Backup for AKS does not currently support taking snapshots of all PVs at the exact same millisecond. While the snapshot operations are initiated in parallel, there may be slight delays between individual PV snapshots due to infrastructure and API timing. To help achieve consistency across multiple PVs, Azure Backup supports application-consistent backups using hooks. Hooks allow users to pause application writes before snapshotting and resume them afterward. This approach improves consistency and mimics crash consistency, though it may not be equivalent to true simultaneous snapshots or coordinated database-level consistency.
+
+      - question: |
+          What happens if I select the "Skip" option for Kubernetes resources including PVCs during an AKS restore?
+        answer: |
+          Selecting "Skip" means the restore process will not attempt to recreate any Kubernetes resources. If matching resources already exist in the target cluster, they will be reused as-is. If they do not exist, Azure Backup will attempt to dynamically recreate them. In case of PVs, ensure that compatible StorageClass definitions and permissions exist in the target environment.
+
+      - question: |
+          Why is my restored cluster trying to mount PVCs from the original source cluster?
+        answer: |
+          This typically happens when the restored cluster references Persistent Volumes (PVs) that still point to the original source resource group. AKS separates cluster resources into two resource groups: one for the control plane and another for infrastructure (like disks). If the PVC-to-PV mapping wasn’t correctly updated during restore, the restored workloads may attempt to attach source PVs, resulting in errors. Ensure that the restore process correctly remaps PVCs to new or existing PVs in the target cluster's resource group.
+
+
+additionalContent: |
+
+  ## Next steps
+  
+  - [Azure Backup for AKS support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md)

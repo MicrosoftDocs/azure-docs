@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 04/07/2025
 ms.author: phjensen
 ---
 
@@ -26,7 +26,7 @@ First, download the AzAcSnap executable file to any directory on your computer. 
   - The Linux binary has an associated [Linux signature file](https://aka.ms/azacsnap-linux-signature). This file is signed with Microsoft's public key to allow for GPG verification of the downloaded installer.
 
   > [!IMPORTANT]
-  > The installer is no longer available for Linux. Please follow the [guidelines here](azacsnap-installation.md) to setup the user's profile to run AzAcSnap and its dependencies.
+  > The installer is no longer available for Linux. Please follow the [guidelines here](azacsnap-installation.md) to set up the user's profile to run AzAcSnap and its dependencies.
 
 - [Windows 64-bit](https://aka.ms/azacsnap-windows) (executable)
   - The Windows binary is signed by Microsoft.
@@ -88,8 +88,12 @@ Follow the guidelines to set up and run the snapshots and disaster-recovery comm
     DB20000I  The QUIT command completed successfully.
     ```
 
+    # [Microsoft SQL Server](#tab/mssql)
+
+    There are no specific database connection requirements for MS SQL Server as AzAcSnap has built-in connectivity to MS SQL Server.
+   
     ---
-## Install the snapshot tools
+## Install AzAcSnap
 
 With the [prerequisite steps](#prerequisites-for-installation) completed, the steps to install AzAcSnap are as follows:
 
@@ -120,6 +124,34 @@ Performing the following steps to get azacsnap running:
   1. Open a terminal session and run azacsnap
      1. `azacsnap.exe -c about`
 
+## Upgrade AzAcSnap
+
+Perform the following steps to upgrade an existing installation of azacsnap:
+
+- For Linux via a shell session:
+  1. Log in as the user which runs `azacsnap`
+     1. `su – azacsnap`
+     1. `cd $HOME/bin`
+  1. Backup the existing binary and configuration files
+     1. `cp azacsnap azacsnap.bkp`
+     1. `cp azacsnap.json azacsnap.json.bkp`
+  1. Download [azacsnap](https://aka.ms/azacsnap-linux)
+     1. `wget -O azacsnap https://aka.ms/azacsnap-linux`
+  1. Run the about command to check the version
+     1. `azacsnap -c about`
+  1. [Test azacsnap](azacsnap-cmd-ref-test.md)
+
+- For Windows via a GUI:
+  1. Log in as the user which runs `azacsnap.exe`
+  1. Locate the existing azacsnap binary and change to its location
+     1. `where azacsnap.exe`
+  1. Backup the existing binary and configuration files
+     1. `copy azacsnap.exe azacsnap.exe.bkp`
+     1. `copy azacsnap.json azacsnap.json.bkp`
+  1. Download [`azacsnap.exe`](https://aka.ms/azacsnap-windows)
+  1. Open a terminal session and run the about command to check the version
+     1. `azacsnap.exe -c about`
+  1. [Test azacsnap](azacsnap-cmd-ref-test.md)
 
 ## Update user profile
 

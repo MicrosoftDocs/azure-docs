@@ -1,21 +1,21 @@
 ---
-title: Copy data from PostgreSQL using legacy
+title: Copy data from PostgreSQL V1
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from PostgreSQL V1 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 04/14/2025
 ms.author: jianleishen
 ---
-# Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics (legacy)
+# Copy data from PostgreSQL V1 using Azure Data Factory or Synapse Analytics 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
->[!IMPORTANT]
->The new PostgreSQL connector provides improved native PostgreSQL support. If you are using the legacy PostgreSQL connector in your solution, please [upgrade your PostgreSQL connector](connector-postgresql.md#upgrade-the-postgresql-linked-service) before **October 31, 2024**. Refer to this [section](connector-postgresql.md#differences-between-postgresql-and-postgresql-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [PostgreSQL V2 connector](connector-postgresql.md) provides improved native PostgreSQL support. If you are using the [PostgreSQL V1 connector](connector-postgresql-legacy.md) in your solution, please [upgrade your PostgreSQL connector](connector-postgresql.md#upgrade-the-postgresql-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](connector-postgresql.md#differences-between-postgresql-and-postgresql-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 

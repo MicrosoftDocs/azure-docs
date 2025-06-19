@@ -1,5 +1,5 @@
 ---
-title: Automate application deployments to Azure Spring Apps
+title: Automate Application Deployments to Azure Spring Apps
 description: Describes how to use the Azure Spring Apps task for Azure Pipelines.
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -109,11 +109,11 @@ You can now build and deploy your projects using a series of tasks. The followin
 To deploy using a pipeline, follow these steps:
 
 1. Select **Pipelines**, then create a new pipeline with a Maven template.
-1. Edit the *azure-pipelines.yml* file to set the `mavenPomFile` field to *'complete/pom.xml'*.
+1. Edit the **azure-pipelines.yml** file to set the `mavenPomFile` field to **complete/pom.xml**.
 1. Select **Show assistant** on the right side, then select the **Azure Spring Apps** template.
 1. Select the service connection you created for your Azure Subscription, then select your Azure Spring Apps instance and app instance.
 1. Disable **Use Staging Deployment**.
-1. Set **Package or folder** to *complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar*.
+1. Set **Package or folder** to **complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar**.
 1. Select **Add** to add this task to your pipeline.
 
    Your pipeline settings should match the following image.
@@ -179,9 +179,9 @@ The following steps show you how to enable a blue-green deployment from the **Re
 1. Select **Pipelines** and create a new pipeline for your Maven build and publish artifact.
    1. Select **Azure Repos Git** for your code location.
    1. Select a repository where your code is located.
-   1. Select the **Maven** template and modify the file to set the `mavenPomFile` field to *`complete/pom.xml`*.
+   1. Select the **Maven** template and modify the file to set the `mavenPomFile` field to **complete/pom.xml**.
    1. Select **Show assistant** on the right side and select the **Publish build artifacts** template.
-   1. Set **Path to publish** to *complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar*.
+   1. Set **Path to publish** to **complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar**.
    1. Select **Save and run**.
 
 1. Select **Releases**, then **Create release**.
@@ -202,7 +202,7 @@ The following steps show you how to enable a blue-green deployment from the **Re
    1. Select **Add**, then **Save**.
 1. Select **1 job, 1 task** under **Stages**.
 1. Navigate to the **Azure Spring Apps Deploy** task in **Stage 1**, then select the ellipsis next to **Package or folder**.
-1. Select *spring-boot-complete-0.0.1-SNAPSHOT.jar* in the dialog, then select **OK**.
+1. Select **spring-boot-complete-0.0.1-SNAPSHOT.jar** in the dialog, then select **OK**.
 
    :::image type="content" source="media/how-to-cicd/change-artifact-path.jpg" alt-text="Screenshot of Azure DevOps that shows the Select a file or folder dialog box." lightbox="media/how-to-cicd/change-artifact-path.jpg":::
 

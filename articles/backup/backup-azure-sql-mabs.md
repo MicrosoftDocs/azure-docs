@@ -2,9 +2,9 @@
 title: Back up SQL Server by using Azure Backup Server
 description: In this article, learn the configuration to back up SQL Server databases by using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 03/17/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 03/25/2025
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24
 ---
@@ -22,7 +22,7 @@ Microsoft Azure Backup Server (MABS) provides backup and recovery for SQL Server
 
 - MABS v3 UR2, MABS v4, or later supports SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volume (CSV).
 - Protection of SQL Server FCI with Storage Spaces Direct on Azure, and SQL Server FCI with Azure shared disks is supported with this feature. The DPM server must be deployed in the Azure Virtual Machine to protect the SQL FCI instance, deployed on the Azure VMs.
-- A SQL Server Always On availability group with theses preferences:
+- A SQL Server Always On availability group with these preferences:
   - Prefer Secondary
   - Secondary only
   - Primary
@@ -38,7 +38,10 @@ To back up a SQL Server database and recover it from Azure:
 
 ## Prerequisites and limitations
 
+Before you begin, review the following prerequisites and limitations:
+
 * If you have a database with files on a remote file share, protection will fail with Error ID 104. MABS doesn't support protection for SQL Server data on a remote file share.
+* Ensure that you've [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 * MABS can't protect databases that are stored on remote SMB shares.
 * Ensure that the [availability group replicas are configured as read-only](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * You must explicitly add the system account **NTAuthority\System** to the Sysadmin group on SQL Server.
@@ -63,10 +66,6 @@ To back up a SQL Server database and recover it from Azure:
 * SQL Server 2014 or above backup issues:
   * SQL server 2014 added a new feature to create a [database for on-premises SQL Server in Windows Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure). MABS can't be used to protect this configuration.
   * There are some known issues with "Prefer secondary" backup preference for the SQL Always On option. MABS always takes a backup from secondary. If no secondary can be found, then the backup fails.
-
-## Before you start
-
-Before you begin, ensure that you've [installed and prepared Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
 ## Create a backup policy
 

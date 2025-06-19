@@ -1,5 +1,5 @@
 ---
-title: How to use Application Insights Java In-Process Agent in Azure Spring Apps
+title: How to Use Application Insights Java In-Process Agent in Azure Spring Apps
 description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
@@ -50,7 +50,7 @@ When the **Application Insights** feature is enabled, you can:
 
    :::image type="content" source="media/how-to-application-insights/insights-process-agent-map.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Application map page." lightbox="media/how-to-application-insights/insights-process-agent-map.png":::
 
-* Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
+* Select the link between **customers-service** and **petclinic** to see more details such as a query from SQL.
 * Select an endpoint to see all the applications making requests to the endpoint.
 
 * In the navigation pane, select **Performance** to see the performance data of all applications' operations, dependencies, and roles.
@@ -74,7 +74,7 @@ When the **Application Insights** feature is enabled, you can:
 
    :::image type="content" source="media/how-to-application-insights/petclinic-microservices-availability.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Availability page." lightbox="media/how-to-application-insights/petclinic-microservices-availability.png":::
 
-* In the navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
+* In the navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by **cloud_RoleName**.
 
    :::image type="content" source="media/how-to-application-insights/application-insights-application-logs.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Logs page." lightbox="media/how-to-application-insights/application-insights-application-logs.png":::
 
@@ -133,7 +133,7 @@ To check and update the current settings for the Application Insights buildpack 
 1. Choose your builder.
 1. Select **Edit** under the Bindings column.
 
-Application Insights settings are found in the *ApplicationInsights* item listed under the *Binding type* column.
+Application Insights settings are found in the **ApplicationInsights** item listed under the **Binding type** column.
 
 1. Select the **Bound** hyperlink, or select **Edit Binding** under the ellipse, to open and edit the Application Insights buildpack bindings.
 
@@ -147,7 +147,7 @@ Application Insights settings are found in the *ApplicationInsights* item listed
 
 ## Manage Application Insights using Azure CLI
 
-You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the *\<placeholder>* text with the values described. The *\<service-instance-name>* placeholder refers to the name of your Azure Spring Apps instance.
+You can manage Application Insights using Azure CLI commands. In the following commands, be sure to replace the `<placeholder>` text with the values described. The `<service-instance-name>` placeholder refers to the name of your Azure Spring Apps instance.
 
 ### Enable Application Insights
 
@@ -352,7 +352,7 @@ The following sections describe how to automate your deployment using Bicep, Azu
 
 ### Bicep
 
-To deploy using a Bicep file, copy the following content into a *main.bicep* file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
+To deploy using a Bicep file, copy the following content into a **main.bicep** file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
 
 ```bicep
 param springName string
@@ -376,7 +376,7 @@ resource monitorSetting 'Microsoft.AppPlatform/Spring/monitoringSettings@2020-11
 
 ### ARM templates
 
-To deploy using an ARM template, copy the following content into an *azuredeploy.json* file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
+To deploy using an ARM template, copy the following content into an **azuredeploy.json** file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
 
 ```json
 {

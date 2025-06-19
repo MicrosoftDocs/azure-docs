@@ -1,13 +1,13 @@
 ---
 title: Understand Azure IoT Hub message routing
 titleSuffix: Azure IoT Hub
-description: This article describes how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and non-telemetry data.
-author: kgremban
+description: This article describes how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and nontelemetry data.
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 02/23/2024
+ms.date: 02/27/2025
 ms.custom: ['Role: Cloud Development', devx-track-csharp]
 ---
 
@@ -42,14 +42,9 @@ Each message is routed to all endpoints whose routing queries it matches, which 
 
 IoT Hub needs write access to these service endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. If you configure your endpoints using PowerShell or the Azure CLI, you need to provide the write access permission.
 
-To learn how to create endpoints, see the following articles:
+To learn how to create endpoints, see [Manage routes and endpoints using the Azure portal](how-to-routing-portal.md).
 
-* [Manage routes and endpoints using the Azure portal](how-to-routing-portal.md)
-* [Manage routes and endpoints using the Azure CLI](how-to-routing-azure-cli.md)
-* [Manage routes and endpoints using PowerShell](how-to-routing-powershell.md)
-* [Manage routes and endpoints using Azure Resource Manager](how-to-routing-arm.md)
-
-Make sure that you configure your services to support the expected throughput. For example, if you're using Event Hubs as a custom endpoint, you must configure the **throughput units** for that event hub so that it can handle the ingress of events you plan to send via IoT Hub message routing. Similarly, when using a Service Bus queue as an endpoint, you must configure the **maximum size** to ensure the queue can hold all the data ingressed, until it's egressed by consumers. When you first configure your IoT solution, you may need to monitor your other endpoints and make any necessary adjustments for the actual load.
+Make sure that you configure your services to support the expected throughput. For example, if you're using Event Hubs as a custom endpoint, you must configure the **throughput units** for that event hub so that it can handle the ingress of events you plan to send via IoT Hub message routing. Similarly, when using a Service Bus queue as an endpoint, you must configure the **maximum size** to ensure the queue can hold all the data ingressed, until it's egressed by consumers. When you first configure your IoT solution, you might need to monitor your other endpoints and make adjustments for the actual load.
 
 If your custom endpoint has firewall configurations, consider using the [Microsoft trusted first party exception.](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
@@ -61,7 +56,7 @@ For more information, see [Egress connectivity from IoT Hub to other Azure resou
 
 ## Routing queries
 
-IoT Hub message routing provides a querying capability to filter the data before routing it to the endpoints. Each routing query you configure has the following properties:
+IoT Hub message routing provides a querying capability to filter the data before routing it to the endpoints. Each routing query has the following properties:
 
 | Property      | Description |
 | ------------- | ----------- |
@@ -70,11 +65,11 @@ IoT Hub message routing provides a querying capability to filter the data before
 | **Condition** | The query expression for the routing query that is run against the message application properties, system properties, message body, device twin tags, and device twin properties to determine if it's a match for the endpoint. |
 | **Endpoint**  | The name of the endpoint where IoT Hub sends messages that match the query. We recommend that you choose an endpoint in the same region as your IoT hub. |
 
-A single message may match the condition on multiple routing queries, in which case IoT Hub delivers the message to the endpoint associated with each matched query. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple queries that have the same destination, it's only written once to that destination.
+A single message can match the condition on multiple routing queries, in which case IoT Hub delivers the message to the endpoint associated with each matched query. IoT Hub also automatically deduplicates message delivery. If a message matches multiple queries that have the same destination, IoT Hub only delivers it once to that destination.
 
 For more information, see [IoT Hub message routing query syntax](./iot-hub-devguide-routing-query-syntax.md).
 
-## Read data that has been routed
+## Read routed data
 
 Use the following articles to learn how to read messages from an endpoint.
 
@@ -90,13 +85,13 @@ Use the following articles to learn how to read messages from an endpoint.
 
 ## Fallback route
 
-The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the built-in endpoint (**messages/events**), which is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is enabled, you can enable the fallback route capability. Once any route is created, data stops flowing to the built-in endpoint, unless a route is created to that endpoint. If there are no routes to the built-in endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in endpoint. Even if all existing routes are deleted, the fallback route capability must be enabled to receive all data at the built-in endpoint.
+The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the built-in endpoint (**messages/events**), which is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is enabled, you can enable the fallback route capability. Once any route is created, data stops flowing to the built-in endpoint, unless a route is created to that endpoint. If there are no routes to the built-in endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes are sent to the built-in endpoint. Even if all existing routes are deleted, the fallback route capability must be enabled to receive all data at the built-in endpoint.
 
-You can enable or disable the fallback route in the Azure portal on the **Message routing** blade. You can also use Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for the fallback route.
+You can enable or disable the fallback route in the Azure portal on the **Message routing** page. You can also use Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for the fallback route.
 
 ## Non-telemetry events
 
-In addition to device telemetry, message routing also enables sending non-telemetry events, including:
+In addition to device telemetry, message routing also enables sending nontelemetry events, including:
 
 * Device twin change events
 * Device lifecycle events
@@ -108,11 +103,11 @@ For example, if a route is created with the data source set to **Device Twin Cha
 
 When using [Azure IoT Plug and Play](../iot/overview-iot-plug-and-play.md), a developer can create routes with the data source set to **Digital Twin Change Events** and IoT Hub sends messages whenever a digital twin property is set or changed, a digital twin is replaced, or when a change event happens for the underlying device twin. Finally, if a route is created with data source set to **Device Connection State Events**, IoT Hub sends a message indicating whether the device was connected or disconnected.
 
-IoT Hub also integrates with Azure Event Grid to publish device events to support real-time integrations and automation of workflows based on these events. See key [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md) to learn which works best for your scenario.
+IoT Hub also integrates with Azure Event Grid to publish device events to support real-time integrations and automation of workflows based on these events. To learn which service works best for your scenario, see [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md).
 
 ### Limitations for device connection state events
 
-Device connection state events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTPS won't trigger device connection state notifications. For IoT Hub to start sending device connection state events, after opening a connection a device must call either the *cloud-to-device receive message* operation or the *device-to-cloud send telemetry* operation. Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging topics. Over AMQP these operations equate to attaching or transferring a message on the appropriate link paths. For more information, see the following articles:
+Device connection state events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTPS don't trigger device connection state notifications. For IoT Hub to start sending device connection state events, after opening a connection a device must call either the *cloud-to-device receive message* operation or the *device-to-cloud send telemetry* operation. Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging topics. Over AMQP these operations equate to attaching or transferring a message on the appropriate link paths. For more information, see the following articles:
 
 * [Communicate with IoT Hub using MQTT](../iot/iot-mqtt-connect-to-iot-hub.md)
 * [Communicate with IoT Hub using AMQP](iot-hub-amqp-support.md)
@@ -127,7 +122,7 @@ When you create a new route or edit an existing route, you should test the route
 
 When you route device-to-cloud telemetry messages, there's a slight increase in the end-to-end latency after the creation of the first route.
 
-In most cases, the average increase in latency is less than 500 milliseconds. However, the latency you experience can vary and can be higher depending on the tier of your IoT hub and your solution architecture. You can monitor the latency using the **Routing: message latency for messages/events** or **d2c.endpoints.latency.builtIn.events** IoT Hub metrics. Creating or deleting any route after the first one doesn't impact the end-to-end latency.
+In most cases, the average increase in latency is less than 500 milliseconds. However, the latency you experience can vary and can be higher depending on the tier of your IoT hub and your solution architecture. You can monitor the latency using the **Routing: message latency for messages/events** or **d2c.endpoints.latency.builtIn.events** IoT Hub metrics. Creating or deleting any route after the first one doesn't affect the end-to-end latency.
 
 ## Monitor and troubleshoot
 

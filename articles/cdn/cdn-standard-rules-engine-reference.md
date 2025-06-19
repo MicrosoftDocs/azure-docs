@@ -2,11 +2,13 @@
 title: Standard rules engine reference for Azure Content Delivery Network
 description: Reference documentation for match conditions and actions in the Standard rules engine for Azure Content Delivery Network.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: "As a web administrator managing content delivery, I want to configure match conditions and actions in the rules engine, so that I can optimize caching and request processing for better performance."
 ---
 
 # Standard rules engine reference for Azure Content Delivery Network
@@ -38,7 +40,7 @@ Included in this limit is a default *global rule*. The global rule doesn't have 
 
 ## Limits and pricing
 
-For more information, see [content delivery network Scale limits](../azure-resource-manager/management/azure-subscription-service-limits.md#content-delivery-network-limits) for rules limit. For rule engine pricing, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
+For more information, see [content delivery network Scale limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-content-delivery-network-limits) for rules limit. For rule engine pricing, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## Syntax
 

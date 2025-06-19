@@ -2,11 +2,11 @@
 title: What is Azure DNS Private Resolver?
 description: In this article, get started with an overview of the Azure DNS Private Resolver service.
 ms.custom: references_regions
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: overview
-ms.date: 08/09/2024
-ms.author: greglin
+ms.date: 01/29/2025
+ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
 
@@ -34,7 +34,7 @@ The DNS query process when using an Azure DNS Private Resolver is summarized bel
 
 The architecture for Azure DNS Private Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-premises networks requires [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-[ ![Azure DNS Private Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](./media/dns-resolver-overview/resolver-architecture-highres.png#lightbox)
+[ ![Azure DNS Private Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](./media/dns-resolver-overview/resolver-architecture.png#lightbox)
 
 Figure 1: Azure DNS Private Resolver architecture
 
@@ -125,6 +125,7 @@ Outbound endpoints have the following limitations:
 
 ### Other restrictions
 
+- Linking rulesets cross-tenant is not supported.
 - IPv6 enabled subnets aren't supported.
 - DNS private resolver doesn't support Azure ExpressRoute FastPath.
 - DNS private resolver isn't compatible with [Azure Lighthouse](/azure/lighthouse/overview).

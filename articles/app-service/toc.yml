@@ -1,41 +1,204 @@
+items:
 - name: App Service Documentation
   href: index.yml
-- name: Get started
+- name: Overview
   items:
-  - name: Getting started
-    href: getting-started.md
   - name: About App Service
-    href: overview.md
+    href: overview.md 
   - name: About App Service Environments
     href: environment/overview.md
   - name: Compare web hosting options
     href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-  - name: Compare JBoss EAP options
-    href: /azure/developer/java/ee/jboss-on-azure?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-- name: Quickstarts
-  expanded: true
+- name: Integrate AI with App Service
+  href: overview-ai-integration.md
+- name: Get started
   items:
-    - name: Deploy ASP.NET
+  - name: Get started
+    href: getting-started.md
+  - name: .NET
+    items: 
+    - name: Quickstart
       href: quickstart-dotnetcore.md
-    - name: Deploy Node.js
-      href: quickstart-nodejs.md
-    - name: Deploy PHP
-      href: quickstart-php.md
-    - name: Deploy Java
+    - name: Configure
+      items:
+      - name: ASP.NET
+        href: configure-language-dotnet-framework.md
+      - name: ASP.NET Core
+        href: configure-language-dotnetcore.md
+    - name: Connect
+      items:
+      - name: ASP.NET Core with SQL DB
+        href: tutorial-dotnetcore-sqldb-app.md
+      - name: ASP.NET with SQL DB
+        href: app-service-web-tutorial-dotnet-sqldatabase.md
+      - name: Connect .NET app to SQL database
+        href: tutorial-connect-msi-sql-database.md
+      - name: to Microsoft Graph with managed identity
+        href: scenario-secure-app-access-microsoft-graph-as-app.md
+      - name: to Microsoft Graph as user
+        href: scenario-secure-app-access-microsoft-graph-as-user.md
+      - name: to other Azure services with managed identity
+        href: scenario-secure-app-access-storage.md
+      - name: to SQL database as user
+        href: tutorial-connect-app-access-sql-database-as-user-dotnet.md
+    - name: Migrate
+      items:
+      - name: Assess .NET
+        href: app-service-migration-assess-net.md
+      - name: Discover .NET
+        href: app-service-migration-discover-net.md
+      - name: Migrate .NET
+        href: app-service-asp-net-migration.md
+      - name: Migrate containerized .NET
+        href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=/azure/bread/toc.json&toc=/azure/app-service/toc.json
+    - name: AI
+      items:
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-dotnet.md
+        - name: RAG with Azure OpenAI and your data
+          href: tutorial-ai-openai-search-dotnet.md
+        - name: RAG Azure OpenAI and Azure SQL
+          href: deploy-intelligent-apps-dotnet-to-azure-sql.md
+        - name: Invoke OpenAPI app from Azure AI Agent
+          href: invoke-openapi-web-app-from-azure-ai-agent-service.md
+        - name: Chatbot with local SLM
+          href: tutorial-ai-slm-dotnet.md
+
+  - name: Java
+    items:
+    - name: Quickstart
       href: quickstart-java.md
-    - name: Deploy Python
+    - name: Configure
+      items:
+        - name: Deployment and runtime
+          href: configure-language-java-deploy-run.md
+        - name: Compare JBoss EAP options
+          href: /azure/developer/java/ee/jboss-on-azure?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+        - name: Data sources
+          href: configure-language-java-data-sources.md
+        - name: APM integration
+          href: configure-language-java-apm.md
+        - name: Security
+          href: configure-language-java-security.md
+    - name: Connect
+      items:
+        - name: Spring Boot with MongoDB
+          href: tutorial-java-spring-cosmosdb.md
+        - name: Quarkus with PostgreSQL
+          href: tutorial-java-quarkus-postgresql-app.md
+        - name: Tomcat with MySQL
+          href: tutorial-java-tomcat-mysql-app.md             
+        - name: Java Tomcat to Postgres
+          href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
+        - name: JBoss with MySQL
+          href: tutorial-java-jboss-mysql-app.md 
+    - name: Migrate
+      items:
+      - name: Java SE
+        href: app-service-java-migration.md
+      - name: Tomcat
+        href: /azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+      - name: JBoss EAP
+        href: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+      - name: WebLogic
+        href: /azure/developer/java/migration/migrate-weblogic-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+      - name: WebSphere
+        href: /azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+    - name: AI
+      items:
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-java.md
+        - name: RAG with Azure OpenAI with your data
+          href: tutorial-ai-openai-search-java.md
+        - name: Chatbot with local SLM
+          href: tutorial-ai-slm-spring-boot.md
+  - name: Node.js
+    items:
+    - name: Quickstart
+      href: quickstart-nodejs.md
+    - name: Configure
+      href: configure-language-nodejs.md
+    - name: Connect
+      items:
+      - name: with MongoDB
+        href: tutorial-nodejs-mongodb-app.md
+      - name: to Microsoft Graph with managed identity
+        href: tutorial-connect-app-access-microsoft-graph-as-app-javascript.md
+      - name: to Microsoft Graph as User
+        href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
+      - name: to other Azure services with managed identity
+        href: tutorial-connect-app-access-storage-javascript.md
+    - name: AI
+      items:
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-node.md
+        - name: RAG with Azure OpenAI and your data
+          href: tutorial-ai-openai-search-nodejs.md
+        - name: Chatbot with local SLM
+          href: tutorial-ai-slm-expressjs.md
+  - name: Python
+    items:
+    - name: Quickstart
       href: quickstart-python.md
-    - name: Deploy WordPress
-      href: quickstart-wordpress.md
-    - name: Deploy a custom container
-      href: quickstart-custom-container.md
-    - name: Deploy using ARM template
-      displayName: Resource Manager
-      href: quickstart-arm-template.md
+    - name: Configure
+      href: configure-language-python.md
+    - name: Connect with Postgres
+      items:
+      - name: using Flask
+        href: tutorial-python-postgresql-app-flask.md
+      - name: using Flask with managed identity
+        href: /azure/developer/python/tutorial-python-managed-identity-cli?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+      - name: using Django
+        href: tutorial-python-postgresql-app-django.md
+      - name: using FastAPI
+        href: tutorial-python-postgresql-app-fastapi.md
+    - name: AI
+      items:
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-python.md
+        - name: RAG with Azure OpenAI and your data
+          href: tutorial-ai-openai-search-python.md
+        - name: Chatbot with local SLM
+          href: tutorial-ai-slm-fastapi.md
+        - name: Web app from Azure AI Foundry
+          href: /azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+  - name: PHP
+    items:
+    - name: Quickstart
+      href: quickstart-php.md
+    - name: Configure
+      href: configure-language-php.md
+    - name: Connect with MySQL
+      href: tutorial-php-mysql-app.md
+  - name: WordPress
+    items:
+      - name: Overview
+        href: overview-wordpress.md
+      - name: Architecture
+        displayName: WordPress on App Service architecture
+        href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fapp-service%2Fbreadcrumb%2Ftoc.json
+      - name: Deploy
+        displayName: Create a WordPress site
+        href: quickstart-wordpress.md
+      - name: Migrate WordPress to App Service
+        displayName: Move WordPress to App Service
+        href: migrate-wordpress.md
+      - name: Configure WordPress
+        displayName: Setup WordPress
+        href: reference-app-settings.md#wordpress
+      - name: Customize API Management developer portal
+        displayName: API Management and WordPress
+        href: /azure/api-management/developer-portal-wordpress-plugin?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fapp-service%2Fbreadcrumb%2Ftoc.json
+      - name: WordPress FAQ
+        displayName: WordPress frequently asked questions
+        href: wordpress-faq.md
 - name: Deployment and configuration
   items:
     - name: Deployment best practices
       href: deploy-best-practices.md
+    - name: Deploy using ARM template
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
     - name: Deploy a REST API (tutorial)
       href: app-service-web-tutorial-rest-api.md
     - name: Configure common settings
@@ -46,28 +209,6 @@
       href: reference-app-settings.md  
     - name: Configure error pages
       href: configure-error-pages.md   
-    - name: Configure specific languages
-      items:
-        - name: Configure ASP.NET
-          href: configure-language-dotnet-framework.md
-        - name: Configure ASP.NET Core
-          href: configure-language-dotnetcore.md
-        - name: Configure Node.js
-          href: configure-language-nodejs.md
-        - name: Configure PHP
-          href: configure-language-php.md
-        - name: Configure Python
-          href: configure-language-python.md
-        - name: Configure Java SE, Tomcat, or JBoss
-          items:
-            - name: Deployment and runtime
-              href: configure-language-java-deploy-run.md
-            - name: Data sources
-              href: configure-language-java-data-sources.md
-            - name: APM integration
-              href: configure-language-java-apm.md
-            - name: Security
-              href: configure-language-java-security.md
     - name: Deployment methods
       items:
         - name: Use ZIP or WAR
@@ -104,6 +245,14 @@
           href: /azure/templates/microsoft.web/allversions
 - name: Logs and monitoring
   items:
+    - name: Troubleshoot and resolve issues with an agent
+      items:
+        - name: Overview
+          href: sre-agent-overview.md
+        - name: Use an SRE agent
+          href: sre-agent-usage.md
+        - name: SRE Agent tutorial
+          href: tutorial-sre-agent.md    
     - name: Monitor App Service
       href: monitor-app-service.md
     - name: Monitoring data reference
@@ -120,58 +269,50 @@
       href: overview-diagnostics.md
     - name: About quotas & alerts
       href: web-sites-monitor.md
-- name: Domains and certificates
+- name: Domain names and certificates
   items:
     - name: Domain and cert quickstart
       href: tutorial-secure-domain-certificate.md
-    - name: Custom domains
+    - name: Domain names
       items:
-        - name: Map your own custom domain
+        - name: Overview of custom domains
+          href: overview-custom-domains.md
+        - name: Connect a domain name
           href: app-service-web-tutorial-custom-domain.md
-        - name: Buy App Service domain
+          displayName: Map a custom domain, connect a custom domain, custom domain
+        - name: Buy and configure App Service domain
           href: manage-custom-dns-buy-domain.md
-        - name: Map domains with Traffic Manager
+          displayName: Buy an App Service domain, custom domain
+        - name: Use Traffic Manager with a domain
           href: configure-domain-traffic-manager.md
+          displayName: Traffic Manager with custom domains, custom domain
         - name: Migrate an active domain
           href: manage-custom-dns-migrate-domain.md
+          displayName: Migrate a custom domain, custom domain
     - name: TLS/SSL certificates
       items:
-        - name: TLS overview
+        - name: Overview of TLS/SSL in App Service
           href: overview-tls.md
-        - name: Secure custom domain with TLS/SSL
+          displayName: TLS, SSL
+        - name: Secure a custom domain with HTTPS
           href: configure-ssl-bindings.md
-        - name: Add TLS/SSL cert
+          displayName: SSL
+        - name: Add and manage TLS/SSL certificates
           href: configure-ssl-certificate.md
-        - name: Buy App Service cert
+          displayName: SSL
+        - name: Create and Manage App Service certificates
           href: configure-ssl-app-service-certificate.md
-        - name: Use TLS/SSL cert in code
+          displayName: SSL
+        - name: Use TLS/SSL certificates in app code
           href: configure-ssl-certificate-in-code.md
+          displayName: SSL
         - name: Configure TLS mutual authentication
           href: app-service-web-configure-tls-mutual-auth.md
+          displayName: TLS
 - name: Database and service connection
   items:
     - name: Connectivity scenarios overview
-      href: tutorial-connect-overview.md   
-    - name: Connect to database (tutorials)  
-      items:
-        - name: ASP.NET Core with SQL DB
-          href: tutorial-dotnetcore-sqldb-app.md
-        - name: ASP.NET with SQL DB
-          href: app-service-web-tutorial-dotnet-sqldatabase.md
-        - name: PHP with MySQL
-          href: tutorial-php-mysql-app.md
-        - name: Node.js with MongoDB
-          href: tutorial-nodejs-mongodb-app.md
-        - name: Python with Postgres (Flask/Django)
-          href: tutorial-python-postgresql-app.md
-        - name: Python with Postgres (FastAPI)
-          href: tutorial-python-postgresql-app-fastapi.md
-        - name: Spring Boot with MongoDB
-          href: tutorial-java-spring-cosmosdb.md
-        - name: Tomcat with MySQL
-          href: tutorial-java-tomcat-mysql-app.md            
-        - name: JBoss with MySQL
-          href: tutorial-java-jboss-mysql-app.md            
+      href: tutorial-connect-overview.md           
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings
@@ -202,38 +343,6 @@
           href: overview-managed-identity.md
         - name: Connect to databases with managed identity
           href: tutorial-connect-msi-azure-database.md
-        - name: End-to-end tutorials
-          items:
-            - name: Connect to DB with managed identity
-              items: 
-                - name: Connect .NET app to SQL database
-                  href: tutorial-connect-msi-sql-database.md
-                - name: Connect Java Tomcat to Postgres
-                  href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
-                - name: Connect Python Flask app to Postgres
-                  href: /azure/developer/python/tutorial-python-managed-identity-cli?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-            - name: Connect to Microsoft Graph with managed identity
-              items: 
-                - name: Use .NET
-                  href: scenario-secure-app-access-microsoft-graph-as-app.md
-                - name: Use Node.js
-                  href: tutorial-connect-app-access-microsoft-graph-as-app-javascript.md
-            - name: Connect to other Azure services with managed identity
-              items:
-                - name: Use .NET
-                  href: scenario-secure-app-access-storage.md
-                - name: Use Node.js
-                  href: tutorial-connect-app-access-storage-javascript.md
-    - name: Connect as authenticated user
-      items:
-        - name: Connect to Microsoft Graph as user
-          items: 
-            - name: Use .NET
-              href: scenario-secure-app-access-microsoft-graph-as-user.md
-            - name: Use Node.js
-              href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
-        - name: Connect to SQL database as user
-          href: tutorial-connect-app-access-sql-database-as-user-dotnet.md
         - name: Connect to another app as user
           href: tutorial-auth-aad.md
         - name: App to app to another Azure service as user
@@ -362,7 +471,9 @@
     - name: Manage App Service plan
       href: app-service-plan-manage.md
     - name: Configure PremiumV3 tier
-      href: app-service-configure-premium-tier.md
+      href: app-service-configure-premium-v3-tier.md
+    - name: Configure PremiumV4 tier
+      href: app-service-configure-premium-v4-tier.md      
     - name: Back up and restore app
       href: manage-backup.md
     - name: Clone app
@@ -370,13 +481,15 @@
     - name: Restore deleted app
       href: app-service-undelete.md
     - name: Relocate app to another region
-      href: ../operational-excellence/relocation-app-service.md?toc=/azure/app-service/toc.json
+      href: ../azure-resource-manager/management/relocation/relocation-app-service.md?toc=/azure/app-service/toc.json
     - name: Move app between subscriptions
       href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/app-service/toc.json#checklist-before-moving-resources
     - name: About cost management
       href: overview-manage-costs.md
 - name: Custom containers
   items:
+    - name: Deploy a custom container
+      href: quickstart-custom-container.md
     - name: Configure custom container
       href: configure-custom-container.md
     - name: CI/CD to custom container
@@ -391,50 +504,35 @@
           href: tutorial-custom-container.md
         - name: Deploy with Azure Pipelines
           href: deploy-container-azure-pipelines.md
-- name: Integrate AI with App Service
-  items:
-    - name: Deploy an application that uses OpenAI on App Service
-      href: deploy-intelligent-apps.md
-- name: WordPress
-  items:
-    - name: WordPress overview
-      href: overview-wordpress.md
-    - name: WordPress architecture
-      displayName: WordPress on App Service architecture
-      href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fapp-service%2Fbreadcrumb%2Ftoc.json
-    - name: Deploy WordPress
-      displayName: Create a WordPress site
-      href: quickstart-wordpress.md
-    - name: Migrate WordPress to App Service
-      displayName: Move WordPress to App Service
-      href: migrate-wordpress.md
-    - name: Configure WordPress
-      displayName: Setup WordPress
-      href: reference-app-settings.md#wordpress
-    - name: Customize API Management developer portal
-      displayName: API Management and WordPress
-      href: /azure/api-management/developer-portal-wordpress-plugin?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fapp-service%2Fbreadcrumb%2Ftoc.json
-    - name: WordPress FAQ
-      displayName: WordPress frequently asked questions
-      href: wordpress-faq.md
 - name: WebJobs
   items:
-    - name: Create WebJobs
+    - name: Overview
+      href: overview-webjobs.md
+    - name: Background jobs best practices
+      href: /azure/architecture/best-practices/background-jobs?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+      displayName: WebJobs overview
+    - name: WebJobs Quickstart
+      href: quickstart-webjobs.md
+      displayName: Create a scheduled WebJob
+    - name: WebJobs Tutorial
+      href: tutorial-webjobs.md
+      displayName: Prepare and schedule a WebJob      
+    - name: How to create WebJobs
       href: webjobs-create.md
+    - name: How WebJobs work
+      href: webjobs-execution.md
     - name: Develop WebJobs using VS
       href: webjobs-dotnet-deploy-vs.md
     - name: Get started with WebJobs SDK
       href: webjobs-sdk-get-started.md
     - name: Use WebJobs SDK
-      href: webjobs-sdk-how-to.md          
+      href: webjobs-sdk-how-to.md
 - name: Reliability
   items:
   - name: Reliability in Azure App Service
     href: ../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Migrate to availability zones
     href: ../reliability/migrate-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-  - name: Move an App Service app to another region
-    href: manage-disaster-recovery.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -464,11 +562,11 @@
     - name: Build your skills with Microsoft Learn training
       href: /training/browse/
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-service/
     - name: Quota Information
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits
     - name: Service Updates
       href: https://azure.microsoft.com/updates/?product=app-service
     - name: Routine maintenance
@@ -519,6 +617,8 @@
           href: /azure/developer/java/migration/migrate-weblogic-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
         - name: Migrate WebSphere
           href: /azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+        - name: Migrate Python Windows apps to Linux
+          href: app-service-migration-windows-linux.md
     - name: Cookbooks
       items:
         - name: Reference Architectures

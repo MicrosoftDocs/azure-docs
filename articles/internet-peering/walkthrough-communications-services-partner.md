@@ -6,7 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 03/03/2025
+# Customer intent: As a voice services provider, I want to establish an interconnect with Azure Peering Service, so that I can integrate my communications infrastructure and ensure high-quality, reliable services for messaging and conferencing.
 ---
 
 # Set up an interconnect for peering with voice services
@@ -58,15 +59,13 @@ To create a peering resource for Peering Service voice services:
 
 1. In the Azure portal, search for and then select **Peerings**.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/internet-peering-portal-search.png" alt-text="Screenshot that shows how to search for Peering resources in the Azure portal.":::
+    :::image type="content" source="./media/internet-peering-portal-search.png" alt-text="Screenshot of searching for internet peerings in the Azure portal." lightbox="./media/internet-peering-portal-search.png":::
 
 1. On **Peerings**, select **Create**.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/create-peering.png" alt-text="Screenshot that shows how to create a peering resource in the Azure portal.":::
-
 1. On the **Basics** tab, enter or select your Azure subscription, a resource group, a peering name, and the ASN of the peering.
 
-   :::image type="content" source="./media/walkthrough-communications-services-partner/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal.":::
+   :::image type="content" source="./media/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal.":::
 
    > [!WARNING]
    > You can't change these options after the peering is created. Confirm that your selections are correct before you create the peering.
@@ -148,15 +147,9 @@ In the previous section, you registered prefixes and generated prefix keys. Pref
 
 1. To begin activating your prefixes, in the search box at the top of the portal, enter **peering service**. In the search results, select **Peering Services**.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-portal-search.png" alt-text="Screenshot that shows how to search for Peering Service in the Azure portal.":::
-
 1. Select **Create** to create a new Peering Service connection.
 
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-list.png" alt-text="Screenshot that shows the list of existing Peering Service connections in the Azure portal.":::
-
 1. On the **Basics** tab, enter or select your Azure subscription, the resource group name, and your Peering Service connection name.
-
-    :::image type="content" source="./media/walkthrough-communications-services-partner/peering-service-basics.png" alt-text="Screenshot that shows the Basics tab of creating a Peering Service connection in the Azure portal.":::
 
 1. On the **Configuration** tab, select your country or region, state or province, provider name, and the primary peering location. Optionally, select a backup peering location.
 

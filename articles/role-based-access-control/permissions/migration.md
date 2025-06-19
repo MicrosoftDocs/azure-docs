@@ -2,11 +2,11 @@
 title: Azure permissions for Migration - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Migration category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -271,7 +271,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/write | Creates a new SQL assessment or updates an existing SQL assessment |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/delete | Deletes an SQL assessment |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/downloadurl/action | Downloads an SQL assessment report's URL |
-> | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlDatabases/read | Get the properties of assessed SQL databses |
+> | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlDatabases/read | Get the properties of assessed SQL databases |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlInstances/read | Get the properties of assessed SQL instances |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlMachines/read | Get the properties of assessed SQL machines |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/recommendedAssessedEntities/read | Get the properties of recommended assessed entity |
@@ -305,6 +305,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnectionProxies/validate/action | Validate a Private Endpoint Connection Proxy |
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnectionProxies/write | Create or Update a Private Endpoint Connection Proxy |
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnectionProxies/delete | Delete a Private Endpoint Connection Proxy |
+> | Microsoft.Migrate/assessmentProjects/privateendpointconnectionproxiesazureasyncoperation/read | Get Private Endpoint Connection Proxy |
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnections/read | Get Private Endpoint Connection |
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnections/write | Update a Private Endpoint Connection |
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnections/delete | Delete a Private Endpoint Connection |

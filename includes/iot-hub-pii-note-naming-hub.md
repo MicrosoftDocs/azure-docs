@@ -1,6 +1,6 @@
 ---
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 10/26/2018

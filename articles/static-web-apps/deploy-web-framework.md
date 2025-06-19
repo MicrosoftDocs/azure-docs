@@ -2,11 +2,11 @@
 title: Deploy your web app to Azure Static Web Apps.
 description: Learn to deploy your web app to Azure Static Web Apps.
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: article
 ms.date: 09/18/2024
-ms.author: cshoe
+ms.author: wujia
 zone_pivot_groups: swa-web-framework
 ---
 

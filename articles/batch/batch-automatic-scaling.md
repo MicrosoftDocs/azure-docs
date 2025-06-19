@@ -2,7 +2,7 @@
 title: Autoscale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on an Azure Batch cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 06/05/2025
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
 ---
 
@@ -17,7 +17,7 @@ You can enable automatic scaling when you create a pool, or apply it to an exist
 > [!IMPORTANT]
 > When you create a Batch account, you can specify the [pool allocation mode](accounts.md), which determines whether pools are allocated in a Batch service subscription (the default) or in your user subscription. If you created your Batch account with the default Batch service configuration, then your account is limited to a maximum number of cores that can be used for processing. The Batch service scales compute nodes only up to that core limit. For this reason, the Batch service might not reach the target number of compute nodes specified by an autoscale formula. To learn how to view and increase your account quotas, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md).
 >
->If you created your account with user subscription mode, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+>If you created your account with user subscription mode, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## Autoscale formulas
 
@@ -46,15 +46,15 @@ The following examples show two autoscale formulas, which can be adjusted to wor
 
 #### Pending tasks
 
-With this autoscale formula, the pool is initially created with a single VM. The `$PendingTasks` metric defines the number of tasks that are running or queued. The formula finds the average number of pending tasks in the last 180 seconds and sets the `$TargetDedicatedNodes` variable accordingly. The formula ensures that the target number of dedicated nodes never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free and the autoscaling formula shrinks the pool.
+With this autoscale formula, the pool is initially created with a single VM. The `$PendingTasks` metric defines the number of tasks that are running or queued. The formula finds the average number of pending tasks in the last 15 minutes and sets the `$TargetDedicatedNodes` variable accordingly. The formula ensures that the target number of dedicated nodes never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free and the autoscaling formula shrinks the pool.
 
 This formula scales dedicated nodes, but can be modified to apply to scale Spot nodes as well.
 
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
-pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
-pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(TimeInterval_Minute * 15);
+pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(TimeInterval_Minute * 15));
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```

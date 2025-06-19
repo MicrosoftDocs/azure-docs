@@ -3,13 +3,14 @@ title: 'Quickstart: Create an Azure Batch account using Terraform'
 description: 'In this article, you create an Azure Batch account using Terraform'
 ms.topic: quickstart
 ms.service: azure-batch
-ms.date: 4/14/2023
+ms.date: 04/02/2025
 ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: "As a cloud engineer, I want to create an Azure Batch account using Terraform, so that I can quickly set up compute resources and manage large workloads efficiently."
 ---
 
 # Quickstart: Create an Azure Batch account using Terraform

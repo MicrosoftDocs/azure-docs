@@ -4,6 +4,9 @@ description: Set up and run an example data pipeline that is triggered by new da
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 01/02/2025
 ---
 

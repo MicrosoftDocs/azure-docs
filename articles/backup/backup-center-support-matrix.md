@@ -4,8 +4,8 @@ description: This article summarizes the scenarios that Backup center supports f
 ms.topic: reference
 ms.date: 09/24/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

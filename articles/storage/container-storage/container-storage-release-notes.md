@@ -1,26 +1,29 @@
 ---
-title: Release notes for Azure Container Storage
+title: Azure Container Storage release notes
 description: Release notes for Azure Container Storage
-author: denisacatalinastan
+author: khdownie
 ms.service: azure-container-storage
 ms.topic: release-notes
 ms.date: 11/26/2024
-ms.author: dstan
+ms.author: kendownie
+# Customer intent: "As a cloud administrator, I want to review the latest release notes for Azure Container Storage so that I can stay informed about new features, bug fixes, and support status for proper planning and management of my storage deployments."
 ---
-# Release notes for Azure Container Storage
+# Azure Container Storage release notes
 
-This article provides the release notes for Azure Container Storage. It's important to note that minor releases introduce new functionalities in a backward-compatible manner (for example, 1.2.0 Minor Release). Patch releases focus on bug fixes, security updates, and smaller improvements (for example, 1.1.2).
+This article provides the release notes for Azure Container Storage. It's important to note that minor releases introduce new functionalities in a backward-compatible manner (for example, 1.3.0 Minor Release). Patch releases focus on bug fixes, security updates, and smaller improvements (for example, 1.2.1).
 
 ## Supported versions
 
-The following Azure Container Storage versions are supported: 
+The following Azure Container Storage versions are supported:
 
 | Milestone | Status |
-|----|----------------| 
+|----|----------------|
+|1.3.0- Minor Release | Supported |
+|1.2.1- Patch Release | Supported |
 |1.2.0- Minor Release | Supported |
 |1.1.2- Patch Release | Supported |
 |1.1.1- Patch Release | Supported |
-|1.1.0- General Availability| Supported | 
+|1.1.0- General Availability| Supported |
 
 ## Unsupported versions
 
@@ -28,16 +31,30 @@ The following Azure Container Storage versions are no longer supported: 1.0.6-pr
 
 ## Major vs. minor vs. patch releases
 
-A **major release** introduces significant changes, often including new features, architectural updates, or breaking changes; for example, moving from version 1.1.0 to 2.0.0. A **minor release** adds enhancements or new functionality that are backward-compatible, such as moving from version 1.1.0 to 1.2.0. Lastly, a **patch release** focuses on resolving critical bugs, security issues, or minor optimizations while maintaining backward compatibility, such as moving from version 1.1.1 to 1.1.2, and is intended to ensure stability and reliability without introducing new features.
+A **major release** introduces significant changes, often including new features, architectural updates, or breaking changes; for example, moving from version 1.1.0 to 2.0.0. A **minor release** adds enhancements or new functionality that are backward-compatible, such as moving from version 1.2.0 to 1.3.0. Lastly, a **patch release** focuses on resolving critical bugs, security issues, or minor optimizations while maintaining backward compatibility, such as moving from version 1.1.1 to 1.1.2, and is intended to ensure stability and reliability without introducing new features.
 
-## Version 1.2.0 
+## Version 1.3.0
+
+### Improvements and issues that are fixed
+
+- **Bug fixes-Prometheus Operator**: In previous versions, some customers faced difficulties disabling Azure Container Storage’s default Prometheus operator when using a custom Prometheus deployment. This issue has now been fixed, allowing users to successfully turn off the built-in operator without conflict.  
+- **Performance Tuning for SQL-based Databases**: Running MySQL and PostgreSQL on Azure Container Storage is up to 5x faster on ephemeral disks. For more information and examples, refer to the [PostgreSQL on AKS deployment guide](/azure/aks/postgresql-ha-overview).
+  
+## Version 1.2.1
+
+### Improvements and issues that are fixed
+
+- **Bug fixes and performance improvements**: The version improved security and resilience by addressing vulnerabilities, updating Azure Linux base images, and reinforcing container security. These updates enhance threat mitigation and compliance. 
+- **Node taints toleration**: Node taints can prevent pods from being deployed on a node pool. See more information in [AKS Node Taints](/azure/aks/use-node-taints). When node taints are configured on the node pool, the installation of Azure Container Storage components is blocked. With node taints toleration, Azure Container Storage component pods can be deployed successfully without the need to temporarily remove the taints as a mitigation. This feature is built-in without configuration, and is supported **only for ephemeral storage pools**.
+
+## Version 1.2.0
 
 ### Improvements and issues that are fixed
 
 - **Bug fixes and performance improvements**: We've made general stability improvements to address key recovery issues, especially during upgrade scenarios. These updates are designed to ensure more reliable recovery processes and prevent unexpected service interruptions, delivering a smoother and more consistent experience.  
 - **Ephemeral Disk Performance Enhancements**: We improved overall performance for Azure Container Storage with ephemeral NVMe disks as the backing storage option, delivering up to a 100% increase in write IOPS in setups with replication enabled. For more details, read about ephemeral disk performance [using local NVMe](/azure/storage/container-storage/use-container-storage-with-local-disk#optimize-performance-when-using-local-nvme) and [using local NVMe with replication](/azure/storage/container-storage/use-container-storage-with-local-nvme-replication#optimize-performance-when-using-local-nvme).
 
-## Version 1.1.2 
+## Version 1.1.2
 
 ### Improvements and issues that are fixed
 
@@ -49,7 +66,7 @@ A **major release** introduces significant changes, often including new features
 
 ### Improvements and issues that are fixed
 
-- This minor release addresses specific issues that some customers experienced during the creation of Azure Elastic SAN storage pools. It resolves exceptions that were causing disruptions in the setup process, ensuring smoother and more reliable storage pool creation.
+- This patch release addresses specific issues that some customers experienced during the creation of Azure Elastic SAN storage pools. It resolves exceptions that were causing disruptions in the setup process, enabling smoother and more reliable storage pool creation.
 - We've also made improvements to cluster restart scenarios. Previously, some corner-case situations caused cluster restarts to fail. This update ensures that cluster restarts are more reliable and resilient.
 
 ## Version 1.1.0
@@ -71,10 +88,12 @@ Azure Container Storage follows a transparent and predictable support lifecycle 
 
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
 |----|----------------| ------------| -------- |
-|1.2.0- Minor Release | 11/11/2024 | 11/10/2025 | 1.30, 1.29, 1.28 | 
+|1.3.0- Minor Release | 04/28/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
+|1.2.1- Patch Release| 02/10/2025 | 11/10/2025| 1.30, 1.29, 1.28|
+|1.2.0- Minor Release | 11/11/2024 | 11/10/2025 | 1.30, 1.29, 1.28 |
 |1.1.2- Patch Release | 10/16/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
-|1.1.1- Patch Release | 09/20/2024 | 07/29/2025 | 1.29, 1.28, 1.27 | 
-|1.1.0- General Availability| 07/30/2024 | 07/29/2025 | 1.29, 1.28, 1.27 | 
+|1.1.1- Patch Release | 09/20/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
+|1.1.0- General Availability| 07/30/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
 
 ### Kubernetes version compatibility
 
@@ -85,11 +104,11 @@ Azure Container Storage aligns with AKS support for Kubernetes versions using th
 
 Before upgrading the Kubernetes version in your AKS cluster, we recommend checking if the version is included in the Azure Container Storage version support list. If the latest Azure Container Storage version doesn't yet support it, consider deferring the upgrade. As a general best practice, validate your workloads with the new version of Kubernetes or the new version of dependent components in a staging environment before upgrading in the production environment. 
 
-### Important guidance for version synchronization 
+### Important guidance for version synchronization
 
 To maintain compatibility and avoid unvalidated combinations of Azure Container Storage and AKS: 
 
-- All patch releases within a minor version (for example, 1.1.x) will support the same Kubernetes versions as the initial minor release (for example, 1.1.0). 
+- All patch releases within a minor version (for example, 1.1.x) will support the same Kubernetes versions as the initial minor release (for example, 1.2.1). 
 
 - New minor releases (for example, 1.2.0 and subsequent 1.2.x) will support a sliding window of Kubernetes versions, advancing to the next version with each new minor release (for example, 1.2.0 supports 1.28, 1.29, and 1.30). 
 
@@ -107,7 +126,7 @@ Please note that preview versions are no longer supported, and customers should 
 
 ## Auto-upgrade policy
 
-To receive the latest features and fixes for Azure Container Storage in future versions, you can enable auto-upgrade. However, please note that this might result in a brief interruption in the I/O operations of applications using PVs with Azure Container Storage during the upgrade process. To minimize potential impact, we recommend setting the auto-upgrade window to a time period with low activity or traffic, ensuring that upgrades occur during less critical times.  
+To receive the latest features and fixes for Azure Container Storage in future versions, you can enable auto-upgrade. However, this might result in a brief interruption in the I/O operations of applications using PVs with Azure Container Storage during the upgrade process. To minimize potential impact, we recommend setting the auto-upgrade window to a time period with low activity or traffic, ensuring that upgrades occur during less critical times.  
 
 To enable auto-upgrade, run the following command:
 
@@ -115,7 +134,7 @@ To enable auto-upgrade, run the following command:
 az k8s-extension update --cluster-name <cluster name> --resource-group <resource-group> --cluster-type managedClusters --auto-upgrade-minor-version true -n azurecontainerstorage
 ```
 
-If you would like to disable auto-upgrades, run the following command:
+If you'd like to disable auto-upgrades, run the following command:
 
 ```azurecli-interactive
 az k8s-extension update --cluster-name <cluster name> --resource-group <resource-group> --cluster-type managedClusters --auto-upgrade-minor-version false -n azurecontainerstorage

@@ -13,10 +13,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # RabbitMQ trigger for Azure Functions overview
 
-> [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Premium and Dedicated** plans. Consumption is not supported.
-
 Use the RabbitMQ trigger to respond to messages from a RabbitMQ queue.
+
+[!INCLUDE [functions-rabbitmq-plans-support-note](../../includes/functions-rabbitmq-plans-support-note.md)]
 
 For information on setup and configuration details, see the [overview](functions-bindings-rabbitmq.md).
 
@@ -70,7 +69,7 @@ namespace Company.Function
 }
 ```
 
-Like with Json objects, an error will occur if the message isn't properly formatted as a C# object. If it is, it's then bound to the variable pocObj, which can be used for what whatever it's needed for.
+Like with JSON objects, an error will occur if the message isn't properly formatted as a C# object. If it is, it's then bound to the variable pocObj, which can be used for what whatever it's needed for.
 
 ---
 
@@ -234,6 +233,8 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
+
+[!INCLUDE [functions-rabbitmq-managed-identity-note](../../includes/functions-rabbitmq-managed-identity-note.md)]
 
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the RabbitMQ trigger depends on the C# modality used.

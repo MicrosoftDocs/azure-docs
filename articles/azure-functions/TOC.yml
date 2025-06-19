@@ -6,6 +6,8 @@
       href: functions-overview.md
     - name: Scenarios
       href: functions-scenarios.md
+    - name: AI-enabled functions
+      href: functions-create-ai-enabled-apps.md
     - name: Getting started
       href: functions-get-started.md
     - name: Durable Functions
@@ -115,14 +117,9 @@
           - name: ARM template
             displayName: Resource Manager
             href: functions-create-first-function-resource-manager.md
-        - name: Azure Arc (preview)
-          items:
-            - name: Code-only publishing
-              displayName: Arc, container, Kubernetes
-              href: create-first-function-arc-cli.md
-            - name: Custom container
-              displayName: Arc, container, Kubernetes, Docker
-              href: create-first-function-arc-custom-container.md
+          - name: Terraform
+            displayName: Terraform, quickstart, get started
+            href: functions-create-first-function-terraform.md
         - name: Azure Container Apps
           href: functions-deploy-container-apps.md
           displayName: container, Docker, ACA
@@ -378,7 +375,8 @@
           href: functions-triggers-bindings.md
         - name: Register binding extensions
           href: functions-bindings-register.md
-          displayName: bundles, extension bundles
+        - name: Extension bundles
+          href: extension-bundles.md  
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
         - name: Handle binding errors
@@ -423,12 +421,16 @@
         - name: Isolated worker model
           displayName: .NET isolated
           href: dotnet-isolated-process-guide.md
-        - name: In-process model
-          href: functions-dotnet-class-library.md
-        - name: Script (.csx)
-          href: functions-reference-csharp.md
-        - name: Execution mode comparison
-          href: dotnet-isolated-in-process-differences.md
+        - name: .NET Aspire integration (Preview)
+          href: dotnet-aspire-integration.md
+        - name: Legacy models
+          items:
+            - name: Execution mode comparison
+              href: dotnet-isolated-in-process-differences.md
+            - name: In-process model
+              href: functions-dotnet-class-library.md
+            - name: Script (.csx)
+              href: functions-reference-csharp.md
     - name: JavaScript
       href: functions-reference-node.md?tabs=javascript
     - name: TypeScript
@@ -485,16 +487,25 @@
             - name: Core Tools development
               href: functions-run-local.md
               displayName: local, runtime
+        - name: Create a function app
+          items:
+            - name: Infrastructure as code
+              href: functions-infrastructure-as-code.md
+              displayName: bicep, ARM template, create function app 
+            - name: Azure portal 
+              href: functions-create-function-app-portal.md
+              displayName: create function app
+            - name: Azure CLI  
+              href: ./scripts/functions-cli-create-serverless.md
+              displayName: create function app
         - name: Create functions
           items:
             - name: HTTP trigger
               items:
                 - name: Azure portal
-                  href: functions-create-function-app-portal.md
+                  href: functions-create-http-endpoint.md
                 - name: Kotlin using IntelliJ
                   href: functions-create-maven-kotlin-intellij.md
-                - name: Linux App Service plan
-                  href: create-function-app-linux-app-service-plan.md
                 - name: Consumption plan
                   href: ./scripts/functions-cli-create-app-service-plan.md
                 - name: Premium plan
@@ -522,13 +533,11 @@
                 - name: Azure portal
                   href: functions-integrate-storage-queue-output-binding.md
                 - name: Visual Studio Code
-                  href: ./functions-add-output-binding-storage-queue-vs-code.md
+                  href: functions-add-output-binding-storage-queue-vs-code.md
                 - name: Visual Studio
-                  href: ./functions-add-output-binding-storage-queue-vs.md
-                - name: Java
-                  href: functions-add-output-binding-storage-queue-java.md
-                - name: Python
-                  href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
+                  href: functions-add-output-binding-storage-queue-vs.md
+                - name: Command line
+                  href: functions-add-output-binding-storage-queue-cli.md
         - name: Debug
           items:
             - name: Debug local PowerShell functions
@@ -550,7 +559,7 @@
           href: bring-dependency-to-functions.md
         - name: Develop Python worker extensions
           href: develop-python-worker-extensions.md
-    - name: Deploy
+    - name: Deploy 
       items:
         - name: Continuous deployment
           href: functions-continuous-deployment.md
@@ -573,9 +582,6 @@
           href: deployment-zip-push.md
         - name: Run from package
           href: run-functions-from-deployment-package.md
-        - name: Automate resource deployment
-          href: functions-infrastructure-as-code.md
-          displayName: bicep, ARM template
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
@@ -593,25 +599,8 @@
           href: disable-function.md
         - name: Networking
           href: configure-networking-how-to.md
-        - name: Relocate to another region
-          href: ../operational-excellence/relocation-functions.md?toc=/azure/azure-functions/toc.json
         - name: Work with legacy Functions Proxies
           href: legacy-proxies.md
-    - name: Migrate
-      items:
-        - name: Migrate .NET apps to the isolated model
-          href: migrate-dotnet-to-isolated-model.md
-        - name: Migrate v3.x to v4.x
-          href: migrate-version-3-version-4.md
-        - name: Migrate v1.x to v4.x
-          href: migrate-version-1-version-4.md
-        - name: Node.js
-          items:
-            - name: Migrate to model v4.x
-              href: functions-node-upgrade-v4.md
-        - name: Update language versions
-          href: update-language-versions.md
-          displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
         - name: Monitor Azure Functions
@@ -682,9 +671,9 @@
             - name: Azure Cache for Redis
               items:
                 - name: Get started with VS Code
-                  href: ../azure-cache-for-redis/cache-tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                  href: ../redis/tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
                 - name: Create a write-behind cache
-                  href: ../azure-cache-for-redis/cache-tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                  href: ../redis/tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Storage
               items:
                 - name: Azure portal
@@ -743,6 +732,8 @@
           href: functions-hybrid-powershell.md
     - name: Troubleshoot
       items:
+        - name: SRE Agent overview
+          href: ../app-service/sre-agent-overview.md?toc=/azure/azure-functions/toc.json
         - name: Storage connections
           href: functions-recover-storage-account.md
           displayName: troubleshoot
@@ -759,6 +750,32 @@
               href: python-scale-performance-reference.md
             - name: Memory profiling
               href: python-memory-profiler-reference.md
+- name: Migration guides
+  items:
+    - name: Migrate from AWS Lambda
+      href: migration/migrate-aws-lambda-to-azure-functions.md
+      displayName: AWS Lambda, migration
+    - name: Upgrade runtime versions
+      items:
+        - name: Migrate v3.x to v4.x
+          href: migrate-version-3-version-4.md
+        - name: Migrate v1.x to v4.x
+          href: migrate-version-1-version-4.md
+    - name: Language version updates
+      items: 
+        - name: Update language versions
+          href: update-language-versions.md
+          displayName: upgrade, migrate, language stack
+        - name: Migrate Node.js to model v4.x
+          href: functions-node-upgrade-v4.md
+    - name: Migrate .NET apps to the isolated model
+      href: migrate-dotnet-to-isolated-model.md
+    - name: Move resources
+      items:
+        - name: Move between subscriptions
+          href: /azure/azure-resource-manager/management/move-resource-group-and-subscription?toc=%2Fazure%2Fazure-functions%2Ftoc.json
+        - name: Move to other regions
+          href: /azure/operational-excellence/relocation-functions?toc=%2Fazure%2Fazure-functions%2Ftoc.json
 - name: Reference
   items:
     - name: API references
@@ -803,27 +820,40 @@
               displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
           items:
-            - name: Functions 1.x
-              href: functions-bindings-cosmosdb.md
-              displayName: Azure Cosmos DB
-            - name: Functions 2.x and higher
-              displayName: Azure Cosmos DB
+            - name: API for NoSQL
               items:
                 - name: Overview
                   href: functions-bindings-cosmosdb-v2.md
-                  displayName: Azure Cosmos DB
+                  displayName: Azure Cosmos DB for NoSQL
                 - name: Trigger
                   href: functions-bindings-cosmosdb-v2-trigger.md
-                  displayName: Azure Cosmos DB
+                  displayName: Azure Cosmos DB for NoSQL
                 - name: Input
                   href: functions-bindings-cosmosdb-v2-input.md
-                  displayName: Azure Cosmos DB
+                  displayName: Azure Cosmos DB for NoSQL
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
+                  displayName: Azure Cosmos DB for NoSQL
+                - name: Functions 1.x (legacy)
+                  href: functions-bindings-cosmosdb.md
                   displayName: Azure Cosmos DB
-            - name: Migrate version 3.x to 4.x
-              href: migrate-cosmos-db-version-3-version-4.md
-              displayName: Azure Cosmos DB
+                - name: Migrate version 3.x to 4.x
+                  href: migrate-cosmos-db-version-3-version-4.md
+                  displayName: Azure Cosmos DB for NoSQL
+            - name: API for MongoDB (vCore)
+              items:
+                    - name: Overview
+                      href: functions-bindings-mongodb-vcore.md
+                      displayName: Azure Cosmos DB for MongoDB (vCore)
+                    - name: Trigger
+                      href: functions-bindings-mongodb-vcore-trigger.md
+                      displayName: Azure Cosmos DB for MongoDB (vCore)
+                    - name: Input
+                      href: functions-bindings-mongodb-vcore-input.md
+                      displayName: Azure Cosmos DB for MongoDB (vCore)
+                    - name: Output
+                      href: functions-bindings-mongodb-vcore-output.md
+                      displayName: Azure Cosmos DB for MongoDB (vCore)
         - name: Azure Data Explorer
           items:
             - name: Overview
@@ -845,6 +875,9 @@
               displayName: Azure Database for MySQL
             - name: Output
               href: functions-bindings-azure-mysql-output.md
+              displayName: Azure Database for MySQL
+            - name: Trigger
+              href: functions-bindings-azure-mysql-trigger.md
               displayName: Azure Database for MySQL
         - name: Azure OpenAI
           items:
@@ -997,6 +1030,14 @@
             - name: Output
               href: functions-bindings-kafka-output.md
               displayName: Kafka
+        - name: MCP tool
+          items:
+            - name: Overview
+              href: functions-bindings-mcp.md
+              displayName: MCP tool
+            - name: Trigger
+              href: functions-bindings-mcp-trigger.md
+              displayName: MCP tool
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs
@@ -1139,7 +1180,7 @@
     - name: Architecture guidance
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=compute
+      href: https://azure.microsoft.com/updates/?category=compute
     - name: Pricing details
       href: https://azure.microsoft.com/pricing/details/functions/
     - name: Pricing calculator

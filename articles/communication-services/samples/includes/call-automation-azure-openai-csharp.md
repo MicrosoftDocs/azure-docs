@@ -22,8 +22,11 @@ This server-side application helps create a virtual assistant that can handle ph
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource **connection string** for this sample.
 - A Calling-enabled telephone number. [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
-- Azure Dev Tunnels CLI. For details, see  [Enable dev tunnel](https://docs.tunnels.api.visualstudio.com/cli)
+- Azure Dev Tunnels. For details, see  [Enable dev tunnel](/azure/developer/dev-tunnels/get-started)
 - An Azure OpenAI Resource and Deployed Model. See [instructions](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
+
+> [!NOTE]
+> Bidirectional Streaming in Azure Communication Services is generally available, but the Azure OpenAI real-time API has its own release schedule. For up-to-date info on the API’s availability, check out the [official docs](/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#audio-models).
 
 ## Set up instructions
 

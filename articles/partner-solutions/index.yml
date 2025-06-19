@@ -1,32 +1,38 @@
 ### YamlMime:Hub
 
-title: Azure Native ISV Services
-summary: Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services are developed and managed by Microsoft and the ISV.
+title: Azure Native Integrations
+summary: Azure Native Integrations enables you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native Integrations is developed and managed by Microsoft and the ISV.
 brand: azure
 
 metadata:
-  title: Azure Native ISV Services
-  description: Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native ISV Services are developed and managed by Microsoft and the ISV.
+  title: Azure Native Integrations
+  description: Azure Native Integrations enables you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native Integrations is developed and managed by Microsoft and the ISV.
   
   ms.topic: hub-page
   ms.custom:
     - ignite-2023
     - build-2024
+    - build-2025
   ms.date: 01/06/2025
   
 highlightedContent:
 
   items:
-    - title: What are Azure Native ISV Services?
+    - title: What is Azure Native Integrations?
       itemType: overview
       url: ./overview.md
-    - title: Find Azure Native ISV Services 
+    - title: Find Azure Native Integrations 
       itemType: get-started
       url: ./partners.md
 
 productDirectory:
   title: Available Services
   items:
+    - title: Arize AI
+      imageSrc: ./media/index/arize-ai.svg
+      links: 
+      - url: ./arize-ai/overview.md
+        text: Develop, debug, and improve AI applications with enterprise quality using observability and evaluation tools.
     - title: Astro
       imageSrc: ./media/index/astronomer.svg
       links:
@@ -56,22 +62,27 @@ productDirectory:
       imageSrc: ./media/index/informatica.svg
       links:
         - url: ./informatica/informatica-overview.md
-          text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy and master data management.
-    - title: Logz.io
-      imageSrc: ./media/index/logz.io.svg
-      links:
-        - url: ./logzio/overview.md
-          text: Centralize log, metric, and tracing analytics in one observability platform.
+          text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy, and master data management.
+    - title: LambdaTest - HyperExecute
+      imageSrc: ./media/index/lambda-test.svg
+      links: 
+        - url: ./lambda-test/overview.md
+          text: An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.
     - title: Neon Serverless Postgres
       imageSrc: ./media/index/neon.svg
       links:
         - url: ./neon/overview.md
-          text: Neon offers a serverless Postgres solution that leverages the principles of serverless computing to provide scalable and flexible database services.
+          text: A serverless Postgres solution that uses the principles of serverless computing to provide scalable and flexible database services.
     - title: New Relic
       imageSrc: ./media/index/new-relic.svg
       links:
         - url: ./new-relic/new-relic-overview.md
           text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.
+    - title: MongoDB Atlas (preview)
+      imageSrc: ./media/index/mongo-db.svg
+      links:
+        - url: ./mongo-db/overview.md
+          text: A fully managed document database with native vector search support for AI applications.
     - title: NGINX
       imageSrc: ./media/index/nginx.svg
       links:
@@ -81,7 +92,12 @@ productDirectory:
       imageSrc: ./media/index/palo-alto.svg
       links:
         - url: ./palo-alto/palo-alto-overview.md
-          text: Get a next generation firewall solution integrated with Azure that you can use to protect your organization.
+          text: Protect your organization with a next generation firewall solution integrated with Azure.
+    - title: Pure Storage (preview)
+      imageSrc: ./media/index/pure-storage.svg
+      links:
+        - url: pure-storage/overview.md
+          text: Secure, efficient, and reliable block storage as a native managed service.
     - title: Qumulo
       imageSrc: ./media/index/qumulo.svg
       links:

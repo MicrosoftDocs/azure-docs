@@ -1,22 +1,22 @@
 ---
 title: Connect to Azure AI services from workflows
-description: Integrate with Azure OpenAI and Azure AI Search in Standard workflows for Azure Logic Apps.
+description: Integrate with Azure OpenAI and Azure AI Search in workflows for Azure Logic Apps.
 author: ecfan
 services: logic-apps
 ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 01/21/2025
 ---
 
-# Connect to Azure AI services from Standard workflows in Azure Logic Apps
+# Connect to Azure AI services from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
-To integrate enterprise data and services with AI technologies, you can use the **Azure OpenAI** and **Azure AI Search** built-in connectors in Standard logic app workflows. These connectors support multiple authentication types, such as API keys, Microsoft Entra ID, and managed identities. They also can connect to Azure OpenAI Service and Azure AI Search endpoints behind firewalls so that your workflows securely connect to your AI resources in Azure.
+To integrate enterprise services, systems, and data with AI technologies, your logic app workflows can connect to **Azure OpenAI** and **Azure AI Search** resources that you use for these integration scenarios.
 
-This guide provides an overview and examples for how to use the **Azure OpenAI** and **Azure AI Search** connector operations in your workflow.
+This guide provides an overview and examples that show how to use **Azure OpenAI** and **Azure AI Search** connector operations in your workflow.
 
 - [What is Azure OpenAI Service](/azure/ai-services/openai/overview)
 - [What is Azure AI Search](/azure/search/search-what-is-azure-search)
@@ -34,17 +34,31 @@ Usually, building AI solutions involves several key steps and requires a few bui
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
-You can assemble various components, not only to perform data ingestion but also to provide a robust backend for the chat interface. This backend facilitates entering prompts and generates dependable responses during interactions. However, creating the code to manage and control all these elements can prove challenging, which is the case for most solutions.
+You can assemble various components, not only to perform data ingestion but also to provide a robust backend for the chat interface. This backend facilitates entering prompts and generates dependable responses during interactions. However, creating the code to manage and control all these elements can pose challenges, which is the case for most solutions.
 
 Azure Logic Apps offers a low code approach and simplifies backend management by providing prebuilt connectors that you use as building blocks to streamline the backend process. This approach lets you focus on sourcing your data and making sure that search results provide current and relevant information. With these AI connectors, your workflow acts as an orchestration engine that transfers data between AI services and other components that you want to integrate.
 
 For more information, see the following resources:
 
 - [Introduction to large language models](/training/modules/introduction-large-language-models/)
-- [Guide to working with large language models](/ai/playbook/technology-guidance/generative-ai/working-with-llms/)
 - [What is a vector database](/azure/cosmos-db/vector-database#what-is-a-vector-database)
 
+## Prerequisites
+
+- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- The Azure AI Search and Azure OpenAI resources to access and use in your workflow, including connection information:
+
+  - [Azure OpenAI connection requirements](/connectors/azureopenai/#default)
+  - [Azure AI Search connection requirements](/connectors/azureaisearch/#creating-a-connection)
+
+- A logic app workflow where you want to access your Azure OpenAI and Azure AI Search resources.
+
+  The connectors for these services currently provide only actions, not triggers. Before you can add an Azure AI connector action, make sure your workflow starts with the appropriate trigger for your scenario.
+
 ## Connector technical reference
+
+In Consumption workflows, the **Azure OpenAI** and **Azure AI Search** managed or "shared" connectors are currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Azure OpenAI
 
@@ -59,29 +73,37 @@ Azure OpenAI Service provides access to [OpenAI's language models](https://opena
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
+The **Azure OpenAI** connector has different versions, based on [logic app type and hosting model](/azure/logic-apps/logic-apps-overview#resource-environment-differences):
+
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks without using an on-premises data gateway. <br><br>For more information, see [Azure OpenAI built-in connector reference](/azure/logic-apps/connectors/built-in/reference/openai). |
+| **Consumption** | Multitenant Azure Logic Apps | Managed, Azure-hosted connector, which appears in the connector gallery under the **Shared** filter. <br><br>For more information, see [Azure OpenAI managed connector reference](/connectors/azureopenai). |
+| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), or hybrid deployment, which is your own infrastructure. | Built-in connector, which appears in the connector gallery under the **Built-in** filter and is [service provider-based](/azure/logic-apps/custom-connector-overview#service-provider-interface-implementation). The built-in connector has the following capabilities among others: <br><br>- Multiple [authentication type support](#authentication) <br><br>- Direct access to resources in Azure virtual networks and endpoints for Azure OpenAI behind firewalls. <br><br>For more information, see [Azure OpenAI built-in connector reference](/azure/logic-apps/connectors/built-in/reference/openai). |
 
 ### Azure AI Search
 
 Azure AI Search is platform for AI-powered information retrieval that helps developers build rich search experiences and generative AI apps by combining large language models with enterprise data. With the **Azure AI Search** connector, your workflow can connect to Azure AI Search to index documents and perform vector searches on your data.
 
+The **Azure AI Search** connector has different versions, based on [logic app type and hosting model](/azure/logic-apps/logic-apps-overview#resource-environment-differences):
+
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks without using an on-premises data gateway. <br><br>For more information, see [Azure AI Search built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureaisearch). |
+| **Consumption** | Multitenant Azure Logic Apps | Managed, Azure-hosted connector, which appears in the connector gallery under the **Shared** filter. <br><br>For more information, see [Azure AI Search managed connector reference](/connectors/azureaisearch). |
+| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), or hybrid deployment, which is your own infrastructure. | Built-in connector, which appears in the connector gallery under the **Built-in** filter and is [service provider-based](/azure/logic-apps/custom-connector-overview#service-provider-interface-implementation). The built-in connector has the following capabilities among others: <br><br>- Multiple [authentication type support](#authentication) <br><br>- Direct access to resources in Azure virtual networks and endpoints for Azure OpenAI behind firewalls. <br><br>For more information, see [Azure AI Search built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureaisearch). |
 
 ### Authentication
 
-Both AI connectors support multiple ways to authenticate with your AI service endpoint. These options provide robust authentication that meets most customers' needs. Both AI connectors can also directly connect to Azure OpenAI and Azure AI Search services inside virtual networks. 
+The AI managed connectors require an API key for authentication. However, the AI built-in connectors support multiple authentication types for your AI service endpoint. These options provide robust authentication that meets most customers' needs. Both built-in connectors can also directly connect to Azure OpenAI and Azure AI Search resources inside virtual networks or behind firewalls.
 
-The following list describes these options, all which require that you provide the service's endpoint. 
+The following table describes the built-in connector authentication options, all which require that you provide the URL for the AI service endpoint:
 
 | Authentication type | Description |
 |---------------------|-------------|
-| Key-based authentication | Provide the API key or admin generated by the AI service. |
-| Microsoft Entra ID, previously Azure Active Directory | Provide information such as your Entra tenant, client ID, and password to authenticate as an Entra user. |
-| Managed identity | After you enable managed identity authentication on your AI service and your logic app resource, you can use that identity to authenticate access for the connector. |
+| **URL and key-based authentication** | Provide the API key or admin generated by the AI service. |
+| **Active Directory OAuth** (Microsoft Entra ID) | Provide information such as your Entra tenant, client ID, and password to authenticate as an Entra user. |
+| **Managed identity** | After you set up managed identity authentication on your AI service resource and your logic app resource, you can use that identity to authenticate access for the connector. |
+
+[!INCLUDE [highest-security-level-guidance](../includes/highest-security-level-guidance.md)]
 
 For more information, see the following resources:
 
@@ -92,7 +114,7 @@ For more information, see the following resources:
 
 ## Add an Azure OpenAI or Azure AI Search action to your workflow
 
-Currently, the built-in connectors for Azure OpenAI and Azure AI Search provide only actions, not triggers. You can start your workflow with any trigger that fits your scenario or needs, and then [follow these general steps to add actions for Azure OpenAI, Azure AI Search, and other operations](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+Currently, the connectors for Azure OpenAI and Azure AI Search provide only actions, not triggers. You can start your workflow with any trigger that fits your scenario or needs. Based on whether you have a Consumption or Standard workflow, you can then [follow these general steps to add actions for Azure OpenAI, Azure AI Search, and other operations](../create-workflow-with-trigger-or-action.md#add-action).
 
 ## Scenarios
 
@@ -100,7 +122,7 @@ The following scenarios describe only two of the many ways that you can use AI c
 
 ### Create a knowledge base for your enterprise data 
 
-Azure Logic Apps provides [over 1,000 Microsoft-managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) and [natively running built-in connectors](/azure/logic-apps/connectors/built-in/reference/) for your workflow to securely connect with almost any data source, such as SharePoint, Oracle DB, Salesforce, OneDrive, Dropbox, SAP, IBM, and so on. Each connector provides operations, which include triggers, actions, or both, for you to use in your workflow.
+Azure Logic Apps provides [over 1,400 Microsoft-managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) and [natively running built-in connectors](/azure/logic-apps/connectors/built-in/reference/) for your workflow to securely connect with almost any data source, such as SharePoint, Oracle DB, Salesforce, OneDrive, Dropbox, SAP, IBM, and so on. Each connector provides operations, which include triggers, actions, or both, for you to use in your workflow.
 
 For example, you can select from many trigger types to make your automated workflow run on a schedule or based on specific events, such as the uploading of new documents to a SharePoint site. With so many operations for you to choose, you can create a knowledge base and easily build a document ingestion pipeline using vector embeddings for these documents in Azure AI Search.
 
@@ -121,27 +143,29 @@ For more information, see the following resources:
 
 ## Example scenario with sample code: Ingest data and create chat interactions
 
-This example shows how to use the Azure OpenAI and Azure AI Search connectors to break down the backend logic for ingesting data and conducting simple chat conversations into two key workflows. For faster performance, create stateless workflows that, by default, don't save and store the history for each run.
+This Standard workflow example shows how to use the Azure OpenAI and Azure AI Search built-in connectors to break down the backend logic for ingesting data and conducting simple chat conversations into two key workflows. For faster performance, create stateless workflows that, by default, don't save and store the history for each run.
 
 ### Sample code
 
 [Create a chat using ingested data](https://github.com/Azure/logicapps/tree/master/ai-sample)
 
-### Prerequisites
+### Other prerequisites
 
-See the [sample code requirements](https://github.com/Azure/logicapps/tree/master/ai-sample#prerequisites).
+- A Standard logic app workflow
 
-The following [cross-environment parameter values](../create-parameters-workflows.md) are also used by the workflow operations in this example:
+- See the [sample code requirements](https://github.com/Azure/logicapps/tree/master/ai-sample#prerequisites).
 
-| Parameter name | Description |
-|----------------|-------------|
-| **aisearch_admin_key** | The admin key for Azure AI Search |
-| **aisearch_endpoint** | The endpoint URL for the Azure AI Search example |
-| **aisearch_index_name** | The index to use for the Azure AI Search example |
-| **openapi_api_key** | The API key for Azure OpenAI |
-| **openai_deployment_id** | The deployment ID for the Azure OpenAI example |
-| **openai_endpoint** | The endpoint URL for the Azure OpenAI example |
-| **tokenize_function_url** | The URL for a custom Azure function that batches and tokenizes data, which is required for Azure OpenAI to properly create embeddings for this example. <br><br>For more information about this function, see the [sample code for "Create a chat using ingested data"](https://github.com/Azure/logicapps/tree/master/ai-sample). |
+- The following [cross-environment parameter values](../create-parameters-workflows.md) are also used by the workflow operations in this example:
+
+  | Parameter name | Description |
+  |----------------|-------------|
+  | **aisearch_admin_key** | The admin key for Azure AI Search |
+  | **aisearch_endpoint** | The endpoint URL for the Azure AI Search example |
+  | **aisearch_index_name** | The index to use for the Azure AI Search example |
+  | **openapi_api_key** | The API key for Azure OpenAI |
+  | **openai_deployment_id** | The deployment ID for the Azure OpenAI example |
+  | **openai_endpoint** | The endpoint URL for the Azure OpenAI example |
+  | **tokenize_function_url** | The URL for a custom Azure function that batches and tokenizes data, which is required for Azure OpenAI to properly create embeddings for this example. <br><br>For more information about this function, see the [sample code for "Create a chat using ingested data"](https://github.com/Azure/logicapps/tree/master/ai-sample). |
 
 ### Video: Learn how to build AI applications using logic apps
 
@@ -153,7 +177,7 @@ To save considerable time and effort when you build an ingestion pipeline, imple
 
 Each step in this pattern makes sure that the AI seamlessly extracts all the crucial information from your data files. If run as a stateless workflow, this pattern also provides faster performance. This approach simplifies not only the coding aspect but also guarantees that your workflows have effective authentication, monitoring, and deployment processes in place.
 
-:::image type="content" source="media/azure-ai/ingest-data-workflow.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and workflow operations that implement data ingestion functionality." lightbox="media/azure-ai/ingest-data-workflow.png":::
+:::image type="content" source="media/azure-ai/ingest-data-workflow.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and workflow operations that implement data ingestion functionality.":::
 
 | Step | Task | Underlying operation | Description |
 |------|------|----------------------|-------------|
@@ -170,11 +194,11 @@ Each step in this pattern makes sure that the AI seamlessly extracts all the cru
 
 ### Chat workflow
 
-As your vector databases continue to ingest data, make sure the data is easily searchable so that when a user asks a question, the backend logic app workflow can process the prompt and generate a reliable response.
+As your vector databases continue to ingest data, make sure the data is easily searchable so that when a user asks a question, the backend Standard logic app workflow can process the prompt and generate a reliable response.
 
 The following pattern is only one example that shows how a chat workflow might look:
 
-:::image type="content" source="media/azure-ai/chat-workflow.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and workflow operations that implement a chat interaction." lightbox="media/azure-ai/chat-workflow.png":::
+:::image type="content" source="media/azure-ai/chat-workflow.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and workflow operations that implement a chat interaction.":::
 
 | Step | Task | Underlying operation | Description |
 |------|------|----------------------|-------------|
@@ -190,7 +214,7 @@ The following pattern is only one example that shows how a chat workflow might l
 | 10 | Perform chat completion. | **Get chat completions** | An **Azure OpenAI** action that connects to the chat completion API, which guarantees reliable responses in chat conversations. <br><br>In this example, the action accepts prompts and roles as input to the model and returns model-generated responses as output. |
 | 11 | Return a response. | **Response** | A **Request** action that returns the results to the caller when you use the **Request** trigger. |
 
-## See also
+## Related content
 
-[Azure OpenAI and Azure AI Search connectors are now generally available](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2-announcement-azure-openai-and-azure-ai-search-connectors-are-now-generally-av/4163682)
-[Azure OpenAI and AI Search connectors for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/public-preview-of-azure-openai-and-ai-search-in-app-connectors/ba-p/4049584)
+- [Azure OpenAI and Azure AI Search connectors are now generally available](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2-announcement-azure-openai-and-azure-ai-search-connectors-are-now-generally-av/4163682)
+- [Azure OpenAI and AI Search connectors for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/public-preview-of-azure-openai-and-ai-search-in-app-connectors/ba-p/4049584)

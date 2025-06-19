@@ -5,8 +5,8 @@ ms.topic: tutorial
 ms.date: 01/15/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM

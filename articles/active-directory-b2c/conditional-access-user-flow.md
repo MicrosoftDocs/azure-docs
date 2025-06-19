@@ -1,11 +1,11 @@
 ---
 title: Add Conditional Access to a user flow in Azure AD B2C
-description: Learn how to add Conditional Access to your Azure AD B2C user flows. Configure multifactor authentication (MFA) settings and Conditional Access policies in your user flows to enforce policies and remediate risky sign-ins.
+description: Learn how to add Conditional Access to Azure AD B2C user flows. Configure MFA settings and policies to enforce and remediate risky sign-ins.
 
 ms.service: azure-active-directory
 ms.subservice: b2c
 ms.topic: overview
-ms.date: 09/11/2024
+ms.date: 06/12/2025
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
@@ -17,6 +17,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Add Conditional Access to user flows in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 Conditional Access can be added to your Azure Active Directory B2C (Azure AD B2C) user flows or custom policies to manage risky sign-ins to your applications. Microsoft Entra Conditional Access is the tool used by Azure AD B2C to bring signals together, make decisions, and enforce organizational policies.
@@ -40,14 +41,14 @@ The following example shows a Conditional Access technical profile that is used 
 </TechnicalProfile>
 ```
 
-To ensure that Identity Protection signals are evaluated properly, you'll want to call the `ConditionalAccessEvaluation` technical profile for all users, including both [local and social accounts](technical-overview.md#consumer-accounts). Otherwise, Identity Protection indicates an incorrect degree of risk associated with users.
+To ensure that Identity Protection signals are evaluated properly, you need to call the `ConditionalAccessEvaluation` technical profile for all users, including both [local and social accounts](technical-overview.md#consumer-accounts). Otherwise, Identity Protection indicates an incorrect degree of risk associated with users.
 ::: zone-end
 In the *Remediation* phase that follows, the user is challenged with MFA. Once complete, Azure AD B2C informs Identity Protection that the identified sign-in threat has been remediated and by which method. In this example, Azure AD B2C signals that the user has successfully completed the multifactor authentication challenge.
 The remediation may also happen through other channels. For example, when the account's password is reset, either by the administrator or by the user. You can check the user *Risk state* in the [risky users report](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
 ::: zone pivot="b2c-custom-policy"
 > [!IMPORTANT]
 > To remediate the risk successfully within the journey, make sure the *Remediation* technical profile is called after the *Evaluation* technical profile is executed. If  *Evaluation* is invoked without *Remediation*, the risk state indicates as *At risk*.
-When the *Evaluation* technical profile recommendation returns `Block`, the call to the *Evaluation* technical profile is not required. The risk state is set to *At risk*.
+When the *Evaluation* technical profile recommendation returns `Block`, the call to the *Evaluation* technical profile isn't required. The risk state is set to *At risk*.
 The following example shows a Conditional Access technical profile used to remediate the identified threat:
 
 ```xml
@@ -85,7 +86,7 @@ When using the Microsoft Entra Conditional Access, consider the following:
 
 ## Pricing tier
 
-Azure AD B2C **Premium P2** is required to create risky sign-in policies. **Premium P1** tenants can create a policy that is based on location, application, user-based, or group-based policies. For more information, see [Change your Azure AD B2C pricing tier](billing.md#change-your-azure-ad-pricing-tier)
+Azure AD B2C **Premium P2** is required to create risky sign-in policies but it has now been deprecated as of May 1, 2025. **Premium P1** tenants can create a policy that is based on location, application, user-based, or group-based policies.
 
 ## Prepare your Azure AD B2C tenant
 
@@ -153,7 +154,7 @@ To add a Conditional Access policy:
 
 ## Template 1: Sign-in risk-based Conditional Access
 
-Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multifactor authentication to prove that they are really who they say they are. A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Azure AD B2C tenants with P2 licenses can create Conditional Access policies incorporating Microsoft Entra ID Protection sign-in risk detections.
+Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multifactor authentication to prove that they're really who they say they are. A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. Azure AD B2C tenants with P2 licenses can create Conditional Access policies incorporating Microsoft Entra ID Protection sign-in risk detections.
 
 Note the limitations on Identity Protection detections for B2C. If risk is detected, users can perform multifactor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
 
@@ -351,11 +352,11 @@ Multiple Conditional Access policies may apply to an individual user at any time
 
 When adding Conditional Access to a user flow, consider using **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, a one-time password via email, or a time-based one-time password (TOTP) code via an authenticator app for multifactor authentication. MFA settings are configured separately from Conditional Access settings. You can choose from these MFA options:
 
-- **Off** - MFA is never enforced during sign-in, and users are not prompted to enroll in MFA during sign-up or sign-in.
+- **Off** - MFA is never enforced during sign-in, and users aren't prompted to enroll in MFA during sign-up or sign-in.
 - **Always on** - MFA is always required, regardless of your Conditional Access setup. During sign-up, users are prompted to enroll in MFA. During sign-in, if users aren't already enrolled in MFA, they're prompted to enroll.
 - **Conditional** - During sign-up and sign-in, users are prompted to enroll in MFA (both new users and existing users who aren't enrolled in MFA). During sign-in, MFA is enforced only when an active Conditional Access policy evaluation requires it:
    - If the result is an MFA challenge with no risk, MFA is enforced. If the user isn't already enrolled in MFA, they're prompted to enroll.
-   - If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked.
+   - If the result is an MFA challenge due to risk *and* the user isn't enrolled in MFA, sign-in is blocked.
    > [!NOTE]
    > With general availability of Conditional Access in Azure AD B2C, users are now prompted to enroll in an MFA method during sign-up. Any sign-up user flows you created prior to general availability won't automatically reflect this new behavior, but you can include the behavior by creating new user flows.
 
@@ -435,6 +436,6 @@ To review the result of a Conditional Access event:
    - **AppliedPolicies**: A list of all the Conditional Access policies where the conditions were met and the policies are ON.
    - **ReportingPolicies**: A list of the Conditional Access policies that were set to report-only mode and where the conditions were met.
    
-## Next steps
+## Related content
 
 [Customize the user interface in an Azure AD B2C user flow](customize-ui-with-html.md)

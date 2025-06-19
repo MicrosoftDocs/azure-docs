@@ -251,7 +251,7 @@ mqtts-endpoint   LoadBalancer   10.43.28.140   XXX.XX.X.X    8883:30988/TCP   10
 Instead of using the external IP, we use `localhost` for the tutorial. 
 
 > [!TIP]
-> The codespace configuration automatically sets up port forwarding for 8883. To setup other environments, see [Use port forwarding](./howto-test-connection.md#use-port-forwarding).
+> The codespace configuration automatically sets up port forwarding for 8883. To set up other environments, see [Use port forwarding](./howto-test-connection.md#use-port-forwarding).
 
 ## Use a single Mosquito client to publish messages over TLS
 
@@ -304,7 +304,7 @@ To restrict access to MQTT topics based on the client certificate attributes, cr
           {
             "method": "Publish",
             "topics": [
-              "telemetry/temperature"
+              "sensor/temperature"
             ]
           }
         ]
@@ -324,7 +324,7 @@ To restrict access to MQTT topics based on the client certificate attributes, cr
           {
             "method": "Publish",
             "topics": [
-              "telemetry/humidity"
+              "sensor/humidity"
             ]
           }
         ]
@@ -362,8 +362,8 @@ To restrict access to MQTT topics based on the client certificate attributes, cr
           {
             "method": "Subscribe",
             "topics": [
-              "telemetry/temperature",
-              "telemetry/humidity"
+              "sensor/temperature",
+              "sensor/humidity"
             ]
           }
         ]
@@ -388,10 +388,10 @@ Then, update the MQTT broker listener to use the new authorization policy.
 
 In this section, we test out the newly applied authorization policies.
 
-First, connect with `thermostat` and try to publish on topic `telemetry/humidity`:
+First, connect with `thermostat` and try to publish on topic `sensor/humidity`:
 
 ```sh
-mosquitto_pub -t "telemetry/humidity" -m "example temperature measurement" -i thermostat \
+mosquitto_pub -t "sensor/humidity" -m "example temperature measurement" -i thermostat \
 -q 1 -V mqttv5 -d \
 -h localhost \
 --key thermostat.key \
@@ -404,15 +404,15 @@ Since `thermostat` is part of `thermostat_group`, which isn't allowed to publish
 ```console {hl_lines=5}
 Client thermostat sending CONNECT
 Client thermostat received CONNACK (0)
-Client thermostat sending PUBLISH (d0, q1, r0, m1, 'telemetry/humidity', ... (6 bytes))
+Client thermostat sending PUBLISH (d0, q1, r0, m1, 'sensor/humidity', ... (6 bytes))
 Client thermostat received PUBACK (Mid: 1, RC:135)
 Warning: Publish 1 failed: Not authorized.
 ```
 
-Change to publish to `telemetry/temperature`, which is allowed and the publish succeeds. Leave the command running.
+Change to publish to `sensor/temperature`, which is allowed and the publish succeeds. Leave the command running.
 
 ```sh
-mosquitto_pub -t "telemetry/temperature" -m "example temperature measurement" -i thermostat \
+mosquitto_pub -t "sensor/temperature" -m "example temperature measurement" -i thermostat \
 -q 1 -V mqttv5 -d \
 -h localhost \
 --repeat 10000 \
@@ -445,10 +445,10 @@ Client heater received SUBACK
 Subscribed (mid: 1): 135
 ```
 
-Switch the subscription topic to `telemetry/temperature`, which `thermostat` is still sending messages to.
+Switch the subscription topic to `sensor/temperature`, which `thermostat` is still sending messages to.
 
 ```sh
-mosquitto_sub -q 1 -t "telemetry/temperature" -d -V mqttv5 \
+mosquitto_sub -q 1 -t "sensor/temperature" -d -V mqttv5 \
 -i heater \
 -h localhost \
 --key heater.key \
@@ -456,7 +456,7 @@ mosquitto_sub -q 1 -t "telemetry/temperature" -d -V mqttv5 \
 --cafile contoso_root_ca.crt
 ```
 
-Now `heater` starts to receive messages because it's authorized with its [username](./howto-configure-authorization.md#using-username-for-authorization).
+Now `heater` starts to receive messages because it's authorized with its [username](./howto-configure-authorization.md#use-a-username-for-authorization).
 
 In *another* separate terminal session, publish messages to `health/heartbeat` with `lightbulb`:
 

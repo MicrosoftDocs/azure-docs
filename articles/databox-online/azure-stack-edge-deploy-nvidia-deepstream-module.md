@@ -1,6 +1,6 @@
 ---
-title: Deploy the Nvidia DeepStream module on Ubuntu VM on Azure Stack Edge Pro with GPU | Microsoft Docs
-description: Learn how to deploy the Nvidia Deepstream module on an Ubuntu virtual machine that is running on your Azure Stack Edge Pro GPU device.
+title: Deploy the NVIDIA DeepStream module on Ubuntu VM on Azure Stack Edge Pro with GPU | Microsoft Docs
+description: Learn how to deploy the NVIDIA Deepstream module on an Ubuntu virtual machine that is running on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
@@ -10,11 +10,11 @@ ms.date: 06/28/2022
 ms.author: alkohli
 ---
 
-# Deploy the Nvidia DeepStream module on Ubuntu VM on Azure Stack Edge Pro with GPU
+# Deploy the NVIDIA DeepStream module on Ubuntu VM on Azure Stack Edge Pro with GPU
 
 [!INCLUDE [applies-to-pro-gpu-and-pro-2-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
-This article walks you through deploying Nvidia’s DeepStream module on an Ubuntu VM running on your Azure Stack Edge device. The DeepStream module is supported only on GPU devices. 
+This article walks you through deploying NVIDIA’s DeepStream module on an Ubuntu VM running on your Azure Stack Edge device. The DeepStream module is supported only on GPU devices. 
 
 ## Prerequisites
 

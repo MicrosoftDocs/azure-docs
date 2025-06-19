@@ -4,9 +4,12 @@ description: Learn to automatically create new revisions in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli, ignite-2023
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
+  - build-2025
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 05/14/2025
 ms.author: cshoe
 ---
 
@@ -16,7 +19,7 @@ Azure Container Apps allows you to use GitHub Actions to publish [revisions](rev
 
 :::image type="content" source="media/github-actions/azure-container-apps-github-actions.png" alt-text="Changes to a GitHub repo trigger an action to create a new revision.":::
 
-The GitHub Actions workflow is triggered by commits to a specific branch in your repository. When creating the workflow, you decide which branch triggers the workflow.
+The GitHub Actions workflow triggers when you commit to a specific branch in your repository. When creating the workflow, you decide which branch triggers the workflow.
 
 This article shows you how to create a fully customizable workflow. To generate a starter GitHub Actions workflow with Azure CLI, see [Generate GitHub Actions workflow with Azure CLI](github-actions-cli.md).
 
@@ -89,6 +92,68 @@ To push images, the action automatically authenticates with the container regist
 
 To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the container app the action is deploying must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the action's `acrUsername` and `acrPassword` inputs.
 
+## Deploy images from non-ACR registries
+
+In addition to Azure Container Registry (ACR), Azure Container Apps supports container images hosted in other registries, such as GitHub Container Registry (GHCR). This section shows how to deploy container images from GHCR, including public and private images.
+
+> [!NOTE]
+> When using a non-ACR registry such as GHCR, you must configure your container app to authenticate with the registry even if the image is public.
+
+### Deploy a public image from GHCR
+
+If the container image is public, you can deploy it without specifying authentication credentials. The following example shows how to deploy a public image from GHCR using the deploy action.
+
+Before you run this command, replace `<YOUR-GITHUB-USERNAME>` with your actual GitHub username.
+
+```yaml
+- name: Deploy public GHCR image to Container App
+  uses: azure/container-apps-deploy-action@v1
+  with:
+    containerAppName: my-container-app
+    resourceGroup: my-container-app-rg
+    imageToDeploy: ghcr.io/<YOUR-GITHUB-USERNAME>/myimage:latest
+    registryServer: ghcr.io
+```
+Before deploying, configure your container app to pull from GHCR:
+
+```bash
+az containerapp registry set \
+  --name my-container-app \
+  --resource-group my-container-app-rg \
+  --server ghcr.io
+```
+
+### Deploy a private image from GHCR
+
+If the image is private, you must provide authentication credentials in your GitHub Actions workflow. Use a GitHub personal access token (PAT) with the `read:packages` scope. Store the token and username as secrets in your GitHub repository.
+
+```yaml
+- name: Deploy private GHCR image to Container App
+  uses: azure/container-apps-deploy-action@v1
+  with:
+    containerAppName: my-container-app
+    resourceGroup: my-container-app-rg
+    imageToDeploy: ghcr.io/<YOUR-GITHUB-USERNAME>/myimage:${{ github.sha }}
+    registryServer: ghcr.io
+    registryUsername: ${{ secrets.GHCR_USERNAME }}
+    registryPassword: ${{ secrets.GHCR_TOKEN }}
+```
+
+Configure the container app to pull the image using your GHCR credentials:
+
+```bash
+az containerapp registry set \
+  --name my-container-app \
+  --resource-group my-container-app-rg \
+  --server ghcr.io \
+  --username <GHCR_USERNAME> \
+  --password <GHCR_TOKEN>
+```
+Replace `<GHCR_USERNAME>` and `<GHCR_TOKEN>` with your GitHub username and personal access token, respectively.
+
+> [!NOTE]
+> Use a unique tag such as the Git commit SHA (${{ github.sha }}) instead of a generic tag like latest. This helps avoid caching issues and ensures new revisions are created reliably.
+
 ## Configuration
 
 You take the following steps to configure a GitHub Actions workflow to deploy to Azure Container Apps.
@@ -114,13 +179,13 @@ Before you create the workflow, the source code for your app must be in a GitHub
 
 1. Sign in to Azure with the Azure CLI.
 
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
 
 1. Next, install the latest Azure Container Apps extension for the CLI.
 
-    ```azurecli-interactive
+    ```azurecli
     az extension add --name containerapp --upgrade
     ```
 
@@ -149,7 +214,7 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
 
 1. Create a service principal with the *Contributor* role on the resource group that contains the container app and container registry.
 
-    ```azurecli-interactive
+    ```azurecli
     az ad sp create-for-rbac \
       --name my-app-credentials \
       --role contributor \

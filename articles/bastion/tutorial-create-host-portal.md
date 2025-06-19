@@ -1,24 +1,23 @@
 ---
 title: 'Tutorial: Deploy Azure Bastion using specified settings: Azure portal'
-description: Learn how to deploy Azure Bastion by using settings that you specify in the Azure portal. Use these steps when you want to specify features and settings. 
-author: cherylmc
+description: Learn how to deploy a dedicated Azure Bastion bastion host using settings that you specify in the Azure portal. Use these steps when you want to specify features and settings. 
+author: abell
 ms.service: azure-bastion
 ms.topic: tutorial
-ms.date: 12/09/2024
-ms.author: cherylmc
+ms.date: 01/22/2025
+ms.author: abell
+# Customer intent: As a cloud administrator, I want to deploy Azure Bastion with customized settings in my virtual network, so that I can establish secure connections to my virtual machines without exposing public IP addresses.
 ---
 
 # Tutorial: Deploy Azure Bastion by using specified settings
 
-This tutorial helps you deploy Azure Bastion from the Azure portal by using your own manual settings and a SKU (product tier) that you specify. The SKU determines the features and connections that are available for your deployment. For more information about SKUs, see [Configuration settings - SKUs](configuration-settings.md#skus).
+This tutorial helps you configure dedicated deployment of Azure Bastion to your virtual network from the Azure portal using the settings and SKU of your choice. The SKU determines the features and connections that are available for your deployment. For more information about SKUs and features, see [Configuration settings - SKUs](configuration-settings.md#skus). After Bastion is deployed, you can use SSH or RDP to connect to virtual machines (VMs) in the virtual network via Bastion using the private IP addresses of the VMs. When you connect to a VM, it doesn't need a public IP address, client software, an agent, or a special configuration.
 
-In the Azure portal, when you use the **Configure manually** option to deploy Bastion, you can specify configuration values such as instance counts and SKUs at the time of deployment. After Bastion is deployed, you can use SSH or RDP to connect to virtual machines (VMs) in the virtual network via Bastion using the private IP addresses of the VMs. When you connect to a VM, it doesn't need a public IP address, client software, an agent, or a special configuration.
-
-The following diagram shows the architecture of Bastion.
+The following diagram shows the Azure Bastion dedicated deployment [architecture](design-architecture.md) for this tutorial. Unlike the [Bastion Developer architecture](design-architecture.md#developer), a dedicated deployment architecture deploys a dedicated bastion host directly to your virtual network.
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-In this tutorial, you deploy Bastion by using the Standard SKU. You adjust host scaling (instance count), which the Standard SKU supports. If you use a lower SKU for the deployment, you can't adjust host scaling. You can also select an availability zone, depending on the region to which you want to deploy.
+The steps in this tutorial deploy Bastion using the Standard SKU via the Dedicated Deployment Option **Configure Manually**. In this tutorial, you adjust host scaling (instance count), which the Standard SKU supports. If you use a lower SKU for the deployment, you can't adjust host scaling. You can also select an availability zone, depending on the region to which you want to deploy.
 
 After the deployment is complete, you connect to your VM via private IP address. If your VM has a public IP address that you don't need for anything else, you can remove it.
 
@@ -34,7 +33,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need these resources:
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A [virtual network](../virtual-network/quick-create-portal.md) where you'll deploy Bastion.
+* A [virtual network](../virtual-network/quick-create-portal.md) to which you'll deploy Bastion.
 * A virtual machine in the virtual network. This VM isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion. If you don't have a VM, create one by using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal).
 * Required VM roles:
 
@@ -48,36 +47,6 @@ To complete this tutorial, you need these resources:
 
 [!INCLUDE [DNS private zone](../../includes/bastion-private-dns-zones-non-support.md)]
 
-### <a name="values"></a>Example values
-
-You can use the following example values when creating this configuration, or you can substitute your own.
-
-#### Basic virtual network and VM values
-
-|Name | Value |
-| --- | --- |
-| **Virtual machine**| **TestVM** |
-| **Resource group** | **TestRG1** |
-| **Region** | **East US** |
-| **Virtual network** | **VNet1** |
-| **Address space** | **10.1.0.0/16** |
-| **Subnets** | **FrontEnd: 10.1.0.0/24** |
-
-#### Bastion values
-
-|Name | Value |
-| --- | --- |
-| **Name** | **VNet1-bastion** |
-| **+ Subnet Name** | **AzureBastionSubnet** |
-| **AzureBastionSubnet addresses** | A subnet within your virtual network address space with a subnet mask of /26 or larger; for example, **10.1.1.0/26**  |
-| **Availability zone** | Select value(s) from the dropdown list, if desired.|
-| **Tier/SKU** | **Standard** |
-| **Instance count (host scaling)**| **3** or greater |
-| **Public IP address** |  **Create new** |
-| **Public IP address name** | **VNet1-ip**  |
-| **Public IP address SKU** |  **Standard**  |
-| **Assignment**  | **Static** |
-
 ## <a name="createhost"></a>Deploy Bastion
 
 This section helps you deploy Bastion to your virtual network. After Bastion is deployed, you can connect securely to any VM in the virtual network using its private IP address.
@@ -87,51 +56,44 @@ This section helps you deploy Bastion to your virtual network. After Bastion is 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Go to your virtual network.
+1. Go to your virtual network. On the page for your virtual network, in the left pane, select **Bastion**. These instructions will also work if you're configuring Bastion from your virtual machine's page in the portal.
 
-1. On the page for your virtual network, on the left pane, select **Bastion**.
-
-1. On the **Bastion** pane, expand **Dedicated Deployment Options**.
+1. On the **Bastion** pane, expand **Dedicated Deployment Options** to show the **Configure manually** button. You might need to scroll to see the option to expand.
 1. Select **Configure manually**. This option lets you configure specific additional settings (such as the SKU) when you're deploying Bastion to your virtual network.
-
-   :::image type="content" source="./media/tutorial-create-host-portal/manual-configuration.png" alt-text="Screenshot that shows dedicated deployment options for Azure Bastion and the button for manual configuration." lightbox="./media/tutorial-create-host-portal/manual-configuration.png":::
 
 1. On the **Create a Bastion** pane, configure the settings for your bastion host. Project details are populated from your virtual network values. Under **Instance details**, configure these values:
 
-   * **Name**: The name that you want to use for your Bastion resource.
-
-   * **Region**: The Azure public region in which the resource will be created. Choose the region where your virtual network resides.
-
-   * **Availability zone**: Select the zone(s) from the dropdown, if desired. Only certain regions are supported. For more information, see the [What are availability zones?](../reliability/availability-zones-overview.md?tabs=azure-cli) article.
-
-   * **Tier**: The SKU. For this tutorial, select **Standard**. For information about the features available for each SKU, see [Configuration settings - SKU](configuration-settings.md#skus).
-
-   * **Instance count**: The setting for host scaling, which is available for the Standard SKU. You configure host scaling in scale unit increments. Use the slider or enter a number to configure the instance count that you want. For more information, see [Instances and host scaling](configuration-settings.md#instance) and [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion).
-
-   :::image type="content" source="./media/tutorial-create-host-portal/instance-values.png" alt-text="Screenshot of Azure Bastion instance details." lightbox="./media/tutorial-create-host-portal/instance-values.png":::
+   | Setting | Value |
+   | --- | --- |
+   | Name| Specify the name that you want to use for your Bastion resource. For example, **VNet1-bastion**. |
+   | Region | Select the region where your virtual network resides. |
+   | Availability zone | Select the zone(s) from the dropdown, if desired. Only certain regions are supported. For more information, see [What are availability zones?](../reliability/availability-zones-overview.md?tabs=azure-cli) |
+   | Tier| For this tutorial, select the **Standard** SKU. For information about the features available for each SKU, see [Configuration settings - SKU](configuration-settings.md#skus). |
+   | Instance count | Configure host scaling in scale unit increments. Use the slider or enter a number to configure the instance count that you want, for example, **3**. For more information, see [Instances and host scaling](configuration-settings.md#instance) and [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion). |
 
 1. Configure the **Virtual networks** settings. Select your virtual network from the dropdown list. If your virtual network isn't in the dropdown list, make sure that you selected the correct **Region** value in the previous step.
 
-1. To configure AzureBastionSubnet, select **Manage subnet configuration**.
+1. For **Subnet**, if you already have a subnet configured in your virtual network that is named **AzureBastionSubnet**, it will automatically select in the portal. If you don't, you can create one. To create the AzureBastionSubnet, select **Manage subnet configuration**. On the **Subnets** pane, select **+Subnet**. Configure the following values, then **Add**.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/select-vnet.png" alt-text="Screenshot of the section for configuring virtual networks." lightbox="./media/tutorial-create-host-portal/select-vnet.png":::
+   | Setting | Value |
+   |--- | --- |
+   | Subnet purpose | Select **Azure Bastion** from the dropdown. This specifies that the name is **AzureBastionSubnet**.|
+   | Starting address | Enter the starting address for the subnet. For example, if your address space is 10.1.0.0/16, you could use **10.1.1.0** for the starting address. |
+   | Size| The subnet must be **/26** or larger (for example, **/26**, **/25**, or **/24**) to accommodate the features available with the Standard SKU. |
 
-1. On the **Subnets** pane, select **+Subnet**.
-
-1. On the **Add subnet** pane, create the AzureBastionSubnet subnet by using the following values. Leave the other values as default.
-
-   * The subnet name must be **AzureBastionSubnet**.
-   * The subnet must be **/26** or larger (for example, **/26**, **/25**, or **/24**) to accommodate features available with the Standard SKU.
-
-   Select **Save** at the bottom of the pane to save your values.
-
-1. At the top of the **Subnets** pane, select **Create a Bastion** to return to the Bastion configuration pane.
+1. At the top of the **Subnets** pane, using the breadcrumb links, select **Create a Bastion** to return to the Bastion configuration pane.
 
    :::image type="content" source="./media/tutorial-create-host-portal/create-page.png" alt-text="Screenshot of the pane that lists Azure Bastion subnets."lightbox="./media/tutorial-create-host-portal/create-page.png":::
 
-1. The **Public IP address** section is where you configure the public IP address of the bastion host resource on which RDP/SSH will be accessed (over port 443). The public IP address must be in the same region as the Bastion resource that you're creating.
+1. The **Public IP address** section is where you configure the public IP address of the bastion host resource on which RDP/SSH will be accessed (over port 443). Configure the following settings:
 
-   Create a new IP address. You can leave the default naming suggestion.
+   | Setting | Value|
+   | --- | --- |
+   | Public IP address | Select **Create new** to create a new public IP address for the Bastion resource. You can also select **Use existing** and select an existing public IP address from the dropdown list if you already have an IP address created that meets the proper criteria and isn't in already in use. The public IP address must be in the same region as the Bastion resource that you're creating. |
+   | Public IP address name | Specify a name for the public IP address. For example, **VNet1-bastion-ip**. |
+   | Public IP address SKU | The public IP address must use the **Standard** SKU. The portal will autofill this value. |
+   | Assignment | Static |
+   | Availability zone  | Zone-redundant (if available)
 
 1. When you finish specifying the settings, select **Review + Create**. This step validates the values.
 

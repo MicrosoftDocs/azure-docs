@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure policy rules
 description: Describes how policy definition policy rules are used to establish conventions for Azure resources in your organization.
-ms.date: 04/25/2024
+ms.date: 03/19/2025
 ms.topic: conceptual
 ---
 
@@ -100,32 +100,29 @@ Conditions that evaluate whether the values of properties in the resource reques
   - Use **global** for resources that are location agnostic.
 - `id`
   - Returns the resource ID of the resource that is being evaluated.
-  - Example: `/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
+  - Example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
-  - Returns the type of
-    [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
-    enabled on the resource.
+  - Returns the type of [managed identity](/entra/identity/managed-identities-azure-resources/overview) enabled on the resource.
+  - Valid values from managed identity: `None`, `SystemAssigned`, `SystemAssigned, UserAssigned`, and `UserAssigned`.
+  - `identity.type` can be used with any supported [conditions](#conditions) of a policy rule. For example, a policy with [deny effect](./effect-deny.md) could block requests based on the existence of an identity or based on the specific value of the identity type. An example policy rule that checks for existence of `identity.type` is the built-in Policy definition [Automation Account should have Managed Identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdea83a72-443c-4292-83d5-54a2f98749c0) with ID `dea83a72-443c-4292-83d5-54a2f98749c0`.
 - `tags`
-- `tags['<tagName>']`
-  - This bracket syntax supports tag names that have punctuation such as a hyphen, period, or space.
-  - Where `tagName` is the name of the tag to validate the condition for.
-  - Examples: `tags['Acct.CostCenter']` where `Acct.CostCenter` is the name of the tag.
-- `tags['''<tagName>''']`
-  - This bracket syntax supports tag names that have apostrophes in it by escaping with double apostrophes.
-  - Where `tagName` is the name of the tag to validate the condition for.
-  - Example: `tags['''My.Apostrophe.Tag''']` where `'My.Apostrophe.Tag'` is the name of the tag.
+  - `tags['<tagName>']`
+    - This bracket syntax supports tag names that have punctuation such as a hyphen, period, or space.
+    - Where `tagName` is the name of the tag to validate the condition for.
+    - Examples: `tags['Acct.CostCenter']` where `Acct.CostCenter` is the name of the tag.
+  - `tags['''<tagName>''']`
+    - This bracket syntax supports tag names that have apostrophes in it by escaping with double apostrophes.
+    - Where `tagName` is the name of the tag to validate the condition for.
+    - Example: `tags['''My.Apostrophe.Tag''']` where `'My.Apostrophe.Tag'` is the name of the tag.
+  - `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are acceptable ways to declare a `tags` field but the preferred expressions are the prior examples.
 
-  > [!NOTE]
-  > `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
-  > declaring a tags field. However, the preferred expressions are those listed above.
-- property aliases - for a list, see [Aliases](./definition-structure-alias.md).
-  > [!NOTE]
-  > In `field` expressions referring to array alias `[*]` each element in the array is evaluated
-  > individually with logical `and` between elements. For more information, see
-  > [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+- property aliases
+  - For a list, see [Aliases](./definition-structure-alias.md).
+  - In `field` expressions referring to array alias `[*]` each element in the array is evaluated individually with logical `and` between elements. For more information, see [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
+### Field expressions
 
-Conditions that use `field` expressions can replace the legacy policy definition syntax `"source": "action"`, which used to work for write operations. For example, this is no longer supported:
+Conditions that use `field` expressions can replace the legacy policy definition syntax `"source": "action"`, which used to work for write operations. For example, the following code is no longer supported:
 
 ```json
 {
@@ -135,6 +132,7 @@ Conditions that use `field` expressions can replace the legacy policy definition
 ```
 
 But the desired behavior can be achieved using `field` logic:
+
 ```json
 {
   "field": "type",
@@ -181,7 +179,7 @@ Conditions that evaluate whether a value meets certain criteria can be formed us
 > is an implicit `deny`. For more information, see
 > [avoiding template failures](#avoiding-template-failures). Use
 > [enforcementMode](./assignment-structure.md#enforcement-mode) of `doNotEnforce` to prevent
-> impact of a failed evaluation on new or updated resources while testing and validating a new
+> the effect of a failed evaluation on new or updated resources while testing and validating a new
 > policy definition.
 
 ### Value examples
@@ -243,7 +241,7 @@ The use of _template functions_ in `value` allows for many complex nested functi
 }
 ```
 
-The example policy rule above uses [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring) to compare the first three characters of `name` to `abc`. If `name` is shorter than three characters, the `substring()` function results in an error. This error causes the policy to become a `deny` effect.
+The previous example policy rule uses [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring) to compare the first three characters of `name` to `abc`. If `name` is shorter than three characters, the `substring()` function results in an error. This error causes the policy to become a `deny` effect.
 
 Instead, use the [if()](../../../azure-resource-manager/templates/template-functions-logical.md#if) function to check if the first three characters of `name` equal `abc` without allowing a `name` shorter than three characters to cause an error:
 
@@ -265,7 +263,7 @@ With the revised policy rule, `if()` checks the length of `name` before trying t
 
 ## Count
 
-Conditions that count how many members of an array meet certain criteria can be formed using a `count` expression. Common scenarios are checking whether 'at least one of', 'exactly one of', 'all of', or 'none of' the array members satisfy a condition. The `count` evaluates each array member for a condition expression and sums the _true_ results, which is then compared to the expression operator.
+Conditions that count how many members of an array meet certain criteria can be formed using a `count` expression. Common scenarios are checking whether _at least one of_, _exactly one of_, _all of_, or _none of_ the array members satisfy a condition. The `count` evaluates each array member for a condition expression and sums the _true_ results, which is then compared to the expression operator.
 
 ### Field count
 
@@ -323,7 +321,7 @@ The `current()` function is only available inside the `count.where` condition. I
 **Value count usage**
 
 - `current(<index name defined in count.name>)`. For example: `current('arrayMember')`.
-- `current()`. Allowed only when the `value count` expression isn't a child of another `count` expression. Returns the same value as above.
+- `current()`. Allowed only when the `value count` expression isn't a child of another `count` expression. Returns the same value as previous example.
 
 If the value returned by the call is an object, property accessors are supported. For example: `current('objectArrayMember').property`.
 
@@ -331,7 +329,7 @@ If the value returned by the call is an object, property accessors are supported
 
 - `current(<the array alias defined in count.field>)`. For example,
   `current('Microsoft.Test/resource/enumeratedArray[*]')`.
-- `current()`. Allowed only when the `field count` expression isn't a child of another `count` expression. Returns the same value as above.
+- `current()`. Allowed only when the `field count` expression isn't a child of another `count` expression. Returns the same value as previous examples.
 - `current(<alias of a property of the array member>)`. For example,
   `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
 
@@ -588,7 +586,7 @@ Policy:
 
 ## Policy functions
 
-Functions can be used to introduce additional logic into a policy rule. They are resolved within the policy rule of a policy definition and within [parameter values assigned to policy definitions in an initiative](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
+Functions can be used to introduce more logic into a policy rule. Functions are resolved within the policy rule of a policy definition and within [parameter values assigned to policy definitions in an initiative](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
 
 All [Resource Manager template functions](../../../azure-resource-manager/templates/template-functions.md) are available to use within a policy rule, except the following functions and user-defined functions:
 
@@ -627,12 +625,12 @@ The following function is available to use in a policy rule, but differs from us
 The following functions are only available in policy rules:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - `dateTime`: [Required] string - String in the Universal ISO 8601 DateTime format 'yyyy-MM-ddTHH:mm:ss.FFFFFFFZ'
-  - `numberOfDaysToAdd`: [Required] integer - Number of days to add
+  - `dateTime`: [Required] string - String in the Universal ISO 8601 DateTime format `yyyy-MM-ddTHH:mm:ss.FFFFFFFZ`.
+  - `numberOfDaysToAdd`: [Required] integer - Number of days to add.
 
 - `field(fieldName)`
   - `fieldName`: [Required] string - Name of the [field](./definition-structure-policy-rule.md#fields) to retrieve
-  - Returns the value of that field from the resource that is being evaluated by the If condition.
+  - Returns the value of that field from the resource evaluated by the `if` condition.
   - `field` is primarily used with `auditIfNotExists` and `deployIfNotExists` to reference fields on the resource that are being evaluated. An example of this use can be seen in the [DeployIfNotExists example](effect-deploy-if-not-exists.md#deployifnotexists-example).
 
 - `requestContext().apiVersion`
@@ -643,7 +641,7 @@ The following functions are only available in policy rules:
 
     ```json
     {
-      "assignmentId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+      "assignmentId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/policyAssignments/myAssignment",
       "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
       "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
       "definitionReferenceId": "StorageAccountNetworkACLs"
@@ -661,7 +659,7 @@ The following functions are only available in policy rules:
   - Range defined by start and end IP addresses (examples: `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
 
 - `current(indexName)`
-  - Special function that may only be used inside [count expressions](./definition-structure-policy-rule.md#count).
+  - Special function that might only be used inside [count expressions](./definition-structure-policy-rule.md#count).
 
 ### Policy function example
 
@@ -685,9 +683,9 @@ This policy rule example uses the `resourceGroup` resource function to get the `
 
 ### Limits enforced during authoring
 
-Limits to the structure of policy rules are enforced during the authoring or assignment of a policy. Attempts to create or assign policy definitions that exceed these limits will fail.
+Limits to the structure of policy rules are enforced during the authoring or assignment of a policy. Attempts to create or assign policy definitions that exceed these limits fail.
 
-| Limit | Value | Additional details |
+| Limit | Value | Details |
 |:---|:---|:---|
 | Condition expressions in the `if` condition | 4096 | |
 | Condition expressions in the `then` block | 128 | Applies to the `existenceCondition` of `auditIfNotExists` and `deployIfNotExists` policies |
@@ -697,11 +695,11 @@ Limits to the structure of policy rules are enforced during the authoring or ass
 | Policy functions expression string length | 81920 | Example: the length of `"[function(....)]"` |
 | `Field count` expressions per array | 5 | |
 | `Value count` expressions per policy rule | 10 | |
-| `Value count` expression iteration count | 100 | For nested `Value count` expressions, this also includes the iteration count of the parent expression |
+| `Value count` expression iteration count | 100 | Nested `Value count` expressions also include the iteration count of the parent expression. |
 
 ### Limits enforced during evaluation
 
-Limits to the size of objects that are processed by policy functions during policy evaluation. These limits can't always be enforced during authoring since they depend on the evaluated content. For example:
+Limits to the size of objects processed by policy functions during policy evaluation. These limits can't always be enforced during authoring since they depend on the evaluated content. For example:
 
 ```json
 {
@@ -719,7 +717,7 @@ The length of the string created by the `concat()` function depends on the value
 | Number of nodes of complex objects provided as a parameter to, or returned by a function | 32768 | `[concat(field('largeArray1'), field('largeArray2'))]` |
 
 > [!WARNING]
-> Policy that exceed the above limits during evaluation will effectively become a `deny` policy and can block incoming requests.
+> Policies that exceed the limits during evaluation will effectively become a `deny` policy and can block incoming requests.
 > When writing policies with complex functions, be mindful of these limits and test your policies against resources that have the potential to exceed them.
 
 ## Next steps

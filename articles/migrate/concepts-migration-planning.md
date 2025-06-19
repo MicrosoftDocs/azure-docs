@@ -1,11 +1,8 @@
 ---
 title: Build a migration plan with Azure Migrate
 description: Provides guidance on building a migration plan with Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2024
 ms.custom: engagement-fy23
 ---
@@ -60,7 +57,7 @@ After server discovery, you can [analyze dependencies](concepts-dependency-visua
 
 ### Optimization and sizing
 
-Azure provides flexibility to resize your cloud capacity over time, and migration provides an opportunity for you to optimize the CPU and memory resources allocated to your servers. Creating an assessment on servers you've identity helps you to understand your workload performance history. This is crucial for right sizing Azure VM SKUs, and disk recommendations in Azure.
+Azure provides flexibility to resize your cloud capacity over time, and migration provides an opportunity for you to optimize the CPU and memory resources allocated to your servers. Creating an assessment on servers you've identity helps you to understand your workload performance history. This is crucial for right-sizing Azure VM SKUs, and disk recommendations in Azure.
 
 ## Assess migration readiness
 

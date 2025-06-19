@@ -12,7 +12,7 @@ ms.author: kpunjabi
 ---
 
 ## Create a call and provide the transcription details
-Define the TranscriptionOptions for ACS to know whether to start the transcription straight away or at a later time, which locale to transcribe in and the web socket connection to use for sending the transcript.
+Define the TranscriptionOptions for ACS to specify when to start the transcription, specify the locale for transcription, and the web socket connection for sending the transcript.
 
 ```csharp
 var createCallOptions = new CreateCallOptions(callInvite, callbackUri)
@@ -23,8 +23,33 @@ var createCallOptions = new CreateCallOptions(callInvite, callbackUri)
 CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(createCallOptions);
 ```
 
+## Connect to a Rooms call and provide transcription details
+If you're connecting to an ACS room and want to use transcription, configure the transcription options as follows:
+
+```csharp
+var transcriptionOptions = new TranscriptionOptions(
+    transportUri: new Uri(""),
+    locale: "en-US", 
+    startTranscription: false,
+    transcriptionTransport: TranscriptionTransport.Websocket,
+    //Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    SpeechRecognitionModelEndpointId = "YourCustomSpeechRecognitionModelEndpointId"
+);
+
+var connectCallOptions = new ConnectCallOptions(new RoomCallLocator("roomId"), callbackUri)
+{
+    CallIntelligenceOptions = new CallIntelligenceOptions() 
+    { 
+        CognitiveServicesEndpoint = new Uri(cognitiveServiceEndpoint) 
+    },
+    TranscriptionOptions = transcriptionOptions
+};
+
+var connectResult = await client.ConnectCallAsync(connectCallOptions);
+```
+
 ## Start Transcription
-Once you're ready to start the transcription you can make an explicit call to Call Automation to start transcribing the call.
+Once you're ready to start the transcription, you can make an explicit call to Call Automation to start transcribing the call.
 
 ```csharp
 // Start transcription with options
@@ -32,6 +57,8 @@ StartTranscriptionOptions options = new StartTranscriptionOptions()
 {
     OperationContext = "startMediaStreamingContext",
     //Locale = "en-US",
+    //Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+    SpeechRecognitionModelEndpointId = "YourCustomSpeechRecognitionModelEndpointId"
 };
 
 await callMedia.StartTranscriptionAsync(options);
@@ -40,8 +67,11 @@ await callMedia.StartTranscriptionAsync(options);
 // await callMedia.StartTranscriptionAsync();
 ```
 
+### Additional Headers:
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`.
+
 ## Receiving Transcription Stream
-When transcription starts, your websocket will receive the transcription metadata payload as the first packet. This payload carries the call metadata and locale for the configuration.
+When transcription starts, your websocket receives the transcription metadata payload as the first packet.
 
 ```json
 {
@@ -56,7 +86,7 @@ When transcription starts, your websocket will receive the transcription metadat
 ```
 
 ## Receiving Transcription data
-After the metadata the next packets your web socket receives will be TranscriptionData for the transcribed audio.
+After the metadata, the next packets your web socket receives will be TranscriptionData for the transcribed audio.
 
 ```json
 {
@@ -202,7 +232,14 @@ namespace WebServerApi
 For situations where your application allows users to select their preferred language you may also want to capture the transcription in that language. To do this, Call Automation SDK allows you to update the transcription locale.
 
 ```csharp
-await callMedia.UpdateTranscriptionAsync("en-US-NancyNeural");
+UpdateTranscriptionOptions updateTranscriptionOptions = new UpdateTranscriptionOptions(locale)
+{
+OperationContext = "UpdateTranscriptionContext",
+//Only add the SpeechRecognitionModelEndpointId if you have a custom speech model you would like to use
+SpeechRecognitionModelEndpointId = "YourCustomSpeechRecognitionModelEndpointId"
+};
+
+await client.GetCallConnection(callConnectionId).GetCallMedia().UpdateTranscriptionAsync(updateTranscriptionOptions);
 ```
 
 ## Stop Transcription

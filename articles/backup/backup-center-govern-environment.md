@@ -3,8 +3,8 @@ title: Govern your backup estate using Backup Center
 description: Learn how to govern your Azure environment to ensure that all your resources are compliant from a backup perspective with Backup Center.
 ms.topic: overview
 ms.date: 12/24/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Govern your backup estate using Backup Center

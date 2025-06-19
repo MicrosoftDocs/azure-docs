@@ -12,6 +12,8 @@ author: khdownie
 
 This migration guide describes how to migrate on-premises files to SMB Azure file shares with full fidelity using [Azure Storage Mover](../../storage-mover/service-overview.md), a fully managed migration service. You can use Azure Storage Mover to migrate from any SMB source share, including Windows Server, Linux, or NAS. You must have port 443 open outbound on the source in order to use Azure Storage Mover for Azure Files migrations. However, you don't need an SMB connection to your Azure file share because Azure Storage Mover uses the FileREST API to move the data instead of SMB.
 
+Azure Storage Mover isn't currently available in Azure Government clouds.
+
 > [!NOTE]
 > If you're using or plan to use Azure File Sync for cloud tiering and on-premises caching, you can use Azure File Sync to migrate [on-premises NAS](storage-files-migration-nas-hybrid.md) or [Windows Server](../file-sync/file-sync-extend-servers.md) file shares instead of using Azure Storage Mover. If you don't plan to use Azure File Sync long term, use Azure Storage Mover for your migration.
 

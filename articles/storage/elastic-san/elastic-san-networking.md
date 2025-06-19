@@ -4,14 +4,14 @@ description: Learn how to secure Azure Elastic SAN volumes through access config
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 09/25/2024
+ms.date: 01/24/2025
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure network access for Azure Elastic SAN
 
-You can control access to your Azure Elastic storage area network (SAN) volumes. Controlling access allows you to secure your data and meet the needs of your applications and enterprise environments.
+You can control access to your Elastic SAN volumes. Controlling access allows you to secure your data and meet the needs of your applications and enterprise environments.
 
 This article describes how to configure your Elastic SAN to allow access from your Azure virtual network infrastructure.
 
@@ -261,9 +261,6 @@ The process for enabling each type of endpoint follows:
 - [Configure an Azure Storage service endpoint](#configure-an-azure-storage-service-endpoint)
 
 ### Configure a private endpoint
-
-> [!IMPORTANT]
-> - For Elastic SANs using [locally-redundant storage (LRS)](elastic-san-planning.md#redundancy) as their redundancy option, private endpoints are supported in all regions where Elastic SAN is available. Private endpoints aren't currently supported for elastic SANs using [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy) as their redundancy option.
 
 There are two steps involved in configuring a private endpoint connection:
 

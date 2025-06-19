@@ -2,15 +2,15 @@
 title: Troubleshoot Azure Database for PostgreSQL - Flexible server backup
 description: Troubleshooting information for backing up Azure Database for PostgreSQL - Flexible server.
 ms.topic: troubleshooting
-ms.date: 12/18/2024
+ms.date: 02/17/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Troubleshoot Azure Database for PostgreSQL - Flexible server backup (preview)
+# Troubleshoot Azure Database for PostgreSQL - Flexible server backup
 
 This article provides the recommended actions to troubleshoot the issues you might encounter during the backup or restore of Azure Database for PostgreSQL - Flexible server.
 

@@ -3,10 +3,10 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 10/21/2024
+ms.date: 06/02/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
@@ -354,7 +354,8 @@ Error code: ExtensionVCRedistInstallationFailure <br/> Error message: The snapsh
 
 Error code:  UserErrorRequestDisallowedByPolicy <BR> Error message: An invalid policy is configured on the VM which is preventing Snapshot operation.
 
-If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](../governance/policy/concepts/effects.md#deny) to a [Modify effect](../governance/policy/concepts/effects.md#modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](/azure/governance/policy/concepts/effect-deny) to a [Modify effect](/azure/governance/policy/concepts/effect-modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+
 
 ### UserErrorUnableToOpenMount
 
@@ -383,7 +384,8 @@ If after restore, you notice the disks are offline then:
 * Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### Folder is missing when a Linux VM is recovered as a new VM
-This issue can occur if disks are mounted to a directory using the device name (e.g., /dev/sdc1) instead of UUID. When the VM reboots or when it is recovered as a new VM, the device names are assigned in a random order. To ensure that the right drive is mounted to your directory, always mount drives using UUID obtained from the `blkid` utility. [Learn more](/azure/virtual-machines/linux/attach-disk-portal).
+This issue can occur if disks are mounted to a directory using the device name (e.g., /dev/sdc1) instead of UUID. When the VM reboots or when it is recovered as a new VM, the device names are assigned in a random order. To ensure that the right drive is mounted to your directory, always mount drives using UUID obtained from the `blkid` utility. [Learn more](/azure/virtual-machines/linux/attach-disk-portal#mount-the-disk).
+
 
 ### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
 
@@ -575,3 +577,15 @@ Get more information on how to set up a static IP through PowerShell:
 
 * [How to add a static internal IP to an existing VM](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
 * [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md)
+
+## Migration from Standard to Enhanced policy issue
+
+### BackUpOperationFailedV2
+
+**Error code**: `BackUpOperationFailedV2`
+
+**Error message**: The backups of VMs have failed after the policy migration from Standard to Enhanced policy.
+
+**Cause**: Snapshot retention of the Enhanced policy is applied on the older recovery points that were originally created under the Standard policy when you move a VM from a Standard to Enhanced policy.
+
+**Recommended action**: Contact Microsoft Support for resolution.

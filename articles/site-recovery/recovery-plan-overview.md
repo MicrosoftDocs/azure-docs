@@ -3,9 +3,9 @@ title: About recovery plans in Azure Site Recovery
 description: Learn about recovery plans in Azure Site Recovery. 
 ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 12/28/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 01/22/2025
+ms.author: jsuri
+author: jyothisuri
 ---
 # About recovery plans
 

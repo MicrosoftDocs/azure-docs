@@ -3,9 +3,9 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: overview
 ms.service: azure-backup
-ms.date: 11/20/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 05/26/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Overview and concepts of private endpoints (v2 experience) for Azure Backup
@@ -26,10 +26,13 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 
 - While a Recovery Services vault is used by (both) Azure Backup and Azure Site Recovery, this article discusses the use of private endpoints for Azure Backup only.
 
+- CMK with network restricted key vault isn't supported with private endpoint enabled vault.
+
 - You can create private endpoints for new Recovery Services vaults that don't have any items registered/protected to the vault, only. However, private endpoints are currently not supported for Backup vaults.
 
   >[!Note]
-  >You can't create private endpoints using static IP.
+  >- Private endpoints with static IPs are unsupported in the V2 experience due to dynamic IP expansion. While creation succeeds, registration might fail for vaults with existing protected items.
+  >- Creation of multiple private endpoints with the same name under Recovery Services Vaults is unsupported.
 
 - You can't upgrade vaults (that contains private endpoints) created using the classic experience to the new experience. You can delete all existing private endpoints, and then create new private endpoints with the v2 experience. 
 
@@ -90,6 +93,8 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
 >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
 >- [US Gov](../azure-government/documentation-government-developer-guide.md)
+
+To auto-update the MARS Agent allow access to `download.microsoft.com/download/MARSagent/*`.
 
 For a Recovery Services vault with private endpoint setup, the name resolution for the FQDNs (`privatelink.<geo>.backup.windowsazure.com`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`) should return a private IP address. This can be achieved by using: 
 

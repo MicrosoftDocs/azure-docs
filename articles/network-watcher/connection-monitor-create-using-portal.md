@@ -6,9 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 01/24/2025
 
 #CustomerIntent: As an Azure administrator, I want learn how to create a connection monitor in Network Watcher so I can monitor the communication between one VM and another.
+# Customer intent: "As an Azure administrator, I want to create a connection monitor in Network Watcher so that I can effectively monitor the network communication and connectivity between my virtual machines and various endpoints."
 ---
 # Create a connection monitor using the Azure portal
 
@@ -167,7 +168,7 @@ In the Azure portal, to create a test group in a connection monitor, specify val
         * **Create TCP test configuration**: This checkbox appears only if you select **HTTP** in the **Protocol** list. Select this checkbox to create another test configuration that uses the same sources and destinations that you specified elsewhere in your configuration. The new test configuration is named **\<name of test configuration>_networkTestConfig**.
         * **Disable traceroute**: This checkbox applies when the protocol is TCP or ICMP. Select this box to stop sources from discovering topology and hop-by-hop RTT.
     * **Destination port**: You can provide a destination port of your choice.
-      * **Listen on port**: This checkbox applies when the protocol is TCP. Select this checkbox to open the chosen TCP port if it's not already open.
+      * **Listen on port**: This checkbox applies when the protocol is TCP. Select this checkbox to open the chosen TCP port if it's not already open. This feature won't work if source and destination machines are in different regions.
     * **Test Frequency**: In this list, specify how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Select **custom** to enter another frequency from 30 seconds to 30 minutes. Sources will test connectivity to destinations based on the value that you choose. For example, if you select 30 seconds, sources will check connectivity to the destination at least once in every 30-second period.
     * **Success Threshold**: You can set thresholds on the following network elements:
        * **Checks failed**: Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For the TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this value represents the percentage of HTTP requests that received no response.

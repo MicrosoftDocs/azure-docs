@@ -1,13 +1,15 @@
 ---
+ROBOTS: NOINDEX
 title: Troubleshooting file compression in Azure Content Delivery Network
 description: Learn how to troubleshoot issues with file compression in Azure Content Delivery Network. This article covers several possible causes.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: troubleshooting
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+# Customer intent: As a web developer, I want to troubleshoot file compression issues in my CDN, so that I can ensure efficient content delivery and improve loading times for users.
 ---
 
 # Troubleshooting Azure Content Delivery Network file compression
@@ -53,62 +55,12 @@ First, we should do a quick sanity check on the request. You can use your browse
 
 ![CDN request headers](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### Verify compression settings (standard CDN profiles)
-
-> [!NOTE]
-> This step applies only if your CDN profile is an **Azure CDN Standard from Microsoft** or **Azure CDN Standard from Edgio** profile.
->
+### Verify compression settings
 
 Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and select the **Configure** button.
 
 - Verify compression is enabled.
 - Verify the MIME type for the content to be compressed is included in the list of compressed formats.
-
-![CDN compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
-
-### Verify compression settings (Premium CDN profiles)
-
-> [!NOTE]
-> This step applies only if your CDN profile is an **Azure CDN Premium from Edgio** profile.
->
-
-Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and select the **Manage** button. The supplemental portal opens. Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout. Select **Compression**.
-
-- Verify compression is enabled.
-- Verify the **File Types** list contains a comma-separated list (no spaces) of MIME types.
-- Verify the MIME type for the content to be compressed is included in the list of compressed formats.
-
-![CDN premium compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
-
-<a name='verify-the-content-is-cached-verizon-cdn-profiles'></a>
-
-### Verify the content is cached (Edgio CDN profiles)
-
-> [!NOTE]
-> This step applies only if your CDN profile is an **Azure CDN Standard from Edgio** or **Azure CDN Premium from Edgio** profile.
->
->
-
-Using your browser's developer tools, check the response headers to ensure the file is cached in the region where it's being requested.
-
-- Check the **Server** response header. The header should have the format **Platform (POP/Server ID)**, as seen in the following example.
-- Check the **X-Cache** response header. The header should read **HIT**.
-
-![CDN response headers](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
-
-<a name='verify-the-file-meets-the-size-requirements-verizon-cdn-profiles'></a>
-
-### Verify the file meets the size requirements (Edgio CDN profiles)
-
-> [!NOTE]
-> This step applies only if your CDN profile is an **Azure CDN Standard from Edgio** or **Azure CDN Premium from Edgio** profile.
->
->
-
-To be eligible for compression, a file must meet the following size requirements:
-
-- Larger than 128 bytes (Content-Length: 128)
-- Smaller than 3 MB
 
 ### Check the request at the origin server for a **Via** header
 

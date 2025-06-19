@@ -8,7 +8,8 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 04/25/2023
+ms.date: 01/31/2025
+
 #Customer intent: As a platform engineer, I want to install the Dev Box CLI extension so that I can create Dev Box resources from the command line.
 ---
 
@@ -31,9 +32,9 @@ az extension add --name devcenter
 az extension list
 ```
 ### Update the devcenter extension
-You can update the devcenter extension if you already have it installed.
+You can update the devcenter extension if it's already installed.
 
-To update a version of the extension that's installed
+To update the extension:
 ``` azurecli
 az extension update --name devcenter
 ```
@@ -72,6 +73,6 @@ You might find the following commands useful as you work with Dev Box.
     az devcenter admin --help
     ```
 
-## Next steps
+## Related content
 
 For complete command listings, refer to the [Microsoft Dev Box and Azure Deployment Environments Azure CLI documentation](https://aka.ms/CLI-reference).

@@ -1,50 +1,61 @@
 ---
-title: Configure TLS mutual authentication
-description: Learn how to authenticated client certificates on TLS. Azure App Service can make the client certificate available to the app code for verification.
-
+title: Set Up TLS Mutual Authentication
+titleSuffix: Azure App Service
+description: Learn how to set up TLS mutual authentication in Azure App Service to help secure two-way communication between client and server.
+keywords: TLS mutual authentication, Azure App Service security, secure client-server communication
 author: msangapu-msft
 ms.author: msangapu
-ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
-ms.topic: article
-ms.date: 06/21/2024
+ms.topic: how-to
+ms.date: 05/09/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
+ 
+#customer intent: As a developer, I want to set up mutual authentication so that I can restrict access to an App Service app. 
 ---
-# Configure TLS mutual authentication for Azure App Service
 
-You can restrict access to your Azure App Service app by enabling different types of authentication for it. One way to do it is to request a client certificate when the client request is over TLS/SSL and validate the certificate. This mechanism is called Transport Layer Security (TLS) mutual authentication or client certificate authentication. This article shows how to set up your app to use client certificate authentication.
+# Configure TLS mutual authentication in Azure App Service
+
+You can restrict access to your Azure App Service app by enabling various types of authentication for the app. One way to set up authentication is to request a client certificate when the client request is sent by using Transport Layer Security (TLS) / Secure Sockets Layer (SSL) and to validate the certificate. This mechanism is called *mutual authentication* or *client certificate authentication*. This article shows how to set up your app to use client certificate authentication.
 
 > [!NOTE]
-> Your app code is responsible for validating the client certificate. App Service doesn't do anything with this client certificate other than forwarding it to your app.
-> 
-> If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP.
+> Your app code must validate the client certificate. App Service doesn't do anything with the client certificate other than forward it to your app.
+>
+> If you access your site over HTTP and not HTTPS, you don't receive any client certificates. If your application requires client certificates, you shouldn't allow requests to your application over HTTP.
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 ## Enable client certificates
-When you enable client certificate for your app, you should select your choice of client certificate mode. Each mode defines how your app handles incoming client certificates:
 
-|Client certificate modes|Description|
+When you enable client certificates for your app, you should select your choice of client certificate mode. The mode defines how your app handles incoming client certificates. The modes are described in the following table:
+
+|Client certificate mode|Description|
 |-|-|
 |Required|All requests require a client certificate.|
-|Optional|Requests may or may not use a client certificate and clients are prompted for a certificate by default. For example, browser clients will show a prompt to select a certificate for authentication.|
-|Optional Interactive User|Requests may or may not use a client certificate and clients are not prompted for a certificate by default. For example, browser clients won't show a prompt to select a certificate for authentication.|
+|Optional|Requests can use a client certificate. Clients are prompted for a certificate by default. For example, browser clients show a prompt to select a certificate for authentication.|
+|Optional Interactive User|Requests can use a client certificate. Clients aren't prompted for a certificate by default. For example, browser clients don't show a prompt to select a certificate for authentication.|
 
 ### [Azure portal](#tab/azureportal)
-To set up your app to require client certificates in Azure portal:
-1. Navigate to your app's management page.
-1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
-1. Select **Client certificate mode** of choice. Select **Save** at the top of the page.
+
+To use the Azure portal to enable client certificates:
+
+1. Go to your app management page.
+1. In the left menu, select **Configuration** > **General settings**.
+1. For **Client certificate mode**, select your choice.
+1. Select **Save**.
 
 ### [Azure CLI](#tab/azurecli)
-With Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+To use the Azure CLI to enable client certificates, run the following command in [Azure Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
 
 ### [Bicep](#tab/bicep)
-For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample Bicep snippet is provided for you:
+
+To enable client certificates in Bicep, modify the `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths` properties.
+
+Here's a sample Bicep snippet:
 
 ```bicep
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
@@ -64,9 +75,12 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 ```
 
 ### [ARM template](#tab/arm)
-For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample ARM template snippet is provided for you:
 
-```ARM
+To enable client certificates in an Azure Resource Manager template (ARM template), modify the `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths` properties.
+
+Here's a sample ARM template snippet:
+
+```json
 {
     "type": "Microsoft.Web/sites",
     "apiVersion": "2020-06-01",
@@ -91,57 +105,61 @@ For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, 
 
 ## Exclude paths from requiring authentication
 
-When you enable mutual auth for your application, all paths under the root of your app require a client certificate for access. To remove this requirement for certain paths, define exclusion paths as part of your application configuration.
+When you enable mutual authentication for your application, all paths under the root of your app require a client certificate for access. To remove this requirement for certain paths, define exclusion paths as part of your application configuration.
 
 > [!NOTE]
 > Using any client certificate exclusion path triggers TLS renegotiation for incoming requests to the app.
 
-1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
+1. In the left menu of your app management page, select **Settings** > **Configuration**. Select the **General settings** tab.
 
-1. Next to **Certificate exclusion paths**, select the edit icon.
+1. Next to **Certificate exclusion paths**, select the pencil icon.
 
-1. Select **New path**, specify a path, or a list of paths separated by `,` or `;`, and select **OK**.
+1. Select **New path**, specify a path or a list of paths separated by `,` or `;`, and then select **OK**.
 
-1. Select **Save** at the top of the page.
+1. Select **Save**.
 
-In the following screenshot, any path for your app that starts with `/public` doesn't request a client certificate. Path matching is case-insensitive.
+The following screenshot shows how to set a certificate exclusion path. In this example, any path for the app that starts with `/public` doesn't request a client certificate. Path matching isn't case specific.
 
-![Certificate Exclusion Paths][exclusion-paths]
+:::image type="content" source="media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png" alt-text="Screenshot that shows how to set a certificate exclusion path." lightbox="media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png":::
 
 ## Client certificate and TLS renegotiation
-For some client certificate settings, App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings triggers TLS renegotiation:
-1. Using "Optional Interactive User" client certificate mode.
-1. Using [client certificate exclusion path](#exclude-paths-from-requiring-authentication).
+
+For some client certificate settings, App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Both of the following settings trigger TLS renegotiation:
+
+- Using the **Optional Interactive User** client certificate mode.
+- Using a [client certificate exclusion path](#exclude-paths-from-requiring-authentication).
 
 > [!NOTE]
-> TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation.
+> TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols don't work if your app is configured with client certificate settings that use TLS renegotiation.
 
-To disable TLS renegotiation and to have the app negotiate client certificates during TLS handshake, you must configure your app with *all* these settings:
-1. Set client certificate mode to "Required" or "Optional"
-2. Remove all client certificate exclusion paths
+To disable TLS renegotiation and have the app negotiate client certificates during TLS handshake, you must take the following actions in your app:
 
-### Uploading large files with TLS renegotiation
-Client certificate configurations that use TLS renegotiation cannot support incoming requests with large files greater than 100 kb due to buffer size limitations. In this scenario, any POST or PUT requests over 100 kb will fail with a 403 error. This limit isn't configurable and can't be increased.
+- Set the client certificate mode to **Required** or **Optional**.
+- Remove all client certificate exclusion paths.
 
-To address the 100 kb limit, consider these alternative solutions:
+### Upload large files with TLS renegotiation
 
-1. Disable TLS renegotiation. Update your app's client certificate configurations with _all_ these settings:
-    - Set client certificate mode to either "Required" or "Optional"
-    - Remove all client certificate exclusion paths
-1. Send a HEAD request before the PUT/POST request. The HEAD request handles the client certificate.
-1. Add the header `Expect: 100-Continue` to your request. This causes the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
+Client certificate configurations that use TLS renegotiation can't support incoming requests with files that are larger than 100 KB. This limit is caused by buffer size limitations. In this scenario, any POST or PUT requests that are over 100 KB fail with a 403 error. This limit isn't configurable and can't be increased.
 
-## Access client certificate
+To address the 100-KB limit, consider these solutions:
 
-In App Service, TLS termination of the request happens at the frontend load balancer. When App Service forwards the request to your app code with [client certificates enabled](#enable-client-certificates), it injects an `X-ARR-ClientCert` request header with the client certificate. App Service doesn't do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
+- Disable TLS renegotiation. Take the following actions in your app's client certificate configurations:
+    - Set the client certificate mode to **Required** or **Optional**.
+    - Remove all client certificate exclusion paths.
+- Send a HEAD request before the PUT/POST request. The HEAD request handles the client certificate.
+- Add the header `Expect: 100-Continue` to your request. This header causes the client to wait until the server responds with a `100 Continue` before sending the request body, and the buffers are bypassed.
 
-For ASP.NET, the client certificate is available through the **HttpRequest.ClientCertificate** property.
+## Access the client certificate
 
-For other application stacks (Node.js, PHP, etc.), the client cert is available in your app through a base64 encoded value in the `X-ARR-ClientCert` request header.
+In App Service, TLS termination of the request happens at the front-end load balancer. When App Service forwards the request to your app code with [client certificates enabled](#enable-client-certificates), it injects an `X-ARR-ClientCert` request header with the client certificate. App Service doesn't do anything with this client certificate other than forward it to your app. Your app code needs to validate the client certificate.
+
+In ASP.NET, the client certificate is available through the `HttpRequest.ClientCertificate` property.
+
+In other application stacks (Node.js, PHP), the client certificate is available via a Base64-encoded value in the `X-ARR-ClientCert` request header.
 
 ## ASP.NET Core sample
 
-For ASP.NET Core, middleware is provided to parse forwarded certificates. Separate middleware is provided to use the forwarded protocol headers. Both must be present for forwarded certificates to be accepted. You can place custom certificate validation logic in the [CertificateAuthentication options](/aspnet/core/security/authentication/certauth).
+For ASP.NET Core, middleware is available to parse forwarded certificates. Separate middleware is available for using the forwarded protocol headers. Both must be present for forwarded certificates to be accepted. You can place custom certificate validation logic in the [CertificateAuthentication options](/aspnet/core/security/authentication/certauth):
 
 ```csharp
 public class Startup
@@ -156,20 +174,20 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        // Configure the application to use the protocol and client ip address forwarded by the frontend load balancer
+        // Configure the application to use the protocol and client IP address forwarded by the front-end load balancer.
         services.Configure<ForwardedHeadersOptions>(options =>
         {
             options.ForwardedHeaders =
                 ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
-            // Only loopback proxies are allowed by default. Clear that restriction to enable this explicit configuration.
+            // By default, only loopback proxies are allowed. Clear that restriction to enable this explicit configuration.
             options.KnownNetworks.Clear();
             options.KnownProxies.Clear();
         });       
         
-        // Configure the application to client certificate forwarded the frontend load balancer
+        // Configure the application to use the client certificate forwarded by the front-end load balancer.
         services.AddCertificateForwarding(options => { options.CertificateHeader = "X-ARR-ClientCert"; });
 
-        // Add certificate authentication so when authorization is performed the user will be created from the certificate
+        // Add certificate authentication so that when authorization is performed the user will be created from the certificate.
         services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate();
     }
 
@@ -206,7 +224,7 @@ public class Startup
 }
 ```
 
-## ASP.NET WebForms sample
+## ASP.NET Web Forms sample
 
 ```csharp
     using System;
@@ -230,8 +248,8 @@ public class Startup
             public bool isValidCert = false;
 
             //
-            // Read the certificate from the header into an X509Certificate2 object
-            // Display properties of the certificate on the page
+            // Read the certificate from the header into an X509Certificate2 object.
+            // Display properties of the certificate on the page.
             //
             protected void Page_Load(object sender, EventArgs e)
             {
@@ -268,27 +286,27 @@ public class Startup
             }
 
             //
-            // This is a SAMPLE verification routine. Depending on your application logic and security requirements, 
-            // you should modify this method
+            // This is a sample verification routine. You should modify this method to suit  your application logic and security requirements. 
+            // 
             //
             private bool IsValidClientCertificate()
             {
-                // In this example we will only accept the certificate as a valid certificate if all the conditions below are met:
-                // 1. The certificate isn't expired and is active for the current time on server.
-                // 2. The subject name of the certificate has the common name nildevecc
-                // 3. The issuer name of the certificate has the common name nildevecc and organization name Microsoft Corp
-                // 4. The thumbprint of the certificate is 30757A2E831977D8BD9C8496E4C99AB26CB9622B
+                // In this example, the certificate is accepted as a valid certificate only if these conditions are met:
+                // - The certificate isn't expired and is active for the current time on the server.
+                // - The subject name of the certificate has the common name nildevecc.
+                // - The issuer name of the certificate has the common name nildevecc and the organization name Microsoft Corp.
+                // - The thumbprint of the certificate is 30757A2E831977D8BD9C8496E4C99AB26CB9622B.
                 //
-                // This example doesn't test that this certificate is chained to a Trusted Root Authority (or revoked) on the server 
-                // and it allows for self signed certificates
+                // This example doesn't test that the certificate is chained to a trusted root authority (or revoked) on the server. 
+                // It allows self-signed certificates.
                 //
 
                 if (certificate == null || !String.IsNullOrEmpty(errorString)) return false;
 
-                // 1. Check time validity of certificate
+                // 1. Check time validity of the certificate.
                 if (DateTime.Compare(DateTime.Now, certificate.NotBefore) < 0 || DateTime.Compare(DateTime.Now, certificate.NotAfter) > 0) return false;
 
-                // 2. Check subject name of certificate
+                // 2. Check the subject name of the certificate.
                 bool foundSubject = false;
                 string[] certSubjectData = certificate.Subject.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string s in certSubjectData)
@@ -301,7 +319,7 @@ public class Startup
                 }
                 if (!foundSubject) return false;
 
-                // 3. Check issuer name of certificate
+                // 3. Check the issuer name of the certificate.
                 bool foundIssuerCN = false, foundIssuerO = false;
                 string[] certIssuerData = certificate.Issuer.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                 foreach (string s in certIssuerData)
@@ -321,7 +339,7 @@ public class Startup
 
                 if (!foundIssuerCN || !foundIssuerO) return false;
 
-                // 4. Check thumbprint of certificate
+                // 4. Check the thumbprint of the certificate.
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
                 return true;
@@ -332,7 +350,7 @@ public class Startup
 
 ## Node.js sample
 
-The following Node.js sample code gets the `X-ARR-ClientCert` header and uses [node-forge](https://github.com/digitalbazaar/forge) to convert the base64-encoded PEM string into a certificate object and validate it:
+The following Node.js sample code gets the `X-ARR-ClientCert` header and uses [node-forge](https://github.com/digitalbazaar/forge) to convert the Base64-encoded Privacy Enhanced Mail (PEM) string into a certificate object and validate it:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -341,26 +359,26 @@ import { pki, md, asn1 } from 'node-forge';
 export class AuthorizationHandler {
     public static authorizeClientCertificate(req: Request, res: Response, next: NextFunction): void {
         try {
-            // Get header
+            // Get header.
             const header = req.get('X-ARR-ClientCert');
             if (!header) throw new Error('UNAUTHORIZED');
 
-            // Convert from PEM to pki.CERT
+            // Convert from PEM to PKI certificate.
             const pem = `-----BEGIN CERTIFICATE-----${header}-----END CERTIFICATE-----`;
             const incomingCert: pki.Certificate = pki.certificateFromPem(pem);
 
-            // Validate certificate thumbprint
+            // Validate certificate thumbprint.
             const fingerPrint = md.sha1.create().update(asn1.toDer(pki.certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
             if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
 
-            // Validate time validity
+            // Validate time validity.
             const currentDate = new Date();
             if (currentDate < incomingCert.validity.notBefore || currentDate > incomingCert.validity.notAfter) throw new Error('UNAUTHORIZED');
 
-            // Validate issuer
+            // Validate issuer.
             if (incomingCert.issuer.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
 
-            // Validate subject
+            // Validate subject.
             if (incomingCert.subject.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
 
             next();
@@ -377,8 +395,7 @@ export class AuthorizationHandler {
 
 ## Java sample
 
-The following Java class encodes the certificate from `X-ARR-ClientCert` to an `X509Certificate` instance. `certificateIsValid()` validates that the certificate's thumbprint matches the one given in the constructor and that certificate hasn't expired.
-
+The following Java class encodes the certificate from `X-ARR-ClientCert` to an `X509Certificate` instance. `certificateIsValid()` validates that the certificate's thumbprint matches the one given in the constructor and that the certificate isn't expired.
 
 ```java
 import java.io.ByteArrayInputStream;
@@ -399,9 +416,9 @@ public class ClientCertValidator {
 
     /**
      * Constructor.
-     * @param certificate The certificate from the "X-ARR-ClientCert" HTTP header
-     * @param thumbprint The thumbprint to check against
-     * @throws CertificateException If the certificate factory cannot be created.
+     * @param certificate. The certificate from the "X-ARR-ClientCert" HTTP header.
+     * @param thumbprint. The thumbprint to check against.
+     * @throws CertificateException if the certificate factory can't be created.
      */
     public ClientCertValidator(String certificate, String thumbprint) throws CertificateException {
         certificate = certificate
@@ -417,8 +434,8 @@ public class ClientCertValidator {
 
     /**
      * Check that the certificate's thumbprint matches the one given in the constructor, and that the
-     * certificate hasn't expired.
-     * @return True if the certificate's thumbprint matches and hasn't expired. False otherwise.
+     * certificate isn't expired.
+     * @return True if the certificate's thumbprint matches and isn't expired. False otherwise.
      */
     public boolean certificateIsValid() throws NoSuchAlgorithmException, CertificateEncodingException {
         return certificateHasNotExpired() && thumbprintIsValid();
@@ -426,7 +443,7 @@ public class ClientCertValidator {
 
     /**
      * Check certificate's timestamp.
-     * @return Returns true if the certificate hasn't expired. Returns false if it has expired.
+     * @return True if the certificate isn't expired. It returns False if it is expired.
      */
     private boolean certificateHasNotExpired() {
         Date currentTime = new java.util.Date();
@@ -439,8 +456,8 @@ public class ClientCertValidator {
     }
 
     /**
-     * Check the certificate's thumbprint matches the given one.
-     * @return Returns true if the thumbprints match. False otherwise.
+     * Check whether the certificate's thumbprint matches the given one.
+     * @return True if the thumbprints match. False otherwise.
      */
     private boolean thumbprintIsValid() throws NoSuchAlgorithmException, CertificateEncodingException {
         MessageDigest md = MessageDigest.getInstance("SHA-1");
@@ -451,7 +468,7 @@ public class ClientCertValidator {
         return digestHex.toLowerCase().equals(this.getThumbprint().toLowerCase());
     }
 
-    // Getters and setters
+    // Getters and setters.
 
     public void setThumbprint(String thumbprint) {
         this.thumbprint = thumbprint;
@@ -473,7 +490,7 @@ public class ClientCertValidator {
 
 ## Python sample
 
-The following Flask and Django Python code samples implement a decorator named `authorize_certificate` that can be used on a view function to permit access only to callers that present a valid client certificate. It expects a PEM formatted certificate in the `X-ARR-ClientCert` header and uses the Python [cryptography](https://pypi.org/project/cryptography/) package to validate the certificate based on its fingerprint (thumbprint), subject common name, issuer common name, and beginning and expiration dates. If validation fails, the decorator ensures that an HTTP response with status code 403 (Forbidden) is returned to the client.
+The following Flask and Django Python code samples implement a decorator named `authorize_certificate` that can be used on a view function to permit access only to callers that present a valid client certificate. It expects a PEM-formatted certificate in the `X-ARR-ClientCert` header and uses the Python [cryptography](https://pypi.org/project/cryptography/) package to validate the certificate based on its fingerprint (thumbprint), subject common name, issuer common name, and beginning and expiration dates. If validation fails, the decorator ensures that an HTTP response with status code 403 (Forbidden) is returned to the client.
 
 ### [Flask](#tab/flask)
 
@@ -521,7 +538,7 @@ def validate_cert(request):
         return True
 
     except Exception as e:
-        # Handle any errors encountered during validation
+        # Handle any errors encountered during validation.
         print(f"Encountered the following error during certificate validation: {e}")
         return False
     
@@ -590,7 +607,7 @@ def validate_cert(request):
         return True
 
     except Exception as e:
-        # Handle any errors encountered during validation
+        # Handle any errors encountered during validation.
         print(f"Encountered the following error during certificate validation: {e}")
         return False
 
@@ -603,7 +620,7 @@ def authorize_certificate(view):
     return _wrapped_view
 ```
 
-The following code snippet shows how to use the decorator on a Django view function.
+The following code snippet shows how to use the decorator on a Django view function:
 
 ```python
 @authorize_certificate
@@ -613,5 +630,3 @@ def hellocert(request):
 ```
 
 ---
-
-[exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png

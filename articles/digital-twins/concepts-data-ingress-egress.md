@@ -1,27 +1,21 @@
 ---
-# Mandatory fields.
 title: Data ingress and egress
 titleSuffix: Azure Digital Twins
 description: Learn about the data ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 05/31/2023
-ms.topic: conceptual
+ms.author: baanders
+ms.date: 01/27/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Data ingress and egress for Azure Digital Twins
 
-Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in different kinds of ways. This article covers data ingress and egress for Azure Digital Twins and Azure services that can be used to take advantage of it.
+Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in different kinds of ways. This article covers data ingress and egress for Azure Digital Twins.
 
 Azure Digital Twins can receive data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md) or [Logic Apps](../logic-apps/logic-apps-overview.md), which are used to deliver telemetry and notifications. 
 
-Azure Digital Twins can also use [event routes](concepts-route-events.md) to send data to downstream services, such as [Azure Maps](../azure-maps/about-azure-maps.md), for storage, workflow integration, analytics, and more. 
+Azure Digital Twins can also use [event routes](concepts-route-events.md) to send data to downstream services, such as [Azure Storage](../storage/common/storage-introduction.md), for storage, workflow integration, analytics, and more. 
 
 ## Data ingress
 

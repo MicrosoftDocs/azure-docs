@@ -1,8 +1,8 @@
 ---
 title: Resiliency in Azure DNS Private Resolver #Required; Must be "Resiliency in *your official service name*"
 description: Find out about reliability in Azure DNS Private Resolver #Required; 
-author: greg-lindsay #Required; your GitHub user alias, with correct capitalization.
-ms.author: greglin #Required; Microsoft alias of author; optional team alias.
+author: asudbring #Required; your GitHub user alias, with correct capitalization.
+ms.author: allensu #Required; Microsoft alias of author; optional team alias.
 ms.custom: subject-reliability
 ms.service: azure-dns
 ms.topic: concept-article

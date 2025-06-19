@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
-ms.topic: article
+ms.topic: reference
 ms.date: 12/13/2024
 ms.author: danlep
 ---
@@ -17,12 +17,11 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI Chat Completion API and Completion API requests to a configured external cache. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
+The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI Chat Completion API requests to a configured external cache. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
 
 > [!NOTE]
 > * This policy must have a corresponding [Get cached responses to Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) policy. 
 > * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md).
-> * Currently, this policy is in preview.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -44,7 +43,7 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 

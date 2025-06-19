@@ -2,15 +2,16 @@
 title: Configure caching
 titleSuffix: Azure Front Door
 description: This article shows you how to configure caching on Azure Front Door.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: jodowns
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
-ms.author: jodowns
 ---
 
 # Configure caching on Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 This article shows you how to configure caching on Azure Front Door. To learn more about caching, see [Caching with Azure Front Door](front-door-caching.md).
 
@@ -30,8 +31,6 @@ Caching can significantly decrease latency and reduce the load on origin servers
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true) and navigate to your Azure Front Door profile.
 
 1. Select **Front Door manager** and then select your route.
-   
-    :::image type="content" source="./media/how-to-configure-caching/select-route.png" alt-text="Screenshot of endpoint landing page.":::
 
 1. Select **Enable caching**.
 

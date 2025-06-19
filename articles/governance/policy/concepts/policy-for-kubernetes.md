@@ -1,9 +1,11 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Understand Azure Policy for Kubernetes clusters
@@ -21,6 +23,8 @@ Azure Policy for Kubernetes supports the following cluster environments:
 > [!IMPORTANT]
 > The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
 
+> [!IMPORTANT]
+> Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
 ## Overview
 
 By installing Azure Policy's add-on or extension on your Kubernetes clusters, Azure Policy enacts the following functions:
@@ -606,11 +610,50 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.12.2
+Security improvements.
+
+- Released June 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.19.1
+
+#### 1.11.1
+Security improvements.
+
+- Released May 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.19.1
+##### Gatekeeper 3.19.1-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.19.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.18.2...v3.19.1
+Patch [CVE-2025-22872](https://nvd.nist.gov/vuln/detail/CVE-2025-22872).
+
+#### 1.10.1
+Update the `policy-kubernetes-addon-prod` and `policy-kubernetes-webhook` images to patch [CVE-2025-30204](https://nvd.nist.gov/vuln/detail/CVE-2025-30204) and [CVE-2025-22870](https://nvd.nist.gov/vuln/detail/CVE-2025-22870).
+- Released April 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.18.2
+
+#### 1.10.0
+Security improvements.
+
+CEL is enabled by default, you can continue using Rego. New CRD configpodstatuses.status.gatekeeper.sh is introduced (Reference: https://github.com/open-policy-agent/gatekeeper/issues/2918)
+- Released February 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.18.2
+##### Gatekeeper 3.18.2-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.18.2
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.17.1...v3.18.2
+
 #### 1.9.1
 Security improvements.
+
+Patch CVE-2024-45337 and CVE-2024-45338.
 - Released January 2025
 - Kubernetes 1.27+
 - Gatekeeper 3.17.1
+##### Gatekeeper 3.17.1-5
+Patch CVE-2024-45337 and CVE-2024-45338.
 
 #### 1.8.0
 Policy can now be used to evaluate CONNECT operations, for instance, to deny `exec`s. Note that there is no brownfield compliance available for noncompliant CONNECT operations, so a policy with Audit effect that targets CONNECTs is a no op.
@@ -764,7 +807,6 @@ aligns with how the add-on was installed:
   - Maximum number of pods supported by the Azure Policy Add-on per cluster: **10,000**
   - Maximum number of Non-compliant records per policy per cluster: **500**
   - Maximum number of Non-compliant records per subscription: **1 million**
-  - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
   - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](./definition-structure-basics.md#resource-provider-modes). Use [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
  - Component-level [exemptions](./exemption-structure.md) aren't supported for [Resource Provider modes](./definition-structure-basics.md#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
  - Using the `metadata.gatekeeper.sh/requires-sync-data` annotation in a constraint template to configure the [replication of data](https://open-policy-agent.github.io/gatekeeper/website/docs/sync) from your cluster into the OPA cache is currently only allowed for built-in policies. The reason is because it can dramatically increase the Gatekeeper pods resource usage if not used carefully.

@@ -2,10 +2,10 @@
 title: Quickstart - Enable enhanced soft delete for Azure Backup
 description: This quickstart describes how to enable enhanced soft delete for Azure Backup.
 ms.topic: quickstart
-ms.date: 09/11/2023
+ms.date: 03/27/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Enable enhanced soft delete in Azure Backup
@@ -15,9 +15,11 @@ This quickstart describes how to enable enhanced soft delete to protect your dat
 [Enhanced soft delete](backup-azure-enhanced-soft-delete-about.md) provides an improvement to the [soft delete](backup-azure-security-feature-cloud.md) capability in Azure Backup that enables you to recover your backup data in case of accidental or malicious deletion. With enhanced soft delete, you get the ability to make soft delete always-on, thus protecting it from being disabled by any malicious actors. So, enhanced soft delete provides better protection for your backups against various threats. This feature also allows you to provide a customizable soft delete retention period for which soft deleted data must be retained.
 
 >[!Note]
->Once you enable the *always-on* state for soft delete, you can't disable it for that vault.
+>Once you enable the *always-on* state for soft delete, it can't be disabled for that vault.
 
-## Before you start
+## Prerequisites
+
+Before you enable enhanced soft delete, review the following prerequisites:
  
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults.
 - Enhanced soft delete applies to all vaulted workloads alike in Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, and Disk and VM snapshot backups.
@@ -94,5 +96,5 @@ Follow these steps:
 
 ## Next steps
 
-- Learn more about [enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
-- Learn more about [soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).
+- [About enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
+- [About soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).

@@ -5,7 +5,7 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 09/02/2022
+ms.date: 06/09/2025
 ms.author: chrupa
 ---
 
@@ -39,13 +39,11 @@ If you keep this default value, the application registration is a **confidential
 
 [ ![Screenshot of confidential client application.](media/register-application-five.png) ](media/register-application-five.png#lightbox)
 
-If you change the default value to "Yes" for the "Allow public client flows" option in the advanced setting, the application registration is a **public client application** and a certificate or secret isn't required. The "Yes" value is useful when you want to use the client application in your mobile app or a JavaScript app where you don't want to store any secrets.
+If you change the default value to "Yes" for the "Allow public client flows" option in the advanced setting, the application registration is a **public client application** and a certificate or secret isn't required. The "Yes" value is useful when you want to build a public client application using the OAuth authorization protocol or features as described in [Public client and confidential client applications](https://learn.microsoft.com/entra/identity-platform/msal-client-applications#when-should-you-enable-a-public-client-flow-in-your-app-registration).
 
 For tools that require a redirect URL, select **Add a platform** to configure the platform.
 
 [ ![Screenshot of add a platform.](media/register-application-five-alpha.png) ](media/register-application-five-alpha.png#lightbox)
-
-For Postman, select **Mobile and desktop applications**. Enter "https://www.getpostman.com/oauth2/callback" in the **Custom redirect URIs** section. Select the **Configure** button to save the setting.
 
 [ ![Screenshot of configure other services.](media/register-application-five-bravo-fix-nov-24.png) ](media/register-application-five-bravo-fix-nov-24.png#lightbox)
 
@@ -88,7 +86,7 @@ The following steps are required for the DICOM service, but optional for the FHI
    [ ![Screenshot of scopes (permissions) that the client application will ask for on behalf of a user.](dicom/media/dicom-select-scope.png) ](dicom/media/dicom-select-scope.png#lightbox)
 
 >[!NOTE]
->Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as Postman or REST Client. For more details, visit [Access using Postman](./fhir/use-postman.md) and [Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
+>Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as REST Client. For more details, visit [Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
 >>Use  grant_type of client_credentials or authentication_code when trying to obtain an access token for the DICOM service. For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
 
 Your application registration is now complete.

@@ -2,11 +2,11 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: reference
-ms.date: 12/30/2024
+ms.date: 06/11/2025
 ms.custom: references_regions, linux-related-content
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure Backup
@@ -59,7 +59,7 @@ Here's what's supported if you want to back up on-premises machines:
 **Limit** | **Details**
 --- | ---
 **Azure VM data disks** | See the [support matrix for Azure VM backup](./backup-support-matrix-iaas.md#vm-storage-support).
-**Azure VM data disk size** | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
+**Azure VM data disk size** | Individual disk size can be up to 64 TB and a maximum of 512 TB combined for all disks in a VM.
 
 ### Azure VM backup options
 
@@ -157,7 +157,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central and UG IOWA. |
 | MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
 | DPM/MABS | No                        |                      N/A                   |
-| AFS (Azure file shares)                 | No                                                           | N/A               |
+| AFS (Azure file shares)                 | Yes                                                           |      See the [supported regions](azure-file-share-support-matrix.md?tabs=vault-tier#supported-regions).               |
 
 ## Resource health
 

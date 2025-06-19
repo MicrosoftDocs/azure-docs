@@ -6,7 +6,7 @@ author: fred-cardoso
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 09/16/2024
+ms.date: 02/03/2025
 ms.author: fredcardoso
 ---
 

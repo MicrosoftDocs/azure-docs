@@ -5,13 +5,13 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-arm-template, devx-track-azurecli
-ms.topic: conceptual
-ms.date: 09/30/2022
+ms.topic: concept-article
+ms.date: 09/30/2024
 ms.author: anfdocs
 ---
 # Azure NetApp Files SDKs, CLI tools, and ARM templates
 
-This article lists the SDKs, command-line (CLI) tools, and Azure Resource Manager (ARM) templates supported by Azure NetApp Files.
+Learn about the SDKs, command-line (CLI) tools, and Azure Resource Manager (ARM) templates supported by Azure NetApp Files.
 
 ## Supported SDKs 
 

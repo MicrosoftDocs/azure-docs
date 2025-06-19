@@ -2,27 +2,28 @@
 title: Configure Bastion for native client connections
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion for native client connections.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 12/09/2024
-ms.author: cherylmc
+ms.date: 04/07/2025
+ms.author: abell
+# Customer intent: "As a cloud administrator, I want to configure Bastion for native client connections, so that I can securely access VMs using local SSH or RDP clients while managing my network efficiently."
 ---
 
 # Configure Bastion for native client connections
 
-This article helps you configure your Bastion deployment to accept connections from the native client (SSH or RDP) on your local computer to VMs located in the VNet. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. Additionally, you can also upload or download files, depending on the connection type and client.
+This article helps you configure your Bastion deployment to accept connections from the native client (SSH or RDP) on your local computer to VMs located in the virtual network. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. Additionally, you can also transfer files, depending on the connection type and client.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
-You can configure this feature by modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified. Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client.
+You can configure this feature by modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified. Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client. Keep in mind that at this time, [session recording](session-recording.md) isn't available for native client.
 
->[!NOTE]
->[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+> [!NOTE]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ## Deploy Bastion with the native client feature
 
-If you haven't already deployed Bastion to your VNet, you can deploy with the native client feature specified by deploying Bastion using manual settings. For steps, see [Tutorial - Deploy Bastion with manual settings](tutorial-create-host-portal.md#createhost). When you deploy Bastion, specify the following settings:
+If you haven't already deployed Bastion to your virtual network, you can deploy with the native client feature specified by deploying Bastion using manual settings. For steps, see [Tutorial - Deploy Bastion with manual settings](tutorial-create-host-portal.md#createhost). When you deploy Bastion, specify the following settings:
 
 1. On the **Basics** tab, for **Instance Details -> Tier** select **Standard**. Native client support requires the Standard SKU.
 
@@ -34,7 +35,7 @@ If you haven't already deployed Bastion to your VNet, you can deploy with the na
 
 ## Modify an existing Bastion deployment
 
-If you've already deployed Bastion to your VNet, modify the following configuration settings:
+If you've already deployed Bastion to your virtual network, modify the following configuration settings:
 
 1. Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU Tier is **Standard**. If it isn't, select **Standard**.
 1. Select the box for **Native Client Support**, then apply your changes.
@@ -53,12 +54,12 @@ Use the following table to understand how to connect from native clients. Notice
 
 | Client | Target VM | Method | Microsoft Entra authentication | File transfer | Concurrent VM sessions | Custom port |
 |---|---|---|---| --- |---|---|
-| Windows native client | Windows VM | [RDP](connect-vm-native-client-windows.md) | Yes | [Upload/Download](vm-upload-download-native.md#rdp) | Yes | Yes |
+| Windows native client | Windows VM | [RDP](connect-vm-native-client-windows.md) | Yes | [Yes](vm-upload-download-native.md#rdp) | Yes | Yes |
 |  | Linux VM | [SSH](connect-vm-native-client-windows.md) | Yes |No | Yes | Yes |
-| | Any VM|[az network bastion tunnel](connect-vm-native-client-windows.md#connect-to-a-vm---tunnel-command)  |No |[Upload](vm-upload-download-native.md#tunnel-command)| No | No |
+| | Any VM|[az network bastion tunnel](connect-vm-native-client-windows.md#connect-to-a-vm---tunnel-command)  |No |[Yes](vm-upload-download-native.md#tunnel-command)| No | No |
 | Linux native client | Linux VM |[SSH](connect-vm-native-client-linux.md#ssh)| Yes | No | Yes | Yes |
-| | Windows or any VM| [az network bastion tunnel](connect-vm-native-client-linux.md) | No | [Upload](vm-upload-download-native.md#tunnel-command) | No | No |
-| Other native client (putty) | Any VM | [az network bastion tunnel](connect-vm-native-client-linux.md) | No | [Upload](vm-upload-download-native.md#tunnel-command) | No | No |
+| | Windows or any VM| [az network bastion tunnel](connect-vm-native-client-linux.md) | No | [Yes](vm-upload-download-native.md#tunnel-command) | No | No |
+| Other native client (putty) | Any VM | [az network bastion tunnel](connect-vm-native-client-linux.md) | No | [Yes](vm-upload-download-native.md#tunnel-command) | No | No |
 
 **Limitations:**
 
@@ -69,4 +70,4 @@ Use the following table to understand how to connect from native clients. Notice
 
 * [Connect from a Windows native client](connect-vm-native-client-windows.md)
 * [Connect using the az network bastion tunnel command](connect-vm-native-client-linux.md)
-* [Upload or download files](vm-upload-download-native.md)
+* [Transfer files](vm-upload-download-native.md)

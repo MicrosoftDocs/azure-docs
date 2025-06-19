@@ -2,11 +2,11 @@
 title: Azure permissions for Hybrid + multicloud - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Hybrid + multicloud category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -52,20 +52,20 @@ Azure service: [Azure Stack](/azure-stack/)
 
 ## Microsoft.AzureStackHCI
 
-Azure service: [Azure Stack HCI](/azure-stack/hci/)
+Azure service: [Azure Local](/azure-stack/hci/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.AzureStackHCI/Register/Action | Registers the subscription for the Azure Stack HCI resource provider and enables the creation of Azure Stack HCI resources. |
-> | Microsoft.AzureStackHCI/Unregister/Action | Unregisters the subscription for the Azure Stack HCI resource provider. |
+> | Microsoft.AzureStackHCI/Register/Action | Registers the subscription for the Azure Local resource provider and enables the creation of Azure Local resources. |
+> | Microsoft.AzureStackHCI/Unregister/Action | Unregisters the subscription for the Azure Local resource provider. |
 > | Microsoft.AzureStackHCI/Clusters/Read | Gets clusters |
 > | Microsoft.AzureStackHCI/Clusters/Write | Creates or updates a cluster |
 > | Microsoft.AzureStackHCI/Clusters/Delete | Deletes cluster resource |
 > | Microsoft.AzureStackHCI/Clusters/AddNodes/Action | Adds Arc Nodes to the cluster |
 > | Microsoft.AzureStackHCI/Clusters/CreateClusterIdentity/Action | Create cluster identity |
 > | Microsoft.AzureStackHCI/Clusters/UploadCertificate/Action | Upload cluster certificate |
-> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Read | Gets arc resource of HCI cluster |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Read | Gets Arc resource of Azure Local cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Write | Create or updates arc resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Delete | Delete arc resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/GeneratePassword/Action | Generate password for Arc settings identity |
@@ -74,11 +74,12 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/InitializeDisableProcess/Action | Initializes disable process for arc settings resource |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Read | Gets extension resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Write | Create or update extension resource of HCI cluster |
-> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of HCI cluster |
+> | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Delete | Delete extension resources of Azure Local cluster |
 > | Microsoft.AzureStackHCI/Clusters/ArcSettings/Extensions/Upgrade/Action | Upgrade extension resources of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/DeploymentSettings/Read | Gets DeploymentSettings |
 > | Microsoft.AzureStackHCI/Clusters/DeploymentSettings/Write | Creates or updates DeploymentSettings resource |
 > | Microsoft.AzureStackHCI/Clusters/DeploymentSettings/Delete | Deletes DeploymentSettings resource |
+> | Microsoft.AzureStackHCI/clusters/networkProfiles/Read | Gets/Lists Network profiles resource |
 > | Microsoft.AzureStackHCI/Clusters/SecuritySettings/Read | Gets SecuritySettings of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/SecuritySettings/Write | Create or updates SecuritySettings resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/SecuritySettings/Delete | Delete SecuritySettings resource of HCI cluster |
@@ -86,6 +87,19 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/clusters/updates/Apply/Action | Allows to apply updates |
 > | Microsoft.AzureStackHCI/clusters/updates/updateRuns/Read | Gets/Lists updateRuns resource |
 > | Microsoft.AzureStackHCI/clusters/updateSummaries/Read | Gets/Lists Update Summaries resource |
+> | Microsoft.AzureStackHCI/clusters/virtualMachineDiagnostics/Delete | Deletes clusters virtualMachineDiagnostics resource |
+> | Microsoft.AzureStackHCI/clusters/virtualMachineDiagnostics/Write | Creates/Updates clusters virtualMachineDiagnostics resource |
+> | Microsoft.AzureStackHCI/clusters/virtualMachineDiagnostics/Read | Gets/Lists clusters virtualMachineDiagnostics resource |
+> | Microsoft.AzureStackHCI/DevicePools/Read | Gets DevicePools resources |
+> | Microsoft.AzureStackHCI/DevicePools/Write | Creates or updates DevicePool resource |
+> | Microsoft.AzureStackHCI/DevicePools/Delete | Deletes DevicePool resource |
+> | Microsoft.AzureStackHCI/DevicePools/AddDevices/Action | Adds Devices to the pool |
+> | Microsoft.AzureStackHCI/DevicePools/ClaimDevices/Action | Claims Devices from the pool |
+> | Microsoft.AzureStackHCI/DevicePools/ReleaseDevices/Action | Release Devices from the pool |
+> | Microsoft.AzureStackHCI/DevicePools/RemoveDevices/Action | Remove Devices from the pool |
+> | Microsoft.AzureStackHCI/EdgeDeviceMetadata/Read | Gets EdgeDeviceMetadata resources |
+> | Microsoft.AzureStackHCI/EdgeDeviceMetadata/Write | Creates or updates EdgeDeviceMetadata resource |
+> | Microsoft.AzureStackHCI/EdgeDeviceMetadata/Delete | Deletes EdgeDeviceMetadata resource |
 > | Microsoft.AzureStackHCI/EdgeDevices/Read | Gets EdgeDevices resources |
 > | Microsoft.AzureStackHCI/EdgeDevices/Write | Creates or updates EdgeDevice resource |
 > | Microsoft.AzureStackHCI/EdgeDevices/Delete | Deletes EdgeDevice resource |
@@ -93,6 +107,14 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/EdgeDevices/Jobs/Read | Reads Edge Device Job Resource |
 > | Microsoft.AzureStackHCI/EdgeDevices/Jobs/Write | Writes Edge Device Job Resource |
 > | Microsoft.AzureStackHCI/EdgeDevices/Jobs/Delete | Deletes Edge Device Job Resource |
+> | Microsoft.AzureStackHCI/EdgeMachines/Write | Creates or updates a EdgeMachine |
+> | Microsoft.AzureStackHCI/EdgeMachines/Delete | Deletes EdgeMachine resource |
+> | Microsoft.AzureStackHCI/EdgeMachines/Read | Gets EdgeMachines resources |
+> | Microsoft.AzureStackHCI/EdgeMachines/Write | Creates or updates EdgeMachine resource |
+> | Microsoft.AzureStackHCI/EdgeMachines/Validate/Action | Validates EdgeMachine Resources |
+> | Microsoft.AzureStackHCI/EdgeMachines/Jobs/Read | Reads EdgeMachine Job Resource |
+> | Microsoft.AzureStackHCI/EdgeMachines/Jobs/Write | Writes EdgeMachine Job Resource |
+> | Microsoft.AzureStackHCI/EdgeMachines/Jobs/Delete | Deletes EdgeMachine Job Resource |
 > | Microsoft.AzureStackHCI/GalleryImages/Delete | Deletes gallery images resource |
 > | Microsoft.AzureStackHCI/GalleryImages/Write | Creates/Updates gallery images resource |
 > | Microsoft.AzureStackHCI/GalleryImages/Read | Gets/Lists gallery images resource |
@@ -124,6 +146,7 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Delete | Deletes virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Write | Creates/Updates virtual hard disk resource |
 > | Microsoft.AzureStackHCI/VirtualHardDisks/Read | Gets/Lists virtual hard disk resource |
+> | Microsoft.AzureStackHCI/VirtualHardDisks/upload/action | Uploads virtual hard disk resource to writeable sas url |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Restart/Action | Restarts virtual machine instance resource |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Start/Action | Starts virtual machine instance resource |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/Stop/Action | Stops virtual machine instance resource |
@@ -149,7 +172,7 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/VirtualNetworks/Read | Gets/Lists virtual networks resource |
 > | Microsoft.AzureStackHCI/VirtualNetworks/join/action | Joins virtual networks resource |
 > | **DataAction** | **Description** |
-> | Microsoft.AzureStackHCI/Clusters/WACloginAsAdmin/Action | Manage OS of HCI resource via Windows Admin Center as an administrator |
+> | Microsoft.AzureStackHCI/Clusters/WACloginAsAdmin/Action | Manage OS of Azure Local resource via Windows Admin Center as an administrator |
 > | Microsoft.AzureStackHCI/VirtualMachineInstances/WACloginAsAdmin/Action | Manage ARC enabled VM resources on HCI via Windows Admin Center as an administrator |
 > | Microsoft.AzureStackHCI/virtualMachines/WACloginAsAdmin/Action | Manage ARC enabled VM resources on HCI via Windows Admin Center as an administrator |
 
@@ -206,6 +229,7 @@ Azure service: [Azure Arc](/azure/azure-arc/)
 > | Microsoft.HybridCompute/machines/assessPatches/action | Assesses any Azure Arc machines to get missing software patches |
 > | Microsoft.HybridCompute/machines/installPatches/action | Installs patches on any Azure Arc machines |
 > | Microsoft.HybridCompute/machines/listAccessDetails/action | Retreives the access details for a machines resource |
+> | Microsoft.HybridCompute/machines/addExtensions/action | Setup Extensions on Azure Arc machines |
 > | Microsoft.HybridCompute/machines/extensions/read | Reads any Azure Arc extensions |
 > | Microsoft.HybridCompute/machines/extensions/write | Installs or Updates an Azure Arc extensions |
 > | Microsoft.HybridCompute/machines/extensions/delete | Deletes an Azure Arc extensions |
@@ -244,6 +268,8 @@ Azure service: [Azure Arc](/azure/azure-arc/)
 > | Microsoft.HybridCompute/settings/read | Reads any Azure Arc settings |
 > | Microsoft.HybridCompute/settings/write | Writes an Azure Arc settings |
 > | **DataAction** | **Description** |
+> | Microsoft.HybridCompute/locations/publishers/read | Returns a list of extension publishers based on query parameters. |
+> | Microsoft.HybridCompute/locations/publishers/extensionTypes/read | Returns a list of extension types based on query parameters. |
 > | Microsoft.HybridCompute/locations/publishers/extensionTypes/versions/read | Returns a list of versions for extensionMetadata based on query parameters. |
 > | Microsoft.HybridCompute/machines/login/action | Log in to an Azure Arc machine as a regular user |
 > | Microsoft.HybridCompute/machines/loginAsAdmin/action | Log in to an Azure Arc machine with Windows administrator or Linux root user privilege |
@@ -743,6 +769,56 @@ Azure service: Microsoft ResourceConnector
 > | Microsoft.ResourceConnector/locations/operationsstatus/read | Get result of Appliance operation |
 > | Microsoft.ResourceConnector/operations/read | Gets list of Available Operations for Appliances |
 > | Microsoft.ResourceConnector/telemetryconfig/read | Get Appliances telemetry config utilized by Appliances CLI |
+
+## Microsoft.SCVMM
+
+Azure service: [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](/azure/azure-arc/system-center-virtual-machine-manager/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.SCVMM/unregister/action | unregister RP. |
+> | Microsoft.SCVMM/register/action | register RP. |
+> | Microsoft.SCVMM/availabilitySets/Read | Read availabilitySets |
+> | Microsoft.SCVMM/availabilitySets/Write | Writes availabilitySets |
+> | Microsoft.SCVMM/availabilitySets/Delete | Deletes availabilitySets |
+> | Microsoft.SCVMM/clouds/Read | Read clouds |
+> | Microsoft.SCVMM/clouds/Write | Writes clouds |
+> | Microsoft.SCVMM/clouds/Delete | Deletes clouds |
+> | Microsoft.SCVMM/clouds/deploy/action | Deploy on resource pool. |
+> | Microsoft.SCVMM/locations/operationstatuses/read | Read operationstatus. |
+> | Microsoft.SCVMM/locations/operationstatuses/write | Write operationstatus. |
+> | Microsoft.SCVMM/operations/read | Read operations. |
+> | Microsoft.SCVMM/skus/read | Get skus. |
+> | Microsoft.SCVMM/virtualMachineInstances/read | Retrieves information about a virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/write | The operation to create or update a virtual machine instance. Please note some properties can be set only during virtual machine instance creation. |
+> | Microsoft.SCVMM/virtualMachineInstances/delete | The operation to delete a virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/stop/action | The operation to power off (stop) a virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/start/action | The operation to start a virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/restart/action | The operation to restart a virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/createCheckpoint/action | Creates a checkpoint in virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/deleteCheckpoint/action | Deletes a checkpoint in virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/restoreCheckpoint/action | Restores to a checkpoint in virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/guestAgents/read | Implements GuestAgent GET method. |
+> | Microsoft.SCVMM/virtualMachineInstances/guestAgents/write | Create Or Update GuestAgent. |
+> | Microsoft.SCVMM/virtualMachineInstances/guestAgents/delete | Implements GuestAgent DELETE method. |
+> | Microsoft.SCVMM/virtualMachineInstances/hybridIdentityMetadata/read | Implements HybridIdentityMetadata GET method. |
+> | Microsoft.SCVMM/virtualmachines/Delete | Deletes virtualmachines |
+> | Microsoft.SCVMM/virtualmachinetemplates/Read | Read virtualmachinetemplates |
+> | Microsoft.SCVMM/virtualmachinetemplates/Write | Writes virtualmachinetemplates |
+> | Microsoft.SCVMM/virtualmachinetemplates/Delete | Deletes virtualmachinetemplates |
+> | Microsoft.SCVMM/virtualmachinetemplates/clone/action | Clones virtualmachinetemplates |
+> | Microsoft.SCVMM/virtualnetworks/Read | Read virtualnetworks |
+> | Microsoft.SCVMM/virtualnetworks/Write | Writes virtualnetworks |
+> | Microsoft.SCVMM/virtualnetworks/Delete | Deletes virtualnetworks |
+> | Microsoft.SCVMM/virtualnetworks/join/action | Join virtual network. |
+> | Microsoft.SCVMM/vmmservers/Read | Read vmmservers |
+> | Microsoft.SCVMM/vmmservers/Write | Writes vmmservers |
+> | Microsoft.SCVMM/vmmservers/Delete | Deletes vmmservers |
+> | Microsoft.SCVMM/vmmservers/inventoryitems/Delete | Deletes vmmserver inventoryitems |
+> | Microsoft.SCVMM/vmmservers/inventoryitems/Read | Read vmmserver inventoryitems |
+> | Microsoft.SCVMM/vmmservers/inventoryitems/Write | Writes vmmservers inventoryitems |
+> | Microsoft.SCVMM/vmmservers/inventoryitems/onboard/action | Onboards vmmservers inventoryitems |
 
 ## Next steps
 

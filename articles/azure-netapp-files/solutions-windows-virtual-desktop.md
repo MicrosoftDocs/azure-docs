@@ -4,15 +4,15 @@ description: Provides best practice guidance and sample blueprints on deploying 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 08/13/2020
+ms.topic: concept-article
+ms.date: 08/13/2024
 ms.author: anfdocs
 ---
 # Benefits of using Azure NetApp Files with Azure Virtual Desktop 
 
 This article provides best practice guidance on deploying Azure Virtual Desktop with Azure NetApp Files.
 
-Azure NetApp Files is a highly performant file storage service from Azure. It can provide up to 450,000 IOPS and sub-millisecond latency, capable of supporting extremely large scale of Azure Virtual Desktop deployments. You can adjust the bandwidth and change the service level of your Azure NetApp Files volumes on demand almost instantaneously without pausing IO while retaining data plane access. This capability allows you to easily optimize your Azure Virtual Desktop deployment scale for cost. You can also create space-efficient, point-in-time volume snapshots without impacting volume performance. This capability makes it possible for you to roll back individual [FSLogix user profile containers](../virtual-desktop/store-fslogix-profile.md) via a copy from the `~snapshot` directory, or to instantaneously roll back the entire volume at once via the volume revert capability.  With up to 255 (rotational) snapshots in place to protect a volume from data loss or corruption, administrators have many chances to undo what has been done.
+Azure NetApp Files is a highly performant file storage service from Azure. It can provide up to 450,000 I/OPS and sub-millisecond latency, capable of supporting extremely large scale of Azure Virtual Desktop deployments. You can adjust the bandwidth and change the service level of your Azure NetApp Files volumes on demand almost instantaneously without pausing IO while retaining data plane access. This capability allows you to easily optimize your Azure Virtual Desktop deployment scale for cost. You can also create space-efficient, point-in-time volume snapshots without impacting volume performance. This capability makes it possible for you to roll back individual [FSLogix user profile containers](../virtual-desktop/store-fslogix-profile.md) via a copy from the `~snapshot` directory, or to instantaneously roll back the entire volume at once via the volume revert capability. With up to 255 (rotational) snapshots in place to protect a volume from data loss or corruption, administrators have many chances to undo what has been done.
 
 ## Sample blueprints
 

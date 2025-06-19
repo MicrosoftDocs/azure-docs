@@ -3,11 +3,15 @@ title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AK
 description: Learn how to quickly configure backup for a Kubernetes cluster using Azure Bicep.
 ms.service: azure-backup
 ms.topic: quickstart
-ms.date: 05/31/2024
-ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
+ms.date: 01/21/2025
+ms.custom:
+  - devx-track-terraform
+  - devx-track-extended-azdevcli
+  - ignite-2024
+  - build-2025
 ms.reviewer: rajats
-ms.author: v-abhmallick
-author: AbhishekMallick-MS
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Bicep
@@ -15,7 +19,7 @@ author: AbhishekMallick-MS
 This quickstart describes how to configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Bicep.
 
 
-Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.[Azure Backup](backup-azure-mysql-flexible-server-about.md) allows you to back up your AKS clusters using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This quickstart describes how to back up an AKS clusters with a Bicep template and Azure PowerShell. For more information on developing Bicep templates, see the [Bicep documentation](../azure-resource-manager/bicep/deploy-cli.md).
+Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.[Azure Backup](backup-azure-mysql-flexible-server-about.md) allows you to back up your AKS clusters using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This quickstart describes how to back up an AKS clusters with a Bicep file and Azure PowerShell. For more information on developing Bicep files, see the [Bicep documentation](../azure-resource-manager/bicep/deploy-cli.md).
 
 Bicep is a language for declaratively deploying Azure resources. You can use Bicep instead of JSON to develop your Azure Resource Manager templates (ARM templates). Bicep syntax reduces the complexity and improves the development experience. Bicep is a transparent abstraction over ARM template JSON that provides all JSON template capabilities. During deployment, the Bicep CLI converts a Bicep file into an ARM template JSON. A Bicep file states the Azure resources and resource properties, without writing a sequence of programming commands to create resources.
 
@@ -197,6 +201,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Next steps
 
-- [Restore Azure Kubernetes Service cluster using PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md)
+- Restore Azure Kubernetes Service cluster using [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md), [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)

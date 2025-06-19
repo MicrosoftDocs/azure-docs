@@ -2,10 +2,10 @@
 title: Elevate access to manage all Azure subscriptions and management groups
 description: Describes how to elevate access for a Global Administrator to manage all subscriptions and management groups in Microsoft Entra ID using the Azure portal or REST API.
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 12/10/2024
+ms.date: 03/10/2025
 ms.author: rolyon
 ms.custom: devx-track-azurecli
 ---
@@ -337,11 +337,13 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ## View users with elevated access
 
-If you have users with elevated access, banners are displayed in a couple locations of the Azure portal. This section describes how to determine if you have users that have elevated access in your tenant. This capability is being deployed in stages, so it might not be available yet in your tenant.
+If you have users with elevated access and you have the appropriate permissions, banners are displayed in a couple locations of the Azure portal. Global Administrators have permissions to read Azure role assignments from root scope and below for all Azure management groups and subscriptions within a tenant. This section describes how to determine if you have users that have elevated access in your tenant.
 
 ### Option 1
 
-1. In the Azure portal, browse to **Microsoft Entra ID** > **Manage** > **Properties**.
+1. In the Azure portal, sign in as Global Administrator.
+
+1. Browse to **Microsoft Entra ID** > **Manage** > **Properties**.
 
 1. Under **Access management for Azure resources**, look for the following banner.
 
@@ -353,7 +355,9 @@ If you have users with elevated access, banners are displayed in a couple locati
 
 ### Option 2
 
-1. In the Azure portal, browse to a subscription.
+1. In the Azure portal, sign in as Global Administrator with elevated access.
+
+1. Browse to a subscription.
 
 1. Select **Access control (IAM)**.
 
@@ -383,9 +387,44 @@ If you have users with elevated access, you should take immediate action and rem
 
 1. To remove elevated access for users, add a check mark next to the user and select **Remove**.
 
-## View elevate access log entries in the Directory Activity logs
+## View elevate access log entries
 
-When access is elevated, an entry is added to the logs. As a Global Administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it. Elevate access log entries do not appear in the standard activity logs, but instead appear in the Directory Activity logs. This section describes different ways that you can view the elevate access log entries.
+When access is elevated or removed, an entry is added to the logs. As an administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it.
+
+Elevate access log entries appear in both the Microsoft Entra directory audit logs and the Azure activity logs. Elevated access log entries for directory audit logs and activity logs include similar information. However, the directory audit logs are easier to filter and export. Also, the export capability enables you to stream access events, which can be used for your alert and detection solutions, such as Microsoft Sentinel or other systems. For information about how to send logs to different destinations, see [Configure Microsoft Entra diagnostic settings for activity logs](/entra/identity/monitoring-health/howto-configure-diagnostic-settings).
+
+This section describes different ways that you can view the elevate access log entries.
+
+# [Microsoft Entra audit logs](#tab/entra-audit-logs)
+
+> [!IMPORTANT]
+> Elevate access log entries in the Microsoft Entra directory audit logs is currently in preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
+
+1. Browse to **Microsoft Entra ID** > **Monitoring** > **Audit logs**.
+
+1. In the **Service** filter, select **Azure RBAC (Elevated Access)** and then select **Apply**.
+
+    Elevated access logs are displayed.
+
+    :::image type="content" source="./media/elevate-access-global-admin/entra-id-audit-logs-filter.png" alt-text="Screenshot of directory audit logs with Service filter set to Azure RBAC (Elevated Access)." lightbox="./media/elevate-access-global-admin/entra-id-audit-logs-filter.png":::
+
+1. To view details when access was elevated or removed, select these audit log entries.
+
+    `User has elevated their access to User Access Administrator for their Azure Resources`
+
+    `The role assignment of User Access Administrator has been removed from the user`
+
+    :::image type="content" source="./media/elevate-access-global-admin/entra-id-audit-logs-elevated-details.png" alt-text="Screenshot of directory audit logs that shows audit log details when access is elevated." lightbox="./media/elevate-access-global-admin/entra-id-audit-logs-elevated-details.png":::
+
+1. To download and view the payload of the log entries in JSON format, select **Download** and **JSON**.
+
+    :::image type="content" source="./media/elevate-access-global-admin/entra-id-audit-logs-download.png" alt-text="Screenshot of directory audit logs that shows the Download Audit Logs pane to download logs." lightbox="./media/elevate-access-global-admin/entra-id-audit-logs-download.png":::
+
+# [Azure activity logs](#tab/azure-activity-logs)
 
 ### View elevate access log entries using the Azure portal
 
@@ -399,7 +438,7 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
     `Assigns the caller to User Access Administrator role`
 
-    ![Screenshot showing directory activity logs in Monitor.](./media/elevate-access-global-admin/monitor-directory-activity.png)
+    ![Screenshot that shows activity logs for the directory in Azure Monitor.](./media/elevate-access-global-admin/monitor-directory-activity.png)
 
 ### View elevate access log entries using Azure CLI
 
@@ -457,6 +496,60 @@ A user in the group can now periodically run the [az rest](/cli/azure/reference-
 ```azurecli
 az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
 ```
+
+---
+
+## Detect elevate access events using Microsoft Sentinel
+
+To detect elevate access events and gain visibility into potentially fraudulent activities, you can use Microsoft Sentinel. [Microsoft Sentinel](../sentinel/overview.md) is a security information and event management (SIEM) platform that provides security analytics and threat response capabilities. This section describes how to connect Microsoft Entra audit logs to Microsoft Sentinel so that you can detect elevate access in your organization. 
+
+### Step 1: Enable Microsoft Sentinel
+
+To get started, add Microsoft Sentinel to an existing Log Analytics workspace or create a new one.
+
+- Enable Microsoft Sentinel by following the steps at [Enable Microsoft Sentinel](../sentinel/quickstart-onboard.md#enable-microsoft-sentinel).
+
+    :::image type="content" source="./media/elevate-access-global-admin/sentinel-enable.png" alt-text="Screenshot of Microsoft Sentinel with a workspace." lightbox="./media/elevate-access-global-admin/sentinel-enable.png":::
+
+### Step 2: Connect Microsoft Entra data to Microsoft Sentinel
+
+In this step, you install the **Microsoft Entra ID** solution and use the  **Microsoft Entra ID connector** to collect data from Microsoft Entra ID.
+
+Your organization might have already configured a diagnostic setting to integrate the Microsoft Entra audit logs. To check, view your diagnostic settings as described in [How to access diagnostic settings](/entra/identity/monitoring-health/howto-configure-diagnostic-settings#how-to-access-diagnostic-settings).
+
+1. Install the **Microsoft Entra ID** solution by following the steps at [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel/sentinel-solutions-deploy.md#discover-content).
+
+    :::image type="content" source="./media/elevate-access-global-admin/sentinel-entra-id-solution.png" alt-text="Screenshot of Content hub page with Microsoft Entra ID content selected." lightbox="./media/elevate-access-global-admin/sentinel-entra-id-solution.png":::
+
+1. Use the [Microsoft Entra ID connector](../sentinel/data-connectors-reference.md#microsoft-entra-id) to collect data from Microsoft Entra ID by following the steps at [Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md).
+
+1. On the **Data connectors** page, add a check mark for **Audit Logs**.
+
+    :::image type="content" source="./media/elevate-access-global-admin/sentinel-connectors-entra-id-audit-logs.png" alt-text="Screenshot of Microsoft Entra ID connector with Audit Logs selected." lightbox="./media/elevate-access-global-admin/sentinel-connectors-entra-id-audit-logs.png":::
+
+### Step 3: Create an elevate access rule
+
+In this step, you create a scheduled analytics rule based on a template to examine the Microsoft Entra audit logs for elevate access events.
+
+1. Create an elevate access analytics rule by following the steps at [Create a rule from a template](../sentinel/create-analytics-rule-from-template.md#create-a-rule-from-a-template).
+
+1. Select the **Azure RBAC (Elevate Access)** template then select the **Create rule** button on the details pane.
+
+    If you don't see the details pane, on the right edge, select the expand icon.
+ 
+   :::image type="content" source="./media/elevate-access-global-admin/sentinel-analytics-rule.png" alt-text="Screenshot of Analytics page with the Azure RBAC (Elevate Access) selected." lightbox="./media/elevate-access-global-admin/sentinel-analytics-rule.png":::
+
+1. In the **Analytics rule wizard**, use the default settings to create a new scheduled rule. 
+
+    :::image type="content" source="./media/elevate-access-global-admin/sentinel-analytics-rule-wizard.png" alt-text="Screenshot of Analytics rule wizard for Azure RBAC (Elevate Access)." lightbox="./media/elevate-access-global-admin/sentinel-analytics-rule-wizard.png":::
+
+### Step 4: View incidents of elevate access
+
+In this step, you view and investigate elevate access incidents.
+
+- Use the **Incidents** page to view incidents of elevate access by following the steps at [Navigate and investigate incidents in Microsoft Sentinel](../sentinel/investigate-incidents.md).
+
+    :::image type="content" source="./media/elevate-access-global-admin/sentinel-incidents.png" alt-text="Screenshot of Incidents page with examples of elevate access incidents." lightbox="./media/elevate-access-global-admin/sentinel-incidents.png":::
 
 ## Next steps
 

@@ -1,69 +1,63 @@
 ---
-title: Restore Azure PostgreSQL databases via Azure data protection REST API
-description: Learn how to restore Azure PostGreSQL databases using Azure Data Protection REST API.
+title: Restore PostgreSQL Databases by Using the Data Protection REST API
+description: Learn how to restore Azure Database for PostgreSQL by using the Azure Backup Data Protection REST API.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 05/20/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
+ms.custom:
+  - build-2025
 ---
 
-# Restore Azure PostgreSQL databases using Azure data protection REST API
+# Restore PostgreSQL databases by using the Data Protection REST API
 
-This article explains how to restore [Azure PostgreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
+This article describes how to use the Data Protection REST API to restore PostgreSQL databases to an [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) server that you backed up via Azure Backup. You can also restore a PostgreSQL database using [Azure portal](restore-azure-database-postgresql.md), [Azure PowerShell](restore-postgresql-database-ps.md), and [Azure CLI](restore-postgresql-database-cli.md).
 
-Being a PaaS database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in any other PostgreSQL server. This is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
-
-In this article, you'll learn how to:
-
-- Restore to create a new PostgreSQL database
-
-- Track the restore operation status
+Because a PostgreSQL database is a platform as a service (PaaS) database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure Database for PostgreSQL server or in any other PostgreSQL server. This option is called Alternate-Location Recovery (ALR). ALR helps to keep both the source database and the restored (new) database.
 
 ## Prerequisites
 
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
-
 - [Create a PostgreSQL database backup policy](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md)
-
 - [Configure a PostgreSQL database backup](backup-azure-data-protection-use-rest-api-backup-postgresql.md)
 
-We'll refer to an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
+The examples in this article refer to an existing Backup vault named `TestBkpVault` under the resource group `testBkpVaultRG`.
 
 ## Restore a backed-up PostgreSQL database
 
 ### Set up permissions
 
-Backup vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostgreSQL server to which the database should be restored.
+A Backup vault uses a managed identity to access other Azure resources. To restore from a backup, a Backup vault's managed identity requires a set of permissions on the Azure Database for PostgreSQL server to which the database should be restored.
 
-To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to backup Azure PostgreSQL database](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore).
+To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [permissions needed to back up a PostgreSQL database](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-restore).
 
-To restore the recovery point as files to a storage account, Backup vault's system assigned managed identity needs access on the target storage account as mentioned [here](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
+To restore the recovery point as files to a storage account, the Backup vault's system-assigned managed identity needs [access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
-### Fetching the relevant recovery point
+### Fetch the relevant recovery point
 
-To list all the available recovery points for a backup instance, use the [list recovery points](/rest/api/dataprotection/recovery-points/list) API.
+To list all the available recovery points for a backup instance, use the [List Recovery Points](/rest/api/dataprotection/recovery-points/list) API:
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/recoveryPoints?api-version=2021-07-01
 ```
 
-For example, this API translates to:
+For example, the API translates to:
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/recoveryPoints?api-version=2021-07-01
 ```
 
-#### Responses for list of recovery points
+#### Responses for a list of recovery points
 
-Once you submit the *GET* request, this returns response as 200 (OK), and the list of all discrete recovery points with all the relevant details.
+After you submit the `GET` request, it returns the following responses. It also returns a list of all discrete recovery points with the relevant details.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |    [AzureBackupRecoveryPointResourceList](/rest/api/dataprotection/recovery-points/list#azurebackuprecoverypointresourcelist)     |   OK      |
-|Other Status codes     |    [CloudError](/rest/api/dataprotection/recovery-points/list#clouderror)     |     Error response describes the reason for the operation failure.    |
+|`200 OK`     |    [AzureBackupRecoveryPointResourceList](/rest/api/dataprotection/recovery-points/list#azurebackuprecoverypointresourcelist)     |   The request is completed.      |
+|Other status codes     |    [CloudError](/rest/api/dataprotection/recovery-points/list#clouderror)     |     The error response describes the reason for the operation failure.    |
 
-##### Example response for list of recovery points
+Here's an example response:
 
 ```http
 HTTP/1.1 200 OK
@@ -115,23 +109,23 @@ X-Powered-By: ASP.NET
 .
 ```
 
-To fetch the recovery point from archive tier, modify the _type_ variable in _recoveryPointDataStoreDetails_ as _ArchiveStore_.
+To fetch the recovery point from the archive tier, modify the `type` variable in `recoveryPointDataStoreDetails` as `ArchiveStore`.
 
-Select the relevant recovery points from the above list and proceed to prepare the restore request. We'll choose a recovery point named _794ead7c7661410da03997d210d469e7_ from the above list to restore.
+Select the relevant recovery points from the preceding list, and then prepare the restore request. This article uses a recovery point named `794ead7c7661410da03997d210d469e7` from the preceding list to restore.
 
 ### Prepare the restore request
 
-There're various restore options for a PostgreSQL database. You can restore the recovery point as another database or restore as files. The recovery point can be on archive tier as well.
+There are various restore options for a PostgreSQL database. You can restore the recovery point as another database or restore as files. The recovery point can also be on the archive tier.
 
-#### Restore as database
+#### Restore as a database
 
-Construct the Azure Resource Manager ID (ARM ID) of the new PostgreSQL database to be created with the target PostgreSQL server, to which permissions were assigned as detailed [above](#set-up-permissions), and the required PostgreSQL database name. For example, a PostgreSQL database can be named `emprestored21` under a target PostgreSQL server `targetossserver` in resource group `targetrg` with a different subscription.
+Construct the Azure Resource Manager ID of the new PostgreSQL database to be created with the target PostgreSQL server to which permissions were assigned ([as detailed earlier](#set-up-permissions)). Include the required PostgreSQL database name. For example, a PostgreSQL database can be named `emprestored21` under a target PostgreSQL server named `targetossserver` in the resource group `targetrg` with a different subscription:
 
 ```http
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"
 ```
 
-The following request body contains the recovery point ID and the restore target details.
+The following request body contains the recovery point ID and the restore target details:
 
 ```json
 {
@@ -176,10 +170,10 @@ The following request body contains the recovery point ID and the restore target
 
 For an archive-based recovery point, you need to:
 
-1. Rehydrate from archive datastore to vault store.
+1. Rehydrate from the archive datastore to the vault datastore.
 1. Modify the source datastore.
 1. Add other parameters to specify the rehydration priority.
-1. Specify the duration for which the rehydrated recovery point should be retained in the vault data store.
+1. Specify the duration for which the rehydrated recovery point should be retained in the vault datastore.
 
 ```json
 {
@@ -226,7 +220,7 @@ For an archive-based recovery point, you need to:
 
 #### Restore as files
 
-Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#set-up-permissions). For example, a container named **testcontainerrestore** under a storage account **testossstorageaccount** with a different subscription.
+Fetch the URI of the container within the storage account to which permissions were assigned, as [detailed earlier](#set-up-permissions). For example, use a container named `testcontainerrestore` under a storage account named  `testossstorageaccount` with a different subscription:
 
 ```http
 "https://testossstorageaccount.blob.core.windows.net/testcontainerrestore"
@@ -253,7 +247,7 @@ Fetch the URI of the container, within the storage account to which permissions 
 }
 ```
 
-For archive-based recovery point, modify the source datastore and, add the rehydration priority, and the retention duration, in days, of the rehydrated recovery point, as mentioned below:
+For an archive-based recovery point, modify the source datastore. Add the rehydration priority and the retention duration, in days, of the rehydrated recovery point:
 
 ```json
 {
@@ -278,25 +272,25 @@ For archive-based recovery point, modify the source datastore and, add the rehyd
 }
 ```
 
-#### Validate restore requests
+#### Validate the restore request
 
-Once the request body is prepared, validate it using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like validate for backup API, this is a *POST* operation.
+After you prepare the request body, validate it by using the [Validate For Restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like the Validate For Backup API, this API is a `POST` operation.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/validateRestore?api-version=2021-07-01
 ```
 
-For example, this API translates to:
+For example, the preceding API translates to:
 
 ```http
 POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/testpostgresql-empdb11-aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/ValidateRestore?api-version=2021-07-01"
 ```
 
-[Learn more](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body) about the request body for this POST API.
+[Learn more](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body) about the request body for this `POST` API.
 
-##### Request body to validate restore request
+##### Request body to validate the restore request
 
-We have constructed a section of the same in the [above section](#create-a-request-body-for-restore-operations). Now, we'll add object type and use it to trigger a validate operation.
+You constructed a request body in an [earlier section](#restore-as-a-database). Now, add an object type and use it to trigger a validation operation:
 
 ```json
 {
@@ -340,20 +334,18 @@ We have constructed a section of the same in the [above section](#create-a-reque
 }
 ```
 
-##### Response to validate restore requests
+##### Response to validate the restore request
 
-The _validate restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that you need to track separately.
+Validation of the restore request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that you need to track separately.
 
-It returns two responses: 202 (Accepted) when another operation is created. Then 200 (OK) when that operation completes.
+The operation returns these responses:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |         |  Status of validate request       |
-|202 Accepted     |         |     Accepted    |
+|200 OK     |         |  The operation is completed.       |
+|202 Accepted     |         |     The request is accepted. Another operation is created.    |
 
-###### Example response to restore validate request
-
-Once the *POST* operation is submitted, it'll return the initial response as 202 (Accepted) with an _Azure-asyncOperation_ header.
+After the `POST` operation is submitted, it returns the initial response as `202 Accepted` with an `Azure-asyncOperation` header, as shown in this example response:
 
 ```http
 HTTP/1.1 202 Accepted
@@ -374,7 +366,7 @@ Location: https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxx
 X-Powered-By: ASP.NET
 ```
 
-Track the _Azure-AsyncOperation_ header with a simple *GET* request. When the request is successful, it returns 200 (OK) with a status response.
+Track the `Azure-AsyncOperation` header with a simple `GET` request. When the request is successful, it returns `200 OK` with a status response.
 
 ```http
 GET https://management.azure.com/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/providers/Microsoft.DataProtection/locations/westus/operationStatus/YWJjMGRmMzQtNTY1NS00MGMyLTg4YmUtMTUyZDE3ZjdiNzMyOzY4NDNmZWZkLWU4ZTMtNDM4MC04ZTJhLWUzMTNjMmNhNjI1NA==?api-version=2021-07-01
@@ -390,7 +382,7 @@ GET https://management.azure.com/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5
 }
 ```
 
-The response indicates errors that have to be solved before submitting the restore request. The following example represents when the target database is of a lower version, and therefore, can't be restored.
+The response indicates errors that you have to solve before you submit the restore request. The following example represents what happens when the target database is of a lower version, so it can't be restored:
 
 ```http
 ---------- Response (1892 ms) ------------
@@ -448,7 +440,7 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Once we fix the errors and revalidate the request, the 200 (OK) returns a success response.
+After you fix the errors and revalidate the request, it returns `200 OK` and a success response:
 
 ```http
 HTTP/1.1 200 OK
@@ -476,9 +468,9 @@ X-Powered-By: ASP.NET
 }
 ```
 
-#### Trigger restore requests
+#### Trigger the restore request
 
-The trigger restore operation is a ***POST*** API. [Learn more](/rest/api/dataprotection/backup-instances/trigger-restore) about the trigger restore operation.
+The operation to trigger a restore request is a `POST` API. [Learn more about this operation](/rest/api/dataprotection/backup-instances/trigger-restore).
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/restore?api-version=2021-07-01
@@ -492,11 +484,9 @@ POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkp
 
 ##### Create a request body for restore operations
 
-Once the requests are validated, use the same request body to trigger _restore request_ with minor changes.
+After the requests are validated, use the same request body (with minor changes) to trigger the restore request.
 
-###### Example request body for restore
-
-The only change from the _validate restore request_ body is to remove the _restoreRequest_ object at the start.
+As shown in the following example, the only change from the request body for validating a restore request is to remove the `restoreRequest` object at the start:
 
 ```json
 {
@@ -539,18 +529,16 @@ The only change from the _validate restore request_ body is to remove the _resto
 
 #### Response to trigger restore requests
 
-The _trigger restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
+The operation to trigger a restore request is [asynchronous](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created. Then 200 (OK) when that operation completes.
+The operation returns these responses:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |         |  Status of restore request       |
-|202 Accepted     |         |     Accepted    |
+|`200 OK`     |         |  The operation is completed.       |
+|`202 Accepted`     |         |     The request is accepted. Another operation is created.    |
 
-##### Example response to trigger restore request
-
-Once the *POST* operation is submitted, it'll return the initial response as 202 (Accepted) with an _Azure-asyncOperation_ header.
+After the `POST` operation is submitted, it returns the initial response as `202 Accepted` with an `Azure-asyncOperation` header, as shown in the following example response:
 
 ```http
 HTTP/1.1 202 Accepted
@@ -571,7 +559,7 @@ Location: https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxx
 X-Powered-By: ASP.NET
 ```
 
-Track the _Azure-AsyncOperation_ header with a simple *GET* request. When the request is successful, it'll return 200 (OK) with a job ID that should be further tracked for completion of restore request.
+Track the `Azure-AsyncOperation` header with a simple `GET` request. When the request is successful, it returns `200 OK` with a job ID that should be further tracked for completion of the restore request.
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExO2Q1NDIzY2VjLTczYjYtNDY5ZC1hYmRjLTc1N2Q0ZTJmOGM5OQ==?api-version=2021-07-01
@@ -591,16 +579,17 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 #### Track jobs
 
-The _trigger restore requests_ trigger the restore job. To track the resultant Job ID, use the [GET Jobs API](/rest/api/dataprotection/jobs/get).
+After a restore job is triggered, you can track the resultant job ID by using the [GET Jobs API](/rest/api/dataprotection/jobs/get).
 
-Use the simple *GET* command to track the _JobId_ present in the [trigger restore response](#example-response-to-trigger-restore-request) above.
+Use the following `GET` command to track the `jobId` value in the [response to the triggered restore operation](#response-to-trigger-restore-requests):
 
 ```http
  GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupJobs/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a?api-version=2021-07-01
 ```
 
-The job status mentioned above will indicate that the restore job is complete.
+The job status indicates that the restore job is complete.
 
-## Next steps
+## Related content
 
-- [Azure PostgreSQL Backup overview](backup-azure-database-postgresql-overview.md)
+- [What is Azure Database for PostgreSQL backup?](backup-azure-database-postgresql-overview.md)
+- [Track  backup and restore jobs by using the REST API in Azure Backup](backup-azure-arm-userestapi-managejobs.md)

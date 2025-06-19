@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Event Hubs
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Event Hubs. 
-ms.date: 06/20/2024
+ms.date: 05/20/2025
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 ---
@@ -44,7 +44,7 @@ For more information about the resource types for Event Hubs, see [Azure Event H
 > Enabling these settings requires additional Azure services: storage account, event hub, or Log Analytics. These services might increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 > [!NOTE]
-> When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
+> When you enable metrics in a diagnostic setting, dimension information isn't currently included as part of the information sent to a storage account, event hub, or log analytics.
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
@@ -81,7 +81,7 @@ For the available resource log categories, their associated Log Analytics tables
 Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable **Send information to Log Analytics**. For more information, see the [Metrics](#azure-monitor-platform-metrics) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Event Hubs has the capability to dispatch logs to either of two destination tables: Azure Diagnostic or Resource specific tables in Log Analytics. For a detailed reference of the logs and metrics, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Event Hubs menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
+> When you select **Logs** from the Azure Event Hubs menu, Log Analytics is opened with the query scope set to the current workspace. It means that log queries include only data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
 ### Use runtime logs
 
@@ -255,9 +255,9 @@ The following table lists some suggested alert rules for Event Hubs. These alert
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| Metric | CPU              | When CPU utilization exceeds a set value.       |
-| Metric | Available Memory | When Available Memory drops below a set value. |
-| Metric | Capture Backlog  | When Capture Backlog is above a certain value. |
+| Metric | CPU              | When CPU utilization exceeds a set value       |
+| Metric | Available Memory | When Available Memory drops below a set value |
+| Metric | Capture Backlog  | When Capture Backlog is above a certain value |
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 

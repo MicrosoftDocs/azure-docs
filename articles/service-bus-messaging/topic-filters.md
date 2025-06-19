@@ -2,7 +2,7 @@
 title: Azure Service Bus topic filters | Microsoft Docs
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters. 
 ms.topic: conceptual
-ms.date: 02/23/2024
+ms.date: 03/21/2025
 ---
 
 # Topic filters and actions
@@ -122,11 +122,11 @@ await adminClient.CreateRuleAsync(topicName, "ColorRed", new CreateRuleOptions
 ```
 
 > [!IMPORTANT]
-> When you update system properties through rule actions, note that it might change the expected behavior. Some properties are only evaluated when a message is received in a queue or a topic. Therefore, when you update these properties in a rule action and then deliver them in a subscription, they are ignored. Although, when auto-forwarding to another queue or topic, they are re-evaluated. 
+> When you update system properties through rule actions, it might change the expected behavior. Some properties are only evaluated when a message is received in a queue or a topic. Therefore, when you update these properties in a rule action and then deliver them in a subscription, they're ignored. Although when auto-forwarding to another queue or topic, they're reevaluated. 
 > 
 > - **ScheduledEnqueueTime**: When you set or update this property, it's ignored on the subscription.
 > - **MessageID with deduplication**: No deduplication is performed in the subscription when the MessageID is updated and results in a duplicate.
-> - **SessionID with partitioning**: In this scenario, the session ID is the partition key for partitioned entities and is used to decide the partition the message is sent to. Changing the sessionID in a rule action means that the partition key is changed after a message has landed in a partition. As a result, the consumer might not receive some of these messages in the session. Even if consumer receives the message, it appears as though they are coming from the wrong partition due to the changed partition key.
+> - **SessionID with partitioning**: In this scenario, the session ID is the partition key for partitioned entities and is used to decide the partition the message is sent to. Changing the sessionID in a rule action means that the partition key is changed after a message has landed in a partition. As a result, the consumer might not receive some of these messages in the session. Even if consumer receives the message, it appears as though they're coming from the wrong partition due to the changed partition key.
 
 ## Usage patterns
 

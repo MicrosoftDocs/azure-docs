@@ -1,20 +1,20 @@
 ---
 title: Quickstart - Create Consumption logic app workflow with ARM templates
-description: How to create and deploy a Consumption logic app workflow with Azure Resource Manager templates (ARM templates) in multi-tenant Azure Logic Apps.
+description: Learn to create and deploy a Consumption logic app workflow with Azure Resource Manager templates (ARM templates) in multitenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 01/04/2024
-#Customer intent: As a developer, I want to create and deploy an automated workflow in multi-tenant Azure Logic Apps with Azure Resource Manager templates (ARM templates).
+ms.date: 02/19/2025
+#Customer intent: As a developer, I want to create and deploy an automated workflow in multitenant Azure Logic Apps with Azure Resource Manager templates (ARM templates).
 ---
 
-# Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with an ARM template
+# Quickstart: Create and deploy a Consumption logic app workflow in multitenant Azure Logic Apps with an ARM template
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-[Azure Logic Apps](logic-apps-overview.md) is a cloud service that helps you create and run automated workflows that integrate data, apps, cloud-based services, and on-premises systems by choosing from [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). This quickstart focuses on the process for deploying an Azure Resource Manager template (ARM template) to create a basic [Consumption logic app workflow](logic-apps-overview.md#resource-environment-differences) that checks the status for Azure on an hourly schedule and runs in [multi-tenant Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
+[Azure Logic Apps](logic-apps-overview.md) is a cloud service that helps you create and run automated workflows that integrate data, apps, cloud-based services, and on-premises systems by choosing from [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). This quickstart focuses on the process for deploying an Azure Resource Manager template (ARM template) to create a basic [Consumption logic app workflow](logic-apps-overview.md#resource-environment-differences) that checks the status for Azure on an hourly schedule and runs in [multitenant Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -50,7 +50,6 @@ Follow the option that you want to use for deploying the quickstart template:
 | [Azure CLI](quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | The Azure CLI provides a command-line experience for creating and managing Azure resources. To run these commands, you need Azure CLI version 2.6 or later. To check your CLI version, enter **az --version**. For more information, see the following documentation: <br><br>- [What is Azure CLI](/cli/azure/what-is-azure-cli) <br>- [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli) |
 | [Azure PowerShell](quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see the following documentation: <br><br>- [Azure PowerShell Overview](/powershell/azure/) <br>- [Introducing the Az PowerShell module](/powershell/azure/new-azureps-module-az) <br>- [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) |
 | [Azure Resource Management REST API](quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources. For more information, see [Get started with Azure REST API](/rest/api/azure/). |
-|||
 
 <a name="deploy-azure-portal"></a>
 
@@ -70,7 +69,6 @@ Follow the option that you want to use for deploying the quickstart template:
    | **Logic App Name** | <*logic-app-name*> | The name to use for your logic app. This example uses **Check-Azure-Status-LA**. |
    | **Test Uri** | <*test-URI*> | The URI for the service to call based on a specific schedule. This example uses **https://azure.status.microsoft/en-us/status/**, which is the Azure status page. |
    | **Location** |  <*Azure-region-for-all-resources*> | The Azure region to use for all resources, if different from the default value. This example uses the default value, **[resourceGroup().location]**, which is the resource group location. |
-   ||||
 
    The following example shows how the page looks with sample values:
 
@@ -155,7 +153,6 @@ For more information, see the following documentation:
    | <*subscriptionId*>| The GUID for the Azure subscription that you want to use |
    | <*resourceGroupName*> | The name for the Azure resource group to use. This example uses **Check-Azure-Status-RG**. |
    | <*deploymentName*> | The name to use for your deployment. This example uses **Check-Azure-Status-LA**. |
-   |||
 
    For example:
 
@@ -190,7 +187,6 @@ For more information, see the following documentation:
    | **templateLink : uri** | <*quickstart-template-URL*> | The URL location for the quickstart template to use for deployment: <br><br><br><br>**https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json** |
    | **parametersLink : uri** | <*quickstart-template-parameter-file-URL*> | The URL location for the quickstart template's parameter file to use for deployment: <br><br><br><br>**https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.parameters.json** <br><br><br><br>For more information about the Resource Manager parameter file, see the following documentation: <br><br>- [Create Resource Manager parameter file](../azure-resource-manager/templates/parameter-files.md) <br>- [Tutorial: Use parameter files to deploy your ARM template](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
    | **mode** | <*deployment-mode*> | Run either an incremental update or complete update. This example uses **Incremental**, which is the default value. For more information, see [Azure Resource Manager deployment modes](../azure-resource-manager/templates/deployment-modes.md). |
-   |||
 
    For example:
 
@@ -226,13 +222,13 @@ To view the logic app workflow, you can use the Azure portal, run a script that 
 
 ### [Portal](#tab/azure-portal)
 
-1. In the Azure portal search box, enter your logic app's name, which is **Check-Azure-Status-LA** in this example. From the results list, select your logic app.
+1. In the Azure portal search box, enter your logic app name, which is **Check-Azure-Status-LA** in this example. From the results list, select your logic app.
 
 1. In the Azure portal, find and select your logic app, which is **Check-Azure-Status-RG** in this example.
 
 1. When the workflow designer opens, review the logic app workflow created by the quickstart template.
 
-1. To test the logic app, on the designer toolbar, select **Run**.
+1. To test the workflow, on the designer toolbar, select **Run**.
 
 ### [CLI](#tab/azure-cli)
 
@@ -266,7 +262,6 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 | **subscriptionId**| The GUID for the Azure subscription where you deployed the quickstart template. |
 | **resourceGroupName** | The name for the Azure resource group where you deployed the quickstart template. This example uses **Check-Azure-Status-RG**. |
 | **workflowName** | The name for the logic app that you deployed. This example uses **Check-Azure-Status-LA**. |
-|||
 
 For example:
 
@@ -323,7 +318,6 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroup
 |-------|-------------|
 | **subscriptionId**| The GUID for the Azure subscription where you deployed the quickstart template. |
 | **resourceGroupName** | The name for the Azure resource group where you deployed the quickstart template. This example uses **Check-Azure-Status-RG**. |
-|||
 
 For example:
 

@@ -3,6 +3,7 @@ metadata:
   title: Azure NAT Gateway frequently asked questions
   description: Answers to common questions about using Azure NAT Gateway.
   ms.topic: faq
+  ms.service: azure-nat-gateway
   ms.date: 12/10/2024
 
 title: Frequently asked questions for Azure NAT Gateway
@@ -22,7 +23,7 @@ sections:
 
       - question: What are the known limits of Azure NAT Gateway?
         answer: |
-          See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#nat-gateway-limits). 
+          See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-nat-gateway-limits). 
 
       - question: How many NAT gateway resources are allowed per subscription?
         answer: | 
@@ -150,7 +151,7 @@ sections:
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
-          No, the address of an existing public IP can't be changed. If you need to change the public IP address on your NAT gateway, see [Add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
+          Yes, you can change the public IP addresses associated with an existing NAT gateway. If you need to change the public IP address on your NAT gateway, see [Add or remove a public IP address](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for guidance.
 
       - question: If multiple public IP addresses are assigned to a NAT gateway, which public IPs do my subnet resources use?
         answer: |
@@ -252,6 +253,10 @@ sections:
           - If you use secure cluster connectivity with the default virtual network that Azure Databricks creates, Azure Databricks automatically creates a NAT gateway for outbound traffic from your workspace's subnets. The NAT gateway is created within the managed resource group that Azure Databricks manages. You can't modify this resource group or any resources provisioned within it.
           - If you enable secure cluster connectivity on your workspace that uses virtual network injection, you can deploy a NAT gateway on both of the workspace's subnets to provide outbound connectivity. You can modify the configuration for customized outbound connectivity requirements in this case. For more information, see [Secure cluster connectivity](/azure/databricks/security/network/classic/secure-cluster-connectivity). 
           
+      - question: Is NAT gateway use supported with Azure SQL managed instance?
+        answer: |
+          No, NAT gateway can't be used on a SQL Managed Instance subnet. If NAT gateway is configured, it will render the SQL Managed Instance unavailable. The SQL Managed Instance currently is limited to use the Basic Load Balancer instead.
+
 additionalContent: |
 
   ## Next steps

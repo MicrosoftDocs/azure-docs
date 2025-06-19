@@ -11,26 +11,45 @@ This article is one in a series of articles describing the [deployment path](../
 
 :::image type="content" source="../media/deployment-paths/progress-fine-tuning-ot-monitoring.png" alt-text="Diagram of a progress bar with Fine-tune OT monitoring highlighted." border="false" lightbox="../media/deployment-paths/progress-fine-tuning-ot-monitoring.png":::
 
-## Understand learning mode
+## Overview of the multi stage monitoring process
 
-An OT network sensor starts monitoring your network automatically after it's connected to the network and you've [signed in](activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your device inventory, and [alerts](../alerts.md) are triggered for any security or operational incidents that occur in your network.
+An OT network sensor starts monitoring your network automatically after it connects to the network and you [sign in](activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your device inventory, and [alerts](../alerts.md) are triggered for any security or operational incidents that occur in your network.
 
-Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's baseline traffic.
+Defender for IoT employs a three stage monitoring process that learns your network's normal traffic behavior. These three stages ensure accurate detection while reducing unnecessary alerts, are:
 
-> [!TIP]
-> Use your time in learning mode to triage your alerts and *Learn* those that you want to mark as authorized, expected activity. Learned traffic doesn't generate new alerts the next time the same traffic is detected.
->
-> After learning mode is turned off, any activity that differs from your baseline data will trigger an alert.
+1. [Learning mode](#learning-mode)
+1. [Dynamic mode](#dynamic-mode)
+1. [Operational mode](#operational-mode)
 
-For more information, see [Microsoft Defender for IoT alerts](../alerts.md).
+### Summary of the monitoring stages
 
-### Learn mode timeline
+| Mode | Purpose | Trigger alerts | User actions needed |
+| --- | --- | --- | --- |
+| **[Learning](#learning-mode)** | Builds a baseline of normal network traffic | Malware alerts, anomaly alerts, operational alerts, protocol violation alerts | Turn off manually after 2–6 weeks or when baseline reflects accurate network activity |
+| **[Dynamic](#dynamic-mode)** | Refines the baseline while gradually introducing Policy Violations alerts to ensure accuracy and reduce alert noise | Policy Violation alerts are introduced | Optional: Adjust settings for specific scenarios (e.g. during POCs) |
+| **[Operational](#operational-mode)** | Monitors all network traffic with a stable baseline, triggering all alerts to reflect deviations or suspicious activity | All types of alerts | None. Automatically transitions when baseline stabilizes |
 
-Creating your baseline of OT alerts can take anywhere from a few days to several weeks, depending on your network size and complexity. We recommend that after 2-6 weeks, you manually change the Learning mode to Dynamic mode when the daily number of alerts decreases to a manageable level. In dynamic mode Defender for IoT continues to monitor the network for suspicious traffic, trigger alerts, and also automatically moves an alert category to operational mode if that alert isn't triggered for a specific length of time.
+### Learning mode
 
-In operational mode all alerts produced are listed in the inventory and must be remediated by following the actions listed in the alert details pane. If the alert was triggered by safe network traffic you'll need to use the **Learn** button to add this traffic to the baseline list so that the sensor doesn't produce an alert for this in the future.
+Initially, the sensor runs in *learning* mode to monitor all of your network traffic and build a baseline of all normal traffic patterns. This baseline includes all of the devices and protocols in your network, and the regular file transfers that occur between devices. This process normally takes between 2 and 6 weeks, depending on your network size and complexity. Additionally, any devices discovered later enter learning mode for 7 days in order to establish their network traffic baseline.
+
+In learning mode, the sensor monitors and protects your environment by triggering relevant security alerts, such as malware, anomaly and operational alerts. However, Policy Violation alerts, which indicate deviations from the baseline, aren't triggered while the system is in learning mode.
+
+### Dynamic mode
+
+Once the discovery process and network traffic are stable, you should manually turn off learning mode. At this point, the sensor transitions to dynamic mode. In dynamic mode the sensor continues to monitor your network, validating and refining the baseline. The sensor assesses each alert category and scenario individually, dynamically changing them to operational mode when their baselines are confirmed to be accurate. Alternatively, if the sensor detects significant changes in traffic, it might automatically extend the learning mode for specific alerts or scenarios.
+
+In dynamic mode, Policy Violation alerts are gradually introduced and start to appear in the alert inventory.
+
+### Operational mode
+
+Once the sensor identifies that the baseline is stable and complete it automatically transitions into operational mode, monitoring all of the network traffic and triggering all alert types.
+
+The **Learn** action becomes relevant after learning mode is turned off, when the scenario transitions to operational mode, and you wish to mark specific operations as authorized or expected activity. Once learned, similar activity won't generate new alerts in the future.
 
 [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) when the level of alerts accurately reflect your network activity.
+
+For more information, see [Microsoft Defender for IoT alerts](../alerts.md).
 
 ## Prerequisites
 
@@ -38,7 +57,7 @@ You can perform the procedures in this article from the Azure portal or an OT se
 
 Before you start, make sure that you have:
 
-- An OT sensor [installed](install-software-ot-sensor.md), [configured, and activated](activate-deploy-sensor.md), with alerts being triggered by detected traffic.
+- An OT sensor [installed](install-software-ot-sensor.md), [configured, and activated](activate-deploy-sensor.md), with alerts triggered by detected traffic.
 
 - Access to your OT sensor as **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
@@ -57,7 +76,7 @@ For more information, see [View and manage alerts on your OT sensor](../how-to-v
 > [!div class="step-by-step"]
 > [« Verify and update your detected device inventory](update-device-inventory.md)
 
-After learning mode is turned off, you've moved from *learning* mode to *operation* mode. Continue with any of the following:
+After learning mode is turned off, and you move from *learning* mode to *operation* mode continue with any of the following:
 
 - [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](../workbooks.md)
 - [View and manage alerts from the Azure portal](../how-to-manage-cloud-alerts.md)

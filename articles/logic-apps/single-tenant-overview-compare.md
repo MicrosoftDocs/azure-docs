@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/18/2024
+ms.date: 03/12/2025
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -48,7 +48,7 @@ When you create a **Standard** logic app and workflow, you can deploy and run yo
 
 These capabilities provide major improvements and substantial benefits compared to the multitenant model, which requires you to develop against an existing running resource in Azure. The multitenant model for automating **Consumption** logic app resource deployment is based on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both apps and infrastructure.
 
-With the **Standard** logic app resource, deployment becomes easier because you can separate app deployment from infrastructure deployment. You can package the single-tenant Azure Logic Apps runtime and your workflows together as part of your logic app resource or project. You can use generic steps or tasks that build, assemble, and zip your logic app resources into ready-to-deploy artifacts. To deploy your infrastructure, you can still use ARM templates to separately provision those resources along with other processes and pipelines that you use for those purposes.
+With the **Standard** logic app resource, deployment becomes easier because you can separate app deployment from infrastructure deployment. You can package the single-tenant Azure Logic Apps runtime and your workflows together as part of your logic app resource or project. You can use generic steps or tasks that build, assemble, and zip your logic app resources into ready-to-deploy artifacts. To deploy your infrastructure, you can still use ARM templates to separately create those resources along with other processes and pipelines that you use for those purposes.
 
 To deploy your app, copy the artifacts to the host environment and then start your apps to run your workflows. Or, integrate your artifacts into deployment pipelines using the tools and processes that you already know and use. That way, you can deploy using your own chosen tools, no matter the technology stack that you use for development.
 
@@ -74,13 +74,13 @@ When you use the new built-in connector operations, you create connections calle
 
 Workflows that run in either single-tenant Azure Logic Apps can directly access secured resources such as virtual machines (VMs), other services, and systems that exist in an [Azure virtual network](../virtual-network/virtual-networks-overview.md).
 
-Single-tenant Azure Logic Apps is a dedicated instance of the Azure Logic Apps service, uses dedicated resources, and runs separately from multitenant Azure Logic Apps. Running workflows in a dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+Single-tenant Azure Logic Apps is a dedicated instance of the Azure Logic Apps service, uses dedicated resources, and runs separately from multitenant Azure Logic Apps. Running workflows in a dedicated instance helps reduce the effects that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
-Single-tenant Azure Logic Apps also provide the following benefits:
+Single-tenant Azure Logic Apps also provides the following benefits:
 
-* Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multitenant Azure Logic Apps. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems.
+* Your own static IP addresses, which are separate from the static IP addresses shared by the logic apps in the multitenant Azure Logic Apps. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems.
 
-* Increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
+* Increased limits on run duration, storage retention, throughput, HTTP request and response time-out, message sizes, and custom connector requests. For more information, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
 
 ## Create, build, and deploy options
 
@@ -120,9 +120,9 @@ Within a **Standard** logic app, you can create the following workflow types:
 
 * *Stateful*
 
-  Create a stateful workflow when you need to keep, review, or reference data from previous events. These workflows save all the operations' inputs, outputs, and states to external storage. This information makes reviewing the workflow run details and history possible after each run finishes. Stateful workflows provide high resiliency if outages happen. After services and systems are restored, you can reconstruct interrupted runs from the saved state and rerun the workflows to completion. Stateful workflows can continue running for much longer than stateless workflows.
+  Create a stateful workflow when you need to keep, review, or reference data from previous events. These workflows save all the operations' inputs, outputs, and states to external storage. This information makes reviewing the workflow run details and history possible after each run finishes. Stateful workflows provide high resiliency if outages happen. After services and systems are restored, you can reconstruct interrupted runs from the saved state and rerun the workflows to completion. Stateful workflows can continue running for longer than stateless workflows.
 
-  By default, stateful workflows in both multitenant and single-tenant Azure Logic Apps run asynchronously. All HTTP-based actions follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply). After an HTTP action calls or sends a request to an endpoint, service, system, or API, the request receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URI and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+  By default, stateful workflows in both multitenant and single-tenant Azure Logic Apps run asynchronously. All HTTP-based actions follow the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply). After an HTTP action calls or sends a request to an endpoint, service, system, or API, the request receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but isn't finished processing. The response can include a `location` header that specifies the URI and a refresh ID that the caller can use to poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. However, the caller doesn't have to wait for the request to finish processing and can continue to run the next action. For more information, see [Asynchronous microservice integration enforces microservice autonomy](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 * *Stateless*
 
@@ -141,7 +141,7 @@ Within a **Standard** logic app, you can create the following workflow types:
 
   Stateless workflows run only synchronously, so they don't use the standard [asynchronous operation pattern](/azure/architecture/patterns/async-request-reply) used by stateful workflows. Instead, all HTTP-based actions that return a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response continue to the next step in the workflow execution. If the response includes a `location` header, a stateless workflow won't poll the specified URI to check the status. To follow the standard asynchronous operation pattern, use a stateful workflow instead.
 
-  For easier debugging, you can enable run history for a stateless workflow, which has some impact on performance, and then disable the run history when you're done. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
+  For easier debugging, you can enable run history for a stateless workflow, which has some effect on performance, and then disable the run history when you're done. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless) or [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
 > [!IMPORTANT]
 > You have to decide on the workflow type, either stateful or stateless, to implement at creation time. 
@@ -172,7 +172,7 @@ The following list describes the behavior patterns that nested workflows can fol
 
 * Asynchronous polling pattern
 
-  The parent workflow doesn't wait for the child workflow to respond to their initial call. However, the parent continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](logic-apps-limits-and-config.md).
+  The parent workflow doesn't wait for the child workflow to respond to their initial call. However, the parent continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request time-out limits](logic-apps-limits-and-config.md).
 
 * Synchronous pattern ("fire and forget")
 
@@ -269,7 +269,7 @@ In single-tenant Azure Logic Apps, [built-in connectors with specific attributes
 
 For the **Standard** logic app workflow, the following capabilities are different, currently limited, unavailable, or unsupported:
 
-* **Triggers and actions**: [Built-in triggers and actions](../connectors/built-in.md) run natively in Azure Logic Apps, while managed connectors are hosted and run using shared resources in Azure. For Standard workflows, some built-in triggers and actions are currently unavailable, such as Sliding Window and Azure App Service operations. To start a stateful or stateless workflow, use a built-in trigger such as the Request, Event Hubs, or Service Bus trigger. The Recurrence trigger is available for stateful workflows, but not stateless workflows. In the designer, built-in triggers and actions appear with the **In-app** label, while [managed connector triggers and actions](../connectors/managed.md) appear with the **Shared** label.
+* **Triggers and actions**: [Built-in triggers and actions](../connectors/built-in.md) run natively in Azure Logic Apps, while managed connectors are hosted and run using shared resources in Azure. For Standard workflows, some built-in triggers and actions are currently unavailable, such as Azure App Service operations. To start a stateful or stateless workflow, use a built-in trigger such as the Request, Event Hubs, or Service Bus trigger. The Recurrence trigger is available for stateful workflows, but not stateless workflows. In the connector gallery, built-in triggers and actions appear when you select the **Built-in** filter, while [managed connector triggers and actions](../connectors/managed.md) appear when you select the **Shared** filter.
 
   Stateless workflows can use only [*push* triggers](../connectors/introduction.md#triggers) where you don't specify a schedule for running for your workflow. These webhook-based triggers wait for an event to happen or data to become available. For example, the Recurrence trigger is available only for stateful workflows. To start your workflow, select a push trigger such as the Request, Event Hubs, or Service Bus trigger. Although you can enable managed connectors for stateless workflows, the connector gallery doesn't show any managed connector [*polling* triggers](../connectors/introduction.md#triggers) for you to add.
 
@@ -297,15 +297,13 @@ For the **Standard** logic app workflow, the following capabilities are differen
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
  
-    * [Custom managed connectors](../connectors/introduction.md#custom-connectors-and-apis) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
-
     * A Standard workflow can have only one trigger and doesn't support multiple triggers.
 
 * **Authentication**
 
   * Some request-based triggers that handle inbound calls, such as the Request trigger, currently don't support Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth), while others such as the HTTP Webhook trigger have this support.
 
-  * Some [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) currently don't support selecting the user-assigned managed identity for authentication. However, both system-assigned and user-assigned managed identity support are available in general. By default, the system-assigned managed identity is automatically enabled.
+  * Some [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) currently don't support selecting the user-assigned managed identity for authentication. However, both system-assigned and user-assigned managed identity supports are available in general. By default, the system-assigned managed identity is automatically enabled.
 
 * **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 

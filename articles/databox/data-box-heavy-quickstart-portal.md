@@ -15,6 +15,8 @@ ms.custom: mode-ui, devx-track-azurecli
 
 # Quickstart: Deploy Azure Data Box Heavy using the Azure portal
 
+[!INCLUDE [data-box-heavy-retirement](includes/data-box-heavy-retirement.md)]
+
 This quickstart describes how to deploy the Azure Data Box Heavy using the Azure portal. The steps include how to cable, configure, and copy data to Data Box Heavy so that it uploads to Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Heavy](data-box-heavy-deploy-ordered.md)

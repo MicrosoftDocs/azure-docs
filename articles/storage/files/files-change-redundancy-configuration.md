@@ -15,6 +15,20 @@ Azure always stores multiple copies of your data to protect it in the face of bo
 
 This article describes the process of changing replication settings for an existing storage account that hosts Azure file shares.
 
+## Applies to
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Options for changing the replication type
 
 When deciding which redundancy configuration is best for your scenario, consider the tradeoffs between lower costs and higher availability. The factors that help determine which redundancy configuration you should choose include:
@@ -124,9 +138,9 @@ There are two ways to initiate a conversion:
 
 Instead of opening a support request, customers in most regions can start a conversion and monitor its progress. This option eliminates potential delays related to creating and managing support requests. For help determining the regions in which customer-initiated conversion is supported, see the [region limitations](#region) article.
 
-For standard file shares, customer-initiated conversion can be completed in supported regions using the Azure portal, PowerShell, or the Azure CLI. 
+For HDD file shares, customer-initiated conversion can be completed in supported regions using the Azure portal, PowerShell, or the Azure CLI. 
 
-For premium file shares, customer-initiated conversion is available through PowerShell and Azure CLI. Or you can request a [support-initiated conversion](#support-initiated-conversion).
+For SSD file shares, customer-initiated conversion is available through PowerShell and Azure CLI. Or you can request a [support-initiated conversion](#support-initiated-conversion).
 
 After initiation, the conversion could still take up to 72 hours to begin.
 
@@ -275,10 +289,6 @@ With a manual migration, you copy the data from your existing storage account to
 For more detailed guidance on how to perform a manual migration, see [Move an Azure Storage account to another region](../common/storage-account-move.md).
 
 ## Limitations for changing replication types
-
-> [!IMPORTANT]
-> Boot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a `StorageAccountTypeNotSupported` error upon starting their virtual machine (VM).
-
 Limitations apply to some replication change scenarios depending on:
 
 - [Region](#region)
@@ -294,7 +304,7 @@ Make sure the region where your storage account is located supports all of the d
 > [!IMPORTANT]
 > [Customer-initiated conversion](#customer-initiated-conversion) from LRS to ZRS is available in all public regions that support ZRS except for the following:
 >
-> - (Europe) West Europe
+> - (North America) Mexico Central
 >
 > [Customer-initiated conversion](#customer-initiated-conversion) from existing ZRS accounts to LRS is available in all public regions.
 
@@ -310,21 +320,18 @@ Some storage account types only support certain redundancy configurations, which
 
 The following table lists the redundancy options available for storage account types and whether conversion and manual migration are supported:
 
-| Storage account type        | Supports LRS | Supports ZRS | Supports conversion<br>(from the Azure portal) | Supports conversion<br>(by support request) | Supports manual migration |
-|:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|:-------------------------:|
-| Standard general purpose v2 | &#x2705;     | &#x2705;     | &#x2705;                | &#x2705;                  | &#x2705;                  |
-| Premium file shares         | &#x2705;     | &#x2705;     |                         | &#x2705; <sup>1</sup>     | &#x2705;                  |
+| Storage account type | Supports LRS | Supports ZRS | Supports conversion<br>(from the Azure portal) | Supports conversion<br>(by support request) | Supports manual migration |
+|:-|:-:|:-:|:-:|:-:|:-:|
+| SSD provisioned v1 | &#x2705; | &#x2705; | &#x2705; | &#x2705; <sup>1</sup> | &#x2705; |
+| HDD pay-as-you-go | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
-<sup>1</sup> Customer-initiated conversion can be undertaken using either [PowerShell](../common/redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](../common/redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
+<sup>1</sup> Customer-initiated conversion can be undertaken using [Azure Portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](../common/redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](../common/redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
 
 ### Protocol support
 
-You can't convert storage accounts to zone-redundancy (ZRS or GZRS) if either of the following cases are true:
+You can't convert storage accounts to zone-redundancy (ZRS or GZRS) if storage account contains NFS file shares with public endpoint access enabled.
 
-- NFSv3 protocol support is enabled for Azure Blob Storage
-- The storage account contains Azure Files NFSv4.1 shares with public endpoint access enabled
-
-Converting NFSv4.1 shares with public endpoints enabled isn't supported. To change redundancy for NFS shares with public endpoints, follow these steps in order:
+Converting **NFSv4.1 shares with public endpoints enabled isn't supported**. To change redundancy for NFS shares with public endpoints, follow these steps in order:
 
 1. [Disable access](storage-files-networking-endpoints.md#restrict-public-endpoint-access) to the storage account's public endpoint.
 1. Submit the conversion request to change redundancy of the given storage account.

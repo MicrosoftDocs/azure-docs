@@ -5,8 +5,8 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-storage
-ms.topic: conceptual
-ms.date: 09/03/2024
+ms.topic: concept-article
+ms.date: 03/26/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ---
@@ -42,6 +42,7 @@ Each service is accessed through a storage account with a unique address. To get
 Additionally, Azure provides the following specialized storage:
 
 - [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md): Enterprise files storage, powered by NetApp: makes it easy for enterprise line-of-business (LOB) and storage professionals to migrate and run complex, file-based applications with no code change. Azure NetApp Files is managed via NetApp accounts and can be accessed via NFS, SMB and dual-protocol volumes. To get started, see [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
+- [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview): A high-performance distributed parallel file system solution, ideal for HPC workloads that require high throughput and low latency.
 
 For help in deciding which data services to use for your scenario, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options) in the Microsoft Cloud Adoption Framework.
 
@@ -63,6 +64,7 @@ The following table compares Azure Storage services and shows example scenarios 
 | **Azure Container Storage**| Azure Container Storage is a volume management, deployment, and orchestration service that integrates with Kubernetes and is built natively for containers. | You want to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. |
 | **Azure Queues** | Allows for asynchronous message queueing between application components. | You want to decouple application components and use asynchronous messaging to communicate between them.<br><br>For guidance around when to use Queue Storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
 | **Azure Tables** | Allows you to store structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table Storage versus Azure Cosmos DB for Table, see [Developing with Azure Cosmos DB for Table and Azure Table Storage](/azure/cosmos-db/table-support). |
+| **Azure Managed Lustre** | Offers a fully managed, pay-as-you-go file system for high-performance computing (HPC) and AI workloads. Designed to simplify operations, reduce setup costs, and eliminate complex maintenance.  | You want to run HPC workloads that require high throughput and low latency. <br/><br/>You want to run Lustre workloads in the cloud without the need to manage the underlying infrastructure. |
 
 ## Blob Storage
 
@@ -76,7 +78,7 @@ Blob Storage is ideal for:
 - Storing data for backup and restore, disaster recovery, and archiving.
 - Storing data for analysis by an on-premises or Azure-hosted service.
 
-Objects in Blob Storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), and [Python](/python/api/overview/azure/storage). 
+Objects in Blob Storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/az.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), and [Python](/python/api/overview/azure/storage). 
 
 Clients can also securely connect to Blob Storage by using SSH File Transfer Protocol (SFTP) and mount Blob Storage containers by using the Network File System (NFS) 3.0 protocol. 
 
@@ -149,6 +151,17 @@ For more information about Azure NetApp Files, see [Introduction to Azure NetApp
 
 For a comparison of Azure Files and Azure NetApp Files, refer to [Azure Files and Azure NetApp Files comparison](../files/storage-files-netapp-comparison.md).
 
+## Azure Managed Lustre
+
+[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a managed file system that offers scalable, powerful, cost-effective storage for HPC workloads.
+
+Key features and benefits of Azure Managed Lustre include:
+
+- **Accelerate HPC workloads**: Offers a high-performance distributed parallel file system solution, ideal for HPC workloads that require high throughput and low latency.
+- **Purpose-built managed service**: Provides the benefits of a Lustre parallel file system without the complexity of managing the underlying infrastructure. Azure Managed Lustre is a fully managed service that simplifies operations, reduces setup costs, and eliminates complex maintenance.
+- **Azure Blob Storage integration**: Allows you to connect Azure Managed Lustre file systems with Azure Blob Storage containers for optimal data placement and cost management. For more information, see [Azure Blob Storage integration](/azure/azure-managed-lustre/blob-integration).
+- **Azure Kubernetes Service (AKS) integration**: Allows you to containerize workloads using the available AKS-compatible CSI driver. For more information, see [Use Azure Managed Lustre with Kubernetes](/azure/azure-managed-lustre/use-csi-driver-kubernetes).
+
 ## Types of storage accounts
 
 Azure Storage offers several types of storage accounts. Each type supports different features and has its own pricing model. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
@@ -177,7 +190,7 @@ All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. See 
 
 The Azure Storage client libraries provide methods for encrypting data from the client library before sending it across the wire and decrypting the response. Data encrypted via client-side encryption is also encrypted at rest by Azure Storage. For more information about client-side encryption, see [Client-side encryption with .NET for Azure Storage](storage-client-side-encryption.md).
 
-Azure NetApp Files data traffic is inherently secure by design, as it doesn't provide a public endpoint and data traffic stays within customer-owned VNet. Data-in-flight isn't encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. See [Security FAQs for Azure NetApp Files](../../azure-netapp-files/faq-security.md#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted).
+Azure NetApp Files data traffic is inherently secure by design, as it doesn't provide a public endpoint and data traffic stays within customer-owned VNet. Data-in-flight isn't encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. See [Security FAQs for Azure NetApp Files](../../azure-netapp-files/faq-security.md#can-the-network-traffic-between-the-azure-virtual-machine-vm-and-the-storage-be-encrypted).
 
 ## Redundancy
 

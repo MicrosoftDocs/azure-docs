@@ -15,11 +15,6 @@ Azure Synapse Analytics now supports Apache Spark pools accelerated with graphic
 
 By using NVIDIA GPUs, data scientists and engineers can reduce the time necessary to run data integration pipelines, score machine learning models, and more. This article describes how GPU-accelerated pools can be created and used with Azure Synapse Analytics. This article also details the GPU drivers and libraries that are pre-installed as part of the GPU-accelerated runtime.
 
-> [!CAUTION]
-> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
-> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
-> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-
 > [!NOTE]
 > Azure Synapse GPU-enabled preview has now been deprecated.
 
@@ -63,10 +58,10 @@ To learn more about how you can use the NVIDIA RAPIDS Accelerator with your GPU-
 
 ## Train deep learning models
 
-Deep learning models are often data and computation intensive. Because of this, organizations often accelerate their training process with GPU-enabled clusters. In Azure Synapse Analytics, organizations can build models using frameworks like Tensorflow and PyTorch. Then, users can scale up their deep learning models with Horovod and  Petastorm.
+Deep learning models are often data and computation intensive. Because of this, organizations often accelerate their training process with GPU-enabled clusters. In Azure Synapse Analytics, organizations can build models using frameworks like TensorFlow and PyTorch. Then, users can scale up their deep learning models with Horovod and  Petastorm.
 
 To learn more about how you can train distributed deep learning models, visit the following guides:
-    - [Tutorial: Distributed training with Horovod and Tensorflow](../machine-learning/tutorial-horovod-tensorflow.md)
+    - [Tutorial: Distributed training with Horovod and TensorFlow](../machine-learning/tutorial-horovod-tensorflow.md)
     - [Tutorial: Distributed training with Horovod and PyTorch](../machine-learning/tutorial-horovod-pytorch.md)
 
 ## Improve machine learning scoring workloads

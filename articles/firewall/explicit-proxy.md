@@ -2,11 +2,12 @@
 title: Azure Firewall Explicit proxy (preview)
 description: Learn about Azure Firewall's Explicit Proxy setting.
 services: firewall
-author: vhorne
+author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 03/30/2023
 ms.author: magakman
+# Customer intent: As a network administrator, I want to configure an explicit proxy on Azure Firewall, so that I can manage outbound traffic efficiently without using a user-defined route.
 ---
 
 # Azure Firewall Explicit proxy (preview)
@@ -36,8 +37,6 @@ With the Explicit proxy mode (supported for HTTP/S), you can define proxy settin
 
 
 - To use the Proxy autoconfiguration (PAC) file, select **Enable proxy auto-configuration**.
-
-   :::image type="content" source="media/explicit-proxy/proxy-auto-configuration.png" alt-text="Screenshot showing the proxy autoconfiguration file setting.":::
 
 - First, upload the PAC file to a storage container that you create. Then, on the **Enable explicit proxy** page, configure the shared access signature (SAS) URL. Configure the port where the PAC is served from, and then select **Apply** at the bottom of the page.
 

@@ -3,10 +3,10 @@
  description: include file
  services: iot-hub
  ms.service: azure-iot-hub
- author: kgremban
+ author: SoniaLopezBravo
  ms.topic: include
  ms.date: 02/17/2019
- ms.author: kgremban
+ ms.author: sonialopez
  ms.custom: include file
 ---
 

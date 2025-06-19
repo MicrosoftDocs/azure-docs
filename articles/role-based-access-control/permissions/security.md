@@ -2,11 +2,11 @@
 title: Azure permissions for Security - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Security category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -55,6 +55,8 @@ Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365
 > | Microsoft.AppComplianceAutomation/reports/snapshots/read | Get the AppComplianceAutomation snapshot list. |
 > | Microsoft.AppComplianceAutomation/reports/snapshots/read | Get the AppComplianceAutomation snapshot and its properties. |
 > | Microsoft.AppComplianceAutomation/reports/snapshots/download/action | Download compliance needs from snapshot, like: Compliance Report, Resource List. |
+> | Microsoft.AppComplianceAutomation/reports/snapshots/controls/read | Get the AppComplianceAutomation control list. |
+> | Microsoft.AppComplianceAutomation/reports/snapshots/controls/read | Get the AppComplianceAutomation control and its properties. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/read | Get the AppComplianceAutomation webhook list. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/read | Get the AppComplianceAutomation webhook and its properties. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/write | Create a new AppComplianceAutomation webhook or update an exiting AppComplianceAutomation webhook. |

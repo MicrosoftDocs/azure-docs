@@ -2,11 +2,11 @@
 title: Azure Application Gateway features
 description: Learn about Azure Application Gateway features
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 03/24/2023
-ms.author: greglin
+ms.date: 04/14/2025
+ms.author: mbender
 ---
 
 # Azure Application Gateway features
@@ -104,15 +104,11 @@ For more information, see [WebSocket support](application-gateway-websocket.md) 
 
 ## Connection draining
 
-Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the application gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are:
-- explicitly removed from the backend pool after a configuration change by a user, or
-- reported as unhealthy by the health probes
-
-The only exception is when requests continue to be proxied to the deregistering instances because of gateway-managed session affinity. 
+Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the application gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are explicitly removed from the backend pool after a configuration change by a user.
 
 The connection draining is honored for WebSocket connections as well. Connection draining is invoked for every single update to the gateway. To prevent connection loss to existing members of the backend pool, make sure to enable connection draining.
 
-For information on time limits, see [Backend Settings configuration](configuration-http-settings.md#connection-draining).
+For more details, see [Backend Settings configuration](configuration-http-settings.md#connection-draining).
 
 ## Custom error pages
 
@@ -140,7 +136,7 @@ Application Gateway Standard_v2 can be configured for autoscaling or fixed size 
 
 The Application Gateway Standard (v1) is offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 
-For a complete list of application gateway limits, see [Application Gateway service limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+For a complete list of application gateway limits, see [Application Gateway service limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#azure-application-gateway-limits).
 
 The following table shows an average performance throughput for each application gateway v1 instance with SSL offload enabled:
 

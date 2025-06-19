@@ -2,12 +2,12 @@
 title: Azure built-in roles for DevOps - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the DevOps category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -19,6 +19,8 @@ This article lists the Azure built-in roles in the DevOps category.
 ## Chaos Studio Experiment Contributor
 
 Can create, run, and see details for experiments, onboard targets, and manage capabilities.
+
+[Learn more](/azure/chaos-studio/chaos-studio-permissions-security)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -66,6 +68,8 @@ Can create, run, and see details for experiments, onboard targets, and manage ca
 ## Chaos Studio Operator
 
 Can run and see details for experiments but cannot create experiments or manage targets and capabilities.
+
+[Learn more](/azure/chaos-studio/chaos-studio-permissions-security)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -124,6 +128,8 @@ Can run and see details for experiments but cannot create experiments or manage 
 
 Can view targets, capabilities, experiments, and experiment details.
 
+[Learn more](/azure/chaos-studio/chaos-studio-permissions-security)
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -164,6 +170,69 @@ Can view targets, capabilities, experiments, and experiment details.
     }
   ],
   "roleName": "Chaos Studio Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Chaos Studio Target Contributor
+
+Can onboard targets and manage capabilities but cannot create, run, or see details for experiments
+
+[Learn more](/azure/chaos-studio/chaos-studio-permissions-security)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/targets/write | Creates or update a Target resource that extends a tracked resource. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/targets/delete | Deletes a Target resource that extends a tracked resource. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/targets/read | Gets all Targets that extend a tracked resource. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/targets/capabilities/write | Creates or update a Capability resource that extends a Target resource. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/targets/capabilities/delete | Deletes a Capability resource that extends a Target resource. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/targets/capabilities/read | Gets all Capabilities that extend a Target resource. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/locations/targetTypes/read | Gets all TargetTypes. |
+> | [Microsoft.Chaos](../permissions/devops.md#microsoftchaos)/locations/targetTypes/capabilityTypes/read | Gets all CapabilityType. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can onboard targets and manage capabilities but cannot create, run, or see details for experiments",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/59a618e3-3c9a-406e-9f03-1a20dd1c55f1",
+  "name": "59a618e3-3c9a-406e-9f03-1a20dd1c55f1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Chaos/targets/write",
+        "Microsoft.Chaos/targets/delete",
+        "Microsoft.Chaos/targets/read",
+        "Microsoft.Chaos/targets/capabilities/write",
+        "Microsoft.Chaos/targets/capabilities/delete",
+        "Microsoft.Chaos/targets/capabilities/read",
+        "Microsoft.Chaos/locations/targetTypes/read",
+        "Microsoft.Chaos/locations/targetTypes/capabilityTypes/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Chaos Studio Target Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

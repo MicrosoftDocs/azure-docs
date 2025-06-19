@@ -27,7 +27,7 @@ Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure
 
 If developing using a JavaScript framework, one of the following open-source projects can be useful:
 
-* [ng-azure-maps] - Angular 10 wrapper around Azure maps.
+* [ng-azure-maps] - Angular 10 wrapper around Azure Maps.
 * [AzureMapsControl.Components] - An Azure Maps Blazor component.
 * [Azure Maps React Component] - A react wrapper for the Azure Maps control.
 * [Vue Azure Maps] - An Azure Maps component for Vue application.
@@ -71,9 +71,9 @@ The following table lists key API features in the Bing Maps V8 JavaScript SDK an
 | Spatial math             | [Microsoft.Maps.SpatialMath]        | ✓ [atlas.math samples] or [turf js]                                   |
 | Custom map styles        |                                     | Partial, [Choose a map style]                                          |
 
-Azure Maps more [open-source modules for the web SDK] that extend its capabilities.
+Azure Maps more [open-source modules for the Web SDK] that extend its capabilities.
 
-## Notable differences in the web SDKs
+## Notable differences in the Web SDKs
 
 The following are some of the key differences between the Bing Maps and Azure Maps Web SDKs to be aware of:
 
@@ -1204,7 +1204,7 @@ map.layers.add(new atlas.layer.TileLayer({
 
 ### Show traffic data
 
-Traffic data can be overlaid both Bing and Azure maps.
+Traffic data can be overlaid both Bing and Azure Maps.
 
 **Before: Bing Maps**
 
@@ -1230,11 +1230,11 @@ map.setTraffic({
 });
 ```
 
-![Azure Maps traffic](media/migrate-bing-maps-web-app/azure-maps-traffic.jpg)
+![Azure Maps Traffic](media/migrate-bing-maps-web-app/azure-maps-traffic.jpg)
 
 If you select one of the traffic icons in Azure Maps, more information displays in a popup.
 
-![Azure Maps traffic popup](media/migrate-bing-maps-web-app/azure-maps-traffic-popup.jpg)
+![Azure Maps Traffic popup](media/migrate-bing-maps-web-app/azure-maps-traffic-popup.jpg)
 
 **More resources**
 
@@ -1244,7 +1244,7 @@ If you select one of the traffic icons in Azure Maps, more information displays 
 
 ### Add a ground overlay
 
-Both Bing and Azure maps support overlaying georeferenced images on the map that they move and scale as you pan and zoom the map. In Bing Maps these are known as ground overlays, in Azure Maps they're referred to as image layers. Image layers are great for building floor plans, overlaying old maps, or imagery from a drone.
+Both Bing and Azure Maps support overlaying georeferenced images on the map that they move and scale as you pan and zoom the map. In Bing Maps these are known as ground overlays, in Azure Maps they're referred to as image layers. Image layers are great for building floor plans, overlaying old maps, or imagery from a drone.
 
 **Before: Bing Maps**
 
@@ -1415,7 +1415,7 @@ Running this code in a browser displays a map that looks like the following imag
 
 **After: Azure Maps**
 
-In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial data formats can be easily integrated in using the [spatial IO module]. This module has functions for both reading and writing spatial data and also includes a simple data layer that can easily render data from any of these spatial data formats. To read the data in a spatial data file, pass in a URL, or raw data as string or blob into the `atlas.io.read` function. This returns all the parsed data from the file that can then be added to the map. KML is a bit more complex than most spatial data format as it includes a lot more styling information. The `SpatialDataLayer` class supports rendering most of these styles, however icons images have to be loaded into the map before loading the feature data, and ground overlays have to be added as layers to the map separately. When loading data via a URL, it should be hosted on a CORs enabled endpoint, or a proxy service should be passed in as an option into the read function.
+In Azure Maps, GeoJSON is the main data format used in the Web SDK, more spatial data formats can be easily integrated in using the [spatial IO module]. This module has functions for both reading and writing spatial data and also includes a simple data layer that can easily render data from any of these spatial data formats. To read the data in a spatial data file, pass in a URL, or raw data as string or blob into the `atlas.io.read` function. This returns all the parsed data from the file that can then be added to the map. KML is a bit more complex than most spatial data format as it includes a lot more styling information. The `SpatialDataLayer` class supports rendering most of these styles, however icons images have to be loaded into the map before loading the feature data, and ground overlays have to be added as layers to the map separately. When loading data via a URL, it should be hosted on a CORs enabled endpoint, or a proxy service should be passed in as an option into the read function.
 
 ```html
 <!DOCTYPE html>
@@ -1651,7 +1651,7 @@ Review code samples related migrating other Bing Maps features:
 > [Show directions from A to B](./map-route.md)
 
 > [!div class="nextstepaction"]
-> [Search Autosuggest with JQuery UI](https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui)
+> [Search Autosuggest with jQuery UI](https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui)
 
 Learn more about the Azure Maps Web SDK.
 
@@ -1703,8 +1703,6 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Azure Maps Glossary]: glossary.md
 [Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
 [AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
-[Cesium plugin]: /samples/azure-samples/azure-maps-cesium/azure-maps-cesium-js-plugin
-[Cesium]: https://www.cesium.com/
 [Choose a map style]: choose-map-style.md
 [Cluster point data]: clustering-point-data-web-sdk.md
 [Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
@@ -1720,9 +1718,6 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [HTML marker class]: /javascript/api/azure-maps-control/atlas.htmlmarker
 [HTML marker options]: /javascript/api/azure-maps-control/atlas.htmlmarkeroptions
 [Image layer class]: /javascript/api/azure-maps-control/atlas.layer.imagelayer
-[Leaflet code samples]: https://samples.azuremaps.com/?search=leaflet
-[Leaflet plugin]: /samples/azure-samples/azure-maps-leaflet/azure-maps-leaflet-plugin
-[Leaflet]: https://leafletjs.com/
 [Line layer options]: /javascript/api/azure-maps-control/atlas.linelayeroptions
 [Load a map]: #load-a-map
 [Localization support in Azure Maps]: supported-languages.md
@@ -1743,10 +1738,8 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Microsoft.Maps.Traffic]: /bingmaps/v8-web-control/modules/traffic-module/
 [Microsoft.Maps.SpatialMath]: /bingmaps/v8-web-control/modules/spatial-math-module/
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
-[OpenLayers plugin]: /samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin
-[OpenLayers]: https://openlayers.org/
-[open-source Azure Maps Web SDK modules]: open-source-projects.md#open-web-sdk-modules
-[open-source modules for the web SDK]: open-source-projects.md#open-web-sdk-modules
+[open-source Azure Maps Web SDK modules]: open-source-projects.md#open-source-web-sdk-modules
+[open-source modules for the Web SDK]: open-source-projects.md#open-source-web-sdk-modules
 [Overlay a tile layer]: #overlay-a-tile-layer
 [Overlay an image]: map-add-image-layer.md
 [Polygon layer options]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions
@@ -1755,13 +1748,10 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
 [Pushpin clustering]: #pushpin-clustering
-[Render]: /rest/api/maps/render
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
 [REST SDK]: rest-sdk-developer-guide.md
 [Route API]: /rest/api/maps/route
 [Route Matrix API]: /rest/api/maps/route/post-route-matrix
-[road tiles]: /rest/api/maps/render/get-map-tile
-[satellite tiles]: /rest/api/maps/render/get-map-static-image
 [Setting the map view]: #setting-the-map-view
 [Search API]: /rest/api/maps/search
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication

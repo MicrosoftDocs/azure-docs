@@ -20,8 +20,8 @@ Extract the zip file. The file contains the following folders:
 * Generic
 * OpenVPN (If you have enabled the OpenVPN with **Azure certificate** or **RADIUS authentication** settings on the gateway). Select the appropriate article that corresponds to your configuration to create a tenant.
 
-  * [VPN Gateway- Create a tenant](../articles/vpn-gateway/openvpn-azure-ad-tenant.md).
-  * [Virtual WAN - Create a tenant](../articles/virtual-wan/openvpn-azure-ad-tenant.md).
+  * [VPN Gateway- Create a tenant](../articles/vpn-gateway/openvpn-azure-ad-tenant.md)
+  * [Virtual WAN - Create a tenant](../articles/virtual-wan/openvpn-azure-ad-tenant.md)
 
 ## Retrieve information
 

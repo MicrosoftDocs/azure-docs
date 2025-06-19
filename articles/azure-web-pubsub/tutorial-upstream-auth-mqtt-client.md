@@ -212,7 +212,7 @@ awps-tunnel run --hub {hubName} --upstream http://localhost:{portExposedByYourAu
 
 We will implement the client side in Node.js.
 
-Initialize a NodeJS project with the following command.
+Initialize a Node.js project with the following command.
 ```bash
 npm init
 ```

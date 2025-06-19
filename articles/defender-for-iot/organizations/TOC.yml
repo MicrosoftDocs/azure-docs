@@ -154,6 +154,8 @@
       href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: iot-advanced-threat-monitoring.md
+  - name: Set up automatic sensor disconnection notifications
+    href: automate-sensor-disconnection-alerts.md
   - name: Monitor with Zero Trust principles
     href: monitor-zero-trust.md
 - name: How-to guides
@@ -183,7 +185,7 @@
       displayName: alert, alerts
       href: how-to-view-alerts.md
     - name: Accelerate on-premises alert workflows
-      displayName: alerts, supression, exclusion
+      displayName: alerts, suppression, exclusion
       href: how-to-accelerate-alert-incident-response.md
     - name: Forward on-premises alert data
       displayName: alerts
@@ -299,11 +301,6 @@
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Troubleshoot OT sensors
           href: how-to-troubleshoot-sensor.md
-    - name: Maintain IoT on-premises resources
-      items:
-      - name: Extra deployment steps and samples
-        displayName: Enterprise IoT sensor
-        href: extra-deploy-enterprise-iot.md
 - name: Reference
   items:
   - name: Supported protocols
@@ -342,7 +339,7 @@
           href: appliance-catalog/dell-poweredge-r360-e1800.md
       - name: Production line
         items:
-        - name: Heptagon YB3x
+        - name: Heptagon Systems YB3x
           href: appliance-catalog/heptagon-yb3x.md
         - name: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
           href: appliance-catalog/hpe-proliant-dl20-gen-11-nhp-2lff.md
@@ -421,7 +418,9 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
-  - name: Release notes archive
-    href: release-notes-archive.md
+  - name: What's new archive
+    href: whats-new-archive.md
+  - name: OT monitoring software versions archive
+    href: release-notes-ot-monitoring-sensor-archive.md
   - name: Custom columns sample script
     href: custom-columns-sample-script.md

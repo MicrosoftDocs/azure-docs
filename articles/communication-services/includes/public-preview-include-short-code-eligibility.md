@@ -1,2 +1,2 @@
 > [!IMPORTANT]
-> Short code cannot be acquired on trial accounts or using Azure free credits. For more information, see the [subscription eligibility](../concepts/numbers/sub-eligibility-number-capability.md) page.
+> You can't acquire short codes on trial accounts or by using Azure free credits. For more information, see [subscription eligibility](../concepts/numbers/sub-eligibility-number-capability.md).

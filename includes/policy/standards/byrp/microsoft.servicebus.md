@@ -1,10 +1,12 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 12/06/2024
-ms.author: davidsmatlak
-author: davidsmatlak
-ms.custom: generated
+ms.date: 05/23/2025
+ms.author: jasongroce
+author: jasongroce
+ms.custom:
+  - generated
+  - build-2025
 ---
 
 ## CIS Microsoft Azure Foundations Benchmark 1.3.0
@@ -211,7 +213,7 @@ For more information about this compliance standard, see
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Security of Digital Services | 10.66 |Security of Digital Services - 10.66 |[Deploy Diagnostic Settings for Service Bus to Event Hub](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b51af03-9277-49a9-a3f8-1c69c9ff7403) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_EventHub.json) |
-|Security of Digital Services | 10.66 |Security of Digital Services - 10.66 |[Deploy Diagnostic Settings for Service Bus to Log Analytics workspace](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F04d53d87-841c-4f23-8a5b-21564380b55e) |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
+|Security of Digital Services | 10.66 |Security of Digital Services - 10.66 |[Deploy Diagnostic Settings for Service Bus to Log Analytics workspace](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F04d53d87-841c-4f23-8a5b-21564380b55e) |[2.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 
 ## Spain ENS
 

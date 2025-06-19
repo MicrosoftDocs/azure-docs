@@ -2,12 +2,12 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 06/11/2025
 ms.reviewer: sharrai
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up an Azure VM using Enhanced policy
 
@@ -19,7 +19,7 @@ Azure Backup now supports Enhanced policy for Azure VM backup that offers:
 - Longer retention in snapshot (operational) tier up to 30 days.
 
 >[!Note]
->- Standard policy doesn't support protecting newer Azure offerings, such as Ultra SSD and Premium SSD v2.  Backup of trusted launch VM using standard policy is available in preview in [selected regions](backup-support-matrix-iaas.md#tvm-backup). Configuring backup of trusted launch VM using standard policy is supported only using Recovery Services – Backup APIs using API version *2024-09-30-preview*.
+>- Standard policy doesn't support protecting newer Azure offerings, such as Ultra SSD and Premium SSD v2. Only CLI (version 2.73.0 and later), PowerShell (version Az 14.0.0 and later), and REST API (version 2025-01-01 and later) support trusted launch VM backup with Standard policy.
 >- Backups for VMs with data access authentication enabled disks fails.
 >- Protection of a VM with an enhanced policy incurs additional snapshot costs. [Learn more](backup-instant-restore-capability.md#cost-impact).
 >- Once you enable a VM backup with Enhanced policy, Azure Backup doesn't allow to change the policy type to Standard.
@@ -118,7 +118,7 @@ In this sample cmdlet:
 - The second and third command fetches the India timezone and updates the timezone in the $schedulePolicy.
 - The fourth and fifth command initializes the schedule window start time and updates the $schedulePolicy. 
 
-  >[Note]
+  >[!Note]
   >The start time must be in UTC even if the timezone is not UTC.
 
 - The sixth and seventh command updates the interval (in hours) after which the backup will be retriggered on the same day, duration (in hours) for which the schedule will run.
@@ -266,7 +266,7 @@ You can exclude noncritical disks from backup by using selective disk backup to 
 
 ## Next steps
 
-- [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-a-backup-immediately)
-- [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-backup-job-status)
-- [Restore Azure virtual machines](./backup-azure-arm-restore-vms.md#restore-disks)
-- [Troubleshoot VM backup](backup-azure-vms-troubleshoot.md#usererrormigrationfromtrustedlaunchvm-tonontrustedvmnotallowed)
+- [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-an-on-demand-backup-of-azure-vm).
+- [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-backup-job-status).
+- [Restore Azure virtual machines](./backup-azure-arm-restore-vms.md#restore-disks).
+- [Troubleshoot VM backup](backup-azure-vms-troubleshoot.md#usererrormigrationfromtrustedlaunchvm-tonontrustedvmnotallowed).

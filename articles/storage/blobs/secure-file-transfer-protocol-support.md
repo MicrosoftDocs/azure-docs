@@ -5,7 +5,7 @@ description: Blob storage now supports the SSH File Transfer Protocol (SFTP).
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2024
 ms.custom: references_regions
 ms.author: normesta
@@ -26,7 +26,7 @@ Prior to the release of this feature, if you wanted to use SFTP to transfer data
 
 Now, with SFTP support for Azure Blob Storage, you can enable SFTP support for Blob Storage accounts with a single click. Then you can set up local user identities for authentication to connect to your storage account with SFTP via port 22.
 
-This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
+This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Enable or disable SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support-how-to.md).
 
 > [!NOTE]
 > SFTP is a platform level service, so port 22 will be open even if the account option is disabled. If SFTP access is not configured then all requests will receive a disconnect from the service.
@@ -44,7 +44,7 @@ Different protocols are supported by the hierarchical namespace. SFTP is one of 
 
 SFTP clients can't be authorized by using Microsoft Entra identities. Instead, SFTP utilizes a new form of identity management called _local users_.
 
-Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 8,000 local users for a storage account.
+Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 25,000 local users for a storage account.
 
 To set up access permissions, you create a local user, and choose authentication methods. Then, for each container in your account, you can specify the level of access you want to give that user.
 
@@ -53,7 +53,7 @@ To set up access permissions, you create a local user, and choose authentication
 >
 
 > [!CAUTION]
-> Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control) and ABAC (attribute based access control). Access control lists (ACLs) are supported for local users at the preview level.
+> Local users do not interoperate with other Azure Storage permission models such as RBAC (role based access control) and ABAC (attribute based access control). Access control lists (ACLs) are supported for local users.
 >
 > For example, Jeff has read only permission (can be controlled via RBAC or ABAC) via their Microsoft Entra identity for file _foo.txt_ stored in container _con1_. If Jeff is accessing the storage account via NFS (when not mounted as root/superuser), Blob REST, or Data Lake Storage REST, these permissions will be enforced. However, if Jeff also has a local user identity with delete permission for data in container _con1_, they can delete _foo.txt_ via SFTP using the local user identity.
 
@@ -90,10 +90,6 @@ For container-level permissions, you can choose which containers you want to gra
 When performing write operations on blobs in sub directories, Read permission is required to open the directory and access blob properties.
 
 ## Access control lists (ACLs)
-
-> [!IMPORTANT]
-> This capability is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ACLs let you grant "fine-grained" access, such as write access to a specific directory or file. A common ACL use case is to restrict a user's access to a specific directory without letting that user access other directories within the same container. This can be repeated for multiple users so that they each have granular access to their own directory. Without ACLs, this would require a container per local user. ACLs also make it easier for administrators to manage access for multiple local users with the help of groups. To learn more about ACLs, see [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md).
 

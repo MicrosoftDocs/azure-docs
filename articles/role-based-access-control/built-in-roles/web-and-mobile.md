@@ -2,12 +2,12 @@
 title: Azure built-in roles for Web and Mobile - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Web and Mobile category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -638,13 +638,13 @@ Create, read, modify, and delete Media Services accounts; read-only access to ot
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/*/read |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | List Streaming Locators for Asset |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | List Paths |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/write | Create or Update any Media Services Account |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/delete | Delete any Media Services Account |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/privateEndpointConnections/* |  |
+> | Microsoft.Media/mediaservices/*/read |  |
+> | Microsoft.Media/mediaservices/assets/listStreamingLocators/action |  |
+> | Microsoft.Media/mediaservices/streamingLocators/listPaths/action |  |
+> | Microsoft.Media/mediaservices/write |  |
+> | Microsoft.Media/mediaservices/delete |  |
+> | Microsoft.Media/mediaservices/privateEndpointConnectionsApproval/action |  |
+> | Microsoft.Media/mediaservices/privateEndpointConnections/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -703,14 +703,14 @@ Create, read, modify, and delete Live Events, Assets, Asset Filters, and Streami
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/*/read |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/* |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/assetfilters/* |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingLocators/* |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/liveEvents/* |  |
+> | Microsoft.Media/mediaservices/*/read |  |
+> | Microsoft.Media/mediaservices/assets/* |  |
+> | Microsoft.Media/mediaservices/assets/assetfilters/* |  |
+> | Microsoft.Media/mediaservices/streamingLocators/* |  |
+> | Microsoft.Media/mediaservices/liveEvents/* |  |
 > | **NotActions** |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/getEncryptionKey/action | Get Asset Encryption Key |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingLocators/listContentKeys/action | List Content Keys |
+> | Microsoft.Media/mediaservices/assets/getEncryptionKey/action |  |
+> | Microsoft.Media/mediaservices/streamingLocators/listContentKeys/action |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -768,14 +768,14 @@ Create, read, modify, and delete Assets, Asset Filters, Streaming Locators, and 
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/*/read |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/* |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/assetfilters/* |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingLocators/* |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/transforms/jobs/* |  |
+> | Microsoft.Media/mediaservices/*/read |  |
+> | Microsoft.Media/mediaservices/assets/* |  |
+> | Microsoft.Media/mediaservices/assets/assetfilters/* |  |
+> | Microsoft.Media/mediaservices/streamingLocators/* |  |
+> | Microsoft.Media/mediaservices/transforms/jobs/* |  |
 > | **NotActions** |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/getEncryptionKey/action | Get Asset Encryption Key |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingLocators/listContentKeys/action | List Content Keys |
+> | Microsoft.Media/mediaservices/assets/getEncryptionKey/action |  |
+> | Microsoft.Media/mediaservices/streamingLocators/listContentKeys/action |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -833,15 +833,15 @@ Create, read, modify, and delete Account Filters, Streaming Policies, Content Ke
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/*/read |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | List Streaming Locators for Asset |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | List Paths |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/accountFilters/* |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingPolicies/* |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/contentKeyPolicies/* |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/transforms/* |  |
+> | Microsoft.Media/mediaservices/*/read |  |
+> | Microsoft.Media/mediaservices/assets/listStreamingLocators/action |  |
+> | Microsoft.Media/mediaservices/streamingLocators/listPaths/action |  |
+> | Microsoft.Media/mediaservices/accountFilters/* |  |
+> | Microsoft.Media/mediaservices/streamingPolicies/* |  |
+> | Microsoft.Media/mediaservices/contentKeyPolicies/* |  |
+> | Microsoft.Media/mediaservices/transforms/* |  |
 > | **NotActions** |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/contentKeyPolicies/getPolicyPropertiesWithSecrets/action | Get Policy Properties With Secrets |
+> | Microsoft.Media/mediaservices/contentKeyPolicies/getPolicyPropertiesWithSecrets/action |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -900,10 +900,10 @@ Create, read, modify, and delete Streaming Endpoints; read-only access to other 
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/*/read |  |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/assets/listStreamingLocators/action | List Streaming Locators for Asset |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingLocators/listPaths/action | List Paths |
-> | [Microsoft.Media](../permissions/web-and-mobile.md#microsoftmedia)/mediaservices/streamingEndpoints/* |  |
+> | Microsoft.Media/mediaservices/*/read |  |
+> | Microsoft.Media/mediaservices/assets/listStreamingLocators/action |  |
+> | Microsoft.Media/mediaservices/streamingLocators/listPaths/action |  |
+> | Microsoft.Media/mediaservices/streamingEndpoints/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |

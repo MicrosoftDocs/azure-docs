@@ -32,9 +32,9 @@ For more information, go to [Encryption at rest in Azure Cosmos DB](/azure/cosmo
 
 The encryption model used by Azure Managed Grafana is the server-side encryption model with Service-Managed keys.
 
-In this model, all key management aspects such as key issuance, rotation, and backup are managed by Microsoft. The Azure resource providers create the keys, place them in secure storage, and retrieve them when needed. For more information, go to [Server-side encryption using service-managed keys](../security/fundamentals/encryption-models.md#server-side-encryption-using-service-managed-keys).
+In this model, all key management aspects, such as key issuance, rotation, and backup, are managed by Microsoft. The Azure resource providers create the keys, place them in secure storage, and retrieve them when needed. For more information, go to [Server-side encryption using service-managed keys](../security/fundamentals/encryption-models.md#server-side-encryption-using-service-managed-keys).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor your Azure Managed Grafana instance](how-to-monitor-managed-grafana-workspace.md)
+> [Monitor Azure Managed Grafana](how-to-monitor-managed-grafana-workspace.md)

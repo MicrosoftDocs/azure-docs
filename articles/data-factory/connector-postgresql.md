@@ -1,21 +1,21 @@
 ---
-title: Copy data From PostgreSQL
+title: Copy data From PostgreSQL V2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from PostgreSQL V2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/27/2024
+ms.date: 04/14/2025
 ms.author: jianleishen
 ---
-# Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
+# Copy data from PostgreSQL V2 using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
->[!IMPORTANT]
->The new PostgreSQL connector provides improved native PostgreSQL support. If you are using the legacy PostgreSQL connector in your solution, please [upgrade your PostgreSQL connector](#upgrade-the-postgresql-linked-service) before **October 31, 2024**. Refer to this [section](#differences-between-postgresql-and-postgresql-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [PostgreSQL V2 connector](connector-postgresql.md) provides improved native PostgreSQL support. If you are using the [PostgreSQL V1 connector](connector-postgresql-legacy.md) in your solution, please [upgrade your PostgreSQL connector](#upgrade-the-postgresql-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-postgresql-and-postgresql-legacy) for details on the difference between V2 and V1. 
 
 ## Supported capabilities
 
@@ -254,7 +254,7 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 
 When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-|PostgreSql data type | Interim service data type | Interim service data type for PostgreSQL (legacy) |
+|PostgreSQL data type | Interim service data type for PostgreSQL V2 | Interim service data type for PostgreSQL V1 |
 |:---|:---|:---|
 |`SmallInt`|`Int16`|`Int16`|
 |`Integer`|`Int32`|`Int32`|
@@ -316,13 +316,13 @@ Here are steps that help you upgrade your PostgreSQL connector:
 
 1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
-1. The data type mapping for the latest PostgreSQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](#data-type-mapping-for-postgresql).
+1. The data type mapping for the PostgreSQL V2 connector is different from that for V1. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](#data-type-mapping-for-postgresql).
 
-## Differences between PostgreSQL and PostgreSQL (legacy)
+## <a name="differences-between-postgresql-and-postgresql-legacy"></a> Differences between PostgreSQL V2 and V1
 
-The table below shows the data type mapping differences between PostgreSQL and PostgreSQL (legacy).
+The table below shows the data type mapping differences between PostgreSQL V2 and V1.
 
-|PostgreSQL data type|Interim service data type for PostgreSQL|Interim service data type for PostgreSQL (legacy)|
+|PostgreSQL data type|Interim service data type for PostgreSQL V2|Interim service data type for PostgreSQL V1|
 |:---|:---|:---|
 |Money|Decimal|String|
 |Timestamp with time zone |DateTime|String|

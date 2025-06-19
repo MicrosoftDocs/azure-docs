@@ -67,7 +67,7 @@ There are multiple ways to add a new cell to your notebook:
 
 ### <a name = "set-a-primary-language"></a>Set a primary language
 
-Synapse notebooks support four Apache Spark languages:
+Synapse notebooks support five Apache Spark languages:
 
 * PySpark (Python)
 * Spark (Scala)
@@ -524,7 +524,7 @@ On the notebook's **Properties** pane, you can configure whether to include the 
 
 ## <a name = "magic-commands"></a>Use magic commands
 
-You can use familiar Jupyter magic commands in Synapse notebooks. Review the following lists of currently available magic commands. Tell us [your use cases on GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) so that we can continue to create more magic commands to meet your needs.
+You can use familiar Jupyter magic commands in Synapse notebooks. Review the following lists of currently available magic commands. Tell us [your use cases on GitHub](https://github.com/MicrosoftDocs/azure-docs/issues) so that we can continue to create more magic commands to meet your needs.
 
 > [!NOTE]
 > Only the following magic commands are supported in Synapse pipelines: `%%pyspark`, `%%spark`, `%%csharp`, `%%sql`.

@@ -1,10 +1,11 @@
 ---
-title: Azure Communication Services - Voice and video calling events
+title: Azure Communication Services - events 
 description: This article describes how to use Azure Communication Services as an Event Grid event source for voice and video calling Events.
-ms.topic: conceptual
-ms.date: 12/02/2022
+ms.topic: concept-article
+ms.date: 01/22/2025
 author: VikramDhumal
 ms.author: vikramdh
+# Customer intent: I want to know what events are supported by Azure Communication Services through Azure Event Grid. 
 ---
 
 # Azure Communication Services - Voice and video calling events
@@ -22,7 +23,7 @@ Azure Communication Services emits the following voice and video calling event t
 | [Microsoft.Communication.CallEnded](#microsoftcommunicationcallended)   | Published when a call ends  |
 | [Microsoft.Communication.CallParticipantAdded](#microsoftcommunicationcallparticipantadded) | Published when a participant is added to a call AND they join it |
 | [Microsoft.Communication.CallParticipantRemoved](#microsoftcommunicationcallparticipantremoved) | Published when a participant leaves or is removed from a call  |
-| [Microsoft.Communication.IncomingCall](#microsoftcommunicationincomingcall) | Published when there is an incoming call  |
+| [Microsoft.Communication.IncomingCall](#microsoftcommunicationincomingcall) | Published when there's an incoming call  |
 
 ## Event responses
 
@@ -62,8 +63,6 @@ This section contains an example of what that data would look like for each even
  }
 ]
 ```
-
-[!INCLUDE [Public Preview](../communication-services/includes/public-preview-include-document.md)]
 
 ### Microsoft.Communication.CallStarted
 
@@ -280,10 +279,10 @@ This section contains an example of what that data would look like for each even
 ```
 
 ## Limitations
-Aside from `IncomingCall`, Calling events are only available for Azure Communication Services VoIP users. PSTN, bots, echo bot and Teams users events are excluded.
-No calling events will be available for Azure Communication Services - Teams meeting interop call.
+Aside from `IncomingCall`, Calling events are only available for Azure Communication Services VoIP users. Public Switched Telephone Network (PSTN), bots, echo bot, and Teams users events are excluded.
+No calling events are available for Azure Communication Services - Teams meeting interop call.
 
-`IncomingCall` events have support for Azure Communication Services VoIP users and PSTN numbers. For more details on which scenarios can trigger `IncomingCall` events, see the following [Incoming call concepts](../communication-services/concepts/call-automation/incoming-call-notification.md) documentation. 
+`IncomingCall` events have support for Azure Communication Services VoIP users and PSTN numbers. For more information about scenarios that can trigger `IncomingCall` events, see the following [Incoming call concepts](../communication-services/concepts/call-automation/incoming-call-notification.md) documentation. 
 
-## Next steps
+## Related content
 See the following tutorial: [Quickstart: Handle voice and video calling events](../communication-services/quickstarts/voice-video-calling/handle-calling-events.md).

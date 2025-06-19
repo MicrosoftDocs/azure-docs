@@ -54,7 +54,7 @@ To configure your [desktop](../../active-directory/develop/scenario-desktop-app-
 Permissions for Azure API for FHIR are managed through role-based access control (RBAC). For more details, visit [Configure Azure RBAC for FHIR](configure-azure-rbac.md).
 
 >[!NOTE]
->Use a `grant_type` of `client_credentials` when trying to obtain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
+>Use a `grant_type` of `client_credentials` when trying to obtain an access token for Azure API for FHIR using tools for intuitive querying.
 
 ## Validate FHIR server authority
 If the application you registered and your FHIR server are in the same Microsoft Entra tenant, you're good to proceed to the next steps.
@@ -63,9 +63,9 @@ If you configure your client application in a different Microsoft Entra tenant f
 
 ## Next steps
 
-In this article, you learned how to register a public client application in Microsoft Entra ID. Next, test access to your FHIR Server using Postman.
+In this article, you learned how to register a public client application in Microsoft Entra ID. Next, test access to your FHIR Server using REST Client.
  
 >[!div class="nextstepaction"]
->[Access the FHIR service using Postman](./../fhir/use-postman.md)
+>[Access the FHIR service using REST Client](./../fhir/using-rest-client.md)
 
 [!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

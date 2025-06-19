@@ -1,13 +1,13 @@
 ---
 title: Understand your Microsoft Partner Agreement invoice in Azure
 description: Learn how to read and understand your Microsoft Partner Agreement bill in Azure
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/08/2024
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: jkinma
 ---
 
 # Terms in your Microsoft Partner Agreement invoice

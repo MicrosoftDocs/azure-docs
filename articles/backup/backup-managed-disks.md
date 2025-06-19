@@ -2,27 +2,20 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 06/11/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Managed Disks
 
-This article explains how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) from the Azure portal.
+This article explains how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) from the Azure portal. You can also use REST API to [create a Backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md) and [configure backup](backup-azure-dataprotection-use-rest-api-backup-disks.md) for Azure Managed Disk.
 
-In this article, you'll learn how to:
+Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
 
-- Create a Backup vault
-
-- Create a backup policy
-
-- Configure a backup of an Azure Disk
-
-- Run an on-demand backup job
-
-For information on the Azure Disk backup region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
+>[!Note]
+>- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
 
 ## Create a Backup vault
 
@@ -85,7 +78,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
 ## Configure backup
 
-- Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier.              <br>         Incremental snapshots are stored in a Standard HDD storage, irrespective of the selected storage type of the parent disk. For additional reliability, incremental snapshots are stored on [Zone Redundant Storage (ZRS)](../storage/common/storage-redundancy.md) by default in ZRS supported regions.
+- Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier.              <br>         Incremental snapshots are stored in a Standard HDD storage, irrespective of the selected storage type of the parent disk. For additional reliability, incremental snapshots are stored on [Zone Redundant Storage (ZRS)](/azure/storage/common/storage-redundancy#zone-redundant-storage) by default in ZRS supported regions.
 
 - Azure Disk backup supports cross-subscription (backup vault in one subscription and the source disk in another) backup and restore. Currently, cross-region backup and restore aren't supported by Azure Disk backup, that is, the backup vault and disk to back up are in different regions.      <br>        So, to use Azure Disk backup, ensure that the backup vault and disk to back up are in the same region.
 
@@ -232,4 +225,10 @@ The Azure Backup service creates a job for scheduled backups or if you trigger o
 
 ## Next steps
 
-- [Restore Azure Managed Disks](restore-managed-disks.md)
+Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
+
+## Related content
+
+- [Create a backup policy to protect Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
+- [Back up Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+- [Restore Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).

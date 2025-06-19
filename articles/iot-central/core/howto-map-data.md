@@ -61,7 +61,7 @@ The left-hand side of the **Map data** panel shows the latest message from your 
 
 Add as many mappings as you need and then select **Save**:
 
-:::image type="content" source="media/howto-map-data/map-data.png" alt-text="Screenshot of the **Map data** view showing the Json path and alias." lightbox="media/howto-map-data/map-data.png":::
+:::image type="content" source="media/howto-map-data/map-data.png" alt-text="Screenshot of the **Map data** view showing the JSON path and alias." lightbox="media/howto-map-data/map-data.png":::
 
 For a given device:
 

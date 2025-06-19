@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
-ms.date: 10/23/2024
+ms.date: 06/11/2025
 ---
 
 # Default outbound access in Azure
@@ -62,13 +62,8 @@ Some examples of configurations that won't work when using default outbound acce
  
 There are multiple ways to turn off default outbound access. The following sections describe the options available to you.
  
-### Utilize the Private Subnet parameter (public preview)
+### Utilize the Private Subnet parameter
 
-> [!IMPORTANT]
-> Private Subnets are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
- 
 * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
  
 * VMs on a Private subnet can still access the Internet using explicit outbound connectivity.
@@ -77,22 +72,96 @@ There are multiple ways to turn off default outbound access. The following secti
     > Certain services won't function on a virtual machine in a Private Subnet without an explicit method of egress (examples are Windows Activation and Windows Updates).
  
 #### Add the Private subnet feature
- 
-* From the Azure portal, ensure the option to enable Private subnet is selected as part of the Virtual Network subnet create/modify experience as shown below:
- 
-:::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Screenshot of Azure portal showing Private subnet option.":::
- 
-* Using PowerShell, when creating a subnet with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), use the `DefaultOutboundAccess` option and choose "$false". After creation, a subnet can be set using [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig).
 
-* Using CLI, when creating a subnet with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create), use the `--default-outbound` option and choose "false". After creation, a subnet can be set using [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update).
+ * From the Azure portal, select the subnet and select the checkbox to enable Private subnet as shown below:
+
+:::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Screenshot of Azure portal showing Private subnet option.":::
+
+* Using PowerShell, the following script takes the names of the Resource Group and Virtual Network and loops through each subnet to enable private subnet.
+
+```
+$resourceGroupName = ""
+$vnetName = ""
  
-* Using an Azure Resource Manager template, set the value of `defaultOutboundAccess` parameter to be "false".
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
+ 
+foreach ($subnet in $vnet.Subnets) {
+    if ($subnet.DefaultOutboundAccess -eq $null) {
+        $subnet.DefaultOutboundAccess = $false
+        Write-Output "Set 'defaultoutboundaccess' to \$false for subnet: $($subnet.Name)"
+    } 
+    elseif ($subnet.DefaultOutboundAccess -eq $false) {
+        # Output message if the value is already $false
+        Write-Output "already private for subnet: $($subnet.Name)"
+    }
+}
+Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
+
+* Using CLI, update the subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) and set `--default-outbound` to "false"
+
+```
+az network vnet subnet update --resource-group rgname --name subnetname --vnet-name vnetname --default-outbound false
+```
+
+* Using an Azure Resource Manager template, set the value of `defaultOutboundAccess` parameter to be "false"
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "testvm-vnet"
+    },
+    "subnetName": {
+      "type": "string",
+      "defaultValue": "default"
+    },
+    "subnetPrefix": {
+      "type": "string",
+      "defaultValue": "10.1.0.0/24"
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.1.0.0/16"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2023-11-01",
+      "name": "[parameters('vnetName')]",
+      "location": "westus2",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vnetAddressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('subnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetPrefix')]",
+              "defaultoutboundaccess": false
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 
 #### Private subnet limitations
  
 * To activate or update virtual machine operating systems, such as Windows, an explicit outbound connectivity method is required.
 
-* In configurations using a User Defined Route (UDR) with a default route (0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
+* In configurations using a User Defined Route (UDR) with a default route (0.0.0.0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
+
+* Private Subnets aren't applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
  
 ### Add an explicit outbound connectivity method
  
@@ -101,6 +170,9 @@ There are multiple ways to turn off default outbound access. The following secti
 * Associate a standard load balancer configured with outbound rules.
  
 * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
+
+>[!NOTE]
+> There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound access is being utilized.  When an explicit outbound connectivity method is added to a virtual machine, in order for the parameter to be updated, the virtual machine must be rebooted. The Advisor "Add explicit outbound method to disable default outbound" operates by checking for this parameter- so a stop/deallocate of the virtual machine is required for changes to be reflected and the action to clear. 
  
 ### Use Flexible orchestration mode for Virtual Machine Scale Sets
  

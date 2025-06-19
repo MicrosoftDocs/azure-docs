@@ -47,10 +47,10 @@ These public endpoints are required for Azure's underlying SDN and management pl
 
 ### Does Azure Route Server support IPv6?
 
-No. We'll add IPv6 support in the future. If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break connectivity for IPv6 traffic.
+No. If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break connectivity for IPv6 traffic. 
 
-> [!WARNING]
-> If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will also break connectivity for IPv4 traffic. This issue will be fixed in our next release to ensure IPv4 traffic continues to work as expected.
+You can peer a virtual network with an IPv6 address space to Route Server's virtual network, and IPv4 connectivity with this peered dual-stack virtual network will continue to function. IPv6 connectivity with this peered virtual network is not supported. 
+
 
 ## Routing
 
@@ -110,7 +110,7 @@ If the route has the same AS path length, Azure Route Server will program multip
 
 ### Does creating a Route Server affect the operation of existing virtual network gateways (VPN or ExpressRoute)?
 
-Yes. When you create or delete a Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), expect downtime until the operation is complete. If you have an ExpressRoute circuit connected to the virtual network where you're creating or deleting the Route Server, the downtime doesn't affect the ExpressRoute circuit or its connections to other virtual networks.
+Yes. When you create or delete a Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), downtime is expected to last 10 minutes. It may take 30-60 minutes for the actual Route Server deployment to complete, and so we recommend scheduling a maintenance window of 60 minutes for deployment. If you have an ExpressRoute circuit connected to the virtual network where you're creating or deleting the Route Server, the downtime doesn't affect the ExpressRoute circuit's connections to other virtual networks.
 
 ### Does Azure Route Server exchange routes by default between NVAs and the virtual network gateways (VPN or ExpressRoute)?
 

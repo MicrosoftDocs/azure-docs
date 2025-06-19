@@ -12,7 +12,7 @@ ms.author: kpunjabi
 ---
 
 ## Create a call and provide the transcription details
-Define the TranscriptionOptions for ACS to know whether to start the transcription straight away or at a later time, which locale to transcribe in and the web socket connection to use for sending the transcript.
+Define the TranscriptionOptions for ACS to specify when to start the transcription, the locale for transcription, and the web socket connection for sending the transcript.
 
 ```java
 CallInvite callInvite = new CallInvite(target, caller); 
@@ -24,7 +24,8 @@ TranscriptionOptions transcriptionOptions = new TranscriptionOptions(
     appConfig.getWebSocketUrl(), 
     TranscriptionTransport.WEBSOCKET, 
     "en-US", 
-    false
+    false,
+    "your-endpoint-id-here" // speechRecognitionEndpointId
 ); 
 
 CreateCallOptions createCallOptions = new CreateCallOptions(callInvite, appConfig.getCallBackUri());
@@ -35,8 +36,33 @@ Response result = client.createCallWithResponse(createCallOptions, Context.NONE)
 return result.getValue().getCallConnectionProperties().getCallConnectionId(); 
 ```
 
+## Connect to a Rooms call and provide transcription details
+If you're connecting to an ACS room and want to use transcription, configure the transcription options as follows:
+
+```java
+TranscriptionOptions transcriptionOptions = new TranscriptionOptions(
+    appConfig.getWebSocketUrl(), 
+    TranscriptionTransport.WEBSOCKET, 
+    "en-US", 
+    false,
+    "your-endpoint-id-here" // speechRecognitionEndpointId
+);
+
+ConnectCallOptions connectCallOptions = new ConnectCallOptions(new RoomCallLocator("roomId"), appConfig.getCallBackUri())
+    .setCallIntelligenceOptions(
+        new CallIntelligenceOptions()
+            .setCognitiveServicesEndpoint(appConfig.getCognitiveServiceEndpoint())
+    )
+    .setTranscriptionOptions(transcriptionOptions);
+
+ConnectCallResult connectCallResult = Objects.requireNonNull(client
+    .connectCallWithResponse(connectCallOptions)
+    .block())
+    .getValue();
+```
+
 ## Start Transcription
-Once you're ready to start the transcription you can make an explicit call to Call Automation to start transcribing the call.
+Once you're ready to start the transcription, you can make an explicit call to Call Automation to start transcribing the call.
 
 ```java
 //Option 1: Start transcription with options
@@ -53,8 +79,11 @@ client.getCallConnection(callConnectionId)
 //     .startTranscription();
 ```
 
+### Additional Headers:
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`.
+
 ## Receiving Transcription Stream
-When transcription starts, your websocket will receive the transcription metadata payload as the first packet. This payload carries the call metadata and locale for the configuration.
+When transcription starts, your websocket receives the transcription metadata payload as the first packet.
 
 ```json
 {
@@ -69,7 +98,7 @@ When transcription starts, your websocket will receive the transcription metadat
 ```
 
 ## Receiving Transcription data
-After the metadata the next packets your web socket receives will be TranscriptionData for the transcribed audio.
+After the metadata, the next packets your web socket receives will be TranscriptionData for the transcribed audio.
 
 ```json
 {
@@ -199,9 +228,14 @@ public class WebSocketServer {
 For situations where your application allows users to select their preferred language you may also want to capture the transcription in that language. To do this, Call Automation SDK allows you to update the transcription locale.
 
 ```java
+UpdateTranscriptionOptions transcriptionOptions = new UpdateTranscriptionOptions()
+    .setLocale(newLocale)
+    .setOperationContext("transcriptionContext")
+    .setSpeechRecognitionEndpointId("your-endpoint-id-here");
+
 client.getCallConnection(callConnectionId)
     .getCallMedia()
-    .updateTranscription("en-US-NancyNeural");
+    .updateTranscriptionWithResponse(transcriptionOptions, Context.NONE);
 ```
 
 ## Stop Transcription

@@ -2,10 +2,10 @@
 title: What's new in Azure Site Recovery
 description: Provides a summary of the latest updates in the Azure Site Recovery service.
 ms.topic: overview
-ms.author: ankitadutta
+ms.author: jsuri
 ms.service: azure-site-recovery
-author: ankitaduttaMSFT
-ms.date: 10/24/2024
+author: jyothisuri
+ms.date: 05/15/2025
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -24,7 +24,10 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 76](https://support.microsoft.com/en-us/topic/update-rollup-76-for-azure-site-recovery-6ca6833a-5b0f-4bdf-9946-41cd0aa8d6e4) | NA | NA | 9.63.7187.1 | 5.24.0902.11 | 2.0.9938.0
+[Rollup 79](https://support.microsoft.com/en-us/topic/update-rollup-79-for-azure-site-recovery-04417a2e-e191-450c-8625-29949d094b92) | 9.65.7417.1 | NA | 9.65.7417.1 | NA | NA
+[Rollup 78](https://support.microsoft.com/topic/update-rollup-78-for-azure-site-recovery-d1195ccc-3436-4d2f-bce3-76b18bcd6d53) | 9.64.7374.1 | NA | 9.64.7374.1 | NA | NA
+[Rollup 77](https://support.microsoft.com/topic/update-rollup-77-for-azure-site-recovery-dbd00d14-6b52-48dc-84d7-72b2f71ce20c) | 9.64.7314.1 | NA | 9.64.7314.1 | NA | NA
+[Rollup 76](https://support.microsoft.com/topic/update-rollup-76-for-azure-site-recovery-6ca6833a-5b0f-4bdf-9946-41cd0aa8d6e4) | NA | NA | 9.63.7187.1 | 5.24.0902.11 | 2.0.9938.0
 [Rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) | NA | NA | 9.62.7172.1 | 5.24.0814.2 | 2.0.9932.0
 [Rollup 74](https://support.microsoft.com/topic/update-rollup-74-for-azure-site-recovery-584e3586-4c55-4cc2-8b1c-63038b6b4464) | NA | NA | 9.62.7096.1 | 5.24.0614.1 | 2.0.9919.0
 [Rollup 73](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 9.61.7016.1 | 9.61.7016.1 | 9.61.7016.1 | 5.24.0317.5 | 2.0.9917.0 
@@ -33,6 +36,45 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (May 2025)
+
+### Update Rollup 79
+
+Update rollup 79 provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added Distro support for Oracle 9.5, Windows 2025 <br> Added kernel support for SLES 15, Debian 11, Debian 12, Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04.
+
+## Updates (April 2025)
+
+### Update Rollup 78
+
+Update [rollup 78](https://support.microsoft.com/topic/update-rollup-78-for-azure-site-recovery-d1195ccc-3436-4d2f-bce3-76b18bcd6d53) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Alma 9.5, Rocky 9.5, RHEL 9.5. <br> Added kernel support for Debian 11, Debian 11, SLES 12, SLES 15, and Ubuntu 22.04 to 18.04 distros.
+**VMware VM/physical disaster recovery to Azure** | Added support for Windows 2022 appliance OVA, OEL 8.10, Alma 8.6 to 8.10, Alma 9.0 to 9.5, Rocky 9.0 to 9.5, SUSE 15SP6, Ubuntu 24.04, RHEL 9.5. <br> Added kernel support for Debian 11, Debian 11, SLES 12, SLES 15, and Ubuntu 22.04 to 18.04 distros.
+
+
+## Updates (March 2025)
+
+### Update Rollup 77
+
+Update [rollup 77](https://support.microsoft.com/topic/update-rollup-77-for-azure-site-recovery-dbd00d14-6b52-48dc-84d7-72b2f71ce20c) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Debian 11, SLES 12, SLES 15, Ubuntu 24.04 to 18.04 distros, Oracle Linux 9.4, and RHEL 9 Linux distros. 
+
 
 ## Updates (October 2024)
 

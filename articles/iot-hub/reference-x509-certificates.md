@@ -1,13 +1,13 @@
 ---
 title: X.509 certificates | Microsoft Docs
 description: Reference documentation containing information about X.509 certificates, including certificate fields, certificate extensions, and certificate formats.
-author: kgremban
+author: SoniaLopezBravo
 
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: reference
 ms.date: 02/03/2022
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub, and I need to know what file formats, fields, and other details are supported by Azure IoT Hub. 
 ---

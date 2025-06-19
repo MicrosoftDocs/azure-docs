@@ -2,10 +2,10 @@
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
 ms.topic: overview
-ms.date: 12/30/2024
+ms.date: 06/17/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -47,6 +47,10 @@ For information about the limitations of the current solution, see the [support 
 
 ## Protection
 
+>[!Important]
+>The new backup policy only supports Operational backup along with Vaulted backup. You can't create policy for Operational backup only. Vaulted backup is selected by default in the new policy and can't be turned off. Existing backups and backup policies remain unchanged.
+ 
+
 **Choose a backup tier for protection**:
 
 # [Operational backup](#tab/operational-backup)
@@ -55,7 +59,7 @@ Operational backup is configured and managed at the **storage account** level, a
 
 When you configure backup for a storage account and assign a backup policy with a retention of ‘n’ days, the underlying properties are set as described below. You can view these properties in the **Data protection** tab of the blob service in your storage account.
 
-- **Point-in-time restore**: Set to ‘n’ days, as defined in the backup policy. If the storage account already had point-in-time enabled with a retention of, say ‘x’ days, before configuring backup, the point-in-time restore duration will be set to the greater of the two values that is max(n,x). If you had already enabled point-in-time restore and specified the retention to be greater than that in the backup policy, it will remain unchanged.
+- **Point-in-time restore**: Set to ‘n’ days, as defined in the backup policy. If the storage account already had point-in-time enabled with a retention of, say ‘x’ days, before configuring backup, the point-in-time restore duration will be set to the greater of the two values that are max(n,x). If you had already enabled point-in-time restore and specified the retention to be greater than that in the backup policy, it will remain unchanged.
 
 - **Soft delete**: Set to ‘n+5’ days, that is, five days in addition to the duration specified in the backup policy. If the storage account that is being configured for operational backup already had soft delete enabled with a retention of, say ‘y’ days, then the soft delete retention will be set to the maximum of the two values, that is, maximum (n+5, y). If you had already enabled soft delete and specified the retention to be greater than that according to the backup policy, it will remain unchanged.
 
@@ -80,13 +84,13 @@ You can enable operational backup and vaulted backup (or both) of blobs on a sto
 
 Once you have enabled backup on a storage account, a Backup Instance is created corresponding to the storage account in the Backup vault. You can perform any Backup-related operations for a storage account like initiating restores, monitoring, stopping protection, and so on, through its corresponding Backup Instance.
 
-Both operational and vaulted backups integrate directly with Azure Business Continuity Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Azure Business Continuity Center is your single blade of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
+Both operational and vaulted backups integrate directly with Azure Business Continuity Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Azure Business Continuity Center is your single pane of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
 
 ---
 
 ## Restore
 
-You can restore data from any point in time for which a recovery point exists. A recovery point is created when a storage account is in protected state, and can be used to restore data as long as it falls in the retention period defined by the backup policy (and so the point-in-time restore capability of the blob service in the storage account). Operational backup uses blob point-in-time restore to restore data from a recovery point.
+You can restore data from any point in time for which a recovery point exists. A recovery point is created when a storage account is in protected state and can be used to restore data as long as it falls in the retention period defined by the backup policy (and so the point-in-time restore capability of the blob service in the storage account). Operational backup uses blob point-in-time restore to restore data from a recovery point.
 
 Operational backup gives you the option to restore all block blobs in the storage account, browse and restore specific containers, or use prefix matches to restore a subset of blobs. All restores can be performed to the source storage account only.
 
@@ -118,3 +122,9 @@ For generating the estimate for your scenario see the [Azure Backup pricing calc
 ## Next steps
 
 - [Configure and manage Azure Blobs backup](blob-backup-configure-manage.md)
+
+## Related content
+
+- [Create a backup policy for  Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md).
+- [Back up Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
+- Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

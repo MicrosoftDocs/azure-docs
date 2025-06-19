@@ -1,13 +1,13 @@
 ---
 title: View and download your organization's Azure pricing
 description: Learn how to view and download pricing or estimate costs with your organization's pricing.
-author: bandersmsft
+author: paagraw
 ms.reviewer: paagraw
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 11/14/2024
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: paagraw
 ---
 
 # View and download your organization's Azure pricing

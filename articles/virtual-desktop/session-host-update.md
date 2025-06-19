@@ -2,9 +2,9 @@
 title: Session host update (preview) - Azure Virtual Desktop
 description: Learn about session host update, which updates the operating system image and configuration of session hosts in a host pool in Azure Virtual Desktop.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 10/01/2024
+author: dougeby
+ms.author: avdcontent
+ms.date: 01/24/2025
 ---
 
 # Session host update for Azure Virtual Desktop (preview)
@@ -55,9 +55,7 @@ There can only be one session host update operation running or scheduled in a si
 The existing power state and drain mode of session hosts is honored. You can perform an update on a host pool where all the session hosts are deallocated to save costs.
 
 > [!IMPORTANT]
-> - If you use Azure Virtual Desktop Insights, the Azure Monitor agent or Log Analytics agent isn't automatically installed on the updated session hosts. To install the agent automatically, here are some options:
->    - For the Azure Monitor agent, you can [use Azure Policy](/azure/azure-monitor/agents/azure-monitor-agent-policy).
->    - For the Log Analytics agent, you can [use Azure Automation](/azure/azure-monitor/agents/agent-windows?tabs=azure-automation#install-the-agent).
+> - If you use Azure Virtual Desktop Insights, the Azure Monitor agent isn't automatically installed on the updated session hosts. To install the agent automatically, you can [use Azure Policy](/azure/azure-monitor/agents/azure-monitor-agent-policy).
 >
 > - Keep in mind [quota limits](/azure/quotas/view-quotas) on your Azure subscription and consider [submitting a request to increase a quota](/azure/quotas/quickstart-increase-quota-portal) if an update would go over the limit.
 >
@@ -65,7 +63,7 @@ The existing power state and drain mode of session hosts is honored. You can per
 
 ## Virtual machines and management tools
 
-The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and the [generation of virtual machine](/azure/virtual-machines/generation-2), and can be from:
+The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and the [generation of virtual machine](/azure/virtual-machines/generation-2), and it can be from:
 
 - Azure Marketplace.
 
@@ -93,11 +91,13 @@ With only a reduced number of session hosts available, you should schedule an up
 
 Here are known issues and limitations:
 
+- Session host update only supports key vaults that are configured to [allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+
 - Session host update is only available in the global Azure cloud. It isn't available in other clouds, such as Azure US Government or Azure operated by 21Vianet.
 
 - For session hosts that were created from an Azure Compute Gallery shared image that has a purchase plan, the plan isn't retained when the session hosts are updated. To check whether the image you use for your session hosts has a purchase plan, you can use [Azure PowerShell](/azure/virtual-machines/windows/cli-ps-findimage) or [Azure CLI](/azure/virtual-machines/linux/cli-ps-findimage).
 
-- Session host update currently requires access to the public Azure Storage endpoint `wvdhpustgr0prod.blob.core.windows.net` to deploy the RDAgent. Until this is migrated to a [required endpoint for Azure Virtual Desktop](/azure/virtual-desktop/required-fqdn-endpoint), session hosts that can't access `wvdhpustgr0prod.blob.core.windows.net` fail to be updated with the error `CustomerVmNoAccessToDeploymentPackageException`.
+- Session host configurations don't currently support accessing an Azure Compute Gallery shared image that's located in a different Azure subscription than the host pool.
 
 - The size of the OS disk can't be changed during an update. The update service defaults to the same size as defined by the gallery image.
 

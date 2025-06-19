@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a profile for HA of applications - Azure portal - Azure Traffic Manager'
 description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application using the Azure portal.
 services: traffic-manager
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 
 ms.date: 02/18/2023
 ms.topic: quickstart

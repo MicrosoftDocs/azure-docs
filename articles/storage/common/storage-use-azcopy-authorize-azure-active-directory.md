@@ -4,7 +4,7 @@ description: You can provide authorization credentials for AzCopy operations by 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 02/26/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -130,6 +130,9 @@ After you set these variables, you can run any azcopy command (For example: `azc
 
 This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, particularly when running on-premises. If you plan to run AzCopy on VMs that run in Azure, a managed service identity is easier to administer. To learn more, see the [Authorize a managed identity](#authorize-a-managed-identity) section of this article.
 
+> [!CAUTION]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration.
 
 To learn more about creating service principal, see [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
@@ -248,6 +251,9 @@ You can sign into your account by using a client secret or by using the password
 
 To learn more about creating service principal, see [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
+> [!CAUTION]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 ##### Authorize a service principal by using a client secret (azcopy login command)
 
 Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration.
@@ -308,6 +314,7 @@ To enable AzCopy to use that token, type the following command, and then press t
 
 ```bash
 export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
+export AZCOPY_TENANT_ID=<tenant-id>
 ```
 
 For more information about how to sign in with the Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).

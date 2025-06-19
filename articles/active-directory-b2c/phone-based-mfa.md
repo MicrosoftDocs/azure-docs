@@ -17,6 +17,7 @@ ms.subservice: b2c
 
 ---
 # Securing phone-based multifactor authentication
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 With Microsoft Entra multifactor authentication, users can choose to receive an automated voice call at a phone number they register for verification. Malicious users could take advantage of this method by creating multiple accounts and placing phone calls without completing the MFA registration process. These numerous failed sign-ups could exhaust the allowed sign-up attempts, preventing other users from signing up for new accounts in your Azure AD B2C tenant. To help protect against these attacks, you can use Azure Monitor to monitor phone authentication failures and mitigate fraudulent sign-ups.
 
@@ -81,7 +82,7 @@ You can use the workbook to understand phone-based MFA events and identify poten
 3. Mitigate fraudulent sign-ups by following the steps in the next section.
  
 
-## Mitigate fraudulent sign-ups
+## Mitigate fraudulent sign-ups for user flow
 
 Take the following actions to help mitigate fraudulent sign-ups.
 
@@ -96,12 +97,13 @@ Take the following actions to help mitigate fraudulent sign-ups.
    1. Sign in to the [Azure portal](https://portal.azure.com) as the [External ID User Flow Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator) of your Azure AD B2C tenant.
    1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
    1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-   1. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
+   1. Select the user flow, and then select **Languages**. Select the language for your organization's primary geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
  
       ![Upload new overrides to download defaults](media/phone-based-mfa/download-defaults.png)
 
    1. Open the JSON file that was downloaded in the previous step. In the file, search for `DEFAULT`, and replace the line with `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Be sure to set `Overrides` to `true`.
 
+ To implement SMS blocking effectively, make sure the Overrides setting is enabled (set to true) only for your organization’s primary or default language. Do not enable Overrides for any secondary or non-primary languages, as this can cause unexpected SMS blocking. Since the countryList in the JSON file acts as an allow list, be sure to include all countries that should be permitted to send SMS in this list for the primary language configuration when Overrides is true.
    > [!NOTE]
    > You can customize the list of allowed country codes in the `countryList` element (see the [Phone factor authentication page example](localization-string-ids.md#phone-factor-authentication-page-example)).
 
@@ -109,6 +111,50 @@ Take the following actions to help mitigate fraudulent sign-ups.
    1. Close the panel and select **Run user flow**. For this example, confirm that **United States** is the only country code available in the dropdown:
  
       ![Country code drop-down](media/phone-based-mfa/country-code-drop-down.png)
+
+## Mitigate fraudulent sign-ups for custom policy
+
+To help prevent fraudulent sign-ups, remove any country codes that do not apply to your organization by following these steps:
+
+1. Locate the policy file that defines the `RelyingParty`. For example, in the [Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), this is usually the SignUpOrSignin.xml file.
+
+1. In the `BuildingBlocks` section of this policy file, add the following code. Make sure to include only the country codes relevant to your organization:
+
+   ```xml
+    <BuildingBlocks>
+
+      <ContentDefinitions>
+        <ContentDefinition Id="api.phonefactor">
+          <LoadUri>~/tenant/templates/AzureBlue/multifactor-1.0.0.cshtml</LoadUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.20</DataUri>
+          <Metadata>
+            <Item Key="TemplateId">azureBlue</Item>
+          </Metadata>
+          <LocalizedResourcesReferences MergeBehavior="Prepend">
+            <!-- Add only primary business language here -->
+            <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.phonefactor.en" />        
+          </LocalizedResourcesReferences>
+        </ContentDefinition>
+      </ContentDefinitions>
+
+      <Localization Enabled="true">
+        <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
+          <!-- Add only primary business language here -->
+          <SupportedLanguage>en</SupportedLanguage>
+        </SupportedLanguages>
+
+        <!-- Phone factor for primary business language -->
+        <LocalizedResources Id="api.phonefactor.en">
+          <LocalizedStrings>
+           <LocalizedString ElementType="UxElement" StringId="countryList">{"DEFAULT":"Country/Region","JP":"Japan","BG":"Bulgaria","US":"United States"}</LocalizedString>
+          </LocalizedStrings>
+        </LocalizedResources>
+      </Localization>
+
+     </BuildingBlocks>
+    ```
+   
+The countryList acts as an allow list. Only the countries you specify in this list (for example, Japan, Bulgaria, and the United States) are permitted to use MFA. All other countries are blocked.
 
 ## Related content
 

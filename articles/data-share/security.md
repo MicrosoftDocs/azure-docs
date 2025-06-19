@@ -5,8 +5,9 @@ author:  sidontha
 ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ---
+
 # Security overview for Azure Data Share
 
 This article provides a security overview of the Azure Data Share service.
@@ -27,6 +28,6 @@ Once a share is created or received, users with proper permission to the Data Sh
 
 To share data from or to storage accounts with firewall turned on, you need to enable **Allow trusted Microsoft services** in your storage account. See [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#trusted-microsoft-services) for details.
 
-## Next steps
+## Related content
 
 To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.

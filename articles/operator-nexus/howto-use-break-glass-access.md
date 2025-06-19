@@ -13,28 +13,49 @@ ms.custom: template-how-to, devx-track-azurecli
 
 Break glass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide walks you through setting up and using break glass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
 
+Method D v2.0 also supports assigning Nexus Network Fabric (NNF) built-in roles to Entra Groups, streamlining the management of break glass access by applying group-based role assignments. 
+
 ## Generating SSH Keys using the Nexusidentity Azure CLI
 
-To start with break glass IAM configuration, you need to set up SSH keys using the Nexusidentity extension. Make sure you have the following prerequisites installed and updated.
+To start with break glass Identity and Access Management (IAM) configuration, you need to set up SSH keys using the Nexusidentity extension. Make sure you have the following prerequisites installed and updated.
 
 ### Prerequisites
 
-- **Setup Method D v2.0** using as referred in [article](howto-set-up-break-glass-access.md)
-- **Windows Computer** with PowerShell
-- **OpenSSH**: Version 9.4 or higher
-- **Python**: Version 3.11 or higher (64-bit)
-- **Azure CLI**: Version 2.61 or higher (64-bit)
-- **Nexusidentity Extension**: This extension must be added to Azure CLI.
-- **YubiKey Firmware Version**: Must be 5.2.3 or higher.
+- **Setup Method D v2.0** using as referred in [article](howto-set-up-break-glass-access.md).
+- **Windows** machine with PowerShell or **Linux** machine with bash terminal.
+- **OpenSSH**: Version 9.4 or higher.
+- **Python**: Version 3.11 or higher (64-bit).
+- **Azure CLI**: Version 2.61 or higher (64-bit).
+- **Managednetworkfabric extension**: 7.0.0
+- **Nexusidentity extension**: 1.0.0b4 or higher.
+- **YubiKey firmware version**: Must be 5.2.3 or higher.
+- **Enable Long paths**: - Windows long paths support must be enabled [Refer](https://pip.pypa.io/warnings/enable-long-paths).
+- **Microsoft Authentication Library (MSAL) version**: 1.31.2b1
+- **azure-mgmt-resource**: 23.1.1
 
-### Steps to Install Nexusidentity Extension and Generate SSH Keys
+### Prerequisites and Setup for Group-based role assignments
 
-1. **Open PowerShell**:
+**Create Security Groups**: Define Entra security groups that include users requiring BreakGlass access.
+**Assign Roles to Groups**: Assign BreakGlass roles to security groups instead of individual users.
+
+### Steps to install Nexusidentity extension and generate SSH keys 
+
+1.  **Enabling long paths** (Windows OS only)
+   
+- Run the following PowerShell as an administrator.
+
+   ```PowerShell 
+   New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+   ```
+
+- Close the PowerShell terminal.
+
+2. **Open PowerShell**: (Windows OS only)
 
 > [!Note]
 > Use non-admin mode for this process.
 
-2. **Update Azure CLI**:
+3. **Update Azure CLI**:
 
    - Run the following command to update Azure CLI to the latest version:
 
@@ -42,7 +63,7 @@ To start with break glass IAM configuration, you need to set up SSH keys using t
      az upgrade
      ```
 
-3. **Install Nexusidentity extension**:
+4. **Install Nexusidentity extension**:
 
    - To add the Nexusidentity extension
 
@@ -50,7 +71,7 @@ To start with break glass IAM configuration, you need to set up SSH keys using t
      az extension add --name nexusidentity
      ```
 
-4. **Generate SSH Keys with Nexusidentity extension**:
+5. **Generate SSH Keys with Nexusidentity extension**:
 
    a. Download the [Yubico Key Manager](https://www.yubico.com/support/download/yubikey-manager) to reset your YubiKey for initial setup.
    
@@ -62,14 +83,14 @@ To start with break glass IAM configuration, you need to set up SSH keys using t
       az login
       ```
 
-   d. Run the following command to generate SSH keys:
+   d. To generate SSH keys run the following command:
 
       ```Azure CLI
       az nexusidentity gen-keys
       ```
 
    > [!NOTE]
-   > Method Dv2.0 passkeys requires the YubiKey hardware token with a firmware version of 5.2.3 or higher.
+   > Method Dv2.0 passkeys require the YubiKey hardware token with a firmware version of 5.2.3 or higher.
 
    e. During this process:
 
@@ -103,7 +124,7 @@ To enable break glass access, administrator can assign below roles to Entra user
 
   - Allows show commands and commands to modify the running configuration.
 
-Once these roles are assigned, the corresponding username and public SSH key will be automatically provisioned across all devices within the designated fabric instance.
+Once these roles are assigned, the corresponding username and public SSH key are automatically provisioned across all devices within the designated fabric instance.
 
 > [!Note]
 > If a subscription owner assigns an user,  the Network Fabric Service Reader or Writer role at the subscription scope, this role assignment will be inherited by all Network Fabric instances. Consequently, the user will be granted the privileges associated with the built-in role across all Network Fabric instances.
@@ -111,9 +132,23 @@ Once these roles are assigned, the corresponding username and public SSH key wil
 > [!Note]
 > break glass user accounts are reconciled every 4 hours. For immediate reconciliation, open a support ticket with the network fabric support team.
 
+## Scope for group based role assignments
+
+Role assignments are set at fabric scope. Each user must have rights for the specific fabric instance, which may be inherited from higher-level grants (for example, subscription-level assignments).
+
+Multiple groups can be assigned the same Nexus Network Fabric (NNF) built-in role (for example, Nexus Network Fabric Service Reader or Writer) for a given fabric instance.
+
+### User Limitations
+A maximum of 200 user accounts (across all groups and individual user accounts which include existing Method Dv1.0 and Method Dv1.5 users) can be granted BreakGlass access.
+
+Multiple groups may be assigned to the same role for a fabric instance, but the 200-user limit still applies.
+
+> [!Note] 
+> Nested groups are not supported. Only direct group memberships are considered.
+
 ## Break-glass access to Network Fabric device
 
-Once permissions are granted, users can access network fabric devices with their FIDO-2 hardware token (for example, YubiKey). Follow the steps below to use break glass access.
+Once permissions are granted, users can access network fabric devices with their FIDO-2 hardware token (for example, YubiKey). Follow these steps to use break glass access.
 
 1. **Prepare for access**:
 
@@ -121,7 +156,7 @@ Once permissions are granted, users can access network fabric devices with their
 
 2. **Use SSH with the `-J` option**:
 
-   - The `-J` option enables you to log in through a jump server and access a fabric device directly. This involves authentication  first with the jump server and then with the fabric device (using ssh keys).
+   - The `-J` option enables you to log in through a jump server and access a fabric device directly. This process involves authentication first with the jump server and then with the fabric device using SSH keys.
 
    Use the following command format to access a fabric device:
 
@@ -131,3 +166,19 @@ Once permissions are granted, users can access network fabric devices with their
 
 > [!Note]
 > This command establishes a secure connection, using the jump server as an intermediary for authentication.
+
+## Group based role assignment synchronization
+Upon assigning an Entra Group to a BreakGlass role, all users in that group will have the appropriate device access provisioned during the next synchronization cycle.
+
+### Reconciliation Process
+
+BreakGlass account reconciliation occurs every four hours and ensures alignment between Entra role assignments and device access:
+
+- **User Removed from Group**: Device access is revoked.
+
+- **User Added to Group**: Appropriate device access is provisioned.
+
+- **Group Role Assignment Removed**: All users in the group have their access revoked.
+
+- **Failure to Resolve Group Membership**: If group membership can't be verified (for example, due to Entra API failures or connectivity issues), no changes are made to existing device accounts.
+

@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 02/27/2024
+ms.date: 02/03/2025
 ms.custom: ignite-2023
 ---
 
@@ -53,7 +53,7 @@ If necessary, you can query for your subscription ID.
 az account list --output table
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Define the following variables in your PowerShell console.
 
@@ -100,7 +100,7 @@ Build the project with [Maven](https://maven.apache.org/download.cgi).
 mvn clean package -DskipTests
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 mvn clean package -DskipTests
@@ -116,7 +116,7 @@ mvn clean package -DskipTests
 java -jar target\containerapps-albumapi-java-0.0.1-SNAPSHOT.jar
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 java -jar target\containerapps-albumapi-java-0.0.1-SNAPSHOT.jar
@@ -157,7 +157,7 @@ az containerapp up \
   --subscription $SUBSCRIPTION
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp up `
@@ -196,9 +196,9 @@ az group delete \
   --resource-group $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az group delete `
   --resource-group $RESOURCE_GROUP
 ```

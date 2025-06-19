@@ -1,8 +1,8 @@
 ---
 title: Reservation utilization alerts
 description: This article helps you set up and use reservation utilization alerts.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
@@ -16,7 +16,21 @@ This article helps you set up and use reservation utilization alerts. The alerts
 
 ## Reservations that you can monitor
 
-The reservation utilization alert is used to monitor the utilization of most categories of reservations. However, utilization alerts don't support prepurchase plans, including [Databricks](../reservations/prepay-databricks-reserved-capacity.md) and [Synapse Analytics - Pre-Purchase](../reservations/synapse-analytics-pre-purchase-plan.md).
+The reservation utilization alert is used to monitor the utilization of most categories of reservations. However, utilization alerts don't support prepurchase plans, including [Databricks](../reservations/prepay-databricks-reserved-capacity.md), [Microsoft Defender for Cloud](/azure/defender-for-cloud/prepurchase-plan), and [Synapse Analytics - Pre-Purchase](../reservations/synapse-analytics-pre-purchase-plan.md).
+
+### Regular reservations
+
+Regular reservations, such as those for Virtual Machines (VMs), must be utilized within the committed duration. If these reservations are not used during that period, the reserved amount will remain unutilized and ultimately wasted. To help customers manage this, Cost Management provides reservation utilization alerts. This alert rule notifies customers about underutilization of their reservation commitments, allowing them to take necessary actions to optimize usage.
+
+### Prepurchase plan-based reservations
+
+On the other hand, prepurchase plan-based reservations offer more flexibility. These reservations can be fully utilized at any time during the coverage period. This means that the regular reservation utilization alert is not effective for these types of reservations, as the utilization pattern differs.
+
+To illustrate:
+
+- **Regular reservations**: If you reserve a Virtual Machine for one year but don't fully use it during that year, the reserved amount is wasted. The reservation utilization alert helps by notifying you if the reservation is underutilized.
+
+- **Prepurchase plan-based reservations**: If you purchase a plan that covers a year, you can utilize the reserved amount at any time during that year, without concern for specific time frames. The regular reservation utilization alert does not apply in this scenario.
 
 ## Supported scopes and required permissions
 

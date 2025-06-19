@@ -2,11 +2,11 @@
 title: Azure permissions for Analytics - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Analytics category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -62,7 +62,6 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | Microsoft.Databricks/workspaces/write | Creates a Databricks workspace. |
 > | Microsoft.Databricks/workspaces/delete | Removes a Databricks workspace. |
 > | Microsoft.Databricks/workspaces/refreshPermissions/action | Refresh permissions for a workspace |
-> | Microsoft.Databricks/workspaces/migratePrivateLinkWorkspaces/action | Applies new Network Intent Policy templates based on 'requiredNsgRules' and 'enablePublicAccess' |
 > | Microsoft.Databricks/workspaces/updateDenyAssignment/action | Update deny assignment not actions for a managed resource group of a workspace |
 > | Microsoft.Databricks/workspaces/refreshWorkspaces/action | Refresh a workspace with new details like URL |
 > | Microsoft.Databricks/workspaces/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource. |
@@ -77,9 +76,6 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | Microsoft.Databricks/workspaces/privateEndpointConnections/write | Approve Private Endpoint Connections |
 > | Microsoft.Databricks/workspaces/privateEndpointConnections/delete | Remove Private Endpoint Connection |
 > | Microsoft.Databricks/workspaces/privateLinkResources/read | List Private Link Resources |
-> | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Sets the available diagnostic settings for the Databricks workspace |
-> | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Add or modify diagnostics settings. |
-> | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | Gets the available log definitions for the Databricks workspace |
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/read | Gets the virtual network peering. |
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/write | Add or modify virtual network peering |
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/delete | Deletes a virtual network peering |
@@ -278,6 +274,7 @@ Azure service: [Data Lake Analytics](/azure/data-lake-analytics/)
 > | Microsoft.DataLakeAnalytics/accounts/write | Create or update a DataLakeAnalytics account. |
 > | Microsoft.DataLakeAnalytics/accounts/delete | Delete a DataLakeAnalytics account. |
 > | Microsoft.DataLakeAnalytics/accounts/transferAnalyticsUnits/action | Transfer SystemMaxAnalyticsUnits among DataLakeAnalytics accounts. |
+> | Microsoft.DataLakeAnalytics/accounts/transferEcoAnalyticsUnits/action | Transfer SystemMaxEcoAnalyticsUnits among DataLakeAnalytics accounts. |
 > | Microsoft.DataLakeAnalytics/accounts/TakeOwnership/action | Grant permissions to cancel jobs submitted by other users. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/read | Get information about a compute policy. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/write | Create or update a compute policy. |
@@ -530,7 +527,7 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/SKUs/PrivateEndpointConnectionProxyValidation/action | Validates a private endpoint connection proxy |
 > | Microsoft.Kusto/Locations/CheckNameAvailability/action | Checks resource name availability. |
 > | Microsoft.Kusto/Locations/Skus/action |  |
-> | Microsoft.Kusto/Locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Checks resource name availability. |
+> | Microsoft.Kusto/Locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notify network security perimeter updates available. |
 > | Microsoft.Kusto/locations/operationresults/read | Reads operations resources |
 > | Microsoft.Kusto/Operations/read | Reads operations resources |
 > | Microsoft.Kusto/SKUs/read | Reads a SKU resource. |
@@ -709,8 +706,8 @@ Azure service: [Azure Synapse Analytics](/azure/synapse-analytics/)
 > | Microsoft.Synapse/workspaces/integrationRuntimes/removeLinks/action | Remove any Integration Runtime link |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/enableInteractiveQuery/action | Enable Interactive query on any Integration Runtime |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/disableInteractiveQuery/action | Disable Interactive query on any Integration Runtime |
-> | Microsoft.Synapse/workspaces/integrationRuntimes/refreshObjectMetadata/action | Refresh Object metadata on any Intergration Runtime |
-> | Microsoft.Synapse/workspaces/integrationRuntimes/getObjectMetadata/action | Get Object metadata on any Intergration Runtime |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/refreshObjectMetadata/action | Refresh Object metadata on any Integration Runtime |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/getObjectMetadata/action | Get Object metadata on any Integration Runtime |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/read | Get any Integration Runtime Node. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/delete | Delete any Integration Runtime Node. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/write | Patch any Integration Runtime Node. |

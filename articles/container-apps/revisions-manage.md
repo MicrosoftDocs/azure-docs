@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -37,7 +37,7 @@ az containerapp update \
 
 Replace the \<PLACEHOLDERS\> with your values.
 
-```azurepowershell
+```powershell
 $ImageParams = @{
     Name = '<ContainerName>'
     Image = 'mcr.microsoft.com/k8se/quickstart'
@@ -75,7 +75,7 @@ az containerapp revision list \
 
 Replace the \<PLACEHOLDERS\> with your values.
 
-```azurecli
+```powershell
 $CmdArgs = @{
   ContainerAppName = '<CONTAINER_APP_NAME>'
   ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -105,7 +105,7 @@ az containerapp revision show \
 
 Replace the \<PLACEHOLDERS\> with your values.
 
-```azurecli
+```powershell
 $CmdArgs = @{
   ContainerAppName = '<CONTAINER_APP_NAME>'
   ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -140,7 +140,7 @@ az containerapp revision copy \
 
 The following example demonstrates how to copy a container app revision using the Azure CLI command. There isn't an equivalent PowerShell command. 
 
-```azurecli
+```powershell
 az containerapp revision copy `
   --name <APPLICATION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME> `
@@ -168,7 +168,7 @@ az containerapp revision activate \
 
 Example: (Replace the \<PLACEHOLDERS\> with your values.)
 
-```azurepowershell
+```powershell
 $CmdArgs = @{
   ContainerAppName = '<CONTAINER_APP_NAME>'
   ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -198,7 +198,7 @@ az containerapp revision deactivate \
 
 Example: (Replace the \<PLACEHOLDERS\> with your values.)
 
-```azurepowershell
+```powershell
 $CmdArgs = @{
   ContainerAppName = '<CONTAINER_APP_NAME>'
   ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -230,7 +230,7 @@ az containerapp revision restart \
 
 Example: (Replace the \<PLACEHOLDERS\> with your values.)
 
-```azurepowershell
+```powershell
 $CmdArgs = @{
   ContainerAppName = '<CONTAINER_APP_NAME>'
   ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -267,7 +267,7 @@ az containerapp revision set-mode \
 
 Example: (Replace the \<PLACEHOLDERS\> with your values.)
 
-```azurecli
+```powershell
 $CmdArgs = @{
   Name = '<CONTAINER_APP_NAME>'
   ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -305,7 +305,7 @@ az containerapp revision label add \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp revision label add `
   --revision <REVISION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME> `
@@ -331,7 +331,7 @@ az containerapp revision label remove \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp revision label remove `
   --revision <REVISION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME> `

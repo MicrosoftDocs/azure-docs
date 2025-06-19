@@ -1,20 +1,20 @@
 ---
 title: Microsoft Customer Agreement Azure usage and charges file terms
 description: Learn how to read and understand the sections of the Azure usage and charges CSV for your billing profile.
-author: bandersmsft
-ms.reviewer: amberb
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 01/21/2025
+ms.author: jojoh
 ---
 
 # Terms in the Azure usage and charges file for a Microsoft Customer Agreement
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-The Azure usage and charges CSV file contains daily and meter-level usage charges for the current billing period.
+The Azure usage and charges CSV file contain daily and meter-level usage charges for the current billing period.
 
 To get your Azure usage and charges file, see [View and download Azure usage and charges for your Microsoft Customer Agreement](download-azure-daily-usage.md). It's available in a comma-separated values (.csv) file format that you can open in a spreadsheet application.
 
@@ -45,7 +45,7 @@ If you're an EA customer, notice that the terms in the Azure billing profile usa
 | MeterRegion | meterRegion | Detail required for a service. Useful to find the region context of the resource. |
 | MeterName | meterName | Name of the meter. Represents the Azure service deployable resource. |
 | ConsumedQuantity | quantity | Measured quantity purchased or consumed. The amount of the meter used during the billing period. |
-| ResourceRate | effectivePrice | The price represents the actual rate that you end up paying per unit, after discounts are taken into account. It's the price that should be used with the `Quantity` to do `Price` \* `Quantity` calculations to reconcile charges. The price takes into account the following scenarios and the scaled unit price that's also present in the files. As a result, it might differ from the scaled unit price. |
+| ResourceRate | effectivePrice | The price represents the actual rate that you end up paying per unit, after discounts are taken into account. It's the price that should be used with the `Quantity` to do `Price` \* `Quantity` calculations to reconcile charges. The price takes into account the following scenarios and the scaled unit price that's also present in the files. As a result, it might differ from the scaled unit price. <br> [Reservation](../reservations/understand-reserved-instance-usage-ea.md) and [savings plan](../savings-plan/utilization-cost-reports.md) charges might be zero in actual cost reports but are shown in amortized cost reports. |
 | ExtendedCost | cost | Cost of the charge in the billing currency before credits or taxes. |
 | ResourceLocation | resourceLocation | Location of the used resource's data center. |
 | ConsumedService | consumedService | Name of the service. |

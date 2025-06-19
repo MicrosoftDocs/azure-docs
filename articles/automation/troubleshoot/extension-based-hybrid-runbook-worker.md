@@ -2,9 +2,11 @@
 title: Troubleshoot extension-based Hybrid Runbook Worker issues in Azure Automation 
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation extension-based Hybrid Runbook Workers.
 services: automation
-ms.date: 08/26/2024
+ms.date: 05/08/2025
 ms.topic: troubleshooting 
 ms.custom:
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Troubleshoot VM extension-based Hybrid Runbook Worker issues in Automation
@@ -73,6 +75,54 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
     /home/hweautomation
     ```
 
+
+### Scenario: Jobs on Linux Hybrid Worker may get stuck in Running status
+
+#### Issue
+Jobs on Linux Hybrid Worker may get stuck in Running status while the CPU core usage is less than 25%.
+
+#### Cause
+Each CPU core has a default quota limit of 25% for Linux Hybrid Worker.
+
+#### Resolution
+You can remove this limit and make it unrestricted with the following steps:
+
+**Switch to sudo permissions** -
+  1. sudo su
+  1. systemctl status hwd.service // check and make sure hwd service is running well.
+
+**Update the setting in the below file in Hybrid Worker**
+  1. vi /lib/systemd/system/hwd.service
+  1. Update the setting from CPUQuota=25% to CPUQuota= as shown below to make the usage unrestricted.
+
+  ```
+    root@ubuntu2204:~# cat /lib/systemd/system/hwd.service
+    [Unit]
+    Description=HW Service
+    After=network.target
+    
+    [Service]
+    Type=simple
+    ExecStart=/usr/bin/python3 /var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-1.1.16/HybridWorkerAgent/DaemonScripts/Scripts/3.x/automationWorkerStarterScript.py
+    TimeoutStartSec=5
+    Restart=always
+    RestartSec=10s
+    TimeoutStopSec=600
+    CPUQuota=
+    KillMode=process
+    
+    [Install]
+    WantedBy=multi-user.target
+    
+   ```
+
+**Restart hwd service**
+  1. systemctl daemon-reload
+  1. systemctl restart hwd.service
+
+For more information, see [Linux hybrid jobs get stuck in Running state even if each CPU core usage is less than 25% - Overview](https://supportability.visualstudio.com/AAAP_Code/_wiki/wikis/AAAP/1980067/KI-Linux-hybrid-jobs-get-stuck-in-Running-status-even-if-each-CPU-core-usage-is-less-than-25-).
+
+
 ### Scenario: Runbooks go into a suspended state on a Hybrid Runbook Worker when using a custom account on a server with User Account Control (UAC) enabled
 
 #### Issue
@@ -83,13 +133,25 @@ Jobs fail and go into a suspended state on the Hybrid Runbook Worker. The Micros
 When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership and when user has to elevate permissions, the jobs begin to fail.
 
 #### Resolution
-For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders:
+For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders and registry:
 
-| Folder |Permissions |
+| Folder | Permissions |
 |--- | --- |
 | `C:\ProgramData\AzureConnectedMachineAgent\Tokens` | Read |
 | `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows` | Read and Execute |
 
+| Registry | Permissions |
+|--- | --- |
+| `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog` | Read |
+| `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters` | Full access |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Wbem\CIMOM` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SystemCertificates\Root` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\EnterpriseCertificates` | Full access |
+| `HKEY_LOCAL_MACHINE\software\Microsoft\HybridRunbookWorker` | Full access |
+| `HKEY_LOCAL_MACHINE\software\Microsoft\HybridRunbookWorkerV2` | Full access |
+| `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed` | Full access |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles` | Full access |
 
 ### Scenario: Job failed to start as the Hybrid Worker wasn't available when the scheduled job started
 
@@ -255,7 +317,7 @@ Sometimes the uninstallation process might get stuck.
    ```
 1. **Remove registry key**, if present: `HKLM:\Software\Microsoft\Azure\HybridWorker`
 
-   1. PowerShell code to remove the registry key along with any subkeys and values under it.:
+   1. PowerShell code to remove the registry key along with any sub keys and values under it.:
    
       ```powershell
       Get-Item HKLM:\Software\Microsoft\Azure\HybridWorker | Remove-Item -Recurse
@@ -263,7 +325,7 @@ Sometimes the uninstallation process might get stuck.
       
 1. **Remove the registry key**, if present: `HKLM:\Software\Microsoft\HybridRunbookWorkerV2`
 
-   1. PowerShell code to remove the registry key along with any subkeys and values under it.:
+   1. PowerShell code to remove the registry key along with any sub keys and values under it.:
    
       ```powershell
       Get-Item HKLM:\Software\Microsoft\HybridRunbookWorkerV2 | Remove-Item -Recurse
@@ -396,6 +458,22 @@ The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 3
 #### Resolution
 
 Start the worker machine, and then re-register it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
+
+
+### Scenario: Hybrid Runbook Worker job execution on Azure Arc-enabled Windows server that uses a custom credential is unexpectedly suspended
+
+#### Issue
+
+Runbook jobs executed from an Azure Arc-enabled server that use a custom credential suddenly begin to go into a suspended state.
+
+#### Cause
+
+This is caused by a known issue where folder permissions are removed when the Azure Connected Machine agent is updated. The folder permissions on `C:\ProgramData\AzureConnectedMachineAgent\Tokens` are removed when the Azure Connected Machine agent is updated.
+
+#### Resolution
+
+The current resolution is to reapply the folder permissions to `C:\ProgramData\AzureConnectedMachineAgent\Tokens` when the Azure Connected Machine agent is updated. See [Permissions for Hybrid worker credentials](../extension-based-hybrid-runbook-worker-install.md#permissions-for-hybrid-worker-credentials).
+
 
 ## Next steps
 

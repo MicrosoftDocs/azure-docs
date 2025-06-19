@@ -1,13 +1,13 @@
 ---
-title: Configure authentication in an Azure Web App configuration file by using Azure Active Directory B2C
+title: Configure authentication in an Azure Web App configuration file by using Azure AD B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an Azure Web App using configuration file.
 
 author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 
-ms.topic: reference
-ms.date: 01/11/2024
+ms.topic: how-to
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: "b2c-support"
@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication in an Azure Web App configuration file by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article explains how to add Azure Active Directory B2C (Azure AD B2C) authentication functionality to an Azure Web App. For more information, check out the [File-based configuration in Azure App Service authentication](../app-service/configure-authentication-file-based.md) article.
 
@@ -142,7 +143,6 @@ From your server code, the provider-specific tokens are injected into the reques
 |X-MS-CLIENT-PRINCIPAL-IDP| The identity provider name, `aadb2c`.|
 |X-MS-TOKEN-AADB2C-ID-TOKEN| The ID token issued by Azure AD B2C|
 
-## Next steps
-
+## Related content
 * After successful authentication, you can show display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, check out the [Work with user identities in Azure App Service authentication](../app-service/configure-authentication-user-identities.md).
 * Learn how to [Work with OAuth tokens in Azure App Service authentication](../app-service/configure-authentication-oauth-tokens.md).

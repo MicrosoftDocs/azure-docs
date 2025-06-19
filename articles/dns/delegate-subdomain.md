@@ -2,11 +2,11 @@
 title: Delegate a subdomain - Azure DNS
 description: With this learning path, get started delegating an Azure DNS subdomain.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 06/07/2024
-ms.author: greglin
+ms.author: allensu
 ---
 
 # Delegate an Azure DNS subdomain

@@ -2,13 +2,15 @@
 title: Azure Content Delivery Network POP locations by region
 description: This article lists Azure Content Delivery Network POP locations, sorted by region, for Azure Content Delivery Network products.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: references_regions
+ROBOTS: NOINDEX
+# Customer intent: "As a network architect, I want to review the Point of Presence locations for Content Delivery Network services by region, so that I can determine the best infrastructure to optimize content delivery for my application."
 ---
 
 # Azure Content Delivery Network Coverage by Metro
@@ -17,7 +19,6 @@ ms.custom: references_regions
 
 > [!div class="op_single_selector"]
 > - [POP locations by region](cdn-pop-locations.md)
-> - [Edgio POP locations by abbreviation](cdn-pop-abbreviations.md)
 > - [Microsoft POP locations by abbreviation](microsoft-pop-abbreviations.md)
 >
 
@@ -33,19 +34,6 @@ This article lists current metros containing point of presence (POP) locations, 
 > A location might contain more than one POP, noted by the number in parentheses.
 
 [!INCLUDE [front-door-edge-location](../../includes/front-door-edge-locations.md)]
-
-## Partners
-
-| Region | Edgio |
-|--|--|
-| North America | Guadalajara, Mexico<br />Mexico City, Mexico<br />Monterrey, Mexico<br />Puebla, Mexico<br />Querétaro, Mexico<br />Atlanta, general availability (GA), USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, USA<br />Philadelphia, PA, USA<br />San Jose, CA, USA<br />Minneapolis, MN, USA<br />Pittsburgh, PA, USA<br />Seattle, WA, USA<br />Ashburn, VA, USA <br />Houston, TX, USA <br />Phoenix, AZ, USA |
-| South America | Buenos Aires, Argentina<br />Rio de Janeiro, Brazil<br />São Paulo, Brazil<br />Valparaíso, Chile<br />Bogota, Colombia<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru |
-| Europe | Vienna, Austria<br />Copenhagen, Denmark<br />Helsinki, Finland<br />Marseille, France<br />Paris, France<br />Frankfurt, Germany<br />Milan, Italy<br />Riga, Latvia<br />Amsterdam, Netherlands<br />Warsaw, Poland<br />Madrid, Spain<br />Stockholm, Sweden<br />London, UK <br /> Manchester, UK |
-| Africa | Johannesburg, South Africa <br/> Nairobi, Kenya |
-| Middle East | Muscat, Oman<br />Fujirah, United Arab Emirates |
-| India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> |
-| Asia | Hong Kong SAR<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Kaohsiung, Taiwan<br />Taipei, Taiwan <br />Manila, Philippines |
-| Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand |
 
 ## Next steps
 

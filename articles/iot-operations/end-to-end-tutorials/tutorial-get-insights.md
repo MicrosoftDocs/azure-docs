@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 11/04/2024
+ms.date: 03/26/2025
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -19,7 +19,7 @@ These operations are the last steps in the sample end-to-end tutorial experience
 
 ## Prerequisites
 
-Before you begin this tutorial, you must complete [Tutorial: Send asset telemetry to the cloud using a dataflow](tutorial-upload-telemetry-to-cloud.md)
+Before you begin this tutorial, you must complete [Tutorial: Send messages from assets to the cloud using a data flow](tutorial-upload-messages-to-cloud.md)
 
 You also need a Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
 
@@ -58,7 +58,7 @@ After completing this flow, the Azure event hub is visible in the eventstream li
 
 :::image type="content" source="media/tutorial-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
-#### Verify dataflow
+#### Verify data flow
 
 Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 
@@ -69,31 +69,30 @@ Follow these steps to check your work so far, and make sure data is flowing into
     :::image type="content" source="media/tutorial-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
 >[!TIP]
->If data has not arrived in your eventstream, you may want to check your event hub activity to [verify that it's receiving messages](tutorial-upload-telemetry-to-cloud.md#verify-data-is-flowing). This will help you isolate which section of the flow to debug.
+>If data has not arrived in your eventstream, you may want to check your event hub activity to [verify that it's receiving messages](tutorial-upload-messages-to-cloud.md#verify-data-is-flowing). This will help you isolate which section of the flow to debug.
 
 ### Prepare KQL resources
 
 In this section, you create a KQL database in your Microsoft Fabric workspace to use as a destination for your data.
 
-1. Follow the steps in [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an Eventhouse**.
+1. Follow the steps in [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence Eventhouse with a child KQL database. You only need to complete the section entitled **Create an Eventhouse**.
 
 1. Next, create a table in your database. Call it *OPCUA* and use the following columns.
 
     | Column name | Data type |
-    | --- | --- |
-    | AssetId | string |
-    | Temperature | decimal |
-    | Humidity | decimal |
-    | Timestamp | datetime |
+    | ----------- | --------- |
+    | AssetId     | string    |
+    | Temperature | decimal   |
+    | Timestamp   | datetime  |
 
-1. After the *OPCUA* table has been created, select your database and use the **Explore your data** button to open a query window.
+1. After the *OPCUA* table has been created, select your database and use the **Query with code** button to open a query window.
 
     :::image type="content" source="media/tutorial-get-insights/explore-your-data.png" alt-text="Screenshot showing the Explore your data button.":::
 
-1. Run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
+1. Delete the existing code and run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
 
     ```kql
-    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Temperature", "Properties":{"Path":"$[\'ThermostatTemperature\']"}},{"column":"Humidity", "Properties":{"Path":"$[\'ThermostatHumidity\']"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Temperature", "Properties":{"Path":"$[\'ThermostatTemperatureF\']"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
     ```
 
 ### Add data table as a destination
@@ -104,7 +103,7 @@ Follow the steps in [Add a KQL Database destination to an eventstream](/fabric/r
 
 - Use direct ingestion mode.
 - On the **Configure** step, select the *OPCUA* table that you created earlier.
-- On the **Inspect** step, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
+- On the **Inspect** step, select **opcua_mapping**, select **Existing mapping**, and choose *opcua_mapping*.
 
     :::image type="content" source="media/tutorial-get-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
 
@@ -113,7 +112,7 @@ Follow the steps in [Add a KQL Database destination to an eventstream](/fabric/r
 
 After completing this flow, the KQL table is visible in the eventstream live view as a destination.
 
-Wait a few minutes for data to propagate. Then, select the KQL destination and refresh the **Data preview** to see the processed JSON data from the eventstream appearing in the table.
+Wait a few minutes for data to propagate and for the status of the destination to change to **Active**
 
 :::image type="content" source="media/tutorial-get-insights/destination-added-data.png" alt-text="Screenshot of the eventstream with data in the KQL database destination.":::
 
@@ -134,7 +133,7 @@ Follow the steps in the [Create a new dashboard](/fabric/real-time-intelligence/
 
 Then, follow the steps in the [Add data source](/fabric/real-time-intelligence/dashboard-real-time-create#add-data-source) section to add your database as a data source. Keep the following note in mind:
 
-- In the **Data sources** pane, your database will be under **OneLake data hub**.
+- In the **Data sources** pane, your database will be under **Eventhouse/KQL Database**.
 
 ### Configure parameters
 
@@ -176,7 +175,7 @@ Next, add a tile to your dashboard to show a line chart of temperature and humid
     OPCUA 
     | where Timestamp between (_startTime.._endTime)
     | where AssetId == _asset
-    | project Timestamp, Temperature, Humidity
+    | project Timestamp, Temperature
     ```
 
     **Run** the query to verify that data can be found.
@@ -185,10 +184,10 @@ Next, add a tile to your dashboard to show a line chart of temperature and humid
 
 1. Select **+ Add visual** next to the query results to add a visual for this data. Create a visual with the following characteristics:
 
-    - **Tile name**: *Temperature and humidity over time*
+    - **Tile name**: *Temperature over time*
     - **Visual type**: *Line chart*
     - **Data**:
-        - **Y columns**: *Temperature (decimal)* and *Humidity (decimal)* (already inferred by default)
+        - **Y columns**: *Temperature (decimal)* (already inferred by default)
         - **X columns**: *Timestamp (datetime)* (already inferred by default)
     - **Y Axis**:
         - **Label**: *Units*
@@ -235,36 +234,6 @@ Next, create some tiles to display the maximum values of temperature and humidit
 
     :::image type="content" source="media/tutorial-get-insights/dashboard-2.png" alt-text="Screenshot of the dashboard with two tiles.":::
 
-1. Open the options for the tile, and select **Duplicate tile**.
-
-    :::image type="content" source="media/tutorial-get-insights/duplicate-tile.png" alt-text="Screenshot of duplicating a tile from the dashboard.":::
-
-    This creates a duplicate tile on the dashboard.
-
-1. On the new tile, select the pencil icon to edit it.
-1. Replace *Temperature* in the KQL query with *Humidity*, so that it matches the query below.
-
-    ```kql
-    OPCUA
-    | where Timestamp between (_startTime.._endTime)
-    | where AssetId == _asset
-    | top 1 by Humidity desc
-    | summarize by Humidity
-    ```
-
-    **Run** the query to verify that a maximum humidity can be found.
-
-1. In the **Visual formatting** pane, update the following characteristics:
-    - **Tile name**: *Max humidity*
-    - **Data**:
-        - **Value column**: *Humidity (decimal)* (already inferred by default)
-
-    Select **Apply changes**.
-
-1. View the finished tile on your dashboard.
-
-    :::image type="content" source="media/tutorial-get-insights/dashboard-3.png" alt-text="Screenshot of the dashboard with three tiles.":::
-
 1. **Save** your completed dashboard.
 
 Now you have a dashboard that displays different types of visuals for the asset data in these tutorials. From here, you can experiment with the filters and adding other tile types to see how a dashboard can enable you to do more with your data.
@@ -284,4 +253,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this tutorial.
 
-You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, eventhouse, and Real-Time Dashboard.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, Eventhouse, and Real-Time Dashboard.

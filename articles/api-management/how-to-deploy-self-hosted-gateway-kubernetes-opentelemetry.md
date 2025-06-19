@@ -4,7 +4,7 @@ description: Learn how to deploy a self-hosted gateway component of Azure API Ma
 author: tomkerkhove
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.author: tomkerkhove
 ms.date: 12/17/2021
 ---
@@ -14,8 +14,6 @@ ms.date: 12/17/2021
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster and automatically send all metrics to an [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/).
-
-[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-opentelemetry.md)]
 
 You learn how to:
 
@@ -34,8 +32,6 @@ You learn how to:
 ## Introduction to OpenTelemetry
 
 [OpenTelemetry](https://opentelemetry.io/) is a set of open-source tools and frameworks for logging, metrics, and tracing in a vendor-neutral way.
-
-[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-opentelemetry.md)]
 
 The self-hosted gateway can be configured to automatically collect and send metrics to an [OpenTelemetry Collector](https://opentelemetry.io/docs/concepts/components/#collector). This allows you to bring your own metrics collection and reporting solution for the self-hosted gateway.
 
@@ -264,7 +260,7 @@ Now that the tutorial is over, you can easily clean up your cluster as following
    helm uninstall opentelemetry-collector
    ```
 
-## Next steps
+## Related content
 
 - To learn more about the self-hosted gateway, see [Self-hosted gateway overview](self-hosted-gateway-overview.md).
 * To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).

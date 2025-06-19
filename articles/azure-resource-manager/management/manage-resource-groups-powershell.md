@@ -1,26 +1,26 @@
 ---
-title: Manage resource groups - Azure PowerShell
+title: Manage Resource Groups - Azure PowerShell
 description: Use Azure PowerShell to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 02/10/2025
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
-# Manage Azure Resource Groups by using Azure PowerShell
+# Manage Azure resource groups by using Azure PowerShell
 
-Learn how to use Azure PowerShell with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure PowerShell](manage-resources-powershell.md).
+Learn how to use Azure PowerShell with [Azure Resource Manager](overview.md) to manage your Azure resource groups.
 
 ## Prerequisites
 
 * Azure PowerShell. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
-* After installing, sign in for the first time. For more information, see [Sign in](/powershell/azure/install-az-ps#sign-in).
+* An authenticated account. After installing Azure PowerShell, sign in for the first time. For more information, see [Sign in](/powershell/azure/install-az-ps#sign-in).
 
 ## What is a resource group
 
-A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to add resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
+A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how to add resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
 
-The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
+The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you might need to ensure that your data is stored in a particular region.
 
 ## Create resource groups
 
@@ -127,7 +127,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resource groups
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources-powershell.md).
+To logically organize your assets, you can apply tags to resource groups and resources. For more information, see [Using tags to organize your Azure resources](tag-resources-powershell.md).
 
 ## Export resource groups to templates
 
@@ -139,5 +139,6 @@ To assist with creating ARM templates, you can export a template from existing r
 
 ## Next steps
 
+* To manage Azure resources, see [Manage Azure resources by using Azure PowerShell](manage-resources-powershell.md).
 * To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
 * To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).

@@ -6,12 +6,12 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 03/31/2025
 ms.author: cherylmc
 ---
 # Generate VPN Client profile configuration files - Microsoft Entra ID authentication
 
-This article helps you generate and extract VPN client profile configuration files. Client profile configuration files contain information that's used to configure your VPN client. The sections in this article explain the information needed to configure the Azure VPN Client profile for Azure VPN Gateway point-to-site configurations that use Microsoft Entra authentication.
+This article helps you generate and extract VPN client profile configuration files. Client profile configuration files contain information that's used to configure your VPN client. The sections in this article explain the information needed to configure the Azure VPN Client profile for Azure VPN Gateway point-to-site configurations that use Microsoft Entra ID authentication.
 
 [!INCLUDE [Generate VPN client profile files](../../includes/vpn-gateway-p2s-vpn-client-profile-generate-entra.md)]
 

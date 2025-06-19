@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 07/19/2022
+ms.date: 06/09/2025
 ms.author: cshoe
 ---
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Set up the environment
 
-The following commands help you define  variables and ensure your Container Apps extension is up to date.
+The following commands define environment variables and ensure your Container Apps extension is up to date.
 
 1. Sign in to the Azure CLI.
 
@@ -45,7 +45,7 @@ The following commands help you define  variables and ensure your Container Apps
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az login
     ```
 
@@ -81,7 +81,7 @@ The following commands help you define  variables and ensure your Container Apps
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az extension add -n containerapp --upgrade
     ```
 
@@ -97,7 +97,7 @@ The following commands help you define  variables and ensure your Container Apps
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az provider register --namespace Microsoft.App
     ```
 
@@ -113,7 +113,7 @@ The following commands help you define  variables and ensure your Container Apps
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az provider register --namespace Microsoft.OperationalInsights
     ```
 
@@ -163,7 +163,7 @@ The following steps create a resource group and a Container Apps environment.
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp env create `
       --name $ENVIRONMENT_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -216,7 +216,7 @@ Next, create a storage account and establish a file share to mount to the contai
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az storage account create `
       --resource-group $RESOURCE_GROUP `
       --name $STORAGE_ACCOUNT_NAME `
@@ -263,7 +263,7 @@ Next, create a storage account and establish a file share to mount to the contai
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az storage share-rm create `
       --resource-group $RESOURCE_GROUP `
       --storage-account $STORAGE_ACCOUNT_NAME `
@@ -291,7 +291,7 @@ Next, create a storage account and establish a file share to mount to the contai
 
     ---
 
-    The storage account key is required to create the storage link in your Container Apps environment.
+    The storage account key is required to create the storage link in your Container Apps environment. Container Apps does not support identity-based access to Azure file shares.
 
 1. Define the storage mount name.
 
@@ -333,7 +333,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp env storage set `
       --access-mode ReadWrite `
       --azure-file-account-name $STORAGE_ACCOUNT_NAME `
@@ -386,7 +386,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp create `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -422,7 +422,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp show `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -438,30 +438,35 @@ Now you can update the container app configuration to support the storage mount.
 
 1. Open *app.yaml* in a code editor.
 
-1. Replace the `volumes: null` definition in the `template` section with a `volumes:` definition referencing the storage volume.  The template section should look like the following:
+1. Replace the `volumes: null` definition in the `template` section with a `volumes:` definition referencing the storage volume. The template section should look like the following:
 
     ```yml
     template:
+      containers:
+      - image: nginx
+        imageType: ContainerImage
+        name: my-container-app
+        resources:
+          cpu: 0.5
+          ephemeralStorage: 2Gi
+          memory: 1Gi
+        volumeMounts:
+        - volumeName: my-azure-file-volume
+          mountPath: /var/log/nginx
+      initContainers: null
+      revisionSuffix: ''
+      scale:
+        cooldownPeriod: 300
+        maxReplicas: 1
+        minReplicas: 1
+        pollingInterval: 30
+        rules: null
+      serviceBinds: null
+      terminationGracePeriodSeconds: null
       volumes:
       - name: my-azure-file-volume
         storageName: mystoragemount
         storageType: AzureFile
-      containers:
-      - image: nginx
-        name: my-container-app
-        volumeMounts:
-        - volumeName: my-azure-file-volume
-          mountPath: /var/log/nginx
-        resources:
-          cpu: 0.5
-          ephemeralStorage: 3Gi
-          memory: 1Gi
-      initContainers: null
-      revisionSuffix: ''
-      scale:
-        maxReplicas: 1
-        minReplicas: 1
-        rules: null
     ```
 
     The new `template.volumes` section includes the following properties.
@@ -506,7 +511,7 @@ Now you can update the container app configuration to support the storage mount.
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp update `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
@@ -532,7 +537,7 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli
+    ```powershell
     az containerapp exec `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP
@@ -540,23 +545,13 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
     ---
 
-    This command may take a moment to open the remote shell. Once the shell is ready, you can interact with the storage mount via file system commands.
+    This command may take a moment to open the remote shell. Once the shell is ready, you can interact with the storage mount via file system commands. For more information see [Connect to a container console in Azure Container Apps](/azure/container-apps/container-console).
 
 1. Change into the nginx */var/log/nginx* folder.
 
-    # [Bash](#tab/bash)
-
-    ```bash
+    ```sh
     cd /var/log/nginx
     ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    cd /var/log/nginx
-    ```
-
-    ---
 
 1. Return to the browser and navigate to the website and refresh the page a few times.
 
@@ -564,53 +559,23 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
 1. Return to your terminal and list the values of the `/var/log/nginx` folder.
 
-    # [Bash](#tab/bash)
-
-    ```bash
+    ```sh
     ls
     ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    ls
-    ```
-
-    ---
 
     Note how the *access.log* and *error.log* files appear in this folder. These files are written to the Azure Files mount in your Azure Storage share created in the previous steps.
 
 1. View the contents of the *access.log* file.
 
-    # [Bash](#tab/bash)
-
-    ```bash
+    ```sh
     cat access.log
     ```
 
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    type access.log
-    ```
-
-    ---
-
 1. Exit out of the container's interactive shell to return to your local terminal session.
 
-    # [Bash](#tab/bash)
-
-    ```bash
+    ```sh
     exit
     ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    exit
-    ```
-
-    ---
 
 1. Now, you can view the files in the Azure portal to verify they exist in your Azure Storage account. Print the name of your randomly generated storage account.
 

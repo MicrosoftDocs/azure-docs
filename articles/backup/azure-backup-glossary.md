@@ -5,8 +5,8 @@ ms.topic: reference
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli, engagement-fy24
 ms.date: 12/30/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Backup glossary

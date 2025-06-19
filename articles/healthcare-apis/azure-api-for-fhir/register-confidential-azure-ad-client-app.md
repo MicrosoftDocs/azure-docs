@@ -44,7 +44,7 @@ To register a new confidential client application, use the following steps.
 Permissions for Azure API for FHIR are managed through role-based access control (RBAC). For more details, visit [Configure Azure RBAC for FHIR](configure-azure-rbac.md).
 
 >[!NOTE]
->Use a  `grant_type` of `client_credentials` when trying to obtain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
+>Use a  `grant_type` of `client_credentials` when trying to obtain an access token for Azure API for FHIR using tools for intuitive querying
 
 
 ## Application secret
@@ -67,9 +67,9 @@ Permissions for Azure API for FHIR are managed through role-based access control
 ## Next steps
 
 In this article, you were guided through the steps of how to register a confidential client application in the Microsoft Entra ID. You were also guided through the steps of how to add API permissions in Microsoft Entra ID for Azure API for FHIR. Lastly, you were shown how to create an application secret.<br>
-You can also learn how to access your FHIR server using Postman.
+You can also learn how to access your FHIR server using REST Client.
  
 >[!div class="nextstepaction"]
->[Access the FHIR service using Postman](./../fhir/use-postman.md)
+>[Access the FHIR service using REST Client](./../fhir/using-rest-client.md)
 
 [!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

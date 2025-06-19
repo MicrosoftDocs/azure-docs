@@ -2,12 +2,11 @@
 metadata:
   title: Azure Web Application Firewall on Azure Front Door Service - frequently asked questions
   description: This article provides answers to frequently asked questions about Web Application Firewall on Azure Front Door
-  services: web-application-firewall
-  author: vhorne
+  author: halkazwini
+  ms.author: halkazwini
   ms.service: azure-web-application-firewall
   ms.topic: faq
   ms.date: 07/11/2022
-  ms.author: victorh
 title: Frequently asked questions for Azure Web Application Firewall on Azure Front Door Service
 summary: This article answers common questions about Azure Web Application Firewall (WAF) on Azure Front Door Service features and functionality. 
 

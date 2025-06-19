@@ -1,12 +1,11 @@
 ---
 title: Caching with Azure Front Door
 description: This article helps you understand Front Door behavior when enabling caching in routing rules.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 11/08/2023
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 

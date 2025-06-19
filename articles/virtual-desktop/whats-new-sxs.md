@@ -1,10 +1,10 @@
 ---
 title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
-author: sipastak
+author: dougeby
 ms.topic: release-notes
-ms.date: 12/16/2024
-ms.author: sipastak
+ms.date: 06/03/2025
+ms.author: avdcontent
 ms.custom: references_regions
 ---
 
@@ -31,8 +31,65 @@ Here's information about the SxS Network Stack.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.2407.05700  |
-| Validation | 1.0.2409.29600  |
+| Production | 1.0.2502.25400  |
+| Validation | 1.0.2502.25800  |
+
+## Version 1.0.2502.25800
+
+*Published June 2025*
+
+In this release, we've made the following changes:
+
+- Connection reliability bug fixes.
+
+## Version 1.0.2502.25700
+
+*Published May 2025*
+
+In this release, we've made the following changes:
+
+- Fixed high RemoteApp CPU usage caused by `rdpshell.exe`.
+
+## Version 1.0.2502.25400
+
+*Published May 2025*
+
+In this release, we've made the following changes:
+
+- Resolved issues affecting the performance monitoring of UDP connections, ensuring accurate and reliable metrics in Performance Monitor.
+- Improved connection time for VMs with the **Always prompt for password** group policy setting enabled.
+- Enhanced connection reliability and implemented security fixes to ensure stable and secure connections. 
+
+## Version 1.0.2501.05600
+
+*Published March 2025; updated April 2025*
+
+In this release, we've made the following changes:
+
+- Added two new binaries: `rdpstartuplauncher.exe` and `rdpstartup.exe` that enable future improvements to peripheral and resource redirection.
+- Connection reliability bug fixes.
+- Improved diagnostics checkpoints for UDP connections.
+- Added a diagnostic checkpoint to log all graphics codecs in use and whether hardware graphics encoding is active for each connection session.
+- Resolved a RemoteApp issue where the Office clipboard status box would disrupt the local work area.
+- Fixed an issue with high-contrast settings to ensure proper RemoteApp connection establishment.
+
+## Version 1.0.2409.29850
+
+*Published: March 2025*
+
+In this release, we've made the following changes:
+
+- A fix has been implemented to resolve a deadlock issue that was causing session hosts to stop accepting new Azure Virtual Desktop connections. 
+
+## Version 1.0.2409.29800
+
+*Published: January 2025*
+
+In this release, we've made the following changes:
+
+- Fixed a bug that caused UDP connection failures when network latency exceeded 500ms RTT.
+- Fixed a bug where disabling UDP Shortpath Public also unintentionally disabled Shortpath Private. This update ensures independent control of both settings.
+- Addressed a key detection issue and enhanced diagnostic capabilities for RemoteApp execution.
 
 ## Version 1.0.2409.29600 
 
@@ -40,7 +97,7 @@ Here's information about the SxS Network Stack.
 
 In this release, we've made the following changes:
 
-- Rearchitected RAIL server processes for better shell integration.   
+- Rearchitected RemoteApp server processes for better shell integration.   
 - Added EventLog for ImageQuality and Chroma settings; added graphics profile name in existing Eventlog. 
 - Fixed Battery Status redirection to show status text of battery upon mouse hover. 
 

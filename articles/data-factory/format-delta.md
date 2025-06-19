@@ -4,7 +4,7 @@ description: Transform and move data from a delta lake using the delta format
 author: kromerm
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: makromer
 ---
 

@@ -5,8 +5,11 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: release-notes
-ms.date: 1/07/2025
+ms.date: 05/13/2025
 ms.author: wgries
+ms.custom:
+  - build-2025
+# Customer intent: "As a system administrator managing file synchronization, I want to keep my organization's file shares centralized in the cloud with local cache capabilities, so that I can enhance data accessibility and streamline backup processes while ensuring compliance and security."
 ---
 
 # Release notes for Azure File Sync
@@ -21,14 +24,15 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| V20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | February 10, 2025 | Supported |
 | V19 Release - [KB5040924](https://support.microsoft.com/topic/e44fc142-8a24-4dea-9bf9-6e884b4b342e)| 19.1.0.0 | September 3, 2024 | Supported |
 | V18.2 Release - [KB5023059](https://support.microsoft.com/topic/613d00dc-998b-4885-86b9-73750195baf5)| 18.2.0.0 | July 9, 2024 | Supported |
 | V18.1 Release - [KB5023057](https://support.microsoft.com/topic/961af341-40f2-4e95-94c4-f2854add60a5)| 18.1.0.0 | June 11, 2024 | Supported - Security Update |
-| V17.3 Release - [KB5039814](https://support.microsoft.com/topic/97bd6ab9-fa4c-42c0-a510-cdb1d23825bf)| 17.3.0.0 | June 11, 2024 | Supported - Security Update, Agent version will expire on May 6, 2025 |
+| V17.3 Release - [KB5039814](https://support.microsoft.com/topic/97bd6ab9-fa4c-42c0-a510-cdb1d23825bf)| 17.3.0.0 | June 11, 2024 |  Not Supported (Security Update) - Agent versions expired on June 9, 2025 |
 | V18 Release - [KB5023057](https://support.microsoft.com/topic/feb374ad-6256-4eeb-9371-eb85071f756f)| 18.0.0.0 | May 8, 2024 | Supported |
-| V17.2 Release - [KB5023055](https://support.microsoft.com/topic/dfa4c285-a4cb-4561-b0ed-bbd4ae09d91d)| 17.2.0.0 | February 28, 2024 | Supported - Agent version will expire on May 6, 2025 |
-| V17.1 Release - [KB5023054](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)| 17.1.0.0 | February 13, 2024 | Supported - Security Update, Agent version will expire on May 6, 2025 |
-| V17.0 Release - [KB5023053](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)| 17.0.0.0 | December 6, 2023 | Supported - Agent version will expire on May 6, 2025 |
+| V17.2 Release - [KB5023055](https://support.microsoft.com/topic/dfa4c285-a4cb-4561-b0ed-bbd4ae09d91d)| 17.2.0.0 | February 28, 2024 |  Not Supported - Agent versions expired on June 9, 2025 |
+| V17.1 Release - [KB5023054](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)| 17.1.0.0 | February 13, 2024 |  Not Supported - Agent version expired on June 9, 2025 |
+| V17.0 Release - [KB5023053](https://support.microsoft.com/topic/azure-file-sync-agent-v17-release-december-2023-flighting-2d8cba16-c035-4c54-b35d-1bd8fd795ba9)| 17.0.0.0 | December 6, 2023 | Not Supported - Agent versions expired on June 9, 2025 |
 
 ## Unsupported versions
 
@@ -58,18 +62,99 @@ The following Azure File Sync agent versions have expired and are no longer supp
 
 ## Windows Server 2012 R2 agent support
 
-Windows Server 2012 R2 reached [end of support](/lifecycle/announcements/windows-server-2012-r2-end-of-support) on October 10, 2023. Azure File Sync will continue to support Windows Server 2012 R2 until the v17.x agent is expired on May 6, 2025. Once the v17 agent is expired, Windows Server 2012 R2 servers will stop syncing to your Azure file shares.
+Windows Server 2012 R2 reached [end of support](/lifecycle/announcements/windows-server-2012-r2-end-of-support) on October 10, 2023. **Azure File Sync will continue to support Windows Server 2012 R2 until the v17.x agent expires on June 9, 2025.** After this date, we will no longer provide bug fixes, security updates, or technical support. 
+
+Although official support for Windows Server 2012 R2 and the Azure File Sync v17 agent will end on June 9, 2025, the v17 agent will continue to function until **January 27, 2026**. After this date, servers with the v17 agent will stop syncing to your Azure file shares.
 
 ### Action Required
 
-Perform one of the following options for your Windows Server 2012 R2 servers prior to v17 agent expiration on May 6, 2025:
+Perform one of the following options for your Windows Server 2012 R2 servers prior to v17 agent expiration on June 9, 2025:
 
-- Option #1: Perform an [in-place upgrade](/windows-server/get-started/perform-in-place-upgrade) to a [supported operation system version](file-sync-planning.md#operating-system-requirements). Once the in-place upgrade completes, uninstall the Azure File Sync agent for Windows Server 2012 R2, restart the server, and then install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, Windows Server 2022 or Windows Server 2025).
+- Option #1: Perform an [in-place upgrade](/windows-server/get-started/perform-in-place-upgrade) to a [supported operating system version](file-sync-planning.md#operating-system-requirements). Before upgrading, uninstall the Azure File Sync agent and restart the server. ***Don't unregister and re-register the server during the OS upgrade, or it will lead to orphaned tiered files on existing server endpoints.*** Then, perform the in-place upgrade to the new version of Windows Server, such as 2016, 2019, 2022, or 2025. After the upgrade is complete, install the Azure File Sync agent that matches the new operating system version. Once the agent is installed on the upgraded server, the Azure portal should reflect the correct server status within 30 minutes.
 
-- Option #2: Deploy a new Azure File Sync server that's running a [supported operation system version](file-sync-planning.md#operating-system-requirements) to replace your Windows 2012 R2 servers. For guidance, see [Replace an Azure File Sync server](file-sync-replace-server.md).
+- Option #2: Deploy a new Azure File Sync server that's running a [supported operating system version](file-sync-planning.md#operating-system-requirements) to replace your Windows 2012 R2 servers. For guidance, see [Replace an Azure File Sync server](file-sync-replace-server.md).
 
 >[!NOTE]
 >Azure File Sync agent v17.3 is the last agent release currently planned for Windows Server 2012 R2. To continue to receive product improvements and bug fixes, upgrade your servers to Windows Server 2016 or later.
+
+## Version 20.0.0.0
+The following release notes are for Azure File Sync version 20.0.0.0 (released February 10, 2025). This release contains improvements for the Azure File Sync service and agent. 
+
+### Improvements and issues that are fixed
+**General Availability: Managed Identities support for Azure File Sync service and servers**
+
+Azure File Sync now supports system-assigned managed identities for authentication, eliminating the need for [shared keys](../common/storage-account-keys-manage.md) and simplifying security management with Microsoft Entra ID. You can now configure managed identities directly from the Azure portal, making deployments easier and more secure.
+ 
+When managed identities are configured, the system-assigned managed identities will be used for the following scenarios:
+- Storage Sync Service authentication to Azure file share
+- Registered server authentication to Azure file share
+- Registered server authentication to Storage Sync Service
+
+For more information, see: [How to use managed identities with Azure File Sync](file-sync-managed-identities.md).
+
+> [!NOTE]
+>The portal experience for general availability will gradually roll out to all regions in the coming weeks.
+
+**Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
+### Evaluation Tool
+Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
+
+### Agent installation and server configuration
+For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
+
+- The agent installation requires a restart for servers that have an existing Azure File Sync agent installation if the agent version is older than 18.2.0.0.
+- The agent installation package must be installed with elevated (admin) permissions.
+- The agent isn't supported on Nano Server deployment option.
+- The agent is supported only on Windows Server 2016, Windows Server 2019, Windows Server 2022 and Windows Server 2025.
+- The Azure File Sync agent installation package is specific to the operating system version. If you're upgrading a server to a newer version of Windows Server, you must first uninstall the Azure File Sync agent and restart the server. ***Don't unregister and re-register the server during the OS upgrade, or it will lead to orphaned tiered files on existing server endpoints.*** Then, upgrade the operating system to the new version. After the upgrade is complete, install the Azure File Sync agent that matches the new Windows Server version such as 2016, 2019, 2022, or 2025. After installing the agent on the upgraded server, the Azure portal should reflect the correct server status within 30 minutes.
+- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
+- The agent uses TLS 1.2 or 1.3 (Windows Server 2022 or newer) by default and TLS 1.0 and 1.1 are not supported.
+- Server registration using the [Register-AzStorageSyncServer](/powershell/module/az.storagesync/register-azstoragesyncserver) and ServerRegistration.exe require .NET Framework 4.7.2. or higher
+- The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. If the SVI directory is compressed, the Storage Sync Agent (FileSyncSvc) service will fail to start.
+- Agent installation can fail with error **0x80c84111** if required Windows security updates are missing. To prevent this issue, make sure the following updates are installed based on your server version:
+   - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
+   - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
+   - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
+
+
+### Interoperability
+- Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json).
+- File Server Resource Manager (FSRM) file screens can cause endless sync failures when files are blocked because of the file screen.
+- Running sysprep on a server that has the Azure File Sync agent installed isn't supported and can lead to unexpected results. The Azure File Sync agent should be installed after deploying the server image and completing sysprep mini-setup.
+
+### Sync limitations
+The following items don't sync, but the rest of the system continues to operate normally:
+
+- Azure File Sync supports all characters that are supported by the [NTFS file system](/windows/win32/fileio/naming-a-file) except invalid surrogate pairs. See [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#handling-unsupported-characters) for more information.
+- Paths that are longer than 2,048 characters.
+- The system access control list (SACL) portion of a security descriptor that's used for auditing.
+- Extended attributes.
+- Alternate data streams.
+- Reparse points.
+- Hard links.
+- Compression (if it's set on a server file) isn't preserved when changes sync to that file from other endpoints.
+- Any file that's encrypted with EFS (or other user mode encryption) that prevents the service from reading the data.
+
+> [!NOTE]
+> Azure File Sync always encrypts data in transit. Data is always encrypted at rest in Azure.
+
+### Server endpoint
+- A server endpoint can be created only on an NTFS volume. ReFS, FAT, FAT32, and other file systems aren't currently supported by Azure File Sync.
+- Cloud tiering isn't supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
+- Failover Clustering is supported only with clustered disks, but not with Cluster Shared Volumes (CSVs).
+- A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
+- Don't store an OS or application paging file within a server endpoint location.
+
+### Cloud endpoint
+- Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, use the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet to manually initiate the detection of changes in the Azure file share.
+- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Microsoft Entra (formerly Azure AD) tenant. After moving the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#troubleshoot-rbac)).
+
+> [!NOTE]
+> When creating the cloud endpoint, the storage sync service and storage account must be in the same Microsoft Entra ID tenant. After you create the cloud endpoint, you can move the storage sync service and storage account to different Microsoft Entra ID tenants.
+
+### Cloud tiering
+- If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
+- When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
 
 ## Version 19.1.0.0
 The following release notes are for Azure File Sync version 19.1.0.0 (released September 3, 2024). This release contains improvements for the Azure File Sync service and agent.
@@ -113,9 +198,10 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent isn't supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2016, Windows Server 2019, Windows Server 2022 and Windows Server 2025.
-- The agent installation package is for a specific operating system version. If a server with an Azure File Sync agent installed is upgraded to a newer operating system version, the existing agent must be uninstalled. Restart the server and then install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, Windows Server 2022 or Windows Server 2025).
+- The Azure File Sync agent installation package is specific to the operating system version. If you're upgrading a server to a newer version of Windows Server, you must first uninstall the Azure File Sync agent and restart the server. ***Don't unregister and re-register the server during the OS upgrade, or it will lead to orphaned tiered files on existing server endpoints.*** Then, upgrade the operating system to the new version. After the upgrade is complete, install the Azure File Sync agent that matches the new Windows Server version such as 2016, 2019, 2022, or 2025. After installing the agent on the upgraded server, the Azure portal should reflect the correct server status within 30 minutes.
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
 - The agent uses TLS 1.2 or 1.3 (Windows Server 2022 or newer) by default and TLS 1.0 and 1.1 are not supported.
+- Server registration using the [Register-AzStorageSyncServer](/powershell/module/az.storagesync/register-azstoragesyncserver) and ServerRegistration.exe require .NET Framework 4.7.2. or higher
 - The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. If the SVI directory is compressed, the Storage Sync Agent (FileSyncSvc) service will fail to start.
 
 ### Interoperability
@@ -203,7 +289,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent isn't supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016 and Windows Server 2022.
-- The agent installation package is for a specific operating system version. If a server with an Azure File Sync agent installed is upgraded to a newer operating system version, the existing agent must be uninstalled. Restart the server and then install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, or Windows Server 2022).
+- The Azure File Sync agent installation package is specific to the operating system version. If you're upgrading a server to a newer version of Windows Server, you must first uninstall the Azure File Sync agent and restart the server. ***Don't unregister and re-register the server during the OS upgrade, or it will lead to orphaned tiered files on existing server endpoints.*** Then, upgrade the operating system to the new version. After the upgrade is complete, install the Azure File Sync agent that matches the new Windows Server version such as 2016, 2019, 2022, or 2025. After installing the agent on the upgraded server, the Azure portal should reflect the correct server status within 30 minutes.
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
 - The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 - All supported Azure File Sync agent versions use TLS 1.2 by default and TLS 1.0 and 1.1 are not supported. Starting with v18 agent version TLS 1.3 will be supported for Windows Server 2022.
@@ -265,7 +351,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent isn't supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2022.
-- The agent installation package is for a specific operating system version. If a server with an Azure File Sync agent installed is upgraded to a newer operating system version, you must uninstall the existing agent, restart the server, and install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, or Windows Server 2022).
+- The Azure File Sync agent installation package is specific to the operating system version. If you're upgrading a server to a newer version of Windows Server, you must first uninstall the Azure File Sync agent and restart the server. ***Don't unregister and re-register the server during the OS upgrade, or it will lead to orphaned tiered files on existing server endpoints.*** Then, upgrade the operating system to the new version. After the upgrade is complete, install the Azure File Sync agent that matches the new Windows Server version such as 2016, 2019, 2022, or 2025. After installing the agent on the upgraded server, the Azure portal should reflect the correct server status within 30 minutes.
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
 - The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
@@ -344,7 +430,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent isn't supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, and Windows Server 2022.
 - Windows Server 2012 R2 requires .NET Framework version 4.6.2 or higher.
-- The agent installation package is for a specific operating system version. If a server with an Azure File Sync agent installed is upgraded to a newer operating system version, the existing agent must be uninstalled. Restart the server and then install the agent for the new server operating system (Windows Server 2016, Windows Server 2019, or Windows Server 2022).
+- The Azure File Sync agent installation package is specific to the operating system version. If you're upgrading a server to a newer version of Windows Server, you must first uninstall the Azure File Sync agent and restart the server. ***Don't unregister and re-register the server during the OS upgrade, or it will lead to orphaned tiered files on existing server endpoints.*** Then, upgrade the operating system to the new version. After the upgrade is complete, install the Azure File Sync agent that matches the new Windows Server version such as 2016, 2019, 2022, or 2025. After installing the agent on the upgraded server, the Azure portal should reflect the correct server status within 30 minutes.
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
 - The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 

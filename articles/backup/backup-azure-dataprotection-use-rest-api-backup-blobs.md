@@ -2,21 +2,21 @@
 title: Back up blobs in a storage account using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of blobs using REST API.
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 06/17/2025
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up blobs in a storage account using Azure Data Protection via REST API
 
-Azure Backup enables you to easily configure backup for protecting block blobs in your storage accounts.
+This article describes how to configure backups for blobs in a storage account via REST API. Backup of blobs is configured at the storage account level.
 
-This article describes how to configure backups for blobs in a storage account via REST API. Backup of blobs is configured at the storage account level. You can now perform [operational](blob-backup-overview.md?tabs=operational-backup) and [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups to protect block blobs in your storage accounts using Azure Backup.
+Azure Backup enables you to easily configure backup for protecting block blobs in your storage accounts. You can do [operational](blob-backup-overview.md?tabs=operational-backup) and [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups to protect block blobs in your storage accounts using Azure Backup.
 
-For information on the Azure blob region availability, supported scenarios and limitations, see the [support matrix](blob-backup-support-matrix.md).
+Learn [about the Azure blob region availability, supported scenarios, and limitations](blob-backup-support-matrix.md).
 
 ## Prerequisites
 
@@ -34,6 +34,8 @@ Once you create the vault and policy, you need to consider two critical points t
 
 ### Key entities
 
+For the backup configuration, review the following key entities involved:
+
 - **Storage account containing the blobs to be protected**: Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This serves as the identifier of the storage account.
 
   For example, we'll use a storage account named *msblobbackup*, under the resource group *RG-BlobBackup*, in a different subscription and in *west US*.
@@ -48,13 +50,13 @@ Once you create the vault and policy, you need to consider two critical points t
 
 ### Assign permissions
 
-You need to assign a few permissions via Azure role-based access control (Azure RBAC) to the created vault (represented by vault Managed Service Identity) and the relevant storage account. You can do these via Azure portal, PowerShell, or REST API. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
+Assign a few permissions via Azure role-based access control (Azure RBAC) to the created vault (represented by vault Managed Service Identity) and the relevant storage account. You can assign the permissions via Azure portal, PowerShell, or REST API. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
 ### Prepare the request to configure blob backup
 
 Once the relevant permissions to the vault and storage account are set, and the vault and policy configuration are done, prepare the request to configure backup.
 
-The following is the request body to configure backup for all blobs within a storage account. The Azure Resource Manager ID (ARM ID) of the storage account and its details are mentioned in the *datasourceinfo* section and the policy information is present in the *policyinfo* section.
+The following is the request body to configure backup for all blobs within a storage account. The Azure Resource Manager ID (ARM ID) of the storage account and its details are mentioned in the `datasourceinfo` section and the policy information is present in the `policyinfo` section.
 
 ```json
 {
@@ -117,7 +119,7 @@ backupInstanceResourceType is Microsoft.Storage/storageAccounts
 
 ### Validate the request to configure backup
 
-To validate if the request to configure backup will be successful, use [the validate for backup API](/rest/api/dataprotection/backup-instances/validate-for-backup). You can use the response to perform all required prerequisites and then submit the configuration for backup request.
+To validate if the request to configure backup will succeed, use [the validate for backup API](/rest/api/dataprotection/backup-instances/validate-for-backup). You can use the response to perform all required prerequisites and then submit the configuration for backup request.
 
 *Validate for backup request* is a *POST operation and the URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters.
 
@@ -192,9 +194,9 @@ The [request body](#prepare-the-request-to-configure-blob-backup) that you prepa
 
 #### Responses for validate backup request
 
-Validate for backup request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
+Validate for backup request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). This operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created; 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -332,7 +334,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 }
 ```
 
-If all the permissions are granted, then resubmit the validate request and track the resulting operation. It returns 200 (OK) as succeeded, if all the conditions are met.
+If all the permissions are granted, then resubmit the validate request job and track the resulting operation. It returns 200 (OK) as succeeded, if all the conditions are met.
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzlhMjk2YWM2LWRjNDMtNGRjZS1iZTU2LTRkZDNiMDhjZDlkOA==?api-version=2021-01-01
@@ -400,9 +402,9 @@ Use the same request body that you used to validate the backup request with a un
 
 #### Responses to configure backup request
 
-The create backup instance request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
+The create backup instance request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). This operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 201 (Created) when backup instance is created and the protection is being configured and then 200 (OK) when that configuration completes.
+It returns two responses: 201 (Created) when backup instance is created and the protection is being configured; 200 (OK) when that configuration completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -503,9 +505,9 @@ DELETE "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/Test
 
 #### Responses for delete protection
 
-*DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
+*DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). This operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created; 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -555,5 +557,10 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 For more information on the Azure Backup REST APIs, see the following documents:
 
-- [Azure Data Protection Provider REST API](/rest/api/dataprotection/)
-- [Get started with Azure REST API](/rest/api/azure/)
+- [Azure Data Protection Provider REST API](/rest/api/dataprotection/).
+- [Get started with Azure REST API](/rest/api/azure/).
+- [Manage backup and restore jobs](backup-azure-arm-userestapi-managejobs.md).
+
+## Related content
+
+Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md).

@@ -4,10 +4,12 @@ description: Learn how to estimate the cost to transfer data to, from, or betwee
 services: storage
 author: normesta
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 01/06/2025
+ms.topic: concept-article
+ms.date: 05/15/2025
 ms.author: normesta
-ms.custom: subject-cost-optimization
+ms.custom:
+  - subject-cost-optimization
+  - build-2025
 ---
 
 # Estimate the cost of using AzCopy to transfer blobs
@@ -47,9 +49,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                                     | Hot         | Cool        | Cold         | Archive      |
 |------------------------------------------------------------------|-------------|-------------|--------------|--------------|
-| Price of a single write operation (price / 10,000)               | $0.0000055  | $0.00001    | $0.000018    | $0.000011    |
+| Price of a single write operation                                | $0.0000055  | $0.00001    | $0.000018    | $0.000011    |
 | **Cost of write operations (641,000 * operation price)**         | **$3.5255** | **$6.4100** | **$11.5380** | **$7.0510**  |
-| Price of a single _other_ operation (price / 10,000)             | $0.00000044 | $0.00000044 | $0.00000052  | $0.00000044  |
+| Price of a single _other_ operation                              | $0.00000044 | $0.00000044 | $0.00000052  | $0.00000044  |
 | **Cost to get blob properties (1000 * _other_ operation price)** | **$0.0004** | **$0.0004** | **$0.0005**  | **$0.00044** |
 | **Total cost (write + properties)**                              | **$3.53**   | **$6.41**   | **$11.54**   | **$7.05**    |
 
@@ -77,11 +79,11 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                               | Hot         | Cool         | Cold         | Archive      |
 |------------------------------------------------------------|-------------|--------------|--------------|--------------|
-| Price of a single write operation (price / 10,000)         | $0.00000720 | $0.000013    | $0.0000234   | $0.0000143   |
-| **Cost of write operations (1,281,000 * operation price)** | **$9.2332** | **$16.6530** | **$29.9754** | **$18.3183** |
-| Price of a single _other_ operation (price / 10,000)       | $0.00000044 | $0.00000044  | $0.00000068  | $0.00000044  |
+| Price of a single write operation                          | $0.00000715 | $0.000013    | $0.0000234   | $0.0000143   |
+| **Cost of write operations (1,281,000 * operation price)** | **$9.1592** | **$16.6530** | **$29.9754** | **$18.3183** |
+| Price of a single _other_ operation                        | $0.00000044 | $0.00000044  | $0.00000068  | $0.00000044  |
 | **Cost to get blob properties (1000 * operation price)**   | **$0.0004** | **$0.0004**  | **$0.0007**  | **$0.0004**  |
-| **Total cost (write + properties)**                        | **$9.22**   | **$16.65**   | **$29.98**   | **$18.32**   |
+| **Total cost (write + properties)**                        | **$9.16**   | **$16.65**   | **$29.98**   | **$18.32**   |
 
 ## The cost to download
 
@@ -102,11 +104,11 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                             | Hot            | Cool           | Cold           |
 |----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)         | $0.0000055     | $0.0000055     | $0.0000065     |
-| **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000050** | **$0.0000065** |
-| Price of a single _other_ operation (price / 10,000)     | $0.00000044    | $0.00000044    | $0.00000052    |
+| Price of a single list operation                         | $0.0000055     | $0.0000055     | $0.0000180     |
+| **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000055** | **$0.0000180** |
+| Price of a single _other_ operation                      | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (1000 * operation price)** | **$0.00044**   | **$0.00044**   | **$0.00052**   |
-| Price of a single read operation (price / 10,000)        | $0.00000044    | $0.000001      | $0.00001       |
+| Price of a single read operation                         | $0.00000044    | $0.000001      | $0.00001       |
 | **Cost of read operations (1000 * operation price)**     | **$0.00044**   | **$0.001**     | **$0.01**      |
 | Price of data retrieval (per GiB)                        | $0.00          | $0.01          | $0.03          |
 | **Cost of data retrieval 1000 * (5 * operation price)**  | **$0.00**      | **$50.00**     | **$150.00**    |
@@ -127,7 +129,7 @@ The following table calculates the number of write operations required to upload
 |-------------------------------------------------------------|---------------|
 | Number of MiB in 5 GiB                                      | 5,120         |
 | Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280         |
-| Total read operations (1000 * 1,280)                         | **1,280,000** |
+| Total read operations (1000 * 1,280)                        | **1,280,000** |
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
 
@@ -136,11 +138,11 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                              | Hot            | Cool           | Cold           |
 |-----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)          | $0.0000055     | $0.0000055     | $0.0000065     |
+| Price of a single list operation                          | $0.0000055     | $0.0000055     | $0.0000065     |
 | **Cost of listing operations (1 * operation price)**      | **$0.0000055** | **$0.0000050** | **$0.0000065** |
-| Price of a single _other_ operation (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
+| Price of a single _other_ operation                       | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (1000 * operation price)**  | **$0.00044**   | **$0.00044**   | **$0.00052**   |
-| Price of a single read operation (price / 10,000)         | $0.00000060    | $0.00000130    | $0.00001300    |
+| Price of a single read operation                          | $0.00000060    | $0.00000130    | $0.00001300    |
 | **Cost of read operations (1,281,000 * operation price)** | **$0.73017**   | **$1.6653**    | **$16.653**    |
 | Price of data retrieval (per GiB)                         | $0.00000000    | $0.01000000    | $0.03000000    |
 | **Cost of data retrieval 1000 * (5 * operation price)**   | **$0.00**      | **$50.00**     | **$150.00**    |
@@ -162,13 +164,13 @@ For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/g
 
 | Price factor                                             | Hot            | Cool           | Cold           |
 |----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)         | $0.0000055     | $0.0000055     | $0.0000065     |
-| **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000055** | **$0.0000065** |
-| Price of a single other operations (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
-| **Cost to get blob properties (2000 * operation price)** | **$0.00088**   | **$0.00088**   | **$0.00104**   |
-| Price of a single write operation (price / 10,000)       | $0.0000055     | $0.00001       | $0.000018      |
+| Price of a single list operation                         | $0.0000055     | $0.0000055     | $0.0000180     |
+| **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000055** | **$0.0000180** |
+| Price of a single other operations                       | $0.00000044    | $0.00000044    | $0.00000044    |
+| **Cost to get blob properties (2000 * operation price)** | **$0.00088**   | **$0.00088**   | **$0.00088**   |
+| Price of a single write operation                        | $0.0000055     | $0.00001       | $0.000018      |
 | **Cost to write (1000 * operation price)**               | **$0.0055**    | **$0.01**      | **$0.018**     |
-| **Total cost (listing + properties + write)**            | **$0.0064**    | **$0.0109**    | **$0.0190**    |
+| **Total cost (listing + properties + write)**            | **$0.0064**    | **$0.0109**    | **$0.0189**    |
 
 ### Cost of copying blobs to another account in the same region
 
@@ -176,8 +178,8 @@ This scenario is identical to the previous one except that you're also billed fo
 
 | Price factor                                            | Hot          | Cool         | Cold          |
 |---------------------------------------------------------|--------------|--------------|---------------|
-| **Total from previous section**                         | **$0.0064**  | **$0.0109**  | **$0.0190**   |
-| Price of a single read operation (price / 10,000)       | $0.00000044  | $0.000001    | $0.00001      |
+| **Total from previous section**                         | **$0.0064**  | **$0.0109**  | **$0.0189**   |
+| Price of a single read operation                        | $0.00000044  | $0.000001    | $0.00001      |
 | **Cost of read operations (1,000 * operation price)**   | **$0.00044** | **$0.001**   | **$0.01**     |
 | Price of data retrieval (per GiB)                       | Free         | $0.01        | $0.03         |
 | **Cost of data retrieval 1000 * (5 * operation price)** | **$0.00**    | **$50.00**   | **$150.00**   |
@@ -189,7 +191,7 @@ This scenario is identical to the previous one except you're billed for network 
 
 | Price factor                                                  | Hot           | Cool          | Cold          |
 |---------------------------------------------------------------|---------------|---------------|---------------|
-| **Total cost from previous section**                          | **$0.0068**   | **$0.0619**   | **$0.1719**   |
+| **Total cost from previous section**                          | **$0.0068**   | **$50.0119**  | **$150.0290** |
 | Price of network egress (per GiB)                             | $0.02         | $0.02         | $0.02         |
 | **Total cost of network egress 1000 * (5 * price of egress)** | **$100**      | **$100**      | **$100**      |
 | **Total cost (previous section + egress)**                    | **$100.0068** | **$150.0119** | **$250.0290** |
@@ -220,11 +222,11 @@ The following table contains all of the estimates presented in this article. All
 
 | Scenario                                    | Hot       | Cool      | Cold      | Archive |
 |---------------------------------------------|-----------|-----------|-----------|---------|
-| Upload blobs (Blob Service endpoint)        | $3.53     | $6.41     | $11.54    | $3.53   |
-| Upload blobs (Data Lake Storage endpoint)   | $9.22     | $16.65    | $29.98    | $18.32  |
+| Upload blobs (Blob Service endpoint)        | $3.53     | $6.41     | $11.54    | $7.05   |
+| Upload blobs (Data Lake Storage endpoint)   | $9.16     | $16.65    | $29.98    | $18.32  |
 | Download blobs (Blob Service endpoint)      | $0.001    | $50.001   | $150.011  | N/A     |
 | Download blobs (Data Lake Storage endpoint) | $0.731    | $51.666   | $166.653  | N/A     |
-| Copy blobs                                  | $0.064    | $0.0109   | $0.0190   | N/A     |
+| Copy blobs                                  | $0.0064   | $0.0109   | $0.0189   | N/A     |
 | Copy blobs to another account               | $0.0068   | $50.0119  | $150.0290 | N/A     |
 | Copy blobs to an account in another region  | $100.0068 | $150.0119 | $250.0290 | N/A     |
 

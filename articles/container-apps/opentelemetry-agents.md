@@ -1,15 +1,17 @@
 ---
-title: Collect and read OpenTelemetry data in Azure Container Apps (preview)
-description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps.
+title: Collect and read OpenTelemetry data in Azure Container Apps
+description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps (preview).
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 12/02/2024
+ms.date: 06/16/2025
 ms.author: cshoe
 ms.topic: how-to
+ms.custom:
+  - build-2025
 ---
 
-# Collect and read OpenTelemetry data in Azure Container Apps (preview)
+# Collect and read OpenTelemetry data in Azure Container Apps
 
 Using an [OpenTelemetry](https://opentelemetry.io/) data agent with your Azure Container Apps environment, you can choose to send observability data in an OpenTelemetry format by:
 
@@ -27,7 +29,7 @@ Each endpoint type (Azure Monitor Application Insights, DataDog, and OTLP) has s
 
 ## Prerequisites
 
-Enabling the managed OpenTelemetry agent to your environment doesn't automatically mean the agent collects data. Agents only send data based on your configuration settings and instrumenting your code correctly.
+Enabling the managed OpenTelemetry agent for your environment doesn't automatically mean the agent collects data. Agents only send data based on your configuration settings and instrumenting your code correctly.
 
 ### Configure source code
 
@@ -43,12 +45,15 @@ The managed OpenTelemetry agent accepts the following destinations:
 - Datadog
 - Any OTLP endpoint (For example: New Relic or Honeycomb)
 
+> [!NOTE]
+> Microsoft provides support for data sent to Azure Monitor Application Insights. Once data is stored in any non-Microsoft system, data-related support is the responsibility of the endpoint's organization.
+
 The following table shows you what type of data you can send to each destination:
 
 | Destination | Logs | Metrics | Traces |
 |---|------|---------|--------|
 | [Azure App Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | No | Yes |
-| [Datadog](https://datadoghq.com/) | No | Yes | Yes |
+| [Datadog](https://datadoghq.com/) | Yes | Yes | Yes |
 | [OpenTelemetry](https://opentelemetry.io/) protocol (OTLP) configured endpoint | Yes | Yes | Yes |
 
 ## Azure Monitor Application Insights
@@ -57,17 +62,17 @@ The only configuration detail required from Application Insights is the connecti
 
 The connection string contains an instrumentation key, which is a unique identifier used to associate telemetry to a specific Application Insights resource. Instrumentation keys aren't security tokens or security keys, and aren't considered secrets.
 
-If you want to protect your Application Insights resource from misuse, see [Microsoft Entra authentication for Application Insights](/azure/azure-monitor/app/azure-ad-authentication#microsoft-entra-authentication-for-application-insights).
+If you want to protect your Application Insights resource from misuse, see [Microsoft Entra authentication for Application Insights](/azure/azure-monitor/app/azure-ad-authentication#microsoft-entra-authentication-for-application-insights). However, the Application Insights resource must [allow local authentication](/azure/azure-monitor/app/azure-ad-authentication#disable-local-authentication) to receive data from the OpenTelemetry data agent.
 
 # [ARM template](#tab/arm)
 
-Before you deploy this template, replace placeholders surrounded by `<>` with your values.
+Before you deploy this template, replace the `<PLACEHOLDERS>` with your values.
 
 ```json
 {
   ...
   "properties": {
-    "appInsightsConfiguration ": {  
+    "appInsightsConfiguration ": {
       "connectionString": "<APP_INSIGHTS_CONNECTION_STRING>"
     }
     "openTelemetryConfiguration": {
@@ -83,9 +88,35 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+  ...
+  properties: {
+    appInsightsConfiguration: {
+      connectionString: '<APP_INSIGHTS_CONNECTION_STRING>'
+    }
+    openTelemetryConfiguration: {
+      ...
+      tracesConfiguration: {
+        destinations: [
+          'appInsights'
+        ]
+      }
+      logsConfiguration: {
+        destinations: [
+          'appInsights'
+        ]
+      }
+    }
+  }
+}
+```
+
 # [Azure CLI](#tab/azure-cli)
 
-Before you run this command, replace placeholders surrounded by `<>` with your values.
+Before you run this command, replace the `<PLACEHOLDERS>` with your values.
 
 ```azurecli
 az containerapp env telemetry app-insights set \
@@ -97,7 +128,7 @@ az containerapp env telemetry app-insights set \
 ```
 
 >[!NOTE]
-> Due to the sensitivity of the connection-string, you will not be able to see the detail values of the connection string when the command returns. The system will display it as null.
+> Due to the sensitivity of the connection-string, you can't see the detail values of the connection string when the command returns. The system displays it as null.
 
 # [Terraform](#tab/terraform)
 
@@ -135,18 +166,22 @@ resource "azapi_update_resource" "app_insights_open_telemetry_integration" {
 
 ## Datadog
 
-The Datadog agent configuration requires a value for `site` and `key` from your Datadog instance. Gather these values from your Datadog instance according to this table:
+You don't need to run the Datadog agent in your container app if you enable the managed OpenTelemetry agent for your environment.
 
-| Datadog agent property | Container Apps configuration property |
+The OpenTelemetry agent configuration requires a value for `site` and `key` from your Datadog instance. Gather these values from your Datadog instance according to this table:
+
+| Datadog instance property | OpenTelemetry agent configuration property |
 |---|---|
 | `DD_SITE` | `site` |
 | `DD_API_KEY` | `key` |
 
-Once you have these configuration details, you can configure the agent via your container app's ARM template or with Azure CLI commands.
+If you created your Datadog instance in the Azure portal, see [API keys](/azure/partner-solutions/datadog/manage#api-keys) for more information.
+
+Once you have these configuration details, you can configure the agent via your container app's ARM or Bicep template or with Azure CLI commands.
 
 Avoid specifying the value of a secret, such as your Datadog API key, directly in a production environment. Instead, use a reference to a secret stored in Azure Key Vault.
 
-You must enable the key vault for template deployment. To do this, create the key vault with the `enabledForTemplateDeployment` property enabled, or run the following Azure CLI command, replacing the `<KEY_VAULT_NAME>` with your value:
+You must enable the key vault for template deployment. To enable template deployment, create the key vault with the `enabledForTemplateDeployment` property enabled, or run the following Azure CLI command, replacing the `<KEY_VAULT_NAME>` with your value:
 
 ```azurecli
 az keyvault update --name <KEY_VAULT_NAME> --enabled-for-template-deployment true
@@ -160,7 +195,7 @@ For more information, see:
 
 Create a [parameter file](/azure/azure-resource-manager/templates/parameter-files) to retrieve your Datadog API key from an Azure Key Vault.
 
-Before you deploy the following files, replace placeholders surrounded by `<>` with your values.
+Before you deploy the following files, replace the `<PLACEHOLDERS>` with your values.
 
 ```json
 {
@@ -179,7 +214,7 @@ Before you deploy the following files, replace placeholders surrounded by `<>` w
 }
 ```
 
-You can now reference the `datadogapikey` parameter in your ARM Template.
+You can now reference the `datadogapikey` parameter in your ARM template.
 
 ```json
 {
@@ -211,7 +246,7 @@ You can now reference the `datadogapikey` parameter in your ARM Template.
 }
 ```
 
-To deploy the resource, run the following Azure CLI command, replacing the placeholders surrounded by `<>` with your values.
+To deploy the resource, run the following Azure CLI command, replacing the `<PLACEHOLDERS>` with your values.
 
 ```azurecli
 az deployment group create \
@@ -220,22 +255,73 @@ az deployment group create \
   --parameters <PARAMETER_FILE>
 ```
 
+# [Bicep](#tab/bicep)
+
+Create a [parameter file](/azure/azure-resource-manager/bicep/parameter-files) to retrieve your Datadog API key from an Azure Key Vault.
+
+Before you deploy the following files, replace the `<PLACEHOLDERS>` with your values.
+
+```bicep
+using '<BICEP_TEMPLATE_FILE>'
+
+param datadogapikey = az.getSecret('<SUBSCRIPTION_ID>', '<RESOURCE_GROUP_NAME>', '<KEY_VAULT_NAME>', '<SECRET_NAME>', '<SECRET_VERSION_ID>')
+```
+
+The subscription ID has the form `123e4567-e89b-12d3-a456-426614174000`. The secret version ID has the form `123e4567e89b12d3a456426614174000`.
+
+You can now reference the `datadogapikey` parameter in your Bicep file.
+
+```bicep
+@secure()
+param datadogapikey string
+
+resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+  ...
+  properties: {
+    openTelemetryConfiguration: {
+      destinationsConfiguration: {
+        dataDogConfiguration: {
+          site: 'datadoghq.com'
+          key: datadogapikey
+        }
+      }
+      ...
+      metricsConfiguration: {
+        destinations: [
+          'dataDog'
+          'customDashboard'
+        ]
+      }
+    }
+  }
+}
+```
+
+To deploy the resource, run the following Azure CLI command, replacing the `<PLACEHOLDERS>` with your values.
+
+```azurecli
+az deployment group create \
+  --resource-group <RESOURCE_GROUP> \
+  --template-file <BICEP_TEMPLATE_FILE> \
+  --parameters <PARAMETER_FILE>
+```
+
 # [Azure CLI](#tab/azure-cli)
 
-Before you run this command, replace placeholders surrounded by `<>` with your values.
+Before you run this command, replace the `<PLACEHOLDERS>` with your values.
 
 ```azurecli
 az containerapp env telemetry data-dog set \
   --resource-group <RESOURCE_GROUP_NAME> \
   --name <ENVIRONMENT_NAME> \
-  --site  "<DATADOG_SUBDOMAIN>.datadoghq.com" \
+  --site "<DATADOG_SUBDOMAIN>.datadoghq.com" \
   --key <DATADOG_KEY> \
   --enable-open-telemetry-traces true \
   --enable-open-telemetry-metrics true
 ```
 
 >[!NOTE]
-> Due to the sensitivity of the key, you will not be able to see the detail values of the key when the command returns. The system will display it as null. 
+> Due to the sensitivity of the key, you can't see the detail values of the key when the command returns. The system displays it as null. 
 
 # [Terraform](#tab/terraform)
 
@@ -315,6 +401,49 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
 
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+  ...
+  properties: {
+    openTelemetryConfiguration: {
+      destinationsConfiguration: {
+        otlpConfigurations: [
+          {
+            name: 'otlp1'
+            endpoint: 'ENDPOINT_URL_1'
+            insecure: false
+            headers: 'api-key-1=key'
+          }
+          {
+            name: 'otlp2'
+            endpoint: 'ENDPOINT_URL_2'
+            insecure: true
+          },
+        ]
+      }
+      logsConfiguration: {
+        destinations: [
+          'otlp2'
+        ]
+      }
+      tracesConfiguration: {
+        destinations: [
+          'otlp1'
+          'otlp2'
+        ]
+      }
+      metricsConfiguration: {
+        destinations: [
+          'otlp1'
+        ]
+      }
+    }
+  }
+}
+```
+
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -338,7 +467,7 @@ az containerapp env telemetry otlp add \
 ```
 
 >[!NOTE]
-> Due to the sensitivity of the headers value, you will not be able to see the detail values of the headers value when the command returns. The system will display them as null.
+> Due to the sensitivity of the headers value, you can't see the detail values of the headers value when the command returns. The system displays them as null.
 
 # [Terraform](#tab/terraform)
 
@@ -452,13 +581,71 @@ The following example ARM template shows how to use an OTLP endpoint named `cust
 }
 ```
 
+## Export system components OpenTelemetry signals
+
+From the OpenTelemetry API version `2024-08-02-preview`, you can configure your container app environment to export system components OpenTelemetry signals to your data destinations.
+
+Use the following configuration to export Dapr traces and KEDA metrics.
+
+### Dapr Traces
+
+The following example ARM template shows how to export Dapr Traces to your traces destinations.
+
+```json
+{
+  ...
+  "properties": {
+    ...
+    "openTelemetryConfiguration": {
+      ...
+      "tracesConfiguration": {
+        "destinations": [
+          "appInsights",
+          "customDashboard"
+        ]，
+        "includeDapr": true
+      }
+    }
+  }
+}
+```
+
+To learn more about how to use Dapr in container apps, see [Dapr Overview](./dapr-overview.md).
+
+### KEDA metrics
+
+The following example ARM template shows how to export KEDA metrics to your metrics destinations.
+
+```json
+{
+  ...
+  "properties": {
+    ...
+    "openTelemetryConfiguration": {
+      ...
+      "metricsConfiguration": {
+        "destinations": [
+          "dataDog",
+          "customDashboard"
+        ]，
+        "includeKeda": true
+      }
+    }
+  }
+}
+```
+
+To learn more about KEDA support in Container Apps, see [Set scaling rules](scale-app.md).
+
 ## Example OpenTelemetry configuration
 
-The following example ARM template shows how you might configure your container app to collect telemetry data using Azure Monitor Application Insights, Datadog, and with a custom OTLP agent named `customDashboard`.
+The following example template shows how you might configure your container app to collect telemetry data using Azure Monitor Application Insights, Datadog, and with a custom OTLP agent named `customDashboard`.
 
 This example works with the parameter file used to retrieve the [Datadog API](#datadog) key from an Azure Key Vault.
 
-Before you deploy this template, replace placeholders surrounded by `<>` with your values.
+Before you deploy this template, replace the `<PLACEHOLDERS>` with your values.
+
+# [ARM template](#tab/arm-example)
 
 ```json
 {
@@ -504,6 +691,58 @@ Before you deploy this template, replace placeholders surrounded by `<>` with yo
 }
 ```
 
+# [Bicep](#tab/bicep-example)
+
+```bicep
+@secure()
+param datadogapikey string
+
+resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+  name: '<ENVIRONMENT_NAME>'
+  location: '<LOCATION>'
+  properties: {
+    appInsightsConfiguration: {
+      connectionString: '<APP_INSIGHTS_CONNECTION_STRING>'
+    }
+    openTelemetryConfiguration: {
+      destinationsConfiguration: {
+        dataDogConfiguration: {
+          site: 'datadoghq.com'
+          key: datadogapikey
+        }
+        otlpConfigurations: [
+          {
+            name: 'customDashboard'
+            endpoint: '<OTLP_ENDPOINT_URL>'
+            insecure: true
+          }
+        ]
+      }
+      tracesConfiguration: {
+        destinations: [
+          'appInsights'
+          'customDashboard'
+        ]
+      }
+      logsConfiguration: {
+        destinations: [
+          'appInsights'
+          'customDashboard'
+        ]
+      }
+      metricsConfiguration: {
+        destinations: [
+          'dataDog'
+          'customDashboard'
+        ]
+      }
+    }
+  }
+}
+```
+
+---
+
 For more information, see [Microsoft.App/managedEnvironments](/azure/templates/microsoft.app/2024-02-02-preview/managedenvironments).
 
 ## Environment variables
@@ -537,10 +776,20 @@ See the destination service for their billing structure and terms. For example, 
 
 ## Known limitations
 
-- OpenTelemetry agents are in preview.
 - System data, such as system logs or Container Apps standard metrics, isn't available to be sent to the OpenTelemetry agent.
 - The Application Insights endpoint doesn't accept metrics.
-- The Datadog endpoint doesn't accept logs.
+- Configuration settings live at the environment level. You can send different data types to different destinations, but you can't split up your data by app. For example, in the same app you can send metrics to Datadog, and traces to App Insights.
+- The managed agent only supports the gRPC transport protocol for telemetry data.
+
+## Frequently asked questions
+
+- **Do I need to reference the OpenTelemetry SDK in my code?**
+
+    Yes. The SDK creates telemetry data, and the managed agent is only responsible to route data.
+
+- **Why does the `list` command return null?**
+
+    When you run `az containerapp env telemetry otlp list`, the response is `null` when the value is a sensitive token that needs protection.
 
 ## Next steps
 

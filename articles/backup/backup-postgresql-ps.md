@@ -1,37 +1,29 @@
 ---
-title: Back up Azure Database for PostgreSQL with long-term-retention using Azure PowerShell
-description: Learn how to back up Azure Database for PostgreSQL using Azure PowerShell.
+title: Back Up PostgreSQL Databases by Using Azure PowerShell
+description: Learn how to back up Azure Database for PostgreSQL by using Azure PowerShell.
 ms.topic: how-to
-ms.date: 07/30/2024
-ms.custom: devx-track-azurepowershell
+ms.date: 05/20/2025
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Back up Azure PostgreSQL databases using Azure PowerShell
+# Back up PostgreSQL databases by using Azure PowerShell
 
-This article explains how to back up [Azure PostgreSQL database](/azure/postgresql/overview#azure-database-for-postgresql---single-server) using Azure PowerShell.
+This article describes how to back up  [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) by using Azure PowerShell. You can also configure backup using [Azure portal](backup-azure-database-postgresql.md), [Azure CLI](backup-postgresql-cli.md), and [REST API](backup-azure-data-protection-use-rest-api-backup-postgresql.md) for PostgreSQL databases. 
 
-In this article, you'll learn how to:
-
-- Create a Backup vault
-
-- Create a backup policy
-
-- Configure a backup of an Azure PostgreSQL database
-
-- Run an on-demand backup job
-
-For information on the Azure PostgreSQL databases supported scenarios and limitations, see the [support matrix](backup-azure-database-postgresql-support-matrix.md).
+Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq) for backing up PostgreSQL databases in Azure Database for PostgreSQL.
 
 ## Create a Backup vault
 
-Backup vault is a storage entity in Azure that stores the backup data for various new workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, Azure Disks, and Azure Blobs. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
+A Backup vault is a storage entity in Azure. It stores the backup data for various new workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, Azure disks, and Azure blobs. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before you create a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location.
+Before you create a Backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the Backup vault with that storage redundancy and the location.
 
-In this article, we'll create a Backup vault *TestBkpVault*, in *westus* region, under the resource group *testBkpVaultRG*. Use the [New-AzDataProtectionBackupVault](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a Backup vault. Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
+In this article, you create a Backup vault named `TestBkpVault`, in the `westus` region, under the resource group `testBkpVaultRG`. Use the [`New-AzDataProtectionBackupVault`](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a Backup vault. [Learn more about creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
 ```azurepowershell-interactive
 $storageSetting = New-AzDataProtectionBackupVaultStorageSettingObject -Type LocallyRedundant/GeoRedundant -DataStoreType VaultStore
@@ -53,50 +45,53 @@ Tag                 : Microsoft.Azure.PowerShell.Cmdlets.DataProtection.Models.A
 Type                : Microsoft.DataProtection/backupVaults
 ```
 
-After creating the vault, let's create a backup policy to protect Azure PostgreSQL databases.
-
 ## Create a backup policy
 
-### Understand PostgreSQL backup policy
+After you create a vault, you can create a backup policy to help protect PostgreSQL databases. You can also [create a backup policy for PostgreSQL databases using REST API](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md).
 
-While disk backup offers multiple backups per day and blob backup is a *continuous* backup with no trigger, PostgreSQL backup offers Archive protection. The backup data that's first sent to the vault can be moved to the *archive* tier as per a defined rule or a *lifecycle*. In this context, let's understand the backup policy object for PostgreSQL.
+### Understand the PostgreSQL backup policy
 
--  PolicyRule
-   -  BackupRule
-      -  BackupParameter
-         -  BackupType (A full database backup in this case)
-         -  Initial Datastore (Where will the backups land initially)
-         -  Trigger (How the backup is triggered)
-            -  Schedule based
-            -  Default Tagging Criteria (A default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
-   -  Default Retention Rule (A rule that will be applied to all backups, by default, on the initial datastore)
+Whereas disk backup offers multiple backups per day and blob backup is a *continuous* backup with no trigger, PostgreSQL backup offers archive protection. The backup data that's first sent to the vault can be moved to the archive tier in accordance with a defined rule or a life cycle.
 
-So, this object defines what type of backups are triggered, how they are triggered (via a schedule), what they are tagged with, where they land (a datastore), and the lifecycle of the backup data in a datastore. The default PowerShell object for PostgreSQL says to trigger a *full* backup every week, and they'll reach the vault, where they are stored for three months.
+In this context, the following hierarchy can help you understand the backup policy object for PostgreSQL:
 
-If you want to add the *archive* tier to the policy, you have to decide when the data will be moved from vault to archive, how long will the data stay in the archive, and which of the scheduled backups should be *tagged* as _archivable_. So, you've to add a *retention rule*, where the lifecycle of the backup data will be defined from vault datastore to archive datastore and how long they'll stay in the *archive* datastore. Then you need to add a *tag* that'll mark the scheduled backups as _eligible to be archived_.
+- Policy rule
+  - Backup rule
+    - Backup parameter
+      - Backup type (a full database backup in this case)
+      - Initial datastore (where the backups land initially)
+      - Trigger (how the backup is triggered)
+        - Schedule
+        - Default tagging criteria (a default tag that links all scheduled backups to the retention rule)
+  - Default retention rule (a rule that's applied to all backups, by default, on the initial datastore)
+
+The policy object defines what types of backups are triggered, how they're triggered (via a schedule), what they're tagged with, where they land (a datastore), and the life cycle of their data in a datastore.
+
+The default PowerShell object for PostgreSQL says to trigger a *full* backup every week. The backups reach the vault, where they're stored for three months.
+
+If you want to add the archive tier to the policy, you have to decide when the data will be moved from the vault to the archive, how long the data will stay in the archive, and which of the scheduled backups should be tagged as archivable. You have to add a retention rule that defines the life cycle of the backup data from the vault datastore to the archive datastore. The retention rule also defines how long the backup data will stay in the archive datastore. Then you need to add a tag that marks the scheduled backups as eligible to be archived.
 
 The resultant PowerShell object is as follows:
 
+- Policy rule
+  - Backup rule
+    - Backup parameter
+      - Backup type (a full database backup in this case)
+      - Initial datastore (where the backups land initially)
+      - Trigger (how the backup is triggered)
+        - Schedule
+        - Default tagging criteria (a default tag that links all the scheduled backups to the retention rule)
+        - New tagging criteria for the new retention rule with the same name
+  - Default retention rule (a rule that's applied to all backups, by default, on the initial datastore)
+  - New retention rule
+    - Life cycle
+      - Source datastore
+      - Time period for deletion in the source datastore
+      - Copy to the target datastore
 
--  PolicyRule
-   -  BackupRule
-      -  BackupParameter
-         -  BackupType (A full database backup in this case)
-         -  Initial Datastore (Where will the backups land initially)
-         -  Trigger (How the backup is triggered)
-            -  Schedule based
-            -  Default Tagging Criteria (A default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
-            -  New Tagging criteria for the new retention rule with the same name 'X'
-   -  Default Retention Rule (A rule that will be applied to all backups, by default, on the initial datastore)
-   -  A new Retention rule named as 'X'
-      -  Lifecycle
-         -  Source datastore
-         -  Delete After time period in source datastore
-         -  Copy to target datastore
+### Retrieve the policy template
 
-### Retrieving the Policy template
-
-To understand the inner components of a backup policy for Azure PostgreSQL database backup, retrieve the policy template using the [Get-AzDataProtectionPolicyTemplate](/powershell/module/az.dataprotection/get-azdataprotectionpolicytemplate) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
+To understand the inner components of a backup policy for PostgreSQL database backup, retrieve the policy template by using the [`Get-AzDataProtectionPolicyTemplate`](/powershell/module/az.dataprotection/get-azdataprotectionpolicytemplate) command. This command returns the default policy template for a data-source type. Use this policy template to create a new policy.
 
 ```azurepowershell-interactive
 $policyDefn = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureDatabaseForPostgreSQL
@@ -126,7 +121,7 @@ Name       : Default
 ObjectType : AzureRetentionRule
 ```
 
-The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure PostgreSQL database backup, the default value for trigger is a scheduled Weekly trigger (1 backup every 7 days) and to retain each backup for three months.
+The policy template consists of a trigger (which decides what triggers the backup) and a life cycle (which decides when to delete, copy, or move the backup). In a PostgreSQL database backup, the default value for the trigger is a scheduled weekly trigger (one backup every seven days). Each backup is retained for three months.
 
 ```azurepowershell-interactive
  $policyDefn.PolicyRule[0].Trigger | fl
@@ -153,21 +148,21 @@ TargetDataStoreCopySetting : {}
 
 #### Modify the schedule
 
-The default policy template offers a backup once per week. You can modify the schedule for the backup to happen multiple days per week. To change the schedule, use the [Edit-AzDataProtectionPolicyTriggerClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject) command.
+The default policy template offers a backup once per week. You can modify the schedule for the backup to happen multiple days per week. To change the schedule, use the [`Edit-AzDataProtectionPolicyTriggerClientObject`](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject) command.
 
-The following example modifies the weekly backup to back up happening on every Sunday, Wednesday, and Friday of every week. The schedule date array mentions the dates, and the days of the week of those dates are taken as days of the week. You also need to specify that these schedules should repeat every week. Therefore, the schedule interval is "1" and the interval type is "Weekly".
+The following example modifies the weekly backup to Sunday, Wednesday, and Friday of every week. The schedule date array mentions the dates, and the days of the week for those dates are taken as days of the week. You also need to specify that these schedules should repeat every week. So, the schedule interval is `1` and the interval type is `Weekly`.
 
 ```azurepowershell-interactive
 $schDates = @(
-	(
-		(Get-Date -Year 2021 -Month 08 -Day 15 -Hour 22 -Minute 0 -Second 0)
-	), 
-	(
-		(Get-Date -Year 2021 -Month 08 -Day 18 -Hour 22 -Minute 0 -Second 0)
-	),
   (
-		(Get-Date -Year 2021 -Month 08 -Day 20 -Hour 22 -Minute 0 -Second 0)
-	)
+    (Get-Date -Year 2021 -Month 08 -Day 15 -Hour 22 -Minute 0 -Second 0)
+  ), 
+  (
+    (Get-Date -Year 2021 -Month 08 -Day 18 -Hour 22 -Minute 0 -Second 0)
+  ),
+  (
+    (Get-Date -Year 2021 -Month 08 -Day 20 -Hour 22 -Minute 0 -Second 0)
+  )
 )
 $trigger = New-AzDataProtectionPolicyTriggerScheduleClientObject -ScheduleDays $schDates -IntervalType Weekly -IntervalCount 1 
 Edit-AzDataProtectionPolicyTriggerClientObject -Schedule $trigger -Policy $policyDefn   
@@ -175,11 +170,13 @@ Edit-AzDataProtectionPolicyTriggerClientObject -Schedule $trigger -Policy $polic
 
 #### Add a new retention rule
 
-So, if you want to add the _archive_ protection, you need to modify the policy template as below.
+If you want to add archive protection, you need to modify the policy template.
 
-The default template will have a lifecycle for the initial datastore under the default retention rule. In this scenario, the rule says to delete the backup data after three months. You should add a new retention rule that defines when the data is *moved* to *archive* datastore, that is, backup data is first copied to archive datastore, and then deleted in vault datastore. Also, the rule should define for how long the data is kept in the *archive* datastore. Use the [New-AzDataProtectionRetentionLifeCycleClientObject](/powershell/module/az.dataprotection/new-azdataprotectionretentionlifecycleclientobject) command to create new lifecycles and use the [Edit-AzDataProtectionPolicyRetentionRuleClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject) command to associate them with new the rules or to the existing rules.
+The default template has a life cycle for the initial datastore under the default retention rule. In this scenario, the rule says to delete the backup data after three months. You should add a new retention rule that defines when the data is moved to the archive datastore. That is, backup data is first copied to the archive datastore, and then it's deleted in the vault datastore.
 
-The following example creates a new retention rule named *Monthly* where the first successful backup of every month should be retained in vault for six months, moved to archive tier and kept in archive tier 24 months.
+Also, the rule should define how long to keep the data in the archive datastore. To create new life cycles, use the [`New-AzDataProtectionRetentionLifeCycleClientObject`](/powershell/module/az.dataprotection/new-azdataprotectionretentionlifecycleclientobject) command. To associate those life cycles with new or existing rules, use the [`Edit-AzDataProtectionPolicyRetentionRuleClientObject`](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject) command.
+
+The following example creates a new retention rule named `Monthly`. In this rule, the first successful backup of every month is retained in the vault for six months, moved to the archive tier, and kept in the archive tier for 24 months.
 
 ```azurepowershell-interactive
 $VaultToArchiveLifeCycle = New-AzDataProtectionRetentionLifeCycleClientObject -SourceDataStore VaultStore -SourceRetentionDurationType Months -SourceRetentionDurationCount 6 -TargetDataStore ArchiveStore -CopyOption CopyOnExpiryOption
@@ -191,18 +188,18 @@ Edit-AzDataProtectionPolicyRetentionRuleClientObject -Policy $policyDefn -Name M
 
 #### Add a tag and the relevant criteria
 
-Once a retention rule is created, you've to create a corresponding *tag* in the *Trigger* property of the backup policy. Use the [New-AzDataProtectionPolicyTagCriteriaClientObject](/powershell/module/az.dataprotection/new-azdataprotectionpolicytagcriteriaclientobject) command to create a new tagging criteria and use the [Edit-AzDataProtectionPolicyTagClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytagclientobject) command to update the existing tag or create a new tag.
+After you create a retention rule, you have to create a corresponding tag in the `Trigger` property of the backup policy. To create new tagging criteria, use the [`New-AzDataProtectionPolicyTagCriteriaClientObject`](/powershell/module/az.dataprotection/new-azdataprotectionpolicytagcriteriaclientobject) command. To update the existing tag or create a new tag, use the [Edit-AzDataProtectionPolicyTagClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytagclientobject) command.
 
-The following example creates a new *tag* along with the criteria (which is the first successful backup of the month) with the same name as the corresponding retention rule to be applied.
+The following example creates a new tag along with the criteria, which is the first successful backup of the month. The tag has the same name as the corresponding retention rule to be applied.
 
-In this example, the tag criteria should be named *Monthly*.
+In this example, the tag criteria are named `Monthly`:
 
 ```azurepowershell-interactive
 $tagCriteria = New-AzDataProtectionPolicyTagCriteriaClientObject -AbsoluteCriteria FirstOfMonth
 Edit-AzDataProtectionPolicyTagClientObject -Policy $policyDefn -Name Monthly -Criteria $tagCriteria
 ```
 
-If the schedule is multiple backups per week (every Sunday, Wednesday, Thursday as specified in the above example) and you want to archive the Sunday and Friday backups, then the tagging criteria can be changed as follows:
+If the schedule is multiple backups per week (every Sunday, Wednesday, and Thursday, as specified in the preceding example) and you want to archive the Sunday and Friday backups, you can change the tagging criteria as follows:
 
 ```azurepowershell-interactive
 $tagCriteria = New-AzDataProtectionPolicyTagCriteriaClientObject -DaysOfWeek @("Sunday", "Friday")
@@ -211,7 +208,7 @@ Edit-AzDataProtectionPolicyTagClientObject -Policy $policyDefn -Name Monthly -Cr
 
 ### Create a new PostgreSQL backup policy
 
-Once the template is modified as per the requirements, use the [New-AzDataProtectionBackupPolicy](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy) command to create a policy using the modified template.
+After you modify the template according to the requirements, use the [`New-AzDataProtectionBackupPolicy`](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy) command to create a policy by using the modified template:
 
 ```azurepowershell-interactive
 $polOss = New-AzDataProtectionBackupPolicy -ResourceGroupName testBkpVaultRG -VaultName TestBkpVault -Name "TestOSSPolicy" -Policy $policyDefn
@@ -219,21 +216,21 @@ $polOss = New-AzDataProtectionBackupPolicy -ResourceGroupName testBkpVaultRG -Va
 
 ## Configure backup
 
-Once the vault and policy are created, there are three critical points that you need to consider to protect an Azure PostgreSQL database.
+After you create the vault and policy, you need to consider three critical points to back up a PostgreSQL database in Azure Database for PostgreSQL.
 
-### Key entities involved
+### Understand key entities
 
-#### PostgreSQL database to be protected
+#### PostgreSQL database to be backed up
 
-Fetch the Azure Resource Manager ID (ARM ID) of PostgreSQL to be protected. This serves as the identifier of the database. We'll use an example of a database named **empdb11** under a PostgreSQL server **testposgresql**, which is present in the resource group **ossrg** under a different subscription.
+Fetch the Resource Manager ID of the PostgreSQL database to be backed up. This ID serves as the identifier of the database. The following example uses a database named `empdb11` under the PostgreSQL server `testposgresql`, which is present in the resource group `ossrg` under a different subscription:
 
 ```azurepowershell-interactive
 $ossId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/ossrg/providers/Microsoft.DBforPostgreSQL/servers/archive-postgresql-ccy/databases/empdb11"
 ```
 
-#### Azure key vault
+#### Key vault
 
-Azure Backup service doesn't store the username and password to connect to the PostgreSQL database. Instead, the backup admin seeds the *keys* into the key vault, and then the backup service will access the key vault, read the keys, and access the database. Note the secret identifier of the relevant key.
+The Azure Backup service doesn't store the username and password to connect to the PostgreSQL database. Instead, the backup admin seeds the *keys* into the key vault. The Azure Backup service then accesses the key vault, reads the keys, and accesses the database. Note the secret identifier of the relevant key.
 
 ```azurepowershell-interactive
 $keyURI = "https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
@@ -241,16 +238,16 @@ $keyURI = "https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
 
 #### Backup vault
 
-You need to connect the Backup vault to the PostgreSQL server, and then access the database via the keys present in the key vault. So, it requires access to the PostgreSQL server and the key vault. Access is granted to the Backup vault's MSI.
+You need to connect the Backup vault to the PostgreSQL server and then access the database via the keys present in the key vault. So, the Backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the Backup vault's managed identity.
 
-[Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) that you should grant to the Backup vault's MSI on the PostgreSQL server and the Azure key vault, where the keys to the database are stored.
+[Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup) that you should grant to the Backup vault's managed identity on the PostgreSQL server and Azure Key Vault, where the keys to the database are stored.
 
 ### Prepare the request
 
-Once all the relevant permissions are set, the configuration of the backup is performed in two steps.
+After you set all the relevant permissions, perform the configuration of the backup in two steps:
 
-1. We prepare the relevant request by using the relevant vault, policy, PostgreSQL database using the [Initialize-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/initialize-azdataprotectionbackupinstance) command.
-1. We submit the request to protect the database using the [New-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/new-azdataprotectionbackupinstance) command.
+1. Prepare the request by using the relevant vault, policy, and PostgreSQL database in the [`Initialize-AzDataProtectionBackupInstance`](/powershell/module/az.dataprotection/initialize-azdataprotectionbackupinstance) command.
+1. Submit the request to back up the database by using the [`New-AzDataProtectionBackupInstance`](/powershell/module/az.dataprotection/new-azdataprotectionbackupinstance) command.
 
 ```azurepowershell-interactive
 $instance = Initialize-AzDataProtectionBackupInstance -DatasourceType AzureDatabaseForPostgreSQL -DatasourceLocation $TestBkpvault.Location -PolicyId $polOss[0].Id -DatasourceId $ossId -SecretStoreURI $keyURI -SecretStoreType AzureKeyVault
@@ -264,13 +261,13 @@ ossrg-empdb11       Microsoft.DataProtection/backupVaults/backupInstances ossrg-
 
 ## Run an on-demand backup
 
-Fetch the relevant backup instance on which you need to trigger a backup using the [Get-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/get-azdataprotectionbackupinstance) command.
+Fetch the relevant backup instance on which you need to trigger a backup by using the [`Get-AzDataProtectionBackupInstance`](/powershell/module/az.dataprotection/get-azdataprotectionbackupinstance) command:
 
 ```azurepowershell-interactive
 $instance = Get-AzDataProtectionBackupInstance -SubscriptionId "xxxx-xxx-xxx" -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name "BackupInstanceName"
 ```
 
-You can specify a retention rule while triggering backup. To view the retention rules in policy, navigate through the policy object for retention rules. In the following example, the rule with name *default* is displayed. We'll use that rule for the on-demand backup.
+You can specify a retention rule while triggering a backup. To view the retention rules in a policy, browse through the policy object. In the following example, the rule with the name `Default` is displayed. This article uses that example rule for the on-demand backup.
 
 ```azurepowershell-interactive
 $ossPol.PolicyRule | fl
@@ -291,7 +288,7 @@ Name       : Default
 ObjectType : AzureRetentionRule
 ```
 
-To trigger an on-demand backup, use the [Backup-AzDataProtectionBackupInstanceAdhoc](/powershell/module/az.dataprotection/backup-azdataprotectionbackupinstanceadhoc) command.
+To trigger an on-demand backup, use the [`Backup-AzDataProtectionBackupInstanceAdhoc`](/powershell/module/az.dataprotection/backup-azdataprotectionbackupinstanceadhoc) command:
 
 ```azurepowershell-interactive
 $AllInstances = Get-AzDataProtectionBackupInstance -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name
@@ -300,14 +297,15 @@ Backup-AzDataProtectionBackupInstanceAdhoc -BackupInstanceName $AllInstances[0].
 
 ## Track jobs
 
-Track all jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob) command. You can list all jobs and fetch a particular job detail.
+Track all jobs by using the [`Get-AzDataProtectionJob`](/powershell/module/az.dataprotection/get-azdataprotectionjob) command. You can list all jobs and fetch a particular job detail.
 
-You can also use _Az.ResourceGraph_ to track all jobs across all backup vaults. Use the [Search-AzDataProtectionJobInAzGraph](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph) command to fetch the relevant jobs that are across any backup vault.
+You can also use `Az.ResourceGraph` to track all jobs across all Backup vaults. Use the [`Search-AzDataProtectionJobInAzGraph`](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph) command to fetch the relevant jobs across any Backup vault:
 
 ```azurepowershell-interactive
   $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName "testBkpVaultRG" -Vault $TestBkpVault.Name -DatasourceType AzureDisk -Operation OnDemandBackup
 ```
 
-## Next steps
+## Related content
 
-- [Restore Azure PostgreSQL database using Azure PowerShell](restore-managed-disks-ps.md)
+- [Restore a PostgreSQL database using Azure PowerShell](restore-postgresql-database-ps.md).
+- Restore a PostgreSQL database using [Azure portal](restore-azure-database-postgresql.md), [Azure CLI](restore-postgresql-database-cli.md), and [REST API](restore-postgresql-database-use-rest-api.md).

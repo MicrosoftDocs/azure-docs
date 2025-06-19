@@ -3,7 +3,7 @@ title: Optimize transactions for dedicated SQL pool
 description: Learn how to optimize the performance of your transactional code in dedicated SQL pool.
 author: mstehrani
 ms.author: emtehran
-ms.reviewer: wiassaf
+
 ms.date: 04/15/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql

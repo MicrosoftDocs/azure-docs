@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 02/03/2025
 ms.custom: service-connector, devx-track-azurecli
 # Customer intent: As an app developer, I want to connect a containerized app to a storage account in the Azure portal using Service Connector.
 ---
@@ -36,7 +36,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -81,7 +81,7 @@ The following steps create a service connection using an access key or a system-
 
 1. Use the Azure CLI command `az containerapp connection list-support-types` to view all supported target services.
 
-    ```azurecli-interactive
+    ```azurecli
     az provider register -n Microsoft.ServiceLinker
     az containerapp connection list-support-types --output table
     ```
@@ -90,13 +90,13 @@ The following steps create a service connection using an access key or a system-
 
     If you're connecting with an access key, run the code below:
 
-    ```azurecli-interactive
+    ```azurecli
     az containerapp connection create storage-blob --secret
     ```
 
     If you're connecting with a system-assigned managed identity, run the code below:
 
-    ```azurecli-interactive
+    ```azurecli
     az containerapp connection create storage-blob --system-identity
     ```
 
@@ -137,7 +137,7 @@ Use the Azure CLI command `az containerapp connection list` to list all your con
 - **Source compute service resource group name**: the resource group name of the container app.
 - **Container app name**: the name of your container app.
 
-```azurecli-interactive
+```azurecli
 az containerapp connection list -g "<your-container-app-resource-group>" --name "<your-container-app-name>" --output table
 ```
 

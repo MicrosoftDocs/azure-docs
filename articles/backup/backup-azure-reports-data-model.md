@@ -4,8 +4,8 @@ description: This data model is in reference to the Resource Specific Mode of se
 ms.topic: reference
 ms.date: 12/30/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 # Data Model for resource specific Diagnostic Events

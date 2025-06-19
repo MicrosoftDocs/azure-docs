@@ -2,11 +2,11 @@
 title: Azure permissions for Management and governance - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Management and governance category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -50,6 +50,7 @@ Azure service: [Azure Advisor](/azure/advisor/)
 > | Microsoft.Advisor/triageRecommendations/approve/action | Approve triageRecommendations |
 > | Microsoft.Advisor/triageRecommendations/reject/action | Reject triageRecommendations |
 > | Microsoft.Advisor/triageRecommendations/reset/action | Reset triageRecommendations |
+> | Microsoft.Advisor/triageResources/read | Read triageResources |
 > | Microsoft.Advisor/workloads/read | Read workloads |
 
 ## Microsoft.Authorization
@@ -100,12 +101,21 @@ Azure service: [Azure Policy](/azure/governance/policy/overview), [Azure RBAC](/
 > | Microsoft.Authorization/policyDefinitions/read | Get information about a policy definition. |
 > | Microsoft.Authorization/policyDefinitions/write | Create a custom policy definition. |
 > | Microsoft.Authorization/policyDefinitions/delete | Delete a policy definition. |
+> | Microsoft.Authorization/policyDefinitions/versions/read | Get information about a policy definition version. |
+> | Microsoft.Authorization/policyDefinitions/versions/write | Create a custom policy definition version. |
+> | Microsoft.Authorization/policyDefinitions/versions/delete | Delete a policy definition version. |
+> | Microsoft.Authorization/policyEnrollments/read | Get information about a policy enrollment. |
+> | Microsoft.Authorization/policyEnrollments/write | Create a policy enrollment at the specified scope. |
+> | Microsoft.Authorization/policyEnrollments/delete | Delete a policy enrollment at the specified scope. |
 > | Microsoft.Authorization/policyExemptions/read | Get information about a policy exemption. |
 > | Microsoft.Authorization/policyExemptions/write | Create a policy exemption at the specified scope. |
 > | Microsoft.Authorization/policyExemptions/delete | Delete a policy exemption at the specified scope. |
 > | Microsoft.Authorization/policySetDefinitions/read | Get information about a policy set definition. |
 > | Microsoft.Authorization/policySetDefinitions/write | Create a custom policy set definition. |
 > | Microsoft.Authorization/policySetDefinitions/delete | Delete a policy set definition. |
+> | Microsoft.Authorization/policySetDefinitions/versions/read | Get information about a policy set definition version. |
+> | Microsoft.Authorization/policySetDefinitions/versions/write | Create a custom policy set definition version. |
+> | Microsoft.Authorization/policySetDefinitions/versions/delete | Delete a policy set definition version. |
 > | Microsoft.Authorization/providerOperations/read | Get operations for all resource providers which can be used in role definitions. |
 > | Microsoft.Authorization/roleAssignments/read | Get information about a role assignment. |
 > | Microsoft.Authorization/roleAssignments/write | Create a role assignment at the specified scope. |
@@ -287,6 +297,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/addPaymentTerms/action | Adds payment terms to all the billing profiles under the billing account.<br>Currently, payment terms can be added only on billing accounts that have Agreement Type as 'Microsoft Customer Agreement' and AccountType as 'Enterprise'.<br>This action needs pre-authorization and only Field Sellers are authorized to add the payment terms and is not a self-serve action. |
 > | Microsoft.Billing/billingAccounts/cancelPaymentTerms/action | Cancels all the payment terms on billing account that falls after the cancellation date in the request. Currently, cancel payment terms is only served by admin actions and is not a self-serve action. |
 > | Microsoft.Billing/billingAccounts/validatePaymentTerms/action | Validates payment terms on a billing account with agreement type 'Microsoft Customer Agreement' and account type 'Enterprise'. |
+> | Microsoft.Billing/billingAccounts/offboard/action | Offboard a billing account |
 > | Microsoft.Billing/billingAccounts/addDailyInvoicingOverrideTerms/write |  |
 > | Microsoft.Billing/billingAccounts/addDepartment/write |  |
 > | Microsoft.Billing/billingAccounts/addEnrollmentAccount/write |  |
@@ -295,6 +306,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/alertPreferences/write | Creates or updates an AlertPreference for the specifed Billing Account. |
 > | Microsoft.Billing/billingAccounts/alertPreferences/read | Gets the AlertPreference with the given Id. |
 > | Microsoft.Billing/billingAccounts/alerts/read | Gets the alert definition by an Id. |
+> | Microsoft.Billing/billingAccounts/alerts/write | Creates or updates an alert for the specified Billing Account. |
 > | Microsoft.Billing/billingAccounts/associatedTenants/read | Lists the associated tenants that can collaborate with the billing account on commerce activities like viewing and downloading invoices, managing payments, making purchases, and managing or provisioning licenses. |
 > | Microsoft.Billing/billingAccounts/associatedTenants/write | Create or update an associated tenant for the billing account. |
 > | Microsoft.Billing/billingAccounts/availableBalance/read | The Available Credit or Payment on Account Balance for a billing account.<br>The credit balance can be used to settle due or past due invoices and is supported for billing accounts with agreement type Microsoft Customer Agreement.<br>The payment on account balance is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Online Services Program. |
@@ -376,6 +388,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/billingProfiles/products/read | Lists the products for a billing profile. These don't include products billed based on usage. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/resolveBillingRoleAssignments/write | Lists the role assignments for the caller on an billing profile while fetching user info for each role assignment. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/transactions/read | Lists the billed or unbilled transactions by billing profile name for given start and end date.<br>Transactions include purchases, refunds and Azure usage charges.<br>Unbilled transactions are listed under pending invoice Id and do not include tax.<br>Tax is added to the amount once an invoice is generated. |
+> | Microsoft.Billing/billingAccounts/billingProfiles/updateInvoiceRecipientContacts/write | Updates invoice recipient contacts for a billing profile. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/validateDeleteBillingProfileEligibility/write |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/validateDeleteEligibility/write | Validates if the billing profile can be deleted. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/validateRefundEligibility/write | Validates whether the billing profile has any invoices eligible for an expedited refund. The operation is supported for billing accounts with the agreement type Microsoft Customer Agreement and the account type Individual. |
@@ -461,11 +474,14 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/invoiceSections/read |  |
 > | Microsoft.Billing/billingAccounts/licenseReservations/read | Lists the license reservations for VL Online Services. This operation is supported for billing accounts of type Enterprise Agreement to list license reservations under Volume Licensing (VL). |
 > | Microsoft.Billing/billingAccounts/licenseReservations/write | Creates the license reservation for VL Online Services. This operation is supported for billing accounts of type Enterprise Agreement to create license reservations under Volume Licensing (VL). |
+> | Microsoft.Billing/billingAccounts/licenseReservations/cancel/write | Cancels a license reservation for VL Online services. Accepts an optional cancellation reason. This operation is supported for billing accounts of type Enterprise Agreement to cancel a license reservation under Volume Licensing (VL). |
 > | Microsoft.Billing/billingAccounts/listBillingProfilesWithViewPricesheetPermissions/read |  |
 > | Microsoft.Billing/billingAccounts/listProductRecommendations/write | Lists ProductIds or offerIds recommended for purchase on an account. Please specify the type of the cohort for the billing account in the 'x-ms-recommendations-cohort-type' header as a required string parameter. |
 > | Microsoft.Billing/billingAccounts/notificationContacts/read | Lists the NotificationContacts for the given billing account. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/notificationContacts/write | Update a notification contact by ID. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/operationResults/read |  |
+> | Microsoft.Billing/billingAccounts/partnerOrganizations/read | List all the partner organizations user belongs to. The operation is supported for billing accounts with agreement type Microsoft Enterprise Agreement and for users with role Partner Administrator. |
+> | Microsoft.Billing/billingAccounts/paymentMethodLinks/read | Lists payment methods attached to a billing account. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/policies/read | Get the policies for a billing account of Enterprise Agreement type. |
 > | Microsoft.Billing/billingAccounts/policies/write | Update the policies for a billing account of Enterprise Agreement type. |
 > | Microsoft.Billing/billingAccounts/products/read | Lists the products for a billing account. These don't include products billed based on usage. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement. |
@@ -474,6 +490,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/products/write | Updates the properties of a Product. Currently, auto renew can be updated. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/purchaseProduct/write |  |
 > | Microsoft.Billing/billingAccounts/resolveBillingRoleAssignments/write | Lists the role assignments for the caller on a billing account while fetching user info for each role assignment. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement. |
+> | Microsoft.Billing/billingAccounts/transferEnrollmentToMCA/write | Create and update entities in WAEP database, when enrollment is transferred from EA to MCA |
 > | Microsoft.Billing/billingAccounts/validateDailyInvoicingOverrideTerms/write |  |
 > | Microsoft.Billing/billingAccounts/validatePaymentTerms/write |  |
 > | Microsoft.Billing/billingPeriods/read |  |
@@ -558,7 +575,8 @@ Azure service: [Azure carbon optimization](/azure/carbon-optimization/overview)
 > | Microsoft.Carbon/queryCarbonEmissionDataAvailableDateRange/action | API for query carbon emission data available date range |
 > | Microsoft.Carbon/register/action | Register the subscription for Microsoft.Carbon |
 > | Microsoft.Carbon/unregister/action | Unregister the subscription for Microsoft.Carbon |
-> | Microsoft.Carbon/operations/read | read operations |
+> | Microsoft.Carbon/carbonEmissionReports/read | API for Carbon Emissions Reports |
+> | Microsoft.Carbon/Operations/read | read Operations |
 
 ## Microsoft.Consumption
 
@@ -617,12 +635,14 @@ Azure service: [Cost Management](/azure/cost-management-billing/)
 > | Microsoft.CostManagement/forecast/action | Forecast usage data by a scope. |
 > | Microsoft.CostManagement/calculateCost/action | Calculate cost for provided product codes. |
 > | Microsoft.CostManagement/scheduledActions/action | Run scheduled action. |
+> | Microsoft.CostManagement/fetchPrices/action | Fetch prices for provided products. |
 > | Microsoft.CostManagement/alerts/write | Update alerts. |
 > | Microsoft.CostManagement/alerts/read | List alerts. |
 > | Microsoft.CostManagement/benefitRecommendations/read | List  single or shared recommendations for Microsoft benefits. |
 > | Microsoft.CostManagement/benefitUtilizationSummaries/read | List benefit utilization summaries. |
 > | Microsoft.CostManagement/benefitUtilizationSummariesOperationResults/read | Gets Microsoft benefit utilization summaries asynchronous operation results. |
 > | Microsoft.CostManagement/budgets/read | List the budgets by a subscription or a management group. |
+> | Microsoft.CostManagement/calculateCost/read | Calculate cost for provided product codes. |
 > | Microsoft.CostManagement/cloudConnectors/read | List the cloudConnectors for the authenticated user. |
 > | Microsoft.CostManagement/cloudConnectors/write | Create or update the specified cloudConnector. |
 > | Microsoft.CostManagement/cloudConnectors/delete | Delete the specified cloudConnector. |
@@ -645,6 +665,7 @@ Azure service: [Cost Management](/azure/cost-management-billing/)
 > | Microsoft.CostManagement/externalSubscriptions/dimensions/read | List all supported dimensions for external subscription. |
 > | Microsoft.CostManagement/externalSubscriptions/forecast/read | Forecast usage data for external BillingAccounts. |
 > | Microsoft.CostManagement/externalSubscriptions/query/read | Query usage data for external subscription. |
+> | Microsoft.CostManagement/fetchPrices/read | Fetch prices for provided products. |
 > | Microsoft.CostManagement/forecast/read | Forecast usage data by a scope. |
 > | Microsoft.CostManagement/operations/read | List all supported operations by Microsoft.CostManagement resource provider. |
 > | Microsoft.CostManagement/query/read | Query usage data by a scope. |
@@ -800,6 +821,7 @@ Azure service: [Management Groups](/azure/governance/management-groups/)
 > | Microsoft.Management/serviceGroups/write | Create or Update a Service Group |
 > | Microsoft.Management/serviceGroups/read | Read a Service Group |
 > | Microsoft.Management/serviceGroups/delete | Delete a Service Group |
+> | Microsoft.Management/serviceGroups/listAncestors/action | For a given service group in the URI, retrieves all the service group ancestors |
 
 ## Microsoft.PolicyInsights
 
@@ -1167,6 +1189,7 @@ Azure service: [Azure Service Health](/azure/service-health/)
 > | Microsoft.ResourceHealth/events/read | Get Service Health Events for given subscription |
 > | Microsoft.ResourceHealth/events/fetchEventDetails/action | Endpoint to fetch details for event |
 > | Microsoft.ResourceHealth/events/listSecurityAdvisoryImpactedResources/action | Get Impacted Resources for a given event of type SecurityAdvisory |
+> | Microsoft.ResourceHealth/events/fetchBillingCommunicationDetails/action | Get Billing details for a given subscription and tracking id |
 > | Microsoft.ResourceHealth/events/impactedResources/read | Get Impacted Resources for a given event |
 > | Microsoft.Resourcehealth/healthevent/Activated/action | Denotes the change in health state for the specified resource |
 > | Microsoft.Resourcehealth/healthevent/Updated/action | Denotes the change in health state for the specified resource |
@@ -1197,7 +1220,7 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 > | Microsoft.Resources/deployments/write | Creates or updates an deployment. |
 > | Microsoft.Resources/deployments/delete | Deletes a deployment. |
 > | Microsoft.Resources/deployments/cancel/action | Cancels a deployment. |
-> | Microsoft.Resources/deployments/validate/action | Validates an deployment. |
+> | Microsoft.Resources/deployments/validate/action | Validates a deployment. |
 > | Microsoft.Resources/deployments/whatIf/action | Predicts template deployment changes. |
 > | Microsoft.Resources/deployments/exportTemplate/action | Export template for a deployment |
 > | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
@@ -1209,6 +1232,8 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 > | Microsoft.Resources/deploymentStacks/read | Gets or lists deployment stacks |
 > | Microsoft.Resources/deploymentStacks/write | Creates or updates a deployment stack |
 > | Microsoft.Resources/deploymentStacks/delete | Deletes a deployment stack |
+> | Microsoft.Resources/deploymentStacks/validate/action | Validates a deployment stack. |
+> | Microsoft.Resources/deploymentStacks/exportTemplate/action | Export the template for a deployment stack |
 > | Microsoft.Resources/deploymentStacks/manageDenySetting/action | Manage the denySettings property of a deployment stack. |
 > | Microsoft.Resources/links/read | Gets or lists resource links. |
 > | Microsoft.Resources/links/write | Creates or updates a resource link. |
@@ -1300,6 +1325,8 @@ Azure service: [SAP on Azure](/azure/sap/)
 > | --- | --- |
 > | Microsoft.Workloads/register/action | Register the subscription for Microsoft.Workloads |
 > | Microsoft.Workloads/unregister/action | Unregister the subscription for Microsoft.Workloads |
+> | Microsoft.Workloads/configurationChecksTemplates/read | Gets the configuration checks template. |
+> | Microsoft.Workloads/configurationChecksTemplates/read | Gets the configuration checks templates in a resource group. |
 > | Microsoft.Workloads/connectors/read | Gets a connector resource |
 > | Microsoft.Workloads/connectors/write | Creates a connector resource |
 > | Microsoft.Workloads/connectors/delete | Deletes a connector resource and its child resources, which are the associated connection resources. All the child resources have to be deleted before deleting the connector resource. |
@@ -1322,6 +1349,29 @@ Azure service: [SAP on Azure](/azure/sap/)
 > | Microsoft.Workloads/insights/write | Creates a Workloads Insights instance for the specified subscription, resource group, and instance name. |
 > | Microsoft.Workloads/insights/delete | Deletes a Workloads Insights instance for the specified subscription, resource group and instance name. |
 > | Microsoft.Workloads/insights/write | Patches the Workload Insights instance for the specified subscription, resource group, and instance name. |
+> | Microsoft.Workloads/instanceGroupMonitors/read | Gets a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/write | Creates a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/delete | Deletes a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/write | Updates a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/read | Gets all Instance Group Monitors in a resource group. |
+> | Microsoft.Workloads/instanceGroupMonitors/read | Gets all Instance Group Monitors in a subscription. |
+> | Microsoft.Workloads/instanceHealthDefinitions/read | Gets a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/write | Creates a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/delete | Deletes a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/write | Updates a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/read | Gets all Instance Health Definitions in a resource group. |
+> | Microsoft.Workloads/instanceHealthDefinitions/read | Gets all Instance Health Definitions in a subscription. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/read | Gets a Signal Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/write | Creates a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/delete | Deletes a Signal Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/write | Updates a Signal Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/read | Gets all Signal Definitions under a Health Definition. |
+> | Microsoft.Workloads/instanceMonitors/read | Gets a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/write | Creates a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/delete | Deletes a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/write | Updates a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/read | Gets all Instance Monitors in a resource group. |
+> | Microsoft.Workloads/instanceMonitors/read | Gets all Instance Monitors in a subscription. |
 > | Microsoft.Workloads/Locations/OperationStatuses/read | read OperationStatuses |
 > | Microsoft.Workloads/Locations/OperationStatuses/write | write OperationStatuses |
 > | Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getSizingRecommendations/action | Get SAP sizing recommendations. |

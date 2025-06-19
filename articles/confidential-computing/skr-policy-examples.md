@@ -4,7 +4,7 @@ description: Examples of AKV SKR policies across offered Azure Confidential Comp
 author: angarg05
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 3/5/2023
 ms.author: ananyagarg
 ---
@@ -130,7 +130,7 @@ Follow the policy [grammar](/azure/key-vault/keys/policy-grammar) for more examp
 
 ```
 
-**Example 2:** A SKR policy that validates if the CVM is an Azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and is of a known Virtual Machine ID. (VMIDs are unique across Azure)
+**Example 2:** A SKR policy that validates if the CVM is an Azure compliant CVM and is running on a genuine AMD SEV-SNP hardware and is of a known Virtual Machine ID. (VMIDs are unique across Azure, edit the 'equals' part of the claim in the example below with the desired, unique VMID)
 
 ```json
 {
@@ -149,7 +149,7 @@ Follow the policy [grammar](/azure/key-vault/keys/policy-grammar) for more examp
         },
         {
           "claim": "x-ms-azurevm-vmid",
-          "equals": "B958DC88-E41D-47F1-8D20-E57B6B7E9825"
+          "equals": "<PLACE YOUR VMID here - for example - B958DC88-E41D-47F1-8D20-E57B6B7E9825>"
         }
       ]
     }

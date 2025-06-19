@@ -7,8 +7,8 @@ ms.custom:
   - ignite-2023
   - ignite-2024
 ms.date: 11/19/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: Review security posture

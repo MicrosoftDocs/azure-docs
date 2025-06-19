@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 12/24/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Perform actions using Backup center
 

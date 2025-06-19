@@ -1,13 +1,12 @@
 ---
 title: Configure WAF exclusion lists for Azure Front Door
 description: Learn how to configure a web application firewall (WAF) exclusion list for an existing Azure Front Door endpoint.
-services: web-application-firewall
 author: johndowns
-ms.service: azure-web-application-firewall
-ms.custom: devx-track-azurepowershell, devx-track-bicep
-ms.date: 10/18/2022
 ms.author: jodowns
-ms.topic: conceptual
+ms.service: azure-web-application-firewall
+ms.topic: concept-article
+ms.date: 10/18/2022
+ms.custom: devx-track-azurepowershell, devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
 ---
 
@@ -33,11 +32,7 @@ You decide to create an exclusion to allow these legitimate requests to pass thr
 
 1. Select **Managed rules** > **Manage exclusions**.
 
-   :::image type="content" source="../media/waf-front-door-exclusion-configure/managed-rules-exclusion.png" alt-text="Screenshot that shows the Azure portal showing the WAF policy's Managed rules page, with the Manage exclusions button highlighted." :::
-
 1. Select **Add**.
-
-   :::image type="content" source="../media/waf-front-door-exclusion-configure/exclusion-add.png" alt-text="Screenshot that shows the Azure portal with the exclusion list Add button." :::
 
 1. Configure the exclusion's **Applies to** section:
 

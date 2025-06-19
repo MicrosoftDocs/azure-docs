@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: reference
-ms.date: 05/15/2024
+ms.date: 02/01/2025
 ms.author: phjensen
 ---
 
@@ -13,9 +13,8 @@ ms.author: phjensen
 
 This article provides a guide on setup and usage of the new features in preview for the Azure Application Consistent Snapshot tool (AzAcSnap). For basic information about the tool, see [What is the Azure Application Consistent Snapshot tool?](./azacsnap-introduction.md).
 
-The preview features provided with AzAcSnap 10 are:
+The preview features provided with AzAcSnap 11 are:
 
-- Microsoft SQL Server
 - Azure NetApp Files backup
 - Azure managed disks
 
@@ -30,76 +29,6 @@ AzAcSnap preview features are offered together with generally available features
 ## Providing feedback
 
 You can provide feedback on AzAcSnap, including this preview, [online](https://aka.ms/azacsnap-feedback).
-
-## Microsoft SQL Server
-
-### Supported platforms and operating systems
-
-> [!NOTE]
-> Support for Microsoft SQL Server is Preview feature.  
-> This section's content supplements [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md) page.
-
-New database platforms and operating systems supported with this preview release.
-
-- **Databases**
-  - Microsoft SQL Server 2022 (or later) on Windows Server 2019 (or later) only is in preview.
-
-
-### Enable communication with database
-
-> [!NOTE]
-> Support for Microsoft SQL Server is Preview feature.  
-> This section's content supplements [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) page.
-This section explains how to enable communication with the database. Ensure the database you're using is correctly selected from the tabs.
-
-# [Microsoft SQL Server](#tab/mssql)
-
-The snapshot tools issue commands to the Microsoft SQL Server database directly to enable and disable backup mode.  
-
-AzAcSnap connects directly to Microsoft SQL Server using the provided connect-string to issue SQL commands, such as `ALTER SERVER CONFIGURATION SET SUSPEND_FOR_SNAPSHOT_BACKUP = ON` or `ALTER SERVER CONFIGURATION SET SUSPEND_FOR_SNAPSHOT_BACKUP = OFF`.  The connect-string will determine if the installation is on the database server or a centralized "backup" server.  Typical installations of AzAcSnap would be onto the database server to ensure features such as flushing file buffers can  work as expected.  If AzAcSnap has been installed onto the database server, then be sure the user running azacsnap has the required permissions.
-
-##### `azacsnap` user permissions
-
-Refer to [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
-The `azacsnap` user should have permissions to put Microsoft SQL Server into backup mode, and have permissions to flush I/O buffers to the volumes configured.
-
-Configure (`.\azacsnap.exe -c configure`) with the correct values for Microsoft SQL Server and test (`.\azacsnap.exe -c test --test mssql`) azacsnap database connectivity.
-Run the `azacsnap` test command
-```shell
-.\azacsnap.exe -c test --test mssql
-```
-
-```output
-BEGIN : Test process started for 'mssql'
-BEGIN : Database tests
-PASSED: Successful connectivity to MSSQL version 16.00.1115
-END   : Test process complete for 'mssql'
-```
----
-### Configuring the database
-This section explains how to configure the data base.
-# [Microsoft SQL Server](#tab/mssql)
-No special database configuration is required for Microsoft SQL Server as we are using the User's local operating system environment.
-
----
-
-### Configuring AzAcSnap
-
-This section explains how to configure AzAcSnap for the specified database.
-
-> [!NOTE]
-> Support for Microsoft SQL Server is Preview feature.  
-> This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
-### Details of required values
-The following sections provide detailed guidance on the various values required for the configuration file.
-# [Microsoft SQL Server](#tab/mssql)
-#### Microsoft SQL Server Database values for configuration
-When adding a Microsoft SQL Server database to the configuration, the following values are required:
-- **connectionString** = The Connection String used to connect to the database.  For a typical AzAcSnap installation on to the system running Microsoft SQL Server where the Database Instance is MSSQL2022 the connection string = "Trusted_Connection=True;Persist Security Info=True;Data Source=MSSQL2022;TrustServerCertificate=true".
-- **instanceName** = The database instance name.
-- **metaDataFileLocation** = The location where Microsoft SQL Server will write out the backup meta-data file (for example, "C:\\MSSQL_BKP\\").
-
----
 
 ## Azure NetApp Files backup
 

@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 07/28/2022
+ms.date: 02/04/2025
 ms.service: azure-virtual-wan
 ms.topic: include
 ---
@@ -10,7 +10,7 @@ ms.topic: include
 
 In the User VPN configuration, if you specified the IKEv2 VPN tunnel type, you can configure the native VPN client (Windows and macOS Catalina or later).
 
-The following steps are for Windows. For macOS, see [IKEv2-macOS](../articles/virtual-wan/point-to-site-vpn-client-cert-mac.md#ikev2-macOS) steps.
+The following steps are for Windows. For macOS, see [Configure P2S User VPN clients - native VPN client - macOS](../articles/virtual-wan/point-to-site-vpn-client-cert-mac.md) steps.
 
 1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package.
 
@@ -22,8 +22,8 @@ The following steps are for Windows. For macOS, see [IKEv2-macOS](../articles/vi
 
 **OpenVPN**
 
-In the User VPN configuration, if you specified the OpenVPN tunnel type, you can download and configure the Azure VPN client or, in some cases, you can use OpenVPN client software. For steps, use the link that corresponds to your configuration.
+In the User VPN configuration, if you specified the OpenVPN tunnel type, you can download and configure the Azure VPN Client or, in some cases, you can use OpenVPN client software. For steps, use the link that corresponds to your configuration.
 
-* [Microsoft Entra authentication - Azure VPN client - Windows](../articles/virtual-wan/openvpn-azure-ad-client.md)
-* [Microsoft Entra authentication - Azure VPN client - macOS](../articles/virtual-wan/openvpn-azure-ad-client-mac.md)
-* [Configure OpenVPN client software - Windows, macOS, iOS, Linux ](../articles/virtual-wan/howto-openvpn-clients.md)
+**Client configuration**
+
+[!INCLUDE [P2S client configuration articles](virtual-wan-vpn-client-install-articles.md)]

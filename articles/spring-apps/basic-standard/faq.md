@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions about Azure Spring Apps | Microsoft Docs
+title: Frequently Asked Questions About Azure Spring Apps
 description: This article answers frequently asked questions about Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -89,7 +89,7 @@ For the quickest way to get started with Azure Spring Apps, follow the instructi
 
 Find metrics in the App Overview tab and the [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics#metrics-explorer) tab.
 
-Azure Spring Apps supports exporting Spring application logs and metrics to Azure Storage, Event Hubs, and [Log Analytics](/azure/azure-monitor/logs/data-platform-logs). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
+Azure Spring Apps supports exporting Spring application logs and metrics to Azure Storage, Event Hubs, and [Log Analytics](/azure/azure-monitor/logs/data-platform-logs). The table name in Log Analytics is `AppPlatformLogsforSpring`. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
 
 ### Does Azure Spring Apps support distributed tracing?
 

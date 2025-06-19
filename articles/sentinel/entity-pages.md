@@ -6,8 +6,8 @@ ms.author: yelevin
 ms.topic: conceptual
 ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -37,17 +37,41 @@ If you're investigating an incident using the **[new investigation experience](i
 
 If you're using the **[Microsoft Sentinel in the Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690)**, the **timeline** and **insights** panels appear in the **Sentinel events** tab of the Defender entity page.
 
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of an entity page in the Azure portal." lightbox="./media/entity-pages/entity-page-sentinel.png":::
-
 # [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of an entity page in the Defender portal." lightbox="./media/entity-pages/entity-pages-timeline-defender.png":::
 
+# [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of an entity page in the Azure portal." lightbox="./media/entity-pages/entity-page-sentinel.png":::
+
 ---
 
 ## The timeline
+
+# [Defender portal](#tab/defender-portal)
+
+The timeline on the [**Sentinel events** tab](/defender-xdr/entity-page-device#sentinel-events-tab) adds a major part of the entity page's contribution to behavior analytics in the Defender portal. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
+
+In particular, you'll see on the Sentinel events timeline alerts and events from third-party sources collected only by Microsoft Sentinel, such as syslog/CEF and custom logs ingested through the Azure Monitor Agent or custom connectors.
+
+The following types of items are included in the timeline.
+
+- **Alerts**: any alerts in which the entity is defined as a **mapped entity**. If your organization created [custom alerts using analytics rules](./detect-threats-custom.md), make sure that the rules' entity mapping is done properly.
+
+- **Bookmarks**: any bookmarks that include the specific entity shown on the page.
+
+- **Anomalies**: [UEBA detections](./anomalies-reference.md) based on dynamic baselines created for each entity across various data inputs and against its own historical activities, those of its peers, and those of the organization as a whole.
+
+- **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
+
+    For device entities, a new activity type was added in January 2025. This activity includes dropped, blocked, or denied network traffic originating from a given device, based on data collected from industry-leading network device logs. These logs provide your security teams with critical information to quickly identify and address potential threats.
+
+As of January 2025, **activities** for the device entity are visible on the main [*Timeline* tab](/defender-xdr/entity-page-device#timeline-tab) of the [device entity page](/defender-xdr/entity-page-device), as well as remaining visible on the Sentinel events tab as before. For more information, see [Unified timeline (Preview)](/defender-xdr/entity-page-device#unified-timeline-preview).
+
+:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of a timeline on an entity page in the Defender portal." lightbox="./media/entity-pages/entity-pages-timeline-defender.png":::
+
+This timeline displays information from the past 24 hours. This period is not currently adjustable.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -66,26 +90,6 @@ The following types of items are included in the timeline.
 - **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
 
 :::image type="content" source="./media/entity-pages/entity-pages-timeline-sentinel.png" alt-text="Screenshot of an example of a timeline on an entity page in the Azure portal." lightbox="./media/entity-pages/entity-pages-timeline-sentinel.png":::
-
-# [Defender portal](#tab/defender-portal)
-
-The timeline on the **Sentinel events** tab adds a major part of the entity page's contribution to behavior analytics in the Defender portal. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
-
-In particular, you'll see on the Sentinel events timeline alerts and events from third-party sources collected only by Microsoft Sentinel, such as syslog/CEF and custom logs ingested through the Azure Monitor Agent or custom connectors.
-
-The following types of items are included in the timeline.
-
-- **Alerts**: any alerts in which the entity is defined as a **mapped entity**. Note that if your organization has created [custom alerts using analytics rules](./detect-threats-custom.md), you should make sure that the rules' entity mapping is done properly.
-
-- **Bookmarks**: any bookmarks that include the specific entity shown on the page.
-
-- **Anomalies**: UEBA detections based on dynamic baselines created for each entity across various data inputs and against its own historical activities, those of its peers, and those of the organization as a whole.
-
-- **Activities**: aggregation of notable events relating to the entity. A wide range of activities are collected automatically, and you can now [customize this section by adding activities](customize-entity-activities.md) of your own choosing.
-
-:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of a timeline on an entity page in the Defender portal." lightbox="./media/entity-pages/entity-pages-timeline-defender.png":::
-
-This timeline displays information from the past 24 hours. This period is not currently adjustable.
 
 ---
 
@@ -111,7 +115,7 @@ Generally speaking, each entity insight displayed on the entity page is accompan
 
 ## How to use entity pages
 
-Entity pages are designed to be part of multiple usage scenarios, and can be accessed from incident management, the investigation graph, bookmarks, or directly from the entity search page under **Entity behavior** in the Microsoft Sentinel main menu.
+Entity pages are designed to be part of multiple usage scenarios and can be accessed from incident management, the investigation graph, bookmarks, or directly from the entity search page under **Entity behavior** in the Microsoft Sentinel main menu.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Diagram of areas from which you can access entity pages, corresponding with use cases.":::
 

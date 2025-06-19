@@ -17,22 +17,58 @@
   items:
   - name: Well-architected considerations
     href: /azure/well-architected/service-guides/azure-files?toc=/azure/storage/files/toc.json&bc=/azure/storage/files/breadcrumb/toc.json
-- name: Tutorials
-  items:
-  - name: Create a Windows SMB file share
-    href: storage-files-quick-create-use-windows.md
-  - name: Create a Linux NFS file share
-    href: storage-files-quick-create-use-linux.md
-  - name: Extend Windows file servers with Azure File Sync
-    href: ../file-sync/file-sync-extend-servers.md?toc=/azure/storage/files/toc.json
 - name: Create file shares
   items:
-  - name: Quickstart
-    href: storage-how-to-use-files-portal.md
   - name: Create an SMB file share
     href: storage-how-to-create-file-share.md
   - name: Create an NFS file share
     href: storage-files-quick-create-use-linux.md
+- name: Authentication and authorization
+  items:
+  - name: Overview of identity-based authentication
+    href: storage-files-active-directory-overview.md
+  - name: Overview of authorization and access control
+    href: storage-files-authorization-overview.md    
+  - name: Windows identity-based authentication (SMB)
+    items:
+    - name: Enable an AD source
+      items:
+      - name: On-premises AD DS authentication
+        items:
+        - name: AD DS overview
+          href: storage-files-identity-ad-ds-overview.md
+        - name: Enable AD DS authentication
+          href: storage-files-identity-ad-ds-enable.md
+        - name: Use Azure Files with multiple AD DS forests
+          href: storage-files-identity-multiple-forests.md
+        - name: Update password
+          href: storage-files-identity-ad-ds-update-password.md
+      - name: Microsoft Entra Domain Services authentication
+        items:
+        - name: Enable Microsoft Entra Domain Services
+          href: storage-files-identity-auth-domain-services-enable.md
+      - name: Microsoft Entra Kerberos authentication
+        items:
+        - name: Enable authentication for hybrid identities
+          href: storage-files-identity-auth-hybrid-identities-enable.md
+        - name: Enable authentication for hybrid identities on legacy clients
+          href: storage-files-identity-auth-hybrid-cloud-trust.md
+    - name: Assign and manage permissions
+      items:
+      - name: Assign share-level permissions
+        href: storage-files-identity-assign-share-level-permissions.md
+      - name: Configure directory/file-level permissions
+        href: storage-files-identity-configure-file-level-permissions.md
+    - name: Mount file share
+      href: storage-files-identity-mount-file-share.md
+  - name: Linux identity-based authentication (SMB)
+    href: storage-files-identity-auth-linux-kerberos-enable.md
+  - name: Authorize access to file data
+    items:
+    - name: Choose how to authorize access to file data
+      href: authorize-data-operations-portal.md
+    - name: Authorize access with Microsoft Entra ID using OAuth over REST
+      href: authorize-oauth-rest.md
 - name: Mount file shares
   items:
   - name: Mount SMB file share on Windows
@@ -77,50 +113,8 @@
       href: ../common/storage-use-azcopy-files.md?toc=/azure/storage/files/toc.json
     - name: Configure, optimize, and troubleshoot AzCopy
       href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
-- name: Authentication and authorization
-  items:
-  - name: Overview of identity-based authentication options
-    href: storage-files-active-directory-overview.md
-  - name: Windows identity-based authentication
-    items:
-    - name: Enable an AD source
-      items:
-      - name: On-premises AD DS authentication
-        items:
-        - name: AD DS overview
-          href: storage-files-identity-ad-ds-overview.md
-        - name: Enable AD DS authentication
-          href: storage-files-identity-ad-ds-enable.md
-        - name: Use Azure Files with multiple AD DS forests
-          href: storage-files-identity-multiple-forests.md
-        - name: Update password
-          href: storage-files-identity-ad-ds-update-password.md
-      - name: Microsoft Entra Domain Services authentication
-        items:
-        - name: Enable Microsoft Entra Domain Services
-          href: storage-files-identity-auth-domain-services-enable.md
-      - name: Microsoft Entra Kerberos authentication
-        items:
-        - name: Enable authentication for hybrid identities
-          href: storage-files-identity-auth-hybrid-identities-enable.md
-        - name: Enable authentication for hybrid identities on legacy clients
-          href: storage-files-identity-auth-hybrid-cloud-trust.md
-    - name: Assign and manage permissions
-      items:
-      - name: Assign share-level permissions
-        href: storage-files-identity-assign-share-level-permissions.md
-      - name: Configure directory/file-level permissions
-        href: storage-files-identity-configure-file-level-permissions.md
-    - name: Mount file share
-      href: storage-files-identity-mount-file-share.md
-  - name: Linux identity-based authentication
-    href: storage-files-identity-auth-linux-kerberos-enable.md
-  - name: Authorize access to file data
-    items:
-    - name: Choose how to authorize access to file data
-      href: authorize-data-operations-portal.md
-    - name: Authorize access with Microsoft Entra ID using OAuth over REST
-      href: authorize-oauth-rest.md
+  - name: Migrate GlusterFS to Azure Files
+    href: glusterfs-migration-guide.md
 - name: Security and networking
   items:
   - name: Networking
@@ -153,6 +147,8 @@
       href: ../common/storage-service-encryption.md?toc=/azure/storage/files/toc.json
     - name: Encryption at rest with customer-managed keys
       href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/files/toc.json
+    - name: Encryption in transit for NFS shares
+      href: encryption-in-transit-for-nfs-shares.md
     - name: Manage encryption keys for the storage account
       items:
       - name: Check the encryption key model for the account
@@ -189,10 +185,8 @@
   items:
   - name: Data protection overview
     href: files-data-protection-overview.md
-  - name: Prevent accidental data deletion
+  - name: File share soft delete
     href: storage-files-prevent-file-share-deletion.md
-  - name: Enable soft delete
-    href: storage-files-enable-soft-delete.md
   - name: Share snapshots and restores
     href: storage-snapshots-files.md
   - name: About Azure file share backup
@@ -233,16 +227,12 @@
     href: files-redundancy.md
   - name: Disaster recovery and failover
     href: files-disaster-recovery.md
-  - name: Geo-redundancy for large file shares
-    href: geo-redundant-storage-for-large-file-shares.md
   - name: Change the redundancy configuration
     href: files-change-redundancy-configuration.md
   - name: Initiate storage account failover
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
-  - name: Premium file shares ZRS support
+  - name: SSD file shares redundancy support
     href: redundancy-premium-file-shares.md
-  - name: Deploy SQL Server Failover Cluster with premium file shares
-    href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure?toc=/azure/storage/files/toc.json
 - name: Performance, scale, and cost
   items:
   - name: Understanding performance
@@ -251,7 +241,7 @@
     href: smb-performance.md
   - name: NFS performance
     href: nfs-performance.md
-  - name: NFS large directory best practices
+  - name: Large directory best practices
     href: nfs-large-directories.md
   - name: Scalability and performance targets
     href: storage-files-scale-targets.md
@@ -267,8 +257,16 @@
     href: analyze-files-metrics.md
   - name: Create alerts
     href: files-monitoring-alerts.md
+- name: Workloads
+  items:
+  - name: Virtual desktops
+    href: virtual-desktop-workloads.md
+  - name: SQL Server
+    href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure?toc=/azure/storage/files/toc.json
 - name: Application development
   items:
+  - name: Overview
+    href: storage-files-developer-overview.md
   - name: Configure connection strings
     href: ../common/storage-configure-connection-string.md?toc=/azure/storage/files/toc.json
   - name: .NET
@@ -346,8 +344,6 @@
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
-  - name: Samples
-    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 - name: Resources
   items:
   - name: Azure updates

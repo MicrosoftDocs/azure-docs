@@ -79,4 +79,6 @@ landingContent:
           - text: Export DICOM files
             url: export-files.md
           - text: Bulk update DICOM files
-            url: update-files.md            
+            url: update-files.md    
+          - text: External metadata
+            url: external-metadata.md           

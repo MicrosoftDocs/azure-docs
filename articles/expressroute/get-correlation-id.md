@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: duau
 ms.service: azure-expressroute
 ms.date: 11/18/2024
+# Customer intent: "As a network administrator, I want to retrieve the correlation ID from the Activity Log for an ExpressRoute operation, so that I can effectively troubleshoot issues across multiple services."
 ---
 
 # Get operation correlation ID from Activity Log
@@ -22,8 +23,6 @@ The Azure Resource Manager Activity Log provides information about resource modi
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to your ExpressRoute resource in the Azure portal. Select **Activity log** from the left menu.
-
-    :::image type="content" source="./media/get-correlation-id/circuit-overview.png" alt-text="Screenshot of the Activity log button on the left menu pane on the overview page of an ExpressRoute circuit." lightbox="./media/get-correlation-id/circuit-overview.png":::
 
 1. On the Activity log page, apply filters to narrow down the results. For example, filter by **operation type**, **resource type**, or **date/time range** to show activities for a specific ExpressRoute resource. By default, the Activity Log shows all activities for the selected resource.
 

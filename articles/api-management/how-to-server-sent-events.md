@@ -46,7 +46,7 @@ Follow these guidelines when using API Management to reach a backend API that im
 
 * **Test API under load** - Follow general practices to test your API under load to detect performance or configuration issues before going into production.  
 
-## Next steps
+## Related content
 
 * Learn more about [configuring policies](./api-management-howto-policies.md) in API Management.
 * Learn about API Management [capacity](api-management-capacity.md).

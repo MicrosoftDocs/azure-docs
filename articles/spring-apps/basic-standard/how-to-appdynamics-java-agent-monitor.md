@@ -1,9 +1,10 @@
 ---
-title:  "How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)"
+title:  "How to Monitor Spring Boot Apps with the AppDynamics Java Agent (Preview)"
 titleSuffix: Azure Spring Apps
 description: How to use the AppDynamics Java agent to monitor Spring Boot applications in Azure Spring Apps.
 author: KarlErickson
-ms.author: jiec
+ms.author: karler
+ms.reviewer: jiec
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 04/23/2024
@@ -51,7 +52,7 @@ To activate an application through the Azure CLI, use the following steps.
 
 1. Create a resource group.
 1. Create an instance of Azure Spring Apps.
-1. Create an application using the following command. Replace the placeholders *\<...>* with your own values.
+1. Create an application using the following command. Replace the placeholders `<...>` with your own values.
 
     ```azurecli
     az spring app create \
@@ -81,7 +82,7 @@ To activate an application through the Azure CLI, use the following steps.
               APPDYNAMICS_CONTROLLER_PORT=443
     ```
 
-Azure Spring Apps pre-installs the AppDynamics Java agent to the path */opt/agents/appdynamics/java/javaagent.jar*. You can activate the agent from your applications' JVM options, then configure the agent using environment variables. You can find values for these variables at [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent). For more information about how these variables help to view and organize reports in the AppDynamics UI, see [Tiers and Nodes](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/tiers-and-nodes).
+Azure Spring Apps pre-installs the AppDynamics Java agent to the path **/opt/agents/appdynamics/java/javaagent.jar**. You can activate the agent from your applications' JVM options, then configure the agent using environment variables. You can find values for these variables at [Monitor Azure Spring Apps with Java Agent](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent). For more information about how these variables help to view and organize reports in the AppDynamics UI, see [Tiers and Nodes](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/tiers-and-nodes).
 
 ### Activate an application with the AppDynamics Agent using the Azure portal
 
@@ -109,7 +110,7 @@ You can also run a provisioning automation pipeline using Terraform, Bicep, or A
 
 ### Automate provisioning using Terraform
 
-To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
+To configure the environment variables in a Terraform template, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
 ```terraform
 resource "azurerm_spring_cloud_java_deployment" "example" {
@@ -132,7 +133,7 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
 
 ### Automate provisioning using Bicep
 
-To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
+To configure the environment variables in a Bicep file, add the following code to the file, replacing the `<...>` placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
 
 ```bicep
 deploymentSettings: {
@@ -153,7 +154,7 @@ deploymentSettings: {
 
 ### Automate provisioning using an ARM template
 
-To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
+To configure the environment variables in an ARM template, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
 ```JSON
 "deploymentSettings": {
@@ -219,7 +220,7 @@ You can define more metrics for the JVM, as shown in this screenshot of the **Me
 
 ## View AppDynamics Agent logs
 
-By default, Azure Spring Apps prints the *info* level logs of the AppDynamics Agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the `info` level logs of the AppDynamics Agent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the AppDynamics Agent from the following locations:
 
@@ -236,7 +237,7 @@ The AppDynamics Agent is upgraded regularly with JDK (quarterly). Agent upgrade 
 
 ## Configure virtual network injection instance outbound traffic
 
-For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [Cisco AppDynamics SaaS Domains and IP Ranges](https://docs.appdynamics.com/paa/en/cisco-appdynamics-saas-domains-and-ip-ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
+For virtual network injection instances of Azure Spring Apps, make sure the outbound traffic is configured correctly for AppDynamics Agent. For details, see [Cisco AppDynamics SaaS Domains and IP Ranges](https://docs.appdynamics.com/paa/cisco-appdynamics-saas-domains-and-ip-ranges) and [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
 
 ## Understand the limitations
 

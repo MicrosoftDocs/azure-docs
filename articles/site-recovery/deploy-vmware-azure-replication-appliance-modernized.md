@@ -1,11 +1,11 @@
 ---
 title: Deploy Azure Site Recovery replication appliance - Modernized
-description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
+description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 11/06/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 01/24/2025
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Deploy Azure Site Recovery replication appliance - Modernized
@@ -35,14 +35,13 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Required permissions
 
-**Here are the required key vault permissions**:
+**Here are the required permissions**:
 
 - Microsoft.OffAzure/*
-- Microsoft.KeyVault/register/action
-- Microsoft.KeyVault/vaults/read
-- Microsoft.KeyVault/vaults/keys/read
-- Microsoft.KeyVault/vaults/secrets/read
 - Microsoft.Recoveryservices/*
+
+> [!NOTE]
+> In case different users are configuring the appliances registered to a single recovery services vault, each of the user should be added as an owner to AAD app of that vault. To do so, in Azure portal, navigate to **App registrations**, search for the AAD app > **Manage** > **Owners** > **Add Owners** and select the user to add them as an owner to the AAD app.
 
 **Follow these  steps to assign the required permissions**:
 
@@ -158,6 +157,9 @@ If there are any organizational restrictions, you can manually set up the Site R
   - After pasting the key, select **Login.** You're redirected to a new authentication tab.
 
       By default, an authentication code is generated as highlighted below, in the **Appliance configuration manager** page. Use this code in the authentication tab.
+
+     >[!NOTE]
+     >  During Azure Site Recovery modernized appliance deployment, you must use the device code flow for authentication during registration.
 
   - Enter your Microsoft Azure credentials to complete registration.
 

@@ -1,13 +1,12 @@
 ---
 title: Tune Azure Web Application Firewall for Azure Front Door
 description: In this article, you learn how to tune Azure Web Application Firewall for Azure Front Door.
-services: web-application-firewall
 author: mohitkusecurity
-ms.service: azure-web-application-firewall
-ms.topic: conceptual
-ms.date: 08/28/2022
 ms.author: mohitku
-ms.reviewer: victorh 
+ms.reviewer: halkazwini 
+ms.service: azure-web-application-firewall
+ms.topic: concept-article
+ms.date: 08/28/2022
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -313,8 +312,6 @@ Disabling a rule is a benefit when you're sure that all requests meeting that sp
 Disabling a rule is a global setting that applies to all front-end hosts associated to the WAF policy. When you choose to disable a rule, you might be leaving vulnerabilities exposed without protection or detection for any other front-end hosts associated to the WAF policy.
 
 If you want to use Azure PowerShell to disable a managed rule, see the [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject) object documentation. If you want to use the Azure CLI, see the [`az network front-door waf-policy managed-rules override`](/cli/azure/network/front-door/waf-policy/managed-rules/override) documentation.
-
-![Screenshot that shows WAF rules.](../media/waf-front-door-tuning/waf-rules.png)
 
 > [!TIP]
 > Document any changes you make to your WAF policy. Include example requests to illustrate the false positive detection. Explain why you added a custom rule, disabled a rule or rule set, or added an exception. If you redesign your application in the future, you might need to verify that your changes are still valid. Or you might be audited or need to justify why you reconfigured the WAF policy from its default settings.

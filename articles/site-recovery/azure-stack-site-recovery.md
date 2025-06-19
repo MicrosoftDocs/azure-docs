@@ -1,9 +1,9 @@
 ---
-title: Replicate Azure Stack VMs to Azure using Azure Site Recovery
-description: Learn how to set up disaster recovery to Azure for Azure Stack VMs with the Azure Site Recovery service.
+title: Replicate Azure Stack Hub to Azure using Azure Site Recovery
+description: Learn how to set up disaster recovery to Azure for Azure Stack Hub with the Azure Site Recovery service.
 ms.topic: how-to
-ms.date: 10/16/2024
-ms.author: ankitadutta
+ms.date: 04/03/2025
+ms.author: jsuri
 ms.custom: engagement-fy23
 ms.service: azure-site-recovery
 ---
@@ -26,7 +26,7 @@ In this article, you learn how to:
 > * **Step 2: Set up a Recovery Services vault**. Set up a vault for Site Recovery, and specify what you want to replicate. Site Recovery components and actions are configured and managed in the vault.
 > * **Step 3: Set up the source replication environment**. Set up a Site Recovery configuration server. The configuration server is a single Azure Stack VM that runs all the components needed by Site Recovery. After you've set up the configuration server, you register it in the vault.
 > * **Step 4: Set up the target replication environment**. Select your Azure account, and the Azure storage account and network that you want to use. During replication, VM data is copied to Azure storage. After failover, Azure VMs are joined to the specified network.
-> * **Step 5: Enable replication**. Configure replication settings, and enable replication for VMs. The Mobility service will be installed on a VM when replication is enabled. Site Recovery performs an initial replication of the VM, and then ongoing replication begins.
+> * **Step 5: Enable replication**. Configure replication settings, and enable replication for VMs. The Mobility service will be installed on a VM when replication is enabled. Site Recovery performs an initial replication of the VM, and then ongoing replication begins. Learn how to [install the Mobility service using command prompt (Modernized)](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-modernized).   
 > * **Step 6: Run a disaster recovery drill**: After replication is up and running, you verify that failover will work as expected by running a drill. To initiate the drill, you run a test failover in Site Recovery. The test failover doesn't impact your production environment.
 
 With these steps complete, you can then run a full failover to Azure as and when you need to.

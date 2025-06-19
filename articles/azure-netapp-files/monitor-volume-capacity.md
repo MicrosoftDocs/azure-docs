@@ -21,7 +21,7 @@ This section shows how to use a Windows or Linux client to monitor the volume ca
 
 You can use Windows clients to check the used and available capacity of a volume through the network mapped drive properties. You can use one of the following two methods: 
 
-* Go to File Explorer, right-click the mapped drive, and select **Properties** to display capacity.  
+* Navigate to File Explorer, right-click the mapped drive, then select **Properties** to display capacity.  
 
     [ ![Screenshot that shows Explorer drive properties and volume properties.](./media/monitor-volume-capacity/monitor-explorer-drive-properties.png) ](./media/monitor-volume-capacity/monitor-explorer-drive-properties.png#lightbox)
 

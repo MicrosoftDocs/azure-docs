@@ -13,11 +13,6 @@ ms.topic: how-to
 
 In this article, you learn how to deploy multiple hub-and-spoke topologies, and manage user-defined routes (UDRs) with Azure Virtual Network Manager. This scenario is useful when you have a hub and spoke architecture in multiple Azure regions. In the past, customers with firewalls or network virtual appliances performed many manual operations to do cross-hub and spoke in the past. Users needed many user-defined routes(UDRs) to be set up by hand, and when there were changes in spoke virtual networks, such as adding new spoke virtual networks and subnets, they also needed to change user-defined routes and route tables. UDR management with Virtual Network Manager can help you automate these tasks.
 
-> [!IMPORTANT]
-> **User-defined routes management with Azure Virtual Network Manager is generally available in select regions. For more information and a list of regions, see [General availability](./concept-user-defined-route.md#general-availability).**
->
-> Regions that aren't listed in the previous link are in public preview. Public previews are made available to you on the condition that you agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some features might not be supported or might have constrained capabilities. This preview version is provided without a service level agreement, and it's not recommended for production workloads.
-
 ## Prerequisites
 
 :::image type="content" source="media/how-to-manage-user-defined-routes-multiple-hub-spoke-topologies/spoke-to-spoke-two-hubs-topology-network-manager.png" alt-text="Diagram of a multi-hub topology with hub-and-spoke virtual network topologies.":::

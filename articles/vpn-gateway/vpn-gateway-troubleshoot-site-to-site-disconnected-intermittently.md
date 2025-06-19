@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: chadmath
 ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
-ms.date: 02/13/2023
+ms.date: 03/31/2025
 ms.author: genli
 ---
 
@@ -23,8 +23,6 @@ Check the type of Azure  virtual network gateway:
 
 1. Go to [Azure portal](https://portal.azure.com).
 2. Check the **Overview** page of the virtual network gateway to verify the **Type**. Example: Route-based.
-    
-    ![The overview of the gateway](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 
 ### Step 1: Check whether the on-premises VPN device is validated
 

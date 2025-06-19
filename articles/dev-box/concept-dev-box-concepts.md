@@ -6,7 +6,7 @@ ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
-ms.date: 12/15/2023
+ms.date: 02/26/2025
 ms.custom: template-concept
 #Customer intent: As a platform engineer, I want to understand Dev Box concepts and terminology so that I can set up a Dev Box environment.
 ---
@@ -21,7 +21,7 @@ Microsoft Dev Box builds on the same foundations as [Azure Deployment Environmen
 
 This diagram shows the key components of Dev Box and how they relate to each other. You can learn more about each component in the following sections.
 
-:::image type="content" source="media/concept-key-concepts/dev-box-architecture.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-architecture.png" :::
+:::image type="content" source="media/concept-key-concepts/dev-box-concepts-overview.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-concepts-overview.png" :::
 
 For more in-depth information about the Microsoft Dev Box architecture, see the [architecture overview](./concept-dev-box-architecture.md) article.
 
@@ -36,9 +36,9 @@ A dev center is a collection of [Projects](#project) that require similar settin
 
 ## Catalogs
 
-The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. Microsoft provides a *[quick start](https://github.com/microsoft/devcenter-catalog)*[ catalog](https://github.com/microsoft/devcenter-catalog) that contains a set of sample tasks. You can attach the quick start catalog to a dev center to make these tasks available to all the projects associated with the dev center. You can modify the sample tasks to suit your needs, and you can create your own catalog of tasks. 
+The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. Microsoft provides a [*quick start catalog*](https://github.com/microsoft/devcenter-catalog) that contains a set of sample tasks. You can attach the quick start catalog to a dev center to make these tasks available to all the projects associated with the dev center. You can modify the sample tasks to suit your needs, and you can create your own catalog of tasks. 
 
-To learn how to create reusable customization tasks, see [Create reusable dev box customizations](./how-to-customize-dev-box-setup-tasks.md).
+To learn how to create Dev Box customizations, see [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md).
 
 ## Project
 
@@ -58,10 +58,11 @@ A dev box definition specifies a source image and size, including compute size a
 
 IT administrators and platform engineers configure the network they use for dev box creation in accordance with their organizational policies. Network connections store configuration information, like Active Directory join type and virtual network, that dev boxes use to connect to network resources.
 
-When you're creating a network connection, you must choose the Active Directory join type:
-
-- If your dev boxes need to connect exclusively to cloud-based resources, use native Microsoft Entra ID.
-- If your dev boxes need to connect to on-premises resources and cloud-based resources, use hybrid Microsoft Entra ID.
+Dev Box supports two types of network connections:
+ - **Microsoft-hosted network connection** - Microsoft manages the network infrastructure and related services for your dev boxes. 
+ - **Azure network connection** - You manage the network infrastructure and related services for your dev boxes.
+    - If your dev boxes need to connect exclusively to cloud-based resources, use native Microsoft Entra ID join.
+    - If your dev boxes need to connect to on-premises resources and cloud-based resources, use hybrid Microsoft Entra ID join.
 
 To learn more about native Microsoft Entra join and Microsoft Entra hybrid join, see [Plan your Microsoft Entra device deployment](../active-directory/devices/plan-device-deployment.md).
 
@@ -77,7 +78,7 @@ To help you decide on the regions to use, check:
 - [Dev Box availability by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box) 
 - [Azure geographies](https://azure.microsoft.com/explore/global-infrastructure/geographies/#choose-your-region). 
 
-If the region you prefer isn’t available for Dev Box, choose a region within 500 miles.
+If the region you prefer isn't available for Dev Box, choose a region within 500 miles.
 
 ## Dev box pool
 
@@ -88,6 +89,8 @@ A dev box pool is a collection of dev boxes that you manage together and to whic
 A dev box is a preconfigured workstation that you create through the self-service developer portal. A new dev box has all the tools, binaries, and configuration required for a dev box user to be productive immediately. You can create and manage multiple dev boxes to work on multiple workstreams.
 
 As a dev box user, you have control over your own dev boxes. You can create more as you need them and delete them when you finish using them.
+
+[!INCLUDE [dev-box-get-started-links](includes/dev-box-get-started-links.md)]
 
 ## Related content
 

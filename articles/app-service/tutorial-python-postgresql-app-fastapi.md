@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-portal-azd
 
 # Deploy a Python FastAPI web app with PostgreSQL in Azure
 
-In this tutorial, you deploy a data-driven Python web app (**[FastAPI](https://fastapi.tiangolo.com/)** ) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
+In this tutorial, you deploy a data-driven Python web app (**[FastAPI](https://fastapi.tiangolo.com/)** ) to **[Azure App Service](./overview.md)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. If you want, see the [Flask tutorial](tutorial-python-postgresql-app-flask.md) or the [Django tutorial](tutorial-python-postgresql-app-django.md) instead.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app-fastapi/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app-fastapi/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 
@@ -94,7 +94,7 @@ python3 -m uvicorn fastapi_app:app --reload --port=8000
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you specify:
 
-* The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
+* The **Name** for the web app. It's the name used as part of the DNS name for your webapp.
 * The **Region** to run the app physically in the world.
 * The **Runtime stack** for the app. It's where you select the version of Python to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -287,7 +287,7 @@ In this section, you'll run this command manually for demonstration purposes. Wi
     :::column span="2":::
         **Step 1:** In the App Service page:
         1. From the left menu, select **Overview**.
-        1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
+        1. Select the URL of your app.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal (FastAPI)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-browse-app-1.png":::
@@ -360,7 +360,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Select **Delete**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-clean-up-resources-3.png"::::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-clean-up-resources-3.png":::
     :::column-end:::
 :::row-end:::
 ::: zone-end
@@ -475,11 +475,7 @@ You might have noticed in the previous section that *entrypoint.sh* contains the
 
 In this section, you'll run this command manually for demonstration purposes. With the PostgreSQL database protected by the virtual network, the easiest way to run the command is in an SSH session with the App Service container.
 
-1. Use the value of the **App Service** that you noted previously in the azd output and the template shown below, to construct the URL for the SSH session and navigate to it in the browser:
-
-    ```
-    https://<app-name>.scm.azurewebsites.net/webssh/host
-    ```
+1. Use the value of the **App Service** that you noted previously in the azd output to construct the URL for the SSH session and navigate to it in the browser:
 
 1. In the SSH terminal, run `python3 src/fastapi_app/seed_data.py`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
 
@@ -497,7 +493,7 @@ In this section, you'll run this command manually for demonstration purposes. Wi
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few restaurants to the list.
@@ -514,11 +510,7 @@ The sample app uses the Python Standard Library logging module to output logs. T
 
 :::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/app.py" range="39-46" highlight="3":::
 
-Use the values of the **Subscription ID** (Guid), **Resource Group**, and **App Service** that you noted previously in the azd output and the template shown below, to construct the URL to stream App Service logs and navigate to it in the browser.
-
-```
-https://portal.azure.com/#@/resource/subscriptions/<subscription-guid>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name>/logStream
-```
+To access the log stream, open your app in the Azure portal. Select **Monitoring** > **Log stream**.
 
 Events can take several minutes to show up in the diagnostic logs. Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 

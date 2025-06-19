@@ -1,7 +1,7 @@
 ---
 title: Define an ID token hint technical profile in a custom policy
 titleSuffix: Azure AD B2C
-description: Define an ID token hint technical profile in a custom policy in Azure Active Directory B2C.
+description: Define an ID token hint technical profile in a custom policy in Azure AD B2C. Send a JWT with user or authorization request hints for validation and processing.
 
 author: kengaderdus
 manager: CelesteDG
@@ -9,22 +9,24 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
 
-#Customer intent: As a developer integrating Azure AD B2C with a relying party application, I want to define an ID token hint technical profile, so that I can send a JWT token with a hint about the user or the authorization request. This allows me to validate the token and extract the claims for further processing.
+#Customer intent: As a developer integrating Azure AD B2C with a relying party application, I want to define an ID token hint technical profile, so that I can send a JWT with a hint about the user or the authorization request. This allows me to validate the token and extract the claims for further processing.
 
 ---
 
 # Define an ID token hint technical profile in an Azure Active Directory B2C custom policy
 
-Azure AD B2C allows relying party applications to send an inbound JWT as part of the OAuth2 authorization request. The JWT token can be issued by a relying party application or an identity provider, and it can pass a hint about the user or the authorization request. Azure AD B2C validates the signature, issuer name, and token audience, and extracts the claim from the inbound token.
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+Azure AD B2C allows relying party applications to send an inbound JWT as part of the OAuth2 authorization request. The JWT can be issued by a relying party application or an identity provider, and it can pass a hint about the user or the authorization request. Azure AD B2C validates the signature, issuer name, and token audience, and extracts the claim from the inbound token.
 
 ## Use cases
 
-You can use this solution to send data to Azure AD B2C encapsulated in a single JWT token. The [`Signup with email invitation` solution](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md), where your system admin can send a signed invite to users, is based on id_token_hint. Only users with access to the invite email can create the account in the directory.
+You can use this solution to send data to Azure AD B2C encapsulated in a single JWT. The [`Signup with email invitation` solution](https://github.com/azure-ad-b2c/samples/blob/master/policies/invite/README.md), where your system admin can send a signed invite to users, is based on id_token_hint. Only users with access to the invite email can create the account in the directory.
 
 ## Token signing approach
 
@@ -32,7 +34,7 @@ With id_token_hint, the token issuer (a relying party app or an identity provide
 
 ## Token format
 
-The id_token_hint must be a valid JWT token. The following table lists the claims that are mandatory. Additional claims are optional.
+The id_token_hint must be a valid JWT. The following table lists the claims that are mandatory. Additional claims are optional.
 
 | Name | Claim | Example value | Description |
 | ---- | ----- | ------------- | ----------- |
@@ -76,7 +78,7 @@ The technical profile is called from an orchestration step with type of `GetClai
 
 ## Output claims
 
-The **OutputClaims** element contains a list of claims to be extracted from the JWT token. You may need to map the name of the claim defined in your policy to the name defined in the JWT token. You can also include claims that aren't returned by the JWT token, as long as you set the `DefaultValue` attribute.
+The **OutputClaims** element contains a list of claims to be extracted from the JWT. You may need to map the name of the claim defined in your policy to the name defined in the JWT. You can also include claims that aren't returned by the JWT, as long as you set the `DefaultValue` attribute.
 
 ## Metadata
 
@@ -84,16 +86,16 @@ The following metadata is relevant when using symmetric key.
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| issuer | Yes | Identifies the security token service (token issuer). This value must be identical to the `iss` claim within the JWT token claim. | 
-| IdTokenAudience | Yes | Identifies the intended recipient of the token. Must be identical to the `aud` claim within the JWT token claim. | 
+| issuer | Yes | Identifies the security token service (token issuer). This value must be identical to the `iss` claim within the JWT claim. | 
+| IdTokenAudience | Yes | Identifies the intended recipient of the token. Must be identical to the `aud` claim within the JWT claim. | 
 
 The following metadata is relevant when using an asymmetric key. 
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | METADATA| Yes | A URL that points to a token issuer configuration document, which is also known as an OpenID well-known configuration endpoint.   |
-| issuer | No | Identifies the security token service (token issuer). This value can be used to overwrite the value configured in the metadata, and must be identical to the `iss` claim within the JWT token claim. |  
-| IdTokenAudience | No | Identifies the intended recipient of the token. Must be identical to the `aud` claim within the JWT token claim. |  
+| issuer | No | Identifies the security token service (token issuer). This value can be used to overwrite the value configured in the metadata, and must be identical to the `iss` claim within the JWT claim. |  
+| IdTokenAudience | No | Identifies the intended recipient of the token. Must be identical to the `aud` claim within the JWT claim. |  
 
 [!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
@@ -103,7 +105,7 @@ When using a symmetric key, the **CryptographicKeys** element contains the follo
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| client_secret | Yes | The cryptographic key that is used to validate the JWT token signature.|
+| client_secret | Yes | The cryptographic key that is used to validate the JWT signature.|
 
 ## How-to guide
 

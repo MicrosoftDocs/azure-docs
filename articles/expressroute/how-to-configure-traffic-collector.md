@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 06/19/2024
 ms.author: duau
 #Customer intent: As a network engineer, I want to configure ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace.
+# Customer intent: As a network engineer, I want to configure an ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace, so that I can effectively monitor and analyze network traffic.
 ---
 
 # Configure Traffic Collector for ExpressRoute
@@ -53,8 +54,6 @@ For more information, see [Identity and access management](../active-directory/f
 
 1. On the **Create an ExpressRoute Traffic Collector** page, enter or select the following information then select **Next**.
 
-    :::image type="content" source="./media/how-to-configure-traffic-collector/basics.png" alt-text="Screenshot of the basics page for create an ExpressRoute Traffic Collector.":::
-
    | Setting | Description |
    | --- | --- |
    | Subscription | Select the subscription to create the ExpressRoute Traffic Collector resource. This resource needs to be in the same subscription as the ExpressRoute circuit. |
@@ -77,8 +76,6 @@ For more information, see [Identity and access management](../active-directory/f
 
 1. Select **Create** once validation has passed to deploy your ExpressRoute Traffic Collector.
 
-    :::image type="content" source="./media/how-to-configure-traffic-collector/validation.png" alt-text="Screenshot of the create validation page.":::
-
 1. Once deployed you should start seeing sampled flow logs within the configure Log Analytics workspace.
 
     :::image type="content" source="./media/how-to-configure-traffic-collector/log-analytics.png" alt-text="Screenshot of logs in Log Analytics workspace." lightbox="./media/how-to-configure-traffic-collector/log-analytics.png":::
@@ -92,8 +89,6 @@ To delete the ExpressRoute Traffic Collector resource, you first need to remove 
 >
 
 Once all circuits have been removed from the ExpressRoute Traffic Collector, select **Delete** from the overview page to remove the resource from your subscription.
-
-:::image type="content" source="./media/how-to-configure-traffic-collector/overview.png" alt-text="Screenshot of delete button on overview page." lightbox="./media/how-to-configure-traffic-collector/overview.png":::
 
 ## Next step
 

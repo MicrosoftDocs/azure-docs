@@ -3,7 +3,7 @@ title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 01/13/2025
+ms.date: 04/17/2025
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -36,17 +36,12 @@ target cross-platform with .NET 8.0.
 
 # Quickstart: Deploy an ASP.NET web app
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 In this quickstart, you learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps. It provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you have an Azure resource group that includes an App Service hosting plan and an App Service with a deployed web application.
 
 Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux container in App Service](quickstart-custom-container.md).
 
 > [!TIP]
 > Find GitHub Copilot tips in the Visual Studio, Visual Studio Code, and Azure portal steps.
-
-> [!NOTE]
-> Building .NET 9 (STS) apps with Windows App Service using MSBuild or SCM_DO_BUILD isn't yet supported. Support for these build scenarios is planned after the initial general availability date and by December 4, 2024. Deployments that build outside of App Service through Visual Studio, Visual Studio Code, GitHub Actions, and Azure DevOps are fully supported.
 
 ## Prerequisites
 
@@ -111,23 +106,26 @@ If you already installed Visual Studio 2022:
 
 :::zone-end
 
-:::zone target="docs" pivot="development-environment-azd"
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
-- [The latest .NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
-
-:::zone-end
-
 :::zone target="docs" pivot="development-environment-vs, development-environment-azure-portal, development-environment-ps, development-environment-vscode, development-environment-cli"
 
+## Skip to the end
+
+You can quickly deploy the ASP.NET Core sample app in this tutorial using Azure Developer CLI and see it running in Azure. Just run the following commands in the [Azure Cloud Shell](https://shell.azure.com), and follow the prompt:
+
+```bash
+mkdir dotnetcore-quickstart
+cd dotnetcore-quickstart
+azd init --template https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service.git
+azd up
+```
+
+And, to delete the resources:
+
+```bash
+azd down
+```
+
 ## Create an ASP.NET web app
-
-:::zone-end
-
-:::zone target="docs" pivot="development-environment-azd"
-
-## Initialize the ASP.NET web app template
 
 :::zone-end
 
@@ -223,32 +221,6 @@ In this step, you fork a demo project to deploy.
 
 :::zone-end
 
-:::zone target="docs" pivot="development-environment-azd"
-
-This quickstart uses the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) both to create Azure resources and deploy code to it. For more information, see [Install the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) and [Build and deploy applications with the Azure Developer CLI](/training/paths/azure-developer-cli/).
-
-To get and initialize [the ASP.NET Core web app template](https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service), use the following steps:
-
-1. Open a terminal window on your computer to an empty working directory. Run the following command:
-
-   ```bash
-   azd init --template https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service.git
-   ```
-
-   When prompted for an environment name, enter `dev`.
-
-1. From the same terminal session, run the application locally using the `dotnet run` command. Use the `--project` parameter to specify the `src` directory of the `azd` template, which is where the application code lives.
-
-   ```bash
-   dotnet run --project src --urls=https://localhost:5001/
-   ```
-
-1. Open a web browser and navigate to the app at `https://localhost:5001`. The ASP.NET Core 8.0 web app template is displayed on the page.
-
-   :::image type="content" source="media/quickstart-dotnetcore/local-web-app-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 8.0 in local browser." lightbox="media/quickstart-dotnetcore/local-web-app-net.png" border="true":::
-
-:::zone-end
-
 ## Publish your web app
 
 Follow these steps to create your App Service resources and publish your project:
@@ -284,7 +256,7 @@ Follow these steps to create your App Service resources and publish your project
    | **Location**     | *West Europe*            | The datacenter where the web app is hosted.                           |
    | **Size**         | Choose the lowest tier.                   | [Pricing tiers][app-service-pricing-tier] define hosting features. |
 
-1. In **Name**, enter a unique app name. Include only characters `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name.
+1. In **Name**, enter a unique app name. Include only characters `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. 
 1. Select **Create** to create the Azure resources.
 
    :::image type="content" source="media/quickstart-dotnetcore/web-app-name.png" border="true" alt-text="Screenshot of Visual Studio - Create app resources dialog." lightbox="media/quickstart-dotnetcore/web-app-name.png" :::
@@ -378,11 +350,7 @@ Follow these steps to create your App Service resources and publish your project
    - Replace `<os>` with either `linux` or `windows`.
    - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. To get a list of allowable regions for your Azure account, run the [az account list-locations](/cli/azure/appservice#az-appservice-list-locations) command.
 
-   The command might take a few minutes to complete. While it runs, the command provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL:
-
-   ```azurecli
-   You can launch the app at http://<app-name>.azurewebsites.net
-   ```
+   The command might take a few minutes to complete. While it runs, the command provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL.
 
 1. Open a web browser and navigate to the URL. You see the ASP.NET Core 8.0 web app displayed in the page.
 
@@ -531,7 +499,7 @@ Follow these steps to create your App Service resources and publish your project
 
    :::image type="content" source="./media/quickstart-dotnet/next-steps.png" alt-text="Screenshot of the next step of going to the resource.":::
 
-1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. If you see the message *Your web app is running and waiting for your content*, GitHub deployment is still running. Wait a couple of minutes and refresh the page.
+1. To browse to the created app, select the **default domain** in the **Overview** page. If you see the message *Your web app is running and waiting for your content*, GitHub deployment is still running. Wait a couple of minutes and refresh the page.
 
    ### [.NET 8.0](#tab/net80)
 
@@ -541,34 +509,6 @@ Follow these steps to create your App Service resources and publish your project
 
    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-48.png" lightbox="media/quickstart-dotnet/browse-dotnet-48.png" border="true" alt-text="Screenshot of the deployed .NET Framework 4.8 sample app.":::
    -----
-
-:::zone-end
-
-:::zone target="docs" pivot="development-environment-azd"
-
-The AZD template contains files that generate the following required resources for your application to run in App service:
-
-- A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
-- A new [App Service plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
-- A new [App Service app](overview-hosting-plans.md) instance to run the deployed application.
-
-1. Sign into your Azure account by using the `azd auth login` command and following the prompt:
-
-   ```bash
-   azd auth login
-   ```
-
-1. Create the Azure resources and deploy your app using the `azd up` command:
-
-   ```bash
-   azd up
-   ```
-
-   The `azd up` command might take a few minutes to complete. `azd up` uses the Bicep files in your projects to create the resource group, App Service Plan, and hosting app. It also performs certain configurations such as enabling logging and deploys your compiled app code. While it runs, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
-
-1. Open a web browser and navigate to the URL. You see the ASP.NET Core 8.0 web app displayed in the page.
-
-   :::image type="content" source="media/quickstart-dotnetcore/browse-dotnet-70.png" lightbox="media/quickstart-dotnetcore/browse-dotnet-70.png" border="true" alt-text="Screenshot of the deployed .NET Framework 4.8 sample app.":::
 
 :::zone-end
 
@@ -649,7 +589,7 @@ Make a change to *Index.cshtml* and redeploy to see the changes. In the .NET 8.0
 :::zone-end
 
 <!-- markdownlint-disable MD044 -->
-:::zone target="docs" pivot="development-environment-cli,development-environment-ps,development-environment-azd"
+:::zone target="docs" pivot="development-environment-cli,development-environment-ps"
 > [!TIP]
 > To see how Visual Studio Code with GitHub Copilot helps improve your web development experience, see the Visual Studio Code steps.
 <!-- markdownlint-enable MD044 -->
@@ -813,33 +753,6 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
 
 :::zone-end
 
-<!-- markdownlint-disable MD044 -->
-:::zone target="docs" pivot="development-environment-azd"
-<!-- markdownlint-enable MD044 -->
-
-In the local directory, open the *src/Pages/Index.cshtml* file. Replace the first `<div>` element:
-
-```html
-<div class="jumbotron">
-    <h1>.NET 💜 Azure</h1>
-    <p class="lead">Example .NET app to Azure App Service.</p>
-</div>
-```
-
-Save your changes, then redeploy the app using the `azd up` command again:
-
-```azurecli
-azd up
-```
-
-`azd up` skips the provisioning resources step this time and only redeploys your code, since there are no changes to the Bicep files.
-
-After deployment completes, the browser opens to the updated ASP.NET Core 8.0 web app.
-
-:::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 8.0 web app in Azure.":::
-
-:::zone-end
-
 ## Manage the Azure app
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
@@ -890,12 +803,6 @@ For your convenience, the [az webapp up](/cli/azure/webapp#az-webapp-up) command
 :::zone-end
 <!-- markdownlint-enable MD044 -->
 
-:::zone target="docs" pivot="development-environment-azd"
-<!-- markdownlint-enable MD044 -->
-[!INCLUDE [Clean-up Azure Developer CLI web app resources](../../includes/clean-up-section-azure-developer-cli.md)]
-:::zone-end
-<!-- markdownlint-enable MD044 -->
-
 ## Next steps
 
 ### [.NET 8.0](#tab/net80)
@@ -910,11 +817,6 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)
-
-:::zone target="docs" pivot="development-environment-azd"
-> [!div class="nextstepaction"]
-> [Learn more about the Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
-:::zone-end
 
 ### [.NET Framework 4.8](#tab/netframework48)
 

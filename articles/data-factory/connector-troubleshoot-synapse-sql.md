@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Azure Synapse Analytics, 
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: joanpo, wiassaf
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, synapse, devx-track-extended-java
@@ -29,7 +29,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     | Check to see whether port 1433 is in the firewall allowlist. | For more information, see [Ports used by SQL Server](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
     | If the error message contains the string "SqlException", SQL Database the error indicates that some specific operation failed. | For more information, search by SQL error code in [Database engine errors](/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
     | If this is a transient issue (for example, an instable network connection), add retry in the activity policy to mitigate. | For more information, see [Pipelines and activities](./concepts-pipelines-activities.md#activity-policy). |
-    | If the error message contains the string "Client with IP address '...' isn't allowed to access the server", and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue. | In the Azure SQL Server firewall configuration, enable the **Allow Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](/azure/azure-sql/database/firewall-configure). |
+    | If the error message contains the string "Client with IP address '...' isn't allowed to access the server", and you're trying to connect to Azure SQL Database, the error is usually caused by an Azure SQL Database firewall issue. | In the Azure SQL Server firewall configuration, enable the **Allowed Azure services and resources to access this server** option. For more information, see [Azure SQL Database and Azure Synapse IP firewall rules](/azure/azure-sql/database/firewall-configure). |
     |If the error message contains `Login failed for user '<token-identified principal>'`, this error is usually caused by not granting enough permission to your service principal or system-assigned managed identity or user-assigned managed identity (depends on which authentication type you choose) in your database. |Grant enough permission to your service principal or system-assigned managed identity or user-assigned managed identity in your database.  <br/><br/> **For Azure SQL Database**:<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use service principal authentication, follow [Service principal authentication](connector-azure-sql-database.md#service-principal-authentication).<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use system-assigned managed identity authentication, follow [System-assigned managed identity authentication](connector-azure-sql-database.md#managed-identity).<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use user-assigned managed identity authentication, follow [User-assigned managed identity authentication](connector-azure-sql-database.md#user-assigned-managed-identity-authentication). <br/>&nbsp;&nbsp;&nbsp;<br/>**For Azure Synapse Analytics**:<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use service principal authentication, follow [Service principal authentication](connector-azure-sql-data-warehouse.md#service-principal-authentication).<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use system-assigned managed identity authentication, follow [System-assigned managed identities for Azure resources authentication](connector-azure-sql-data-warehouse.md#managed-identity).<br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use user-assigned managed identity authentication, follow [User-assigned managed identity authentication](connector-azure-sql-data-warehouse.md#user-assigned-managed-identity-authentication).<br/>&nbsp;&nbsp;&nbsp;<br/>**For Azure SQL Managed Instance**: <br/>&nbsp;&nbsp;&nbsp;&nbsp;- If you use service principal authentication, follow [Service principal authentication](connector-azure-sql-managed-instance.md#service-principal-authentication).<br/>&nbsp;&nbsp;&nbsp;- If you use system-assigned managed identity authentication, follow [System-assigned managed identity authentication](connector-azure-sql-managed-instance.md#managed-identity).<br/>&nbsp;&nbsp;&nbsp;- If you use user-assigned managed identity authentication, follow [User-assigned managed identity authentication](connector-azure-sql-managed-instance.md#user-assigned-managed-identity-authentication).|
     | If you meet the error message that contains `The server was not found or was not accessible` when using Azure SQL Managed Instance, this error is usually caused by not enabling the Azure SQL Managed Instance public endpoint.| Refer to [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure) to enable the Azure SQL Managed Instance public endpoint. |
     
@@ -44,7 +44,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     | If the error message contains the string "SqlException", SQL Database throws an error indicating some specific operation failed. | If the SQL error isn't clear, try to alter the database to the latest compatibility level '150'. It can throw the latest version SQL errors. For more information, see the [documentation](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> For more information about troubleshooting SQL issues, search by SQL error code in [Database engine errors](/sql/relational-databases/errors-events/database-engine-events-and-errors). For further help, contact Azure SQL support. |
     | If the error message contains the string "PdwManagedToNativeInteropException", it's usually caused by a mismatch between the source and sink column sizes. | Check the size of both the source and sink columns. For further help, contact Azure SQL support. |
     | If the error message contains the string "InvalidOperationException", it's usually caused by invalid input data. | To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity, which can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity](./copy-activity-fault-tolerance.md). |
-    | If the error message contains "Execution Timeout Expired", it's usually caused by query timeout. | Configure **Query timeout** in the source and **Write batch timeout** in the sink to increase timeout. |
+    | If the error message contains "Execution Timeout Expired", it's usually caused by query time-out. | Configure **Query timeout** in the source and **Write batch timeout** in the sink to increase time-out. |
     | If the error message contains `Cannot find the object "dbo.Contoso" because it does not exist or you do not have permissions.` when you copy data from hybrid into an on-premises SQL Server table, it's caused by the current SQL account doesn't have sufficient permissions to execute requests issued by .NET SqlBulkCopy.WriteToServer or your table or database doesn't exist. | Switch to a more privileged SQL account or check if your table or database exists. |
 
 ## Error code: SqlUnauthorizedAccess
@@ -61,7 +61,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Cause**: The problem could be an SQL database transient failure.
 
-- **Recommendation**:  Retry the operation to update the linked service connection string with a larger connection timeout value.
+- **Recommendation**:  Retry the operation to update the linked service connection string with a larger connection time-out value.
 
 ## Error code: SqlAutoCreateTableTypeMapFailed
 
@@ -122,7 +122,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Message**: `SQL transaction commits failed.`
 
-- **Cause**: If exception details constantly indicate a transaction timeout, the network latency between the integration runtime and the database is greater than the default threshold of 30 seconds.
+- **Cause**: If exception details constantly indicate a transaction time out, the network latency between the integration runtime and the database is greater than the default threshold of 30 seconds.
 
 - **Recommendation**:  Update the SQL-linked service connection string with a *connection timeout* value that's equal to or greater than 120 and rerun the activity.
 
@@ -302,7 +302,7 @@ For more troubleshooting help, try these resources:
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [X information about Data Factory](https://x.com/hashtag/DataFactory)

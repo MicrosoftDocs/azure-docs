@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ms.custom:
 ---
@@ -191,7 +191,7 @@ If you receive errors about missing parameters when you run `az containerapp` co
 az extension add --name containerapp --upgrade
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Install-Module -Name Az.App

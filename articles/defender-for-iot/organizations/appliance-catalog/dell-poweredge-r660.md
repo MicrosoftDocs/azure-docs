@@ -56,7 +56,7 @@ The following image shows a view of the Dell PowerEdge R660 back panel:
 |1| 780-BCDS | RAID configuration | unconfigured RAID |
 |1| 405-AAZB | RAID controller | PERC H755 SAS Front |
 |1| 750-ACFR | RAID controller | Front PERC Mechanical Parts, front load |
-|6| 161-BCBX | Hard drives | 2.4 TB Hard Drive SAS ISE 12 Gbps 10k 512e 2.5in Hot Plug |
+|8| 161-BCBX | Hard drives | 2.4 TB Hard Drive SAS ISE 12 Gbps 10k 512e 2.5in Hot Plug |
 |1| 384-BBBH | BIOS and Advanced System Configuration Settings | Power Saving BIOS Settings |
 |1| 387-BBEY | Advanced System Configurations | No Energy Star |
 |1| 384-BDJC | Fans | Standard Fan X7 |

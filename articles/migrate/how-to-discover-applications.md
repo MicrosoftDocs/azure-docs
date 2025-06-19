@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 11/22/2023
+ms.date: 02/06/2025
 ms.custom: engagement-fy23
 ---
 
@@ -14,7 +14,7 @@ ms.custom: engagement-fy23
 
 This article describes how to discover installed software inventory, web apps, and SQL Server instances and databases on servers running in your on-premises environment, using the Azure Migrate: Discovery and assessment tool.
 
-Performing software inventory helps identify and tailor a migration path to Azure for your workloads. Software inventory uses the Azure Migrate appliance to perform discovery, using server credentials. It's completely agentless, that is, no agents are installed on the servers to collect this data.
+Performing software inventory helps identify and tailor a migration path to Azure for your workloads. Software inventory uses the Azure Migrate appliance to perform discovery, using server credentials. It's agentless, that is, no agents are installed on the servers to collect this data.
 
 
 ## Before you start
@@ -33,7 +33,7 @@ Performing software inventory helps identify and tailor a migration path to Azur
 
 1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
 2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
-    - The details of the source environment (vCenter Server(s) /Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
+    - The details of the source environment (vCenter Servers /Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
     - Verify the permissions required to perform software inventory. You need a guest user account for Windows servers, and a regular/normal user account (non-sudo access) for all Linux servers.
 
@@ -53,7 +53,7 @@ Performing software inventory helps identify and tailor a migration path to Azur
 
 After software inventory has completed, you can review and export the inventory in the Azure portal.
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the displayed count to open the **Discovered servers** page.
+1. In **Azure Migrate - Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the displayed count to open the **Discovered servers** page.
 
     > [!NOTE]
     > At this stage you can optionally also enable dependency analysis for the discovered servers, so that you can visualize dependencies across servers you want to assess. [Learn more](concepts-dependency-visualization.md) about dependency analysis.
@@ -77,7 +77,17 @@ The sign-in used to connect to a source SQL Server instance requires sysadmin ro
 [!INCLUDE [Minimal Permissions for SQL Assessment](../../includes/database-migration-service-sql-permissions.md)]
 --->
 
-Once connected, the appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours, and the performance data is captured every 30 seconds. Hence, any change to the properties of the SQL Server instance and databases such as database status, compatibility level etc. can take up to 24 hours to update on the portal.
+Once connected, the appliance gathers configuration and performance data of SQL Server instances and databases. The SQL Server configuration data is updated once every 24 hours, and the performance data is captured every 30 seconds. Hence, any change to the properties of the SQL Server instance and databases such as database status, compatibility level, etc. can take up to 24 hours to update on the portal.
+
+## Discover MySQL Server instances and databases (preview)
+
+- Software inventory also identifies the MySQL Server instances running in your VMware, Microsoft Hyper-V, and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
+- If you haven't provided Windows or Linux authentication and MySQL Server authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective MySQL Server instances.
+
+    > [!NOTE]
+    > Appliance can connect to only those MySQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+
+Once connected, the appliance gathers configuration and performance data of MySQL Server instances and databases. The MySQL Server configuration data is updated once every 24 hours, and the performance data is captured every 30 seconds. Hence, any change to the properties of the MySQL Server instance and databases such as database status, compatibility level, etc. can take up to 24 hours to update on the portal.
 
 ## Discover ASP.NET web apps
 

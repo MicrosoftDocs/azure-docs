@@ -1,22 +1,22 @@
 ---
-title: Copy data from Google BigQuery using legacy
+title: Copy data from Google BigQuery V1
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from Google BigQuery V1 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/02/2024
+ms.date: 04/14/2025
 ---
 
-# Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics (legacy)
+# Copy data from Google BigQuery V1 using Azure Data Factory or Synapse Analytics 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
->[!IMPORTANT]
->The new Google BigQuery connector provides improved native Google BigQuery support. If you are using the legacy Google BigQuery connector in your solution, please [upgrade your Google BigQuery connector](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) before **October 31, 2024**. Refer to this [section](connector-google-bigquery.md#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, please [upgrade your Google BigQuery connector](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](connector-google-bigquery.md#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 

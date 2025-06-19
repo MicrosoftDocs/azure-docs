@@ -5,7 +5,7 @@ author: kalyaninamuduri
 ms.author: kanamudu 
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/03/2023
 ms.custom: template-concept 
 ---

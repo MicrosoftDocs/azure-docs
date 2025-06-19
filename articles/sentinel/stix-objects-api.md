@@ -1,7 +1,7 @@
 ---
-title: Import threat intelligence with the STIX objects API
+title: Import threat intelligence with the upload API
 titleSuffix: Microsoft Sentinel
-description: This article is a reference for the upload STIX objects API with example requests and responses.
+description: This article is a reference for the upload upload API with example requests and responses.
 author: austinmccollum
 ms.topic: reference
 ms.date: 05/30/2024
@@ -10,15 +10,16 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
 ---
 
-# Import threat intelligence to Microsoft Sentinel with the STIX objects API (Preview)
+# Import threat intelligence to Microsoft Sentinel with the upload API (Preview)
 
-Import threat intelligence to use in Microsoft Sentinel with the STIX objects API. Whether you're using a threat intelligence platform or a custom application, use this document as a supplemental reference to the instructions in the [Microsoft Sentinel STIX objects API data connector](connect-threat-intelligence-upload-api.md). Installing the data connector isn't required to connect to the API. The threat intelligence you can import includes indicators of compromise and other STIX domain objects.
+Import threat intelligence to use in Microsoft Sentinel with the upload API. Whether you're using a threat intelligence platform or a custom application, use this document as a supplemental reference to the instructions in [Connect your TIP with the upload API](connect-threat-intelligence-upload-api.md). Installing the data connector isn't required to connect to the API. The threat intelligence you can import includes indicators of compromise and other STIX domain objects.
 
 > [!IMPORTANT]
 > This API is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-Structured Threat Information Expression (STIX) is a language for expressing cyber threat and observable information. Enhanced support for the following domain objects is included with the STIX objects API:
+Structured Threat Information Expression (STIX) is a language for expressing cyber threat and observable information. Enhanced support for the following domain objects is included with the upload API:
+
 - indicator
 - attack pattern
 - threat actor
@@ -28,11 +29,11 @@ Structured Threat Information Expression (STIX) is a language for expressing cyb
 For more information, see [Introduction to STIX](https://oasis-open.github.io/cti-documentation/stix/intro.html). 
 
 > [!NOTE]
-> The previous upload indicators API is now legacy. If you need to reference that API while transitioning to the new STIX objects API, see [Legacy upload indicators API](upload-indicators-api.md).
+> The previous upload indicators API is now legacy. If you need to reference that API while transitioning to this new upload API, see [Legacy upload indicators API](upload-indicators-api.md).
 
 ## Call the API
 
-A call to the STIX objects API has five components:
+A call to the upload API has five components:
 
 1. The request URI
 1. HTTP request message header
@@ -42,7 +43,7 @@ A call to the STIX objects API has five components:
 
 ## Register your client application with Microsoft Entra ID
 
-In order to authenticate to Microsoft Sentinel, the request to the STIX objects API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) or see the basic steps as part of the [Connect threat intelligence with STIX objects API](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
+In order to authenticate to Microsoft Sentinel, the request to the upload API requires a valid Microsoft Entra access token. For more information on application registration, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) or see the basic steps as part of the [Connect threat intelligence with upload API](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
 
 This API requires the calling Microsoft Entra application to be granted the Microsoft Sentinel contributor role at the workspace level.
 
@@ -56,12 +57,15 @@ Acquire a Microsoft Entra access token with [OAuth 2.0 authentication](../active
 
 The version of the token (v1.0 or v2.0) received is determined by the `accessTokenAcceptedVersion` property in the [app manifest](/entra/identity-platform/reference-app-manifest#manifest-reference) of the API that your application is calling. If `accessTokenAcceptedVersion` is set to 1, then your application receives a v1.0 token.
 
-Use Microsoft Authentication Library [(MSAL)](/entra/identity-platform/msal-overview) to acquire either a v1.0 or v2.0 access token. Or, send requests to the REST API in the following format:
+Use Microsoft Authentication Library [(MSAL)](/entra/identity-platform/msal-overview) to acquire either a v1.0 or v2.0 access token. Use the access token to create the authorization header which contains the bearer token.
+
+For example, a request to the upload API uses the following elements to retrieve an access token and create the authorization header, which is used in each request:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token`
-- Headers for using Microsoft Entra App:
+
+Headers for using Microsoft Entra App:
 - grant_type: "client_credentials"
 - client_id: {Client ID of Microsoft Entra App}
-- client_secret: {secret of Microsoft Entra App}
+- client_secret or client_certificate: {secrets of the Microsoft Entra App}
 - scope: `"https://management.azure.com/.default"`
 
 If `accessTokenAcceptedVersion` in the app manifest is set to 1, your application receives a v1.0 access token even though it's calling the v2 token endpoint.
@@ -76,7 +80,7 @@ The resource/scope value is the audience of the token. This API only accepts the
 ### Assemble the request message
 
 #### Request URI 
-API versioning: `api-version=2023-12-01-preview`<br>
+API versioning: `api-version=2024-02-01-preview`<br>
 Endpoint: `https://api.ti.sentinel.azure.com/workspaces/{workspaceId}/threat-intelligence-stix-objects:upload?api-version={apiVersion}`<br>
 Method: `POST`<br>
 
@@ -87,22 +91,79 @@ Method: `POST`<br>
 #### Request body
 The JSON object for the body contains the following fields:
 
-|Field name	|Data Type	|Description|
+|Field name    |Data Type    |Description|
 |---|---|---|
 | `sourcesystem` (required) | string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
 | `stixobjects` (required) | array | An array of STIX objects in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
 
 Create the array of STIX objects using the STIX format specification. Some of the STIX property specifications are expanded here for your convenience with links to the relevant STIX document sections. Also note some properties, while valid for STIX, don't have corresponding object schema properties in Microsoft Sentinel.
 
+>[!WARNING]
+>If you're using a Microsoft Sentinel Logic App to connect to the upload API, note there are three threat intelligence actions available. Only use the [**Threat Intelligence - Upload STIX Objects (Preview)**](/connectors/azuresentinel/#threat-intelligence---upload-stix-objects-(preview)). The other two will fail with this endpoint and JSON body fields.
+
+#### Sample request message
+
+Here's a sample PowerShell function that uses a self-signed certificate uploaded to an Entra app registration to generate the access token and authorization header:
+
+```PowerShell
+function Test-UploadApi {
+<#
+.SYNOPSIS
+    requires Powershell module MSAL.PS version 4.37 or higher
+    https://www.powershellgallery.com/packages/MSAL.PS/
+.EXAMPLE
+    Test-Api -API UploadApi -WorkspaceName "workspacename" -ResourceGroupName "rgname" -AppId "00001111-aaaa-2222-bbbb-3333cccc4444" -TenantName "contoso.onmicrosoft.com" -FilePath "C:\Users\user\Documents\stixobjects.json"
+#>
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory = $true)]
+    [string]$TenantName,
+    [Parameter(Mandatory = $true)]
+    [string]$CertThumbprint,
+    [Parameter(Mandatory = $true)]
+    [string]$AppId,
+    [Parameter(Mandatory = $true)]
+    [string]$WorkspaceId,
+    [Parameter(Mandatory = $true)]
+    [string]$FilePath
+)
+$Scope = "https://management.azure.com/.default"
+# Connection details for getting initial token with self-signed certificate from local store
+$connectionDetails = @{
+    'TenantId'          = $TenantName
+    'ClientId'          = $AppId
+    'ClientCertificate' = Get-Item -Path "Cert:\CurrentUser\My\$CertThumbprint"
+    scope               = $Scope
+}
+# Request the token
+#  Using Powershell module MSAL.PS https://www.powershellgallery.com/packages/MSAL.PS/
+#  Get-MsalToken is automatically using OAuth 2.0 token endpoint https://login.microsoftonline.com/$TenantName/oauth2/v2.0/token
+#  and sets auth flow to grant_type = 'client_credentials'
+$token = Get-MsalToken @connectionDetails
+
+# Create header
+#  Again relying on MSAL.PS which has method CreateAuthorizationHeader() getting us the bearer token
+$Header = @{
+    'Authorization' = $token.CreateAuthorizationHeader()
+}
+$Uri = "https://api.ti.sentinel.azure.com/workspaces/$workspaceId/threat-intelligence-stix-objects:upload?api-version=$apiVersion"
+$stixobjects = get-content -path $FilePath
+if(-not $stixobjects) { Write-Host "No file found at $FilePath"; break }
+$results = Invoke-RestMethod -Uri $Uri -Headers $Header -Body $stixobjects -Method POST -ContentType "application/json"
+
+$results | ConvertTo-Json -Depth 4
+}
+```
+
 #### Common properties
 
-All the objects you import with the STIX objects API share these common properties.
+All the objects you import with the upload API share these common properties.
 
-|Property Name	|Type |	Description |
+|Property Name    |Type |    Description |
 |----|----|----|
 |`id` (required)| string | An ID used to identify the STIX object. See section [2.9](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_64yvzeku5a5c) for specifications on how to create an `id`. The format looks something like `indicator--<UUID>`|
 |`spec_version` (optional) | string | STIX object version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API defaults to `2.1`|
-|`type` (required)|	string | The value of this property *must* be a supported STIX object.|
+|`type` (required)|    string | The value of this property *must* be a supported STIX object.|
 |`created` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
 |`created_by_ref` (optional) | string | The created_by_ref property specifies the ID property of the entity that created this object.<br><br>If this attribute is omitted, the source of this information is undefined. For object creators who wish to remain anonymous, keep this value undefined.|
 |`modified` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
@@ -118,9 +179,9 @@ For more information, see [STIX common properties](https://docs.oasis-open.org/c
 
 #### Indicator
 
-|Property Name	|Type |	Description |
+|Property Name    |Type |    Description |
 |----|----|----|
-|`name` (optional)|	string | A name used to identify the indicator.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does.|
+|`name` (optional)|    string | A name used to identify the indicator.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does.|
 |`description` (optional) | string | A description that provides more details and context about the indicator, potentially including its purpose and its key characteristics.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does. |
 |`indicator_types` (optional) | list of strings | A set of categorizations for this indicator.<br><br>The values for this property *should* come from the [indicator-type-ov](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_cvhfwe3t9vuo) |
 |`pattern` (required) | string | The detection pattern for this indicator *might* be expressed as a [STIX Patterning](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_e8slinrhxcc9) or another appropriate language such as SNORT, YARA, etc. |
@@ -134,17 +195,25 @@ For more information, see [STIX indicator](https://docs.oasis-open.org/cti/stix/
 
 #### Attack pattern
 
+Follow the STIX specifications for creating an attack pattern STIX object. Use [this example](#sample-attack-pattern) as an extra reference.
+
 For more information, see [STIX attack pattern](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_axjijf603msy).
 
 #### Identity
+
+Follow the STIX specifications for creating an identity STIX object. Use [this example](#sample-relationship-with-threat-actor-and-identity) as an extra reference.
 
 For more information, see [STIX identity](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_wh296fiwpklp).
 
 #### Threat actor
 
+Follow the STIX specifications for creating a threat actor STIX object. Use [this example](#sample-relationship-with-threat-actor-and-identity) as an extra reference.
+
 For more information, see [STIX threat actor](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_k017w16zutw).
 
 #### Relationship
+
+Follow the STIX specifications for creating a relationship STIX object. Use [this example](#sample-relationship-with-threat-actor-and-identity) as an extra reference.
 
 For more information, see [STIX relationship](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_e2e1szrqfoan).
 
@@ -165,7 +234,7 @@ The response body is an array of error messages in JSON format:
 
 |Field name | Data Type | Description |
 |----|----|----|
-|errors	| Array of error objects | List of validation errors |
+|errors    | Array of error objects | List of validation errors |
 
 **Error object**
 
@@ -288,7 +357,10 @@ The objects are sent as an array, so the `recordIndex` begins at `0`.
 
 #### Sample indicator
 
-In this example, the indicator is marked with the green TLP. More extension attributes of `toxicity` and `rank` are also included. Although these properties aren't in the Microsoft Sentinel schema for indicators, ingesting an object with these properties doesn't trigger an error. The properties simply aren't referenced or indexed in the workspace.
+In this example, the indicator is marked with the green TLP by using `marking-definition--089a6ecb-cc15-43cc-9494-767639779123` in the `object_marking_refs` common property. More extension attributes of `toxicity` and `rank` are also included. Although these properties aren't in the Microsoft Sentinel schema for indicators, ingesting an object with these properties doesn't trigger an error. The properties simply aren't referenced or indexed in the workspace.
+
+> [!NOTE]
+> This indicator has the `revoked` property set to `$true` and its `valid_until` date is in the past. This indicator as-is doesn't work in analytics rules and isn't returned in queries unless an appropriate time range is specified.
 
 ```json
 {
@@ -362,6 +434,8 @@ In this example, the indicator is marked with the green TLP. More extension attr
 ```
 
 #### Sample attack pattern
+
+This attack pattern and any other non-indicator STIX objects are only viewable in the management interface unless you opt in to the new STIX tables. For more information about the tables required to view objects like this in KQL, see [View your threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
 
 ```json
 {
@@ -600,4 +674,4 @@ To learn more about how to work with threat intelligence in Microsoft Sentinel, 
 - [Understand threat intelligence](understand-threat-intelligence.md)
 - [Work with threat indicators](work-with-threat-indicators.md)
 - [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md)
-- Utilize the intelligence feed from Microsoft and [enable MDTI data connector](connect-mdti-data-connector.md)
+- Utilize the intelligence feed from Microsoft and [enable the MDTI data connector](connect-mdti-data-connector.md)

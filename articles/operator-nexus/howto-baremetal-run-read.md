@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 1/17/2025
+ms.date: 4/17/2025
 ms.custom: template-how-to
 ---
 
@@ -24,75 +24,13 @@ The command produces an output file containing the results of the run-read comma
 
 ## Send command output to a user specified storage account
 
-### Create and configure storage resources
-
-1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
-1. Create a blob storage container in the storage account. See [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
-1. Assign the "Storage Blob Data Contributor" role to users and managed identities which need access to the run-data-extract output.
-   1. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal). The role must also be assigned to either a user-assigned managed identity or the cluster's own system-assigned managed identity.
-   1. For more information on managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
-   1. If using the Cluster's system assigned identity, the system assigned identity needs to be added to the cluster before it can be granted access.
-   1. When assigning a role to the cluster's system-assigned identity, make sure you select the resource with the type "Cluster (Operator Nexus)."
-
-### Configure the cluster to use a user-assigned managed identity for storage access
-
-Use this command to create a cluster with a user managed storage account and user-assigned identity. Note this example is an abbreviated command that just highlights the fields pertinent for adding the user managed storage. It isn't the full cluster create command.
-
-```azurecli-interactive
-az networkcloud cluster create --name "<cluster-name>" \
-  --resource-group "<cluster-resource-group>" \
-  ...
-  --mi-user-assigned "<user-assigned-identity-resource-id>" \
-  --command-output-settings identity-type="UserAssignedIdentity" \
-  identity-resource-id="<user-assigned-identity-resource-id>" \
-  container-url="<container-url>" \
-  ...
-  --subscription "<subscription>"
-```
-
-Use this command to configure an existing cluster for a user provided storage account and user-assigned identity. The update command can also be used to change the storage account location and identity if needed.
-
-```azurecli-interactive
-az networkcloud cluster update --name "<cluster-name>" \
-  --resource-group "<cluster-resource-group>" \
-  --mi-user-assigned "<user-assigned-identity-resource-id>" \
-  --command-output-settings identity-type="UserAssignedIdentity" \
-  identity-resource-id="<user-assigned-identity-resource-id>" \
-  container-url="<container-url>" \
-  --subscription "<subscription>"
-```
-
-### Configure the cluster to use a system-assigned managed identity for storage access
-
-Use this command to create a cluster with a user managed storage account and system assigned identity. Note this example is an abbreviated command that just highlights the fields pertinent for adding the user managed storage. It isn't the full cluster create command.
-
-```azurecli-interactive
-az networkcloud cluster create --name "<cluster-name>" \
-  --resource-group "<cluster-resource-group>" \
-  ...
-  --mi-system-assigned true \
-  --command-output-settings identity-type="SystemAssignedIdentity" \
-  container-url="<container-url>" \
-  ...
-  --subscription "<subscription>"
-```
-
-Use this command to configure an existing cluster for a user provided storage account and to use its own system-assigned identity. The update command can also be used to change the storage account location.
-
-```azurecli-interactive
-az networkcloud cluster update --name "<cluster-name>" \
-  --resource-group "<cluster-resource-group>" \
-  --mi-system-assigned true \
-  --command-output-settings identity-type="SystemAssignedIdentity" \
-  container-url="<container-url>" \
-  --subscription "<subscription>"
-```
-
-To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
+See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
 
 ### Clear the cluster's CommandOutputSettings
 
-The CommandOutputSettings can be cleared, directing run-data-extract output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
+To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
+
+The CommandOutputSettings can be cleared, directing run-read-command output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
 
 However, the CommandOutputSettings do need to be cleared if switching from a user-assigned identity to a system-assigned identity.
 
@@ -102,42 +40,6 @@ Use this command to clear the CommandOutputSettings:
 az rest --method patch \
   --url  "https://management.azure.com/subscriptions/<subscription>/resourceGroups/<cluster-resource-group>/providers/Microsoft.NetworkCloud/clusters/<cluster-name>?api-version=2024-08-01-preview" \
   --body '{"properties": {"commandOutputSettings":null}}'
-```
-
-### View the principal ID for the managed identity
-
-The identity resource ID can be found by selecting "JSON view" on the identity resource; the ID is at the top of the panel that appears. The container URL can be found on the Settings -> Properties tab of the container resource.
-
-The CLI can also be used to view the identity and the associated principal ID data within the cluster.
-
-Example:
-
-```console
-az networkcloud cluster show --ids /subscriptions/<Subscription ID>/resourceGroups/<Cluster Resource Group Name>/providers/Microsoft.NetworkCloud/clusters/<Cluster Name>
-```
-
-System-assigned identity example:
-
-```
-    "identity": {
-        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
-        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
-        "type": "SystemAssigned"
-    },
-```
-
-User-assigned identity example:
-
-```
-    "identity": {
-        "type": "UserAssigned",
-        "userAssignedIdentities": {
-            "/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>": {
-                "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
-                "principalId": "bbbbbbbb-cccc-dddd-2222-333333333333"
-            }
-        }
-    },
 ```
 
 ## DEPRECATED METHOD: Verify access to the Cluster Manager storage account
@@ -159,7 +61,7 @@ The run-read command lets you run a command on the BMM that doesn't change anyth
 than one word, or need an argument to work. These commands are made like this to separate them from the ones
 that can change things. For example, run-read-command can use `kubectl get` but not `kubectl apply`. When you
 use these commands, you have to put all the words in the "command" field. For example,
-`{"command":"kubectl get","arguments":["nodes"]}` is right; `{"command":"kubectl","arguments":["get","nodes"]}`
+`{command:'kubectl get',arguments:[nodes]}` is right; `{command:kubectl,arguments:[get,nodes]}`
 is wrong.
 
 Also note that some commands begin with `nc-toolbox nc-toolbox-runread` and must be entered as shown.
@@ -201,6 +103,8 @@ This list shows the commands you can use. Commands in `*italics*` can't have `ar
 - `uname`
 - _`ulimit -a`_
 - `uptime`
+- `timedatectl status`
+- `hostnamectl status`
 - `nc-toolbox nc-toolbox-runread ipmitool channel authcap`
 - `nc-toolbox nc-toolbox-runread ipmitool channel info`
 - `nc-toolbox nc-toolbox-runread ipmitool chassis status`
@@ -339,19 +243,28 @@ This list shows the commands you can use. Commands in `*italics*` can't have `ar
 - `nc-toolbox nc-toolbox-runread mstfwmanager` (requires `query` arg)
 - `nc-toolbox nc-toolbox-runread mlx_temp`
 
-The command syntax is:
+The command syntax for a single command with no arguments is as follows, using `hostname` as an example:
 
 ```azurecli
-az networkcloud baremetalmachine run-read-command --name "<machine-name>"
+az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>"
     --limit-time-seconds "<timeout>" \
-    --commands '[{"command":"<command1>"},{"command":"<command2>","arguments":["<arg1>","<arg2>"]}]' \
+    --commands "[{command:hostname}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
-Multiple commands can be provided in json format to `--commands` option.
+- `--name` is the name of the BMM resource on which to execute the command.
+- The `--commands` parameter always takes a list of commands, even if there's only one command.
+- Multiple commands can be provided in json format using [Azure CLI Shorthand](https://aka.ms/cli-shorthand) notation.
+- Any whitespace must be enclosed in single quotes.
+- Any arguments for each command must also be provided as a list, as shown in the following examples.
+- Not all commands can run on any BMM. For example, `kubectl` commands can only be run from a BMM with the `control-plane` role.
 
-For a command with multiple arguments, provide as a list to `arguments` parameter. See [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md) for instructions on constructing the `--commands` structure.
+```
+--commands "[{command:hostname},{command:'nc-toolbox nc-toolbox-runread racadm ifconfig'}]"
+--commands "[{command:hostname},{command:'nc-toolbox nc-toolbox-runread racadm getsysinfo',arguments:[-c]}]"
+--commands "[{command:ping,arguments:[198.51.102.1,-c,3]}]"
+```
 
 These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). Running multiple commands might take longer than 10 minutes.
 
@@ -377,7 +290,7 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
-    --commands '[{"command":"hostname"},{"command":"ping","arguments":["198.51.102.1","-c","3"]}]' \
+    --commands "[{command:hostname},{command:ping,arguments:[198.51.102.1,-c,3]}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
@@ -387,32 +300,14 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
-    --commands '[{"command":"nc-toolbox nc-toolbox-runread racadm getsysinfo","arguments":["-c"]}]' \
+    --commands "[{command:'nc-toolbox nc-toolbox-runread racadm getsysinfo',arguments:[-c]}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
-## How to view the output of an `az networkcloud baremetalmachine run-read-command` in the Cluster Manager Storage account
+## Check the command status and view the output in a user specified storage account
 
-This guide walks you through accessing the output file that is created in the Cluster Manager Storage account when an `az networkcloud baremetalmachine run-read-command` is executed on a server. The name of the file is identified in the `az rest` status output.
-
-1. Open the Cluster Manager Managed Resource Group for the Cluster where the server is housed and then select the **Storage account**.
-
-1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
-
-1. In the Storage browser details, select on **Blob containers**.
-
-1. Select the baremetal-run-command-output blob container.
-
-1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [customer-managed storage](#create-and-configure-storage-resources) sections for procedures to verify access.
-
-1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
-
-1. You can manage & download the output file from the **Overview** pop-out.
-
-## **PREVIEW**: Check the command status and view the output in a user specified storage account
-
-Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
+Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz). To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 
 ```output
   ====Action Command Output====
@@ -428,3 +323,21 @@ Sample output is shown. It prints the top 4,000 characters of the result to the 
   Script execution result can be found in storage account:
   https://<storage_account_name>.blob.core.windows.net/bmm-run-command-output/a8e0a5fe-3279-46a8-b995-51f2f98a18dd-action-bmmrunreadcmd.tar.gz?se=2023-04-14T06%3A37%3A00Z&sig=XXX&sp=r&spr=https&sr=b&st=2023-04-14T02%3A37%3A00Z&sv=2019-12-12
 ```
+
+## DEPRECATED: How to view the output of an `az networkcloud baremetalmachine run-read-command` in the Cluster Manager Storage account
+
+This guide walks you through accessing the output file that is created in the Cluster Manager Storage account when an `az networkcloud baremetalmachine run-read-command` is executed on a server. The name of the file is identified in the `az rest` status output.
+
+1. Open the Cluster Manager Managed Resource Group for the Cluster where the server is housed and then select the **Storage account**.
+
+1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+
+1. In the Storage browser details, select on **Blob containers**.
+
+1. Select the baremetal-run-command-output blob container.
+
+1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [cluster manager storage](#deprecated-method-verify-access-to-the-cluster-manager-storage-account) or the [customer-managed storage](#send-command-output-to-a-user-specified-storage-account) sections for procedures to verify access.
+
+1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
+
+1. You can manage & download the output file from the **Overview** pop-out.

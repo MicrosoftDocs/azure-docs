@@ -6,14 +6,12 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/14/2024
+ms.date: 03/03/2025
 ---
 
 # Convert a legacy Exchange peering to an Azure resource using the Azure portal
 
 In this article, you learn how to convert an existing legacy Exchange peering to an Azure resource using the Azure portal.
-
-If you prefer, you can complete this guide using [PowerShell](howto-legacy-exchange-powershell.md).
 
 ## Prerequisites
 
@@ -31,6 +29,8 @@ As an Internet Exchange Provider, you can convert a legacy exchange peering to a
 
 1. In the search box at the top of the portal, enter ***peering***. Select **Peerings** from the search results.
 
+    :::image type="content" source="./media/internet-peering-portal-search.png" alt-text="Screenshot of searching for internet peerings in the Azure portal." lightbox="./media/internet-peering-portal-search.png":::
+
 1. On the **Peerings** page, select **+ Create**.
 
 1. On the **Basics** tab of **Create a Peering** page, enter, or select the following values:
@@ -44,7 +44,7 @@ As an Internet Exchange Provider, you can convert a legacy exchange peering to a
     | Name | Enter a name for the peering you're creating. |
     | Peer ASN | Select your ASN. |
 
-    :::image type="content" source="./media/howto-legacy-exchange-portal/peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/howto-legacy-exchange-portal/peering-basics.png":::
+    :::image type="content" source="./media/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/create-peering-basics.png":::
 
   > [!IMPORTANT]  
   > You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your PeerAsn request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
@@ -59,7 +59,7 @@ As an Internet Exchange Provider, you can convert a legacy exchange peering to a
     | SKU | Select **Basic Free**. |
     | Metro | Select the metro location where you want to convert peering to an Azure resource. If you have peering connections with Microsoft in the selected metro location that aren't converted to an Azure resource, they'll be listed in the **Peering connections** section. |
 
-    :::image type="content" source="./media/howto-legacy-exchange-portal/peering-configuration-exchange.png" alt-text="Screenshot that shows the Configuration tab of creating an Exchange peering in the Azure portal." lightbox="./media/howto-legacy-exchange-portal/peering-configuration-exchange.png":::
+    :::image type="content" source="./media/create-peering-configuration-exchange.png" alt-text="Screenshot that shows the Configuration tab of creating an Exchange peering in the Azure portal." lightbox="./media/create-peering-configuration-exchange.png":::
 
     > [!NOTE]
     > You can't modify settings for legacy peering connections. If you want to add additional peering connections with Microsoft in the selected **Metro** location, select **Create new**. For more information, see [Create or modify an Exchange peering using the portal](howto-exchange-portal.md).
@@ -74,7 +74,7 @@ As an Internet Exchange Provider, you can convert a legacy exchange peering to a
 
 1. Under **Settings**, select **Connections** to see a summary of peering connections between your ASN and Microsoft.
 
-    :::image type="content" source="./media/howto-legacy-exchange-portal/peering-connections.png" alt-text="Screenshot that shows the peering connections in the Azure portal." lightbox="./media/howto-legacy-exchange-portal/peering-connections.png":::
+    :::image type="content" source="./media/exchange-peering-connections.png" alt-text="Screenshot that shows the peering connections in the Azure portal." lightbox="./media/exchange-peering-connections.png":::
 
     - **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Exchange peering walkthrough](walkthrough-exchange-all.md).
     - **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states, respectively. 

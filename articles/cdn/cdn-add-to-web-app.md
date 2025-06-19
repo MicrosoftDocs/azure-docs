@@ -2,13 +2,15 @@
 title: Tutorial - Add Azure Content Delivery Network to an Azure App Service web app
 description: In this tutorial, Azure Content Delivery Network is added to an Azure App Service web app to cache and deliver your static files from servers close to your customers around the world.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: mvc
+ROBOTS: NOINDEX
+# Customer intent: "As a web developer, I want to integrate a Content Delivery Network with my Azure App Service web app, so that I can cache and deliver static files more efficiently to users globally."
 ---
 
 # Tutorial: Add Azure Content Delivery Network to an Azure App Service web app
@@ -48,7 +50,7 @@ Open a browser and sign in to the [Azure portal](https://portal.azure.com).
 ### Dynamic site acceleration optimization
 
 If you want to optimize your content delivery network endpoint for dynamic site acceleration (DSA), you should use the [content delivery network portal](cdn-create-new-endpoint.md) to create your profile and endpoint. With [DSA optimization](cdn-dynamic-site-acceleration.md), the performance of web pages with dynamic content is measurably improved. For instructions about how to optimize a content delivery network endpoint for DSA from the content delivery network portal, see [content delivery network endpoint configuration to accelerate delivery of dynamic files](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files).
-Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section. For **Azure CDN from Edgio** profiles, you can't change the optimization of a content delivery network endpoint after it has been created.
+Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section.
 
 <a name='create-a-cdn-profile-and-endpoint'></a>
 
@@ -56,15 +58,11 @@ Otherwise, if you don't want to optimize your new endpoint, you can use the web 
 
 1. In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/quickstart-html.md).
 
-    :::image type="content" source="./media/cdn-add-to-web-app/portal-select-app-services.png" alt-text="Screenshot of select an App Service app in the portal.":::
-
 1. In the **App Service** page, in the **Settings** section, select **Networking > Azure CDN**.
 
     :::image type="content" source="./media/cdn-add-to-web-app/portal-select-cdn.png" alt-text="Screenshot of select Azure Content Delivery Network from networking setting of an App Service.":::
 
 1. In the **Azure Content Delivery Network** page, provide the **New endpoint** settings as specified in the table.
-
-    :::image type="content" source="./media/cdn-add-to-web-app/portal-new-endpoint.png" alt-text="Screenshot of create Azure Content Delivery Network profile and endpoint in the portal.":::
 
     | Setting | Suggested value | Description |
     | ------- | --------------- | ----------- |
@@ -80,9 +78,7 @@ Otherwise, if you don't want to optimize your new endpoint, you can use the web 
 
 ### Test the content delivery network endpoint
 
-Because it takes time for the registration to propagate, the endpoint isn't immediately available for use:
-   - For **Azure CDN Standard from Microsoft (classic)** profiles, propagation usually completes in 10 minutes.
-   - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 90 minutes.
+Because it takes time for the registration to propagate, the endpoint isn't immediately available for use. For **Azure CDN Standard from Microsoft (classic)** profiles, propagation usually completes within 10 minutes.
 
 The sample app has an *index.html* file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the content delivery network endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
 
@@ -146,11 +142,7 @@ To trigger the content delivery network to update its cached version, purge the 
 
 1. In the portal left navigation, select **Resource groups**, and then select the resource group that you created for your web app (myResourceGroup).
 
-    :::image type="content" source="./media/cdn-add-to-web-app/portal-select-group.png" alt-text="Screenshot of selecting resource group from left menu pane in the portal.":::
-
 1. In the list of resources, select your content delivery network endpoint.
-
-    :::image type="content" source="./media/cdn-add-to-web-app/portal-select-endpoint.png" alt-text="Screenshot of Azure Content Delivery Network endpoint from resource group.":::
 
 1. At the top of the **Endpoint** page, select **Purge**.
 

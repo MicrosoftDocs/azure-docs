@@ -5,7 +5,7 @@ description: Learn how to troubleshoot external control activities in Azure Data
 author: nabhishek
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: abnarain
 ---
 
@@ -1148,7 +1148,7 @@ When you observe that the activity is running much longer than your normal runs 
 
 **Error message:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s), and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896 KB as mentioned in the Azure limits documentation for [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) and [Azure Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-analytics-limits).
+**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s), and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896 KB as mentioned in the Azure limits documentation for [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits) and [Azure Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-analytics-limits).
 
 **Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
 
@@ -1189,5 +1189,4 @@ For more troubleshooting help, try these resources:
 * [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [X information about Data Factory](https://x.com/hashtag/DataFactory)
-* [Azure videos](https://azure.microsoft.com/resources/videos/index/)
 * [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)

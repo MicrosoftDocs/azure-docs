@@ -5,8 +5,8 @@ ms.service: azure-backup
 ms.topic: how-to
 ms.date: 01/17/2025
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 # Create Azure Recovery Services vault using REST API for Azure Backup

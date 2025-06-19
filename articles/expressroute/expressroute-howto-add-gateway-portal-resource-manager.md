@@ -19,7 +19,7 @@ ms.custom:
 > * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)
 > 
 
-This article walks you through the steps to add and remove a virtual network gateway for a pre-existing virtual network (virtual network). The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
+This article walks you through the steps to add and remove a virtual network gateway for a preexisting virtual network (virtual network). The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
 :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing an ExpressRoute gateway connected to the ExpressRoute circuit." lightbox="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png":::
 
@@ -54,24 +54,18 @@ The steps for this tutorial use the values in the following configuration refere
 1. In the **Settings** section of your virtual network, select **Subnets** to expand the Subnet settings.
 
 1. Select **+ Gateway subnet** to add a gateway subnet. 
-   
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Screenshot that shows the button to add the gateway subnet.":::
 
-1. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the autofilled **Address range** values to match your configuration requirements. **You need to create the GatewaySubnet with a /27 or larger** (/26, /25, and so on.). /28 or smaller subnets are not supported for new deployments. If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger.
+1. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the autofilled **Address range** values to match your configuration requirements. **You need to create the GatewaySubnet with a /27 or larger** (/26, /25, and so on.). /28 or smaller subnets aren't supported for new deployments. If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger.
 
     If you're using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, select **Add IPv6 address space** and enter **IPv6 address range** values.
 
     Then, select **OK** to save the values and create the gateway subnet.
-
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Screenshot of the create an ExpressRoute gateway page with ErGwScale SKU selected.":::
 
 ## Create the virtual network gateway
 
 1. In the portal, on the left side, select **Create a resource**, and type 'Virtual Network Gateway' in search. Locate **Virtual network gateway** in the search return and select the entry. On the **Virtual network gateway** page, select **Create**.
 
 1. On the **Create virtual network gateway** page, enter or select these settings:
-
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/create-gateway.png" alt-text="Screenshot that shows the Add subnet page for adding  the gateway subnet.":::
 
     | Setting | Value |
     | --------| ----- |
@@ -121,11 +115,29 @@ You can enable or disable VNet to VNet or VNet to WAN connectivity through Expre
 
 These steps will need to be completed on all virtual networks that need to communicate with each other through ExpressRoute.
 
+## Upgrade the gateway SKU
+
+1. In the Azure portal, navigate to the ExpressRoute virtual network gateway.
+
+1. In the **Settings** section, select **Configuration**.
+
+1. In the **Configuration** section, select the **SKU** dropdown and choose your desired SKU.
+
+    You can upgrade:
+    * From one Non-Az-enabled SKU to another Non-Az-enabled SKU
+
+        [![Screenshot that shows where to upgrade Gateway SKU for Non-Az Gateways.](./media/expressroute-howto-add-gateway-portal-resource-manager/non-az-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/non-az-upgrade.png)
+
+    * From one Az-enabled SKU to another Az-enabled SKU
+
+        [![Screenshot that shows where to upgrade Gateway SKU for Az Gateways.](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)
+
+    
+For all other downgrade scenarios, you need to delete and re-create the gateway, which incurs downtime.
+
 ## Clean up resources
 
 If you no longer need the ExpressRoute gateway, locate the gateway in the virtual network resource group and select **Delete**. Ensure the gateway doesn't have any connections to a circuit.
-
-:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Screenshot that shows how to delete the virtual network gateway.":::
 
 ## Next steps
 

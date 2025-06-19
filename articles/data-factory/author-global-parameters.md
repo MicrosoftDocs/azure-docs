@@ -5,7 +5,7 @@ ms.subservice: authoring
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ai-usage: ai-assisted
 ---
 
@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Global parameters are constants across a data factory that can be consumed by a pipeline in any expression. They're useful when you have multiple pipelines with identical parameter names and values. When promoting a data factory using the continuous integration and deployment process (CI/CD), you can override these parameters in each environment. 
+Global parameters are constants across a data factory that pipelines can consume in any expression. They're useful when you have multiple pipelines with identical parameter names and values. When promoting a data factory using the continuous integration and deployment process (CI/CD), you can override these parameters in each environment. 
 
 ## Creating global parameters
 
@@ -38,17 +38,18 @@ Global parameters can be used in any [pipeline expression](control-flow-expressi
 
 ## <a name="cicd"></a> Global parameters in CI/CD
 
-We recommend including global parameters in the ARM template during the CI/CD. The new mechanism of including global parameters in the ARM template (from 'Manage hub' -> 'ARM template' -> ‘Include global parameters in ARM template') as illustrated below, will not conflict/ override the factory-level settings as it used to do earlier, hence not requiring additional PowerShell for global parameters deployment during CI/CD.
+We recommend including global parameters in the ARM template during the CI/CD. The new mechanism of including global parameters in the ARM template (from 'Manage hub' -> 'ARM template' -> ‘Include global parameters in ARM template') as illustrated in the following image, won't conflict/ override the factory-level settings as it used to do earlier, hence not requiring extra PowerShell for global parameters deployment during CI/CD.
 
 :::image type="content" source="media/author-global-parameters/include-arm-template.png" alt-text="Screenshot of 'Include in ARM template'.":::
 
 > [!NOTE]
-> We have moved the UI experience for including global parameters from the 'Global parameters' section to the 'ARM template' section in the manage hub. 
-If you are already using the older mechanism (from 'Manage hub' -> 'Global parameters' -> 'Include in ARM template'), you can continue. We will continue to support it.
+> We moved the UI experience for including global parameters from the 'Global parameters' section to the 'ARM template' section in the Manage hub.
+
+If you're already using the older mechanism (from 'Manage hub' -> 'Global parameters' -> 'Include in ARM template'), you can continue. We'll continue to support it.
 
 The **Parameters** folder in the downloaded ARM template contains JSON files that define the parameters used in the ARM template. Each file corresponds to a specific global parameter.
 
-If you are using the older flow of integrating global parameters in your continuous integration and deployment solution, it will continue to work:
+If you're using the older flow of integrating global parameters in your continuous integration and deployment solution, it continues to work:
 
 * Include global parameters in the ARM template (from 'Manage hub' -> 'Global parameters' -> 'Include in ARM template')
 :::image type="content" source="media/author-global-parameters/include-arm-template-deprecated.png" alt-text="Screenshot of deprecated 'Include in ARM template'.":::
@@ -58,10 +59,10 @@ If you are using the older flow of integrating global parameters in your continu
 We strongly recommend using the new mechanism of including global parameters in the ARM template (from 'Manage hub' -> 'ARM template' -> 'Include global parameters in an ARM template') since it makes the CICD with global parameters much more straightforward and easier to manage.
 
 > [!NOTE]
-> The **Include global parameters in an ARM template** configuration is only available in "Git mode". Currently it is disabled in "live mode" or "Data Factory" mode.  
+> The **Include global parameters in an ARM template** configuration is only available in "Git mode". Currently it's disabled in "live mode" or "Data Factory" mode.  
 
 > [!WARNING]
->You cannot use  ‘-‘ in the parameter name. You will receive an errorcode "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". But, you can use the ‘_’ in the parameter name. 
+>You can't use  ‘-‘ in the parameter name. You receive an errorcode "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' isn't valid: .....}". But, you can use the ‘_’ in the parameter name. 
 
 ## Related content
 

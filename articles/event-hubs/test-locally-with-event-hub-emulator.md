@@ -33,13 +33,20 @@ Before you run an automated script, clone the emulator's [GitHub installer repos
 
 ### Windows
 
-Use the following steps to run the Event Hubs emulator locally on Windows:
+Use the following steps to run the Event Hubs emulator locally on Windows.
 
-1. Allow the execution of unsigned scripts by running this command in the PowerShell window:
+1. **Open PowerShell** and navigate to the directory where the [common](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/EventHub-Emulator/Scripts/Common) scripts folder is cloned using `cd`:
+   ```powershell
+   cd <path to your common scripts folder> # Update this path
+      
+2. Issue wsl command to open WSL at this directory.
+   ```powershell
+   wsl
 
-   `$>Start-Process powershell -Verb RunAs -ArgumentList 'Set-ExecutionPolicy Bypass –Scope CurrentUser'`
-
-1. Run the setup script *LaunchEmulator.ps1*. Running the script brings up two containers: the Event Hubs emulator and Azurite (a dependency for the emulator).
+3. **Run the setup script** *./LaunchEmulator.sh* Running the script brings up two containers: the Event Hubs emulator and Azurite (a dependency for the emulator).
+   ```bash
+   ./Launchemulator.sh
+ 
 
 ### Linux and macOS
 
@@ -81,41 +88,45 @@ To run the Event Hubs emulator locally on Linux or macOS:
 
 2. To spin up containers for Event Hubs emulator, Save the following .yaml file as *docker-compose.yaml*.
 
-   ```
-   name: microsoft-azure-eventhubs
-   services:
-     emulator:
-       container_name: "eventhubs-emulator"
-       image: "mcr.microsoft.com/azure-messaging/eventhubs-emulator:latest"
-       volumes:
-         - "${CONFIG_PATH}:/Eventhubs_Emulator/ConfigFiles/Config.json"
-       ports:
-         - "5672:5672"
-         - "9092:9092"
-       environment:
-         BLOB_SERVER: azurite
-         METADATA_SERVER: azurite
-         ACCEPT_EULA: ${ACCEPT_EULA}
-       depends_on:
-         - azurite
-       networks:
-         eh-emulator:
-           aliases:
-             - "eventhubs-emulator"
-     azurite:
-       container_name: "azurite"
-       image: "mcr.microsoft.com/azure-storage/azurite:latest"
-       ports:
-         - "10000:10000"
-         - "10001:10001"
-         - "10002:10002"
-       networks:
-         eh-emulator:
-           aliases:
-             - "azurite"
-   networks:
-     eh-emulator:
-   ```
+  ```yaml
+  name: microsoft-azure-eventhubs
+  services:
+    emulator:
+      container_name: "eventhubs-emulator"
+      image: "mcr.microsoft.com/azure-messaging/eventhubs-emulator:latest"
+      pull_policy: always
+      volumes:
+        - "${CONFIG_PATH}:/Eventhubs_Emulator/ConfigFiles/Config.json"
+      ports:
+        - "5672:5672"
+        - "9092:9092"
+        - "5300:5300"
+      environment:
+        BLOB_SERVER: azurite
+        METADATA_SERVER: azurite
+        ACCEPT_EULA: ${ACCEPT_EULA}
+      depends_on:
+        - azurite
+      networks:
+        eh-emulator:
+          aliases:
+            - "eventhubs-emulator"
+    azurite:
+      container_name: "azurite"
+      image: "mcr.microsoft.com/azure-storage/azurite:latest"
+      pull_policy: always
+      ports:
+        - "10000:10000"
+        - "10001:10001"
+        - "10002:10002"
+      networks:
+        eh-emulator:
+          aliases:
+            - "azurite"
+  networks:
+    eh-emulator:
+
+```
 
 3. Create an .env file to declare the environment variables for the Event Hubs emulator:
 

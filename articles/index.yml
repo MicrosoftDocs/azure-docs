@@ -8,12 +8,11 @@ metadata:
   title: Azure documentation
   description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, example code, tutorials, and more.
   ms.service: azure
-  ms.custom:
-    - ignite-2023
+  ms.custom: ignite-2023
   ms.topic: hub-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 12/04/2024
+  ms.date: 05/29/2025
   featureFlags:
   - clicktale
 highlightedContent:
@@ -40,15 +39,6 @@ productDirectory:
   title: Browse Azure products
   items:
     # Card
-    - title: Azure AI services
-      summary: Build cutting-edge, market-ready, responsible applications for your organization with AI
-      imageSrc: ./media/index/ai-services.svg
-      azureCategories:
-        - featured
-        - ai-machine-learning
-        - mobile
-      url: /azure/ai-services/
-    # Card
     - title: Azure OpenAI Service
       summary: Apply advanced coding and language models to various use cases
       imageSrc: ./media/index/azure-openai.svg
@@ -60,7 +50,9 @@ productDirectory:
       summary: Build market-ready applications for your organization with AI
       imageSrc: ./media/index/ai-studio.svg
       azureCategories:
+        - featured
         - ai-machine-learning
+        - mobile
       url: /azure/ai-studio/
     # Card
     - title: Speech
@@ -188,13 +180,6 @@ productDirectory:
         - mobile
       url: communication-services/overview.md
     # Card
-    - title: Azure Communications Gateway
-      summary: Rapidly connect your fixed and mobile networks with Microsoft Teams
-      imageSrc: ./media/index/communications-gateway.svg
-      azureCategories:
-        - networking        
-      url: communications-gateway/index.yml
-    # Card
     - title: Data Science Virtual Machines
       summary: Rich preconfigured environment for AI development
       imageSrc: ./media/index/virtual-machine.svg
@@ -304,13 +289,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: hdinsight/index.yml
-    # Card
-    - title: HDInsight on AKS
-      summary: Deploy Apache Spark, Apache Flink, and Trino workloads without managing and monitoring containers
-      imageSrc: ./media/index/hdinsight-aks.svg
-      azureCategories:
-        - analytics
-      url: hdinsight-aks/index.yml
     # Card
     - title: Log Analytics
       summary: Full observability into your applications, infrastructure, and network
@@ -560,6 +538,13 @@ productDirectory:
         - databases
       url: azure-cache-for-redis/index.yml
     # Card
+    - title: Azure Managed Redis
+      summary: Power applications with a high-performance, managed cache
+      imageSrc: ./media/index/managed-redis.svg
+      azureCategories:
+        - databases
+      url: redis/index.yml
+    # Card
     - title: Azure Database for MariaDB
       summary: Managed MariaDB database service for app developers
       imageSrc: ./media/index/database-mariadb-server.svg
@@ -692,14 +677,6 @@ productDirectory:
         - developer-tools
       url: https://code.visualstudio.com/docs
     # Card
-    - title: Application Insights
-      summary: Full observability into your applications, infrastructure, and network
-      imageSrc: ./media/index/application-insights.svg
-      azureCategories:
-        - devops
-        - management-and-governance
-      url: /azure/azure-monitor/
-    # Card
     - title: Azure Artifacts
       summary: Create, host, and share packages with your team
       imageSrc: ./media/index/artifacts.svg
@@ -818,13 +795,6 @@ productDirectory:
         - security
       url: sentinel/index.yml
     # Card
-    - title: Azure Stack
-      summary: Build and run innovative hybrid applications across cloud boundaries
-      imageSrc: ./media/index/stack.svg
-      azureCategories:
-        - hybrid
-      url: /azure-stack/
-    # Card
     - title: Azure Local
       summary: Operate infrastructure across distributed locations enabled by Azure Arc
       imageSrc: ./media/index/azure-local.svg
@@ -924,7 +894,7 @@ productDirectory:
         - iot
       url: iot-hub/index.yml
     # Card
-    - title: Azure IoT Operations (Preview)
+    - title: Azure IoT Operations
       summary: Unlock insights for intelligent local actions and global visibility
       imageSrc: ./media/index/iot-operations.svg
       azureCategories:
@@ -946,13 +916,6 @@ productDirectory:
       azureCategories:
         - iot
       url: /azure-sphere/
-    # Card
-    - title: Azure Time Series Insights
-      summary: Explore and analyze time-series data from IoT devices
-      imageSrc: ./media/index/time-series-insights-environments.svg
-      azureCategories:
-        - iot
-      url: time-series-insights/index.yml
     # Card
     - title: Notification Hubs
       summary: Send push notifications to any platform from any back end
@@ -1218,19 +1181,11 @@ productDirectory:
       azureCategories:
         - networking
       url: private-link/index.yml
-    # Card
-    - title: Azure Private 5G Core
-      summary: Rapidly deploy and manage private 5G networks at the enterprise edge
-      imageSrc: ./media/index/private-5g-core.svg
-      azureCategories:
-        - networking
-      url: private-5g-core/index.yml
       # Card
     - title: Azure Operator Service Manager
       summary: Manage network services across hybrid cloud sites
       imageSrc: ./media/index/operator-service-manager.svg
       azureCategories:
-        - networking
         - hybrid
       url: operator-service-manager/index.yml
       # Card
@@ -1435,13 +1390,6 @@ productDirectory:
        - hybrid
       url: operator-nexus/index.yml
     # Card
-    - title: Azure Network Function Manager
-      summary: Extend Azure management for deploying 5G and SD-WAN network functions on edge devices
-      imageSrc: ./media/index/azure-network-function-manager.svg
-      azureCategories:
-       - networking
-      url: network-function-manager/index.yml
-    # Card
     - title: Azure Container Storage
       summary: Manage persistent volumes for stateful container applications
       imageSrc: ./media/index/azure.svg
@@ -1494,7 +1442,7 @@ productDirectory:
        - hybrid
       url: /azure/aks/hybrid/aks-edge-overview  
     # Card
-    - title: Microsoft Copilot in Azure (Preview)
+    - title: Microsoft Copilot in Azure
       summary: Simplify operations and management from cloud to edge with an AI companion
       imageSrc: ./media/index/azure-copilot.svg
       azureCategories:
@@ -1553,6 +1501,9 @@ tools:
     - title: Terraform
       imageSrc: /media/logos/logo_terraform.svg
       url: /azure/developer/terraform/
+    # Card
+
+
 
 additionalContent:
   sections:

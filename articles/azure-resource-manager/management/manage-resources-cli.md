@@ -2,7 +2,7 @@
 title: Manage resources - Azure CLI
 description: Use Azure CLI and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 02/10/2025
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
@@ -31,7 +31,7 @@ az storage account show --resource-group $resourceGroupName --name $storageAccou
 
 ### Deploy a template
 
-The following script creates deploy a Quickstart template to create a storage account. For more information, see [Quickstart: Create ARM templates with Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+The following script creates a Quickstart template to create a storage account. For more information, see [Quickstart: Create ARM templates with Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -121,7 +121,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resources
 
-Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources-cli.md).
+Tagging helps you organize your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources-cli.md).
 
 ## Manage access to resources
 

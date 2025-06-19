@@ -2,11 +2,13 @@
 title: Migrate Azure CDN from Microsoft (classic) to Azure Front Door Standard or Premium tier
 description: This article provides step-by-step instructions on how to migrate from an Azure CDN from Microsoft (classic) profile to an Azure Front Door Standard or Premium tier profile.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 06/25/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: "As a cloud administrator, I want to migrate from Azure CDN from Microsoft (classic) to Azure Front Door Standard or Premium tier, so that I can leverage enhanced security features and improved performance for my application content delivery."
 ---
 
 # Migrate Azure CDN from Microsoft (classic) to Standard/Premium tier
@@ -40,17 +42,11 @@ Azure Front Door Standard and Premium tier bring the latest cloud delivery netwo
     > [!NOTE]
     > If your Azure CDN from Microsoft (classic) profile can be migrated to the Standard tier but the number of resources exceeds the Standard tier limits, you'll be migrated to the Premium tier.
 
-    :::image type="content" source="./media/migrate-tier/prepare-for-migration.png" alt-text="Screenshot of the selected tier for the new Front Door profile.":::
-
 1. You need to change the endpoint name if the CDN endpoint name length exceeds the maximum of 46 characters. This isn't required if the endpoint name is within the character limit. For more information, see [Azure Front Door endpoints](../frontdoor/endpoint.md). Since the maximum endpoint length for Azure Front Door is 64 characters, Azure adds a 16 character hash to the end of the endpoint name to ensure uniqueness and to prevent subdomain takeovers.
-
-    :::image type="content" source="./media/migrate-tier/endpoint-name.png" alt-text="Screenshot of the edit the endpoint name page.":::
 
 1. If you have geo filtering rules in Azure CDN, Azure Front Door creates a Web Application Firewall (WAF) custom rule with the same tier as the Front Door profile.
 
 1. Select **Prepare**, and when prompted, select **Yes** to confirm that you would like to proceed with the migration process. Once confirmed, you won't be able to make any further changes to the Azure CDN from Microsoft (classic) profile.
-
-    :::image type="content" source="./media/migrate-tier/prepare-endpoint.png" alt-text="Screenshot of the prepare button and confirmation message to proceed with the migration.":::
 
 1. Select the link that appears to view the configuration of the new Front Door profile. At this time, you can review each of the settings for the new profile to ensure all settings are correct. Once you're done reviewing the read-only profile, select the **X** in the top right corner of the page to go back to the migration screen.
 

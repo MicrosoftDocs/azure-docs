@@ -2,9 +2,9 @@
 title: Offline backup by using Azure Data Box
 description: Learn how you can use Azure Data Box to seed large initial backup data offline from the MARS Agent to a Recovery Services vault. 
 ms.topic: how-to
-ms.date: 05/24/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 04/18/2025
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24
 ---
@@ -136,18 +136,18 @@ The offline backup process using MARS and Azure Data Box requires the Data Box d
 
 ## Set up Azure Data Box devices
 
-Depending on the Azure Data Box SKU you ordered, do the steps covered in the appropriate sections that follow. The steps show you how to set up and prepare the Data Box devices for the MARS Agent to identify and transfer the initial backup data.
+Depending on the Azure Data Box SKU you ordered, perform the steps covered in the appropriate sections that follow. The steps illustrate how to set up and prepare the Data Box devices for the MARS Agent to identify and transfer the initial backup data.
 
 ### Set up Azure Data Box disks
 
-If you ordered one or more Azure Data Box disks (up to 8 TB each), follow the steps mentioned here to [unpack, connect, and unlock your Data Box disk](../databox/data-box-disk-deploy-set-up.md).
+If you ordered one or more Azure Data Box disks (up to 100 TB), follow the steps mentioned within the [unpack, connect, and unlock your Data Box disk](../databox/data-box-disk-deploy-set-up.md) article.
 
 >[!NOTE]
 >It's possible that the server with the MARS Agent doesn't have a USB port. In that situation, you can connect your Azure Data Box disk to another server or client and expose the root of the device as a network share.
 
 ### Set up Azure Data Box
 
-If you ordered an Azure Data Box instance (up to 100 TB), follow the steps here [to set up your Data Box instance](../databox/data-box-deploy-set-up.md).
+If you ordered an Azure Data Box instance (up to 100 TB), follow the steps here [to set up your Data Box instance](../databox/data-box-deploy-set-up.md?pivots=dbx-ng).
 
 #### Mount your Azure Data Box instance as a Local System
 
@@ -241,9 +241,9 @@ After the backup of the data is finished, you'll see a page on the MARS Agent th
 
 This section explains the steps to take after the backup of the data to the Azure Data Box Disk is successful.
 
-- Follow the steps in this article to [ship the Azure Data Box disk to Azure](../databox/data-box-disk-deploy-picked-up.md). If you used an Azure Data Box 100-TB device, follow these steps to [ship the Azure Data Box device to Azure](../databox/data-box-deploy-picked-up.md).
+- Follow the steps in this article to [ship the Azure Data Box disk to Azure](../databox/data-box-disk-deploy-picked-up.md). If you used an Azure Data Box 100-TB device, follow these steps to [ship the Azure Data Box device to Azure](../databox/data-box-deploy-picked-up.md?pivots=dbx-ng).
 
-- [Monitor the Data Box job](../databox/data-box-disk-deploy-upload-verify.md) in the Azure portal. After the Azure Data Box job is finished, the MARS Agent automatically moves the data from the storage account to the Recovery Services vault at the time of the next scheduled backup. It then marks the backup job as *Job Completed* if a recovery point is successfully created.
+- [Monitor the Data Box job](../databox/data-box-disk-deploy-upload-verify.md?pivots=dbx-ng) in the Azure portal. After the Azure Data Box job is finished, the MARS Agent automatically moves the data from the storage account to the Recovery Services vault at the time of the next scheduled backup. It then marks the backup job as *Job Completed* if a recovery point is successfully created.
 
     >[!NOTE]
     >The MARS Agent triggers backups at the times scheduled during policy creation. These jobs flag "Waiting for Azure Data Box job to be completed" until the time the job is finished.

@@ -2,9 +2,9 @@
 title: Script Sample - Register an on-premises Windows server or client machine with a Recovery Services vault
 description: Learn about how to use a script to registering an on-premises Windows Server or client machine with a Recovery Services vault.
 ms.topic: sample
-ms.date: 06/23/2021
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 05/20/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # PowerShell Script to register an on-premises Windows server or a client machine with Recovery Services vault
@@ -53,15 +53,17 @@ Catch {
 
 ```
 
-## How to execute the script
+## Run the script
 
-1. Save the above script on your machine with a name of your choice and .ps1 extension.
-1. Execute the script by providing the following parameters:
+To run the PowerShell Script for registering an on-premises Windows server/ a client machine, follow these steps:
+
+1. Save the preceding script on your machine with a name of your choice and `.ps1` extension.
+1. Run the script by providing the following parameters:
    - `$vaultcredPath` - Complete Path of downloaded vault credential file
    - `$passphrase` - Plain text string converted into secure string using [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring) cmdlet.
 
 >[!Note]
->You also need to provide the Security PIN generated from the Azure portal. To generate the PIN, navigate to **Settings** -> **Properties** -> **Security PIN** in the Recovery Services vault blade, and then select **Generate**.
+>You also need to provide the Security PIN generated from the Azure portal. To generate the PIN, go to the **Recovery Services vault** > **Settings** -> **Properties** -> **Security PIN**, and then select **Generate**.
 
 ## Next steps
 

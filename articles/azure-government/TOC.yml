@@ -13,12 +13,6 @@
     href: documentation-government-get-started-connect-with-portal.md
   - name: Azure CLI
     href: documentation-government-get-started-connect-with-cli.md
-  - name: DoD DISA STIGs
-    items:
-    - name: Deploy Linux VM
-      href: documentation-government-stig-linux-vm.md
-    - name: Deploy Windows VM
-      href: documentation-government-stig-windows-vm.md
   - name: PowerShell
     href: documentation-government-get-started-connect-with-ps.md
   - name: Visual Studio
@@ -118,7 +112,7 @@
   - name: Azure Government Website
     href: https://azure.microsoft.com/global-infrastructure/government/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?tag=azure-government
   - name: Blog

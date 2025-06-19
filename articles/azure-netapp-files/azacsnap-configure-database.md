@@ -5,8 +5,10 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 05/13/2025
 ms.author: phjensen
+ms.custom:
+  - build-2025
 ---
 
 # Configure the database for Azure Application Consistent Snapshot tool
@@ -23,6 +25,10 @@ This section explains how to enable communication with the database. Use the fol
 If you're deploying to a centralized virtual machine, you need to install and set up the SAP HANA client so that the AzAcSnap user can run `hdbsql` and `hdbuserstore` commands. You can download the SAP HANA client from the [SAP Development Tools website](https://tools.hana.ondemand.com/#hanatools).
 
 The snapshot tools communicate with SAP HANA and need a user with appropriate permissions to initiate and release the database save point. The following example shows the setup of the SAP HANA 2.0 user and `hdbuserstore` for communication to the SAP HANA database.
+
+> [!IMPORTANT]
+> Make sure to install the SAP HANA client for running `hdbsql` and `hdbuserstore` commands on **all** nodes which run AzAcSnap.
+> For example, if running AzAcSnap instance 1 from node 1 and AzAcSnap instance 2 from node 2, the SAP HANA client **must** be installed on both node 1 and node 2.
 
 The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on an SAP HANA 2.0 database. Change the IP address, usernames, and passwords as appropriate.
 
@@ -78,6 +84,10 @@ The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on an SAP 
     hdbuserstore Set AZACSNAP <IP_address_of_host>:30013 AZACSNAP <AZACSNAP_PASSWORD_CHANGE_ME>
     ```
 
+    > [!NOTE]
+    > This step to setup the SAP HANA Secure User Store `KEY` will need to be done for all SAP HANA databases AzAcSnap will communicate with.
+    > For example, if AzAcSnap is on `client01` and you have the SAP HANA database server installed on the hosts `dbserver01` and `dbserver02`, then the `hdbuserstore Set` command  will need to be run twice to setup two keys on `client01` so AzAcSnap can communicate with both servers.
+
 1. Check that you correctly set up the SAP HANA Secure User Store. Use the `hdbuserstore` command to list the output, similar to the following example. More details on using `hdbuserstore` are available on the SAP website.
 
     ```bash
@@ -89,9 +99,12 @@ The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on an SAP 
     KEY FILE : /home/azacsnap/.hdb/sapprdhdb80/SSFS_HDB.KEY
 
     KEY AZACSNAP
-    ENV : <IP_address_of_host>:
-    USER: AZACSNAP
+      ENV : <IP_address_of_host>:
+      USER: AZACSNAP
     ```
+    
+    > [!NOTE]
+    > The value of the `KEY` field is used for the configuration question "What is the SAP HANA HDB User Store Key (e.g. `hdbuserstore List`)?".
 
 ### Using SSL for communication with SAP HANA
 
@@ -685,6 +698,29 @@ logout
 Connection to <serverAddress> closed.
 ```
 
+# [Microsoft SQL Server](#tab/mssql)
+
+The snapshot tools issue commands to the Microsoft SQL Server database directly to enable and disable backup mode.  
+
+AzAcSnap connects directly to Microsoft SQL Server using the provided connect-string to issue SQL commands, such as `ALTER SERVER CONFIGURATION SET SUSPEND_FOR_SNAPSHOT_BACKUP = ON` or `ALTER SERVER CONFIGURATION SET SUSPEND_FOR_SNAPSHOT_BACKUP = OFF`.  The connect-string will determine if the installation is on the database server or a centralized "backup" server.  Typical installations of AzAcSnap would be onto the database server to ensure features such as flushing file buffers can  work as expected.  If AzAcSnap has been installed onto the database server, then be sure the user running azacsnap has the required permissions.
+
+##### `azacsnap` user permissions
+
+Refer to [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
+The `azacsnap` user should have permissions to put Microsoft SQL Server into backup mode, and have permissions to flush I/O buffers to the volumes configured.
+
+Configure (`.\azacsnap.exe -c configure`) with the correct values for Microsoft SQL Server and test (`.\azacsnap.exe -c test --test mssql`) azacsnap database connectivity.
+Run the `azacsnap` test command
+```shell
+.\azacsnap.exe -c test --test mssql
+```
+
+```output
+BEGIN : Test process started for 'mssql'
+BEGIN : Database tests
+PASSED: Successful connectivity to MSSQL version 16.00.1115
+END   : Test process complete for 'mssql'
+```
 
 ---
 
@@ -761,7 +797,7 @@ global.ini,SYSTEM,,,persistence,basepath_logbackup,/hana/logbackups/H80
 global.ini,SYSTEM,,,persistence,basepath_logvolumes,/hana/log/H80
 ```
 
-### Configure the log backup timeout
+### Configure the log backup time-out
 
 The default setting for SAP HANA to perform a log backup is `900` seconds (15 minutes). We recommend that you reduce this value to `300` seconds (5 minutes). Then it's possible to run regular backups of these files (for example, every 10 minutes). You can take these backups by adding the `log_backup` volumes to the `OTHER` volume section of the
 configuration file.
@@ -770,9 +806,9 @@ configuration file.
 hdbsql -jaxC -n <HANA_ip_address>:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> "ALTER SYSTEM ALTER CONFIGURATION ('global.ini', 'SYSTEM') SET ('persistence', 'log_backup_timeout_s') = '300' WITH RECONFIGURE"
 ```
 
-### Check the log backup timeout
+### Check the log backup time-out
 
-After you make the change to the log backup timeout, ensure that the timeout is set by using the following command.
+After you make the change to the log backup time-out, ensure that the time-out is set by using the following command.
 
 In this example, the settings are displayed as `SYSTEM` settings. This query also returns the `DEFAULT` settings for comparison.
 
@@ -818,6 +854,10 @@ Apply the following changes to the Oracle database to allow for monitoring by th
 # [IBM Db2](#tab/db2)
 
 No special database configuration is required for Db2 because you're using the instance user's local operating system environment.
+
+# [Microsoft SQL Server](#tab/mssql)
+
+No special database configuration is required for Microsoft SQL Server as we are using the User's local operating system environment.
 
 ---
 

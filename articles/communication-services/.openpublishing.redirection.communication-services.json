@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/communication-services/concepts/client-and-server-architecture.md",
-            "redirect_url": "https://learn.microsoft.com/azure/architecture/guide/mobile/azure-communication-services-architecture",
+            "redirect_url": "/azure/communication-services/concepts/identity-model#client-server-architecture",
             "redirect_document_id": false
         },
         {
@@ -467,13 +467,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/communication-services/concepts/interop/guest/capabilities.md",
-            "redirect_url": "/azure/communication-services/concepts/interop/guest/meeting-capabilities",
+        "source_path_from_root": "/articles/communication-services/concepts/interop/guest/capabilities.md",
+        "redirect_url": "/azure/communication-services/concepts/interop/guest/meeting-capabilities",
+        "redirect_document_id": false
+        },
+        {
+        "source_path_from_root": "/articles/communication-services/concepts/interop/teams-interop-group-calls.md",
+        "redirect_url": "/azure/communication-services/concepts/interop/guest/calling-capabilities",
+        "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/azure/communication-services/concepts/interop/calling-chat.md",
+            "redirect_url": "/azure/communication-services/concepts/interop/teams-user-calling",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/communication-services/concepts/interop/teams-interop-group-calls.md",
-            "redirect_url": "/azure/communication-services/concepts/interop/guest/calling-capabilities",
+            "source_path_from_root": "/azure/communication-services/concepts/interop/tpe/teams-phone-extensibility-client-capabilities.md",
+            "redirect_url": "/azure/communication-services/concepts/interop/tpe/teams-phone-extensibility-capabilities",
             "redirect_document_id": false
         }
     ]

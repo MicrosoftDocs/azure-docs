@@ -67,7 +67,7 @@ Service endpoints allow you to lock down *inbound* access to your app so that th
 > [!NOTE]
 > Access restriction rules based on service endpoints are not supported on apps that have private endpoint configured or apps that use IP-based SSL ([App-assigned address](./networking-features.md#app-assigned-address)).
 
-To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions](../virtual-network/virtual-network-service-endpoints-overview.md).
+To learn more about configuring service endpoints with your app, see [Azure Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 #### Any service endpoint source
 
@@ -129,6 +129,8 @@ In this scenario, you're accessing your site through a private endpoint and are 
 ### Restrict access to a specific Azure Front Door instance
 
 Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the `AzureFrontDoor.Backend` service tag. Using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you need to further filter the incoming requests based on the unique http header that Azure Front Door sends called X-Azure-FDID. You can find the Front Door ID in the portal.
+
+Alternatively, [Azure Private Link](../frontdoor/private-link.md) enables you to access Azure PaaS services and services hosted in Azure over a private endpoint in your virtual network. Traffic between your virtual network and the service goes over the Microsoft backbone network, eliminating exposure to the public Internet. Azure Front Door Premium can connect to your origin using Private Link. Your origin can be hosted in a virtual network or hosted as a PaaS service such as an Azure Web App. Private Link removes the need for your origin to be accessed publicly. To learn how to connect Azure Front Door to your App Service app with private link, see [Connect Azure Front Door Premium to an App Service (Web App or Function App) origin with Private Link](../frontdoor/standard-premium/how-to-enable-private-link-web-app.md).  
 
 ## Next steps
 > [!NOTE]

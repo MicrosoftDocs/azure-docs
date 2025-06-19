@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nickgreenf
 ms.service: azure-container-apps
 ms.topic: how-to 
-ms.date: 12/11/2024
+ms.date: 01/21/2025
 ms.custom: template-tutorial, service-connector, build-2023, engagement
 ---
 
@@ -35,7 +35,7 @@ Start by navigating to the Dapr component creation feature.
    :::image type="content" source="media/dapr-component-connection/select-azure-component.png" alt-text="Screenshot of selecting Azure Component from the drop down menu.":::
 
    > [!NOTE]
-   > Currently, creating Dapr components using Service Connector in the Azure portal only works with Azure services (Azure Service Bus, Azure Cosmos DB, etc.). To create non-Azure Dapr components (Redis), use the manual component creation option.    
+   > Currently, creating Dapr components using Service Connector in the Azure portal is in preview and only works with Azure services (Azure Service Bus, Azure Cosmos DB, etc.). To create non-Azure Dapr components (Redis), use the manual component creation option.    
 
 ### Provide required metadata
 

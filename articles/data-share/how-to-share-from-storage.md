@@ -5,7 +5,7 @@ author:  sidontha
 ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ---
 
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
@@ -39,7 +39,7 @@ Azure Data Share supports sharing data from Azure Data Lake Gen1, Azure Data Lak
 ||Containers|
 
 >[!NOTE]
-> *Block, append, and page blobs are all supported. However, when they are shared they will be received as **block blobs**.
+> *Block, append, and page blobs are all supported. However, when they're shared they'll be received as **block blobs**.
 
 Data shared from these sources can be received by Azure Data Lake Gen2 or Azure Blob Storage.
 
@@ -204,6 +204,6 @@ Storage snapshot performance is impacted by many factors in addition to number o
 - Location of source and target data stores.
 - For incremental snapshot, the number of files in the shared dataset can affect the time it takes to find the list of files with last modified time after the last successful snapshot.
 
-## Next steps
+## Related content
 
 You've learned how to share and receive data from a storage account by using the Azure Data Share service. To learn about sharing from other data sources, see the [supported data stores](supported-data-stores.md).

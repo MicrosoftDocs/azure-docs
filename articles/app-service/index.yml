@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: App Service documentation
-summary: Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
+summary: Use Azure App Service, a fully managed platform as a service (PaaS), to create web applications in popular languages like .NET, Java, Node.js, and Python.
 
 metadata:
   title: Azure App Service documentation
@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   ms.author: msangapu
   ms.service: azure-app-service
-  ms.date: 07/18/2023
+  ms.date: 06/10/2025
   ms.custom: UpdateFrequency3
 
 landingContent:
@@ -20,7 +20,7 @@ landingContent:
           - text: Introduction to App Service
             url: overview.md
       - linkListType: concept
-        links:            
+        links:
           - text: Azure App Service plans
             url: overview-hosting-plans.md
           - text: App Service Environments
@@ -42,40 +42,37 @@ landingContent:
         links:
           - text: ASP.NET
             url: quickstart-dotnetcore.md
-          - text: Python
-            url: quickstart-python.md            
+          - text: Java
+            url: quickstart-java.md
           - text: Node.js
             url: quickstart-nodejs.md
+          - text: Python
+            url: quickstart-python.md
           - text: PHP
-            url: quickstart-php.md           
+            url: quickstart-php.md
           - text: WordPress
             url: quickstart-wordpress.md
           - text: Custom container
-            url: quickstart-custom-container.md                        
-          - text: Java
-            url: quickstart-java.md
+            url: quickstart-custom-container.md
 
-
-  - title: Build a CRUD app
+  - title: Integrate AI with App Service
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Introduction to AI integration with App Service
+            url: overview-ai-integration.md
       - linkListType: tutorial
         links:
-          - text: ASP.NET and Azure SQL Database
-            url: app-service-web-tutorial-dotnet-sqldatabase.md
-          - text: ASP.NET Core and Azure SQL Database
-            url: tutorial-dotnetcore-sqldb-app.md
-          - text: Python (Django) and PostgreSQL
-            url: tutorial-python-postgresql-app.md            
-          - text: PHP and MySQL
-            url: tutorial-php-mysql-app.md
-          - text: Node.js and MongoDB
-            url: tutorial-nodejs-mongodb-app.md
-          - text: Java Spring Boot and Azure Cosmos DB
-            url: tutorial-java-spring-cosmosdb.md             
-      - linkListType: reference
-        links:
-          - text: REST API
-            url: /rest/api/appservice/
+          - text: Build a RAG application with Azure OpenAI and Azure AI Search (.NET)
+            url: tutorial-ai-openai-search-dotnet.md
+          - text: Build a chatbot with Azure OpenAI (Blazor)
+            url: tutorial-ai-openai-chatbot-dotnet.md            
+          - text: Build a chatbot with Azure OpenAI (Spring Boot)
+            url: tutorial-ai-openai-chatbot-java.md            
+          - text: Run a chatbot with a local SLM (Express.js)
+            url: tutorial-ai-slm-expressjs.md
+          - text: Invoke a web app from Azure AI Agent
+            url: invoke-openapi-web-app-from-azure-ai-agent-service.md
 
   - title: Secure and deploy  
     linkLists:
@@ -91,3 +88,31 @@ landingContent:
             url: deploy-continuous-deployment.md
           - text: Upload content with FTP
             url: deploy-ftp.md
+
+  - title: Build a CRUD app
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: ASP.NET and Azure SQL Database
+            url: app-service-web-tutorial-dotnet-sqldatabase.md
+          - text: ASP.NET Core and Azure SQL Database
+            url: tutorial-dotnetcore-sqldb-app.md
+          - text: Java Spring Boot and Azure Cosmos DB
+            url: tutorial-java-spring-cosmosdb.md
+          - text: Node.js and MongoDB
+            url: tutorial-nodejs-mongodb-app.md
+          - text: Python (Django) and PostgreSQL
+            url: tutorial-python-postgresql-app-django.md            
+          - text: PHP and MySQL
+            url: tutorial-php-mysql-app.md
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: /rest/api/appservice/
+
+  - title: Troubleshoot with Azure SRE Agent (AI)
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Fix application issues with SRE Agent
+            url: tutorial-sre-agent.md

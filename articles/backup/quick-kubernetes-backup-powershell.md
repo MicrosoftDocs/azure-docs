@@ -3,11 +3,11 @@ title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AK
 description: Learn how to quickly configure backup for a Kubernetes cluster using PowerShell.
 ms.service: azure-backup
 ms.topic: quickstart
-ms.date: 05/31/2024
+ms.date: 01/21/2025
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
 ms.reviewer: rajats
-ms.author: v-abhmallick
-author: AbhishekMallick-MS
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using PowerShell
@@ -146,6 +146,6 @@ New-AzDataProtectionBackupInstance -ResourceGroupName "testBkpVaultRG" -VaultNam
 
 ## Next steps
 
-- [Restore Azure Kubernetes Service cluster using PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md)
+- Restore Azure Kubernetes Service cluster using [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md), [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)

@@ -4,7 +4,7 @@ description: This topic describes using Scheduled Notifications with Azure Notif
 services: notification-hubs
 keywords: push notifications,push notification,scheduling push notifications
 author: sethmanheim
-manager: femila
+manager: lizross
 editor: jwargo
 
 ms.assetid: 6b718c75-75dd-4c99-aee3-db1288235c1a

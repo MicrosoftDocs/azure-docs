@@ -1,7 +1,7 @@
 ---
 title: Azure Policy definitions effect basics
 description: Azure Policy definitions effect basics determine how compliance is managed and reported.
-ms.date: 04/25/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 

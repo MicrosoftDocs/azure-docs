@@ -2,11 +2,11 @@
 title: Azure permissions for DevOps - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the DevOps category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -76,6 +76,9 @@ Azure service: [Azure Deployment Environments](/azure/deployment-environments/ov
 > | Microsoft.DevCenter/devcenters/catalogs/environmentDefinitions/read | List environment definitions in the catalog. |
 > | Microsoft.DevCenter/devcenters/catalogs/environmentDefinitions/read | Gets an environment definition from the catalog. |
 > | Microsoft.DevCenter/devcenters/catalogs/environmentDefinitions/getErrorDetails/action | Gets Environment Definition error details |
+> | Microsoft.DevCenter/devcenters/catalogs/tasks/read | List Tasks in the catalog. |
+> | Microsoft.DevCenter/devcenters/catalogs/tasks/read | Gets a Task from the catalog |
+> | Microsoft.DevCenter/devcenters/catalogs/tasks/getErrorDetails/action | Gets Customization Task error details |
 > | Microsoft.DevCenter/devcenters/devboxdefinitions/read | List Dev Box definitions for a devcenter. |
 > | Microsoft.DevCenter/devcenters/devboxdefinitions/read | Gets a Dev Box definition |
 > | Microsoft.DevCenter/devcenters/devboxdefinitions/write | Creates or updates a Dev Box definition. |
@@ -95,6 +98,11 @@ Azure service: [Azure Deployment Environments](/azure/deployment-environments/ov
 > | Microsoft.DevCenter/devcenters/galleries/images/versions/read | Lists versions for an image. |
 > | Microsoft.DevCenter/devcenters/galleries/images/versions/read | Gets an image version. |
 > | Microsoft.DevCenter/devcenters/images/read | Lists images for a devcenter. |
+> | Microsoft.DevCenter/devcenters/projectPolicies/read | Lists all project policies in the dev center |
+> | Microsoft.DevCenter/devcenters/projectPolicies/read | Gets a specific project policy. |
+> | Microsoft.DevCenter/devcenters/projectPolicies/write | Creates or updates an project policy. |
+> | Microsoft.DevCenter/devcenters/projectPolicies/delete | Deletes an project policy. |
+> | Microsoft.DevCenter/devcenters/projectPolicies/write | Partially updates an project policy. |
 > | Microsoft.DevCenter/Locations/OperationStatuses/read | read OperationStatuses |
 > | Microsoft.DevCenter/Locations/OperationStatuses/write | write OperationStatuses |
 > | Microsoft.DevCenter/locations/usages/read | Lists the current usages and limits in this location for the provided subscription. |
@@ -116,6 +124,8 @@ Azure service: [Azure Deployment Environments](/azure/deployment-environments/ov
 > | Microsoft.DevCenter/projects/write | Creates or updates a project. |
 > | Microsoft.DevCenter/projects/delete | Deletes a project resource. |
 > | Microsoft.DevCenter/projects/write | Partially updates a project. |
+> | Microsoft.DevCenter/projects/getInheritedSettings/action | Gets applicable inherited settings for this project. |
+> | Microsoft.DevCenter/projects/listSkus/action | Lists SKUs available to the project |
 > | Microsoft.DevCenter/projects/allowedEnvironmentTypes/read | Lists allowed environment types for a project. |
 > | Microsoft.DevCenter/projects/allowedEnvironmentTypes/read | Gets an allowed environment type. |
 > | Microsoft.DevCenter/projects/attachednetworks/read | Lists the attached NetworkConnections for a Project. |
@@ -131,6 +141,14 @@ Azure service: [Azure Deployment Environments](/azure/deployment-environments/ov
 > | Microsoft.DevCenter/projects/catalogs/environmentDefinitions/read | Lists the environment definitions in this project catalog. |
 > | Microsoft.DevCenter/projects/catalogs/environmentDefinitions/read | Gets an environment definition from the catalog. |
 > | Microsoft.DevCenter/projects/catalogs/environmentDefinitions/getErrorDetails/action | Gets Environment Definition error details |
+> | Microsoft.DevCenter/projects/catalogs/imageDefinitions/read | List Image Definitions in the catalog. |
+> | Microsoft.DevCenter/projects/catalogs/imageDefinitions/read | Gets an Image Definition from the catalog |
+> | Microsoft.DevCenter/projects/catalogs/imageDefinitions/getErrorDetails/action | Gets Image Definition error details |
+> | Microsoft.DevCenter/projects/catalogs/imageDefinitions/buildImage/action | Builds an image for the specified Image Definition. |
+> | Microsoft.DevCenter/projects/catalogs/imageDefinitions/builds/read | Lists builds for a specified image definition. |
+> | Microsoft.DevCenter/projects/catalogs/imageDefinitions/builds/read | Gets a build for a specified image definition. |
+> | Microsoft.DevCenter/projects/catalogs/imageDefinitions/builds/cancel/action | Cancels the specified build for an image definition. |
+> | Microsoft.DevCenter/projects/catalogs/imageDefinitions/builds/getBuildDetails/action | Gets Build details |
 > | Microsoft.DevCenter/projects/devboxdefinitions/read | List Dev Box definitions configured for a project. |
 > | Microsoft.DevCenter/projects/devboxdefinitions/read | Gets a Dev Box definition configured for a project |
 > | Microsoft.DevCenter/projects/environmentTypes/read | Lists environment types for a project. |
@@ -138,6 +156,10 @@ Azure service: [Azure Deployment Environments](/azure/deployment-environments/ov
 > | Microsoft.DevCenter/projects/environmentTypes/write | Creates or updates a project environment type. |
 > | Microsoft.DevCenter/projects/environmentTypes/delete | Deletes a project environment type. |
 > | Microsoft.DevCenter/projects/environmentTypes/write | Partially updates a project environment type. |
+> | Microsoft.DevCenter/projects/images/read | Lists images for a project. |
+> | Microsoft.DevCenter/projects/images/read | Gets an image. |
+> | Microsoft.DevCenter/projects/images/versions/read | Lists versions for an image. |
+> | Microsoft.DevCenter/projects/images/versions/read | Gets an image version. |
 > | Microsoft.DevCenter/projects/pools/read | Lists pools for a project |
 > | Microsoft.DevCenter/projects/pools/read | Gets a machine pool |
 > | Microsoft.DevCenter/projects/pools/write | Creates or updates a machine pool |
@@ -162,9 +184,12 @@ Azure service: [Azure Deployment Environments](/azure/deployment-environments/ov
 > | Microsoft.DevCenter/projects/users/devboxes/userGetRemoteConnection/action | Allows a user to get the RDP connection information for their own Dev Box resources. |
 > | Microsoft.DevCenter/projects/users/devboxes/userRead/action | Allows a user to read their own Dev Box resources. |
 > | Microsoft.DevCenter/projects/users/devboxes/userWrite/action | Allows a user to create and update their own Dev Box resources. |
+> | Microsoft.DevCenter/projects/users/devboxes/userCreateOnBehalf/action | Allows a user to create a Dev Box on-behalf of another user. |
 > | Microsoft.DevCenter/projects/users/devboxes/userDelete/action | Allows a user to delete their own Dev Box resources. |
 > | Microsoft.DevCenter/projects/users/devboxes/userUpcomingActionRead/action | Allows a user to read upcoming actions. |
 > | Microsoft.DevCenter/projects/users/devboxes/userUpcomingActionManage/action | Allows a user to skip or delay upcoming actions. |
+> | Microsoft.DevCenter/projects/users/devboxes/adminActionRead/action | Allows an admin to read dev box actions. |
+> | Microsoft.DevCenter/projects/users/devboxes/adminActionManage/action | Allows an admin to skip or delay dev box actions. |
 > | Microsoft.DevCenter/projects/users/devboxes/userActionRead/action | Allows a user to read dev box actions. |
 > | Microsoft.DevCenter/projects/users/devboxes/userActionManage/action | Allows a user to skip or delay dev box actions. |
 > | Microsoft.DevCenter/projects/users/devboxes/userCustomize/action | Allows a user to customize their own Dev Box resources. |
@@ -283,9 +308,10 @@ Azure service: [Azure Lab Services](/azure/lab-services/)
 > | Microsoft.DevTestLab/labs/virtualMachines/Restart/action | Restart a virtual machine. |
 > | Microsoft.DevTestLab/labs/virtualMachines/Start/action | Start a virtual machine. |
 > | Microsoft.DevTestLab/labs/virtualMachines/Stop/action | Stop a virtual machine |
-> | Microsoft.DevTestLab/labs/virtualMachines/Hibernate/action |  |
+> | Microsoft.DevTestLab/labs/virtualMachines/Hibernate/action | Hibernate a virtual machine |
 > | Microsoft.DevTestLab/labs/virtualMachines/TransferDisks/action | Transfers all data disks attached to the virtual machine to be owned by the current user. |
 > | Microsoft.DevTestLab/labs/virtualMachines/UnClaim/action | Release ownership of an existing virtual machine |
+> | Microsoft.DevTestLab/labs/virtualMachines/ChangeSecurityProfile/action | Change security profile of a virtual machine |
 > | Microsoft.DevTestLab/labs/virtualMachines/schedules/delete | Delete schedules. |
 > | Microsoft.DevTestLab/labs/virtualMachines/schedules/read | Read schedules. |
 > | Microsoft.DevTestLab/labs/virtualMachines/schedules/write | Add or modify schedules. |
@@ -428,6 +454,8 @@ Azure service: [Azure Load Testing](/azure/load-testing/)
 > | Microsoft.LoadTestService/loadtests/writeTest/action | Create or Update Load Tests |
 > | Microsoft.LoadTestService/loadtests/deleteTest/action | Delete Load Tests |
 > | Microsoft.LoadTestService/loadtests/readTest/action | Read Load Tests |
+> | Microsoft.LoadTestService/PlaywrightWorkspaces/Write | Creates, updates or deletes Playwright workspace resource |
+> | Microsoft.LoadTestService/PlaywrightWorkspaces/Read | Reads Playwright workspace resource |
 > | Microsoft.LoadTestService/testProfileRuns/write | Write Test Profile Runs |
 > | Microsoft.LoadTestService/testProfileRuns/read | Read Test Profile Runs |
 > | Microsoft.LoadTestService/testProfileRuns/delete | Delete Test Profile Runs |

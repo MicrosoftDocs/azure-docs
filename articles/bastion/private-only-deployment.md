@@ -1,20 +1,21 @@
 ---
 title: Deploy private-only Bastion
 description: Learn how to deploy Bastion for a private-only scenario.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 12/09/2024
-ms.author: cherylmc
+ms.date: 03/31/2025
+ms.author: abell
+# Customer intent: As a network administrator, I want to deploy Azure Bastion in a private-only mode, so that I can ensure secure access to virtual machines within my virtual network without allowing outbound access outside of the network.
 ---
 
 # Deploy Bastion as private-only
 
 This article helps you deploy Bastion as a private-only deployment. [!INCLUDE [private-only bastion description](../../includes/bastion-private-only-description.md)] 
 
-The following diagram shows the Bastion private-only deployment architecture. A user that's connected to Azure via ExpressRoute private-peering can securely connect to Bastion using the private IP address of the bastion host. Bastion can then make the connection via private IP address to a virtual machine that's within the same virtual network as the bastion host. In a private-only Bastion deployment, Bastion doesn't allow outbound access outside of the virtual network.
+The following diagram shows the Azure Bastion dedicated private-only deployment architecture. Bastion is deployed to the virtual network. A user that's connected to Azure via ExpressRoute private-peering can securely connect to Bastion using the private IP address of the bastion host. Bastion can then make the connection via private IP address to a virtual machine that's within the same virtual network as the bastion host. In a private-only Bastion deployment, Bastion doesn't allow outbound access outside of the virtual network.
 
 :::image type="content" source="./media/private-only-deployment/private-only-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/private-only-deployment/private-only-architecture.png":::
 
@@ -72,8 +73,6 @@ This section helps you deploy Bastion as private-only to your virtual network.
 1. Next, on your virtual network page, select **Bastion** from the left pane.
 
 1. On the **Bastion** page, expand **Dedicated Deployment Options** (if that section appears). Select the **Configure manually** button. If you don't select this button, you can't see required settings to deploy Bastion as private-only.
-
-   :::image type="content" source="./media/tutorial-create-host-portal/manual-configuration.png" alt-text="Screenshot that shows dedicated deployment options for Azure Bastion and the button for manual configuration." lightbox="./media/tutorial-create-host-portal/manual-configuration.png":::
 
 1. On the **Create a Bastion** pane, configure the settings for your bastion host. The **Project details** values are populated from your virtual network values.
 

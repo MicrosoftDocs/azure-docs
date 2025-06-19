@@ -242,7 +242,7 @@ For Db2 deployments on Windows, we highly recommend using the Azure functionalit
 As long as the current IOPS quota per disk is sufficient, it's possible to store all the database files on one single disk. Whereas you always should separate the data files and transaction log files on different disks.
 
 If the IOPS or I/O throughput of a single Azure VHD isn't sufficient, you can use LVM (Logical Volume Manager) or MDADM as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) to create one large logical device over multiple disks.
-For the disks containing the Db2 storage paths for your `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 KB.
+For the disks containing the Db2 storage paths for your `sapdata` and `saptmp` directories, ensure a physical disk sector size of 4 KB is used. When using LVM or MDADM to create a striped volume across multiple disks, configure the stripe size (or chunk size) to 512 KB to optimize I/O throughput for large database workloads.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 

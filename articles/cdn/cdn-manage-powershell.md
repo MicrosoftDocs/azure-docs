@@ -1,14 +1,16 @@
 ---
+ROBOTS: NOINDEX
 title: Manage Azure Content Delivery Network with PowerShell
 description: Use this tutorial to learn how to use PowerShell to manage aspects of your Azure Content Delivery Network endpoint profiles and endpoints.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau 
+ms.date: 03/31/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to manage my Azure Content Delivery Network using PowerShell scripts, so that I can automate the configuration and maintenance of CDN profiles and endpoints efficiently."
 ---
 
 # Manage Azure Content Delivery Network with PowerShell
@@ -89,7 +91,7 @@ DESCRIPTION
     Gets an Azure CDN profile and all related information.
 
 RELATED LINKS
-    https://docs.microsoft.com/powershell/module/az.cdn/get-azcdnprofile
+    https://learn.microsoft.com/powershell/module/az.cdn/get-azcdnprofile
 
 REMARKS
     To see the examples, type: "get-help Get-AzCdnProfile -examples".
@@ -194,19 +196,6 @@ Update-AzCdnEndpoint -Name cdnposhdoc -ProfileName CdnPoshDemo -ResourceGroupNam
 # Purge some assets.
 Clear-AzCdnEndpointContent -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -EndpointName cdnposhdoc -ContentFilePath @("/images/kitten.png","/video/rickroll.mp4")
 ```
-
-## Pre-load some assets
-
-> [!NOTE]
-> Pre-loading is only available on Azure Content Delivery Network from Edgio profiles.
-
-`Import-AzCdnEndpointContent` pre-loads assets into the content delivery network cache.
-
-```powershell
-Import-AzCdnEndpointContent -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -EndpointName cdnposhdoc -ContentFilePath @("/images/kitten.png","/video/rickroll.mp4")`
-```
-
-<a name='startingstopping-cdn-endpoints'></a>
 
 ## Starting/Stopping content delivery network endpoints
 

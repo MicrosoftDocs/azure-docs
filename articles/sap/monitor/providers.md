@@ -5,7 +5,7 @@ author: rdeltcheva
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/22/2024
 ms.author: radeltch
 #Customer intent: As a developer, I want to learn what providers are available for Azure Monitor for SAP solutions so that I can connect to these providers.

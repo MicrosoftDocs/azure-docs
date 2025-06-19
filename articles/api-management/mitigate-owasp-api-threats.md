@@ -3,8 +3,8 @@ title: Mitigate OWASP API security top 10 in Azure API Management
 description: Learn how to protect against common API-based vulnerabilities, as identified by the OWASP API Security Top 10 threats, using Azure API Management. 
 author: mikebudzynski
 ms.service: azure-api-management
-ms.topic: conceptual
-ms.date: 10/29/2024
+ms.topic: concept-article
+ms.date: 05/30/2025
 ms.author: mibudz
 ---
 
@@ -38,7 +38,7 @@ More information about this threat: [API1:2023 Broken Object Level Authorization
 
 ### Recommendations 
 
-* The best place to implement object level authorization is within the backend API itself. At the backend, the correct authorization decisions can be made at the request (or object) level, where applicable, using logic applicable to the domain and API. Consider scenarios where a given request may yield differing levels of detail in the response, depending on the requestor's permissions and authorization. 
+* The best place to implement object level authorization is within the backend API itself. At the backend, the correct authorization decisions can be made at the request (or object) level, where applicable, using logic applicable to the domain and API. Consider scenarios where a given request may yield differing levels of detail in the response, depending on the requester's permissions and authorization. 
 
 * If a current vulnerable API can't be changed at the backend, then API Management could be used as a fallback. For example:
    
@@ -195,7 +195,7 @@ More information about this threat: [API8:2023 Security misconfiguration](https
 - Where possible, use credential manager or managed identity to authenticate against backend services.
 - When using the [developer portal](/azure/api-management/api-management-howto-developer-portal):
     - If you choose to [self-host](/azure/api-management/developer-portal-self-host) the developer portal, ensure there's a process in place to periodically update the self-hosted portal to the latest version. Updates for the default managed version are automatic.
-    - Use [Microsoft Entra ID](/azure/api-management/api-management-howto-aad) or [Azure Active Directory B2C](/azure/api-management/api-management-howto-aad-b2c) for user sign-up and sign-in. Disable the default username and password authentication, which is less secure.
+    - Use [Microsoft Entra ID](/azure/api-management/api-management-howto-aad) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam) for user sign-up and sign-in. Disable the default username and password authentication, which is less secure.
     - Assign [user groups](/azure/api-management/api-management-howto-create-groups#-associate-a-group-with-a-product) to products, to control the visibility of APIs in the portal.
 - Use [Azure Policy](/azure/api-management/security-controls-policy) to enforce API Management resource-level configuration and role-based access control (RBAC) permissions to control resource access. Grant minimum required privileges to every user.
 - Use a [DevOps process](/azure/api-management/devops-api-development-templates) and infrastructure-as-code approach outside of a development environment to ensure consistency of API Management content and configuration changes and to minimize human errors.

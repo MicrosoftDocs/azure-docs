@@ -2,30 +2,53 @@
 title: Choose the right Azure Firewall version to meet your needs
 description: Learn about the different Azure Firewall versions and how to choose the right one for your needs.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 04/03/2024
-ms.author: victorh
+ms.date: 03/17/2025
+ms.author: duau
+# Customer intent: As a network security administrator, I want to evaluate the three versions of Azure Firewall, so that I can choose the most suitable option for my organization's application security and performance requirements.
 ---
 
 # Choose the right Azure Firewall version to meet your needs
 
-Azure Firewall now supports three different versions to cater to a wide range of customer use cases and preferences.
+Azure Firewall offers three versions to meet various customer needs:
 
-- Azure Firewall Premium is recommended to secure highly sensitive applications (such as payment processing). It supports advanced threat protection capabilities like malware and TLS inspection.
-- Azure Firewall Standard is recommended for customers looking for Layer 3–Layer 7 firewall and needs autoscaling to handle peak traffic periods of up to 30 Gbps. It supports enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
-- Azure Firewall Basic is recommended for SMB customers with throughput needs of 250 Mbps.
+- **Azure Firewall Premium**: Ideal for securing highly sensitive applications, such as payment processing. It includes advanced threat protection features like malware and TLS inspection.
+- **Azure Firewall Standard**: Suitable for customers requiring Layer 3–Layer 7 firewall capabilities with autoscaling to manage peak traffic up to 30 Gbps. It includes enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
+- **Azure Firewall Basic**: Designed for SMB customers with throughput requirements up to 250 Mbps.
 
 ## Feature comparison
 
-Take a closer look at the features across the three Azure Firewall versions:
+Compare the features of the three Azure Firewall versions:
 
-:::image type="content" source="media/choose-firewall-sku/azure-firewall-sku-table.png" alt-text="Table of Azure Firewall version features." lightbox="media/choose-firewall-sku/azure-firewall-sku-table-large.png":::
+| Category | Feature | Firewall Basic | Firewall Standard | Firewall Premium |
+| --- | --- | --- | --- | --- |
+| **L3-L7 filtering** | Application level FQDN filtering (SNI based) for HTTPS/SQL | ✓ | ✓ | ✓ |
+|  | Network level FQDN filtering – all ports and protocols |  | ✓ | ✓ |
+|  | Stateful firewall (5 tuple rules) | ✓ | ✓ | ✓ |
+|  | Network address translation (SNAT+DNAT) | ✓ | ✓ | ✓ |
+| **Reliability & performance** | Availability zones | ✓ | ✓ | ✓ |
+|  | Built-in HA | ✓ | ✓ | ✓ |
+|  | Cloud scalability (auto-scale as traffic grows) | Up to 250Mbps | Up to 30 Gbps | Up to 100 Gbps |
+|  | Fat flow support | N/A | 1 Gbps | 10 Gbps |
+| **Ease of management** | Central management via firewall manager | ✓ | ✓ | ✓ |
+|  | Policy analytics (rule management over time) | ✓ | ✓ | ✓ |
+| **Enterprise integration** | Full logging including SIEM integration | ✓ | ✓ | ✓ |
+|  | Service tags and FQDN tags for easy policy management | ✓ | ✓ | ✓ |
+|  | Easy DevOps integration using REST/PowerShell/CLI/templates/Terraform | ✓ | ✓ | ✓ |
+|  | Web content filtering (web categories) |  | ✓ | ✓ |
+|  | DNS proxy + custom DNS |  | ✓ | ✓ |
+| **Advanced threat protection** | Threat intelligence-based filtering (known malicious IP address/domains) | Alert | ✓ | ✓ |
+|  | Inbound TLS termination (TLS reverse proxy) |  |  | Using Azure Application Gateway |
+|  | Outbound TLS termination (TLS forward proxy) |  |  | ✓ |
+|  | Fully managed IDPS |  |  | ✓ |
+|  | URL filtering (full path - including SSL termination) |  |  | ✓ |
+
 
 ## Flow chart
 
-You can use the following flow chart to help you choose the Azure Firewall version that best fits you needs.
+Use the following flow chart to determine the best Azure Firewall version for your needs.
 
 <!-- Art Library Source# ConceptArt-0-000-011 -->
 :::image type="content" source="media/choose-firewall-sku/firewall-sku-flow.svg" alt-text="Flow chart to help you choose a firewall version." lightbox="media/choose-firewall-sku/firewall-sku-flow.svg":::

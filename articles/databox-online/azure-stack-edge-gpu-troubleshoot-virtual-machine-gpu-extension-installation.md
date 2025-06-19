@@ -72,13 +72,13 @@ If the installation failed during the package download, that error indicates the
    > [!NOTE]
    > The extension deployment is a long running job and takes about 10 minutes to complete.
 
-## Manually install the Nvidia driver on RHEL 7
+## Manually install the NVIDIA driver on RHEL 7
 
 **Error description:** When installing the GPU extension on an RHEL 7 VM, the installation may fail due to a certificate rotation issue and an incompatible driver version.
 
 **Suggested solution:** In this case, you have two options:
 
-- **Option 1:** Resolve the certificate rotation issue and then install an Nvidia driver lower than version 510.
+- **Option 1:** Resolve the certificate rotation issue and then install an NVIDIA driver lower than version 510.
 
    1. To resolve the certificate rotation issue, run the following command:
 
@@ -86,7 +86,7 @@ If the installation failed during the package download, that error indicates the
       $ sudo yum-config-manager --add-repo  https://developer.download.nvidia.com/compute/cuda/repos/rhel7/$arch/cuda-rhel7.repo
       ```
  
-   1. Install an Nvidia driver lower than version 510.
+   1. Install an NVIDIA driver lower than version 510.
 
 - **Option 2:** Deploy the GPU extension. Use the following settings when deploying the ARM extension: 
  

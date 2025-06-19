@@ -2,13 +2,14 @@
 title: 'Quickstart: Deploy Azure Bastion to a virtual network using an ARM template'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion to a virtual network by using an Azure Resource Manager template.
-author: cherylmc
-ms.author: cherylmc
+author: abell
+ms.author: abell
 ms.service: azure-bastion
 ms.topic: quickstart 
-ms.date: 12/04/2023
+ms.date: 03/31/2025
 ms.custom: template-quickstart, devx-track-arm-template
 #Customer intent: As someone with a networking background, I want to deploy Azure Bastion to a virtual machine by using an ARM template.
+# Customer intent: As a network engineer, I want to deploy Azure Bastion to a virtual network using an ARM template, so that I can securely connect to virtual machines without requiring public IP addresses.
 ---
 
 

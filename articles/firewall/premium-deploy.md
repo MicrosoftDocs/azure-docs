@@ -1,12 +1,13 @@
 ---
 title: Deploy and configure Azure Firewall Premium
 description: Learn how to deploy and configure Azure Firewall Premium.
-author: vhorne
+author: duau
 ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/28/2022
-ms.author: victorh
+ms.date: 02/10/2025
+ms.author: duau
+# Customer intent: As a network security administrator, I want to deploy and configure a next-generation firewall in a testing environment, so that I can validate its capabilities, including TLS inspection and intrusion detection, for sensitive and regulated environments.
 ---
 
 # Deploy and configure Azure Firewall Premium
@@ -62,11 +63,11 @@ Now you can test IDPS, TLS Inspection, Web filtering, and Web categories.
 To collect firewall logs, you need to add diagnostics settings to collect firewall logs.
 
 1. Select the **DemoFirewall** and under **Monitoring**, select **Diagnostic settings**.
-2. Select **Add diagnostic setting**.
-3. For **Diagnostic setting name**, type *fw-diag*.
-4. Under **log**, select **AzureFirewallApplicationRule**, and **AzureFirewallNetworkRule**.
-5. Under **Destination details**, select **Send to Log Analytics workspace**.
-6. Select **Save**.
+1. Select **Add diagnostic setting**.
+1. For **Diagnostic setting name**, type *fw-diag*.
+1. Under **log**, select **AzureFirewallApplicationRule**, and **AzureFirewallNetworkRule**.
+1. Under **Destination details**, select **Send to Log Analytics workspace**.
+1. Select **Save**.
 
 ### IDPS tests
 
@@ -77,11 +78,11 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 #### To test IDPS for HTTP traffic:
 
 1. On the WorkerVM virtual machine, open an administrator command prompt window.
-2. Type the following command at the command prompt:
+1. Type the following command at the command prompt:
 
    `curl -A "HaxerMen" <your web server address>`
-3. You'll see your Web server response.
-4. Go to the Firewall Network rule logs on the Azure portal to find an alert similar to the following message:
+1. You'll see your Web server response.
+1. Go to the Firewall Network rule logs on the Azure portal to find an alert similar to the following message:
 
    ```
    { “msg” : “TCP request from 10.0.100.5:16036 to 10.0.20.10:80. Action: Alert. Rule: 2032081. IDS: 
@@ -91,7 +92,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 
    > [!NOTE]
    > It can take some time for the data to begin showing in the logs. Give it at least a couple minutes to allow for the logs to begin showing the data.
-5. Add a signature rule for signature 2032081:
+1. Add a signature rule for signature 2032081:
 
    1. Select the **DemoFirewallPolicy** and under **Settings** select **IDPS**.
    1. Select the **Signature rules** tab.
@@ -102,7 +103,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 
 
 
-6. On WorkerVM, run the `curl` command again:
+1. On WorkerVM, run the `curl` command again:
 
    `curl -A "HaxerMen" <your web server address>`
 
@@ -110,7 +111,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
 
    `read tcp 10.0.100.5:55734->10.0.20.10:80: read: connection reset by peer`
 
-7. Go to the Monitor logs in the Azure portal and find the message for the blocked request.
+1. Go to the Monitor logs in the Azure portal and find the message for the blocked request.
 <!---8. Now you can bypass the IDPS function using the **Bypass list**.
 
    1. On the **IDPS (preview)** page, select the **Bypass list** tab.
@@ -132,8 +133,8 @@ Use the following steps to test TLS Inspection with URL filtering.
 
 1. Edit the firewall policy application rules and add a new rule called `AllowURL` to the `AllowWeb` rule collection. Configure the target URL `www.nytimes.com/section/world`, Source IP address **\***, Destination type **URL**, select **TLS Inspection**, and protocols **http, https**.
 
-3. When the deployment completes, open a browser on WorkerVM and go to `https://www.nytimes.com/section/world` and validate that the HTML response is displayed as expected in the browser.
-4. In the Azure portal, you can view the entire URL in the Application rule Monitoring logs:
+1. When the deployment completes, open a browser on WorkerVM and go to `https://www.nytimes.com/section/world` and validate that the HTML response is displayed as expected in the browser.
+1. In the Azure portal, you can view the entire URL in the Application rule Monitoring logs:
 
       :::image type="content" source="media/premium-deploy/alert-message-url.png" alt-text="Alert message showing the URL":::
 
@@ -150,13 +151,12 @@ Some HTML pages may look incomplete because they refer to other URLs that are de
 
 Let's create an application rule to allow access to sports web sites.
 1. From the portal, open your resource group and select **DemoFirewallPolicy**.
-2. Select **Application Rules**, and then **Add a rule collection**.
-3. For **Name**, type *GeneralWeb*, **Priority** *103*, **Rule collection group** select **DefaultApplicationRuleCollectionGroup**.
-4. Under **Rules** for **Name** type *AllowSports*, **Source** *\**, **Protocol** *http, https*, select **TLS Inspection**, **Destination Type** select *Web categories*, **Destination** select *Sports*.
-5. Select **Add**.
+1. Select **Application Rules**, and then **Add a rule collection**.
+1. For **Name**, type *GeneralWeb*, **Priority** *103*, **Rule collection group** select **DefaultApplicationRuleCollectionGroup**.
+1. Under **Rules** for **Name** type *AllowSports*, **Source** *\**, **Protocol** *http, https*, select **TLS Inspection**, **Destination Type** select *Web categories*, **Destination** select *Sports*.
+1. Select **Add**.
 
-      :::image type="content" source="media/premium-deploy/web-categories.png" alt-text="Sports web category":::
-6. When the deployment completes, go to  **WorkerVM** and open a web browser and browse to `https://www.nfl.com`.
+1. When the deployment completes, go to  **WorkerVM** and open a web browser and browse to `https://www.nfl.com`.
 
    You should see the NFL web page, and the Application rule log shows that a **Web Category: Sports** rule was matched and the request was allowed.
 

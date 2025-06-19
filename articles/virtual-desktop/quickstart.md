@@ -3,19 +3,15 @@ title: "Quickstart: deploy a sample Azure Virtual Desktop environment"
 description: Quickly and easily deploy a sample Azure Virtual Desktop environment from the Azure portal using quickstart.
 ms.topic: quickstart
 ms.custom: mode-portal
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 01/08/2025
+author: dougeby
+ms.author: avdcontent
+ms.date: 03/05/2025
 #customer intent: As an IT admin, I want quickly and easily deploy Azure Virtual Desktop so that I can evaluate and become familiar with the service before deploying it in production.
 ---
 
-# Quickstart: deploy a sample Azure Virtual Desktop environment (preview)
+# Quickstart: deploy a sample Azure Virtual Desktop environment
 
-> [!IMPORTANT]
-> Quickstart for Azure Virtual Desktop is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-You can quickly deploy a sample Azure Virtual Desktop environment with *quickstart* (preview) in the Azure portal. Quickstart enables you to easily evaluate a Windows 11 Enterprise multi-session remotely and become familiar with the service before deploying it in production.
+You can quickly deploy a sample Azure Virtual Desktop environment with *quickstart* in the Azure portal. Quickstart enables you to easily evaluate a Windows 11 Enterprise multi-session remotely and become familiar with the service before deploying it in production.
 
 When you use quickstart, it deploys a small environment consisting of minimal resources and configuration. A user then signs into Windows App and connects to a full virtual desktop session. Deployment takes approximately 20 minutes to complete.
 
@@ -26,19 +22,20 @@ When you use quickstart, it deploys a small environment consisting of minimal re
 
 Quickstart deploys the following resources:
 
-- A resource group.
-
-- A virtual network and subnet with the IPv4 address space `192.168.0.0/24` and uses Azure provided DNS servers.
-
-- A network security group associated with the subnet of the virtual network with the default rules only. No inbound rules are required for Azure Virtual Desktop.
-
-- A host pool with single sign-on (SSO) enabled.
-
-- A session host running Windows 11 Enterprise multi-session with Microsoft 365 apps preinstalled in *English (US)*. It's a [Standard_D4ds_v4](/azure/virtual-machines/sizes/general-purpose/ddsv4-series) size virtual machine (4 vCPUs, 16 GiB memory) configured with a [standard SSD](/azure/virtual-machines/disks-types#standard-ssds) disk, and is joined to Microsoft Entra ID.
-
-- An application group that publishes the full desktop from the session host.
-
-- A workspace.
+> [!div class="checklist"]
+> - A resource group.
+> 
+> - A virtual network and subnet with the IPv4 address space `192.168.0.0/24` and uses Azure provided DNS servers.
+> 
+> - A network security group associated with the subnet of the virtual network with the default rules only. No inbound rules are required for Azure Virtual Desktop.
+> 
+> - A host pool with single sign-on (SSO) enabled.
+> 
+> - A session host running Windows 11 Enterprise multi-session with Microsoft 365 apps preinstalled in *English (US)*. It's a [Standard_D4ds_v4](/azure/virtual-machines/sizes/general-purpose/ddsv4-series) size virtual machine (4 vCPUs, 16 GiB memory) configured with a [standard SSD](/azure/virtual-machines/disks-types#standard-ssds) disk, and is joined to Microsoft Entra ID.
+> 
+> - An application group that publishes the full desktop from the session host.
+> 
+> - A workspace.
 
 You can see a detailed list of [deployed resources](#deployed-resources) later in this article.
 
@@ -55,11 +52,11 @@ Before you can use quickstart to deploy a sample Azure Virtual Desktop environme
    | **Contributor** | Used to deploy all the required resources. |
    | **User access administrator** | Used to assign users you specify during deployment access to sign into a remote session. |
 
-- One or two user accounts that you want to assign access to the remote session. These accounts must be members of the same Microsoft Entra tenant as the subscription you're using, not guests. You can assign other users later. 
+- One or two user accounts that you want to assign access to the remote session. At least one user is required. These accounts must be members of the same Microsoft Entra tenant as the subscription you're using, not guests. You can assign other users later. 
 
-- Available quota for your subscription for the `Standard_D4ds_v4` VM. If you don't have available quota, you can request an increase by following the steps in [Request VM quota increase](/azure/quotas/per-vm-quota-requests).
+- Available quota for your subscription for the `Standard_D4ds_v4` virtual machine. If you don't have available quota, you can request an increase by following the steps in [Request VM quota increase](/azure/quotas/per-vm-quota-requests).
 
-- Internet access from the VM that gets deployed. For more information, see [Required FQDNs and endpoints for Azure Virtual Desktop](required-fqdn-endpoint.md).
+- Internet access from the new virtual machine that gets deployed. For more information, see [Required FQDNs and endpoints for Azure Virtual Desktop](required-fqdn-endpoint.md).
 
 ## Register the Azure Virtual Desktop resource provider
 
@@ -79,11 +76,11 @@ To deploy Azure Virtual Desktop resources, you need to register the `Microsoft.D
 
 Here's how to use quickstart to deploy a sample Azure Virtual Desktop environment:
 
-1. Go to the [Azure Virtual Desktop options in the Quickstart Center](https://portal.azure.com/#view/Microsoft_Azure_Resources/QuickstartAnchorServicesBlade/goalId/virtual-desktops-and-stream-remote-application). Azure Virtual Desktop is found in **Deliver virtual desktops and stream remote applications**.
+1. Go to the [Quickstart options for Azure Virtual Desktop](https://portal.azure.com/#view/Microsoft_Azure_WVD/WvdManagerMenuBlade/~/quickstart) in the Azure portal and sign in. Alternatively, the **Quickstart Center** has Azure Virtual Desktop options found in **Deliver virtual desktops and stream remote applications**.
 
    :::image type="content" source="media/quickstart/quickstart-center-options.png" alt-text="A screenshot showing the Azure Virtual Desktop options in the Quickstart Center." lightbox="media/quickstart/quickstart-center-options.png":::
 
-1. Select **Get started quickly with Azure Virtual Desktop**, then select **Create**. 
+1. Select **Get started quickly with Azure Virtual Desktop** and review the description, then select **Create**. 
 
 1. On the **Basics** tab, complete the following information:
 
@@ -98,7 +95,7 @@ Here's how to use quickstart to deploy a sample Azure Virtual Desktop environmen
    | **Assignment** |  |
    | **User assignment** | Select **Select maximum two users**. In the pane that opens, search for and select the user account or user group that you want to assign to this desktop. Finish by selecting **Select**. |
 
-1. Select **Review + create**. On the **Review + create** tab, ensure that validation passes and review the information that's used during deployment.
+1. Select **Review + create**. On the **Review + create** tab, ensure that validation passes and review the information to use during deployment.
 
 1. Select **Create** to deploy the sample Azure Virtual Desktop environment.
 
@@ -108,7 +105,7 @@ Here's how to use quickstart to deploy a sample Azure Virtual Desktop environmen
 
 ## Connect to the desktop
 
-Once the sample Azure Virtual Desktop environment is deployed, you can connect to it using [Windows App](/windows-app/) and sign in with one of the user accounts you assigned.
+Once the sample Azure Virtual Desktop environment is deployed, you can connect to it using [Windows App](/windows-app/) and sign in with a user account you assigned during deployment.
 
 > [!TIP]
 > The desktop takes longer to load the first time as the profile is being created, however subsequent connections are quicker.
@@ -123,7 +120,7 @@ To connect to your sample desktop on a Windows device, follow these steps:
 
    :::image type="content" source="media/quickstart/windows-app-windows-welcome.png" alt-text="A screenshot showing the welcome tab for Windows App on Windows with Azure Virtual Desktop." lightbox="media/quickstart/windows-app-windows-welcome.png":::
 
-1. Select **Sign in** and sign in with one of the user accounts you assigned during deployment. If you're signed in to your local Windows device with a work or school account on a managed device, you're signed in to Windows App automatically with the same account.
+1. Select **Sign in** and sign in with a user account you assigned during deployment. If you're signed in to your local Windows device with a work or school account on a managed device, you're signed in to Windows App automatically with the same account.
 
 1. If it's your first time using Windows App, navigate through the tour to learn more about Windows App, then select **Done**, or select **Skip**.
 
@@ -149,7 +146,7 @@ To connect to your sample desktop on a macOS device, follow these steps:
 
 1. If it's your first time using Windows App, navigate through the tour to learn more about Windows App, then select **Done**, or select **Skip**.
 
-1. Windows App opens on the **Devices** tab. Select the *plus* (**+**) icon, then select **Add Work or School Account** and sign in with one of the user accounts you assigned during deployment.
+1. Windows App opens on the **Devices** tab. Select the *plus* (**+**) icon, then select **Add Work or School Account** and sign in with a user account you assigned during deployment.
 
    :::image type="content" source="media/quickstart/windows-app-macos-devices-add.png" alt-text="A screenshot showing the empty devices tab for Windows App on macOS with Azure Virtual Desktop." lightbox="media/quickstart/windows-app-macos-devices-add.png":::
 
@@ -173,7 +170,7 @@ To connect to your sample desktop from a web browser, follow these steps:
 
 1. Open a web browser and go to Windows App at [**https://windows.cloud.microsoft/**](https://windows.cloud.microsoft/).
 
-1. Sign in with one of the user accounts you assigned during deployment. If you're signed in to your browser with a work or school account on a managed device, you're signed in to Windows App automatically with the same account.
+1. Sign in with a user account you assigned during deployment. If you're signed in to your browser with a work or school account on a managed device, you're signed in to Windows App automatically with the same account.
 
 1. If it's your first time using Windows App, navigate through the tour to learn more about Windows App, then select **Done**, or select **Skip**.
 
@@ -203,19 +200,19 @@ To connect to your sample desktop from a web browser, follow these steps:
 
 ## Deployed resources
 
-When you deploy a sample Azure Virtual Desktop environment using quickstart, the following resources are deployed, where \<timestamp\> is the date and time when you started the deployment:
+When you deploy a sample Azure Virtual Desktop environment using quickstart, the following resources are deployed, where `<timestamp>` is the date and time when you started the deployment:
 
 | Resource type | Name | Notes |
 |--|--|--|
-| Resource group | `rg-avd-quickstart-<timestamp>` | None. |
-| Host pool | `vdpool-avd-quickstart-<timestamp>` | Uses the breadth-first [load balancing algorithm](configure-host-pool-load-balancing.md), with a maximum session limit of **2**. |
-| Application group | `vdag-avd-quickstart-<timestamp>` | Desktop application group. |
-| Workspace | `vdws-avd-quickstart-<timestamp>` | None. |
+| Resource group | `rg-avd-quickstart-<guid>` | None. |
+| Host pool | `vdpool-avd-quickstart-<guid>` | Uses the [breadth-first load balancing algorithm](configure-host-pool-load-balancing.md), with a maximum session limit of **2**. |
+| Application group | `vdag-avd-quickstart-<guid>` | Desktop application group. |
+| Workspace | `vdws-avd-quickstart-<guid>` | None. |
 | Virtual machine | `vmaqs<timestamp>` | Windows 11 Enterprise multi-session with Microsoft 365 apps preinstalled in *English (US)*.<br /><br />[Standard_D4ds_v4](/azure/virtual-machines/sizes/general-purpose/ddsv4-series) size virtual machine.<br /><br />Joined to Microsoft Entra ID. |
-| Virtual network | `vnet-avd-quickstart-<timestamp>` | The IPv4 address space is `192.168.0.0/24`. |
-| Network interface | `nic-avd-quickstart-<timestamp>` | Uses Azure provided DNS servers. |
-| Disk | `vmaqs<timestamp>_OsDisk_1_<random-string>` | [Standard SSD](/azure/virtual-machines/disks-types#standard-ssds), 127 GiB. |
-| Network security group | `nsg-avd-quickstart-<timestamp>` | Associated with the subnet of the virtual network with the default rules only. |
+| Virtual network | `vnet-avd-quickstart-<guid>` | The IPv4 address space is `192.168.0.0/24`. |
+| Network interface | `nic-avd-quickstart-<guid>` | Uses Azure provided DNS servers. |
+| Disk | `vmaqs<timestamp>_OsDisk_1_<random-string>` | [Premium SSD](/azure/virtual-machines/disks-types#premium-ssds), 127 GiB, P10 performance tier. |
+| Network security group | `nsg-avd-quickstart-<guid>` | Associated with the subnet of the virtual network with the default rules only. |
 
 Once the resource group is created, all resources are deployed to that resource group. All resource names and their configuration are predefined.
 
@@ -223,7 +220,7 @@ Timestamps are in the format `yyMMddHHmm`. For example **2501081128** is January
 
 ## Clean up resources
 
-If you want to remove the sample Azure Virtual Desktop resources, you can safely remove them by stopping the virtual machine and deleting the resources in the resource group `rg-avd-quickstart-<timestamp>`.
+If you want to remove the sample Azure Virtual Desktop resources, you can safely remove them by stopping the virtual machine and deleting the resources in the resource group `rg-avd-quickstart-<guid>`.
 
 ## Next steps
 
