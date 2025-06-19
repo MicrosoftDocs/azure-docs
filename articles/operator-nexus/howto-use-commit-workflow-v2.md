@@ -98,7 +98,7 @@ Validate the configuration using the `view-device-configuration` post-action. Th
 
 > [!Important] 
 > The fabric must be locked in configuration mode.<br>
-> [BYOS](/articles/operator-nexus/howto-configure-bring-your-own-storage-network-fabric.md) must be configured on the Network Fabric.
+> [BYOS](./howto-configure-bring-your-own-storage-network-fabric.md) must be configured on the Network Fabric.
 
 #### Azure CLI Command
 
