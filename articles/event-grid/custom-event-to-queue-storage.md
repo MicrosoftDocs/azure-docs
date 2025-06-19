@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli, mode-api
 
 # Quickstart: Route custom events to a queue by using Event Grid and the Azure CLI
 
-[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications via events. Event Grid delivers events to  [supported event handlers](event-handlers.md), and Azure Queue storage is one of them.
+[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications via events. Event Grid delivers events to supported event handlers, such as Azure Queue storage. For more information, see [Event handlers](event-handlers.md).
 
 In this quickstart, you use the Azure CLI to create an Event Grid custom topic and a Queue Storage subscription for that topic. You then send sample events to the custom topic and verify that those events are delivered to a queue.
 
@@ -143,7 +143,7 @@ Now that you know how to create topics and event subscriptions, learn more about
 - [About Event Grid](overview.md)
 - [Route Azure Blob Storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md)
-- [Stream big data into a data warehouse](event-hubs-integration.md)
+- [Migrate Event Hubs captured data from Azure Storage to Azure Synapse Analytics](event-hubs-integration.md)
 
 To learn about publishing events to, and consuming events from, Event Grid by using various programming languages, see the following samples:
 
