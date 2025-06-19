@@ -684,3 +684,186 @@ The tile settings configuration defines how data is tiled and displayed at diffe
   "defaultLocation": null
 }
 ```
+
+
+# Umbra SAR Imagery Collection Configuration
+
+[Collection description to be added here]
+
+[ ![Screenshot of Umbra SAR Imagery data visualization](media/umbra-sar-imagery.png) ](media/umbra-sar-imagery.png#lightbox)
+
+[Description of data source and link to where to get the data]
+
+## Configuration details
+
+# [STAC Collection](#tab/stac)
+
+## STAC Collection configuration
+
+The STAC Collection configuration defines the core metadata for this collection.
+
+```json
+{
+  "id": "umbra-sar",
+  "type": "Collection",
+  "links": [
+    {
+      "rel": "items",
+      "type": "application/geo+json",
+      "href": "https://{geocatalog_id}/stac/collections/umbra-sar/items"
+    },
+    {
+      "rel": "parent",
+      "type": "application/json",
+      "href": "https://{geocatalog_id}/stac/"
+    },
+    {
+      "rel": "root",
+      "type": "application/json",
+      "href": "https://{geocatalog_id}/stac/"
+    },
+    {
+      "rel": "self",
+      "type": "application/json",
+      "href": "https://{geocatalog_id}/stac/collections/umbra-sar"
+    }
+  ],
+  "title": "Umbra SAR Imagery",
+  "assets": {
+    "thumbnail": {
+      "href": "https://{storage_account}.blob.core.windows.net/{blob_container}/collection-assets/thumbnail/blob",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "umbra-sar thumbnail"
+    }
+  },
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2018-01-01T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "Umbra",
+    "X-Band",
+    "SAR",
+    "RTC"
+  ],
+  "providers": [
+    {
+      "url": "https://umbra.space/",
+      "name": "Umbra",
+      "roles": [
+        "processor"
+      ]
+    },
+    {
+      "url": "https://planetarycomputer.microsoft.com",
+      "name": "Microsoft",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "description": "Umbra satellites offer the highest commercially available SAR imagery, surpassing 25 cm resolution. Capable of capturing images day or night, through clouds, smoke, and rain, our technology enables all-weather monitoring.",
+  "item_assets": {
+    "GEC": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "title": "VV: vertical transmit, vertical receive",
+      "description": "Terrain-corrected gamma naught values of signal transmitted with vertical polarization and received with vertical polarization with radiometric terrain correction applied.",
+      "raster:bands": [
+        {
+          "nodata": -32768,
+          "data_type": "uint8",
+          "spatial_resolution": 0.4770254115
+        }
+      ]
+    }
+  },
+  "stac_version": "1.0.0",
+  "msft:_created": "2024-04-05T17:55:17.930092Z",
+  "msft:_updated": "2024-04-05T18:30:16.587869Z",
+  "stac_extensions": [
+    "https://{storage_account}.blob.core.windows.net/{blob_container}/json-schemas/json-schemas/msft/v0.1/schema.json"
+  ],
+  "msft:short_description": "Umbra Synthetic Aperture Radar (SAR) Imagery"
+}
+```
+
+# [Mosaics](#tab/mosaics)
+
+## Mosaics Configuration
+
+The mosaics configuration defines how images are combined when displayed in the Explorer.
+
+```json
+[
+  {
+    "id": "default",
+    "name": "Default",
+    "description": "",
+    "cql": []
+  }
+]
+```
+
+# [Render Options](#tab/render-options)
+
+## Render Options Configuration
+
+The render options configuration defines how imagery is displayed in the Explorer.
+
+```json
+[
+  {
+    "id": "vv-polarization",
+    "name": "VV polarization",
+    "description": "VV asset scaled to `0,.20`.",
+    "type": "raster-tile",
+    "options": "assets=GEC&rescale=0,255&colormap_name=gray",
+    "minZoom": 8,
+    "conditions": [
+      {
+        "property": "sar:polarizations",
+        "value": [
+          "VV"
+        ]
+      }
+    ]
+  }
+]
+```
+
+# [Tile Settings](#tab/tile-settings)
+
+## Tile Settings Configuration
+
+The tile settings configuration defines how data is tiled and displayed at different zoom levels.
+
+```json
+{
+  "minZoom": 12,
+  "maxItemsPerTile": 35,
+  "defaultLocation": null
+}
+```
