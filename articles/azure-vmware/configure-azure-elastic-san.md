@@ -112,9 +112,11 @@ To delete the Elastic SAN-based datastore, use the following steps from the Azur
 1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **Datastore list**.
 1. On the far right is an **ellipsis**. Select **Delete** to disconnect the datastore from the clusters.  
 1. Optionally, you can delete the volume you previously created in your Elastic SAN.
+   ![Disconnect ESAN based datatore](media/configure-azure-elastic-san/disconnect-esan-based-datatore.png)
+   
    > [!NOTE]
    > This operation can't be completed if virtual machines or virtual disks reside on an Elastic SAN VMFS Datastore.
-
+   
 ## Resize an Elastic SAN-based datastore
 
 To resize the Elastic SAN-based datastore, use the following steps from the Azure portal.
@@ -123,7 +125,7 @@ To resize the Elastic SAN-based datastore, use the following steps from the Azur
 1. On the packages, go to the latest Azure VMware Solution VMFS package and select **Resize-VmfsVolume**.
 1. In the run command, enter the ClusterName, DeviceNaaID or DatastoreName details and click **Run**.
 
-![Resize-VmfsVolume.](media/configure-azure-elastic-san/resize-vmfsvolume.png)
+   ![Resize-VmfsVolume](media/configure-azure-elastic-san/resize-vmfsvolume.png)
 
    > [!NOTE]
    > Run Commands are executed one at a time in the order submitted.
