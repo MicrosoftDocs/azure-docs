@@ -102,7 +102,7 @@ If you want to create a new Communication Services resource, see [Create and man
 
 The Contoso administrator can provide Fabrikam Entra ID users with access to the Contoso Azure Communication Services resource through the Azure portal or by using the [Entra ID Assignment REST API](https://learn.microsoft.com/rest/api/communication/identity/communication-identity/entra-id-assignment).
 
-In the Azure portal follow these steps:
+Currently, assigning access to Azure Communication Services resources via the Azure portal is a private preview feature. To access it, launch the Azure Portal using this URL - [Azure Portal with Access Assignment Preview Enabled](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_CommunicationServices=entraIdAccess). In the Azure portal follow these steps:
 1. Navigate to your Communication Services resource.
 2. In the left pane, select **User access for Entra ID** under the **Settings** group.
 3. Click the **Add** button to provide access to an Entra user, group, or entire tenant.
