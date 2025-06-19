@@ -157,3 +157,4 @@ articles/planetary-computer/helper-content/generate_collection_docs.py
 .gitignore
 articles/planetary-computer/sentinel-2-l2a-grindavik.md
 articles/planetary-computer/umbra-sar.md
+articles/planetary-computer/naip-airports.md

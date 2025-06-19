@@ -17,7 +17,7 @@ ms.custom:
 
 [Collection description to be added here]
 
-[ ![Screenshot of Sentinel-2-l2a data visualization](media/sentinel-2-l2a.png) ](media/sentinel-2-l2a.png#lightbox)
+[ ![Screenshot of Sentinel-2-l2a data visualization](media/sentinel-2-imagery.png) ](media/sentinel-2-imagery.png#lightbox)
 
 [Description of data source and link to where to get the data]
 
@@ -683,6 +683,296 @@ The STAC Collection configuration defines the core metadata for this collection.
   ],
   "msft:storage_account": "sentinel2l2a01",
   "msft:short_description": "The Sentinel-2 program provides global imagery in thirteen spectral bands at 10m-60m resolution and a revisit time of approximately five days.  This dataset contains the global Sentinel-2 archive, from 2016 to the present, processed to L2A (bottom-of-atmosphere)."
+}
+```
+
+---
+
+
+## naip-airports Collection Configuration
+
+[Collection description to be added here]
+
+[ ![Screenshot of naip-airports data visualization](media/naip-imagery.png) ](media/naip-imagery.png#lightbox)
+
+[Description of data source and link to where to get the data]
+
+## Configuration details
+
+# [Mosaic](#tab/naip-airports-mosaics)
+
+## Mosaic Configuration
+
+The mosaic configuration defines how images are combined when displayed in the Explorer.
+
+```json
+[
+  {
+    "id": "default",
+    "name": "Default",
+    "description": "",
+    "cql": []
+  }
+]
+```
+
+# [Render Options](#tab/naip-airports-render-options)
+
+## Render Options Configuration
+
+The render options configuration defines how imagery is displayed in the Explorer.
+
+```json
+[
+  {
+    "id": "natural-color",
+    "name": "Natural color",
+    "description": "RGB from visual assets",
+    "type": "raster-tile",
+    "options": "assets=image&asset_bidx=image|1,2,3",
+    "minZoom": 11
+  },
+  {
+    "id": "color-infrared",
+    "name": "Color infrared",
+    "description": "Highlights healthy (red) and unhealthy (blue/gray) vegetation.",
+    "type": "raster-tile",
+    "options": "assets=image&asset_bidx=image|4,1,2&color_formula=Sigmoidal RGB 15 0.35",
+    "minZoom": 12
+  },
+  {
+    "id": "ndvi",
+    "name": "Normalized Difference Veg. Index (NDVI)",
+    "description": "Normalized Difference Vegetation Index (NIR-Red)/(NIR+Red), darker green indicates healthier vegetation.",
+    "type": "raster-tile",
+    "options": "expression=(image_b4 - image_b1)/(image_b4 + image_b1)&rescale=-1,1&colormap_name=rdylgn",
+    "minZoom": 12
+  }
+]
+```
+
+# [Tile Settings](#tab/naip-airports-tile-settings)
+
+## Tile Settings Configuration
+
+The tile settings configuration defines how data is tiled and displayed at different zoom levels.
+
+```json
+{
+  "minZoom": 4,
+  "maxItemsPerTile": 35,
+  "defaultLocation": null
+}
+```
+
+# [STAC Collection](#tab/naip-airports-stac)
+
+## STAC Collection configuration
+
+The STAC Collection configuration defines the core metadata for this collection.
+
+```json
+{
+  "id": "naip-airports",
+  "type": "Collection",
+  "links": [
+    {
+      "rel": "items",
+      "type": "application/geo+json",
+      "href": "https://{geocatalog_id}/stac/collections/naip-airports/items"
+    },
+    {
+      "rel": "parent",
+      "type": "application/json",
+      "href": "https://{geocatalog_id}/stac/"
+    },
+    {
+      "rel": "root",
+      "type": "application/json",
+      "href": "https://{geocatalog_id}/stac/"
+    },
+    {
+      "rel": "self",
+      "type": "application/json",
+      "href": "https://{geocatalog_id}/stac/collections/naip-airports"
+    },
+    {
+      "rel": "license",
+      "href": "https://www.fsa.usda.gov/help/policies-and-links/",
+      "title": "Public Domain"
+    },
+    {
+      "rel": "describedby",
+      "href": "https://planetarycomputer.microsoft.com/dataset/naip",
+      "type": "text/html",
+      "title": "Human readable dataset overview and reference"
+    }
+  ],
+  "title": "naip-airports",
+  "assets": {
+    "thumbnail": {
+      "href": "https://{storage_account}.blob.core.windows.net/{blob_container}/collection-assets/thumbnail/blob",
+      "type": "image/png",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "naip-airports thumbnail"
+    }
+  },
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -124.784,
+          24.744,
+          -66.951,
+          49.346
+        ],
+        [
+          -156.003,
+          19.059,
+          -154.809,
+          20.127
+        ],
+        [
+          -67.316,
+          17.871,
+          -65.596,
+          18.565
+        ],
+        [
+          -64.94,
+          17.622,
+          -64.56,
+          17.814
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2010-01-01T00:00:00Z",
+          "2022-12-31T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "proprietary",
+  "keywords": [
+    "NAIP",
+    "Aerial",
+    "Imagery",
+    "USDA",
+    "AFPO",
+    "Agriculture",
+    "United States"
+  ],
+  "providers": [
+    {
+      "url": "https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/",
+      "name": "USDA Farm Service Agency",
+      "roles": [
+        "producer",
+        "licensor"
+      ]
+    },
+    {
+      "url": "https://www.esri.com/",
+      "name": "Esri",
+      "roles": [
+        "processor"
+      ]
+    },
+    {
+      "url": "https://planetarycomputer.microsoft.com",
+      "name": "Microsoft",
+      "roles": [
+        "host",
+        "processor"
+      ]
+    }
+  ],
+  "summaries": {
+    "gsd": [
+      0.3,
+      0.6,
+      1
+    ],
+    "eo:bands": [
+      {
+        "name": "Red",
+        "common_name": "red",
+        "description": "visible red"
+      },
+      {
+        "name": "Green",
+        "common_name": "green",
+        "description": "visible green"
+      },
+      {
+        "name": "Blue",
+        "common_name": "blue",
+        "description": "visible blue"
+      },
+      {
+        "name": "NIR",
+        "common_name": "nir",
+        "description": "near-infrared"
+      }
+    ]
+  },
+  "description": "The [National Agriculture Imagery Program](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) (NAIP) \nprovides U.S.-wide, high-resolution aerial imagery, with four spectral bands (R, G, B, IR). \nNAIP is administered by the [Aerial Field Photography Office](https://www.fsa.usda.gov/programs-and-services/aerial-photography/) (AFPO) \nwithin the [US Department of Agriculture](https://www.usda.gov/) (USDA). \nData are captured at least once every three years for each state. \nThis dataset represents NAIP data from 2010-present, in [cloud-optimized GeoTIFF](https://www.cogeo.org/) format.\nYou can visualize the coverage of current and past collections [here](https://naip-usdaonline.hub.arcgis.com/). \n",
+  "item_assets": {
+    "image": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "title": "RGBIR COG tile",
+      "eo:bands": [
+        {
+          "name": "Red",
+          "common_name": "red"
+        },
+        {
+          "name": "Green",
+          "common_name": "green"
+        },
+        {
+          "name": "Blue",
+          "common_name": "blue"
+        },
+        {
+          "name": "NIR",
+          "common_name": "nir",
+          "description": "near-infrared"
+        }
+      ]
+    },
+    "metadata": {
+      "type": "text/plain",
+      "roles": [
+        "metadata"
+      ],
+      "title": "FGDC Metdata"
+    },
+    "thumbnail": {
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Thumbnail"
+    }
+  },
+  "msft:region": "westeurope",
+  "stac_version": "1.0.0",
+  "msft:_created": "2024-08-02T13:19:22.446214Z",
+  "msft:_updated": "2024-08-21T17:21:13.132140Z",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json"
+  ],
+  "msft:short_description": "NAIP provides US-wide, high-resolution aerial imagery.  This dataset includes NAIP images from 2010 to the present."
 }
 ```
 
