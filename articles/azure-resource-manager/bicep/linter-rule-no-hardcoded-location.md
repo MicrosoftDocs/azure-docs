@@ -25,18 +25,29 @@ Rather than using a hardcoded string or variable value, use a parameter, the str
 The following example fails this test because the resource's `location` property uses a string literal:
 
 ```bicep
-  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-      location: 'westus'
+resource stg 'Microsoft.Storage/storageAccounts@2024-01-01' = {
+  name: 'stg'
+  location: 'westus'
+  kind: 'StorageV2'
+  sku: {
+    name: 'Premium_LRS'
   }
+}
 ```
 
 You can fix it by creating a new `location` string parameter (which may optionally have a default value - resourceGroup().location is frequently used as a default):
 
 ```bicep
-  param location string = resourceGroup().location
-  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-      location: location
+param location string = resourceGroup().location
+
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: 'stg${uniqueString(resourceGroup().id)}'
+  location: location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Premium_LRS'
   }
+}
 ```
 
 Use **Quick Fix** to create a location parameter and replace the string literal with the parameter name. See the following screenshot:
@@ -46,19 +57,19 @@ Use **Quick Fix** to create a location parameter and replace the string literal 
 The following example fails this test because the resource's `location` property uses a variable with a string literal.
 
 ```bicep
-  var location = 'westus'
-  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-      location: location
-  }
+var location = 'westus'
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  location: location
+}
 ```
 
 You can fix it by turning the variable into a parameter:
 
 ```bicep
-  param location string = 'westus'
-  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-      location: location
-  }
+param location string = 'westus'
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+    location: location
+}
 ```
 
 The following example fails this test because a string literal is being passed in to a module parameter that is in turn used for a resource's `location` property:
