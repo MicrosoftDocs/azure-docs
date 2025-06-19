@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.custom: template-tutorial
+# Customer intent: As a cloud administrator, I want to configure different routing preferences for a virtual machine's network interfaces, so that I can optimize network performance based on specific application requirements.
 ---
 
 # Tutorial: Configure both routing preference options for a virtual machine using the Azure portal

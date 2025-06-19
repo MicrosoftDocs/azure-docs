@@ -7,6 +7,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.custom: subject-policy-reference
+# Customer intent: "As a cloud administrator, I want to access built-in policy definitions for Azure Virtual Network, so that I can effectively manage and enforce compliance across my Azure resources."
 ---
 
 # Azure Policy built-in definitions for Azure Virtual Network

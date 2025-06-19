@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
 ms.date: 08/05/2024
+# Customer intent: As a network administrator, I want to bring my own IP address range to Azure, so that I can maintain my established reputation and utilize it seamlessly with Azure resources.
 ---
 
 # Custom IP address prefix (BYOIP)

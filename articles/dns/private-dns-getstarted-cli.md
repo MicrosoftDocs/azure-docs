@@ -9,6 +9,7 @@ ms.date: 11/30/2023
 ms.author: allensu
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
+# Customer intent: "As a network administrator, I want to create and manage a private DNS zone using command line tools, so that I can efficiently resolve host names within my private network environment."
 ---
 
 # Quickstart: Create an Azure private DNS zone using the Azure CLI

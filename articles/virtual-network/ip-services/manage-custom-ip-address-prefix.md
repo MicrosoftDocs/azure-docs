@@ -11,6 +11,7 @@ ms.subservice: ip-services
 ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
 
+# Customer intent: As a network administrator, I want to manage custom IP address prefixes in my Azure subscription so that I can efficiently migrate and decommission my IP ranges while ensuring uninterrupted service and optimal routing.
 ---
 
 # Manage a custom IP address prefix

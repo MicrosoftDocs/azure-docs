@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 07/24/2024
 ms.custom: template-how-to, powershell, cli
+# Customer intent: As a cloud infrastructure administrator, I want to configure an existing virtual machine with both IPv4 and IPv6 addresses, so that I can enable dual-stack networking and enhance compatibility with modern applications and services.
 ---
 
 # Add a dual-stack network to an existing virtual machine

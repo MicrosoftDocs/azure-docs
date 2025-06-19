@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.date: 01/09/2025
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: As a network engineer, I want to create a public IP address using the command line interface, so that I can efficiently manage and configure resources for public connections in Azure.
 ---
 
 # Quickstart: Create a public IP address using the Azure CLI

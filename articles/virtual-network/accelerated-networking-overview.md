@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 10/22/2024
 ms.custom: linux-related-content
+# Customer intent: "As a cloud architect, I want to implement Accelerated Networking on Azure VMs, so that I can enhance networking performance by reducing latency and CPU utilization for my high-demand applications."
 ---
 
 # Accelerated Networking overview

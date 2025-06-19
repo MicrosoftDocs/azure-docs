@@ -9,6 +9,7 @@ ms.date: 04/22/2025
 
 #customer intent: As an administrator or network engineer, I want to create a virtual network and test traffic between virtual machines in the same virtual network.
 
+# Customer intent: "As a network engineer, I want to deploy a virtual network with multiple subnets and virtual machines, so that I can establish secure communication and test connectivity between the resources within the network."
 ---
 
 # Quickstart: Create an Azure Virtual Network

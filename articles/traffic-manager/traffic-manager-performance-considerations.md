@@ -7,6 +7,7 @@ ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 08/08/2024
 ms.author: allensu
+# Customer intent: "As a web application administrator, I want to evaluate the performance of Azure Traffic Manager's DNS resolution, so that I can ensure minimal latency and optimal failover experience for users accessing my website across different regions."
 ---
 
 # Performance considerations for Traffic Manager

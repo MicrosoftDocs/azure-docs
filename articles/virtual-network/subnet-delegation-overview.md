@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 04/15/2025
 ms.author: allensu
+# Customer intent: As a network administrator, I want to delegate subnets to specific Azure services, so that I can manage network configurations and policies effectively for better integration and performance within my virtual network.
 ---
 
 # What is subnet delegation?

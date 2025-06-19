@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
 ms.date: 06/11/2025
+# Customer intent: "As an Azure network administrator, I want to transition from default outbound access to explicit outbound connectivity for virtual machines, so that I can ensure secure and reliable internet access while avoiding potential disruptions from IP address changes."
 ---
 
 # Default outbound access in Azure

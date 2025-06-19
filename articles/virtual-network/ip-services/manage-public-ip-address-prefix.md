@@ -8,6 +8,7 @@ ms.date: 01/08/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
+# Customer intent: As a network administrator, I want to create, modify, or delete public IP address prefixes, so that I can efficiently manage IP address allocations and ensure resource connectivity in my Azure environment.
 ---
 
 # Manage a public IP address prefix

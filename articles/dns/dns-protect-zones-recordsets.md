@@ -9,6 +9,7 @@ ms.date: 11/30/2023
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: "As a network administrator, I want to implement access controls and protection mechanisms for DNS zones and records, so that I can prevent unauthorized changes and accidental deletions that could disrupt service availability."
 ---
 
 # How to protect DNS zones and records

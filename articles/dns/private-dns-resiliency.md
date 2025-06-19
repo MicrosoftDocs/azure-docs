@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 06/09/2023
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to understand the resiliency features of Private DNS zones, so that I can ensure continuous name resolution during regional outages and maintain service availability across my network infrastructure."
 ---
 
 # Azure Private DNS zone resiliency

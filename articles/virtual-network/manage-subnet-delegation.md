@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 04/21/2025
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a network administrator, I want to add or remove subnet delegations in an Azure virtual network, so that I can manage service-specific permissions for resource deployment effectively."
 ---
 
 # Add or remove a subnet delegation

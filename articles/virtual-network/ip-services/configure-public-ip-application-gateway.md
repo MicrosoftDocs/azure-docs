@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 01/07/2025
 ms.custom: template-how-to 
+# Customer intent: As a cloud architect, I want to manage a public IP address with an Application Gateway, so that I can efficiently route and balance web traffic to my applications.
 ---
 
 # Manage a public IP address with an Azure Application Gateway

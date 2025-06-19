@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.service: azure-dns
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an administrator or developer, I want to learn how to create Azure DNS Private Resolver using ARM template so I can use Azure DNS Private Resolver as forwarder..
+# Customer intent: As a network administrator, I want to create an Azure DNS Private Resolver using an ARM template, so that I can manage DNS queries between Azure and on-premises networks effectively.
 ---
 
 # Quickstart: Create an Azure DNS Private Resolver using an ARM template

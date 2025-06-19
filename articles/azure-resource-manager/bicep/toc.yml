@@ -355,7 +355,7 @@ items:
       displayName: getSecret,readEnvironmentVariable
       href: bicep-functions-parameters-file.md
     - name: Resource functions
-      displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,subscriptionResourceId,tenantResourceId,toLogicalZone,toPhysicalZone
+      displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,subscriptionResourceId,tenantResourceId,toLogicalZone,toLogicalZones,toPhysicalZone,toPhysicalZones
       href: bicep-functions-resource.md
     - name: Scope functions
       displayName: managementGroup,resourceGroup,subscription,tenant

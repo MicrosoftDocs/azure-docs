@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 04/21/2025
 ms.author: avirupcha
 ms.custom: references_regions
+# Customer intent: "As a network administrator, I want to stream virtual machine network traffic using a TAP configuration, so that I can analyze and monitor network performance effectively with a partner solution."
 ---
 
 # Virtual network TAP

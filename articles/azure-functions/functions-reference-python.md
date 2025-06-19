@@ -1344,6 +1344,9 @@ class TestFunction(unittest.TestCase):
 
 Inside your *.venv* Python virtual environment folder, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
 
+> [!NOTE]
+> Durable Functions require special syntax for unit testing. For more information, refer to [Unit Testing Durable Functions in Python](durable/durable-functions-unit-testing-python.md)
+
 ::: zone-end
 
 ## Temporary files

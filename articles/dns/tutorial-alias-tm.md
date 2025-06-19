@@ -10,6 +10,7 @@ ms.date: 09/19/2024
 ms.author: allensu
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS alias records to use my apex domain name with Traffic Manager.
+# Customer intent: "As a network administrator, I want to create and configure an alias record for my apex domain in Azure DNS, so that I can efficiently route traffic to my Traffic Manager profile without using a redirecting service."
 ---
 
 # Tutorial: Create an alias record to support apex domain names with Traffic Manager 

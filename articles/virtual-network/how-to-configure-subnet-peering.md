@@ -10,6 +10,7 @@ ms.date: 12/03/2024
 
 #customer intent: As a network administrator, I want to configure subnet peering between two virtual networks in azure
 
+# Customer intent: "As a network administrator, I want to configure subnet peering between specific subnets in Azure virtual networks, so that I can optimize connectivity and resource sharing while maintaining control over which subnets participate in the peering."
 ---
 
 # How to configure subnet peering

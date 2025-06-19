@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/07/2025
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a network administrator, I want to create, update, and delete DNS zones using PowerShell, so that I can efficiently manage my domain's DNS infrastructure within Azure.
 ---
 
 # How to manage DNS Zones using PowerShell

@@ -8,6 +8,7 @@ ms.date: 04/01/2025
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: "As a network engineer, I want to diagnose network traffic filter issues on a virtual machine, so that I can identify and resolve connectivity problems due to conflicting security rules."
 ---
 
 # Diagnose a virtual machine network traffic filter problem

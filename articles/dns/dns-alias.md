@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 09/24/2024
 ms.author: allensu
+# Customer intent: "As a DNS administrator, I want to use alias records in Azure DNS, so that I can dynamically reference Azure resources and prevent dangling DNS records while ensuring quick updates to DNS entries when underlying resources change."
 ---
 
 # Azure DNS alias records overview

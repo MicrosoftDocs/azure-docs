@@ -7,6 +7,7 @@ ms.topic: reference
 author: asudbring
 ms.author: allensu
 ms.service: azure-dns
+# Customer intent: "As a network administrator, I want to monitor Azure DNS metrics, so that I can track query volume, record set counts, and capacity utilization to ensure reliable and efficient DNS performance."
 ---
 
 # Azure DNS monitoring data reference

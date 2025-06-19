@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 04/15/2025
 ms.author: allensu
+# Customer intent: As a network architect, I want to understand Azure Virtual Network concepts and best practices, so that I can design an efficient, secure, and scalable network infrastructure for my organization's cloud-based applications.
 ---
 
 # Azure Virtual Network concepts and best practices

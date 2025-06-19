@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 01/07/2025
+# Customer intent: As a network engineer, I want to configure a VPN gateway using an existing public IP address, so that I can establish secure, encrypted connections between Azure virtual networks and on-premises locations.
 ---
 
 # Manage a public IP address with a VPN gateway

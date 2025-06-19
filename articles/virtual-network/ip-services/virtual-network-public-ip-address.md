@@ -9,6 +9,7 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
+# Customer intent: "As a cloud network administrator, I want to create, modify, or delete public IP addresses in Azure, so that I can manage network connectivity for my resources efficiently and ensure compliance before the upcoming SKU retirement deadline."
 ---
 
 # Create, change, or delete an Azure public IP address

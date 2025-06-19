@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 04/21/2025
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to utilize service tags for defining security rules, so that I can simplify network access controls and maintain effective security management for Azure resources."
 ---
 
 # Virtual network service tags

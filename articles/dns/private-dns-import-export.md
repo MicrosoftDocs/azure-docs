@@ -9,6 +9,7 @@ ms.custom: devx-track-azurecli
 ms.date: 06/13/2024
 ms.author: allensu
 ms.topic: how-to
+# Customer intent: "As a network administrator, I want to efficiently import and export DNS zone files using a command-line interface, so that I can manage DNS records in Azure private DNS without relying on graphical tools."
 ---
 
 # Import and export a private DNS zone file for Azure private DNS

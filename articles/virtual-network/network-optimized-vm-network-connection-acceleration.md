@@ -6,6 +6,7 @@ author: asudbring
 ms.topic: concept-article  
 ms.date: 05/19/2025
 ms.author: allensu
+# Customer intent: As a cloud architect, I want to implement Network Optimized Virtual Machines, so that I can achieve lower latency and higher connection scalability for applications requiring enhanced networking performance.
 ---  
 
 # Network optimized virtual machine connection acceleration (Preview)

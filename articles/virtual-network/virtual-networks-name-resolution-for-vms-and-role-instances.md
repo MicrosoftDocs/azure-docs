@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/02/2024
 ms.author: allensu
 ms.custom: fasttrack-edit, linux-related-content
+# Customer intent: As a cloud network administrator, I want to implement effective name resolution for resources within Azure virtual networks so that I can facilitate seamless communication between virtual machines and services across both Azure and hybrid environments.
 ---
 
 # Name resolution for resources in Azure virtual networks

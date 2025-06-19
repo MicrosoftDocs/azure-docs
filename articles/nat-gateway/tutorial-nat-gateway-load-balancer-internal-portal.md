@@ -8,6 +8,7 @@ ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 08/30/2024
 ms.custom: template-tutorial, linux-related-content
+# Customer intent: "As a cloud architect, I want to integrate a NAT gateway with an internal load balancer, so that I can enhance outbound connectivity and manage resources efficiently without deploying a public load balancer or public IPs on virtual machines."
 ---
 
 # Tutorial: Integrate a NAT gateway with an internal load balancer using the Azure portal

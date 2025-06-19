@@ -12,6 +12,7 @@ ms.custom:
   - ignite-2023
 ms.date: 04/15/2025
 ms.author: allensu
+# Customer intent: As a network administrator, I want to add, change, or delete subnets in a virtual network, so that I can effectively manage the network configuration and resources for my organization.
 ---
 
 # Add, change, or delete a virtual network subnet

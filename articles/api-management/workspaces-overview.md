@@ -132,6 +132,7 @@ The following constraints currently apply to workspace gateways:
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
 * Workspace gateways don't support CA certificates
 * Workspace gateways don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy
+* Workspace gateways can only be created in the API Management instance's primary Azure region 
 
 ## RBAC roles for workspaces
 

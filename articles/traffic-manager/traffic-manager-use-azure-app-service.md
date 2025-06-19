@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 07/17/2024
 ms.author: allensu
 ms.custom: template-how-to
+# Customer intent: As a developer, I want to integrate Azure Traffic Manager with Azure App Service, so that I can ensure high availability, optimize geographic routing, and effectively balance traffic across my applications.
 ---
 
 # Use Azure App Service with Azure Traffic Manager

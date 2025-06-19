@@ -9,6 +9,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/02/2024
 ms.author: allensu
+# Customer intent: As a system administrator managing Azure virtual machines, I want to optimize network throughput for both Windows and Linux VMs, so that I can improve performance and ensure efficient resource utilization during data transfers.
 ---
 
 # Optimize network throughput for Azure virtual machines

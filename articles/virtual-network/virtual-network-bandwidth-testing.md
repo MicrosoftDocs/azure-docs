@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/15/2025
 ms.author: allensu
+# Customer intent: As a cloud engineer, I want to test network throughput between virtual machines using NTTTCP, so that I can assess the bandwidth performance of my Azure virtual network configurations.
 ---
 
 # Test virtual machine network throughput by using NTTTCP

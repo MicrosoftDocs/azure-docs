@@ -10,6 +10,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 01/09/2025
 ms.custom: mode-ui
+# Customer intent: "As a network engineer, I want to create a public IP address prefix so that I can efficiently manage and allocate static IP addresses to Azure resources."
 ---
 
 # Quickstart: Create a public IP address prefix using the Azure portal
