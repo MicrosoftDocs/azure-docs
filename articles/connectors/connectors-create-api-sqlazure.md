@@ -131,7 +131,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    :::image type="content" source="media/connectors-create-api-sqlazure/when-item-created-consumption.png" alt-text="Screenshot shows Consumption workflow designer and managed action named When an item is created." lightbox="media/connectors-create-api-sqlazure/when-item-created-consumption.png":::
 
-1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
+1. Add any other available parameters that you want from the **Advanced parameters** list.
 
    This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL Server connector action](#add-sql-action) or another action that performs the next task that you want in your logic app workflow.
 
