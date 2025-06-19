@@ -56,7 +56,7 @@ For this quickstart, we'll use the [DefaultAzureCredential](/dotnet/api/azure.id
 private DefaultAzureCredential credential = new DefaultAzureCredential();
 ```
 
-## Issue a Token with Service Principals
+## Issue a token with service principals
 
 Add the following method to your `Program.cs` file. This method uses the Azure Communication Services SDK to issue a VoIP Access Token:
 
