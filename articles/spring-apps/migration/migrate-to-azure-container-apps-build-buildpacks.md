@@ -16,6 +16,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 **This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
+> [!NOTE]
+> This article previously recommended using the [Paketo Java Azure Composite Buildpack](https://github.com/paketo-buildpacks/java-azure), which is discontinued. We've updated the example to use the necessary individual components of the composite buildpack. For a list of all individual components included in the composite buildpack, please refer to [buildpack.toml](https://github.com/paketo-buildpacks/java-azure/blob/main/buildpack.toml). For more information about the discontinuation of the composite buildpack, see [Paketo Buildpacks Sunsets Java Azure Composite Buildpack](https://blog.paketo.io/posts/paketo-java-azure-sunsets/).
+
 This article describes how to build a container image by using Paketo Buildpacks.
 
 Azure Spring Apps service supports building an image from source code without using Dockerfiles. It isn't limited to Java applications but extends to other programming languages and even static web content. In the Standard plan, the service uses open-source [Paketo Buildpacks](https://paketo.io/), while in Enterprise plan, it uses VMware Tanzu Buildpacks. If Tanzu Buildpacks are unavailable or there's no online service for using Paketo, you can switch to local Paketo Buildpacks to build images. Then deploy them to Azure Container Registry or other Docker registries.
@@ -29,7 +32,7 @@ This article shows you how to create a builder with a TOML file, and then build 
 
 ## Standard plan
 
-The Azure Spring Apps Standard plan comes with a built-in builder, which you can't customize. To replace this builder, you need to create a TOML file for your own builder. Below is an example TOML file that can be customized to build a Java Spring Boot app with Application Insights. Adjust the TOML file based on your app's requirements. You can refer to the configuration of [Paketo Java Azure Composite Buildpack](https://github.com/paketo-buildpacks/java-azure). Please note that Paketo Java Azure Buildpack has been sunset. For more information, refer to [Paketo Buildpacks Sunsets Java Azure Composite Buildpack](https://blog.paketo.io/posts/paketo-java-azure-sunsets/)
+The Azure Spring Apps Standard plan comes with a built-in builder, which you can't customize. To replace this builder, you need to create a TOML file for your own builder. Below is an example TOML file that can be customized to build a Java Spring Boot app with Application Insights. Please adjust the TOML file based on your app's requirements. 
 
 ```toml
 # filename: standard-builder.toml
@@ -202,9 +205,7 @@ The following table shows the Paketo Buildpack equivalents to the buildpacks use
 | `tanzu-buildpacks/python`            | [paketo-buildpacks/python](https://github.com/paketo-buildpacks/python)                       |
 | `tanzu-buildpacks/web-servers`       | [paketo-buildpacks/web-servers](https://github.com/paketo-buildpacks/web-servers)             |
 
-Please note that [paketo-buildpacks/java-azure](https://github.com/paketo-buildpacks/java-azure) has been sunset. It has to be replaced by an alternative solution. For more information, refer to [Paketo Buildpacks Sunsets Java Azure Composite Buildpack](https://blog.paketo.io/posts/paketo-java-azure-sunsets/).
-
-To replace the builder in the Enterprise plan, you need to create a TOML file for your own builder. Below is an example TOML file that can be customized. With this TOML file, you can create a similar builder on your local machine. Please adjust the TOML file based on your app's requirements. You can refer to the configuration of [paketo-buildpacks/java-azure](https://github.com/paketo-buildpacks/java-azure).
+To replace the builder in the Enterprise plan, you need to create a TOML file for your own builder. Below is an example TOML file that can be customized. With this TOML file, you can create a similar builder on your local machine. Please adjust the TOML file based on your app's requirements.
 
 ```toml
 # filename: enterprise-builder.toml
