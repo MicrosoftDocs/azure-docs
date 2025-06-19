@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure a sidecar for a custom container app'
-description: Add sidecar containers to your custom container in Azure App Service. Add or update services to your application without changing your application container.
+description: Add sidecar containers to your custom container in Azure App Service to add or update application services without changing your main container.
 ms.topic: tutorial
 ms.date: 06/18/2025
 ms.author: cephalin
@@ -28,9 +28,11 @@ For bring-your-own-code Linux apps, see [Tutorial: Configure a sidecar container
   1. Sign in to Azure if necessary, and make sure you're in the **Bash** environment of Cloud Shell.
   1. Select **Copy** in a code block, paste the code into Cloud Shell, and run it.
 
+     The commands in this tutorial use the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview), an open-source tool that accelerates provisioning and deploying app resources on Azure.
+
 ## 1. Set up the tutorial resources
 
-To create the resources that this tutorial uses, run the following commands in Cloud Shell. When prompted, provide the Azure subscription and Azure region you want to use.
+To create the resources that this tutorial uses, run the following commands in Cloud Shell. When prompted, select the Azure subscription and Azure region you want to use.
 
    ```bash
    git clone https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs
@@ -39,98 +41,118 @@ To create the resources that this tutorial uses, run the following commands in C
    azd provision
     ```
 
-The `azd provision` command uses the included templates to create the following Azure resources:
+The `azd provision` command uses the included templates to create an Azure resource group called `my-sidecar-env_group` that contains the following Azure resources:
 
-- A resource group called *my-sidecar-env_group*.
-- A [container registry](/azure/container-registry/container-registry-intro) with two images deployed:
-  - An Nginx image with the `OpenTelemetry` module.
-  - An `OpenTelemetry` collector image, configured to export to [Azure Monitor](/azure/azure-monitor/overview).
+- A [container registry](/azure/container-registry/container-registry-intro) with two repositories, containing the following images:
+  - An `nginx` image with the OpenTelemetry module.
+  - An `otel-collector` OpenTelemetry collector image, configured to export to [Azure Monitor](/azure/azure-monitor/overview).
 - A [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview).
-- An [Application Insights](/azure/azure-monitor/app/app-insights-overview) component.
+- An [Application Insights](/azure/azure-monitor/app/app-insights-overview) component and Application Insights Smart Detection action group.
+- A user-assigned [managed identity](/entra/identity/managed-identities-azure-resources/overview) called `id-my-sidecar-env_group`.
 
-When deployment completes, you should see the following output:
+When deployment completes, you should see similar to the following output:
 
 ```bash
-    APPLICATIONINSIGHTS_CONNECTION_STRING = InstrumentationKey=...;IngestionEndpoint=...;LiveEndpoint=...
-    Open resource group in the portal: https://portal.azure.com/#@/resource/subscriptions/<your-subscription>/resourceGroups/my-sidecar-env_group
+Success!
+
+APPLICATIONINSIGHTS_CONNECTION_STRING = InstrumentationKey=2462f7fd-02ad-4af1-9ca1-ceb8b48d7893;IngestionEndpoint=https://eastus2-3.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus2.livediagnostics.monitor.azure.com/;ApplicationId=753ad4ce-d852-4118-8d11-d9c5ad3b2252
+Azure container registry name = acro2lc774l6vjgg
+Managed identity resource ID = /subscriptions/116dc797-1663-4e33-92f6-195da3734e6e/resourceGroups/my-sidecar-env_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-my-sidecar-env_group
+Managed identity client ID = ca492300-1051-401e-b5b1-74be61ca03c1
+
+Open resource group in the portal: https://portal.azure.com/#@/resource/subscriptions/116dc797-1663-4e33-92f6-195da3734e6e/resourceGroups/my-sidecar-env_group
 ```
 
-Open the resource group link in a browser tab. Take note of the connection string to use later.
+Copy and save the value for `APPLICATIONINSIGHTS_CONNECTION_STRING` to use later in this tutorial. Select the `Open resource group in the portal` link to open the resource group in the Azure portal.
 
 ## 2. Create a sidecar-enabled app
 
-1. In the resource group's page in the Azure portal, select **Create**.
-1. Search for *web app*, then select the down arrow on **Create** and select **Web App**.
+In this section, you create the Linux custom container app and main container, and enable sidecar support for the app.
 
-    :::image type="content" source="media/tutorial-custom-container-sidecar/create-web-app.png" alt-text="Screenshot showing the Azure Marketplace page with the web app being searched and create web app buttons being clicked.":::
+1. On the resource group's page in the Azure portal, select **Create**.
+1. On the **Marketplace** page, search for *web app*, select the down arrow next to **Create** on the **Web App** tile, and then select **Web App**.
 
-1. Configure the **Basics** panel as follows:
-    - **Name**: A unique name
-    - **Publish**: **Container**
-    - **Operating System**: **Linux**
-    - **Region**: Same region as the one you chose with `azd provision`
-    - **Linux Plan**: A new App Service plan
+   :::image type="content" source="media/tutorial-custom-container-sidecar/create-web-app.png" alt-text="Screenshot showing Azure Marketplace page with web app being searched and create web app button highlighted.":::
 
-    :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-basics-panel.png" alt-text="Screenshot showing the web app create wizard and settings for a Linux custom container app highlighted.":::
+1. On the **Basics** tab of the **Create Web App** screen, provide the following information:
+   - **Name**: Enter a unique name for the web app.
+   - **Publish**: Select **Container**.
+   - **Operating System**: Select **Linux**.
+   - **Region**: Select the same region as the one you chose with `azd provision`.
+   - **Linux Plan**: Select the provided **(New)** App Service plan.
 
-1. Select **Container**. Configure the **Container** panel as follows:
-    - **Sidecar support**: **Enabled**
-    - **Image Source**: **Azure Container Registry**
-    - **Registry**: The registry created by `azd provision`
-    - **Image**: **nginx**
-    - **Tag**: **latest**
-    - **Port**: **80**
+    :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-basics-panel.png" alt-text="Screenshot showing the Basic settings for the Linux custom container web app.":::
 
-    :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-container-panel.png" alt-text="Screenshot showing the web app create wizard and settings for the container image and the sidecar support highlighted.":::
+1. Leave the rest of the settings as they are, and select the **Container** tab at the top of the page.
+
+1. On the **Container** tab, select the following settings:
+   - **Sidecar support**: Set to **Enhanced configuration with sidecar support on**.
+   - **Image Source**: Select **Azure Container Registry**.
+   - **Name**: Make sure *main* appears.
+   - **Registry**: Select the registry created by `azd provision`.
+   - **Authentication**: Select **Managed Identity**.
+   - **Identity**: Select the managed identity created by `azd provision`.
+   - **Image**: Enter *nginx*.
+   - **Tag**: Enter *latest*.
+   - **Port**: Enter *80* if not already set.
+
+    :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-container-panel.png" alt-text="Screenshot showing the Container settings for the Linux custom container web app with settings for the container image and the sidecar support highlighted.":::
 
     > [!NOTE]
-    > These settings are configured differently in sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers).
+    > These settings are configured differently in sidecar-enabled apps than in non-sidecar enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers](#what-are-the-differences-for-sidecar-enabled-custom-containers).
 
-1. Select **Review + create**, then select **Create**.
+1. Select **Review + create**, and when validation passes, select **Create**.
 
 1. Once the deployment completes, select **Go to resource**.
 
-1. In a new browser tab, navigate to `https://<app-name>.azurewebsites.net` and see the default Nginx page.
+1. On your app's page, open the URL next to **Default domain**, such as `https://<app-name>.azurewebsites.net`, in a new browser tab to see the default **nginx** page.
 
 ## 3. Add a sidecar container to the app
 
-1. On the app's page in the Azure portal, select **Deployment Center** from the left navigation menu. The **Deployment Center** page shows the main app container.
+In this section, you add a sidecar container to your Linux custom container app.
 
-1. Select **Add** and configure the new container as follows:
-    - **Name**: *otel-collector*
-    - **Image source**: **Azure Container Registry**
-    - **Registry**: The registry created by `azd provision`
-    - **Image**: **otel-collector**
-    - **Tag**: **latest**
+1. On the app's page in the Azure portal, select **Deployment Center** under **Deployment** in the left navigation menu. The **Deployment Center** page shows all the containers in the app, which is currently only the main container.
+
+1. Select **Add** > **Custom container**.
+
+1. On the **Add container** pane, complete the following information:
+   - **Name**: Enter *otel-collector*.
+   - **Image source**: Select **Azure Container Registry**.
+   - **Registry**: Select the registry created by `azd provision`.
+   - **Authentication**: Select **Managed Identity**.
+   - **Identity**: Under **User assigned**, select the managed identity created by `azd provision`.
+   - **Image**: Enter *otel-collector*.
+   - **Image tag**: Enter *latest*.
+   - **Port**: Enter *4317*.
 
 1. Select **Apply**.
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/add-sidecar-container.png" alt-text="Screenshot showing how to configure a sidecar container in a web app's deployment center.":::
 
-You should now see two containers in the deployment center labeled **Main** and **Sidecar**. An app must have one main container and can have multiple sidecar containers.
+There are now two containers in the deployment center labeled **Main** and **Sidecar**. An app must have one main container and can have multiple sidecar containers.
 
 ## 4. Configure environment variables
 
-For the sample scenario, the otel-collector sidecar is configured to export the OpenTelemetry data to Azure Monitor using the connection string as an environment variable. For more information, see the [OpenTelemetry configuration file for the otel-collector image](https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs/blob/main/images/otel-collector/otel-collector-config.yaml).
+For the sample scenario, the `otel-collector` sidecar is configured to export the OpenTelemetry data to Azure Monitor using the connection string as an environment variable. For more information, see the [OpenTelemetry configuration file for the otel-collector image](https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs/blob/main/images/otel-collector/otel-collector-config.yaml).
 
 You configure environment variables for the containers like for any App Service app by configuring [app settings](configure-common.md#configure-app-settings). The app settings are accessible to all the containers in the app.
-1. On the app's page in the Azure portal, select **Environment variables** from the left navigation menu.
-1. On the **Environment variables** page, select **Add** to add an app setting.
-1. Configure it as follows:
-    - **Name**: *APPLICATIONINSIGHTS_CONNECTION_STRING*
-    - **Value**: The connection string in the output of `azd provision`. If you lost the Cloud Shell session, you can also find it in the **Overview** page of the Application Insight resource, under **Connection String**.
-1. Select **Apply**, then **Apply**, then **Confirm**.
+1. On the app's page in the Azure portal, select **Environment variables** under **Settings** in the left navigation menu.
+1. On the **App settings** tab of the **Environment variables** page, select **Add**.
+1. On the **Add/Edit application setting** pane, enter the following values:
+   - **Name**: *APPLICATIONINSIGHTS_CONNECTION_STRING*
+   - **Value**: The `APPLICATIONINSIGHTS_CONNECTION_STRING` value from the output of `azd provision`. You can also find the value on the **Overview** page of the Application Insight resource, under **Connection String**.
+1. Select **Apply**, then select **Apply** again, and then select **Confirm**.
 
    :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
 > [!NOTE]
-> Some app settings don't apply to sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
+> Some app settings don't apply to sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers](#what-are-the-differences-for-sidecar-enabled-custom-containers).
 
 ## 5. Verify in Application Insights
 
 The `otel-collector` sidecar should export data to Application Insights now.
 
-1. Go to the browser tab for `https://<app-name>.azurewebsites.net` and refresh the page a few times to generate some web requests.
+1. Go to the browser tab for your app and refresh the page a few times to generate some web requests.
 1. On the resource group page in the Azure portal, select the **Application Insights** resource. You should now see some data in the default charts.
 
    :::image type="content" source="media/tutorial-custom-container-sidecar/app-insights-view.png" alt-text="Screenshot of the Application Insights page showing data in the default charts.":::
@@ -156,10 +178,10 @@ azd down
 
 Sidecar-enabled apps are configured differently than apps that aren't sidecar-enabled.
 
-- A sidecar-enabled app is designated by `LinuxFxVersion=sitecontainers` and configured with a [sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers) resource. For more information, see [az webapp config set --linux-fx-version](/cli/azure/webapp/config).
-- For non-sidecar enabled apps, container name and types are configured directly with `LinuxFxVersion=DOCKER|<image-details>`. For more information, see [az webapp config set --linux-fx-version](/cli/azure/webapp/config).
+- Sidecar-enabled apps are designated by `LinuxFxVersion=sitecontainers` and configured with [sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers) resources. For more information, see [az webapp config set --linux-fx-version](/cli/azure/webapp/config).
+- Non-sidecar enabled app container names and types are configured directly with `LinuxFxVersion=DOCKER|<image-details>`. For more information, see [az webapp config set --linux-fx-version](/cli/azure/webapp/config).
 
-For non-sidecar enabled apps, the main container is configured with app settings such as:
+Non-sidecar enabled apps configure the main container with app settings such as:
 
 - `DOCKER_REGISTRY_SERVER_URL`
 - `DOCKER_REGISTRY_SERVER_USERNAME`

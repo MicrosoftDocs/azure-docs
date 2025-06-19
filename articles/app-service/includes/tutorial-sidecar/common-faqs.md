@@ -14,21 +14,20 @@ In the **Edit container** dialog, the **Port** box isn't currently used by App S
 
 ### Can a sidecar container receive internet requests?
 
-No. App Service routes internet requests only to the main container. For code-based Linux apps, the built-in Linux container is the main container, and any sidecar container [sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers) should be added with `IsMain=false`. For custom containers, all except one of the [sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers) should have `IsMain=false`.
+No. App Service routes internet requests only to the main container. For code-based Linux apps, the built-in Linux container is the main container, and any sidecar [sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers) should be added with `IsMain=false`.
 
-For more information on configuring `IsMain`, see [Microsoft.Web sites/sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers).
+For custom containers, all except one of the [sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers) should have `IsMain=false`. For more information on configuring `IsMain`, see [Microsoft.Web sites/sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers).
 
 ### How do I use volume mounts?
 
-The volume mounts feature enables you to share non-persistent files and directories between containers within your web app.
+The volume mounts feature lets you share non-persistent files and directories between containers within your web app. To add or configure volume mounts, use **Volume mounts** on the **Add container** or **Edit container** page.
 
 :::image type="content" source="../../media/tutorial-custom-container-sidecar/configure-volume-mounts.png" alt-text="Screenshot showing a volume mount configuration for a sidecar container.":::
 
-**Volume sub path** is a logical directory path that's automatically created and isn't referenced within the container. Containers that are configured with the same volume sub path can share files and directories.
+- **Volume sub path** is a logical directory path that's automatically created and isn't referenced within the container. Containers that are configured with the same volume sub path can share files and directories.
+- **Container mount path** corresponds to a directory path that you reference within the container. The container mount path is mapped to the volume sub path.
 
-**Container mount path** corresponds to a directory path that you reference within the container. The container mount path is mapped to the volume sub path.
-
-For example, suppose the following volume mounts are configured:
+For example, suppose you configure the following volume mounts:
 
 | Sidecar name | Volume sub path | Container mount path | Read-only |
 | ------------ | --------------- | -------------------- | --------- |
