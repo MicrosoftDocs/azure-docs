@@ -703,7 +703,7 @@ The `device_login` check fails if the iDRAC isn't reachable or if the hardware v
 ```
 
 > [!NOTE]
-> When hardware validation fails due to BMC credential authentication issues (Unauthorized), the action is rejected but the Bare Metal Machine isn't marked as failed or put into an error state. The BMM maintains its current operational status while the hardware validation reports the credential authentication failure.
+> When hardware validation fails due to BMC credential authentication issues (Unauthorized), the action is rejected but the Bare Metal Machine isn't marked as failed or put into an error state. The Bare Metal Machine maintains its current operational status while the hardware validation reports the credential authentication failure.
 
 To set a password in the BMC web UI follow navigation path `BMC` -> `iDRAC Settings` -> `Users` -> `Local Users` -> `Edit`.
 
