@@ -12,21 +12,138 @@ ms.custom:
 
 # Microsoft Planetary Computer Pro Data Visualization Gallery
 
+
 ## Sentinel-2-l2a Collection Configuration
 
 [Collection description to be added here]
 
-![Screenshot of Sentinel-2-l2a data visualization](path/to/screenshot.png)
+[ ![Screenshot of Sentinel-2-l2a data visualization](media/sentinel-2-l2a.png) ](media/sentinel-2-l2a.png#lightbox)
 
 [Description of data source and link to where to get the data]
 
 ## Configuration details
 
-# [STAC](#tab/stac)
+# [Mosaics](#tab/mosaics)
 
-## STAC Configuration
+## Mosaics Configuration
 
-The STAC configuration defines the core metadata for this collection.
+The mosaics configuration defines how images are combined when displayed in the Explorer.
+
+```json
+[
+  {
+    "id": "default",
+    "name": "Most recent available",
+    "description": "Most recent available imagery in this collection",
+    "cql": [
+      {
+        "op": "<=",
+        "args": [
+          {
+            "property": "eo:cloud_cover"
+          },
+          40
+        ]
+      }
+    ]
+  }
+]
+```
+
+# [Render Options](#tab/render-options)
+
+## Render Options Configuration
+
+The render options configuration defines how imagery is displayed in the Explorer.
+
+```json
+[
+  {
+    "id": "natural-color",
+    "name": "Natural color",
+    "description": "True color composite of visible bands (B04, B03, B02)",
+    "type": "raster-tile",
+    "options": "assets=B04&assets=B03&assets=B02&nodata=0&color_formula=Gamma RGB 3.2 Saturation 0.8 Sigmoidal RGB 25 0.35",
+    "minZoom": 9
+  },
+  {
+    "id": "natural-color-pre-feb-2022",
+    "name": "Natural color (pre Feb, 2022)",
+    "description": "Pre-Feb 2022 true color composite of visible bands (B04, B03, B02)",
+    "type": "raster-tile",
+    "options": "assets=B04&assets=B03&assets=B02&nodata=0&color_formula=Gamma RGB 3.7 Saturation 1.5 Sigmoidal RGB 15 0.35",
+    "minZoom": 9
+  },
+  {
+    "id": "color-infrared",
+    "name": "Color infrared",
+    "description": "Highlights healthy (red) and unhealthy (blue/gray) vegetation (B08, B04, B03).",
+    "type": "raster-tile",
+    "options": "assets=B08&assets=B04&assets=B03&nodata=0&color_formula=Gamma RGB 3.7 Saturation 1.5 Sigmoidal RGB 15 0.35",
+    "minZoom": 9
+  },
+  {
+    "id": "short-wave-infrared",
+    "name": "Short wave infrared",
+    "description": "Darker shades of green indicate denser vegetation. Brown is indicative of bare soil and built-up areas (B12, B8A, B04).",
+    "type": "raster-tile",
+    "options": "assets=B12&assets=B8A&assets=B04&nodata=0&color_formula=Gamma RGB 3.7 Saturation 1.5 Sigmoidal RGB 15 0.35",
+    "minZoom": 9
+  },
+  {
+    "id": "agriculture",
+    "name": "Agriculture",
+    "description": "Darker shades of green indicate denser vegetation (B11, B08, B02).",
+    "type": "raster-tile",
+    "options": "assets=B11&assets=B08&assets=B02&nodata=0&color_formula=Gamma RGB 3.7 Saturation 1.5 Sigmoidal RGB 15 0.35",
+    "minZoom": 9
+  },
+  {
+    "id": "normalized-difference-veg-inde",
+    "name": "Normalized Difference Veg. Index (NDVI)",
+    "description": "Normalized Difference Vegetation Index (B08-B04)/(B08+B04), darker green indicates healthier vegetation.",
+    "type": "raster-tile",
+    "options": "nodata=0&expression=(B08-B04)/(B08+B04)&rescale=-1,1&colormap_name=rdylgn&asset_as_band=true",
+    "minZoom": 9
+  },
+  {
+    "id": "moisture-index-ndwi",
+    "name": "Moisture Index (NDWI)",
+    "description": "Index indicating water stress in plants (B8A-B11)/(B8A+B11)",
+    "type": "raster-tile",
+    "options": "nodata=0&expression=(B8A-B11)/(B8A+B11)&rescale=-1,1&colormap_name=rdbu&asset_as_band=true",
+    "minZoom": 9
+  },
+  {
+    "id": "atmospheric-penetration",
+    "name": "Atmospheric penetration",
+    "description": "False color rendering with non-visible bands to reduce effects of atmospheric particles (B12, B11, B8A).",
+    "type": "raster-tile",
+    "options": "nodata=0&assets=B12&assets=B11&assets=B8A&color_formula=Gamma RGB 3.7 Saturation 1.5 Sigmoidal RGB 15 0.35",
+    "minZoom": 9
+  }
+]
+```
+
+# [Tile Settings](#tab/tile-settings)
+
+## Tile Settings Configuration
+
+The tile settings configuration defines how data is tiled and displayed at different zoom levels.
+
+```json
+{
+  "minZoom": 8,
+  "maxItemsPerTile": 35,
+  "defaultLocation": null
+}
+```
+
+# [STAC Collection](#tab/stac)
+
+## STAC Collection configuration
+
+The STAC Collection configuration defines the core metadata for this collection.
 
 ```json
 {
@@ -36,22 +153,22 @@ The STAC configuration defines the core metadata for this collection.
     {
       "rel": "items",
       "type": "application/geo+json",
-      "href": "https://tc-demo.bxfqdqh5dagmbgez.uksouth.geocatalog.spatio.azure.com/stac/collections/sentinel-2-l2a_Grindavik/items"
+      "href": "https://{geocatalog_id}/stac/collections/sentinel-2-l2a_Grindavik/items"
     },
     {
       "rel": "parent",
       "type": "application/json",
-      "href": "https://tc-demo.bxfqdqh5dagmbgez.uksouth.geocatalog.spatio.azure.com/stac/"
+      "href": "https://{geocatalog_id}/stac/"
     },
     {
       "rel": "root",
       "type": "application/json",
-      "href": "https://tc-demo.bxfqdqh5dagmbgez.uksouth.geocatalog.spatio.azure.com/stac/"
+      "href": "https://{geocatalog_id}/stac/"
     },
     {
       "rel": "self",
       "type": "application/json",
-      "href": "https://tc-demo.bxfqdqh5dagmbgez.uksouth.geocatalog.spatio.azure.com/stac/collections/sentinel-2-l2a_Grindavik"
+      "href": "https://{geocatalog_id}/stac/collections/sentinel-2-l2a_Grindavik"
     },
     {
       "rel": "license",
@@ -68,7 +185,7 @@ The STAC configuration defines the core metadata for this collection.
   "title": "Sentinel-2-l2a",
   "assets": {
     "thumbnail": {
-      "href": "https://ubpobrdatasa.blob.core.windows.net/sentinel-2-l2a-grindavik-64221e99/collection-assets/thumbnail/blob",
+      "href": "https://{storage_account}.blob.core.windows.net/{blob_container}/collection-assets/thumbnail/blob",
       "type": "image/png",
       "roles": [
         "thumbnail"
@@ -569,6 +686,16 @@ The STAC configuration defines the core metadata for this collection.
 }
 ```
 
+## Umbra SAR Imagery Collection Configuration
+
+[Collection description to be added here]
+
+[ ![Screenshot of Umbra SAR Imagery data visualization](media/umbra-sar-imagery.png) ](media/umbra-sar-imagery.png#lightbox)
+
+[Description of data source and link to where to get the data]
+
+## Configuration details
+
 # [Mosaics](#tab/mosaics)
 
 ## Mosaics Configuration
@@ -579,19 +706,9 @@ The mosaics configuration defines how images are combined when displayed in the 
 [
   {
     "id": "default",
-    "name": "Most recent available",
-    "description": "Most recent available imagery in this collection",
-    "cql": [
-      {
-        "op": "<=",
-        "args": [
-          {
-            "property": "eo:cloud_cover"
-          },
-          40
-        ]
-      }
-    ]
+    "name": "Default",
+    "description": "",
+    "cql": []
   }
 ]
 ```
@@ -605,68 +722,20 @@ The render options configuration defines how imagery is displayed in the Explore
 ```json
 [
   {
-    "id": "natural-color",
-    "name": "Natural color",
-    "description": "True color composite of visible bands (B04, B03, B02)",
+    "id": "vv-polarization",
+    "name": "VV polarization",
+    "description": "VV asset scaled to `0,.20`.",
     "type": "raster-tile",
-    "options": "assets=B04&assets=B03&assets=B02&nodata=0&color_formula=Gamma RGB 3.2 Saturation 0.8 Sigmoidal RGB 25 0.35",
-    "minZoom": 9
-  },
-  {
-    "id": "natural-color-pre-feb-2022",
-    "name": "Natural color (pre Feb, 2022)",
-    "description": "Pre-Feb 2022 true color composite of visible bands (B04, B03, B02)",
-    "type": "raster-tile",
-    "options": "assets=B04&assets=B03&assets=B02&nodata=0&color_formula=Gamma RGB 3.7 Saturation 1.5 Sigmoidal RGB 15 0.35",
-    "minZoom": 9
-  },
-  {
-    "id": "color-infrared",
-    "name": "Color infrared",
-    "description": "Highlights healthy (red) and unhealthy (blue/gray) vegetation (B08, B04, B03).",
-    "type": "raster-tile",
-    "options": "assets=B08&assets=B04&assets=B03&nodata=0&color_formula=Gamma RGB 3.7 Saturation 1.5 Sigmoidal RGB 15 0.35",
-    "minZoom": 9
-  },
-  {
-    "id": "short-wave-infrared",
-    "name": "Short wave infrared",
-    "description": "Darker shades of green indicate denser vegetation. Brown is indicative of bare soil and built-up areas (B12, B8A, B04).",
-    "type": "raster-tile",
-    "options": "assets=B12&assets=B8A&assets=B04&nodata=0&color_formula=Gamma RGB 3.7 Saturation 1.5 Sigmoidal RGB 15 0.35",
-    "minZoom": 9
-  },
-  {
-    "id": "agriculture",
-    "name": "Agriculture",
-    "description": "Darker shades of green indicate denser vegetation (B11, B08, B02).",
-    "type": "raster-tile",
-    "options": "assets=B11&assets=B08&assets=B02&nodata=0&color_formula=Gamma RGB 3.7 Saturation 1.5 Sigmoidal RGB 15 0.35",
-    "minZoom": 9
-  },
-  {
-    "id": "normalized-difference-veg-inde",
-    "name": "Normalized Difference Veg. Index (NDVI)",
-    "description": "Normalized Difference Vegetation Index (B08-B04)/(B08+B04), darker green indicates healthier vegetation.",
-    "type": "raster-tile",
-    "options": "nodata=0&expression=(B08-B04)/(B08+B04)&rescale=-1,1&colormap_name=rdylgn&asset_as_band=true",
-    "minZoom": 9
-  },
-  {
-    "id": "moisture-index-ndwi",
-    "name": "Moisture Index (NDWI)",
-    "description": "Index indicating water stress in plants (B8A-B11)/(B8A+B11)",
-    "type": "raster-tile",
-    "options": "nodata=0&expression=(B8A-B11)/(B8A+B11)&rescale=-1,1&colormap_name=rdbu&asset_as_band=true",
-    "minZoom": 9
-  },
-  {
-    "id": "atmospheric-penetration",
-    "name": "Atmospheric penetration",
-    "description": "False color rendering with non-visible bands to reduce effects of atmospheric particles (B12, B11, B8A).",
-    "type": "raster-tile",
-    "options": "nodata=0&assets=B12&assets=B11&assets=B8A&color_formula=Gamma RGB 3.7 Saturation 1.5 Sigmoidal RGB 15 0.35",
-    "minZoom": 9
+    "options": "assets=GEC&rescale=0,255&colormap_name=gray",
+    "minZoom": 8,
+    "conditions": [
+      {
+        "property": "sar:polarizations",
+        "value": [
+          "VV"
+        ]
+      }
+    ]
   }
 ]
 ```
@@ -679,22 +748,11 @@ The tile settings configuration defines how data is tiled and displayed at diffe
 
 ```json
 {
-  "minZoom": 8,
+  "minZoom": 12,
   "maxItemsPerTile": 35,
   "defaultLocation": null
 }
 ```
-
-
-# Umbra SAR Imagery Collection Configuration
-
-[Collection description to be added here]
-
-[ ![Screenshot of Umbra SAR Imagery data visualization](media/umbra-sar-imagery.png) ](media/umbra-sar-imagery.png#lightbox)
-
-[Description of data source and link to where to get the data]
-
-## Configuration details
 
 # [STAC Collection](#tab/stac)
 
@@ -810,60 +868,3 @@ The STAC Collection configuration defines the core metadata for this collection.
 }
 ```
 
-# [Mosaics](#tab/mosaics)
-
-## Mosaics Configuration
-
-The mosaics configuration defines how images are combined when displayed in the Explorer.
-
-```json
-[
-  {
-    "id": "default",
-    "name": "Default",
-    "description": "",
-    "cql": []
-  }
-]
-```
-
-# [Render Options](#tab/render-options)
-
-## Render Options Configuration
-
-The render options configuration defines how imagery is displayed in the Explorer.
-
-```json
-[
-  {
-    "id": "vv-polarization",
-    "name": "VV polarization",
-    "description": "VV asset scaled to `0,.20`.",
-    "type": "raster-tile",
-    "options": "assets=GEC&rescale=0,255&colormap_name=gray",
-    "minZoom": 8,
-    "conditions": [
-      {
-        "property": "sar:polarizations",
-        "value": [
-          "VV"
-        ]
-      }
-    ]
-  }
-]
-```
-
-# [Tile Settings](#tab/tile-settings)
-
-## Tile Settings Configuration
-
-The tile settings configuration defines how data is tiled and displayed at different zoom levels.
-
-```json
-{
-  "minZoom": 12,
-  "maxItemsPerTile": 35,
-  "defaultLocation": null
-}
-```
