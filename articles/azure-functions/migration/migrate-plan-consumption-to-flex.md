@@ -97,13 +97,11 @@ Before migrating to the Flex Consumption plan, you should perform these checks t
 
 Use these steps to make a list of the function apps you need to migrate, noting their names, resource groups, locations, and runtime stacks, then follow the rest of this guide for each app you want to migrate.
 
-#### [Azure CLI](#tab/azure-cli)
-
 The way that function app information is maintained depends on whether your app runs on Linux or Windows. 
 
-Use this [`az graph query`](/cli/azure/graph#az-graph-query) command to list all function apps in your subscription that are running in a Consumption plan on either Linux or Windows: 
+#### [Linux](#tab/linux/azure-cli)
 
-##### [Linux](#tab/linux)
+Use this [`az graph query`](/cli/azure/graph#az-graph-query) command to list all function apps in your subscription that are running in a Consumption plan: 
 
 ```azurecli
 az graph query -q "resources | where subscriptionId == '$(az account show --query id -o tsv)' \
@@ -115,7 +113,11 @@ az graph query -q "resources | where subscriptionId == '$(az account show --quer
 
 This command generates a table with the app name, location, resource group, and runtime stack for all Consumption apps running on Linux in the current subscription. 
 
-##### [Windows](#tab/windows)
+You're promoted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed.
+
+#### [Windows](#tab/windows/azure-cli)
+
+Use this [`az graph query`](/cli/azure/graph#az-graph-query) command to list all function apps in your subscription that are running in a Consumption plan:
 
 ```azurecli
 az graph query -q "resources | where subscriptionId == '$(az account show --query id -o tsv)' \
@@ -124,19 +126,15 @@ az graph query -q "resources | where subscriptionId == '$(az account show --quer
    --query data --output table
 ```
 
----
-
 This command generates a table with the app name, location, and resource group for all Consumption apps running on Windows in the current subscription.
 
 You're promoted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed. 
 
-#### [Azure portal](#tab/azure-portal)
+#### [Linux](#tab/linux/azure-portal)
 
 1. Navigate to the [Azure Resource Graph Explorer](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade) in the Azure portal.
 
-1. Copy this Kusto query for either Linux or Windows, paste it in the query window, and select **Run query**:  
- 
-    ##### [Linux](#tab/linux)
+1. Copy this Kusto query, paste it in the query window, and select **Run query**:  
     
     ```kusto
     resources 
@@ -148,6 +146,14 @@ You're promoted to install the [resource-graph extension](/cli/azure/graph), if 
     | where siteProperties.name=='LinuxFxVersion' 
     | project name, location, resourceGroup, stack=tostring(siteProperties.value)
     ```
+
+This command generates a table with the app name, location, resource group, and runtime stack for all Consumption apps running on Linux in the current subscription.
+
+#### [Windows](#tab/windows/azure-portal)
+
+1. Navigate to the [Azure Resource Graph Explorer](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade) in the Azure portal.
+
+1. Copy this Kusto query, paste it in the query window, and select **Run query**:  
     
     ##### [Windows](#tab/windows)
     
