@@ -189,7 +189,7 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 For apps currently using gateway-based integration in the same region:
 
-:::image type="content" source="mmedia/migrate-gateway-based-vnet-integration/same-region-migration.png" alt-text="Diagram showing migration from gateway-based to regional virtual network integration.":::
+:::image type="content" source="media/migrate-gateway-based-vnet-integration/same-region-migration.png" alt-text="Diagram showing migration from gateway-based to regional virtual network integration.":::
 
 #### Step 1: Disconnect gateway-based integration
 
