@@ -91,7 +91,7 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
 1. The **Review + Create** tab displays a summary of the configuration settings you provided in the previous steps. Review these settings to ensure they are correct. If you need to make changes, select the **Previous** button to return to the appropriate tab. If all settings are correct, select **Create** to create your multicloud connector.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/connectors-available-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/connectors-available.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-review-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/add-connector-review.png":::
 
 ## Configure Source and Destination Endpoints
 
