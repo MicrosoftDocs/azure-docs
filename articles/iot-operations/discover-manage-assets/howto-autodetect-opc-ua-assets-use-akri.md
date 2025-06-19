@@ -45,11 +45,18 @@ In this article, you learn how to automatically discover and configure OPC UA as
     az iot ops rsync enable - n <my instance> -g <my resource group>
     ```
 
-    If the signed-in CLI user doesn't have permission to look up the object ID of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
+    If the signed-in CLI user doesn't have permission to look up the object ID (OID) of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
 
     ```bash
     az iot ops rsync enable --k8-bridge-sp-oid <k8 bridge service principal object ID>
     ```
+
+    > [!NOTE]
+    > You can manually look up the OID by a signed-in CLI principal that has MS Graph app read permissions. Run the following command to get the OID:
+    > 
+    > ```bash
+    > az ad sp list --display-name "K8 Bridge" --query "[0].appId" -o tsv
+    > ```
 
     ---
 
