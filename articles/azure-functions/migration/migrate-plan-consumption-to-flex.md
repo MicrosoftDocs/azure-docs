@@ -670,7 +670,7 @@ The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKA
 
 ---  
 
-#### [Azure CLI](#tab/azure-cli)
+#### [Linux](#tab/linux/azure-cli)
 
 1. Use this [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command to get the  `WEBSITE_RUN_FROM_PACKAGE` app setting, if present:
 
@@ -683,8 +683,6 @@ The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKA
 
 1. If the `WEBSITE_RUN_FROM_PACKAGE` value is `1` or nothing, use this script to get the deployment package for the existing app:
 
-    ##### [Linux](#tab/linux)
-    
     ```azurecli
     appName=<APP_NAME>
     rgName=<RESOURCE_GROUP>
@@ -709,7 +707,20 @@ The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKA
     fi
     ```
 
-    ##### [Windows](#tab/windows)
+    Again, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group name and app name. The package .zip file is downloaded to the directory from which you executed the command. 
+
+#### [Windows](#tab/windows/azure-cli)
+
+1. Use this [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command to get the  `WEBSITE_RUN_FROM_PACKAGE` app setting, if present:
+
+    ```azurecli
+    az functionapp config appsettings list --name <APP_NAME> --resource-group <RESOURCE_GROUP> \
+        --query "[?name=='WEBSITE_RUN_FROM_PACKAGE'].value" -o tsv
+    ```
+
+    In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group name and app name, respectively. If this command returns a URL, then you can download the deployment package file from that remote location and skip to the next section.
+
+1. If the `WEBSITE_RUN_FROM_PACKAGE` value is `1` or nothing, use this script to get the deployment package for the existing app:
     
     ```azurecli
     appName=<APP_NAME>
@@ -739,11 +750,9 @@ The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKA
     fi
     ```
 
-    ---
-
     Again, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group name and app name. The package .zip file is downloaded to the directory from which you executed the command. 
 
-#### [Azure portal](#tab/azure-portal)
+#### [Linux](#tab/linux/azure-portal)
 
 1. In the [Azure portal], search for or otherwise navigate to your function app page.
 
@@ -753,30 +762,32 @@ The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKA
 
 1. If the `WEBSITE_RUN_FROM_PACKAGE` setting doesn't exist or is set to `1`, you must download the package from the specific storage account, which depends on whether you are running on Linux or Windows.
 
-1. Get the storage account name from app settings:
-    
-    ##### [Linux](#tab/linux)
-  
-   The `AzureWebJobsStorage` or `AzureWebJobsStorage__accountName` application setting. For a connection string, the `AccountName` is the name your storage account.
-
-    ##### [Windows](#tab/windows)
-
-    The `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contains the connection string for the deployment file share, where the `AccountName` is the name your storage account. Also, make a note of the `WEBSITE_CONTENTSHARE` value, which is the name of the files share. 
-  
-    ---
+1. Get the storage account name from the `AzureWebJobsStorage` or `AzureWebJobsStorage__accountName` application setting. For a connection string, the `AccountName` is the name your storage account.
 
 1. In the portal, search for your storage account name. 
 
-1. In the storage account page, locate the deployment package and download it:
+1. In the storage account page, locate the deployment package and download it.
 
-    ##### [Linux](#tab/linux)
-  
-   Expand **Data storage** > **Containers** and select `scm_releases`. Choose the file named `scm-latest-<APP_NAME>.zip` and select **Download**. 
-    ##### [Windows](#tab/windows)
+1. Expand **Data storage** > **Containers** and select `scm_releases`. Choose the file named `scm-latest-<APP_NAME>.zip` and select **Download**. 
 
-    Expand **Data storage** > **File shares**, select the share name from `WEBSITE_CONTENTSHARE`, and browse to the `data\SitePackages` subfolder. Choose the most recent .zip file and select **Download**.  
+#### [Windows](#tab/windows/azure-portal)
 
-    ---
+1. In the [Azure portal], search for or otherwise navigate to your function app page.
+
+1. In the left menu, expand **Settings** > **Environment variables** and see if a setting named `WEBSITE_RUN_FROM_PACKAGE` exists.
+
+1. If `WEBSITE_RUN_FROM_PACKAGE` exists, check if it's set to a value of `1` or a URL. If set to a URL, that is the URL of where the zip file for your app content. Download the zip file from that URL location that is owned by you.
+
+1. If the `WEBSITE_RUN_FROM_PACKAGE` setting doesn't exist or is set to `1`, you must download the package from the specific storage account, which depends on whether you are running on Linux or Windows.
+
+1. Get the storage account name from the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting, where the `AccountName` is the name your storage account. Also, make a note of the `WEBSITE_CONTENTSHARE` value, which is the name of the file share. 
+
+1. In the portal, search for your storage account name. 
+
+1. In the storage account page, locate the deployment package and download it.
+
+1. Expand **Data storage** > **File shares**, select the share name from `WEBSITE_CONTENTSHARE`, and browse to the `data\SitePackages` subfolder. Choose the most recent .zip file and select **Download**.  
+
 ---
 
 The deployment package is compressed using the `squashfs` format. To see what's inside the package, you must use tools that can decompress this format.
@@ -809,17 +820,15 @@ A careful final review helps ensure a smoother migration process and minimizes t
 
 ### Step 2: Create an app in the Flex Consumption plan
 
-There are various ways to create a function app in the Flex Consumption plan along with other required Azure resources: 
+You can There are various ways to create a function app in the Flex Consumption plan along with other required Azure resources: 
 
-+ [Azure CLI](../create-first-function-cli-csharp.md#create-supporting-azure-resources-for-your-function)
-+ [Azure portal](../functions-create-function-app-portal.md)
-+ Infrastructure-as-code:
-    + [ARM template](../functions-create-first-function-resource-manager.md)
-    + [azd](../create-first-function-azure-developer-cli.md)
-    + [Bicep](../functions-create-first-function-bicep.md)
-    + [Terraform](../functions-create-first-function-terraform.md)
-+ [Visual Studio Code](../functions-develop-vs-code.md#publish-to-azure)
-+ [Visual Studio](../functions-develop-vs.md#publish-to-azure)
+| Create option | Reference articles |
+| ----- | ----- |
+| Azure CLI | [Command line quickstart](../create-first-function-cli-csharp.md#create-supporting-azure-resources-for-your-function)|
+| Azure portal | [Create a function app in the Azure portal](../functions-create-function-app-portal.md) |
+| Infrastructure-as-code | [ARM template](../functions-create-first-function-resource-manager.md)<br/>[azd](../create-first-function-azure-developer-cli.md)<br/>[Bicep](../functions-create-first-function-bicep.md)<br/>[Terraform](../functions-create-first-function-terraform.md) |
+| Visual Studio Code | [Visual Studio Code deployment](../functions-develop-vs-code.md#publish-to-azure) |
+| Visual Studio | [Visual Studio deployment](../functions-develop-vs.md#publish-to-azure) |
 
 >[!TIP]  
 >When possible, you should use Microsoft Entra ID for authentication instead of connection strings, which contain shared keys. Using managed identities is a best pratice that improves security by eliminating the need to store shared secrets directly in application settings. If your original app used connection strings, the Flex Consumption plan is designed to support managed identities. Most of these links show you how to enable managed identities in your function app. 
@@ -1305,7 +1314,7 @@ If your original app had any IP-based inbound access restrictions, you can recre
 
 ##### [Azure CLI](#tab/azure-cli)
 
-Use this [`az functionapp config access-restriction add`](cli/azure/functionapp/config/access-restriction#az-functionapp-config-access-restriction-add) command for each IP access restriction you want to replicate in the new app:
+Use this [`az functionapp config access-restriction add`](/cli/azure/functionapp/config/access-restriction#az-functionapp-config-access-restriction-add) command for each IP access restriction you want to replicate in the new app:
 
 ```azurecli
 az functionapp config access-restriction add --name <APP_NAME> --resource-group <RESOURCE_GROUP> \
@@ -1364,8 +1373,8 @@ Functions provides several ways to deploy your code, either from the code projec
 
 You should update your existing deployment workflows to deploy your source code to your new app:
 
-+ [Build and deploy using Azure Pipelines](./functions-how-to-azure-devops.md)
-+ [Build and deploy using GitHub Actions](./functions-how-to-github-actions.md)
++ [Build and deploy using Azure Pipelines](../functions-how-to-azure-devops.md)
++ [Build and deploy using GitHub Actions](../functions-how-to-github-actions.md)
 
 You can also create a new continuous deployment workflow for your new app. For more information, see [Continuous deployment for Azure Functions](../functions-continuous-deployment.md)
 
@@ -1373,9 +1382,9 @@ You can also create a new continuous deployment workflow for your new app. For m
 
 You can use these tools to acheive a one-off deployment of your code project to your new plan:
 
-+ [Visual Studio Code](../functions-develop-vs-code.md#deploy-project-files)
++ [Visual Studio Code](../functions-develop-vs-code.md#republish-project-files)
 + [Visual Studio](../functions-develop-vs.md#publish-to-azure)
-+ [Azure Functions Core Tools](../functions-run-local.md#deploy-project-files) 
++ [Azure Functions Core Tools](../functions-run-local.md#project-file-deployment) 
 
 #### [Package deployment](#tab/package)
 
