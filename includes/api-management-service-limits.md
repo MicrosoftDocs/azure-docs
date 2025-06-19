@@ -82,7 +82,7 @@ To request a limit increase, create a support request from the Azure portal. For
 <sup>1</sup> Connections are pooled and reused unless explicitly closed by the backend.<br/>
 <sup>2</sup> Includes an up to 2048-bytes long query string.<br/>
 <sup>3</sup> The number of nodes (or replicas) associated with a self-hosted gateway resource is unlimited in the Premium tier and capped at a single node in the Developer tier.<br/>
-<sup>4</sup> Up to a of 60,000 connections.
+<sup>4</sup> Up to a maximum of 60,000 connections.
 
 <!-- Uncliear limits in table:
 
