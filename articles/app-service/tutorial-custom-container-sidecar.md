@@ -39,7 +39,7 @@ To create the resources that this tutorial uses, run the following commands in C
    cd app-service-sidecar-tutorial-prereqs
    azd env new my-sidecar-env
    azd provision
-    ```
+   ```
 
 The `azd provision` command uses the included templates to create an Azure resource group called `my-sidecar-env_group` that contains the following Azure resources:
 
@@ -55,15 +55,17 @@ When deployment completes, you should see similar to the following output:
 ```bash
 Success!
 
-APPLICATIONINSIGHTS_CONNECTION_STRING = InstrumentationKey=2462f7fd-02ad-4af1-9ca1-ceb8b48d7893;IngestionEndpoint=https://eastus2-3.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus2.livediagnostics.monitor.azure.com/;ApplicationId=753ad4ce-d852-4118-8d11-d9c5ad3b2252
+APPLICATIONINSIGHTS_CONNECTION_STRING = InstrumentationKey=aaaaaaaa-0b0b-1c1c-2d2d-333333333333;IngestionEndpoint=https://eastus2-3.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus2.livediagnostics.monitor.azure.com/;ApplicationId=00001111-aaaa-2222-bbbb-3333cccc4444
 Azure container registry name = acro2lc774l6vjgg
-Managed identity resource ID = /subscriptions/116dc797-1663-4e33-92f6-195da3734e6e/resourceGroups/my-sidecar-env_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-my-sidecar-env_group
-Managed identity client ID = ca492300-1051-401e-b5b1-74be61ca03c1
+Managed identity resource ID = /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/my-sidecar-env_group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-my-sidecar-env_group
+Managed identity client ID = 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 
-Open resource group in the portal: https://portal.azure.com/#@/resource/subscriptions/116dc797-1663-4e33-92f6-195da3734e6e/resourceGroups/my-sidecar-env_group
+Open resource group in the portal: https://portal.azure.com/#@/resource/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/my-sidecar-env_group
 ```
 
-Copy and save the value for `APPLICATIONINSIGHTS_CONNECTION_STRING` to use later in this tutorial. Select the `Open resource group in the portal` link to open the resource group in the Azure portal.
+Copy and save the value for **APPLICATIONINSIGHTS_CONNECTION_STRING** to use later in this tutorial.
+
+Select the **Open resource group in the portal** link to open the resource group in the Azure portal.
 
 ## 2. Create a sidecar-enabled app
 
@@ -74,7 +76,7 @@ In this section, you create the Linux custom container app and main container, a
 
    :::image type="content" source="media/tutorial-custom-container-sidecar/create-web-app.png" alt-text="Screenshot showing Azure Marketplace page with web app being searched and create web app button highlighted.":::
 
-1. On the **Basics** tab of the **Create Web App** screen, provide the following information:
+1. On the **Basics** tab of the **Create Web App** page, provide the following information:
    - **Name**: Enter a unique name for the web app.
    - **Publish**: Select **Container**.
    - **Operating System**: Select **Linux**.
@@ -96,10 +98,10 @@ In this section, you create the Linux custom container app and main container, a
    - **Tag**: Enter *latest*.
    - **Port**: Enter *80* if not already set.
 
-    :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-container-panel.png" alt-text="Screenshot showing the Container settings for the Linux custom container web app with settings for the container image and the sidecar support highlighted.":::
+    :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-container-panel.png" alt-text="Screenshot showing the Container settings for the Linux custom container web app.":::
 
     > [!NOTE]
-    > These settings are configured differently in sidecar-enabled apps than in non-sidecar enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers](#what-are-the-differences-for-sidecar-enabled-custom-containers).
+    > These settings are configured differently in sidecar-enabled apps than in apps not enabled for sidecars. For more information, see [What are the differences for sidecar-enabled custom containers](#what-are-the-differences-for-sidecar-enabled-custom-containers).
 
 1. Select **Review + create**, and when validation passes, select **Create**.
 
@@ -111,7 +113,7 @@ In this section, you create the Linux custom container app and main container, a
 
 In this section, you add a sidecar container to your Linux custom container app.
 
-1. On the app's page in the Azure portal, select **Deployment Center** under **Deployment** in the left navigation menu. The **Deployment Center** page shows all the containers in the app, which is currently only the main container.
+1. On the app's page in the Azure portal, select **Deployment Center** under **Deployment** in the left navigation menu. The **Deployment Center** page shows all the containers in the app, currently only the main container.
 
 1. Select **Add** > **Custom container**.
 
@@ -141,7 +143,7 @@ You configure environment variables for the containers like for any App Service 
 1. On the **Add/Edit application setting** pane, enter the following values:
    - **Name**: *APPLICATIONINSIGHTS_CONNECTION_STRING*
    - **Value**: The `APPLICATIONINSIGHTS_CONNECTION_STRING` value from the output of `azd provision`. You can also find the value on the **Overview** page of the Application Insight resource, under **Connection String**.
-1. Select **Apply**, then select **Apply** again, and then select **Confirm**.
+1. Select **Apply**, then select **Apply** again, and then select **Confirm**. You now see the **APPLICATIONINSIGHTS_CONNECTION_STRING** app setting on the **Environment variables** page.
 
    :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
@@ -173,15 +175,18 @@ azd down
 - [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
 - [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
 - [Can a sidecar container receive internet requests?](#can-a-sidecar-container-receive-internet-requests)
+- [How do I use volume mounts?](how-do-i-use-volume-mounts)
 
 ### What are the differences for sidecar-enabled custom containers?
 
 Sidecar-enabled apps are configured differently than apps that aren't sidecar-enabled.
 
-- Sidecar-enabled apps are designated by `LinuxFxVersion=sitecontainers` and configured with [sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers) resources. For more information, see [az webapp config set --linux-fx-version](/cli/azure/webapp/config).
-- Non-sidecar enabled app container names and types are configured directly with `LinuxFxVersion=DOCKER|<image-details>`. For more information, see [az webapp config set --linux-fx-version](/cli/azure/webapp/config).
+- Sidecar-enabled apps are designated by `LinuxFxVersion=sitecontainers` and configured with [`sitecontainers`](/azure/templates/microsoft.web/sites/sitecontainers) resources.
+- App container names and types for apps that aren't sidecar enabled are configured directly with `LinuxFxVersion=DOCKER|<image-details>`.
 
-Non-sidecar enabled apps configure the main container with app settings such as:
+For more information, see [az webapp config set --linux-fx-version](/cli/azure/webapp/config).
+
+Apps that aren't sidecar-enabled configure the main container with app settings such as:
 
 - `DOCKER_REGISTRY_SERVER_URL`
 - `DOCKER_REGISTRY_SERVER_USERNAME`
@@ -196,5 +201,5 @@ These settings don't apply for sidecar-enabled apps.
 
 - [Configure custom container](configure-custom-container.md)
 - [REST API: Web Apps - Create Or Update Site Container](/rest/api/appservice/web-apps/create-or-update-site-container)
-- [Infrastructure as Code: Microsoft.Web sites/sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers)
+- [Infrastructure as Code: Microsoft.Web sites/`sitecontainers`](/azure/templates/microsoft.web/sites/sitecontainers)
 - [Deploy custom containers with GitHub Actions](deploy-container-github-action.md)
