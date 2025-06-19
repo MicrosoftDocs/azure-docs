@@ -7,7 +7,7 @@ ms.date: 05/07/2025
 ms.author: azfuncdf
 ---
 
-# Unit Testing Durable Functions in Python
+# Unit testing Durable Functions in Python
 
 Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in the future. Durable Functions can easily grow in complexity so introducing unit tests helps avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and entity functions.
 
@@ -23,7 +23,7 @@ The examples in this article require knowledge of the following concepts and fra
 * Python [unittest](https://docs.python.org/3/library/unittest.html) 
 * [unittest.mock](https://docs.python.org/3/library/unittest.mock.html)
 
-## Setting Up the Test Environment
+## Setting up the test environment
 
 To test Durable Functions, it's crucial to set up a proper test environment. This includes creating a test directory and installing Python's `unittest` module into your Python environment. For more info, see the [Azure Functions Python unit testing overview](../functions-reference-python.md#unit-testing).
 
