@@ -12,7 +12,6 @@ ms.custom:
 
 # Microsoft Planetary Computer Pro Data Visualization Gallery
 
-
 ## Sentinel-2-l2a Collection Configuration
 
 [Collection description to be added here]
@@ -23,11 +22,11 @@ ms.custom:
 
 ## Configuration details
 
-# [Mosaics](#tab/mosaics)
+# [Mosaic](#tab/sentinel-2-l2a-grindavik-mosaics)
 
-## Mosaics Configuration
+## Mosaic Configuration
 
-The mosaics configuration defines how images are combined when displayed in the Explorer.
+The mosaic configuration defines how images are combined when displayed in the Explorer.
 
 ```json
 [
@@ -50,7 +49,7 @@ The mosaics configuration defines how images are combined when displayed in the 
 ]
 ```
 
-# [Render Options](#tab/render-options)
+# [Render Options](#tab/sentinel-2-l2a-grindavik-render-options)
 
 ## Render Options Configuration
 
@@ -125,7 +124,7 @@ The render options configuration defines how imagery is displayed in the Explore
 ]
 ```
 
-# [Tile Settings](#tab/tile-settings)
+# [Tile Settings](#tab/sentinel-2-l2a-grindavik-tile-settings)
 
 ## Tile Settings Configuration
 
@@ -139,7 +138,7 @@ The tile settings configuration defines how data is tiled and displayed at diffe
 }
 ```
 
-# [STAC Collection](#tab/stac)
+# [STAC Collection](#tab/sentinel-2-l2a-grindavik-stac)
 
 ## STAC Collection configuration
 
@@ -686,6 +685,7 @@ The STAC Collection configuration defines the core metadata for this collection.
 }
 ```
 
+
 ## Umbra SAR Imagery Collection Configuration
 
 [Collection description to be added here]
@@ -696,11 +696,11 @@ The STAC Collection configuration defines the core metadata for this collection.
 
 ## Configuration details
 
-# [Mosaics](#tab/mosaics)
+# [Mosaic](#tab/umbra-sar-mosaics)
 
-## Mosaics Configuration
+## Mosaic Configuration
 
-The mosaics configuration defines how images are combined when displayed in the Explorer.
+The mosaic configuration defines how images are combined when displayed in the Explorer.
 
 ```json
 [
@@ -713,7 +713,7 @@ The mosaics configuration defines how images are combined when displayed in the 
 ]
 ```
 
-# [Render Options](#tab/render-options)
+# [Render Options](#tab/umbra-sar-render-options)
 
 ## Render Options Configuration
 
@@ -740,7 +740,7 @@ The render options configuration defines how imagery is displayed in the Explore
 ]
 ```
 
-# [Tile Settings](#tab/tile-settings)
+# [Tile Settings](#tab/umbra-sar-tile-settings)
 
 ## Tile Settings Configuration
 
@@ -754,7 +754,7 @@ The tile settings configuration defines how data is tiled and displayed at diffe
 }
 ```
 
-# [STAC Collection](#tab/stac)
+# [STAC Collection](#tab/umbra-sar-stac)
 
 ## STAC Collection configuration
 
@@ -867,4 +867,3 @@ The STAC Collection configuration defines the core metadata for this collection.
   "msft:short_description": "Umbra Synthetic Aperture Radar (SAR) Imagery"
 }
 ```
-
