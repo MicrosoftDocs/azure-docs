@@ -1,7 +1,7 @@
 ---
 title: Migrate from gateway-based virtual network integration
 description: Migrate your virtual network integration from gateway-based integration to regional integration.
-author: jordanselig
+author: seligj95
 ms.topic: how-to
 ms.date: 10/01/2024
 ms.author: jordanselig
@@ -9,7 +9,7 @@ ms.author: jordanselig
 ---
 # Migrate from gateway-based virtual network integration
 
-There are two ways in App Service to integration with a virtual network. One way is gateway-based integration using a virtual network gateway that establishes a point-to-site VPN connection from the app to the virtual network. The other way is now just known as virtual network integration since more than 99% of all integrations are using this method. Virtual network integration has several advantages over gateway-based integration. The only edge case scenario is when you need to connect directly to a virtual network in a different region and aren't able to set up peerings.
+There are two ways in App Service to integration with a virtual network. One way is gateway-based integration using a virtual network gateway that establishes a point-to-site VPN connection from the app to the virtual network. The other way is now known as virtual network integration since more than 99% of all integrations are using this method. Virtual network integration has several advantages over gateway-based integration. The only edge case scenario is when you need to connect directly to a virtual network in a different region and aren't able to set up peerings.
 
 Gateway-based integration can't be used in the following scenarios:
 
@@ -47,8 +47,8 @@ Then all you need to do is run a command to configure the virtual network integr
 
 
 
-Migrating from gateway-based to regional virtual network integration is a simple disconnect/connect operation. Before making the switch, make sure you have a subnet configured for your apps. You can either have one per plan or take advantage of the new multi-plan subnet join feature to connect apps from different plans to the same subnet. You should spend a little time planning your subnet address range. The general recommendation is to have double the IPs as the expected maximum planned instances of your plan(s). You should also delegate the subnet(s) to `Microsoft.Web/serverFarms`.
+Migrating from gateway-based to regional virtual network integration is a simple disconnect/connect operation. Before making the switch, make sure you have a subnet configured for your apps. You can either have one per plan or take advantage of the new multi-plan subnet join feature to connect apps from different plans to the same subnet. You should spend a little time planning your subnet address range. The general recommendation is to have double the IPs as the expected maximum planned instances of your plan. You should also delegate the subnet to `Microsoft.Web/serverFarms`.
 
 ## Post configurations
 
-After moving to regional virtual network integration you now have some new options you can take advantage of. You can decide if configuration options like backup/restore and image pull for container based workloads should be [routed through the virtual network](https://learn.microsoft.com/azure/app-service/overview-vnet-integration#configuration-routing). You can also define Network Security Groups or User Defined Routes for the individual subnets and you can increase SNAT ports and get a deterministic outbound public source IP by attaching a NAT gateway to the subnet.
+After moving to regional virtual network integration, you now have some new options you can take advantage of. You can decide if configuration options like backup/restore and image pull for container based workloads should be [routed through the virtual network](./overview-vnet-integration.md#configuration-routing). You can also define Network Security Groups or User Defined Routes for the individual subnets and you can increase SNAT ports and get a deterministic outbound public source IP by attaching a NAT gateway to the subnet.
