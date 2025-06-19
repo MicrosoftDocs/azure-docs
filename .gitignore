@@ -155,3 +155,5 @@ articles/planetary-computer/geocatalog_configs/umbra-sar-ships/tile-settings.jso
 articles/planetary-computer/helper-content/collection-config-scraper.py
 articles/planetary-computer/helper-content/generate_collection_docs.py
 .gitignore
+articles/planetary-computer/sentinel-2-l2a-grindavik.md
+articles/planetary-computer/umbra-sar.md
