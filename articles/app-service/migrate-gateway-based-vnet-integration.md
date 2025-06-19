@@ -47,41 +47,108 @@ Gateway-based integration can't be used in the following scenarios:
 | **Cross-region connectivity** | Through global peering only | Direct connection supported |
 | **Performance** | Native virtual network performance | VPN overhead |
 | **Scaling** | Better resource utilization | Limited by gateway capacity |
+| **Cost** | No extra charges | VPN Gateway charges ($19-$525/month) + bandwidth costs |
 
 ## Prerequisites
 
 Before beginning the migration, ensure you have:
 
 * **App Service plan**: A Basic, Standard, Premium, PremiumV2, PremiumV3, or Elastic Premium plan
-* **Virtual network**: An Azure Resource Manager virtual network in the same region as your app
+* **Virtual network**: A virtual network in the same region as your app
 * **Subnet**: An empty subnet or a new subnet dedicated for virtual network integration
 * **Permissions**: Appropriate RBAC permissions to configure virtual network integration
 * **Planning**: Understanding of your current networking requirements and dependencies
 
 ## Migration planning and preparation
 
-The migration process is a disconnect/connect operation that might cause brief downtime. Proper planning minimizes issues with your applications.
+> [!IMPORTANT]
+> The migration process is a disconnect/connect operation that **will cause downtime**. Virtual network integration is slot-specific and doesn't swap during deployment slot operations, requiring careful planning to minimize impact on your applications.
+
+### Understanding downtime and impact
+
+The migration involves a complete disconnection from gateway-based integration before connecting to regional integration. During this process:
+
+- Your app loses connectivity to virtual network resources
+- Dependencies on private endpoints, service endpoints, or internal services are interrupted  
+- Downtime typically lasts 2-5 minutes depending on configuration complexity, but can be even longer
+
+### Migration strategies
+
+Choose the strategy that best fits your downtime tolerance and operational requirements:
+
+#### Option 1: Blue-green deployment (minimal downtime)
+
+**Best for: Production workloads requiring minimal downtime**
+
+1. **Create a new App Service plan** in the same region
+2. **Set up regional virtual network integration** on the new plan
+3. **Deploy your application** to the new plan with regional integration
+4. **Test thoroughly** to ensure connectivity works as expected
+5. **Switch traffic** using Azure Traffic Manager, Application Gateway, or DNS changes
+6. **Decommission** the old plan after verifying stability
+
+#### Option 2: Deployment slot testing (minimal downtime)
+
+**Best for: Thorough testing with brief production downtime**
+
+Since virtual network integration is slot-specific, you can test regional virtual network integration on a staging slot:
+
+1. **Prepare the integration subnet** in advance
+2. **Configure regional VNet integration on your staging slot** using the prepared subnet
+3. **Test your application thoroughly** on the staging slot with regional integration
+4. **When ready, disconnect gateway-based integration from production** and configure regional integration on production
+5. **Swap slots** to promote the tested code
+
+> [!NOTE]
+> Virtual network configurations remain with their respective slots after swapping. Your production slot will have the tested application code and the newly configured regional virtual network integration.
+
+#### Option 3: Direct migration (planned downtime)
+
+**Best for: Applications that can tolerate brief downtime**
+
+1. **Schedule during low-traffic periods** (nights, weekends)
+2. **Prepare all configurations** in advance
+3. **Notify stakeholders** of the planned maintenance
+4. **Have rollback procedures** ready
+
+## Premigration preparation steps
 
 ### Step 1: Assess your current setup
 
 1. **Document existing connections**: Note which apps use gateway-based integration
 2. **Identify dependencies**: Catalog resources accessed through the current integration
 3. **Review networking rules**: Document any NSGs, route tables, or firewall rules
-4. **Plan downtime**: Schedule migration during maintenance windows
+4. **Evaluate downtime tolerance**: Determine acceptable maintenance windows
+5. **Plan rollback strategy**: Prepare procedures to revert if issues occur
 
-### Step 2: Subnet planning and requirements
+### Step 2: Plan your subnet configuration
 
-The subnet used for regional virtual network integration must meet [specific requirements](./overview-vnet-integration.md#subnet-requirements). You can either have one subnet per plan or take advantage of the [multi-plan subnet join feature](./overview-vnet-integration.md#subnet-requirements) to connect apps from different plans to the same subnet.
+The subnet used for regional virtual network integration must meet [specific requirements](./overview-vnet-integration.md#subnet-requirements):
 
 * **Size**: Minimum `/28` (16 addresses), recommended `/26` (64 addresses) for production
 * **Delegation**: Must be delegated to `Microsoft.Web/serverFarms`
 * **Availability**: Can't be used by other services simultaneously
 * **Location**: Must be in the same virtual network you want to integrate with
 
+#### Subnet sizing guidance
+
+| Scenario | Recommended Size | Max App Instances |
+|----------|------------------|-------------------|
+| Development/Test | `/28` (16 addresses) | 11 instances |
+| Production | `/26` (64 addresses) | 59 instances |
+| Multi-plan subnet join | `/26` or larger | Varies by plans |
+
 > [!TIP]
 > Always provision double the IP addresses of your expected maximum scale to accommodate platform upgrades and scaling operations.
 
-### Step 3: Create or prepare the integration subnet
+#### Multi-plan subnet join
+
+You can connect multiple App Service plans to the same subnet using the [multi-plan subnet join feature](./overview-vnet-integration.md#subnet-requirements). This approach:
+- Requires a minimum `/26` subnet
+- Allows resource consolidation
+- Supports plans across different subscriptions (subnet can be in different subscription)
+
+### Step 3: Create the integration subnet
 
 # [Azure portal](#tab/portal)
 
@@ -116,13 +183,13 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 ---
 
-## Migration procedure
+## Performing the migration
 
-### Same-region migration (most common)
+### Same-region migration (most common scenario)
 
-When migrating from gateway-based integration to regional integration within the same region:
+For apps currently using gateway-based integration in the same region:
 
-![Diagram showing migration from gateway-based to regional virtual network integration](media/migrate-gateway-based-vnet-integration/same-region-migration.png)
+:::image type="content" source="mmedia/migrate-gateway-based-vnet-integration/same-region-migration.png" alt-text="Diagram showing migration from gateway-based to regional virtual network integration.":::
 
 #### Step 1: Disconnect gateway-based integration
 
@@ -195,14 +262,16 @@ After integration is complete, test your app's connectivity to virtual network r
 2. **DNS resolution**: Confirm DNS queries resolve correctly for private resources
 3. **Performance testing**: Monitor application performance after the migration
 
-### Cross-region migration considerations
+### Cross-region migration
 
-If you're currently using gateway-based integration to connect to a virtual network in a different region, you can set up [virtual network peering](../virtual-network/virtual-network-peering-overview.md):
+If you're currently using gateway-based integration to connect to a virtual network in a different region:
 
-1. Create a virtual network in your app's region
-2. Establish virtual network peering between regions
-3. Set up regional virtual network integration with the local virtual network
-4. Configure routing to access cross-region resources through peering
+Set up [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to enable regional integration:
+
+1. **Create a virtual network** in your app's region
+2. **Establish virtual network peering** between regions  
+3. **Set up regional virtual network integration** with the local virtual network
+4. **Configure routing** to access cross-region resources through peering
 
 ## Post-migration configuration and optimization
 
@@ -216,53 +285,28 @@ After successfully migrating to regional virtual network integration, you can ta
 * Connect to Azure services using [private endpoints](./overview-vnet-integration.md#private-endpoints) for enhanced security
 * Set up [private DNS zones](./overview-vnet-integration.md#azure-dns-private-zones) for name resolution of private endpoints
 
-## Troubleshooting common issues
+## Troubleshooting
 
-### Connectivity problems
-
-**Issue**: App can't reach virtual network resources after migration
-
-**Solutions**:
-1. Verify subnet delegation is set to `Microsoft.Web/serverFarms`
-2. Check NSG rules allow required traffic
-3. Ensure Route All is enabled if needed
-4. Confirm DNS resolution is working
-
-### Performance issues
-
-**Issue**: Slower performance after migration
-
-**Solutions**:
-1. Monitor network latency to virtual network resources
-2. Review and optimize NSG and UDR configurations
-3. Consider enabling NAT Gateway for better SNAT port availability
-4. Check for bandwidth limitations in network appliances
-
-### IP address exhaustion
-
-**Issue**: Running out of IP addresses in integration subnet
-
-**Solutions**:
-1. Move to a larger subnet (can't resize existing subnet)
-2. Implement multi-plan subnet join to consolidate plans
-3. Monitor and right-size your App Service plan instances
-
-### DNS resolution issues
-
-**Issue**: Can't resolve private DNS names
-
-**Solutions**:
-1. Configure Azure DNS private zones
-2. Set up custom DNS servers in virtual network settings
-3. Verify private endpoint DNS configuration
+For common issues and solutions after migration, see [Troubleshoot virtual network integration](/troubleshoot/azure/app-service/troubleshoot-vnet-integration-apps).
 
 ## Next steps
 
 After successfully migrating to regional virtual network integration, explore these related articles:
 
+**Configuration guides:**
 * [Enable virtual network integration in Azure App Service](./configure-vnet-integration-enable.md)
-* [Configure virtual network integration routing](./configure-vnet-integration-routing.md)
+* [Configure virtual network integration routing](./configure-vnet-integration-routing.md)  
 * [Azure NAT Gateway integration](./overview-nat-gateway-integration.md)
+
+**Learn more about App Service networking:**
 * [App Service networking features overview](./networking-features.md)
 * [Virtual network integration overview](./overview-vnet-integration.md)
 * [Troubleshoot virtual network integration](/troubleshoot/azure/app-service/troubleshoot-vnet-integration-apps)
+
+**Related tutorials:**
+* [Tutorial: Isolate back-end communication with Virtual Network integration](./tutorial-networking-isolate-vnet.md)
+
+**Azure networking documentation:**
+* [Azure Virtual Network documentation](../virtual-network/index.yml)
+* [Azure private endpoints](../private-link/private-endpoint-overview.md)
+* [Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md)
