@@ -194,6 +194,9 @@ Code: None
 Message: BMC login unsuccessful: Fail - Unauthorized; System health test(s) failed: [Additional logs: Server power down at end of test failed with: Unauthorized]
 ```
 
+> [!NOTE]
+> When hardware validation fails due to BMC credential authentication issues (Unauthorized), the action is rejected but the Bare Metal Machine isn't marked as failed or put into an error state. The BMM maintains its current operational status while the hardware validation reports the credential authentication failure.
+
 **Example 3: Hardware validation fails due to networking failure**
 
 ```shell
