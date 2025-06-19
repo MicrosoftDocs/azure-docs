@@ -7,7 +7,7 @@ This quickstart demonstrates how to use managed identities via Azure Service Pri
 
 ## Setting up
 
-### Create a New C# Application
+### Create a new C# application
 
 The goal is to create a new console application in C# to run the quickstart code. Open a terminal window (e.g., Command Prompt, PowerShell, or Bash) and execute the following command to create a new console app named `ActiveDirectoryAuthenticationQuickstart`:
 
