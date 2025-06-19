@@ -53,7 +53,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [MySQL](connector-mysql.md)                              | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support                | October 31, 2024      | September 30, 2025    |
 | [Oracle](connector-oracle.md)                             | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support announced          | November 30, 2025         | March 31, 2026      |
+|                                    | version 1.0    | End of support announced          | October 31, 2025         | March 31, 2026      |
 | [Oracle Eloqua (Preview)](connector-oracle-eloqua.md)      | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [Oracle Responsys (Preview)](connector-oracle-responsys.md) | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md) | /              | End of support                    | December 31, 2024     | December 31, 2024     |
