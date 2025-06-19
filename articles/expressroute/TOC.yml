@@ -327,7 +327,6 @@
       displayName: ARM,resource manager template
 - name: Resources
   items:
-<<<<<<< HEAD
   - name: Configure a router for ExpressRoute
     items:
     - name: Configure a router
@@ -351,8 +350,9 @@
   - name: ExpressRoute for Cloud Solution Providers (CSP)
     href: expressroute-for-cloud-solution-providers.md
   - name: Videos
-    href: /shows/Inside-Azure-for-IT/?products=azure-expressroute
     items:
+    - name: Videos
+      href: /shows/Inside-Azure-for-IT/?products=azure-expressroute
     - name: Microsoft Azure hybrid connectivity overview
       href: /shows/inside-azure-for-it/microsoft-azure-hybrid-connectivity-overview
     - name: Evolve your network infrastructure for connectivity
