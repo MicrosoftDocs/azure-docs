@@ -37,14 +37,14 @@ With the Storage Queue in place, events must be published from the Storage Accou
   >- `Microsoft.Storage.BlobCreated`
   >- `Microsoft.Storage.BlobDeleted`
 >- The file system must be the same one configured for the DICOM service
->- The file path must be within `AHDS/<workspace-name>/dicom/<dicom-service-name>[/<partition-name>]`
+>- The file path must be within `AHDS/{workspace-name}/dicom/{dicom-service-name}[/{partition-name}]`
 >- The file must be a DICOM file as defined in Part 10 of the DICOM standard
 >- The operation can't be performed the DICOM service itself
 
 The event subscription can be configured to filter out irrelevant data to avoid unnecessary processing and billing. Make sure to configure filter such that:
-- The *subject* must begin with `/blobServices/default/containers/<file-system-name>/blobs/AHDS/<workspace-name>/dicom/<dicom-service-name>/`
+- The *subject* must begin with `/blobServices/default/containers/{file-system-name}/blobs/AHDS/{workspace-name}/dicom/{dicom-service-name}/`
 - Optionally, the *subject* ends with `.dcm`
-- Under *advanced filters*, the key `data.clientRequestId` doesn't begin with `tag:<workspace-name>-<dicom-service-name>.dicom.azurehealthcareapis.com,`
+- Under *advanced filters*, the key `data.clientRequestId` doesn't begin with `tag:{workspace-name}-{dicom-service-name}.dicom.azurehealthcareapis.com,`
 
 ### Enable Storage Indexing
 
@@ -283,12 +283,12 @@ The following example ARM template may be deployed using the [Azure CLI](../../a
     {
       "type": "Microsoft.HealthcareApis/workspaces",
       "name": "[parameters('workspaceName')]",
-      "apiVersion": "2024-03-31",
+      "apiVersion": "2025-04-01-preview",
       "location": "[resourceGroup().location]"
     },
     {
       "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
-      "apiVersion": "2024-03-31",
+      "apiVersion": "2025-04-01-preview",
       "name": "[concat(parameters('workspaceName'), '/', parameters('dicomServiceName'))]",
       "location": "[resourceGroup().location]",
       "dependsOn": [
@@ -321,7 +321,7 @@ The following example ARM template may be deployed using the [Azure CLI](../../a
 
 :::image type="content" source="media/storage-indexing/diagnostic-logs.png" alt-text="A screenshot of the Azure portal showing a Kusto Query Language (KQL) query for the AHDSDicomAuditLogs table. The example query is filtering for all logs where OperationName is the string index-storage. A table of the query results is underneath." lightbox="media/storage-indexing/diagnostic-logs.png":::
 
-If there's an error when processing an event, the problematic event is enqueued in a "poison queue" called `<queue-name>-poison` in the same storage account. Details about every processed event can be found in the `AHDSDicomAuditLogs` and `AHDSDicomDiagnosticLogs` tables by filtering for all logs where `OperationName = 'index-storage'`. The audit logs only record when the operation started and completed whereas the diagnostic table provides details about each operation including any errors, if any. Operations may be correlated across the tables using `CorrelationId`.
+If there's an error when processing an event, the problematic event is enqueued in a "poison queue" called `{queue-name}-poison` in the same storage account. Details about every processed event can be found in the `AHDSDicomAuditLogs` and `AHDSDicomDiagnosticLogs` tables by filtering for all logs where `OperationName = 'index-storage'`. The audit logs only record when the operation started and completed whereas the diagnostic table provides details about each operation including any errors, if any. Operations may be correlated across the tables using `CorrelationId`.
 
 Failures are divided into two types: `User` and `Server`. User errors include any problem connecting to the storage account or with the DICOM file itself, while server errors include any unexpected error that prevents processing. Unlike server errors, the DICOM service doesn't retry user errors.
 
