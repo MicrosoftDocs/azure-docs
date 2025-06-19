@@ -15,6 +15,6 @@ ms.custom: include file
 1. Select the check box next to **Enable MQTT broker**. 
 1. Select **Apply** at the bottom of the page.
 
-    :::image type="content" source="./media/enable-mqtt-portal/enable-mqtt.png" alt-text="Screenshot showing Event Grid namespace configuration page to enable MQTT." lightbox="./media/enable-mqtt-portal/enable-mqtt.png":::
+   :::image type="content" source="./media/enable-mqtt-portal/enable-mqtt.png" alt-text="Screenshot showing Event Grid namespace configuration page to enable MQTT." lightbox="./media/enable-mqtt-portal/enable-mqtt.png":::
 
-    Check notifications in the portal to confirm that the MQTT broker is enabled for the namespace.
+   Check notifications in the portal to confirm that the MQTT broker is enabled for the namespace.
