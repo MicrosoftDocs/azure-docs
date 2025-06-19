@@ -41,14 +41,14 @@ Using the DNS provider that is hosting your domain, create DNS records for your 
 	| TXT | `asuid.{subdomain}` (for example, asuid.www) | The domain verification code. |
 
 > [!NOTE]
-> The IP address of your Container Apps environment and the domain verification code can be found in the [Custom DNS suffix settings](https://learn.microsoft.com/azure/container-apps/environment-custom-dns-suffix#add-a-custom-dns-suffix-and-certificate) of the Container App Environment.
+> The IP address of your Container Apps environment and the domain verification code can be found in the [Custom DNS suffix settings](./environment-custom-dns-suffix.md#add-a-custom-dns-suffix-and-certificate.md) of the Container App Environment.
 >
 > Don't bind the custom domain to the Container App Environment or to a Container App.
 
 ## Route configuration
 
 > [!NOTE]
-> If you set bindingType: "Auto" or "Disabled", you don't need a certificateId. Create the route before you [add the certificate](#add-a-certificate) so that the certificate registration check for ownership succeeds. If you are bringing your own certificate, set the bindingType to "Auto" or "Disabled" when you first create the route, and then set bindingType to "SniEnabled" and set the certificateId after you add the certificate to the environment.
+> If you set bindingType: "Auto" or "Disabled", you don't need a certificateId. Create the route before you add the certificate so that the certificate registration check for ownership succeeds. If you are bringing your own certificate, set the bindingType to "Auto" or "Disabled" when you first create the route, and then set bindingType to "SniEnabled" and set the certificateId after you add the certificate to the environment.
 Once you add the certificate, Container Apps automatically adds it to the route spec and binds it to the domain. The site is only accessible over HTTP (not HTTPS) until setup is complete.
 >
 > The certificateId is in the format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/certificates/{CertificateFriendlyName}
@@ -170,8 +170,8 @@ az containerapp env http-route-config delete \
 ## Add a certificate
 
 To add a certificate to your environment, use one of the following methods:
-- To add a Container Apps managed certificate, use the [az containerapp env certificate create](https://learn.microsoft.com/cli/azure/containerapp/env/certificate?view=azure-cli-latest#az-containerapp-env-certificate-create) CLI command.
-- To bring your own existing certificate, use the [az containerapp env certificate upload](https://learn.microsoft.com/cli/azure/containerapp/env/certificate?view=azure-cli-latest#az-containerapp-env-certificate-upload) CLI command.
+- To add a Container Apps managed certificate, use the [az containerapp env certificate create](/cli/azure/containerapp/env/certificate#az-containerapp-env-certificate-create) CLI command.
+- To bring your own existing certificate, use the [az containerapp env certificate upload](/cli/azure/containerapp/env/certificate#az-containerapp-env-certificate-upload) CLI command.
 
 > [!NOTE]
 > Don't bind the certificate to a Container App.
