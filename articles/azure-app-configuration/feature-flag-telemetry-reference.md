@@ -19,9 +19,13 @@ In this document, you:
 > - Learn what telemetry data is available using the Azure App Configuration provider libraries
 > - Learn what telemetry data is available using the Feature Management libraries
 
-## Evaluation Event
+## Feature evaluation
 
-Telemetry for feature flags is available when using the Feature Management libraries.
+## Feature evaluation
+
+The Feature evaluation event is emitted whenever a feature flag is evaluated in your application that has Telemetry enabled. This event occurs each time your code checks if a feature flags status or gets a variant. The event captures the evaluation result, variant assignment details, and contextual information about why specific decisions were made.
+
+This event contains the following fields:
 
 ### Basic fields
 
@@ -46,7 +50,7 @@ When the Azure App Configuration provider libraries are used, additional propert
 
 - **AllocationID**: A unique identifier representing the state of the feature flag's allocation.
 - **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`. When a label is present, the reference includes it as a query parameter: `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.```
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`. When a label is present, the reference includes it as a query parameter: `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
 
 The full schema can be found in the [App Configuration Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/AppConfigurationFeatureEvaluationEvent/FeatureEvaluationEvent.v1.0.0.schema.json).
 
