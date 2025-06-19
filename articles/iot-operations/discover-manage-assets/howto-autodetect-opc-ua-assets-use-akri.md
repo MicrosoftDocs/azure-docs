@@ -39,7 +39,7 @@ In this article, you learn how to automatically discover and configure OPC UA as
 
     # [Azure CLI](#tab/cli)
 
-    Run `rysnc enable` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
+    Run `rsync enable` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
 
     ```bash
     az iot ops rsync enable
