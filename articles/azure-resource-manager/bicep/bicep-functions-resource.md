@@ -843,7 +843,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions)
 
 ### Return value
 
-An array of logical zone names corresponding to the provided physical zones, (for example, `1`, `2`, or `3`). If a physical zone is invalid or not supported, an empty string (`''`) is returned.
+An array of logical zone names corresponding to the provided physical zones (for example, `1`, `2`, or `3`). If a physical zone is invalid or not supported, an empty string (`''`) is returned.
 
 ### Remarks
 
