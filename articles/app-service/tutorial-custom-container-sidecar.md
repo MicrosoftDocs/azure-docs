@@ -175,7 +175,7 @@ azd down
 - [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
 - [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
 - [Can a sidecar container receive internet requests?](#can-a-sidecar-container-receive-internet-requests)
-- [How do I use volume mounts?](how-do-i-use-volume-mounts)
+- [How do I use volume mounts?](#how-do-i-use-volume-mounts)
 
 ### What are the differences for sidecar-enabled custom containers?
 
