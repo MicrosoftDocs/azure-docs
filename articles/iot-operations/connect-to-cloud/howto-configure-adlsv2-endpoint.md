@@ -74,7 +74,7 @@ az iot ops dataflow endpoint create adls --resource-group <ResourceGroupName> --
 
 The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`.
 
-Here's an example command to create or replace a Azure Data Lake Storage Gen2 data flow endpoint named adls-endpoint:
+Here's an example command to create or replace an Azure Data Lake Storage Gen2 data flow endpoint named adls-endpoint:
 
 ```azurecli
 az iot ops dataflow endpoint create adls --resource-group myResourceGroup --instance myAioInstance --name adls-endpoint --storage-account adlsstorage
@@ -82,7 +82,7 @@ az iot ops dataflow endpoint create adls --resource-group myResourceGroup --inst
 
 #### Create or change
 
-Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to command to create or change an Azure Data Lake Storage Gen2 data flow endpoint.
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Data Lake Storage Gen2 data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
@@ -304,7 +304,7 @@ az iot ops dataflow endpoint create adls --auth-type SystemAssignedManagedIdenti
 
 The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`.
 
-An example command to create or replace a Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
+An example command to create or replace an Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
 
 ```azurecli
 az iot ops dataflow endpoint create adls --auth-type SystemAssignedManagedIdentity --resource-group myResourceGroup --instance myAioInstance --name adls-endpoint --storage-account adlsstorage
@@ -385,7 +385,7 @@ az iot ops dataflow endpoint create adls --auth-type SystemAssignedManagedIdenti
 
 The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`.
 
-An example command to create or replace a Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
+An example command to create or replace an Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
 
 ```azurecli
 az iot ops dataflow endpoint create adls --auth-type SystemAssignedManagedIdentity --audience https://<account>.blob.core.windows.net --resource-group myResourceGroup --instance myAioInstance --name adls-endpoint --storage-account adlsstorage
@@ -483,7 +483,7 @@ az iot ops dataflow endpoint create adls --auth-type UserAssignedManagedIdentity
 
 The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`. The `--auth-type` parameter specifies the authentication method, which is `UserAssignedManagedIdentity` in this case. The `--client-id`, `--tenant-id`, and `--scope` parameters specify the user-assigned managed identity client ID, tenant ID, and scope respectively.
 
-An example command to create or replace a Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
+An example command to create or replace an Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
 
 ```azurecli
 az iot ops dataflow endpoint create adls --auth-type UserAssignedManagedIdentity --client-id ClientId --tenant-id TenantId --scope https://storage.azure.com/.default --resource-group myResourceGroup --instance myAioInstance --name adls-endpoint --storage-account adlsstorage
@@ -609,7 +609,7 @@ az iot ops dataflow endpoint create adls --auth-type AccessToken --secret-name <
 
 The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`. The `--auth-type` parameter specifies the authentication method, which is `AccessToken` in this case. The `--secret-name` parameter specifies the name of the Kubernetes secret containing the SAS token.
 
-An example command to create or replace a Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
+An example command to create or replace an Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
 
 ```azurecli
 az iot ops dataflow endpoint create adls --auth-type AccessToken --secret-name mySasSecret --resource-group myResourceGroup --instance myAioInstance --name adls-endpoint --storage-account adlsstorage
