@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/08/2024
 ms.author: allensu
 ms.custom: template-how-to
+# Customer intent: As a network administrator, I want to verify my Traffic Manager settings and test traffic routing methods, so that I can ensure optimal performance and failover functionality for my applications.
 ---
 
 
