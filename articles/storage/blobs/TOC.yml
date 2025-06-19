@@ -317,8 +317,8 @@ items:
           href: ../common/storage-network-security-resource-instances.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Grant access to Azure trusted services
           href: ../common/storage-network-security-trusted-services.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Trusted Azure services list
-          href: ../common/storage-network-security-trusted-services-list.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Manage exceptions
+          href: ../common/storage-network-security-manage-exceptions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Network security perimeter (preview)
           href: ../common/storage-network-security-perimeter.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Copy operation restrictions

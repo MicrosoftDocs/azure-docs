@@ -1580,19 +1580,34 @@
             "redirect_url": "/azure/storage/common/storage-network-security-deny-public-access",
             "redirect_document_id": false
         },
+      {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#configuring-access-from-on-premises-networks",
+            "redirect_url": "/azure/storage/common/storage-network-security-ip-address-range#configuring-access-from-on-premises-networks",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#exceptions",
-            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services",
+            "redirect_url": "/azure/storage/common/storage-network-security-manage-exceptions",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#manage-exceptions",
-            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services",
+            "redirect_url": "/azure/storage/common/storage-network-security-manage-exceptions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#trusted-access-for-resources-registered-in-your-microsoft-entra-tenant",
+            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list#trusted-access-for-resources-registered-in-your-microsoft-entra-tenant",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range",
             "redirect_url": "/azure/storage/common/storage-network-security-ip-address-range",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#managing-ip-network-rules",
+            "redirect_url": "/azure/storage/common/storage-network-security-ip-address-range#managing-ip-network-rules",
             "redirect_document_id": false
         },
         {
@@ -1603,6 +1618,21 @@
         {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#grant-access-to-trusted-azure-services",
             "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#trusted-microsoft-services",
+            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity",
+            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list#trusted-access-based-on-a-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-network-security.md#trusted-access-based-on-system-assigned-managed-identity",
+            "redirect_url": "/azure/storage/common/storage-network-security-trusted-services-list#trusted-access-based-on-system-assigned-managed-identity",
             "redirect_document_id": false
         },
         {

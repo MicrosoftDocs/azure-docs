@@ -31,11 +31,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/storage/common/storage-network-security.md#grant-access-from-a-virtual-network",
-      "redirect_url": "/azure/storage/common/storage-network-security-virtual-networks",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/frontdoor/quickstart-create-front-door-bicep.md",
       "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-bicep",
       "redirect_document_id": false
