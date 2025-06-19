@@ -360,11 +360,11 @@ Then, for each file or class affected by the issue, you can jump into the source
 
 This release contains the following fixes and enhancements.
 
-- Supported the analysis of Gradle-based projects.
-- Added Open Liberty related rules to support detection.
-- Enhanced the visibility of analysis logs by displaying the number of rules processed during assessment.
+- Added support for Gradle-based project analysis.
+- Introduced detection rules for Open Liberty projects.
+- Improved analysis log visibility by displaying the number of rules processed during assessment.
 - Removed Maven prerequisites, use the Maven Wrapper when needed.
-- Replaced airsonic.war with airsonic-advanced as the sample application in released artifacts.
+- Replaced `airsonic.war` with `airsonic-advanced` as the sample application in the released artifacts.
 
 ### 7.6.0.6
 
