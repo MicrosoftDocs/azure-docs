@@ -22,7 +22,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 |------------------------------------|----------------|------------------------------------|-----------------------|-----------------------|
 | [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md) | /              | Removed                 | /                     | /                     |
 | [Amazon RDS for Oracle](connector-amazon-rds-for-oracle.md)                          | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support announced          | August 31, 2025         | October 31, 2025    |
+|                                    | version 1.0    | End of support announced          | October 31, 2025         | March 31, 2026      |
 | [Amazon Redshift](connector-amazon-redshift.md)                          | version 2.0    | Public Preview                                | /                   | /                   |
 |                                    | version 1.0    | GA          | To be determined      | /                   |
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)         | /              | End of support                    | December 31, 2024     | December 31, 2024     |
