@@ -77,9 +77,9 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. On the resource sidebar menu, under **Development** tools, select the designer to open the workflow.
+1. On the resource sidebar menu, under **Development Tools**, select the designer to open your blank workflow.
 
-1. Follow these [general steps to add an Azure Blob Storage managed trigger](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger) to your workflow.
+1. Add the **Azure Blob Storage** managed trigger for your scenario by following the [general steps to add a trigger to your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger).
 
    This example continues with the Azure Blob Storage trigger named **When a blob is added or modified (properties only)**.
 
@@ -131,7 +131,7 @@ The steps to add and use a Blob trigger differ based on whether you want to use 
 
 1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
 
-1. Follow these [general steps to add an Azure Blob Storage built-in trigger](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger) to your workflow.
+1. Add the **Azure Blob Storage** built-in trigger for your scenario by following the [general steps to add a trigger to your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
 
    This example continues with the Azure Blob Storage built-in trigger named **When a blob is added or updated**.
 
@@ -195,7 +195,7 @@ The steps to add and use a Blob trigger differ based on whether you want to use 
 
 1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
 
-1. Follow these [general steps to add an Azure Blob Storage managed trigger](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger) to your workflow.
+1. Add the **Azure Blob Storage** managed trigger for your scenario by follow the [general steps to add a trigger to your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
 
    This example continues with the Azure Blob Storage trigger named **When a blob is added or modified (properties only)**.
 
@@ -256,7 +256,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    This example uses the [**Recurrence** trigger](connectors-native-recurrence.md).
 
-1. Follow these [general steps to add an Azure Blob Storage managed action](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action) to your workflow.
+1. Add the **Azure Blob Storage** managed action for your scenario by following the [general steps to add an action to your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action).
 
    This example continues with the action named **Get blob content**.
 
@@ -319,7 +319,7 @@ The steps to add and use an Azure Blob action differ based on whether you want t
 
    This example uses the [**Recurrence** trigger](connectors-native-recurrence.md).
 
-1. Follow these [general steps to add an Azure Blob Storage built-in action](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
+1. Add the **Azure Blob Storage** built-in action for your scenario by following the [general steps to add an action to your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
 
    This example continues with the action named **Read blob content**, which only reads the blob content. To later view the content, add a different action that creates a file with the blob content using another connector. For example, you can add a OneDrive action that creates a file based on the blob content.
 
@@ -365,7 +365,7 @@ The steps to add and use an Azure Blob action differ based on whether you want t
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your blank workflow.
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your workflow.
 
 1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
 
@@ -373,7 +373,7 @@ The steps to add and use an Azure Blob action differ based on whether you want t
 
    This example uses the [**Recurrence** trigger](connectors-native-recurrence.md).
 
-1. Follow these [general steps to add an Azure Blob Storage managed action](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action) to your workflow.
+1. Add the **Azure Blob Storage** managed action for your scenario by following the [general steps to add an action to your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
 
    This example continues with the action named **Get blob content**.
 
