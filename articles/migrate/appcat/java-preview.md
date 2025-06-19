@@ -362,7 +362,7 @@ This release contains the following fixes and enhancements.
 
 - Added support for Gradle-based project analysis.
 - Support to analyze Open Liberty projects.
-- Improved analysis log visibility by displaying the number of rules processed during assessment.
+- Show assessment progress by displaying the number of rules processed during assessment.
 - Removed Maven prerequisites, use the Maven Wrapper when needed.
 - Replaced `airsonic.war` with `airsonic-advanced` as the sample application in the released artifacts.
 
