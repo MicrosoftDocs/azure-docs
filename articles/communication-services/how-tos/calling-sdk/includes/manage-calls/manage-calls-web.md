@@ -239,9 +239,10 @@ Remote participants have a set of associated properties and collections:
   const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
   ```
 
-  Notes:
-  - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
-  - In the scenario, where UserB kicks UserC, from UserA's perspective, UserA doesn't see this flag get set for UserC. In other words, UserA doesn't see UserC's callEndReason property get set at all.
+  > [!NOTE]
+  > This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
+  >
+  > In the scenario, where UserB kicks UserC, from UserA's perspective, UserA doesn't see this flag get set for UserC. In other words, UserA doesn't see UserC's callEndReason property get set at all.
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 
@@ -272,7 +273,8 @@ Remote participants have a set of associated properties and collections:
   const endpointDetails: EndpointDetails[] = remoteParticipant.endpointDetails;
   ```
 
-  Note: A remote participant could be in the call from many possible endpoints, and each endpoint has its own unique `participantId`. `participantId` is different from the `RemoteParticipant` identifier's raw ID.
+  > [!NOTE]
+  > A remote participant could be in the call from many possible endpoints, and each endpoint has its own unique `participantId`. `participantId` is different from the `RemoteParticipant` identifier's raw ID.
 
 ### Mute other participants
 
@@ -309,7 +311,8 @@ Get the local participant ID:
 const participantId: string = call.info.participantId;
 ```
 
-Note: An Azure Communication Services identity can use the web calling SDK in many endpoints, and each endpoint has its own unique `participantId`. `participantId` is different from the Azure Communication Services identity raw ID.
+> [!NOTE]
+> An Azure Communication Services identity can use the web calling SDK in many endpoints, and each endpoint has its own unique `participantId`. `participantId` is different from the Azure Communication Services identity raw ID.
 
 Retrieve the thread ID if joining a Teams meeting:
 

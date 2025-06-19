@@ -194,7 +194,7 @@ call.remoteParticipants
 
 ### Add a participant to a call
 
-To add a participant to a call as either a user or a phone number, call the`addParticipant` operation. This operation synchronously returns a remote participant instance.
+To add a participant to a call as either a user or a phone number, call the `addParticipant` operation. This operation synchronously returns a remote participant instance.
 
 ```swift
 let remoteParticipantAdded: RemoteParticipant = call.add(participant: CommunicationUserIdentifier(identifier: "userId"))

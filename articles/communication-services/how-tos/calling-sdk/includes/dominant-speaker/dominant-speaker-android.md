@@ -17,7 +17,7 @@ DominantSpeakersFeature dominantSpeakersFeature = call.feature(Features.DOMINANT
 The Dominant Speakers feature object has the following structure:
 
 - `OnDominantSpeakersChanged`: Event for listening for changes in the dominant speakers list.
-- `getDominantSpeakersInfo()`: Gets the `DominantSpeakersInfo` object, this object has:
+- `getDominantSpeakersInfo()`: Gets the `DominantSpeakersInfo` object. This object has:
     - `getSpeakers()`: A list of participant identifiers representing the dominant speakers list.
     - `getLastUpdatedAt()`: The date when the dominant speakers list was updated. 
 

@@ -437,7 +437,7 @@ The `videoStreamsUpdated` when a remote participant adds or removes a VideoStrea
 
 **How does your application react to the event?**
 
-If your application was processing a stream that is removed, yYour application must stop the processing. When a new stream is added, we recommend that your application start to render or process it.
+If your application was processing a stream that is removed, your application must stop the processing. When a new stream is added, we recommend that your application start to render or process it.
 
 **Code Sample:**
 

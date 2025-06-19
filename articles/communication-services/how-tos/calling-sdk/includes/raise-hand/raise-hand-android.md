@@ -91,5 +91,5 @@ The `participantsWithRaisedHands` variable contains an array of participant obje
 
 - `identifier`: the communication identifier of the participant.
 - `order`: the order in which the participant raised their hand.
-- 
+
 You can use this information to display a list of participants with the Raise Hand state and their order in the queue.

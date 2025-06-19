@@ -80,7 +80,7 @@ const defaultSpeaker = deviceManager.selectedSpeaker;
 await deviceManager.selectSpeaker(localCameras[0]);
 ```
 
-Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. We recommend that different `CallAgents` use different microphones and speakers. They shouldn't share the same microphones nor speakers. If sharing happens, then Microphone User Facing Diagnostics (UFD) might be triggered and the microphone stops working depending on the browser and os.
+Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. We recommend that different `CallAgents` use different microphones and speakers. They shouldn't share the same microphones nor speakers. If sharing happens, then Microphone User Facing Diagnostics (UFD) might be triggered and the microphone stops working depending on the browser and OS.
 
 ### Local video stream
 
@@ -155,7 +155,7 @@ console.log(result.video);
 #### Notes
 - `videoDevicesUpdated` event fires when video devices are plugging-in/unplugged.
 - `audioDevicesUpdated` event fires when audio devices are plugged.
-- When you first create `DeviceManager`, it doesn't know about any devices if permissions aren't granted yet. Initially its device name is empty and it doesn't contain detailed device information. You need to call `DeviceManager.askPermission()`, which prompts the user for device access. When the user selects allows access, the device manager learns about the devices on the system, updates device lists and sends the `audioDevicesUpdated` and `videoDevicesUpdated` events. If a user refreshes the page and creates a device manager, the device manager is able to learn about devices because user granted access previously. It has its device lists filled initially and it doesn't emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
+- When you first create `DeviceManager`, it doesn't know about any devices if permissions aren't granted yet. Initially its device name is empty and it doesn't contain detailed device information. You need to call `DeviceManager.askPermission()`, which prompts the user for device access. When the user allows access, the device manager learns about the devices on the system, updates device lists, and sends the `audioDevicesUpdated` and `videoDevicesUpdated` events. If a user refreshes the page and creates a device manager, the device manager learns about devices because the user previously granted access. It has its device lists filled initially and it doesn't emit `audioDevicesUpdated` nor `videoDevicesUpdated` events.
 - Speaker enumeration/selection isn't supported on Android Chrome, iOS Safari, nor macOS Safari.
 
 ## Place a call with video camera
@@ -588,6 +588,6 @@ await callObj2.mute();
 Limitations:
 - Sending video streams must be done with two different `CallAgent` instances using different identities. The code snippet shows two call agents being used, each with its own Call object.
 - In the code example, both CallAgents are joining the same call (same call IDs). You can also join different calls with each agent and send one video on one call and a different video on the other call. 
-- Sending the same camera in both CallAgent, isn't supported. They must be two different cameras.
+- Sending the same camera in both CallAgents isn't supported. They must be two different cameras.
 - Sending two different cameras with one CallAgent is currently not supported.
 - On macOS Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera, and not both at the same time.

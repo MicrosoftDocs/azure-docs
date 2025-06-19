@@ -48,7 +48,7 @@ The following table show support for individual APIs in the Calling SDK related 
 |Start a call to Microsoft 365 user	| ✔️ | ✔️ | 		
 |Start a call to phone number | ✔️ | ✔️ | 		
 |Join a room |✔️ | | 
-|Joina a Teams meeting | ✔️	| ✔️ |
+|Join a Teams meeting | ✔️	| ✔️ |
 |Join a call based on groupId | ✔️ | |
 |Accept or reject incoming call | ✔️ | ✔️ |
 |Hold and resume call | ✔️ | ✔️ |

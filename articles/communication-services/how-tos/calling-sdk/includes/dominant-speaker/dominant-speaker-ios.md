@@ -18,7 +18,7 @@ let dominantSpeakersFeature = call.feature(Features.dominantSpeakers)
 The Dominant Speakers feature object has the following structure:
 
 - `didChangeDominantSpeakers`: Event for listening for changes in the dominant speakers list.
-- `dominantSpeakersInfo`: Which gets the `DominantSpeakersInfo` object, this object has:
+- `dominantSpeakersInfo`: Which gets the `DominantSpeakersInfo` object. This object has:
     - `speakers`: A list of participant identifiers representing the dominant speakers list.
     - `lastUpdatedAt`: The date when the dominant speakers list was updated.
 

@@ -19,7 +19,7 @@ DominantSpeakersCallFeature dominantSpeakersFeature = call.Features.DominantSpea
 The Dominant Speakers feature object has the following structure:
 
 - `OnDominantSpeakersChanged`: Event for listening for changes in the dominant speakers list.
-- `DominantSpeakersInfo`: Gets the `DominantSpeakersInfo` object, this object has:
+- `DominantSpeakersInfo`: Gets the `DominantSpeakersInfo` object. This object has:
     - `Speakers`: A list of participant identifiers representing the dominant speakers list.
     - `LastUpdatedAt`: The date when the dominant speakers list was updated. 
 
