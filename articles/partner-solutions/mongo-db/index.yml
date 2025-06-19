@@ -40,3 +40,7 @@ landingContent:
         links:
         - text: MongoDB Atlas developer tools 
           url: tools.md
+        - text: Azure CLI
+          url: /cli/azure/mongodb
+        - text: Azure PowerShell
+          url: /powershell/module/az.mongodb

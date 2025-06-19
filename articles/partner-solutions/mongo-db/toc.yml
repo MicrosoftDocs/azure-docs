@@ -22,3 +22,10 @@ items:
     href: https://www.mongodb.com/company/contact
   - name: Troubleshoot
     href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/mongodb
+  - name: Azure PowerShell
+    href: /powershell/module/az.mongodb
+    
