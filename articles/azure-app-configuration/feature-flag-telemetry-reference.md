@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: mrm9084
 ms.author: mametcal
 ms.topic: reference
-ms.date: 11/06/2024
+ms.date: 06/19/2025
 ---
 
 # Document: Feature flag telemetry reference
@@ -29,15 +29,15 @@ The feature management libraries provide the following properties to telemetry d
 
 - **FeatureName**: The name of the feature flag.
 - **Enabled**: A boolean value indicating if the feature flag is enabled.
-- **Version**: The version of this schema.
-- **Reason**: The reason the feature flag was enabled or disabled.
 - **Variant**: The variant that was selected for the feature flag.
-- **VariantAssignmentPercentage**: Specifies the percentage of the user base the assigned variant is allocated for. This field is only present for percentile-based assignments.
+- **VariantAssignmentReason**: The reason the variant was assigned to the user; DefaultWhenDisabled, DefaultWhenEnabled, User, Group, Percentile, None.
+- **TargetingId**: The ID of the user that was assigned to the variant.
 - **DefaultWhenEnabled**: The default variant of the feature flag when it's enabled.
+- **Version**: The version of this schema.
+- **VariantAssignmentPercentage**: Specifies the percentage of the user base the assigned variant is allocated for. This field is only present for percentile-based assignments.
 - **AllocationID**: A unique identifier for the feature flag in its current state.
 - **ETag**: The current ETag for the feature flag.
 - **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
-- **TargetingId**: The ID of the user that was assigned to the variant.
 
 The full schema can be found [here](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEvent.v1.0.0.schema.json).
 
@@ -50,8 +50,6 @@ When the Azure App Configuration provider libraries are used, additional propert
 - **AllocationID**: A unique identifier for the feature flag in its current state.
 - **ETag**: The current ETag for the feature flag.
 - **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
-
-The full schema can be found [here](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEventWithAzureAppConfiguration.v1.0.0.schema.json).
 
 ## Next steps
 
