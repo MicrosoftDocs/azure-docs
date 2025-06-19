@@ -30,14 +30,14 @@ If you don't have an [Azure subscription](/azure/guides/developer/azure-develope
 - If you're new to Event Grid, read through the [Event Grid overview](../event-grid/overview.md) before you start this tutorial.
 - Register the Event Grid resource provider according to the steps in [Register the Event Grid resource provider](../event-grid/custom-event-quickstart-portal.md#register-the-event-grid-resource-provider).
 - Make sure that port 8883 is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
-- Use the Bash environment in [Azure Cloud Shell](../cloud-shell/overview.md). For more information, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
+- Use the Bash environment in [Azure Cloud Shell](../cloud-shell/overview.md). For more information, see [Get started with Azure Cloud Shell](../cloud-shell/quickstart.md).
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running the Azure CLI in a Docker container. For more information, see [Run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
-- If you're using a local installation, sign in to the Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps that appear in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
-- When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+- If you're using a local installation, sign in to the Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps that appear in your terminal. For other sign-in options, see [Authenticate to Azure using Azure CLI](/cli/azure/authenticate-azure-cli).
+- When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Manage Azure CLI Extensions](/cli/azure/azure-cli-extensions-overview).
 - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - This article requires version 2.53.1 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.
-- Review the Event Grid namespace [CLI documentation](/cli/azure/eventgrid/namespace).
+- Review the Event Grid namespace [CLI commands](/cli/azure/eventgrid/namespace).
 
 ## Generate a sample client certificate and thumbprint
 
@@ -163,8 +163,9 @@ while (true)
 
 You can replicate and modify the same code for multiple clients to publish and subscribe among the clients.
 
-## Next steps
+## Related content
 
 - [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
 - [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
-- For code samples, go to [this GitHub repository](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main).
+
+For code samples, go to [this GitHub repository](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main).
