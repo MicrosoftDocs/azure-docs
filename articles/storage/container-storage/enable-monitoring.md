@@ -6,6 +6,7 @@ ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 01/06/2025
 ms.author: kendownie
+# Customer intent: As a cloud administrator, I want to enable monitoring for stateful workloads on Azure Container Storage using managed Prometheus, so that I can gain insights into performance metrics and ensure the reliability of my systems.
 ---
 
 # Enable monitoring for Azure Container Storage with managed Prometheus (preview)

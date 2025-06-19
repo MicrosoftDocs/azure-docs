@@ -2,11 +2,11 @@
 title: TLS policy overview for Azure Application Gateway for Containers
 description: Learn how to configure TLS policy for Azure Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 03/21/2024
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Application Gateway for Containers TLS policy overview

@@ -1,9 +1,12 @@
 ---
 title: Support matrix for Azure Data Lake Storage Vaulted Backup (preview)
-description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
+description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage.
 ms.topic: reference
-ms.date: 05/21/2025
-ms.custom: references_regions, engagement-fy24
+ms.date: 06/19/2025
+ms.custom:
+  - references_regions
+  - engagement-fy24
+  - build-2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -11,11 +14,11 @@ ms.author: jsuri
 
 # Support matrix for Azure Data Lake Storage vaulted backup (preview)
 
-This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage (preview).
+This article summarizes the regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage.
 
 ## Supported regions
 
-Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia.
+Vaulted backups of Azure Data Lake Storage are available in the following regions: France South, India West, West Central US, East Asia, India Central.
 
 ## Supported storage accounts
 
@@ -36,9 +39,9 @@ The following table lists the protection limits:
 | Maximum number of containers in a storage account that can be protected | 100 |
 | Vault redundancy              | LRS/ZRS/GRS |
 
-### Supported and unsupported scenarios for Azure Data Lake Storage protection (preview)
+### Supported and unsupported scenarios for Azure Data Lake Storage protection
 
-Azure Data Lake Storage protection (preview) has the following supported and unsupported scenarios:
+Azure Data Lake Storage protection has the following supported and unsupported scenarios:
 
 - Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.

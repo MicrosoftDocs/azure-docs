@@ -6,7 +6,10 @@ ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/28/2024
-ms.custom: template-how-to-pattern, devx-track-bicep
+ms.custom:
+  - template-how-to-pattern
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Create dual-stack Azure Operator Nexus Kubernetes cluster

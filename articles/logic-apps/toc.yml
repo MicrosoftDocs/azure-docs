@@ -472,11 +472,11 @@ items:
   - name: Test
     items:
     - name: Create unit tests from Standard workflow definitions
-      href: create-unit-tests-standard-workflow-definitions-visual-studio-code.md
+      href: testing-framework/create-unit-tests-standard-workflow-definitions-visual-studio-code.md
     - name: Create unit tests from Standard workflow runs
-      href: create-unit-tests-standard-workflow-runs-visual-studio-code.md      
+      href: testing-framework/create-unit-tests-standard-workflow-runs-visual-studio-code.md      
     - name: Test workflows with mock outputs
-      href: test-logic-apps-mock-data-static-results.md
+      href: testing-framework/test-logic-apps-mock-data-static-results.md
   - name: Deploy
     items:
     - name: About automated deployment - Multitenant
@@ -569,6 +569,38 @@ items:
         href: logic-apps-workflow-actions-triggers.md
       - name: Functions reference
         href: workflow-definition-language-functions-reference.md
+  - name: Standard Automated Test Framework
+    items:
+      - name: Standard Automated Test SDK
+        href: testing-framework/automated-test-sdk.md
+      - name: ActionMock class
+        href: testing-framework/action-mock-class-definition.md
+      - name: TestActionExecutionContext class
+        href: testing-framework/test-action-execution-context-class-definition.md
+      - name: TestErrorInfo class
+        href: testing-framework/test-error-info-class-definition.md
+      - name: TestErrorResponseAdditionalInfo class
+        href: testing-framework/test-error-response-additional-info-class-definition.md
+      - name: TestExecutionContext class
+        href: testing-framework/test-execution-context-class-definition.md
+      - name: TestIterationItem class
+        href: testing-framework/test-iteration-item-class-definition.md
+      - name: TestWorkflowOutputParameter class
+        href: testing-framework/test-workflow-output-parameter-class-definition.md
+      - name: TestWorkflowRunActionRepetitionResult class
+        href: testing-framework/test-workflow-run-action-repetition-result-class-definition.md
+      - name: TestWorkflowRunActionResult class
+        href: testing-framework/test-workflow-run-action-result-class-definition.md
+      - name: TestWorkflowRun class
+        href: testing-framework/test-workflow-run-class-definition.md
+      - name: TestWorkflowRunTriggerResult class
+        href: testing-framework/test-workflow-run-trigger-result-class-definition.md
+      - name: TestWorkflowStatus enum
+        href: testing-framework/test-workflow-status-enum-definition.md
+      - name: TriggerMock class
+        href: testing-framework/trigger-mock-class-definition.md
+      - name: UnitTestExecutor class
+        href: testing-framework/unit-test-executor-class-definition.md    
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
@@ -579,7 +611,7 @@ items:
   - name: Azure Logic Apps roadmap
     href: https://aka.ms/logicappsroadmap/
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Pricing for Azure Logic Apps
     href: https://azure.microsoft.com/pricing/details/logic-apps/
   - name: Pricing calculator

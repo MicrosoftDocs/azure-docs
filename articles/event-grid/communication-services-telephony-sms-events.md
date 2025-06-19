@@ -9,7 +9,7 @@ ms.author: vikramdh
 
 # Azure Communication Services - SMS events
 
-This article provides the properties and schema for communication services SMS events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for communication services SMS events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Events types
 
@@ -30,11 +30,11 @@ This section contains an example of what that data would look like for each even
 
 ```json
 [{
-  "id": "Outgoing_202009180022138813a09b-0cbf-4304-9b03-1546683bb910",
+  "id": "8813a09b-0cbf-4304-9b03-1546683bb910",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
   "subject": "/phonenumber/15555555555",
   "data": {
-    "messageId": "Outgoing_202009180022138813a09b-0cbf-4304-9b03-1546683bb910",
+    "messageId": "8813a09b-0cbf-4304-9b03-1546683bb910",
     "from": "15555555555",
     "to": "+15555555555",
     "deliveryStatus": "Delivered",
@@ -63,11 +63,11 @@ This section contains an example of what that data would look like for each even
 
 ```json
 [{
-  "id": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+  "id": "d29ebbea-3341-4466-9690-0a03af35228e",
   "topic": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/acse2e/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
   "subject": "/phonenumber/15555555555",
   "data": {
-    "messageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+    "messageId": "d29ebbea-3341-4466-9690-0a03af35228e",
     "from": "15555555555",
     "to": "15555555555",
     "message": "Great to connect with Azure Communication Services events",

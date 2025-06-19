@@ -2,11 +2,11 @@
 title: Azure Application Gateway classic to Resource Manager
 description: Learn about moving Azure Application Gateway resources from the classic deployment model to the Resource Manager deployment model.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 05/01/2025
-ms.author: greglin
+ms.author: mbender
 ---
 
 # Application gateway classic to Resource Manager migration

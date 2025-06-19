@@ -521,7 +521,7 @@ Your organization might have already configured a diagnostic setting to integrat
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-entra-id-solution.png" alt-text="Screenshot of Content hub page with Microsoft Entra ID content selected." lightbox="./media/elevate-access-global-admin/sentinel-entra-id-solution.png":::
 
-1. Use the [Microsoft Entra ID connector](../sentinel/data-connectors/microsoft-entra-id.md) to collect data from Microsoft Entra ID by following the steps at [Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md).
+1. Use the [Microsoft Entra ID connector](../sentinel/data-connectors-reference.md#microsoft-entra-id) to collect data from Microsoft Entra ID by following the steps at [Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md).
 
 1. On the **Data connectors** page, add a check mark for **Audit Logs**.
 

@@ -6,6 +6,8 @@ ms.author: rithorn
 ms.service: azure-policy 
 ms.topic: how-to
 ms.date: 05/19/2025
+ms.custom:
+  - build-2025
 ---
 
 # How to use Azure Service Groups to manage resources

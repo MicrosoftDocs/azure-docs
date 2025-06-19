@@ -7,6 +7,8 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 05/13/2025
 monikerRange: migrate
+ms.custom:
+  - build-2025
 ---
 
 # Security best practices to deploy Azure Migrate Appliance
@@ -34,7 +36,7 @@ Set up a dedicated resource group for your Azure Migrate project. This helps in 
 
 Follow these networking best practices.
 
-- **Limit outbound connectivity** - Azure Migrate appliance requires outbound connectivity on selective network endpoints. If you have configured firewall or Proxy Server on-premises, restrict the outbound connection on the appliance by allowlisting only the [required URLs](https://github.com/MicrosoftDocs/azure-docs-pr/pull/293190).  
+- **Limit outbound connectivity** - Azure Migrate appliance requires outbound connectivity on selective network endpoints. If you have configured firewall or Proxy Server on-premises, restrict the outbound connection on the appliance by allowlisting only the [required URLs](https://aka.ms/Migrateapplianceurls).  
 
 - **Use Azure Private Link** - Implement Azure Private Link to discover, assess, and migrate servers over a private network. This ensures that traffic remains within the Azure backbone network and doesn’t traverse the public internet. [Learn more](how-to-use-azure-migrate-with-private-endpoints.md) 
 
@@ -46,7 +48,7 @@ We recommend joining the appliance machine to the domain.
 
 - The Migrate appliance can be deployed on the supported version of Windows Servers either using a PowerShell installation script or OVA/VHD template.  
 
-- **Security baseline** - We recommend hardening the OS image of Migrate appliance using [security baselines](https://learn.microsoft.com/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines). Download the [security compliance toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=55319) to apply security baselines on Migrate Appliance machine. Using the toolkit, administrators can compare their current GPOs with Microsoft-recommended GPO baselines or other baselines, edit them, store them in GPO backup file format, and apply them via a domain controller or inject them directly into testbed hosts to test their effects.  
+- **Security baseline** - We recommend hardening the OS image of Migrate appliance using [security baselines](/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines). Download the [security compliance toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=55319) to apply security baselines on Migrate Appliance machine. Using the toolkit, administrators can compare their current GPOs with Microsoft-recommended GPO baselines or other baselines, edit them, store them in GPO backup file format, and apply them via a domain controller or inject them directly into testbed hosts to test their effects.  
 
 ## Credentials handling best practices
 

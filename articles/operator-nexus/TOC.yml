@@ -50,6 +50,8 @@
           href: concepts-disable-border-gateway-protocol-neighbors.md
         - name: Network Packet Broker
           href: concepts-nexus-network-packet-broker.md
+        - name: Commit Workflow v2
+          href: concepts-commit-workflow-v2.md
         - name: Route Policy
           expanded: false
           items:
@@ -100,6 +102,11 @@
       href: concepts-security-access-identity.md
     - name: Availability
       href: concepts-nexus-availability.md
+    - name: Credential
+      expanded: false
+      items:
+        - name: Baseboard Management Controller Credential Rotation Overview
+          href: concepts-baseboard-management-controller-credential-rotation.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -246,6 +253,10 @@
           href: concepts-bmp-log-streaming.md
         - name: How to enable / disable BMP log streaming Azure Operator Nexus
           href: howto-enable-log-streaming.md
+        - name: How to use Commit Workflow v2 in Azure Operator Nexus
+          href: howto-use-commit-workflow-v2.md
+        - name: How to set administrative lock or unlock for Network fabric
+          href: howto-set-administrative-lock-or-unlock-for-network-fabric.md
     - name: Cluster
       expanded: false
       items:
@@ -477,6 +488,8 @@
           href: reference-acl-examples.md
     - name: Operator Nexus SKUs
       href: reference-operator-nexus-skus.md
+    - name: Password By Key Vault Reference
+      href: reference-key-vault-credential.md
 - name: Release Notes
   items:
     - name: 2024
