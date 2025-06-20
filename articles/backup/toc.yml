@@ -193,7 +193,7 @@
     - name: Azure files backup support matrix
       href: azure-file-share-support-matrix.md
     - name: Azure Elastic SAN backup support matrix  
-      href: azure-elastic-storage-area-network-backup-support-matrix.md
+      href: azure-elastic-san-backup-support-matrix.md
     - name: Azure Disk Backup support matrix
       href: disk-backup-support-matrix.md
     - name: Azure Blobs backup support matrix
@@ -281,7 +281,7 @@
   - name: Azure Data Lake Storage backup
     href: azure-data-lake-storage-backup-overview.md  
   - name: Azure Elastic SAN backup
-    href: azure-elastic-storage-area-network-backup-overview.md  
+    href: azure-elastic-san-backup-overview.md
   - name: Azure Files backup
     href: azure-file-share-backup-overview.md
   - name: Windows backup using MARS agent
@@ -685,11 +685,11 @@
   - name: Azure Elastic SAN backup
     items:
     - name: Configure backup
-      href: azure-elastic-storage-area-network-backup-configure.md
+      href: azure-elastic-san-backup-configure.md
     - name: Restore
-      href: azure-elastic-storage-area-network-backup-restore.md
+      href: azure-elastic-san-backup-restore.md
     - name: manage  
-      href: azure-elastic-storage-area-network-backup-manage.md          
+      href: azure-elastic-san-backup-manage.md          
   - name: SAP HANA database on Azure VM backup
     items:
     - name: Backup
