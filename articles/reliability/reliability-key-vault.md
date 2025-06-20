@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-key-vault
-ms.date: 05/07/2025
+ms.date: 06/20/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Key Vault works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
@@ -20,42 +20,47 @@ Azure Key Vault is a cloud service that provides a secure store for secrets, suc
 
 ## Production deployment recommendations
 
-For production deployments of Azure Key Vault, we recommend:
+For production deployments of Azure Key Vault, we recommend that you:
 
-- Using Standard or Premium tier key vaults
-- Enabling soft delete and purge protection to prevent accidental or malicious deletion
+- Use Standard or Premium tier key vaults
+- Enable soft delete and purge protection to prevent accidental or malicious deletion
 - For critical workloads, consider implementing multi-region strategies as described in this guide
 
 ## Reliability architecture overview
 
-Azure Key Vault achieves redundancy by replicating your key vault and its contents within the region to ensure high durability and availability of your keys, secrets, and certificates.
+To ensure high durability and availability of your keys, secrets, and certificates in the event of a hardware failure or network outage, Key Vault provides multiple layers of redundancy to maintain availability during:
 
-By default, the contents of your key vault are replicated within the region. If the region has a [paired region](./regions-list.md) and that paired region is in the same geography as the primary region, the contents are also replicated to the paired region. This approach ensures high durability of your keys and secrets, protecting against hardware failures, network outages, or localized disasters.
-
-Key Vault provides multiple layers of redundancy to maintain availability during:
 - Hardware failures
 - Network outages
 - Localized disasters
 - Maintenance activities
 
+By default, Azure Key Vault achieves redundancy by replicating your key vault and its contents within the region.
+
+In addition, if the region has a [paired region](./regions-list.md) and that paired region is in the same geography as the primary region, the contents are also replicated to the paired region. This approach ensures high durability of your keys and secrets, protecting against hardware failures, network outages, or localized disasters.
+
+<!-- John: I am assuming that the paired region replication is by default as well?-->
+
+
+
 ## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-Client applications should implement retry logic when interacting with Key Vault to handle any transient failures that might occur. Some best practices include:
+To handle any transient failures that might occur, your client applications should implement retry logic when interacting with Key Vault. Some best practices include:
 
-- Use the [Azure SDKs](https://azure.microsoft.com/downloads/), which typically include built-in retry mechanisms
-- If your clients connect directly to Key Vault, implement exponential backoff retry policies
-- Cache secrets in memory when possible to reduce direct requests to Key Vault
-- Monitor for throttling errors, as exceeding Key Vault service limits will cause throttling
+- Use the [Azure SDKs](https://azure.microsoft.com/downloads/), which typically include built-in retry mechanisms.
+- If your clients connect directly to Key Vault, implement exponential backoff retry policies.
+- Cache secrets in memory when possible to reduce direct requests to Key Vault.
+- Monitor for throttling errors, as exceeding Key Vault service limits will cause throttling.
 
 If you're using Key Vault in high-throughput scenarios, consider distributing your operations across multiple key vaults to avoid throttling limits. Azure Key Vault has specific guidance for these scenarios:
 
-- A high-throughput scenario is one that approaches or exceeds the [service limits](/azure/key-vault/general/service-limits) for Key Vault operations (for example, 200 operations per second for software-protected keys)
-- For high-throughput workloads, divide your Key Vault traffic among multiple vaults and different regions
-- A subscription-wide limit for all transaction types is five times the individual key vault limit
-- Use a separate vault for each security/availability domain (for example, if you have five apps in two regions, consider using 10 vaults)
-- For public-key operations such as encryption, wrapping, and verification, perform these operations locally by caching the public key material
+- A high-throughput scenario is one that approaches or exceeds the [service limits](/azure/key-vault/general/service-limits) for Key Vault operations (for example, 200 operations per second for software-protected keys).
+- For high-throughput workloads, divide your Key Vault traffic among multiple vaults and different regions.
+- A subscription-wide limit for all transaction types is five times the individual key vault limit.
+- Use a separate vault for each security/availability domain (for example, if you have five apps in two regions, consider using 10 vaults).
+- For public-key operations such as encryption, wrapping, and verification, perform these operations locally by caching the public key material.
 
 For comprehensive throttling guidance, see [Azure Key Vault throttling guidance](/azure/key-vault/general/overview-throttling).
 
@@ -63,15 +68,18 @@ For comprehensive throttling guidance, see [Azure Key Vault throttling guidance]
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Key Vault automatically provides zone redundancy in regions with availability zones available, providing high availability within a region without requiring any specific configuration. When an availability zone becomes unavailable, Azure Key Vault automatically redirects your requests to other healthy availability zones to ensure high availability. For more information, see [Failover within a region](/azure/key-vault/general/disaster-recovery-guidance#failover-within-a-region) in the Key Vault availability and redundancy documentation.
+Azure Key Vault automatically provides zone redundancy in [regions that support availability zones](./regions-list.md), providing high availability within a region without requiring any specific configuration. 
+
+
+When an availability zone becomes unavailable, Azure Key Vault automatically redirects your requests to other healthy availability zones to ensure high availability. 
 
 ### Region support
 
-Azure Key Vault is available in [all Azure regions that support availability zones](./regions-list.md). Key Vault enables zone redundancy automatically in these regions.
+Azure Key Vault enables zone redundancy by default in [all Azure regions that support availability zones](./regions-list.md).
 
 ### Requirements
 
-All Key Vault SKUs (Standard and Premium) support the same level of availability and resiliency. There are no specific tier requirements to achieve zone resilience with Azure Key Vault.
+All Key Vault SKUs (Standard and Premium) support the same level of availability and resiliency. There aren't any tier-specific requirements to achieve zone resilience.
 
 ### Cost
 
@@ -99,7 +107,10 @@ The following section describes what to expect when key vaults are in a region w
 
 - **Expected downtime:** For read operations, there should be minimal to no downtime during a zone failure. Write operations might experience temporary unavailability while the service adjusts to the zone failure. Read operations are expected to remain available during zone failures.
 
-- **Traffic rerouting:** Key Vault automatically reroutes traffic away from the affected zone to healthy zones without requiring any customer intervention.
+- **Traffic rerouting:** Key Vault automatically reroutes traffic away from the affected zone to healthy zones without requiring any customer intervention. 
+
+
+For more information on the zone-down experience, see [Failover within a region](/azure/key-vault/general/disaster-recovery-guidance#failover-within-a-region) in the Key Vault availability and redundancy documentation.
 
 ### Failback
 
@@ -171,9 +182,9 @@ There are situations where the Microsoft-managed cross-region failover capabilit
 
 You can design a custom cross-region failover solution. One approach is to:
 
-1. Create separate key vaults in different regions
-1. Use the backup and restore functionality to maintain consistent secrets across regions
-1. Implement application-level logic to fail over between key vaults
+1. Create separate key vaults in different regions.
+1. Use the backup and restore functionality to maintain consistent secrets across regions.
+1. Implement application-level logic to fail over between key vaults.
 
 ## Backups
 
@@ -181,10 +192,10 @@ Azure Key Vault provides the ability to back up and restore individual secrets, 
 
 Key points about the backup functionality:
 
-- Backups create encrypted blobs that can't be decrypted outside of Azure
-- Backups can only be restored to a key vault within the same Azure subscription and Azure geography
-- There's a limitation of backing up no more than 500 past versions of a key, secret, or certificate object
-- Backups are point-in-time snapshots and don't automatically update when secrets change
+- Backups create encrypted blobs that can't be decrypted outside of Azure.
+- Backups can only be restored to a key vault within the same Azure subscription and Azure geography.
+- There's a limitation of backing up no more than 500 past versions of a key, secret, or certificate object.
+- Backups are point-in-time snapshots and don't automatically update when secrets change.
 
 For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't, such as accidental deletion of specific secrets.
 
