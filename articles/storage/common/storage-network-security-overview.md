@@ -45,17 +45,6 @@ Storage firewall rules apply to the public endpoint of a storage account. You do
 > For a list of data plane operations, see the [Azure Storage REST API Reference](/rest/api/storageservices/).
 > For a list of control plane operations, see the [Azure Storage Resource Provider REST API Reference](/rest/api/storagerp/).
 
-## Configure network access to Azure Storage
-
-You can control access to the data in your storage account over network endpoints, or through trusted services or resources in any combination including:
-
-- [Allow access from selected virtual network subnets using private endpoints](storage-private-endpoints.md).
-- [Allow access from selected virtual network subnets using service endpoints](storage-network-security-virtual-networks.md).
-- [Allow access from specific public IP addresses or ranges](storage-network-security-ip-address-range.md).
-- [Allow access from selected Azure resource instances](storage-network-security-resource-instances.md).
-- [Allow access from trusted Azure services](storage-network-security-trusted-services.md).
-- [Configure exceptions for logging and metrics services](storage-network-security-trusted-services.md).
-
 ### About virtual network endpoints
 
 There are two types of virtual network endpoints for storage accounts:
@@ -92,15 +81,15 @@ Before implementing network security for your storage accounts, review the impor
 > [!div class="checklist"]
 >
 > - Azure Storage firewall rules only apply to [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. [Control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane) operations are not subject to the restrictions specified in firewall rules.
-> - Review the [Restrictions for IP network rules](#restrictions-for-ip-network-rules).
+> - Review the [Restrictions for IP network rules](storage-network-security.md#restrictions-for-ip-network-rules).
 > - To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
 > - Network rules are enforced on all network protocols for Azure Storage, including REST and SMB.
 > - Network rules don't affect virtual machine (VM) disk traffic, including mount and unmount operations and disk I/O, but they do help protect REST access to page blobs.
-> - You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by [creating an exception](#manage-exceptions). Firewall exceptions aren't applicable to managed disks, because Azure already manages them.
+> - You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by [creating an exception](storage-network-security.md#manage-exceptions). Firewall exceptions aren't applicable to managed disks, because Azure already manages them.
 > - Classic storage accounts don't support firewalls and virtual networks.
 > - If you delete a subnet that's included in a virtual network rule, it will be removed from the network rules for the storage account. If you create a new subnet by the same name, it won't have access to the storage account. To allow access, you must explicitly authorize the new subnet in the network rules for the storage account.
 > - When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior. Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
-> - By design, access to a storage account from trusted services takes the highest precedence over other network access restrictions. If you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [resource instances](#grant-access-from-azure-resource-instances) and [exceptions](#manage-exceptions) that you previously configured, including [Allow Azure services on the trusted services list to access this storage account](#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services might still have access to the storage account.
+> - By design, access to a storage account from trusted services takes the highest precedence over other network access restrictions. If you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [resource instances](#storage-network-security.mdgrant-access-from-azure-resource-instances) and [exceptions](storage-network-security.md#manage-exceptions) that you previously configured, including [Allow Azure services on the trusted services list to access this storage account](storage-network-security.md#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services might still have access to the storage account.
 
 ### Authorization
 

@@ -104,6 +104,7 @@ The Azure role assignments of the resource instance determine the types of opera
 <a id="grant-access-to-trusted-azure-services"></a>
 <a id="manage-exceptions"></a>
 <a id="trusted-microsoft-services"></a>
+<a id="exceptions"></a>
 
 ## Grant access to trusted Azure services
 
