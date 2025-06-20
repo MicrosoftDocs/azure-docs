@@ -20,7 +20,7 @@ This capability is particularly useful for large distributed organizations that 
 
 Customers should be aware of the following exceptions and limitations when planning their data transfer strategies:
 
-- Cross-cloud transfers are not supported. Data cannot be transferred between different cloud providers.
-- Shipping the Data Box device itself across commerce boundaries is not supported.
+- Cross-cloud transfers aren't supported. Data can't be transferred between different cloud providers.
+- Shipping the Data Box device itself across commerce boundaries isn't supported.
 - Some data transfer scenarios take place over large geographic areas. Higher than normal latencies might be encountered during such transfers.
-- Export scenarios for cross region transfers are not supported.
+- Export scenarios for cross region transfers aren't supported.
