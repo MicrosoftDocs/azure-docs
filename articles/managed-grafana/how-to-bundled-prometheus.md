@@ -29,7 +29,7 @@ This article walks you through enabling bundled Prometheus, configuring recordin
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana workspace in the Standard tier. [Create a new workspace](./quickstart-managed-grafana-portal.md) if you don't have one.
 - Grafana version 11.0 or higher.
-- An [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md) that supports Prometheus metrics collection.
+- An [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) that supports Prometheus metrics collection.
 - You must have the **Contributor** or **Owner** role on the Azure Monitor workspace, or custom permissions to create role assignments. This access allows Azure Managed Grafana to configure the necessary access to collect and store Prometheus metrics.
 
 ## Select an Azure Monitor workspace to enable bundled Prometheus
@@ -64,12 +64,10 @@ Create a new recording rule from the Grafana UI following the steps below. For d
 
    1. Enter a name for the recording rule and a metric name.
    1. Define the rule for the bundled-azure-prometheus data source.
-
     :::image type="content" source="media/bundled-prometheus/define-recording-rule.png" alt-text="Screenshot of configuring recording rule settings with query and labels." lightbox="media/grafana-settings/grafana-settings-tab.png"::::::
 
    1. Set an evaluation behavior and optionally add labels.
-
-    :::image type="content" source="media/bundled-prometheus/set-evaluation-behaviors-and-labels.png" alt-text="Screenshot of the recording rule configuration form with evaluation settings.":::
+    :::image type="content" source="media/bundled-prometheus/set-evaluation-behaviors-labels.png" alt-text="Screenshot of the recording rule configuration form with evaluation settings.":::
 
    1. After saving, you can view the details of the recording rule under the folder you selected earlier. Select the **View** icon to view recorded
 metrics.
@@ -80,9 +78,9 @@ After you set up the recording rules, you can visualize the recorded Prometheus 
 
 1. In the Grafana UI, go to **Metrics** and select the bundled-azure-prometheus data source to view the recorded data.
 
-    :::image type="content" source="media/bundled-prometheus/view-metrics.png" alt-text="Screenshot of selecting the bundled-azure-prometheus data source in Grafana Metrics." lightbox="media/grafana-settings/view-metrics.png":::::::::
+    :::image type="content" source="media/bundled-prometheus/view-metrics.png" alt-text="Screenshot of selecting the bundled-azure-prometheus data source in Grafana Metrics." lightbox="media/bundled-prometheus/view-metrics.png":::::::::
 
-1. You can now add these recorded metrics to a Grafana dashboard. For detailed steps on creating visualizations with Prometheus data, see [Display Prometheus data in Grafana](./how-to-connect-azure-monitor-workspace.md#display-prometheus-data-in-grafana). For more information about editing a dashboard, refer to [Edit a dashboard panel](./how-to-create-dashboard#edit-a-dashboard-panel).
+1. You can now add these recorded metrics to a Grafana dashboard. For detailed steps on creating visualizations with Prometheus data, see [Display Prometheus data in Grafana](./how-to-connect-azure-monitor-workspace.md#display-prometheus-data-in-grafana). For more information about editing a dashboard, refer to [Edit a dashboard panel](./how-to-create-dashboard.md#edit-a-dashboard-panel).
 
 > [!TIP]
 > If you don't see Prometheus data in your dashboard, check if your Azure Monitor workspace is collecting Prometheus data. For troubleshooting, see [Troubleshoot collection of Prometheus metrics in Azure Monitor](../azure/azure-monitor/containers/prometheus-metrics-troubleshoot).
