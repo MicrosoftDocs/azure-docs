@@ -79,13 +79,13 @@ Later in this article, you give permission to the Microsoft Entra app to act by 
 | Partner Admin Reader | Partner Admins can view data for all enrollments under the partner organization. This role is only available for the following APIs:<br>- [Balances](/rest/api/consumption/balances/get-by-billing-account)<br>- [Exports V2 (api-version 2025-03-01 only)](/rest/api/cost-management/exports)<br>- [Generate Cost Details Report](/rest/api/cost-management/generate-cost-details-report)<br>- [Marketplaces](/rest/api/consumption/marketplaces/list)<br>- [Consumption Price sheet](/rest/api/consumption/price-sheet)<br>- [Cost Management Price sheet Download](/rest/api/cost-management/price-sheet/download-by-billing-account)<br>- [Generate Reservation Details Report](/rest/api/cost-management/generate-reservation-details-report/by-billing-account-id)<br>- [Reservation Summaries](/rest/api/consumption/reservations-summaries)<br>- [Reservation Recommendations](/rest/api/consumption/reservation-recommendations/list)<br>- [Reservation Transactions](/rest/api/consumption/reservation-transactions) | 4f6144c0-a809-4c55-b3c8-7f9b7b15a1bf |
 
 - The following user roles are required to assign each service principal role:
-  - **EnrollmentReader**: Can be assigned only by a user with the enrollment writer role.
-  - **DepartmentReader**: Can be assigned only by a user with the enrollment writer or department writer role.
-  - **SubscriptionCreator**: Can be assigned only by a user who is the owner of the enrollment account (EA administrator).
-  - **EA purchaser**: Can be assigned only by a user with the enrollment writer role.
-  - **Partner Admin Reader**: Can be assigned only by a user with the Partner Administrator role.
+  - EnrollmentReader: user assigning must have enrollment writer role.
+  - DepartmentReader: user assigning must have enrollment writer or department writer role.
+  - SubscriptionCreator: user assigning must be the enrollment account owner (EA administrator).
+  - EA purchaser: user assigning must have enrollment writer role.
+  - Partner Admin Reader: user assigning must have Partner Administrator role.
 
-All of these roles are created by programmatic means, are not shown in the Azure portal, and are only for programmatic use.
+All of these roles are created by programmatic means, aren't shown in the Azure portal, and are only for programmatic use.
 
 When you grant an EA role to a service principal, you must use the `billingRoleAssignmentName` required property. The parameter is a unique GUID that you must provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
