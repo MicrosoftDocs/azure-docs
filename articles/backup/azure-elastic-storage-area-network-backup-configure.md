@@ -91,7 +91,7 @@ To configure backup for your Elastic SAN, follow these steps:
 
    >[!Note]
    >- You can select multiple volumes within a single backup request.
-   >- A Backup Instance is a pair of one Elastic SAN and a backup policy.
+   >- A Backup Instance is a pair of one Elastic SAN volume and a backup policy.
    >- You can use the auto-filled backup instance name or customize it as needed.
    >- The Elastic SAN instance’s resource group is auto-assigned to the restore point (Managed Disk incremental snapshots). You can choose a different resource group to store snapshots.
 
