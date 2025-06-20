@@ -17,6 +17,7 @@ This is the current list of Azure services and workload templates in the service
 |--|--|--|
 | Admin VM | [link](#admin-vm) | Available |
 | Common Dependencies | [link](#common-dependencies) | Available |
+| Private DNS Zones | [link](#private-dns-zone) | Available |
 | RemoteApp | [link](#remoteapp-vm) | Available |
 | Storage Account | [link](#storage-account) | Available |
 | Key Vault | [link](#key-vault) | Available |
@@ -47,6 +48,16 @@ Documentation:
 Description: This template creates the resources needed to secure the other resources you can deploy from the service catalog and remain compliant with the Azure Virtual Enclaves policies. These resources include the key vault and Customer Managed Keys (CMK) needed to encrypt the resources in your enclave.
 
 Documentation:
+  - [Key Vault](/azure/key-vault/general/overview)
+  - [Customer Managed Key (CMK)](../storage/common/customer-managed-keys-overview) for encryption
+  - [Disk Encryption Set (DES)](/azure/virtual-machines/disk-encryption#full-control-of-your-keys) for disk encryption
+  - [Storage Account](../storage/common/storage-account-overview) quickstart. See the separate Storage Account service catalog template for more deployment customization
+  - [Managed Identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Virtual Enclaves
+
+## Private DNS Zones
+[How to create the Private DNS Zones you need for your other resources from the service catalog](./deploy-private-dns-zones-service-catalog.md)
+
+Description: This template makes it easier to create create the [Private DNS Zones](/azure/dns/private-dns-privatednszone) needed for customers to access their Azure resources or create custom Private DNS Zones to access their custom zones. The records contained in a private DNS zone aren't resolvable from the Internet. DNS resolution against a private DNS zone works only from virtual networks that are linked to it. Private DNS zones linked to a VNet are queried first when using the default DNS settings of a VNet.
 
 ## RemoteApp VM
 

@@ -145,6 +145,8 @@ landingContent:
             url: deploy-admin-vm-service-catalog.md
           - text: Deploy Common Dependencies from the service catalog
             url: deploy-common-dependencies-service-catalog.md
+          - text: Deploy Private DNS Zones from the service catalog
+            url: deploy-private-dns-zones-service-catalog.md
           - text: Deploy a Storage Account from the service catalog
             url: deploy-storage-account-service-catalog.md
           - text: Deploy Azure Kubernetes Service from the service catalog

@@ -112,7 +112,7 @@
 #       href: security-best-practices.md
   - name: Configure community governance
     href: configure-community-governance.md
-- name: Azure service catalog
+- name: Service catalog
   items:
   - name: Deploy an Admin Virtual Machine from the service catalog
     href: deploy-admin-vm-service-catalog.md
@@ -134,6 +134,8 @@
     href: deploy-azure-kubernetes-service-service-catalog.md
   - name: Deploy RemoteApp Virtual Machine from the service catalog
     href: deploy-remoteapp-vm-service-catalog.md
+  - name: Deploy Private DNS Zones from the service catalog
+    href: deploy-private-dns-zones-service-catalog.md
   - name: Deploy Azure Service Bus from the service catalog
     href: deploy-service-bus-service-catalog.md
   - name: Deploy a Storage Account from the service catalog
