@@ -24,8 +24,8 @@ The volume mounts feature lets you share non-persistent files and directories be
 
 :::image type="content" source="../../media/tutorial-custom-container-sidecar/configure-volume-mounts.png" alt-text="Screenshot showing a volume mount configuration for a sidecar container.":::
 
-- **Volume sub path** is a logical directory path that's created automatically and isn't referenced within the container. Containers that are configured with the same volume sub path can share files and directories.
-- **Container mount path** corresponds to a directory path that you reference within the container. The container mount path is mapped to the volume sub path.
+- **Volume sub path** is an automatically created logical directory path that isn't referenced within the container. Containers that are configured with the same volume sub path can share files and directories.
+- **Container mount path** is a directory path that you reference within the container. The container mount path is mapped to the volume sub path.
 
 For example, suppose you configure the following volume mounts:
 
