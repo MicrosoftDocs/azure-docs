@@ -152,7 +152,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
 1. Return to your Azure Front Door Standard/Premium in the portal.
 
-1. Under **Settings**, go to **Secrets** and select **+ Add certificate**.
+1. Under **Security**, go to **Secrets** and select **+ Add certificate**.
 
 1. On the **Add certificate** pane, select the checkbox for the certificate you want to add to Azure Front Door Standard/Premium.
 

@@ -5,7 +5,7 @@ description: Learn how to migrate from a Basic SKU public IP address to a Standa
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2025
+ms.date: 06/06/2025
 ms.author: cherylmc
 ---
 
@@ -22,7 +22,7 @@ During the public IP address SKU migration process, your Basic SKU public IP add
 Additionally, if your VPN Gateway gateway SKU is VpnGw 1-5, your gateway SKU is migrated to a VPN Gateway AZ SKU (VpnGw 1-5 AZ). For more information, see [About VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md).
 
 > [!NOTE]
-> Migration functionality is rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region.
+> Migration functionality is rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region. For more information, see the [VPN Gateway - What's New](whats-new.md#upcoming-projected-changes) article.
 
 ## Workflow
 
