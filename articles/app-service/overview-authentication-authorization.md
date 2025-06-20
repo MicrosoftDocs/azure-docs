@@ -129,9 +129,6 @@ In the [Azure portal](https://portal.azure.com), you can configure App Service w
   > [!NOTE]
   > When using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) which can help with some validations. To learn more about authorization in Microsoft Entra, see [Microsoft Entra authorization basics](../active-directory/develop/authorization-basics.md).
 
-
-When you're using the Microsoft identity provider for users in your organization, the default behavior is that any user in your Microsoft Entra tenant can request a token for your application. You can [configure the application in Microsoft Entra](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users. App Service also offers some [basic built-in authorization checks](.\configure-authentication-provider-aad.md#authorize-requests) that can help with some validations. To learn more about authorization in Microsoft Entra, see [Microsoft Entra authorization basics](../active-directory/develop/authorization-basics.md).
-
 #### Unauthenticated requests
 
 - **HTTP 302 Found redirect: recommended for websites**: Redirects action to one of the configured identity providers. In these cases, a browser client is redirected to `/.auth/login/<provider>` for the provider that you choose.
