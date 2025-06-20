@@ -27,7 +27,7 @@ API Management supports two client compatibility options for AI APIs. Choose the
 
 * **Azure AI** - Manage model endpoints in Azure AI Foundry that are exposed through the [ Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
 
-    Clients call the deployment at a `/models` endpoint such as `/my-model/models/chat/completions`. Deployment name is passed in the request body. Use this option if you want flexibility to switch between models exposed through the Azure AI Foundry Models API and those deployed in Azure OpenAI in Foundry Models.
+    Clients call the deployment at a `/models` endpoint such as `/my-model/models/chat/completions`. Deployment name is passed in the request body. Use this option if you want flexibility to switch between models exposed through the Azure AI Model Inference API and those deployed in Azure OpenAI in Foundry Models.
 
 * **Azure OpenAI** - Manage model endpoints deployed in Azure OpenAI. 
 
