@@ -1,6 +1,6 @@
 ---
-title: Quickstart
-description: Azure Migrate application and code assessment tool - Quickstart.
+title: Quick start to assess a java project
+description: Azure Migrate application and code assessment tool - Quick start to assess a java project.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
