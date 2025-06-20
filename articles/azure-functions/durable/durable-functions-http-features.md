@@ -350,13 +350,45 @@ By using the "call HTTP" action, you can do the following actions in your orches
 
 The ability to consume HTTP APIs directly from orchestrator functions is intended as a convenience for a certain set of common scenarios. You can implement all of these features yourself using activity functions. In many cases, activity functions might give you more flexibility.
 
-### <a name="http-202-handling"></a>HTTP 202 handling (.NET in-process only)
+### <a name="http-202-handling"></a>HTTP 202 handling (.NET only)
 
 The "call HTTP" API can automatically implement the client side of the polling consumer pattern. If a called API returns an HTTP 202 response with a Location header, the orchestrator function automatically polls the Location resource until receiving a response other than 202. This response will be the response returned to the orchestrator function code.
 
+# [C# (InProc)](#tab/csharp-inproc)
+
+```csharp
+[FunctionName(nameof(CheckSiteAvailable))]
+public static async Task CheckSiteAvailableWithPolling(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    Uri url = context.GetInput<Uri>();
+
+    // HTTP automatic polling on 202 response is enabled by default in .NET in-process.
+    DurableHttpResponse response = 
+        await context.CallHttpAsync(HttpMethod.Get, url);
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function(nameof(CheckSiteAvailable))]
+public static async Task CheckSiteAvailableWithPolling(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    Uri url = context.GetInput<Uri>();
+
+    // Enable HTTP automatic polling on 202 response by setting asynchronousPatternEnabled to true.
+    DurableHttpResponse response =
+        await context.CallHttpAsync(HttpMethod.Get, url, asynchronousPatternEnabled: true);
+}
+```
+
 > [!NOTE]
 > 1. Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
-> 2. The built-in HTTP polling pattern is currently available only in the .NET in-process host.
+> 2. The built-in HTTP polling pattern is currently available only in the .NET host.
+> 3. The polling pattern is enabled by default in .NET in-process but disabled by default in .NET out-of-process. If you want to enable it in .NET out-of-process, refer to the sample code and set the asynchronousPatternEnabled argument to true.
+> 4. HTTP automatic polling pattern is supported at .NET out-of-process starting from version [v1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) or later.
 
 ### Managed identities
 
