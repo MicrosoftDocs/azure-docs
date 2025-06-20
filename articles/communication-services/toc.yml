@@ -312,7 +312,7 @@ items:
     href: concepts/sms/messaging-policy.md
   - name: Short code program brief filling guidelines
     href: concepts/sms/program-brief-guidelines.md
-  - name: Ten digit long code (10DLC) registration guidelines
+  - name: 10DLC - Ten digit long code registration guidelines
     href: concepts/sms/ten-digit-long-code-guidelines.md
   - name: Opt-Out management overview
     href: concepts/sms/opt-out-api-concept.md
@@ -354,7 +354,7 @@ items:
 #      href: tutorials/postman-tutorial.md
     - name: Send short URL
       href: tutorials/sms-url-shortener.md
-    - name: Apply for 10 digit long code (10DLC) registration
+    - name: Apply for 10DLC registration
       href: quickstarts/sms/apply-for-ten-digit-long-code.md
     - name: Apply for toll-free verification
       href: quickstarts/sms/apply-for-toll-free-verification.md
