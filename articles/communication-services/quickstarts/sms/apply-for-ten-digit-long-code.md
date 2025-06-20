@@ -49,7 +49,7 @@ Begin your Brand registration by filling in the **Application Type** details:
    - **Phone Number Type**: Choose Local phone number for your campaign.
    - **Application Type**: Select Brand.
 
-:::image type="content" source="./media/apply-for-brand-registration/brand-creation-1.png" alt-text="Screenshot showing brand registration form." lightbox="./media/apply-for-brand-registration/brand-creation-1.png":::
+:::image type="content" source="./media/apply-for-brand-registration/brand-creation-ga-1.png" alt-text="Screenshot showing brand registration form." lightbox="./media/apply-for-brand-registration/brand-creation-ga-1.png":::
 
 ### Company details
 
@@ -80,7 +80,7 @@ Provide details about your company:
 
 Submit the regulatory document. Brand registration may take 2 to 3 days to complete.
 
-:::image type="content" source="./media/apply-for-brand-registration/brand-registration-3.png" alt-text="Screenshot showing brand registration form 3." lightbox="./media/apply-for-brand-registration/brand-registration-3.png":::
+:::image type="content" source="./media/apply-for-brand-registration/brand-creation-ga-3.png" alt-text="Screenshot showing brand registration form 3." lightbox="./media/apply-for-brand-registration/brand-creation-ga-3.png":::
 
 > [!Important]
 > Providing incorrect or incomplete information may result in brand registration failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
@@ -117,7 +117,7 @@ Select **Add** and begin by filling in the **Application Type** details:
    - **Phone Number Type**: Choose Local phone number for your campaign.
    - **Application Type**: Select Campaign.
 
-:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-1.png" alt-text="Screenshot showing campaign registration form 1." lightbox="./media/apply-for-brand-registration/campaign-registration-1.png":::
+:::image type="content" source="./media/apply-for-brand-registration/campaign-creation-ga-1.png" alt-text="Screenshot showing campaign registration form 1." lightbox="./media/apply-for-brand-registration/campaign-creation-ga-1.png":::
 
 Click **Next** to proceed to the **Campaign details** section.
 
@@ -126,7 +126,26 @@ Click **Next** to proceed to the **Campaign details** section.
    - **Brand**: Select the brand associated with this campaign.
    - **Name**: Add a customized name for your campaign.
    - **Description**: Add a description for the campaign, explaining its purpose and target audience.
-   - **Call-to-Action / Message Flow**: Describe how end users are expected to engage with this campaign (such as opt-in process, expected interaction, frequency of messages, etc).
+   - **Call-to-Action / Message Flow**: The Call to Action clearly and transparently describes how a recipient opts-in to receive messages from you. The Call to Action must be explicit, must ensure that users understand what they are consenting to, and must be collected in a direct and verifiable way. Call To Action should be specific to SMS messaging services and not bundled with other services or be hidden within terms & conditions or other agreements. The Call-to-Action must include the following information:
+      - Brand name
+      - Types of messages the consumer can expect to receive
+      - Message frequency disclosure (for example, "Msg frequency varies")
+      - Message and data rates disclosure (for example, "Msg & data rates may apply")
+      - Opt-in information (see the following table for examples)
+      - Help information (for example, "send HELP for help")
+      - Opt-out information (for example, "send STOP to unsubscribe")
+      - Privacy Policy & Terms and Condiitons link
+
+      The table below shows examples of how recipients might Opt-in:
+
+   | **Method**               | **Description**                                                                                   | **Requirement**                                                                                      | **Examples** |
+|--------------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|--------------|
+| **Web Sign-Up**          | Users enter their phone number on a website and check a box agreeing to receive messages.        | Provide a direct link to the submission form or the webpage.                                          | "By submitting this form, you consent to receive [type of text messages] from [Brand Name] at the number provided. Msg & data rates may apply. Msg frequency varies. Unsubscribe by replying STOP or clicking the unsubscribe link. Reply HELP for help. Phone numbers aren't shared with third parties. Privacy Policy [link] & Terms [link]." |
+| **Text Message Keyword** | Users opt-in by texting a keyword (for example, "START") to a specific number.                    | Explain how users learn about the keyword, such as via a webpage link or screenshot.                  | "By texting START to [phone number], you consent to receive text messages from [Brand Name]. Msg & data rates may apply. Msg frequency varies. Unsubscribe by replying STOP. Reply HELP for help. Phone numbers won't be shared with third parties. Privacy Policy [link] & Terms [link]." |
+| **Verbally**             | Users opt-in verbally at a physical location or over the phone.                                   | Provide a copy of the script used to inform users about the opt-in.                                   | "[Brand name] collects opt-in verbally at their locations or over the phone. Customers provide their number and are informed that 'Message and data rates may apply', 'Message frequency varies', and they can 'text HELP for support or STOP to unsubscribe.' Phone numbers won't be shared with third parties. Privacy Policy [link] & Terms [link]." |
+
+
+       
    - **Privacy Policy URL**: Provide a link to your brand's Privacy Policy with Terms & Conditions related to SMS. The Privacy Policy with Terms & Conditions URL can be a webpage or an online file that is publicly accessible. The Terms and Conditions must have an SMS disclosure that includes the types of messages consumers can expect to receive, texting cadence, message and data rate notices, privacy policy links, HELP information, and opt-out instructions. The Terms & Conditions must include at least the following information:
       - Brand name
       - Types of messages the consumer can expect to receive
