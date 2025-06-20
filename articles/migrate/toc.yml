@@ -29,7 +29,7 @@ items:
     href: how-to-use-azure-migrate-with-private-endpoints.md
   - name: Support Matrix
     href: migrate-support-matrix.md
-- name: Discover methods in Azure Migrate
+- name: Discover inventory
   items:
   - name: Discovery methods
     href: discovery-methods-modes.md
@@ -40,16 +40,23 @@ items:
     - name: Discovery VMware
       items:
       - name: Discovery VMware estate
-        href:  tutorial-discover-vmware.md
+        href: tutorial-discover-vmware.md
       - name: Scoped discovery of VMware estate
         href: set-discovery-scope.md
       - name: Support matrix for VMware discovery 
         href: migrate-support-matrix-vmware.md 
-  
-       - name: 
-        href: 
+      - name: Discovery Hyper-V 
+        href: tutorial-discover-hyper-v.md
+      - name: Discover physical servers and servers running in AWS and GCP
+        href: tutorial-discover-physical.md
+      - name: Appliance configuration
+        items:
+      - name: Provide server credentials
+        href: add-server-credentials.md
+      - name: Appliance diagnostics
+        href: troubleshoot-appliance-diagnostic.md 
     - name: Discover using inventory import
-      items:
+      items: 
       - name: CSV import
         href: tutorial-discover-import.md
       - name: RVTools import
@@ -58,16 +65,6 @@ items:
       items: 
       - name: Support matrix for VMware discovery 
         href: migrate-support-matrix-vmware.md
-    - name:  Discover Hyper-V estate
-      href: tutorial-discover-hyper-v.md
-    - name: Discover physical servers and servers running in AWS and GCP
-      href: tutorial-discover-physical.md
-    - name: Appliance configuration
-      items:
-      - name: Provide server credentials
-        href: add-server-credentials.md
-      - name: Appliance diagnostics
-        href: troubleshoot-appliance-diagnostic.md
     - name: Discover workloads
       items:  
       - name: Discover SQL servers and Webapps
