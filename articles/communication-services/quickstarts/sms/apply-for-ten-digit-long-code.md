@@ -82,6 +82,20 @@ Submit the regulatory document. Brand registration may take 2 to 3 days to compl
 > [!Important]
 > Providing incorrect or incomplete information may result in brand registration failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
 
+### Vetting Process
+
+When sending SMS using 10DLC numbers in the United States, brand vetting is required to determine the messaging throughput allowed by mobile carriers. 
+Vetting assigns a score from 0 to 100, which influences the message volume, carrier filtering risk, and eligibility for certain campaign types. Customers can manually initiate Standard Vetting from the Azure portal once brand registration is submitted.
+
+The standard vetting fee is $40 per request, and $5 for re-submissions if vetting fails.
+
+> [!NOTE]
+> The vetting fee is currently waived for a limited time.
+
+Once vetting is complete, the resulting score is used to finalize campaign setup and ensure your brand is eligible for approved throughput levels.
+
+:::image type="content" source="./media/apply-for-brand-registration/vetting.png" alt-text="Screenshot showing brand registration form 3." lightbox="./media/apply-for-brand-registration/vetting.png":::
+
 ## STEP 2: Campaign registration
 
 After your brand is registered, proceed with the campaign registration:
