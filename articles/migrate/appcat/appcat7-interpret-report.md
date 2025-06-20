@@ -1,6 +1,6 @@
 ---
-title: Azure Migrate Application and Code Assessment for Java Version 7
-description: Learn how to use the next generation of Azure Migrate application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
+title: Interpret AppCAT report
+description: Interpret AppCAT report of Azure Migrate application and code assessment tool.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
