@@ -66,7 +66,7 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 1. Create a namespace. You might want to change the location where you deploy it.
 
     ```azurecli-interactive
-    az eventgrid namespace create -g $resource_group -n $namespace -l eastus
+    az eventgrid namespace create --resource-group $resource_group --name $namespace --location eastus
     ```
 
 ## Create a namespace topic
@@ -81,7 +81,7 @@ Create a topic that's used to hold all events published to the namespace endpoin
 1. Create your namespace topic:
 
     ```azurecli-interactive
-    az eventgrid namespace topic create -g $resource_group -n $topic --namespace-name $namespace 
+    az eventgrid namespace topic create --resource-group $resource_group --name $topic --namespace-name $namespace
     ```
 
 ## Create an event subscription
@@ -96,7 +96,7 @@ Create an event subscription setting its delivery mode to *queue*, which support
 1. Create an event subscription to the namespace topic:
 
     ```azurecli-interactive
-    az eventgrid namespace topic event-subscription create -g $resource_group --topic-name $topic -n $event_subscription --namespace-name $namespace --delivery-configuration "{deliveryMode:Queue,queue:{receiveLockDurationInSeconds:300,maxDeliveryCount:4,eventTimeToLive:P1D}}"
+    az eventgrid namespace topic event-subscription create --resource-group $resource_group --topic-name $topic --name $event_subscription --namespace-name $namespace --delivery-configuration "{deliveryMode:Queue,queue:{receiveLockDurationInSeconds:300,maxDeliveryCount:4,eventTimeToLive:P1D}}"
     ```
 
 ## Send events to your topic
@@ -107,7 +107,8 @@ Now, send a sample event to the namespace topic by following steps in this secti
 1. Get the access keys associated with the namespace you created. You use one of them to authenticate when publishing events. To list your keys, you need the full namespace resource ID first. Get it by running the following command:
 
     ```azurecli-interactive 
-    namespace_resource_id=$(az eventgrid namespace show -g $resource_group -n $namespace --query "id" --output tsv)
+    namespace_resource_id=$(az eventgrid namespace show --resource-group $resource_group --name $namespace --query "id" --output tsv)
+
     ```
 1. Get the first key from the namespace:
 
@@ -143,7 +144,7 @@ You receive events from Event Grid using an endpoint that refers to an event sub
 1. Compose that endpoint by running the following command:
 
     ```azurecli-interactive
-    receive_operation_uri="https://"$(az eventgrid namespace show -g $resource_group -n $namespace --query "topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:receive?api-version=2023-06-01-preview
+    receive_operation_uri="https://"$(az eventgrid namespace show --resource-group $resource_group --name $namespace --query "topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:receive?api-version=2023-06-01-preview
     ```
 
 1. Submit a request to consume the event:
