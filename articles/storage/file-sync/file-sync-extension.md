@@ -369,6 +369,8 @@ Remove-AzConnectedMachineExtension `
   -Name <EXTENSION_NAME>
 ```
 
+This command will initiate the removal of the Azure File Sync agent extension. Upon success, the extension is unregistered in Azure, and you can no longer manage the Azure File Sync agent via the extension. 
+
 # [Azure CLI](#tab/azure-cli)
 
 Use `az connectedmachine extension delete` to remove the extension from the Arc-enabled server:
@@ -380,6 +382,8 @@ az connectedmachine extension delete \
   --name "<EXTENSION_NAME>"
 ```
 
+This command will initiate the removal of the Azure File Sync agent extension. Upon success, the extension is unregistered in Azure, and you can no longer manage the Azure File Sync agent via the extension. 
+
 ---
 
-These commands will initiate the removal of the Azure File Sync agent extension. Upon success, the extension is unregistered in Azure and you can no longer manage the Azure File Sync agent via the extension. You can verify removal by checking the **Extensions** list in the Azure portal (the extension should no longer appear), or by running the validation commands above (which should no longer find the extension). If the extension fails to uninstall, check the Azure Activity Log or the extension instance view for error details.
+You can verify removal by checking the **Extensions** list in the Azure portal (the extension should no longer appear), or by running the validation commands above (which should no longer find the extension). If the extension fails to uninstall, check the Azure Activity Log or the extension instance view for error details.
