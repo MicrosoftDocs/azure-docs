@@ -94,7 +94,7 @@ The standard vetting fee is $40 per request, and $5 for re-submissions if vettin
 
 Once vetting is complete, the resulting score is used to finalize campaign setup and ensure your brand is eligible for approved throughput levels.
 
-:::image type="content" source="./media/apply-for-brand-registration/vetting.png" alt-text="Screenshot showing brand registration form 3." lightbox="./media/apply-for-brand-registration/vetting.png":::
+:::image type="content" source="./media/apply-for-brand-registration/vetting.png" alt-text="Screenshot showing brand registration vetting form." lightbox="./media/apply-for-brand-registration/vetting.png":::
 
 ## STEP 2: Campaign registration
 
@@ -240,7 +240,7 @@ Fill in the campaign and content attributes as follows:
 
       > *Thank you for contacting [Brand Name] support. Please email us at [email address] for support. Reply STOP to opt-out from receiving messages from this number. Msg & data rates may apply.*
 
-:::image type="content" source="./media/apply-for-brand-registration/campaign-creation-4.png" alt-text="Screenshot showing campaign registration form 3." lightbox="./media/apply-for-brand-registration/campaign-creation-4.png":::
+:::image type="content" source="./media/apply-for-brand-registration/campaign-creation-4.png" alt-text="Screenshot showing campaign registration form 4." lightbox="./media/apply-for-brand-registration/campaign-creation-4.png":::
 
 > [!Important]
 >Only the keywords START, HELP, and STOP, QUIT, END, REVOKE, OPT OUT, CANCEL, UNSUBSCRIBE are monitored and enforced.
@@ -253,7 +253,7 @@ Fill in the campaign and content attributes as follows:
    - **Age-gated Content**: Select **Yes** or **No** to indicate if the content is age-restricted.
    - **Terms and conditions**: Affiliate marketing isn't permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
 
-:::image type="content" source="./media/apply-for-brand-registration/campaign-creation-5.png" alt-text="Screenshot showing campaign registration form 4." lightbox="./media/apply-for-brand-registration/campaign-creation-5.png":::
+:::image type="content" source="./media/apply-for-brand-registration/campaign-creation-5.png" alt-text="Screenshot showing campaign registration form 5." lightbox="./media/apply-for-brand-registration/campaign-creation-5.png":::
 
 Once all fields are completed, click **Next** to proceed to the **Review** tab.
 
