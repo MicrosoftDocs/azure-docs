@@ -18,8 +18,6 @@ ms.custom: mode-other
 
 This article describes how to register a brand and campaign for 10DLC (10-Digit Long Code) messaging in Azure Communication Services. This process ensures compliance with carrier requirements and enables reliable, high-quality message delivery. For more information about how to complete the registration form, see [10DLC guidelines](../../concepts/sms/ten-digit-long-code-guidelines.md).
 
-[!INCLUDE [Notice](../../includes/public-preview-include.md)]
-
 ## Prerequisites
 
 - [An active Communication Services resource.](../create-communication-resource.md).
@@ -40,7 +38,7 @@ Navigate to the **Regulatory Documents** blade in your Azure Communication Servi
 
 :::image type="content" source="./media/apply-for-brand-registration/regulatory-screen-1.png" alt-text="Screenshot showing Regulatory Documents blade." lightbox="./media/apply-for-brand-registration/regulatory-screen-1.png":::
 
-### Brand registration
+## STEP 1: Brand registration
 
 You first need to choose country/region and phone number type you would like to get verified. You need to apply for brand and campaign registration before acquiring 10DLC numbers for SMS. If you previously acquired a 10DLC number for calling and want to enable it for SMS, then you need to first register the brand and campaign and then associate the number.
 
@@ -80,7 +78,7 @@ Submit the form for registration. Brand registration may take 2 to 3 days to com
 > [!Important]
 > Providing incorrect or incomplete information may result in brand registration failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
 
-## Campaign registration
+## STEP 2: Campaign registration
 
 After your brand is registered, proceed with the campaign registration:
 
@@ -130,7 +128,27 @@ Fill in the campaign and content attributes as follows:
    - **Embedded Phone Number**: Select **Yes** or **No** to specify if a phone number is embedded within the campaign content.
    - **Age-gated Content**: Select **Yes** or **No** to indicate if the content is age-restricted.
 
-#### Terms and conditions
+### SMS Campaign Terms and conditions
+
+When registering a campaign, you must provide a link to your brand's Terms & Conditions related to SMS. The Terms & Conditions URL can be a webpage or an online file that is publicly accessible.
+
+If your company doesn't have a privacy statement related to SMS messaging, you can use a Microsoft-provided template, completed with your company's information. For the template, see SMS privacy statement and terms and conditions template.
+
+The Terms and Conditions must have an SMS disclosure that includes the types of messages consumers can expect to receive, texting cadence, message and data rate notices, privacy policy links, HELP information, and opt-out instructions.
+
+The Terms & Conditions must include the following information:
+
+- Brand name
+
+- Types of messages the consumer can expect to receive
+
+- Message frequency disclosure (for example, "Msg frequency varies")
+
+- Message and data rates disclosure (for example, "Msg & data rates may apply")
+
+- Support contact information (for example, "send HELP for support," "contact help@contoso.com for support")
+
+- Opt-out information (for example, "Send STOP to unsubscribe")
 
 Affiliate marketing isn't permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
 
@@ -141,11 +159,72 @@ Once all fields are completed, click **Next** to proceed to the **Review** tab.
 > [!Important]
 > Providing accurate information in the attributes section ensures compliance with regulatory requirements and reduces the risk of rejection.
 
+#### TEMPLATE: Privacy policy with terms and conditions for SMS
+
+How to use this template: SMS providers in the US require that the initial message to an SMS recipient must include a link to reference the following assets from your company:
+
+- Terms and conditions
+- Privacy policy
+- Information about how to get help
+
+Senders are also required to provide the recipient with certain terms specific to the use of an SMS service.
+
+To simplify these requirements, many senders find it useful to have a single webpage that includes all relevant terms, information, and required links in one place—that way, only one link needs to be included in the initial message to the recipient.
+
+This SMS Terms of Use Template includes relevant SMS terms and placeholders where you can insert links to your general terms and conditions, privacy policy, and help information.
+
+> [!Important]
+> DISCLAIMER: This template is for informational purposes only and isn't intended as, and should not be substituted for, consultation with appropriate legal counsel and/or your organization's regulatory compliance team. This template is applicable only to approved uses of SMS from Azure Communication Services. Appropriate terms may vary depending on how you use this service and the nature of your business, and we recommend seeking legal counsel to ensure compliance with all applicable regulatory and legal obligations.
+
+##### SMS Terms of use
+
+[COMPANY NAME] TEXT MESSAGING TERMS OF USE
+
+By "Opting In" to or using a “Text Message Service” (as defined below) from [COMPANY NAME], you accept these Terms & Conditions. [IF APPLICABLE: THIS AGREEMENT IS SUBJECT TO BINDING ARBITRATION AND A WAIVER OF CLASS ACTION RIGHTS AS DETAILED BELOW.]
+
+This agreement is between you and [COMPANY NAME] or one of its affiliates. All references to "[COMPANY NAME]," "we," "our," or "us" refer to [COMPANY NAME], [COMPANY ADDRESS].
+
+DEFINITIONS
+
+"Opting In," "Opt In," and "Opt-In" refer to requesting, joining, agreeing to, enrolling in, signing up for, acknowledging, responding to, or otherwise consenting to receive one or more text messages.
+
+"Text Message Service" includes any arrangement or situation in which we send one or more messages addressed to your mobile phone number, including text messages (such as SMS, MMS, or successor protocols or technologies).
+
+CONSENTING TO TEXT MESSAGING
+
+By consenting to receive text messages from us, you agreed to these Text Messaging Terms and Conditions, as well as our [LINK TO GENERAL T&Cs] and [LINK TO PRIVACY POLICY], incorporated herein by reference.
+
+E-SIGN DISCLOSURE
+
+By agreeing to receive text messages, you also consent to the use of an electronic record to document your agreement. You may withdraw your consent to the use of the electronic record by replying STOP.
+
+[COMPANY NAME] TEXT MESSAGE SERVICE PRIVACY POLICY
+
+We respect your privacy. We only use information you provide through this service to transmit your mobile messages and respond to you. This includes, but isn't limited to, sharing information with platform providers, phone companies, and other vendors who assist us in the delivery of mobile messages. Mobile information will not be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. Nonetheless, we reserve the right always to disclose any information as necessary to satisfy any law, regulation or governmental request, to avoid liability, or to protect our rights or property. This Text Message Service Privacy Policy applies to your use of the Text Message Service and isn't intended to modify our general [“Privacy Policy” OR RELEVANT NAME OF PRIVACY POLICY REFERENCED IN SECTION ABOVE], incorporated by reference above, which may govern the relationship between you and us in other contexts.
+
+COSTS OF TEXT MESSAGES
+
+We do not charge you for the messages you send and receive via this text message service. But message and data rates may apply, so depending on your plan with your wireless or other applicable provider, you may be charged by your carrier or other applicable provider.
+
+FREQUENCY OF TEXT MESSAGES
+
+This Text Messaging Service is for conversational person-to-person communication between you and our employees. We may send you an initial message providing details about the service. After that, the number of text messages you receive will vary depending on how you use our services and whether you take steps to generate more text messages from us (such as by sending a HELP request).
+
+OPTING OUT OF TEXT MESSAGES
+
+If you no longer want to receive text messages, you may reply to any text message with STOP, QUIT, END, REVOKE, OPT OUT, CANCEL, or UNSUBSCRIBE. As a person-to-person communication service, opt-out requests are specific to each conversation between you and one of our employees and their associated phone number. After unsubscribing, we may send you confirmation of your opt-out via text message.
+
+CONTACT US
+
+For support, [EMAIL ADDRESS OR PHONE NUMBER AND, IF AVAILABLE, SUPPORT PAGE].
+
+[BINDING ARBITRATION, CLASS ACTION WAIVER, AND SEVERABILITY CLAUSES, IF APPLICABLE]
+
 ### Review and submit
 
 Review all information on the **Review** tab and submit your campaign registration. Campaign registration may take 3 to 5 business days.
 
-### Check the status of brand and campaign registration
+## STEP 3: Check the status of brand and campaign registration
 
 After submitting your brand and campaign registration, you can check the status in the **Regulatory Documents** blade. Follow these steps:
 
@@ -171,7 +250,7 @@ Using the **Regulatory Documents** blade to monitor the status of your brand and
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-status.png" alt-text="Screenshot showing campaign registration status." lightbox="./media/apply-for-brand-registration/campaign-registration-status.png":::
 
-### Linking a phone number to an approved campaign
+## STEP 4: Linking a phone number to an approved campaign
 
 Once your campaign is approved, follow these steps to link a phone number to it:
 
