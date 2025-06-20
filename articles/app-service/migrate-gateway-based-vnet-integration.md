@@ -3,7 +3,7 @@ title: Migrate from gateway-based to regional virtual network integration
 description: Learn how to migrate your App Service virtual network integration from legacy gateway-based integration to modern regional virtual network integration for improved performance and capabilities.
 author: seligj95
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 06/20/2025
 ms.author: jordanselig
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -53,7 +53,7 @@ Gateway-based integration can't be used in the following scenarios:
 
 Before beginning the migration, ensure you have:
 
-* **App Service plan**: A Basic, Standard, Premium, PremiumV2, PremiumV3, or Elastic Premium plan
+* **App Service plan**: A Basic, Standard, Premium, PremiumV2, PremiumV3, PremiumV4, or Elastic Premium plan
 * **Virtual network**: A virtual network in the same region as your app
 * **Subnet**: An empty subnet or a new subnet dedicated for virtual network integration
 * **Permissions**: Appropriate RBAC permissions to configure virtual network integration
@@ -100,7 +100,7 @@ Since virtual network integration is slot-specific, you can test regional virtua
 5. **Swap slots** to promote the tested code
 
 > [!NOTE]
-> Virtual network configurations remain with their respective slots after swapping. Your production slot will have the tested application code and the newly configured regional virtual network integration.
+> Virtual network configurations remain with their respective slots after swapping. After slot swap, your production slot will have the tested application code and the newly configured regional virtual network integration if you configured it on the produciton slot prior to the slot swap.
 
 #### Option 3: Direct migration (planned downtime)
 
@@ -163,7 +163,6 @@ You can connect multiple App Service plans to the same subnet using the [multi-p
 # [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
-# Create a new subnet for App Service integration
 az network vnet subnet create \
     --resource-group <resource-group-name> \
     --vnet-name <vnet-name> \
@@ -175,7 +174,6 @@ az network vnet subnet create \
 # [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-# Create a new subnet for App Service integration
 $vnet = Get-AzVirtualNetwork -ResourceGroupName <resource-group-name> -Name <vnet-name>
 Add-AzVirtualNetworkSubnetConfig -Name <subnet-name> -VirtualNetwork $vnet -AddressPrefix <cidr-block> -Delegation "Microsoft.Web/serverFarms"
 Set-AzVirtualNetwork -VirtualNetwork $vnet
@@ -203,7 +201,6 @@ For apps currently using gateway-based integration in the same region:
 # [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
-# Disconnect gateway-based virtual network integration
 az webapp vnet-integration remove \
     --resource-group <resource-group-name> \
     --name <app-name>
@@ -212,7 +209,6 @@ az webapp vnet-integration remove \
 # [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-# Disconnect gateway-based virtual network integration
 $webApp = Get-AzWebApp -ResourceGroupName <resource-group-name> -Name <app-name>
 $webApp.VirtualNetworkSubnetId = $null
 Set-AzWebApp -WebApp $webApp
@@ -233,7 +229,6 @@ Set-AzWebApp -WebApp $webApp
 # [Azure CLI](#tab/cli)
 
 ```azurecli-interactive
-# Configure regional virtual network integration
 az webapp vnet-integration add \
     --resource-group <resource-group-name> \
     --name <app-name> \
@@ -244,7 +239,6 @@ az webapp vnet-integration add \
 # [Azure PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-# Configure regional virtual network integration
 $subnetResourceId = "/subscriptions/<subscription-id>/resourceGroups/<vnet-resource-group>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>"
 $webApp = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName <resource-group-name> -ResourceName <app-name>
 $webApp.Properties.virtualNetworkSubnetId = $subnetResourceId
