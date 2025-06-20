@@ -13,7 +13,7 @@ This article describes how to configure Azure Elastic SAN backup (preview) using
 
 ## Prerequisites
 
-Before you configure backup for Elastic SAN, ensure the following prerequisites are met:
+Before you configure Elastic SAN backup, ensure the following prerequisites are met:
 
 - Check for an existing Elastic SAN, or [create a  new volume and instance](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal).
 - The Elastic SAN must be in a [supported region](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).
