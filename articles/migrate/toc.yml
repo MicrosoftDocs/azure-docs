@@ -55,10 +55,12 @@ items:
     items: 
       - name: Discover Hyper-V
         href: tutorial-discover-hyper-v.md
+  - name: Discover physical servers
+    items:  
       - name: Discover physical servers and servers running in AWS and GCP
         href: tutorial-discover-physical.md
-      - name: Appliance configuration
-        items:
+  - name: Appliance configuration
+    items:
         - name: Provide server credentials
           href: add-server-credentials.md
         - name: Appliance diagnostics
