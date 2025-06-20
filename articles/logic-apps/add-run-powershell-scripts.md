@@ -39,11 +39,10 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
 * The logic app resource with the Standard workflow where you want to add your PowerShell script.
 
-  The workflow must already start with a trigger. You can use any trigger for your scenario, but as an example, this guide uses the Request trigger named **When a HTTP request is received** and also the **Response** action. The workflow runs when another application or workflow sends a request to the trigger's endpoint URL. The sample script returns the results from code execution as output that you can use in subsequent actions.
+  The workflow must already start with a trigger. You can use any trigger for your scenario, but as an example, this guide uses the **Request** trigger named **When a HTTP request is received** and also the **Response** action. The workflow runs when another application or workflow sends a request to the trigger's endpoint URL. The sample script returns the results from code execution as output that you can use in subsequent actions.
 
-  If you don't have a logic app resource and workflow, create them now by following the steps for the logic app that you want:
+  If you don't have a logic app resource and workflow, create them now by following these steps:
 
-  * [Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md)
   * [Create an example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md)
 
 ## Considerations
@@ -265,7 +264,7 @@ To use the managed identity from inside the **Execute PowerShell Code** action, 
 
 ## View logs in Application Insights
 
-1. In the [Azure portal](https://portal.azure.com), under **Monitoring** on the logic app resource menu, select **Application Insights**, and then select your logic app.
+1. In the [Azure portal](https://portal.azure.com), under **Monitoring** on the logic app sidebar menu, select **Application Insights**, and then select your logic app.
 
 1. On the **Application Insights** menu, under **Monitoring**, select **Logs**.
 
