@@ -430,7 +430,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** | Australia |
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | North America |
 | **[New Era](https://www.neweratech.com/us/)** | North America |
-| **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | North America |
+| **[Lightstream](https://lightstream.io/about-us/partners-alliances/microsoft/)** | North America |
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | Australia |
 | **[MOQdigital](https://www.brennanit.com.au/solutions/cloud-services/)** | Australia |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |
