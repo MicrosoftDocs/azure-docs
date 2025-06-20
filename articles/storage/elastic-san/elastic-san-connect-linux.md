@@ -61,7 +61,7 @@ After creating or modifying the file, restart Multipath I/O. On Ubuntu, the comm
 
 ## Attach Volumes to the client
 
-You can use the following script to create your connections. o execute it, collect or determine the following parameters: 
+You can use the following script to create your connections. To execute it, collect or determine the following parameters: 
 - subscription: Subscription ID
 - g: Resource Group Name
 - e: Elastic SAN Name

@@ -78,7 +78,7 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 
 ### Set session number
 
-Before you run the script, determine how many sessions your volume needs. To be able to reach a volume's highest IOPS and throughput capacities, you'll need 32 sessions. But, because Windows iSCSI initatior has a maximum of 256 sessions, you may need to use less than 32 sessions if you're connecting more than eight volumes to a Windows client.
+Before you run the script, determine how many sessions your volume needs. To be able to reach a volume's highest IOPS and throughput capacities, you'll need 32 sessions. But, because Windows iSCSI initiator has a maximum of 256 sessions, you may need to use fewer than 32 sessions if you're connecting more than eight volumes to a Windows client.
 
 > [!NOTE]
 > Use the `-NumSession` parameter to set the number of sessions. The parameter accepts values from 1 to 32, and has a default value of 32.
