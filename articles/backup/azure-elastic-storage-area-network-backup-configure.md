@@ -26,7 +26,7 @@ To back up Elastic SAN, ensure you have a Backup vault in the same subscription.
 
 ## Create a backup policy for Elastic SAN
 
-A backup policy defines the schedule and frequency for backing up Elastic SAN. You can either create a backup policy from the Backup vault or create it on the go during the backup configuration.
+A backup policy defines the schedule and frequency for backing up Elastic SAN volumes. You can either create a backup policy from the Backup vault or create it on the go during the backup configuration.
 
 To create a backup policy for Elastic SAN from Azure Business Continuity Center, follow these steps:
 
