@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Elastic SAN volume from an individ
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 06/18/2025
 ms.author: rogarana
 ms.custom: references_regions
 ---
@@ -13,21 +13,18 @@ ms.custom: references_regions
 
 This article explains how to connect to an Elastic SAN volume from an individual Windows client. For details on connecting from a Linux client, see [Connect to Elastic SAN volumes - Linux](elastic-san-connect-linux.md).
 
-In this article, you add the Storage service endpoint to an Azure virtual network's subnet, then you configure your volume group to allow connections from your subnet. Finally, you configure your client environment to connect to an Elastic SAN volume and establish a connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
+In this article, you configure your volume group to allow connections from your subnet and then you configure your client environment to connect to an Elastic SAN volume and establish an iSCSI connection. For best performance, ensure that your VM and your Elastic SAN are in the same zone.
 
-You must use a cluster manager when connecting an individual elastic SAN volume to multiple clients. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
+You must use a cluster manager when connecting an individual Elastic SAN volume to multiple clients. For details, see [Use clustered applications on Azure Elastic SAN](elastic-san-shared-volumes.md).
 
 ## Prerequisites
 
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - [Deploy an Elastic SAN](elastic-san-create.md)
-- [Configure a virtual network endpoint](elastic-san-networking.md)
-- [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
+- Either [configure private endpoints](elastic-san-configure-private-endpoints.md) or [configure service endpoints](elastic-san-configure-service-endpoints.md)
 
-## Connect to volumes
+## Enable iSCSI Initiator
 
-### Set up your client environment
-#### Enable iSCSI Initiator
 To create iSCSI connections from a Windows client, confirm the iSCSI service is running. If it's not, start the service, and set it to start automatically.
 
 ```powershell
@@ -41,7 +38,7 @@ Start-Service -Name MSiSCSI
 Set-Service -Name MSiSCSI -StartupType Automatic
 ```
 
-#### Install Multipath I/O
+## Install Multipath I/O
 
 To achieve higher IOPS and throughput to a volume and reach its maximum limits, you need to create multiple-sessions from the iSCSI initiator to the target volume based on your application's multi-threaded capabilities and performance requirements. You need Multipath I/O to aggregate these multiple paths into a single device, and to improve performance by optimally distributing I/O over all available paths based on a load balancing policy.
 
@@ -62,9 +59,9 @@ Enable-MSDSMAutomaticClaim -BusType iSCSI
 mpclaim -L -M 2
 ```
 
-### Attach Volumes to the client
+## Attach volumes to the client
 
-You can use the following script to create your connections. To execute it, you require the following parameters: 
+Use the following script to create your connections. To execute it, collect or determine the following parameters: 
 - $rgname: Resource Group Name
 - $esanname: Elastic SAN Name
 - $vgname: Volume Group Name
@@ -79,12 +76,13 @@ Copy the script from [here](https://github.com/Azure-Samples/azure-elastic-san/b
 ./connect.ps1 $rgname $esanname $vgname $vol1,$vol2,$vol3 32
 ```
 
-Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
+### Set session number
 
-#### Number of sessions
-You need to use 32 sessions to each target volume to achieve its maximum IOPS and/or throughput limits. Windows iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than 8 volumes to a Windows client, reduce the number of sessions to each volume. 
+Before you run the script, determine how many sessions your volume needs. To be able to reach a volume's highest IOPS and throughput capacities, you'll need 32 sessions. But, because Windows iSCSI initiator has a maximum of 256 sessions, you may need to use fewer than 32 sessions if you're connecting more than eight volumes to a Windows client.
 
-You can customize the number of sessions by using the optional `-NumSession parameter` when running the `connect.ps1` script. 
+> [!NOTE]
+> Use the `-NumSession` parameter to set the number of sessions. The parameter accepts values from 1 to 32, and has a default value of 32.
+
 
 ```bash
 .\connect.ps1 ` 
@@ -100,7 +98,7 @@ You can customize the number of sessions by using the optional `-NumSession para
   -NumSession “<value>”
 ```
 
-**Note!** The `-NumSession` parameter accepts values from 1 to 32. If the parameter isn't specified, the default of 32 is used. 
+Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
 ## Next steps
 

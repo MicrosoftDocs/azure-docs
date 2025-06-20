@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: abell
 ms.custom: fasttrack-edit
+# Customer intent: As a network administrator, I want to configure DNS settings for Azure Private Endpoints, so that I can ensure secure and efficient resolution of private IP addresses required for my applications and services within the virtual network.
 ---
 
 # Azure Private Endpoint DNS integration

@@ -10,6 +10,7 @@ ms.custom:
 ms.topic: concept-article
 ms.date: 11/04/2024
 # customer intent: As a network administrator, I want to know the Azure role-based access control permissions required to use network security perimeter capabilities, so that I can assign the correct permissions to my team members.
+# Customer intent: As a network administrator, I want to understand the Azure RBAC permissions required for network security perimeter features, so that I can effectively assign roles and manage access within my team.
 ---
 
 # Azure role-based access control permissions required for Azure Network Security Perimeter usage
