@@ -167,6 +167,8 @@ items:
     href: sql-fqdn-filtering.md
   - name: SNAT private ranges
     href: snat-private-range.md
+  - name: Customer-controlled maintenance
+    href: customer-controlled-maintenance.md
 - name: Migration and upgrades
   items:
   - name: Migrate to Azure Firewall Premium
