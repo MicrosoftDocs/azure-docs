@@ -143,7 +143,7 @@ While the failover is in progress, your key vault might be unavailable for a few
 
 #### Cost
 
-There are no additional costs for the built-in multi-region replication capabilities of Azure Key Vault.
+There are no additional costs for the built-in multi-region replication capabilities of Azure Key Vault. 
 
 #### Normal operations
 
