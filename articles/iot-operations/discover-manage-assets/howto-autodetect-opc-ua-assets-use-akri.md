@@ -14,6 +14,8 @@ ms.date: 04/02/2025
 
 In this article, you learn how to automatically discover and configure OPC UA assets connected to your Azure IoT Operations deployment. The automatic discovery process starts when you add an asset endpoint with the **Enable discovery** option selected.
 
+To learn more, see [What is asset discovery (preview)?](overview-akri.md).
+
 ## Prerequisites
 
 - **Enable resource sync rules.** A deployed instance of Azure IoT Operations with resource sync rules enabled. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/overview-deploy.md).
