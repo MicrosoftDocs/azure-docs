@@ -37,7 +37,8 @@ For AGIC to observe an ingress resource, the resource *must be annotated* with `
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` ||
 | [appgw.ingress.kubernetes.io/override-frontend-port](#override-frontend-port) | `bool` | `false` ||
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` ||
-| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32` (seconds) | `30` ||
+| [appgw.ingress.kubernetes.io/request-timeout]
+(#request-timeout) | `int32` (seconds) | `30` ||
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` ||
 | [appgw.ingress.kubernetes.io/backend-protocol](#backend-protocol) | `string` | `http` | `http`, `https` |
 | [appgw.ingress.kubernetes.io/hostname-extension](#hostname-extension) | `string` | `nil` ||
@@ -121,7 +122,7 @@ spec:
 
 ## Custom Health Probe
 
-You can [configure Application Gateway](./application-gateway-probe-overview.md) to send custom health probes to the backend address pool. When the following annotations are present, the Kubernetes ingress controller [creates a custom probe](./application-gateway-create-probe-portal.md) to monitor the backend application. The controller then applies the changes to Application Gateway.
+You can [configure Application Gateway](./application-gateway-probe-overview.md) to send custom health probe to the backend address pool. When the following annotations are present, the Kubernetes ingress controller [creates a custom probe](./application-gateway-create-probe-portal.md) to monitor the backend application. The controller then applies the changes to Application Gateway.
 
 - `health-probe-hostname`: This annotation allows a custom hostname on the health probe.
 - `health-probe-port`: This annotation configures a custom port for the health probe.

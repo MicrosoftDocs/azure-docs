@@ -1,11 +1,11 @@
 ---
-title: Azure API Management workspace gateways - VNet integration - network resources
+title: Azure API Management workspace gateways - virtual network requirements
 description: Learn about requirements for network resources when you integrate or inject your API Management workspace gateway in an Azure virtual network.
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/03/2025
+ms.date: 06/18/2025
 ms.author: danlep
 ---
 
@@ -91,13 +91,7 @@ Configure other NSG rules to meet your organization's network access requirement
 
 For virtual network injection, you have to manage your own DNS to enable inbound access to your workspace gateway. 
 
-We recommend:
-
-1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
-1. Link the Azure DNS private zone to the VNet into which you've deployed your workspace gateway. 
-
-Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
-
+[!INCLUDE [api-management-virtual-network-dns-resolver](../../includes/api-management-virtual-network-dns-resolver.md)]
 
 ### Access on default hostname
 
@@ -108,9 +102,9 @@ When you create an API Management workspace, the workspace gateway is assigned a
 
 ### Configure DNS record
 
-Create an A record in your DNS server to access the workspace from within your VNet. Map the endpoint record to the private VIP address of your workspace gateway.
+Create an A record in your DNS server to access the workspace from within your virtual network. Map the endpoint record to the private VIP address of your workspace gateway.
 
-For testing purposes, you might update the hosts file on a virtual machine in a subnet connected to the VNet in which API Management is deployed. Assuming the private virtual IP address for your workspace gateway is 10.1.0.5, you can map the hosts file as shown in the following example. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). 
+For testing purposes, you might update the hosts file on a virtual machine in a subnet connected to the virtual network in which API Management is deployed. Assuming the private virtual IP address for your workspace gateway is 10.1.0.5, you can map the hosts file as shown in the following example. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). 
 
 | Internal virtual IP address | Gateway hostname |
 | ----- | ----- |
