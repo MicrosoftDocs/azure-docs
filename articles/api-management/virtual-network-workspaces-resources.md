@@ -91,15 +91,7 @@ Configure other NSG rules to meet your organization's network access requirement
 
 For virtual network injection, you have to manage your own DNS to enable inbound access to your workspace gateway. 
 
-While you have the option to use a private or custom DNS server, we recommend:
-
-1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
-1. Link the Azure DNS private zone to the virtual network into which you've deployed your workspace gateway. 
-
-Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
-
-> [!NOTE]
-> When the workspace gateway is injected into a virtual network with a private or custom DNS resolver, you must ensure name resolution for Azure Key Vault endpoints (`*.vault.azure.net`). We recommend configuring an Azure private DNS zone, which doesn't require this additional configuration.
+[!INCLUDE [api-management-virtual-network-dns-resolver](../../includes/api-management-virtual-network-dns-resolver.md)]
 
 ### Access on default hostname
 
