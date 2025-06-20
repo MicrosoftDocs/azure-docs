@@ -1,6 +1,6 @@
 ---
 title: Interpret AppCAT report
-description: Interpret AppCAT report of Azure Migrate application and code assessment tool.
+description: Azure Migrate application and code assessment tool - Interpret AppCAT report.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
