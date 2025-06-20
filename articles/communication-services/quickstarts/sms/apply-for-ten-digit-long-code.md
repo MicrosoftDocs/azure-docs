@@ -41,6 +41,9 @@ To do that, navigate to the **Regulatory Documents** blade in your Azure Communi
 
 ## STEP 1: Brand registration
 
+> [!NOTE]
+> 10DLC for SMS is available only in United States of America.
+
 Begin your Brand registration by filling in the **Application Type** details:
    - **Country or Region**: Select United States of America.
    - **Phone Number Type**: Choose Local phone number for your campaign.
@@ -82,12 +85,21 @@ Submit the regulatory document. Brand registration may take 2 to 3 days to compl
 > [!Important]
 > Providing incorrect or incomplete information may result in brand registration failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
 
-### Vetting Process
+### Brand Vetting Process
 
-When sending SMS using 10DLC numbers in the United States, brand vetting is required to determine the messaging throughput allowed by mobile carriers. 
-Vetting assigns a score from 0 to 100, which influences the message volume, carrier filtering risk, and eligibility for certain campaign types. Customers can manually initiate Standard Vetting from the Azure portal once brand registration is submitted.
+During 10DLC brand registration, some brands might be required to undergo Standard Vetting to validate their identity and improve trust with mobile carriers. This step is typically triggered when:
 
-The standard vetting fee is $40 per request, and $5 for re-submissions if vetting fails.
+   - The brand receives a low Trust Score during automated checks, or
+   - The brand requests access to higher messaging throughput
+
+Standard Vetting is conducted by a third-party partner and includes:
+
+   - Verification of business name and tax ID (EIN)
+   - Website and domain validation
+   - Review of industry type and messaging practices
+
+Vetting results in a Trust Score that can affect throughput limits and campaign eligibility. Not all brands require vetting, but it may be necessary depending on your use case and score.
+A $40 USD non-refundable fee applies when Standard Vetting is triggered.
 
 > [!NOTE]
 > The vetting fee is currently waived for a limited time.
