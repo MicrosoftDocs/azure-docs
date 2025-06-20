@@ -1,5 +1,5 @@
 ---
-title: Grant Access to Azure Storage from IP Address Ranges
+title: Configure Azure Storage to accept requests from IP address ranges
 description: Configure the Azure Storage firewall to accept requests from IP address ranges.
 services: storage
 author: normesta
@@ -10,21 +10,17 @@ ms.date: 06/18/2025
 ms.author: normesta
 ---
 
-# Grant access to Azure Storage from IP address ranges
+# Configure the Azure Storage firewall to accept requests from IP address ranges
 
-Put something here.
+You can deny all public access to your storage account, and then configure Azure network settings to accept requests from specific IP address ranges. To learn more, see [Permit access to IP address ranges](storage-network-security-public-access-configuration.md#grant-access-from-an-internet-ip-range).
 
-### Managing IP network rules
-
-You can manage IP network rules for storage accounts through the Azure portal, PowerShell, or the Azure CLI v2.
-
-#### [Portal](#tab/azure-portal)
+## [Portal](#tab/azure-portal)
 
 1. Go to the storage account for which you want to manage IP network rules.
 
 2. In the service menu, under **Security + networking**, select **Networking**.
 
-3. Check that you've chosen to enable public network access from selected virtual networks and IP addresses.
+3. To allow traffic from IP address ranges, make sure that **Enabled from selected virtual networks and IP addresses** is selected.  
 
 4. To grant access to an internet IP range, enter the IP address or address range (in CIDR format) under **Firewall** > **Address Range**.
 
@@ -32,69 +28,88 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 6. Select **Save** to apply your changes.
 
-#### [PowerShell](#tab/azure-powershell)
+## [PowerShell](#tab/azure-powershell)
 
 1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
-2. List IP network rules:
+2. To allow traffic to IP address ranges, use the `Update-AzStorageAccountNetworkRuleSet` command and set the `-DefaultAction` parameter to `Deny`:
+
+   ```powershell
+   Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
+   ```
+
+   > [!IMPORTANT]
+   > Network rules have no effect unless you set the `-DefaultAction` parameter to `Deny`. However, changing this setting can affect your application's ability to connect to Azure Storage. Be sure to grant access to any allowed networks or set up access through a private endpoint before you change this setting.
+
+3. List IP network rules:
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
-3. Add a network rule for an individual IP address:
+4. Add a network rule for an individual IP address:
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-4. Add a network rule for an IP address range:
+5. Add a network rule for an IP address range:
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
-5. Remove a network rule for an individual IP address:
+6. Remove a network rule for an individual IP address:
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-6. Remove a network rule for an IP address range:
+7. Remove a network rule for an IP address range:
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
-#### [Azure CLI](#tab/azure-cli)
+## [Azure CLI](#tab/azure-cli)
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
-1. List IP network rules:
+
+2. To allow traffic from IP address ranges, use the `az storage account update` command and set the `--default-action` parameter to `Deny`:
+
+   ```azurecli
+   az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
+   ```
+
+   > [!IMPORTANT]
+   > Network rules have no effect unless you set the `--default-action` parameter to `Deny`. However, changing this setting can affect your application's ability to connect to Azure Storage. Be sure to grant access to any allowed networks or set up access through a private endpoint before you change this setting.
+
+3. List IP network rules:
 
     ```azurecli
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
     ```
 
-1. Add a network rule for an individual IP address:
+4. Add a network rule for an individual IP address:
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. Add a network rule for an IP address range:
+5. Add a network rule for an IP address range:
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
     ```
 
-1. Remove a network rule for an individual IP address:
+6. Remove a network rule for an individual IP address:
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. Remove a network rule for an IP address range:
+7. Remove a network rule for an IP address range:
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"

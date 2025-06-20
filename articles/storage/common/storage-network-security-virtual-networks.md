@@ -13,7 +13,7 @@ ms.author: normesta
 
 # Configure Azure Storage to accept requests from virtual networks
 
-You can deny all public access to your storage account, and then configure Azure network settings to accept requests that originate from specific virtual network subnets. To learn more, see [Permitting access to virtual network subnets](storage-network-security-public-access-configuration.md#grant-access-from-a-virtual-network).
+You can deny all public access to your storage account, and then configure Azure network settings to accept requests that originate from specific virtual network subnets. To learn more, see [Permit access to virtual network subnets](storage-network-security-public-access-configuration.md#grant-access-from-a-virtual-network).
 
 ## [Portal](#tab/azure-portal)
 
