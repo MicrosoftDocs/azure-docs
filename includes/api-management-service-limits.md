@@ -17,7 +17,7 @@ ms.custom: Include file
 
 Limits in the following table are effective July 2025.
 
-To request a limit increase, create a support request from the Azure portal. For more information, see [Azure support plans](https:/>/azure.microsoft.com/support/options/).
+To request a limit increase, create a support request from the Azure portal. For more information, see [Azure support plans](https://azure.microsoft.com/support/options/).
 
 | Resource | Consumption | Developer | Basic | Standard | Premium |
 | ---------| ----------- | ----------- | ----------- | ----------- | ------------ |
