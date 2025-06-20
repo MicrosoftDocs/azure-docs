@@ -316,10 +316,6 @@ Get-AzConnectedMachineExtension `
   -Name <EXTENSION_NAME>
 ```
 
-Here is sample output.
-
-:::image type="content" source="media/file-sync-extension/file-sync-extension-powershell.png" alt-text="Screenshot showing how to validate the Azure File Sync agent extension for Windows through PowerShell.":::
-
 # [Azure CLI](#tab/azure-cli)
 
 You can use Azure CLI to confirm that the extension is installed and in a succeeded state.
@@ -332,10 +328,6 @@ az connectedmachine extension show \
   --machine-name "<machine-name>" \
   --name "<EXTENSION_NAME>"
 ```
-
-Here is sample output.
-
-:::image type="content" source="media/file-sync-extension/file-sync-extension-azure-cli.png" alt-text="Screenshot showing how to validate the Azure File Sync agent extension for Windows through Azure CLI.":::
 
 ---
 
