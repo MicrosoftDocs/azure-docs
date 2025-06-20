@@ -54,9 +54,8 @@ When you enabled bundled Prometheus in the previous step, Azure added a new Prom
 
 Create a new recording rule from the Grafana UI following the steps below. For detailed configuration options see, [Create Grafana-managed recording rules](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-recording-rules/create-grafana-managed-recording-rules).
 
-    > [!NOTE]
-    > Bundled Prometheus only supports Grafana-managed recording rules, which you configure directly in the Grafana interface. Data source-managed recording rules aren't supported.
-
+> [!NOTE]
+> Bundled Prometheus only supports Grafana-managed recording rules, which you configure directly in the Grafana interface. Data source-managed recording rules aren't supported.
 
    1. Go to **Alerting** > **Alert rules** and select **New recording rule**.
     :::image type="content" source="media/bundled-prometheus/new-recording-rule.png" alt-text="Screenshot of the Alert rules page in Grafana with the New recording rule button highlighted.":::
