@@ -347,8 +347,9 @@ The following considerations apply when using the administrator endpoint for loc
 
 + Calling an administrator endpoint and passing test data is similar to using the **Test** tab in the Azure portal.
 
-+ When supplying complex JSON objects, the data must be escaped properly, and the JSON-formatted string must include a `SystemProperties` element. This example shows a properly escaped JSON string with both a `testData` object and `SystemProperties`:   
-  `'{"input": "{\"SystemProperties\":{},\"testData\":{\"testid\":\"123\"}"}'`
++ If the input is a complex JSON object, additional formatting is needed. The data must be properly escaped and include a `SystemProperties` object. 
+This example shows a properly escaped JSON string with both a `testData` object and `SystemProperties`:   
+`'{"input": "{\"SystemProperties\":{},\"testData\":{\"testid\":\"123\"}"}'`
 ### [Event Grid trigger](#tab/event-grid-trigger)
 
 Event Grid triggers have specific requirements to enable local testing. For more information, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).

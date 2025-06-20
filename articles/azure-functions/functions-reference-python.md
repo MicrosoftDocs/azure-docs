@@ -1365,7 +1365,6 @@ Note that with this approach, no additional package or setup is required. The fu
 > [!NOTE]
 > Durable Functions require special syntax for unit testing. For more information, refer to [Unit Testing Durable Functions in Python](durable/durable-functions-unit-testing-python.md)
 
-
 ::: zone-end
 
 ## Temporary files

@@ -5,13 +5,7 @@ ms.topic: reference
 ms.date: 05/12/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom:
-  - devx-track-csharp
-  - devx-track-python
-  - devx-track-extended-java
-  - devx-track-js
-  - devx-track-ts
-  - build-2025
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -225,25 +219,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 This example uses SDK types to directly access the underlying `BlobClient` object provided by the Blob storage input binding: 
 
-```python
-import logging
-import azure.functions as func
-import azurefunctions.extensions.bindings.blob as blob
-
-app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
-
-@app.route(route="file")
-@app.blob_input(
-    arg_name="client", path="PATH/TO/BLOB", connection="CONNECTION_SETTING"
-)
-def blob_input(req: func.HttpRequest, client: blob.BlobClient):
-    logging.info(
-        f"Python blob input function processed blob \n"
-        f"Properties: {client.get_blob_properties()}\n"
-        f"Blob content head: {client.download_blob().read(size=1)}"
-    )
-    return "ok"
-``` 
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-12,40-50"::: 
 
 For examples of using other SDK types, see the [`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py) and [`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Blob Sample](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-python).
 
