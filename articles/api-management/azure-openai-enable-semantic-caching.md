@@ -22,7 +22,7 @@ Enable semantic caching of responses to Azure OpenAI API requests to reduce band
 
 ## Prerequisites
 
-* One or more Azure OpenAI in Foundry Models APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI in Foundry Models API to Azure API Management](azure-openai-api-from-specification.md).
+* One or more Azure OpenAI in FModel Inference APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI in Model Inference API to Azure API Management](azure-openai-api-from-specification.md).
 * Azure OpenAI must have deployments for the following:
     * Chat Completion API - Deployment used for API consumer calls 
     * Embeddings API - Deployment used for semantic caching
