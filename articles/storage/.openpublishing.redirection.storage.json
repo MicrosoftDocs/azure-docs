@@ -1577,7 +1577,7 @@
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-network-security.md#change-the-default-network-access-rule",
-            "redirect_url": "/azure/storage/common/storage-network-security-deny-public-access",
+            "redirect_url": "/azure/storage/common/storage-network-security-set-default-access",
             "redirect_document_id": false
         },
       {

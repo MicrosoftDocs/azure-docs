@@ -306,7 +306,7 @@ items:
       - name: Manage public access
         items:
         - name: Set default access
-          href: ../common/storage-network-security-deny-public-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          href: ../common/storage-network-security-set-default-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Permit virtual networks
           href: ../common/storage-network-security-virtual-networks.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Permit IP address ranges
@@ -319,7 +319,7 @@ items:
           href: ../common/storage-network-security-perimeter.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Use private endpoints
         href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Restrict scope of copy operations
+      - name: Restrict copy operations
         href: ../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json
       - name: Manage secure transfer
         items:
