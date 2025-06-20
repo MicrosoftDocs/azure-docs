@@ -383,7 +383,11 @@ When you call a stored procedure by using the SQL Server connector, the returned
 
 1. When you're done, save your workflow.
 
-1. To reference the JSON content properties, select inside the edit boxes where you want to reference those properties so that the dynamic content list appears. In the list, under the [Parse JSON](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) heading, select the data tokens for the JSON content properties that you want.
+1. To reference the JSON content properties, follow these steps:
+
+   1. Select inside the edit boxes where you want to reference the JSON properties.
+   1. Select the lightning icon to open the dynamic content list.
+   1. From the list, in the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) section, select the data tokens for the JSON content properties that you want.
 
 ## Related content
 
