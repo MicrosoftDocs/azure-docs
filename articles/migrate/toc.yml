@@ -51,7 +51,7 @@ items:
        href: set-discovery-scope.md
      - name: Support matrix for VMware discovery 
        href: migrate-support-matrix-vmware.md 
-  - name: Discovery Hyper-V servers
+  - name: Discovery Hyper-V estate
     items: 
       - name: Discover Hyper-V
         href: tutorial-discover-hyper-v.md

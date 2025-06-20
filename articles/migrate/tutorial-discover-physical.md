@@ -73,18 +73,16 @@ AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode -s system-uuid, /
 Defaults:AzMigrateLeastprivuser !requiretty
 
 ```
->[!Note]
-> If any of the packages mentioned aren't available in the target Linux distributions, use the following fallback commands:
+- If any of the packages mentioned aren't available in the target Linux distributions, use the following fallback commands:
 
 ```
-
 - # if /usr/sbin/dmidecode -s system-uuid is not available, add permissions to /usr/bin/cat /sys/class/dmi/id/product_uuid. 
 
-- # if /usr/sbin/dmidecode -t 1 isn't available, add permissions to /usr/sbin/lshw "" 
+- if /usr/sbin/dmidecode -t 1 isn't available, add permissions to /usr/sbin/lshw "" 
 
-- # if /usr/sbin/dmidecode system-manufacturer isn't available, add permissions to /usr/bin/cat /sys/devices/virtual/dmi/id/sys_vendor 
+- if /usr/sbin/dmidecode system-manufacturer isn't available, add permissions to /usr/bin/cat /sys/devices/virtual/dmi/id/sys_vendor 
 
-- # if /usr/bin/netstat isn't available, add permissions to /usr/sbin/ss -atnp 
+- if /usr/bin/netstat isn't available, add permissions to /usr/sbin/ss -atnp 
 
 ```
 - The list of commands run on the target servers and the information they collect. [Learn more](discovered-metadata.md#linux-server-metadata).
