@@ -16,9 +16,9 @@ This article describes how to configure Azure Elastic SAN backup (preview) using
 Before you configure Elastic SAN backup, ensure the following prerequisites are met:
 
 - Check for an existing Elastic SAN volume, or [create a  new volume and instance](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal).
-- The Elastic SAN volume must be in a [supported region](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).
+- The Elastic SAN volume must be in a [supported region](azure-elastic-san-backup-support-matrix.md#supported-regions).
 
-For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-elastic-storage-area-network-backup-support-matrix.md).
+For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-elastic-san-backup-support-matrix.md).
 
 ## Create a Backup vault
 
@@ -114,7 +114,7 @@ To configure backup for your Elastic SAN, follow these steps:
 
 1. On the **Review + configure** tab, review the configuration details, and then select **Configure Backup**.
 
-You can [track the progress of the backup configuration](azure-elastic-storage-area-network-backup-manage.md#view-the-elastic-san-backup-and-restore-jobs) under **Backup instances**. When configured, Azure Backup runs backups as per the policy schedule to create recovery points. You can also [trigger an on-demand backup](azure-elastic-storage-area-network-backup-manage.md#run-an-on-demand-backup) to create the first full backup.
+You can [track the progress of the backup configuration](azure-elastic-san-backup-manage.md#view-the-elastic-san-backup-and-restore-jobs-preview) under **Backup instances**. When configured, Azure Backup runs backups as per the policy schedule to create recovery points. You can also [trigger an on-demand backup](azure-elastic-san-backup-manage.md#run-an-on-demand-backup) to create the first full backup.
 
 ## Next steps
 
