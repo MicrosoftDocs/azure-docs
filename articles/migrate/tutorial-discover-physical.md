@@ -62,29 +62,29 @@ For discovering Linux servers, you can set up a least privileged sudo account by
 
 - You need a sudo user account on the Linux servers you want to discover.
 - This account helps collect configuration and performance data, perform software inventory (find installed applications), and enable agentless dependency analysis using SSH.
-- The user account must have sudo access to the required file paths.
+- Ensure that you enable `NOPASSWD` for the account so it can run the required commands without asking for a password each time it uses sudo.
+- Modify the sudoers file to disable terminal (requiretty) for the user account. 
 
-```
-/usr/sbin/dmidecode -s system-uuid,
-/usr/sbin/dmidecode -t 1,
-/usr/sbin/dmidecode -s system-manufacturer,
-/usr/sbin/fdisk -l,
-/usr/sbin/fdisk -l*,
-/usr/bin/ls,
-/usr/bin/netstat,
-/usr/sbin/lvdisplay""
-
-```
 - For example, you can add an entry like this in the `/etc/sudoers` file.
 
 ```
-
 AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l, /usr/bin/netstat, /usr/sbin/lvdisplay[MR5.1][MR5.2][MR6.1] ""
 Defaults:AzMigrateLeastprivuser !requiretty
 
 ```
+>[!Note]
+> If any of the packages mentioned aren't available in the target Linux distributions, use the following fallback commands:
 
-- Ensure that you enable `NOPASSWD` for the account so it can run the required commands without asking for a password each time it uses sudo.
+```csharp-interactive
+
+- # if /usr/sbin/dmidecode -s system-uuid is not available, add permissions to /usr/bin/cat /sys/class/dmi/id/product_uuid. 
+
+- # if /usr/sbin/dmidecode -t 1 isn't available, add permissions to /usr/sbin/lshw "" 
+
+- # if /usr/sbin/dmidecode system-manufacturer isn't available, add permissions to /usr/bin/cat /sys/devices/virtual/dmi/id/sys_vendor 
+
+- # if /usr/bin/netstat isn't available, add permissions to /usr/sbin/ss -atnp 
+```
 - The list of commands run on the target servers and the information they collect. [Learn more](discovered-metadata.md#linux-server-metadata).
 - Below is the list of supported Linux operating system distributions.
 
@@ -101,7 +101,8 @@ Defaults:AzMigrateLeastprivuser !requiretty
 | Rocky Linux | 8.x, 9.x|
 
 > [!Note]
->  We recommend setting up the least privileged sudo accounts. Any account, such as root, that has the superset of the mentioned permissions can also be used for Linux discovery.
+>  - We recommend setting up the least privileged sudo accounts. Any account, such as root, that has the superset of the mentioned permissions can also be used for Linux discovery.
+> We recommend following the above steps to set up non-root accounts. Using `setcap` to set up capabilities is no longer advised. 
 
 ## Generate the project key
 
