@@ -87,7 +87,7 @@ In the resource group in the Azure portal, create a Linux custom container app w
 
 1. Leave the rest of the settings as they are, and select the **Container** tab at the top of the page.
 
-1. On the **Container** tab, select the following settings:
+1. On the **Container** tab, provide the following information:
    - **Sidecar support**: Set to **Enhanced configuration with sidecar support on**.
    - **Image Source**: Select **Azure Container Registry**.
    - **Name**: Make sure **main** appears.
