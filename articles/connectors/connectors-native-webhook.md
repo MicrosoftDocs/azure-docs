@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/28/2025
+ms.date: 06/20/2025
 ---
 
 # Subscribe and wait for events to run workflows using HTTP webhooks in Azure Logic Apps
@@ -19,7 +19,7 @@ Here are some examples of webhook-based workflows:
 * Wait for an event to arrive from [Azure Event Hubs](https://github.com/logicappsio/EventHubAPI) before triggering a workflow run.
 * Wait for an approval before continuing a workflow.
 
-This guide shows how to use the HTTP Webhook trigger and HTTP Webhook action so that your workflow can receive and respond to events at a service endpoint.
+This guide shows how to use the **HTTP Webhook** trigger and **HTTP Webhook** action so that your workflow can receive and respond to events at a service endpoint.
 
 ## How do webhooks work?
 
@@ -57,7 +57,11 @@ For more information about trigger and action parameters, see [HTTP Webhook para
 
 * The URL for an already deployed endpoint or API that supports the webhook subscribe and unsubscribe pattern for [webhook triggers in workflows](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) or [webhook actions in workflows](../logic-apps/logic-apps-create-api-app.md#webhook-actions), as appropriate.
 
-* The Standard or Consumption logic app workflow where you want to wait for specific events at the target endpoint. To start with the HTTP Webhook trigger, create a logic app with a blank workflow. To use the HTTP Webhook action, start your workflow with any trigger that you want. This example uses the HTTP trigger as the first step.
+* The Standard or Consumption logic app workflow where you want to wait for specific events at the target endpoint.
+
+  To start with the **HTTP Webhook** trigger, create a logic app with a blank workflow. 
+
+  To use the **HTTP Webhook** action, start your workflow with any trigger that you want. This example uses the **HTTP** trigger as the first step.
 
 ## Add an HTTP Webhook trigger
 
@@ -65,9 +69,13 @@ This built-in trigger calls the subscribe endpoint on the target service and reg
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and blank workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Add the trigger named **HTTP Webhook** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your blank workflow.
+
+1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
+
+1. Add the trigger named **HTTP Webhook** to your workflow by following the [general steps to add a trigger](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
 
    This example renames the trigger to **HTTP Webhook trigger** so that the step has a more descriptive name. Also, the example later adds an HTTP Webhook action, and both names must be unique.
 
@@ -99,9 +107,11 @@ This built-in trigger calls the subscribe endpoint on the target service and reg
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and blank workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. Add the trigger named **HTTP Webhook** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger).
+1. On the sidebar menu, under **Development Tools**, select the designer to open the blank workflow.
+
+1. Add the trigger named **HTTP Webhook** to your workflow by following the [general steps to add a trigger](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger).
 
    This example renames the trigger to **HTTP Webhook trigger** so that the step has a more descriptive name. Also, the example later adds an HTTP Webhook action, and both names must be unique.
 
@@ -136,13 +146,17 @@ Saving your workflow calls the subscribe endpoint on the target service and regi
 
 This built-in action calls the subscribe endpoint on the target service and registers a callback URL with the target service. Your workflow then pauses and waits for target service to send an `HTTP POST` request to the callback URL. When this event happens, the action passes any data in the request along to the workflow. If the operation completes successfully, the action unsubscribes from the endpoint, and your workflow continues to the next action.
 
-This example uses the **HTTP Webhook** trigger as the first step.
-
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Add the action named **HTTP Webhook** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your workflow.
+
+1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
+
+   This example uses the **HTTP Webhook** trigger as the first step.
+
+1. Add the action named **HTTP Webhook** to your workflow by following the [general steps to add a action](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
 
    This example renames the action to **HTTP Webhook action** so that the step has a more descriptive name.
 
@@ -176,7 +190,9 @@ This example uses the **HTTP Webhook** trigger as the first step.
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
-1. Add the action named **HTTP Webhook** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action).
+   This example uses the **HTTP Webhook** trigger as the first step.
+
+1. Add the action named **HTTP Webhook** to your workflow by following the [general steps to add an action](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action).
 
    This example renames the action to **HTTP Webhook action** so that the step has a more descriptive name.
 
@@ -233,13 +249,13 @@ To use the secondary key instead for callback URL generation, follow these steps
 
 1. From the workflow designer, switch to code view.
 
-1. In the **`HttpWebhook`** trigger definition. find the **`accessKeyType`** parameter.
+1. In the **HttpWebhook** trigger definition. find the `accessKeyType` parameter.
 
-1. Specify the word **`Secondary`** as the parameter value.
+1. Specify the word `Secondary` as the parameter value.
 
 1. Remember to save your changes.
 
-The following example shows the webhook trigger definition with the **`accessKeyType`** parameter set to **`Secondary`**:
+The following example shows the webhook trigger definition with the `accessKeyType` parameter set to `Secondary`:
 
 
 ```json

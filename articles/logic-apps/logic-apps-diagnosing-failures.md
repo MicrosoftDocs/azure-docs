@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 05/27/2025
+ms.date: 06/20/2025
 ---
 
 # Troubleshoot and diagnose workflow failures in Azure Logic Apps
@@ -145,7 +145,7 @@ Scheduling overhead exists when running actions, while waiting time between acti
 
 ### My action times out after 2 minutes. How can I increase the timeout value?
 
-The action timeout value can't be changed and is fixed at 2 minutes. If you're using the HTTP action, and you own the service called by the HTTP action, you can change your service to avoid the 2-minute timeout by using the asynchronous pattern. For more information, review [Perform long-running tasks with the polling action pattern](logic-apps-create-api-app.md#perform-long-running-tasks-with-the-polling-action-pattern).
+The action timeout value can't be changed and is fixed at 2 minutes. If you're using the HTTP action, and you own the service called by the HTTP action, you can change your service to avoid the 2-minute timeout by using the asynchronous pattern. For more information, see [Perform long-running tasks with the polling action pattern](logic-apps-create-api-app.md#perform-long-running-tasks-with-the-polling-action-pattern).
 
 ## Common problems - Standard logic apps
 
@@ -167,7 +167,7 @@ The following list includes possible causes for these errors and steps to help t
 
   * Check the storage account's connectivity using [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-  * In your logic app resource's app settings, confirm the storage account's connection string in the app settings, `AzureWebJobsStorage` and `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`. For more information, review [Host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md#manage-app-settings).
+  * In your logic app resource's app settings, confirm the storage account's connection string in the app settings, `AzureWebJobsStorage` and `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`. For more information, see [Host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md#manage-app-settings).
 
   If connectivity fails, check whether the Shared Access Signature (SAS) key in the connection string is the most recent.
 
@@ -233,7 +233,7 @@ The following list includes possible causes for these errors and steps to help t
 
    1. If you use [private Azure DNS zones](../dns/private-dns-privatednszone.md) for your storage account's private endpoint services, check that a [virtual network link](../dns/private-dns-virtual-network-links.md) was created to your logic app's integrated virtual network.
 
-For more information, review [Deploy Standard logic app to a storage account behind a firewall using service or private endpoints](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/deploying-standard-logic-app-to-storage-account-behind-firewall/ba-p/2626286).
+For more information, see [Deploy Standard logic app to a storage account behind a firewall using service or private endpoints](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/deploying-standard-logic-app-to-storage-account-behind-firewall/ba-p/2626286).
 
 ## Related content
 
