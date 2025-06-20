@@ -70,7 +70,7 @@ To configure backup for your Elastic SAN, follow these steps:
    >A Backup vault uses a System Assigned Managed Identity to create and manage snapshots.
 
 1. On the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
-   If you want to create a new backup policy, select **Create new**. Learn how to [create a backup policy](#create-a-backup-policy-for-elastic-san).
+   If you want to create a new backup policy, select **Create new**. Learn how to [create a backup policy](#create-a-backup-policy-for-elastic-san-preview).
 
    >[!Note]
    >- The default retention duration for the recovery points is **7 days**.
