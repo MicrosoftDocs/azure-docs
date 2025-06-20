@@ -69,14 +69,14 @@ For discovering Linux servers, you can set up a least privileged sudo account by
 - For example, you can add an entry like this in the `/etc/sudoers` file.
 
 ```
-AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l, /usr/bin/netstat, /usr/sbin/lvdisplay ""
+AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l, /usr/bin/netstat, /usr/sbin/lvdisplay ""
 Defaults:AzMigrateLeastprivuser !requiretty
 
 ```
 - If any of the packages mentioned aren't available in the target Linux distributions, use the following fallback commands:
 
 ```
-- # if /usr/sbin/dmidecode -s system-uuid is not available, add permissions to /usr/bin/cat /sys/class/dmi/id/product_uuid. 
+- if /usr/sbin/dmidecode -s system-uuid is not available, add permissions to /usr/bin/cat /sys/class/dmi/id/product_uuid. 
 
 - if /usr/sbin/dmidecode -t 1 isn't available, add permissions to /usr/sbin/lshw "" 
 
