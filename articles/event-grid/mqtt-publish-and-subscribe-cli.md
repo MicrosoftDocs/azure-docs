@@ -68,7 +68,7 @@ After a successful installation by using the step CLI, open a command prompt in 
 Use the command to create a namespace. Update the command with your resource group and a namespace name.
 
 ```azurecli-interactive
-az eventgrid namespace create -g {Resource Group} -n {Namespace Name} --topic-spaces-configuration "{state:Enabled}"
+az eventgrid namespace create --resource-group {Resource Group} --name {Namespace Name} --topic-spaces-configuration "{state:Enabled}"
 ```
 
 To keep the quickstart simple, you create a namespace with minimal properties. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see [Create and manage namespaces](create-view-manage-namespaces.md).
@@ -78,7 +78,7 @@ To keep the quickstart simple, you create a namespace with minimal properties. F
 Use the command to create the client. Update the command with your resource group and a namespace name.
 
 ```azurecli-interactive
-az eventgrid namespace client create -g {Resource Group} --namespace-name {Namespace Name} -n {Client Name} --authentication-name client1-authnID --client-certificate-authentication "{validationScheme:ThumbprintMatch,allowed-thumbprints:[Client Thumbprint]}"
+az eventgrid namespace client create --resource-group {Resource Group} --namespace-name {Namespace Name} --name {Client Name} --authentication-name client1-authnID --client-certificate-authentication "{validationScheme:ThumbprintMatch,allowed-thumbprints:[Client Thumbprint]}"
 ```
 - To keep the quickstart simple, you use thumbprint match for authentication. For steps on how to use the X.509 CA certificate chain for client authentication, see [Client authentication using certificate chain](./mqtt-certificate-chain-client-authentication.md).
 - For this exercise, we use the default `$all client` group, which includes all the clients in the namespace. To learn more about creating custom client groups by using client attributes, see [Client groups](mqtt-client-groups.md).
@@ -88,7 +88,7 @@ az eventgrid namespace client create -g {Resource Group} --namespace-name {Names
 Use the command to create the topic space. Update the command with your resource group, namespace name, and topic space name.
 
 ```azurecli-interactive
-az eventgrid namespace topic-space create -g {Resource Group} --namespace-name {Namespace Name} -n {Topicspace Name} --topic-templates ['contosotopics/topic1']
+az eventgrid namespace topic-space create --resource-group {Resource Group} --namespace-name {Namespace Name} --name {Topicspace Name} --topic-templates ['contosotopics/topic1']
 ```
 
 ## Create permission bindings
@@ -96,13 +96,13 @@ az eventgrid namespace topic-space create -g {Resource Group} --namespace-name {
 Use the `az eventgrid` command to create the first permission binding for publisher permission. Update the command with your resource group, namespace name, and permission binding name.
 
 ```azurecli-interactive
-az eventgrid namespace permission-binding create -g {Resource Group} --namespace-name {Namespace Name} -n {Permission Binding Name} --client-group-name '$all' --permission publisher --topic-space-name {Topicspace Name}
+az eventgrid namespace permission-binding create --resource-group {Resource Group} --namespace-name {Namespace Name} --name {Permission Binding Name} --client-group-name '$all' --permission publisher --topic-space-name {Topicspace Name}
 ```
 
 Use the command to create the second permission binding. Update the command with your resource group, namespace name, and permission binding name. This permission binding is for subscribers.
 
 ```azurecli-interactive
-az eventgrid namespace permission-binding create -g {Resource Group} --namespace-name {Namespace Name} -n {Name of second Permission Binding} --client-group-name '$all' --permission subscriber --topic-space-name {Topicspace Name}
+az eventgrid namespace permission-binding create --resource-group {Resource Group} --namespace-name {Namespace Name} --name {Name of second Permission Binding} --client-group-name '$all' --permission subscriber --topic-space-name {Topicspace Name}
 ```
 
 ## Publish and subscribe to MQTT messages
