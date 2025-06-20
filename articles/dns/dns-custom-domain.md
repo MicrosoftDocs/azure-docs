@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: how-to
 ms.date: 07/22/2024
 ms.author: allensu
+# Customer intent: As a cloud administrator, I want to configure custom domain settings for various Azure services using Azure DNS, so that I can provide user-friendly access to those services via personalized domain names.
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service

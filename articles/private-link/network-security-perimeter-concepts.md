@@ -9,6 +9,7 @@ ms.topic: overview
 ms.date: 05/16/2025
 ms.custom: references_regions, ignite-2024
 #CustomerIntent: As a network security administrator, I want to understand how to use Network Security Perimeter to control network access to Azure PaaS resources.
+# Customer intent: As a network security administrator, I want to implement a network security perimeter for Azure PaaS resources, so that I can ensure secure communication and control access within a defined logical boundary while preventing unauthorized public access.
 ---
 
 # What is a network security perimeter?
