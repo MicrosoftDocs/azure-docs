@@ -31,11 +31,11 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `Add Service` button.
-3. Select the `Service Bus` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `Service Bus` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the Service Bus template selected from the service catalog list.](./media/service-catalog-list-service-bus.png)
 
-4. Select through the tabs and enter all the required parameters.
+4. Go through each tab and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
 6. Select `Review + Add` then `Create`.
 

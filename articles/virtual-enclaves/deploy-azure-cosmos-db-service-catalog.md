@@ -47,11 +47,11 @@ There are guardrails in the enclaves to ensure a service bus is using Customer M
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `Azure Cosmos DB` service template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
+3. Select the `Azure Cosmos DB` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the Cosmos DB template selected from the service catalog list.](./media/service-catalog-list-cosmos-db.png)
 
-4. Select through the tabs and enter all the required parameters.
+4. Go through each tab and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
 6. Select `Review + Add` then `Create`.
 

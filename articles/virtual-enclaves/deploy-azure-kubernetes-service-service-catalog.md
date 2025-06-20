@@ -84,11 +84,11 @@ Documentation around these rules can be found [here](/azure/aks/outbound-rules-c
 
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `Private AKS Cluster` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `Private AKS Cluster` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the Azure Kubernetes Service template selected from the service catalog list.](./media/service-catalog-list-azure-kubernetes-service.png)
 
-4. Select through the tabs and enter all the required parameters.
+4. Go through each tab and enter all the required parameters.
 5. Use `172.16.0.0/16` for the serviceCidr and `172.16.0.10` for the dnsServiceIP
 6. Adjust any of the prepopulated parameters as needed.
 7. Select `Review + Add` then `Create`.

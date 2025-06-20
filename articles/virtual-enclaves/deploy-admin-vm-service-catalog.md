@@ -47,7 +47,7 @@ Required:
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `Admin VM` service template from the [service catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `Admin VM` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the service catalog Admin VM selected from the list.](./media/service-catalog-list-admin-vm.png)
 

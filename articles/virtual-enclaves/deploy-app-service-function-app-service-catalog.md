@@ -50,7 +50,7 @@ There are guardrails in the enclaves to ensure a Function App is isolated with p
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `Add Service` button.
-3. Select the `Function App` service template from the [service catalog](./list-service-catalog-templates.md) templates (the dropdown list) and select the required version (default: `latest`)
+3. Select the `Function App` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the Function App template selected from the service catalog list.](./media/service-catalog-list-function-app.png)
 

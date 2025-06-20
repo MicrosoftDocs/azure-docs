@@ -41,7 +41,7 @@ There are guardrails in the enclaves to ensure a storage account is using CMK en
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `Storage Account` template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
+3. Select the `Storage Account` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the Storage Account template selected from the service catalog list.](./media/service-catalog-list-storage-account.png)
 

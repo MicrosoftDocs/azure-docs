@@ -53,7 +53,7 @@ There are guardrails in the enclaves to ensure an App Service is isolated with p
 ## Deploy the template
 1. Navigate to the [workload](./what-workload.md) for the intended deployment.
 2. Select `+Add Azure Service` button.
-3. Select the `App Service` template from the [service catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `App Service` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the App Service template selected from the service catalog list.](./media/service-catalog-list-app-service.png)
 

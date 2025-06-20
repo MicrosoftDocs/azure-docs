@@ -38,7 +38,7 @@ Subnet for Private Endpoints: You had the option to create subnets during enclav
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `Key Vault` template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
+3. Select the `Key Vault` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
   ![Screenshot showing the Storage Account template selected from the service catalog list.](./media/service-catalog-list-key-vault.png)
 

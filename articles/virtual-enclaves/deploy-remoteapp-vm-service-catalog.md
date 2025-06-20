@@ -47,7 +47,7 @@ Required:
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `RemoteApp VM` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `RemoteApp VM` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the RemoteApp VM (aka Virtual Machine) template selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 

@@ -45,11 +45,11 @@ There are guardrails in the enclaves to ensure an Azure Container Registry is us
 
 1. Navigate to the workload for the intended deployment.
 2. Select `Add Service` button.
-3. Select the `Azure Container Registry` service template from the [service catalog](./list-service-catalog-templates.md) templates (the dropdown list).
+3. Select the `Azure Container Registry` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the Azure Container Registry template selected from the service catalog list.](./media/service-catalog-list-azure-container-registry.png)
 
-4. Select through the tabs and enter all the required parameters. Under the encryption tab you'll need to use the CMK Key and User-assigned Identity names and resource group created in the [Prerequisites](#prerequisites).
+4. Go through each tab and enter all the required parameters. Under the encryption tab you'll need to use the CMK Key and User-assigned Identity names and resource group created in the [Prerequisites](#prerequisites).
 5. Adjust any of the prepopulated parameters as needed.
 6. Select `Review + Add` then `Create`.
 
