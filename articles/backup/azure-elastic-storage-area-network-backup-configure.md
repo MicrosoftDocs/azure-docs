@@ -54,7 +54,7 @@ To create a backup policy for Elastic SAN from Azure Business Continuity Center,
 
 ## Configure backup for the Elastic SAN
 
-To configure backup for Elastic SAN, follow these steps:
+To configure backup for your Elastic SAN, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Business Continuity Center**, and then select **+ Configure protection**. 
 1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Elastic SAN volumes (Preview)**, **Solution** as **Azure Backup**, and then select **Continue**.
