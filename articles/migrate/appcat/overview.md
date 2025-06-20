@@ -13,14 +13,6 @@ ms.custom: overview
 
 This article covers information about Azure Migrate application and code assessment for Java and .NET.
 
-You can download Azure Migrate application and code assessment right now from the following links:
-
-> [!div class="nextstepaction"]
-> [Azure Migrate application and code assessment for Java](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
-
-> [!div class="nextstepaction"]
-> [Azure Migrate application and code assessment for .NET](https://aka.ms/appcat/download/dotnet)
-
 > [!NOTE]
 > You can start from either Azure Migrate or Azure Migrate application and code assessment. We offer you the tools for best coverage of different scenarios and use cases that you aim to achieve.
 
@@ -53,5 +45,5 @@ In this article, you learned what Azure Migrate and Azure Migrate application an
 Learn more about Azure Migrate application and code assessment at the following locations:
 
 - [Azure Migrate](../index.yml)
-- [Azure Migrate application and code assessment for Java](java.md)
+- [Azure Migrate application and code assessment for Java](appcat7-overview.md)
 - [Azure Migrate application and code assessment for .NET](dotnet.md)
