@@ -43,7 +43,7 @@ Replace `<TOPIC NAME>` with a unique name for your custom topic. The Event Grid 
 1. Run the following command to create the topic:
 
     ```azurecli-interactive
-    az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
+    az eventgrid topic create --name $topicname --location westus2 --resource-group gridResourceGroup
     ```
 
 ## Create a queue
@@ -61,8 +61,8 @@ Before you subscribe to the custom topic, create the endpoint for the event mess
     ```azurecli-interactive
     queuename="eventqueue"
 
-    az storage account create -n $storagename -g gridResourceGroup -l westus2 --sku Standard_LRS
-    key="$(az storage account keys list -n $storagename --query "[0].{value:value}" --output tsv)"    
+    az storage account create --name $storagename --resource-group gridResourceGroup --location westus2 --sku Standard_LRS
+    key="$(az storage account keys list --account-name $storagename --query "[0].{value:value}" --output tsv)"    
     az storage queue create --name $queuename --account-name $storagename --account-key $key
     ```
 
@@ -79,7 +79,7 @@ Before you run the command, replace the placeholder for the [expiration date](co
 ```azurecli-interactive
 storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
 queueid="$storageid/queueservices/default/queues/$queuename"
-topicid=$(az eventgrid topic show --name $topicname -g gridResourceGroup --query id --output tsv)
+topicid=$(az eventgrid topic show --name $topicname --resource-group gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
   --source-resource-id $topicid \
@@ -108,8 +108,8 @@ If you use the REST API to create the subscription, you pass the ID of the stora
 Trigger an event to see how Event Grid distributes the message to your endpoint. First, get the URL and key for the custom topic:
 
 ```azurecli-interactive
-endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --query "endpoint" --output tsv)
-key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
+endpoint=$(az eventgrid topic show --name $topicname --resource-group gridResourceGroup --query "endpoint" --output tsv)
+key=$(az eventgrid topic key list --name $topicname --resource-group gridResourceGroup --query "key1" --output tsv)
 ```
 
 For the sake of simplicity in this article, you use sample event data to send to the custom topic. Typically, an application or an Azure service would send the event data.
