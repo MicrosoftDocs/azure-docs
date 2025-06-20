@@ -121,7 +121,7 @@ Microsoft Compute implements throttling to provide an optimal experience for Vir
 
 ### Azure Resource Graph throttling
 
-[Azure Resource Graph](../../governance/resource-graph/overview.md) limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Resource Graph throttling headers](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
+[Azure Resource Graph](../../governance/resource-graph/overview.md) limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Resource Graph throttling headers](../../governance/resource-graph//concepts/azure-resource-graph-get-list-api.md).
 
 Azure Resource Graph also has a solution that enables an additional mechanism for getting resource data when you have reached resource provider throttling limits by seamlessly integrating with existing Azure Resource Manager control plane GET and LIST APIs—offering a powerful, scalable solution for resource data access. For more information, see [ARG GET/LIST API](../../governance/resource-graph/concepts/arg-get-list-api.md)
 
