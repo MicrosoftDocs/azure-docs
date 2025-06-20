@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/07/2025
+ms.date: 06/20/2025
 ---
 
 # Copy data from and to Salesforce V2 using Azure Data Factory or Azure Synapse Analytics
@@ -369,7 +369,16 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## <a name="upgrade-the-salesforce-linked-service"></a> Upgrade the Salesforce connector
+## <a name="differences-between-salesforce-and-salesforce-legacy"></a> Salesforce connector lifecycle and upgrade
+
+The following table shows the release stage and change logs for different versions of the Salesforce connector:
+
+| Version  | Release stage           | Change log |
+| :------- | :---------------------- |:---------- |
+| Salesforce V1 | End of support announced | / |
+| Salesforce V2 | GA version available | • Need configure the Connected Apps in Salesforce portal before using the connector. <br><br> • Support SOQL query only.<br><br>• Support report by selecting a report ID.<br><br>• `readBehavior` is replaced with `includeDeletedObjects` in the copy activity source or the lookup activity.|
+
+### <a name="upgrade-the-salesforce-linked-service"></a> Upgrade the Salesforce connector from V1 to V2
 
 Here are steps that help you upgrade your Salesforce connector:
 
@@ -379,18 +388,7 @@ Here are steps that help you upgrade your Salesforce connector:
 
 1. If you use SQL query in the copy activity source or the lookup activity that refers to the V1 linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
 
-1. readBehavior is replaced with includeDeletedObjects in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type).
-
-## <a name="differences-between-salesforce-and-salesforce-legacy"></a> Differences between Salesforce V2 and V1
-
-The Salesforce V2 connector offers new functionalities and is compatible with most features of Salesforce V1 connector. The following table shows the feature differences between V2 and V1.
-
-|Salesforce V2 |Salesforce V1|
-|:---|:---|
-|Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses aren't supported. <br>• Aggregate Functions such as COUNT() aren't supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses aren't supported, but they're supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields aren't supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries aren't supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
-| Objects that contain binary fields aren't supported when specifying query. | Objects that contain binary fields are supported when specifying query.|
-| Support objects within Bulk API when specifying query. | Support objects that are unsupported with Bulk API when specifying query.|
-|Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
+1. `readBehavior` is replaced with `includeDeletedObjects` in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
