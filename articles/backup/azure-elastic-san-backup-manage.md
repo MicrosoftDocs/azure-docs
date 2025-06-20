@@ -1,15 +1,15 @@
 ---
-title: Manage Azure Elastic SAN backups using Azure portal (preview)
-description: Learn how to manage Elastic SAN  backups using Azure portal.
+title: Manage Azure Elastic SAN backups using the Azure portal (preview)
+description: Learn how to manage Elastic SAN  backups (preview) using the Azure portal.
 ms.topic: how-to
 ms.date: 06/20/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Manage Azure Elastic SAN backups using Azure portal (preview)
+# Manage Azure Elastic SAN backups using the Azure portal (preview)
 
-This article describes how to manage Elastic SAN backups using Azure portal.
+This article describes how to manage Elastic SAN backups (preview) using the Azure portal.
 
 Learn about the [supported scenarios, limitations, and region availability for Elastic SAN backup/restore](azure-elastic-storage-area-network-backup-support-matrix.md).
 
@@ -31,14 +31,14 @@ To run an on-demand backup for Elastic SAN, follow these steps:
 When a backup job completes, a Managed Disk incremental snapshot (restore point) is created in the snapshot resource group with the name pattern `AzureBackup_<datasource guid>_<timestamp>`. The restore point is retained as per the retention duration set in the backup policy.
 
 
-## View the Elastic SAN backup and restore jobs
+## View the Elastic SAN backup and restore jobs (preview)
 
 To view Elastic SAN backup and restore jobs, follow these steps:
 
 1. Go to **Business Continuity Center**, and then select **Monitoring + Reporting** > **Jobs**.
 1. On the **Jobs** pane, filter **Datasource type** by **Elastic SAN volumes (Preview)**.
 
-## Change the backup policy for an Elastic SAN backup instance
+## Change the backup policy for an Elastic SAN backup instance (preview)
 
 To change the backup policy for Elastic SAN backup instance, follow these steps:
 
@@ -50,7 +50,7 @@ To change the backup policy for Elastic SAN backup instance, follow these steps:
 >[!Caution]
 >Both existing and future restore points follow the retention duration set in the new backup policy.
 
-## Stop Elastic SAN backup
+## Stop Elastic SAN backup (preview)
 
 Azure Backup provides the following options to stop protection of Elastic SAN:
 
@@ -66,7 +66,7 @@ To stop protection for Elastic SAN, follow these steps:
 
 ### Stop protection and retain backup data for an Elastic SAN
 
-To stop backups and retain data for an Elastic SAN, follow these steps:
+To stop backups and retain data for an Elastic SAN volume, follow these steps:
 
 1. On the **Stop Backup** pane, under **Stop backup level**, choose **Retain Backup Data**.
 
@@ -98,8 +98,8 @@ To stop backups and delete data for an Elastic SAN, follow these steps:
 ## Related content
 
 - [About Azure Files backup](azure-file-share-backup-overview.md).
-- [Back up Azure Files using Azure portal](backup-azure-files.md).
-- [Restore Azure Files using Azure portal](restore-afs.md).
-- [Manage Azure Files backup using Azure portal](manage-afs-backup.md).
+- [Back up Azure Files using the Azure portal](backup-azure-files.md).
+- [Restore Azure Files using the Azure portal](restore-afs.md).
+- [Manage Azure Files backup using the Azure portal](manage-afs-backup.md).
 
 

@@ -1,21 +1,21 @@
 ---
-title: Restore Azure Elastic SAN using Azure portal (preview)
-description: Learn how to restore Elastic SAN backups using Azure portal.
+title: Restore Azure Elastic SAN backup using the Azure portal (preview)
+description: Learn how to restore Elastic SAN backup using the Azure portal.
 ms.topic: how-to
 ms.date: 06/20/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Restore Azure Elastic SAN using Azure portal (preview)
+# Restore Azure Elastic SAN backup using the Azure portal (preview)
 
-This article describes how to restore Elastic SAN backups using Azure portal.
+This article describes how to restore Elastic SAN backup (preview) using the Azure portal.
 
 Learn about the [supported scenarios, limitations, and region availability for Elastic SAN backup/restore](azure-elastic-storage-area-network-backup-support-matrix.md).
 
-## Restore the Elastic SAN backups
+## Restore the Elastic SAN backup (preview)
 
-To  restore the Elastic SAN  backups, follow these steps:
+To  restore the Elastic SAN  backup, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center**, and then select **Recover**.
 1. On the **Recover** pane, select **Datasource type** as **Elastic SAN volumes (Preview)**,  and then under **Protected item**, click **Select**.
@@ -68,4 +68,4 @@ You can [track the progress of restore](azure-elastic-storage-area-network-backu
  
 ## Next steps
 
-[Manage Azure Elastic SAN backups using Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).
+[Manage Azure Elastic SAN backup using the Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).

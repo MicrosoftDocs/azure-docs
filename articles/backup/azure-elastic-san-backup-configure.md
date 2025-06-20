@@ -2,7 +2,7 @@
 title: Configure Azure Elastic SAN backup using Azure portal (preview)
 description: Learn how to configure Azure Elastic SAN backup (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 05/21/2025
+ms.date: 06/20/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -16,7 +16,7 @@ This article describes how to configure Azure Elastic SAN backup (preview) using
 Before you configure Elastic SAN backup, ensure the following prerequisites are met:
 
 - Check for an existing Elastic SAN volume, or [create a  new volume and instance](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal).
-- The Elastic SAN must be in a [supported region](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).
+- The Elastic SAN volume must be in a [supported region](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).
 
 For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-elastic-storage-area-network-backup-support-matrix.md).
 
@@ -24,7 +24,7 @@ For more information about the supported scenarios, limitations, and availabilit
 
 To back up Elastic SAN, ensure you have a Backup vault in the same subscription. You can use an existing vault, or [create a new one](create-manage-backup-vault.md#create-backup-vault).
 
-## Create a backup policy for Elastic SAN
+## Create a backup policy for Elastic SAN (preview)
 
 A backup policy defines the schedule and frequency for backing up Elastic SAN volumes. You can either create a backup policy from the Backup vault or create it on the go during the backup configuration.
 
@@ -52,7 +52,7 @@ To create a backup policy for Elastic SAN from Azure Business Continuity Center,
 1. After the review succeeds, select **Create**.
 
 
-## Configure backup for the Elastic SAN
+## Configure Elastic SAN backup (preview)
 
 To configure backup for your Elastic SAN, follow these steps:
 
@@ -118,8 +118,8 @@ You can [track the progress of the backup configuration](azure-elastic-storage-a
 
 ## Next steps
 
-- [Restore Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-restore.md).
-- [Manage Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).
+- [Restore Azure Elastic SAN backup using the Azure portal (preview)](azure-elastic-storage-area-network-backup-restore.md).
+- [Manage Azure Elastic SAN backup using the Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).
  
 
 
