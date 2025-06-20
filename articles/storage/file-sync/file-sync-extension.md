@@ -25,7 +25,7 @@ This article describes how to install, validate, and uninstall the Azure File Sy
 
 * **Azure PowerShell or Azure CLI environment:**
 
-  * For **Azure PowerShell**, install the Azure PowerShell module (Az module) with the **Az.ConnectedMachine** module. Ensure you have the latest Az PowerShell installed and run `Connect-AzAccount` to sign in to Azure.
+  * For **Azure PowerShell**, install the Azure PowerShell module (Az module) with the **Az.ConnectedMachine** module. Ensure you have the latest Az PowerShell installed, and run `Connect-AzAccount` to sign in to Azure.
   * For **Azure CLI**, install the Azure CLI and sign in (`az login`). Ensure the Azure CLI has the Connected Machine extension installed by running:
 
     ```azurecli
@@ -48,7 +48,7 @@ You can install the **Azure File Sync Agent for Windows** extension on an Arc-en
 
 :::image type="content" source="media/file-sync-extension/file-sync-extension-install.png" alt-text="Screenshot showing how to install the Azure File Sync agent extension for Windows":::
 
-3. **Configure settings:** Configure the settings for the Azure File Sync agent that will be installed on the Arc machine. See the **Available settings** section for the full list of settings and their meaning.
+3. **Configure settings:** Configure the settings for the Azure File Sync agent that will be installed on the Arc machine. See [Available settings](#available-settings) for the full list of settings and their meaning.
 
 :::image type="content" source="media/file-sync-extension/file-sync-extension-settings.png" alt-text="Screenshot showing how to configure the Azure File Sync agent extension for Windows":::
 
