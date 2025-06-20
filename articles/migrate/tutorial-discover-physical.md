@@ -35,7 +35,15 @@ To discover Windows servers and enable software inventory and agentless dependen
 
 You can create the local user account in one of two ways:
 
-#### Option 1: Set up a least-privileged Windows user account (recommended)
+#### Option 1: Set up administrator account
+
+To set up:
+
+- Create an account with administrator rights on the servers.
+- This account helps collect configuration and performance data using a CIM connection.
+- It also supports software inventory (finding installed applications) and enables agentless dependency analysis through PowerShell remoting.
+
+#### Option 2: Set up a least-privileged Windows user account
 
 - Add the user account to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
 - If the Remote Management Users group is not available, add the user to the `WinRMRemoteWMIUsers_ group` instead.
@@ -46,13 +54,6 @@ You can create the local user account in one of two ways:
 > - For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
 > - To discover SQL Server databases on Windows Servers, both Windows and SQL Server authentication are supported. </br> You can enter credentials for both types in the appliance configuration manager. </br> Azure Migrate needs a Windows user account that is part of the `sysadmin` server role.
 
-#### Option 2: Set up administrator account
-
-To set up:
-
-- Create an account with administrator rights on the servers.
-- This account helps collect configuration and performance data using a CIM connection.
-- It also supports software inventory (finding installed applications) and enables agentless dependency analysis through PowerShell remoting.
 
 ### Prepare Linux server
 
@@ -68,7 +69,7 @@ For discovering Linux servers, you can set up a least privileged sudo account by
 - For example, you can add an entry like this in the `/etc/sudoers` file.
 
 ```
-AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l, /usr/bin/netstat, /usr/sbin/lvdisplay[MR5.1][MR5.2][MR6.1] ""
+AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l, /usr/bin/netstat, /usr/sbin/lvdisplay ""
 Defaults:AzMigrateLeastprivuser !requiretty
 
 ```
@@ -84,6 +85,7 @@ Defaults:AzMigrateLeastprivuser !requiretty
 - # if /usr/sbin/dmidecode system-manufacturer isn't available, add permissions to /usr/bin/cat /sys/devices/virtual/dmi/id/sys_vendor 
 
 - # if /usr/bin/netstat isn't available, add permissions to /usr/sbin/ss -atnp 
+
 ```
 - The list of commands run on the target servers and the information they collect. [Learn more](discovered-metadata.md#linux-server-metadata).
 - Below is the list of supported Linux operating system distributions.
@@ -101,8 +103,8 @@ Defaults:AzMigrateLeastprivuser !requiretty
 | Rocky Linux | 8.x, 9.x|
 
 > [!Note]
->  - We recommend setting up the least privileged sudo accounts. Any account, such as root, that has the superset of the mentioned permissions can also be used for Linux discovery.
-> We recommend following the above steps to set up non-root accounts. Using `setcap` to set up capabilities is no longer advised. 
+> - We recommend setting up the least privileged sudo accounts. Any account, such as root, that has the superset of the mentioned permissions can also be used for Linux discovery.
+> - We recommend following the above steps to set up non-root accounts. Using `setcap` to set up capabilities is no longer advised. 
 
 ## Generate the project key
 
