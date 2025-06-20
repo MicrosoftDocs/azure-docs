@@ -116,11 +116,11 @@ The following example demonstrates how to add messages to your queue.
 $queueMessage = "This is message 1"
 
 # Add a new message to the queue
-$queue.QueueClient.AddMessageAsync($queueMessage)
+$queue.QueueClient.SendMessageAsync($queueMessage)
 
 # Add two more messages to the queue
 $queueMessages = @("This is message 2","This is message 3")
-$queueMessages | foreach {$queue.QueueClient.AddMessageAsync($_)}
+$queueMessages | foreach {$queue.QueueClient.SendMessageAsync($_)}
 ```
 
 If you use the [Azure Storage Explorer](https://storageexplorer.com), you can connect to your Azure account and view the queues in the storage account, and drill down into a queue to view the messages on the queue.
