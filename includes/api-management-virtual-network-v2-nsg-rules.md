@@ -12,6 +12,6 @@ A network security group (NSG) must be associated with the subnet. To set up a n
 
 * Configure an outbound NSG rule to allow access to Azure Storage on port 443. 
 * Configure other outbound rules you need for the gateway to reach your API backends. 
-* NSG rules can also be used to block outbound traffic to the internet and access only resources in your virtual network. 
+* Configure other NSG rules to meet your organization’s network access requirements for the resources you need to access. For example, NSG rules can also be used to block outbound traffic to the internet and allow access only to resources in your virtual network. 
 
 
