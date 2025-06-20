@@ -7,7 +7,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Configure backup for Azure Elastic SAN using Azure portal (preview)
+# Configure Azure Elastic SAN backup using Azure portal (preview)
 
 This article describes how to configure backup for Elastic SAN using Azure portal.
 
