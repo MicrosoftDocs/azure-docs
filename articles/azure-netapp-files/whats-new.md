@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 06/04/2025
+ms.date: 06/20/2025
 ms.author: anfdocs
 ---
 
@@ -16,9 +16,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## June 2025
+
 * The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
 
-    You can now transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
+    You can transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
 
 ## May 2025
 

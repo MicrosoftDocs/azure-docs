@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 06/04/2025
+ms.date: 06/20/2025
 ms.author: anfdocs
 ---
 
