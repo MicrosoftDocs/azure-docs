@@ -247,6 +247,9 @@ You should consider the ARG GET/LIST API if your service falls into one (or many
 
 If the resource you’re interested in, is in the `resources` table or `computeresources` table, *and* it falls in one of the above categories, then use the [ARG GET/LIST API](./azure-resource-graph-get-list-api.md)
 
+:::video type="stream" id="c7b5e203-e2ac-4b4f-a73e":::
+
+
 ## Still being throttled?
 
 If you used this article's recommendations, tried the Azure Resource Graph GET/LIST API solution, and your Azure Resource Graph queries are still being throttled, contact the [Azure Resource Graph team](mailto:resourcegraphsupport@microsoft.com). The team supports Azure Resource Graph but doesn't support [Microsoft Graph throttling](/graph/throttling).
