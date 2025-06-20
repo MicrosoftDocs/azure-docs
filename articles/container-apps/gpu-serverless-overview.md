@@ -84,6 +84,9 @@ Serverless GPUs are available in the following regions:
 | West US | Yes | No |
 | Australia East | Yes | Yes |
 | Sweden Central | Yes | Yes |
+| West Europe<sup>1</sup> | No | Yes |
+
+<sup>1</sup> To add a T4 serverless GPU workload profile in West Europe, you must add it during creation of a new environment. You can't add it to an existing environment.
 
 ## Use serverless GPUs
 
