@@ -31,7 +31,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 2. Select `Add Service` button.
 3. Select the `Private DNS Zones` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
-![Screenshot showing the Common Dependencies template selected from the service catalog list.](./media/service-catalog-list-private-dns-zones.png)
+![Screenshot showing the private DNS zones template selected from the service catalog list.](./media/service-catalog-list-private-dns-zones.png)
 
 > [!NOTE]
 > 
