@@ -51,20 +51,16 @@ items:
         href: tutorial-discover-physical.md
       - name: Appliance configuration
         items:
-      - name: Provide server credentials
-        href: add-server-credentials.md
-      - name: Appliance diagnostics
-        href: troubleshoot-appliance-diagnostic.md 
+        - name: Provide server credentials
+          href: add-server-credentials.md
+        - name: Appliance diagnostics
+          href: troubleshoot-appliance-diagnostic.md 
     - name: Discover using inventory import
       items: 
       - name: CSV import
         href: tutorial-discover-import.md
       - name: RVTools import
         href: tutorial-import-vmware-using-rvtools-xlsx.md
-    - name: Discover VMware estate
-      items: 
-      - name: Support matrix for VMware discovery 
-        href: migrate-support-matrix-vmware.md
     - name: Discover workloads
       items:  
       - name: Discover SQL servers and Webapps
