@@ -79,14 +79,8 @@ For discovering Linux servers, you can set up a least privileged sudo account by
 
 ```
 
-    AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: \
-    /usr/sbin/dmidecode -s system-uuid, \
-    /usr/sbin/dmidecode -t 1, \
-    /usr/sbin/dmidecode -s system-manufacturer, \
-    /usr/sbin/fdisk -l, \
-    /usr/bin/ls -l /proc/*/exe, \
-    /usr/bin/netstat -atnp, \
-    /usr/sbin/lvdisplay""
+AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode -s system-uuid, /usr/sbin/dmidecode -t 1, /usr/sbin/dmidecode -s system-manufacturer, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l, /usr/bin/netstat, /usr/sbin/lvdisplay[MR5.1][MR5.2][MR6.1] ""
+Defaults:AzMigrateLeastprivuser !requiretty
 
 ```
 
