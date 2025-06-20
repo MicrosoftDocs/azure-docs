@@ -19,7 +19,7 @@ For bring-your-own-code Linux apps, see [Tutorial: Configure a sidecar container
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- Run the commands in this tutorial by using Azure Cloud Shell, an interactive shell that you can use through your browser to work with Azure services. To use Cloud Shell:
+- You can run the commands in this tutorial by using Azure Cloud Shell, an interactive shell you can use through your browser to work with Azure services. To use Cloud Shell:
 
   1. Select the following **Launch Cloud Shell** button or go to https://shell.azure.com to open Cloud Shell in your browser.
 
@@ -28,11 +28,11 @@ For bring-your-own-code Linux apps, see [Tutorial: Configure a sidecar container
   1. Sign in to Azure if necessary, and make sure you're in the **Bash** environment of Cloud Shell.
   1. Select **Copy** in a code block, paste the code into Cloud Shell, and run it.
 
-     The commands in this tutorial use the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview), an open-source tool that accelerates provisioning and deploying app resources on Azure.
+     The `azd` commands in this tutorial use the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview), an open-source tool that accelerates provisioning and deploying app resources on Azure.
 
 ## 1. Set up the tutorial resources
 
-To create the resources that this tutorial uses, run the following commands in Cloud Shell. When prompted, select the Azure subscription and Azure region you want to use.
+To clone the sample repository and create the resources for this tutorial, run the following commands in Cloud Shell. When prompted, select the Azure subscription and Azure region you want to use.
 
    ```bash
    git clone https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs
@@ -43,16 +43,16 @@ To create the resources that this tutorial uses, run the following commands in C
 
 The `azd provision` command uses the included templates to create an Azure resource group called `my-sidecar-env_group` that contains the following Azure resources:
 
-- A [container registry](/azure/container-registry/container-registry-intro) with two repositories, containing the following images:
-  - An `nginx` image with the OpenTelemetry module.
-  - An `otel-collector` OpenTelemetry collector image, configured to export to [Azure Monitor](/azure/azure-monitor/overview).
-- A [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview).
-- An [Application Insights](/azure/azure-monitor/app/app-insights-overview) component and Application Insights Smart Detection action group.
+- A [container registry](/azure/container-registry/container-registry-intro) with two repositories that have the following images:
+  - An `nginx` image that contains the OpenTelemetry module.
+  - An `otel-collector` OpenTelemetry collector image configured to export to [Azure Monitor](/azure/azure-monitor/overview).
+- A [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspace.
+- An [Application Insights](/azure/azure-monitor/app/app-insights-overview) component.
 - A user-assigned [managed identity](/entra/identity/managed-identities-azure-resources/overview) called `id-my-sidecar-env_group`.
 
-When deployment completes, you should see similar to the following output:
+When deployment completes, you should see output similar to the following message:
 
-```bash
+```output
 Success!
 
 APPLICATIONINSIGHTS_CONNECTION_STRING = InstrumentationKey=aaaaaaaa-0b0b-1c1c-2d2d-333333333333;IngestionEndpoint=https://eastus2-3.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus2.livediagnostics.monitor.azure.com/;ApplicationId=00001111-aaaa-2222-bbbb-3333cccc4444
@@ -63,16 +63,16 @@ Managed identity client ID = 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
 Open resource group in the portal: https://portal.azure.com/#@/resource/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/my-sidecar-env_group
 ```
 
-Copy and save the value for **APPLICATIONINSIGHTS_CONNECTION_STRING** to use later in this tutorial.
+Copy and save the value for `APPLICATIONINSIGHTS_CONNECTION_STRING` to use later in this tutorial.
 
-Select the **Open resource group in the portal** link to open the resource group in the Azure portal.
+Select the link for `Open resource group in the portal` to open the provisioned resource group in the Azure portal.
 
 ## 2. Create a sidecar-enabled app
 
-In this section, you create the Linux custom container app and main container, and enable sidecar support for the app.
+In this section, you create the Linux custom container app with sidecar support and configure the main container.
 
 1. On the resource group's page in the Azure portal, select **Create**.
-1. On the **Marketplace** page, search for *web app*, select the down arrow next to **Create** on the **Web App** tile, and then select **Web App**.
+1. On the **Marketplace** page, search for *web app*, select the down arrow next to **Create** on the **Web App** tile, and select **Web App**.
 
    :::image type="content" source="media/tutorial-custom-container-sidecar/create-web-app.png" alt-text="Screenshot showing Azure Marketplace page with web app being searched and create web app button highlighted.":::
 
@@ -80,7 +80,7 @@ In this section, you create the Linux custom container app and main container, a
    - **Name**: Enter a unique name for the web app.
    - **Publish**: Select **Container**.
    - **Operating System**: Select **Linux**.
-   - **Region**: Select the same region as the one you chose with `azd provision`.
+   - **Region**: Select the same region you chose for `azd provision`.
    - **Linux Plan**: Select the provided **(New)** App Service plan.
 
     :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-basics-panel.png" alt-text="Screenshot showing the Basic settings for the Linux custom container web app.":::
@@ -92,7 +92,7 @@ In this section, you create the Linux custom container app and main container, a
    - **Image Source**: Select **Azure Container Registry**.
    - **Name**: Make sure *main* appears.
    - **Registry**: Select the registry created by `azd provision`.
-   - **Authentication**: Select **Managed Identity**.
+   - **Authentication**: Select **Managed identity**.
    - **Identity**: Select the managed identity created by `azd provision`.
    - **Image**: Enter *nginx*.
    - **Tag**: Enter *latest*.
@@ -107,7 +107,7 @@ In this section, you create the Linux custom container app and main container, a
 
 1. Once the deployment completes, select **Go to resource**.
 
-1. On your app's page, open the URL next to **Default domain**, such as `https://<app-name>.azurewebsites.net`, in a new browser tab to see the default **nginx** page.
+1. On your app's page, open the URL next to **Default domain**, `https://<app-name>.azurewebsites.net`, in a new browser tab to see the default **nginx** page.
 
 ## 3. Add a sidecar container to the app
 
@@ -142,7 +142,7 @@ You configure environment variables for the containers like for any App Service 
 1. On the **App settings** tab of the **Environment variables** page, select **Add**.
 1. On the **Add/Edit application setting** pane, enter the following values:
    - **Name**: *APPLICATIONINSIGHTS_CONNECTION_STRING*
-   - **Value**: The `APPLICATIONINSIGHTS_CONNECTION_STRING` value from the output of `azd provision`. You can also find the value on the **Overview** page of the Application Insight resource, under **Connection String**.
+   - **Value**: The value of `APPLICATIONINSIGHTS_CONNECTION_STRING` from the output of `azd provision`. You can also find this value on the **Overview** page of the Application Insight resource under **Connection String**.
 1. Select **Apply**, then select **Apply** again, and then select **Confirm**. You now see the **APPLICATIONINSIGHTS_CONNECTION_STRING** app setting on the **Environment variables** page.
 
    :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
