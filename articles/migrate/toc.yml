@@ -63,6 +63,10 @@ items:
       items:  
       - name: Discover SQL servers and Webapps
         href: how-to-discover-sql-existing-project.md
+      - name: Discover software, databases, and web apps
+        href: how-to-discover-applications.md
+      - name: Create least privileged credentials for SQL discovery
+        href: least-privilege-credentials.md   
   - name: Discover using inventory import
     items: 
       - name: CSV import
@@ -71,10 +75,6 @@ items:
         href: tutorial-import-vmware-using-rvtools-xlsx.md
 #     - name: Discover MySQL database instances
 #       href: tutorial-discover-mysql-database-instances.md
-      - name: Discover software, databases, and web apps
-        href: how-to-discover-applications.md
-      - name: Create least privileged credentials for SQL discovery
-        href: least-privilege-credentials.md    
 - name: Explore inventory
   items:
     - name: Discovered metadata
