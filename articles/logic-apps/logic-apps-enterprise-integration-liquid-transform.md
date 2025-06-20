@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divyaswarnkar, estfan, tonytang, azla
 ms.topic: how-to
-ms.date: 05/23/2025
+ms.date: 06/20/2025
 
 # Customer intent: As a developer, I want to convert JSON and XML by using Liquid templates as maps in Azure Logic Apps
 ---
@@ -16,13 +16,13 @@ ms.date: 05/23/2025
 
 When you want to perform basic JSON transformations in your logic app workflows, you can use built-in data operations, such as the **Compose** action or **Parse JSON** action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a template that describes the required mapping or transformation using the Liquid open-source template language. You can select this template when you add a **Liquid** built-in action to your workflow. You can use Liquid actions in multitenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 
-While no Liquid triggers are available, you can use any trigger or action to feed the source JSON or XML content into your workflow. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
+While no **Liquid** triggers are available, you can use any trigger or action to feed the source JSON or XML content into your workflow. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
 
 This article shows how to complete the following tasks:
 
 * Create a Liquid template.
 * Upload the template to your integration account for Consumption logic app workflows or to your Standard logic app resource for use in any child workflow.
-* Add a Liquid action to your workflow.
+* Add a **Liquid** action to your workflow.
 * Select the template as the map that you want to use.
 
 For more information, review the following documentation:
@@ -38,10 +38,12 @@ For more information, review the following documentation:
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Your logic app resource and workflow. Liquid operations don't have any triggers available, so your workflow has to minimally include a trigger. For more information, se the following documentation:
+* Your logic app resource and workflow. Liquid operations don't have any triggers available, so your workflow has to minimally include a trigger.
 
-  * [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
-  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+  If you don't have a logic app resource and workflow, create them now by following the steps for the logic app that you want:
+
+  * [Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md)
+  * [Create an example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md)
 
 * An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md). Usually, you need this resource when you want to define and store artifacts for use in enterprise integration and B2B workflows.
 
@@ -98,7 +100,7 @@ Before you can perform a Liquid transformation in your logic app workflow, you m
    }
    ```
 
-1. Save the template using the Liquid template (*.liquid*) file extension. This example is called **SimpleJsonToJsonTemplate.liquid**.
+1. Save the template using the Liquid template (.liquid) file extension. This example is called *SimpleJsonToJsonTemplate.liquid*.
 
 <a name="upload-template"></a>
 
@@ -132,9 +134,9 @@ After you create your Liquid template, you now have to upload the template based
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Name** | `JsonToJsonTemplate` | The name for your map, which is *JsonToJsonTemplate* in this example |
-   | **Map type** | **Liquid** | The type for your map. For JSON to JSON transformation, you must select **Liquid**. |
-   | **Map** | `SimpleJsonToJsonTemplate.liquid` | An existing Liquid template or map file to use for transformation, which is *SimpleJsonToJsonTemplate.liquid* in this example. To find this file, you can use the file picker. For map size limits, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
+   | **Name** | JsonToJsonTemplate | The name for your map, which is *JsonToJsonTemplate* in this example |
+   | **Map type** | Liquid | The type for your map. For JSON to JSON transformation, you must select **Liquid**. |
+   | **Map** | SimpleJsonToJsonTemplate.liquid | An existing Liquid template or map file to use for transformation, which is *SimpleJsonToJsonTemplate.liquid* in this example. To find this file, you can use the file picker. For map size limits, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
 
    :::image type="content" source="media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png" alt-text="Screenshot showing Add Map pane with new template uploaded.":::
 
@@ -144,7 +146,7 @@ After you create your Liquid template, you now have to upload the template based
 
 1. In the [Azure portal](https://portal.azure.com), find and open your logic app resource. Make sure that you're at the resource level, not the workflow level.
 
-1. On your logic app resource's navigation menu, under **Artifacts**, select **Maps**.
+1. On your logic app resource's sidebar menu, under **Artifacts**, select **Maps**.
 
 1. On the **Maps** pane toolbar, select **Add**.
 
@@ -158,7 +160,9 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer, if not already open.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+
+1. On the sidebar menu, under **Development Tools**, select the designer to open your workflow.
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations don't have any triggers available.
 
@@ -166,7 +170,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. Under the trigger, select **Add an action**. In the search box, enter **liquid**.
 
-1. From the actions list, select the Liquid action that you want to use.
+1. From the actions list, select the **Liquid** action that you want to use.
 
    This example continues using the action named **Transform JSON to JSON**.
 
@@ -197,11 +201,15 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer, if not already open.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow.
+
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your blank workflow.
+
+1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations don't have any triggers available.
 
-   This example continues with the Request trigger named **When a HTTP request is received**.
+   This example continues with the **Request** trigger named **When a HTTP request is received**.
 
 1. On the designer, under the step where you want to add the Liquid action, select the plus sign (**+**), and then select **Add an action**.
 
@@ -254,7 +262,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 To trigger your workflow, follow these steps:
 
-1. In the Request trigger, find the **HTTP URL** property, and copy the URL.
+1. In the **Request** trigger, find the **HTTP URL** property, and copy the URL.
 
 1. Open your HTTP request tool and use its instructions to send an HTTP request to the copied URL, including the method that the **Request** trigger expects.
 
@@ -377,7 +385,7 @@ The following example shows the sample inputs and outputs:
 
     * Sorts only in string-alphanumeric order. For more information, see [Numeric sort](https://github.com/Shopify/liquid/issues/980).
 
-    * Uses *case-insensitive* order, not case-sensitive order. For more information, see [Sort filter doesn't follow casing behavior from Shopify's specification]( https://github.com/dotliquid/dotliquid/issues/393).
+    * Uses *case-insensitive* order, not case-sensitive order. For more information, see [Sort filter doesn't follow casing behavior from Shopify's specification](https://github.com/dotliquid/dotliquid/issues/393).
 
 ## Related content
 

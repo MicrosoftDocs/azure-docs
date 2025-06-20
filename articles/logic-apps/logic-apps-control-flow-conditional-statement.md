@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 06/20/2025
 ---
 
 # Add conditions to control workflow actions in Azure Logic Apps
@@ -21,7 +21,7 @@ You can add the **Condition** action to send email only when the new item includ
 >
 > If you want to specify more than two paths from which your workflow can choose
 > or condition criteria that's not restricted to only true or false, use a
-> [*switch action* instead](logic-apps-control-flow-switch-statement.md).
+> [**switch** action](logic-apps-control-flow-switch-statement.md) instead.
 
 This guide shows how to add a condition to your workflow and use the result to help your workflow choose between two action paths.
 
@@ -37,11 +37,13 @@ This guide shows how to add a condition to your workflow and use the result to h
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. Add the trigger named **When a feed item is published** to your workflow. For detailed steps, see [Add a trigger to start your workflow](add-trigger-action-workflow.md?tabs=consumption#add-trigger).
+1. On the sidebar menu, under **Development Tools**, select the designer to open the blank workflow.
 
-1. Below the trigger, add the **Condition** action to your workflow. For detailed steps, see [Add an action to run a task](add-trigger-action-workflow.md?tabs=consumption#add-action).
+1. Add the trigger named **When a feed item is published** to your workflow by following the [general steps to add a trigger](add-trigger-action-workflow.md?tabs=consumption#add-trigger).
+
+1. Add the **Condition** action to your workflow by following the [general steps to add an action](add-trigger-action-workflow.md?tabs=consumption#add-action).
 
 1. In the **Condition** action, follow these steps to build your condition:
 
@@ -87,11 +89,15 @@ This guide shows how to add a condition to your workflow and use the result to h
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Add the trigger named **When a feed item is published** to your workflow. For detailed steps, see [Add a trigger to start your workflow](add-trigger-action-workflow.md?tabs=standard#add-trigger).
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your blank workflow.
 
-1. Below the trigger, add the **Condition** action to your workflow. For detailed steps, see [Add an action to run a task](add-trigger-action-workflow.md?tabs=standard#add-action).
+1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
+
+1. Add the trigger named **When a feed item is published** to your workflow by following the [general steps to add a trigger](add-trigger-action-workflow.md?tabs=standard#add-trigger).
+
+1. Add the **Condition** action to your workflow by following the [general steps to add an action](add-trigger-action-workflow.md?tabs=standard#add-action).
 
 1. In the **Condition** action, follow these steps to build your condition:
 
