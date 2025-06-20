@@ -42,7 +42,7 @@
     },
         {
       "source_path_from_root": "/articles/governance/resource-graph/concepts/arg-get-list-api.md",
-      "redirect_url": "/azure/governance/resource-graph/concepts/azure-resource-graph-get-list-api.md",
+      "redirect_url": "/azure/governance/resource-graph/concepts/azure-resource-graph-get-list-api",
       "redirect_document_id": false
     }
   ]
