@@ -14,13 +14,11 @@ ms.subservice: sms
 ms.custom: references_regions
 ---
 
-# Ten digit long code (10DLC) registration guidelines
+# 10DLC (Ten digit long code) registration guidelines
 
 To send Application-to-Person (A2P) SMS messages using 10 digit long codes (10DLC), businesses must complete **brand registration** and **campaign registration**. Registering ensures compliance with carrier and Cellular Telecommunications Industry Association (CTIA) guidelines while enabling high-quality message delivery.
 
 This article describes how to complete the required fields for **brand registration** and **campaign registration**.
-
-[!INCLUDE [Notice](../../includes/public-preview-include.md)]
 
 ## Schedule constraints
 
