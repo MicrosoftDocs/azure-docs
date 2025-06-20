@@ -33,6 +33,12 @@ items:
   items:
   - name: Discovery methods
     href: discovery-methods-modes.md
+  - name: Discover using inventory import
+    items: 
+      - name: CSV import
+        href: tutorial-discover-import.md
+      - name: RVTools import
+        href: tutorial-import-vmware-using-rvtools-xlsx.md
   - name: Discovery using appliance
     items:
     - name: Appliance requirements
@@ -55,12 +61,6 @@ items:
           href: add-server-credentials.md
         - name: Appliance diagnostics
           href: troubleshoot-appliance-diagnostic.md 
-    - name: Discover using inventory import
-      items: 
-      - name: CSV import
-        href: tutorial-discover-import.md
-      - name: RVTools import
-        href: tutorial-import-vmware-using-rvtools-xlsx.md
     - name: Discover workloads
       items:  
       - name: Discover SQL servers and Webapps
