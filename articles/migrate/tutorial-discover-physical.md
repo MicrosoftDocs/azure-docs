@@ -76,7 +76,7 @@ Defaults:AzMigrateLeastprivuser !requiretty
 >[!Note]
 > If any of the packages mentioned aren't available in the target Linux distributions, use the following fallback commands:
 
-```csharp-interactive
+```
 
 - # if /usr/sbin/dmidecode -s system-uuid is not available, add permissions to /usr/bin/cat /sys/class/dmi/id/product_uuid. 
 
