@@ -1,7 +1,7 @@
 ---
 ms.author: micahvivion
 title: Azure Communication Services Calling video WebJS video effects
-titleSuffix: An Azure Communication Services document
+titleSuffix: An Azure Communication Services article
 description: In this document, you learn how to create video effects on an Azure Communication Services call.
 author: sloanster
 services: azure-communication-services
