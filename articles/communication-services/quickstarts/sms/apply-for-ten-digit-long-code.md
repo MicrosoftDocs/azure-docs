@@ -34,13 +34,14 @@ You need to complete brand registration and receive approval first. Then you can
 
 ## 10DLC registration
 
-Navigate to the **Regulatory Documents** blade in your Azure Communication Services resource and select **Add** to start the 10DLC brand registration wizard.
+You need to apply for brand and campaign registration before acquiring 10DLC numbers for SMS. If you previously acquired a 10DLC number for calling and want to enable it for SMS, then you need to first register the brand and campaign and then associate the number.
+To do that, navigate to the **Regulatory Documents** blade in your Azure Communication Services resource and select **Add** to start the 10DLC brand registration wizard and follow the steps.
 
 :::image type="content" source="./media/apply-for-brand-registration/regulatory-screen-1.png" alt-text="Screenshot showing Regulatory Documents blade." lightbox="./media/apply-for-brand-registration/regulatory-screen-1.png":::
 
 ## STEP 1: Brand registration
 
-You first need to choose country/region and phone number type you would like to get verified. You need to apply for brand and campaign registration before acquiring 10DLC numbers for SMS. If you previously acquired a 10DLC number for calling and want to enable it for SMS, then you need to first register the brand and campaign and then associate the number.
+You first need to choose country/region and phone number type you would like to get verified. 
 
 :::image type="content" source="./media/apply-for-brand-registration/brand-registration-1.png" alt-text="Screenshot showing brand registration form." lightbox="./media/apply-for-brand-registration/brand-registration-1.png":::
 
