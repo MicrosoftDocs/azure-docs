@@ -109,7 +109,9 @@ Click **Next** to proceed to the **Campaign details** section.
       - Support contact information (for example, "send HELP for support," "contact help@contoso.com for support")
       - Opt-out information (for example, "Send STOP to unsubscribe")
 
-      **NOTE**: SMS senders in the US are required to include a link to reference Terms and conditions, Privacy policy, and information about how to get help in the initial message to an SMS recipient.  
+
+      > [!NOTE]
+      > SMS senders in the US are required to include a link to reference Terms and conditions, Privacy policy, and information about how to get help in the initial message to an SMS recipient.  
       
       If your company doesn't have a privacy statement related to SMS messaging, you can use a this Microsoft-provided template,               completed with your company's information. This template includes relevant SMS terms and placeholders where you can insert links         to your general terms and conditions, privacy policy, and help information.
 
@@ -168,11 +170,15 @@ Click **Next** to proceed to the **Use Case** section
 
    - **Content Type**: Select the type of content you intend to send (such as Marketing or Customer Care).
    - **Sub-content Type**: Choose a more specific content category if applicable.
-   - **Sample Message**: Provide a sample message that aligns with the campaign's use case. You can add multiple sample messages if needed by clicking **Add Sample Message**.
+   - **Sample Message**: Provide sample messages that align with the campaign's use case. You can add multiple sample messages if needed by clicking **Add Sample Message**.  The Sample Messages must include the following information:
+
+      - Brand name
+      - Opt-out language in at least one sample message
+      - An embedded link in at least one sample message if "Yes" is selected for Embedded Link under Content Attributes
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-3.png" alt-text="Screenshot showing campaign registration form 3." lightbox="./media/apply-for-brand-registration/campaign-registration-3.png":::
 
-After completing the **Use Case** tab, proceed to the **Campaign and Content Attributes** tab:
+After completing the **Use Case** tab, click next to proceed to the **Campaign and Content Attributes** tab:
 
 ### Campaign and content attributes
 
@@ -184,18 +190,56 @@ Fill in the campaign and content attributes as follows:
    - **Subscriber Help**: Select **Yes** or **No** to indicate if subscriber help is available.
    - **Subscriber Help Answer**: If **Yes** is selected, provide the message for subscribers seeking assistance.
 
+      #### Opt-in Message
+
+     The Opt-In Message must include the following information:
+
+      - Brand name
+      - Message frequency disclosure (for example, "Msg frequency varies")
+      - Message and data rates disclosure (for example, "Msg & data rates may apply")
+      - Help information (for example, "send HELP for help")
+      - Opt-out information (for example, "send STOP to unsubscribe")
+
+      An example might look like this:
+
+      > *Thank you for opting in to receive [type of messages] from [Brand Name]. Msg frequency varies. Msg & data rates may apply. Reply HELP for help. Reply STOP to opt out from receiving messages from this number. Send START to resume a conversation.*
+
+      #### Opt-out Message
+
+     The Opt-Out Message must include the following information:
+
+      - Brand name
+      - Confirmation that the recipient will receive no further messages.
+     
+     An example might look like this:
+
+      > *You have successfully opted out of messages from this [Brand Name] number. You'll receive no further messages. Reply START to resume. Msg & data rates may apply.*
+
+      #### Help Message
+
+      The Help Message must include the following information:
+
+      - Brand name
+      - Support contact information (for example, an email address, phone number, or website)
+ 
+       An example might look like this:
+
+      > *Thank you for contacting [Brand Name] support. Please email us at [email address] for support. Reply STOP to opt-out from receiving messages from this number. Msg & data rates may apply.*
+
+:::image type="content" source="./media/apply-for-brand-registration/campaign-creation-4.png" alt-text="Screenshot showing campaign registration form 3." lightbox="./media/apply-for-brand-registration/campaign-creation-4.png":::
+
+> [!Important]
+>Only the keywords START, HELP, and STOP, QUIT, END, REVOKE, OPT OUT, CANCEL, UNSUBSCRIBE are monitored and enforced.
+
 #### More attributes
 
    - **Direct Lending or Loan Arrangement**: Indicate if the campaign involves any lending or loan arrangements.
-   - **Embedded Link**: Select **Yes** or **No** to specify if the campaign includes an embedded link.
-   - **Embedded Phone Number**: Select **Yes** or **No** to specify if a phone number is embedded within the campaign content.
+   - **Embedded Link**: Select **Yes** or **No** to indicate if embedded links are sent in messages. Public URL shorteners (bitly, tinyurl) aren't accepted. If selected, at least one sample message must include an embedded link.
+   - **Embedded Phone Number**: Select **Yes** or **No** to indicate if embedded phone numbers are sent in messages, excluding HELP contact. If selected, at least one sample message must include an embedded phone number.
    - **Age-gated Content**: Select **Yes** or **No** to indicate if the content is age-restricted.
+   - **Terms and conditions**: Affiliate marketing isn't permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
 
-
-## ACS Terms and conditions 
-Affiliate marketing isn't permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
-
-:::image type="content" source="./media/apply-for-brand-registration/campaign-registration-4.png" alt-text="Screenshot showing campaign registration form 4." lightbox="./media/apply-for-brand-registration/campaign-registration-4.png":::
+:::image type="content" source="./media/apply-for-brand-registration/campaign-creation-5.png" alt-text="Screenshot showing campaign registration form 4." lightbox="./media/apply-for-brand-registration/campaign-creation-5.png":::
 
 Once all fields are completed, click **Next** to proceed to the **Review** tab.
 
