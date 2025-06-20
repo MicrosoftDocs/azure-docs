@@ -5,7 +5,7 @@ services: logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 05/20/2025
+ms.date: 06/19/2025
 ---
 
 # Create workflows that you can call, trigger, or nest using HTTPS endpoints in Azure Logic Apps
@@ -18,13 +18,15 @@ Some scenarios might require that you create a logic app workflow that can recei
 * [HTTP webhook](../connectors/connectors-native-webhook.md)
 * Managed connector triggers that have the [ApiConnectionWebhook type](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive inbound HTTPS requests
 
-This guide shows how to create a callable endpoint for your workflow by adding the Request trigger, and then call that endpoint from another workflow. All principles identically apply to the other request-based trigger types that can receive inbound requests.
+This guide shows how to create a callable endpoint for your workflow by adding the **Request** trigger, and then call that endpoint from another workflow. All principles identically apply to the other request-based trigger types that can receive inbound requests.
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A logic app workflow where you want to use the Request trigger to create the callable endpoint. You can start with either a blank workflow or an existing workflow where you can replace the current trigger. This example starts with a blank workflow.
+* The logic app resource with the workflow where you want to create the callable endpoint.
+
+  You can start with either a blank workflow or an existing workflow where you can replace the current trigger. This example starts with a blank workflow.
 
 [!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
@@ -34,11 +36,15 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app. Under **Get started**, select **Create a workflow in designer**.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Select **+ Add** to create a new workflow. Enter a name for your workflow and choose the state type.
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your blank workflow.
 
-1. Add the Request trigger named **When a HTTP request is received** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
+1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
+
+1. Add the **Request** trigger to your workflow by following the [general steps to add a trigger](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
+
+   This example continues with the trigger named **When a HTTP request is received**.
 
 1. Optionally, in the **Request Body JSON Schema** box, you can enter a JSON schema that describes the payload or data that you expect the trigger to receive.
 
@@ -75,7 +81,7 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
    Or, you can generate a JSON schema by providing a sample payload:
 
-   1. In the Request trigger, select **Use sample payload to generate schema**.
+   1. In the **Request** trigger, select **Use sample payload to generate schema**.
 
    1. In the **Enter or paste a sample JSON payload** box, enter your sample payload, for example:
 
@@ -102,7 +108,7 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
 1. Copy the callback URL by selecting the copy files icon next to the **HTTP URL** box.
 
-1. To test the callback URL and trigger the workflow, send an HTTP request to the URL, including the method that the Request trigger expects, by using your HTTP request tool and its instructions.
+1. To test the callback URL and trigger the workflow, send an HTTP request to the URL, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions.
 
    This example uses the **POST** method with the copied URL, which looks like the following sample:
 
@@ -110,9 +116,13 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app. Under **Development Tools** in the sidebar menu, select **Logic app designer** to open a blank workflow.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. Add the Request trigger named **When a HTTP request is received** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger).
+1. On the resource sidebar menu, under **Development Tools**, select the designer to open your blank workflow.
+
+1. Add the **Request** trigger to your workflow by following the [general steps to add a trigger](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
+
+   This example continues with the trigger named **When a HTTP request is received**.
 
 1. Optionally, in the **Request Body JSON Schema** box, you can enter a JSON schema that describes the payload or data that you expect the trigger to receive.
 
@@ -149,7 +159,7 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
    Or, you can generate a JSON schema by providing a sample payload:
 
-   1. In the Request trigger, select **Use sample payload to generate schema**.
+   1. In the **Request** trigger, select **Use sample payload to generate schema**.
 
    1. In the **Enter or paste a sample JSON payload** box, enter your sample payload, for example:
 
@@ -198,9 +208,9 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
 ## Select expected request method
 
-By default, the Request trigger expects a `POST` request. However, you can specify a different method that the caller must use, but only a single method.
+By default, the **Request** trigger expects a `POST` request. However, you can specify a different method that the caller must use, but only a single method.
 
-1. In the Request trigger, select the **Method** dropdown, then choose the method that the trigger should expect instead. Or, you can specify a custom method.
+1. In the **Request** trigger, select the **Method** dropdown, then choose the method that the trigger should expect instead. Or, you can specify a custom method.
 
    For example, select the **GET** method so that you can test your endpoint's URL later.
 
@@ -224,15 +234,15 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 ### [Standard](#tab/standard)
 
-1. In the Request trigger, select the **Method** dropdown, and then choose the **GET** method.
+1. In the **Request** trigger, select the **Method** dropdown, and then choose the **GET** method.
 
    For more information, see [Select expected request method](#select-method).
 
-1. In the designer, add the action named **Response** to your workflow. For detailed steps, see [Add an action to run a task](add-trigger-action-workflow.md?tabs=standard#add-action).
+1. Add the action named **Response** to your workflow by following the [general steps to add an action](add-trigger-action-workflow.md?tabs=standard#add-action).
 
 1. To build the `triggerOutputs()` expression that retrieves the parameter value, follow these steps:
 
-   1. In the Response action, select inside the **Body** property so that the options for dynamic content (lightning icon) and expression editor (formula icon) appear. Select the formula icon to open the expression editor.
+   1. In the **Response** action, select inside the **Body** property so that the options for dynamic content (lightning icon) and expression editor (formula icon) appear. Select the formula icon to open the expression editor.
 
    1. In the expression box, enter the following expression, replacing `parameter-name` with your parameter name, and select **OK**.
 
@@ -258,7 +268,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 #### Test your callable endpoint
 
-1. From the Request trigger, copy the workflow URL, and paste the URL into another browser window. In the URL, add the parameter name and value to the URL in the following format, and press Enter.
+1. From the **Request** trigger, copy the workflow URL, and paste the URL into another browser window. In the URL, add the parameter name and value to the URL in the following format, and press **Enter**.
 
    `...invoke/{parameter-name}/{parameter-value}?api-version=2022-05-01...`
 
@@ -266,7 +276,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
    `https://mystandardlogicapp.azurewebsites.net/api/Stateful-Workflow/triggers/When_a_HTTP_request_is_received/invoke/address/12345?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   The browser returns a response with this text: `Postal Code: 123456`
+   The browser returns a response with this text: "Postal Code: 123456"
 
    :::image type="content" source="media/logic-apps-http-endpoint/browser-response-callback-url-standard.png" alt-text="Screenshot shows browser with Standard workflow response from request to callback URL.":::
 
@@ -277,15 +287,15 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 ### [Consumption](#tab/consumption)
 
-1. In the Request trigger, select the **Method** dropdown, and then choose the **GET** method.
+1. In the **Request** trigger, select the **Method** dropdown, and then choose the **GET** method.
 
    For more information, see [Select expected request method](#select-method).
 
-1. In the designer, add the action named **Response** to your workflow. For detailed steps, see [Add an action to run a task](add-trigger-action-workflow.md?tabs=consumption#add-action).
+1. Add the action named **Response** to your workflow by following the [general steps to add an action](add-trigger-action-workflow.md?tabs=consumption#add-action).
 
 1. To build the `triggerOutputs()` expression that retrieves the parameter value, follow these steps:
 
-   1. In the Response action, select inside the **Body** property so that the options for dynamic content (lightning icon) and expression editor (formula icon) appear. Select the formula icon to open the expression editor.
+   1. In the **Response** action, select inside the **Body** property so that the options for dynamic content (lightning icon) and expression editor (formula icon) appear. Select the formula icon to open the expression editor.
 
    1. In the expression box, enter the following expression, replacing `parameter-name` with your parameter name, and select **OK**.
 
@@ -301,7 +311,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
       :::image type="content" source="media/logic-apps-http-endpoint/resolved-expression-parameter-token.png" alt-text="Screenshot shows Consumption workflow with Response action's resolved expression for parameter name.":::
 
-      In code view, the **Body** property appears in the Response action's definition as follows:
+      In code view, the **Body** property appears in the **Response** action's definition as follows:
 
       `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
 
@@ -311,7 +321,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 #### Test your callable endpoint
 
-1. From the Request trigger, copy the workflow URL, and paste the URL into another browser window. In the URL, add the parameter name and value following the question mark (`?`) to the URL in the following format, and press Enter.
+1. From the **Request** trigger, copy the workflow URL, and paste the URL into another browser window. In the URL, add the parameter name and value following the question mark (`?`) to the URL in the following format, and press **Enter**.
 
    `...invoke?{parameter-name=parameter-value}&api-version=2016-10-01...`
 
@@ -319,7 +329,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
    `https://prod-24.northcentralus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   The browser returns a response with this text: `Postal Code: 123456`
+   The browser returns a response with this text: "Postal Code: 123456"
 
    :::image type="content" source="media/logic-apps-http-endpoint/browser-response-callback-url-consumption.png" alt-text="Screenshot shows browser with Consumption workflow response from request to callback URL.":::
 
@@ -346,7 +356,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 ### [Standard](#tab/standard)
 
-1. In the Request trigger, open the **Advanced parameters** list, and select **Relative path**, which adds this property to the trigger.
+1. In the **Request** trigger, open the **Advanced parameters** list, and select **Relative path**, which adds this property to the trigger.
 
    :::image type="content" source="media/logic-apps-http-endpoint/add-relative-path-standard.png" alt-text="Screenshot shows Standard workflow, Request trigger, and added property named Relative path.":::
 
@@ -354,9 +364,9 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
    :::image type="content" source="media/logic-apps-http-endpoint/relative-path-url-standard.png" alt-text="Screenshot shows Standard workflow, Request trigger, and Relative path parameter value.":::
 
-1. In the Response action's **Body** property, include the token that represents the parameter that you specified in your trigger's relative path.
+1. In the **Response** action's **Body** property, include the token that represents the parameter that you specified in your trigger's relative path.
 
-   For example, suppose that you want the Response action to return `Postal Code: {postalCode}`.
+   For example, suppose that you want the **Response** action to return `Postal Code: {postalCode}`.
 
    1. In the **Body** property, enter `Postal Code: ` with a trailing space. Keep your cursor inside the edit box so that the dynamic content list remains open.
 
@@ -370,13 +380,13 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 1. Save your workflow.
 
-   In the Request trigger, the callback URL is updated and now includes the relative path, for example:
+   In the **Request** trigger, the callback URL is updated and now includes the relative path, for example:
 
    `https://mystandardlogicapp.azurewebsites.net/api/Stateful-Workflow/triggers/When_a_HTTP_request_is_received/invoke/address/%7BpostalCode%7D?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. To test the callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `%7BpostalCode%7D` in the URL with `123456`, and press Enter.
+1. To test the callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `%7BpostalCode%7D` in the URL with *123456*, and press **Enter**.
 
-   The browser returns a response with this text: `Postal Code: 123456`
+   The browser returns a response with this text: "Postal Code: 123456"
 
    :::image type="content" source="media/logic-apps-http-endpoint/browser-response-callback-url-standard.png" alt-text="Screenshot shows browser with Standard workflow response from request to callback URL.":::
 
@@ -387,7 +397,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 ### [Consumption](#tab/consumption)
 
-1. In the Request trigger, open the **Advanced parameters** list, and select **Relative path**, which adds this property to the trigger.
+1. In the **Request** trigger, open the **Advanced parameters** list, and select **Relative path**, which adds this property to the trigger.
 
    :::image type="content" source="media/logic-apps-http-endpoint/add-relative-path-consumption.png" alt-text="Screenshot shows Consumption workflow, Request trigger, and added property named Relative path.":::
 
@@ -395,9 +405,9 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
    :::image type="content" source="media/logic-apps-http-endpoint/relative-path-url-consumption.png" alt-text="Screenshot shows Consumption workflow, Request trigger, and Relative path parameter value.":::
 
-1. In the Response action's **Body** property, include the token that represents the parameter that you specified in your trigger's relative path.
+1. In the **Response** action's **Body** property, include the token that represents the parameter that you specified in your trigger's relative path.
 
-   For example, suppose that you want the Response action to return `Postal Code: {postalCode}`.
+   For example, suppose that you want the **Response** action to return `Postal Code: {postalCode}`.
 
    1. In the **Body** property, enter `Postal Code: ` with a trailing space. Keep your cursor inside the edit box so that the dynamic content list remains open.
 
@@ -411,13 +421,13 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 1. Save your workflow.
 
-   In the Request trigger, the callback URL is updated and now includes the relative path, for example:
+   In the **Request** trigger, the callback URL is updated and now includes the relative path, for example:
 
    `https://prod-24.northcentralus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. To test the callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `{postalCode}` in the URL with `123456`, and press Enter.
+1. To test the callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `{postalCode}` in the URL with *123456*, and press **Enter**.
 
-   The browser returns a response with this text: `Postal Code: 123456`
+   The browser returns a response with this text: "Postal Code: 123456"
 
    :::image type="content" source="media/logic-apps-http-endpoint/browser-response-callback-url-consumption.png" alt-text="Screenshot shows browser with Consumption workflow response from request to callback URL.":::
 
@@ -436,7 +446,7 @@ After you create the endpoint, you can trigger the workflow by sending an HTTPS 
 
 ## Tokens generated from schema
 
-When you provide a JSON schema in the Request trigger, the workflow designer generates tokens for the properties in that schema. You can then use those tokens for passing data through your workflow.
+When you provide a JSON schema in the **Request** trigger, the workflow designer generates tokens for the properties in that schema. You can then use those tokens for passing data through your workflow.
 
 For example, if you add more properties, such as `"suite"`, to your JSON schema, tokens for those properties are available for you to use in the later steps for your workflow. Here's the complete JSON schema:
 
@@ -513,11 +523,11 @@ To get the output from an incoming request, you can use the [`triggerOutputs` ex
 }
 ```
 
-To access specifically the `body` property, you can use the [`triggerBody()` expression](workflow-definition-language-functions-reference.md#triggerBody) as a shortcut.
+To specifically access the `body` property, you can use the [`triggerBody()` expression](workflow-definition-language-functions-reference.md#triggerBody) as a shortcut.
 
 ## Respond to requests
 
-Sometimes you want to respond to certain requests that trigger your workflow by returning content to the caller. To construct the status code, header, and body for your response, use the Response action. This action can appear anywhere in your workflow, not just at the end of your workflow. If your workflow doesn't include a Response action, the endpoint responds *immediately* with the **202 Accepted** status.
+Sometimes you want to respond to certain requests that trigger your workflow by returning content to the caller. To construct the status code, header, and body for your response, use the **Response** action. This action can appear anywhere in your workflow, not just at the end of your workflow. If your workflow doesn't include a **Response** action, the endpoint responds *immediately* with the **202 Accepted** status.
 
 For the original caller to successfully get the response, all the required steps for the response must finish within the [request time-out limit](logic-apps-limits-and-config.md#time-out-duration) unless the triggered workflow is called as a nested workflow. If no response is returned within this limit, the incoming request times out and receives the **408 Client timeout** response.
 

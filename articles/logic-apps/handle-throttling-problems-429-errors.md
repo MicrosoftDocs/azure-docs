@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 06/19/2025
 ---
 
 # Handle throttling problems ("429 - Too Many Requests" errors) in Azure Logic Apps
@@ -34,9 +34,9 @@ To find throttling events at this level, follow these steps:
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. On the logic app resource menu, under **Monitoring**, select **Metrics**.
+1. On the resource sidebar menu, under **Monitoring**, select **Metrics**.
 
 1. Under **Chart Title**, select **Add metric**, which adds another metric bar to the chart.
 
@@ -48,9 +48,9 @@ The chart now shows throttled events for both actions and triggers in your logic
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app resource menu, under **Monitoring**, select **Metrics**.
+1. On the resource sidebar menu, under **Monitoring**, select **Metrics**.
 
 1. Under **Chart Title**, from the **Metric** list, select **Http 4xx**. From the **Aggregation** list, select **Count**.
 
@@ -182,9 +182,9 @@ To handle throttling at this level, you have the following options:
 
   * Create a parent workflow that calls a child or nested workflow for each action. If the parent needs to call different child workflows based on the parent's outcome, you can use a condition action or switch action that determines which child workflow to call. This pattern can help you reduce the number of calls or operations.
 
-    For example, suppose that you have two workflows, each with a polling trigger that checks your email account every minute for a specific subject, such as "Success" or "Failure". This setup results in 120 calls per hour. Instead, if you create a single parent workflow that polls every minute but calls a child workflow that runs based whether the subject is "Success" or "Failure", you cut the number of polling checks to half, or 60 in this case.
+  For example, suppose that you have two workflows, each with a polling trigger that checks your email account every minute for a specific subject, such as "Success" or "Failure". This setup results in 120 calls per hour. Instead, if you create a single parent workflow that polls every minute but calls a child workflow that runs based whether the subject is "Success" or "Failure", you cut the number of polling checks to half, or 60 in this case.
 
-* Set up batch processing. (Consumption workflows only)
+* Set up batch processing (Consumption workflows only).
 
   If the destination service supports batch operations, you can address throttling by processing items in groups or batches, rather than individually. To implement the batch processing solution, you create a *batch receiver* logic app workflow and a *batch sender* logic app workflow. The batch sender collects messages or items until your specified criteria is met, and then sends those messages or items in a single group. The batch receiver accepts that group and processes those messages or items. For more information, see [Send, receive, and batch process messages in Azure Logic Apps](logic-apps-batch-process-send-receive-messages.md).
 

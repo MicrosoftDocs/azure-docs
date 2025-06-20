@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/21/2025
+ms.date: 06/19/2025
 ms.custom: devx-track-js
 # Customer intent: As a logic app workflow developer, I want to write and run my own JavaScript code snippets so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
@@ -22,7 +22,7 @@ To perform custom integration tasks inline with your workflow in Azure Logic App
 
 To run code that doesn't fit these attributes, you can [create and call a function using Azure Functions](call-azure-functions-from-workflows.md).
 
-This guide shows how the action works in an example workflow that starts with an Office 365 Outlook trigger. The workflow runs when a new email arrives in the associated Outlook email account. The sample code snippet extracts any email addresses that exist in the email body and returns those addresses as output that you can use in a subsequent action.
+This guide shows how the action works in an example workflow that starts with an **Office 365 Outlook** trigger. The workflow runs when a new email arrives in the associated Outlook email account. The sample code snippet extracts any email addresses that exist in the email body and returns those addresses as output that you can use in a subsequent action.
 
 The following diagram shows the highlights from an example workflow:
 
@@ -40,14 +40,13 @@ The following diagram shows the highlights from an example workflow:
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app workflow where you want to add your code snippet. The workflow must already start with a trigger.
+* The logic app resource with the workflow where you want to add your code snippet. The workflow must already start with a trigger.
 
-  This article's example uses the Office 365 Outlook trigger that is named **When a new email arrives**.
+  This article's example uses the Office 365 Outlook trigger named **When a new email arrives**.
 
-  If you don't have a workflow, see the following documentation:
+  If you don't have a logic app resource and workflow, create them now by following the steps for the logic app that you want:
 
   * Consumption: [Create example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md)
-
   * Standard: [Create example Standard logic app workflows](create-single-tenant-workflows-azure-portal.md)
 
 * Based on whether you have a Consumption or Standard logic app workflow, review the following requirements:
@@ -79,13 +78,17 @@ The following diagram shows the highlights from an example workflow:
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app. Under **Development Tools** in the sidebar menu, select **Logic app designer** to open a workflow.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. Add the trigger named **When a new email arrives** to your workflow. For detailed steps, see [Add a trigger to start your workflow](add-trigger-action-workflow.md?tabs=consumption#add-trigger).
+1. On the resource sidebar menu, under **Development Tools**, select the designer to open the workflow.
 
-1. Below the trigger, add the **Inline Code** action named **Execute JavaScript Code** to your workflow. For detailed steps, see [Add an action to run a task](add-trigger-action-workflow.md?tabs=consumption#add-action).
+   These steps assume that your workflow already has a trigger.
 
-   This example adds the action under the Office 365 Outlook trigger. By default, the action contains some sample code, including a `return` statement.
+   This example uses the **When a new email arrives** trigger.
+
+1. Add the **Inline Code** action named **Execute JavaScript Code** to your workflow by following the [general steps to add an action](add-trigger-action-workflow.md?tabs=consumption#add-action).
+
+   This example adds the action under the **Office 365 Outlook** trigger. By default, the action contains some sample code, including a `return` statement.
 
    :::image type="content" source="media/add-run-javascript/inline-code-action-default-consumption.png" alt-text="Screenshot showing the Execute JavaScript Code action with default sample code.":::
 
@@ -142,11 +145,19 @@ The following diagram shows the highlights from an example workflow:
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app. Under **Get started**, select **Create a workflow in designer**.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. Add the trigger named **When a new email arrives** to your workflow. For detailed steps, see [Add a trigger to start your workflow](add-trigger-action-workflow.md?tabs=standard#add-trigger).
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your workflow.
 
-1. Below the trigger, add the **Inline Code** action named **Execute JavaScript Code** to your workflow. For detailed steps, see [Add an action to run a task](add-trigger-action-workflow.md?tabs=standard#add-action).
+1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
+
+   These steps assume that your workflow already has a trigger.
+
+   This example uses the **When a new email arrives** trigger.
+
+1. Add the **Inline Code** action named **Execute JavaScript Code** to your workflow by following the [general steps to add an action](add-trigger-action-workflow.md?tabs=consumption#add-action).
+
+   This example adds the action under the **Office 365 Outlook** trigger. By default, the action contains some sample code, including a `return` statement.
 
 1. In the **Code** box, delete the sample code, and enter your code. Write the code that you'd put inside a method, but without the method signature.
 
@@ -338,9 +349,9 @@ For this example, you have to add only the **Actions** parameter, and then add t
 
 Before you start, you need the JSON name for the trigger or action in the underlying workflow definition.
 
-* Names in your workflow definition use an underscore (_), not a space.
+* Names in your workflow definition use an underscore (**_**), not a space.
 
-* If an action name uses the dot operator (.), include that operator, for example:
+* If an action name uses the dot operator (**.**), include that operator, for example:
 
   `My.Action.Name`
 
