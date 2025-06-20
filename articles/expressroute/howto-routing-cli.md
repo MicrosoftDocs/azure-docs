@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/22/2024
 ms.author: duau
 ms.custom: devx-track-azurecli
+# Customer intent: As a network engineer, I want to configure private and Microsoft peerings for an ExpressRoute circuit using CLI, so that I can manage high-performance connections between on-premises infrastructure and the cloud.
 ---
 
 # Create and modify peering for an ExpressRoute circuit using CLI
@@ -18,8 +19,6 @@ This article shows you how to create and manage routing configuration/peering fo
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [Video - Private peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Video - Microsoft peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 

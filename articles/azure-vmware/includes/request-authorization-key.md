@@ -4,8 +4,8 @@ description: Steps to request an authorization key for ExpressRoute.
 ms.topic: include
 ms.service: azure-vmware
 ms.date: 01/04/2024
-author: suzizuber
-ms.author: v-suzuber
+author: ju-shim
+ms.author: jushiman
 ms.custom: engagement-fy23
 ---
 

@@ -78,11 +78,15 @@ To complete this tutorial, make sure you have:
 1. Under **Choose an operation**, in the search box, type *variables* as your filter. From the actions list, select **Initialize variable**.
 1. Provide this information about your variable:
 
-    - For the variable name, use *Entities*. 
-    - For the type, select **Array**. 
-    - For the value, start typing *entities* and select **Entities** under **Dynamic content**.
+    1. For the variable name, use *Entities*. 
+    1. For the type, select **Array**. 
+    1. For the value, hover over the **Value** field, and select **fx** in the blue icon group on the left. 
 
-        :::image type="content" source="media/tutorial-extract-incident-entities/initialize-variable.png" alt-text="Screenshot of initializing an Array variable.":::  
+        :::image type="content" source="media/tutorial-extract-incident-entities/initialize-variable-fx.png" alt-text="Screenshot of initializing a variable in the Logic app designer.":::
+    1. In the dialog box that opens, select the **Dynamic content** tab, and in the search box, type *entities*. 
+    1. Select **Entities** from the list and select **Add**.
+    
+        :::image type="content" source="media/tutorial-extract-incident-entities/initialize-variable-select-entities.png" alt-text="Screenshot of selecting the Entities value in the Logic app designer.":::          
 
 ## Select an existing incident
 
@@ -106,7 +110,7 @@ To complete this tutorial, make sure you have:
 1. Under the step where you want to add a variable, select **New step**.
 1. Under **Choose an action**, in the search box, enter *filter array* as your filter. From the actions list, select **Data operations**.
 
-    :::image type="content" source="media/tutorial-extract-incident-entities/filter-array-data-operations.png" alt-text="Screenshot of filtering an array and selecting data operations.":::  
+    :::image type="content" source="media/tutorial-extract-incident-entities/filter-array-data-operations.png" alt-text="Screenshot of filtering an array and selecting data operations." lightbox="media/tutorial-extract-incident-entities/filter-array-data-operations.png":::  
 
 1. Provide this information about your filter array: 
 
@@ -114,7 +118,7 @@ To complete this tutorial, make sure you have:
     1. Select the first **Choose a value** field (on the left), and select **Expression**. 
     1. Paste the value *item()?['kind']*, and select **OK**. 
 
-        :::image type="content" source="media/tutorial-extract-incident-entities/filter-array-information.png" alt-text="Screenshot of filling in the filter array expression.":::
+        :::image type="content" source="media/tutorial-extract-incident-entities/filter-array-information.png" alt-text="Screenshot of filling in the filter array expression." lightbox="media/tutorial-extract-incident-entities/filter-array-information.png":::
 
     1. Leave the **is equal to** value (do not modify it).
     1. In the second **Choose a value** field (on the right), type *Process*. This needs to be an exact match to the value in the system. 

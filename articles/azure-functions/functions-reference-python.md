@@ -4,7 +4,11 @@ description: Understand how to develop, validate, and deploy your Python code pr
 ms.topic: article
 ms.date: 12/29/2024
 ms.devlang: python
-ms.custom: devx-track-python, devdivchpfy22, ignite-2024
+ms.custom:
+  - devx-track-python
+  - devdivchpfy22
+  - ignite-2024
+  - build-2025
 zone_pivot_groups: python-mode-functions
 ---
 
@@ -1357,6 +1361,10 @@ print(http_trigger(None))
 ```
 
 Note that with this approach, no additional package or setup is required. The function can be tested by calling `python function_app.py`, and it results in `Hello, World!` output in the terminal.
+
+> [!NOTE]
+> Durable Functions require special syntax for unit testing. For more information, refer to [Unit Testing Durable Functions in Python](durable/durable-functions-unit-testing-python.md)
+
 
 ::: zone-end
 

@@ -2,12 +2,13 @@
 title: Tutorial - Set up DNS failover using private resolvers
 description: A tutorial on how to configure regional failover using the Azure DNS Private Resolver
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 11/30/2023
-ms.author: greglin
+ms.author: allensu
 #Customer intent: As an administrator, I want to avoid having a single point of failure for DNS resolution.
+# Customer intent: As a network administrator, I want to configure DNS failover using Azure DNS private resolvers, so that I can ensure continuous DNS resolution and eliminate single points of failure in our network.
 ---
 
 # Tutorial: Set up DNS failover using private resolvers

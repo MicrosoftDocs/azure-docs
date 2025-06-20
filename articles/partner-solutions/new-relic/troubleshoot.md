@@ -24,7 +24,7 @@ To register the resource provider from a command line, enter `az provider regist
 
 ## Logs aren't being sent to New Relic
 
-Only resource types in [supported categories](/azure/azure-monitor/essentials/resource-logs-categories) send logs to New Relic through the integration. To check whether the resource is set up to send logs to New Relic, go to the [Azure diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) for that resource. Then, verify that there's a New Relic diagnostic setting.
+Only resource types in [supported categories](/azure/azure-monitor/essentials/resource-logs-categories) send logs to New Relic through the integration. To check whether the resource is set up to send logs to New Relic, go to the [Azure diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) for that resource. Then, check that there's a New Relic diagnostic setting.
 
 ## Can't install or uninstall an extension on a virtual machine
 
@@ -42,10 +42,14 @@ New Relic manages the APIs for creating and managing resources, and for the stor
 
 ## Diagnostic settings are active even after disabling the New Relic resource or applying necessary tag rules
 
-If logs are being emitted and diagnostic settings remain active on monitored resources even after the New Relic resource is disabled or tag rules were modified to exclude certain resources, it's likely that there's a delete lock applied to the resources or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve the issue, remove the delete lock from the resource or the resource group. If the lock is removed after the New Relic resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
+If logs are being emitted and diagnostic settings remain active on monitored resources even after the New Relic resource is disabled or tag rules were modified to exclude certain resources, it's likely that there's a delete lock applied to the resources or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To fix the issue, remove the delete lock from the resource or the resource group. If the lock is removed after the New Relic resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
 
 [!INCLUDE [diagnostic-settings](../includes/diagnostic-settings.md)]
 
-## Next steps
+## Logs are being forwarded even after the Azure Native New Relic resource is deleted
 
-- [Get support for Azure Native New Relic Service](support.md)
+If logs are being emitted even after the Azure Native New Relic resource is deleted, it could be because there is a resource lock present on one of the Azure resources being monitored. It will take 24 hours for the log forwarding to stop for the resources where the resource lock is present. 
+
+## Updates made to the tag rules within the Azure Native New Relic resource don't change the log flow immediately 
+
+It takes an hour for any modification of the tag rules to reflect in the log flow. For example, if a new resource is added in tag rules, it would take an hour for the log forwarding to start for that particular resource  

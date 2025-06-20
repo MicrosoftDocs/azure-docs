@@ -4,8 +4,8 @@ description: In this tutorial, you learn on how enable periodic assessment or up
 ms.service: azure-update-manager
 ms.date: 04/23/2024
 ms.topic: tutorial 
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 #Customer intent: As an IT admin, I want dynamically apply patches or enable periodic assessment on the machines at scale using a policy.
 ---
 

@@ -9,6 +9,8 @@ ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 01/22/2025
 #Customer intent: I want to learn about the configuration provider libraries of different languages, specifically to track their feature development status.
+ms.custom:
+  - build-2025
 ---
 
 # Configuration Provider Overview
@@ -67,6 +69,7 @@ Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | 
 Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot)
 Distributed tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP
 Health Check | WIP | WIP | WIP | WIP | WIP
+Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | WIP | WIP
 
 ## Support policy
 
