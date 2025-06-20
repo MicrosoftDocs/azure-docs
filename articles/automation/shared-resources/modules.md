@@ -98,7 +98,8 @@ The default modules are also known as global modules. In the Azure portal, the *
 
 Azure Automation provides internal cmdlets that are exclusively available when runbooks are executed in the Azure sandbox environment or on a Windows Hybrid Runbook Worker. The `Orchestrator.AssetManagement.Cmdlets` module, containing these internal cmdlets, is installed by default in your Automation account and specifically when the Windows Hybrid Runbook Worker role is installed on a Windows machine.
 
-Note: **This functionality is not available on Linux Hybrid Runbook Workers.**
+> [!NOTE]
+> This functionality is not available on Linux Hybrid Runbook Workers.
 
 
 
