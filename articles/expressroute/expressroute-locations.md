@@ -190,7 +190,7 @@ The following table shows locations by service provider. If you want to view ava
 | --- | --- | --- | --- |
 | **[REANNZ](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | &check; | &check; | Auckland |
 | **RedCLARA** | &check; | &check; | Sao Paulo |
-| **[Reliance Jio](https://www.jio.com/business/jio-cloud-connect)** | &check; | &check; | Mumbai |
+| **[Reliance Jio](https://www.jio.com/business/services/connectivity/cloud-connect/)** | &check; | &check; | Mumbai |
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | &check; | &check; | Milan |
 | **RISQ** |&check; | &check; | Quebec City<br/>Montreal |
 | **SCSK** |&check; | &check; | Tokyo3 |
@@ -255,7 +255,7 @@ Azure national clouds are isolated from each other and from the Azure public clo
 | **[Internet2](https://internet2.edu/services/microsoft-azure-expressroute/)** |&check; |&check; |Dallas |
 | **[Level 3 Communications](https://www.lumen.com/en-us/edge-cloud/cloud-connect.html)** |&check; |&check; |Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |&check; | &check; | Chicago<br/>Dallas<br/>San Antonio<br/>Seattle<br/>Washington DC |
-| **[Verizon](https://www.verizon.com/about/news/verizon-expands-cloud-solutions-secure-cloud-interconnect-0)** |&check; |&check; |Chicago<br/>Dallas<br/>New York<br/>Silicon Valley<br/>Washington DC |
+| **[Verizon](https://www.verizon.com/business/verizonpartnersolutions/products/cloud/secure-cloud-interconnect/)** |&check; |&check; |Chicago<br/>Dallas<br/>New York<br/>Silicon Valley<br/>Washington DC |
 
 #### [China cloud](#tab/china-cloud)
 
