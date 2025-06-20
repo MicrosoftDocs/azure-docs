@@ -43,7 +43,7 @@ Replace `<TOPIC NAME>` with a unique name for your custom topic. The Event Grid 
 1. Run the following command to create the topic:
 
     ```azurecli-interactive
-    az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
+    az eventgrid topic create --name $topicname --location westus2 --resource-group gridResourceGroup
     ```
 
 ## Create an event hub
