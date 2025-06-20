@@ -12,7 +12,7 @@ ms.author: normesta
 
 # Configure the Azure Storage firewall to accept requests from IP address ranges
 
-You can deny all public access to your storage account, and then configure Azure network settings to accept requests from specific IP address ranges. To learn more, see [Permit access to IP address ranges](storage-network-security-public-access-configuration.md#grant-access-from-an-internet-ip-range).
+You can deny all public access to your storage account, and then configure Azure network settings to accept requests from specific IP address ranges. To learn more, see [Permit access to IP address ranges](storage-network-security.md#grant-access-from-an-internet-ip-range).
 
 ## [Portal](#tab/azure-portal)
 

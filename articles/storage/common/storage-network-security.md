@@ -57,6 +57,7 @@ When you're planning for disaster recovery during a regional outage, create the 
 Local and cross-region service endpoints can't coexist on the same subnet. To replace existing service endpoints with cross-region ones, delete the existing `Microsoft.Storage` endpoints and re-create them as cross-region endpoints (`Microsoft.Storage.Global`).
 
 <a id="grant-access-from-an-internet-ip-range"></a>
+<a id="managing-ip-network-rules"></a>
 
 ## Grant access from an internet IP range
 
