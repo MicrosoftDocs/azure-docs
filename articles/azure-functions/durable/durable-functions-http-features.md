@@ -382,7 +382,25 @@ public static async Task CheckSiteAvailableWithPolling(
     DurableHttpResponse response =
         await context.CallHttpAsync(HttpMethod.Get, url, asynchronousPatternEnabled: true);
 }
+
 ```
+# [JavaScript](#tab/javascript)
+
+This feature isn't available in JavaScript.
+
+# [Python](#tab/python)
+
+This feature isn't available in Python.
+
+# [PowerShell](#tab/powershell)
+
+This feature isn't available in PowerShell.
+
+# [Java](#tab/java)
+
+This feature isn't available in Java.
+
+---
 
 > [!NOTE]
 > 1. Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
