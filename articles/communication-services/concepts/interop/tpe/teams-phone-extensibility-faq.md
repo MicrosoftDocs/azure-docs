@@ -68,6 +68,10 @@ The business model for TPE is consistent with Azure Communication Services regul
 
 For TPE calls, we provide access to telemetry details similar to what is offered on Azure today for regular Azure Communication Services calls. These details include [Call Summary](/azure/azure-monitor/reference/tables/acscallsummary), [Call Diagnostics](/azure/azure-monitor/reference/tables/acscalldiagnostics), and what is available on the Teams admin center. You can also differentiate between Azure Communication Services and Teams Phone extensibility calls.
 
+## Why is my end user hearing an announcement that I didn't trigger whenever I start or pause the call recording?
+
+When a recording is started or paused in a call that includes a PSTN user and a Teams or Dual Persona user, the PSTN user will hear an announcement indicating the change. This is due to compliance requirements on Teams to ensure that all participants are aware of the recording status. Similarly, if a remote mute is performed on the PSTN user from the Call Automation application, the PSTN user will hear an announcement indicating that they have been muted and have the option to unmute themselves via DTMF input. For more details, you can refer to [Teams Recording Policy](https://learn.microsoft.com/en-us/microsoftteams/teams-recording-policy#overview).
+
 ## How can I report issues related to TPE calls?
 
 If the developer or ISV has issues related to Azure Communication Services SDKs or services such as Call Automation, Calling SDK, or Call Recording, follow existing support process at [https://aka.ms/ACS-Support](https://aka.ms/ACS-Support).
