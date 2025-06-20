@@ -4,7 +4,7 @@ description: Use the operations experience web UI or the Azure CLI to manage you
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 11/15/2024
+ms.date: 05/12/2025
 ms.custom:
   - ignite-2023
   - devx-track-azurecli
@@ -44,7 +44,7 @@ To sign in to the operations experience web UI, you need a Microsoft Entra ID ac
 1. On the **Members** page, add your new user to the role.
 1. Select **Review and assign** to complete setting up the new user.
 
-You can now use the new user account to sign in to the [Azure IoT Operations](https://iotoperations.azure.com) portal.
+You can now use the new user account to sign in to the [operations experience](https://iotoperations.azure.com) web UI.
 
 ## Sign in
 
@@ -190,6 +190,17 @@ The JSON file that you export contains the asset endpoint definition. You can us
 
 > [!TIP]
 > You can also use the `az iot ops asset endpoint show` and `az iot ops asset endpoint create` commands to view and create asset endpoints.
+
+## Manage certificates and secrets
+
+On the **Asset endpoints** page, you can manage the certificates and secrets that your asset endpoints use:
+
+- The **Certificates** tab shows the trusted certificates list and issuer certificates list for the OPC UA servers you want to connect to.
+
+  - To learn more about the OPC UA certificates infrastructure, see [OPC UA certificates infrastructure for the connector for OPC UA](overview-opcua-broker-certificates-management.md).
+  - To learn more about how to configure the trusted certificates and issuers lists, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](howto-configure-opcua-certificates-infrastructure.md).
+
+- The **Secrets** tab shows the secrets that contain the usernames and passwords for the OPC UA servers you want to connect to. To learn more about OPC UA user authentication, see [Configure OPC UA user authentication options for the connector for OPC UA](howto-configure-opcua-authentication-options.md).
 
 ## Add an asset, tags, and events
 

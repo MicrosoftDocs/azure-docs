@@ -22,7 +22,7 @@ To learn more, see [OPC UA applications - user authentication](https://reference
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations with [Manage Synced Secrets](../deploy-iot-ops/howto-manage-secrets.md#manage-synced-secrets) enabled.
+- An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ## Features supported
 
@@ -53,3 +53,5 @@ To configure the secrets for the *username* and *password* values in the [operat
     > You have the option to create new secrets in Azure Key Vault if you haven't already added them.
 
 1. Select **Apply**.
+
+To learn more about how Azure IoT Operations uses Azure Key Vault to store secrets such as usernames and passwords, see [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md).

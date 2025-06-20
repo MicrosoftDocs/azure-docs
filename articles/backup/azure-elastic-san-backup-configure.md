@@ -1,34 +1,34 @@
 ---
-title: Configure backup for Azure Elastic storage area network using Azure portal (preview)
-description: Learn how to configure backup for Azure Elastic storage area network (SAN) (preview) using Azure portal.
+title: Configure Azure Elastic SAN backup using Azure portal (preview)
+description: Learn how to configure Azure Elastic SAN backup (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 05/21/2025
+ms.date: 06/20/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Configure backup for Azure Elastic SAN using Azure portal (preview)
+# Configure Azure Elastic SAN backup using Azure portal (preview)
 
-This article describes how to configure backup for Azure Elastic storage area network (SAN) (preview) using Azure portal.
+This article describes how to configure Azure Elastic SAN backup (preview) using the Azure portal.
 
 ## Prerequisites
 
-Before you configure backup for Azure Elastic SAN, ensure the following prerequisites are met:
+Before you configure Elastic SAN backup, ensure the following prerequisites are met:
 
-- Check for an existing Azure Elastic SAN volume, or [create a  new volume and instance](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal).
-- The Azure Elastic SAN volume must be in a [supported region](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).
+- Check for an existing Elastic SAN volume, or [create a  new volume and instance](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal).
+- The Elastic SAN volume must be in a [supported region](azure-elastic-san-backup-support-matrix.md#supported-regions).
 
-For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-elastic-storage-area-network-backup-support-matrix.md).
+For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-elastic-san-backup-support-matrix.md).
 
 ## Create a Backup vault
 
-To back up Azure Elastic SAN, ensure you have a Backup vault in the same subscription. You can use an existing vault, or [create a new one](create-manage-backup-vault.md#create-backup-vault).
+To back up Elastic SAN, ensure you have a Backup vault in the same subscription. You can use an existing vault, or [create a new one](create-manage-backup-vault.md#create-backup-vault).
 
-## Create a backup policy for Azure Elastic SAN (preview)
+## Create a backup policy for Elastic SAN (preview)
 
-A backup policy defines the schedule and frequency for backing up Azure Elastic SAN. You can either create a backup policy from the Backup vault or create it on the go during the backup configuration.
+A backup policy defines the schedule and frequency for backing up Elastic SAN volumes. You can either create a backup policy from the Backup vault or create it on the go during the backup configuration.
 
-To create a backup policy for Azure Elastic SAN from Azure Business Continuity Center, follow these steps:
+To create a backup policy for Elastic SAN from Azure Business Continuity Center, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Azure Business Continuity Center** > **Protection policies**, and then select **+ Create Policy** > **Create Backup Policy**.
 1. On the **Create Backup Policy** pane, on the **Basics** tab, provide a name for the new policy under **Policy name**, and then select **Datasource type** as **Elastic SAN (Preview)**.
@@ -52,9 +52,9 @@ To create a backup policy for Azure Elastic SAN from Azure Business Continuity C
 1. After the review succeeds, select **Create**.
 
 
-## Configure backup for the Azure Elastic SAN (preview)
+## Configure Elastic SAN backup (preview)
 
-To configure backup for Azure Elastic SAN, follow these steps:
+To configure backup for your Elastic SAN, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Business Continuity Center**, and then select **+ Configure protection**. 
 1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Elastic SAN volumes (Preview)**, **Solution** as **Azure Backup**, and then select **Continue**.
@@ -70,7 +70,7 @@ To configure backup for Azure Elastic SAN, follow these steps:
    >A Backup vault uses a System Assigned Managed Identity to create and manage snapshots.
 
 1. On the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
-   If you want to create a new backup policy, select **Create new**. Learn how to [create a backup policy](#create-a-backup-policy-for-azure-elastic-san-preview).
+   If you want to create a new backup policy, select **Create new**. Learn how to [create a backup policy](#create-a-backup-policy-for-elastic-san-preview).
 
    >[!Note]
    >- The default retention duration for the recovery points is **7 days**.
@@ -114,12 +114,12 @@ To configure backup for Azure Elastic SAN, follow these steps:
 
 1. On the **Review + configure** tab, review the configuration details, and then select **Configure Backup**.
 
-You can [track the progress of the backup configuration](azure-elastic-storage-area-network-backup-manage.md#view-the-azure-elastic-san-backup-and-restore-jobs-preview) under **Backup instances**. When configured, Azure Backup runs backups as per the policy schedule to create recovery points. You can also [trigger an on-demand backup](azure-elastic-storage-area-network-backup-manage.md#run-an-on-demand-backup) to create the first full backup.
+You can [track the progress of the backup configuration](azure-elastic-san-backup-manage.md#view-the-elastic-san-backup-and-restore-jobs-preview) under **Backup instances**. When configured, Azure Backup runs backups as per the policy schedule to create recovery points. You can also [trigger an on-demand backup](azure-elastic-san-backup-manage.md#run-an-on-demand-backup) to create the first full backup.
 
 ## Next steps
 
-- [Restore Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-restore.md).
-- [Manage Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).
+- [Restore Azure Elastic SAN backup using the Azure portal (preview)](azure-elastic-storage-area-network-backup-restore.md).
+- [Manage Azure Elastic SAN backup using the Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).
  
 
 

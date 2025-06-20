@@ -243,9 +243,9 @@ You should consider the ARG GET/LIST API if your service falls into one (or many
 - You require full instanceView of VMs and VMSS VMs in Uniform as well as Flex orchestration mode. 
 
   > [!NOTE]
-  > ARG GET/LIST API doesn't support VM and VMSS VM Health Status and extension running status in the instanceView. To learn more about the ARG GET/LIST API limits, see the [known limitations](./arg-get-list-api.md#known-limitations).
+  > ARG GET/LIST API doesn't support VM and VMSS VM Health Status and extension running status in the instanceView. To learn more about the ARG GET/LIST API limits, see the [known limitations](./azure-resource-graph-get-list-api.md#known-limitations).
 
-If the resource you’re interested in, is in the `resources` table or `computeresources` table, *and* it falls in one of the above categories, then use the [ARG GET/LIST API](./arg-get-list-api.md)
+If the resource you’re interested in, is in the `resources` table or `computeresources` table, *and* it falls in one of the above categories, then use the [ARG GET/LIST API](./azure-resource-graph-get-list-api.md)
 
 ## Still being throttled?
 

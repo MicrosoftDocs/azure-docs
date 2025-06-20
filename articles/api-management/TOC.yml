@@ -113,7 +113,7 @@
         href: inject-vnet-v2.md
       - name: Virtual network integration (v2 tiers)
         href: integrate-vnet-outbound.md
-    - name: Virtual network integration (workspace gateway) - requirements
+    - name: Virtual network for workspace gateways
       href: virtual-network-workspaces-resources.md
     - name: Connect privately using private endpoint
       href: private-endpoint.md

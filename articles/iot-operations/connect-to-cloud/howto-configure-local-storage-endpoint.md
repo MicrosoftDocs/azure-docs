@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/03/2025
+ms.date: 06/13/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage data flow endpoint so that I can create a data flow.
@@ -42,6 +42,51 @@ Use the local storage option to send data to a locally available persistent volu
     | Persistent volume claim name | The name of the PersistentVolumeClaim (PVC) to use for local storage.                        |
 
 1. Select **Apply** to provision the endpoint.
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-local-storage) command to create or replace a local storage data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create local-storage --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --pvc-ref <PersistentVolumeClaimName>
+```
+
+The `--pvc-ref` parameter is the name of the PersistentVolumeClaim (PVC) to use for local storage. The PVC must be in the same namespace as the data flow endpoint.
+
+Here's an example command to create or replace a local storage data flow endpoint named `local-storage-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create local-storage --resource-group myResourceGroup --instance myAioInstance --name local-storage-endpoint --pvc-ref mypvc
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change a local storage data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `local-storage-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+    "endpointType": "LocalStorage",
+    "localStorageSettings": {
+        "persistentVolumeClaimRef": "<PersistentVolumeClaimName>"
+    }
+}
+```
+
+Here's an example command to create a new local storage data flow endpoint named `local-storage-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name local-storage-endpoint --config-file ~/local-storage-endpoint.json
+```
 
 # [Bicep](#tab/bicep)
 

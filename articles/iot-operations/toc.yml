@@ -45,8 +45,8 @@ items:
         displayName: Kubernetes, cluster, single, multiple, node, multi, performance
     - name: Secure your deployment
       items:
-      - name: Certificate management
-        href: secure-iot-ops/concept-default-root-ca.md
+      - name: Manage certificates
+        href: secure-iot-ops/howto-manage-certificates.md
         displayName: TLS, X.509, certificate, root CA, self-signed, trusted CA, CA, issuer, cert-manager, trust-manager
       - name: Manage secrets
         href: secure-iot-ops/howto-manage-secrets.md

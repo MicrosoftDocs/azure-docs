@@ -1,11 +1,11 @@
 ---
 title: Understand assets and asset endpoint profiles
 description: Understand the Azure Device Registry resources that define assets and asset endpoint profiles.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: dominicbetts
+ms.author: dobett
 #ms.subservice:
 ms.topic: conceptual
-ms.date: 10/22/2024
+ms.date: 05/12/2025
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the types of Azure resources that are created by Azure Device Registry to manage assets.
 ---
@@ -42,6 +42,8 @@ The following table highlights some important properties that are included in an
 | **Cluster** or **Location** | The custom location or cluster name for the Azure IoT Operations instance where the asset endpoint custom resource will be created. In the operations experience, this property is set by choosing the instance before you create the asset endpoint. |
 | **Target address** | The local IP address of the OPC UA server or IP camera. |
 | **User authentication** | Can be anonymous authentication or username/password authentication. For username/password authentication, provide pointers to where both values are stored as secrets in Azure Key Vault. |
+
+To learn more about how Azure IoT Operations uses Azure Key Vault to store secrets such as usernames and passwords, see [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md).
 
 ## Assets
 

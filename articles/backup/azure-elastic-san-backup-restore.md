@@ -1,21 +1,21 @@
 ---
-title: Restore Azure Elastic SAN using Azure portal (preview)
-description: Learn how to restore Azure Elastic Storage Area Network (SAN)  backups (preview) using Azure portal.
+title: Restore Azure Elastic SAN backup using the Azure portal (preview)
+description: Learn how to restore Elastic SAN backup using the Azure portal.
 ms.topic: how-to
-ms.date: 05/21/2025
+ms.date: 06/20/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Restore Azure Elastic SAN using Azure portal (preview)
+# Restore Azure Elastic SAN backup using the Azure portal (preview)
 
-This article describes how to restore Azure Elastic storage area network (SAN) backups (preview) using Azure portal.
+This article describes how to restore Elastic SAN backup (preview) using the Azure portal.
 
-Learn about the [supported scenarios, limitations, and region availability for Azure Elastic SAN backup/restore (preview)](azure-elastic-storage-area-network-backup-support-matrix.md).
+Learn about the [supported scenarios, limitations, and region availability for Elastic SAN backup/restore](azure-elastic-storage-area-network-backup-support-matrix.md).
 
-## Restore the Azure Elastic SAN backups (preview)
+## Restore the Elastic SAN backup (preview)
 
-To  restore the Azure Elastic SAN  backups, follow these steps:
+To  restore the Elastic SAN  backup, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center**, and then select **Recover**.
 1. On the **Recover** pane, select **Datasource type** as **Elastic SAN volumes (Preview)**,  and then under **Protected item**, click **Select**.
@@ -64,8 +64,8 @@ To  restore the Azure Elastic SAN  backups, follow these steps:
 
 1. On the **Review + restore** tab, select **Restore** to start the restore operation.
 
-You can [track the progress of restore](azure-elastic-storage-area-network-backup-manage.md#view-the-azure-elastic-san-backup-and-restore-jobs-preview) under **Backup Jobs**. 
+You can [track the progress of restore](azure-elastic-san-backup-manage.md#view-the-elastic-san-backup-and-restore-jobs-preview) under **Backup Jobs**. 
  
 ## Next steps
 
-[Manage Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).
+[Manage Azure Elastic SAN backup using the Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).

@@ -76,7 +76,7 @@ The following table describes Azure IoT Operations deployment and management tas
 | Register resource providers | Microsoft.ExtendedLocation/register/action Microsoft.SecretSyncController/register/action Microsoft.Kubernetes/register/action Microsoft.KubernetesConfiguration/register/action Microsoft.IoTOperations/register/action Microsoft.DeviceRegistry/register/action| Only required to do once per subscription. |
 | Create a schema registry. | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. |  |
 | Create secrets in Key Vault | **Key Vault Secrets Officer** role at the resource level. | Only required for secure settings deployment. |
-| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled as part of the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command. |
+| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled as part of the [az iot ops rsync](/cli/azure/iot/ops#az-iot-ops-rsync) command. |
 
 > [!TIP]
 > You must enable resource sync rules on the Azure IoT Operations instance to use the automatic asset discovery capabilities of the Akri services. To learn more, see [What is OPC UA asset discovery (preview)?](../discover-manage-assets/overview-akri.md).
