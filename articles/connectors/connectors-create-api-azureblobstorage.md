@@ -195,7 +195,7 @@ The steps to add and use a Blob trigger differ based on whether you want to use 
 
 1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
 
-1. Add the **Azure Blob Storage** managed trigger for your scenario by follow the [general steps to add a trigger to your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
+1. Add the **Azure Blob Storage** managed trigger for your scenario by following the [general steps to add a trigger to your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
 
    This example continues with the Azure Blob Storage trigger named **When a blob is added or modified (properties only)**.
 
