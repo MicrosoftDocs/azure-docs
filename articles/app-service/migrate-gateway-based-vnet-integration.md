@@ -100,7 +100,7 @@ Since virtual network integration is slot-specific, you can test regional virtua
 5. **Swap slots** to promote the tested code
 
 > [!NOTE]
-> Virtual network configurations remain with their respective slots after swapping. After slot swap, your production slot will have the tested application code and the newly configured regional virtual network integration if you configured it on the produciton slot prior to the slot swap.
+> Virtual network configurations remain with their respective slots after swapping. After slot swap, your production slot will have the tested application code and the newly configured regional virtual network integration if you configured it on the production slot prior to the slot swap.
 
 #### Option 3: Direct migration (planned downtime)
 
