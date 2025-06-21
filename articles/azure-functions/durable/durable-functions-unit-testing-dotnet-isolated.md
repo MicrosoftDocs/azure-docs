@@ -188,34 +188,6 @@ In this section, the unit test validates the behavior of the `HelloCities` orche
 public static async Task<List<string>> HelloCities(
     [OrchestrationTrigger] TaskOrchestrationContext context)
 {
-    ILogger logger = context.CreateReplaySafeLogger(nameof(Function1));
-    logger.LogInformation("Saying hello.");
-    var outputs = new List<string>();
-
-    outputs.Add(await context.CallActivityAsync<string>(nameof(SayHello), "Tokyo"));
-    outputs.Add(await context.CallActivityAsync<string>(nameof(SayHello), "Seattle"));
-    outputs.Add(await context.CallActivityAsync<string>(nameof(SayHello), "London"));
-
-    return outputs;
-}
-```
-
-## Unit testing orchestrator functions
-
-Orchestrator functions manage the execution of multiple activity functions. To test an orchestrator:
-
-* Mock the `TaskOrchestrationContext` to control function execution
-* Replace `TaskOrchestrationContext` methods needed for orchestrator execution like `CallActivityAsync` with mock functions
-* Call the orchestrator directly with the mocked context
-* Verify the orchestrator result using assertions
-
-In this section, the unit test validates the behavior of the `HelloCities` orchestrator function:
-
-```csharp
-[Function(nameof(HelloCitiesOrchestration))]
-public static async Task<List<string>> HelloCities(
-    [OrchestrationTrigger] TaskOrchestrationContext context)
-{
     ILogger logger = context.CreateReplaySafeLogger(nameof(HelloCities));
     logger.LogInformation("Saying hello.");
     var outputs = new List<string>();
@@ -324,7 +296,7 @@ public void SayHello_ReturnsExpectedGreeting()
 ```
 
 > [!NOTE]
-> Currently, loggers created via FunctionContext in trigger functions are not supported for mocking in unit tests.
+> Currently, loggers created via FunctionContext in activity functions are not supported for mocking in unit tests.
 
 ## Next steps
 
