@@ -5,7 +5,7 @@ services: logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 06/19/2025
+ms.date: 06/20/2025
 ---
 
 # Create workflows that you can call, trigger, or nest using HTTPS endpoints in Azure Logic Apps
@@ -484,7 +484,7 @@ You can call other workflows that can receive requests by nesting them inside th
 
 ### [Standard](#tab/standard)
 
-1. In the designer, add the **Workflow Operations** action named **Invoke a workflow in this workflow app**.
+1. In the designer, add the **Workflow Operations** action named **Call workflow in this logic app**.
 
    The **Workflow Name** list shows the eligible workflows for you to select.
 
