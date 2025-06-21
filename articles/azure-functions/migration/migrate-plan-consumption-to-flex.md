@@ -43,7 +43,7 @@ Before staring a migration, keep these considerations in mind:
 
 ## Prerequisites
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 + Access to the Azure subscription containing one or more function apps to migrate. The account used to run Azure CLI commands must be able to:
 
@@ -64,7 +64,7 @@ Before staring a migration, keep these considerations in mind:
 
 + The [`jq` tool](https://jqlang.org/download/), which is used to work with JSON output.
  
-### [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 + Access to the [Azure portal] 
 
@@ -156,7 +156,7 @@ This command generates a table with the app name, location, resource group, and 
 
 1. Copy this Kusto query, paste it in the query window, and select **Run query**:  
     
-    ##### [Windows](#tab/windows)
+    #### [Windows](#tab/windows)
     
     ```kusto
     resources 
@@ -672,7 +672,7 @@ To be able to redeploy your app, you must have either your project's source file
 
 If you no longer have access to your project source files, you can download the current deployment package from the existing Consumption plan app in Azure. The location of the deployment package depends on whether you run on Linux or Windows.
 
-##### [Linux](#tab/linux)
+#### [Linux](#tab/linux)
     
 Consumption plan apps on Linux maintain the deployment zip package file in one of these locations:
 
@@ -683,7 +683,7 @@ Consumption plan apps on Linux maintain the deployment zip package file in one o
 >[!TIP]  
 >If your storage account is restricted to managed identity access only, you might need to grant your Azure account read access to the storage container by adding it to the `Storage Blob Data Reader` role. 
 
-##### [Windows](#tab/windows)
+#### [Windows](#tab/windows)
 
 The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKAGE` app setting as follows:
 
@@ -1338,7 +1338,7 @@ If your original app had any IP-based inbound access restrictions, you can recre
 >[!TIP]
 >The Flex Consumption plan fully supports virtual network integration. For more information, see [Virtual network integration](../flex-consumption-plan.md#virtual-network-integration).  
 
-##### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 Use this [`az functionapp config access-restriction add`](/cli/azure/functionapp/config/access-restriction#az-functionapp-config-access-restriction-add) command for each IP access restriction you want to replicate in the new app:
 
@@ -1359,7 +1359,7 @@ In this example, replace these placeholders with the values from your original a
 
 Run this command for each documented IP restriction from the original app.
 
-##### [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 To add IP-based networking restrictions:
 
@@ -1430,10 +1430,10 @@ As part of the migration strategy for triggers, you might need to immediately st
 
 If your app hasn't 
 
-##### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 
-##### [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 ---
 
@@ -1499,14 +1499,14 @@ We recommend waiting at least a few days or even weeks (depending on your applic
 
 
 
-##### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 # Delete the original Linux Consumption function app
 az functionapp delete --name <OriginalFunctionAppName> --resource-group <ResourceGroupName>
 ```
 
-##### [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 1. Navigate to your original Linux Consumption function app in the Azure Portal
 2. Click on "Delete" in the top menu
