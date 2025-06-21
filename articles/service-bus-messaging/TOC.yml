@@ -397,4 +397,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
+    href: /shows/mvp-azure/?terms=service%20bus
