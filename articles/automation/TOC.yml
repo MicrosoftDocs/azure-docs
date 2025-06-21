@@ -317,7 +317,7 @@
   - name: Automation introduction video
     href: https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=management-tools&query=automation
+    href: https://azure.microsoft.com/updates/?filters=%5B%22Automation%22%5D
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-automation.html
   - name: Pricing
