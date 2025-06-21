@@ -88,13 +88,14 @@ If your log management server is hosted in Azure - for example, your VMware Clou
 - The Azure Virtual Network and the Azure Logic App must be in the same region. **Cross-region integration is not supported and will cause the setup to fail.**
 - Ensure there is an available subnet in your Azure Virtual Network for integration. For more information, visit [Add, change, or delete a virtual network subnet](/azure/virtual-network/virtual-network-manage-subnet.md).
 
+###Steps to integrate with your Azure Virtual Network
 1. In the Azure Logic App, navigate to **Settings > Networking**. 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-21.png" alt-text="Screenshot showing where the Networking tab is in the Azure Logic App instance." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-21.png":::
 
 2. Select the highlighted text that says **Not configured** next to **Virtual Network integration**.
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-22.png" alt-text="Screenshot showing where the Not Configured text is next to the Virtual Network option in the Azure Logic App instance." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-22.png":::
 
-3. On the next screen, you'll see a message stating **No virtual network integration configured**. Select **Add virtual network integration** to integrate the Azure Virtual Network that's connected to your log management server.
+3. On the next screen, you'll see a message stating **No virtual network integration configured**. Select **Add virtual network integration** to integrate with the Azure Virtual Network that is connected to your log management server.
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-23.png" alt-text="Screenshot showing where to add virtual network integration in the Azure Logic App instance." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-23.png":::
 
 4. In the panel, choose the **Subscription** where your Azure Virtual Network lies, the **Virtual Network** you intend to use, and the **Subnet** you want to associate. Click **Connect** to integrate with your virtual network.
