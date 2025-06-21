@@ -16,11 +16,12 @@ This article provides step-by-step instructions for migrating your existing func
 
 By migrating your existing serverless apps, your functions can easily take advantage of these benefits of the Flex Consumption plan:
 
-+ Improved scalability
-+ Enhanced performance
-+ Improved security and networking. 
++ Enhanced performance: your apps benefit from faster cold starts and improved scalability.
++ Improved controls: fine-tune your functions with per-function scaling and concurrency settings.
++ Expanded networking: virtual network integration and private endpoint support lets your functions in both public and private networks.
++ Managed identity support: easily connect to remote Azure services using Microsoft Entra ID authentication.
 
-For more information, see [Flex Consumption plan benefits](../flex-consumption-plan.md#benefits). For a detailed comparison between hosting plans, see [Azure Functions hosting options](../functions-scale.md). 
+The Flex Consumption plan is the recommended serverless hosting option for your functions going forward. For more information, see [Flex Consumption plan benefits](../flex-consumption-plan.md#benefits). For a detailed comparison between hosting plans, see [Azure Functions hosting options](../functions-scale.md). 
 
 ## Considerations
 
@@ -63,7 +64,7 @@ Before staring a migration, keep these considerations in mind:
 
 + The [`jq` tool](https://jqlang.org/download/), which is used to work with JSON output.
  
-#### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 + Access to the [Azure portal] 
 
@@ -364,9 +365,31 @@ The basic steps to change an existing Blob storage trigger to an Event Grid sour
 
 For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](../functions-event-grid-blob-trigger.md).
 
-### Benchmark your current app performance and costs
+### Capture performance benchmarks (optional)
 
-`<<TODO: recommend performance and cost benchmarks that also apply to Flex apps for comparison post-migration>>`
+If you plan to validate performance improvement in your app based on the migration to the Flex Consumption plan, you should (optionally) capture the performance benchmarks of your current plan. Then, you can compare them to the same benchmarks for your app running in a Flex Consumption plan for comparison.
+
+>[!TIP]  
+>Always compare performance under similar conditions, such as time-of-day, day-of-week, and client load. Try to run the two benchmarks as close together as possible.
+ 
+Here are some benchmarks to consider for your structured performance testing:
+
+| Suggested benchmark | Comment |
+| ----- | ----- |
+| **Cold-start** | Measure the time from first request to the first response after an idle period. Test with different memory allocation settings in Flex Consumption. |
+| **Throughput** | Measure the maximum requests-per-second using [load testing tools](/azure/load-testing/how-to-optimize-azure-functions) to determine how the app handles concurrent requests. |
+| **Latency** | Track the `P50`, `P95`, and `P99` response times under various load conditions. You can monitor these metrics in Application Insights. |
+
+You can use this Kusto query to review the suggested latency response times in Application Insights:
+ 
+```kusto
+requests
+| where timestamp > ago(1d)
+| summarize percentiles(duration, 50, 95, 99) by bin(timestamp, 1h)
+| render timechart
+```
+
+
 
 ## Consider dependent services
 
@@ -410,6 +433,7 @@ You should complete these tasks before you migrate your app to run in a Flex Con
 > + [Identify client authentication settings](#identify-client-authentication-settings)
 > + [Review inbound access restrictions](#review-inbound-access-restrictions)
 > + [Get the code deployment package](#get-the-code-deployment-package)
+> + [Capture performance benchmarks](#capture-performance-benchmarks)
 
 ### Collect app settings
 
@@ -669,6 +693,8 @@ The location of your project source files depends on the `WEBSITE_RUN_FROM_PACKA
 | An endpoint URL | The files are in a zip package in an externally accessible location that is maintained by you. An external package is usually hosted in a Blob storage container with restricted access. For more information, see [External package URL](../functions-deployment-technologies.md#external-package-url). |
 
 ---  
+
+Use these steps to download the deployment package from your current app: 
 
 #### [Linux](#tab/linux/azure-cli)
 
@@ -1369,7 +1395,7 @@ Functions provides several ways to deploy your code, either from the code projec
 >[!TIP]  
 >If your project code is maintained in a source code repository, this is the perfect time to configure a continuous deployment pipeline. Continuous deployment lets you automatically deploy application updates based on changes in a connected repository. 
 
-#### [Continuous code deployment](#tab/continuous-code)
+#### [Continuous code deployment](#tab/continuous)
 
 You should update your existing deployment workflows to deploy your source code to your new app:
 
@@ -1378,7 +1404,7 @@ You should update your existing deployment workflows to deploy your source code 
 
 You can also create a new continuous deployment workflow for your new app. For more information, see [Continuous deployment for Azure Functions](../functions-continuous-deployment.md)
 
-##### [Ad-hoc code deployment](#tab/ad-hoc-code)
+#### [Ad-hoc code deployment](#tab/ad-hoc)
 
 You can use these tools to acheive a one-off deployment of your code project to your new plan:
 
@@ -1413,24 +1439,54 @@ If your app hasn't
 
 ## Post-migration tasks
 
-### Verify Basic Functionality
+After a successful migration, you should perform these follow-up tasks:
 
-1. Verify the Function App is running on the Flex Consumption plan:
+### Verify basic functionality
 
+1. Verify the new app is running in a Flex Consumption plan:
+
+    #### [Azure CLI](#tab/azure-cli)
+    
+    Use this [`az functionapp show`](/cli/azure/functionapp?view=azure-cli-latest#az-functionapp-show) command two view the details about the hosting plan:
+    
     ```azurecli    
-    az functionapp show --name <FunctionAppName> --resource-group <ResourceGroupName> --query "serverFarmId"
+    az functionapp show --name <APP_NAME> --resource-group <RESOURCE_GROUP> --query "serverFarmId"
     ```
+    
+    In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group and function app names, respectively. 
+    
+    #### [Azure portal](#tab/azure-portal)
+    
+    
+    
+    ---
+
+1. Use an HTTP client to call at least one HTTP trigger endpoint on your new app to make sure it responds as expected.
+
+1. View the current logs for your new app to verify that requests are  
+
+Call 
 
 2. Make sure Application Insights is configured for your function app, then monitor function execution through Application Insights in the Azure Portal through the Application Insights resource or use the App Insights query API.
 
+### Redirect HTTP endpoints
+
+If you haven't already done so, , 
+
+  2. Validate functionality with test requests
+  3. Update DNS or client configuration to point to the new app (if using custom domains)
+  4. Consider implementing a temporary redirect from the old app to the new one for any clients still using the old endpoint.
+
+
+
+
 ### Enable monitoring
 
-After migrating to Flex Consumption, implement a structured monitoring approach to ensure optimal performance and detect any issues. For more information, see [Configure monitoring](../flex-consumption-how-to.md#configure-monitoring).
-
-
-
+After a successful migration, make sure that Application Insights in enabled in your new app. Implement a structured monitoring approach to ensure optimal performance and detect any issues. For more information, see [Configure monitoring](../flex-consumption-how-to.md#configure-monitoring) in the Flex Consumption plan article.
 
 ### Capture performance and cost benchmarks 
+
+
 
 >[!NOTE]  
 >Flex Consumption plan metrics differ from Consumption plan metrics. When comparing performance before and after migration, keep in mind that you must use different metrics to track similar performance characteristics.
@@ -1440,12 +1496,6 @@ After migrating to Flex Consumption, implement a structured monitoring approach 
 After thoroughly testing your new Flex Consumption function app and validating that everything is working as expected, you may want to clean up resources to avoid unnecessary costs. This should only be done once you're completely confident that the migration has been successful and all functionality has been verified over a sufficient period.
 
 We recommend waiting at least a few days or even weeks (depending on your application's usage patterns) to ensure that all scenarios, including infrequent ones, have been properly tested. Once you're satisfied with the migration results, you can proceed with cleaning up the original resources.
-
-
-
-##### [Azure portal](#tab/azure-portal)
-
----
 
 
 
@@ -1467,28 +1517,6 @@ az functionapp delete --name <OriginalFunctionAppName> --resource-group <Resourc
 
 > **Warning**: This action will delete your original function app but leaves the Consumption plan intact if other apps are using it. Before deleting, ensure you have successfully migrated all functionality to the new Flex Consumption app, verified no traffic is being directed to the original app, and backed up any relevant logs, configuration, or data that might be needed for reference.
 
-### Performance Benchmarking
-
-Conduct structured performance testing to compare the migrated app against your original Linux Consumption app:
-
-1. **Cold Start Comparison**:
-   + Measure the time from first request to response after idle periods
-   + Test with different memory allocation settings in Flex Consumption
-
-2. **Throughput Testing**:
-   + Measure maximum requests per second using [load testing tools](https://learn.microsoft.com/en-us/azure/load-testing/how-to-optimize-azure-functions)
-   + Compare how both plans handle concurrent requests
-
-3. **Latency Analysis**:
-   + Track the P50, P95, and P99 response times under various load conditions
-   + Monitor these metrics in Application Insights:
-
-     ```kusto
-     requests
-     | where timestamp > ago(1d)
-     | summarize percentiles(duration, 50, 95, 99) by bin(timestamp, 1h)
-     | render timechart
-     ```
 
 ### Cost Monitoring
 
@@ -1555,17 +1583,6 @@ Despite careful planning, migration issues may occur. Here's how to handle diffe
 | Network connectivity issues | Validate access restrictions and networking settings |
 | Missing application insights | Recreate application insights connection |
 
-## Post-migration tasks
-
-triggers:
-
-HTTP http: Deploy to the new Flex Consumption app
-  2. Validate functionality with test requests
-  3. Update DNS or client configuration to point to the new app (if using custom domains)
-  4. Consider implementing a temporary redirect from the old app to the new one for any clients still using the old endpoint.
-
-
-
 ## What to expect after migration
 
 After migrating from Linux Consumption to Flex Consumption, you can expect several operational differences:
@@ -1589,28 +1606,13 @@ After migrating from Linux Consumption to Flex Consumption, you can expect sever
 
 > **Note**: Actual performance improvements and cost implications can vary based on your specific workload patterns and function app configuration. Monitor performance metrics after migration to optimize your configuration.
 
-### Networking Features
-
-+ **Enhanced VNet Integration**: Full VNet integration capabilities, allowing access to private endpoints and services.
-+ **Private Endpoint Support**: Support for private endpoints, enabling private access to your function app.
-+ **Network Security Group Support**: More granular network security controls than were available with Linux Consumption.
-
 ## Conclusion
 
 Congratulations on successfully migrating your Azure function app from Linux Consumption to Flex Consumption! This migration represents a significant improvement in your serverless architecture that will benefit both your users and your organization.
 
-By completing this migration, you've:
 
-+ **Enhanced your application performance** with faster cold starts and improved scalability
-+ **Gained more granular control** over your functions with per-function scaling and concurrency settings
-+ **Improved your networking capabilities** with better VNet integration and private endpoint support
-+ **Positioned your application for future growth** on a modern, actively developed hosting platform
+Remember to continue monitoring your application in its new environment and fine-tune the settings to optimize cost and performance. The Azure Functions team is continuously evolving the Flex Consumption plan with new features and improvements, so stay informed about new capabilities by regularly checking the [Azure Functions documentation](../azure-functions/).
 
-Remember to continue monitoring your application in its new environment and fine-tune the settings to optimize cost and performance. The Azure Functions team is continuously evolving the Flex Consumption plan with new features and improvements, so stay informed about new capabilities by regularly checking the [Azure Functions documentation](https://learn.microsoft.com/en-us/azure/azure-functions/).
-
-Thank you for following this migration guide. Your investment in modernizing your Azure Functions will pay dividends in improved performance, scalability, and security for your applications.
-
-Happy coding!
 
 ## Providing feedback
 
