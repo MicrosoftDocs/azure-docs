@@ -357,4 +357,4 @@ If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set 
 
 - [Mount an Azure file share](storage-files-identity-mount-file-share.md)
 - [Potential errors when enabling Microsoft Entra Kerberos authentication for hybrid users](files-troubleshoot-smb-authentication.md#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users)
-- [Create a profile container with Azure Files and Microsoft Entra ID](../../virtual-desktop/create-profile-container-azure-ad.yml)
+- [Create a profile container with Azure Files and Microsoft Entra ID](/azure/virtual-desktop/create-profile-container-azure-ad)
