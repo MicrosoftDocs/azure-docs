@@ -3,7 +3,7 @@ title: Monitor Azure Queue Storage
 description: Start here to learn how to monitor Azure Queue Storage.
 ms.date: 02/12/2024
 ms.custom: horz-monitor, devx-track-csharp, devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 author: normesta
 ms.author: normesta
 ms.service: azure-queue-storage
@@ -242,7 +242,7 @@ The following example shows how to read `UsedCapacity` data at the account level
 
 For multidimensional metrics, you need to define metadata filters if you want to read metric data on specific dimension values.
 
-The following example shows how to read metric data on the metric supporting multidimension:
+The following example shows how to read metric data on the metric supporting multidimensional values:
 
 ```csharp
     public static async Task ReadStorageMetricValueTest()

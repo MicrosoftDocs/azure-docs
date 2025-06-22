@@ -1,14 +1,19 @@
 ---
 title: Feature Analysis Cloud Services vs Virtual Machine Scale Sets
 description: Learn about the feature set available in Cloud Services and Virtual Machine Scale Sets
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud solution architect, I want to compare the features of Cloud Services and Virtual Machine Scale Sets, so that I can select the best deployment model for my organization's scalability, availability, and management needs.
 ---
 # Feature Analysis: Cloud Services (extended support) and Virtual Machine Scale Sets
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 This article provides a feature analysis of Cloud Services (extended support) and Virtual Machine Scale Sets. For more information on Virtual Machine Scale Sets, visit the documentation [here](/azure/virtual-machine-scale-sets/overview)
 
 
@@ -17,7 +22,7 @@ This article provides a feature analysis of Cloud Services (extended support) an
 | Feature |  CSES | Virtual Machine Scale Sets (Flex) | Virtual Machine Scale Sets (Uniform) | 
 |---|---|---|---|
 |Virtual machine type|Basic Azure PaaS VM (Microsoft.compute/cloudServices)|Standard Azure IaaS VM (Microsoft.compute/virtualmachines)|Scale Set specific VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)| 
-|Maximum Instance Count (with FD guarantees)|1100|1000|3000 (1000 per Availability Zone)|
+|Maximum Instance Count (with FD guarantees)|1100 subject to capacity and load balancer support|1000|3000 (1000 per Availability Zone)|
 |SKUs supported|D, Dv2, Dv3, Dav4 series, Ev3, Eav4 series, G series, H series|D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) aren't supported|All SKUs|
 |Full control over VM, NICs, Disks|Limited control over NICs and VM via CS-ES APIs. No support for Disks|Yes|Limited control with virtual machine scale sets VM API|
 |RBAC Permissions Required|Compute Virtual Machine Scale Sets Write, Compute VM Write, Network|Compute Virtual Machine Scale Sets Write, Compute VM Write, Network|Compute Virtual Machine Scale Sets Write|

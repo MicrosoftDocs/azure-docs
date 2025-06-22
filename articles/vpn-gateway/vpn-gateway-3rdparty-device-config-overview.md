@@ -4,7 +4,7 @@ description: Learn about partner VPN device configurations for connecting to Azu
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 

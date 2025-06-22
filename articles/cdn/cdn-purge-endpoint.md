@@ -2,12 +2,14 @@
 title: Purge an Azure Content Delivery Network endpoint
 description: Learn how to purge all cached content from an Azure Content Delivery Network endpoint. Edge nodes cache assets until their time to live expires.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: As a web application administrator, I want to purge cached content from the Azure Content Delivery Network endpoint, so that I can ensure my users receive the latest version of the assets and correct any outdated information promptly.
 ---
 
 # Purge an Azure Content Delivery Network endpoint
@@ -31,8 +33,6 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
 
 1. From the CDN profile page, select the purge button.
 
-    :::image type="content" source="./media/cdn-purge-endpoint/cdn-profile-blade.png" alt-text="Screenshot of the overview page for an Azure CDN profile.":::
-
 1. On the Purge page, select the service address you wish to purge from the URL dropdown list.
 
     :::image type="content" source="./media/cdn-purge-endpoint/cdn-purge-form.png" alt-text="Screenshot of the purge page.":::
@@ -48,7 +48,7 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
 	3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
 
    > [!TIP]
-   > 1. Paths must be specified for purge and must be a relative URL that fit the following [RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
+   > 1. Paths must be specified for purge and must be a relative URL that fits the following [RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
    >
    > 1. In Azure CDN from Microsoft, query strings in the purge URL path are not considered. If the path to purge is provided as `/TestCDN?myname=max`, only `/TestCDN` is considered. The query string `myname=max` is omitted. Both `TestCDN?myname=max` and `TestCDN?myname=clark` will be purged.
 

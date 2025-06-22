@@ -5,11 +5,12 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 03/25/2025
 ms.author: abell
 ms.devlang: azurecli
 ms.custom: mode-api, devx-track-azurecli, template-quickstart
 #Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
+# Customer intent: "As a network administrator new to Azure, I want to create a Private Link service using Azure CLI so that I can enable private access to my services from a virtual network."
 ---
 
 # Quickstart: Create a Private Link service using Azure CLI

@@ -1,9 +1,9 @@
 ---
-title: Service developer guide - IoT Plug and Play | Microsoft Docs
-description: Description of IoT Plug and Play for service developers
+title: Service developer guide - IoT Plug and Play
+description: A description of IoT Plug and Play conventions for service developers
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/23/2024
+ms.date: 03/18/2025
 ms.topic: conceptual
 ms.service: azure-iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
@@ -17,9 +17,11 @@ zone_pivot_groups: programming-languages-set-ten
 
 IoT Plug and Play lets you build IoT devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
-IoT Plug and Play lets you use devices that have announced their model ID with your IoT hub. For example, you can access the properties and commands of a device directly.
+IoT Plug and Play lets you use devices that announce their model ID to your IoT hub. For example, you can access the properties and commands of a device directly.
 
 If you're using IoT Central, you can use the IoT Central UI and REST API to interact with IoT Plug and Play devices connected to your application.
+
+[!INCLUDE [iot-authentication-service-connection-string](../../includes/iot-authentication-service-connection-string.md)]
 
 ## Service SDKs
 
@@ -29,7 +31,7 @@ Use the Azure IoT service SDKs in your solution to interact with devices and mod
 
 The service SDKs let you access device information from a solution component such as a desktop or web application. The service SDKs include two namespaces and object models that you can use to retrieve the model ID:
 
-- Iot Hub service client. This service exposes the model ID as a device twin property.
+- IoT Hub service client. This service exposes the model ID as a device twin property.
 
 - Digital Twins client. The new Digital Twins API operates on [Digital Twins Definition Language (DTDL)](concepts-digital-twin.md) model constructs such as components, properties, and commands. The Digital Twin APIs make it easier for solution builders to create IoT Plug and Play solutions.
 

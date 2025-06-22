@@ -21,7 +21,7 @@ ms.custom: devx-track-js
 
 The Azure Maps Web SDK includes an [Indoor Maps] module, enabling you to render indoor maps created in Azure Maps Creator services.
 
-When you create an indoor map using Azure Maps Creator, default styles are applied. Azure Maps Creator now also supports customizing the styles of the different elements of your indoor maps using the [Style Rest API], or the [visual style editor].
+When you create an indoor map using Azure Maps Creator, default styles are applied. Azure Maps Creator now also supports customizing the styles of the different elements of your indoor maps using the [Style REST API], or the [visual style editor].
 
 ## Prerequisites
 
@@ -300,7 +300,7 @@ Learn more about how to add more data to your map:
 [Indoor Maps]: https://www.npmjs.com/package/azure-maps-indoor
 [map configuration API]: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [map configuration]: creator-indoor-maps.md#map-configuration
-[Style Rest API]: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[Style REST API]: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [style-loader]: https://webpack.js.org/loaders/style-loader
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Tileset List API]: /rest/api/maps-creator/tileset/list

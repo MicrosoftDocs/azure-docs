@@ -6,7 +6,7 @@ services: api-management
 author: genlin
 manager: dcscontentpm
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ---
@@ -47,10 +47,10 @@ To resolve this issue, follow these steps:
 
 Check whether the issue is resolved. To do this, try to create the custom domain in the API Management service by using the Key Vault certificate.
 
-## Next steps
+## Related content
 Learn more about API Management service:
 
-- Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
+- Check out more videos about API Management.
 * For other ways to secure your back-end service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
 
 * [Create an API Management service instance](get-started-create-service-instance.md).

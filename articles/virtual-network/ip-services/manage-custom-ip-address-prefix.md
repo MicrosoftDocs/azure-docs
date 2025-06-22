@@ -11,6 +11,7 @@ ms.subservice: ip-services
 ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
 
+# Customer intent: As a network administrator, I want to manage custom IP address prefixes in my Azure subscription so that I can efficiently migrate and decommission my IP ranges while ensuring uninterrupted service and optimal routing.
 ---
 
 # Manage a custom IP address prefix
@@ -141,6 +142,9 @@ Update-AzCustomIpPrefix
 ```
 
 The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **InternetDecommissioningInProgress**, followed in the future by **CommissionedNoInternetAdvertise**. The advertisement to the Internet isn't binary and the range is partially advertised while still in the **InternetDecommissioningInProgress** status.
+
+> [!NOTE]
+> There is no need to regionally commission regional ("child") prefixes when using the glboal/regional model, as their inherent nature means that they will only advertise from within the region, and the commissioning of the global ("parent") prefix is what will advertise the range to the Internet and other Azure regions.
 
 ## Deprovision/Delete a custom IP prefix
 

@@ -2,7 +2,7 @@
 title: Overview of Azure Disk Backup
 description: Learn about the Azure Disk backup solution.
 ms.topic: overview
-ms.date: 07/30/2024
+ms.date: 04/16/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -16,7 +16,10 @@ Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle man
 
 If you require application-consistent backup of virtual machine including the data disks, or an option to restore an entire virtual machine from backup, restore a file or folder, or restore to a secondary region, then use the [Azure VM backup](backup-azure-vms-introduction.md) solution. Azure Backup offers side-by-side support for backup of managed disks using Disk Backup in addition to [Azure VM backup](./backup-azure-vms-introduction.md) solutions. This is useful when you need once-a-day application consistent backups of virtual machines and also more frequent backups of OS disks or a specific data disk that are crash consistent, and don't impact the production application performance.
 
-Azure Disk Backup is integrated into Backup Center, which provides a **single unified management experience** in Azure for enterprises to govern, monitor, operate, and analyze backups at scale.
+Azure Disk Backup is integrated into Azure Business Continuity Center, which provides a **single unified management experience** in Azure for enterprises to govern, monitor, operate, and analyze backups at scale.
+
+>[!Note]
+>- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
 
 ## Key benefits of Disk Backup
 
@@ -99,4 +102,10 @@ The number of recovery points is determined by the Backup policy used to configu
 
 ## Next steps
 
-[Azure Disk Backup support matrix](disk-backup-support-matrix.md)
+[Azure Disk Backup support matrix](disk-backup-support-matrix.md).
+
+## Related content
+
+- [Create a Backup policy for Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
+- [Configure backup for Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+- [Restore Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).

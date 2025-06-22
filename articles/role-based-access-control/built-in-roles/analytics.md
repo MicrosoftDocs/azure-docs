@@ -2,12 +2,12 @@
 title: Azure built-in roles for Analytics - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Analytics category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -202,53 +202,6 @@ Create and manage data factories, as well as child resources within them.
 }
 ```
 
-## Data Purger
-
-Delete private data from a Log Analytics workspace.
-
-[Learn more](/azure/azure-monitor/logs/personal-data-mgmt)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/components/*/read |  |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/components/purge/action | Purging data from Application Insights |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/purge/action | Delete specified data by query from workspace. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Can purge analytics data",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/150f5e0c-0603-4f03-8c7f-cf70034c4e90",
-  "name": "150f5e0c-0603-4f03-8c7f-cf70034c4e90",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Insights/components/*/read",
-        "Microsoft.Insights/components/purge/action",
-        "Microsoft.OperationalInsights/workspaces/*/read",
-        "Microsoft.OperationalInsights/workspaces/purge/action"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Data Purger",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
 ## HDInsight Cluster Operator
 
 Lets you read and modify HDInsight cluster configurations.
@@ -379,7 +332,7 @@ Grants a user/group the ability to create, delete and manage clusters within a g
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
@@ -480,12 +433,12 @@ Can read, create, modify and delete HDInsight on AKS cluster pools and create cl
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/upgradehistories/read | Read HDInsight on AKS Cluster Pool Upgrade Histories |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -559,125 +512,7 @@ Can read, create, modify and delete HDInsight on AKS cluster pools and create cl
 }
 ```
 
-## Log Analytics Contributor
-
-Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources.
-
-[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
-
-[Learn more](/azure/azure-monitor/logs/manage-access)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | */read | Read control plane information for all Azure resources. |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/virtualMachines/extensions/* |  |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
-> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/* |  |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/* |  |
-> | [Microsoft.OperationsManagement](../permissions/monitor.md#microsoftoperationsmanagement)/* |  |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/* |  |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
-> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293",
-  "name": "92aaf0da-9dab-42b6-94a3-d43ce8d16293",
-  "permissions": [
-    {
-      "actions": [
-        "*/read",
-        "Microsoft.ClassicCompute/virtualMachines/extensions/*",
-        "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
-        "Microsoft.Compute/virtualMachines/extensions/*",
-        "Microsoft.HybridCompute/machines/extensions/write",
-        "Microsoft.Insights/alertRules/*",
-        "Microsoft.Insights/diagnosticSettings/*",
-        "Microsoft.OperationalInsights/*",
-        "Microsoft.OperationsManagement/*",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
-        "Microsoft.Storage/storageAccounts/listKeys/action",
-        "Microsoft.Support/*"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Log Analytics Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Log Analytics Reader
-
-Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
-
-[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
-
-[Learn more](/azure/azure-monitor/logs/manage-access)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | */read | Read control plane information for all Azure resources. |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
-> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
-> | **NotActions** |  |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/73c42c96-874c-492b-b04d-ab87d138a893",
-  "name": "73c42c96-874c-492b-b04d-ab87d138a893",
-  "permissions": [
-    {
-      "actions": [
-        "*/read",
-        "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/search/action",
-        "Microsoft.Support/*"
-      ],
-      "notActions": [
-        "Microsoft.OperationalInsights/workspaces/sharedKeys/read"
-      ],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Log Analytics Reader",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Schema Registry Contributor (Preview)
+## Schema Registry Contributor
 
 Read, write, and delete Schema Registry groups and schemas.
 
@@ -712,13 +547,13 @@ Read, write, and delete Schema Registry groups and schemas.
       "notDataActions": []
     }
   ],
-  "roleName": "Schema Registry Contributor (Preview)",
+  "roleName": "Schema Registry Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Schema Registry Reader (Preview)
+## Schema Registry Reader
 
 Read and list Schema Registry groups and schemas.
 
@@ -753,7 +588,7 @@ Read and list Schema Registry groups and schemas.
       "notDataActions": []
     }
   ],
-  "roleName": "Schema Registry Reader (Preview)",
+  "roleName": "Schema Registry Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

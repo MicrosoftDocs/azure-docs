@@ -1,11 +1,11 @@
 ---
 title: Authorization code flow - Azure Active Directory B2C  
-description: Learn how to build web apps by using Azure AD B2C and OpenID Connect authentication protocol.
+description: Learn how to implement OAuth 2.0 authorization code flow in Azure AD B2C for web, mobile, and desktop apps, including setup and HTTP request examples.
 author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: fasttrack-edit
@@ -17,11 +17,13 @@ ms.custom: fasttrack-edit
 
 # OAuth 2.0 authorization code flow in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OAuth 2.0, you can add sign-up, sign-in, and other identity management tasks to your single-page, mobile, and desktop apps. In this article, we describe how to send and receive HTTP messages without using any open-source libraries. This article is language-independent. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL). Take a look at the [sample apps that use MSAL](integrate-with-app-code-samples.md). 
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). You can use it for authentication and authorization in most [application types](application-types.md), including web applications, single-page applications, and natively installed applications. You can use the OAuth 2.0 authorization code flow to securely acquire access tokens and refresh tokens for your applications, which can be used to access resources that are secured by an [authorization server](protocols-overview.md).  The refresh token allows the client to acquire new access (and refresh) tokens once the access token expires, typically after one hour.
 
-This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes single-page applications, mobile apps, desktop applications, and essentially any application that doesn't run on a server.
+This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that can't be trusted to securely maintain the integrity of a secret password. This includes single-page applications, mobile apps, desktop applications, and essentially any application that doesn't run on a server.
 
 > [!NOTE]
 > To add identity management to a web app by using Azure AD B2C, use [OpenID Connect](openid-connect.md) instead of OAuth 2.0.
@@ -63,13 +65,13 @@ client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
 | response_type |Required |The response type, which must include `code` for the authorization code flow. You can receive an ID token if you include it in the response type, such as `code+id_token`, and in this case, the scope needs to include `openid`.|
 | redirect_uri |Required |The redirect URI of your app, where authentication responses are sent and received by your app. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded. |
-| scope |Required |A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application will need a *refresh token* for extended access to resources. The client-id indicates the token issued are intended for use by Azure AD B2C registered client. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. For more information, see [Request an access token](access-tokens.md#scopes). |
+| scope |Required |A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application needs a *refresh token* for extended access to resources. The client-id indicates the token issued are intended for use by Azure AD B2C registered client. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. For more information, see [Request an access token](access-tokens.md#scopes). |
 | response_mode |Recommended |The method that you use to send the resulting authorization code back to your app. It can be `query`, `form_post`, or `fragment`. |
 | state |Recommended |A value included in the request that can be a string of any content that you want to use. Usually, a randomly generated unique value is  used, to prevent cross-site request forgery attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the user flow that was being executed. |
-| prompt |Optional |The type of user interaction that is required. Currently, the only valid value is `login`, which forces the user to enter their credentials on that request. Single sign-on will not take effect. |
+| prompt |Optional |The type of user interaction that is required. Currently, the only valid value is `login`, which forces the user to enter their credentials on that request. Single sign-on won't take effect. |
 | code_challenge  | recommended / required | Used to secure authorization code grants via Proof Key for Code Exchange (PKCE). Required if `code_challenge_method` is included. You need to add logic in your application to generate the `code_verifier` and `code_challenge`. The `code_challenge` is a Base64 URL-encoded SHA256 hash of the `code_verifier`. You store the `code_verifier` in your application for later use, and send the `code_challenge` along with the authorization request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). This is now recommended for all application types - native apps, SPAs, and confidential clients like web apps. | 
-| `code_challenge_method` | recommended / required | The method used to encode the `code_verifier` for the `code_challenge` parameter. This *SHOULD* be `S256`, but the spec allows the use of `plain` if for some reason the client cannot support SHA256. <br/><br/>If you exclude the `code_challenge_method`, but still include the `code_challenge`, then the  `code_challenge` is assumed to be plaintext. Microsoft identity platform supports both `plain` and `S256`. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). This is required for [single page apps using the authorization code flow](tutorial-register-spa.md).|
-| login_hint | No| Can be used to pre-fill the sign-in name field of the sign-in page. For more information, see [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name).  |
+| `code_challenge_method` | recommended / required | The method used to encode the `code_verifier` for the `code_challenge` parameter. This *SHOULD* be `S256`, but the spec allows the use of `plain` if for some reason the client can't support SHA256. <br/><br/>If you exclude the `code_challenge_method`, but still include the `code_challenge`, then the  `code_challenge` is assumed to be plaintext. Microsoft identity platform supports both `plain` and `S256`. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). This is required for [single page apps using the authorization code flow](tutorial-register-spa.md).|
+| login_hint | No| Can be used to prefill the sign-in name field of the sign-in page. For more information, see [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name).  |
 | domain_hint | No| Provides a hint to Azure AD B2C about the social identity provider that should be used for sign-in. If a valid value is included, the user goes directly to the identity provider sign-in page.  For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). |
 | Custom parameters | No| Custom parameters that can be used with [custom policies](custom-policy-overview.md). For example, [dynamic custom page content URI](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri), or [key-value claim resolvers](claim-resolver-overview.md#oauth2-key-value-parameters). |
 
@@ -87,7 +89,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 
 | Parameter | Description |
 | --- | --- |
-| code |The authorization code that the app requested. The app can use the authorization code to request an access token for a target resource. Authorization codes are very short-lived. Typically, they expire after about 10 minutes. |
+| code |The authorization code that the app requested. The app can use the authorization code to request an access token for a target resource. Authorization codes are short-lived. Typically, they expire after about 10 minutes. |
 | state |See the full description in the table in the preceding section. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 Error responses also can be sent to the redirect URI so that the app can handle them appropriately:
@@ -126,9 +128,9 @@ grant_type=authorization_code
 | Parameter | Required? | Description |
 | --- | --- | --- |
 |{tenant}| Required | Name of your Azure AD B2C tenant|
-|{policy}| Required| The user flow that was used to acquire the authorization code. You cannot use a different user flow in this request. |
+|{policy}| Required| The user flow that was used to acquire the authorization code. You can't use a different user flow in this request. |
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com).|
-| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, and therefore are not used in this call. If you use a client secret, please change it on a periodic basis. |
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets can't be securely stored, and therefore aren't used in this call. If you use a client secret, change it on a periodic basis. |
 | grant_type |Required |The type of grant. For the authorization code flow, the grant type must be `authorization_code`. |
 | scope |Recommended |A space-separated list of scopes. A single scope value indicates to Azure AD B2C both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | code |Required |The authorization code that you acquired in from the `/authorize` endpoint. |
@@ -184,7 +186,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## 4. Refresh the token
 
-Access tokens and ID tokens are short-lived. After they expire, you must refresh them to continue to access resources. When you refresh the access token, Azure AD B2C returns a new token. The refreshed access token will have updated `nbf` (not before), `iat` (issued at), and `exp` (expiration) claim values. All other claim values will be the same as the originally issued access token. 
+Access tokens and ID tokens are short-lived. After they expire, you must refresh them to continue to access resources. When you refresh the access token, Azure AD B2C returns a new token. The refreshed access token will have updated `nbf` (not before), `iat` (issued at), and `exp` (expiration) claim values. All other claim values are the same as the originally issued access token. 
 
 
 To refresh the token, submit another POST request to the `/token` endpoint. This time, provide the `refresh_token` instead of the `code`:
@@ -204,11 +206,11 @@ grant_type=refresh_token
 | Parameter | Required? | Description |
 | --- | --- | --- |
 |{tenant}| Required | Name of your Azure AD B2C tenant|
-|{policy} |Required |The user flow that was used to acquire the original refresh token. You cannot use a different user flow in this request. |
+|{policy} |Required |The user flow that was used to acquire the original refresh token. You can't use a different user flow in this request. |
 | client_id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
-| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, and therefore are not used in this call. If you use a client secret, please change it on a periodic basis. |
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets can't be securely stored, and therefore aren't used in this call. If you use a client secret, please change it on a periodic basis. |
 | grant_type |Required |The type of grant. For this leg of the authorization code flow, the grant type must be `refresh_token`. |
-| scope |Recommended |A space-separated list of scopes. A single scope value indicates to Microsoft Entra ID both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app will need a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
+| scope |Recommended |A space-separated list of scopes. A single scope value indicates to Microsoft Entra ID both of the permissions that are being requested. Using the client ID as the scope indicates that your app needs an access token that can be used against your own service or web API, represented by the same client ID.  The `offline_access` scope indicates that your app needs a refresh token for long-lived access to resources.  You also can use the `openid` scope to request an ID token from Azure AD B2C. |
 | redirect_uri |Optional |The redirect URI of the application where you received the authorization code. |
 | refresh_token |Required |The original refresh token that you acquired in the second leg of the flow. |
 
@@ -231,7 +233,7 @@ A successful token response looks like this:
 | access_token |The signed JWT that you requested. |
 | scope |The scopes that the token is valid for. You also can use the scopes to cache tokens for later use. |
 | expires_in |The length of time that the token is valid (in seconds). |
-| refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. For more information, see the [Azure AD B2C token reference](tokens-overview.md). |
+| refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires. Refresh tokens are long-lived and can be used to retain access to resources for extended periods of time. For more information, see the [Azure AD B2C token reference](tokens-overview.md). |
 
 Error responses look like this:
 
@@ -248,6 +250,7 @@ Error responses look like this:
 | error_description |A specific error message that can help you identify the root cause of an authentication error. |
 
 ## Use your own Azure AD B2C directory
+
 To try these requests yourself, complete the following steps. Replace the example values we used in this article with your own values.
 
 1. [Create an Azure AD B2C directory](tutorial-create-tenant.md). Use the name of your directory in the requests.

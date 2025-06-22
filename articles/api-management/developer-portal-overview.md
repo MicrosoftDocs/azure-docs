@@ -6,8 +6,8 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
-ms.date: 03/29/2024
+ms.topic: concept-article
+ms.date: 06/04/2025
 ms.author: danlep 
 ---
 
@@ -19,7 +19,8 @@ The API Management *developer portal* is an automatically generated, fully custo
 
 This article introduces features of the developer portal, the types of content the portal presents, and options to manage and extend the developer portal for your specific users and scenarios.
 
-[!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
+> [!TIP]
+> Both Azure API Management and Azure API Center provide API portal experiences for developers. [Compare the portals](#api-management-and-api-center-portals)
 
 :::image type="content" source="media/developer-portal-overview/cover.png" alt-text="Screenshot of the API Management developer portal.":::
 
@@ -54,6 +55,8 @@ Content is divided into two subcategories: *portal content* and *API Management 
 
 ## Customize and style the portal
 
+[!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
+
 Out of the box, the developer portal is already populated with your published APIs and products and ready to be customized for your needs. As an API publisher, you use the developer portal's administrative interface to customize the appearance and functionality of the developer portal. 
 
 If you're accessing the portal for the first time, the portal includes placeholder pages, content, and navigation menus. The placeholder content you see has been designed to showcase the portal's capabilities and minimize the customizations needed to personalize your portal. 
@@ -61,9 +64,9 @@ If you're accessing the portal for the first time, the portal includes placehold
 For a step-by-step walkthrough of customizing and publishing the developer portal, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
 
 > [!IMPORTANT]
-> * Access to the developer portal by API publishers and consumers requires network connectivity to both the developer portal's endpoint (default: `https://<apim-instance-name>.portal.azure-api.net`) and the API Management instance's management endpoint (default: `https://<apim-instance-name>.management.azure-api.net`).
+> * Access to the developer portal by API publishers and consumers requires network connectivity to the developer portal's endpoint (default: `https://<apim-instance-name>.portal.azure-api.net`).
 > * Publishing the developer portal requires additional connectivity to blob storage managed by API Management in the West US region. 
-> * If the API Management instance is deployed in a VNet, ensure that the hostnames of the developer portal and management endpoint resolve properly and that you enable connectivity to required dependencies for the developer portal. [Learn more](virtual-network-reference.md).
+> * If the API Management instance is deployed in a VNet, ensure that the hostname of the developer portal resolves properly and that you enable connectivity to required dependencies for the developer portal. [Learn more](virtual-network-reference.md).
 
 ### Visual editor
 
@@ -73,20 +76,17 @@ The developer portal's administrative interface provides a visual editor for pub
 
 [!INCLUDE [api-management-developer-portal-add](../../includes/api-management-developer-portal-add.md)]
 
-[!INCLUDE [api-management-developer-portal-wordpress](../../includes/api-management-developer-portal-wordpress.md)]
+### Pages and layouts
 
+The pre-provisioned content in the developer portal showcases pages with commonly used features. Find them on the **Pages** panel. You can modify the content of these pages or add new ones to suit your needs.
 
-### Layouts and pages
-
-Layouts define how pages are displayed. For example, in the default content, there are two layouts: one applies to the home page, and the other to all remaining pages. You can modify these layouts and add more layouts to suit your needs.
+Select **Layouts** on the **Pages** panel to define how pages are displayed. The developer portal comes with a default layout that's applied to the pages. You can modify this layout and add more layouts to suit your needs.
 
 A layout gets applied to a page by matching its URL template to the page's URL. For example, a layout with a URL template of `/wiki/*` is applied to every page with the `/wiki/` segment in the URL: `/wiki/getting-started`, `/wiki/styles`, etc.
 
 In the following image, content belonging to the layout is outlined in blue, while the page-specific content is outlined in red. 
 
 :::image type="content" source="media/developer-portal-overview/pages-layouts.png" alt-text="Screenshot of layout content in the developer portal." :::
-
-The pre-provisioned content in the developer portal showcases pages with commonly used features. You can modify the content of these pages or add new ones to suit your needs.
 
 > [!NOTE]
 > Due to integration considerations, the following pages can't be removed or moved under a different URL: `/404`, `/500`, `/captcha`, `/change-password`, `/config.json`, `/confirm/invitation`, `/confirm-v2/identities/basic/signup`, `/confirm-v2/password`, `/internal-status-0123456789abcdef`, `/publish`, `/signin`, `/signin-sso`, `/signup`.
@@ -180,7 +180,7 @@ The portal supports several options for user sign-up and sign-in:
 
 *  Basic authentication for developers to sign in with credentials for API Management [user accounts](api-management-howto-create-or-invite-developers.md).  Developers can sign up for an account directly through the portal, or you can create accounts for them.
 
-* Depending on your scenarios, restrict access to the portal by requiring users to sign up or sign in with a [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md) account.
+* Depending on your scenarios, restrict access to the portal by requiring users to sign up or sign in with a [Microsoft Entra ID](api-management-howto-aad.md) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam) account.
 
 * If you already manage developer sign-up and sign-in through an existing website, [delegate authentication](api-management-howto-setup-delegation.md) instead of using the developer portal's built-in authentication.
 
@@ -245,13 +245,16 @@ To restore a previous portal revision:
 If you want to discard all changes you've made to the developer portal, you can reset the website to its starting state. Resetting the portal deletes any changes you've made to the developer portal pages, layouts, customizations, and uploaded media.
 
 > [!NOTE]
-> Resetting the developer portal doesn't delete the published version of the developer portal.
+> * Resetting the developer portal doesn't delete the published version of the developer portal.
+> * Resetting the portal could update the portal to a newer version of the developer portal codebase with updated components. The placeholder content that appears might also be changed. Developer portal features and customization options remain consistent. 
 
 To reset the developer portal:
 
 1. In the administrative interface, in the menu at the left of the visual editor, select **Settings**.
 1. On the **Advanced** tab, select **Yes, reset the website to default state**.
 1. Select **Save**.
+
+[!INCLUDE [api-center-portal-compare-apim-dev-portal](../api-center/includes/api-center-portal-compare-apim-dev-portal.md)]
 
 ## Related content
 

@@ -2,9 +2,9 @@
 title: View and download Azure usage and charges
 description: Learn how to download or view your Azure daily usage and charges, and see other available resources.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
-author: bandersmsft
-ms.author: banders
-ms.reviewer: adwise
+author: Jkinma39
+ms.author: jkinma
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
@@ -19,6 +19,8 @@ You can download a daily breakdown of your Azure usage and charges in the Azure 
 If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges. If you have a Microsoft Partner Agreement (MPA), only the [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges.
 
 Based on the type of subscription that you use, options to download your usage and charges vary.
+
+Your cost and usage data files show unrounded data. For more information about rounding, see [Cost rounding](../costs/understand-cost-mgt-data.md#cost-rounding).
 
 If you want to get cost and usage data using the Azure CLI, see [Get usage data with the Azure CLI](../automate/get-usage-data-azure-cli.md).
 

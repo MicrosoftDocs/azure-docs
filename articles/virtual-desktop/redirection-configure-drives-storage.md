@@ -3,8 +3,8 @@ title: Configure fixed, removable, and network drive redirection over the Remote
 description: Learn how to redirect fixed, removable, and network storage drives from a local device to a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 04/29/2024
 ---
 
@@ -239,7 +239,56 @@ To test drive redirection:
       S on DESKTOP
       ```
 
-### Optional: Disable drive redirection on a local device
+## Improve performance of enumerating files and folders on redirected drives
+
+When a user opens or lists the contents of a redirected drive, the remote session enumerates files and folders of the current directory. If you have a large number of files and folders on the redirected drives, the enumeration process can take a long time and impact the performance of the remote session. The time taken to enumerate depends on the round-trip time (RTT) between the local device and the remote session.
+
+::: zone pivot="azure-virtual-desktop"
+For session hosts running Windows 11 24H2 with the [2025-03 Cumulative Update for Windows 11 (KB5053598)](https://support.microsoft.com/kb/KB5053598) or later, the performance of enumerating files and folders on redirected drives is greatly improved.
+
+Once your session hosts have the correct version of Windows 11 and Cumulative Update, to enable the improved performance you need to:
+
+1. Add the following registry key and value to each session host:
+
+   - **Key**: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp`
+   - **Type**: `REG_DWORD`
+   - **Value name**: `fAllowQueryDirPrefetch`
+   - **Value data**: `1`
+
+1. Connect to a remote session using the latest version of Windows App for Windows or the Remote Desktop client for Windows. Only Windows is supported; other platforms aren't currently supported.
+::: zone-end
+
+::: zone pivot="windows-365"
+For a Cloud PC running Windows 11 24H2 with the [2025-03 Cumulative Update for Windows 11 (KB5053598)](https://support.microsoft.com/kb/KB5053598) or later, the performance of enumerating files and folders on redirected drives is greatly improved.
+
+Once your Cloud PC has the correct version of Windows 11 and Cumulative Update, to enable the improved performance you need to:
+
+1. Add the following registry key and value to each Cloud PC:
+
+   - **Key**: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp`
+   - **Type**: `REG_DWORD`
+   - **Value name**: `fAllowQueryDirPrefetch`
+   - **Value data**: `1`
+
+1. Connect to a remote session using the latest version of Windows App for Windows or the Remote Desktop client for Windows. Only Windows is supported; other platforms aren't currently supported.
+::: zone-end
+
+::: zone pivot="dev-box"
+For a dev box running Windows 11 24H2 with the [2025-03 Cumulative Update for Windows 11 (KB5053598)](https://support.microsoft.com/kb/KB5053598) or later, the performance of enumerating files and folders on redirected drives is greatly improved.
+
+Once your session hosts have the correct version of Windows 11 and Cumulative Update, to enable the improved performance you need to:
+
+1. Add the following registry key and value to each dev box:
+
+   - **Key**: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp`
+   - **Type**: `REG_DWORD`
+   - **Value name**: `fAllowQueryDirPrefetch`
+   - **Value data**: `1`
+
+1. Connect to a remote session using the latest version of Windows App for Windows or the Remote Desktop client for Windows. Only Windows is supported; other platforms aren't currently supported.
+::: zone-end
+
+## Optional: Disable drive redirection on a local device
 
 You can disable drive redirection on a local device to prevent the drives from being redirected between a remote session. This method is useful if you want to enable drive redirection for most users, but disable it for specific devices.
 
@@ -250,7 +299,7 @@ On a local Windows device, you can disable drive redirection by configuring the 
 - **Value name**: `DisableDriveRedirection`
 - **Value data**: `1`
 
-For iOS/iPadOS and Android devices, you can disable drive redirection using Intune. For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For iOS/iPadOS and Android devices, you can disable drive redirection using Intune. For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ## Related content
 

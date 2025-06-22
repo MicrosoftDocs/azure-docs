@@ -2,12 +2,11 @@
 title: URL Redirect
 titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door supports URL redirection for their routing rules.
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 06/17/2024
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 

@@ -3,7 +3,7 @@ title: Use Azure Storage analytics to collect logs  data
 description: Storage Analytics enables you to collect logs for Blob, Queue, and Table storage.
 author: normesta
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/11/2024
 ms.author: normesta
 ms.reviewer: fryu

@@ -2,7 +2,7 @@
 title: Install Bicep tools
 description: Learn how to install tools to set up Bicep development and deployment environments.
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 03/25/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -35,7 +35,7 @@ To create Bicep files, you need a good Bicep editor. We recommend:
 
   :::image type="content" source="./media/install/install-extension.png" alt-text="Screenshot of installing Bicep extension.":::
 
-To verify you've installed the extension, open any file with the `.bicep` file extension. You should see the language mode in the lower right corner change to **Bicep**.
+To verify you've installed the extension, open any file with the `.bicep` file extension. You should see the language mode in the lower-right corner change to **Bicep**.
 
 :::image type="content" source="./media/install/language-mode.png" alt-text="Screenshot of Bicep language mode.":::
 
@@ -57,7 +57,7 @@ To see the settings:
 
     | ID | Default value | Description |
     |-----|-------------|---------|
-    | bicep.decompileOnPaste | true | Automatically convert pasted JSON values, JSON ARM templates or resources from a JSON ARM template into Bicep (use Undo to revert). For more information, see the [Paste JSON as Bicep command](./visual-studio-code.md#paste-json-as-bicep-command).|
+    | bicep.decompileOnPaste | true | Automatically convert pasted JSON values, Azure Resource Manager JSON templates (ARM templates,) or resources from an ARM template into Bicep (use Undo to revert). For more information, see the [Paste JSON as Bicep command](./visual-studio-code.md#paste-json-as-bicep-command).|
     | bicep.enableOutputTimestamps | true | Prepend each line displayed in the Bicep Operations output channel with a timestamp. |
     | bicep.suppressedWarnings | | Warnings that are being suppressed because a 'Don't show again' button was pressed. Remove items to reset.|
     | bicep.enableSurveys | true | Enable occasional surveys to collect feedback that helps us improve the Bicep extension. |
@@ -111,7 +111,7 @@ az bicep upgrade
 For more commands, see [Bicep CLI](bicep-cli.md).
 
 > [!IMPORTANT]
-> The Azure CLI installs a self-contained instance of the Bicep CLI. This instance doesn't conflict with any versions you may have manually installed. The Azure CLI doesn't add Bicep CLI to your PATH.
+> The Azure CLI installs a self-contained instance of the Bicep CLI. This instance doesn't conflict with any versions that you might have installed manually. The Azure CLI doesn't add Bicep CLI to your PATH.
 
 You're done with setting up your Bicep environment. The rest of this article describes installation steps that you don't need when using the Azure CLI.
 
@@ -119,12 +119,12 @@ You're done with setting up your Bicep environment. The rest of this article des
 
 You must have Azure PowerShell version **5.6.0 or later** installed. To update or install, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
-Azure PowerShell doesn't automatically install the Bicep CLI. Instead, you must [manually install the Bicep CLI](#install-manually).
+Azure PowerShell doesn't automatically install the Bicep CLI. Instead, you must [install the Bicep CLI manually](#install-manually).
 
 > [!IMPORTANT]
-> The self-contained instance of the Bicep CLI installed by the Azure CLI isn't available to PowerShell commands. Azure PowerShell deployments fail if you haven't manually installed the Bicep CLI.
+> The self-contained instance of the Bicep CLI installed by the Azure CLI isn't available for PowerShell commands. Azure PowerShell deployments fail if you haven't manually installed the Bicep CLI.
 
-When you manually install the Bicep CLI, run the Bicep commands with the `bicep` syntax, instead of the `az bicep` syntax for Azure CLI.
+When you manually install the Bicep CLI, run the Bicep commands with the `bicep` syntax instead of the `az bicep` syntax for Azure CLI.
 
 To check your Bicep CLI version, run:
 
@@ -136,7 +136,7 @@ bicep --version
 
 The following methods install the Bicep CLI and add it to your PATH. You must manually install for any use other than the Azure CLI.
 
-When installing manually, select a location that is different than the one managed by the Azure CLI. All of the following examples use a location named **bicep** or **.bicep**. This location won't conflict with the location managed by the Azure CLI, which uses **.azure**.
+When installing manually, select a location that's different from the one managed by the Azure CLI. All of the following examples use a location named **bicep** or **.bicep**. This location won't conflict with the location managed by the Azure CLI, which uses **.azure**.
 
 - [Linux](#linux)
 - [macOS](#macos)
@@ -256,14 +256,12 @@ If you'd like to try the latest pre-release bits of Bicep before they're release
 
 ## Install the NuGet package
 
-The Bicep team has made the [Azure.Bicep.Core NuGet package](https://www.nuget.org/packages/Azure.Bicep.Core) publicly available on nuget.org. While it's public, it isn't a supported package. Any dependency you take on this package will be done at your own risk and we reserve the right to push breaking changes to this package at any time.
+The Bicep team has made the [Azure.Bicep.Core NuGet package](https://www.nuget.org/packages/Azure.Bicep.Core) publicly available on nuget.org. While it's public, it isn't a supported package. Any dependency you take on this package will be done at your own risk, and Microsoft reserves the right to push breaking changes to this package at any time.
 
-For more information about installing and consuming NuGet packages, see [Consume packages](/nuget/consume-packages/overview-and-workflow).
+For more information about installing and consuming NuGet packages, see [Package consumption workflow](/nuget/consume-packages/overview-and-workflow).
 
 ## Next steps
 
-For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
-
-If you have problems with your Bicep installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
-
-To deploy Bicep files from an Azure Pipeline, see [Integrate Bicep with Azure Pipelines](add-template-to-azure-pipelines.md). To deploy Bicep files through GitHub Actions, see [Deploy Bicep files by using GitHub Actions](deploy-github-actions.md).
+* For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+* If you have problems with your Bicep installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
+* To deploy Bicep files from an Azure Pipeline, see [Quickstart: Integrate Bicep with Azure Pipelines](add-template-to-azure-pipelines.md). To deploy Bicep files through GitHub Actions, see [Quickstart: Deploy Bicep files by using GitHub Actions](deploy-github-actions.md).

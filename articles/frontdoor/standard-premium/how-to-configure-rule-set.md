@@ -1,15 +1,16 @@
 ---
 title: Configure rule sets in Azure Front Door
 description: This article provides guidance on how to configure rule sets you can use in an Azure Front Door profile. 
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/15/2024
-ms.author: duau
 ---
 
 # Configure rule sets in Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 This article demonstrates how to create rule sets and your first set of rules using the Azure portal. You also learn how to associate a rule set to a route from the rule sets page or from the Front Door manager.
 
@@ -20,8 +21,6 @@ This article demonstrates how to create rule sets and your first set of rules us
 ## Configure Rule Set in Azure portal
 
 1. Go to your Azure Front Door profile. Select **Rule sets** under *Settings* in the left side menu pane. Select **+ Add**, then give the rule set a name.
-
-    :::image type="content" source="../media/how-to-configure-rule-set/create-rule-set.png" alt-text="Screenshot of rule set landing page.":::
      
 1. To create your first rule, give it a name. Then select **+ Add condition** and **+ Add action** to define your rule. You can add up to 10 conditions and 5 actions for one rule. In this example, we use a server variable to append "Device type" to the response header for requests coming from a "Mobile" device type. For more information, see [match conditions](../rules-match-conditions.md) and [actions](../front-door-rules-engine-actions.md).
 
@@ -53,8 +52,6 @@ This article demonstrates how to create rule sets and your first set of rules us
 
     1. On the *Rule set page*, select the **Unassociated** link to associate the rule set to a route.
 
-        :::image type="content" source="../media/how-to-configure-rule-set/associate-rule-set.png" alt-text="Screenshot of unassociated rule set on Rule set page.":::
-
     1. On the **Associate a route** page, select the endpoint and route you want to associate the rule set with.
 
         :::image type="content" source="../media/how-to-configure-rule-set/associate-rule-set-route.png" alt-text="Screenshot of create a route page.":::
@@ -63,8 +60,6 @@ This article demonstrates how to create rule sets and your first set of rules us
 
         > [!NOTE]
         > You can only associate one rule set with a single route on this page. To associate a rule set with another route, use the Front Door manager.
-
-        :::image type="content" source="../media/how-to-configure-rule-set/rule-set-orders.png" alt-text="Screenshot of rule set orders.":::
 
     1. The rule set is now associated with a route. You can check the response header to confirm that the Device Type is added.
 
@@ -90,11 +85,7 @@ If you no longer need a rule set in your Azure Front Door profile, follow these 
 
 1. Select the **...** next to the rule set you want to remove and select **Disassociate from all routes**.
 
-    :::image type="content" source="../media/how-to-configure-rule-set/disassociate-rule-set.png" alt-text="Screenshot of disassociate all routes button.":::
-
 1. After the rule set is disassociated, select the **...** again. Select **Delete** and then confirm by selecting **Yes**.
-
-    :::image type="content" source="../media/how-to-configure-rule-set/remove-rule-set.png" alt-text="Screenshot of delete a rule set from Rule set page.":::
 
 1. Repeat these steps to remove any other rule sets in your Azure Front Door profile.
 

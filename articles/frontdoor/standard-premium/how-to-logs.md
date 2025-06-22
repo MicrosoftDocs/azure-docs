@@ -1,15 +1,16 @@
 ---
-title: Configure Azure Front Door logs
-description: This article explains how to configure Azure Front Door logs.
-services: front-door
-author: duongau
+title: Configure Azure Front Door Logs
+description: Learn how to configure Azure Front Door diagnostic logs to enable access logs, health probe logs, and Web Application Firewall (WAF) logs.
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 01/06/2025
-ms.author: duau
+ms.date: 05/21/2025
 ---
 
 # Configure Azure Front Door logs
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door captures several types of logs. Logs can help you monitor your application, track requests, and debug your Front Door configuration. For more information about Azure Front Door's logs, see [Monitor metrics and logs in Azure Front Door](../front-door-diagnostics.md).
 
@@ -19,35 +20,33 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Search for **Azure Front Door** and then select the relevant Azure Front Door profile.
+1. In the search box at the top of the portal, search for **Front Door** and then select the relevant Azure Front Door profile.
 
-1. Within the profile, navigate to **Monitoring**, select **Diagnostic Setting** and then choose **Add diagnostic setting**.
+1. Under **Monitoring**, select **Diagnostic settings** and then select **+ Add diagnostic setting**.
 
-   :::image type="content" source="../media/how-to-logging/front-door-logging-1.png" alt-text="Screenshot of diagnostic settings landing page.":::
+1. In **Diagnostic setting**, enter a name for **Diagnostic setting name**.
 
-1. Under **Diagnostic settings**, enter a name for **Diagnostic settings name**.
-
-1. Select the **log** options for **FrontDoorAccessLog**, **FrontDoorHealthProbeLog**, and **FrontDoorWebApplicationFirewallLog**.
-
-   > [!NOTE]
-   > **FrontDoorWebApplicationFirewallLog** is only available for Premium tier.
+1. Under **Logs**, select **audit**, **allLogs**, or the individual log you want. Available logs are: **FrontDoor Access Log**, **FrontDoor Health Probe Log**, and **FrontDoor WebApplicationFirewall Log**.
 
 1. Select the **Destination details**. The destination options are: 
 
-    * **Send to Log Analytics**
-      * Azure Log Analytics in Azure Monitor is best used for general real-time monitoring and analysis of Azure Front Door performance.
-      * Select the *Subscription* and *Log Analytics workspace*.
-    * **Archive to a storage account**
-      * Storage accounts are best used for scenarios when logs are stored for a longer duration and are reviewed when needed.
-      * Select the *Subscription* and the *Storage Account*. and set **Retention (days)**.
-    * **Stream to an event hub**
-      * Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, DataDog, or Sumo. 
-      * Select the *Subscription, Event hub namespace, Event hub name (optional)*, and *Event hub policy name*. 
+    - **Send to Log Analytics**
+      - Azure Log Analytics in Azure Monitor is best used for general real-time monitoring and analysis of Azure Front Door performance.
+      - Select the *Subscription* and *Log Analytics workspace*.
+    - **Archive to a storage account**
+      - Storage accounts are best used for scenarios when logs are stored for a longer duration and are reviewed when needed.
+      - Select the *Subscription* and *Storage Account*.
+    - **Stream to an event hub**
+      - Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, Datadog, or Sumo. 
+      - Select the *Subscription*, *Event hub namespace*, *Event hub name (optional)*, and *Event hub policy name*. 
+    - **Send to partner solution**
+      - Partner solutions are fully integrated solutions with Azure. For more information, see [Destinations in Azure Monitor diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings#destinations) and [Azure Monitor partner solutions](/azure/partner-solutions/partners#observability).
+      - Select the *Subscription* and *Destination*.
 
     > [!TIP]
     > Microsoft recommends using Log Analytics for real-time monitoring and analysis of Azure Front Door performance.
 
-     :::image type="content" source="../media/how-to-logging/front-door-logging-2.png" alt-text="Screenshot of diagnostic settings page.":::
+     :::image type="content" source="../media/how-to-logs/front-door-diagnostic-settings.png" alt-text="Screenshot that shows the Diagnostic settings page of Azure Front Door." lightbox="../media/how-to-logs/front-door-diagnostic-settings.png":::
 
 1. Select **Save** to begin logging.
 
@@ -57,11 +56,12 @@ To view activity logs:
 
 1. Select your Azure Front Door profile.
 
-1. Select **Activity log.**
+1. Select **Activity log**.
 
-1. Choose a filtering scope and then select **Apply**.
+1. Choose a filtering scope.
 
-## Next steps
+## Related content
 
-- Learn about [Azure Front Door reports](how-to-reports.md).
-- Learn about [Azure Front Door real time monitoring metrics](how-to-monitor-metrics.md).
+- [Monitor Azure Front Door](../monitor-front-door.md)
+- [Azure Front Door reports](how-to-reports.md)
+- [Azure Front Door monitoring data reference](../monitor-front-door-reference.md)

@@ -6,7 +6,9 @@ author: maud-lv
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: overview 
-ms.date: 04/25/2024
+ms.date: 04/16/2025
+ms.custom:
+  - build-2025
 --- 
 
 # What is Azure Managed Grafana?
@@ -19,6 +21,8 @@ Azure Managed Grafana is optimized for the Azure environment. It works seamlessl
 * User authentication and access control using Microsoft Entra identities
 * Direct import of existing charts from the Azure portal
 
+Grafana is also available within Azure Monitor. For more information, see [Difference between Azure Managed Grafana and Grafana in Azure Monitor](./faq.md#whats-the-difference-between-azure-managed-grafana-and-grafana-in-azure-monitor).
+
 To learn more about how Grafana works, visit the [Getting Started documentation](https://grafana.com/docs/grafana/latest/getting-started/) on the Grafana Labs website.  
 
 ## Why use Azure Managed Grafana?
@@ -29,7 +33,7 @@ As a fully managed service, Azure Managed Grafana lets you deploy Grafana withou
 
 You can share Grafana dashboards with people inside and outside of your organization and allow others to join in for monitoring or troubleshooting.
 
-Managed Grafana uses Microsoft Entra ID’s centralized identity management, which allows you to control which users can use a Grafana instance, and you can use managed identities to access Azure data stores, such as Azure Monitor.
+Azure Managed Grafana uses Microsoft Entra ID’s centralized identity management, which allows you to control which users can use a Grafana workspace, and you can use managed identities to access Azure data stores, such as Azure Monitor.
 
 You can create dashboards instantaneously by importing existing charts directly from the Azure portal or by using prebuilt dashboards.
 
@@ -57,7 +61,7 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 | [Grafana Enterprise](how-to-grafana-enterprise.md)                       | -                                   | Optional, with licensing costs                                                                                  |
 
 > [!NOTE]
-> Users can upgrade an instance from Essential (preview) to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential (preview) however isn't supported.
+> Users can upgrade an workspace from Essential (preview) to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential (preview) however isn't supported.
 
 > [!NOTE]
 > Grafana Enterprise is an option within the Standard plan, not a separate plan within Azure.
@@ -66,7 +70,8 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 
 Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#throttling-limits-and-quotas).
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Create an Azure Managed Grafana instance using the Azure portal](./quickstart-managed-grafana-portal.md)
+- [Create an Azure Managed Grafana workspace using the Azure portal](quickstart-managed-grafana-portal.md)
+- [Create an Azure Managed Grafana workspace using the Azure CLI](quickstart-managed-grafana-cli.md)
+- [Frequently asked questions](faq.md)

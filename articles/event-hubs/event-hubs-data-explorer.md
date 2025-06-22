@@ -1,8 +1,9 @@
 ---
-title: Overview of the Event Hubs Data Explorer
+title: Use Event Hubs Data Explorer
 description: This article provides an overview of the Event Hubs Data Explorer, which provides an easy way to send data to and receive data from Azure Event Hubs.
-ms.topic: article
-ms.date: 11/18/2024
+ms.topic: tutorial
+ms.date: 02/14/2025
+# Customer intent: I want to test sending events to and receiving events from an Azure event hub. 
 ---
 
 # Use Event Hubs Data Explorer to run data operations on Event Hubs
@@ -13,6 +14,10 @@ Developers and Operators are often looking for an easy tool to send sample data 
 
 This article highlights the functionality of Azure Event Hubs Data explorer that is made available on the Azure portal.
 
+> [!IMPORTANT]
+> If your Event Hubs namespace can only be accessed via a private endpoint, access Event Hubs Data Explorer from a virtual machine in the same virtual network with the private endpoint, which ensures that the web browser has required access to the private endpoint.
+
+
 Operations run on an Azure Event Hubs namespace are of two kinds.
 
   * Management Operations - Create, update, delete of Event Hubs namespace, and event hubs.
@@ -21,9 +26,8 @@ Operations run on an Azure Event Hubs namespace are of two kinds.
 > [!IMPORTANT]
 >  * The Event Hubs Data Explorer doesn't support **management operations**. The event hub must be created before the data explorer can send or view events from that event hub.
 >  * While events payloads (known as **values** in Kafka) sent using the **Kafka protocol** is visible via the data explorer, the **key** for the specific event isn't visible.
->  * We advise against using the Event Hubs Data Explorer for larger messages, as this may result in time-outs, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own time-out values.
+>  * We advise against using the Event Hubs Data Explorer for larger messages, as it can result in time-outs, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own time-out values.
 >  * The operations that a user can perform using Event Hubs Data Explorer is determined by the [role-based access control (RBAC)](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) role that the user is assigned to. 
-> * If your Event Hubs namespace can only be accessed via a private endpoint, you must run your web browser on a host in the virtual network with the private endpoint, and also ensure that there are no network security gateways (NSGs) in the way.
 
 ## Prerequisites
 
@@ -35,7 +39,7 @@ To use the Event Hubs data explorer, navigate to the Event Hubs namespace on whi
 
 Either navigate to the `Data Explorer` directly where you can pick the event hub, or pick the event hub from the `entities` and then pick the `Data Explorer` from the navigation menu.
 
-:::image type="content" source="./media/event-hubs-data-explorer/left-pane-nav.png" alt-text="Screenshot showing the left pane nav with 'Data Explorer' selected.":::
+:::image type="content" source="./media/event-hubs-data-explorer/left-pane-nav.png" alt-text="Screenshot showing the left pane nav with 'Data Explorer' selected." lightbox="./media/event-hubs-data-explorer/left-pane-nav.png":::
 
 ### Send Events
 
@@ -49,7 +53,7 @@ To do so, select the `send events` button, which enables the right pane.
 #### Sending custom payload
 
 To send a custom payload - 
-1. **Select Dataset** - Pick `Custom payload`.
+1. **Select Dataset** - Pick `Custom payload`. You can also select pre-canned datasets such as Yellow Taxi data, Weather data, etc. as shown in the next section. 
 2. Select the **Content-Type**, from either `Text/Plain`, `JSON`, or `XML`.
 3. Either upload a JSON file, or type out the payload in the **Enter payload** box.
 4. **[Optional]** Specify system properties.
@@ -86,11 +90,14 @@ To view events, you can define the below properties, or rely on the default -
 1. **PartitionID** - Pick either a specific partition or select *All partition IDs*.
 2. **Consumer Group** - Pick the *$Default* or another consumer group, or create one on the fly.
 3. **Event position** - Pick the *oldest position* (that is, the start of the event hub), *Newest position* (that is, latest), *Custom position* (for a specific offset, sequence number or timestamp).
-4. **Advanced properties** - Specify the *maximum batch size* and *maximum wait time in seconds*.
+    1. **Oldest position**: Begin receiving events from the first event in the partition which wasn't expired due to the retention policy.
+    1. **Custom position**: Add filter to specify the position in the partition to begin receiving events from.
+    1. **Newest position**: Begin receiving events from the event that is enqueued right after the view call. Only events sent after last viewing of events are received.
+1. **Advanced properties** - Specify the *maximum batch size* and *maximum wait time in seconds*.
 
 Once the above options are set, select **View events** to pull the events and render them on the data explorer.
 
-:::image type="content" source="./media/event-hubs-data-explorer/grid-of-events.png" alt-text="Screenshot showing the grid of events.":::
+:::image type="content" source="./media/event-hubs-data-explorer/grid-of-events.png" alt-text="Screenshot showing the grid of events." lightbox="./media/event-hubs-data-explorer/grid-of-events.png":::
 
 
 Once the events are loaded, you can select **View next events** to pull events using the same query again, or **Clear all** to refresh the grid.
@@ -101,10 +108,10 @@ When viewing the events on a given event hub, the event payload can be downloade
 
 To download the event payload, select the specific event and select the **download** button displayed above the event payload body.
 
-:::image type="content" source="./media/event-hubs-data-explorer/download-event-body.png" alt-text="Screenshot showing the grid of events with selected event and highlighted download event button.":::
+:::image type="content" source="./media/event-hubs-data-explorer/download-event-body.png" alt-text="Screenshot showing the grid of events with selected event and highlighted download event button." lightbox="./media/event-hubs-data-explorer/download-event-body.png":::
 
 
-## Next steps
+## Related content
 
   * Learn more about [Event Hubs](event-hubs-about.md).
   * Check out [Event Hubs features and terminology](event-hubs-features.md)

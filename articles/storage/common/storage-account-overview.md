@@ -7,8 +7,8 @@ author: akashdubey-ms
 
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
-ms.topic: conceptual
-ms.date: 12/06/2023
+ms.topic: concept-article
+ms.date: 03/04/2025
 ms.author: akashdubey
 ---
 
@@ -78,7 +78,7 @@ Business continuity and disaster recovery (BCDR) is a business’s ability to re
 Artificial intelligence (AI) is technology that simulates human intelligence and problem-solving capabilities in machines. Machine Learning (ML) is a sub-discipline of AI that uses algorithms to create models that enable machines to perform tasks. Both represent the newest workload on Azure which is growing at a rapid pace. This type of workload can be applied across every industry to improve metrics and meet performance goals. These types of technologies can lead to discoveries of life-saving drugs and practices in the field of medicine/health while also providing health assessments. Other everyday uses of ML and AI include fraud detection, image recognition, and the flagging of misinformation. These workloads typically need highly specialized compute (large numbers of GPU) and require high throughput and IOPS, low latency access to storage and POSIX file system access. Azure Storage supports these types of workloads by storing checkpoints and providing storage for large-scale datasets and models. These datasets and models read and write at a pace to keep GPUs utilized. 
 
 ### Recommended workload configurations
-The table below illustrates Microsoft's suggested storage account configurations for each workload
+The table below illustrates Microsoft's suggested storage account configurations for each workload. Changes in the configuration options (associated with each workload) have cost implications. Visit the [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) to view pricing. Enter the configuration options for the workload into the calculator and select the "Recommended" tab to view detailed pricing for the specific workload you are creating. 
 
 |Workload |Account kind |Performance |Redundancy |Hierarchical namespace enabled |Default access tier |Soft delete enabled |
 |---|---|---|---|---|---|---|
@@ -171,11 +171,11 @@ The storage account endpoint is stable and does not change. However, the CNAME r
 
 Consider the following guidelines:
 
-- The CNAME chain associated with a storage account endpoint can change without notice. Applications and environments should not take a dependency on the number of of CNAME records or the sub-domains that are associated with those CNAME records.
+- The CNAME chain associated with a storage account endpoint can change without notice. Applications and environments should not take a dependency on the number of CNAME records or the sub-domains that are associated with those CNAME records.
 
 - The A record's IP address that is returned by the DNS resolution of a storage account endpoint can change frequently.
 
-- The applications and operating systems should always honor the time-to-live (TTL) associated with the CNAME record. Caching the the value of the CNAME record beyond the TTL could lead to unintended behavior.
+- The applications and operating systems should always honor the time-to-live (TTL) associated with the CNAME record. Caching the value of the CNAME record beyond the TTL could lead to unintended behavior.
 
 ## Migrate a storage account
 
@@ -219,10 +219,10 @@ The following table describes the legacy storage account types. These account ty
 
 | Type of legacy storage account | Supported storage services | Redundancy options | Deployment model | Usage |
 |--|--|--|--|--|
-| Standard general-purpose v1 | Blob Storage, Queue Storage, Table Storage, and Azure Files | LRS/GRS/RA-GRS | Resource Manager, classic<sup>1</sup> | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using it for these scenarios:<br /><ul><li>Your applications require the Azure [classic deployment model](/azure/azure-portal/supportability/classic-deployment-model-quota-increase-requests)<sup>1</sup>.</li><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don’t require large capacity. In this case, a general-purpose v1 account may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than February 14, 2014, or a client library with a version lower than 4.x, and you can’t upgrade your application.</li><li>You're selecting a storage account to use as a cache for Azure Site Recovery. Because Site Recovery is transaction-intensive, a general-purpose v1 account may be more cost-effective. For more information, see [Support matrix for Azure VM disaster recovery between Azure regions](../../site-recovery/azure-to-azure-support-matrix.md#cache-storage).</li></ul> |
+| Standard general-purpose v1 | Blob Storage, Queue Storage, Table Storage, and Azure Files | LRS/GRS/RA-GRS | Resource Manager, classic<sup>1</sup> | General-purpose v1 accounts may not have the latest features or the lowest per-gigabyte pricing. Consider using it for these scenarios:<br /><ul><li>Your applications are transaction-intensive or use significant geo-replication bandwidth, but don’t require large capacity. In this case, a general-purpose v1 account may be the most economical choice.</li><li>You use a version of the Azure Storage REST API that is earlier than February 14, 2014, or a client library with a version lower than 4.x, and you can’t upgrade your application.</li><li>You're selecting a storage account to use as a cache for Azure Site Recovery. Because Site Recovery is transaction-intensive, a general-purpose v1 account may be more cost-effective. For more information, see [Support matrix for Azure VM disaster recovery between Azure regions](../../site-recovery/azure-to-azure-support-matrix.md#cache-storage).</li></ul> |
 | Blob Storage | Blob Storage (block blobs and append blobs only) | LRS/GRS/RA-GRS | Resource Manager | Microsoft recommends using standard general-purpose v2 accounts instead when possible. |
 
-<sup>1</sup> Beginning August 1, 2022, you'll no longer be able to create new storage accounts with the classic deployment model. Resources created prior to that date will continue to be supported through August 31, 2024. For more information, see [Azure classic storage accounts will be retired on 31 August 2024](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024).
+<sup>1</sup> If your storage account is using the classic deployment model, we recommend that you [migrate](../common/classic-account-migration-process.md) to the Azure Resource Manager deployment model. Azure Storage accounts that use the classic deployment model were retired on August 31, 2024. For more information, see [Update on classic storage account retirement](https://techcommunity.microsoft.com/blog/azurestorageblog/update-on-classic-storage-account-retirement-and-upcoming-changes-for-classic-st/4282217).
 
 ## Scalability targets for standard storage accounts
 

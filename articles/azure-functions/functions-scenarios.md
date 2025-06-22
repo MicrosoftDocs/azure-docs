@@ -2,13 +2,14 @@
 title: Azure Functions Scenarios 
 description: Identify key scenarios that use Azure Functions to provide serverless compute resources in aa Azure cloud-based topology. 
 ms.topic: conceptual
-ms.custom: 
+ms.custom:
   - devx-track-extended-java
   - devx-track-js
   - devx-track-python
+  - build-2025
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 12/19/2024
+ms.date: 04/29/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -26,8 +27,7 @@ There are several ways to use functions to process files into or out of a blob s
 
 For example, in a retail solution, a partner system can submit product catalog information as files into blob storage. You can use a blob triggered function to validate, transform, and process the files into the main system as they're uploaded. 
 
-[ ![Diagram of a file upload process using Azure Functions.](./media/functions-scenarios/process-file-uploads.png) ](./media/functions-scenarios/process-file-uploads-expanded.png#lightbox)
-
+:::image type="content" source="media/functions-scenarios/process-file-uploads.png" alt-text="Diagram of a file upload process using Azure Functions." lightbox="media/functions-scenarios/process-file-uploads-expanded.png":::
 
 The following tutorials use a Blob trigger (Event Grid based) to process files in a blob container:
 
@@ -86,7 +86,7 @@ So much telemetry is generated and collected from cloud applications, IoT device
 
 Your functions can also use low-latency event triggers, like Event Grid, and real-time outputs like SignalR to process data in near-real-time.  
 
-[ ![Diagram of a real-time stream process using Azure Functions.](./media/functions-scenarios/real-time-stream-processing.png) ](./media/functions-scenarios/real-time-stream-processing-expanded.png#lightbox)
+:::image type="content" source="media/functions-scenarios/real-time-stream-processing.png" alt-text="Diagram of a real-time stream process using Azure Functions." lightbox="media/functions-scenarios/real-time-stream-processing-expanded.png":::
 
 ::: zone pivot="programming-language-csharp" 
 
@@ -149,7 +149,7 @@ Functions can connect to an OpenAI resources to enable text and chat completions
 
 A function might also call a TensorFlow model or Azure AI services to process and classify a stream of images.
 
-[ ![Diagram of a machine learning and AI process using Azure Functions.](./media/functions-scenarios/machine-learning-and-ai.png) ](./media/functions-scenarios/machine-learning-and-ai-expanded.png#lightbox)
+:::image type="content" source="media/functions-scenarios/machine-learning-and-ai.png" alt-text="Diagram of a machine learning and AI process using Azure Functions." lightbox="media/functions-scenarios/machine-learning-and-ai-expanded.png":::
 
 ::: zone pivot="programming-language-csharp"  
 + Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-csharp)
@@ -198,6 +198,8 @@ A function might also call a TensorFlow model or Azure AI services to process an
 + Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/powershell)
 ::: zone-end
 
+For more information, see [Use AI tools and models in Azure Functions](functions-create-ai-enabled-apps.md). 
+
 ## Run scheduled tasks 
 
 Functions enables you to run your code based on a [cron schedule](./functions-bindings-timer.md#usage) that you define. 
@@ -206,7 +208,7 @@ Check out how to [Create a function in the Azure portal that runs on a schedule]
 
 A financial services customer database, for example, might be analyzed for duplicate entries every 15 minutes to avoid multiple communications going out to the same customer. 
 
-[ ![Diagram of a scheduled task where a function cleans a database every 15 minutes deduplicating entries based on business logic.](./media/functions-scenarios/scheduled-task.png) ](./media/functions-scenarios/scheduled-task-expanded.png#lightbox)
+:::image type="content" source="media/functions-scenarios/scheduled-task.png" alt-text="Diagram of a scheduled task where a function cleans a database every 15 minutes deduplicating entries based on business logic." lightbox="media/functions-scenarios/scheduled-task-expanded.png":::
 
 ::: zone pivot="programming-language-csharp" 
 
@@ -249,7 +251,7 @@ An HTTP triggered function defines an HTTP endpoint. These endpoints run functio
 
 You can also use an HTTP triggered function endpoint as a webhook integration, such as GitHub webhooks. In this way, you can create functions that process data from GitHub events. To learn more, see [Monitor GitHub events by using a webhook with Azure Functions](/training/modules/monitor-github-events-with-a-function-triggered-by-a-webhook/).
 
-[ ![Diagram of processing an HTTP request using Azure Functions.](./media/functions-scenarios/scalable-web-api.png) ](./media/functions-scenarios/scalable-web-api-expanded.png#lightbox)
+:::image type="content" source="media/functions-scenarios/scalable-web-api.png" alt-text="Diagram of processing an HTTP request using Azure Functions." lightbox="media/functions-scenarios/scalable-web-api-expanded.png":::
 
 For examples, see the following:
 ::: zone pivot="programming-language-csharp" 
@@ -284,38 +286,38 @@ public static async Task<IActionResult> Run(
     return new OkResult();
 }
 ```
-
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-csharp)
 + Article: [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](./openapi-apim-integrate-visual-studio.md) 
 + Training: [Expose multiple function apps as a consistent API by using Azure API Management](/training/modules/build-serverless-api-with-functions-api-management/)
 + Sample: [Implement the geode pattern by deploying the API to geodes in distributed Azure regions.](https://github.com/mspnp/geode-pattern-accelerator)
-+ Article: [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-csharp)
 + Sample: [Web application with a C# API and Azure SQL DB on Static Web Apps and Functions](/samples/azure-samples/todo-csharp-sql-swa-func/todo-csharp-sql-swa-func/)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-python)
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-python)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-javascript)
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-javascript)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-powershell)
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-powershell)
 ::: zone-end
+
 ::: zone pivot="programming-language-typescript" 
-+ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-typescript)
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-typescript)
 ::: zone-end
+
 ::: zone pivot="programming-language-java"
-+ Training: [Develop Java serverless Functions on Azure using Maven](/training/modules/develop-azure-functions-app-with-maven-plugin/)
-+ Article: [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-java)
++ Quickstart: [Azure Functions HTTP trigger](create-first-function-azure-developer-cli.md?pivots=programming-language-java)
 ::: zone-end  
 
 ## Build a serverless workflow
 
 Functions is often the compute component in a serverless workflow topology, such as a Logic Apps workflow. You can also create long-running orchestrations using the Durable Functions extension. For more information, see [Durable Functions overview](./durable/durable-functions-overview.md).
 
-[ ![A combination diagram of a series of specific serverless workflows using Azure Functions.](./media/functions-scenarios/build-a-serverless-workflow.png) ](./media/functions-scenarios/build-a-serverless-workflow-expanded.png#lightbox)
+:::image type="content" source="media/functions-scenarios/build-a-serverless-workflow.png" alt-text="A combination diagram of a series of specific serverless workflows using Azure Functions." lightbox="media/functions-scenarios/build-a-serverless-workflow-expanded.png":::
 
 ::: zone pivot="programming-language-csharp" 
 + Tutorial: [Create a function to integrate with Azure Logic Apps](./functions-twitter-email.md)
@@ -350,7 +352,7 @@ Functions is often the compute component in a serverless workflow topology, such
 
 There are processes where you might need to log, audit, or perform some other operation when stored data changes. Functions triggers provide a good way to get notified of data changes to initial such an operation.
 
-[ ![Diagram of a function being used to respond to database changes.](./media/functions-scenarios/respond-to-database-changes.png) ](./media/functions-scenarios/respond-to-database-changes-expanded.png#lightbox)
+:::image type="content" source="media/functions-scenarios/respond-to-database-changes.png" alt-text="Diagram of a function being used to respond to database changes." lightbox="media/functions-scenarios/respond-to-database-changes-expanded.png":::
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python" 
 Consider these examples:
@@ -378,7 +380,7 @@ You can use Functions with Azure messaging services to create advanced event-dri
 
 For example, you can use triggers on Azure Storage queues as a way to chain together a series of function executions. Or use service bus queues and triggers for an online ordering system.
 
-[ ![Diagram of Azure Functions in a reliable message system.](./media/functions-scenarios/create-reliable-message-systems.png) ](./media/functions-scenarios/create-reliable-message-systems-expanded.png#lightbox)
+:::image type="content" source="media/functions-scenarios/create-reliable-message-systems.png" alt-text="Diagram of Azure Functions in a reliable message system." lightbox="media/functions-scenarios/create-reliable-message-systems-expanded.png":::
 
 These articles show how to write output to a storage queue:
 

@@ -2,7 +2,7 @@
 title: Restore Azure Files with PowerShell
 description: In this article, learn how to restore Azure Files using the Azure Backup service and PowerShell. 
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 06/03/2025
 ms.custom: devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
@@ -10,15 +10,16 @@ ms.author: jsuri
 
 # Restore Azure Files with PowerShell
 
-This article explains how to restore an entire file share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure PowerShell.
+This article explains how to restore an entire File Share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure PowerShell. You can also restore Azure Files using [Azure portal](restore-afs.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
 
-You can restore an entire file share or specific files on the share. You can restore to the original location, or to an alternate location.
+You can restore an entire File Share or specific files on the share. You can restore to the original location, or to an alternate location.
 
 > [!WARNING]
 > Make sure the PowerShell version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. For more information, see [the section](backup-azure-afs-automation.md#important-notice-backup-item-identification) outlining the requirement for this change.
 
 >[!NOTE]
->Azure Backup now supports restoring multiple files or folders to the original or alternate Location using PowerShell. Refer to [this section](#restore-multiple-files-or-folders-to-original-or-alternate-location) of the document to learn how.
+>- Azure Files restore is only supported within the same subscription when using PowerShell or CLI.
+>- Azure Backup now supports restoring multiple files or folders to the original or alternate Location using PowerShell. Refer to [this section](#restore-multiple-files-or-folders-to-original-or-alternate-location) of the document to learn how.
 
 ## Fetch recovery points
 
@@ -57,15 +58,15 @@ ContainerType        : AzureStorage
 BackupManagementType : AzureStorage
 ```
 
-After the relevant recovery point is selected, you restore the file share or file to the original location, or to an alternate location.
+After the relevant recovery point is selected, you restore the File Share or file to the original location, or to an alternate location.
 
-## Restore an Azure file share to an alternate location
+## Restore a File Share to an alternate location
 
 Use the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) to restore to the selected recovery point. Specify these parameters to identify the alternate location:
 
 * **TargetStorageAccountName**: The storage account to which the backed-up content is restored. The target storage account must be in the same location as the vault.
-* **TargetFileShareName**: The file shares within the target storage account to which the backed-up content is restored.
-* **TargetFolder**: The folder under the file share to which data is restored. If the backed-up content is to be restored to a root folder, give the target folder values as an empty string.
+* **TargetFileShareName**: The File Shares within the target storage account to which the backed-up content is restored.
+* **TargetFolder**: The folder under the File Share to which data is restored. If the backed-up content is to be restored to a root folder, give the target folder values as an empty string.
 * **ResolveConflict**: Instruction if there's a conflict with the restored data. Accepts **Overwrite** or **Skip**.
 
 Run the cmdlet with the parameters as follows:
@@ -82,14 +83,14 @@ WorkloadName     Operation            Status               StartTime            
 testAzureFS        Restore              InProgress           12/10/2018 9:56:38 AM                               9fd34525-6c46-496e-980a-3740ccb2ad75
 ```
 
-## Restore an Azure file to an alternate location
+## Restore Azure Files to an alternate location
 
 Use the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) to restore to the selected recovery point. Specify these parameters to identify the alternate location, and to uniquely identify the file you want to restore.
 
 * **TargetStorageAccountName**: The storage account to which the backed-up content is restored. The target storage account must be in the same location as the vault.
-* **TargetFileShareName**: The file shares within the target storage account to which the backed-up content is restored.
-* **TargetFolder**: The folder under the file share to which data is restored. If the backed-up content is to be restored to a root folder, give the target folder values as an empty string.
-* **SourceFilePath**: The absolute path of the file, to be restored within the file share, as a string. This path is the same path used in the **Get-AzStorageFile** PowerShell cmdlet.
+* **TargetFileShareName**: The File Shares within the target storage account to which the backed-up content is restored.
+* **TargetFolder**: The folder under the File Share to which data is restored. If the backed-up content is to be restored to a root folder, give the target folder values as an empty string.
+* **SourceFilePath**: The absolute path of the file, to be restored within the File Share, as a string. This path is the same path used in the **Get-AzStorageFile** PowerShell cmdlet.
 * **SourceFileType**: Whether a directory or a file is selected. Accepts **Directory** or **File**.
 * **ResolveConflict**: Instruction if there's a conflict with the restored data. Accepts **Overwrite** or **Skip**.
 
@@ -101,17 +102,17 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccount
 
 This command returns a job with an ID to be tracked, as shown in the previous section.
 
-## Restore Azure file shares and files to the original location
+## Restore Azure Files and files to the original location
 
 When you restore to an original location, you don't need to specify destination- and target-related parameters. Only **ResolveConflict** must be provided.
 
-### Overwrite an Azure file share
+### Overwrite the Azure Files
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -ResolveConflict Overwrite
 ```
 
-### Overwrite an Azure file
+### Overwrite the Azure Files
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
@@ -165,8 +166,8 @@ WorkloadName         Operation         Status          StartTime                
 azurefiles           Restore           InProgress      4/5/2020 8:01:24 AM                    cd36abc3-0242-44b1-9964-0a9102b74d57
 ```
 
-If you want to restore multiple files or folders to alternate location, use the scripts above by specifying the target location-related parameter values, as explained above in [Restore an Azure file to an alternate location](#restore-an-azure-file-to-an-alternate-location).
+If you want to restore multiple files or folders to alternate location, use the scripts above by specifying the target location-related parameter values, as explained above in [Restore Azure Files to an alternate location](#restore-azure-files-to-an-alternate-location).
 
 ## Next steps
 
-[Learn about](restore-afs.md) restoring Azure Files in the Azure portal.
+Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

@@ -2,7 +2,8 @@
 title: Migrating a custom Virtual Network
 description: Describes how to migrate custom virtual network settings.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025
@@ -66,7 +67,7 @@ The following table maps the configuration properties between the two services:
 
 Azure Container Apps doesn't permit users to specify a custom timeout value. Instead, it enforces a built-in request timeout for HTTP requests, which is capped at 240 seconds. So, if a request exceeds this duration, the connection is automatically terminated to ensure efficient resource management and prevent long-running requests from monopolizing the system.
 
-Azure Container Apps doesn't directly support a `session-max-age` configuration item. However, you can manage session durations and behaviors through other related settings. For instance, you can use the [cookieExpiration](/rest/api/appservice/web-apps/get-auth-settings-v2#cookieexpiration) setting in the `EasyAuth` configuration to control how long an authentication session lasts. This setting enables you to specify the duration for which the authentication cookie remains valid.
+Azure Container Apps doesn't directly support a `session-max-age` configuration item. However, you can manage session durations and behaviors through other related settings. For instance, you can use the [cookieExpiration](/rest/api/appservice/web-apps/get-auth-settings-v-2#cookieexpiration) setting in the `EasyAuth` configuration to control how long an authentication session lasts. This setting enables you to specify the duration for which the authentication cookie remains valid.
 
 For more information about ingress settings provided by Azure Container Apps, see [Ingress in Azure Container Apps](../../container-apps/ingress-overview.md).
 

@@ -4,7 +4,7 @@ description: An overview of Azure Files, a service that enables you to create an
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 05/10/2024
+ms.date: 02/14/2025
 ms.author: kendownie
 ---
 
@@ -17,14 +17,14 @@ Here are some videos on common use cases for Azure Files:
 * [Replace your file server with a serverless Azure file share](https://youtu.be/H04e9AgbcSc)
 * [Getting started with FSLogix profile containers on Azure Files in Azure Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
-To get started using Azure Files, see [Quickstart: Create and use an Azure file share](storage-how-to-use-files-portal.md).
+To get started using Azure Files, see [How to create an SMB Azure file share](storage-how-to-create-file-share.md).
 
 ## Why Azure Files is useful
 
 You can use Azure file shares to:
 
 * **Replace or supplement on-premises file servers**:  
-    Use Azure Files to replace or supplement traditional on-premises file servers or network-attached storage (NAS) devices. Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. SMB Azure file shares can also be replicated with Azure File Sync to Windows servers, either on-premises or in the cloud, for performance and distributed caching of the data. With [Azure Files AD Authentication](storage-files-active-directory-overview.md), SMB Azure file shares can work with Active Directory Domain Services (AD DS) hosted on-premises for access control.
+    Use Azure Files to replace or supplement traditional on-premises file servers or network-attached storage (NAS) devices. Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. SMB Azure file shares can also be replicated with Azure File Sync to Windows servers, either on-premises or in the cloud, for performance and distributed caching of the data. With [identity-based authentication](storage-files-active-directory-overview.md), SMB Azure file shares can work with on-premises Active Directory Domain Services (AD DS) for access control.
 
 * **"Lift and shift" applications**:  
     Azure Files makes it easy to "lift and shift" applications to the cloud that expect a file share to store file application or user data. Azure Files enables both the "classic" lift and shift scenario, where both the application and its data are moved to Azure, and the "hybrid" lift and shift scenario, where the application data is moved to Azure Files, and the application continues to run on-premises.

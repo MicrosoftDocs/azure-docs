@@ -7,7 +7,7 @@ ms.reviewer: astay
 ms.author: msangapu
 author: msangapu-msft
 ms.devlang: python
-ms.custom: mvc, devx-track-python, devx-track-azurecli, mode-other, py-fresh-zinc, linux-related-content
+ms.custom: mvc, devx-track-python, devx-track-azurecli, mode-other, py-fresh-zinc, linux-related-content, innovation-engine
 adobe-target: true
 ---
 
@@ -18,6 +18,9 @@ adobe-target: true
 This article describes how [Azure App Service](overview.md) runs Python apps, how you can migrate existing apps to Azure, and how you can customize the behavior of App Service when you need to. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
 The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or when you deploy a [zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy).
+
+> [!NOTE]
+> Currently App Service requires `requirements.txt` in your project's root directory even if you have a `pyproject.toml`. See [Generate requirements.txt from pyproject.toml](#generate-requirementstxt-from-pyprojecttoml) for recommended approaches.
 
 This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, first follow the [Python quickstart](quickstart-python.md) and [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial.
 
@@ -61,10 +64,11 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
 You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
 
-<!-- <a> element here to preserve external links-->
-<a name="access-environment-variables"></a>
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
 
 ## Customize build automation
+> [!NOTE]
+> When Python applications are deployed with build automation, content will be deployed to and served from `/tmp/<uid>`, not under `/home/site/wwwroot`. This content directory can be access through the `APP_PATH` environment variable. Any additional files created at runtime should be written to a location under `/home` or using [Bring Your Own Storage](configure-connect-to-azure-storage.md) for persistence. More information on this behavior can be found [here](https://github.com/Azure-App-Service/KuduLite/wiki/Python-Build-Changes).
 
 App Service's build system, called Oryx, performs the following steps when you deploy your app, if the app setting `SCM_DO_BUILD_DURING_DEPLOYMENT` is set to `1`:
 
@@ -97,6 +101,30 @@ For more information on how App Service runs and builds Python apps in Linux, se
 
 > [!NOTE]
 > Always use relative paths in all pre- and post-build scripts because the build container in which Oryx runs is different from the runtime container in which the app runs. Never rely on the exact placement of your app project folder within the container (for example, that it's placed under *site/wwwroot*).
+
+## Generate requirements.txt from pyproject.toml
+
+App Service does not directly support `pyproject.toml` at the moment.  If you're using tools like Poetry or uv, the recommended approach is to generate a compatible `requirements.txt` before deployment in your project's root:
+
+### Using Poetry
+
+Using [Poetry](https://python-poetry.org/) with the [export plugin](https://github.com/python-poetry/poetry-plugin-export):
+
+```sh
+
+poetry export -f requirements.txt --output requirements.txt --without-hashes
+
+```
+
+### Using uv
+
+Using [uv](https://docs.astral.sh/uv/concepts/projects/sync/#exporting-the-lockfile):
+
+```sh
+
+uv export --format requirements-txt --no-hashes --output-file requirements.txt
+
+```
 
 ## Migrate existing applications to Azure
 
@@ -324,6 +352,9 @@ App Service ignores any errors that occur when processing a custom startup comma
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
     ```
+
+<!-- <a> element here to preserve external links-->
+<a name="access-environment-variables"></a>
 
 ## Access app settings as environment variables
 

@@ -3,13 +3,15 @@ title: Diagnostic logs
 titleSuffix: Azure Content Delivery Network
 description: Learn how to use Azure diagnostic logs to save core analytics, which allows you to export usage metrics from your Azure Content Delivery Network endpoint.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: troubleshooting
-ms.date: 03/20/2024
-ms.author: duau 
+ms.date: 03/31/2025
 ms.custom: devx-track-azurepowershell
+ROBOTS: NOINDEX
+# Customer intent: "As a content delivery network administrator, I want to enable and configure diagnostic logs, so that I can export usage metrics for analysis and optimize the performance of my CDN endpoints."
 ---
 
 # Diagnostic logs - Azure Content Delivery Network
@@ -40,13 +42,9 @@ Follow these steps enable logging for your Azure Content Delivery Network endpoi
 
 2. In the Azure portal, navigate to **All resources** > **your-cdn-profile**.
 
-2. Select the content delivery network endpoint for which you want to enable diagnostics logs:
+2. Select the content delivery network endpoint for which you want to enable diagnostics logs.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/02_browse-to-diagnostics-logs.png" alt-text="Screenshot of select content delivery network endpoint." border="true":::
-
-3. Select **Diagnostics logs** in the **Monitoring** section:
-
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Screenshot of the diagnostics logs button under monitoring menu." border="true":::
+3. Select **Diagnostics logs** in the **Monitoring** section.
 
 ### Enable logging with Azure Storage
 
@@ -63,8 +61,6 @@ To use a storage account to store the logs, follow these steps:
 
 4. Select the subscription and storage account for the logs.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Diagnostics logs - Storage." border="true":::
-
 3. Select **Save**.
 
 ### Send to Log Analytics
@@ -80,7 +76,7 @@ To use Log Analytics for the logs, follow these steps:
 
 3. Select the subscription and Log Analytics workspace for the logs.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Diagnostics logs - Log Analytics." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text=" Screenshot of Diagnostics logs - Log Analytics." border="true":::
 
 4. Select **Save**.
 
@@ -97,7 +93,7 @@ To use an event hub for the logs, follow these steps:
 
 3. Select the subscription and event hub namespace for the logs.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Diagnostics logs - Event hub." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Screenshot of Diagnostics logs - Event hub." border="true":::
 
 4. Select **Save**.
 

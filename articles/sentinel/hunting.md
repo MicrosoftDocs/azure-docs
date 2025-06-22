@@ -2,12 +2,12 @@
 title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
 description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
 ms.topic: conceptual
-ms.date: 05/17/2024
+ms.date: 12/31/2024
 ms.author: austinmc
 author: austinmccollum
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -94,10 +94,11 @@ Many available hunting queries are developed by Microsoft security researchers o
 
 Create or edit a query and save it as your own query or share it with users who are in the same tenant. In Microsoft Sentinel, create a custom hunting query from the **Hunting** > **Queries** tab.
 
-# [Azure portal](#tab/azure-portal)
-:::image type="content" source="./media/hunting/save-query.png" alt-text="Save query" lightbox="./media/hunting/save-query.png":::
 # [Defender portal](#tab/defender-portal)
 :::image type="content" source="./media/hunting/save-query-defender.png" alt-text="Save query" lightbox="./media/hunting/save-query-defender.png":::
+
+# [Azure portal](#tab/azure-portal)
+:::image type="content" source="./media/hunting/save-query.png" alt-text="Save query" lightbox="./media/hunting/save-query.png":::
 
 ---
 

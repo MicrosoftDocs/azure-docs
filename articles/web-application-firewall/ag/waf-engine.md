@@ -1,17 +1,17 @@
 ---
 title: WAF engine on Azure Application Gateway
 titleSuffix: Azure Web Application Firewall
-description: This article provides an overview of the Azure WAF engine.
+description: In this article, you learn about the Azure Web Application Firewall (WAF) engine and its new features.
 author: johndowns
 ms.author: jodowns
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 03/05/2024
+ms.date: 03/06/2025
 ---
 
 # WAF engine on Azure Application Gateway
 
-The Azure Web Application Firewall (WAF) engine is the component that inspects traffic and determines whether a request includes a signature that represents a potential attack and takes appropriate action depending on the configuration.
+The Azure Web Application Firewall (WAF) engine inspects traffic, detects potential attacks based on request signatures, and takes appropriate action according to the configuration.
 
 ## Next generation of WAF engine
 
@@ -28,10 +28,10 @@ The new engine, released with CRS 3.2, provides the following benefits:
 
 There are many new features that are only supported in the Azure WAF engine. The features include:
 
-* [CRS 3.2](application-gateway-crs-rulegroups-rules.md#owasp-crs-32)
+* [CRS 3.2](application-gateway-crs-rulegroups-rules.md#core-rule-set-32)
   * Increased request body size limit to 2 MB
   * Increased file upload limit to 4 GB
-* [DRS 2.1](application-gateway-crs-rulegroups-rules.md#drs-21) and later DRS versions
+* [DRS 2.1](application-gateway-crs-rulegroups-rules.md#default-rule-set-21) and later DRS versions
 * [WAF v2 metrics](application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics)
 * [Per rule exclusions](application-gateway-waf-configuration.md#per-rule-exclusions) and support for [exclusion attributes by name](application-gateway-waf-configuration.md#request-attributes-by-keys-and-values).
 * [Increased scale limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits)
@@ -51,6 +51,7 @@ When your WAF runs in prevention mode, the previous engine logs the request's ac
 
 In contrast, the new WAF engine logs the request action type as *Log*, whether the WAF is running in prevention or detection mode.
 
-## Next steps
+## Next step
 
-Learn more about [WAF managed rules](application-gateway-crs-rulegroups-rules.md).
+> [!div class="nextstepaction"]
+> [WAF managed rules](application-gateway-crs-rulegroups-rules.md)

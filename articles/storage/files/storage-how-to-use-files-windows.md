@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 04/04/2025
 ms.author: kendownie
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
@@ -12,15 +12,21 @@ ai-usage: ai-assisted
 
 # Mount SMB Azure file share on Windows
 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be seamlessly used in Windows and Windows Server. This article shows you how to use an SMB Azure file share with Windows and Windows Server.
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares work seamlessly with Windows and Windows Server. This article shows you how to use an SMB Azure file share with Windows and Windows Server.
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 This video shows you how to mount an SMB Azure file share on Windows.
 > [!VIDEO c057ece1-3ba7-409b-8cee-5492a4ad4ee4]
@@ -29,10 +35,13 @@ The steps in the video are also described in the following sections.
 
 In order to use an Azure file share via the public endpoint outside of the Azure region it's hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. Older versions of Windows that support only SMB 2.1 can't mount Azure file shares via the public endpoint.
 
-Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on premium file shares only.
+Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on SSD file shares only.
 
 | Windows version | SMB version | Azure Files SMB Multichannel | Maximum SMB channel encryption |
 |-|-|-|-|
+| Windows Server 2025 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 11, version 24H2 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 11, version 23H2 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 11, version 22H2 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 10, version 22H2 | SMB 3.1.1 | Yes | AES-128-GCM |
 | Windows Server 2022 | SMB 3.1.1 | Yes | AES-256-GCM |
@@ -48,32 +57,39 @@ Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) 
 | Windows Server 2016 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](files-smb-protocol.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
 | Windows 10, version 1607 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](files-smb-protocol.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
 | Windows 10, version 1507 | SMB 3.1.1 | Yes, with KB5004249 or newer and [applied registry key](files-smb-protocol.md#windows-10-version-1507) | AES-128-GCM |
-| Windows Server 2012 R2 | SMB 3.0 | No | AES-128-CCM |
-| Windows 8.1 | SMB 3.0 | No | AES-128-CCM |
-| Windows Server 2012 | SMB 3.0 | No | AES-128-CCM |
-| Windows Server 2008 R2<sup>1</sup> | SMB 2.1 | No | Not supported |
-| Windows 7<sup>1</sup> | SMB 2.1 | No | Not supported |
+| Windows Server 2012 R2<sup>1</sup> | SMB 3.0 | No | AES-128-CCM |
+| Windows Server 2012<sup>1</sup> | SMB 3.0 | No | AES-128-CCM |
+| Windows 8.1<sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
+| Windows Server 2008 R2<sup>2</sup> | SMB 2.1 | No | Not supported |
+| Windows 7<sup>2</sup> | SMB 2.1 | No | Not supported |
 
-<sup>1</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It's possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
+<sup>1</sup>Regular Microsoft support for Windows Server 2012 and Windows Server 2012 R2 has ended. It's possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates).
+
+<sup>2</sup>Microsoft support for Windows 7, Windows 8, and Windows Server 2008 R2 has ended. We strongly recommend migrating off of these operating systems.
 
 > [!NOTE]
 > We recommend taking the most recent KB for your version of Windows.
 
 ## Prerequisites
 
-Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open. Connections will fail if port 445 is blocked. You can check if your firewall or ISP is blocking port 445 by using the `Test-NetConnection` cmdlet. See [Port 445 is blocked](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json#cause-1-port-445-is-blocked).
+Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open. Connections will fail if port 445 is blocked. You can check if your firewall or ISP is blocking port 445 by using the `Test-NetConnection` PowerShell cmdlet. For more information, see [Port 445 is blocked](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json#cause-1-port-445-is-blocked).
 
 ## Using an Azure file share with Windows
 
-To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or [access it via its UNC path](#access-an-azure-file-share-via-its-unc-path).
+To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or [access it via its UNC path](#access-an-azure-file-share-via-its-unc-path). 
 
-This article uses the storage account key to access the file share. A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. If this isn't sufficient for your workload, you can use [Azure File Sync](../file-sync/file-sync-planning.md) or [identity-based authentication over SMB](storage-files-active-directory-overview.md). Shared access signature (SAS) tokens aren't currently supported for mounting Azure file shares.
+This article uses the storage account key to mount the file share, which is only appropriate for admin access. Mounting the share with the Active Directory or Microsoft Entra identity of the user is preferred. See [identity-based authentication overview](storage-files-active-directory-overview.md).
 
-A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating an LOB application to use an Azure file share is that many applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
+A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. You can find your storage account key in the [Azure portal](https://portal.azure.com/) by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
+
+Shared access signature (SAS) tokens aren't currently supported for mounting Azure file shares.
+
+> [!NOTE]
+> A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure virtual machine (VM). One important consideration for successfully migrating an LOB application to use an Azure file share is that many applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
 ### Mount the Azure file share
 
-The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key. Unless you're mounting the file share using identity-based authentication, we recommend using this provided script.
+The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key.
 
 To get this script:
 
@@ -91,7 +107,7 @@ To get this script:
 1. Select the drive letter to mount the share to.
 1. Copy the provided script.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot of connect blade, copy button on script is highlighted.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-script.png" alt-text="Screenshot of connect blade, copy button on script is highlighted.":::
 
 1. Paste the script into a shell on the host you'd like to mount the file share to, and run it.
 
@@ -100,7 +116,7 @@ You have now mounted your Azure file share.
 ### Mount the Azure file share with File Explorer
 
 > [!NOTE]
-> Note that the following instructions are shown on Windows 10 and may differ slightly on older releases.
+> The following instructions are shown on Windows 10 and might differ slightly on other releases.
 
 1. Open File Explorer by opening it from the Start Menu, or by pressing the Win+E shortcut.
 

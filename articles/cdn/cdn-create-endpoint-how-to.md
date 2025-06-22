@@ -2,13 +2,15 @@
 title: Create an Azure Content Delivery Network endpoint
 description: This article shows how to create a new Azure Content Delivery Network endpoint, including advanced settings.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: mvc
+ROBOTS: NOINDEX
+# Customer intent: As a cloud architect, I want to create a new content delivery network endpoint, so that I can efficiently deliver content to users and optimize performance based on different scenarios and content types.
 ---
 
 # Create an Azure Content Delivery Network endpoint
@@ -35,11 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 2. Select **Endpoint**.
 
-    ![Screenshot of content delivery network select endpoint.](./media/cdn-create-endpoint-how-to/cdn-select-endpoint.png)
-
     The **Add an endpoint** page appears.
-
-    ![Screenshot of the add an endpoint page.](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
 3. For **Name**, enter a unique name for the new content delivery network endpoint. This name is used to access your cached resources at the domain *\<endpointname>*.azureedge.net.
 

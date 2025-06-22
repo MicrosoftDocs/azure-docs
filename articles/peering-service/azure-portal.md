@@ -5,9 +5,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-peering-service
 ms.topic: how-to
-ms.date: 03/07/2024
+ms.date: 03/03/2025
 
 #CustomerIntent: As an administrator, I want to learn how to create and manage a Peering Service connection using the Azure portal so I can enhance the connectivity to Microsoft services over the public internet.
+# Customer intent: As an IT administrator, I want to create, modify, and delete Peering Service connections using the Azure portal so that I can effectively manage connectivity to Microsoft cloud services over the public internet.
 ---
 
 # Create, change, or delete a Peering Service connection using the Azure portal
@@ -30,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box at the top of the portal, enter *Peering Service*. Select **Peering Services** in the search results.
 
-    :::image type="content" source="./media/azure-portal/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal." lightbox="./media/azure-portal/peering-service-portal-search.png":::
+    :::image type="content" source="./media/peering-services-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal." lightbox="./media/peering-services-portal-search.png":::
 
 1. Select **+ Create**.
 
@@ -43,8 +44,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Resource Group | Select **Create new**. </br> Enter *myResourceGroup*. </br> Select **OK**. |
     | **Instance details** |  |
     | Name | Enter *myPeeringService*. |
-
-    :::image type="content" source="./media/azure-portal/peering-service-basics.png" alt-text="Screenshot of the Basics tab of Create a peering service connection in Azure portal.":::
  
 1. Select **Next: Configuration**.
 
@@ -63,8 +62,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Review + create**.
 
 1. Review the settings, and then select **Create**.
-
-    :::image type="content" source="./media/azure-portal/peering-service-create.png" alt-text="Screenshot of the Review + create tab of Create a peering service connection in Azure portal.":::
 
 1. After you create a Peering Service connection, more validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of your Peering Service. 
 
@@ -100,9 +97,7 @@ Review the [Technical requirements for Peering Service prefixes](../internet-pee
 
 1. Select the checkbox next to the Peering Service that you want to delete, and then select **Delete** at the top of the page.
 
-1. Enter *yes* in **Confirm delete**, and then select **Delete**.
-
-    :::image type="content" source="./media/azure-portal/peering-service-delete.png" alt-text="Screenshot of deleting a Peering Service in Azure portal.":::
+1. Enter ***yes*** in **Confirm delete**, and then select **Delete**.
 
 ## Modify the primary or backup peering location
 

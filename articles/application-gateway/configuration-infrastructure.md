@@ -2,11 +2,11 @@
 title: Azure Application Gateway infrastructure configuration
 description: This article describes how to configure the Azure Application Gateway infrastructure.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/01/2024
-ms.author: greglin
+ms.date: 03/07/2025
+ms.author: mbender
 ---
 
 # Application Gateway infrastructure configuration
@@ -83,13 +83,11 @@ Depending on whether you're creating new resources or using existing ones, add t
 
 |Resource | Resource status | Required Azure permissions |
 |---|---|---|
-| Subnet | Create new| Microsoft.Network/virtualNetworks/subnets/write<br>Microsoft.Network/virtualNetworks/subnets/join/action |
-| Subnet | Use existing| Microsoft.Network/virtualNetworks/subnets/read<br>Microsoft.Network/virtualNetworks/subnets/join/action |
-| IP addresses| Create new| Microsoft.Network/publicIPAddresses/write<br>Microsoft.Network/publicIPAddresses/join/action |
-| IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
-| ApplicationGatewayWebApplicationFirewallPolicies | Create new / Update existing | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write 
-Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read 
-Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/join/action |
+| Subnet | Create new| `Microsoft.Network/virtualNetworks/subnets/write' <br> 'Microsoft.Network/virtualNetworks/subnets/join/action` |
+| Subnet | Use existing| `Microsoft.Network/virtualNetworks/subnets/read` <br> `Microsoft.Network/virtualNetworks/subnets/join/action` |
+| IP addresses| Create new| `Microsoft.Network/publicIPAddresses/write` <br> `Microsoft.Network/publicIPAddresses/join/action` |
+| IP addresses  | Use existing| `Microsoft.Network/publicIPAddresses/read` <br> `Microsoft.Network/publicIPAddresses/join/action` |
+| ApplicationGatewayWebApplicationFirewallPolicies | Create new / Update existing | `Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write` <br> `Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read` <br> `Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/join/action` |
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 ## Roles scope
@@ -163,6 +161,9 @@ After you configure *active public and private listeners* (with rules) *with the
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
 |GatewayManager|Any|Any|`<as per SKU given above>`|TCP|Allow|
+
+> [!TIP]
+> The communication with Gateway Manager service is regional by default.
 
 **Azure Load Balancer probes**: Allow incoming traffic from the source as the **AzureLoadBalancer** service tag. This rule is created by default for [NSGs](../virtual-network/network-security-groups-overview.md). You must not override it with a manual **Deny** rule to ensure smooth operations of your application gateway.
 

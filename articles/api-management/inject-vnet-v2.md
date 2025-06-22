@@ -5,7 +5,9 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 11/18/2024
+ms.date: 03/20/2025
+ms.custom:
+  - build-2025
 ---
 
 # Inject an Azure API Management instance in a private virtual network - Premium v2 tier
@@ -20,7 +22,7 @@ This article guides you through the requirements to inject your Azure API Manage
 When an API Management Premium v2 instance is injected in a virtual network: 
 
 * The API Management gateway endpoint is accessible through the virtual network at a private IP address.
-* API Management can make outbound requests to API backends that are isolated in the network. 
+* API Management can make outbound requests to API backends that are isolated in the network or any peered network, as long as network connectivity is properly configured. 
 
 This configuration is recommended for scenarios where you want to isolate network traffic to both the API Management instance and the backend APIs.
 
@@ -54,7 +56,12 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 ### Network security group
 
-A network security group must be associated with the subnet.
+A network security group must be associated with the subnet. 
+
+* Configure an outbound NSG rule to allow access to Azure Storage on port 443. 
+* Configure other rules to meet your organization's network access requirements. 
+
+To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
 
 ### Subnet delegation
 
@@ -96,12 +103,7 @@ When you [create](get-started-create-service-instance.md) a Premium v2 instance 
 
 When a Premium v2 API Management instance is injected in a virtual network, you have to manage your own DNS to enable inbound access to API Management. 
 
-While you have the option to use your own custom DNS server, we recommend:
-
-1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
-1. Link the Azure DNS private zone to the virtual network. 
-
-Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
+[!INCLUDE [api-management-virtual-network-dns-resolver](../../includes/api-management-virtual-network-dns-resolver.md)]
 
 ### Endpoint access on default hostname
 

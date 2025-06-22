@@ -8,27 +8,28 @@ metadata:
   ms.service: azure-active-directory
   
   ms.topic: faq
-  ms.date: 10/01/2024
+  ms.date: 06/20/2025
   ms.author: godonnell
   ms.subservice: b2c
   ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
 title: 'Azure AD B2C: Frequently asked questions (FAQ)'
-summary: This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
-
-
+summary: | 
+  [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+  
+  This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
+  
 sections:
-  - name: Microsoft Entra External ID preview
+  - name: General
     questions:
+      - question: |
+          Azure AD B2C end of sale
+        answer: |
+          Effective **May 1, 2025** Azure AD B2C will no longer be available to purchase for new customers, but current Azure AD B2C customers can continue using the product. The product experience, including creating new tenants or user flows, will remain unchanged; however, new tenants can only be created with Azure AD B2C P1.  Azure AD B2C P2 will be discontinued on March 15, 2026, for all customers. The operational commitments, including service level agreements (SLAs), security updates, and compliance, will also remain unchanged. We'll continue supporting Azure AD B2C until at least May 2030. More information, including migration plans will be made available. Contact your account representative for more information and to learn more about Microsoft Entra External ID.
       - question: |
           What is Microsoft Entra External ID?
         answer: |
           We have released our next generation Microsoft Entra External ID product which combines powerful solutions for working with people outside of your organization. With External ID capabilities, you can allow external identities to securely access your apps and resources. Whether you’re working with external partners, consumers, or business customers, users can bring their own identities. These identities can range from corporate or government-issued accounts to social identity providers like Google or Facebook. For more information, see [Introduction to Microsoft Entra External ID](/entra/external-id/external-identities-overview)
-      - question: |
-          How does this preview affect me?
-        answer: |
-          No action is required on your part at this time. We remain fully committed to supporting your current Azure AD B2C solution. There are no requirements for Azure AD B2C customers to migrate at this time and no plans to discontinue the current Azure AD B2C service. 
-  - name: General
-    questions:
+
       - question: |
           Why can't I access the Azure AD B2C extension in the Azure portal?
         answer: |
@@ -55,7 +56,7 @@ sections:
       - question: |
           How many users can an Azure AD B2C tenant accommodate?
         answer: |
-          - By default, each tenant can accommodate a total of **1.25 million** objects (user accounts and applications), but you can increase this limit to **5.25 million** objects when you [add and verify a custom domain](custom-domain.md). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. 
+          By default, each tenant can accommodate a total of **1.25 million** objects (user accounts and applications), but you can increase this limit to **5.25 million** objects when you [add and verify a custom domain](custom-domain.md). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. 
       - question: |
           Which social identity providers do you support now? Which ones do you plan to support in the future?
         answer: |
@@ -164,6 +165,18 @@ sections:
           * **Usage reports** include the number of users, number of logins, and volume of MFA.
 
       - question: |
+          Why does my Azure AD B2C bill show phone charges named "Microsoft Entra External ID?"
+        answer: |
+          Following the new [billing model](https://azure.microsoft.com/pricing/details/active-directory-b2c/) for Azure AD External Identities SMS Phone Authentication, you may notice a new name on your bill. Previously, Phone MFA was billed as "Azure Active Directory B2C - Basic 1 Multi-Factor Authentication." Now you’ll see the following names based on your [country or region pricing tier](https://aka.ms/B2CSMSCountries):
+          
+          * Microsoft Entra External ID - Phone Authentication Low Cost 1 Transaction
+          * Microsoft Entra External ID - Phone Authentication Mid Low Cost 1 Transaction
+          * Microsoft Entra External ID - Phone Authentication Mid High Cost 1 Transaction
+          * Microsoft Entra External ID - Phone Authentication High Cost 1 Transaction
+          
+          Although the new bill mentions Microsoft Entra External ID, **you’re still billed for Azure AD B2C based on your core MAU count**.
+          
+      - question: |
           Can end users use a time-based one-time password (TOTP) with an authenticator app to authenticate to my Azure AD B2C app?
         answer: |
           Yes. End users need to download any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app) (recommended). For details see, [verification methods](multi-factor-authentication.md#verification-methods).
@@ -256,7 +269,7 @@ sections:
       - question: |
           Can I purchase Microsoft Entra ID P1 and Microsoft Entra ID P2 licensing for my Azure AD B2C tenant?
         answer: |
-          No, Azure AD B2C tenants don't use Microsoft Entra ID P1 or Microsoft Entra ID P2 licensing. Azure AD B2C uses [Azure AD B2C Premium P1 or P2](billing.md#change-your-azure-ad-pricing-tier) licenses, which are different from Microsoft Entra ID P1 or P2 licenses for a Standard Microsoft Entra tenant. Azure AD B2C tenants natively support some features that are similar to Microsoft Entra ID P1 or P2 features, as explained in [Supported Microsoft Entra ID features](supported-azure-ad-features.md).
+          No, Azure AD B2C tenants don't use Microsoft Entra ID P1 or Microsoft Entra ID P2 licensing. Azure AD B2C uses Premium P1 or P2 licenses, which are no longer available for purchase as of May 1, 2025. They are different from Microsoft Entra ID P1 or P2 licenses for a Standard Microsoft Entra tenant. Azure AD B2C tenants natively support some features that are similar to Microsoft Entra ID P1 or P2 features, as explained in [Supported Microsoft Entra ID features](supported-azure-ad-features.md).
          
       - question: |
           Can I use a group-based assignment for Microsoft Entra Enterprise Applications in my Azure AD B2C tenant?
@@ -271,7 +284,7 @@ sections:
       - question: |
           I am using rolling refresh tokens for my application and I am getting an invalid_grant error on redeeming newly acquired refresh tokens well within their set validity period. Why does this happen? 
         answer: |
-          While determining validity for rolling refresh tokens, B2C will consider the initial login time of the user in the application also to calculate the token validity skew. If the user haven't logged out of the application for a very long time, this skew value will exceed the validity period of the token and hence for security reasons the tokens will be considered as invalid. Hence the error. Inform the user to perform a proper logout and login back into the application and this should reset the skew. This scenario is not applicable if refresh token rolling is set as infinite rolling.
+          While determining validity for rolling refresh tokens, B2C will consider the initial login time of the user in the application also to calculate the token validity skew. If the user hasn't logged out of the application for a very long time, this skew value will exceed the validity period of the token and hence for security reasons the tokens will be considered as invalid. Hence the error. Inform the user to perform a proper logout and login back into the application and this should reset the skew. This scenario is not applicable if refresh token rolling is set as infinite rolling.
              
           
       - question: |

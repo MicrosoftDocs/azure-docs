@@ -6,9 +6,11 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/20/2024
+ms.date: 06/17/2025
 ms.author: danlep
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Azure API Management - Availability of v2 tiers and workspace gateways
@@ -47,10 +49,9 @@ Information in the following table is updated regularly. Capacity availability i
 | Switzerland North | ✅ |✅ |  | |
 | UK South | ✅  | ✅ | ✅ | ✅ |
 | UK West | ✅  | ✅ | | |
-| West Europe  | ✅ | ✅ | |  |
+| West Europe  | ✅ | ✅ | | ✅ |
 | West US | ✅ | ✅ |  | ✅ |
 | West US 2 | ✅ | ✅ |  | |
-
 
 ## Related content
 

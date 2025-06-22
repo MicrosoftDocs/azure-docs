@@ -8,15 +8,15 @@ author: jovinson-ms
 ms.author: jovinson
 ms.topic: quickstart-arm
 ms.custom: subject-armqs
-ms.date: 11/11/2024
+ms.date: 06/19/2025
 
 # Customer intent: As a cloud administrator, I want a quick method to deploy an Azure resource for production environments or to evaluate the service's functionality.
 ---
 
-# Quickstart: Deploy the de-identification service (preview) using an ARM template
+# Quickstart: Deploy the de-identification service using an ARM template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create
-an Azure Health Data Services de-identification service (preview).
+an Azure Health Data Services de-identification service.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 

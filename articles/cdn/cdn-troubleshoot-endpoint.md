@@ -1,13 +1,15 @@
 ---
+ROBOTS: NOINDEX
 title: Troubleshooting Azure Content Delivery Network endpoints - 404 status code
 description: Learn how to troubleshoot issues with Azure Content Delivery Network endpoints that return 404 HTTP response status codes.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: troubleshooting
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+# Customer intent: As a content delivery network administrator, I want to troubleshoot 404 status code errors on my CDN endpoints, so that I can ensure my content is accessible and provide a seamless user experience.
 ---
 
 # Troubleshooting Azure Content Delivery Network endpoints that return a 404 status code
@@ -52,11 +54,7 @@ First, verify that the file to cache is available on the origin server and is pu
 
 After you've verified the file is publicly available on the internet, verify your origin settings. In the [Azure portal](https://portal.azure.com), browse to your content delivery network profile and select the endpoint you're troubleshooting. From the resulting **Endpoint** page, select the origin.
 
-![Endpoint page with origin highlighted](./media/cdn-troubleshoot-endpoint/cdn-endpoint.png)
-
 The **Origin** page appears.
-
-![Origin page](./media/cdn-troubleshoot-endpoint/cdn-origin-settings.png)
 
 #### Origin type and hostname
 
@@ -75,8 +73,6 @@ On the **Endpoint** page, select the **Configure** button.
 ![Endpoint page with configure button highlighted](./media/cdn-troubleshoot-endpoint/cdn-endpoint-configure-button.png)
 
 The content delivery network endpoint **Configure** page appears.
-
-![Configure page](./media/cdn-troubleshoot-endpoint/cdn-configure.png)
 
 #### Protocols
 

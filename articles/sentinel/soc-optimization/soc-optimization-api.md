@@ -42,7 +42,7 @@ Use the following examples of the [`recommendations`](/rest/api/securityinsights
 - **Get a list of all current SOC optimization recommendations in your workspace**:
 
     ```rest
-    GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/recommendations 
+    GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/recommendations?api-version=2024-01-01-preview 
     ```
 
 - **Get a specific recommendation by recommendation ID**:

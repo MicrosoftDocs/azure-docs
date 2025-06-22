@@ -2,12 +2,14 @@
 title: 'Quickstart: Integrate an Azure Storage account with Azure Content Delivery Network'
 description: In this quickstart, learn how to use the Azure content delivery network to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: mvc, mode-other
+ROBOTS: NOINDEX
+# Customer intent: As a web developer, I want to integrate an Azure Storage account with a content delivery network, so that I can efficiently deliver high-bandwidth content by caching blobs and improving access speeds for users worldwide.
 ---
 
 # Quickstart: Integrate an Azure Storage account with Azure Content Delivery Network
@@ -36,8 +38,6 @@ To create a storage account, you must be either the service administrator or a c
 1. In the Azure portal, select **Create a resource** on the upper left. The **Create a resource** pane appears.
 
 1. Search for **Storage account** and select **Storage account** from the list. Then select **Create**:
-
-    :::image type="content" source="./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png" alt-text="Screenshot of create a storage account.":::
 
 1. In the **Create storage account pane**, enter the following details:
 
@@ -71,8 +71,6 @@ To create a storage account, you must be either the service administrator or a c
     | **Pricing tier** | Select one of the options, such as **Microsoft CDN (classic)**. |
 
 1. Select **Create**. After the endpoint is created, it appears in the endpoint list.
-
-	[ ![Screenshot of a storage new content delivery network endpoint.](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png).](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png#lightbox)
 
 > [!TIP]
 > If you want to specify advanced configuration settings for your content delivery network endpoint, such as [large file download optimization](cdn-optimization-overview.md#large-file-download), you can instead use the [Azure Content Delivery Network extension](cdn-create-new-endpoint.md) to create a content delivery network profile and endpoint.

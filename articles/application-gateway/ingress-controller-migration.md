@@ -2,11 +2,11 @@
 title: How to migrate from Azure Application Gateway Ingress Controller Helm to AGIC add-on
 description: This article provides instructions on how to migrate from AGIC deployed through Helm to AGIC deployed as an AKS add-on
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/01/2024
-ms.author: greglin
+ms.date: 2/28/2025
+ms.author: mbender
 ---
 
 # Migrate from AGIC Helm to AGIC add-on 
@@ -14,7 +14,7 @@ ms.author: greglin
 If you already have AGIC deployed through Helm but want to migrate to AGIC deployed as an AKS add-on, the following steps help to guide you through the migration process. 
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## Prerequisites 
 Before you start the migration process, there are a few things to check. 
@@ -45,5 +45,6 @@ Alternatively, you can navigate to your [AKS cluster in the Azure portal](https:
 ![Application Gateway Ingress Controller Portal](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## Next Steps
-- [**Application Gateway Ingress Controller Troubleshooting**](ingress-controller-troubleshoot.md): Troubleshooting guide for AGIC 
-- [**Application Gateway Ingress Controller Annotations**](ingress-controller-annotations.md): List of annotations on AGIC 
+- [Application Gateway Ingress Controller Troubleshooting](ingress-controller-troubleshoot.md): Troubleshooting guide for AGIC 
+- [Application Gateway Ingress Controller Annotations](ingress-controller-annotations.md): List of annotations on AGIC
+- [Application Gateway for Containers](for-containers/overview.md)

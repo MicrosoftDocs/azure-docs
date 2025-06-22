@@ -8,10 +8,14 @@ ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
 
+# Customer intent: "As a network administrator managing complex hybrid architectures, I want to configure BGP community values on my Azure virtual networks so that I can simplify routing traffic and optimize path selection across multiple ExpressRoute circuits."
 ---
 # Managing complex network architectures with BGP communities
 
 Managing a hybrid network becomes increasingly complex as you deploy more ExpressRoute circuits and establish connections to workloads in different Azure regions. To manage this complexity and route traffic efficiently from Azure to on-premises, you can configure BGP communities on your Azure virtual networks.
+
+> [!Note]
+> Use of Virtual Network BGP communities and ExpressRoute is not currently compatible with Azure Virtual WAN.
 
 ## What is a BGP community?
 

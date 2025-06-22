@@ -5,7 +5,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory

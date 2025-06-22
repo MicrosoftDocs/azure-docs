@@ -1,8 +1,8 @@
 ---
-author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: include
 ms.date: 02/03/2025
+author: craigshoemaker
 ms.author: cshoe
 ---
 

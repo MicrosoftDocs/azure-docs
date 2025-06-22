@@ -10,6 +10,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 01/09/2025
 ms.custom: mode-api, devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to create and manage public IP address prefixes using PowerShell, so that I can efficiently allocate static IP addresses for my Azure resources."
 ---
 
 # Quickstart: Create a public IP address prefix using PowerShell

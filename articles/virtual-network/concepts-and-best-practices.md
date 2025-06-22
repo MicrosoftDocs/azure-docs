@@ -4,8 +4,9 @@ description: Learn about Azure Virtual Network concepts and best practices.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 05/08/2023
+ms.date: 04/15/2025
 ms.author: allensu
+# Customer intent: As a network architect, I want to understand Azure Virtual Network concepts and best practices, so that I can design an efficient, secure, and scalable network infrastructure for my organization's cloud-based applications.
 ---
 
 # Azure Virtual Network concepts and best practices
@@ -16,7 +17,7 @@ This article describes key concepts and best practices for Azure Virtual Network
 
 - **Address space:** When creating a virtual network, you must specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources in a virtual network a private IP address from the address space that you assign. For example, if you deploy a VM in a virtual network with address space, 10.0.0.0/16, the VM is assigned a private IP like 10.0.0.4.
 
-- **Subnets:** Subnets enable you to segment the virtual network into one or more subnetworks and allocate a portion of the virtual network's address space to each subnet. You can then deploy Azure resources in a specific subnet. Just like in a traditional network, subnets allow you to segment your virtual network address space into segments that are appropriate for the organization's internal network. Segmentation improves address allocation efficiency. You can secure resources within subnets using Network Security Groups. For more information, see [Network security groups](./network-security-groups-overview.md).
+- **Subnets:** Subnets enable you to segment the virtual network into one or more sub networks and allocate a portion of the virtual network's address space to each subnet. You can then deploy Azure resources in a specific subnet. Just like in a traditional network, subnets allow you to segment your virtual network address space into segments that are appropriate for the organization's internal network. Segmentation improves address allocation efficiency. You can secure resources within subnets using Network Security Groups. For more information, see [Network security groups](./network-security-groups-overview.md).
 
 - **Regions**: A virtual network is scoped to a single region/location; however, multiple virtual networks from different regions can be connected together using Virtual Network Peering.
 
@@ -26,11 +27,11 @@ This article describes key concepts and best practices for Azure Virtual Network
 
 As you build your network in Azure, it's important to keep in mind the following universal design principles:
 
-- Ensure nonoverlapping address spaces. Make sure your virtual network address space (CIDR block) doesn't overlap with your organization's other network ranges.
+- Ensure address spaces don't overlap. Make sure your virtual network address space (CIDR block) doesn't overlap with your organization's other network ranges.
 
 - Your subnets shouldn't cover the entire address space of the virtual network. Plan ahead and reserve some address space for the future.
 
-- It's recommended you have a few large virtual networks rather than multiple small virtual networks to prevent management overhead.
+- Use a few large virtual networks instead of multiple small ones to reduce management overhead.
 
 - Secure your virtual networks by assigning Network Security Groups (NSGs) to the subnets beneath them. For more information about network security concepts, see [Azure network security overview](../security/fundamentals/network-overview.md).
 

@@ -20,6 +20,8 @@ ms.subservice: b2c
 
 # JSON claims transformations
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 This article provides examples for using the JSON claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [claims transformations](claimstransformations.md).
 
 ## CreateJsonArray
@@ -337,7 +339,7 @@ The GetClaimFromJson claims transformation gets a single element from a JSON dat
 
 ## GetClaimsFromJsonArray
 
-Get a list of specified elements from Json data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimsfromjsonarray) of this claims transformation.
+Get a list of specified elements from JSON data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimsfromjsonarray) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |

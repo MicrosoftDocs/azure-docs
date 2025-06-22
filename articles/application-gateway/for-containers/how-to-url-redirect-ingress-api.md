@@ -2,11 +2,12 @@
 title: URL Redirect for Azure Application Gateway for Containers - Ingress API
 description: Learn how to redirect URLs in Ingress API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
-ms.author: greglin
+ms.date: 3/7/2025
+ms.author: mbender
+# Customer intent: As a cloud infrastructure administrator, I want to configure URL redirection using an ingress API for my application gateway, so that I can manage client requests effectively, ensuring proper routing between HTTP and HTTPS and specific resource paths.
 ---
 
 # URL Redirect for Azure Application Gateway for Containers - Ingress API
@@ -47,7 +48,7 @@ The following figure illustrates an example of a request destined for _contoso.c
     Apply the following deployment.yaml file on your cluster to deploy a sample TLS certificate to demonstrate redirect capabilities.
   
     ```bash
-    kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/https-scenario/ssl-termination/deployment.yaml
+    kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/https-scenario/ssl-termination/deployment.yaml
     ```
 
     This command creates the following on your cluster:
@@ -393,4 +394,4 @@ Via the response we should see:
 * Connection #0 to host contoso.com left intact
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application, and used Ingress API to configure both an HTTP to HTTPs redirect and path based redirection to specific client requests.
+Congratulations, you have installed ALB Controller, deployed a backend application, and used Ingress API to configure both an HTTP to HTTPS redirect and path based redirection to specific client requests.

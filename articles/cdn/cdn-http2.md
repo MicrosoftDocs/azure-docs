@@ -1,13 +1,15 @@
 ---
+ROBOTS: NOINDEX
 title: HTTP/2 support in Azure Content Delivery Network
 description: Azure Content Delivery Network supports HTTP/2, which has benefits over HTTP/1, such as multiplexing and concurrency, header compression, and stream dependencies.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+# Customer intent: "As a web developer, I want to utilize HTTP/2 in my application, so that I can improve performance and enhance the user experience with faster load times and efficient resource management."
 ---
 
 # HTTP/2 Support in Azure Content Delivery Network

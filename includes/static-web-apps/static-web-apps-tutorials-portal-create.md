@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic:  include
 ms.date: 08/02/2023
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 Now that the repository is created, you can create a static web app from the Azure portal.

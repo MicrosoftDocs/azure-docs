@@ -3,12 +3,12 @@ metadata:
   title: Microsoft Customer Agreement FAQ - Azure
   titleSuffix: Cost Management + Billing
   description: This article provides answers to frequently asked questions about the Microsoft Customer Agreement.
-  author: bandersmsft
+  author: KennyDay
   ms.service: cost-management-billing
   ms.subservice: microsoft-customer-agreement
   ms.topic: faq
   ms.date: 01/07/2025
-  ms.author: banders
+  ms.author: kenday
 title: Microsoft Customer Agreement FAQ - Azure
 summary: |
 sections:
@@ -44,27 +44,27 @@ sections:
              | Fiji | Finland | France | Georgia |
              | Germany | Ghana | Greece | Guatemala |
              | Honduras | Hong Kong Special Administrative Region| Hungary | Iceland |
-             | Indonesia | Iraq | Ireland | Israel |
-             | Italy | Jamaica | Japan | Jordan |
-             | Kazakhstan | Kenya | Korea | Kuwait |
-             | Kyrgyzstan | Lebanon | Liechtenstein |Libya |
-             | Lithuania | Macao Special Administrative Region| Malaysia | Malta |
-             | Mauritius | Mexico | Moldova | Monaco |
-             | Mongolia | Montenegro | Morocco | Namibia |
-             | Nepal | Netherlands | New Zealand | Nicaragua |
-             | Nigeria | Norway | North Macedonia | Oman |
-             | Pakistan | Palestinian Authority | Panama | Paraguay |
-             | Peru | Philippines | Poland | Portugal |
-             | Puerto Rico | Qatar | Romania | Russia |
-             | Rwanda | Saint Kitts and Nevis | Saudi Arabia | Senegal |
-             | Serbia | Singapore | Slovakia | Slovenia |
-             | South Africa | Spain | Sri Lanka | Sweden |
-             | Switzerland | Taiwan | Tajikistan | Tanzania |
-             | Thailand | Trinidad and Tobago | Tunisia | Türkiye |
-             | Turkmenistan | Uganda | UK | Ukraine |
-             | United Arab Emirates | United States | Uruguay | Uzbekistan |
-             | Venezuela | Vietnam | Virgin Islands of the United States | Yemen |
-             | Zambia | Zimbabwe |  | |
+             | India| Indonesia | Iraq | Ireland |
+             | Israel | Italy | Jamaica | Japan |
+             | Jordan | Kazakhstan | Kenya | Korea |
+             | Kuwait | Kyrgyzstan | Lebanon | Liechtenstein |
+             |Libya | Lithuania | Macao Special Administrative Region | Malaysia |
+             | Malta | Mauritius | Mexico | Moldova |
+             | Monaco | Mongolia | Montenegro | Morocco |
+             |Namibia | Nepal | Netherlands | New Zealand |
+             | Nicaragua | Nigeria | Norway | North Macedonia |
+             | Oman | Pakistan | Palestinian Authority | Panama |
+             | Paraguay | Peru | Philippines | Poland |
+             | Portugal | Puerto Rico | Qatar | Romania |
+             | Russia | Rwanda | Saint Kitts and Nevis | Saudi Arabia |
+             |Senegal | Serbia | Singapore | Slovakia |
+             | Slovenia | South Africa | Spain | Sri Lanka | 
+             | Sweden | Switzerland | Taiwan | Tajikistan |
+             | Tanzania | Thailand | Trinidad and Tobago | Tunisia |
+             | Türkiye | Turkmenistan | Uganda | UK | 
+             | Ukraine | United Arab Emirates | United States | Uruguay |
+             | Uzbekistan | Venezuela | Vietnam | Virgin Islands of the United States |
+             | Yemen | Zambia | Zimbabwe |  |
       - question: What if I'm an existing customer purchasing Azure directly from Azure.com?
         answer: |
           Microsoft shares a notice directly with you at least 30 days before the transition to the Microsoft Customer Agreement.

@@ -1,15 +1,16 @@
 ---
-title: "Deployment step 3: storage - overview"
-description: Learn about production-level environment migration deployment step three.
+title: "Storage migration overview"
+description: Get a high level idea of the steps involved when migrating storage components during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: 
 services: 
+# Customer intent: As a cloud architect, I want to understand the steps for migrating storage resources in high-performance computing environments so that I can optimize data management, ensure cost efficiency, and effectively support the scalability of cloud infrastructure.
 ---
 
-# Deployment step 3: Storage - Overview
+# Storage migration overview
 
 With the cloud offering a broader range of storage solutions compared to on-premises systems, it's essential to define where different types of data—such as user home directories, project data, and scratch disks—should be stored. The section also discusses data migration strategies, whether it involves a one-time transfer or continuous synchronization between on-premises systems and the cloud. Organizations can optimize costs and performance by carefully selecting storage options and utilizing tools for efficient data movement.
 

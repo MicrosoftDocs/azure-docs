@@ -1,8 +1,6 @@
 ---
 title: Create an Azure App Service assessment
 description: Learn how to assess web apps for migration to Azure App Service
-author: rashi-ms
-ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 04/01/2024

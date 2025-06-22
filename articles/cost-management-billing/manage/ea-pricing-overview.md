@@ -1,13 +1,13 @@
 ---
 title: Azure EA pricing
 description: This article provides a pricing overview for Azure enterprise customers.
-author: bandersmsft
-ms.reviewer: sapnakeshari
+author: prashantsaini4
+ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/22/2025
-ms.author: banders
+ms.date: 04/01/2025
+ms.author: prsaini
 ---
 
 # Azure EA pricing
@@ -23,7 +23,7 @@ As a customer or a channel partner, you're guaranteed to receive prices at or be
 
 The price is referred to as the baseline price. Here are more details about the coverage start date:
 
-  - The coverage start date is based on the usage date for the purchase order. If the usage date is the first day of the month, the coverage start date is the first day of that month. If the usage date is the second day of the month or later, the coverage start date is the first day of the *following month*. If you need to backdate the coverage date, contact your partner or Software Advisor.
+- The coverage start date is based on the usage date for the purchase order. If the usage date is the first day of the month, the coverage start date is the first day of that month. If the usage date is the second day of the month or later, the coverage start date is the first day of the *following month*. If you need to backdate the coverage date, contact your partner or Software Advisor.
 
   - The price guarantee start date is set in the month of the coverage start date if you purchased Azure Prepayment more than 30 days from the agreement start date.  
 
@@ -39,7 +39,15 @@ For services introduced after your Azure purchase, you're charged the price that
 
 ## Price changes
 
-Microsoft might drop the current Enterprise Agreement price for individual Azure services during the term of an enrollment. We extend these reduced rates to existing customers while the lower price is in effect. If these rates increase later, your enrollment's price for a service doesn't increase beyond your price protection ceiling as defined previously. However, the rate might increase relative to the prior lowered price. In either case, we inform customers and indirect channel partners of upcoming price changes by emailing the Enterprise and Partner administrators associated with the enrollment.
+Microsoft might drop the current Enterprise Agreement price for individual Azure services during the term of an enrollment. We extend these reduced rates to existing customers while the lower price is in effect. If these rates increase later, your enrollment's price for a service doesn't increase beyond your price protection ceiling as defined previously. However, the rate might increase relative to the prior lowered price. In either case, we inform Bill-To contact on the EA agreement of upcoming price changes by email.
+
+## Foreign Exchange rate for Enterprise Agreement (EA)
+
+Enterprise Agreement (EA) customers are billed in their designated billing currency as per the terms of their agreement. Therefore, foreign exchange (FX) rates do not apply and are not available for EA customers.
+
+As a result, the *cost in pricing currency* field is not included in EA usage report. For more information see, [Understand cost details field](/azure/cost-management-billing/automate/understand-usage-details-fields#list-of-fields-and-descriptions) 
+
+If Microsoft anticipates any pricing changes due to currency exchange rate fluctuations, customers are notified in advance before those changes take effect.
 
 ## Current effective pricing
 
@@ -63,7 +71,7 @@ When regionalization of a service is first introduced, baseline price protection
 
 ## Enterprise Dev/Test
 
-Enterprise administrators can create subscriptions. They can also enable account owners to create subscriptions based on the Enterprise Dev/Test offer. The account owner must set up the Enterprise Dev/Test subscriptions that are needed for the underlying  subscribers. This configuration allows active Visual Studio subscribers to run development and testing workloads on Azure at special Enterprise Dev/Test rates. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
+Enterprise administrators can create subscriptions. They can also enable account owners to create subscriptions based on the Enterprise Dev/Test offer. The account owner must set up the Enterprise Dev/Test subscriptions that are needed for the underlying subscribers. This configuration allows active Visual Studio subscribers to run development and testing workloads on Azure at special Enterprise Dev/Test rates. For more information, see [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ## Credit process
 

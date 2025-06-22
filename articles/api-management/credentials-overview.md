@@ -3,7 +3,7 @@ title: About credential manager in Azure API Management
 description: Learn about using credential manager in Azure API Management to create and manage connections to backend SaaS APIs
 author: dlepow
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/14/2023
 ms.author: danlep
 ms.custom: references_regions

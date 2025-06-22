@@ -3,8 +3,8 @@ title: Azure Update Manager overview
 description: This article tells what Azure Update Manager in Azure is and the system updates for your Windows and Linux machines in Azure, on-premises, and other cloud environments.
 ms.service: azure-update-manager
 ms.custom: linux-related-content, ignite-2024
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 02/03/2025
 ms.topic: overview
 ---
@@ -18,7 +18,7 @@ ms.topic: overview
 
 Update Manager is a unified service to help manage and govern updates for all your machines (running a server operating system). You can monitor Windows and Linux update compliance across your machines in Azure, and on-premises or other cloud environments (connected by [Azure Arc](/azure/azure-arc/)) from a single pane of management. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window. 
 
-You can use Update Manager for:
+You can use Azure Update Manager for :
 
 - **Unified Update Management** - Monitor update compliance across Windows and Linux machines (running a server operating system) from a single dashboard, including machines in Azure, and on-premises or other cloud environments (connected by Azure Arc).
 - **Flexible patching options**:
@@ -76,3 +76,4 @@ Update Manager offers many new features and provides enhanced and native functio
 - [Schedule recurring updates](scheduled-patching.md)
 - [Manage update settings via the portal](manage-update-settings.md).
 - [Manage multiple machines by using Update Manager](manage-multiple-machines.md).
+- [Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus#azure-update-manager)

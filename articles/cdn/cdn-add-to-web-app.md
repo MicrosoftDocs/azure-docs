@@ -2,13 +2,15 @@
 title: Tutorial - Add Azure Content Delivery Network to an Azure App Service web app
 description: In this tutorial, Azure Content Delivery Network is added to an Azure App Service web app to cache and deliver your static files from servers close to your customers around the world.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: mvc
+ROBOTS: NOINDEX
+# Customer intent: "As a web developer, I want to integrate a Content Delivery Network with my Azure App Service web app, so that I can cache and deliver static files more efficiently to users globally."
 ---
 
 # Tutorial: Add Azure Content Delivery Network to an Azure App Service web app
@@ -56,15 +58,11 @@ Otherwise, if you don't want to optimize your new endpoint, you can use the web 
 
 1. In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/quickstart-html.md).
 
-    :::image type="content" source="./media/cdn-add-to-web-app/portal-select-app-services.png" alt-text="Screenshot of select an App Service app in the portal.":::
-
 1. In the **App Service** page, in the **Settings** section, select **Networking > Azure CDN**.
 
     :::image type="content" source="./media/cdn-add-to-web-app/portal-select-cdn.png" alt-text="Screenshot of select Azure Content Delivery Network from networking setting of an App Service.":::
 
 1. In the **Azure Content Delivery Network** page, provide the **New endpoint** settings as specified in the table.
-
-    :::image type="content" source="./media/cdn-add-to-web-app/portal-new-endpoint.png" alt-text="Screenshot of create Azure Content Delivery Network profile and endpoint in the portal.":::
 
     | Setting | Suggested value | Description |
     | ------- | --------------- | ----------- |
@@ -144,11 +142,7 @@ To trigger the content delivery network to update its cached version, purge the 
 
 1. In the portal left navigation, select **Resource groups**, and then select the resource group that you created for your web app (myResourceGroup).
 
-    :::image type="content" source="./media/cdn-add-to-web-app/portal-select-group.png" alt-text="Screenshot of selecting resource group from left menu pane in the portal.":::
-
 1. In the list of resources, select your content delivery network endpoint.
-
-    :::image type="content" source="./media/cdn-add-to-web-app/portal-select-endpoint.png" alt-text="Screenshot of Azure Content Delivery Network endpoint from resource group.":::
 
 1. At the top of the **Endpoint** page, select **Purge**.
 

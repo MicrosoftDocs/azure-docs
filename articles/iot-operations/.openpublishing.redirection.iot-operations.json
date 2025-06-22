@@ -136,41 +136,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/concept-akri-architecture.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-akri-architecture.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/overview-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/reference/observability-metrics-akri.md",
-            "redirect_url": "/azure/iot-operations/reference/observability-metrics-opcua-broker",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/iot-operations/configure-observability-monitoring/howto-add-cluster.md",
             "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
             "redirect_document_id": false
@@ -481,6 +446,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md",
+            "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-upload-messages-to-cloud",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-data-lake.md",
             "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
             "redirect_document_id": false
@@ -507,13 +477,13 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/concept-default-root-ca.md",
-            "redirect_url": "/azure/iot-operations/secure-iot-ops/concept-default-root-ca",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-certificates",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/deploy-iot-ops/concept-default-root-ca.md",
-            "redirect_url": "/azure/iot-operations/secure-iot-ops/concept-default-root-ca",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-certificates",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/get-started-end-to-end-sample/quickstart-add-assets.md",
@@ -544,6 +514,46 @@
             "source_path_from_root": "/articles/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md",
             "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-add-assets",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-secure-assets.md",
+            "redirect_url": "/azure/iot-operations/reference/custom-rbac",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-akri-architecture.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-akri",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/concept-akri-architecture.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-akri",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-akri.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-akri",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/reference/observability-metrics-akri.md",
+            "redirect_url": "/azure/iot-operations/reference/observability-metrics-opcua-broker",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/secure-iot-ops/concept-default-root-ca.md",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-certificates",
+            "redirect_document_id": true
         }
     ]
 }

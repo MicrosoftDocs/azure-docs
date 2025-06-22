@@ -4,8 +4,8 @@ description: Describes the change to using volume hard quota, how to plan for th
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 11/26/2024
+ms.topic: concept-article
+ms.date: 02/20/2025
 ms.author: anfdocs
 ---
 # What changing to volume hard quota means for your Azure NetApp Files service
@@ -240,7 +240,7 @@ Yes, the consumed snapshot capacity counts towards the provisioned space in the 
 
 A common misconception is that Azure NetApp Files *volumes* would automatically grow upon filling up. Volumes were thinly provisioned with a size of 100 TiB, regardless of the actual set quota, while the underlying *capacity pool* would automatically grow with 1-TiB increments. This change addresses the (visible and usable) *volume* size to the set quota, and *capacity pools* thus no longer automatically grow. This change results in commonly desired accurate client-side space and capacity reporting. It avoids "runaway" capacity consumption.
 
-### Does this change have any effect on volumes replicated with cross-region-replication (preview)? 
+### Does this change have any effect on volumes replicated with cross-region-replication? 
 
 The hard volume quota isn't enforced on replication destination volumes.
 

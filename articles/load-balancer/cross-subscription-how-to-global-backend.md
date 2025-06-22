@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 02/20/2025
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
 ---
@@ -23,8 +23,8 @@ A [cross-subscription load balancer](cross-subscription-overview.md) can referen
 
 - Two Azure subscriptions. 
 - An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
-- A global public IP address deployed in **Azure Subscription A**.
-- A regional load balancer deployed in **Azure Subscription B**.
+- A global public IP address deployed in **Azure Subscription A** located in a [Global load balancer home region](cross-subscription-how-to-global-backend.md).
+- A regional load balancer deployed in **Azure Subscription A**.
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see Install Azure PowerShell module. If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
@@ -38,8 +38,8 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 - Two Azure subscriptions. One subscription for the virtual network (**Azure Subscription A**) and another subscription for the load balancer(**Azure Subscription B**).
 - An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
-- A global public IP address deployed in **Azure Subscription A**.
-- A regional load balancer deployed in **Azure Subscription B**.
+- A global public IP address deployed in **Azure Subscription A** located in a [Global load balancer home region](cross-subscription-how-to-global-backend.md).
+- A regional load balancer deployed in **Azure Subscription A**. For this example, the load balancer is called **load-balancer-regional** in a resource group called **resource-group-a**.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -55,7 +55,7 @@ If you choose to install and use the CLI locally, this quickstart requires Azure
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-With Azure PowerShell, you sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount), and change your subscription context with [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) to **Azure Subscription A**. Then get the regional load balancer information with [`Get-AzLoadBalancer`](/powershell/module/az.network/get-azloadbalancer) and [`Get-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/get-azloadbalancerfrontendipconfig). You need the Azure subscription ID, resource group name, and virtual network name from your environment.
+With Azure PowerShell, you sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount), and change your subscription context with [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) to **Azure Subscription A**. Then get the regional load balancer information with [`Get-AzLoadBalancer`](/powershell/module/az.network/get-azloadbalancer) and [`Get-AzLoadBalancerFrontendIpConfig`](/powershell/module/az.network/get-azloadbalancerfrontendipconfig). You need the Azure subscription ID, resource group name, and virtual network name from your environment.
  
 
 ```azurepowershell
@@ -64,15 +64,15 @@ With Azure PowerShell, you sign into Azure with [`Connect-AzAccount`](/powershel
 Connect-AzAccount
 
 # Set the subscription context to Azure Subscription A
-Set-AzContext -Subscription '<Azure Subscription A>'     
+Set-AzContext -Subscription '<Subscription ID of Subscription A>'     
 
 # Get the Virtual Network information with Get-AzVirtualNetwork
 $rlb= @{
-    Name = '<regional load balancer name>'
-    ResourceGroupName = '<Resource Group Subscription A>'
+    Name = 'load-balancer-regional'
+    ResourceGroupName = 'resource-group-a'
 }
-$RLB-info = Get-AzLoadBalancer @rlb
-$RLBFE = Get-AzLoadBalancerFrontendIpConfig @ RLB-info
+$rlbinfo = Get-AzLoadBalancer @rlb
+$rlbfe = Get-AzLoadBalancerFrontendIpConfig @rlbinfo
 
 ```
 
@@ -86,7 +86,7 @@ With Azure CLI, you'll sign into Azure with [az login](/cli/azure/reference-inde
 
 # Sign in to Azure CLI and change subscription to Azure Subscription B
 Az login
-Az account set –subscription <Azure Subscription A>
+Az account set –subscription '<Subscription ID of Subscription B>' 
 ```
 
 ---
@@ -106,13 +106,13 @@ Set-AzContext -Subscription '<Azure Subscription B>'
 
 # Create a resource group  
 $rg = @{
-    Name = 'myResourceGroupLB'
-    Location = 'westus'
+    Name = 'resource-group-b'
+    Location = 'eastus2'
 }
 New-AzResourceGroup @rg
 ```
 > [!NOTE]
-> When create the resource group for your load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
+> When creating the resource group for your load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
 
 # [Azure CLI](#tab/azurecli/)
 
@@ -120,7 +120,7 @@ With Azure CLI, you switch the subscription context with [`az account set`](/cli
 
 ```azurecli
 # Create a resource group in Azure Subscription B
-az group create --name 'myResourceGroupLB' --location westus
+az group create --name resource-group-b --location eastus2
 ```
 
 > [!NOTE]
@@ -130,8 +130,8 @@ az group create --name 'myResourceGroupLB' --location westus
 
 ## Create a global load balancer
 
-In this section, you create the resources needed for the cross-region load balancer.
-A global standard sku public IP is used for the frontend of the cross-region load balancer.
+In this section, you create the resources needed for the global load balancer.
+A global standard sku public IP is used for the frontend of the global load balancer.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
@@ -146,8 +146,8 @@ With Azure PowerShell, you:
 ```azurepowershell
 # Create global IP address for load balancer
 $ip = @{
-    Name = 'myPublicIP-CR'
-    ResourceGroupName = ‘ Resource Group B’
+    Name = 'public-IP-global'
+    ResourceGroupName = 'resource-group-b'
     Location = 'eastus2'
     Sku = 'Standard'
     Tier = 'Global'
@@ -157,20 +157,20 @@ $publicIP = New-AzPublicIpAddress @ip
 
 # Create frontend configuration
 $fe = @{
-    Name = 'myFrontEnd-CR'
+    Name = 'front-end-config-global'
     PublicIpAddress = $publicIP
 }
 $feip = New-AzLoadBalancerFrontendIpConfig @fe
 
 # Create backend address pool
 $be = @{
-    Name = 'myBackEndPool-CR'
+    Name = 'backend-pool-global'
 }
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig @be
 
 # Create the load balancer rule
 $rul = @{
-    Name = 'myHTTPRule-CR'
+    Name = 'HTTP-rule-global'
     Protocol = 'tcp'
     FrontendPort = '80'
     BackendPort = '80'
@@ -179,10 +179,10 @@ $rul = @{
 }
 $rule = New-AzLoadBalancerRuleConfig @rul
 
-# Create cross-region load balancer resource
+# Create global load balancer resource
 $lbp = @{
-    ResourceGroupName = ‘ Resource Group B’
-    Name = 'myLoadBalancer-CR'
+    ResourceGroupName = 'resource-group-b'
+    Name = 'load-balancer-global'
     Location = ‘eastus2’
     Sku = 'Standard'
     Tier = 'Global'
@@ -197,45 +197,45 @@ $lb = New-AzLoadBalancer @lbp
 
 With Azure CLI, you:
 
-- Create a cross-region load balancer with [`az network cross-region-lb create`](/cli/azure/network/cross-region-lb#az-network-cross-region-lb-create).
+- Create a global load balancer with [`az network cross-region-lb create`](/cli/azure/network/cross-region-lb#az-network-cross-region-lb-create).
 - Create a load balancer rule with [`az network cross-region-lb rule create`](/cli/azure/network/cross-region-lb#az-network-cross-region-lb-rule-create).
 
 ```azurecli
 
-# Create cross-region load balancer
-az network cross-region-lb create --name myLoadBalancer-CR --resource-group myResourceGroupLB-CR --frontend-ip-name myFrontEnd-CR --backend-pool-name myBackEndPool-CR
+# Create global load balancer
+az network cross-region-lb create --name load-balancer-global --resource-group resource-group-b --frontend-ip-name front-end-config-global --backend-pool-name backend-pool-global
 
 # create a load balancer rule
-az network cross-region-lb rule create --backend-port 80 --frontend-port 80 --lb-name myLoadBalancer-CR --name myHTTPRule-CR --protocol tcp --resource-group myResourceGroupLB-CR --backend-pool-name myBackEndPool-CR --frontend-ip-name myFrontEnd-CR
+az network cross-region-lb rule create --backend-port 80 --frontend-port 80 --lb-name load-balancer-global --name HTTP-rule-global --protocol tcp --resource-group resource-group-b --backend-pool-name backend-pool-global --frontend-ip-name front-end-config-global
 
 ```
 ---
 
-## Add load balancer frontends to cross-region load balancer
+## Add load balancer frontends to global load balancer
 
-In this section, you add a frontend IP configuration to the cross-region load balancer.
+In this section, you add a frontend IP configuration to the global load balancer.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
 With Azure PowerShell, you:
 
-- Use [`Set-AzLoadBalancerFrontendIpConfig`](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) to add the regional load balancer frontend to the cross-region backend pool.
+- Use [`Set-AzLoadBalancerFrontendIpConfig`](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) to add the regional load balancer frontend to the global backend pool.
 - Use [`New-AzLoadBalancerBackendAddressConfig`](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig) to create the backend address pool configuration for the load balancer.
 
 ```azurepowershell
 
-## Create the cross-region backend address pool configuration for region 2 ##
-$RLB-BAF = @{
-    Name = 'MyBackendPoolConfig-RLB'
-    LoadBalancerFrontendIPConfigurationId = $RLBFE.Id
+## Create the global backend address pool configuration for region 2 ##
+$rlbbaf = @{
+    Name = 'backend-pool-config-regional'
+    LoadBalancerFrontendIPConfigurationId = $rlbfe.Id
 }
 $beaddressconfigRLB = New-AzLoadBalancerBackendAddressConfig @region2ap
 
-## Apply the backend address pool configuration for the cross-region load balancer ##
+## Apply the backend address pool configuration for the global load balancer ##
 $bepoolcr = @{
-    ResourceGroupName = ‘ Resource Group B’
-    LoadBalancerName = 'myLoadBalancer-CR'
-    Name = 'myBackEndPool-CR'
+    ResourceGroupName = 'resource-group-b'
+    LoadBalancerName = 'load-balancer-global'
+    Name = 'backend-pool-global'
     LoadBalancerBackendAddress = $beaddressconfigRLB
 }
 Set-AzLoadBalancerBackendAddressPool @bepoolcr
@@ -244,16 +244,16 @@ Set-AzLoadBalancerBackendAddressPool @bepoolcr
 
 # [Azure CLI](#tab/azurecli/)
 
-With Azure CLI, you add the frontends you placed in variables in the backend pool of the cross-region load balancer with use [`az network cross-region-lb address-pool`](/cli/azure/network/cross-region-lb#az-network-cross-region-lb-address-pool).
+With Azure CLI, you add the frontends you placed in variables in the backend pool of the global load balancer with use [`az network cross-region-lb address-pool`](/cli/azure/network/cross-region-lb#az-network-cross-region-lb-address-pool).
 
 ```azurecli
 
 az network cross-region-lb address-pool address add \
-    --frontend-ip-address ‘/subscriptions/Subscription A/resourceGroups/rg-name/providers/Microsoft.Network/loadBalancers/RLB-name /frontendIPConfigurations/RLB-LB Frontend Name’ 
-    --lb-name myLoadBalancer-CR \
+    --frontend-ip-address ‘/subscriptions/Subscription A/resourceGroups/rg-name/providers/Microsoft.Network/loadBalancers/rlb-name /frontendIPConfigurations/rlb-lb Frontend Name’ 
+    --lb-name load-balancer-global \
     --name myFrontEnd-R2 \
-    --pool-name myBackEndPool-CR \
-    --resource-group myResourceGroupLB-CR
+    --pool-name backend-pool-global \
+    --resource-group resource-group-b
 ```
 
 ## Next steps

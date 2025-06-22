@@ -7,7 +7,6 @@ ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 03/02/2021
 ms.author: rosouz
-ms.reviewer: whhender
 ms.custom: cosmos-db, mode-other
 ---
 
@@ -38,7 +37,7 @@ From the Data Object Explorer, you can directly connect to an Azure Cosmos DB da
 
 1. Select the **+** icon near **Data**.
 1. Select **Connect to external data**.
-1. Select the API that you want to connect to, for example, **SQL API** or **API for MongoDB**.
+1. Select the API that you want to connect to, for example, **CosmosDB for NoSQL** or **CosmosDB API for MongoDB**.
 1. Select **Continue**.
 1. Use a friendly name to name the linked service. The name will appear in the Data Object Explorer and is used by Azure Synapse runtimes to connect to the database and containers.
 1. Select the **Azure Cosmos DB account name** and the **database name**.

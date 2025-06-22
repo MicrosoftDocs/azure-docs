@@ -1,22 +1,26 @@
 ---
-title: Restore VMware VMs with Azure Backup Server
-description: Use Azure Backup Server (MABS) to restore VMware VMs running on a VMware vCenter/ESXi server.
+title: Restore VMware virtual machines using Azure Backup Server
+description: Learn how to use Microsoft Azure Backup Server (MABS) to restore VMware VM recovery points.
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 02/25/2025
 author: jyothisuri
 ms.author: jsuri
 ---
-# Restore VMware virtual machines
+# Restore VMware virtual machines using Azure Backup Server
 
-This article explains how to use Microsoft Azure Backup Server (MABS) to restore VMware VM recovery points. For an overview on using MABS to recover data, see [Recover protected data](./backup-azure-alternate-dpm-server.md). In the MABS Administrator Console, there are two ways to find recoverable data - search or browse. When recovering data, you may, or may not want to restore data or a VM to the same location. For this reason, MABS supports three recovery options for VMware VM backups:
+This article describes how to use Microsoft Azure Backup Server (MABS) to restore VMware VM recovery points. For an overview on using MABS to recover data, see [Recover protected data](./backup-azure-alternate-dpm-server.md). In the MABS Administrator Console, there are two ways to find recoverable data - search or browse. When recovering data, you might choose to restore data or a VM to the same location.
 
-* **Original location recovery (OLR)** - Use OLR to restore a protected VM to its original location. You can restore a VM to its original location only if no disks have been added or deleted, since the backup occurred. If disks have been added or deleted, you must use alternate location recovery.
+The following table lists the supported recovery options in MABS for VMware VM restore:
 
-* **Alternate location recovery (ALR)** - When the original VM is missing, or you don't want to disturb the original VM, recover the VM to an alternate location. To recover a VM to an alternate location, you must provide the location of an ESXi host, resource pool, folder, and the storage datastore and path. To help differentiate the restored VM from the original VM, MABS appends "-Recovered" to the name of the VM.
-
-* **Individual file location recovery (ILR)** - If the protected VM is a Windows Server VM, individual files/folders inside the VM can be recovered using MABS’s ILR capability. To recover individual files, see the procedure later in this article.
+| Recovery option | Description |
+| --- | --- |
+| **Original location recovery (OLR)** | This option helps you to restore a protected VM to its original location. You can restore a VM to its original location only if no disks have been added or deleted, since the backup occurred. If disks have been added or deleted, you must use alternate location recovery. |
+| **Alternate location recovery (ALR)** | When the original VM is missing, or you don't want to disturb the original VM, recover the VM to an alternate location. To recover a VM to an alternate location, you must provide the location of an ESXi host, resource pool, folder, and the storage datastore and path. To help differentiate the restored VM from the original VM, MABS appends `-Recovered` to the name of the VM. |
+| **Individual file location recovery (ILR)** | If the protected VM is a Windows Server VM, individual files/folders inside the VM can be recovered using MABS’s ILR capability. To recover individual files, see the procedure later in this article. |
 
 ## Restore a recovery point
+
+To restore a recovery point of a VMware VM, follow these steps:
 
 1. In the MABS Administrator Console, select **Recovery view**.
 
@@ -46,7 +50,9 @@ This article explains how to use Microsoft Azure Backup Server (MABS) to restore
 
 ## Restore an individual file from a VM
 
-You can restore individual files from a protected VM recovery point. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse into the VMDK and find the file(s) you want, before starting the recovery process. To recover an individual file or select files from a Windows Server VM:
+You can restore individual files from a protected VM recovery point. This feature is only available for Windows Server VMs. Restoring individual files is similar to restoring the entire VM, except you browse into the VMDK and find the file(s) you want, before starting the recovery process. 
+
+To recover an individual file or select files from a Windows Server VM, follow these steps:
 
 >[!NOTE]
 >Restoring an individual file from a VM, and from Disk and Online recovery Points.

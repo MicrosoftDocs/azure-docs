@@ -67,7 +67,7 @@ ms.author: wchi
         <dependency>
           <groupId>com.azure.spring</groupId>
           <artifactId>spring-cloud-azure-dependencies</artifactId>
-          <version>4.12.0</version>
+          <version>5.20.0</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>
@@ -120,7 +120,7 @@ ms.author: wchi
     DATABASES = {
         'default': {
             'ENGINE': 'sql_server.pyodbc',
-            'NAME': databse,
+            'NAME': database,
             'USER': user,
             'PASSWORD': password,
             'HOST': server,

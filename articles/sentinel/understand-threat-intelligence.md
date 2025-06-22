@@ -1,20 +1,21 @@
 ---
-title: Understand threat intelligence
+title: Threat intelligence
 titleSuffix: Microsoft Sentinel
 description: Understand threat intelligence and how it integrates with features in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
-author: austinmccollum
+author: guywi-ms
 ms.topic: concept-article
-ms.date: 01/27/2025
-ms.author: austinmc
+ms.date: 02/27/2025
+ms.author: guywild
+ms.reviewer: alsheheb
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #Customer intent: As a security analyst, I want to integrate threat intelligence into Microsoft Sentinel so that I can detect, investigate, and respond to potential security threats effectively.
 ---
 
-# Understand threat intelligence in Microsoft Sentinel
+# Threat intelligence in Microsoft Sentinel
 
 Microsoft Sentinel is a cloud-native security information and event management (SIEM) solution with the ability to ingest, curate, and manage threat intelligence from numerous sources.
 
@@ -125,7 +126,7 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 ## Create and manage threat intelligence
 
-Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in Microsoft's unified SecOps platform.
+Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in the Microsoft Defender portal.
 
 :::image type="content" source="media/understand-threat-intelligence/intel-management-defender-portal.png" alt-text="Screenshot showing intel management page in the Defender portal." lightbox="media/understand-threat-intelligence/intel-management-defender-portal.png":::
 
@@ -133,6 +134,7 @@ Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft D
 > Threat intelligence in the Azure portal is still accessed from **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
 
 Two of the most common threat intelligence tasks are creating new threat intelligence related to security investigations and adding tags. The management interface streamlines the manual process of curating individual threat intel with a few key features.
+
 - Configure ingestion rules to optimize threat intel from incoming sources.
 - Define relationships as you create new STIX objects.
 - Curate existing TI with the relationship builder.
@@ -185,7 +187,7 @@ The following image shows how the relationship builder connects all of these use
 
 ### Curate threat intelligence
 
-Configure which TI objects can be shared with appropriate audiences by designating a sensitivity level called Traffic Light Protocol (TLP).
+Configure which TI objects can be shared with appropriate audiences by designating a sensitivity level called Traffic Light Protocol (TLP). 
 
 | TLP color | Sensitivity |
 |---|---|
@@ -194,31 +196,37 @@ Configure which TI objects can be shared with appropriate audiences by designati
 | Amber | Information can be shared with members of the organization, but not publicly. It's intended to be used within the organization to protect sensitive information. |
 | Red | Information is highly sensitive and shouldn't be shared outside of the specific group or meeting where it was originally disclosed. |
 
-Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an object represents threats from a particular known actor or well-known attack campaign, consider creating a relationship instead of a tag. After you search and filter for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
+Set TLP values for TI objects in the UI when you create or edit them. Setting TLP through the API is less intuitive and requires choosing one of four `marking-definition` object GUIDs. For more information on configuring TLP through the API, see [object_marking_refs in the Common properties of the upload API](stix-objects-api.md#common-properties) 
+
+Another way to curate TI is with tags. Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an object represents threats from a particular known actor or well-known attack campaign, consider creating a relationship instead of a tag. After you search and filter for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
 
 For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#create-threat-intelligence).
 
 ## View your threat intelligence
 
-View your threat intelligence from the management interface. Use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
+View your threat intelligence from the management interface or using queries: 
 
-:::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot that shows an advanced search interface with source and confidence conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
+- From the management interface, use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
 
-View your indicators stored in the Microsoft Sentinel-enabled Log Analytics workspace. The `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics, hunting queries, and workbooks. 
+    :::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot that shows an advanced search interface with source and confidence conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
+
+- Use queries to view threat intelligence from **Logs** in the Azure portal or **Advanced hunting** in the Defender portal. 
+
+    Either way, the `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics, hunting queries, and workbooks.
 
 >[!IMPORTANT]
->Tables supporting the new STIX object schema are in private preview. In order to view the STIX objects in queries and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
->
+> On April 3, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: 
+`ThreatIntelIndicators` and `ThreatIntelObjects`. Microsoft Sentinel will ingest all threat intelligence into these new tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
+>**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelindicators) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+> For information on using and migrating to the new tables, see [Work with STIX objects to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview)](work-with-stix-objects-indicators.md). 
 
-Here's an example view of a basic query for just threat indicators using the current table.
+### Threat intelligence lifecycle
 
-:::image type="content" source="media/understand-threat-intelligence/logs-page-ti-table.png" alt-text="Screenshot that shows the Logs page with a sample query of the ThreatIntelligenceIndicator table." lightbox="media/understand-threat-intelligence/logs-page-ti-table.png":::
+Microsoft Sentinel stores threat intelligence data in your threat intelligence tables and automatically reingests all data every seven days to optimize query efficiency.
 
-Threat intelligence indicators are ingested into the `ThreatIntelligenceIndicator` table of your Log Analytics workspace as read-only. Whenever an indicator is updated, a new entry in the `ThreatIntelligenceIndicator` table is created. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `IndicatorId` and `SourceSystem` properties and chooses the indicator with the newest `TimeGenerated[UTC]`.
+When an indicator is created, updated, or deleted, Microsoft Sentinel creates a new entry in the tables. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `Id` property (the `IndicatorId` property in the legacy `ThreatIntelligenceIndicator`) and chooses the indicator with the newest `TimeGenerated[UTC]`.
 
-The `IndicatorId` property is generated using the STIX indicator ID. When indicators are imported or created from non-STIX sources, `IndicatorId` is generated from the source and pattern of the indicator.
-
-For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#find-and-view-your-indicators-with-queries).
+The `Id` property is a concatenation of the base64-encoded `SourceSystem` value, `---` (three dashes), and the `stixId` (which is the `Data.Id` value).
 
 ### View your GeoLocation and WhoIs data enrichments (public preview)
 
@@ -257,5 +265,5 @@ For more information on using and customizing the **Threat Intelligence** workbo
 In this article, you learned about threat intelligence capabilities powered by Microsoft Sentinel. For more information, see the following articles:
 
 - [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
-- [Uncover adversaries with threat intelligence in Microsoft's unified SecOps platform](/unified-secops-platform/threat-intelligence-overview)
-- [Hunting in Microsoft's unified SecOps platform](/unified-secops-platform/hunting-overview)
+- [Uncover adversaries with threat intelligence in the Defender portal](/unified-secops-platform/threat-intelligence-overview)
+- [Hunting in the Defender portal](/unified-secops-platform/hunting-overview)

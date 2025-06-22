@@ -4,6 +4,9 @@ description: Use the JDBC driver from a Java application to submit Apache Hive q
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-extended-java
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 02/03/2025
 ---
 

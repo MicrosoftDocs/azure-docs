@@ -4,7 +4,7 @@ description: Troubleshooting guide for Bare Metal Machines in 'Degraded' status 
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus
 ms.topic: troubleshooting
-ms.date: 02/03/2025
+ms.date: 05/21/2025
 author: robertstarling
 ms.author: robstarling
 ms.reviewer: ekarandjeff
@@ -19,121 +19,170 @@ This document provides basic troubleshooting information for Bare Metal Machine 
 Bare Metal Machines (BMM) which are in _Degraded_ state exhibit the following symptoms.
 
 - The Detailed status message includes one or more _Degraded_ messages as shown in the following table.
-- The BMM might be automatically cordoned, if the resource is continuously degraded for 15 minutes or longer (for Compute nodes only).
+- The BMM is automatically cordoned once the resource is continuously degraded for more than 15 minutes (for Compute nodes only).
 - The BMM will then remain cordoned for 2 hours after the underlying conditions resolve, after which it will be automatically uncordoned.
 - Control and Management nodes can be reported as _Degraded_, but aren't automatically cordoned.
 
-| Detailed status message                                  | Cordon automatically? | Details and mitigation                                                                                            |
-| -------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `Degraded: port is not functioning as expected`          | Yes                   | [Degraded: `port is not functioning as expected`](#degraded-port-is-not-functioning-as-expected)                  |
-| `Degraded: LACP status is down`                          | Yes                   | [Degraded: `LACP status is down`](#degraded-lacp-status-is-down)                                                  |
-| `Degraded: BMM power state doesn't match expected state` | No                    | [Degraded: `BMM power state doesn't match expected state`](#degraded-bmm-power-state-doesnt-match-expected-state) |
+| Detailed status message         | Details and mitigation                                           |
+| ------------------------------- | ---------------------------------------------------------------- |
+| `Degraded: NIC failed`          | [`Degraded: NIC failed`](#degraded-nic-failed)                   |
+| `Degraded: port down`           | [`Degraded: port down`](#degraded-port-down)                     |
+| `Degraded: LACP status is down` | [`Degraded: LACP status is down`](#degraded-lacp-status-is-down) |
+| `Degraded: port flapping`       | [`Degraded: port flapping`](#degraded-port-flapping)             |
 
 _Degraded_ status messages and associated automatic cordoning behavior are present in Azure Operator Nexus version 2502.1 and higher.
 
 ## Troubleshooting
 
-To check for any Bare Metal Machines (BMMs) which are currently degraded, run `az networkcloud baremetalmachine list -g <ResourceGroup_Name> -o table`. This command shows the current status of all BMMs in the specified resource group. Any active _Degraded_ conditions are visible in the detailed status message.
+To check for any Bare Metal Machines (BMMs) which are currently degraded, run `az networkcloud baremetalmachine list -g <ResourceGroup_Name> -o table`.
+This command shows the current status of all BMMs in the specified resource group. Any active _Degraded_ conditions are visible in the detailed status message.
 
-To see the current Cordoning status, include a `--query` parameter which specifies the `cordonStatus`, as seen in the following example. This command can help to identify any compute nodes which are still automatically cordoned due to recently resolved _Degraded_ conditions.
+To see the current Cordoning status, include a `--query` parameter which specifies the `cordonStatus`, as seen in the following example.
+This command can help to identify any compute nodes which are still automatically cordoned due to recently resolved _Degraded_ conditions.
 
 ```azurecli
-az networkcloud baremetalmachine list  -g <ResourceGroup_Name> --output table --query "[].{name:name,powerState:powerState,provisioningState:provisioningState,readyState:readyState,cordonStatus:cordonStatus,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage}"
+az networkcloud baremetalmachine list \
+  -g <ResourceGroup_Name> \
+  --output table \
+  --query "[].{name:name,powerState:powerState,provisioningState:provisioningState,readyState:readyState,cordonStatus:cordonStatus,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage}"
 ```
 
 **Example Azure CLI output**
 
-```
+This example shows a deployment with two currently degraded BMMs (`compute01` and `compute04`), and two cordoned BMMs (`compute02` and `compute04`).
+Not all degraded BMMs are cordoned (yet), and not all of the healthy BMMs are uncordoned (yet) - due to the fixed delay before automatic cordoning and uncordoning takes effect.
+
+```shell
 Name            PowerState    ProvisioningState    ReadyState    CordonStatus    DetailedStatus    DetailedStatusMessage
 --------------  ------------  -------------------  ------------  --------------  ----------------  -----------------------------------------------------------------------------------------------------------------
-rack2management1  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3management1  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2management2  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1management1  Off           Succeeded            False         Uncordoned      Available         Available to participate in the cluster.
-rack3management2  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1management2  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute01    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute05    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute02    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
+rack1management1  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
+rack1compute01    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine. Degraded: LACP status is down
+rack1compute02    On            Succeeded            True          Cordoned        Provisioned       The OS is provisioned to the machine.
 rack1compute03    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute08    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2compute05    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2compute03    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute01    On            Succeeded            False         Cordoned        Provisioned       The OS is provisioned to the machine. Degraded: LACP status is down
-rack2compute07    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2compute01    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute04    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute06    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute05    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute08    Off           Succeeded            False         Uncordoned      Error             This machine has failed hardware validation
-rack2compute06    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute07    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute03    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute02    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute07    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute04    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2compute08    On            Succeeded            True          Cordoned        Provisioned       The OS is provisioned to the machine. Degraded: port is not functioning as expected
-rack2compute02    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute06    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2compute04    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
+rack1compute04    On            Succeeded            True          Cordoned        Provisioned       The OS is provisioned to the machine. Degraded: port flapping Degraded: port down
 ```
 
-For more information, use an Azure CLI Bare Metal Machine `run-read-command` command such as the following to inspect the `conditions` status of the corresponding kubernetes BMM object.
+Additional information about recent degraded conditions and automatic cordoning is available in the following fields on the `bmm` kubernetes resource.
+
+- `degradedStartTime` and `degradedEndTime` show the start and end time of the most recent _degraded_ state
+- `conditions` shows the status of any individual conditions which are contributing to a _degraded_ state
+- `cordonStatus` indicates whether the node is currently cordoned or uncordoned
+- `annotations` shows which conditions triggered the current cordon, if automatically cordoned.
+  - `platform.afo-nc.microsoft.com/lacp-down-cordon`
+  - `platform.afo-nc.microsoft.com/port-down-cordon`
+  - `platform.afo-nc.microsoft.com/port-flap-cordon`
+- If the user manually cordoned the BMM, the following annotation is also present.
+  - `platform.afo-nc.microsoft.com/cutomer-cordon`
+- The Activity Logs for the BMM resource in the Azure portal can also provide more information about any recent user initiated cordon requests.
+
+- The `annotations` metadata on the `bmm` kubernetes resource shows which condition triggered the cordon.
+- The `conditions` status on the `bmm` kubernetes object shows the current status and timestamp for any triggering conditions.
+
+To view these `bmm` kubernetes resource fields, use an Azure CLI `run-read-command` command as shown in the following example.
 
 ```azurecli
-az networkcloud baremetalmachine run-read-command -g <ResourceGroup_Name> -n rack2management2 --limit-time-seconds 60 --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack2compute08,-o,json]}]" --output-directory .
+az networkcloud baremetalmachine run-read-command \
+  -g <ResourceGroup_Name> \
+  -n rack2management2 \
+  --limit-time-seconds 60 \
+  --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack2compute08,-o,json]}]" \
+  --output-directory .
 ```
 
 - Replace `<ResourceGroup_Name>` with the name of the resource group containing the BMM resources.
 - Replace `rack2management2` with the name of a BMM resource for a healthy Kubernetes control plane node, from which to execute the `kubectl get` command.
 - Replace `rack2compute08` with the name of the degraded or cordoned BMM to inspect.
-- For more information about the `run-read-command` feature, see [BareMetal Run-Read Execution](./howto-baremetal-run-read.md).
 
-Review the `lastTransitionTime` and `message` fields for more information about the corresponding degraded condition, as shown in the following example output.
+For more information about the `run-read-command` feature, see [BareMetal Run-Read Execution](./howto-baremetal-run-read.md).
 
-**Example `conditions` output:**
+**Example `run-read-command` output (`kubectl get bmm`):**
 
-```
-  "conditions": [
-    {
-      "lastTransitionTime": "2025-01-30T23:54:04Z",
-      "status": "True",
-      "type": "BmmInExpectedLACPState"
-    },
-    {
-      "lastTransitionTime": "2025-02-01T22:07:14Z",
-      "message": "Error: Port status for interface 98_p1 is down",
-      "reason": "Port status is down",
-      "severity": "Error",
-      "status": "False",
-      "type": "BmmInExpectedPortState"
-    },
-    {
-      "lastTransitionTime": "2025-01-30T23:54:04Z",
-      "status": "True",
-      "type": "BmmInExpectedPowerState"
+This example shows an automatically cordoned BMM with two active _Degraded_ conditions.
+
+```json
+{
+  "metadata": {
+    "annotations": {
+      "platform.afo-nc.microsoft.com/port-down-cordon": "true",
+      "platform.afo-nc.microsoft.com/port-flap-cordon": "true"
     }
-  ],
+  },
+  "status": {
+    "conditions": [
+      {
+        "lastTransitionTime": "2025-03-04T02:47:59Z",
+        "status": "True",
+        "type": "BmmInExpectedLACPState"
+      },
+      {
+        "lastTransitionTime": "2025-03-04T03:27:00Z",
+        "message": "Physical link(s) down: 4b_p1",
+        "reason": "PortDown",
+        "status": "False",
+        "type": "BmmNetworkLinksUp"
+      },
+      {
+        "lastTransitionTime": "2025-03-04T03:49:00Z",
+        "message": "Port flapping in the last 15 mins: 4b_p1 (2 times)",
+        "reason": "PortFlappingDetected",
+        "status": "False",
+        "type": "BmmNetworkLinksStable"
+      }
+    ],
+    "cordonStatus": "Cordoned",
+    "degradedStartTime": "2025-03-04T03:27:00Z",
+    "detailedStatus": "Provisioned",
+    "detailedStatusMessage": "The OS is provisioned to the machine. Degraded: port flapping Degraded: port down"
+  }
+}
 ```
 
 ## Automatic Cordoning
 
-If an uncordoned BMM is in a _Degraded_ state for 15 minutes or more, the node might be automatically cordoned, depending on which degraded conditions are present.
+If an uncordoned Compute BMM remains in a _Degraded_ state for more than 15 minutes, the node is automatically cordoned.
 
-- The `cordonStatus` field in the BMM object shows the current state of the node.
-- Only BMMs used for Compute are automatically cordoned. Control and Management nodes aren't automatically cordoned.
 - An automatically cordoned node will remain cordoned for 2 hours after the underlying conditions are resolved, after which it will be automatically uncordoned.
 - To uncordon a BMM manually, use the `az networkcloud baremetalmachine uncordon` command or execute the _Uncordon_ action from the Azure portal.
-- Manually uncordoning a BMM which still has a degraded condition has no effect. The _Uncordon_ request will execute successfully, but the node will immediately be automatically cordoned again until 2 hours after the underlying conditions are resolved.
+- Manually uncordoning a BMM which still has an active degraded condition isn't allowed. In this case, the _Uncordon_ request is rejected with an error message similar to the following.
 
-To investigate whether a currently cordoned BMM is due to a recent _Degraded_ state:
+`action rejected: baremetalmachine 'rack1compute01' currently degraded since 2025-02-26 05:26:09 +0000 UTC`
 
-- Review the `lastTransitionTime` in the `conditions` for the kubernetes `bmm` resource, as described in the [Troubleshooting](#troubleshooting) section, to identify any recently resolved _Degraded_ conditions.
-- Review the Activity Logs for the BMM resource in the Azure portal to check for any user initiated cordon requests.
+Note: only BMMs used for _Compute_ are automatically cordoned. Control and Management nodes aren't automatically cordoned.
 
-## Degraded: `port is not functioning as expected`
+For more information about investigating the root cause of an automatic cordon, see [Troubleshooting](#troubleshooting).
 
-This message in the BMM _Detailed status message_ field indicates that the physical link is down on one or more of the Mellanox interfaces on the underlying compute host. This scenario can indicate a cabling, switch port configuration, or hardware failure.
+## `Degraded: NIC Failed`
+
+This message indicates that one of the expected Mellanox Network Interface Cards (NICs) on the underlying compute host is failed or missing.
+This message typically indicates a hardware failure on the NIC, or that the card isn't correctly seated in the host.
+
+To troubleshoot this issue:
+
+- to identify the nonoperational NIC, check the Ethernet link status indicators on the underlying compute host
+- check that the NIC is correctly installed and seated
+- sign into the Baseboard Management Controller (BMC) to check the hardware status of the NIC
+- review detailed hardware logs by generating a Dell TSR (Technical Support Report) as described in the Dell Knowledge Base article [Export a SupportAssist Collection Using an iDRAC](https://www.dell.com/support/kbdoc/en-us/000126308/export-a-supportassist-collection-via-idrac9)
+- review the most recent time of failure reported by the Bare Metal Machine `conditions`, as described in the [Troubleshooting](#troubleshooting) section
+- power cycle the host by executing a "Restart" action on the Bare Metal Machine resource, and see if the condition clears.
+
+**Example `conditions` output for NIC failed**
+
+```json
+"conditions": [
+  {
+    "lastTransitionTime": "2025-05-21T16:49:29Z",
+    "message": "Expected 2 devices in oam-bond, found 1: 98_pf0vf0_vf",
+    "reason": "OamDevicesUnhealthy",
+    "status": "False",
+    "type": "BmmNicsHealthy"
+  },
+],
+```
+
+## `Degraded: port down`
+
+This message in the BMM _Detailed status message_ field indicates that the physical link is down on one or more of the Mellanox interfaces on the underlying compute host.
+This scenario can indicate a cabling, switch port configuration, or hardware failure.
 
 To troubleshoot this issue:
 
@@ -142,24 +191,24 @@ To troubleshoot this issue:
 - check the Ethernet cabling and Top Of Rack (TOR) switch for the specified port
 - check for any recent deployment or infrastructure changes which coincide with the time of failure.
 
-**Example `conditions` output for unexpected port state**
+**Example `conditions` output for port down**
 
+```json
+"conditions": [
+  {
+    "lastTransitionTime": "2025-03-04T03:27:00Z",
+    "message": "Physical link(s) down: 4b_p1",
+    "reason": "PortDown",
+    "status": "False",
+    "type": "BmmNetworkLinksUp"
+  },
+],
 ```
-  "conditions": [
-    {
-      "lastTransitionTime": "2025-02-01T22:07:14Z",
-      "message": "Error: Port status for interface 98_p1 is down",
-      "reason": "Port status is down",
-      "severity": "Error",
-      "status": "False",
-      "type": "BmmInExpectedPortState"
-    }
-  ],
-```
 
-## Degraded: `LACP status is down`
+## `Degraded: LACP status is down`
 
-This message in the BMM _Detailed status message_ field indicates a Link Aggregation Control Protocol (LACP) failure on the underlying compute host, when the physical links are physically up. This scenario can indicate a cabling or Top Of Rack (TOR) switch configuration issue.
+This message in the BMM _Detailed status message_ field indicates a Link Aggregation Control Protocol (LACP) failure on the underlying compute host, when the physical links are physically up.
+This scenario can indicate a cabling or Top Of Rack (TOR) switch configuration issue.
 
 To troubleshoot this issue:
 
@@ -171,54 +220,49 @@ To troubleshoot this issue:
 - for more information about diagnosing and fixing LACP issues, see [Troubleshoot LACP Bonding](./troubleshoot-lacp-bonding.md).
 
 > [!WARNING]
-> As of version 2502.1, there's a known issue where `LACP status is down` can be incorrectly reported in addition to the `port is not functioning as expected` message during a port down scenario. This issue can happen when a BMM is restarted or reimaged while the physical port is down. This issue will be fixed in a future release. In the meantime, the `LACP status is down` warning can be safely ignored if the physical port is also down.
+> In version 2502.1, there's a known issue where `LACP status is down` can be incorrectly reported in addition to a `port is not functioning as expected` message during a port down scenario.
+> This issue can happen when a BMM is restarted or reimaged while the physical port is down.
+> In this case, the LACP warning can be safely ignored if the physical port is also down. This issue is fixed in version 2503.1.
 
 **Example `conditions` output for unexpected LACP state**
 
+```json
+"conditions": [
+  {
+    "lastTransitionTime": "2025-01-31T12:24:27Z",
+    "message": "Error: LACP status for interface 4b_p0 is down, LACP status for interface 4b_p1 is down",
+    "reason": "LACP status is down",
+    "severity": "Error",
+    "status": "False",
+    "type": "BmmInExpectedLACPState"
+  },
+],
 ```
-  "conditions": [
-    {
-      "lastTransitionTime": "2025-01-31T12:24:27Z",
-      "message": "Error: LACP status for interface 4b_p0 is down, LACP status for interface 4b_p1 is down",
-      "reason": "LACP status is down",
-      "severity": "Error",
-      "status": "False",
-      "type": "BmmInExpectedLACPState"
-    },
-  ],
-```
 
-## Degraded: `BMM power state doesn't match expected state`
+## `Degraded: port flapping`
 
-This message in the BMM _Detailed status message_ field indicates that either:
-
-- the underlying host is powered off when it should be on, or
-- the underlying host is powered on when it should be off.
-
-This condition can happen temporarily during a normal Restart, Reimage, or similar BMM lifecycle event. However, a persistent 'unexpected power state' message can indicate an issue with the underlying compute host or baseboard management controller (BMC).
+This message in the BMM _Detailed status message_ field indicates that one or more of the Mellanox ethernet ports is experiencing port flapping.
+Port flapping is defined as two or more changes in the physical link state within the previous 15 minutes.
+This behavior can indicate a cabling, switch or hardware issue, or possible network configuration issues.
 
 To troubleshoot this issue:
 
-- review the `conditions` status of the kubernetes `bmm` object, as described in the [Troubleshooting](#troubleshooting) section
-- this information should identify the approximate time of the issue and any other available details
-- check the power feed, power cables, and physical hardware for the specified BMM
-- check whether any other BMMs are also reporting an unexpected degraded state, which might indicate a broader issue with the underlying infrastructure
-- check for any recent deployment or infrastructure changes which coincide with the time of failure
-- review the power state and logs on the BMC for the affected host.
+- identify the affected port and approximate time of the issue by reviewing the BMM `conditions`, as described in the [Troubleshooting](#troubleshooting) section
+- check the `degradedStartTime` timestamp on the `bmm` object (if different) for more context about the overall timeline
+- check the Ethernet cabling and Top Of Rack (TOR) switch for the specified port
+- check for any other BMMs which are also reporting port flapping or link failures, for information about the scope of the issue or any common cause
+- check for any recent deployment or infrastructure changes which coincide with the time of failure.
 
-For more information about logging into the BMC, see [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
+**Example `conditions` output for port flapping**
 
-**Example `conditions` output for unexpected power state**
-
-```
-  "conditions": [
-    {
-      "lastTransitionTime": "2025-02-03T22:35:55Z",
-      "message": "BareMetalMachine expected to be powered on",
-      "reason": "BmmPoweredOnExpected",
-      "severity": "Error",
-      "status": "False",
-      "type": "BmmInExpectedPowerState"
-    },
-  ],
+```json
+"conditions": [
+  {
+    "lastTransitionTime": "2025-03-04T03:49:00Z",
+    "message": "Port flapping in the last 15 mins: 4b_p1 (2 times)",
+    "reason": "PortFlappingDetected",
+    "status": "False",
+    "type": "BmmNetworkLinksStable"
+  },
+],
 ```

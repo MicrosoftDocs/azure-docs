@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 06/18/2025
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a data flow.
 ---
@@ -26,7 +26,7 @@ Use the following table to choose the endpoint type to configure:
 | [Data Lake](howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. | No | Yes |
 | [Microsoft Fabric OneLake](howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. | No | Yes |
 | [Azure Data Explorer](howto-configure-adx-endpoint.md) | For uploading data to Azure Data Explorer databases. | No | Yes |
-| [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes. | No | Yes |
+| [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, optionally configurable with Azure Container Storage enabled by Azure Arc. | No | Yes |
 
 > [!IMPORTANT]
 > Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use data flow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify a schema reference](./howto-create-dataflow.md#serialize-data-according-to-a-schema).
@@ -59,9 +59,45 @@ To make it easier to reuse endpoints, the MQTT or Kafka topic filter isn't part 
 
 For example, you can use the default MQTT broker data flow endpoint. You can use it for both the source and destination with different topic filters:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 :::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience to create a data flow from MQTT to MQTT.":::
+
+# [Azure CLI](#tab/cli)
+
+
+Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
+
+```azurecli
+az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `data-flow.json` with the following content stored in the user's home directory:
+```json
+{
+  "mode": "Enabled",
+  "operations": [
+    {
+      "operationType": "Source",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "example/topic/1"
+        ]
+      }
+    },
+    {
+      "operationType": "Destination",
+      "destinationSettings": {
+        "endpointRef": "default",
+        "dataDestination": "example/topic/2"
+      }
+    }
+  ]
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -123,9 +159,46 @@ spec:
 
 Similarly, you can create multiple data flows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a data flow that sends data to an Event Hubs endpoint.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 :::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-kafka.png" alt-text="Screenshot using operations experience to create a data flow from MQTT to Kafka.":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
+
+```azurecli
+az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `data-flow.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "mode": "Enabled",
+  "operations": [
+    {
+      "operationType": "Source",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "example/topic/3"
+        ]
+      }
+    },
+    {
+      "operationType": "Destination",
+      "destinationSettings": {
+        // The endpoint needs to be created before you can reference it here
+        "endpointRef": "example-event-hub-endpoint",
+        "dataDestination": "example/topic/4"
+      }
+    }
+  ]
+}
+```
 
 # [Bicep](#tab/bicep)
 

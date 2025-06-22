@@ -1,11 +1,12 @@
 ---
 title: Azure Firewall with Microsoft Sentinel overview
 description: This article shows you how you can optimize security using the Azure Firewall solution for Microsoft Sentinel.
-author: vhorne
-ms.author: victorh
+author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 10/09/2023
+# Customer intent: As a security operations analyst, I want to integrate Azure Firewall with my security monitoring solution, so that I can enhance threat detection and automate incident response to safeguard my organization's network against sophisticated cyber attacks.
 ---
 
 # Azure Firewall with Microsoft Sentinel overview

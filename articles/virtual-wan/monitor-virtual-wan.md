@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Virtual WAN
 description: Start here to learn how to monitor availability and performance for Azure Virtual WAN by using Azure Monitor.
-ms.date: 09/10/2024
+ms.date: 03/26/2025
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: cherylmc
@@ -33,15 +33,11 @@ You can view metrics for Virtual WAN by using the Azure portal. The following st
 
 1. Select **Monitor Gateway** and then **Metrics**. You can also select **Metrics** at the bottom to view a dashboard of the most important metrics for site-to-site and point-to-site VPN.
 
-   :::image type="content" source="./media/monitor-virtual-wan-reference/site-to-site-vpn-metrics-dashboard.png" alt-text="Screenshot shows the sie-to-site VPN metrics dashboard." lightbox="./media/monitor-virtual-wan-reference/site-to-site-vpn-metrics-dashboard.png":::
-
 1. On the **Metrics** page, you can view the metrics.
 
-   :::image type="content" source="./media/monitor-virtual-wan-reference/metrics-page.png" alt-text="Screenshot that shows the 'Metrics' page with the categories highlighted." lightbox="./media/monitor-virtual-wan-reference/metrics-page.png":::
 
 1. To see metrics for the virtual hub router, you can select **Metrics** from the virtual hub **Overview** page.
 
-   :::image type="content" source="./media/monitor-virtual-wan-reference/hub-metrics.png" alt-text="Screenshot that shows the virtual hub page with the metrics button." lightbox="./media/monitor-virtual-wan-reference/hub-metrics.png":::
 
 For more information, see [Analyze metrics for an Azure resource](/azure/azure-monitor/essentials/tutorial-metrics).
 
@@ -90,11 +86,8 @@ The following steps help you create, edit, and view diagnostic settings:
 
 1. Under the **Connectivity** group on the left, select the gateway for which you want to examine diagnostics:
 
-   :::image type="content" source="./media/monitor-virtual-wan-reference/select-hub-gateway.png" alt-text="Screenshot that shows the Connectivity section for the hub." lightbox="./media/monitor-virtual-wan-reference/select-hub-gateway.png":::
 
 1. On the right part of the page, select **Monitor Gateway** and then **Logs**.
-
-   :::image type="content" source="./media/monitor-virtual-wan-reference/view-hub-gateway-logs.png" alt-text="Screenshot for Select View in Azure Monitor for Logs." lightbox="./media/monitor-virtual-wan-reference/view-hub-gateway-logs.png":::
 
 1. In this page, you can create a new diagnostic setting (**+Add diagnostic setting**) or edit an existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the following example), stream to an event hub, send to a 3rd-party solution, or archive to a storage account.
 
@@ -242,7 +235,7 @@ The following section focuses on metrics-based alerts for virtual hubs.
 
 ### Azure Firewall
 
-This section of the article focuses on metric-based alerts. Azure Firewall offers a comprehensive list of [metrics and logs](../firewall/firewall-diagnostics.md) for monitoring purposes. In addition to configuring the alerts described in the following section, explore how [Azure Firewall Workbook](../firewall/firewall-workbook.md) can help monitor your Azure Firewall. Also, explore the benefits of connecting Azure Firewall logs to Microsoft Sentinel using [Azure Firewall connector for Microsoft Sentinel](../sentinel/data-connectors/azure-firewall.md).
+This section of the article focuses on metric-based alerts. Azure Firewall offers a comprehensive list of [metrics and logs](../firewall/firewall-diagnostics.md) for monitoring purposes. In addition to configuring the alerts described in the following section, explore how [Azure Firewall Workbook](../firewall/firewall-workbook.md) can help monitor your Azure Firewall. Also, explore the benefits of connecting Azure Firewall logs to Microsoft Sentinel using [Azure Firewall connector for Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-firewall).
 
 **Design checklist - metric alerts**
 

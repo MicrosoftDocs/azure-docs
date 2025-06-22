@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 01/27/2025
 ms.author: danlep
 ---
@@ -109,13 +109,13 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
-* The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
+* The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT, unless `require-expiration-time` attribute is specified and set to `false`.
 * The policy supports both symmetric and asymmetric signing algorithms: 
     * **Symmetric** - The following encryption algorithms are supported: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
     	* If used in the policy, the key must be provided inline within the policy in the Base64-encoded form.
@@ -123,7 +123,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
     	* If used in the policy, the key may be provided either via an OpenID configuration endpoint, or by providing the ID of an uploaded certificate (in PFX format) that contains the public key, or the modulus-exponent pair of the public key.
 * To configure the policy with one or more OpenID configuration endpoints for use with a self-hosted gateway, the OpenID configuration endpoints URLs must also be reachable by the cloud gateway.
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Microsoft Entra authentication by applying the `validate-jwt` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
-* When using a custom header (`header-name`), the configured required scheme (`require-scheme`) will be ignored. To use a required scheme, JWT tokens must be provided in the `Authorization` header.
+* When using a custom header (`header-name`), the configured required scheme (`require-scheme`) will be ignored. To use a required scheme, JWTs must be provided in the `Authorization` header.
 
 ## Examples
 
@@ -205,6 +205,8 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
     </required-claims>
 </validate-jwt>
 ```
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 ### Token validation using decryption key
 

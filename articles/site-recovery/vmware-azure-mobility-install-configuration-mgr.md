@@ -2,11 +2,10 @@
 title: Automate Mobility Service for disaster recovery of installation in Azure Site Recovery
 description: How to automatically install the Mobility Service for VMware /physical server disaster recovery with Azure Site Recovery.
 services: site-recovery
-author: ankitaduttaMSFT
-manager: gaggupta
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: ankitadutta
+ms.author: jsuri
 ms.date: 05/02/2022
 ---
 
@@ -239,6 +238,13 @@ elif [ -f /etc/redhat-release ]; then
             echo $OS >> /tmp/MobSvc/sccm.log
             cp *RHEL7*.tar.gz /tmp/MobSvc
                 fi
+    elif grep -q 'Red Hat Enterprise Linux release 8.* (Ootpa)' /etc/redhat-release || \
+        grep -q 'CentOS Linux release 8.* (Core)' /etc/redhat-release; then
+        if uname -a | grep -q x86_64; then
+            OS="RHEL8-64"
+            echo $OS >> /tmp/MobSvc/sccm.log
+            cp *RHEL8*.tar.gz /tmp/MobSvc
+                fi
     fi
 elif [ -f /etc/SuSE-release ] && grep -q 'VERSION = 11' /etc/SuSE-release; then
     if grep -q "SUSE Linux Enterprise Server 11" /etc/SuSE-release && grep -q 'PATCHLEVEL = 3' /etc/SuSE-release; then
@@ -273,7 +279,7 @@ fi
 Install()
 {
     echo "Perform Installation." >> /tmp/MobSvc/sccm.log
-    ./install -q -d ${INSTALL_DIR} -r Agent -v VmWare
+    ./install -q -d ${INSTALL_DIR} -r MS -v VmWare -c CSLegacy -a Install
     RET_VAL=$?
     echo "Installation Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
     if [ $RET_VAL -eq 0 ]; then
@@ -302,7 +308,7 @@ Configure()
 Upgrade()
 {
     echo "Perform Upgrade." >> /tmp/MobSvc/sccm.log
-    ./install -q -v VmWare
+    ./install -q -v VmWare -r MS -v VmWare -c CSLegacy -a Upgrade
     RET_VAL=$?
     echo "Upgrade Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
     if [ $RET_VAL -eq 0 ]; then

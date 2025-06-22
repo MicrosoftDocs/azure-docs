@@ -1,21 +1,18 @@
 ---
-title: The Experience of Blue-Green Deployment in Azure Container Apps
-description: Describes the experience of blue-green deployment in Azure Container Apps.
+title: Blue-Green Deployment to Azure Container Apps
+description: Describes blue-green deployment to Azure Container Apps.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dingmeng-xue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 01/29/2025
+ms.date: 03/17/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# The experience of blue-green deployment in Azure Container Apps
-
-[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+# Blue-green deployment to Azure Container Apps
 
 **This article applies to:** ✅ Basic/Standard ✅ Enterprise
-
-This article describes blue-green deployment with Azure Container Apps.
 
 In Azure Container Apps, you can enable blue-green deployment by combining [container apps revisions](../../container-apps/revisions.md), [traffic weights](../../container-apps/traffic-splitting.md), and [revision labels](../../container-apps/revisions.md#labels).
 
@@ -25,11 +22,11 @@ To create a new container app with multiple active revisions enabled, use the fo
 
 ```azurecli
 az containerapp create \
-    --resource-group <RESOURCE_GROUP> \
-    --name <APP_NAME> \
-    --environment <APP_ENVIRONMENT_NAME> \
-    --image mcr.microsoft.com/k8se/samples/test-app:<BLUE_COMMIT_ID> \
-    --revision-suffix <BLUE_SUFFIX> \
+    --resource-group <resource-group> \
+    --name <app-name> \
+    --environment <app-environment-name> \
+    --image mcr.microsoft.com/k8se/samples/test-app:<blue-commit-ID> \
+    --revision-suffix <blue-suffix> \
     --ingress external \
     --target-port 80 \
     --revisions-mode multiple
@@ -39,8 +36,8 @@ Alternatively, you can use the following command to update an existing app to en
 
 ```azurecli
 az containerapp revision set-mode \
-    --resource-group <RESOURCE_GROUP> \
-    --name <APP_NAME> \
+    --resource-group <resource-group> \
+    --name <app-name> \
     --mode multiple
 ```
 
@@ -50,29 +47,31 @@ To deploy a new revision, use the following command:
 
 ```azurecli
 az containerapp update \
-    --resource-group <RESOURCE_GROUP> \
-    --name <APP_NAME> \
+    --resource-group <resource-group> \
+    --name <app-name> \
     --image mcr.microsoft.com/k8se/samples/test-app:<GREEN_COMMIT_ID> \
     --revision-suffix <GREEN_SUFFIX>
 ```
 
-You can add labels to specific revisions as shown in the following example:
+To add labels to a specific revision, use the following commands:
 
 ```azurecli
 az containerapp revision label add \
-    --resource-group <RESOURCE_GROUP> \
-    --name <APP_NAME> \
+    --resource-group <resource-group> \
+    --name <app-name> \
     --label blue \
-    --revision <APP_NAME>--<BLUE_SUFFIX>
+    --revision <blue-revision-name>
 
 az containerapp revision label add \
-    --resource-group <RESOURCE_GROUP> \
-    --name <APP_NAME> \
+    --resource-group <resource-group> \
+    --name <app-name> \
     --label green \
-    --revision <APP_NAME>--<GREEN_SUFFIX>
+    --revision <green-revision-name>
 ```
 
-Initially, the revision with the *blue* `commitId` takes 100% of production traffic, while the newly deployed revision with the *green* `commitId` doesn't take any production traffic.
+Here, `<blue-revision-name>` is `<app-name>--<blue-suffix>`, and `<green-revision-name>` is `<app-name>--<green-suffix>`. You can only assign a label to one revision at a time.
+
+Initially, the revision with the blue `commitId` takes 100% of production traffic, while the newly deployed revision with the green `commitId` doesn't take any production traffic.
 
 In Azure Spring Apps, you can deploy at most two revisions of one app: one set as Production and the other as Staging. However, Azure Container Apps supports deploying multiple revisions for a single app.
 
@@ -82,35 +81,35 @@ Each revision in Azure Container Apps has its own URL, enabling you to test and 
 
 ```azurecli
 export GREEN_DOMAIN=$(az containerapp revision show \
-    --resource-group <RESOURCE_GROUP> \
-    --name <APP_NAME> \
-    --revision <GREEN_REVISION_NAME> \
+    --resource-group <resource-group> \
+    --name <app-name> \
+    --revision <green-revision-name> \
     --query "properties.fqdn" \
-    --output tsv \
-    | tr -d '\r\n')
+    --output tsv)
 
-curl -s http://$GREEN_DOMAIN
+curl -s https://$GREEN_DOMAIN
 ```
 
 Use the following commands to test with the label-specific fully qualified domain name (FQDN):
 
 ```azurecli
+export APP_NAME=<app-name>
+
 # Get the containerapp environment default domain
-export APP_DOMAIN=$(az containerapp env show \
-    --resource-group <RESOURCE_GROUP> \
-    --name <APP_ENVIRONMENT_NAME> \
+export APP_ENVIRONMENT_DOMAIN=$(az containerapp env show \
+    --resource-group <resource-group> \
+    --name <app-environment-name> \
     --query "properties.defaultDomain" \
-    --output tsv \
-    | tr -d '\r\n')
+    --output tsv)
 
 # Test the production FQDN
-curl -s https://$APP_NAME.$APP_DOMAIN
+curl -s https://$APP_NAME.$APP_ENVIRONMENT_DOMAIN
 
 # Test the blue label FQDN
-curl -s https://$APP_NAME---blue.$APP_DOMAIN
+curl -s https://$APP_NAME---blue.$APP_ENVIRONMENT_DOMAIN
 
 # Test the green label FQDN
-curl -s https://$APP_NAME---green.$APP_DOMAIN
+curl -s https://$APP_NAME---green.$APP_ENVIRONMENT_DOMAIN
 ```
 
 ## Send production traffic to the green revision
@@ -120,18 +119,18 @@ To switch production traffic to the green revision, use the following commands:
 ```azurecli
 # switch based on revision name
 az containerapp ingress traffic set \
-    --resource-group <RESOURCE_GROUP> \
-    --name <APP_NAME> \
-    --revision-weight <BLUE_REVISION_NAME>=0 <GREEN_REVISION_NAME>=100
+    --resource-group <resource-group> \
+    --name <app-name> \
+    --revision-weight <blue-revision-name>=0 <green-revision-name>=100
 
 # switch based on label
 az containerapp ingress traffic set \
-    --resource-group <RESOURCE_GROUP> \
-    --name <APP_NAME> \
+    --resource-group <resource-group> \
+    --name <app-name> \
     --label-weight blue=0 green=100
 ```
 
-Ensure that the total label weight doesn't exceed 100.
+Ensure that the total label weight equals 100%.
 
 Azure Container Apps not only enables you to switch traffic between blue-green deployments but also between multiple revisions. You can also redirect a specific amount of production traffic to the green deployment.
 
@@ -145,9 +144,8 @@ To enable traffic splitting when using Spring Cloud Gateway, you need to set the
 
 ```azurecli
 az containerapp show \
-    --resource-group <RESOURCE_GROUP> \
-    --name <APP_NAME> \
+    --resource-group <resource-group> \
+    --name <app-name> \
     --query "properties.configuration.ingress.fqdn" \
-    --output tsv \
-    | tr -d '\r\n'
+    --output tsv
 ```

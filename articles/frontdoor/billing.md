@@ -1,15 +1,16 @@
 ---
 title: Understand Azure Front Door billing
 description: Learn how you're billed when you use Azure Front Door.
-services: frontdoor
 author: johndowns
+ms.author: jodowns
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 12/28/2023
-ms.author: jodowns
 ---
 
 # Understand Azure Front Door billing
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door provides a rich set of features for your internet-facing workloads. Front Door helps you to accelerate your application's performance, improves your security, and provides you with tools to inspect and modify your HTTP traffic.
 

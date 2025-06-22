@@ -2,8 +2,8 @@
 title: Roles and permissions to manage Azure VM or Arc-enabled server in Azure Update Manager
 description: This article explains th roles and permission required to manage Azure VM or Arc-enabled servers in Azure Update Manager.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 10/06/2024
 ms.topic: overview
 ---
@@ -62,12 +62,22 @@ Note that below permissions would be required in addition to permissions on indi
 |---|---|---|
 | **Register the subscription for the** **Microsoft.Maintenance resource provider** | Microsoft.Maintenance/register/action | Subscription |
 | **Create/modify maintenance configuration** | Microsoft.Maintenance/maintenanceConfigurations/write | Subscription/resource group |
+| **Read maintenance configuration** | Microsoft.Maintenance/maintenanceConfigurations/read | Subscription/resource group |
+| **Delete maintenance configuration** | Microsoft.Maintenance/maintenanceConfigurations/delete | Subscription/resource group |
 | **Create/modify configuration assignments** | Microsoft.Maintenance/configurationAssignments/write | Subscription/Resource group / machine |
-| **Read permission for Maintenance updates resource** | Microsoft.Maintenance/updates/read | Machine |
-| **Read permission for Maintenance apply updates resource** | Microsoft.Maintenance/applyUpdates/read | Machine |
+| **Read configuration assignments** | Microsoft.Maintenance/configurationAssignments/read | Subscription/Resource group / machine |
+| **Delete configuration assignments** | Microsoft.Maintenance/configurationAssignments/delete | Subscription/Resource group / machine |
+| **Read maintenance updates resource** | Microsoft.Maintenance/updates/read | Machine |
+| **Read maintenance apply updates resource** | Microsoft.Maintenance/applyUpdates/read | Machine |
 | **Get list of update  deployment** | Microsoft.Resources/deployments/read | Maintenance configuration and virtual machine subscription |
 | **Create or update an update deployment** | Microsoft.Resources/deployments/write | Maintenance configuration and virtual machine subscription |
-| **Get a list of update deployment operation statuses** | Microsoft.Resources/deployments/operation statuses | Maintenance configuration and virtual machine subscription |
+| **Get a list of update deployment operation statuses** | Microsoft.Resources/deployments/operationstatuses | Maintenance configuration and virtual machine subscription |
+| **Read maintenance configuration assignment for InGuestPatch maintenance scope** | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/read | Subscription/Resource group / machine |
+| **Create/modify maintenance configuration assignment for InGuestPatch maintenance scope** | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/write | Subscription/Resource group / machine |
+| **Delete maintenance configuration assignment for InGuestPatch maintenance scope** | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/delete | Subscription/Resource group / machine |
+| **Read maintenance configuration for InGuestPatch maintenance scope** | Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/read | Subscription/resource group |
+| **Create/modify maintenance configuration for InGuestPatch maintenance scope** | Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/write | Subscription/resource group |
+| **Delete maintenance configuration for InGuestPatch maintenance scope** | Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete | Subscription/resource group |
 
 ## Next steps
 - [Prerequisites of Update Manager](prerequisites.md).

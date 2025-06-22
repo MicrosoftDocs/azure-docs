@@ -2,9 +2,9 @@
 title: Understand Azure IoT Hub device twins
 titleSuffix: Azure IoT Hub
 description: This article describes how to use device twins to synchronize state and configuration data between IoT Hub and your devices.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 12/17/2024

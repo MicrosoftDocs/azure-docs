@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 05/07/2024
 
 #CustomerIntent: As an Azure administrator, I want to use Azure Policy to audit and deploy virtual network flow logs.
+# Customer intent: As an Azure administrator, I want to use built-in Azure Policy to audit and deploy virtual network flow logs, so that I can ensure compliance and enhance visibility into network traffic within my virtual networks.
 ---
 
 # Audit and deploy virtual network flow logs using Azure Policy
@@ -38,11 +39,11 @@ To audit your flow logs using the built-in policy, follow these steps:
 
 1. Select **Assignments**, and then select **Assign policy**.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/assign-policy.png" alt-text="Screenshot that shows how to assign a policy in the Azure portal.":::
+    :::image type="content" source="./media/assign-policy.png" alt-text="Screenshot that shows how to assign a policy in the Azure portal." lightbox="./media/assign-policy.png":::
 
 1. Select the ellipsis (**...**) next to **Scope** to choose your Azure subscription that has the virtual networks that you want to check using the policy. You can also choose the resource group that has the virtual networks. After you make your selections, select the **Select** button.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/policy-scope.png" alt-text="Screenshot that shows how to define the scope of the policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/policy-scope.png":::
+    :::image type="content" source="./media/policy-scope.png" alt-text="Screenshot that shows how to define the scope of the policy in the Azure portal." lightbox="./media/policy-scope.png":::
 
 1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter ***flow log*** in the search box, and then select the **Built-in** filter. From the search results, select **Audit flow logs configuration for every virtual network**, and then select **Add**.
 
@@ -81,11 +82,11 @@ To assign the *deployIfNotExists* policy, follow these steps:
 
 1. Select **Assignments**, and then select **Assign policy**.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/assign-policy.png" alt-text="Screenshot that shows how to assign a policy in the Azure portal.":::
+    :::image type="content" source="./media/assign-policy.png" alt-text="Screenshot that shows how to assign a policy in the Azure portal." lightbox="./media/assign-policy.png":::
 
 1. Select the ellipsis (**...**) next to **Scope** to choose your Azure subscription that has the virtual networks that you want to check using the policy. You can also choose the resource group that has the virtual networks. After you make your selections, select the **Select** button.
 
-    :::image type="content" source="./media/vnet-flow-logs-policy/policy-scope.png" alt-text="Screenshot that shows how to define the scope of the policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/policy-scope.png":::
+    :::image type="content" source="./media/policy-scope.png" alt-text="Screenshot that shows how to define the scope of the policy in the Azure portal." lightbox="./media/policy-scope.png":::
 
 1. Select the ellipsis (**...**) next to **Policy definition** to choose the built-in policy that you want to assign. Enter ***flow log*** in the search box, and then select the **Built-in** filter. From the search results, select **Deploy a flow log resource with target virtual network**, and then select **Add**.
 

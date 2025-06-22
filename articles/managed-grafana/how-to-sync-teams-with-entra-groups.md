@@ -25,13 +25,13 @@ Microsoft Entra group sync helps you manage this. With it, you can create a *Gra
 Before you start, make sure you have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance. If needed, [create a new instance](quickstart-managed-grafana-portal.md).
+- An Azure Managed Grafana workspace. If needed, [create a new workspace](quickstart-managed-grafana-portal.md).
 - A Microsoft Entra group. If needed, [create a basic group and add members](/entra/fundamentals/how-to-manage-groups#create-a-basic-group-and-add-members).
 - The Grafana Admin role is required to use Grafana Team Sync.
 
 ## Assign a permission to a Microsoft Entra group
 
-The Microsoft Entra group must have a Grafana role to access the Grafana instance.
+The Microsoft Entra group must have a Grafana role to access the Grafana workspace.
 
 1. In your Grafana workspace, open the **Access control (IAM)** menu select **Add** > **Add new role assignment**.
 
@@ -43,7 +43,7 @@ The Microsoft Entra group must have a Grafana role to access the Grafana instanc
 
 Set up a Microsoft Entra ID-backed Grafana team.
 
-1. In the Azure portal, open your Grafana instance and select **Configuration** under **Settings**.
+1. In the Azure portal, open your Grafana workspace and select **Configuration** under **Settings**.
 1. Select the **Microsoft Entra Team Sync Settings** tab.
 1. Select **Create new Grafana team**.
 
@@ -83,7 +83,7 @@ Set up a Microsoft Entra ID-backed Grafana team.
 
 You can limit access by removing permissions to access one or more folders.
 
-For example, to disable access to a user who has the Grafana Viewer role on a Grafana instance, remove their access to a Grafana folder by following these steps:
+For example, to disable access to a user who has the Grafana Viewer role on a Grafana workspace, remove their access to a Grafana folder by following these steps:
 
 1. In the Grafana UI, go to a folder you want to hide from the user.
 1. In the **Permissions** tab, select the **X** button to the right of the **Viewer** permission to remove this permission from this folder.

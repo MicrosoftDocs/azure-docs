@@ -5,10 +5,11 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: subject-armqs, mode-arm, template-concept, devx-track-bicep
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint using Bicep.
+# Customer intent: As a network engineer new to Azure, I want to create a private endpoint using Bicep so that I can securely connect to Azure SQL Database without exposing it to the public internet.
 ---
 
 # Quickstart: Create a private endpoint using Bicep

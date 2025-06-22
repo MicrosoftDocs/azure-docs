@@ -8,8 +8,9 @@ ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: azure-dns
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 04/27/2023
+ms.date: 03/20/2025
 ms.author: greglin
+# Customer intent: "As a network administrator, I want to set up dynamic DNS for my custom DNS servers in Azure, so that I can effectively register and manage hostnames for my virtual machines and ensure seamless access to on-premises resources."
 ---
 
 # Use dynamic DNS to register hostnames in your own DNS server
@@ -32,7 +33,7 @@ You can use the hooks that are provided by the DHCP client to create and maintai
 
 ```bash
 #!/bin/sh
-requireddomain=mydomain.local
+requireddomain=contoso.com
 
 # only execute on the primary nic
 if [ "$interface" != "eth0" ]

@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn about the things that you should take into consideration working with Network Virtual Appliances (NVAs) in Azure during the COVID-19 pandemic.
 author: KumudD
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/05/2023
 ms.author: kumud
 
@@ -20,12 +20,12 @@ All major NVA vendors in Azure Marketplace should have recommendations on the VM
 
 ### Consider the following
 
-- **Capacity and number of concurrent users** -  This number is particularly important for Point-to-Site VPN users as each connected user will create one encrypted (IPSec or SSL VPN) tunnel.  
+- **Capacity and number of concurrent users** -  This number is particularly important for Point-to-Site VPN users as each connected user will create one encrypted (IPsec or SSL VPN) tunnel.  
 - **Aggregate throughput** - What is the aggregate bandwidth you will need to accommodate the number of users you need to which you will need to provide remote access.
 - **The VM size you will need** - You should always use VM sizes recommended by the NVA vendor.  For point-to-site VPN, if you will have a lot concurrent user connections, you should be using larger VM sizes such as [Dv2 and DSv2 series](/azure/virtual-machines/dv2-dsv2-series "Dv2 and Dsv2 Series") VMs. These VMs tend to have more vCPUs and can handle more concurrent VPN sessions.  In addition to having more virtual cores, larger VM sizes in Azure have more aggregate bandwidth capacity than smaller VM sizes.
     > **Important:** Each vendor utilizes resources differently.  If it's not clear what instance sizes you should use to accommodate your estimated user load, you should contact the software vendor directly and ask them for a recommendation.
 - **Number of instances** - If you expect to have a large number of users and connections, there are limits to what scaling up your NVA instance sizes can achieve.  Consider deploying multiple VM instances.
-- **IPSec VPN vs SSL VPN** - In general IPSec VPN implementations perform better than SSL VPN implementations.  
+- **IPsec VPN vs SSL VPN** - In general IPsec VPN implementations perform better than SSL VPN implementations.  
 - **Licensing** - Make sure that the software licenses you have purchased for the NVA solution will cover the sudden growth you may experience during the COVID-19 epidemic.  Many NVA licensing programs limit the number of connections or bandwidth the solution is capable of.
 - **Accelerated Networking** - Consider an NVA solution that has support for Accelerated Networking.  Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the data path, reducing latency, jitter, and CPU utilization for use with the most demanding network workloads on supported VM types. Accelerated networking is supported on most general purpose and compute-optimized instance sizes with two or more vCPUs.
 

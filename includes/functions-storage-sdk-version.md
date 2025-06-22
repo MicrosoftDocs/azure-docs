@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: functions
-author: craigshoemaker
 manager: mijacobs
 ms.service: azure-functions
 ms.topic: include
 ms.date: 01/28/2020
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ms.custom: include file
 ---
 

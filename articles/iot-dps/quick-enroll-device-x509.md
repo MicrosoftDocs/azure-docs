@@ -1,8 +1,8 @@
 ---
 title: How to programmatically create an Azure Device Provisioning Service enrollment group for X.509 certificate attestation
 description: This article shows you how to programmatically create an enrollment group to enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 07/22/2022
 ms.topic: how-to
 ms.service: azure-iot-hub
@@ -362,7 +362,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-nodejs"
 
-1. Run the following command in your command prompt. Include the quotes around the command arguments and replace `<connection string>` withe connection string you copied in the previous section, and `<certificate .pem file>` with the path to your certificate `.pem` file. This file represents the public part of a either a root CA X.509 certificate that was previously uploaded and verified with your provisioning service, or an intermediate certificate that was uploaded and verified or had a certificate in its signing chain uploaded and verified.
+1. Run the following command in your command prompt. Include the quotes around the command arguments and replace `<connection string>` with connection string you copied in the previous section, and `<certificate .pem file>` with the path to your certificate `.pem` file. This file represents the public part of a either a root CA X.509 certificate that was previously uploaded and verified with your provisioning service, or an intermediate certificate that was uploaded and verified or had a certificate in its signing chain uploaded and verified.
 
     ```cmd\sh
     node create_enrollment_group.js "<connection string>" "<certificate .pem file>"

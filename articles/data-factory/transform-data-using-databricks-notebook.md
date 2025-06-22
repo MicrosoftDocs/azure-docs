@@ -26,9 +26,8 @@ You perform the following steps in this tutorial:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-For an eleven-minute introduction and demonstration of this feature, watch the following video:
-
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
+>[!NOTE]
+>For full details on how to use the Databricks Notebook Activity, including using libraries and passing input and output parameters, refer to the [Databricks Notebook Activity](transform-data-databricks-notebook.md) documentation.
 
 ## Prerequisites
 
@@ -38,7 +37,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 
-1. Select **Create a resource** on the Azure portal menu, select **Integration**, and then select **Data Factory**.
+1. Select **Create a resource** on the Azure portal menu, then select **Analytics** > **Data Factory** :
 
     :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Screenshot showing Data Factory selection in the New pane.":::
 

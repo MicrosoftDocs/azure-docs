@@ -6,7 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/24/2024
+ms.date: 03/03/2025
+# Customer intent: As a network engineer, I want to establish an interconnect for peering with an exchange route server, so that I can ensure reliable and high-performance connectivity for my organization's internet exchange needs.
 ---
 
 # Set up an interconnect for peering with exchange route server
@@ -53,15 +54,13 @@ If the ASN is already associated with your Azure subscription, go to the next st
 
 1. To create a Peering Service peering with exchange route server resource, in the Azure portal, search for and then select **Peerings**.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/internet-peering-portal-search.png" alt-text="Screenshot that shows how to search for Peering resources in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/internet-peering-portal-search.png":::
+    :::image type="content" source="./media/internet-peering-portal-search.png" alt-text="Screenshot of searching for internet peerings in the Azure portal." lightbox="./media/internet-peering-portal-search.png":::
 
 1. On **Peerings**, select **Create**.
 
-    :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering.png" alt-text="Screenshot that shows how to create a Peering resource in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/create-peering.png":::
-
 1. On the **Basics** tab, enter or select your Azure subscription, the resource group, a peering name, and the ASN of the peering.
 
-   :::image type="content" source="./media/walkthrough-exchange-route-server-partner/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/walkthrough-exchange-route-server-partner/create-peering-basics.png":::
+   :::image type="content" source="./media/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/create-peering-basics.png":::
 
    > [!WARNING]
    > You can't change these options after the peering is created. Confirm that your selections are correct before you create the peering.

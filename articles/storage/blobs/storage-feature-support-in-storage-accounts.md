@@ -3,8 +3,8 @@ title: Blob Storage feature support in Azure storage accounts
 description: Determine the level of support for each storage account feature given storage account type, and the settings that are enabled on the account.
 author: normesta
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 01/22/2025
+ms.topic: concept-article
+ms.date: 02/19/2025
 ms.author: normesta
 ---
 
@@ -46,10 +46,10 @@ The following table describes whether a feature is supported in a standard gener
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
+| [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob Storage APIs](reference.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705;  |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Blob Storage events](storage-blob-event-overview.md) | &#x2705; | &#x2705;    | &nbsp;&#x2B24; | &#x2705; |
+| [Blob Storage events](storage-blob-event-overview.md) | &#x2705; | &#x2705;    | &#x2705; | &#x2705; |
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob versioning](versioning-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -63,7 +63,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
 | [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2B24;  | &nbsp;&#x2B24; |
-| [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
+| [Last access time tracking for lifecycle management](lifecycle-management-policy-structure.md#access-time-tracking) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705;  | &#x2705; | &#x2705; |
@@ -97,10 +97,10 @@ The following table describes whether a feature is supported in a premium block 
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
+| [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob Storage APIs](reference.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705;  |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Blob Storage events](storage-blob-event-overview.md) | &#x2705;    | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
+| [Blob Storage events](storage-blob-event-overview.md) | &#x2705;    | &#x2705; | &#x2705; | &#x2705; |
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob versioning](versioning-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -114,7 +114,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
 | [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
+| [Last access time tracking for lifecycle management](lifecycle-management-policy-structure.md#access-time-tracking) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705; | &#x2705; | &#x2705; |

@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -19,7 +19,7 @@ ms.collection: usx-security
 # Connect your threat intelligence platform to Microsoft Sentinel
 
 > [!NOTE]
-> This data connector is on a path for deprecation. More information will be published on the precise timeline. Use the new Threat Intelligence Upload Indicators API data connector for new solutions going forward.
+> This data connector will be deprecated and will stop collecting data in **April 2026**. We recommend transitioning to the new Threat Intelligence Upload Indicators API data connector as soon as possible to ensure uninterrupted data collection.
 > For more information, see [Connect your threat intelligence platform to Microsoft Sentinel with the upload API](connect-threat-intelligence-upload-api.md).
 
 Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. By using the TIP data connector, you can use these solutions to import threat indicators into Microsoft Sentinel. 
@@ -146,8 +146,6 @@ The last step in the integration process is to enable the TIP data connector in 
 1. To configure the TIP data connector, select **Configuration** > **Data connectors**.
 
 1. Find and select the **Threat Intelligence Platforms - BEING DEPRECATED** data connector, and then select **Open connector page**.
-
-    :::image type="content" source="media/connect-threat-intelligence-tip/threat-intelligence-platforms-data-connector.png" alt-text="Screenshot that shows the Data connectors page with the Threat Intelligence Platforms data connector listed." lightbox="media/connect-threat-intelligence-tip/threat-intelligence-platforms-data-connector.png":::
 
 1. Because you already finished the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to select **Connect**.
 

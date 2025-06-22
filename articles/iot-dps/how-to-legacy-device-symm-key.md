@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Provision devices using a symmetric key enrollment group in DPS
 description: This tutorial shows how to use symmetric keys to provision devices through an enrollment group in your Device Provisioning Service (DPS) instance.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.date: 03/12/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub

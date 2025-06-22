@@ -7,7 +7,7 @@ author: EliotSeattle
 ms.author: eliotgra
 ms.custom: references_regions
 recommendations: false
-ms.date: 07/12/2024
+ms.date: 05/22/2025
 ---
 
 # Compare Azure Government and global Azure
@@ -82,7 +82,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Cloud Services|cloudapp.net|usgovcloudapp.net||
 |**Containers**|Azure Service Fabric|cloudapp.azure.com|cloudapp.usgovcloudapi.net||
 ||Container Registry|azurecr.io|azurecr.us||
-|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
+|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../redis/how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
 ||Azure Cosmos DB|documents.azure.com|documents.azure.us||
 ||Azure Database for MariaDB|mariadb.database.azure.com|mariadb.database.usgovcloudapi.net||
 ||Azure Database for MySQL|mysql.database.azure.com|mysql.database.usgovcloudapi.net||
@@ -96,7 +96,8 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
 ||Notification Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 |**Management and governance**|Azure Automation|azure-automation.net|azure-automation.us||
-||Azure Monitor|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
+||Azure Monitor<br>*Application Insights*|{region}.in.applicationinsights.azure.com|{region}.in.applicationinsights.azure.us|[Additional endpoints](/azure/azure-monitor/ip-addresses#outgoing-ports)|
+||Azure Monitor<br>*Log Analytics*|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
 |||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](/azure/azure-monitor/logs/data-collector-api)|
 |||oms.opinsights.azure.com|oms.opinsights.azure.us||
 |||portal.loganalytics.io|portal.loganalytics.us||
@@ -106,7 +107,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure Resource Manager|management.azure.com|management.usgovcloudapi.net||
 ||Gallery URL|gallery.azure.com|gallery.azure.us||
 ||Microsoft Azure portal|portal.azure.com|portal.azure.us||
-||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
+||Microsoft Intune|enterpriseresgistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
 |||manage.microsoft.com|manage.microsoft.us|Enterprise enrollment|
 |**Migration**|Azure Site Recovery|hypervrecoverymanager.windowsazure.com|hypervrecoverymanager.windowsazure.us|Site Recovery service|
 |||backup.windowsazure.com|backup.windowsazure.us|Protection service|
@@ -263,8 +264,8 @@ The following features have known limitations in Azure Government:
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
   - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Microsoft Entra B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
 
-- Limitations with multi-factor authentication:
-    - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
+- Limitations with multifactor authentication:
+    - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and shouldn't be required based off the user's current IP address.
 
 ### [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 
@@ -337,7 +338,7 @@ To allow the Application Insights SDK/agent to send data to the Application Insi
 
 ### [Cost Management and Billing](../cost-management-billing/index.yml)
 
-The following Azure Cost Management + Billing **features aren't currently available** in Azure Government:
+The following Microsoft Cost Management + Billing **features aren't currently available** in Azure Government:
 
 - Cost Management + Billing for cloud solution providers (CSPs)
 
@@ -363,7 +364,7 @@ The following Azure Migrate **features aren't currently available** in Azure Gov
 - Containerizing ASP.NET apps and deploying them on Windows containers on App Service.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
-For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
+For more information, see [Azure Migrate support matrix](../migrate/supported-geographies.md#azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
 
 ## Networking
 
@@ -375,10 +376,7 @@ For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressrou
 
 ### [Azure Front Door](../frontdoor/index.yml)
 
-Azure Front Door (AFD) Standard and Premium tiers are available in general availability in Azure Government regions US Gov Arizona and US Gov Texas. The following Azure Front Door feature **isn’t supported** in Azure Government:
-
-- Managed certificate for enabling HTTPS; instead use your own certificate.
-
+Azure Front Door (AFD) Standard and Premium tiers are available in general availability in Azure Government regions US Gov Arizona and US Gov Texas.
 
 ### [Private Link](../private-link/index.yml)
 

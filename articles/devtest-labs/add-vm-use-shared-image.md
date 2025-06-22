@@ -4,8 +4,10 @@ description: Learn how to add a virtual machine (VM) using an image from the att
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/26/2020
+ms.date: 02/28/2025
 ms.custom: UpdateFrequency2
+
+#customer intent: As a customer, I want to know how to add a VM using an image from the attached shared image gallery in Azure DevTest Labs.
 ---
 
 # Add a VM using an image from the attached shared image gallery
@@ -25,14 +27,14 @@ Then, on the **Advanced settings** tab of the **Create lab resource** page, you 
 You can switch to using a different version of the image after the VM is created. 
 
 ## Resource Manager template
-If you're using an Azure Resource Manager template to create a virtual machine using a shared image gallery image, specify a value for the **sharedImageId** in the **Properties** section. See the following example: 
+If you're using an Azure Resource Manager template to create a virtual machine using a shared image gallery image, specify a value for the **sharedGalleryImageId** in the **Properties** section. See the following example: 
 
 ```json
 "resources": [
 {
     ...
     "properties": {
-         "sharedImageId": "/subscriptions/111111111-1111-1111-1111-111111111111/resourcegroups/mydtlrg/providers/microsoft.devtestlab/labs/mydtllab/sharedgalleries/spsig/sharedimages/myimagefromgallery",
+         "sharedGalleryImageId": "/subscriptions/111111111-1111-1111-1111-111111111111/resourcegroups/mydtlrg/providers/microsoft.devtestlab/labs/mydtllab/sharedgalleries/spsig/sharedimages/myimagefromgallery",
         "sharedImageVersion": "1.0.1",
         ...
     }
@@ -50,7 +52,7 @@ For a complete Resource Manager template example, see
     ```rest
     GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version= 2018-10-15-preview
     ```
-2. Invoke the PUT method on virtual machines by passing the ID of the shared image you received from the previous call to the `properties.SharedImageId`.
+2. Invoke the PUT method on virtual machines by passing the ID of the shared image you received from the previous call to the `properties.sharedGalleryImageId`.
 
 ## Next steps
 To learn how to attach a shared image gallery to a lab and configure it, see [Configure shared image gallery](configure-shared-image-gallery.md).

@@ -271,9 +271,7 @@ To alert for inbound availability,  you can create two separate alerts using the
 
 Using data path availability, you can fire alerts whenever a specific load-balancing rule becomes unavailable. You can configure this alert by setting an alert condition for the data path availability and splitting by all current values and future values for both frontend port and frontend IP address. Setting the alert logic to be less than or equal to 0 will cause this alert to be fired whenever any load-balancing rule becomes unresponsive. Set the aggregation granularity and frequency of evaluation according to your desired evaluation. 
 
-With health probe status, you can alert when a given backend instance fails to respond to the health probe for a significant amount of time. Set up your alert condition to use the health probe status metric and split by backend IP address and backend port. This ensures that you can alert separately for each individual backend instance’s ability to serve traffic on a specific port. Use the **Average** aggregation type and set the threshold value according to how frequently your backend instance is probed and your considered healthy threshold. 
-
-You can also alert on a backend pool level by not splitting by any dimensions and using the **Average** aggregation type. This allows you to set up alert rules such as alert when 50% of my backend pool members are unhealthy.
+With health probe status, you can alert when a given backend instance fails to respond to the health probe for a significant amount of time. Set up your alert condition to use the health probe status metric and split by backend IP address and backend port, using the **Average** aggregation type. This ensures that you can alert separately for each individual backend instance’s ability to serve traffic on a specific port.
 
 ### Outbound availability alerting
 

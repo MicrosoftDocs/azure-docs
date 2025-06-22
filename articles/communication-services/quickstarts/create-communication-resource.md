@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Create and manage resources in Azure Communication Services
-titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you learn how to create and manage your first Azure Communication Services resource.
+title: Create a Communication Services resource in Azure Communication Services
+titleSuffix: An Azure Communication Services article
+description: This article describes how to create and manage your first Azure Communication Services resource.
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -14,14 +14,15 @@ zone_pivot_groups: acs-plat-azp-azcli-net-ps
 ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli 
 ---
-# Quickstart: Create and manage Communication Services resources
 
-Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication Services resources can be provisioned through the [Azure portal](https://portal.azure.com) or using the .NET management SDK. The management SDK and the Azure portal enable you to create, configure, update, and delete your resources and interface using the new deployment and management service: [Azure Resource Manager](../../azure-resource-manager/management/overview.md). All functions available in the SDKs are available in the Azure portal.
+# Create an Communication Services resource
+
+Get started with Azure Communication Services by provisioning your first Communication Services resource. You can provision Communication Services resources through the [Azure portal](https://portal.azure.com) or using the .NET management SDK. The management SDK and the Azure portal enable you to create, configure, update, and delete your resources and interface using the deployment and management service: [Azure Resource Manager](../../azure-resource-manager/management/overview.md). All functions available in the SDKs are available in the Azure portal.
 
 >[!VIDEO https://www.youtube.com/embed/3In3o5DhOHU]
 
 > [!WARNING]
-> Note that you can't create a resource group at the same time as a resource for Azure Communication Services. Before creating a resource, you need to first create a resource group.
+> You can't create a resource group at the same time as a resource for Azure Communication Services. Before creating a resource, you need to first create a resource group.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
@@ -43,7 +44,7 @@ Get started with Azure Communication Services by provisioning your first Communi
 
 Connection strings enable the Communication Services SDKs to connect and authenticate to Azure. You can access your Communication Services connection strings and service endpoints from the Azure portal or programmatically with Azure Resource Manager APIs.
 
-After navigating to your Communication Services resource, select **Keys** from the navigation menu and copy the **Connection string** or **Endpoint** values for usage by the Communication Services SDKs. You have access to primary and secondary keys. This can be useful when you would like to provide temporary access to your Communication Services resources to a third-party or staging environment.
+After navigating to your Communication Services resource, select **Keys** from the navigation menu and copy the **Connection string** or **Endpoint** values for usage by the Communication Services SDKs. You have access to primary and secondary keys. These keys are useful when you want to provide temporary access to your Communication Services resources to a third-party or staging environment.
 
 :::image type="content" source="./media/key.png" alt-text="Screenshot of Communication Services Key page.":::
 
@@ -131,11 +132,11 @@ az communication delete --name "acsResourceName" --resource-group "resourceGroup
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers are automatically released from your resource at the same time.
 
 > [!NOTE]
-> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
+> Resource deletion is **permanent**. If you delete the resource, no deletd data can be recovered, including Event Grid filters, phone numbers, or other data tied to your resource.
 
 ## Next steps
 
-In this quickstart you learned how to:
+This article described how to:
 
 > [!div class="checklist"]
 >

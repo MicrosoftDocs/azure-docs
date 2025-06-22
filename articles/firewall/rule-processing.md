@@ -2,11 +2,12 @@
 title: Azure Firewall rule processing logic
 description: Azure Firewall has NAT rules, network rules, and applications rules. The rules are processed according to the rule type.
 services: firewall
-author: vhorne
+author: varunkalyana
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 07/02/2024
-ms.author: victorh
+ms.date: 05/07/2025
+ms.author: varunkalyana
+# Customer intent: "As a network administrator, I want to configure Azure Firewall rules and understand their processing logic, so that I can effectively manage traffic flow and maintain network security."
 ---
 
 # Configure Azure Firewall rules
@@ -135,7 +136,7 @@ If still no match is found within application rules, then the packet is evaluate
 
 ### DNAT rules and Network rules
 
-Inbound Internet or intranet (preview) connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
+Inbound Internet or intranet connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
 
 Application rules aren't applied for inbound connections. So, if you want to filter inbound HTTP/S traffic, you should use Web Application Firewall (WAF). For more information, see [What is Azure Web Application Firewall](../web-application-firewall/overview.md)?
 

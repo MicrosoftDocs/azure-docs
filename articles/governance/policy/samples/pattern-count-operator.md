@@ -1,7 +1,7 @@
 ---
 title: "Pattern: The count operator in a policy definition"
 description: This Azure Policy pattern provides an example of how to use the count operator in a policy definition.
-ms.date: 08/17/2021
+ms.date: 03/04/2025
 ms.topic: sample
 ---
 # Azure Policy pattern: the count operator

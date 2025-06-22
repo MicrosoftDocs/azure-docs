@@ -14,10 +14,8 @@ ms.date: 11/06/2024
 ---
   
 # Quickstart: Create a dev box by using team customizations
-  
-In this quickstart, you create a dev box by using Microsoft Dev Box team customizations. The feature uses an image definition file so that you can create consistently customized dev boxes for your development team and provide a tailored environment for your projects.
 
-[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
+In this quickstart, you create a dev box by using Microsoft Dev Box team customizations. The feature uses an image definition file so that you can create consistently customized dev boxes for your development team and provide a tailored environment for your projects.
   
 ## Prerequisites
   
@@ -39,13 +37,10 @@ The image definition file specifies a name for the image definition by using a `
 You must enable project-level catalogs at the dev center level before you can add a catalog to a project.
 
 1. In the [Azure portal](https://portal.azure.com), go to your dev center.
-1. On the service menu, under **Settings**, select **Configuration**.
+1. On the service menu, under **Settings**, select **Dev center settings**.
+1. Under **Project level catalogs**, select **Enable catalogs per project**, and then select **Apply**.
 
-    :::image type="content" source="media/quickstart-team-customizations/dev-center-overview.png" alt-text="Screenshot that shows the Overview page for a dev center with Configuration highlighted." lightbox="media/quickstart-team-customizations/dev-center-overview.png":::
-
-1. On the **Project level catalogs** pane, select **Enable catalogs per project**, and then select **Apply**.
-
-    :::image type="content" source="media/quickstart-team-customizations/dev-center-project-catalog-selected.png" alt-text="Screenshot that shows the pane for project-level catalogs, with the checkbox for enabling catalogs per project highlighted." lightbox="media/quickstart-team-customizations/dev-center-project-catalog-selected.png":::
+    :::image type="content" source="media/quickstart-team-customizations/dev-center-settings-project-catalog.png" alt-text="Screenshot showing the Dev center settings, with Enable catalogs per project selected and highlighted." lightbox="media/quickstart-team-customizations/dev-center-settings-project-catalog.png":::
 
 ## Add a catalog to your project
 
@@ -105,6 +100,15 @@ The sections that follow walk you through these tasks:
 
 1. Switch back to the Azure portal.
 
+1. Select **Sync settings**.
+
+   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-project-sync-settings-small.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-project-sync-settings.png":::
+
+1. On the **Sync settings** pane, select **Image definitions**, and then select **Save**.
+
+   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-project-sync-image-definitions.png":::
+
+
 1. On the **Add catalog** pane, enter the following information, and then select **Add**:
 
     | Field | Value |
@@ -113,7 +117,6 @@ The sections that follow walk you through these tasks:
     | **Branch**  | Select the branch. |
     | **Folder path**  | Select the folder that contains subfolders that hold your environment definitions. |
 
-   :::image type="content" source="media/quickstart-team-customizations/add-catalog-repo-branch-folder.png" alt-text="Screenshot of the Azure portal pane for adding a catalog, with the boxes for repo, branch, and folder path highlighted. The Add button is also highlighted." lightbox="media/quickstart-team-customizations/add-catalog-repo-branch-folder.png":::
 
 1. On the **Catalogs** pane, verify that your catalog appears. When the connection is successful, the **Status** column shows **Sync successful**.
 
@@ -146,7 +149,7 @@ To create a dev box pool that's associated with a project:
    | **Time zone** | Select the time zone for the stop time. |
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="media/quickstart-team-customizations/create-pool-basics.png" alt-text="Screenshot of the pane for entering basic information about a new a dev box pool, including fields for name and definition. The image definition MyImageDefinition.yaml is highlighted.":::
+   :::image type="content" source="media/quickstart-team-customizations/create-pool-basics.png" alt-text="Screenshot of the Basics pane for creating a new a dev box pool, with the image definition MyImageDefinition.yaml highlighted.":::
 
 1. Select **Create**.
 

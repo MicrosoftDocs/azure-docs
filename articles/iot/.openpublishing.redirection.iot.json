@@ -7,7 +7,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-fundamentals/iot-security-ground-up.md",
-      "redirect_url": "/azure/iot/iot-security-architecture",
+      "redirect_url": "/azure/well-architected/service-guides/azure-iot-hub#security",
       "redirect_document_id": false
     },
     {
@@ -52,8 +52,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-fundamentals/iot-security-architecture.md",
-      "redirect_url": "/azure/iot/iot-security-architecture",
-      "redirect_document_id": true
+      "redirect_url": "/azure/well-architected/service-guides/azure-iot-hub#security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-security-architecture.md",
+      "redirect_url": "/azure/well-architected/service-guides/azure-iot-hub#security",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-fundamentals/iot-security-best-practices.md",
@@ -98,6 +103,51 @@
     {
       "source_path_from_root": "/articles/iot/concepts-eclipse-threadx-security-practices.md",
       "redirect_url": "https://github.com/eclipse-threadx/rtos-docs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-mqtt-5-preview.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-mqtt-5-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-mqtt-5-preview-reference.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-mqtt-5-preview-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/howto-convert-to-pnp.md",
+      "redirect_url": "/azure/iot/overview-iot-plug-and-play",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/tutorial-connect-device.md",
+      "redirect_url": "/azure/iot/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/tutorial-multiple-components.md",
+      "redirect_url": "/azure/iot/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/tutorial-migrate-device-to-module.md",
+      "redirect_url": "/azure/iot/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/howto-manage-digital-twin.md",
+      "redirect_url": "/azure/iot/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/tutorial-service.md",
+      "redirect_url": "/azure/iot/concepts-developer-guide-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/set-up-environment.md",
+      "redirect_url": "/azure/iot/concepts-developer-guide-service",
       "redirect_document_id": false
     }
   ]

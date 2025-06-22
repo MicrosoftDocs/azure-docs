@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: mattmcinnes
+# Customer intent: As a cloud administrator, I want to configure the Microsoft Azure Network Adapter for my Windows VMs, so that I can enhance their networking performance and improve overall availability in the Azure environment.
 ---
 
 # Windows VMs with the Microsoft Azure Network Adapter
@@ -65,8 +66,6 @@ Ethernet 3                Microsoft Azure Network Adapter #2            8 Up    
 
 1. Open Device Manager.
 2. Expand **Network adapters**, and then select **Microsoft Azure Network Adapter**. The properties for the adapter show that the device is working properly.
-
-   ![Screenshot of Windows Device Manager that shows an MANA network card successfully detected.](media/accelerated-networking-mana/device-manager-mana.png)
 
 ## Install drivers
 

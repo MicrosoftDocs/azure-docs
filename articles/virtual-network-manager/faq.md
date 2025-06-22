@@ -7,7 +7,9 @@ ms.service: azure-virtual-network-manager
 ms.topic: faq
 ms.date: 11/25/2024
 ms.author: mbender
-ms.custom: reference_regions
+ms.custom:
+  - reference_regions
+  - build-2025
 ---
 
 # Azure Virtual Network Manager FAQ
@@ -27,7 +29,7 @@ For current information about region support, refer to [Products available by re
 
 * You can create network groups to meet the security requirements of your environment and its functions. For example, you can create network groups for your production and test environments to manage their connectivity and security rules at scale.
   
-  For security rules, you can create a security admin configuration with two collections. Each collection is targeted on your production and test network groups, respectively. After deployment, this configuration enforces one set of security rules for network resources for your production environment and one set for your test environment.
+  For security rules, you can create a security admin configuration with two collections. Each collection is targeted on your production and test network groups, respectively. After deployment, this configuration enforces one set of security rules for network resources for your production environment, and one set for your test environment.
 
 * You can apply connectivity configurations to create a mesh or a hub-and-spoke network topology for a large number of virtual networks across your organization's subscriptions.
 
@@ -37,7 +39,13 @@ For current information about region support, refer to [Products available by re
 
 ### What's the cost of using Azure Virtual Network Manager?
 
-Azure Virtual Network Manager charges are based on the number of subscriptions that contain a virtual network with an active Virtual Network Manager configuration deployed onto it. Also, a charge for peering applies to the traffic volume of virtual networks that are managed by a deployed connectivity configuration (either mesh or hub-and-spoke).
+Azure Virtual Network Manager charges are based on the number of virtual networks with an active Virtual Network Manager configuration deployed onto it. For example, if a Virtual Network Manager scope contains 100 virtual networks but configurations have only been deployed onto 5 of those virtual networks, you will be charged for those 5 virtual networks (not all 100). Also note that a charge for peering applies to the traffic volume of virtual networks that are managed by a deployed connectivity configuration (either mesh or hub-and-spoke).
+
+If a virtual network has multiple configurations deployed onto it by the same Virtual Network Manager instance, that virtual network only incurs a single charge rate; it will not duplicate charges. For example, if a Virtual Network Manager deploys both a connectivity configuration and a security admin configuration onto the same set of 5 virtual networks, you will be charged for those 5 virtual networks, but not charged twice. This cost does not account for multiple configurations unless the configurations originate from different Virtual Network Manager instances. 
+
+Before March 2025, Azure Virtual Network Manager charges were based by default on the number of subscriptions that contained a virtual network with an active Virtual Network Manager configuration deployed onto it. If you created your Virtual Network Manager instance prior to March 2025, you may choose to [switch your pricing to the virtual network-based pricing](overview.md#pricing).
+
+Azure Virtual Network Manager's [network verifier](concept-virtual-network-verifier.md) tool charges per reachability analysis run in an Azure Virtual Network Manager verifier workspace. This charge is separate from Azure Virtual Network Manager charges. 
 
 You can find current pricing for your region on the [Azure Virtual Network Manager pricing](https://azure.microsoft.com/pricing/details/virtual-network-manager/) page.
 
@@ -65,9 +73,9 @@ Yes, spoke VNets can connect to VWAN hubs while in the mesh group. Those VNets i
 
 VNets in mesh are automatically in sync. IP prefixes will be updated automatically. This means that traffic within the mesh will work even after there are changes in IP prefixes in VNets in the mesh.
 
-### How do I verify a mesh topology is configured and applied?"? 
+### How do I verify a mesh topology is configured and applied? 
 
-Please refer to the documentation [How to view applied configurations](/azure/virtual-network-manager/how-to-view-applied-configurations?branch=main). A mesh topology is not a VNet peering, so you cannot see mesh connectivity in peering.
+Refer to the documentation [How to view applied configurations](/azure/virtual-network-manager/how-to-view-applied-configurations?branch=main). A mesh topology isn't a virtual network peering, so you can't see mesh connectivity in peering.
 
 ### What happens if the region where the Azure Virtual Network Manager is created is down? Does it affect deployed configurations or only prevent configuration changes?
 
@@ -95,7 +103,7 @@ See [Dynamic membership](concept-network-groups.md#dynamic-membership).
 
 ### How does the deployment of configuration differ for dynamic membership and static membership?
 
-See [Configuration deployments in Azure Virtual Network Manager](concept-deployments.md#deployment).
+See [Configuration deployments in Azure Virtual Network Manager](concept-deployments.md).
 
 ### How do I delete an Azure Virtual Network Manager component?
 
@@ -111,8 +119,8 @@ No. Azure Virtual Network Manager doesn't currently support that capability. If 
 
 ### Can I move a subscription with an Azure Virtual Network Manager to another tenant?
 Yes, but there are some considerations to keep in mind:
-- The target tenant cannot have an Azure Virtual Network Manager created.
-- The spokes virtual networks in the network group may lose their reference when changing tenants, thus losing connectivity to the hub vnet. To resolve this, after moving the subscription to another tenant, you must manually add the spokes vnets to the network group of Azure Virtual Network Manager.
+- The target tenant can't have an Azure Virtual Network Manager created.
+- The spokes virtual networks in the network group can lose their reference when changing tenants, thus losing connectivity to the hub virtual network. To resolve this, after moving the subscription to another tenant, you must manually add the spokes vnets to the network group of Azure Virtual Network Manager.
 
 ### How can I see what configurations are applied to help me troubleshoot?
 
@@ -124,21 +132,21 @@ If a regional outage occurs, all configurations applied to current managed virtu
 
 ### Can a virtual network managed by Azure Virtual Network Manager be peered to an unmanaged virtual network?
 
-Yes. Azure Virtual Network Manager is fully compatible with pre-existing hub-and-spoke topology deployments that use peering. You don't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
+Yes. Azure Virtual Network Manager is fully compatible with preexisting hub-and-spoke topology deployments that use peering. You don't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
 
 ### Can I migrate an existing hub-and-spoke topology to Azure Virtual Network Manager?
 
-Yes. Migrating existing virtual networks to the hub-and-spoke topology in Azure Virtual Network Manager is straightforward. You can [create a hub-and-spoke topology connectivity configuration](how-to-create-hub-and-spoke.md). When you deploy this configuration, Virtual Network Manager automatically creates the necessary peerings. Any pre-existing peerings remain intact, so there's no downtime.
+Yes. Migrating existing virtual networks to the hub-and-spoke topology in Azure Virtual Network Manager is straightforward. You can [create a hub-and-spoke topology connectivity configuration](how-to-create-hub-and-spoke.md). When you deploy this configuration, Virtual Network Manager automatically creates the necessary peerings. Any preexisting peerings remain intact, so there's no downtime.
 
 ### How do connected groups differ from virtual network peering in establishing connectivity between virtual networks?
 
-In Azure, virtual network peering and connected groups are two methods of establishing connectivity between virtual networks. Peering works by creating a one-to-one mapping between virtual networks, whereas connected groups use a new construct that establishes connectivity without such a mapping.
+In Azure, virtual network peering and connected groups are two methods of establishing connectivity between virtual networks. Virtual network peering works by creating a one-to-one mapping between virtual networks, whereas connected groups use a new construct that establishes connectivity without such a mapping.
 
 In a connected group, all virtual networks are connected without individual peering relationships. For example, if three virtual networks are part of the same connected group, connectivity is enabled between each virtual network without the need for individual peering relationships.
 
-### When managing virtual networks that currently use VNet peering, does this result in paying VNet peering charges twice with Azure Virtual Network Manager?
+### When managing virtual networks using virtual network peering, does this result in paying virtual network peering charges twice with Azure Virtual Network Manager?
 
-There is no second or double charge for peering. Your virtual network manager respects all previously created VNet peerings, and migrates those connections. All peering resources, whether created inside a virtual network manager or outside, with incur a single peering charge.
+There's no second or double charge for peering. Your virtual network manager respects all previously created virtual network peerings, and migrates those connections. All peering resources, whether created inside a virtual network manager or outside, with incur a single peering charge.
 
 
 ### Can I create exceptions to security admin rules?

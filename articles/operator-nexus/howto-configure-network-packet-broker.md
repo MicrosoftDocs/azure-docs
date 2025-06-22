@@ -14,6 +14,9 @@ Azure Operator Nexus's Network Packet Broker is a specialized offering from Micr
 
 The Network Packet Broker (NPB) is designed and modeled as a separate top-level Azure Resource Manager (ARM) resource under Microsoft.managednetworkfabric. Operators can Create, Read, Update and Delete Network TAP, Network TAP rule and Neighbor Group functions. Each network packet broker has multiple resources such as Network TAP, Neighbor Group, & Network TAP Rules to manage, filter and forward designated traffic. 
 
+> [!Note] 
+> Update operations are not currently supported for Neighbor Groups. Changes made via CLI or API will not reflect on the network device.
+
 ## Steps to Enable Network Packet Broker
 
 **Prerequisites**
@@ -356,6 +359,10 @@ Neighbor Group resource has the ability to group destinations for forwarding the
 | resource-name | Resource Names of the NeighborGroup |  example-Neighbor |True |
 | location | AzON Azure Region used during NFC Creation |  eastus |True |
 | destination |List of Ipv4 or Ipv6 destinations to forward traffic | 10.10.10.10|True |
+
+> [!Note]
+> If you need to modify a Neighbor Group, you must delete and recreate it. Update operations are not supported and will not apply changes to the network device.
+
 ### Create Neighbor group
 This command creates a Neighbor Group resource:
 ```azurecli
@@ -450,7 +457,8 @@ Network TAP allows Operators to define destinations and encapsulation mechanism 
 | destinationTapRuleId| ARMID of the Tap rule, which needs to be applied | |True |
 
 > [!NOTE] 
-> Network Tap rules and Neighbor Groups must be created prior to referencing them in Network Tap
+> Network Tap rules and Neighbor Groups must be created prior to referencing them in Network Tap. <br>
+> IP, VLAN, and port group name must be unique across all Network Tap rules associated with the same Network Fabric.
 
 ### NetworkTAP device programming naming conventions/ best practices:
 

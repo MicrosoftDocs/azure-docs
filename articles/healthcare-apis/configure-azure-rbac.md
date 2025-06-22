@@ -4,7 +4,7 @@ description: Learn how to configure Azure RBAC for the FHIR service in Azure Hea
 author: chachachachami
 ms.service: azure-health-data-services
 ms.topic: tutorial
-ms.date: 06/06/2022
+ms.date: 06/02/2025
 ms.author: chrupa
 --- 
 # Configure Azure RBAC roles for Azure Health Data Services
@@ -61,8 +61,6 @@ In the **Select** box, search for a user, service principal, or group that you w
 > If you can't access the FHIR or DICOM service in your application or other tools, you might need to wait a few more minutes for the role assignment to finish propagating in the system.
 
 ## Next steps
-
-[Access by using Postman](./fhir/use-postman.md)
 
 [Access by using the REST Client](./fhir/using-rest-client.md)
 

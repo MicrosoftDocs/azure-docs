@@ -100,7 +100,7 @@ Follow these steps to plug Application Insights into your managed or self-hosted
 
 1. After you update the configuration, [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect.
 
-## Next steps
+## Related content
 
 Learn more about the developer portal:
 

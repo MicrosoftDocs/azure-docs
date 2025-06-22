@@ -4,8 +4,8 @@ description: Monitor and troubleshoot Azure Site Recovery replication issues and
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 07/10/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Use the Recovery Services dashboard

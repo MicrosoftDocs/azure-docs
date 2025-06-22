@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: include
 ms.date: 02/03/2025
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 ## Create an environment

@@ -2,8 +2,8 @@
 title: Use jobs to schedule tasks for groups of devices
 titleSuffix: Azure IoT Hub
 description: How to use the service SDK to schedule a job that invokes a device direct method and updates desired device twin properties.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 manager: lizross
 ms.service: azure-iot-hub
 ms.devlang: csharp
@@ -39,7 +39,7 @@ To learn more about each of these capabilities, see:
 
 * A registered device
 
-* If your application uses the MQTT protocol, make sure that port 8883 is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* If your application uses the MQTT protocol, make sure that port 8883 is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 :::zone pivot="programming-language-csharp"
 

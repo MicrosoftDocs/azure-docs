@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 09/05/2023
 ms.author: duau
+# Customer intent: As a network administrator, I want to configure custom BGP community values for virtual networks, so that I can better manage routing decisions for traffic between my on-premises infrastructure and Azure through ExpressRoute.
 ---
 
 # Configure custom BGP communities for Azure ExpressRoute private peering
@@ -22,6 +23,9 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
   * Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
   * Ensure that Azure private peering gets configured and establishes BGP peering between your network and Microsoft for end-to-end connectivity.
+
+> [!NOTE]
+> Use of Virtual Network BGP communities and ExpressRoute is not currently compatible with Azure Virtual WAN.
   
 ### Working with Azure PowerShell
 

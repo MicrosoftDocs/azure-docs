@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication in a sample WPF desktop app by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article uses a sample [Windows Presentation Foundation (WPF) desktop](/visualstudio/get-started/csharp/tutorial-wpf) application to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your desktop apps.
 

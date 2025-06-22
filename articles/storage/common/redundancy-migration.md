@@ -259,7 +259,7 @@ To track the current migration status of the conversion initiated on your storag
 ```azurecli-interactive
 az storage account migration show \
     --account-name <string> \
-    - g <sting> \
+    - g <string> \
     -n "default"
 ```
 
@@ -431,7 +431,7 @@ An LRS storage account containing blobs in the archive tier can be switched to G
 
 ### Protocol support
 
-You can't convert storage accounts to zone-redundancy (ZRS, GZRS, or RA-GZRS) if either of the following cases are true:
+Customer and support initiated conversions are not supported if either of the following cases are true:
 
 - NFSv3 protocol support is enabled for Azure Blob Storage
 - The storage account contains Azure Files NFSv4.1 shares with public endpoint access enabled

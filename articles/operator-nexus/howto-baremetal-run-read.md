@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 2/5/2025
+ms.date: 4/17/2025
 ms.custom: template-how-to
 ---
 
@@ -30,7 +30,7 @@ See [Azure Operator Nexus Cluster support for managed identities and user provid
 
 To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
 
-The CommandOutputSettings can be cleared, directing run-data-extract output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
+The CommandOutputSettings can be cleared, directing run-read-command output back to the cluster manager's storage. However, it isn't recommended since it's less secure, and the option will be removed in a future release.
 
 However, the CommandOutputSettings do need to be cleared if switching from a user-assigned identity to a system-assigned identity.
 
@@ -103,6 +103,8 @@ This list shows the commands you can use. Commands in `*italics*` can't have `ar
 - `uname`
 - _`ulimit -a`_
 - `uptime`
+- `timedatectl status`
+- `hostnamectl status`
 - `nc-toolbox nc-toolbox-runread ipmitool channel authcap`
 - `nc-toolbox nc-toolbox-runread ipmitool channel info`
 - `nc-toolbox nc-toolbox-runread ipmitool chassis status`
@@ -244,17 +246,19 @@ This list shows the commands you can use. Commands in `*italics*` can't have `ar
 The command syntax for a single command with no arguments is as follows, using `hostname` as an example:
 
 ```azurecli
-az networkcloud baremetalmachine run-read-command --name "<machine-name>"
+az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>"
     --limit-time-seconds "<timeout>" \
     --commands "[{command:hostname}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
+- `--name` is the name of the BMM resource on which to execute the command.
 - The `--commands` parameter always takes a list of commands, even if there's only one command.
 - Multiple commands can be provided in json format using [Azure CLI Shorthand](https://aka.ms/cli-shorthand) notation.
 - Any whitespace must be enclosed in single quotes.
 - Any arguments for each command must also be provided as a list, as shown in the following examples.
+- Not all commands can run on any BMM. For example, `kubectl` commands can only be run from a BMM with the `control-plane` role.
 
 ```
 --commands "[{command:hostname},{command:'nc-toolbox nc-toolbox-runread racadm ifconfig'}]"
@@ -301,7 +305,26 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
     --subscription "<subscription>"
 ```
 
-## How to view the output of an `az networkcloud baremetalmachine run-read-command` in the Cluster Manager Storage account
+## Check the command status and view the output in a user specified storage account
+
+Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz). To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+
+```output
+  ====Action Command Output====
+  + hostname
+  rack1compute01
+  + ping 198.51.102.1 -c 3
+  PING 198.51.102.1 (198.51.102.1) 56(84) bytes of data.
+
+  --- 198.51.102.1 ping statistics ---
+  3 packets transmitted, 0 received, 100% packet loss, time 2049ms
+
+  ================================
+  Script execution result can be found in storage account:
+  https://<storage_account_name>.blob.core.windows.net/bmm-run-command-output/a8e0a5fe-3279-46a8-b995-51f2f98a18dd-action-bmmrunreadcmd.tar.gz?se=2023-04-14T06%3A37%3A00Z&sig=XXX&sp=r&spr=https&sr=b&st=2023-04-14T02%3A37%3A00Z&sv=2019-12-12
+```
+
+## DEPRECATED: How to view the output of an `az networkcloud baremetalmachine run-read-command` in the Cluster Manager Storage account
 
 This guide walks you through accessing the output file that is created in the Cluster Manager Storage account when an `az networkcloud baremetalmachine run-read-command` is executed on a server. The name of the file is identified in the `az rest` status output.
 
@@ -318,22 +341,3 @@ This guide walks you through accessing the output file that is created in the Cl
 1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
 
 1. You can manage & download the output file from the **Overview** pop-out.
-
-## **PREVIEW**: Check the command status and view the output in a user specified storage account
-
-Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
-
-```output
-  ====Action Command Output====
-  + hostname
-  rack1compute01
-  + ping 198.51.102.1 -c 3
-  PING 198.51.102.1 (198.51.102.1) 56(84) bytes of data.
-
-  --- 198.51.102.1 ping statistics ---
-  3 packets transmitted, 0 received, 100% packet loss, time 2049ms
-
-  ================================
-  Script execution result can be found in storage account:
-  https://<storage_account_name>.blob.core.windows.net/bmm-run-command-output/a8e0a5fe-3279-46a8-b995-51f2f98a18dd-action-bmmrunreadcmd.tar.gz?se=2023-04-14T06%3A37%3A00Z&sig=XXX&sp=r&spr=https&sr=b&st=2023-04-14T02%3A37%3A00Z&sv=2019-12-12
-```

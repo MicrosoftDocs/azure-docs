@@ -6,49 +6,51 @@ ms.author: patricka
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 11/14/2024
+ms.date: 05/15/2025
 
 #CustomerIntent: As an operator, I want to configure diagnostics so that I can monitor MQTT broker communications.
+ms.custom:
+  - build-2025
 ---
 
 # Configure MQTT broker diagnostics settings
+Set up diagnostic settings to configure metrics, logs, and self-check for the MQTT broker.
 
 > [!IMPORTANT]
-> This setting requires that you modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
-
-By using diagnostic settings, you can configure metrics, logs, and self-check for the MQTT broker.
-
+> The diagnostics are set on the Broker resource. Configure diagnostics during initial deployment by using the Azure CLI or the Azure portal. If you want to change broker settings, deploy a new broker resource. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 ## Metrics
 
-Metrics provide information about the current and past health and status of the MQTT broker. These metrics are emitted in OpenTelemetry Protocol (OTLP) format. You can convert them to Prometheus format by using an OpenTelemetry Collector and route them to Azure Managed Grafana dashboards by using Azure Monitor managed service for Prometheus. To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
+Metrics show the current and past health and status of the MQTT broker. These metrics use the OpenTelemetry Protocol (OTLP) format. Convert them to Prometheus format with an OpenTelemetry Collector, and route them to Azure Managed Grafana dashboards by using Azure Monitor managed service for Prometheus. To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
 
-For the full list of metrics available, see [MQTT broker metrics](../reference/observability-metrics-mqtt-broker.md).
+For a full list of available metrics, see [MQTT broker metrics](../reference/observability-metrics-mqtt-broker.md).
 
 ## Logs
 
-Logs provide information about the operations performed by the MQTT broker. These logs are available in the Kubernetes cluster as container logs. You can configure them to be sent to Azure Monitor Logs with Container Insights.
+Logs show information about actions the MQTT broker performs. These logs are in the Kubernetes cluster as container logs. Set them up to send to Azure Monitor Logs with Container Insights.
 
 To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
 
 ## Self-check
 
-The MQTT broker's self-check mechanism is enabled by default. It uses a diagnostics probe and OpenTelemetry (OTel) traces to monitor the broker. The probe sends test messages to check the system's behavior and timing.
+The MQTT broker's self-check mechanism is on by default. It uses a diagnostics probe and OpenTelemetry (OTel) traces to monitor the broker. The probe sends test messages to check system behavior and timing.
 
-The validation process checks if the system works correctly by comparing the test results with expected outcomes. These outcomes include:
+The validation process checks if the system works correctly by comparing test results with expected outcomes. These outcomes include:
 
-- The paths that messages take through the system.
-- The system's timing behavior.
+- The paths messages take through the system.
+- System timing behavior.
 
-The diagnostics probe periodically runs MQTT operations (PING, CONNECT, PUBLISH, SUBSCRIBE, UNSUBSCRIBE) on the MQTT broker and monitors the corresponding ACKs and traces to check for latency, message loss, and correctness of the replication protocol.
+The diagnostics probe regularly runs MQTT operations (PING, CONNECT, PUBLISH, SUBSCRIBE, UNSUBSCRIBE) on the MQTT broker and monitors the corresponding ACKs and traces to check for latency, message loss, and correctness of the replication protocol.
 
 > [!IMPORTANT]
-> The self-check diagnostics probe publishes messages to the `azedge/dmqtt/selftest` topic. Don't publish or subscribe to diagnostic probe topics that start with `azedge/dmqtt/selftest`. Publishing or subscribing to these topics might affect the probe or self-test checks and result in invalid results. Invalid results might be listed in diagnostic probe logs, metrics, or dashboards. For example, you might see the issue "Path verification failed for probe event with operation type 'Publish'" in the diagnostics-probe logs. For more information, see [Known issues](../troubleshoot/known-issues.md#mqtt-broker).
+> The self-check diagnostics probe publishes messages to the `azedge/dmqtt/selftest` topic. Don't publish or subscribe to diagnostic probe topics that start with `azedge/dmqtt/selftest`. Publishing or subscribing to these topics can affect the probe or self-test checks and result in invalid results. Invalid results can be listed in diagnostic probe logs, metrics, or dashboards. For example, you might see the issue "Path verification failed for probe event with operation type 'Publish'" in the diagnostics-probe logs. For more information, see [Known issues](../troubleshoot/known-issues.md#mqtt-broker-issues).
+>
+> Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-broker-diagnostics.md) produces diagnostics messages on its own topic, you can still get messages from the self-test when you subscribe to the `#` topic. This is a limitation and expected behavior.
 
 ## Change diagnostics settings
 
-In most scenarios, the default diagnostics settings are sufficient. To override default diagnostics settings for the MQTT broker, edit the `diagnostics` section in the Broker resource. Currently, changing settings is supported only by using the `--broker-config-file` flag when you deploy Azure IoT Operations by using the `az iot ops create` command.
+In most scenarios, the default diagnostics settings are enough. To override the default diagnostics settings for the MQTT broker, edit the `diagnostics` section in the Broker resource. Currently, you can change settings only by using the `--broker-config-file` flag when you deploy Azure IoT Operations with the `az iot ops create` command.
 
-To override, first prepare a Broker configuration file by following the [BrokerDiagnostics](/rest/api/iotoperations/broker/create-or-update#brokerdiagnostics) API reference. For example:
+To override, prepare a broker configuration file by following the [BrokerDiagnostics](/rest/api/iotoperations/broker/create-or-update#brokerdiagnostics) API reference. For example:
 
 ```json
 {
@@ -77,13 +79,13 @@ To override, first prepare a Broker configuration file by following the [BrokerD
 }
 ```
 
-Then, deploy IoT Operations by using the `az iot ops create` command with the `--broker-config-file` flag, like the following command. (Other parameters are omitted for brevity.)
+Then, deploy IoT Operations with the `az iot ops create` command and the `--broker-config-file` flag, as shown in the following example. (Other parameters are omitted for brevity.)
 
 ```azurecli
 az iot ops create ... --broker-config-file <FILE>.json
 ```
 
-To learn more, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config) and [Broker examples](/rest/api/iotoperations/broker/create-or-update#examples).
+Learn more in [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config) and [Broker examples](/rest/api/iotoperations/broker/create-or-update#examples).
 
 ## Related content
 

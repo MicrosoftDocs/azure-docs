@@ -12,6 +12,9 @@ ms.author: chrupa
 
 # Quickstart: Deploy the MedTech service using an Azure Resource Manager template
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a [JavaScript Object Notation (JSON)](https://www.json.org/) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
 
 In this quickstart, learn how to:

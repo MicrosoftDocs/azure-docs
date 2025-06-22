@@ -2,12 +2,14 @@
 title: Quickstart - Create an Azure Content Delivery Network profile and endpoint
 titleSuffix: Azure Content Delivery Network
 description: This quickstart shows how to enable Azure Content Delivery Network by creating a new content delivery network profile and content delivery network endpoint.
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: As a website administrator, I want to create a content delivery network profile and endpoint, so that I can efficiently deliver content to my users and improve load times for my web applications.
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint
@@ -37,8 +39,6 @@ After you've created a content delivery network profile, you use it to create an
 
 1. On the content delivery network profile page, select **+ Endpoint**.
 
-    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-select-endpoint.png" alt-text="Screenshot of create Content Delivery Network endpoint.":::
-
     The **Add an endpoint** pane appears.
 
 3. Enter the following setting values:
@@ -53,8 +53,6 @@ After you've created a content delivery network profile, you use it to create an
     | **Protocol** | Leave the default **HTTP** and **HTTPS** options selected. |
     | **Origin port** | Leave the default port values. |
     | **Optimized for** | Leave the default selection, **General web delivery**. |
-
-    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-add-endpoint.png" alt-text="Add endpoint pane.":::
 
 3. Select **Add** to create the new endpoint. After the endpoint is created, it appears in the list of endpoints for the profile.
 

@@ -2,11 +2,12 @@
 title: Azure Firewall performance 
 description: Compare Azure Firewall performance for Azure Firewall Basic, Standard, and Premium.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 12/26/2024
-ms.author: victorh
+ms.author: duau
+# Customer intent: As a network engineer, I want to compare the performance metrics of Azure Firewall Basic, Standard, and Premium, so that I can choose the appropriate version to meet my organization’s security and performance requirements.
 ---
 
 # Azure Firewall performance

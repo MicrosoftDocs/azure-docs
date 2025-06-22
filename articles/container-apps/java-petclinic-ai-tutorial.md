@@ -3,11 +3,12 @@ title: Deploy an AI-Enabled Instance of the Spring PetClinic on Azure Container 
 description: Use the azd automation tool to deploy a sample AI application to Azure Container Apps.
 services: container-apps
 author: KarlErickson
-ms.author: sonwan
+ms.author: karler
+ms.reviewer: sonwan
 ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 02/12/2025
-ms.custom:
+ms.custom: devx-track-java
 #customer intent: As a developer, I want to see a simple example of an AI application deployed to Azure Container Apps.
 ---
 

@@ -2,16 +2,10 @@
 title: Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)
 description: Explains the solution Azure NetApp Files provides for meeting the needs of the semiconductor and chip design industry. Presents test scenarios running a standard industry benchmark for electronic design automation (EDA) using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/18/2024
 ms.author: anfdocs
 ---
@@ -25,13 +19,13 @@ Azure NetApp Files helps reduce the time EDA jobs take with a highly performant,
 
 The Azure NetApp Files large volumes feature is ideal for the storage needs of this most demanding industry, namely:  
 
-* **Large capacity single namespace:** Each volume offers from up to 500TiB of usable capacity under a single mount point. 
+* **Large capacity single namespace:** Each volume offers up to 1 PiB of usable capacity under a single mount point. You can [request a 2 PiB large volume](large-volumes-requirements-considerations.md).
 
 * **High I/O rate, low latency:** In testing using an EDA simulation benchmark, a single large volume delivered over 650K storage IOPS with less than 2 milliseconds of application latency. In a typical EDA workload, IOPS consists of a mixture or file creates, reads, writes, and a significant amount of other metadata operation. This result is considered to be enterprise-grade performance for many customers. This performance improvement is made possible by the way large volumes are able to parallelize incoming write operations across storage resources in Azure NetApp Files. Though many firms require 2ms or better response time, chip design tools can tolerate higher latency than this without impact to business.  
 
 * **At 826,000 operations per second:** the performance edge of a single large volume - the application layer peaked at 7ms of latency in our tests, which shows that more operations are possible in a single large volume at a slight cost of latency. 
 
-Tests conducted using an EDA benchmark found that with a single regular Azure NetApp Files volume, workload as high as 40,000 IOPS could be achieved at the 2ms mark, and 50,000 at the edge. See the table and chart below for regular and large volume side-by-side overview.
+Tests conducted using an EDA benchmark found that with a single regular Azure NetApp Files volume, workload as high as 40,000 IOPS could be achieved at the 2ms mark, and 50,000 at the edge. See the following table and chart for regular and large volumes side-by-side overview.
 
 
 | Scenario | I/O Rate at 2ms latency | I/O Rate at performance edge (~7 ms) | MiB/s at 2ms latency | MiB/s performance edge (~7 ms) | 
@@ -86,7 +80,7 @@ The EDA workload in this test was generated using a standard industry benchmark 
 
 ## Test configuration 
 
-The results were produced using the below configuration details:
+The results were produced using the following configuration details:
 
 | Component | Configuration |
 | - | - | 

@@ -116,22 +116,12 @@
     items:
     - name: Active change, retirement, and end of life notices
       href: https://github.com/Azure/Batch/labels/notice
-    - name: Cloud Service Configuration Pools
-      href: batch-pool-cloud-service-to-virtual-machine-configuration.md
-    - name: Batch certificates
-      href: batch-certificate-migration-guide.md
-    - name: Pools without public IP addresses (classic)
-      href: batch-pools-without-public-IP-addresses-classic-retirement-migration-guide.md
-    - name: Classic compute node communication model
-      href: batch-pools-to-simplified-compute-node-communication-model-migration-guide.md
     - name: VHD and Managed Images
       href: batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md
-    - name: TLS 1.0 and TLS 1.1
-      href: batch-tls-101-migration-guide.md
-    - name: Job and pool lifetime statistics
-      href: job-pool-lifetime-statistics-migration-guide.md
     - name: Low-priority virtual machines
       href: low-priority-vms-retirement-migration-guide.md
+    - name: Classic compute node communication model
+      href: batch-pools-to-simplified-compute-node-communication-model-migration-guide.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -154,6 +144,8 @@
       href: account-move.md
     - name: Rotate Batch account keys
       href: account-key-rotation.md
+    - name: Associate Batch accounts with network security perimeter
+      href: network-security-perimeter.md
   - name: Authenticate with Microsoft Entra ID
     items:
     - name: Microsoft Entra ID with Batch service
@@ -165,7 +157,7 @@
       href: credential-access-key-vault.md
     - name: Role-based access control for Azure Batch service
       displayName: rbac, access control
-      href: batch-role-based-access-control.md      
+      href: batch-role-based-access-control.md
   - name: Copy files and applications to pool nodes
     items:
     - name: Copying applications and data to pool nodes
@@ -242,7 +234,7 @@
       displayName: release, job release
       href: batch-job-prep-release.md
     - name: Configure Container Data Isolation Task
-      href: batch-container-isolation-task.md  
+      href: batch-container-isolation-task.md
     - name: Concurrent node tasks
       displayName: variable, maximize
       href: batch-parallel-node-tasks.md
@@ -387,4 +379,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-batch
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=batch
+    href: /shows/Inside-Azure-for-IT/?products=azure-batch

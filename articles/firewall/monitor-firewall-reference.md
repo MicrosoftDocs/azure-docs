@@ -4,9 +4,10 @@ description: This article contains important reference material you need when yo
 ms.date: 10/26/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: vhorne
-ms.author: victorh
+author: duongau
+ms.author: duau
 ms.service: azure-firewall
+# Customer intent: As a network administrator, I want to monitor metrics and logs for Azure Firewall, so that I can ensure its performance and proactively identify any issues affecting traffic management.
 ---
 # Azure Firewall monitoring data reference
 
@@ -72,6 +73,10 @@ The latency probe currently uses Microsoft's Ping Mesh technology, which is base
 
 **Best Practices for Monitoring Latency**
 - Set a baseline: Establish a latency baseline under light traffic conditions for accurate comparisons during normal or peak usage.
+
+  > [!NOTE]
+  > When establishing your baseline, expect occasional metric spikes due to recent infrastructure changes. These temporary spikes are normal and result from metric reporting adjustments, not actual issues. Only submit a support request if spikes persist over time.
+  
 - Monitor for patterns: Expect occasional latency spikes as part of normal operations. If high latency persists beyond these normal variations, it may indicate a deeper issue requiring investigation.
 - Recommended latency threshold: A recommended guideline is that latency should not exceed 3x the baseline. If this threshold is crossed, further investigation is recommended.
 - Check the rule limit: Ensure that the network rules are within the 20K rule limit. Exceeding this limit can affect performance. 

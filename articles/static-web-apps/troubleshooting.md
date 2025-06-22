@@ -2,11 +2,11 @@
 title: Troubleshooting Azure Static Web Apps
 description: First steps for tracking down problems when using Azure Static Web Apps.
 services: static-web-apps
-author: geektrainer
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 06/25/2024
-ms.author: chrhar
+ms.author: wujia
 ---
 
 # Troubleshooting deployment and runtime errors

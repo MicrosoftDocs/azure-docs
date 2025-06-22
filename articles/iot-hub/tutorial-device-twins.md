@@ -2,8 +2,8 @@
 title: Tutorial - Synchronize device state from Azure IoT Hub
 description: Tutorial - Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
 services: iot-hub
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: javascript
 ms.topic: tutorial
@@ -59,7 +59,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * Clone or download the sample Node.js project from [Azure IoT samples for Node.js](https://github.com/Azure-Samples/azure-iot-samples-node).
 
-* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 ## Set up Azure resources
 

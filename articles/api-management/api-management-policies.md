@@ -6,8 +6,8 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom:
   - build-2024
-ms.topic: article
-ms.date: 10/02/2024
+ms.topic: reference
+ms.date: 05/06/2025
 ms.author: danlep
 ---
 
@@ -36,7 +36,7 @@ More information about policies:
 | [Limit call rate by subscription](rate-limit-policy.md) | Prevents API usage spikes by limiting call rate, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
 | [Limit call rate by key](rate-limit-by-key-policy.md) | Prevents API usage spikes by limiting call rate, on a per key basis. | Yes | Yes | No | Yes | Yes |
 | [Set usage quota by subscription](quota-policy.md) | Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
-| [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | No | No | Yes | Yes |
+| [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | Yes | No | Yes | Yes |
 | [Limit concurrency](limit-concurrency-policy.md) | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Yes | Yes | Yes | Yes | Yes |
 | [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting large language model tokens per calculated key. | Yes | Yes | No | Yes | Yes |
 | [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | Yes | Yes |
@@ -59,6 +59,7 @@ More information about policies:
 
 |Policy  |Description  | Classic | V2  | Consumption |Self-hosted  |Workspace |
 |---------|---------|---------|---------|---------|--------|------|
+| [Enforce content safety checks on LLM requests](llm-content-safety-policy.md) | Enforces content safety checks on LLM requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM. | Yes | Yes | Yes | Yes | Yes |
 | [Validate content](validate-content-policy.md) | Validates the size or content of a request or response body against one or more API schemas. The supported schema formats are JSON and XML. | Yes | Yes | Yes | Yes | Yes |
 | [Validate GraphQL request](validate-graphql-request-policy.md) | Validates and authorizes a request to a GraphQL API. | Yes | Yes | Yes | Yes | No |
 | [Validate OData request](validate-odata-request-policy.md) | Validates a request to an OData API to ensure conformance with the OData specification. | Yes | Yes | Yes | Yes | Yes |
@@ -149,6 +150,21 @@ More information about policies:
 | [Cosmos DB data source for resolver](cosmosdb-data-source-policy.md) | Configures the Cosmos DB request and optional response to resolve data for an object type and field in a GraphQL schema. | Yes | Yes | No | No | No |
 | [HTTP data source for resolver](http-data-source-policy.md) | Configures the HTTP request and optionally the HTTP response to resolve data for an object type and field in a GraphQL schema. | Yes | Yes | Yes | No | No |
 | [Publish event to GraphQL subscription](publish-event-policy.md) | Publishes an event to one or more subscriptions specified in a GraphQL API schema. Configure the policy in a GraphQL resolver for a related field in the schema for another operation type such as a mutation. | Yes | Yes | Yes | No | No |
+
+## AI gateway 
+
+|Policy  |Description  | Classic | V2  | Consumption |Self-hosted  | Workspace |
+|---------|---------|---------|---------|---------|--------|----------|
+| [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting large language model tokens per calculated key. | Yes | Yes | No | Yes | Yes |
+| [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | Yes | Yes |
+|  [Emit Azure OpenAI token metrics](azure-openai-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model tokens through Azure OpenAI service APIs. | Yes | Yes | No | Yes | Yes |
+|  [Emit large language model API token metrics](llm-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model (LLM) tokens through LLM APIs. | Yes | Yes | No | Yes | Yes |
+|  [Get cached responses of Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) | Performs lookup in Azure OpenAI API cache using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes | No |
+|  [Get cached responses of large language model API requests](llm-semantic-cache-lookup-policy.md) | Performs lookup in large language model API cache using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes | No |
+|  [Store responses of Azure OpenAI API requests to cache](azure-openai-semantic-cache-store-policy.md) | Caches response according to the Azure OpenAI API cache configuration. | Yes | Yes | Yes | Yes | No |
+|  [Store responses of large language model API requests to cache](llm-semantic-cache-store-policy.md) | Caches response according to the large language model API cache configuration. | Yes | Yes | Yes | Yes | No |
+| [Enforce content safety checks on LLM requests](llm-content-safety-policy.md) | Enforces content safety checks on LLM requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM. | Yes | Yes | Yes | Yes | Yes |
+
 
 ## Policy control and flow
 

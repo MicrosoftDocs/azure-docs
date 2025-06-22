@@ -4,9 +4,11 @@ description: This article tells how to use change tracking and inventory to trac
 services: automation
 ms.subservice: change-inventory-management
 ms.custom: linux-related-content
-ms.date: 11/19/2024
+ms.date: 03/07/2025
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage change tracking and inventory using Azure Monitoring Agent

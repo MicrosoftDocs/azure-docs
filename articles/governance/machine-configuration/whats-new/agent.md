@@ -18,7 +18,30 @@ the most recent developments, this article provides you with information about:
 For information on release notes for the connected machine agent, see
 [What's new with the connected machine agent][01].
 
-## Windows extension release notes
+## Windows extension release notes (Microsoft.GuestConfiguration.ConfigurationforWindows)
+
+### Version 1.29.92.0 - April 2025
+
+#### Updated
+
+- Migrated to .NET 8
+- Upgraded to PowerShell 7.4.7
+
+### Version 1.29.91.0 - March 2025
+
+#### Updated
+
+- Updated OpenSSL from version 3.4.0 to 3.4.1.
+
+#### Fixed
+
+- Resolved an issue causing a deadlock during policy execution.
+
+### Version 1.29.86.0 - January 2025
+
+#### Updated
+
+- Updated OpenSSL from version 3.3.2 to 3.4.0.
 
 ### Version 1.29.85.0 - October 2024
 
@@ -43,7 +66,34 @@ For information on release notes for the connected machine agent, see
   [User-Assigned Identity-based Access for Machine Configuration Packages][10].
 
 
-## Extension for Linux extension release notes
+## Extension for Linux extension release notes (Microsoft.GuestConfiguration.ConfigurationforLinux)
+
+### Version 1.26.87 - April 2025
+
+#### Updated
+
+- Updated .NET from version 6 to 8
+- Updated PowerShell from version 7.2.x to 7.4.7
+
+### Version 1.26.85 - March 2025
+
+#### New Features
+
+- Added support for the Linux distribution Azure Linux 3!
+
+#### Updated
+
+- Updated OpenSSL from version 3.4.0 to 3.4.1.
+
+#### Fixed
+
+- Resolved an issue causing a deadlock during policy execution.
+
+### Version 1.26.80 - January 2025
+
+#### Updated
+
+- Updated OpenSSL from version 3.0.15 to 3.4.0.
 
 ### Version 1.26.79 - October 2024
 

@@ -13,8 +13,6 @@ ms.service: azure-communication-services
 
 # Number Lookup overview
 
-[!INCLUDE [Private Preview Notice](../../includes/public-preview-include.md)]
-
 Azure Communication Services Number Lookup enables you to retrieve insights and look up a specific phone number. It's part of the Phone Numbers SDK and can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Azure Communication Services Number Lookup enables you to reliably retrieve number insights before engaging with end-users.
 
 ## Number Lookup features

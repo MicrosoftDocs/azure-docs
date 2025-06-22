@@ -6,9 +6,9 @@ ms.author: gahllevy
 ms.reviewer: sidandrews
 ms.service: azure-cosmos-db
 ms.subservice: mongodb
-ms.topic: concept-article
+ms.topic: reliability-article
 ms.date: 03/11/2024
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance reliability in Azure Cosmos DB for MongoDB vCore
 ---
 

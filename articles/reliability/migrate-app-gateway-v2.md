@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 07/28/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Application Gateway and WAF deployments to availability zone support
@@ -70,4 +70,4 @@ Learn more about:
 > [Azure services that support availability zones](availability-zones-service-support.md)
 
 > [!div class="nextstepaction"]
-> [Azure regions that support availability zones](availability-zones-region-support.md)
+> [Azure regions that support availability zones](regions-list.md)

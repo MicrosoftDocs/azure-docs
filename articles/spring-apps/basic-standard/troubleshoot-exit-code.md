@@ -5,7 +5,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: troubleshooting
 ms.date: 01/31/2024
-ms.author: kunsun
+ms.author: karler
+ms.reviewer: kunsun
 ms.custom: devx-track-java
 ---
 

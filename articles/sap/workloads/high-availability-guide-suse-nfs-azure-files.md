@@ -485,7 +485,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
     
     # Add the following lines
-    service/halib = $(DIR_CT_RUN)/saphascriptco.so
+    service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
     
     # remove Autostart from ERS profile
@@ -574,7 +574,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     #### [ENSA2](#tab/ensa2)
 
     > [!NOTE]
-    > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resoure priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+    > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
     >
     > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster.
 

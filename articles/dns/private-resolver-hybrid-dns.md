@@ -2,12 +2,13 @@
 title: Resolve Azure and on-premises domains.
 description: Configure Azure and on-premises DNS to resolve private DNS zones and on-premises domains.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 04/05/2024
-ms.author: greglin
+ms.author: allensu
 #Customer intent: As an administrator, I want to resolve on-premises domains in Azure and resolve Azure private zones on-premises.
+# Customer intent: As an IT administrator, I want to configure hybrid DNS resolution between Azure and on-premises domains, so that I can ensure seamless access to resources across both environments.
 ---
 
 # Resolve Azure and on-premises domains
@@ -49,9 +50,6 @@ Create a private zone with at least one resource record to use for testing. The 
 - [Create a private zone - CLI](private-dns-getstarted-cli.md) 
 
 In this article, the private zone **azure.contoso.com** and the resource record **test** are used. Autoregistration isn't required for the current demonstration.
-
-> [!IMPORTANT]
-> A recursive server is used to forward queries from on-premises to Azure in this example. If the server is authoritative for the parent zone (contoso.com), forwarding is not possible unless you first create a delegation for azure.contoso.com.
 
 [ ![View resource records](./media/private-resolver-hybrid-dns/private-zone-records-small.png) ](./media/private-resolver-hybrid-dns/private-zone-records.png#lightbox)
 

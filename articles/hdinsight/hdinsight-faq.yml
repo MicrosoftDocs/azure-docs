@@ -5,10 +5,11 @@ metadata:
   keywords: frequently asked questions, faq
   author: reachnijel
   ms.author: nijelsf
+  ms.reviewer: sairamyeturi
   ms.service: azure-hdinsight
   ms.custom: hdinsightactive
   ms.topic: faq
-  ms.date: 02/21/2024
+  ms.date: 03/06/2025
 title: "Azure HDInsight: Frequently asked questions"
 summary: |
     This article provides answers to some of the most common questions about how to run [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).

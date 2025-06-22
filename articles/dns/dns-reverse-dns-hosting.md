@@ -1,24 +1,23 @@
 ---
 title: Host reverse DNS lookup zones in Azure DNS
 description: Learn how to use Azure DNS to host the reverse DNS lookup zones for your IP ranges
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 09/12/2024
-ms.author: greglin
+ms.date: 04/21/2025
+ms.author: allensu
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: As a network administrator, I want to configure reverse DNS lookup zones for my assigned IP ranges using Azure DNS, so that I can manage accurate reverse DNS resolution for those IP addresses efficiently.
 ---
 
 # Host reverse DNS lookup zones in Azure DNS
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-This article explains how to host reverse DNS lookup zones for your assigned IP ranges with Azure DNS. The IP ranges represented by the reverse lookup zones must be assigned to your organization, typically by your ISP.
+This article explains how to host reverse DNS lookup zones for your assigned IP ranges with Azure DNS. The IP ranges represented by the reverse lookup zones must be assigned to your organization, typically by your ISP. The scenario described in this article is not for IP addresses assigned by Microsoft. To configure reverse DNS for Microsoft-assigned IP address ranges, see [Configure reverse DNS for services hosted in Azure](dns-reverse-dns-for-azure-services.md).
 
-To configure reverse DNS for an Azure-owned IP address assigned to your Azure service, see [Configure reverse DNS for services hosted in Azure](dns-reverse-dns-for-azure-services.md).
-
-Before reading this article, you should familiarize yourself with the [overview of reverse DNS](dns-reverse-dns-overview.md) and it's supported in Azure.
+Before reading this article, you should familiarize yourself with the [overview of reverse DNS](dns-reverse-dns-overview.md) and it's support in Azure.
 
 In this article, you learn how to create your first reverse lookup DNS zone and record by using the Azure portal, Azure PowerShell, Azure classic CLI, and Azure CLI.
 

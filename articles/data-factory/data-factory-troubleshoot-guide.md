@@ -5,7 +5,7 @@ description: Learn how to troubleshoot external control activities in Azure Data
 author: nabhishek
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: abnarain
 ---
 
@@ -1189,5 +1189,4 @@ For more troubleshooting help, try these resources:
 * [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [X information about Data Factory](https://x.com/hashtag/DataFactory)
-* [Azure videos](https://azure.microsoft.com/resources/videos/index/)
 * [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)

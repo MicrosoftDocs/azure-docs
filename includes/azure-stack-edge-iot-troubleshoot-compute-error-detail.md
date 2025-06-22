@@ -94,7 +94,7 @@ You can use the create options via the K8s-experimental section. The following s
 
 When configuring the IoT device during setup, you may see the following error: 
 
->*(Http status code: 400) Could not create or update IoT role on \<YourDeviceName>\. An error occurred with the error code {NO_PARAM}. For more information, refer to the error code details (https://aka.ms/dbe-error-codes). If the error persists, contact Microsoft Support*.
+>*(HTTP status code: 400) Could not create or update IoT role on \<YourDeviceName>\. An error occurred with the error code {NO_PARAM}. For more information, refer to the error code details (https://aka.ms/dbe-error-codes). If the error persists, contact Microsoft Support*.
 
 #### Suggested solution
 

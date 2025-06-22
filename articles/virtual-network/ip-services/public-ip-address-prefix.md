@@ -9,6 +9,7 @@ ms.date: 01/08/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
+# Customer intent: "As a cloud architect, I want to create and manage public IP address prefixes, so that I can efficiently allocate and utilize a range of public IP addresses for my Azure resources while minimizing management overhead."
 ---
 
 # Public IP address prefix
@@ -65,7 +66,7 @@ Resource|Scenario|Steps|
 
 - You can't specify the set of IP addresses for the prefix (though you can [specify which IP you want from the prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix)). Azure gives the IP addresses for the prefix, based on the size that you specify. Additionally, all public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix. Addresses must be assigned to resources in the same region and subscription.
 
-- You can create a prefix of up to 16 IP addresses for Microsoft owned prefixes. Review [Network limits increase requests](/azure/azure-portal/supportability/networking-quota-requests) and [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information if larger prefixes are required. Also note there's no limit on the number of Public IP Prefixes per region, but the overall number of Public IP addresses per region is limited (each public IP prefix consumes that number of IPs from the public IP address quota for that region).
+- You can create a prefix of up to 16 IP addresses for Microsoft owned prefixes. Review [Network limits increase requests](/azure/azure-portal/supportability/networking-quota-requests) and [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information if larger prefixes are required. Also note there's no limit on the number of Public IP Prefixes per region, but the overall number of Public IP addresses per region is limited, and each public IP prefix counts against regional quota for the full count of IPs you can create from that prefix.  (For example, if you create a /29 prefix, 8 Public IPs are consumed from the quota even if no Public IPs have been generated.)
 
 - The size of the range can't be modified after the prefix has been created.
 

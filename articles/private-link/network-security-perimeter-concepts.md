@@ -1,13 +1,15 @@
 ---
 title: What is a network security perimeter?
+titleSuffix: Azure Private Link
 description: Learn about the components of network security perimeter, a feature that allows Azure PaaS resources to communicate within an explicit trusted boundary, or perimeter.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 01/06/2025
+ms.date: 05/16/2025
 ms.custom: references_regions, ignite-2024
 #CustomerIntent: As a network security administrator, I want to understand how to use Network Security Perimeter to control network access to Azure PaaS resources.
+# Customer intent: As a network security administrator, I want to implement a network security perimeter for Azure PaaS resources, so that I can ensure secure communication and control access within a defined logical boundary while preventing unauthorized public access.
 ---
 
 # What is a network security perimeter?
@@ -58,11 +60,11 @@ Administrators add PaaS resources to a perimeter by creating resource associatio
 
 | **Mode** | **Description** |
 |----------------|--------|
-| **Learning mode**  | - Default access mode.</br>- Helps network administrators to understand the existing access patterns of their PaaS resources.</br>- Advised mode of use before transitioning to enforced mode.|
+| **Transition mode (formerly Learning mode)**  | - Default access mode.</br>- Helps network administrators to understand the existing access patterns of their PaaS resources.</br>- Advised mode of use before transitioning to enforced mode.|
 | **Enforced mode**  | - Must be set by the administrator.</br>- By default, all traffic except intra perimeter traffic is denied in this mode unless an *Allow* access rule exists. |
 
 
-Learn more on transitioning from learning mode to enforced mode in [Transitioning to a network security perimeter](network-security-perimeter-transition.md) article.
+Learn more on move from transition mode (formerly learning mode) to enforced mode in [Transitioning to a network security perimeter](network-security-perimeter-transition.md) article.
 
 ## Why use a network security perimeter?
 
@@ -73,7 +75,7 @@ Network security perimeter provides a secure perimeter for communication of PaaS
 - Enable access rules to grant access outside the secure perimeter.
 - Manage access rules for all the PaaS resources within the network security perimeter in a single pane of glass.
 - Enable diagnostic settings to generate access logs of PaaS resources within the perimeter for Audit and Compliance.
-- Allow private endpoint traffic without other access rules.
+- Allow private endpoint traffic without the need for explicit access rules.
 
 
 ## How does a network security perimeter work?
@@ -100,14 +102,24 @@ A network security perimeter-aware private link resource is a PaaS resource that
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.
 
+## Supported access rules' types
+
+Network security perimeter supports the following access rule types:
+
+| Direction | Access rule type | 
+|---------------------------|---------------|
+| Inbound | Subscription based rules |
+| Inbound | IP based rules (check respective onboarded private link resources for v6 support)| 
+| Outbound | FQDN based rules |
+
 ## Limitations of a network security perimeter
 
-### Regional limitations
+### Logging limitations
 
-Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions. Currently, those regions are **East US**, **East US 2**, **North Central US**, **South Central US**, **West US**, and **West US 2**.
+Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
 
 > [!NOTE]
-> For PaaS resource logs, use **Storage and Event Hub** as the log destination for any region associated to the same perimeter.
+> For PaaS resource logs, use **Log Analytics Workspace, Storage or Event Hub** as the log destination associated to the same perimeter as the PaaS resource.
 
 [!INCLUDE [network-security-perimeter-limits](../../includes/network-security-perimeter-limits.md)]
 

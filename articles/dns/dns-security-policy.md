@@ -1,12 +1,13 @@
 ---
 title: Overview of DNS security policy (Preview)
 description: Learn how to configure DNS security policy to filter and log DNS queries in your Azure Virtual Network. Display, save, and review DNS queries and responses from the VNET. Block malicious domains and optimize DNS query traffic.
-author: greg-lindsay
+author: asudbring
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 02/10/2025
-ms.author: greglin
+ms.date: 02/24/2025
+ms.author: allensu
+# Customer intent: "As a network administrator, I want to configure DNS security policies for my virtual network, so that I can filter and log DNS queries to protect against malicious domains and optimize DNS traffic."
 ---
 
 # DNS security policy (Preview)
@@ -80,7 +81,12 @@ The following example shows a DNS security policy linked to two VNets (**myeastv
 
 DNS domain lists are lists of DNS domains that you associate to traffic rules. 
 
-Select **DNS Domain Lists** under **Settings** for a DNS security policy to view the current domain lists associated with the policy. The following example shows the DNS domain lists that are associated with the DNS security policy **myeast-secpol**:
+Select **DNS Domain Lists** under **Settings** for a DNS security policy to view the current domain lists associated with the policy. 
+
+> [!NOTE]
+> CNAME chains are examined ("chased") to determine if the traffic rules that are associated with a domain should apply. For example, a rule that applies to **malicious.contoso.com** also applies to **adatum.com** if **adatum.com** maps to **malicious.contoso.com** or if **malicious.contoso.com** appears anywhere in a CNAME chain for **adatum.com**.
+
+The following example shows the DNS domain lists that are associated with the DNS security policy **myeast-secpol**:
 
 [  ![Screenshot of the list of DNS domain lists.](./media/dns-security-policy/domain-list.png) ](./media/dns-security-policy/domain-list.png#lightbox)
 

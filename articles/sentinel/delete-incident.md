@@ -5,8 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 08/22/2022
-appliesto: 
-  - Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to delete duplicate or erroneous incidents in my incident management system so that I can maintain an accurate and efficient incident queue.
 ---
 
@@ -26,7 +26,7 @@ The ability to create incidents from scratch in Microsoft Sentinel in the Azure 
 - Faulty incidents were generated in bulk by a broken analytics rule.
 - The incident contains no data - alerts, entities, bookmarks, and so on.
 
-In all other cases, when an incident is no longer needed, it should be **closed**, not deleted. [Closing an incident](investigate-cases.md#close-an-incident) requires you to specify the reason for closing it, and allows you to add additional comments for context and clarification. Closing old incidents in this way preserves the transparency and integrity of your SOC, and also allows for the possibility of reopening the incident if the problem resurfaces.
+In all other cases, when an incident is no longer needed, it should be **closed**, not deleted. [Closing an incident](incident-navigate-triage.md#close-an-incident) requires you to specify the reason for closing it, and allows you to add additional comments for context and clarification. Closing old incidents in this way preserves the transparency and integrity of your SOC, and also allows for the possibility of reopening the incident if the problem resurfaces.
 
 
 
@@ -90,5 +90,5 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 For more information, see:
 - [Create your own incidents manually in Microsoft Sentinel](create-incident-manually.md)
 - [Relate alerts to incidents in Microsoft Sentinel](relate-alerts-to-incidents.md)
-- [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
-- [Create custom analytics rules to detect threats](detect-threats-custom.md)
+- [Navigate, triage, and manage Microsoft Sentinel incidents](incident-navigate-triage.md)
+- [Investigate Microsoft Sentinel incidents in depth](investigate-incidents.md)

@@ -2,11 +2,12 @@
 title: Application Gateway for Containers components
 description: This article provides information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 10/15/2024
-ms.author: greglin
+ms.author: mbender
+# Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
 
 # Application Gateway for Containers components
@@ -86,7 +87,9 @@ A set of routing rules evaluates how the request for that hostname should be ini
 
 ### HTTP/2 Requests
 
-Application Gateway for Containers fully supports HTTP/2 protocol for communication from the client to the frontend. Communication from Application Gateway for Containers to the backend target uses the HTTP/1.1 protocol. The HTTP/2 setting is always enabled and can't be changed. If clients prefer to use HTTP/1.1 for their communication to the frontend of Application Gateway for Containers, they may continue to negotiate accordingly.
+Application Gateway for Containers supports both HTTP/2 and HTTP/1.1 protocols for communication between the client and the frontend. The HTTP/2 setting is always enabled and can't be changed. If clients prefer to use HTTP/1.1 for their communication to the frontend of Application Gateway for Containers, they may continue to negotiate accordingly.
+
+Communication between Application Gateway for Containers and the backend target is always via HTTP/1.1, except for gRPC, which uses HTTP/2.
 
 ### Modifications to the request
 
@@ -96,7 +99,7 @@ Application Gateway for Containers inserts three extra headers to all requests b
 - x-forwarded-proto
 - x-request-id
 
-**x-forwarded-for** is the original requestor's client IP address. If the request is coming through a proxy, the header value appends the address received, comma delimited. In example: 1.2.3.4,5.6.7.8; where 1.2.3.4 is the client IP address to the proxy in front of Application Gateway for Containers, and 5.6.7.8 is the address of the proxy forwarding traffic to Application Gateway for Containers.
+**x-forwarded-for** is the original requester's client IP address. If the request is coming through a proxy, the header value appends the address received, comma delimited. In example: 1.2.3.4,5.6.7.8; where 1.2.3.4 is the client IP address to the proxy in front of Application Gateway for Containers, and 5.6.7.8 is the address of the proxy forwarding traffic to Application Gateway for Containers.
 
 **x-forwarded-proto** returns the protocol received by Application Gateway for Containers from the client. The value is either http or https.
 

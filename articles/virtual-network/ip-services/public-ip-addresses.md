@@ -10,6 +10,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 02/04/2025
 ms.custom: references_regions
+# Customer intent: "As a network engineer, I want to understand the characteristics and allocation methods of public IP addresses in Azure, so that I can effectively manage connectivity for Azure resources and comply with any budgeting and security requirements."
 ---
 
 # Public IP addresses
@@ -79,7 +80,7 @@ Public IPs have two types of assignments:
 
 - **Dynamic** - The IP address **isn't** given to the resource at the time of creation when selecting dynamic. The IP is assigned when you associate the public IP address with a resource. The IP address is released when you stop, or delete the resource. Dynamic public IP addresses are commonly used for when there's no dependency on the IP address. For example, a public IP resource is released from a VM upon stop and then start. Any associated IP address is released if the allocation method is **dynamic**. If you don't want the IP address to change, set the allocation method to **static** to ensure the IP address remains the same.
   
-- **Static** - The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted. When you set the allocation method to **static**, you can't specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
+- **Static** - The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted and can't be recovered. When you set the allocation method to **static**, you can't specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
 
 Static public IP addresses are commonly used in the following scenarios:
 * When you must update firewall rules to communicate with your Azure resources.
@@ -97,7 +98,7 @@ Static public IP addresses are commonly used in the following scenarios:
 ## Availability Zone
 > [!IMPORTANT]
 > We're updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following regions, all IPs created (except zonal) are zone-redundant.
-> Region availability: Central Korea, Central Mexico, Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2, Central Spain
+> Region availability: Central Korea, Central Mexico, Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2, Central Spain, North Europe, UK South, Australia East
 > 
 
 Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../reliability/availability-zones-region-support.md). Basic SKU Public IPs don't have any zones and are created as non-zonal. Once created, a public IP address can't change its availability zone.
@@ -107,8 +108,6 @@ Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in
 | Non-zonal |  A non-zonal public IP address is placed into a zone for you by Azure and doesn't give a guarantee of redundancy. |
 | Zonal  |	 A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. |
 | Zone-redundant	| A zone-redundant IP is created in all zones for a region and can survive any single zone failure. |
-
-In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal. 
 
 ## Domain Name Label
 

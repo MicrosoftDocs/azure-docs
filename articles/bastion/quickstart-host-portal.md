@@ -2,28 +2,29 @@
 title: 'Quickstart: Deploy Azure Bastion automatically'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion with default settings from the Azure portal.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: quickstart
-ms.date: 01/21/2025
-ms.author: cherylmc
+ms.date: 03/12/2025
+ms.author: abell
 
+# Customer intent: "As a cloud administrator, I want to deploy Azure Bastion automatically with default settings, so that I can securely access virtual machines without requiring public IP addresses or additional configuration."
 ---
 
 # Quickstart: Deploy Azure Bastion automatically
 
-In this quickstart, you learn how to deploy Azure Bastion automatically in the Azure portal by using default settings and the Basic SKU. After you deploy Bastion, you can use SSH or RDP to connect to virtual machines (VMs) in the virtual network via Bastion by using the private IP addresses of the VMs. The VMs that you connect to don't need a public IP address, client software, an agent, or a special configuration. For more information about Bastion, see [What is Azure Bastion](bastion-overview.md)?
+In this quickstart, you learn how to deploy Azure Bastion automatically in the Azure portal by using default settings and the Standard SKU. After you deploy Bastion, you can use SSH or RDP to connect to virtual machines (VMs) in the virtual network via Bastion by using the private IP addresses of the VMs. The VMs that you connect to don't need a public IP address, client software, an agent, or a special configuration. For more information about Bastion, see [What is Azure Bastion](bastion-overview.md)?
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-At this time, when you deploy Bastion automatically, Bastion is deployed with Basic SKU.
+When you deploy Bastion automatically, Bastion is deployed with Standard SKU.
 
-* If you want to deploy with the Developer SKU instead, see [Quickstart: Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md).
-* If you want to specify features, configuration settings, or use a different SKU when you deploy Bastion, see [Tutorial: Deploy Azure Bastion by using specified settings](tutorial-create-host-portal.md). 
+* If you want to connect with Bastion Developer instead, see [Quickstart: Connect with Bastion Developer](quickstart-developer-sku.md).
+* If you want to specify features, configuration settings, or use a different SKU when you deploy Bastion, see [Tutorial: Deploy Azure Bastion by using specified settings and SKUs](tutorial-create-host-portal.md).
 
 The steps in this article help you:
 
-* Deploy Bastion with default settings (Basic SKU) from your VM resource by using the Azure portal. When you deploy by using default settings, the settings are based on the virtual network in which the VM resides.
+* Deploy Bastion with default settings (Standard SKU) from your VM resource by using the Azure portal. When you deploy by using default settings, the settings are based on the virtual network in which the VM resides.
 * Connect to your VM via the portal by using SSH or RDP connectivity and the VM's private IP address.
 * Remove your VM's public IP address if you don't need it for anything else.
 
@@ -74,13 +75,13 @@ When you deploy from VM settings, Bastion is automatically configured with the f
 |Name | Default value |
 |---|---|
 |**AzureBastionSubnet** | Created within the virtual network as a /26 |
-|**SKU** | **Basic** |
+|**SKU** | **Standard** |
 | **Name** | Based on the virtual network name |
 | **Public IP address name** | Based on the virtual network name |
 
 ## <a name="createvmset"></a>Deploy Bastion
 
-When you create an Azure Bastion instance in the portal by using **Deploy Bastion**, you deploy Bastion automatically by using default settings and the Basic SKU. You can't modify, or specify additional values when you select **Deploy Bastion**. After deployment completes, you can later go to the **Configuration** page for the bastion host to configure additional settings or upgrade the SKU. For more information, see [About Azure Bastion configuration settings](configuration-settings.md).
+When you create an Azure Bastion instance in the portal by using **Deploy Bastion**, you deploy Bastion automatically by using default settings and the Standard SKU. You can't modify, or specify additional values when you select **Deploy Bastion**. After deployment completes, you can later go to the **Configuration** page for the bastion host to configure additional settings or upgrade the SKU. For more information, see [About Azure Bastion configuration settings](configuration-settings.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal, go to the VM that you want to connect to. The values from the virtual network where this VM resides will be used to create the Bastion deployment.

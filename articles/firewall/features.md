@@ -2,11 +2,12 @@
 title: Azure Firewall Standard features
 description: Learn about Azure Firewall features.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 01/30/2025
-ms.author: victorh
+ms.author: duau
+# Customer intent: As a network security administrator, I want to understand the features of Azure Firewall Standard, so that I can effectively implement and manage network security for our Azure Virtual Network resources.
 ---
 
 # Azure Firewall Standard features

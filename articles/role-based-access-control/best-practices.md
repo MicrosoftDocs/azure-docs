@@ -2,10 +2,10 @@
 title: Best practices for Azure RBAC
 description: Best practices for using Azure role-based access control (Azure RBAC).
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 01/30/2024
+ms.date: 03/30/2025
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn how to best use Azure RBAC.
 ---
@@ -22,7 +22,7 @@ When planning your access control strategy, it's a best practice to grant users 
 
 The following diagram shows a suggested pattern for using Azure RBAC.
 
-![Azure RBAC and least privilege](./media/best-practices/rbac-least-privilege.png)
+:::image type="content" source="./media/best-practices/rbac-least-privilege.png" alt-text="Diagram of suggested pattern for using Azure RBAC and least privilege." lightbox="./media/best-practices/rbac-least-privilege.png":::
 
 For information about how to assign roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 

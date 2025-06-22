@@ -6,7 +6,7 @@ author: jomore
 ms.topic: tutorial
 ms.service: azure-firewall-manager
 ms.date: 10/22/2020
-ms.author: victorh
+ms.author: duau
 ms.custom: devx-track-azurepowershell
 ---
 

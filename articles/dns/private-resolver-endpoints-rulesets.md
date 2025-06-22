@@ -2,12 +2,13 @@
 title: Azure DNS Private Resolver endpoints and rulesets
 description: In this article, understand the Azure DNS Private Resolver endpoints and rulesets
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
-ms.date: 04/16/2024
-ms.author: greglin
+ms.date: 03/21/2025
+ms.author: allensu
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
+# Customer intent: "As a network administrator, I want to understand the components and configuration of Azure DNS Private Resolver, so that I can effectively implement and manage DNS resolution across my virtual networks."
 ---
 
 # Azure DNS Private Resolver endpoints and rulesets
@@ -31,11 +32,11 @@ The architecture for Azure DNS Private Resolver is summarized in the following f
 
 As the name suggests, inbound endpoints ingress to Azure. Inbound endpoints provide an IP address to forward DNS queries from on-premises and other locations outside your virtual network. DNS queries sent to the inbound endpoint are resolved using Azure DNS. Private DNS zones that are linked to the virtual network where the inbound endpoint is provisioned are resolved by the inbound endpoint. 
 
-The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed.  No other resources can exist in the same subnet with the inbound endpoint.
+The IP address associated with an inbound endpoint is always part of the private virtual network address space where the private resolver is deployed. No other resources can exist in the same subnet with the inbound endpoint.
 
 ### Static and dynamic endpoint IP addresses
 
-The IP address assigned to an inbound endpoint can be static or dynamic. If you select static, you can't choose a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you choose a dynamic IP address, the fifth available IP address in the subnet is assigned. For example, 10.10.0.4 is the fifth IP address in the 10.10.0.0/28 subnet (.0, .1, .2, .3, .4). If the inbound endpoint is reprovisioned, this IP address could change, but normally the 5th IP address in the subnet is used again. The dynamic IP address does not change unless the inbound endpoint is reprovisioned. The following example specifies a static IP address:
+The IP address assigned to an inbound endpoint can be static or dynamic. If you select static, you can't choose a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). If you choose a dynamic IP address, the fifth available IP address in the subnet is assigned. For example, 10.10.0.4 is the fifth IP address in the 10.10.0.0/28 subnet (.0, .1, .2, .3, .4). If the inbound endpoint is reprovisioned, this IP address could change, but normally the 5th IP address in the subnet is used again. The dynamic IP address doesn't change unless the inbound endpoint is reprovisioned. The following example specifies a static IP address:
 
 <br><img src="./media/private-resolver-endpoints-rulesets/static-inbound-endpoint.png" alt="A screenshot displaying how to choose a static IP address." width="60%">
 
@@ -47,7 +48,7 @@ The following example shows provisioning of an inbound endpoint with a virtual I
 
 Outbound endpoints egress from Azure and can be linked to [DNS Forwarding Rulesets](#dns-forwarding-rulesets).
 
-Outbound endpoints are also part of the private virtual network address space where the private resolver is deployed. An outbound endpoint is associated with a subnet, but isn't provisioned with an IP address like the inbound endpoint.  No other resources can exist in the same subnet with the outbound endpoint. The following screenshot shows an outbound endpoint inside the subnet `snet-E-outbound`.
+Outbound endpoints are also part of the private virtual network address space where the private resolver is deployed. An outbound endpoint is associated with a subnet, but isn't provisioned with an IP address like the inbound endpoint. No other resources can exist in the same subnet with the outbound endpoint. The following screenshot shows an outbound endpoint inside the subnet `snet-E-outbound`.
 
 ![View outbound endpoints](./media/private-resolver-endpoints-rulesets/east-outbound-endpoint.png)
 
@@ -77,7 +78,7 @@ For example, resources in the vnet `myeastspoke` can resolve records in the priv
 - A ruleset rule is configured and enabled in the linked ruleset to resolve `azure.contoso.com` using the inbound endpoint in `myeastvnet`
 
 > [!NOTE]
-> You can also link a ruleset to a virtual network in another Azure subscription.  However, the resource group specified must be in the same region as the private resolver. 
+> You can also link a ruleset to a virtual network in another Azure subscription. However, the resource group specified must be in the same region as the private resolver. 
 
 ### Rules
 
@@ -92,7 +93,7 @@ DNS forwarding rules (ruleset rules) have the following properties:
 
 <sup>1</sup>Single-label domain names are supported.
 
-If multiple rules are matched, the longest prefix match is used.  
+If multiple rules are matched, the longest prefix match is used. 
 
 For example, if you have the following rules:
 
@@ -105,7 +106,7 @@ For example, if you have the following rules:
 A query for `secure.store.azure.contoso.com` matches the **AzurePrivate** rule for `azure.contoso.com` and also the **Contoso** rule for `contoso.com`, but the **AzurePrivate** rule takes precedence because the prefix `azure.contoso` is longer than `contoso`. 
 
 > [!IMPORTANT]
-> If a rule is present in the ruleset that has as its destination a private resolver inbound endpoint, do not link the ruleset to the VNet where the inbound endpoint is provisioned. This configuration can cause DNS resolution loops. For example: In the previous scenario, no ruleset link should be added to `myeastvnet` because the inbound endpoint at `10.10.0.4` is provisioned in `myeastvnet` and a rule is present that resolves `azure.contoso.com` using the inbound endpoint.<br><br>
+> If a rule is present in the ruleset that has as its destination a private resolver inbound endpoint, don't link the ruleset to the VNet where the inbound endpoint is provisioned. This configuration can cause DNS resolution loops. For example: In the previous scenario, no ruleset link should be added to `myeastvnet` because the inbound endpoint at `10.10.0.4` is provisioned in `myeastvnet` and a rule is present that resolves `azure.contoso.com` using the inbound endpoint. This configuration leads to forwarding of DNS queries in **myeastvnet** for **azure.contoso.com** back to **myeastvnet**, thus causing a loop. Ruleset links are intended to enable VNets that can't properly resolve a DNS name to resolve the name through forwarding.<br><br>
 > The rules shown in this article are examples of rules that you can use for specific scenarios. The examples used aren't required. Be careful to test your forwarding rules.<br><br>
 > **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
@@ -116,7 +117,7 @@ A query for `secure.store.azure.contoso.com` matches the **AzurePrivate** rule f
 
 > [!IMPORTANT]
 > - You can't enter the Azure DNS IP address of 168.63.129.16 as the destination IP address for a rule. Attempting to add this IP address outputs the error: **Exception while making add request for rule**. 
-> - Do not use the private resolver's inbound endpoint IP address as a forwarding destination for zones that aren't linked to the virtual network where the private resolver is provisioned.
+> - Don't use the private resolver's inbound endpoint IP address as a forwarding destination for zones that aren't linked to the virtual network where the private resolver is provisioned.
 
 ## Design options
 
@@ -124,16 +125,16 @@ How you deploy forwarding rulesets and inbound endpoints in a hub and spoke arch
 
 ### Forwarding ruleset links
 
-Linking a **forwarding ruleset** to a VNet enables DNS forwarding capabilities in that VNet. For example, if a ruleset contains a rule to forward queries to a private resolver's inbound endpoint, this type of rule can be used to enable resolution of private zones that are linked to the inbound endpoint's VNet. This configuration can be used where a Hub VNet is linked to a private zone and you want to enable the private zone to be resolved in spoke VNets that aren't linked to the private zone. In this scenario, DNS resolution of the private zone is carried out by the inbound endpoint in the hub VNet. 
+Linking a **forwarding ruleset** to a VNet enables DNS forwarding capabilities in that VNet. For example, if a ruleset contains a rule to forward queries to a private resolver's inbound endpoint, this type of rule can be used to enable resolution of private zones that are linked to the inbound endpoint's VNet. This configuration might be used where a Hub VNet is linked to a private zone and you want to enable the private zone to be resolved in spoke VNets that aren't linked to the private zone. In this scenario, DNS resolution of the private zone is carried out by the inbound endpoint in the hub VNet. 
 
-The ruleset link design scenario is best suited to a [distributed DNS architecture](private-resolver-architecture.md#distributed-dns-architecture) where network traffic is spread across your Azure network, and might be unique in some locations. With this design, you can control DNS resolution in all VNets linked to the ruleset by modifying a single ruleset.  
+The ruleset link design scenario is best suited to a [distributed DNS architecture](private-resolver-architecture.md#distributed-dns-architecture) where network traffic is spread across your Azure network, and might be unique in some locations. With this design, you can control DNS resolution in all VNets linked to the ruleset by modifying a single ruleset. 
 
 > [!NOTE]
-> If you use the ruleset link option and there is a forwarding rule with the inbound endpoint as destination, do not link the forwarding ruleset to the Hub VNet. Linking this type of ruleset to the same VNet where the inbound endpoint is provisioned can result in a DNS resolution loop. 
+> If you use the ruleset link option and there is a forwarding rule with the inbound endpoint as destination, don't link the forwarding ruleset to the Hub VNet. Linking this type of ruleset to the same VNet where the inbound endpoint is provisioned can result in a DNS resolution loop. 
 
 ### Inbound endpoints as custom DNS
 
-**Inbound endpoints** are able to process inbound DNS queries, and can be configured as custom DNS for a VNet. This configuration can replace instances where you're [using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) as custom DNS in a VNet.
+**Inbound endpoints** are able to process inbound DNS queries and can be configured as custom DNS for a VNet. This configuration can replace instances where you're [using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) as custom DNS in a VNet.
 
 The custom DNS design scenario is best suited to a [centralized DNS architecture](private-resolver-architecture.md#centralized-dns-architecture) where DNS resolution and network traffic flow are mostly to a hub VNet, and is controlled from a central location. 
 

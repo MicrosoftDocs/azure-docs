@@ -5,7 +5,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 02/13/2025
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory

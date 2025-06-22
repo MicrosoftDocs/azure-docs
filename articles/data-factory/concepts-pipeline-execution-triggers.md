@@ -4,10 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: This article provides information about how to execute a pipeline in Azure Data Factory or Azure Synapse Analytics, either on-demand or by creating a trigger.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 04/08/2025
 ms.custom: synapse
 ---
 
@@ -33,10 +33,10 @@ You will see the trigger configuration window, allowing you to choose the trigge
 
 :::image type="content" source="media/concepts-pipeline-execution-triggers/new-trigger-configuration.png" alt-text="Shows the new trigger configuration window with the type dropdown showing the various types of triggers you can create.":::
 
-Read more about [scheduled](#schedule-trigger-with-json), [tumbling window](#tumbling-window-trigger), [storage event](#event-based-trigger), and [custom event](#event-based-trigger) triggers below.
+Read more about [scheduled](#schedule-trigger), [tumbling window](#tumbling-window-trigger), [storage event](#event-based-trigger), and [custom event](#event-based-trigger) triggers below.
 
 
-## Manual execution with JSON
+## Manual execution
 
 The manual execution of a pipeline is also referred to as _on-demand_ execution.
 
@@ -152,7 +152,7 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 
 For a complete sample, see [Quickstart: Create a data factory by using the REST API](quickstart-create-data-factory-rest-api.md).
 
-## Trigger execution with JSON
+## Trigger Types
 
 Triggers are another way that you can execute a pipeline run. Triggers represent a unit of processing that determines when a pipeline execution needs to be kicked off. Currently, the service supports three types of triggers:
 
@@ -190,7 +190,7 @@ Pipelines and triggers have a many-to-many relationship (except for the tumbling
 }
 ```
 
-## Schedule trigger with JSON
+## Schedule trigger
 A schedule trigger runs pipelines on a wall-clock schedule. This trigger supports periodic and advanced calendar options. For example, the trigger supports intervals like "weekly" or "Monday at 5:00 PM and Thursday at 9:00 PM." The schedule trigger is flexible because the dataset pattern is agnostic, and the trigger doesn't discern between time-series and non-time-series data.
 
 For more information about schedule triggers and, for examples, see [Create a trigger that runs a pipeline on a schedule](how-to-create-schedule-trigger.md).
@@ -258,6 +258,12 @@ The following table provides a high-level overview of the major schema elements 
 | **frequency** | The unit of frequency at which the trigger recurs. The supported values include "minute", "hour", "day", "week", and "month". |
 | **interval** | A positive integer that denotes the interval for the **frequency** value. The **frequency** value determines how often the trigger runs. For example, if the **interval** is 3 and the **frequency** is "week", the trigger recurs every three weeks. |
 | **schedule** | The recurrence schedule for the trigger. A trigger with a specified **frequency** value alters its recurrence based on a recurrence schedule. The **schedule** property contains modifications for the recurrence that are based on minutes, hours, weekdays, month days, and week number. |
+
+ > [!NOTE]
+ > For time zones that observe daylight saving, trigger time auto-adjusts for the twice-a-year change, if the recurrence is set to **Days** or above. To opt out of the daylight saving change, select a time zone that doesn't observe daylight saving, for instance, UTC.
+ >
+ > Daylight saving adjustment only happens for a trigger with the recurrence set to **Days** or above. If the trigger is set to **Hours** or **Minutes** frequency, it continues to fire at regular intervals.
+
 
 ### Schedule trigger example
 
@@ -376,6 +382,15 @@ The examples assume that the **interval** value is 1 and that the **frequency** 
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Run every 15 minutes on the last Friday of the month. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Run at 5:15 AM, 5:45 AM, 5:15 PM, and 5:45 PM on the third Wednesday of every month. |
 
+## Event-based trigger
+
+An event-based trigger runs pipelines in response to an event. From behavior perspective, if you stop and start an event-based trigger, it resumes old trigger pattern which may result in unwanted trigger of the pipeline. In this case, you should delete and create new event based trigger. The new trigger starts fresh without history. There are two flavors of event-based triggers.
+
+* _Storage event trigger_ runs a pipeline against events happening in a Storage account, such as the arrival of a file, or the deletion of a file in Azure Blob Storage account.
+* _Custom event trigger_ processes and handles [custom articles](../event-grid/custom-topics.md) in Event Grid
+
+For more information about event-based triggers, see [Storage Event Trigger](how-to-create-event-trigger.md) and [Custom Event Trigger](how-to-create-custom-event-trigger.md).
+
 ## Trigger type comparison
 
 The tumbling window trigger and the schedule trigger both operate on time heartbeats. How are they different?
@@ -393,15 +408,6 @@ The following table provides a comparison of the tumbling window trigger and sch
 | **Concurrency** | Supported. Users can explicitly set concurrency limits for the trigger. Allows between 1 and 50 concurrent triggered pipeline runs. | Not supported. |
 | **System variables** | Along with @trigger().scheduledTime and @trigger().startTime, it also supports the use of the **WindowStart** and **WindowEnd** system variables. Users can access `trigger().outputs.windowStartTime` and `trigger().outputs.windowEndTime` as trigger system variables in the trigger definition. The values are used as the window start time and window end time, respectively. For example, for a tumbling window trigger that runs every hour, for the window 1:00 AM to 2:00 AM, the definition is `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` and `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Only supports default @trigger().scheduledTime and @trigger().startTime variables. |
 | **Pipeline-to-trigger relationship** | Supports a one-to-one relationship. Only one pipeline can be triggered. | Supports many-to-many relationships. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines. |
-
-## Event-based trigger
-
-An event-based trigger runs pipelines in response to an event. There are two flavors of event-based triggers.
-
-* _Storage event trigger_ runs a pipeline against events happening in a Storage account, such as the arrival of a file, or the deletion of a file in Azure Blob Storage account.
-* _Custom event trigger_ processes and handles [custom articles](../event-grid/custom-topics.md) in Event Grid
-
-For more information about event-based triggers, see [Storage Event Trigger](how-to-create-event-trigger.md) and [Custom Event Trigger](how-to-create-custom-event-trigger.md).
 
 ## Related content
 

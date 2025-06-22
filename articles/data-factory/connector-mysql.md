@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/26/2025
+ms.date: 04/14/2025
 ms.author: jianleishen
 ---
 
@@ -20,7 +20,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory and Syn
 >To copy data from or to [Azure Database for MySQL](/azure/mysql/overview) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
 
 > [!IMPORTANT]
-> The MySQL connector version 2.0 provides improved native MySQL support. If you are using MySQL connector version 1.0 in your solution, please [upgrade your MySQL connector](#upgrade-the-mysql-driver-version) as version 1.0 is at [End of Support stage](connector-deprecation-plan.md). Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between version 2.0 and version 1.0.
+> The MySQL connector version 2.0 provides improved native MySQL support. If you are using MySQL connector version 1.0 in your solution, please [upgrade your MySQL connector](#upgrade-the-mysql-driver-version) as version 1.0 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded.Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -35,7 +35,7 @@ This MySQL connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-This connector supports MySQL version 5.5, 5.6, 5.7, 8.0, 8.1 and 8.2 under the recommended new driver version v2 and 5.6, 5.7 and 8.0 for the legacy driver version.
+This connector supports MySQL version 5.5, 5.6, 5.7, 8.0, 8.1 and 8.2 under the MySQL connector version 2.0 and 5.6, 5.7 and 8.0 for version 1.0.
 
 ## Prerequisites
 
@@ -75,12 +75,12 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-If you use the recommended driver version，the following properties are supported for MySQL linked service:
+If you use version 2.0, the following properties are supported for MySQL linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MySql** | Yes |
-| driverVersion | The driver version when you select the recommended driver version. The value is v2. | Yes |
+| driverVersion | The driver version when you select version 2.0. The value is v2. | Yes |
 | server | The name of your MySQL Server. | Yes |
 | port | The port number to connect to the MySQL server. |No|
 | database | Your MySQL database name. |Yes|
@@ -93,10 +93,10 @@ If you use the recommended driver version，the following properties are support
 | allowZeroDateTime | Specifying this property value to `true` allows the special "zero" date value of `0000-00-00` to be retrieved from the database. If set to `false` (the default), date columns are returned as DateTime values, which means `0000-00-00` cannot be retrieved. <br><br> MySQL permits you to store a "zero" value of `0000-00-00` as a "dummy date". In some cases, this feature is more convenient than using NULL values, and uses less data and index space. To disallow `0000-00-00` in MySQL, enable the [NO_ZERO_DATE](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_date) mode. For more information, see this [article](https://dev.mysql.com/doc/refman/8.4/en/date-and-time-types.html).| No |
 | connectionTimeout | The length of time (in seconds) to wait for a connection to the server before terminating the attempt and generating an error. | No |
 | convertZeroDateTime | Set it to `true` to return DateTime.MinValue for date or datetime columns that have disallowed values. | No |
-| guidFormat| Determines which column type (if any) should be read as a GUID. Go to this [article](https://mysqlconnector.net/connection-options/) for the description of each column type by searching this property. <br><br> The recommended version treats Char(36) as GUID type by default for better performance. The connector treats Char(36) fields as GUIDs for easier database handling. This treatment simplifies operations such as inserting, updating, and retrieving GUID values, ensuring they are consistently managed as GUID objects in the application code instead of plain strings. This behavior is particularly useful in scenarios where GUIDs are used as primary keys or unique identifiers and provides better performance. If you don't need this default setting, you can configure `guidFormat=none` in connection property. |No|
+| guidFormat| Determines which column type (if any) should be read as a GUID. Go to this [article](https://mysqlconnector.net/connection-options/) for the description of each column type by searching this property. <br><br> Version 2.0 treats Char(36) as GUID type by default for better performance. The connector treats Char(36) fields as GUIDs for easier database handling. This treatment simplifies operations such as inserting, updating, and retrieving GUID values, ensuring they are consistently managed as GUID objects in the application code instead of plain strings. This behavior is particularly useful in scenarios where GUIDs are used as primary keys or unique identifiers and provides better performance. If you don't need this default setting, you can configure `guidFormat=none` in connection property. |No|
 | sslCert | The path to the client's SSL certificate file in PEM format. SslKey must also be specified. |No|
 | sslKey | The path to the client's SSL private key in PEM format. SslCert must also be specified.| No |
-| treatTinyAsBoolean | When set to true, tinyint(1) values are returned as Boolean. Setting this property to false causes tinyint(1) to be returned as SByte/Byte. <br><br>The recommended version treats tinyint(1) as Boolean type by default. For more information, see this [article](https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html). To let the connector return tiny as numeric, set `treatTinyAsBoolean=false` in the connection properties.| No | 
+| treatTinyAsBoolean | When set to true, tinyint(1) values are returned as Boolean. Setting this property to false causes tinyint(1) to be returned as SByte/Byte. <br><br>Version 2.0 treats tinyint(1) as Boolean type by default. For more information, see this [article](https://dev.mysql.com/doc/refman/8.0/en/numeric-type-syntax.html). To let the connector return tiny as numeric, set `treatTinyAsBoolean=false` in the connection properties.| No | 
 
 **Example:**
 
@@ -158,7 +158,7 @@ If you use the recommended driver version，the following properties are support
 }
 ```
 
-If you use the legacy driver version, the following properties are supported:
+If you use version 1.0, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -275,7 +275,7 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 
 When copying data from MySQL, the following mappings are used from MySQL data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| MySQL data type | Interim service data type | Interim service data type (for the legacy driver version) |
+| MySQL data type | Interim service data type (for version 2.0)| Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
 | `bigint` |`Int64` |`Int64` |
 | `bigint unsigned` |`Decimal` |`Decimal` |
@@ -327,29 +327,29 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your MySQL connector: 
 
-1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
+1. In **Edit linked service** page, select **2.0** under **Version** and configure the linked service by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
 
-1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
+1. The data type mapping for version 2.0 is different from that for version 1.0. To learn the version 2.0 data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
-1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
+1. Version 2.0 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
 
-### Best practices for MySQL connector recommended version
+### <a name="best-practices-for-mysql-connector-recommended-version"></a> Best practices for MySQL connector version 2.0
 
-This section introduces best practices for MySQL connector recommended version.
+This section introduces best practices for MySQL connector version 2.0.
 
 #### Cannot load SSL key
 
-- **Symptoms**: If you are using MySQL connector recommended version with SSL Key as a connection property, you may meet the following error message: `Could not load the client key from your_pem_file: Unrecognized PEM header: -----BEGIN PRIVATE KEY-----`
+- **Symptoms**: If you are using MySQL connector version 2.0 with SSL Key as a connection property, you may meet the following error message: `Could not load the client key from your_pem_file: Unrecognized PEM header: -----BEGIN PRIVATE KEY-----`
 
-- **Cause**: The recommended version cannot decrypt the PCKS#8 format.
+- **Cause**: Version 2.0 cannot decrypt the PCKS#8 format.
 
 - **Recommendation**: Convert the PEM format to PCKS#1.
 
-## Differences between the recommended and the legacy driver version
+## <a name="differences-between-the-recommended-and-the-legacy-driver-version"></a> Differences between MySQL version 2.0 and version 1.0
 
-The table below shows the data type mapping differences between MySQL using the recommended and the legacy driver version.
+The table below shows the data type mapping differences between MySQL using version 2.0 and version 1.0.
 
-|MySQL data type |Interim service data type (using the recommended driver version) |Interim service data type (using the legacy driver version)|
+|MySQL data type |Interim service data type (using version 2.0) |Interim service data type (using version 1.0)|
 |:---|:---|:---|
 |bit(1)| UInt64|Boolean|
 |bit(M), M>1|UInt64|Byte[]|

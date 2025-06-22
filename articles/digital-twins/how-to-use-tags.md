@@ -1,25 +1,19 @@
 ---
-# Mandatory fields.
 title: Add tags to digital twins
 titleSuffix: Azure Digital Twins
 description: Learn how to implement marker and value tags on models and digital twins
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 06/29/2023
+ms.author: baanders
+ms.date: 06/19/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Add tags to digital twins 
 
 This article describes how to add different types of tags to models and digital twins, and how to query using the tags.
 
-You can use the concept of tags to further identify and categorize your digital twins. In particular, users may want to replicate tags from existing systems, such as [Haystack Tags](https://project-haystack.org/doc/appendix/tags), within their Azure Digital Twins instances. 
+You can use the concept of tags to further identify and categorize your digital twins. For example, you might want to replicate tags from existing systems, such as [Haystack Tags](https://project-haystack.org/doc/appendix/tags), in your Azure Digital Twins instance. 
 
 This document describes patterns that can be used to implement tags on digital twins.
 
@@ -27,11 +21,11 @@ Tags are first added as properties within the [model](concepts-models.md) that d
 
 ## Marker tags 
 
-A *marker tag* is a simple string that is used to mark or categorize a digital twin, such as "blue" or "red". This string is the tag's name, and marker tags have no meaningful value—the tag is significant just by its presence (or absence). 
+A *marker tag* is a simple string that is used to mark or categorize a digital twin, such as *blue* or *red*. This string is the tag's name, and marker tags have no meaningful value—the tag is significant just by its presence (or absence). 
 
 ### Add marker tags to model 
 
-Marker tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) Map from `string` to `boolean`. The boolean `mapValue` is ignored, as the presence of the tag is all that's important.
+Marker tags are modeled as a [Digital Twin Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) Map from `string` to `boolean`. The boolean `mapValue` is ignored, as the presence of the tag is all that's important.
 
 Here's an excerpt from a twin model implementing a marker tag as a property:
 
@@ -45,7 +39,7 @@ Here's a code example on how to set marker `tags` for a twin using the [.NET SDK
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
 
-After you create a twin with tag properties according to the example above, the twin will look like this:
+After you create a twin with tag properties according to the previous example, the twin will look like this:
 
 ```JSON
 {
@@ -73,9 +67,9 @@ After you create a twin with tag properties according to the example above, the 
 
 ### Query with marker tags
 
-Once tags have been added to digital twins, the tags can be used to filter the twins in queries. 
+Once tags are added to digital twins, the tags can be used to filter the twins in queries. 
 
-Here's a query to get all twins that have been tagged as "red": 
+Here's a query to get all twins that are tagged as *red*: 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
@@ -99,9 +93,9 @@ Here's an excerpt from a twin model implementing a value tag as a property:
 
 As with marker tags, you can set the value tag in a digital twin by setting the value of this `tags` property from the model. To use a value tag as a marker tag, you can set the `tagValue` field to the empty string value (`""`). 
 
-Below are the JSON bodies of two twins that have value tags to represent their sizes. The twins in the example also have value tags for "red" or "purple" that are being used as marker tags.
+The following example shows the JSON bodies of two twins that have value tags to represent their sizes. The twins in the example also have value tags for *red* or *purple* that are being used as marker tags.
 
-Example Twin1, with a value tag for size large and a marker tag of "red":
+Example Twin1, with a value tag for size large and a marker tag of *red*:
 
 ```JSON
 {
@@ -120,7 +114,8 @@ Example Twin1, with a value tag for size large and a marker tag of "red":
 }
 ```
 
-Example Twin2, with a value tag for size small and a marker tag of "purple":
+Example Twin2, with a value tag for size small and a marker tag of *purple*:
+
 ```JSON
 {
   "$dtId": "Twin2",
@@ -142,7 +137,7 @@ Example Twin2, with a value tag for size small and a marker tag of "purple":
 
 As with marker tags, you can use value tags to filter the twins in queries. You can also use value tags and marker tags together.
 
-From the example above, `red` is being used as a marker tag. Remember that this is a query to get all twins that have been tagged as "red": 
+From the previous example, `red` is being used as a marker tag. Remember that this query gets all twins that are tagged as *red*: 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
@@ -152,8 +147,5 @@ Here's a query to get all entities that are small (value tag), and not red:
 
 ## Next steps
 
-Read more about designing and managing digital twin models:
-* [Manage DTDL models](how-to-manage-model.md)
-
-Read more about querying the twin graph:
-* [Query the twin graph](how-to-query-graph.md)
+* Learn more about designing and managing digital twin models: [Manage DTDL models](how-to-manage-model.md).
+* Learn more about querying the twin graph: [Query the twin graph](how-to-query-graph.md).

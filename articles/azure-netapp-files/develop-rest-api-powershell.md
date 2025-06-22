@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 09/30/2024
 ms.author: anfdocs
 ---
 # Develop for Azure NetApp Files with REST API using PowerShell

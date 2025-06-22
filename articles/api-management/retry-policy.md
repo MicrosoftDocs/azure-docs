@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---
@@ -15,6 +15,8 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `retry` policy executes its child policies once and then retries their execution until the retry `condition` becomes `false` or retry `count` is exhausted.
+
+The `retry` policy may contain any other policies as its child elements, except for `wait` policy.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -55,11 +57,11 @@ The `retry` policy executes its child policies once and then retries their execu
 
 ## Elements
 
-The `retry` policy may contain any other policies as its child elements.
+The `retry` policy may contain any other policies as its child elements, except for `wait` policy.
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

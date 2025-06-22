@@ -1,18 +1,18 @@
 ---
 title: Review your Microsoft Customer Agreement bill - Azure
 description: Learn how to review your bill and resource usage and to verify charges for your Microsoft Customer Agreement invoice.
-author: bandersmsft
-ms.reviewer: lishepar
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 04/30/2024
-ms.author: banders
+ms.date: 04/30/2025
+ms.author: jkinma
 ---
 
 # Tutorial: Review your Microsoft Customer Agreement invoice
 
-You can review the charges on your invoice by analyzing the individual transactions. In the billing account for a Microsoft Customer Agreement, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal and compare the charges to the usage detail file.
+You can review the charges on your invoice by analyzing the individual transactions. In the billing account for a Microsoft Customer Agreement, an invoice is generated every month for each billing profile. The invoice includes all charges for consumption-based subscriptions from the previous month. You can view your invoices in the Azure portal and compare the charges to the usage detail file.
 
 This tutorial applies only to Azure customers with a Microsoft Customer Agreement.
 
@@ -37,21 +37,7 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 ## Check access to a Microsoft Customer Agreement
 
-Check the agreement type to determine whether you have access to a billing account for a Microsoft Customer Agreement.
-
-In the Azure portal, type *cost management + billing* in the search box and then select **Cost Management + Billing**.
-
-:::image type="content" border="true" source="./media/review-customer-agreement-bill/billing-search-cost-management-billing.png" alt-text="Screenshot showing an Azure portal search for Cost Management + Billing.":::
-
-If you have access to just one billing scope, select **Properties** from the left-hand side. You have access to a billing account for a Microsoft Customer Agreement if the billing account type is **Microsoft Customer Agreement**.
-
-:::image type="content" border="true" source="./media/review-customer-agreement-bill/billing-mca-property.png" alt-text="Screenshot showing the Microsoft Customer Agreement properties page.":::
-
-If you have access to multiple billing scopes, check the type in the billing account column. You have access to a billing account for a Microsoft Customer Agreement if the billing account type for any of the scopes is **Microsoft Customer Agreement**.
-
-In the billing scopes page, select **Billing scopes** and then select the billing account, which would be used to pay for the subscriptions' usage. The billing account should be of type **Microsoft Customer Agreement**.
-
-:::image type="content" border="true" source="./media/review-customer-agreement-bill/billing-mca-in-the-list.png" alt-text="Screenshot showing the Microsoft Customer Agreement type on the Billing Accounts page.":::
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
 ## Review invoiced transactions in the Azure portal
 

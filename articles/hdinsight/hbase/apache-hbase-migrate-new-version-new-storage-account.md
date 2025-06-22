@@ -4,7 +4,10 @@ description: Learn how to migrate an Apache HBase cluster in Azure HDInsight to 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/02/2025
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  01/02/2025
 ---
 
 # Migrate Apache HBase to a new version and storage account

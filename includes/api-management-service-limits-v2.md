@@ -43,8 +43,8 @@ To request a limit increase, create a support request from the Azure portal. For
 | Maximum number of GraphQL resolvers per service instance | 100 | 100 | 100 |
 | Maximum number of GraphQL resolvers per API | 100 | 100 | 100 |
 | Maximum number of APIs per product | 100 | 100 | 100 |
-| Maximum number of APIs per subscription | 100 | 100 | 100 |
-| Maximum number of products per subscription | 100 | 100 |     100 |
+| Maximum number of subscriptions per API | 100 | 100 | 100 |
+| Maximum number of subscriptions per product | 100 | 100 |     100 |
 | Maximum number of groups per product | 100 | 100 |     100 |
 | Maximum number of tags per product | 100 | 100 |  100 |
 | Concurrent back-end connections<sup>1</sup> per HTTP authority | 2,048 | 2,048 | 2,048 |

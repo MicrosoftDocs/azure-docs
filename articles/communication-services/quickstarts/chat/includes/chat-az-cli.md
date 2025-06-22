@@ -18,7 +18,7 @@ ms.author: mayssamm
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md?#access-your-connection-strings-and-service-endpoints-using-azure-cli).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 - Note your Communication Services resource endpoint. You can get the endpoint from the Azure portal. Alternatively, you can find the endpoint url in the connection string. It's the url that comes after `endpoint=` and starts with `https://`.
-- A [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the following command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
@@ -26,8 +26,10 @@ ms.author: mayssamm
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
 
-## Setting up
+## Set up
+
 ### Add the extension
+
 Add the Azure Communication Services extension for Azure CLI by using the `az extension` command.
 
 ```azurecli-interactive
@@ -35,14 +37,15 @@ az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
-You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
+
+You need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in by running the ```az login``` command from the terminal and providing your credentials.
 
 
 ### (Optional) Use Azure CLI identity operations without passing in an endpoint or access token
 
 #### Store your endpoint in an environment variable
 
-You can configure the `AZURE_COMMUNICATION_ENDPOINT` environment variable to use Azure CLI chat operations without having to use `--endpoint` to pass in the endpoint. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourEndpoint>` with your actual endpoint.
+You can configure the `AZURE_COMMUNICATION_ENDPOINT` environment variable to use Azure CLI chat operations without having to use `--endpoint` to pass in the endpoint. To configure an environment variable, open a console window and select your operating system from the following tabs. Replace `<yourEndpoint>` with your actual endpoint.
 
 ##### [Windows](#tab/windows)
 
@@ -52,7 +55,7 @@ Open a console window and enter the following command:
 setx AZURE_COMMUNICATION_ENDPOINT "<yourEndpoint>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+After you add the environment variable, you may need to restart any running programs that need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 ##### [macOS](#tab/unix)
 
@@ -78,7 +81,7 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 #### Store your access token in an environment variable
 
-You can configure the `AZURE_COMMUNICATION_ACCESS_TOKEN` environment variable to use Azure CLI chat operations without having to use `--access-token` to pass in the access token. To configure an environment variable, open a console window and select your operating system from the below tabs. Replace `<yourAccessToken>` with your actual access token.
+You can configure the `AZURE_COMMUNICATION_ACCESS_TOKEN` environment variable to use Azure CLI chat operations without having to use `--access-token` to pass in the access token. To configure an environment variable, open a console window and select your operating system from the following tabs. Replace `<yourAccessToken>` with your actual access token.
 
 ##### [Windows](#tab/windows)
 
@@ -88,7 +91,7 @@ Open a console window and enter the following command:
 setx AZURE_COMMUNICATION_ACCESS_TOKEN "<yourAccessToken>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+After you add the environment variable, you may need to restart any running programs that need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
 ##### [macOS](#tab/unix)
 
@@ -122,7 +125,7 @@ Use the `thread create` command to create a chat thread.
 az communication chat thread create --topic "<chatTopic>" --endpoint "<endpoint>" --access-token "<token>"
 ```
 
-If you have stored the endpoint and the access token in environment variables as stated above, you won't need to pass them to the command.
+If you stored the endpoint and the access token in environment variables as previously stated, you don't need to pass them to the command.
 
 ```azurecli-interactive
 az communication chat thread create --topic "<chatTopic>"
@@ -153,7 +156,7 @@ The `thread list` command returns the list of chat threads of a user.
 az communication chat thread list --start-time "<startTime>" --endpoint "<endpoint>" --access-token "<token>"
 ```
 
-- Use `<startTime>` optionally to specify the earliest point in time to get chat messages.
+- Optional: Use `<startTime>` to specify the earliest point in time to get chat messages.
 - Replace `<endpoint>` with your Azure Communication Services endpoint.
 - Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
 
@@ -213,12 +216,11 @@ az communication chat message receipt send --thread "<chatThreadId>" --message-i
 - Replace `<chatThreadId>` with your chat thread ID.
 - Replace `<messageId>` to specify the ID of the latest message read by current user.
 - Replace `<endpoint>` with your Azure Communication Services endpoint.
-- Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
-
+- Replace `<token>` with your access token obtained earlier with running `identity token issue` command.
 
 ### Add a user as a participant to the chat thread
 
-When you create a chat thread, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the chat thread, and add or remove other participants. Before calling the `participant add` command, ensure that you've acquired a new access token and identity for that user.
+When you create a chat thread, you can then add and remove users from it. By adding users, you give them access to be able to send messages to the chat thread, and add or remove other participants. Before calling the `participant add` command, ensure that you acquired a new access token and identity for that user.
 
 ```azurecli-interactive
 az communication chat participant add --thread "<chatThreadId>" --user "<userId>" --display-name "<displayName>" --start-time "<startTime>" --endpoint "<endpoint>" --access-token "<token>"
@@ -245,8 +247,7 @@ az communication chat participant list --thread "<chatThreadId>" --skip "<skip>"
 - Replace `<chatThreadId>` with your chat thread ID.
 - Use `<skip>` optionally to skip participants up to a specified position in the response.
 - Replace `<endpoint>` with your Azure Communication Services endpoint.
-- Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
-
+- Replace `<token>` with your access token obtained earlier with running `identity token issue` command.
 
 ### Remove a participant from a chat thread
 

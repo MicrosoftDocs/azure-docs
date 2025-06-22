@@ -17,6 +17,8 @@ ms.subservice: b2c
 
 # Tutorial: Configure BioCatch with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with BioCatch technology to augment your Customer Identity and Access Management (CIAM) security posture. BioCatch products analyze user physical and cognitive digital behaviors for insights that help distinguish legitimate customers.
 
 Go to biocatch.com to learn more [BioCatch](https://www.biocatch.com/)

@@ -15,7 +15,7 @@ In this guide, learn how to connect an Azure Monitor workspace to Grafana direct
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance in the Standard tier. [Create a new instance](quickstart-managed-grafana-portal.md) if you don't have one.
+- An Azure Managed Grafana workspace in the Standard tier. [Create a new workspace](quickstart-managed-grafana-portal.md) if you don't have one.
 - An [Azure Monitor workspace with Prometheus data](/azure/azure-monitor/containers/monitor-kubernetes).
 
 ## Add a new role assignment

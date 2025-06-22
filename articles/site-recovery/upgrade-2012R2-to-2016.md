@@ -1,11 +1,11 @@
 ---
 title: Upgrade Windows Server and System Center VMM 2012 R2 to 2016 
 description: Learn how to upgrade Windows Server 2012 R2 hosts and System Center Virtual Machine Manager 2012 R2 configured with Azure Site Recovery to Windows Server 2016 and Virtual Machine Manager 2016.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.topic: how-to
 ms.service: azure-site-recovery
 ms.date: 09/23/2024
-ms.author: ankitadutta
+ms.author: jsuri
 ms.custom: engagement-fy23
 ---
 

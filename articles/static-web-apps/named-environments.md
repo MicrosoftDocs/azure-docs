@@ -1,8 +1,8 @@
 ---
 title: Create named preview environments in Azure Static Web Apps
 description: Expose stable URLs for named environments to evaluate changes in Azure Static Web Apps
-author: craigshoemaker
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 07/24/2023

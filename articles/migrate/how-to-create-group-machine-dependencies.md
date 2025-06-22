@@ -1,9 +1,6 @@
 ---
 title: Set up agent-based dependency analysis in Azure Migrate
 description: This article describes how to set up agent-based dependency analysis in Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 09/09/2024

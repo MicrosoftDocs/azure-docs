@@ -21,6 +21,20 @@ Azure Files gives you many tools to protect your data, including soft delete, sh
    :::column-end:::
 :::row-end:::
 
+## Applies to
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Why you should protect your data
 
 For Azure Files, data protection refers to protecting the storage account, file shares, and data within them from being deleted or modified, and for restoring data after it's been deleted or modified.
@@ -74,12 +88,12 @@ To learn how to back up and restore Azure file shares using the REST API, see th
 Azure Files offers multiple redundancy options, including geo-redundancy, to help protect your data from service outages due to hardware problems or natural disasters. To find out which option is best for your use case, see [Azure Files data redundancy](files-redundancy.md).
 
 > [!IMPORTANT]
-> Azure Files only supports geo-redundancy (GRS or GZRS) for standard SMB file shares. Premium file shares and NFS file shares must use locally redundant storage (LRS) or zone redundant storage (ZRS).
+> Azure Files only supports geo-redundancy (GRS or GZRS) for HDD file shares. SSD file shares must use locally redundant storage (LRS) or zone redundant storage (ZRS).
 
 ## Disaster recovery and failover
 In the case of a disaster or unplanned outage, restoring access to file share data is critical to keeping the business operational. Depending on the criticality of the data hosted in your file shares, you might need a disaster recovery strategy that includes failing your Azure file shares over to a secondary region.
 
-Azure Files offers customer-managed unplanned failover for standard storage accounts if the data center in the primary region becomes unavailable. Customer-managed planned failover can also be utilized in multiple scenarios, including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from non-storage related outages.
+Azure Files offers customer-managed unplanned failover for HDD file shares if the data center in the primary region becomes unavailable. Customer-managed planned failover can also be utilized in multiple scenarios, including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from non-storage related outages.
 
 [!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Configure authentication in an Azure Static Web App by using Azure Active Directory B2C
+title: Configure authentication in an Azure Static Web App by using Azure AD B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an Azure Static Web App.
 
 author: kengaderdus
@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: "b2c-support"
@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication in an Azure Static Web App by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article explains how to add Azure Active Directory B2C (Azure AD B2C) authentication functionality to an Azure Static Web App. For more information, check out the [Custom authentication in Azure Static Web Apps](../static-web-apps/authentication-custom.md) article.
 
@@ -112,7 +113,7 @@ Once you've added the app ID and secret, use the following steps to add the Azur
                }
              },
              "login": {
-               "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+               "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
                "scopes": [],
                "loginParameterNames": []
              }
@@ -129,8 +130,8 @@ Once you've added the app ID and secret, use the following steps to add the Azur
 ## Step 4: Check the Azure Static Web APP
 
 1. Navigate to `/.auth/login/aadb2c`. The `/.auth/login` points the Azure Static app login endpoint. The `aadb2c` references to your [OpenID Connect identity provider](#31-add-an-openid-connect-identity-provider).  The following URL demonstrates an Azure Static app login endpoint: `https://witty-island-11111111.azurestaticapps.net/.auth/login/aadb2c`.
-1. Complete the sign up or sign in process.
-1. In your browser debugger, [run the following JavaScript in the Console](/microsoft-edge/devtools-guide-chromium/console/console-javascript). The JavaScript code will present information about the sign in user.
+1. Complete the sign-up or sign-in process.
+1. In your browser debugger, [run the following JavaScript in the Console](/microsoft-edge/devtools-guide-chromium/console/console-javascript). The JavaScript code presents information about the sign in user.
 
     ```javascript
     async function getUserInfo() {

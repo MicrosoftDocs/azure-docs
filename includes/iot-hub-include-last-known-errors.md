@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: include file
 ---
 [Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) in the REST API gives the health status of the endpoints and the last known error, to identify the reason an endpoint isn't healthy. This table lists the most common errors.

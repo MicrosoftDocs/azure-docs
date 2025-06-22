@@ -1,88 +1,104 @@
 ---
 title: Get started with Azure Native Qumulo Scalable File Service
-description: In this quickstart, learn how to create an instance of Azure Native Qumulo Scalable File Service.
-
+description: Learn how to create an Azure Native Qumulo Scalable File Service resource in the Azure portal.
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 11/13/2023
+ms.date: 02/09/2025
 ---
 
-# Quickstart: Get started with Azure Native Qumulo Scalable File Service
+# Quickstart: Get started with Qumulo Scalable File Service
 
-In this quickstart, you create an instance of Azure Native Qumulo Scalable File Service. When you create the service instance, the following entities are also created and mapped to a Qumulo file system namespace:
+In this quickstart, you create an instance of Qumulo Scalable File Service.
+
+When you create the service instance, the following entities are also created and mapped to a Qumulo file system namespace: 
 
 - A delegated subnet that enables the Qumulo service to inject service endpoints (eNICs) into your virtual network.
 - A managed resource group that has internal networking and other resources required for the Qumulo service.
 - A Qumulo resource in the region of your choosing. This entity stores and manages your data.
-- A Software as a Service (SaaS) resource, based on the plan that you select in the Azure Marketplace offer for Qumulo. This resource is used for billing.
+- A Software as a Service (SaaS) resource, based on the plan that you select in Azure Marketplace offer for Qumulo. This resource is used for billing.
 
 ## Prerequisites
 
-1. Make sure that you have **Owner** or **Contributor** access to the Azure subscription. For custom roles, you also need write access to:
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+- You must [subscribe to Qumulo](overview.md#subscribe-to-qumulo).
+- A [virtual network](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) with a [delegated subnet](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) with at least 256 IP Addresses delegated to `Qumulo.Storage/fileSystems`.
+- For custom roles, you also need *write* access to the resource groups for your delegated subnet and Qumulo file system namespace.
 
-   - The resource group where your delegated subnet is created.
-   - The resource group where your Qumulo file system namespace is created.
+## Create a Qumulo resource
 
-   For more information about permissions and how to check access, see [Troubleshoot Azure Native Qumulo Service](qumulo-troubleshoot.md).
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
-1. Create a [delegated subnet](../../virtual-network/subnet-delegation-overview.md) to the Qumulo service:
+### Basics tab
 
-    1. Identify the region where you want to subscribe to the Qumulo service.
-    1. Create a new virtual network, or select an existing virtual network in the same region where you want to create the Qumulo service.
-    1. Create a subnet in the newly created virtual network. Use the default configuration, or update the subnet network configuration based on your network policy.
-    1. Delegate the newly created subnet as a Qumulo-only subnet.
+The *Basics* tab has four sections:
+
+- Project details
+- Azure resource details
+- Administrator account credentials
+- Qumulo file system details
+
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Qumulo resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
+
+There are required fields (identified with a red asterisk) in each section that you need to fill out.
+
+1. Enter the values for each required setting under *Project details*.
+
+   | Field               | Action                                                    |
+   |---------------------|-----------------------------------------------------------|
+   | Subscription        | Select a subscription from your existing subscriptions.   |
+   | Resource group      | Use an existing resource group or create a new one.       |
+
+1. Enter the values for each required setting under *Azure Resource details*.
+
+   | Field              | Action                                    |
+   |--------------------|-------------------------------------------|
+   | Resource name      | Specify a unique name for the resource.   |
+   | Region             | Select an Azure region for your resource. |
+
+1. Enter the values for each required setting under *Administrator account credentials*.
+
+   | Field             | Action                                                           |
+   |-------------------|------------------------------------------------------------------|
+   | Password          | Create a password for your administrator account.                |
+   | Confirm password  | Confirm the password you created for your administrator account. |
+
+1. Enter the values for each required setting under *Qumulo file system details*.
+
+   | Field              | Action                                          |
+   |--------------------|-------------------------------------------------|
+   | Storage class      | Choose the storage class for your resource.     |
+   | Availability Zone  | Choose the availability zone for your resource. |
 
    > [!NOTE]
-   > The selected subnet address range should have at least 256 IP addresses: 251 free and 5 Azure reserved addresses.
-   >
-   > Your Qumulo subnet should be in the same region as that of the Qumulo service. The subnet must be delegated to `Qumulo.Storage/fileSystems`.
+   > If you select *Hot ZRS* as your storage class, you won't specify an Availability Zone.
+   
+   Select the **Change plan** link to change your billing plan.
 
-## Subscribe to Azure Native Qumulo Scalable File Service
+   The remaining fields update to reflect the details of the plan you selected for this resource.
 
-1. Go to the Azure portal and sign in.
+1. Select the **Next** button at the bottom of the page.
 
-1. If you've visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **marketplace** and select the **Marketplace** result under **Services**.
+### Networking tab
 
-1. In Azure Marketplace, search for **Azure Native Qumulo Scalable File Service**.
+Enter the values for each required setting.
 
-1. Select **Subscribe**.
+:::image type="content" source="media/create/networking-tab.png" alt-text="A screenshot of the Create a Qumulo resource in Azure options inside of the Azure portal's working pane with the Networking tab displayed.":::
 
-## Create an Azure Native Qumulo Scalable File Service resource
+   | Field             | Action                                                |
+   |-------------------|-------------------------------------------------------|
+   | Virtual network   | Choose the virtual network for your resource.         |
+   | Subnet            | Choose the Qumulo-delegated subnet for your resource. |
 
-1. The **Basics** tab provides a form to create an Azure Native Qumulo Scalable File Service resource on the working pane. Provide the following values:
-  
-   | **Property** | **Description** |
-   |--|--|
-   |**Subscription** | From the dropdown list, select the Azure subscription where you have **Owner** access. |
-   |**Resource group** | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure resource group overview](../../azure-resource-manager/management/overview.md). |
-   |**Resource name** | Enter the name of the Qumulo file system. The resource name should have fewer than 15 characters, and it can contain only alphanumeric characters and the hyphen symbol.|
-   |**Region** | Select one of the available regions from the dropdown list. |
-   |**Availability Zone** | Select an availability zone to pin the Qumulo file system resources to that zone in a region. |
-   |**Password** | Create an initial password to set the Qumulo administrator access. |
-   |**Service** | Choose the required Azure Native Qumulo (ANQ) version - ANQ V1 or ANQ V2. The default selection is ANQ V2. |
-   |**Storage** | This is option is only available for ANQ V1 Scalable File Service. Choose either **Standard** or **Performance** for your storage configuration, based on your workload requirements.  |
-   |**Capacity (TB)** | Specify the size of the file system that needs to be created.|
-   |**Pricing Plan** | A pay-as-you-go plan is selected by default. For upfront pricing plans or free trials, contact <azure@qumulo.com>. |
+### Tags (optional)
 
+[!INCLUDE [tags](../includes/tags.md)]
 
-1. On the **Networking** tab, provide the following values:
+### Review + Create tab
 
-   |**Property** |**Description** |
-   |--|--|
-   | **Virtual network** | Select the appropriate virtual network from your subscription where the Qumulo file system should be hosted.|
-   | **Subnet** | Select a subnet from a list of delegated subnets already created in the virtual network. One delegated subnet can be associated with only one Qumulo file system.|
+[!INCLUDE [review-create](../includes/review-create.md)]
 
-    Only virtual networks in the specified region with subnets delegated to `Qumulo.Storage/fileSystems` appear on this page. If an expected virtual network isn't listed, verify that it's in the chosen region and that the virtual network includes a subnet delegated to Qumulo.
+## Next step
 
-1. Select **Review + Create** to create the resource.
-
-## Next steps
-
-- Get started with Azure Native Qumulo Scalable File Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview)
+> [!div class="nextstepaction"]
+> [Manage a resource](manage.md)

@@ -5,7 +5,7 @@ metadata:
   description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using the Azure portal and Azure role-based access control (Azure RBAC).
   author: rolyon
   ms.author: rolyon
-  manager: amycolannino
+  manager: femila
   ms.date: 12/12/2024
   ms.service: role-based-access-control
   ms.topic: how-to

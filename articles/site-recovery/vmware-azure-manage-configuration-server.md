@@ -1,11 +1,11 @@
 ---
 title: Manage the configuration server for disaster recovery with Azure Site Recovery
 description: Learn about the common tasks to manage an on-premises configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: ankitadutta
-ms.date: 08/03/2022
+ms.author: jsuri
+ms.date: 03/25/2025
 ---
 
 # Manage the configuration server for VMware VM/physical server disaster recovery
@@ -248,6 +248,8 @@ ProxyPassword="Password"
 ```
 
 ## Delete or unregister a configuration server
+
+If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can unregister an unconnected configuration server from a vault as follows:
 
 1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
 2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) and [delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all replication policies from the configuration server.

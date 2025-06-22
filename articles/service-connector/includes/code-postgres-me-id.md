@@ -60,12 +60,12 @@ using (var connection = new NpgsqlConnection(connectionString))
     <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.3.6</version>
+        <version>42.7.5</version>
     </dependency>
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity-extensions</artifactId>
-        <version>1.1.5</version>
+        <version>1.2.0</version>
     </dependency>
     ```
 
@@ -92,7 +92,7 @@ For a Spring application, if you create a connection with option `--client-type 
 
 Update your application following the tutorial [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](../../spring-apps/basic-standard/how-to-bind-postgres.md#prepare-your-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies to your Spring application.
 
-For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?tabs=passwordless%2Cservice-connector&pivots=postgresql-passwordless-flexible-server#store-data-from-azure-database-for-postgresql) and [Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?tabs=postgresq).
+For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?tabs=passwordless%2Cservice-connector&pivots=postgresql-passwordless-flexible-server#store-data-from-azure-database-for-postgresql) and [Tutorial: Deploy a Spring application to Azure Spring Apps with a passwordless connection to an Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?tabs=postgresql).
 
 #### [Python](#tab/python)
 
@@ -253,7 +253,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     
     ```javascript
     import { DefaultAzureCredential, ClientSecretCredential } from "@azure/identity";
-    const { Client } = require('pg');
+    import { Client } from 'pg';
 
     // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
@@ -301,7 +301,7 @@ For PHP, there's not a plugin or library for passwordless connections. You can g
 
     For service principal, refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see the details of how to acquire access token. Make the POST request the scope of `https://ossrdbms-aad.database.windows.net/.default` and with the tenant ID, client ID and client secret of the service principal from the environment variables added by Service Connector.
 
-1. Combine the access token and the PostgreSQL connection sting from environment variables added by Service Connector service to establish the connection.
+1. Combine the access token and the PostgreSQL connection string from environment variables added by Service Connector service to establish the connection.
     ```php
     <?php
     $conn_string = sprintf("%s password=", getenv('AZURE_POSTGRESQL_CONNECTIONSTRING'), $access_token);

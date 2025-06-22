@@ -1,8 +1,8 @@
 ---
 title: Deploy observability resources
 description: How to get started with configuring observability features with a script in Azure IoT Operations, so that you can monitor your solution.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom:
   - ignite-2023

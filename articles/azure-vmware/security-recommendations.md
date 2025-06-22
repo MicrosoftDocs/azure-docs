@@ -1,9 +1,9 @@
 ---
 title: Security recommendations for Azure VMware Solution
 description: Learn about tips and best practices to help protect Azure VMware Solution deployments from vulnerabilities and malicious actors. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 01/08/2025
+ms.date: 02/26/2025
 ms.custom: engagement-fy23
 ---
 
@@ -41,4 +41,4 @@ See the following information for recommendations to secure your VMware HCX depl
 
 | Recommendation | Comments |
 | :-- | :-- |
-| Stay current with VMware HCX service updates. | VMware HCX service updates can include new features, software fixes, and security patches. To apply service updates during a maintenance window where no new VMware HCX operations are queued up, follow [these steps](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/updating-vmware-hcx/planning-for-hcx-updates.html). |
+| Stay current with VMware HCX service updates. | VMware HCX service updates can include new features, software fixes, and security patches. To apply service updates during a maintenance window where no new VMware HCX operations are queued up, follow [these steps](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/planning-for-hcx-updates.html). |

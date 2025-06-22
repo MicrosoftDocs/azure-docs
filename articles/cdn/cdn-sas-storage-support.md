@@ -2,12 +2,14 @@
 title: Using Azure Content Delivery Network with SAS
 description: Azure Content Delivery Network supports the use of Shared Access Signature (SAS) to grant limited access to private storage containers.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: danielgi
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: As a cloud storage administrator, I want to configure Shared Access Signatures for my Azure Content Delivery Network, so that I can securely grant time-limited access to specific resources without exposing my storage account key.
 ---
 
 # Using Azure Content Delivery Network with SAS
@@ -40,7 +42,6 @@ For example:
 
 For more information about setting parameters, see [SAS parameter considerations](#sas-parameter-considerations) and [Shared Access Signature parameters](../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works).
 
-![Screenshot of the content delivery network SAS settings.](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
 <a name='option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn'></a>
 

@@ -15,10 +15,10 @@ ms.subservice: calling
 
 # Call metrics log schema
 
-This document explains the ACSCallingMetrics logs available to you through Azure Monitor in the form of [Resource Logs](/azure/azure-monitor/data-sources.md#azure-resources). 
+This document explains the ACSCallingMetrics logs available to you through Azure Monitor in the form of [Resource Logs](/azure/azure-monitor/data-sources#azure-resources). 
 
 Call metrics logs are used in the **[voice and video insights dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK API calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. 
-call metrics logs contain aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode.
+Call metrics logs contain aggregated calling metrics in daily bins based on attributes such as SDK Version, OS name, and Error Subcode.
 
 ## How to use call logs
 We recommend you collect all available call logs in a log analytics resource so you can monitor your call usage and improve your call quality and receive new logs from Azure Communication Services as we release them.  
@@ -53,14 +53,21 @@ Since these metrics give you an overview of your entire calling resource, you ca
 
 These metrics measure both the successes and failures (dcount) of the calling SDK public APIs, for example (mute, join, etc.).
 
-- reliability/api/CreateView/Local
-- reliability/api/Join
-- reliability/api/StartVideo
-- reliability/api/AcceptIncomingCall
-- reliability/api/CreateView/Remote
-- reliability/api/StopVideo
-- reliability/api/CallAgentInit
-- reliability/api/StartCall
+This table describes each property.
+
+| Property                     | Description                                                                                                                |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `reliability/api/CreateView/Local` | Measures the reliability of the calling SDK `CreatView/Local` API which renders local video streams. This API is required for user's to see their local video stream. | 
+| `reliability/api/Join`             | Measures the reliability of the calling SDK `Join` API. When this API succeeds, a user's client is admitted to an existing call or meeting.                 |
+| `reliability/api/StartVideo` | Measures the reliability of the calling SDK `StartVideo` API which begins streaming video from the calling client to remote participants. When this API succeeds a user's client successfully sends video. |
+| `reliability/api/AcceptIncomingCall` | Measures the reliability of the calling SDK `AcceptIncomingCall` API which indicates the client successfully accepted and connected to an incoming call. |
+| `reliability/api/CreateView/Remote` | Measures the reliability of the calling SDK `CreateView/Remote` API which indicates the client successfully renders incoming video from a remote participant. |
+| `reliability/api/StopVideo` | Measures the reliability of the calling SDK `StopVideo` API which indicates the calling SDK successfully stopped streaming video to remote participants. |
+| `reliability/api/CallAgentInit` | Measures the reliability of the calling SDK `CallAgentInit` API which indicates the calling SDK successfully created the `CallAgent` object. If this fails, the reliability/api/Join or reliability/api/StartCall APIs can not be triggered. |
+| `reliability/api/StartCall` | Measures the reliability of the calling SDK `StartCall` API which indicates the calling SDK succseffuly initiated a new call.  | 
+| `reliability/api/Drop` | Measures the reliability of individual call legs by identifying which call legs were dropped unexpectedly after they successfully connected to a call. Focuses on participants call legs that successfully connected to a call and checks if the call legs were later dropped due to specific error codes.  |
+
+
 
 ### User Facing Diagnostics (UFD) metrics
 

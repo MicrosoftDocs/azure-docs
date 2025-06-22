@@ -1,12 +1,13 @@
 ---
 title: Use Azure Firewall to protect Azure Virtual Desktop
 description: Learn how to use Azure Firewall to protect Azure Virtual Desktop deployments.
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
 ms.date: 01/31/2025
-ms.author: victorh
+ms.author: duau
+# Customer intent: As an IT administrator, I want to configure Azure Firewall for Azure Virtual Desktop, so that I can securely manage outbound access and enhance the protection of my virtual desktop environment.
 ---
 
 # Use Azure Firewall to protect Azure Virtual Desktop deployments
@@ -25,6 +26,9 @@ Follow the guidelines in this article to provide extra protection for your Azure
 
 To learn more about Azure Virtual Desktop terminology, see [Azure Virtual Desktop terminology](../virtual-desktop/terminology.md).
 
+> [!WARNING]
+> Azure Virtual Desktop disconnections may occur during Azure Firewall scale-ins if all traffic is routed to the Azure Firewall using a default route. We recommend having direct access to the gateway and broker for Azure Virtual Desktop to avoid these disconnections. To resolve this issue, add a route to the route table applied to the Azure Virtual Desktop subnet with the *destination type* set to **Service tag**, the *destination service* set to **WindowsVirtualDesktop**, and the *next hop* set to **Internet**.
+
 ## Host pool outbound access to Azure Virtual Desktop
 
 The Azure virtual machines you create for Azure Virtual Desktop must have access to several Fully Qualified Domain Names (FQDNs) to function properly. Azure Firewall uses the Azure Virtual Desktop FQDN tag `WindowsVirtualDesktop` to simplify this configuration. You need to create an Azure Firewall Policy and create Rule Collections for Network Rules and Applications Rules. Give the Rule Collection a priority and an *allow* or *deny* action.
@@ -41,7 +45,7 @@ Before deploying into production, we recommended reviewing all the network and a
 
 ## Host pool outbound access to the Internet
 
-Depending on your organization needs, you might want to enable secure outbound internet access for your end users. If the list of allowed destinations is well-defined (for example, for [Microsoft 365 access](/microsoft-365/enterprise/microsoft-365-ip-web-service)), you can use Azure Firewall application and network rules to configure the required access. This routes end-user traffic directly to the internet for best performance. If you need to allow network connectivity for Windows 365 or Intune, see [Network requirements for Windows 365](/windows-365/requirements-network#allow-network-connectivity) and [Network endpoints for Intune](/mem/intune/fundamentals/intune-endpoints).
+Depending on your organization needs, you might want to enable secure outbound internet access for your end users. If the list of allowed destinations is well-defined (for example, for [Microsoft 365 access](/microsoft-365/enterprise/microsoft-365-ip-web-service)), you can use Azure Firewall application and network rules to configure the required access. This routes end-user traffic directly to the internet for best performance. If you need to allow network connectivity for Windows 365 or Intune, see [Network requirements for Windows 365](/windows-365/enterprise/requirements-network#allow-network-connectivity) and [Network endpoints for Intune](/mem/intune/fundamentals/intune-endpoints).
 
 If you want to filter outbound user internet traffic by using an existing on-premises secure web gateway, you can configure web browsers or other applications running on the Azure Virtual Desktop host pool with an explicit proxy configuration. For example, see [How to use Microsoft Edge command-line options to configure proxy settings](/deployedge/edge-learnmore-cmdline-options-proxy-settings). These proxy settings only influence your end-user internet access, allowing the Azure Virtual Desktop platform outbound traffic directly via Azure Firewall.
 

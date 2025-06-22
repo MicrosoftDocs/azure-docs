@@ -37,45 +37,25 @@
   - name: Direct peering type conversion request walkthrough
     href: walkthrough-direct-peering-type-conversions.md
   - name: Associate peer ASN to Azure subscription
-    items:
-    - name: Portal
-      href: howto-subscription-association-portal.md
-    - name: PowerShell
-      href: howto-subscription-association-powershell.md
+    href: howto-subscription-association-portal.md
   - name: Enable Peering Service on a Direct peering
-    items:
-    - name: Portal
-      href: howto-peering-service-portal.md
-    - name: PowerShell
-      href: howto-peering-service-powershell.md
+    href: howto-peering-service-portal.md
   - name: Enable Peering Service Voice on a Direct peering
     href: howto-peering-service-voice-portal.md
   - name: Create or modify a Direct peering
-    items:
-    - name: Portal
-      href: howto-direct-portal.md
-    - name: PowerShell
-      href: howto-direct-powershell.md
+    href: howto-direct-portal.md
   - name: Convert a legacy Direct peering to Azure resource
-    items:
-    - name: Portal
-      href: howto-legacy-direct-portal.md
-    - name: PowerShell
-      href: howto-legacy-direct-powershell.md
+    href: howto-legacy-direct-portal.md
   - name: Create or modify an Exchange peering
-    items:
-    - name: Portal
-      href: howto-exchange-portal.md
-    - name: PowerShell
-      href: howto-exchange-powershell.md
+    href: howto-exchange-portal.md
   - name: Convert a legacy Exchange peering to Azure resource
-    items:
-    - name: Portal
-      href: howto-legacy-exchange-portal.md
-    - name: PowerShell
-      href: howto-legacy-exchange-powershell.md
+    href: howto-legacy-exchange-portal.md
   - name: Create or modify an Exchange peering with route server
     href: how-to-exchange-route-server-portal.md
+- name: Security
+  items:
+  - name: Azure Network Security Blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Reference
   items:
   - name: Azure CLI
@@ -92,11 +72,19 @@
     href: /azure/templates/microsoft.network/allversions
 - name: Resources
   items:
+  - name: Microsoft Q&A
+    href: /answers/tags/133/azure
+  - name: Azure Networking Blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
   - name: Networking feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+  - name: Azure support
+    href: https://azure.microsoft.com/support
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing
+  - name: Service updates
+    href: https://azure.microsoft.com/updates
+  - name: SLA
+    href: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services

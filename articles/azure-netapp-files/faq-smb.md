@@ -2,10 +2,10 @@
 title: SMB FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about the SMB protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 01/29/2025
+ms.date: 06/13/2025
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -22,6 +22,10 @@ Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB proto
 ## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
 
 Azure NetApp Files supports 'manual' offline files, allowing users on Windows clients to manually select files to be cached locally.
+
+## Does Azure NetApp Files have an SMB Credits limit?
+
+By default, Windows and Azure NetApp Files have an SMB credit limit of 512. If the limit is reached, limit batch processing or submit a [feature request]( https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2Qj2eZL0mZPv1iKUrDGvc9UQzBVVFNCUUhEQVVSMDBFTjZFQlpFRjNUUSQlQCN0PWcu&route=shorturl).
 
 ## Is an Active Directory connection required for SMB access? 
 

@@ -112,7 +112,7 @@ Recipients of email notifications from API Management could be affected when you
 
     * **DKIM authentication** - To generate a valid signature for DKIM for email authentication, API Management requires the private key associated with the domain of the originating email address. However, it is currently not possible to upload this private key in API Management. Therefore, to assign a valid signature, API Management uses the private key associated with the `mail.windowsazure.com` domain.
 
-## Next steps
+## Related content
 
 * [Overview of the developer portal](api-management-howto-developer-portal.md).
 * [How to create and use groups to manage developer accounts](api-management-howto-create-groups.md)

@@ -2,11 +2,13 @@
 title: Optimize Azure Content Delivery Network for the type of content delivery
 description: Learn how Azure Content Delivery Network can optimize delivery based on type of content. Optimization best practices improve performance and origin offload.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: As a content manager, I want to optimize the Azure Content Delivery Network for different types of content delivery, so that I can enhance performance and improve the user experience across various scenarios, such as media streaming and large file downloads.
 ---
 
 # Optimize Azure Content Delivery Network for the type of content delivery

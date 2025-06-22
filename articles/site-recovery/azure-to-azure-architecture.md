@@ -3,9 +3,9 @@ title: Azure to Azure disaster recovery architecture in Azure Site Recovery
 description: Overview of the architecture used when you set up disaster recovery between Azure regions for Azure VMs, using the Azure Site Recovery service.
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 12/28/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 05/30/2025
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Azure to Azure disaster recovery architecture
@@ -22,7 +22,7 @@ The components involved in disaster recovery for Azure VMs are summarized in the
 **VMs in source region** | One of more Azure VMs in a [supported source region](azure-to-azure-support-matrix.md#region-support).<br/><br/> VMs can be running any [supported operating system](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Source VM storage** | Azure VMs can be managed, or have nonmanaged disks spread across storage accounts.<br/><br/>[Learn about](azure-to-azure-support-matrix.md#replicated-machines---storage) supported Azure storage.
 **Source VM networks** | VMs can be located in one or more subnets in a virtual network (VNet) in the source region. [Learn more](azure-to-azure-support-matrix.md#replicated-machines---networking) about networking requirements.
-**Cache storage account** | You need a cache storage account in the source network. During replication, VM changes are stored in the cache before being sent to target storage. <br/><br/> Using a cache ensures minimal impact on production applications that are running on a VM.<br/><br/> [Learn more](azure-to-azure-support-matrix.md#cache-storage) about cache storage requirements. 
+**Cache storage account** | You need a cache storage account in the source network. During replication, VM changes are stored in the cache before being sent to target storage. <br/><br/> Using a cache ensures minimal impact on production applications that are running on a VM.<br/><br/> [Learn more](azure-to-azure-support-matrix.md#cache-storage) about cache storage requirements.<br/><br/> **Note**: Virtual machines with Premium SSD v2 disks (preview) require High Churn and uses Premium Storage Account. 
 **Target resources** | Target resources are used during replication, and when a failover occurs. Site Recovery can set up target resource by default, or you can create/customize them.<br/><br/> In the target region, check that you're able to create VMs, and that your subscription has enough resources to support VM sizes that are needed in the target region. 
 
 ![Diagram showing source and target replication.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
@@ -37,7 +37,7 @@ When you enable replication for a VM, Site Recovery gives you the option of crea
 **Target resource group** | The resource group to which VMs belong after failover.<br/><br/> It can be in any Azure region except the source region.<br/><br/> Site Recovery creates a new resource group in the target region, with an "asr" suffix.
 **Target VNet** | The virtual network (VNet) in which replicated VMs are located after failover. A network mapping is created between source and target virtual networks, and vice versa.<br/><br/> Site Recovery creates a new VNet and subnet, with the "asr" suffix.
 **Target storage account** |  If the VM doesn't use a managed disk, this is the storage account to which data is replicated.<br/><br/> Site Recovery creates a new storage account in the target region, to mirror the source storage account.
-**Replica managed disks** | If the VM uses a managed disk, this is the managed disks to which data is replicated.<br/><br/> Site Recovery creates replica managed disks in the storage region to mirror the source.
+**Replica managed disks** | If the VM uses a managed disk, a copy of the original disk is created with an `-ASRReplica` suffix. The copies created are used for replication. <br> This `-ASRReplica` disk's **Disk state** should be *ActiveSAS* which automatically creates a tag with `ASR-ReplicaDisk` prefix. 
 **Target availability sets** |  Availability set in which replicating VMs are located after failover.<br/><br/> Site Recovery creates an availability set in the target region with the suffix "asr", for VMs that are located in an availability set in the source location. If an availability set exists, it's used and a new one isn't created.
 **Target availability zones** | If the target region supports availability zones, Site Recovery assigns the same zone number as that used in the source region.
 

@@ -28,7 +28,7 @@ sections:
       questions:
         - question: Why cannot the Country Of Origin (COO) specific configuration be updated by the customer? 
           answer: >
-            The OSDU&reg; platform does not offer APIs for making country-specific configuration changes. These configuration settings are stored in .json files within the legal service container, and any changes require a service restart to take effect. Additionally, the Azure Data Manager for Energy service architecture does not expose the underlying infrastructure to customers, preventing them from making these changes directly.
+            The OSDU&reg; platform does not offer APIs for making country/region specific configuration changes. These configuration settings are stored in .json files within the legal service container, and any changes require a service restart to take effect. Additionally, the Azure Data Manager for Energy service architecture does not expose the underlying infrastructure to customers, preventing them from making these changes directly.
 
     - name: External Data Sources
       questions:

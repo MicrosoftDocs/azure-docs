@@ -153,15 +153,19 @@ configuration:
 
       - description: Disallow sign-off for articles in the /articles/reliability folder.
         if:
-          # If a 'sign-off' comment is added to a PR in the articles/reliability folder , and the PR author isn't Anastasia or John...
-          - payloadType: Issue_Comment
-          - isPullRequest
-          - filesMatchPattern:
-              matchAny: true
-              pattern: articles/reliability/*
+          # If a 'sign-off' comment is added to a PR that's assigned to anaharris-ms, and the PR author isn't Anastasia or John...
+          - or:
+            - payloadType: Issue_Comment
+            - payloadType: Pull_Request_Review_Comment
+          - isAction:
+              action: Created
+          - isActivitySender:
+              issueAuthor: True
+          - isAssignedToUser:
+              user: anaharris-ms
           - commentContains:
-              pattern: \#sign-off
-              isRegex: false
+              pattern: '#sign-off'
+              isRegex: False
           - not:
               or:
                 - isActivitySender:
@@ -181,14 +185,14 @@ configuration:
       - description: Write a message if the breadcrumb file is modified in the azure-docs-pr repository.
         if:
         - payloadType: Pull_Request
-          - isAction:
-              action: Opened
-          - filesMatchPattern:
+        - isAction:
+            action: Opened
+        - filesMatchPattern:
               matchAny: true
               pattern: bread/*
               
         then:
           - addReply:
               reply: >-
-                @${issueAuthor} - This PR modifies the breadcrumb file for the entire repository in this pull request; the breadcrumb supports 100s of services. Please make sure your changes to the breadcrumb file are intentional. Do not delete this file. 
+                @${issueAuthor} - This PR modifies the breadcrumb file for the entire repository: bread/toc.yml. This file supports the on-site navigation for 100s of services. Please make sure your changes to the breadcrumb file are intentional. Do not delete this file. 
           

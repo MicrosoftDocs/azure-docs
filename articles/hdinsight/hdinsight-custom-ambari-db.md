@@ -4,6 +4,9 @@ description: Learn how to create HDInsight clusters with your own custom Apache 
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: sairamyeturi
 ms.date: 12/27/2024
 ---
 # Set up HDInsight clusters with a custom Ambari DB

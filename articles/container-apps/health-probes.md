@@ -82,7 +82,7 @@ The `...` placeholders denote omitted code. Refer to [Container Apps ARM templat
       "name":"web",
       "probes": [
         {
-          "type": "liveness",
+          "type": "Liveness",
           "httpGet": {
             "path": "/health",
             "port": 8080,
@@ -96,7 +96,7 @@ The `...` placeholders denote omitted code. Refer to [Container Apps ARM templat
           "periodSeconds": 3
         },
         {
-          "type": "readiness",
+          "type": "Readiness",
           "tcpSocket": {
             "port": 8081
           },
@@ -104,7 +104,7 @@ The `...` placeholders denote omitted code. Refer to [Container Apps ARM templat
           "periodSeconds": 3
         },
         {
-          "type": "startup",
+          "type": "Startup",
           "httpGet": {
             "path": "/startup",
             "port": 8080,
@@ -130,7 +130,7 @@ containers:
   - image: nginx
     name: web
     probes:
-      - type: liveness
+      - type: Liveness
         httpGet:
           path: "/health"
           port: 8080
@@ -139,12 +139,12 @@ containers:
               value: "liveness probe"
         initialDelaySeconds: 7
         periodSeconds: 3
-      - type: readiness
+      - type: Readiness
         tcpSocket:
           port: 8081
         initialDelaySeconds: 10
         periodSeconds: 3
-      - type: startup
+      - type: Startup
         httpGet:
           path: "/startup"
           port: 8080
@@ -162,7 +162,7 @@ The optional `failureThreshold` setting defines the number of attempts Container
 
 ## Default configuration
 
-If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
+If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type, except for GPU workload profiles (both dedicated and consumption).
 
 | Probe type | Default values |
 | -- | -- |
@@ -181,7 +181,7 @@ The following example demonstrates how to configure the liveness and readiness p
 ```json
 "probes": [
        {
-        "type": "liveness",
+        "type": "Liveness",
         "failureThreshold": 3,
         "periodSeconds": 10,
         "successThreshold": 1,
@@ -191,7 +191,7 @@ The following example demonstrates how to configure the liveness and readiness p
         "timeoutSeconds": 1
        },
        {
-         "type": "readiness",
+         "type": "Readiness",
          "failureThreshold": 48,
          "initialDelaySeconds": 3,
          "periodSeconds": 5,

@@ -1,12 +1,13 @@
 ---
-title: Overview - Microsoft Defender for IoT for organizations
-description: Learn about Microsoft Defender for IoT's features for end-user organizations and comprehensive IoT security for OT and Enterprise IoT networks.
+title: Enhance your OT security with Defender for IoT
+description: Learn about Microsoft Defender for IoT's features for OT/IoT security for OT and Enterprise IoT networks.
 ms.topic: overview
-ms.date: 04/10/2024
+ms.author: lwainstein
+author: limwainstein
+ms.date: 01/30/2025
 ms.custom: enterprise-iot
 ---
-
-# Welcome to Microsoft Defender for IoT
+# What is Microsoft Defender for IoT?
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
@@ -20,7 +21,7 @@ Defender for IoT provides agentless, network layer monitoring, and integrates wi
 
 :::image type="content" source="media/overview/end-to-end-coverage.png" alt-text="Diagram showing an example of Defender for IoT's end-to-end coverage solution.":::
 
-## Agentless device monitoring
+## Agentless device monitoring for OT security
 
 If your IoT and OT devices don't have embedded security agents, they might remain unpatched, misconfigured, and invisible to IT and security teams. Unmonitored devices can be soft targets for threat actors looking to pivot deeper into corporate networks.
 

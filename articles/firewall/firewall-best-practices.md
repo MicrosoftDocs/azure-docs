@@ -2,11 +2,12 @@
 title: Azure Firewall best practices for performance
 description: Learn how to configure Azure Firewall to maximize performance
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 01/13/2025
-ms.author: victorh
+ms.author: duau
+# Customer intent: As a network administrator, I want to implement best practices for Azure Firewall configuration, so that I can optimize its performance and ensure efficient network traffic management while maintaining security.
 ---
 
 # Best practices for Azure Firewall performance

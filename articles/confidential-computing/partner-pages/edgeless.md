@@ -5,7 +5,7 @@ services: virtual-machines
 author: ananyagarg
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
 ---
@@ -31,7 +31,7 @@ Head to the [blog here to learn more](https://techcommunity.microsoft.com/t5/azu
 
 ## Get started with Edgeless Systems on Azure today
 
-You can learn more and get started with these [Azure Marketplace solutions, here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/edgelesssystems.edb?tab=Overview). You can also find code and the docs on their [GitHub](https://github.com/edgelesssys).
+You can learn more and get started with these [Azure Marketplace solutions, here](https://azuremarketplace.microsoft.com/). You can also find code and the docs on their [GitHub](https://github.com/edgelesssys).
 
 ## Learn more
 

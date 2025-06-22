@@ -21,6 +21,7 @@ The following list contains the regions Elastic SAN is currently available in, a
 - France Central - LRS & ZRS
 - Germany West Central - LRS
 - India Central - LRS
+- India South- LRS 
 - Japan East - LRS
 - Korea Central - LRS
 - North Europe - LRS & ZRS
@@ -36,10 +37,23 @@ The following list contains the regions Elastic SAN is currently available in, a
 - West US 2 - LRS & ZRS
 - West US 3 - LRS
 
-Elastic SAN is also available in the following regions, but without Availability Zone support: 
+Elastic SAN is also available in the following regions, but without Availability Zone support. To deploy in the following regions, use either the Azure PowerShell module or the Azure CLI: 
 - Canada East - LRS
 - Japan West - LRS
 - North Central US - LRS
+- Australia Central - LRS
+- Australia Southeast - LRS
+- Southeast Brazil - LRS
+- Korea South - LRS
+- UAE Central - LRS
+- Switzerland West - LRS
+- Germany North - LRS
+- France South- LRS
+- Norway West - LRS
+- Sweden South - LRS
+- West Central US - LRS
+- West US - LRS
+- UK West - LRS
 
 To enable these regions, run the following command to register the necessary feature flag: 
 ```azurepowershell

@@ -4,19 +4,19 @@ description: Provides an overview about volume quota. Also provides references a
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 04/30/2021
+ms.topic: concept-article
+ms.date: 01/30/2025
 ms.author: anfdocs
 ---
 # Understand volume quota
 
-This article provides an overview about volume quota for Azure NetApp Files. It also provides references to details that can help you monitor and manage the capacity of a volume or capacity pool.  
+Learn how volume quotas work and learn how to monitor and manage the capacity of a volume or capacity pool in Azure NetApp Files.
 
 ## Behaviors of volume quota 
 
 * The storage capacity of an Azure NetApp Files volume is limited to the set size (quota) of the volume. 
 
-* When volume consumption maxes out, neither the volume nor the underlying capacity pool grows automatically. Instead, the volume will receive an “out of space” condition. However, you can [resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) as needed. You should actively [monitor the capacity of a volume](monitor-volume-capacity.md) and the underlying capacity pool.
+* When volume consumption maxes out, neither the volume nor the underlying capacity pool grows automatically. Instead, the volume will receive an "out of space" condition. However, you can [resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) as needed. You should actively [monitor the capacity of a volume](monitor-volume-capacity.md) and the underlying capacity pool.
 
 * Depending on the capacity pool type, the size (quota) of an Azure NetApp Files volume has an impact on its bandwidth performance and the provisioned capacity.  See the [auto QoS pool type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) for details. 
 

@@ -7,7 +7,7 @@ ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: security 
 ms.date: 06/05/2023
-ms.reviewer: whhender, wiassaf
+
 ---
 
 # Connect to workspace resources from a restricted network
@@ -67,7 +67,7 @@ After the private link endpoint is created, you can access the sign-in page of t
 
 ## Step 4: Create private endpoints for your workspace resource
 
-To access the resources inside your Azure Synapse Analytics Studio workspace resource, you need to create the following:
+To access the resources inside your Azure Synapse Analytics workspace resource, you need to create the following:
 
 - At least one private link endpoint with a **Target sub-resource** type of **Dev**.
 - Two other optional private link endpoints with types of **Sql** or **SqlOnDemand**, depending on what resources in the workspace you want to access.
@@ -81,14 +81,14 @@ On the **Resource** tab:
 * For **Target sub-resource**, select the endpoint type:
   * **Sql** is for SQL query execution in SQL pool.
   * **SqlOnDemand** is for SQL built-in query execution.
-  * **Dev** is for accessing everything else inside Azure Synapse Analytics Studio workspaces. You need to create at least one private link endpoint of this type.
+  * **Dev** is for accessing everything else inside Azure Synapse Analytics workspaces. You need to create at least one private link endpoint of this type.
 
 ![Screenshot of Create a private endpoint, Resource tab, workspace.](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
 
 
 ## Step 5: Create private endpoints for workspace linked storage
 
-To access the linked storage with the storage explorer in Azure Synapse Analytics Studio workspace, you must create one private endpoint. The steps for this are similar to those of step 3. 
+To access the linked storage with the storage explorer in Azure Synapse Analytics workspace, you must create one private endpoint. The steps for this are similar to those of step 3. 
 
 On the **Resource** tab:
 * For **Resource type**, select **Microsoft.Storage/storageAccounts**.
@@ -99,7 +99,7 @@ On the **Resource** tab:
 
 ![Screenshot of Create a private endpoint, Resource tab, storage.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
 
-Now, you can access the linked storage resource. Within your virtual network, in your Azure Synapse Analytics Studio workspace, you can use the storage explorer to access the linked storage resource.
+Now, you can access the linked storage resource. Within your virtual network, in your Azure Synapse Analytics workspace, you can use the storage explorer to access the linked storage resource.
 
 You can enable a managed virtual network for your workspace, as shown in this screenshot:
 
@@ -109,7 +109,7 @@ If you want your notebook to access the linked storage resources under a certain
 
 After you create this endpoint, the approval state shows a status of **Pending**. Request approval from the owner of this storage account, in the **Private endpoint connections** tab of this storage account in the Azure portal. After it's approved, your notebook can access the linked storage resources under this storage account.
 
-Now, all set. You can access your Azure Synapse Analytics Studio workspace resource.
+Now, all set. You can access your Azure Synapse Analytics workspace resource.
 
 ## Step 6: Allow URL through firewall
 
@@ -144,7 +144,7 @@ To find the **Private DNS zone** in the portal, search for *Private DNS zone*. I
 * For **Name**, input the private DNS zone dedicated name for specific private endpoint as below:
   * **`privatelink.azuresynapse.net`** is for the private endpoint of accessing Azure Synapse Analytics Studio gateway. See this type of private endpoint creation in step 3.
   * **`privatelink.sql.azuresynapse.net`** is for this type of private endpoint of sql query execution in SQL pool and built-in pool. See the endpoint creation in step 4.
-  * **`privatelink.dev.azuresynapse.net`** is for this type of private endpoint of accessing everything else inside Azure Synapse Analytics Studio workspaces. See this type of private endpoint creation in step 4.
+  * **`privatelink.dev.azuresynapse.net`** is for this type of private endpoint of accessing everything else inside Azure Synapse Analytics workspaces. See this type of private endpoint creation in step 4.
   * **`privatelink.dfs.core.windows.net`** is for the private endpoint of accessing workspace linked Azure Data Lake Storage Gen2. See this type of private endpoint creation in step 5.
   * **`privatelink.blob.core.windows.net`** is for the private endpoint of accessing workspace linked Azure Blob Storage. See this type of private endpoint creation in step 5.
 
@@ -164,7 +164,7 @@ After the virtual network link is added, you need to add the DNS record set in t
 
 * For **Name**, input the dedicated name strings for different private endpoint: 
   * **web** is for the private endpoint of accessing Azure Synapse Analytics Studio.
-  * "***YourWorkSpaceName***" is for the private endpoint of sql query execution in SQL pool and also for the private endpoint of accessing everything else inside Azure Synapse Analytics Studio workspaces.
+  * "***YourWorkSpaceName***" is for the private endpoint of sql query execution in SQL pool and also for the private endpoint of accessing everything else inside Azure Synapse Analytics workspaces.
   * "***YourWorkSpaceName*-ondemand**" is for the private endpoint of sql query execution in built-in pool.
 * For **Type**, select DNS record type **A** only. 
 * For **IP address**, input the corresponding IP address of each private endpoint. You can get the IP address in **Network interface** from your private endpoint overview.

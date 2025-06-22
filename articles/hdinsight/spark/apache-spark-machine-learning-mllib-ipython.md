@@ -4,6 +4,9 @@ description: Learn how to use Spark MLlib to create a machine learning app that 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 04/08/2024
 ---
 

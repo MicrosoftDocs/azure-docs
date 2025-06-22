@@ -2,17 +2,19 @@
 title: 'Quickstart: Create an Azure Front Door using the Azure portal'
 description: This quickstart shows how to use Azure Front Door service for your highly available and high-performance global web application by using the Azure portal.
 services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: quickstart
 ms.date: 11/12/2024
-ms.author: duau
 ms.custom: mode-ui
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create an Azure Front Door using Azure portal
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 This quickstart guides you through the process of creating an Azure Front Door profile using the Azure portal. You have two options to create an Azure Front Door profile: Quick create and Custom create. The Quick create option allows you to configure the basic settings of your profile, while the Custom create option enables you to customize your profile with more advanced settings.
 
@@ -115,15 +117,9 @@ In this step, you configure Azure Front Door to route user traffic to the neares
 
 1. From the home page or the Azure menu, select **+ Create a resource**, search for *Front Door and CDN profiles*, and select **Create**.
 
-    :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-secret.png" alt-text="Screenshot of add a secret in custom create.":::
-
 1. In the *Endpoint* tab, select **Add an endpoint**, enter a globally unique name (for example, contoso-frontend), and select **Add**. You can create more endpoints after the initial deployment.
 
-    :::image type="content" source="./media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Screenshot of add an endpoint.":::
-
 1. To configure routing to your Web App origin, select **+ Add a route**.
-
-    :::image type="content" source="./media/create-front-door-portal/add-route.png" alt-text="Screenshot of add a route from the endpoint page." lightbox="./media/create-front-door-portal/add-route-expanded.png":::
 
 1. On the **Add a route** page, enter or select the following information and then select **Add** to add the route to the endpoint configuration.
 
@@ -144,11 +140,7 @@ In this step, you configure Azure Front Door to route user traffic to the neares
 
 1. Select **+ Add a policy** to apply a Web Application Firewall (WAF) policy to one or more domains in the Azure Front Door profile.
 
-    :::image type="content" source="./media/create-front-door-portal/add-policy.png" alt-text="Screenshot of add a policy from endpoint page." lightbox="./media/create-front-door-portal/add-policy-expanded.png":::
-
 1. To create a security policy, provide a name that uniquely identifies it. Next, choose the domains that you want to apply the policy to. You can also select an existing WAF policy or create a new one. To finish, select **Save** to add the security policy to the endpoint configuration.
-
-    :::image type="content" source="./media/create-front-door-portal/add-security-policy.png" alt-text="Screenshot of add security policy page.":::
 
 1. To deploy the Azure Front Door profile, select **Review + Create** and then **Create**. The configuration propagates to all edge locations within a few minutes.
 

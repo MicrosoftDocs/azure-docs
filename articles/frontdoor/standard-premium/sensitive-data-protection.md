@@ -4,13 +4,15 @@ description: Learn about sensitive data protection for logs in Azure Front Door.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: concept-article #Required; leave this attribute/value as-is.
+ms.topic: concept-article
 ms.date: 04/30/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about Azure Front Door scrubbing tool so that I can use it to protect sensitive data in Azure Front Door. logs.
 ---
 
 # Azure Front Door sensitive data protection
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 The Azure Front Door log scrubbing tool helps you remove sensitive data (for example, personal identifiable information) from your Azure Front Door logs. It works by enabling log scrubbing at Azure Front Door Standard or Premium profile level and selecting the log fields to be scrubbed. Once enabled, the tool scrubs that information from your logs generated under this profile and replaces it with `****`. 
 

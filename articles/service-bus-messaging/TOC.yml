@@ -295,8 +295,6 @@
       href: transport-layer-security-configure-minimum-version.md
     - name: Audit minimum required TLS version
       href: transport-layer-security-audit-minimum-version.md
-    - name: Configure TLS version for client
-      href: transport-layer-security-configure-client-version.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
@@ -383,7 +381,7 @@
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-service-bus
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+    href: https://azure.microsoft.com/updates?filters=%5B%22Service+Bus%22%5D
   - name: Blog
     href: /archive/blogs/servicebus/
   - name: Microsoft Q&A question page
@@ -399,4 +397,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
+    href: /shows/mvp-azure/?terms=service%20bus

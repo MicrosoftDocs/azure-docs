@@ -3,7 +3,7 @@ title: Scope on extension resource types (Bicep)
 description: Describes how to use the scope property when deploying extension resource types with Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 03/17/2025
 ---
 
 # Set scope for extension resources in Bicep
@@ -163,7 +163,7 @@ The following example shows how to apply a lock on a storage account that reside
     ```bicep
     param storageAccountName string
     
-    resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+    resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
       name: storageAccountName
     }
     

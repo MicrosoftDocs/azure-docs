@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---
@@ -54,7 +54,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) self-hosted
 

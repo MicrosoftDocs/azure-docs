@@ -5,7 +5,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: b2c-support
@@ -16,6 +16,7 @@ ms.custom: b2c-support
 ---
 
 # User profile attributes
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Your Azure Active Directory B2C (Azure AD B2C) directory user profile comes with a set of built-in attributes, such as given name, surname, city, postal code, and phone number. You can extend the user profile with your own application data without requiring an external data store.
 
@@ -39,7 +40,7 @@ Azure AD B2C directory user profile supports the [user resource type](/graph/api
 - Whether the attribute can be used in a user flow
 - Whether the attribute can be used in a custom policy [Microsoft Entra ID technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
 
-|Name     |Date type     |Description|Available in Azure portal|Used in user flows|Used in custom policy|
+|Name     |Data type     |Description|Available in Azure portal|Used in user flows|Used in custom policy|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Whether the user account is enabled or disabled: **true** if the account is enabled, otherwise **false**.|Yes|No|Persisted, Output|
 |ageGroup        |String|The user's age group. Possible values: null, Undefined, Minor, Adult, NotAdult.|Yes|No|Persisted, Output|
@@ -69,7 +70,7 @@ Azure AD B2C directory user profile supports the [user resource type](/graph/api
 |physicalDeliveryOfficeName (officeLocation)|String|The office location in the user's place of business. Max length 128.|Yes|No|Persisted, Output|
 |postalCode      |String|The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code. Max length 40.|Yes|No|Persisted, Output|
 |preferredLanguage    |String|The preferred language for the user. The preferred language format is based on RFC 4646. The name is a combination of an ISO 639 two-letter lowercase culture code associated with the language, and an ISO 3166 two-letter uppercase subculture code associated with the country or region. For example: *en-US*, or *es-ES*.|No|No|Persisted, Output|
-|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Any refresh tokens issued before this time are invalid, and applications get an error when using an invalid refresh token to acquire a new access token. In this case, the application needs to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
+|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Any refresh tokens issued before this time are invalid, and applications get an error when using an invalid refresh token to acquire a new access token. In this case, the application needs to acquire a new refresh token by making a request to the authorized endpoint. Read-only.|No|No|Output|
 |signInNames ([Identities](#identities-attribute)) |String|The unique sign-in name of the local account user of any type in the directory. Use this attribute to get a user with sign-in value without specifying the local account type.|No|No|Input|
 |signInNames.userName ([Identities](#identities-attribute)) |String|The unique username of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in username. Specifying this attribute in PersistedClaims alone during Patch operation removes other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames. NOTE: Accent characters aren't allowed in the username.|No|No|Input, Persisted, Output|
 |signInNames.phoneNumber ([Identities](#identities-attribute)) |String|The unique phone number of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in phone number. Specifying this attribute in PersistedClaims alone during Patch operation removes other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
@@ -85,7 +86,7 @@ Azure AD B2C directory user profile supports the [user resource type](/graph/api
 |usageLocation   |String|Required for users that are assigned licenses due to legal requirement to check for availability of services in countries/regions. Not nullable. A two letter country/region code (ISO standard 3166). For examples, *US*, *JP*, and *GB*.|Yes|No|Persisted, Output|
 |userType        |String|A string value that can be used to classify user types in your directory. Value must be Member. Read-only.|Read only|No|Persisted, Output|
 |userState (externalUserState)<sup>3</sup>|String|For Microsoft Entra B2B account only, and it indicates whether the invitation is PendingAcceptance or Accepted.|No|No|Persisted, Output|
-|userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
+|userStateChangedOn (externalUserStateChangeDateTime)<sup>3</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
 
 <sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Shouldn't be used with Azure AD B2C
 
@@ -161,7 +162,7 @@ For a federated (social) identity, the **passwordProfile** attribute isn't requi
 
 The Azure AD B2C password policy (for local accounts) is based on the Microsoft Entra ID [strong password strength](../active-directory/authentication/concept-sspr-policy.md) policy. The Azure AD B2C sign-up or sign-in and password reset policies require this strong password strength, and don't expire passwords.
 
-In user migration scenarios, if the accounts you want to migrate have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. To change the default password policy, set the `passwordPolicies` attribute to `DisableStrongPassword`. For example, you can modify the create user request as follows:
+In user migration scenarios, if the accounts you want to migrate have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. To change the default password policy, set the `passwordPolicies` attribute to `DisableStrongPassword`. For example, you can modify the created user request as follows:
 
 ```json
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
@@ -184,7 +185,7 @@ Extension attributes [extend the schema](/graph/extensibility-overview#schema-ex
 > - If the b2c-extensions-app application is deleted, those extension attributes are removed from all users along with any data they contain.
 > - If an extension attribute is deleted by the application, it's removed from all user accounts and the values are deleted.
 
-Extension attributes in the Graph API are named by using the convention `extension_ApplicationClientID_AttributeName`, where:
+Extension attributes in the Microsoft Graph API are named by using the convention `extension_ApplicationClientID_AttributeName`, where:
 
 - The `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` application. [Learn how to find the extensions app](extensions-app.md#verifying-that-the-extensions-app-is-present). 
 - The `AttributeName` is the name of the extension attribute.  
@@ -204,7 +205,7 @@ The following data types are supported when defining an attribute in a schema ex
 |Integer    | 32-bit value.               |
 |String     | 256 characters maximum.     |
 
-## Next steps
+## Related content
 
 Learn more about extension attributes:
 

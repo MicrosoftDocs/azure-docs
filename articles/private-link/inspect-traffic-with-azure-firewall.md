@@ -5,9 +5,10 @@ description: Learn about different scenarios to inspect traffic destined to a pr
 author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 08/14/2023
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: template-how-to
+# Customer intent: "As a network administrator, I want to configure Azure Firewall to inspect and control traffic to private endpoints, so that I can enhance security and comply with organizational policies for data access and network safety."
 ---
 
 # Azure Firewall scenarios to inspect traffic destined to a private endpoint

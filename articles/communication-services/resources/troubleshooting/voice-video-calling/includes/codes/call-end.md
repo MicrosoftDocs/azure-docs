@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Calling End codes and subcodes
+title: Understanding calling codes and subcodes errors
 description: include file
 services: azure-communication-services
 author: sloanster
@@ -51,7 +51,7 @@ There are different explanations for why a call ended. Here are the meanings of 
 | 4507 | 495 | Call ended as application didn't provide valid Azure Communication Services token. | UnexpectedClientError | Ensure that your application implements token refresh mechanism correctly. |
 | 4521 | 0 | Call ended because user disconnected from the call abruptly. This might be caused by a user closing the application that hosted the call, such as a user terminated the application by closing the browser tab without proper hang-up. | ExpectedError | |
 | 5000 | 0 | Call ended for this participant. Participant removed from the conversation by another participant. | Success | |
-| 5003 | 0 | Call ended successfully, as all callee endpoints declined the call. | Success | |
+| 5003 | 0 | Call was ended by Azure Communication Service as the call has ended. | Success | |
 | 5300 | 0 | Call ended for this participant as it was removed from the conversation by another participant. | Success | Call ended for this participant as another participant removed it, it could be another client, Call Automation API, Graph API. |
 | 5317 | 0 | Target participant is removed due to participant role update. | ExpectedError | |
 | 5828 | 403 | The join isn't authorized for the Rooms meeting since user isn't part of invitee list.	 | UnexpectedClientError | |
@@ -61,6 +61,7 @@ There are different explanations for why a call ended. Here are the meanings of 
 | 10003 | 487 | Call was canceled for this user endpoint as it was accepted elsewhere, by another endpoint. | Success | A call was initiated to target user (start call, add participant, transfer), target user had multiple active endpoints at the same time, on one of the endpoints user accepted the call. This is normal behavior, only one endpoint can accept and connect to a call. All other endpoints receive subcode 10003 to indicate that call was already accepted. |
 | 10004 | 487 | Call was canceled on timeout, as target user didn't accept or reject it on time. Ensure that user saw the notification and/or application can handle it automatically and try to initiate that call again. | ExpectedError | Call was canceled after predefined amount of time (usually 2 minutes) as target user didn't accept or reject. |
 | 10009 | 401 | Unauthenticated identity. Ensure that your Azure Communication Services token is valid and not expired. | UnexpectedClientError | |
+| 71005 | 401 | Call failed due to a validation error in Azure Communication Services. Try again, if issue persists, contact Azure Communication Services support. | UnexpectedClientError ||
 | 10024 | 487 | Call ended successfully. Call declined by all callee endpoints. | Success | Try to place the call again. |
 | 10037 | 480 | Target user didn't have any endpoints registered with ACS. Ensure that target user has at least one active endpoint and  it's online. | ExpectedError | If the target user is using the Azure Communication Services Calling SDK, ensure that the SDK is initialized successfully in their client application. If the target user is a Teams user, make sure that their client is online. Make sure that the target user's identifier (CommunicationUserIdentifier, MicrosoftTeamsUserIdentifier, or MicrosoftTeamsBotIdentifier) is correct. If the Graph API `user` has property `department` set to `Microsoft Communication Application Instance` the `MicrosoftTeamsBotIdentifier` should be specified. |
 | 10057 | 408 | Call failed, callee failed to finalize call setup, most likely callee lost network or terminated the application abruptly. Ensure clients are connected and available. | ExpectedError | |

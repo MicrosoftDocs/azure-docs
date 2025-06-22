@@ -1,11 +1,11 @@
 ---
 title: Tag Azure Virtual Desktop resources - Azure
 description: What tagging is, and how you can use it to manage Azure service costs in Azure Virtual Desktop.
-author: dknappettmsft
+author: dougeby
 
 ms.topic: conceptual
 ms.date: 11/12/2021
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

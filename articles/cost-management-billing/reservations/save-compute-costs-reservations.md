@@ -1,20 +1,20 @@
 ---
 title: What are Azure Reservations?
 description: Learn about Azure Reservations and pricing to save on your reserved instances for virtual machines, SQL databases, Azure Cosmos DB, and other resource costs.
-author: bandersmsft
-ms.reviewer: bshy
+author: pri-mittal
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # What are Azure Reservations?
 
 Azure Reservations help you save money by committing to one-year or three-year plans for multiple products. Committing allows you to get a discount on the resources you use. Reservations can significantly reduce your resource costs by up to 72% from pay-as-you-go prices. Reservations provide a billing discount and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources.
 
-You can pay for a reservation up front or monthly. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly. Monthly payments are for complete month and not proparted based on calendar month. As an example if you purchased a reservation on January 15, the next charge will be around February 15. Monthly payment is available for Azure reservations, not third-party products.
+You can pay for a reservation up front or monthly. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly. Monthly payments are for complete month and not prorated based on calendar month. As an example, if you purchased a reservation on January 15, the next charge will be around February 15.
 
 You can buy a reservation in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
@@ -88,8 +88,8 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 - **Azure Files reserved capacity** - A reservation covers storage capacity for Azure Files. Reservations for hot and cool tiers don't cover bandwidth or transaction rates.
 - **Azure Cosmos DB reserved capacity** - A reservation covers throughput provisioned for your resources. It doesn't cover the storage and networking charges.
 - **Azure Data Factory data flows** - A reservation covers integration runtime cost for the compute type and number of cores that you buy.
-- **SQL Database reserved vCore** - Covers SQL Database, both elastic pools and single databases. Only the compute costs are included with a reservation. The SQL license is billed separately.
-- **SQL Managed Instance reserved vCore** - Covers SQL Managed Instance. Only the compute costs are included with a reservation. The SQL license is billed separately.
+- **Azure SQL Database** - A reservation only covers the compute costs. It doesn't cover software license, networking, or storage charges. For the General Purpose service tier, reservations are also available to cover compute costs associated with the zone-redundancy add-on.
+- **Azure SQL Managed Instance** -  A reservation only covers the compute costs. It doesn't cover software license, networking, or storage charges. Reservations are also available to cover compute costs associated with the zone-redundancy add-on.
 - **Azure Synapse Analytics** - A reservation covers cDWU usage. It doesn't cover storage or networking charges associated with the Azure Synapse Analytics usage.
 - **Azure Databricks** - A reservation covers only the DBU usage. Other charges, such as compute, storage, and networking, are applied separately.
 - **App Service stamp fee** - A reservation covers stamp usage. It doesn't apply to workers, so any other resources associated with the stamp are charged separately.
