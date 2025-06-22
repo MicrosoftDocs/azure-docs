@@ -357,7 +357,7 @@ The "call HTTP" API can automatically implement the client side of the polling c
 # [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
-[FunctionName(nameof(CheckSiteAvailable))]
+[FunctionName(nameof(CheckSiteAvailableWithPolling))]
 public static async Task CheckSiteAvailableWithPolling(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
