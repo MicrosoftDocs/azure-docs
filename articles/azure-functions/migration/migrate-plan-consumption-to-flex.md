@@ -116,21 +116,6 @@ This command generates a table with the app name, location, resource group, and 
 
 You're promoted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed.
 
-#### [Windows](#tab/windows/azure-cli)
-
-Use this [`az graph query`](/cli/azure/graph#az-graph-query) command to list all function apps in your subscription that are running in a Consumption plan:
-
-```azurecli
-az graph query -q "resources | where subscriptionId == '$(az account show --query id -o tsv)' \
-   | where type == 'microsoft.web/sites' | where ['kind'] == 'functionapp' | where properties.sku == 'Dynamic' \
-   | project name, location, resourceGroup" \
-   --query data --output table
-```
-
-This command generates a table with the app name, location, and resource group for all Consumption apps running on Windows in the current subscription.
-
-You're promoted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed. 
-
 #### [Linux](#tab/linux/azure-portal)
 
 1. Navigate to the [Azure Resource Graph Explorer](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade) in the Azure portal.
@@ -149,6 +134,21 @@ You're promoted to install the [resource-graph extension](/cli/azure/graph), if 
     ```
 
 This command generates a table with the app name, location, resource group, and runtime stack for all Consumption apps running on Linux in the current subscription.
+
+#### [Windows](#tab/windows/azure-cli)
+
+Use this [`az graph query`](/cli/azure/graph#az-graph-query) command to list all function apps in your subscription that are running in a Consumption plan:
+
+```azurecli
+az graph query -q "resources | where subscriptionId == '$(az account show --query id -o tsv)' \
+   | where type == 'microsoft.web/sites' | where ['kind'] == 'functionapp' | where properties.sku == 'Dynamic' \
+   | project name, location, resourceGroup" \
+   --query data --output table
+```
+
+This command generates a table with the app name, location, and resource group for all Consumption apps running on Windows in the current subscription.
+
+You're promoted to install the [resource-graph extension](/cli/azure/graph), if it isn't already installed. 
 
 #### [Windows](#tab/windows/azure-portal)
 
@@ -735,6 +735,24 @@ Use these steps to download the deployment package from your current app:
 
     Again, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group name and app name. The package .zip file is downloaded to the directory from which you executed the command. 
 
+#### [Linux](#tab/linux/azure-portal)
+
+1. In the [Azure portal], search for or otherwise navigate to your function app page.
+
+1. In the left menu, expand **Settings** > **Environment variables** and see if a setting named `WEBSITE_RUN_FROM_PACKAGE` exists.
+
+1. If `WEBSITE_RUN_FROM_PACKAGE` exists, check if it's set to a value of `1` or a URL. If set to a URL, that is the URL of where the zip file for your app content. Download the zip file from that URL location that is owned by you.
+
+1. If the `WEBSITE_RUN_FROM_PACKAGE` setting doesn't exist or is set to `1`, you must download the package from the specific storage account, which depends on whether you are running on Linux or Windows.
+
+1. Get the storage account name from the `AzureWebJobsStorage` or `AzureWebJobsStorage__accountName` application setting. For a connection string, the `AccountName` is the name your storage account.
+
+1. In the portal, search for your storage account name. 
+
+1. In the storage account page, locate the deployment package and download it.
+
+1. Expand **Data storage** > **Containers** and select `scm_releases`. Choose the file named `scm-latest-<APP_NAME>.zip` and select **Download**. 
+
 #### [Windows](#tab/windows/azure-cli)
 
 1. Use this [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) command to get the  `WEBSITE_RUN_FROM_PACKAGE` app setting, if present:
@@ -777,24 +795,6 @@ Use these steps to download the deployment package from your current app:
     ```
 
     Again, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group name and app name. The package .zip file is downloaded to the directory from which you executed the command. 
-
-#### [Linux](#tab/linux/azure-portal)
-
-1. In the [Azure portal], search for or otherwise navigate to your function app page.
-
-1. In the left menu, expand **Settings** > **Environment variables** and see if a setting named `WEBSITE_RUN_FROM_PACKAGE` exists.
-
-1. If `WEBSITE_RUN_FROM_PACKAGE` exists, check if it's set to a value of `1` or a URL. If set to a URL, that is the URL of where the zip file for your app content. Download the zip file from that URL location that is owned by you.
-
-1. If the `WEBSITE_RUN_FROM_PACKAGE` setting doesn't exist or is set to `1`, you must download the package from the specific storage account, which depends on whether you are running on Linux or Windows.
-
-1. Get the storage account name from the `AzureWebJobsStorage` or `AzureWebJobsStorage__accountName` application setting. For a connection string, the `AccountName` is the name your storage account.
-
-1. In the portal, search for your storage account name. 
-
-1. In the storage account page, locate the deployment package and download it.
-
-1. Expand **Data storage** > **Containers** and select `scm_releases`. Choose the file named `scm-latest-<APP_NAME>.zip` and select **Download**. 
 
 #### [Windows](#tab/windows/azure-portal)
 
