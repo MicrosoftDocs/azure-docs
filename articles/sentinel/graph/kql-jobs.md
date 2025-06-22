@@ -88,7 +88,16 @@ In the **Schedule the query job** panel, select whether you want to run the job 
 
 You can manage jobs in the Microsoft Sentinel data lake from the **Jobs** management page. From this page, you can view all jobs, their status, and their details. You can also run, edit, or delete jobs from this page. For more information on managing jobs, see [Manage KQL jobs](kql-manage-jobs.md).
 
+### Job limitations
 
+|Category| Limit|
+|---|---|
+|Timeout| 1 hour|
+|Queryable time range| 12 years|
+|Job results destination | Analytics tier|
+|Concurrent jobs| 3|
+|Query scope| Single workspace|
+|Output tables per job| 1|
 
 ## Related content
 

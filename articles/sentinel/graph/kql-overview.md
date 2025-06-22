@@ -37,7 +37,9 @@ Using KQL Analysts can:
 + Enrich investigations with high-volume logs: Leverage noisy or low-fidelity data stored in the lake to add context and depth to security investigations.
 + Correlate asset and logs data in lake: Query asset inventories and identity logs to connect user activity with resources and uncover broader attack.
 
-## KQL Jobs 
+Use KQL queries under the Lake exploration in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the Analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with QKL queries see [Data lake exploration - KQL queries (Preview).](kql-queries.md).
+
+## KQL jobs 
 
 KQL Jobs run queries against the data in the lake tier and promote the results to the analytics tier.
 
@@ -47,12 +49,11 @@ Using KQL Jobs, analysts can:
 + Automate insights from historical or noisy logs to support threat hunting, create baselines, or use for compliance requirements.
 
 
+Run one-time KQL jobs on lake data to promote specific historical data from the lake tier to the analytics tier. Promoting data is useful for root cause analysis or zero-day detection when investigating incidents that span beyond the hot tier window. Submit a scheduled job on lake to automate recurring queries to detect anomalies or build baselines using historical data. Threat hunters can use this to monitor for unusual patterns over time and feed results into detections or dashboards. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md) and [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
 
-## KQL Queries 
 
-KQL queries allow you to interactively explore and analyze data in the Microsoft Sentinel Lake. You can run ad-hoc queries, create scheduled jobs, and promote data to the Analytics tier for further analysis. The KQL query editor provides a familiar interface for security analysts to work with long-term data.
 
-### Lake exploration scenarios for KQL
+## Exploration scenarios
 
 The following scenarios illustrate how KQL queries in the Microsoft Sentinel Lake can be used to enhance security operations:
 
@@ -66,18 +67,9 @@ The following scenarios illustrate how KQL queries in the Microsoft Sentinel Lak
 
 
 
-## Exploring Microsoft Sentinel data lake with KQL
+## Considerations and limitations
 
-
-Use KQL queries under the Lake exploration in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the Analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with QKL queries see [Data lake exploration - KQL queries (Preview).](kql-queries.md).
-
-Use Azure Data Explorer to run interactive queries on Lake. Connect to Microsoft Sentinel Lake via ADX to run interactive KQL queries across Lake tables. This is ideal for data engineers or advanced analysts who prefer the ADX interface or need to integrate with broader analytics workflow. For more information, see [Exploring and interacting with lake data using Azure Data Explorer and KQL](kql-adx-data-lake-access.md).
-
-Run one-time KQL jobs on lake data to promote specific historical data from the lake tier to the analytics tier. Promoting data is useful for root cause analysis or zero-day detection when investigating incidents that span beyond the hot tier window. Submit a scheduled job on lake to automate recurring queries to detect anomalies or build baselines using historical data. Threat hunters can use this to monitor for unusual patterns over time and feed results into detections or dashboards. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md) and [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
-
-
-
-## Known Limitations
+When using KQL queries in the Microsoft Sentinel Lake, be aware of the following constraints:
 
 << use include file for known limitations >>
 - Supported Kusto commands.

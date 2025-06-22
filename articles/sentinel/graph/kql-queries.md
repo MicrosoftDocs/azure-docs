@@ -29,12 +29,13 @@ The KQL query editor allows you to edit and run KQL queries against data lake re
 
 ## Permissions
 
-To access data lake KQL queries, you must have one of the following Entra ID roles:
+To access data lake KQL queries, you must have one of the following Microsoft Entra ID roles:
 
 + Global reader 
 + Security reader
 + Security operator 
 + Security administrator
++ Global Administrator
 
 For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](./roles-permissions.md).
 
@@ -42,41 +43,55 @@ For more information on roles and permissions, see [Microsoft Sentinel lake role
 ## Writing KQL queries
 
 
-Writing queries for the data lake is similar to writing queries in the advanced hunting experience. You can use the same KQL syntax and functions including. KQL supports machine learning functions and advanced analytics. For more infomation, see [Microsoft Sentinel data lake and machine learning](sentinel-data-lake-machine-learning.md). The query editor provides a powerful interface for writing and running KQL queries, with features such as IntelliSense and autocomplete to help you write your queries efficiently. For a detailed overview of KQL syntax and functions, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
+Writing queries for the data lake is similar to writing queries in the advanced hunting experience. You can use the same KQL syntax and functions including. KQL supports machine learning functions and advanced analytics. For more information, see [Microsoft Sentinel data lake and machine learning](sentinel-data-lake-machine-learning.md). The query editor provides a powerful interface for writing and running KQL queries, with features such as IntelliSense and autocomplete to help you write your queries efficiently. For a detailed overview of KQL syntax and functions, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 
 
 
-## [KQL queries in the defender portal](#tab/kql-queries)
-## KQL queries in the defender portal
-Queries are run against a single workspace. Choose your workspace in the upper right corner of the query editor using the **Selected workspace** dropdown. The workspace you select determines the data available for querying. The *default* workspace contains data from Microsoft Entra, M365, and Microsoft Resource Graph. For more information these data assets see [Data assets in the data lake](data-assets.md). 
+<!--## [KQL queries in the Defender portal](#tab/kql-queries)-->
 
+## KQL queries in the Defender portal
+
+
+Select **New query** to create a new query tab. Your last query in each tab is saved. Switch between tabs to work on multiple queries simultaneously.   
 
 :::image type="content" source="media/kql-queries/query-editor.png" alt-text="A screenshot showing the advanced hunting page in the Defender portal." lightbox="media/kql-queries/query-editor.png":::
+### Select workspace
+
+Queries are run against a single workspace. Choose your workspace in the upper right corner of the query editor using the **Selected workspace** dropdown. The workspace you select determines the data available for querying. The *default* workspace contains data from Microsoft Entra, Microsoft 365, and Microsoft Resource Graph. For more information about these data assets see [Data assets in the data lake](data-assets.md). 
 
 > [!NOTE] 
 > The selected workspace applies to all query tabs in the query editor.
 
 
-Select **New query** to create a new query tab. Your last query in each tab is saved. Switch between tabs to work on multiple queries simultaneously.   
-
 ### Time range selection
 Use the time picker above the query editor to select the time range for your query. Using the **Custom time range** option, you can set a specific start and end time. Time ranges can be up to 12 years in duration. You can also specify a time range in the KQL query syntax.
 
->[!NOTE]
-> Queries are limited to 30,000 rows or 64 MB of data and time out after 10 minutes. When selecting a broad time range your query may exceed these limits.
+:::image type="content" source="media/kql-queries/time-range-selector.png" lightbox="media/kql-queries/time-range-selector.png" alt-text="A screenshot showing the timerange selector.":::
 
-### Schema browser
 
-The schema browser provides a list of available tables and their columns in the selected workspace. Use the schema browser to explore the data available in your data lake and discover tables and columns.
+> [!NOTE]
+> Queries are limited to 30,000 rows or 64 MB of data and time-out after 10 minutes. When selecting a broad time range, your query may exceed these limits.
+
+### View schema information
+
+The schema browser provides a list of available tables and their columns in the selected workspace. Use the schema browser to explore the data available in your data lake and discover tables and columns. Use the search box to quickly find specific tables.
+
+:::image type="content" source="media/kql-queries/schema-browser.png" lightbox="media/kql-queries/schema-browser.png" alt-text="A screenshot showing the schema browser panel in the KQL editor.":::
+
 
 ### Result window
+
 The result window displays the results of your query. You can view the results in a table format, and you can export the results to a CSV file using the **Export** button in the upper left corner of the result window. Toggle the visibility of empty columns using the **Show empty columns** button. The **Customize columns** button allows you to select which columns to display in the result window.
 
+You can search the results using the search box in the upper right corner of the result window.
 
-### Jobs
+:::image type="content" source="media/kql-queries/results-window.png" lightbox="media/kql-queries/results-window.png" alt-text="A screenshot showing the results window in a KQL query editor.":::
 
-Jobs are used to run KQL queries against the data in the lake tier and promote the results to the analytics tier. You can create on-demand or scheduled jobs, and you can enable, disable, edit, or delete jobs from the **Jobs** page. For more information on creating and managing jobs, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md).
+## Jobs
 
+Jobs are used to run KQL queries against the data in the lake tier and promote the results to the analytics tier. You can create one-time or scheduled jobs, and you can enable, disable, edit, or delete jobs from the **Jobs** page. To create a job based on your current query, select the **Create job** button. For more information on creating and managing jobs, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md).
+
+<!---
 ## [Connect to the data lake via Azure Data Explorer](#tab/adx)
 
 # Connect to the data lake via Azure Data Explorer
@@ -129,6 +144,7 @@ Once you have verified that your connection is working, consider exploring addit
 > When running KQL queries against the Microsoft Sentinel data lake in Azure data explorer, you must use the `external_table` function to access the data. You dont need to use `external_table` when using KQL queries in the Microsoft Sentinel lake explorer.
 
 ---
+--->
 
 ## Sample KQL queries
  
@@ -137,10 +153,17 @@ For sample queries, see [KQL sample queries for the data lake](kql-samples.md). 
 
 ### Query limitations
 
-When writing queries in the Lake workbench, the following limitations apply:
+When writing queries in the lake, the following limitations apply:
 
-+ Query results are limited to 30,000 rows or 64 MB of data. 
-+ Queries time out after 10 minutes. 
+|Categoory | Limit|
+|---|---|
+| Query result rows|  30,000 rows |
+| Query result data | 64 MB. |
+| Query time out | 10 minutes. |
+|Queryable time range | Up to 12 years, depending on data retention. |
+| Concurrent interactive queries| 45|
+| Query Scope |	Single workspace |
+
 
 
 ## Related content
