@@ -667,7 +667,7 @@
     href: soc-optimization/soc-optimization-api.md
   - name: SOC optimization reference
     href: soc-optimization/soc-optimization-reference.md
-- name: Manage Microsoft Sentinel
+- name: Manage Microsoft Sentinel and Microsoft Sentinel data lake
   items:
   - name: Manage costs and billing
     items:      
@@ -699,8 +699,10 @@
       href: multiple-workspace-view.md
     - name: Manage your intellectual property in Microsoft Sentinel
       href: mssp-protect-intellectual-property.md
-  - name: Manage workspace access
-    href: resource-context-rbac.md
+  - name: Manage access
+    items:
+    - name: Manage workspace access
+      href: resource-context-rbac.md
   - name: Set up customer-managed keys
     href: customer-managed-keys.md
   - name: Manage your SOC with incident metrics
