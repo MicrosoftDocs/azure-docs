@@ -25,12 +25,23 @@ Jobs are managed in the **Jobs** page under **Data lake exploration** in the Def
 
 + View all jobs in the Microsoft Sentinel data lake. You can view jobs created in the KQL queries editor or jobs created for notebooks. 
 + Create a new job to run a KQL query. For more information on creating jobs, see [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md).
-+ Edit job details<<< including what ???>> . You cant edit a notebook job from the jobs page. For more information on editing notebook jobs, see [KQL notebooks](kql-notebooks.md).
++ Edit job details. You can view but can't edit a notebook job from the jobs page. For more information on editing notebook jobs, see [KQL notebooks](kql-notebooks.md).
 + Disable a job, preventing it from running until you enable it again.
 + Enable a job, allowing it to run again after being disabled.
 + View job history, including the run times, and statuses of the job.
 + Delete a job, removing it from the list of jobs. This action is permanent and can't be undone.
 
+
+## Permissions
+
+For broad access to create queries and jobs for workspaces in the data lake, you can use one of the following Microsoft Entra ID roles:
++ Global reader 
++ Security reader
++ Security operator 
++ Security administrator
++ Global administrator
+
+For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](./roles-permissions.md).
 
 
 ## Manage jobs
@@ -51,10 +62,14 @@ To see a job's details, select a job. The job detail panel opens, showing the fo
 - **Job description**: A description of the job, providing context and purpose.
 - **Job type**: The type of job, either a KQL query job or a notebook job.
 - **Job status**: The status of the job, either enabled or disabled.
-- **Run status**: The status of the last run of the job, whether it succeeded or failed.
+- **Run status**: The status of the last run of the job.  Status values are:
+    - `Succeeded`
+    - `Failed`
+    - `In progress`
+    - `Queued` - The job is queued and waiting to run whn resources are available.
 - **Repeat frequency**: The frequency at which the job runs, such as daily, weekly, or monthly.
 - **Destination table**: The table in the analytics tier where the job results are written to.
-- **Destination workspace**: The workspace in the analytics tier where the job results are written to <<<<<<<<<<<<<
+<!-- **Destination workspace**: The workspace in the analytics tier where the job results are written to -->
 - **Job start on (UTC)**: The date and time in UTC when the job is first scheduled to start.
 - **Target tier**: The destination tier of the job's results, such as Lake or Analytics tier.
 - **Date range**: The date range set for the query. 
@@ -68,11 +83,14 @@ Select the **Destination table** link to open the table in the KQL query editor 
 
 To edit a job, select the **Edit** button in the job details panel. The job details panel opens, allowing you to edit the following fields:
 
-The following details can be edited:......................
+The following details can be edited:
++ Job description
++ KQL query. The query can be updated but must return the same output schema as the original query. For example, you can cgane the time range in the query, but you can't change the columns returned by the query.
++ Job schedule. You can change the job to run once or on a schedule, or change the schedule.
 
-Select Next to continue to the next screen.
+Select **Next** to continue to the next screen. 
 
-More screens are available to edit the job details. 
+After you edit the job, select **Submit** to save the changes. The job is updated and runs according to the new schedule or query.
 
 
 ### View a job's run history

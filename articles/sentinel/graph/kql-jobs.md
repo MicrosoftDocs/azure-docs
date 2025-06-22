@@ -19,7 +19,7 @@ ms.collection: ms-security
 #  Create KQL jobs in the Microsoft Sentinel data lake (Preview)
  
 
-A job is an one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the Advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
+A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the Advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
 
 + Combine current and historical data in the analytics tier to run advanced analytics and machine learning models on your data.
 
@@ -29,9 +29,24 @@ A job is an one-time or scheduled task that runs a KQL (Kusto Query Language) qu
 
 Storage in the analytics tier incurs higher billing rates than in the lake tier. To reduce costs, only promote data that you need to analyze further. Use the KQL in your query to project only the columns you need, and filter the data to reduce the amount of data promoted to the analytics tier.  
 
-When promoting data to the analytics tier, make sure that the destination workspace is visible in the Advanced hunting query editor. You can only query connected workspaces in the Advanced hunting query editor. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace)
+When promoting data to the analytics tier, make sure that the destination workspace is visible in the Advanced hunting query editor. You can only query connected workspaces in the Advanced hunting query editor. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace). You can promote data to a new table or append the results to an existing table in the analytics tier. When creating a new table, the table name is suffixed with *_KQL_CL* to indicate that the table was created by a KQL job.  
+
 
 You can create a job by selecting the **Create job** button a KQL query tab or directly from the **Jobs** management page or by. For more information on the Jobs management page, see [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
+
+## Permissions
+
+For broad access to create queries and jobs for workspaces in the data lake, you can use one of the following Microsoft Entra ID roles:
++ Global reader 
++ Security reader
++ Security operator 
++ Security administrator
++ Global administrator
+
+For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](./roles-permissions.md).
+
+
+## Create a job
 
 To create jobs to run on a schedule or one-time, follow the steps below:
 
@@ -78,10 +93,10 @@ In the **Schedule the query job** panel, select whether you want to run the job 
 
     :::image type="content" source="media/kql-jobs/schedule-query-job.png" alt-text="A screenshot showing the schedule job panel." lightbox="media/kql-jobs/schedule-job.png":::
 
-1. Review the job details and select **Submit** to create the job. If the job is an one-time job, it runs after you select **Submit**. If the job is scheduled, it's added to the list of jobs in the **Jobs** page of the data Data lake exploration and runs according to the start data and time.
+1. Review the job details and select **Submit** to create the job. If the job is a one-time job, it runs after you select **Submit**. If the job is scheduled, it's added to the list of jobs in the **Jobs** page of the data Data lake exploration and runs according to the start data and time.
     :::image type="content" source="media/kql-jobs/review-job-details.png" alt-text="A screenshot showing the review job details panel." lightbox="media/kql-jobs/review-job-details.png":::
 
-1. The job is sheduled and the fllowing page is displayed. You can view the job by selecting the link.
+1. The job is scheduled and the following page is displayed. You can view the job by selecting the link.
     :::image type="content" source="media/kql-jobs/job-successfully-scheduled.png" alt-text="A screenshot showing the job created page." lightbox="media/kql-jobs/job-successfully-scheduled.png":::
 
 ## Manage jobs
@@ -95,13 +110,13 @@ You can manage jobs in the Microsoft Sentinel data lake from the **Jobs** manage
 |Timeout| 1 hour|
 |Queryable time range| 12 years|
 |Job results destination | Analytics tier|
-|Concurrent jobs| 3|
+|Concurrent jobs| 3 jobs |
 |Query scope| Single workspace|
-|Output tables per job| 1|
+|Output tables per job| 1 table |
 
 ## Related content
 
 - [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
-- [Microsoft Sentinel data lake overview (Preview)](overview.md)
+- [Microsoft Sentinel data lake overview (Preview)](sentinel-lake-overview.md)
 - [KQL queries in the Microsoft Sentinel data lake](kql-queries.md)
-- [Jupyter notebooks and the Microsoft Sentinel data lake (Preview)](spark-notebooks.md)
+- [Jupyter notebooks and the Microsoft Sentinel data lake (Preview)](jupyter-notebooks.md)

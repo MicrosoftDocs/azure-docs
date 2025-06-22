@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: sentinel  
 ms.topic: conceptual
 ms.subservice: sentinel-graph
-ms.date: 06/16/2025
+ms.date: 06/22/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -37,7 +37,7 @@ Using KQL Analysts can:
 + Enrich investigations with high-volume logs: Leverage noisy or low-fidelity data stored in the lake to add context and depth to security investigations.
 + Correlate asset and logs data in lake: Query asset inventories and identity logs to connect user activity with resources and uncover broader attack.
 
-Use KQL queries under the Lake exploration in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the Analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with QKL queries see [Data lake exploration - KQL queries (Preview).](kql-queries.md).
+Use KQL queries under the Lake exploration in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data.  Lake exploration can be found in the Sentinel menu and is available after the [onboarding](sentinel-lake-onboarding.md) process has been completed. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the Analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with KQL queries see [Data lake exploration - KQL queries (Preview).](kql-queries.md). 
 
 ## KQL jobs 
 
@@ -45,7 +45,7 @@ KQL Jobs run queries against the data in the lake tier and promote the results t
 
 Using KQL Jobs, analysts can:
 + Promote data from the lake to the Analytics tier to enable incident investigation or log correlation.
-+ Schedule recurring jobs to enrich investigations using long-term, high-volume low-fidelity log or asset data stored only in the lake.
++ Schedule recurring jobs to enrich investigations using long-term, high-volume, low-fidelity logs or asset data stored only in the lake.
 + Automate insights from historical or noisy logs to support threat hunting, create baselines, or use for compliance requirements.
 
 
@@ -59,9 +59,9 @@ The following scenarios illustrate how KQL queries in the Microsoft Sentinel Lak
 
 | Scenario | Details | Example |
 |----------|---------|---------|
-| Investigate security incidents using long-term historical data | Security teams often need to go beyond the default retention window to uncover the full scope of an incident. | A Tier 3 SOC analyst investigating a brute force attack uses KQL queries on lake to query data older than 90 days. After identifying suspicious activity from over a year ago, the analyst promotes the findings to the analytics tier for deeper analysis and incident correlation. |
-|Detect anomalies and build behavioral baselines over time| Detection engineers rely on historical data to establish baselines and identify patterns thats may indicate malicious behavior. | A detection engineer analyzes sign-in logs over several months to detect spikes in activity. By scheduling a KQL job in the Lake, they build a time-series baseline and uncover a pattern consistent with credential abuse. |
-| Enrich investigations using high-volume, low-fidelity logs | Some logs are too noisy or voluminous for the analytics tier but are still valuable for contextual analysis. | Tier 1 and 2 SOC analysts use KQL to query network and firewall logs stored only in the lake. These logs, while not in the Analytics tier, help validate alerts and provide supporting evidence during investigations. |
+| Investigate security incidents using long-term historical data | Security teams often need to go beyond the default retention window to uncover the full scope of an incident. | A Tier 3 SOC analyst investigating a brute force attack uses KQL queries against the lake to query data older than 90 days. After identifying suspicious activity from over a year ago, the analyst promotes the findings to the analytics tier for deeper analysis and incident correlation. |
+|Detect anomalies and build behavioral baselines over time| Detection engineers rely on historical data to establish baselines and identify patterns that may indicate malicious behavior. | A detection engineer analyzes sign-in logs over several months to detect spikes in activity. By scheduling a KQL job in the Lake, they build a time-series baseline and uncover a pattern consistent with credential abuse. |
+| Enrich investigations using high-volume, low-fidelity logs | Some logs are too noisy or voluminous for the analytics tier but are still valuable for contextual analysis. | Tier-1 and tier-2 SOC analysts use KQL to query network and firewall logs stored only in the lake. These logs, while not in the Analytics tier, help validate alerts and provide supporting evidence during investigations. |
 | Respond to emerging threats with flexible data tiering | When new threat intelligence emerges, analysts need to quickly access and act on historical data. | A threat intelligence analyst reacts to a newly published threat analytics report by running the suggested KQL queries in the lake. Upon discovering relevant activity from several months ago, the required log is promoted into the Analytics tier. To enable real-time detection for future detections, tiering policies can be adjusted on the relevant tables to mirror most recent logs into analytics tier. |
 | Explore asset data from sources beyond traditional security logs | Enrich investigation using asset inventory such as Microsoft Entra ID objects and Azure resources. | Analysts can use KQL to query identity and resource asset information, such as Microsoft Entra ID users, apps, groups, or Azure Resources inventories, to correlate logs for broader context that complements existing security data. |
 
