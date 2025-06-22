@@ -111,7 +111,7 @@ The following built-in network session related content is supported for ASIM nor
 - [Port scan detected  (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/PortScan.yaml)
 - [Known Barium IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumIPIOC112020.yaml) 
 - [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
-- [Known Seashell Blizzard IP(https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SeashellBlizzardIOCs.yaml)
+- [Known Seashell Blizzard IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SeashellBlizzardIOCs.yaml)
 - [Midnight Blizzard - Domain, Hash and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/MidnightBlizzard_IOCsMay2021.yaml)
 - [Known Forest Blizzard group domains - July 2019](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ForestBlizzardJuly2019IOCs.yaml)
 
