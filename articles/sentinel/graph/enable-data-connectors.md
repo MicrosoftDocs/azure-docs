@@ -34,7 +34,7 @@ The following data sources and data connectors are available in the Microsoft Se
 
 - **Tables:** [EntraApplications](./data-soure-tables.md#entra-applications), [EntraGroupMemberships](./data-soure-tables.md#entra-group-memberships), [EntraGroups](./data-soure-tables.md#entra-groups), [EntraMembers](./data-soure-tables.md#entra-members), [EntraOrganizations](./data-soure-tables.md#entra-organizations), [EntraServicePrincipals](./data-soure-tables.md#entra-service-principals), [EntraUsers](./data-soure-tables.md#entra-users).
 - **Enablement:** Automatic onboarding for Sentinel contributors.
-- **Data Connector:** None for Microsoft Sentinel data lake’s Public Preview.
+- **Data Connector:** None for Microsoft Sentinel data lake’s Public Preview. ????
 - **Data Freshness:** Snapshot taken every 4 hours.
 - **Retention Period:** Default is 30 days, adjustable up to 12 years.
 
@@ -60,7 +60,7 @@ The following data sources and data connectors are available in the Microsoft Se
 | Data Freshness   | Snapshot taken every 90 minutes.                                                                                                                                                                               | Snapshot taken every 4 hours.                                                                                                                                                                                                                                                                                                                                                                                                                    | Snapshot taken every 24 hours.                                                                                                                                                                         |   |
 | Retention Period | Default is 30 days, adjustable up to 12 years.                                                                                                                                                                 | Default is 30 days, adjustable up to 12 years.                                                                                                                                                                                                                                                                                                                                                                                                   | Default is 30 days, adjustable up to 12 years.                                                                                                                                                         |   |
 
-## Prerequisites:
+## Prerequisites
 
 To enable and manage data connectors in the Microsoft Sentinel data lake, you need to meet the following prerequisites:
 
