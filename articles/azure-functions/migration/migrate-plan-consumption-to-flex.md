@@ -156,8 +156,6 @@ You're promoted to install the [resource-graph extension](/cli/azure/graph), if 
 
 1. Copy this Kusto query, paste it in the query window, and select **Run query**:  
     
-    #### [Windows](#tab/windows)
-    
     ```kusto
     resources 
     	| where type == 'microsoft.web/sites' 
@@ -165,8 +163,6 @@ You're promoted to install the [resource-graph extension](/cli/azure/graph), if 
     	| where properties.sku == 'Dynamic'
     	| project name, location, resourceGroup
     ```
-
-    ---
 
 This command generates a table with the app name, location, and resource group for all Consumption apps running on Windows in the current subscription.
 
