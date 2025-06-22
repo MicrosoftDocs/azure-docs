@@ -302,5 +302,4 @@ public void SayHello_ReturnsExpectedGreeting()
 
 * Learn more about [xUnit](https://xunit.net/)
 * Learn more about [Moq](https://github.com/moq/moq4)
-* Learn more about [Azure Functions isolated worker model](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide)
-* Learn more about [Durable Functions best practices](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-best-practices) 
+* Learn more about [Azure Functions isolated worker model](../dotnet-isolated-process-guide.md)
