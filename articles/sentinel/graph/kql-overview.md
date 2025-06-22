@@ -81,7 +81,7 @@ When using KQL queries in the Microsoft Sentinel Lake, be aware of the following
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview (Preview)](overview.md)
+- [Microsoft Sentinel data lake overview (Preview)](sentinel-lake-overview.md)
 - [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
 - [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md)
 - [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)

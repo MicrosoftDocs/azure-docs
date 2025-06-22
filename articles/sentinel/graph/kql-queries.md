@@ -135,7 +135,7 @@ When writing queries in the lake, the following limitations apply:
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview (Preview)](sentinel-lake-overviewrview.md)
+- [Microsoft Sentinel data lake overview (Preview)](sentinel-lake-overview.md)
 - [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
 - [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md)
 - [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
