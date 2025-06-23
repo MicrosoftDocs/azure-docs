@@ -13,6 +13,7 @@ ms.topic: overview
 ms.date: 01/15/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
+# Quick start to assess a java project using AppCAT 7
 This document describes how to download, install and run AppCAT 7 against a sample Java project. 
 
 ### Prerequisites
