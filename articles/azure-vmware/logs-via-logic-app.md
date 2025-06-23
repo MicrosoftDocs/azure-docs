@@ -3,7 +3,7 @@ title: Send VMware syslogs to log management server using Azure Logic Apps
 description: Learn how to use Azure Logic Apps to collect and send VMware syslogs from your Azure VMware Solution private cloud to any log management service of your choice.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 4/10/2025
+ms.date: 6/23/2025
 ms.custom: engagement-fy25
 
 #Customer intent: As an Azure service administrator, I want to use Azure Logic Apps to send VMware syslogs from my Azure VMware Solution private cloud to my preferred log management service for centralized logging and analysis.
