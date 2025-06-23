@@ -4,7 +4,7 @@ description: Learn how to migrate an existing function app in Azure running in a
 ms.service: azure-functions
 ms.collection: 
  - migration
-ms.date: 06/18/2025
+ms.date: 06/23/2025
 ms.topic: concept-article
 
 #customer intent: As a developer, I want to learn how to migrate my existing serverless applications in Azure Functions from the Consumption host plan to the Flex Consumption hosting plan.
@@ -403,7 +403,7 @@ You should complete these tasks before you migrate your app to run in a Flex Con
 > + [Identify client authentication settings](#identify-client-authentication-settings)
 > + [Review inbound access restrictions](#review-inbound-access-restrictions)
 > + [Get the code deployment package](#get-the-code-deployment-package)
-> + [Capture performance benchmarks](#capture-performance-benchmarks)
+> + [Capture performance benchmarks](#capture-performance-benchmarks-optional)
 
 ### Collect app settings
 
@@ -581,7 +581,7 @@ Pay special attention to redirect URIs, allowed external redirects, and token se
 
 #### [Azure CLI](#tab/azure-cli)
 
-Use this [`az webapp auth show`](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) command to determine if [built-in authentication](../../app-service/overview-authentication-authorization.md) is configured in your function app:
+Use this [`az webapp auth show`](/cli/azure/webapp/auth#az-webapp-auth-show) command to determine if [built-in authentication](../../app-service/overview-authentication-authorization.md) is configured in your function app:
 
 ```azurecli
 az webapp auth show --name <APP_NAME> --resource-group <RESOURCE_GROUP>
@@ -1430,7 +1430,13 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 
 After a successful migration, you should perform these follow-up tasks:
 
-
+> [!div class="checklist"]
+> + [Verify basic functionality](#verify-basic-functionality)
+> + [Enable monitoring](#enable-monitoring)
+> + [Capture performance benchmarks](#capture-performance-benchmarks)
+> + [Create custom dashboards](#create-custom-dashboards)
+> + [Refine plan settings](#refine-plan-settings)
+> + [Remove the original app (optional)](#remove-the-original-app-optional)
 
 ### Verify basic functionality
 
@@ -1438,7 +1444,7 @@ After a successful migration, you should perform these follow-up tasks:
 
     #### [Azure CLI](#tab/azure-cli)
     
-    Use this [`az functionapp show`](/cli/azure/functionapp?view=azure-cli-latest#az-functionapp-show) command two view the details about the hosting plan:
+    Use this [`az functionapp show`](/cli/azure/functionap#az-functionapp-show) command two view the details about the hosting plan:
     
     ```azurecli    
     az functionapp show --name <APP_NAME> --resource-group <RESOURCE_GROUP> --query "serverFarmId"
