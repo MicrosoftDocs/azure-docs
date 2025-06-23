@@ -1,20 +1,30 @@
 ---
 title: Azure Monitor metrics for Application Gateway
-description: Learn how to use metrics to monitor performance of application gateway
+description: Monitor Application Gateway performance with Azure Monitor metrics including backend connect time, response latency, and WAF data. Configure alerts and visualize metric trends.
+#customer intent: As a cloud administrator, I want to understand Application Gateway timing metrics so that I can diagnose performance issues between my application gateway and backend servers.
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 06/17/2024
+ms.date: 06/11/2025
 ms.author: mbender
-
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:06/11/2025
 # Customer intent: "As a network administrator, I want to monitor the performance metrics of the Application Gateway, so that I can identify latency issues and optimize the response times for better service delivery."
 ---
+
 # Metrics for Application Gateway
 
-Application Gateway publishes data points to [Azure Monitor](/azure/azure-monitor/overview) for the performance of your Application Gateway and backend instances. These data points are called metrics, and are numerical values in an ordered set of time-series data. Metrics describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric isn't reported. For more information, see [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
+Azure Application Gateway provides comprehensive monitoring capabilities through [Azure Monitor](/azure/azure-monitor/overview) metrics. These metrics help you track the performance and health of your application gateway instance, including request latency, backend connectivity, and throughput measurements.
 
-<a name="metrics-supported-by-application-gateway-v1-sku"></a>
+This article describes the metrics available for Application Gateway, how to access and visualize them, and how to configure alerts based on metric thresholds. You learn about timing metrics that help diagnose performance bottlenecks, backend health indicators, and Web Application Firewall (WAF) metrics for security monitoring. For more information, see [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
+
+
+## Metrics overview
+
+Application Gateway metrics are numerical values collected at regular intervals that describe the performance characteristics of your gateway at specific points in time. These metrics are automatically published to Azure Monitor when requests flow through your Application Gateway, with data points captured every 60 seconds.
 
 ## Metrics supported by Application Gateway V2 SKU
 
@@ -25,17 +35,15 @@ Application Gateway publishes data points to [Azure Monitor](/azure/azure-monito
 
 Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds.
 
-:::image type="content" source="./media/application-gateway-metrics/application-gateway-metrics.png" alt-text="[Diagram of timing metrics for the Application Gateway" border="false":::
+:::image type="content" source="./media/application-gateway-metrics/application-gateway-metrics.png" alt-text="Screenshot of diagram showing timing metrics for the Application Gateway.":::
 
 > [!NOTE]
->
-> If there is more than one listener in the Application Gateway, then always filter by *Listener* dimension while comparing different latency metrics in order to get meaningful inference.
+> If there's more than one listener in the Application Gateway, then always filter by *Listener* dimension while comparing different latency metrics in order to get meaningful inference.
 
 > [!NOTE]
->
-> Latency might be observed in the metric data, as all metrics are aggregated at one-minute intervals. This latency may vary for different application gateway instances based on the metric start time.
+> Latency might be observed in the metric data, as all metrics are aggregated at one-minute intervals. This latency can vary for different application gateway instances based on the metric start time.
 
-You can use timing metrics to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network and backend server TCP stack saturation, backend application performance, or large file size. For more information, see [Timing metrics](monitor-application-gateway-reference.md#timing-metrics-for-application-gateway-v2-sku).
+You can use timing metrics to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network, and backend server TCP stack saturation, backend application performance, or large file size. For more information, see [Timing metrics](monitor-application-gateway-reference.md#timing-metrics-for-application-gateway-v2-sku).
 
 For example, if there's a spike in *Backend first byte response time* trend but the *Backend connect time* trend is stable, you can infer that the application gateway to backend latency and the time taken to establish the connection is stable. The spike is caused due to an increase in the response time of backend application. On the other hand, if the spike in *Backend first byte response time* is associated with a corresponding spike in *Backend connect time*, you can deduce that either the network between Application Gateway and backend server or the backend server TCP stack has saturated.
 
@@ -61,7 +69,7 @@ Browse to an application gateway, under **Monitoring** select **Metrics**. To vi
 
 In the following image, you see an example with three metrics displayed for the last 30 minutes:
 
-:::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Screenshot shows the Metric view of three metrics." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
+:::image type="content" source="media/application-gateway-metrics/view-application-gateway-metrics.png" alt-text="Screenshot of the Metric view displaying three metrics." lightbox="media/application-gateway-metrics/view-application-gateway-metrics-lb.png":::
 
 To see a current list of metrics, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
@@ -73,25 +81,25 @@ The following example walks you through creating an alert rule that sends an ema
 
 1. select **Add metric alert** to open the **Add rule** page. You can also reach this page from the metrics page.
 
-   !["Add metric alert" button][6]
+   :::image type="content" source="./media/application-gateway-metrics/add-metrics-alert.png" alt-text="Screenshot of the Add metric alert button.":::
 
-2. On the **Add rule** page, fill out the name, condition, and notify sections, and select **OK**.
+1. On the **Add rule** page, fill out the name, condition, and notify sections, and select **OK**.
 
-   * In the **Condition** selector, select one of the four values: **Greater than**, **Greater than or equal**, **Less than**, or **Less than or equal to**.
+   - In the **Condition** selector, select one of the four values: **Greater than**, **Greater than or equal**, **Less than**, or **Less than or equal to**.
 
-   * In the **Period** selector, select a period from five minutes to six hours.
+   - In the **Period** selector, select a period from five minutes to six hours.
 
-   * If you select **Email owners, contributors, and readers**, the email can be dynamic, based on the users who have access to that resource. Otherwise, you can provide a comma-separated list of users in the **Additional administrator email(s)** box.
+   - If you select **Email owners, contributors, and readers**, the email can be dynamic, based on the users who have access to that resource. Otherwise, you can provide a comma-separated list of users in the **Additional administrator email(s)** box.
 
-   ![Add rule page][7]
+   :::image type="content" source="./media/application-gateway-metrics/add-rule.png" alt-text="Screenshot of the Add rule page.":::
 
 If the threshold is breached, an email that's similar to the one in the following image arrives:
 
-![Email for breached threshold][8]
+:::image type="content" source="./media/application-gateway-metrics/example-email-notification.png" alt-text="Screenshot of email notification for breached threshold.":::
 
 A list of alerts appears after you create a metric alert. It provides an overview of all the alert rules.
 
-![List of alerts and rules][9]
+:::image type="content" source="./media/application-gateway-metrics/overview-alerts-rules.png" alt-text="Screenshot showing list of alerts and rules.":::
 
 To learn more about alert notifications, see [Receive alert notifications](/azure/azure-monitor/alerts/alerts-overview).
 
@@ -99,17 +107,6 @@ To understand more about webhooks and how you can use them with alerts, visit [C
 
 ## Next steps
 
-* Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
-* [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
-* [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
-
-[1]: ./media/application-gateway-diagnostics/figure1.png
-[2]: ./media/application-gateway-diagnostics/figure2.png
-[3]: ./media/application-gateway-diagnostics/figure3.png
-[4]: ./media/application-gateway-diagnostics/figure4.png
-[5]: ./media/application-gateway-diagnostics/figure5.png
-[6]: ./media/application-gateway-diagnostics/figure6.png
-[7]: ./media/application-gateway-diagnostics/figure7.png
-[8]: ./media/application-gateway-diagnostics/figure8.png
-[9]: ./media/application-gateway-diagnostics/figure9.png
-[10]: ./media/application-gateway-diagnostics/figure10.png
+- Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
+- [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
+- [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.

@@ -9,6 +9,7 @@ ms.service: azure-cdn
 ms.topic: concept-article
 ms.date: 03/31/2025
 ms.custom: references_regions
+# Customer intent: "As a network administrator, I want to access a list of Microsoft POP locations by abbreviation for Azure CDN, so that I can efficiently configure and manage content delivery settings."
 ---
 
 # Microsoft POP locations by abbreviation for Azure CDN

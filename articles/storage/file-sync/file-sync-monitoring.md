@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: khdownie
 ms.author: kendownie
 ms.service: azure-file-storage
+# Customer intent: As an IT administrator, I want to monitor Azure File Sync using Azure Monitor, so that I can ensure the health and performance of the file sync process and receive alerts for potential issues.
 ---
 
 # Monitor Azure File Sync

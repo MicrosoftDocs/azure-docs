@@ -4,8 +4,8 @@ description: This article summarizes the costs disaster recovery and migration d
 ms.topic: overview
 ms.service: azure-site-recovery
 ms.date: 05/30/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Azure to Azure for managed disks and associated costs

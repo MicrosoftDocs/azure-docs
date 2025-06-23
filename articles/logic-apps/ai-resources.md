@@ -8,6 +8,8 @@ ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.date: 05/21/2025
 #CustomerIntent: I want a guide that introduces starting points, building blocks, examples, samples, and other resources to help me learn about using AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
+ms.custom:
+  - build-2025
 ---
 
 # AI playbook, examples, and other resources for workflows in Azure Logic Apps

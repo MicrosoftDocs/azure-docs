@@ -10,6 +10,8 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to understand how to optimize rules execution by adding control functions to actions in rules using Microsoft Rules Composer.
+ms.custom:
+  - build-2025
 ---
 
 # Add control functions in actions to optimize rules execution using Microsoft Rules Composer

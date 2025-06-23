@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 04/21/2025
 
 #CustomerIntent: As a network architect, I want know Microsoft's peering policy and requirements so that I can design and create a peering with Microsoft.
+# Customer intent: "As a network architect, I want to understand Microsoft's peering policy and requirements so that I can establish efficient and compliant peering connections with Microsoft for improved network performance."
 ---
 
 # Peering policy

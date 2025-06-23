@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 09/05/2023
 ms.author: duau
+# Customer intent: As a network administrator, I want to configure custom BGP community values for virtual networks, so that I can better manage routing decisions for traffic between my on-premises infrastructure and Azure through ExpressRoute.
 ---
 
 # Configure custom BGP communities for Azure ExpressRoute private peering

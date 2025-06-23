@@ -5,7 +5,12 @@ keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring 
 ms.devlang: java
 ms.topic: how-to
 ms.date: 03/27/2025
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
+ms.custom:
+  - devx-track-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - linux-related-content
+  - build-2025
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin

@@ -1,11 +1,11 @@
 ---
 title: Assign public IP addresses after failover with Azure Site Recovery 
 description: Describes how to set up public IP addresses with Azure Site Recovery and Azure Traffic Manager for disaster recovery and migration
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: overview
 ms.date: 10/31/2023
-ms.author: ankitadutta
+ms.author: jsuri
 
 ---
 # Set up public IP addresses after failover

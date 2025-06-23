@@ -6,6 +6,8 @@ ms.topic: how-to
 ms.date: 05/19/2025
 author: jyothisuri
 ms.author: jsuri
+ms.custom:
+  - build-2025
 ---
 
 # Offline seeding for MARS using customer-owned disks with Azure Import/Export

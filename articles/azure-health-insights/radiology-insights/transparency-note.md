@@ -7,6 +7,8 @@ ms.service: azure-health-insights
 ms.topic: overview
 ms.date: 04/04/2025
 ms.author: janschietse
+ms.custom:
+  - build-2025
 ---
 
 # Transparency Note for Radiology Insights

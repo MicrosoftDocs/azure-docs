@@ -29,7 +29,7 @@ RDP uses a range of features and techniques to process and transmit graphics dat
 
 - **Delta detection and caching**: reduces the amount of data that needs to be transmitted.
 
-- **Multiple codec support**: uses hardware decoders on a local device. Codecs include the Advanced Video Coding (AVC) video codec, also known as H.264, and the High Efficiency Video Coding (HEVC) video codec, also known as H.265. HEVC/H.265 support is in preview and requires a compatible GPU-enabled remote virtual machine.
+- **Multiple codec support**: uses hardware decoders on a local device. Codecs include the Advanced Video Coding (AVC) video codec, also known as H.264, and the High Efficiency Video Coding (HEVC) video codec, also known as H.265. HEVC/H.265 support requires a compatible GPU-enabled remote virtual machine.
 
 - **4:2:0 and 4:4:4 chroma subsampling**: provides a balance between image quality and bandwidth usage.
 

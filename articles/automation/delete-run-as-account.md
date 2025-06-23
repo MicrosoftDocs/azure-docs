@@ -6,6 +6,8 @@ ms.subservice: process-automation
 ms.date: 04/11/2025
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Delete an Azure Automation Run As account
