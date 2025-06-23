@@ -87,7 +87,7 @@ In some cases, we're required to make platform-level changes that could mean tha
 | I want to... |  See article: |
 | --- | --- |
 | Create my first containerized functions | [Create a function app in a local Linux container](functions-create-container-registry.md)  |  
-| Create and deploy functions to Azure Container Apps | [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md) |
+| Create and deploy functions to Azure Container Apps | [Create your first containerized functions on Azure Container Apps](../container-apps/functions-usage.md) |
 | Create and deploy containerized functions to Azure Functions | [Create your first containerized Azure Functions](functions-deploy-container.md)|
 
 ## Related articles
