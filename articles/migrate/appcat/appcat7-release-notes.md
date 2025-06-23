@@ -14,7 +14,7 @@ ms.date: 01/15/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
-## Release notes
+# Release notes
 ### 7.6.0.7
 
 This release contains the following fixes and enhancements.
