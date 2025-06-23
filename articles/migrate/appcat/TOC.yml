@@ -16,7 +16,7 @@ items:
           - name: Quick Start
             href: appcat7-quick-start.md
           - name: Interpret the report
-            href: java-interpret-report.md
+            href: appcat7-interpret-report.md
           - name: CLI guide
             href: appcat7-cli-guide.md
           - name: Rule development guide
