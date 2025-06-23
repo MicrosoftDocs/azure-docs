@@ -1,12 +1,14 @@
 ---
-title: 'Upgrade a VPN Gateway SKU'
+title: Upgrade a VPN Gateway SKU
 titleSuffix: Azure VPN Gateway
 description: Learn how to upgrade a VPN Gateway SKU in Azure.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 06/10/2025
+ms.date: 06/23/2025
 ms.author: cherylmc
+
+#customer intent: As an Azure network engineer, I want to understand the workflow for upgrading a VPN Gateway SKU so that I can plan properly and minimize downtime.
 
 ---
 # Upgrade a gateway SKU

@@ -4,12 +4,15 @@ description: How to work with the old virtual network gateway SKUs; Standard, an
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/08/2025
-ms.author: cherylmc 
+ms.date: 06/23/2025
+ms.author: cherylmc
+
+#customer intent: As an Azure administrator, I want to understand the legacy SKU deprecation timeline so that I can plan for the automatic migration.
+
 ---
 # Working with VPN Gateway legacy SKUs
 
-This article contains information about the legacy (old) virtual network gateway SKUs. The legacy SKUs still work in both deployment models for existing VPN gateways. Classic VPN gateways continue to use the legacy SKUs, both for existing gateways, and for new gateways. When creating new Resource Manager VPN gateways, use the new gateway SKUs. For information about the new SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
+This article contains information about the legacy (old) virtual network gateway SKUs. The legacy SKUs still work in both deployment models for existing VPN gateways. Classic VPN gateways continue to use the legacy SKUs, both for existing gateways, and for new gateways. When creating new Resource Manager VPN gateways, use the new gateway SKUs. For information about the new SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md). For the projected gateway SKU deprecation/migration timeline, see the [What's new?](whats-new.md) article.
 
 ## <a name="gwsku"></a>Legacy gateway SKUs
 
@@ -34,7 +37,7 @@ The UltraPerformance gateway SKU isn't represented in this table. For informatio
 
 (1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It isn't a guaranteed throughput for cross-premises connections across the Internet. It's the maximum possible throughput measurement.
 
-(2) The number of tunnels refer to RouteBased VPNs. A PolicyBased VPN can only support one Site-to-Site VPN tunnel.
+(2) The number of tunnels refers to RouteBased VPNs. A PolicyBased VPN can only support one Site-to-Site VPN tunnel.
 
 (3) PolicyBased VPNs aren't supported for this SKU. They're supported for the Basic SKU.
 
