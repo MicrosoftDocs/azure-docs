@@ -1,5 +1,5 @@
 ---
-title: Quick start to assess a java project
+title: Quick start to assess a java project using AppCAT 7
 description: Azure Migrate application and code assessment tool - Quick start to assess a java project.
 author: KarlErickson
 ms.author: karler
