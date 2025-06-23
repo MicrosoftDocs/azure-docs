@@ -24,7 +24,7 @@ If the certificate that's issued to you doesn’t match your intended values or 
 1. For assistance revoking a certificate, contact Microsoft.
 
    - If you encounter any issues revoking a certificate by using the Azure portal (especially for scenarios that don't involve misuse or abuse), contact Microsoft.
-   - For any misuse or abuse of certificates that are issued to you by Trusted Signing, contact Microsoft immediately at `acsrevokeadmins@microsoft.com`.
+   - For any misuse or abuse of certificates that are issued to you by Trusted Signing, contact Microsoft immediately at `azcodesignrevoke@microsoft.com`.
 
 1. Continue signing by using Trusted Signing.
 
