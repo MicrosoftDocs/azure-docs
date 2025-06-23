@@ -25,7 +25,9 @@ The tool uses advanced analysis techniques to understand the structure and depen
 - Discover technology usage: See which technologies an application uses. Discovery is useful if you have legacy applications with not much documentation and want to know which technologies they use.
 - Assess the code to a specific target: Assess an application for a specific Azure target like Azure App Service, Azure Kubernetes Service, and Azure Container Apps - with specific Azure replatforming rules. Check the modifications you have to do to replatform your applications to Azure.
 
-Besides offered as a CLI tool, it's now part of [Github Copilot App Modernization for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure) to help you migrate your Java applications to Azure with confidence and efficiency, covering assessment, code remediation and validation, powered by the intelligence of GitHub Copilot.
+It's offered in two ways:
+- a CLI tool which you can download, install and run with parameters to assess your Java applications.
+- a Visual Studio Code extension - [Github Copilot App Modernization for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure) which you can install and run inside Visual Studio Code covering app assessment (powered by AppCAT for Java), code remediation and validation, powered by the intelligence of GitHub Copilot. try it out via [quick start](https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate). 
 
 ## License
 Azure Migrate application and code assessment for Java (AppCAT for Java) is a free, open source-based tool. The tool is built based on a set of components in the [Cloud Native Computing Foundation](https://www.cncf.io/) project [Konveyor](https://github.com/konveyor), created and led by Red Hat.
