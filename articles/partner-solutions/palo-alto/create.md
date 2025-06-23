@@ -33,7 +33,7 @@ In this section, you'll create a Palo Alto Networks resource.
    | Setting  | Description |
    |---------|---------|
    | **Subscription**  | Select an Azure subscription for which you have owner access. |
-   | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [What is a resource group?](/azure/azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group). |
+   | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [What is a resource group?](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group). |
    | **Name**  | Put the name for the Palo Alto Networks account you want to create. |
    | **Region** | Select an appropriate region. |
    | **Pricing Plan**     | Specified based on the selected Palo Alto Networks plan. |
