@@ -1,5 +1,5 @@
 ---
-title: Azure Migrate Application and Code Assessment for Java version 7 Rules Development Guide
+title: Rules Development Guide for AppCAT 7
 description: Learn how to write and run custom rules for Azure Migrate application and code assessment tool.
 author: KarlErickson
 ms.author: karler
