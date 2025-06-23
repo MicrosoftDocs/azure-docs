@@ -33,20 +33,7 @@ KQL queries can be run in the Microsoft Defender portal after the onboarding pro
 
 ### Permissions
 
-You can view workspaces, enumerate workspace tables, and query data lake tables based on your roles and permissions. 
-For broad access to query all workspaces in the data lake, you can use one of the following Microsoft Entra ID roles:
-+ Global reader 
-+ Security reader
-+ Security operator 
-+ Security administrator
-+ Global administrator
-
-For access to query specific workspaces only, you can use one of the following Microsoft Entra ID roles:
-+  For the default workspace, a Microsoft Defender XDR role with security data basics (read) over the Microsoft Sentinel data collection.
-+ For any Microsoft Sentinel workspace in the data lake other than the default, the following Azure RBAC built-in roles are respected to run queries and read data over that workspace: 
-    + Log Analytics Reader,
-    + Log Analytics Contributor
-    + Owner
+[!INCLUDE [sentinel-data-lake-read-permissions](../includes/sentinel-data-lake-read-permissions.md)]
 
 For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](./roles-permissions.md).
 

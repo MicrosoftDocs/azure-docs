@@ -34,12 +34,7 @@ Jobs are managed in the **Jobs** page under **Data lake exploration** in the Def
 
 ## Permissions
 
-For broad access to create queries and jobs for workspaces in the data lake, you can use one of the following Microsoft Entra ID roles:
-+ Global reader 
-+ Security reader
-+ Security operator 
-+ Security administrator
-+ Global administrator
+[!INCLUDE [sentinel-data-lake-job-permissions](../includes/sentinel-data-lake-job-permissions.md)]
 
 For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](./roles-permissions.md).
 

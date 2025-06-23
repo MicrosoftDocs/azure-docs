@@ -36,12 +36,8 @@ You can create a job by selecting the **Create job** button a KQL query tab or d
 
 ## Permissions
 
-For broad access to create queries and jobs for workspaces in the data lake, you can use one of the following Microsoft Entra ID roles:
-+ Global reader 
-+ Security reader
-+ Security operator 
-+ Security administrator
-+ Global administrator
+[!INCLUDE [sentinel-data-lake-read-permissions](../includes/sentinel-data-lake-read-permissions.md)]
+[!INCLUDE [sentinel-data-lake-job-permissions](../includes/sentinel-data-lake-job-permissions.md)]
 
 For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](./roles-permissions.md).
 
