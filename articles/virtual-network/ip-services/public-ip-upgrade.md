@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23
+# Customer intent: As a network administrator, I want to upgrade my basic SKU public IP addresses to standard SKU, so that I can ensure compliance with the upcoming retirement and take advantage of enhanced features and capabilities.
 ---
 
 # Upgrade a public IP address using the Azure portal, Azure CLI, or Azure PowerShell

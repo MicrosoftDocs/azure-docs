@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.author: allensu
+# Customer intent: As a cloud architect, I want to plan and deploy virtual networks considering isolation, connectivity, and regional requirements, so that I can effectively support my organization's production needs and ensure compliance with security and latency standards.
 ---
 
 # Plan virtual networks
