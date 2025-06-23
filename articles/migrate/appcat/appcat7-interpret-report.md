@@ -69,4 +69,4 @@ Access this part by clicking the Insights tab. Detailed files and information to
 
 ## Next steps
 
-- [Understand more on CLI usage](appcat7-cli-guide.md)
+- [CLI Command Guide for AppCAT 7](appcat7-cli-guide.md)
