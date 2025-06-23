@@ -113,8 +113,5 @@ In the **samples** directory, you can find the following scripts to run differen
 - **run-assessment-package-only**: Produces a report by assessing specific packages.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Interpret the report](appcat7-interpret-report.md)
-
-> [Understand more on CLI usage](appcat7-cli-guide.md)
+- [Interpret the report](appcat7-interpret-report.md)
+- [Understand more on CLI usage](appcat7-cli-guide.md)
