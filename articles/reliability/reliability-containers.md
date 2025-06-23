@@ -6,21 +6,29 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-container-instances
-ms.date: 11/29/2022
+ms.date: 06/23/2025
 #Customer intent: I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
 # Reliability in Azure Container Instances
 
-This article describes reliability support in Azure Container Instances (ACI) and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on Disaster Recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure Container Instances (ACI), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+
+Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs.
+
+ACI offers the fastest and simplest way to run Linux or Windows containers in Azure, without having to manage any virtual machines and without having to adopt a higher-level service. You can learn more about ACI on its [overview page](/azure/container-instances/container-instances-overview).
+
+## Transient faults
+
+[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
+
+To minimize issues caused by transient faults, we recommend you follow the [deployment best practices](/azure/container-instances/container-instances-best-practices-and-considerations#best-practices).
 
 ## Availability zone support
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-
 Azure Container Instances supports *zonal* container group deployments, meaning the instance is pinned to a specific, self-selected availability zone. The availability zone is specified at the container group level. Containers within a container group can't have unique availability zones. To change your container group's availability zone, you must delete the container group and create another container group with the new availability zone.
-
 
 ### Prerequisites
 
@@ -38,7 +46,6 @@ Azure Container Instances supports *zonal* container group deployments, meaning 
 ### Availability zone redeployment and migration
 
 To change your container group's availability zone, you must delete the container group and create another container group with the new availability zone.
-
 
 ### Create a resource with availability zone enabled
 
@@ -199,10 +206,17 @@ If, however, an outage occurs in the availability zone of the container group, y
 
 To avoid container instance downtime, we recommend that you create a minimum of two container groups across two different availability zones in a given region. This ensures that your container instance resources are up and running whenever any single zone in that region experiences outage.
 
+## Multi-region support
+
+Azure Container Instances is a single-region service. If the region is unavailable, your container instance is also unavailable.
 
 ## Disaster recovery
 
 When an entire Azure region or datacenter experiences downtime, your mission-critical code needs to continue processing in a different region. Azure Container Instances deployed with zonal configuration run in a specific zone within a specific region. There's no built-in redundancy available. To avoid loss of execution during region wide outages, you can redundantly deploy the container instances in other regions.
+
+## Service-level agreement (SLA)
+
+The service-level agreement (SLA) for Azure Container Instances describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. For more information, see the [service-level agreement](https://www.azure.cn/support/sla/container-instances/v1_0/index.html).
 
 ## Next steps
 
