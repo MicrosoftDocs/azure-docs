@@ -18,17 +18,6 @@ Microsoft Sentinel data lake is a next-generation, cloud-native security data la
 
 Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by a Visual Studio Code extension that allows you to interact with the data lake using Python and Apache Spark. Notebooks enable you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment. 
 
-The Microsoft Sentinel extension with Jupyter notebooks provides a powerful environment for exploring and analyzing lake data with the following benefits:
-
-- **Interactive data exploration**: Jupyter notebooks provide an interactive environment for exploring and analyzing data. You can run code snippets, visualize results, and document your findings all in one place.
-- **Integration with Python libraries**: The Microsoft Sentinel extension includes a wide range of Python libraries, enabling you to use existing tools and frameworks for data analysis, machine learning, and visualization.
-- **Powerful data analysis**: With the integration of Apache Spark, you can use the power of distributed computing to analyze large datasets efficiently. This allows you to perform complex transformations and aggregations on your security data.  
--	**Low-and-slow attacks**: Powerful way to analyze large scale, complex, interconnected data related to security events, alerts, and incidents, enabling detection of sophisticated threats and patterns, such as lateral movement or low-and-slow attacks, evading traditional rule-based systems. 
--	**AI and ML integration**: Integrate with AI and machine learning to enhance anomaly detection, threat prediction, and behavioral analysis, empowering security teams to build agents to automate their investigations. 
--	**Scalability**: Notebooks provide the scalability to process vast amounts of data cost efficiently and enable deep batch processing for uncovering trends, patterns, and anomalies. 
-- **Visualization capabilities**: Jupyter notebooks support various visualization libraries, enabling you to create charts, graphs, and other visual representations of your data. This helps you gain insights and communicate findings effectively.
-- **Collaboration and sharing**: Jupyter notebooks can be easily shared with colleagues, allowing for collaboration on data analysis projects. You can export notebooks in various formats, including HTML and PDF, for easy sharing and presentation.
-- **Documentation and reproducibility**: Jupyter notebooks allow you to document your code, analysis, and findings in a single file. This makes it easier to reproduce results and share your work with others.  
 
 
 This article shows you how to explore and interact with lake data using Jupyter notebooks in Visual Studio Code. 
@@ -41,7 +30,18 @@ This article shows you how to explore and interact with lake data using Jupyter 
 Before you can use the Microsoft Sentinel extension for Visual Studio Code, you must have the following prerequisites in place:
 + Visual Studio Code   
 + Microsoft Sentinel extension for Visual Studio Code 
++ GitHub co-pilot extension for Visual Studio Code.
 
+### Permissions
+
+[!INCLUDE[sentinel-data-lake-read-permissions](../includes/sentinel-data-lake-read-permissions.md)]
+
+[!INCLUDE[sentinel-data-lake-write-permissions](../includes/sentinel-data-lake-notebook-write-permissions.md)]
+
+[!INCLUDE[sentinel-data-lake-job-permissions](../includes/sentinel-data-lake-job-permissions.md)]
+
+
+For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](./roles-permissions.md).
 
 ### Install Visual Studio Code  
   
@@ -61,10 +61,6 @@ The Microsoft Sentinel extension for Visual Studio Code (VS Code) is installed f
 ### Onboarding to the Microsoft Sentinel data lake
 
 If you have not already onboarded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until you have ingested a sufficient volume of data before you can create meaningful analyses using notebooks.
-
-### Permissions and Roles
-
-Querying the data lake based on your Microsoft Entra ID roles and permissions. For more information, see [Permissions and roles for Microsoft Sentinel data lake](./sentinel-lake-permissions.md).
  
  
 ## Explore lake-tier tables
