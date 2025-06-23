@@ -13,11 +13,11 @@ ms.author: cherylmc
 ---
 # Upgrade a VPN Gateway SKU
 
-This article helps you upgrade a VPN Gateway virtual network gateway SKU. Upgrading a gateway SKU is a relatively fast process. When you upgrade a SKU, you incur minimal downtime (approximately 45 minutes). You can upgrade a SKU quickly and easily in the Azure portal, PowerShell, or Azure CLI. When you upgrade a SKU, the public IP address assigned to your gateway SKU doesn't change and you don't need to reconfigure your VPN device or your P2S clients. However, there are certain limitations and restrictions for upgrading and not all SKUs are available to upgrade, for example, Basic and legacy SKUs.
+This article helps you upgrade a VPN Gateway virtual network gateway SKU. Upgrading a gateway SKU is a relatively fast process. When you upgrade a SKU, you incur minimal downtime (approximately 45 minutes). You can upgrade a SKU quickly and easily in the Azure portal, PowerShell, or Azure CLI. When you upgrade a SKU, the public IP address assigned to your gateway SKU doesn't change and you don't need to reconfigure your VPN device or your P2S clients.
 
 ## Considerations
 
-There are many things to consider when upgrading to a new gateway SKU. The following table helps you understand the required method to move from one SKU to another.
+There are many things to consider when upgrading to a new gateway SKU. The following table helps you understand the required method to move from one SKU to another. Notice that not all gateway SKUs can be upgraded directly. Some SKUs require you to delete the existing gateway and create a new one.
 
 | Starting SKU | Target SKU | Eligible for SKU upgrade| Delete/Recreate only |
 | --- | --- |--- | --- |
