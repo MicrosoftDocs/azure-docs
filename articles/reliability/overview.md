@@ -3,7 +3,7 @@ title: Azure reliability documentation
 description: Overview of Azure reliability documentation, including platform capabilities, guides for how each Azure service supports reliability, and reliability concepts.
 author: anaharris-ms
 ms.topic: conceptual
-ms.date: 05/27/2025
+ms.date: 06/23/2025
 ms.author: anaharris
 ms.service: azure
 ms.subservice: azure-reliability
@@ -13,16 +13,7 @@ CustomerIntent: As a cloud architect/engineer, I want to learn about Azure Relia
 
 # What is Azure reliability documentation?
 
-The Azure reliability documentation primarily provides service-specific guides on how each Azure service supports reliability features, such as transient fault handling, availability zones, multi-region support, and backup support.
-
-Because each Azure service has its own unique reliability characteristics, each reliability guide contains information on how the service supports a range of reliability capabilities, including:
-
-- *Transient fault handling* such as how the service handles transient faults or retry policies. If applicable, this section also tells you how to configure your resources for transient fault handling.
-- *Availability zones* such as zonal and zone-redundant deployment options, traffic routing and data replication between zones, what happens if a zone experiences an outage, failback, and how to configure your resources for availability zone support.
-- *Multi-region support* such as how to configure multi-region or geo-disaster recovery support, traffic routing and data replication between regions, region-down experience, and failover and failback support. For some services that don't have native multi-region support, the guides present alternative multi-region deployment approaches to consider.
-- *Backup support* such as Microsoft-controlled and customer-controlled backup capabilities, where they are stored, how they can be recovered, and whether they are accessible only within a region or across regions.
-
-To see the current list of reliability service guides, see [Reliability guides by service](./reliability-guidance-overview.md).
+Azure provides a comprehensive set of reliability capabilities to help you meet your workload requirements.  The Azure reliability documentation provides service-specific guides on how each Azure service supports those platform reliability capabilities, such as transient fault handling, availability zones, multi-region support, and backup support. To see the current list of reliability service guides, see [Reliability guides by service](./reliability-guidance-overview.md).
 
 In addition to the reliability service guides, Azure reliability documentation also includes general information, such as:
 
@@ -48,7 +39,8 @@ A key approach to achieve reliability in a workload is *resiliency*, which is a 
 
 Azure provides over 60 regions globally, that are located across many different geographies. Each region is a set of physical facilities that include datacenters and networking infrastructure. All regions may be divided into geographical areas called geographies. Each geography is a data residency boundary, and may contain one or more regions.
 
-- For more information on Azure regions, see [What are Azure regions](./regions-overview.md).
+[Azure regions](./regions-overview.md) provide certain types of resiliency options. Many regions provide [availability zones](./availability-zones-overview.md), and some have a [paired region while other regions are nonpaired](./regions-overview.md). When you choose a region for your services, it's important to pay attention to the resiliency options that are available in that region. This article helps you understand Azure regions, and gives you an overview of the resiliency options that some Azure regions support, while offering links to more detailed information on each topic.
+
 - To view the list of Azure regions, see [List of Azure regions](./regions-list.md).
 - To see the list of services that are deployed to Azure regions, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) 
 
