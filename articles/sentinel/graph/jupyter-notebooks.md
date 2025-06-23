@@ -56,7 +56,7 @@ The Microsoft Sentinel extension for Visual Studio Code (VS Code) is installed f
 1. Search for *Sentinel*
 1. Select the **Microsoft Sentinel** extension and select **Install**
 
-  :::image type="content" source="./media/spark-notebooks/install-Sentinel-extension.png" lightbox="./media/spark-notebooks/install-sentinel-extension.png" alt-text="A screenshot showing the extension market place.":::  
+  :::image type="content" source="./media/jupyter-notebooks/install-Sentinel-extension.png" lightbox="./media/jupyter-notebooks/install-sentinel-extension.png" alt-text="A screenshot showing the extension market place.":::  
 
 ### Onboarding to the Microsoft Sentinel data lake
 
@@ -72,11 +72,11 @@ After installing the Microsoft Sentinel extension, you can start exploring lake-
 1. Select the Microsoft Sentinel shield icon in the left toolbar.
 1. A dialog appears with the following text **The extension "Microsoft Sentinel" wants to sign in using Microsoft**. Select **Allow**.
 
-:::image type="content" source="./media/spark-notebooks/sign-in.png" lightbox="./media/spark-notebooks/sign-in.png" alt-text="A screenshot showing the sign in dialog."::: 
+:::image type="content" source="./media/jupyter-notebooks/sign-in.png" lightbox="./media/jupyter-notebooks/sign-in.png" alt-text="A screenshot showing the sign in dialog."::: 
 
 1. Select your account name to complete the sign in.
  
-:::image type="content" source="./media/spark-notebooks/select-account.png" lightbox="./media/spark-notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
+:::image type="content" source="./media/jupyter-notebooks/select-account.png" lightbox="./media/jupyter-notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
 
 ### View lake tables and jobs
 
@@ -84,17 +84,17 @@ Once you have signed in, the Microsoft Sentinel extension displays a list of **L
 
 For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
 
-:::image type="content" source="./media/spark-notebooks/tables-and-jobs.png" lightbox="./media/spark-notebooks/tables-and-jobs.png" alt-text="A screenshot showing the list of tables, jobs, and the selected table's metadata."::: 
+:::image type="content" source="./media/jupyter-notebooks/tables-and-jobs.png" lightbox="./media/jupyter-notebooks/tables-and-jobs.png" alt-text="A screenshot showing the list of tables, jobs, and the selected table's metadata."::: 
 
 ## Create a new notebook
  
 1. To create a new notebook, use one of the following methods
 
   1. Enter *>* in the search box or press **Ctrl+Shift+P** and then enter *Create New Jupyter Notebook*  
-  :::image type="content" source="./media/spark-notebooks/create-new-notebook.png" lightbox="./media/spark-notebooks/create-new-notebook.png" alt-text="A screenshot showing how to create a new notebook from the search bar.":::
+  :::image type="content" source="./media/jupyter-notebooks/create-new-notebook.png" lightbox="./media/jupyter-notebooks/create-new-notebook.png" alt-text="A screenshot showing how to create a new notebook from the search bar.":::
 
   1. Select File > New File, then select **Jupyter Notebook** from the dropdown.  
-  :::image type="content" source="./media/spark-notebooks/new-file-notebook.png" lightbox="./media/spark-notebooks/new-file-notebook.png" alt-text="A screenshot showing how to create a new notebook form the file menu.":::
+  :::image type="content" source="./media/jupyter-notebooks/new-file-notebook.png" lightbox="./media/jupyter-notebooks/new-file-notebook.png" alt-text="A screenshot showing how to create a new notebook form the file menu.":::
 
 
 1. In the new notebook, paste the following code into the first cell.
@@ -109,20 +109,20 @@ For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
    ```  
 
 1. Select the **Run** triangle to execute the code in the notebook. The results are displayed in the output pane below the code cell.  
-  :::image type="content" source="./media/spark-notebooks/run-notebook.png" lightbox="./media/spark-notebooks/run-notebook.png" alt-text="A screenshot showing how to run a notebook cell.":::
+  :::image type="content" source="./media/jupyter-notebooks/run-notebook.png" lightbox="./media/jupyter-notebooks/run-notebook.png" alt-text="A screenshot showing how to run a notebook cell.":::
 
 1. Select **MSG Runtime** from the list for a list of runtime pools.
-  :::image type="content" source="./media/spark-notebooks/select-msg-runtime.png" lightbox="./media/spark-notebooks/select-msg-runtime.png" alt-text="A screenshot showing the runtime picker.":::  
+  :::image type="content" source="./media/jupyter-notebooks/select-msg-runtime.png" lightbox="./media/jupyter-notebooks/select-msg-runtime.png" alt-text="A screenshot showing the runtime picker.":::  
 
 1. Select **Microsoft Sentinel Medium** to run the notebook in the medium sized runtime pool. For more information on the different runtimes, see [Selecting the appropriate MSG runtime](#selecting-the-appropriate-runtime-pool).
-  :::image type="content" source="./media/spark-notebooks/select-kernel-size.png" lightbox="./media/spark-notebooks/select-kernel-size.png" alt-text="A screenshot showing the run pool size picker.":::  
+  :::image type="content" source="./media/jupyter-notebooks/select-kernel-size.png" lightbox="./media/jupyter-notebooks/select-kernel-size.png" alt-text="A screenshot showing the run pool size picker.":::  
 
 
 > [!NOTE]
 > Selecting the kernel starts the Spark session and runs the code in the notebook. After selecting the pool, it can take 3-5 mins for the session to start. Subsequent runs a faster as the session is already active.
 
 When the session is started, the code in the notebook runs and the results are displayed in the output pane below the code cell, for example:
-    :::image type="content" source="media/spark-notebooks/results.png" lightbox="media/spark-notebooks/results.png" alt-text="A screenshot showing the results from running a notebook cell.":::
+    :::image type="content" source="media/jupyter-notebooks/results.png" lightbox="media/jupyter-notebooks/results.png" alt-text="A screenshot showing the results from running a notebook cell.":::
 
 
 For sample notebooks that demonstrate how to interact with the Microsoft Sentinel data lake, see [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md).
@@ -162,14 +162,14 @@ Logs can be viewed in the **Output** pane of Visual Studio Code.
 1. In the **Output** pane, select **Microsoft Sentinel** from the drop-down.  
 1. Select **Debug** to include detailed log entries.  
 
-:::image type="content" source="media/spark-notebooks/output-pane.png" lightbox="media/spark-notebooks/output-pane.png" alt-text="A screenshot showing the output pane.":::
+:::image type="content" source="media/jupyter-notebooks/output-pane.png" lightbox="media/jupyter-notebooks/output-pane.png" alt-text="A screenshot showing the output pane.":::
 
    
 ## Jobs and scheduling
 
 You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.  For more information on creating and managing jobs, see [Create and manage Jupyter notebook jobs](./jupyter-notebook-jobs.md).
 
-## Limitations 
+## Service limits 
  
 + Spark compute session takes about 5-6 minutes to start. You can view the status of the session at the bottom of your VS Code Notebook.
 + Only [Azure Synapse libraries](https://github.com/microsoft/synapse-spark-runtime/blob/main/Synapse/spark3.4/Official-Spark3.4-Rel-2025-04-16.0-rc.1.md) and the Microsoft Sentinel Provider library for abstracted functions are supported for querying lake. Pip installs or custom libraries aren't supported.

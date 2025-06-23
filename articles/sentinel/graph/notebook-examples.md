@@ -14,7 +14,7 @@ ms.author: edbayansh
  
 Below are some sample code snippets that demonstrate how to interact with lake data using Jupyter notebooks.  
 
-To run these examples, must have the require permissions and Visual Studio Code installed with the Microsoft Sentinel extension for Visual Studio Code. For more information, see [Sentinel data lake permissions](./sentinel-lake-permissions.md) and  [Use Jupyter notebooks with Microsoft Sentinel Data lake](./spark-notebooks.md).
+To run these examples, must have the require permissions and Visual Studio Code installed with the Microsoft Sentinel extension for Visual Studio Code. For more information, see [Sentinel data lake permissions](./sentinel-lake-permissions.md) and  [Use Jupyter notebooks with Microsoft Sentinel Data lake](./jupyter-notebooks.md).
 
 ## [Failed login attempts](#tab/failed-login-attempts)
 ## Failed login attempts analysis
@@ -280,8 +280,9 @@ suspicious_lateral.show()
 ## Related content
 
 + [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
-+ [Sentinel data lake overview](./sentinel-lake-overview.md)
-+ [Sentinel data lake permissions](./sentinel-lake-permissions.md)
-+ [Use Jupyter notebooks with Microsoft Sentinel Data lake](./spark-notebooks.md)
++ [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
++ [Microsoft Sentinel data lake permissions](./sentinel-lake-permissions.md)
++ [Explore the Microsoft Sentinel data lake using Jupyter notebooks (Preview)](./jupyter-notebooks.md)
++ [Jupyter notebooks and the Microsoft Sentinel data lake (Preview)](./jupyter-notebooks-overview.md)
 
 

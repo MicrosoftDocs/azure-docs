@@ -5,7 +5,7 @@ titleSuffix: Microsoft Security
 description: This article provides reference documentation for the Microsoft Sentinel Provider class. Tis class allows you to connect to the Microsoft Sentinel data lake and perform various operations such as listing databases, reading tables, and saving data.
 author: EdB-MSFT
 ms.topic: reference 
-ms.date: 06/04/2025
+ms.date: 06/23/2025
 ms.author: edbayansh  
 
 # Customer intent: As a security engineer or data scientist, I want to understand how to use the Microsoft Sentinel Provider class to connect to the Microsoft Sentinel data lake and perform operations such as listing databases, reading tables, and saving data.
@@ -14,24 +14,24 @@ ms.author: edbayansh
 
 # Microsoft Sentinel Provider class 
 
-The `SentinelLakeProvider` class provides a way to interact with the Microsoft Sentinel data lake, allowing you to perform operations such as listing databases, reading tables, and saving data. This class is designed to work with the Spark sessions in Jupyter notebooks and provides methods to access and manipulate data stored in the Microsoft Sentinel data lake. 
+The `MicrosoftSentinelProvider` class provides a way to interact with the Microsoft Sentinel data lake, allowing you to perform operations such as listing databases, reading tables, and saving data. This class is designed to work with the Spark sessions in Jupyter notebooks and provides methods to access and manipulate data stored in the Microsoft Sentinel data lake. 
 
-This class is part of the `access_module.data_loader` module and provides methods to interact with the data lake. To use this class, import it and create an instance of the class using the `spark` session.
+This class is part of the `sentinel.datalake` module and provides methods to interact with the data lake. To use this class, import it and create an instance of the class using the `spark` session.
 
 ```python
-from access_module.data_loader import SentinelLakeProvider
-lake_provider = SentinelLakeProvider(spark)    
+from sentinel_lake.providers import MicrosoftSentinelProvider
+lake_provider = MicrosoftSentinelProvider(spark)      
 ```
 You must have the necessary permissions to perform operations such as reading and writing data. For more information on permissions, see [Microsoft Sentinel data lake permissions](./sentinel-lake-permissions.md).
 
 ## Methods
 
-The `SentinelLakeProvider` class provides several methods to interact with the Microsoft Sentinel data lake. 
-Each method listed below assumes the `SentinelLakeProvider` class has been imported and an instance has been created using the `spark` session as follows:
+The `MicrosoftSentinelProvider` class provides several methods to interact with the Microsoft Sentinel data lake. 
+Each method listed below assumes the `MicrosoftSentinelProvider` class has been imported and an instance has been created using the `spark` session as follows:
 
 ```python
-from access_module.data_loader import SentinelLakeProvider
-lake_provider = SentinelLakeProvider(spark)
+from sentinel_lake.providers import MicrosoftSentinelProvider
+lake_provider = MicrosoftSentinelProvider(spark) 
 ```
 
 ### list_databases
@@ -115,23 +115,24 @@ Examples:
 Create new custom table in the data lake tier
 
 ```python
-lake_provider.save_as_table(dataframe, "CustomTable1_SPRK", "msgworkspace1")
+lake_provider.save_as_table(dataframe, "CustomTable1_SPRK", "lakeworkspace")
 ```
 
 Create new custom table in the analytics tier
 ```python
-lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "workspace1")
+lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace")
 ```
 
 Append or overwrite to an existing custom table in the analytics tier
 ```python
 
-lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "workspace1", mode:"Append")
+lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace", mode:"Append")
 ```
 
 ### delete_table
 
-Deletes the table from the schema. You can delete table from lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.   
+Deletes the table from the lake tier. You can delete table from lake tier by using the `_SPRK` suffix in your table name. You can't delete a table from the analytics tier using this function. To delete a custom table in the analytics tier, use the Log Analytics API functions. For more information, see [Add or delete tables and columns in Azure Monitor Logs](/azure/azure-monitor/logs/create-custom-table?tabs=azure-portal-1%2Cazure-portal-2%2Cazure-portal-3#delete-a-table).
+
 
 ```python
 lake_provider.delete_table({table_name}, {database}, [id])
@@ -146,13 +147,13 @@ Returns:
 
 Example:
 ```python
-lake_provider.delete_table("customtable_SPRK", "msgworkspace")
+lake_provider.delete_table("customtable_SPRK", "lakeworkspace")
 ``` 
 
 
 ## Related content
 
-- [Use Jupyter notebooks with Microsoft Sentinel Data lake](./spark-notebooks.md)
+- [Use Jupyter notebooks with Microsoft Sentinel Data lake](./jupyter-notebooks.md)
 - [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
 - [Microsoft Sentinel data lake permissions](./sentinel-lake-permissions.md)
 - [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
