@@ -11,7 +11,7 @@
 
 ## Enable the Event Grid resource provider
 
-1. If this article is the first time that user use Event Grid in your Azure subscription, you might need to register the Event Grid resource provider. Run the following command to register the provider:
+1. If this is the first time you're using Event Grid in your Azure subscription, you might need to register the Event Grid resource provider. Run the following command to register the provider:
 
     ```azurecli-interactive
     az provider register --namespace Microsoft.EventGrid
