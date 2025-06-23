@@ -121,11 +121,11 @@ Geo-redundant storage options (GRS and GZRS) are only supported for standard HDD
 
 - [GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage) provides support for planned and unplanned failovers to the Azure paired region when there's an outage in the primary region. GRS asynchronously replicates data from the primary region to the paired region.
 
-   :::image type="content" source="media/blob-storage/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated with GRS." lightbox="media/blob-storage/geo-redundant-storage.png" border="false":::
+   :::image type="content" source="media/reliability-storage-files/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated with GRS." lightbox="media/reliability-storage-files/geo-redundant-storage.png" border="false":::
 
 - [GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) replicates data in multiple availabilty zones in the primary region, and also into the paired region.
 
-  :::image type="content" source="media/blob-storage/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with GZRS." lightbox="media/blob-storage/geo-redundant-storage.png" border="false":::
+  :::image type="content" source="media/reliability-storage-files/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with GZRS." lightbox="media/reliability-storage-files/geo-redundant-storage.png" border="false":::
 
 >[NOTE]
 >The secondary region is automatically determined by Azure based on the primary region selection using established Azure paired regions. Data in the secondary region is only accessible during a Microsoft-managed failover or through customer-managed failover capabilities.
