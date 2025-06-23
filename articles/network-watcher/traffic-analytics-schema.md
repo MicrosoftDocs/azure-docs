@@ -8,7 +8,6 @@ ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 02/07/2025
 
-#CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 # Customer intent: "As a network administrator, I want to understand the traffic analytics schema and data aggregation methods so that I can effectively analyze flow logs and enhance network performance and security."
 ---
 
@@ -119,9 +118,9 @@ The following table lists the fields in the schema and what they signify for net
 > | **L7Protocol_s**	| Protocol Name | Derived from destination port. |
 > | **FlowDirection_s** | - I = Inbound <br> -	O = Outbound | Direction of the flow: in or out of network security group per flow log. |
 > | **FlowStatus_s**	| - A = Allowed <br> - D = Denied | Status of flow whether allowed or denied by the network security group per flow log. |
-> | **NSGList_s** | \<SUBSCRIPTIONID\>/\<RESOURCEGROUP_NAME\>/\<NSG_NAME\> | Network security group associated with the flow. |
-> | **NSGRules_s** | \<Index value 0>\|\<NSG_RULENAME>\|\<Flow Direction>\|\<Flow Status>\|\<FlowCount ProcessedByRule> | Network security group rule that allowed or denied this flow. |
-> | **NSGRule_s** | NSG_RULENAME | Network security group rule that allowed or denied this flow. |
+> | **NSGList_s** | \<SubscriptionID\>/\<resourcegroup_Name\>/\<NSG_Name\> | Network security group associated with the flow. |
+> | **NSGRules_s** | \<Index value 0>\|\<NSG_Rule_Name>\|\<Flow Direction>\|\<Flow Status>\|\<FlowCount ProcessedByRule> | Network security group rule that allowed or denied this flow. |
+> | **NSGRule_s** | NSG_Rule_Name | Network security group rule that allowed or denied this flow. |
 | **NSGRuleType_s**	| - User Defined <br> - Default | The type of network security group rule used by the flow. |
 > | **MACAddress_s** | MAC Address | MAC address of the NIC at which the flow was captured. |
 > | **Subscription_g** | Subscription of the Azure virtual network / network interface / virtual machine is populated in this field | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow, and UnknownPrivate flow types (flow types where only one side is Azure). |
@@ -201,8 +200,8 @@ The following table lists the fields in the schema and what they signify for vir
 > | **L7Protocol** | Protocol Name | Derived from destination port. |
 > | **FlowDirection**  | - **I** = Inbound <br> - **O** = Outbound | Direction of the flow: in or out of the target resource per flow log. |
 > | **FlowStatus** | - **A** = Allowed <br> - **D** = Denied | Status of flow: allowed or denied by target resource per flow log. |
-> | **AclList** | \<SUBSCRIPTIONID\>/\<RESOURCEGROUP_NAME\>/\<NSG_NAME\> | Network security group associated with the flow. |
-> | **AclRule** | NSG_RULENAME  | Network security group rule that allowed or denied the flow. |
+> | **AclList** | \<SubscriptionID\>/\<resourcegroup_Name\>/\<NSG_Name\> | Network security group associated with the flow. |
+> | **AclRule** | NSG_Rule_Name  | Network security group rule that allowed or denied the flow. |
 > | **MACAddress** | MAC Address | MAC address of the NIC at which the flow was captured. |
 > | **SrcSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
 > | **DestSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the destination IP in the flow belongs to. |
