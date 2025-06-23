@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 [!INCLUDE [azure-vpn-gateway](../includes/azure-vpn-gateway.md)]
 
-This article helps you upgrade a VPN Gateway virtual network gateway SKU. Upgrading a gateway SKU is a relatively fast process. When you upgrade a SKU, you incur very little downtime (approximately 45 minutes). You can upgrade a SKU quickly and easily in the Azure portal. Or, you can use PowerShell or the Azure CLI. You don't need to reconfigure your VPN device or your P2S clients. The public IP address assigned to your gateway SKU doesn't change. However, there are certain limitations and restrictions for upgrading. Not all SKUs are available to upgrade. For information about legacy SKUs, see [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
+This article helps you upgrade a VPN Gateway virtual network gateway SKU. Upgrading a gateway SKU is a relatively fast process. When you upgrade a SKU, you incur very little downtime (approximately 45 minutes). You can upgrade a SKU quickly and easily in the Azure portal, PowerShell or Azure CLI. When you upgrade a SKU, the public IP address assigned to your gateway SKU doesn't change and you don't need to reconfigure your VPN device or your P2S clients. However, there are certain limitations and restrictions for upgrading and not all SKUs are available to upgrade, for example, Basic and legacy SKUs.
 
 ## Considerations
 
@@ -46,8 +46,7 @@ Upgrading a gateway SKU takes about 45 minutes to complete.
 
 1. Go to the **Configuration** page for your virtual network gateway.
 1. On the right side of the page, click the dropdown arrow to show a list of available SKUs. The options listed are based on the starting SKU and SKU Generation. Select the SKU from the dropdown.
-1. **Save** your changes.
-1. It takes about 45 minutes for the gateway SKU upgrade to complete.
+1. **Save** your changes to begin the SKU upgrade. It takes about 45 minutes for the gateway SKU upgrade to complete.
 
 ## Workflow for SKUs that can't be upgraded
 
