@@ -47,7 +47,7 @@ Using the DNS provider that is hosting your domain, create DNS records for your 
 
 ## Route configuration
 
-Update your Container Apps YAML file to include a `customDomains` section. Include a bindingType and certificateId, based on the following criteria.:
+Update your Container Apps YAML file to include a `customDomains` section. Include a bindingType and certificateId, based on the following criteria:
 
 | bindingType value | Description | 
 |--|--|
