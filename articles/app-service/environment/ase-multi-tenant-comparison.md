@@ -5,6 +5,8 @@ author: seligj95
 ms.date: 04/02/2025
 ms.author: jordanselig
 ms.topic: concept-article
+ms.custom:
+  - build-2025
 ---
 
 # App Service Environment v3 and App Service public multitenant comparison

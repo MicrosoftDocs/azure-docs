@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC architect, I want to understand the foundational components required for cloud migration, so that I can successfully establish a landing zone and manage resources effectively for high-performance computing workloads."
 ---
 
 # Basic infrastructure migration overview

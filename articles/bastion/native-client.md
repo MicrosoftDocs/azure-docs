@@ -2,11 +2,12 @@
 title: Configure Bastion for native client connections
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion for native client connections.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/07/2025
-ms.author: cherylmc
+ms.author: abell
+# Customer intent: "As a cloud administrator, I want to configure Bastion for native client connections, so that I can securely access VMs using local SSH or RDP clients while managing my network efficiently."
 ---
 
 # Configure Bastion for native client connections

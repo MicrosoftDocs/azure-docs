@@ -4,12 +4,28 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dougeby
 ms.author: avdcontent
-ms.date: 04/30/2025
+ms.date: 06/06/2025
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## June 2025
+
+Here are the highlights of documentation changes in June 2025:
+
+- Updated [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md) to include the general availability of the High Efficiency Video Coding (HEVC), also known as H.265.
+
+- Removed MSIX App Attach content from the documentation, as MSIX App Attach functionality has been removed from Azure Virtual Desktop and replaced with App Attach. For more information, see [App Attach in Azure Virtual Desktop](app-attach-overview.md).
+
+## May 2025
+
+Here are the highlights of documentation changes in May 2025:
+
+- Updated [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md) to include the general availability of assigning multiple desktops to a single user. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).
+
+- Added Azure PowerShell steps to configure dynamic autoscale in [Create and assign an autoscale scaling plan for Azure Virtual Desktop](autoscale-create-assign-scaling-plan.md?pivots=dynamic).
 
 ## April 2025
 
@@ -17,7 +33,7 @@ Here are the highlights of documentation changes in April 2025:
 
 - Updated every time sign-in frequency in [Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md#configure-sign-in-frequency) for general availability.
 
-- Added a note to [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach) to highlight an issue that currently impacts CimFS images with Windows 11, version 24H2, which prevents the images from being mounted.
+- Added a note to [App Attach and MSIX App Attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach) to highlight an issue that currently impacts CimFS images with Windows 11, version 24H2, which prevents the images from being mounted.
 
 - Added Asia Pacific as a location for storing customer input data and service-generated data. For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
@@ -31,9 +47,9 @@ Here are the highlights of documentation changes in March 2025:
    - [Require device security compliance for Windows App with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune).
    - [Manage Windows App redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune).
 
-- Added a deprecation notice for MSIX app attach. MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date. For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+- Added a deprecation notice for MSIX App Attach. MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date. For more information, see [App Attach and MSIX App Attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
 
--  Updated [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md) to include steps on how to assign multiple personal desktops to a single user, which is available in preview. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user-preview).
+-  Updated [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md) to include steps on how to assign multiple personal desktops to a single user, which is available in preview. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).
 
 ## February 2025
 
@@ -74,9 +90,9 @@ Here are the highlights of documentation changes in November 2024:
 
 - Updated Azure Virtual Desktop on Azure Extended Zones for general availability. For more information, see [Azure Virtual Desktop on Azure Extended Zones](azure-extended-zones.md).
 
-- Updated app attach articles with App-V support. For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+- Updated App Attach articles with App-V support. For more information, see [App Attach and MSIX App Attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
 
-- Published a new article to [Deliver applications from partner solutions to Azure Virtual Desktop with app attach](app-attach-partner-solutions.md).
+- Published a new article to [Deliver applications from partner solutions to Azure Virtual Desktop with App Attach](app-attach-partner-solutions.md).
 
 - Added Windows Server 2025 as a supported operating system for session hosts. For more information, see [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
 
@@ -194,7 +210,7 @@ Here are the highlights of documentation changes in March 2024:
 
 - Published a new article to [Configure the clipboard transfer direction and types of data that can be copied](clipboard-transfer-direction-data-types.md) between a local device and a remote session.
 
-- Published a new article to [Migrate MSIX packages from MSIX app attach to app attach](msix-app-attach-migration.md).
+- Published a new article to [Migrate MSIX packages from MSIX App Attach to App Attach](msix-app-attach-migration.md).
 
 - Updated [Eligible licenses to use Azure Virtual Desktop](licensing.md#eligible-licenses-to-use-azure-virtual-desktop) to include Windows Server 2022 RDS Subscriber Access License (SAL).
 
@@ -202,7 +218,7 @@ Here are the highlights of documentation changes in March 2024:
 
 Here are the highlights of documentation changes in February 2024:
 
-- Added guidance for MSIX and Appx package certificates when using MSIX app attach or app attach. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md#msix-and-appx-package-certificates).
+- Added guidance for MSIX and Appx package certificates when using MSIX App Attach or App Attach. For more information, see [MSIX App Attach and App Attach in Azure Virtual Desktop](app-attach-overview.md#msix-and-appx-package-certificates).
 
 - Consolidated articles for the three Remote Desktop clients available for Windows into a single article, [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](users/connect-windows.md).
 
@@ -226,7 +242,7 @@ Here are the highlights of documentation changes in January 2024:
 
 Here are the highlights of documentation changes in December 2023:
 
-- Published new content for the preview of *app attach*, which is now available alongside MSIX app attach. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+- Published new content for the preview of *App Attach*, which is now available alongside MSIX App Attach. App Attach brings many benefits over MSIX App Attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host. For more information, see [MSIX App Attach and App Attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
 
 - Updated the article [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) to include support for [new Teams desktop client](/microsoftteams/new-teams-desktop-admin) on your session hosts.
 

@@ -5,8 +5,9 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 05/14/2025
+ms.date: 06/03/2025
 ms.custom:
+  - build-2025
 ---
 
 # Create and manage a workspace in Azure API Management
@@ -55,7 +56,7 @@ Follow the steps in this article to:
           > [!IMPORTANT]
           > Plan your workspace's network configuration carefully. You can't change the network configuration after you create the workspace.
     
-        * If you select a network configuration that includes private inbound or private outbound network access, select a **Virtual network** and **Subnet** to isolate the workspace gateway, or create a new one. For network requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
+        * If you select either **Inbound public access, outbound private access** (virtual network integration) or **Inbound private access, outbound private access** (virtual network injection), select a **Virtual network** and **Subnet** to isolate the workspace gateway, or create a new one. For network requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
     
 1. Select **Next**. After validation completes, select **Create**.
 

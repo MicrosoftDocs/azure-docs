@@ -2,13 +2,14 @@
 title: 'Tutorial: Create an Azure DNS alias record to refer to an Azure public IP address'
 description: In this tutorial, you learn how to configure an Azure DNS alias record to reference an Azure public IP address.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 11/30/2023
-ms.author: greglin
+ms.author: allensu
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to an Azure public IP address.
+# Customer intent: As an experienced network administrator, I want to create an alias record in Azure DNS for a public IP address, so that I can easily manage and reference Azure resources using user-friendly domain names.
 ---
 
 # Tutorial: Create an alias record to refer to an Azure public IP address 
@@ -114,7 +115,7 @@ Create a Windows Server 2019 virtual machine.
     | **Network interface** |  |
     | Virtual network | Select **myPIPVNet**. |
     | Subnet | Select **WebSubnet**. |
-    | Public IP | Take the default public IP. |
+    | Public IP | Take the default Standard SKU public IP. |
     | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **HTTP (80)**, **HTTPS (443)** and **RDP (3389)**. |
@@ -125,7 +126,7 @@ Create a Windows Server 2019 virtual machine.
 This deployment may take a few minutes to complete.
 
 > [!NOTE]
-> **Web-01** virtual machine has an attached NIC with a basic dynamic public IP that changes every time the virtual machine is restarted.
+> **Web-01** virtual machine has an attached NIC with a Standard SKU dynamic public IP that changes every time the virtual machine is restarted.
 
 ### Install IIS web server
 

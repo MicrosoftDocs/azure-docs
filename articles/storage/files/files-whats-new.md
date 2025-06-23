@@ -6,6 +6,8 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 05/21/2025
 ms.author: kendownie
+ms.custom:
+  - build-2025
 ---
 
 # What's new in Azure Files and Azure File Sync

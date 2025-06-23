@@ -228,7 +228,7 @@ Azure service: [Azure Arc](/azure/azure-arc/)
 > | Microsoft.HybridCompute/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
 > | Microsoft.HybridCompute/machines/assessPatches/action | Assesses any Azure Arc machines to get missing software patches |
 > | Microsoft.HybridCompute/machines/installPatches/action | Installs patches on any Azure Arc machines |
-> | Microsoft.HybridCompute/machines/listAccessDetails/action | Retreives the access details for a machines resource |
+> | Microsoft.HybridCompute/machines/listAccessDetails/action | Retrieves the access details for a machines resource |
 > | Microsoft.HybridCompute/machines/addExtensions/action | Setup Extensions on Azure Arc machines |
 > | Microsoft.HybridCompute/machines/extensions/read | Reads any Azure Arc extensions |
 > | Microsoft.HybridCompute/machines/extensions/write | Installs or Updates an Azure Arc extensions |
@@ -769,6 +769,56 @@ Azure service: Microsoft ResourceConnector
 > | Microsoft.ResourceConnector/locations/operationsstatus/read | Get result of Appliance operation |
 > | Microsoft.ResourceConnector/operations/read | Gets list of Available Operations for Appliances |
 > | Microsoft.ResourceConnector/telemetryconfig/read | Get Appliances telemetry config utilized by Appliances CLI |
+
+## Microsoft.SCVMM
+
+Azure service: [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](/azure/azure-arc/system-center-virtual-machine-manager/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.SCVMM/unregister/action | unregister RP. |
+> | Microsoft.SCVMM/register/action | register RP. |
+> | Microsoft.SCVMM/availabilitySets/Read | Read availabilitySets |
+> | Microsoft.SCVMM/availabilitySets/Write | Writes availabilitySets |
+> | Microsoft.SCVMM/availabilitySets/Delete | Deletes availabilitySets |
+> | Microsoft.SCVMM/clouds/Read | Read clouds |
+> | Microsoft.SCVMM/clouds/Write | Writes clouds |
+> | Microsoft.SCVMM/clouds/Delete | Deletes clouds |
+> | Microsoft.SCVMM/clouds/deploy/action | Deploy on resource pool. |
+> | Microsoft.SCVMM/locations/operationstatuses/read | Read operationstatus. |
+> | Microsoft.SCVMM/locations/operationstatuses/write | Write operationstatus. |
+> | Microsoft.SCVMM/operations/read | Read operations. |
+> | Microsoft.SCVMM/skus/read | Get skus. |
+> | Microsoft.SCVMM/virtualMachineInstances/read | Retrieves information about a virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/write | The operation to create or update a virtual machine instance. Please note some properties can be set only during virtual machine instance creation. |
+> | Microsoft.SCVMM/virtualMachineInstances/delete | The operation to delete a virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/stop/action | The operation to power off (stop) a virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/start/action | The operation to start a virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/restart/action | The operation to restart a virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/createCheckpoint/action | Creates a checkpoint in virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/deleteCheckpoint/action | Deletes a checkpoint in virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/restoreCheckpoint/action | Restores to a checkpoint in virtual machine instance. |
+> | Microsoft.SCVMM/virtualMachineInstances/guestAgents/read | Implements GuestAgent GET method. |
+> | Microsoft.SCVMM/virtualMachineInstances/guestAgents/write | Create Or Update GuestAgent. |
+> | Microsoft.SCVMM/virtualMachineInstances/guestAgents/delete | Implements GuestAgent DELETE method. |
+> | Microsoft.SCVMM/virtualMachineInstances/hybridIdentityMetadata/read | Implements HybridIdentityMetadata GET method. |
+> | Microsoft.SCVMM/virtualmachines/Delete | Deletes virtualmachines |
+> | Microsoft.SCVMM/virtualmachinetemplates/Read | Read virtualmachinetemplates |
+> | Microsoft.SCVMM/virtualmachinetemplates/Write | Writes virtualmachinetemplates |
+> | Microsoft.SCVMM/virtualmachinetemplates/Delete | Deletes virtualmachinetemplates |
+> | Microsoft.SCVMM/virtualmachinetemplates/clone/action | Clones virtualmachinetemplates |
+> | Microsoft.SCVMM/virtualnetworks/Read | Read virtualnetworks |
+> | Microsoft.SCVMM/virtualnetworks/Write | Writes virtualnetworks |
+> | Microsoft.SCVMM/virtualnetworks/Delete | Deletes virtualnetworks |
+> | Microsoft.SCVMM/virtualnetworks/join/action | Join virtual network. |
+> | Microsoft.SCVMM/vmmservers/Read | Read vmmservers |
+> | Microsoft.SCVMM/vmmservers/Write | Writes vmmservers |
+> | Microsoft.SCVMM/vmmservers/Delete | Deletes vmmservers |
+> | Microsoft.SCVMM/vmmservers/inventoryitems/Delete | Deletes vmmserver inventoryitems |
+> | Microsoft.SCVMM/vmmservers/inventoryitems/Read | Read vmmserver inventoryitems |
+> | Microsoft.SCVMM/vmmservers/inventoryitems/Write | Writes vmmservers inventoryitems |
+> | Microsoft.SCVMM/vmmservers/inventoryitems/onboard/action | Onboards vmmservers inventoryitems |
 
 ## Next steps
 
