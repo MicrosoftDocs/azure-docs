@@ -528,7 +528,7 @@ module processorUserAssignedIdentity './core/identity/userAssignedIdentity.bicep
 }
 ```
 
-For more information, see [userAssignedIdentity.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/core/identity/userAssignedIdentity.bicep).
+For more information, see [rbac.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/rbac.bicep).
 
 #### Configure network access
 

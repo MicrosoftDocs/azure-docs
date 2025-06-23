@@ -1,12 +1,10 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/23/2025
+ms.date: 06/23/2025
 ms.author: jasongroce
 author: jasongroce
-ms.custom:
-  - generated
-  - build-2025
+ms.custom: generated
 ---
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |

@@ -129,7 +129,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L37) file in the templates repository.
 ::: zone-end  
 ::: zone pivot="flex-consumption-plan"
-For more context, see the complete [storage-account.bicep](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd/blob/main/infra/core/storage/storage-account.bicep) file in the sample repository.
+For more context, see the complete [storage-PrivateEndpoint.bicep](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd/blob/main/infra/app/storage-PrivateEndpoint.bicep) file in the sample repository.
 ::: zone-end  
 
 ### [ARM template](#tab/json)

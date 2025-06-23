@@ -125,7 +125,7 @@
     - name: Monitor using insights
       href: cache-insights-overview.md
     - name: Monitor using diagnostic settings
-      href: /monitor/cache-monitor-diagnostic-settings.md
+      href: cache-monitor-diagnostic-settings.md
     - name: List of Redis metrics
       href: /azure/redis/monitor-cache-reference
 
@@ -277,7 +277,7 @@
     - name: Route events with Azure portal  
       href: cache-event-grid-quickstart-portal.md
     - name: Route events with Azure CLI 
-      href: /cache-event-grid-quickstart-cli.md
+      href: cache-event-grid-quickstart-cli.md
     - name: Route events with PowerShell 
       href: cache-event-grid-quickstart-powershell.md
   - name: Create leaderboards
