@@ -39,6 +39,4 @@ AppCAT collects telemetry data by default. Microsoft aggregates collected data t
 While we appreciate the insights this data provides, we also understand that not everyone wants to send usage data. You can disable data collection by using the `appcat analyze --disable-telemetry` command. For more information, see our [privacy statement](https://www.microsoft.com/privacy/privacystatement).
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Quick start to assess a java project](appcat7-quick-start.md)
+- [Quick start to assess a java project](appcat7-quick-start.md)
