@@ -90,9 +90,6 @@ The following steps show you how to use a sample container image to create your 
 
     Application Insights is a monitoring and diagnostic service that provides insights into the performance and usage of your Azure Functions. This monitoring helps you track request rates, response times, failure rates, and other metrics.
 
-    > [!TIP]
-    > By default, a containerized function app monitors port `80` for incoming requests. If your app uses a different port, use the `WEBSITES_PORT` application setting to change the default port.
-
 1. Select **Next > Ingress** to switch to the Ingress section and enter the following values.
 
     | Property | Value |
