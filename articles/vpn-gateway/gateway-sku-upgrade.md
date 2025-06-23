@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 [!INCLUDE [azure-vpn-gateway](../includes/azure-vpn-gateway.md)]
 
-This article helps you upgrade a VPN Gateway virtual network gateway SKU. Upgrading a gateway SKU is a relatively fast process. When you upgrade a SKU, you incur very little downtime (approximately 45 minutes). You can upgrade a SKU quickly and easily in the Azure portal. Or, you can use PowerShell or the Azure CLI. You don't need to reconfigure your VPN device or your P2S clients. The public IP address assigned to your gateway SKU doesn't change. However, there are certain limitations and restrictions for upgrading. Not all SKUs are available to upgrade. This article doesn't apply to legacy SKUs. For information about legacy SKUs, see [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
+This article helps you upgrade a VPN Gateway virtual network gateway SKU. Upgrading a gateway SKU is a relatively fast process. When you upgrade a SKU, you incur very little downtime (approximately 45 minutes). You can upgrade a SKU quickly and easily in the Azure portal. Or, you can use PowerShell or the Azure CLI. You don't need to reconfigure your VPN device or your P2S clients. The public IP address assigned to your gateway SKU doesn't change. However, there are certain limitations and restrictions for upgrading. Not all SKUs are available to upgrade. For information about legacy SKUs, see [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
 
 ## Considerations
 
@@ -36,7 +36,7 @@ For gateway SKU throughput and connection limits, see [About gateway SKUs](about
 
 ## Limitations and restrictions
 
-* You can't upgrade a Basic SKU to a new SKU. You must instead delete the gateway, and then create a new one.
+* You can't upgrade a Basic SKU to a new SKU. You must delete the gateway, and then create a new one.
 * You can't downgrade a SKU without deleting the gateway and creating a new one.
 * Legacy gateway SKUs (Standard and High Performance) can't be upgraded to the new SKU families. You must delete the gateway and create a new one. For more information about working with legacy gateway SKUS, see [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md)
 
