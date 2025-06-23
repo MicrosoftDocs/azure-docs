@@ -11,7 +11,7 @@ ms.date: 05/28/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
-# Azure Migrate Application and Code Assessment for Java version 7 Rules Development Guide
+# Rules Development Guide for AppCAT 7
 ## Overview
 
 This guide is for engineers, consultants, and others who want to create custom YAML-based rules for Azure Migrate application and code assessment for Java verion 7 (AppCAT) tools.
