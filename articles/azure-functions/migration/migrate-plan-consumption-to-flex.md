@@ -1552,7 +1552,7 @@ Use these steps for cases where the new app fails to start or function triggers 
 
 1. Select **Monitoring** > **Logs** and run this Kusto query to check these  tables for errors:
 
-    #### [traces](#/tab/traces-table)
+    #### [traces](#tab/traces-table)
     ```kusto
     traces
         | where severityLevel == 3
@@ -1562,7 +1562,7 @@ Use these steps for cases where the new app fails to start or function triggers 
         | order by timestamp desc
     ```
 
-    #### [requests](#/tab/requests-table)
+    #### [requests](#tab/requests-table)
 
     ```kusto
     requests
