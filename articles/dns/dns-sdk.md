@@ -12,6 +12,7 @@ ms.topic: how-to
 ms.date: 11/30/2023
 ms.author: allensu
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want to automate the creation and management of DNS zones and record sets using the .NET SDK, so that I can efficiently manage my DNS resources within Azure.
 ---
 
 # Create DNS zones and record sets using the .NET SDK

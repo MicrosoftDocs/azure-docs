@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: article
 ms.date: 06/25/2020
 ms.author: osamaz
+# Customer intent: As a network engineer transitioning from physical to cloud infrastructure, I want to learn how Azure networking works, so that I can effectively design, configure, and manage virtual networks and resources within the Azure environment.
 ---
 # Azure for network engineers
 As a conventional network engineer you have dealt with physical assets such as routers, switches, cables, firewalls to build infrastructure. At a logical layer you have configured virtual LAN (VLAN), Spanning Tree Protocol (STP), routing protocols (RIP, OSPF, BGP). You have managed your network using management tools and CLI. Networking in the cloud is different where network endpoints are logical and use of routing protocols is minimum. You will work with Azure Resource Manager API, Azure CLI, and PowerShell for configuring and managing assets in Azure. You will start your network journey in the cloud by understanding basic tenants of Azure networking. 

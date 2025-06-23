@@ -2,7 +2,7 @@
 title: Move VM backup - standard to enhanced policy in Azure Backup
 description: Learn how to trigger Azure VM backups migration from standard  policy to enhanced policy, and then monitor the configuration backup migration job.
 ms.topic: reference
-ms.date: 06/10/2025
+ms.date: 06/19/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -25,7 +25,7 @@ Azure Backup now supports migration to the enhanced policy for Azure VM backups 
 - Before you start the migration, ensure that there are no ongoing backup jobs for the VM that you plan to migrate.
 - Migration is supported for Managed VMs only and isn’t supported for Classic or unmanaged VMs.
 - Once the migration is complete, you can’t change the backup policy back to standard policy.
-- Migration operations trigger a backup job as part of the migration process and might take up to several hours to complete for large VMs.
+- When you migrate a VM Backup Item from Standard to Enhanced policy, the process triggers a backup job that might take several hours for large VMs. This precautionary backup uses managed disk snapshots — starting with a full disk copy for instant restore, which increases backup time. Later snapshots are incremental, storing only changes since the last snapshot. If you're using unmanaged disks, make sure the storage account hosting the snapshot or VHD files allows public network access or similar settings; otherwise, the system falls back to a standard recovery point restore, which slows down recovery.
 - The change from standard policy to enhanced policy can result in extra costs. [Learn More](backup-instant-restore-capability.md#cost-impact).
 
 >[!Note]
@@ -36,7 +36,10 @@ Azure Backup now supports migration to the enhanced policy for Azure VM backups 
 
 ## Trigger the backup migration operation
 
-To do the policy migration, follow these steps:
+To do the policy migration using Azure portal, follow these steps:
+
+>[!Note]
+>For migrating VM backups from Standard to Enhanced policy using the Azure CLI, use the command provided in [az backup item](/cli/azure/backup/item?view=azure-cli-latest&preserve-view=true#az-backup-item-set-policy).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

@@ -4,7 +4,7 @@ description: Use the Kubernetes iSCSI CSI driver to configure Azure Elastic SAN 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 05/31/2024
+ms.date: 06/18/2025
 ms.author: rogarana
 # Customer intent: As a Kubernetes administrator, I want to connect Azure Elastic SAN to my AKS cluster using the iSCSI CSI driver, so that I can provision and manage persistent storage for my applications effectively.
 ---
@@ -32,8 +32,7 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - Meet the [compatibility requirements](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md#container-images--kubernetes-compatibility) for the iSCSI CSI driver
 - [Deploy an Elastic SAN](elastic-san-create.md)
-- [Configure a virtual network endpoint](elastic-san-networking.md)
-- [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
+- Configure either [private endpoints](elastic-san-configure-private-endpoints.md) or [service endpoints](elastic-san-configure-service-endpoints.md).
 
 ## Limitations
 
