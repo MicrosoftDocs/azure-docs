@@ -21,7 +21,7 @@ The landing page of the report presents a overall view of all analyzed applicati
 :::image type="content" source="media/java/appcat-7-report-applist.png" alt-text="app list of the AppCAT assessment report." lightbox="media/java/appcat-7-report-applist.png":::
 ## Application view
 The application report consists of 3 sections:
-- **Application Information**: Reveals the basic information of your application including Java version, framework, build tool, etc..
+- **Application Information**: Reveals the basic information of your application including Java version, framework, build tool, etc.
 - **Issue Summary**: shows the issue overview for three domains with percentage on issue criticality.
 - The detail report is organized into 4 sub sections:
   - **Issues**: Provides a concise summary of all issues that require attention.
