@@ -97,7 +97,7 @@ For information on high availability across availability zones and regions for A
 
 To learn more about the high availability and disaster recovery capabilities of the cloud-based IoT services in your solution, see the following articles:
 
-- [Azure IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md)
+- [Reliability in Azure IoT Hub](/azure/reliability/reliability-iot-hub)
 - [IoT Hub Device Provisioning Service high availability and disaster recovery](../iot-dps/iot-dps-ha-dr.md)
 - [Azure Digital Twins high availability and disaster recovery](../digital-twins/concepts-high-availability-disaster-recovery.md)
 - [Azure IoT Central high availability and disaster recovery](../iot-central/core/concepts-architecture.md#high-availability-and-disaster-recovery)

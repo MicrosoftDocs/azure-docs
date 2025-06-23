@@ -83,6 +83,8 @@
       href: front-door-security-headers.md?pivots=front-door-standard-premium
     - name: Configure delivery rules
       href: standard-premium/front-door-add-rules-cli.md
+    - name: Rules engine scenarios
+      href: rules-engine-scenarios.md
     - name: Server variables
       href: rule-set-server-variables.md
     - name: URL rewrite
@@ -529,6 +531,6 @@
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-cdn
     - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+      href: /shows/Inside-Azure-for-IT/?products=azure-cdn
   - name: Networking blog
     href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog

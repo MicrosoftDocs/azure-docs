@@ -68,6 +68,8 @@ items:
       href: /java/api/overview/azure/communication-identity-readme
     - name: Identity (Python)
       href: /python/api/overview/azure/communication-identity-readme
+    - name: Identity (REST)
+      href: /rest/api/communication/identity/operation-groups
 - name: Chat
   items:
   - name: Overview
@@ -168,6 +170,8 @@ items:
       href: /python/api/overview/azure/communication-chat-readme
     - name: Chat (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html
+    - name: Chat (REST)
+      href: /rest/api/communication/chat/operation-groups
 - name: Email
   items:
   - name: Overview
@@ -290,6 +294,8 @@ items:
       href: /cli/azure/communication/email
     - name: Email (PowerShell)
       href: /powershell/module/az.communication
+    - name: Email (REST)
+      href: /rest/api/communication/email/operation-groups
 - name: SMS
   items:
   - name: Overview
@@ -300,8 +306,6 @@ items:
     href: concepts/sms/sdk-features.md
   - name: SMS FAQ
     href: concepts/sms/sms-faq.md
-  - name: Phone number types
-    href: concepts/numbers/number-types.md
   - name: Country availability
     href: concepts/numbers/sub-eligibility-number-capability.md
   - name: Messaging policy
@@ -370,6 +374,8 @@ items:
       href: /java/api/overview/azure/communication-sms-readme
     - name: SMS (Python)
       href: /python/api/overview/azure/communication-sms-readme
+    - name: SMS (REST)
+      href: /rest/api/communication/sms/operation-groups
 - name: Advanced messaging with WhatsApp
   items:
   - name: Overview
@@ -495,6 +501,8 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
+      - name: Integrate with Azure ExpressRoute
+        href: tutorials/integrate-express-route.md
   - name: Advanced audio and video features
     items:
     - name: Music mode
@@ -882,6 +890,8 @@ items:
         href: /java/api/overview/azure/communication-rooms-readme
       - name: Rooms (Python)
         href: /python/api/overview/azure/communication-rooms-readme
+      - name: Rooms (REST)
+        href: /rest/api/communication/rooms/operation-groups
 - name: Phone calling
   items:
   - name: Overview
@@ -982,6 +992,8 @@ items:
         href: /java/api/overview/azure/communication-phonenumbers-readme
       - name: Phone Numbers (Python)
         href: /python/api/overview/azure/communication-phonenumbers-readme
+      - name: Phone Numbers (REST)
+        href: /rest/api/communication/phonenumbers/operation-groups
 - name: Call Automation
   items:
   - name: Overview
@@ -1058,7 +1070,7 @@ items:
       href: how-tos/call-automation/actions-for-call-control.md
     - name: Control mid call media actions
       href: how-tos/call-automation/control-mid-call-media-actions.md
-    - name: Secure webhook endpoints
+    - name: Secure webhook and websocket endpoints
       href: how-tos/call-automation/secure-webhook-endpoint.md
     - name: Handle Call Automation events with EventProcessor
       href: how-tos/call-automation/handle-events-with-event-processor.md
@@ -1072,8 +1084,6 @@ items:
       href: samples/integrate-azure-communication-services-with-copilot-studio.md
   - name: References
     items:
-    - name: Call Automation (REST)
-      href: /rest/api/communication/callautomation/operation-groups
     - name: Call Automation (JavaScript)
       href: /javascript/api/overview/azure/communication-call-automation-readme
     - name: Call Automation (.NET)
@@ -1082,6 +1092,8 @@ items:
       href: /java/api/overview/azure/communication-callautomation-readme
     - name: Call Automation (Python)
       href: /python/api/overview/azure/communication-callautomation-readme
+    - name: Call Automation (REST)
+      href: /rest/api/communication/callautomation/operation-groups
 - name: Teams interoperability
   items:
   - name: Overview
@@ -1186,8 +1198,8 @@ items:
     href: concepts/interop/tpe/teams-phone-extensibility-connectivity-cost.md
   - name: Provisioning and authorization
     href: concepts/interop/tpe/teams-phone-extensibility-provisioning.md
-  - name: Teams Phone client capabilities
-    href: concepts/interop/tpe/teams-phone-extensibility-client-capabilities.md
+  - name: Teams Phone capabilities
+    href: concepts/interop/tpe/teams-phone-extensibility-capabilities.md
   - name: Teams Phone extensibility FAQ
     href: concepts/interop/tpe/teams-phone-extensibility-faq.md
   - name: Troubleshooting
@@ -1262,6 +1274,8 @@ items:
       href: /java/api/overview/azure/communication-jobrouter-readme
     - name: Job Router (Python)
       href: /python/api/overview/azure/communication-jobrouter-readme
+    - name: Job Router (REST)
+      href: /rest/api/communication/jobrouter/operation-groups
 - name: Artificial Intelligence
   items:
   - name: Overview
@@ -1396,6 +1410,8 @@ items:
         href: /java/api/overview/azure/resourcemanager-communication-readme
       - name: Azure Resource Manager (Python)
         href: /python/api/overview/azure/mgmt-communication-readme
+      - name: Azure Resource Manager (REST)
+        href: /rest/api/communication/resourcemanager/operation-groups
     - name: Common Azure API client libraries
       items:
       - name: Common (JavaScript)

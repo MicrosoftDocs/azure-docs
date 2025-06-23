@@ -596,7 +596,7 @@ The escape character either escapes the column delimiter or the escape the chara
 4. The quote character and the escape character both be empty and the column value contains column delimiters.<br/>
 `Column delimiter: \t`<br/>
 `column value: 111\t222\t33\t3`<br/>
-`It will be ambigious if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
+`It will be ambiguous if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
 
 #### Recommendation
 The first symptom and the second symptom can't be solved currently. For the third and fourth symptoms, you can apply the following methods:
@@ -800,6 +800,6 @@ For more help with troubleshooting, see these resources:
 *  [Troubleshoot mapping data flows in Azure Data Factory](data-flow-troubleshoot-guide.md)
 *  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [X information about Data Factory](https://x.com/hashtag/DataFactory)
