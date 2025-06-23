@@ -26,6 +26,8 @@ Use the below tables to find all the relevant information on number availability
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+
 ## Subscription eligibility
 
 To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired by Azure free credits. Also, due to regulatory reasons phone number availability is dependent on your Azure subscription billing location.
