@@ -31,22 +31,24 @@ The application report consists of three sections:
     
 :::image type="content" source="media/java/appcat-7-report-app.png" alt-text="app view of the AppCAT assessment report." lightbox="media/java/appcat-7-report-app.png":::
 ### Issues
-Access this report by clicking the Issues tab. It provides a categorized issue list of various aspects of Azure readiness, cloud native, and Java modernization that you need to address to successfully migrate the application to Azure.
+Access this report by clicking the Issues tab. It provides a categorized issue list of various aspects of Azure readiness, cloud native, and Java modernization that you need to address to successfully migrate the application to Azure. Learn more about domains and criticality via below sections. 
+|Domain|Description|
+|Azure readiness|Identifies app dependencies and suggests equivalent Azure solutions|
+|cloud native|Assesses how well the app follows cloud-native practices like scalability and containerization|
+|Java modernization|Identifies JDK and framework issues for version upgrade|
+
+|Criticality|Description|
+|Mandatory|Issues that must be fixed for migration to Azure|
+|Potential|Issues that might impact migration and need review|
+|Optional|Low-impact issues; fixing them is recommended but optional|
 
 :::image type="content" source="media/java/appcat-7-report-issues.png" alt-text="issues of the AppCAT assessment report." lightbox="media/java/appcat-7-report-issues.png":::
 
-Each Issue is categorized by severity - Mandatory, Optional, or Potential - and includes the number of impacted lines of code.
-
-Each reported issue can be expanded, by clicking on the title, to obtain additional details. The following information is provided.
-- A list of files where the incidents occurred, along with the number of incidents within each file. If the file is a Java source file, then clicking the filename will direct you to the corresponding Source report.
+Each reported issue can be expanded, by clicking on the title, to obtain additional details. The following information is provided:
+- A list of files where the incidents occurred, along with the number of code lines impacted. If the file is a Java source file, then clicking the filename will direct you to the corresponding Source report.
 - A detailed description of the issue. This description outlines the problem, provides any known solutions, and references supporting documentation regarding either the issue or resolution.
 
-
-For each issue, you can get more information (the issue detail, the content of the rule, and so on) just by selecting it. You also get the list of all the files affected by this issue.
-
 :::image type="content" source="media/java/appcat-7-report-issue-detail.png" alt-text="issue detail of the AppCAT assessment report." lightbox="media/java/appcat-7-report-issue-detail.png":::
-
-Then, for each file or class affected by the issue, you can jump into the source code to highlight the line of code that created the issue.
 
 :::image type="content" source="media/java/appcat-7-report-issue-code.png" alt-text="issue code of the AppCAT issue code report." lightbox="media/java/appcat-7-report-issue-code.png":::
   
