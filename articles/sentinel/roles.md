@@ -78,15 +78,15 @@ To use Microsoft Sentinel data lake, your workspace must be [onboarded to the De
 
 ### Read permissions for Microsoft Sentinel data lake
 
-[!INCLUDE [sentinel-data-lake-read-permissions](../includes/sentinel-data-lake-read-permissions.md)]
+[!INCLUDE [sentinel-data-lake-read-permissions](includes/sentinel-data-lake-read-permissions.md)]
 
 ## Write permissions for Microsoft Sentinel data lake
 
-[!INCLUDE [sentinel-data-lake-KQL-write-permissions](../includes/sentinel-data-lake-KQL-write-permissions.md)]
+[!INCLUDE [sentinel-data-lake-KQL-write-permissions](includes/sentinel-data-lake-KQL-write-permissions.md)]
 
-[!INCLUDE [sentinel-data-lake-notebook-write-permissions](../includes/sentinel-data-lake-notebook-write-permissions.md)]
+[!INCLUDE [sentinel-data-lake-notebook-write-permissions](includes/sentinel-data-lake-notebook-write-permissions.md)]
 
-[!INCLUDE [sentinel-data-lake-job-permissions](../includes/sentinel-data-lake-job-permissions.md)]
+[!INCLUDE [sentinel-data-lake-job-permissions](includes/sentinel-data-lake-job-permissions.md)]
 
 ## Summary tables and recommendations
 
