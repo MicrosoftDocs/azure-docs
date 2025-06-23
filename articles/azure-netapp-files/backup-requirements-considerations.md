@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 06/23/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -22,9 +22,10 @@ You need to be aware of several requirements and considerations before using Azu
 >All backups require a backup vault. If you have existing backups, you must migrate backups to a backup vault before you can perform any operation with a backup. For more information, see [Manage backup vaults](backup-vault-manage.md).
 
 * Azure NetApp Files backup is available in the regions associated with your Azure NetApp Files subscription. 
-Azure NetApp Files backup in a region can only protect an Azure NetApp Files volume located in that same region. For example, backups created by the service in West US 2 for a volume located in West US 2 are sent to Azure storage also located in West US 2. Azure NetApp Files doesn't support backups or backup replication to a different region.  
 
-* There can be a delay of up to 5 minutes in displaying a backup after the backup is actually completed.
+  Azure NetApp Files backup in a region can only protect an Azure NetApp Files volume located in that same region. For example, backups created by the service in West US 2 for a volume located in West US 2 are sent to Azure storage also located in West US 2. Azure NetApp Files doesn't support backups or backup replication to a different region.  
+
+* There can be a delay of up to five minutes in displaying a backup after the backup is actually completed.
 
 * For volumes larger than 10 TiB, it can take multiple hours to transfer all the data from the backup media.
 
