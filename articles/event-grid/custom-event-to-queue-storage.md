@@ -127,11 +127,11 @@ done
 
 Go to the queue in the Azure portal to see that Event Grid sent those three events to the queue.
 
-:::image type="content" source="./media/custom-event-to-queue-storage/messages.png" alt-text="Screenshot that shows a list of messages received from Event Grid in a queue.":::
+:::image type="content" source="./media/custom-event-to-queue-storage/messages.png" alt-text="Screenshot that shows a list of messages received from Event Grid in a queue." lightbox="./media/custom-event-to-queue-storage/messages.png":::
 
 ## Clean up resources
 
-If you plan to continue working with this event, don't clean up the resources that you created in this article. Otherwise, use the following command to delete the resources:
+If you plan to continue working with this event, don't remove the resources that you created in this article. Otherwise, use the following command to delete the resources:
 
 ```azurecli-interactive
 az group delete --name gridResourceGroup
