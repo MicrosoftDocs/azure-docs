@@ -16,7 +16,6 @@ Below are some sample code snippets that demonstrate how to interact with lake d
 
 To run these examples, must have the require permissions and Visual Studio Code installed with the Microsoft Sentinel extension for Visual Studio Code. For more information, see [Sentinel data lake permissions](./sentinel-lake-permissions.md) and  [Use Jupyter notebooks with Microsoft Sentinel Data lake](./jupyter-notebooks.md).
 
-## [Failed login attempts](#tab/failed-login-attempts)
 ## Failed login attempts analysis
 
 This example, identifies users with failed logins attempted. To do so, this notebook example processes login data from two tables: 
@@ -108,8 +107,7 @@ The following screenshot shows a sample of the output of the code above, display
 
 :::image type="content" source="media/notebook-examples/failed-login-analysis.png" lightbox="media/notebook-examples/failed-login-analysis.png" alt-text="A screenshot showing a bar chart of the users with the highest number of failed login attempts.":::
 
-## [Access Lake Tier Entra ID Group Table](#tab/access-entra-id-group-table)
-## Access Lake Tier Entra ID Group Table  
+## Access lake tier Entra ID Group Table  
 
 
 The following code sample demonstrates how to access the Entra ID `Group` table in the Microsoft Sentinel data lake. It retrieves various fields such as displayName, groupTypes, mail, mailNickname, description, and tenantId. 
@@ -127,8 +125,7 @@ The following screenshot shows a sample of the output of the code above, display
 :::image type="content" source="media/notebook-examples/entra-id-group-output.png" lightbox="media/notebook-examples/entra-id-group-output.png" alt-text="A screenshot showing sample output from the Entra ID group table.":::
 
 
-## [Access Entra ID SignInLogs for a Specific User](#tab/access-entra-id-signinlogs-user)
-### Access Entra ID SignInLogs for a Specific User  
+## Access Entra ID signin logs for a specific user  
 
 The following code sample demonstrates how to access the Entra ID `SignInLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
 
@@ -145,8 +142,7 @@ df.select("UserDisplayName", "UserPrincipalName", "UserId", "CorrelationId", "Us
 ```  
 
 
-## [Examine SignIn Locations](#tab/examine-signin-locations)
-## Examine SignIn Locations  
+## Examine signIn locations  
 
 The following code sample demonstrates how to extract and display sign-in locations from the Entra ID SignInLogs table. It uses the `from_json` function to parse the JSON structure of the `LocationDetails` field, allowing you to access specific location attributes such as city, state, and country or region.
 
@@ -174,8 +170,9 @@ sign_in_locations_df = df.orderBy("CreatedDateTime", ascending=False)
 sign_in_locations_df.show(100, truncate=False) 
 ```  
 
-## [Sign-ins from unusual countries](#tab/signins-unusual-countries)
+
 ## Sign-ins from unusual countries
+
 The following code sample demonstrates how to identify sign-ins from countries that are not part of a user’s typical login pattern.
 ```python
 from sentinel_lake.providers import MicrosoftSentinelProvider
@@ -207,7 +204,7 @@ sign_in_locations_df = df.orderBy("CreatedDateTime", ascending=False)
 sign_in_locations_df.show(100, truncate=False)
 ```
 
-## [Brute force attack from multiple failed logins](#tab/brute-force-failed-logins)
+
 ## Brute force attack from multiple failed logins
 
 Identify potential brute force attacks by analyzing user sign-in logs for accounts with a high number of failed login attempts
@@ -242,7 +239,7 @@ result_df = aad_signin.unionByName(aad_non_int)
 result_df.show()
 ```
 
-## [Detecting lateral movement attempts](#tab/detect-lateral-movement)
+## Detecting lateral movement attempts
 
 Use DeviceNetworkEvents to identify suspicious internal IP connections that may signal lateral movement (e.g., abnormal SMB/RDP traffic between endpoints)
 
@@ -275,7 +272,178 @@ suspicious_lateral = (
 suspicious_lateral.show()
 ```
 
----
+## Uncovering credential dumping tools
+
+Query DeviceProcessEvents to find processes like mimikatz.exe or unexpected execution of lsass.exe access, which could indicate credential harvesting.
+
+```python
+from sentinel_lake.providers import MicrosoftSentinelProvider
+from pyspark.sql.functions import col, lower
+
+workspace_id = "<your-workspace-name>"
+device_process_table = "DeviceProcessEvents"
+
+data_provider = MicrosoftSentinelProvider(spark)
+process_events = data_provider.read_table(device_process_table, workspace_id)
+
+# Look for known credential dumping tools and suspicious access to lsass.exe
+suspicious_processes = process_events.filter(
+    (lower(col("FileName")).rlike("mimikatz|procdump|lsassy|nanodump|sekurlsa|dumpert")) |
+    (
+        (lower(col("FileName")) == "lsass.exe") &
+        (~lower(col("InitiatingProcessFileName")).isin(["services.exe", "wininit.exe", "taskmgr.exe"]))
+    )
+)
+
+suspicious_processes.select(
+    "Timestamp",
+    "DeviceName",
+    "AccountName",
+    "FileName",
+    "FolderPath",
+    "InitiatingProcessFileName",
+    "InitiatingProcessCommandLine"
+).show(50, truncate=False)
+```
+
+## Correlation of USB activity with sensitive file access
+
+Combine DeviceEvents and DeviceFileEvents in a notebook to surface potential data exfiltration patterns. Add visualizations to show which devices, users, or files were involved, and when.
+
+```python
+from sentinel_lake.providers import MicrosoftSentinelProvider
+from pyspark.sql.functions import col, lower, to_timestamp, expr
+import matplotlib.pyplot as plt
+
+data_provider = MicrosoftSentinelProvider(spark)
+workspace_id = “<your-workspace-id>”
+
+# Load DeviceEvents and DeviceFileEvents tables
+device_events = data_provider.read_table("DeviceEvents", workspace_id)
+device_file_events = data_provider.read_table("DeviceFileEvents", workspace_id)
+device_info = data_provider.read_table("DeviceInfo", workspace_id)
+
+# Filter for USB device activity (adjust 'ActionType' or 'AdditionalFields' as needed)
+usb_events = device_events.filter(
+    lower(col("ActionType")).rlike("usb|removable|storage")
+)
+
+# Filter for sensitive file access (e.g., files in Documents, Desktop, or with sensitive extensions)
+sensitive_file_events = device_file_events.filter(
+    lower(col("FolderPath")).rlike("documents|desktop|finance|confidential|secret|sensitive") |
+    lower(col("FileName")).rlike(r"\.(docx|xlsx|pdf|csv|zip|7z|rar|pst|bak)$")
+)
+
+# Convert timestamps
+usb_events = usb_events.withColumn("EventTime", to_timestamp(col("Timestamp")))
+sensitive_file_events = sensitive_file_events.withColumn("FileEventTime", to_timestamp(col("Timestamp")))
+
+# Join on DeviceId and time proximity (within 10 minutes) using expr for column operations
+joined = usb_events.join(
+    sensitive_file_events,
+    (usb_events.DeviceId == sensitive_file_events.DeviceId) &
+    (expr("abs(unix_timestamp(EventTime) - unix_timestamp(FileEventTime)) <= 600")),
+    "inner"
+) \
+.join(device_info, usb_events.DeviceId == device_info.DeviceId, "inner")
+
+
+# Select relevant columns
+correlated = joined.select(
+    device_info.DeviceName,
+    usb_events.DeviceId,
+    usb_events.AccountName,
+    usb_events.EventTime.alias("USBEventTime"),
+    sensitive_file_events.FileName,
+    sensitive_file_events.FolderPath,
+    sensitive_file_events.FileEventTime
+)
+
+correlated.show(50, truncate=False)
+
+# Visualization: Number of sensitive file accesses per device
+pd_df = correlated.toPandas()
+if not pd_df.empty:
+    plt.figure(figsize=(12, 6))
+    pd_df.groupby('DeviceName').size().sort_values(ascending=False).head(10).plot(kind='bar')
+    plt.title('Top Devices with Correlated USB and Sensitive File Access Events')
+    plt.xlabel('DeviceName')
+    plt.ylabel('Number of Events')
+    plt.tight_layout()
+    plt.show()
+else:
+    print("No correlated USB and sensitive file access events found in the selected period.")
+```
+
+## Beaconing behavior detection
+
+Detect potential command-and-control by clustering regular outbound connections at low byte volumes over long durations
+
+```python
+# Setup
+from pyspark.sql.functions import col, to_timestamp, window, count, avg, stddev, hour, date_trunc
+from sentinel_lake.providers import MicrosoftSentinelProvider 
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data_provider = MicrosoftSentinelProvider(spark)
+device_net_events = "DeviceNetworkEvents"
+workspace_id = "<your-workspace-id>"
+
+network_df = data_provider.read_table(device_net_events, workspace_id)
+
+# Add hour bucket to group by frequency
+network_df = network_df.withColumn("HourBucket", date_trunc("hour", col("Timestamp")))
+
+# Group by device and IP to count hourly traffic
+hourly_traffic = network_df.groupBy("DeviceName", "RemoteIP", "HourBucket") \
+    .agg(count("*").alias("ConnectionCount"))
+
+# Count number of hours this IP talks to device
+stats_df = hourly_traffic.groupBy("DeviceName", "RemoteIP") \
+    .agg(
+        count("*").alias("HoursSeen"),
+        avg("ConnectionCount").alias("AvgConnPerHour"),
+        stddev("ConnectionCount").alias("StdDevConnPerHour")
+    )
+
+# Filter beacon-like traffic: low stddev, repeated presence
+beacon_candidates = stats_df.filter(
+    (col("HoursSeen") > 10) &
+    (col("AvgConnPerHour") < 5) &
+    (col("StdDevConnPerHour") < 1.0)
+)
+
+beacon_candidates.show(truncate=False)
+
+# Choose one Device + IP pair to plot
+example = beacon_candidates.limit(1).collect()[0]
+example_device = example["DeviceName"]
+example_ip = example["RemoteIP"]
+
+# Filter hourly traffic for that pair
+example_df = hourly_traffic.filter(
+    (col("DeviceName") == example_device) & 
+    (col("RemoteIP") == example_ip)
+).orderBy("HourBucket")
+
+# Convert to Pandas and plot
+example_pd = example_df.toPandas()
+example_pd["HourBucket"] = pd.to_datetime(example_pd["HourBucket"])
+
+plt.figure(figsize=(12, 5))
+plt.plot(example_pd["HourBucket"], example_pd["ConnectionCount"], marker="o", linestyle="-")
+plt.title(f"Outbound Connections – {example_device} to {example_ip}")
+plt.xlabel("Time (Hourly)")
+plt.ylabel("Connection Count")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+```
+
+
+
 
 ## Related content
 
