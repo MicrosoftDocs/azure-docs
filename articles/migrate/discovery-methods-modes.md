@@ -41,7 +41,7 @@ The appliance-based discovery method involves deploying a virtual appliance that
 
 Import-based discovery is a simpler and faster alternative, relying on manual upload of inventory data in a structured format.  
 
-**Key features**: 
+### Key features
 
 - Manual data entry via CSV file uploads. 
 - Add output inventory from CMDB tools to CSV templates. 
