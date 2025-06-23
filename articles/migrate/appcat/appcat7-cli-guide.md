@@ -36,8 +36,8 @@ The following is a detailed description of the available "appcat analyze" comman
 | Category | Parameter | Description |
 | --- | --- | --- |
 | Source & Target Technologies | | |
-| | --list-sources | Display available migration source technologies. (default false) |
-| | --list-targets | Display available migration target technologies. (default false) |
+| | --list-sources | Display available migration source technologies. |
+| | --list-targets | Display available migration target technologies. |
 | | --source, -s | Specify source technologies for analysis. Use a comma-separated list for multiple values: `--source <source1>,<source2>,...`, Use the `--list-sources` argument to list all available sources. |
 | | --target, -t | Specify target technologies for analysis. Use a comma-separated list for multiple values: `--target <target1>,<target2>,...` , Use the `--list-targets` argument to list all available targets. |
 | Analysis Options | | |
