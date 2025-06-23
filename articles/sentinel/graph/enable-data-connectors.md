@@ -24,7 +24,7 @@ The following data sources and data connectors are available in the Microsoft Se
 
 ### Azure Resource Graph (ARG) Asset Data
 
-- **Tables**: [ARGResources](./data-soure-tables.md#arg-resources), [ARGResourceContainers](./data-soure-tables.md#arg-resource-containers), [ARGAuthorizationResources](./data-soure-tables.md#arg-authorization-resources).
+- **Tables**: [ARGResources](./data-source-tables.md#arg-resources), [ARGResourceContainers](./data-source-tables.md#arg-resource-containers), [ARGAuthorizationResources](./data-source-tables.md#arg-authorization-resources).
 - **Enablement**: Automatic onboarding for users with owner role permissions or higher.
 - **Data Connector**: Azure Resource Graph
 - **Data Freshness**: Snapshot taken every 90 minutes.
@@ -32,7 +32,7 @@ The following data sources and data connectors are available in the Microsoft Se
 
 ### Microsoft Entra ID Asset Data
 
-- **Tables:** [EntraApplications](./data-soure-tables.md#entra-applications), [EntraGroupMemberships](./data-soure-tables.md#entra-group-memberships), [EntraGroups](./data-soure-tables.md#entra-groups), [EntraMembers](./data-soure-tables.md#entra-members), [EntraOrganizations](./data-soure-tables.md#entra-organizations), [EntraServicePrincipals](./data-soure-tables.md#entra-service-principals), [EntraUsers](./data-soure-tables.md#entra-users).
+- **Tables:** [EntraApplications](./data-source-tables.md#entra-applications), [EntraGroupMemberships](./data-source-tables.md#entra-group-memberships), [EntraGroups](./data-source-tables.md#entra-groups), [EntraMembers](./data-source-tables.md#entra-members), [EntraOrganizations](./data-source-tables.md#entra-organizations), [EntraServicePrincipals](./data-source-tables.md#entra-service-principals), [EntraUsers](./data-source-tables.md#entra-users).
 - **Enablement:** Automatic onboarding for Sentinel contributors.
 - **Data Connector:** None for Microsoft Sentinel data lake’s Public Preview. ????
 - **Data Freshness:** Snapshot taken every 4 hours.
@@ -40,7 +40,7 @@ The following data sources and data connectors are available in the Microsoft Se
 
 ### Microsoft 365 Asset Data
 
-- **Tables:** [SharePointSitesAndLists](./data-soure-tables.md#sharepoint-sites-and-lists).
+- **Tables:** [SharePointSitesAndLists](./data-source-tables.md#sharepoint-sites-and-lists).
 - **Enablement:** Automatic onboarding for users with security administrator roles or higher. Microsoft 365 (formerly, Office 365) activity log connector must be enabled in the Sentinel data lake connected workspace.
 - **Data Connector:** Microsoft 365 Assets (formerly, Office 365)
 - **Data Freshness:** Snapshot taken every 24 hours.
@@ -48,18 +48,18 @@ The following data sources and data connectors are available in the Microsoft Se
 
 | Data Source                  | Tables                                                                                                                                                                                                                                         | Enablement                                                                                                                        | Data Connector                                 | Data Freshness                  | Retention Period                                 |
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|-------------------------------|--------------------------------------------------|
-| Azure Resource Graph (ARG)   | [ARGResources](./data-soure-tables.md#arg-resources), [ARGResourceContainers](./data-soure-tables.md#arg-resource-containers), [ARGAuthorizationResources](./data-soure-tables.md#arg-authorization-resources)                           | Automatic onboarding for users with owner role permissions or higher.                                                             | Azure Resource Graph                            | Snapshot taken every 90 minutes. | Default is 30 days, adjustable up to 12 years.   |
-| Microsoft Entra ID           | [EntraApplications](./data-soure-tables.md#entra-applications), [EntraGroupMemberships](./data-soure-tables.md#entra-group-memberships), [EntraGroups](./data-soure-tables.md#entra-groups), [EntraMembers](./data-soure-tables.md#entra-members), [EntraOrganizations](./data-soure-tables.md#entra-organizations), [EntraServicePrincipals](./data-soure-tables.md#entra-service-principals), [EntraUsers](./data-soure-tables.md#entra-users) | Automatic onboarding for Sentinel contributors.                                                                                   | None for Microsoft Sentinel data lake’s Public Preview. | Snapshot taken every 4 hours.   | Default is 30 days, adjustable up to 12 years.   |
-| Microsoft 365                | [SharePointSitesAndLists](./data-soure-tables.md#sharepoint-sites-and-lists)                                                                                                                              | Automatic onboarding for users with security administrator roles or higher. Microsoft 365 (formerly, Office 365) activity log connector must be enabled in the Sentinel data lake connected workspace. | Microsoft 365 Assets (formerly, Office 365)     | Snapshot taken every 24 hours.   | Default is 30 days, adjustable up to 12 years.   |
+| Azure Resource Graph (ARG)   | [ARGResources](./data-source-tables.md#arg-resources), [ARGResourceContainers](./data-source-tables.md#arg-resource-containers), [ARGAuthorizationResources](./data-source-tables.md#arg-authorization-resources)                           | Automatic onboarding for users with owner role permissions or higher.                                                             | Azure Resource Graph                            | Snapshot taken every 90 minutes. | Default is 30 days, adjustable up to 12 years.   |
+| Microsoft Entra ID           | [EntraApplications](./data-source-tables.md#entra-applications), [EntraGroupMemberships](./data-source-tables.md#entra-group-memberships), [EntraGroups](./data-source-tables.md#entra-groups), [EntraMembers](./data-source-tables.md#entra-members), [EntraOrganizations](./data-source-tables.md#entra-organizations), [EntraServicePrincipals](./data-source-tables.md#entra-service-principals), [EntraUsers](./data-source-tables.md#entra-users) | Automatic onboarding for Sentinel contributors.                                                                                   | None for Microsoft Sentinel data lake’s Public Preview. | Snapshot taken every 4 hours.   | Default is 30 days, adjustable up to 12 years.   |
+| Microsoft 365                | [SharePointSitesAndLists](./data-source-tables.md#sharepoint-sites-and-lists)                                                                                                                              | Automatic onboarding for users with security administrator roles or higher. Microsoft 365 (formerly, Office 365) activity log connector must be enabled in the Sentinel data lake connected workspace. | Microsoft 365 Assets (formerly, Office 365)     | Snapshot taken every 24 hours.   | Default is 30 days, adjustable up to 12 years.   |
 
 ## Prerequisites
 
 To enable and manage data connectors in the Microsoft Sentinel data lake, you need to meet the following prerequisites:
 
-- Ensure you have the necessary [access and permissions] to Microsoft Sentinel.
-- Install the [necessary solutions] from the Content Hub in Microsoft Sentinel.
+- Ensure you have the necessary [access and permissions](../roles.md#microsoft-sentinel-roles-permissions-and-allowed-actions) to Microsoft Sentinel.
+- Install the [necessary solutions](../sentinel-solutions-catalog.md) from the Content Hub in Microsoft Sentinel.
 
-## Configuration and Management
+## Configure and Manage
 
 1. Enable Data Connectors
 
@@ -70,4 +70,3 @@ To enable and manage data connectors in the Microsoft Sentinel data lake, you ne
 
     - Use the Table Management documentation for details on tiering options and retention settings.
     - Query data in the Microsoft Sentinel data lake.
-
