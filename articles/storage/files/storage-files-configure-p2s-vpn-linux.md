@@ -227,7 +227,7 @@ sudo ipsec up $VIRTUAL_NETWORK_NAME
 
 ## Mount Azure file share
 
-After seting up your Point-to-Site VPN, you can mount your Azure file share. See [Mount SMB file shares to Linux](storage-how-to-use-files-linux.md) or [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md). 
+After setting up your Point-to-Site VPN, you can mount your Azure file share. See [Mount SMB file shares to Linux](storage-how-to-use-files-linux.md) or [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md). 
 
 ## See also
 

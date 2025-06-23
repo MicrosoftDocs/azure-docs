@@ -12,6 +12,9 @@ ms.custom: devx-track-azurepowershell
 
 If you accidentally deleted an app in Azure App Service, you can now restore it by using the Azure portal or PowerShell.
 
+> [!IMPORTANT]
+> This feature isn't supported for apps hosted on App Service plans using the Free and Shared tiers.
+
 ## Restore a deleted App Service app by using the Azure portal
 
 If you deleted your app in Azure App Service, you can restore it from the portal by following these steps:

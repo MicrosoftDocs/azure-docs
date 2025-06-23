@@ -34,7 +34,7 @@ The following are HBase replication usage cases for two virtual networks:
 You can replicate clusters by using [script action](../hdinsight-hadoop-customize-cluster-linux.md) scripts from [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## Prerequisites
-Before you begin this article, you must have an Azure subscription. See [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Before you begin this article, you must have an Azure subscription.
 
 ## Set up the environments
 

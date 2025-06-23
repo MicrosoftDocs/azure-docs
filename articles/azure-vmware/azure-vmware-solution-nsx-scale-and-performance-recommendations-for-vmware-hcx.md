@@ -170,7 +170,7 @@ For detailed instructions on NSX Segment creation. [NSX Segment Creation](tutori
 Select the newly created Tier-1 Gateway when creating your new NSX Segment. 
 
 >[!NOTE]
->When creating a new NSX Segment, customers can utilize the Azure VMware Solution reserved IP space. For example, a new segment can be created with an IP range of 10.18.75.129/26, assuming the following IP space 10.18.72.0/22 was used to create the Azure VMware Solution Private Cloud.
+>When creating a new NSX Segment, customers cannot utilize the Azure VMware Solution reserved IP space.
  
 :::image type="content" source="media/nsxt/nsx-segment-creation.png" alt-text="Diagram showing the creation of an NSX segment." border="false" lightbox="media/nsxt/nsx-segment-creation.png":::
 

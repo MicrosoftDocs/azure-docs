@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: release-notes
 ms.date: 5/2/2025
 ms.author: mbender
+# Customer intent: As a Kubernetes operator, I want to install the ALB Controller using a Helm chart, so that I can manage Application Load Balancer resources effectively within my container environment.
 ---
 <!-- Custom Resource Definitions (CRDs) -->
 

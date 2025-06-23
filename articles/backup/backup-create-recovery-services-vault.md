@@ -2,7 +2,7 @@
 title: Create and configure Recovery Services vaults
 description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: how-to
-ms.date: 01/17/2025
+ms.date: 06/23/2025
 ms.custom: references_regions, engagement-fy23
 author: jyothisuri
 ms.author: jsuri
@@ -145,5 +145,6 @@ If you need to keep the current protected data in the GRS vault and continue the
 
 ## Next steps
 
-- [Learn more about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
-- [Delete Recovery Services vaults](backup-azure-delete-vault.md)
+- [Learn more about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md).
+- [Delete Recovery Services vaults](backup-azure-delete-vault.md).
+- [Update the soft delete state for Recovery Services vault using REST API](use-restapi-update-vault-properties.md).

@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 10/15/2024
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
 
 # Application Gateway for Containers components

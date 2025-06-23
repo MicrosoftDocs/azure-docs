@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 5/9/2024
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to understand how Azure Application Gateway pricing works, so that I can accurately budget for my application infrastructure costs.
 ---
 
 # Understanding Pricing for Application Gateway for Containers

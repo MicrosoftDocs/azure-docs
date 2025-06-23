@@ -57,7 +57,7 @@ With a quick install of a local Komprise data Observer, in 30 minutes or less yo
     - Date set too large for destination storage service in file count or capacity
     - Data sets with an exceedingly large number of tiny files or with a large number of empty directories
     - Slow-performing shares
-    - Lack of destination support for sparce files or symbolic links
+    - Lack of destination support for sparse files or symbolic links
 
 Komprise knows it can be challenging to find just the right data across billions of files. Komprise Deep Analytics builds a Global File Index of all your file’s metadata, giving a unified way to search, tag and create select data sets across storage silos. You can identify orphan data, data by name, location, owner, date, application type or extension. Administrators can use these queries and tagged data sets to move, copy, confine, or feed your data pipelines. They can also set data workflow policies.  This allows business to use other Azure cloud data services like personal data identification, running cloud data analytics, and culling and feeding edge data to cloud data lakes.  
 

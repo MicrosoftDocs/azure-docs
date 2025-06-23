@@ -269,9 +269,10 @@ Push-OutputBinding -Name outputSbMsg -Value @{
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to write out to a Service Bus queue in Python. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+The following example demonstrates how to write out to a Service Bus topics and Service Bus queues in Python. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
 # [v2](#tab/python-v2)
+This example shows how to write out to a Service Bus topic.
 
 ```python
 import logging
@@ -281,17 +282,76 @@ app = func.FunctionApp()
 
 @app.route(route="put_message")
 @app.service_bus_topic_output(arg_name="message",
-                              connection="<CONNECTION_SETTING>",
-                              topic_name="<TOPIC_NAME>")
+                              connection="AzureServiceBusConnectionString",
+                              topic_name="outTopic")
 def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('message')
     message.set(input_msg)
     return 'OK'
 ```
 
-# [v1](#tab/python-v1)
+This example shows how to write out to a Service Bus queue.
 
-A Service Bus binding definition is defined in *function.json* where *type* is set to `serviceBus`.
+```python
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.route(route="put_message")
+@app.service_bus_queue_output(
+    arg_name="msg",
+    connection="AzureServiceBusConnectionString",
+    queue_name="outqueue")
+def put_message(req: func.HttpRequest, msg: func.Out[str]):
+    msg.set(req.get_body().decode('utf-8'))
+    return 'OK'
+```
+
+# [v1](#tab/python-v1)
+A Service Bus binding definition is defined in *function.json* where *type* is set to `serviceBus`. This example shows how to write out to a Service Bus topic.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "msg",
+      "topicName": "outTopic"
+    }
+  ]
+}
+```
+
+In *_\_init_\_.py*, you can write out a message to the queue by passing a value to the `set` method.
+
+```python
+import azure.functions as func
+
+def main(req: azf.HttpRequest, msg: azf.Out[str]):
+    msg.set(req.get_body().decode('utf-8'))
+
+    return 'OK'
+```
+
+This example shows how to write out to a Service Bus queue.
 
 ```json
 {
@@ -322,8 +382,6 @@ A Service Bus binding definition is defined in *function.json* where *type* is s
   ]
 }
 ```
-
-In *_\_init_\_.py*, you can write out a message to the queue by passing a value to the `set` method.
 
 ```python
 import azure.functions as func
@@ -564,8 +622,9 @@ Access the output message by using `context.bindings.<name>` where `<name>` is t
 ::: zone pivot="programming-language-powershell"  
 Output to the Service Bus is available via the `Push-OutputBinding` cmdlet where you pass arguments that match the name designated by binding's name parameter in the *function.json* file.
 ::: zone-end   
-::: zone pivot="programming-language-python"  
-Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
+::: zone pivot="programming-language-python" 
+The output function parameter must be defined as `func.Out[str]` or `func.Out[bytes]`. Refer to the [output example](#example) for details. 
+Alternatively, you can use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
 ::: zone-end  
 For a complete example, see [the examples section](#example).
 

@@ -8,6 +8,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 9/16/2024
 ms.author: mbender
+# Customer intent: "As a Kubernetes developer, I want to understand the API specifications for the Application Gateway for Containers, so that I can effectively configure and manage load balancing and traffic routing for my containerized applications."
 ---
 
 # Application Gateway for Containers API specification for Kubernetes

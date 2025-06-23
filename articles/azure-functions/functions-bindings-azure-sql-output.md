@@ -44,7 +44,7 @@ The examples refer to a `ToDoItem` class and a corresponding database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
-To return [multiple output bindings](./dotnet-isolated-process-guide.md#multiple-output-bindings) in our samples, we'll create a custom return type:
+To return [multiple output bindings](./dotnet-isolated-process-guide.md#multiple-output-bindings) in our samples, we create a custom return type:
 
 ```cs
 public static class OutputType
@@ -59,7 +59,7 @@ public static class OutputType
 
 ### HTTP trigger, write one record
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, using data provided in an HTTP POST request as a JSON body.  The return object is the `OutputType` class we created to handle both an HTTP response and the SQL output binding.
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, using data provided in an HTTP POST request as a JSON body. The return object is the `OutputType` class we created to handle both an HTTP response and the SQL output binding.
 
 ```cs
 using System;
@@ -133,7 +133,7 @@ CREATE TABLE dbo.RequestLog (
 )
 ```
 
-To use an additional output binding, we add a class for `RequestLog` and  modify our `OutputType` class:
+To use an extra output binding, we add a class for `RequestLog` and  modify our `OutputType` class:
 
 ```cs
 using System;
@@ -378,7 +378,7 @@ public class ToDoItem {
 <a id="http-trigger-write-record-to-table-java"></a>
 ### HTTP trigger, write a record to a table
 
-The following example shows a SQL output binding in a Java function that adds a record to a table, using data provided in an HTTP POST request as a JSON body.  The function takes an additional dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
+The following example shows a SQL output binding in a Java function that adds a record to a table, using data provided in an HTTP POST request as a JSON body. The function takes another dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
 
 ```xml
 <dependency>
@@ -423,7 +423,7 @@ public class PostToDo {
 <a id="http-trigger-write-to-two-tables-java"></a>
 ### HTTP trigger, write to two tables
 
-The following example shows a SQL output binding in a JavaS function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.  The function takes an additional dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
+The following example shows a SQL output binding in a JavaS function that adds records to a database in two different tables (`dbo.ToDo` and `dbo.RequestLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings. The function takes another dependency on the [com.google.code.gson](https://github.com/google/gson) library to parse the JSON body.
 
 ```xml
 <dependency>
@@ -868,7 +868,6 @@ The following is sample python code for the function_app.py file:
 import json
 import logging
 import azure.functions as func
-from azure.functions.decorators.core import DataType
 
 app = func.FunctionApp()
 
@@ -1099,7 +1098,7 @@ The [C# library](functions-dotnet-class-library.md) uses the [SqlAttribute](http
 | Attribute property |Description|
 |---------|---------|
 | **CommandText** | Required. The name of the table being written to by the binding.  |
-| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. | 
+| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. | 
 
 
 ::: zone-end  
@@ -1111,8 +1110,8 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 | Element |Description|
 |---------|---------|
-| **commandText** | Required.  The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
+| **commandText** | Required. The name of the table being written to by the binding.  |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable.| 
 |**name** |  Required. The unique name of the function binding. | 
 
 ::: zone-end  
@@ -1127,7 +1126,7 @@ The following table explains the properties that you can set on the `options` ob
 | Property | Description |
 |---------|----------------------|
 | **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1139,7 +1138,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `out`. |
 |**name** | Required. The name of the variable that represents the entity in function code. | 
 | **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
 
 ---
 
@@ -1155,7 +1154,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `out`. |
 |**name** | Required. The name of the variable that represents the entity in function code. | 
 | **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
 
 ::: zone-end  
 
@@ -1169,7 +1168,7 @@ The `CommandText` property is the name of the table where the data is to be stor
 
 The output bindings use the T-SQL [MERGE](/sql/t-sql/statements/merge-transact-sql) statement which requires [SELECT](/sql/t-sql/statements/merge-transact-sql#permissions) permissions on the target database.
 
-If an exception occurs when a SQL output binding is executed then the function code stop executing.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.  If the `IAsyncCollector` is used in a .NET function then the function code can handle exceptions throw by the call to `FlushAsync()`.
+If an exception occurs when a SQL output binding is executed, then the function code stops executing. This behavior may result in an error code being returned, such as an HTTP trigger returning a 500 error code. If the `IAsyncCollector` is used in a .NET function, then the function code can handle exceptions throw by the call to `FlushAsync()`.
 
 ## Next steps
 

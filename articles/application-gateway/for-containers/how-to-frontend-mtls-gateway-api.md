@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to configure frontend MTLS authentication with Application Gateway for Containers, so that I can enhance the security of communications between clients and my services through mutual certificate validation.
 ---
 
 # Frontend MTLS with Application Gateway for Containers - Gateway API

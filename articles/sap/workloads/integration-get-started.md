@@ -4,7 +4,7 @@ description: Learn about the various integration points in the Microsoft ecosyst
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
-ms.date: 12/15/2022
+ms.date: 06/22/2025
 author: MartinPankraz
 ms.author: mapankra
 
@@ -234,7 +234,7 @@ Discover partner offerings for SAP security on the [Azure Marketplace](https://a
 
 #### Microsoft Sentinel for SAP
 
-Microsoft Sentinel integrates natively with Microsoft Defender XDR in the Defender portal. See the integration in action with [Automatic attack disruption for SAP](../../sentinel/sap/deployment-attack-disrupt.md).
+Microsoft Sentinel integrates directly with Microsoft Defender XDR and the Microsoft Defender portal. SAP solutions are available in the Defender portal as part of [Microsoft's unified security operations platform](/unified-secops-platform/), and with [Microsoft Sentinel in the Defender portal](/azure/sentinel/microsoft-sentinel-defender-portal).
 
 For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
