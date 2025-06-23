@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 09/10/2024
+ms.date: 06/12/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
@@ -74,11 +74,15 @@ Each request made by a client arrives to the service in the form of a REST opera
 
 The pricing pages don't list a price for each individual operation but instead lists the price of an operation _type_. To determine the price of an operation, you must first determine how that operation is classified in terms of its type. To trace a _logged operation_ to a _REST operation_ and then to an operation _type_, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md). 
 
+Some operations like deletes or metadata operations may be charged on hot tier only, even if the operation is executed against objects on other tiers. This does not impact the price of the operation.
+
 The price that appears beside an operation type isn't the price you pay for each operation. In most cases, it's the price of `10,000` operations. To obtain the price of an individual operation, divide the price by `10,000`. For example, if the price for write operations is `$0.055`, then the price of an individual operation is `$.0555` / `10,000` = `$0.0000055`. You can estimate the cost to upload a file by multiplying the number write operations required to complete the upload by the cost of an individual transaction. To learn more, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
 
 #### Data transfer meter
 
-Any data that leaves the Azure region incurs data transfer and network bandwidth charges. These charges commonly appear in scenarios where an account is configured for geo-redundant storage or when an object replication policy is configured to copy data to an account in another region. However, these charges also apply to data that is downloaded to an on-premises client. The price of network bandwidth doesn't appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
+Any data that leaves the Azure region incurs either a data transfer or network bandwidth charge. The data transfer meter appears when an account is configured for geo-redundant storage. 
+
+Network bandwidth fees apply when a workload or object replication policy copies data to an account in another region. Network bandwidth fees can also appear when data that is downloaded to an on-premises client. The price of network bandwidth doesn't appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 #### Feature-related meters
 
@@ -134,22 +138,27 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 2. Scroll down the page and locate the **Storage Accounts** section of your estimate.
 
-3. Choose options from the drop-down lists.
+1. Choose options from the drop-down lists.
 
    As you modify the value of these drop-down lists, the cost estimate changes. That estimate appears in the upper corner as well as the bottom of the estimate.
 
    ![Screenshot showing your estimate.](media/storage-plan-manage-costs/price-calculator-storage-type.png)
-
-   As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
+   
+      As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
 
 4. Modify the remaining options to see their effect on your estimate.
 
-   > [!TIP]
-   > See these in-depth guides to help you predict and forecast costs:
-   >
-   > - [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
-   > - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
-   > - [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+### Guides and sample estimates
+
+See these in-depth guides to help you predict and forecast costs:
+
+- [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
+- [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md)
+- [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
+- [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+- [Cost estimate: Move data out of archive storage](../blobs/cost-estimate-archive-retrieval-set-tier.md)
+- [Cost estimate: Retrieve data from archive storage for analysis](../blobs/cost-estimate-archive-retrieval-copy-blob.md)
+- [Cost estimate: Upload and access data from multiple regions](../blobs/cost-estimate-multi-region-access.md)
 
 ### Using Azure Prepayment with Azure Blob Storage
 
@@ -190,16 +199,16 @@ To view Azure Storage costs in cost analysis:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
+1. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
 
    ![Screenshot showing scope](./media/storage-plan-manage-costs/cost-analysis-pane.png)
-
-4. To view only costs for Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list.
+   
+1. To view only costs for Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list.
 
    Here's an example showing costs for just Azure Storage:
 
    ![Screenshot showing filter by storage](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
-
+   
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and by resource group also appear. 
 You can add other filters as well (For example: a filter to see costs for specific storage accounts).
 

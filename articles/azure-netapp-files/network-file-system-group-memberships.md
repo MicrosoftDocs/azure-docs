@@ -1,15 +1,15 @@
 ---
-title: Understand NFS group memberships and supplemental groups for Azure NetApp Files | Microsoft Learn
+title: Understand NFS group memberships and supplemental groups for Azure NetApp Files
 description: This article helps you understand NFS group memberships and supplemental groups as they apply to Azure NetApp Files.
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/02/2023
+ms.date: 01/02/2025
 ms.author: anfdocs
 ---
 
-# Understand NFS group memberships and supplemental groups
+# Understand NFS group memberships and supplemental groups in Azure NetApp Files
 
 You can use LDAP to control group membership and to return supplemental groups for NFS users. This behavior is controlled through schema attributes in the LDAP server.
 

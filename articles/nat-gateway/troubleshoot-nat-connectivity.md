@@ -9,6 +9,7 @@ ms.topic: troubleshooting
 ms.date: 02/20/2024
 ms.author: allensu
 #Customer intent: For customers to troubleshoot and resolve common outbound connectivity issues with your NAT gateway. This article also provides best practices on how to design applications to use outbound connections efficiently.
+# Customer intent: As a network engineer, I want to troubleshoot connectivity issues with the NAT gateway, so that I can ensure reliable outbound connections for my applications and improve overall network performance.
 ---
 
 # Troubleshoot Azure NAT Gateway connectivity

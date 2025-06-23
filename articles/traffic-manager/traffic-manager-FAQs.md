@@ -2,11 +2,12 @@
 title: Azure Traffic Manager - FAQ
 description: This article provides answers to frequently asked questions about Traffic Manager.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 01/28/2025
-ms.author: greglin
+ms.author: allensu
+# Customer intent: As a Cloud Architect, I want to understand Azure Traffic Manager functionalities and limitations, so that I can effectively implement it for DNS-based traffic routing and ensure optimal performance of my distributed applications.
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)
@@ -92,7 +93,7 @@ For example, if your Traffic Manager profile name is **label1**, then **label1.t
 
 ### What version of TLS is required by Traffic Manager?
 
-The Microsoft implementation of older TLS versions is not known to be vulnerable, however, TLS 1.2 and later offer improved security with features such as perfect forward secrecy and stronger cipher suites. To enhance security and provide best-in-class encryption for your data, Traffic Manger requires interactions with services to be secured using Transport Layer Security (TLS) 1.2 or later before February 28,2025. Traffic Manger support for TLS 1.0 and 1.1 will end on this date. This date might be different than the [Azure-wide TLS 1.0 and TLS 1.1 retirement date](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
+The Microsoft implementation of older TLS versions is not known to be vulnerable, however, TLS 1.2 and later offer improved security with features such as perfect forward secrecy and stronger cipher suites. To enhance security and provide best-in-class encryption for your data, Traffic Manager requires interactions with services to be secured using Transport Layer Security (TLS) 1.2 or later before February 28,2025. Traffic Manager support for TLS 1.0 and 1.1 will end on this date. This date might be different than the [Azure-wide TLS 1.0 and TLS 1.1 retirement date](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
 
 **Recommended action** 
 
@@ -521,7 +522,7 @@ One of the metrics provided by Traffic Manager is the health status of endpoints
 
 Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They're also supported via the new Azure portal.
 
-### How many layers of nesting does Traffic Manger support?
+### How many layers of nesting does Traffic Manager support?
 
 You can nest profiles up to 10 levels deep. 'Loops' aren't permitted.
 

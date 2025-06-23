@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As an HPC architect, I want to understand the steps involved in migrating base services to the cloud, so that I can ensure a seamless transition while maintaining performance, scalability, and cost-effectiveness of my high-performance computing environment.
 ---
 
 # Base services migration overview

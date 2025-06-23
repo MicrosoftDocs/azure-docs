@@ -1,9 +1,9 @@
 ---
 title: How to delete operator resources in Azure Operator Service Manager
 description: Learn how to delete operator services
-author: sherrygonz
-ms.author: sherryg
-ms.date: 09/11/2023
+author: msftadam
+ms.author: adamdor
+ms.date: 06/10/2025
 ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
@@ -79,3 +79,7 @@ While deleting a Site Network Service (SNS) is a straightforward task, here are 
     :::image type="content" source="media/how-to-delete-operator-resource-delete-site.png" alt-text="Screenshot showing the Site selected for deletion." lightbox="media/how-to-delete-operator-resource-delete-site.png":::
 
 1. Follow the prompts to confirm and complete the deletion.
+
+## Post Delete Considerations
+
+AOSM does not perform a delete namespace as part of any delete operation. As such, once all resources have been deleted, some artifacts may remain on the cluster. To purge any remaining artifacts, the user should perform a delete namespace on any workload namespaces created on the cluster. Including this delete namespace operation as part of the workflow pipeline is recommended to automate the action.

@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.custom: devx-track-javascript
 ms.topic: tutorial
-ms.date: 02/02/2025
+ms.date: 05/22/2025
 #Customer intent: I want to learn how to use Azure App Configuration JavaScript client library.
 ---
 
@@ -351,6 +351,79 @@ const resolveSecret = (url) => "From Secret Resolver";
 const appConfig = await load(endpoint, credential, {
     keyVaultOptions: {
         secretResolver: resolveSecret
+    }
+});
+```
+
+You can also set `clientOptions` property to configure `SecretClientOptions` used to connect to Azure Key Vault that has no registered `SecretClient`.
+
+```typescript
+const credential = new DefaultAzureCredential();
+const appConfig = await load(endpoint, credential, {
+    keyVaultOptions: {
+        credential: credential,
+        clientOptions: { // configure a custom SecretClientOptions
+            retryOptions: { 
+                maxRetries: 3, 
+                maxRetryDelayInMs: 1000 
+            }
+        }
+    }
+});
+```
+
+### Parallel secret resolution
+
+Azure Key Vault doesn't provide a batch API for retrieving multiple secrets in a single request. When your application needs to load numerous Key Vault references, you can improve performance by enabling parallel secret resolution using the `parallelSecretResolutionEnabled` property in `KeyVaultOptions`. This allows the provider to fetch multiple secrets in parallel rather than sequentially:
+
+
+```typescript
+const credential = new DefaultAzureCredential();
+const appConfig = await load(endpoint, credential, {
+    keyVaultOptions: {
+        credential: credential,
+        parallelSecretResolutionEnabled: true
+    }
+});
+```
+
+> [!NOTE]
+> When resolving secret in parallel, you may encounter the [service limit](/azure/key-vault/general/service-limits#secrets-managed-storage-account-keys-and-vault-transactions) of Azure Key Vault.
+> To handle throttling effectively, implement the [client-side throttling best practices](/azure/key-vault/general/overview-throttling#how-to-throttle-your-app-in-response-to-service-limits) by configuring appropriate retry options for the `SecretClient`. You can either register custom `SecretClient` instances or configure `clientOptions` via the `AzureAppConfigurationOptions.keyVaultOptions`.
+
+
+## Snapshot
+
+[Snapshot](./concept-snapshots.md) is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
+
+You can use snapshot selector to load key-values or feature flags from a snapshot:
+
+```typescript
+const appConfig = await load(endpoint, credential, {
+    selectors: [
+        { snapshotName: "MySnapshot" }, // load key-values from snapshot
+        { keyFilter: "test*", labelFilter: "test" }
+    ],
+    featureFlagOptions: {
+        enabled: true,
+        selectors: [
+            { snapshotName: "MySnapshot" }, // load feature flags from snapshot
+            { keyFilter: "*", labelFilter: "test" }
+        ]
+    }
+});
+```
+
+## Startup retry
+
+Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
+
+You can customize this behavior via the `AzureAppConfigurationOptions.startupOptions`:
+
+```typescript
+const appConfig = await load(endpoint, credential, { 
+    startupOptions: { 
+        timeoutInMs: 300_000
     }
 });
 ```

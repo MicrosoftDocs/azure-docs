@@ -84,6 +84,8 @@ items:
       items:
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
+        - name: Quarkus with PostgreSQL
+          href: tutorial-java-quarkus-postgresql-app.md
         - name: Tomcat with MySQL
           href: tutorial-java-tomcat-mysql-app.md             
         - name: Java Tomcat to Postgres
@@ -445,6 +447,8 @@ items:
               href: configure-vnet-integration-routing.md
             - name: Configure gateway-required integration
               href: configure-gateway-required-vnet-integration.md
+            - name: Migrate from gateway-based integration
+              href: migrate-gateway-based-vnet-integration.md
         - name: Deploy app behind private endpoint
           href: overview-private-endpoint.md
         - name: Control outbound traffic with Azure Firewall
@@ -560,7 +564,7 @@ items:
     - name: Build your skills with Microsoft Learn training
       href: /training/browse/
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-service/
     - name: Quota Information
@@ -594,7 +598,7 @@ items:
     - name: Samples
       href: https://azure.microsoft.com/resources/samples/?service=app-service
     - name: Videos
-      href: https://azure.microsoft.com/resources/videos/index/?services=app-service
+      href: /shows/browse?products=azure-app-service
     - name: Migrate to App Service
       items:
         - name: Assess .NET

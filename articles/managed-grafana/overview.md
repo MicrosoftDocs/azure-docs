@@ -6,7 +6,8 @@ author: maud-lv
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: overview 
-ms.date: 05/22/2025
+ms.date: 06/22/2025
+
 --- 
 
 # What is Azure Managed Grafana?

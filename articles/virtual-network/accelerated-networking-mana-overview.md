@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: mattmcinnes
+# Customer intent: As a cloud administrator, I want to implement the Azure Network Adapter to optimize networking performance for my virtual machines, so that I can ensure better stability and availability in our cloud infrastructure.
 ---
 
 # Microsoft Azure Network Adapter overview

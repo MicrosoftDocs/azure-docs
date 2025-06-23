@@ -1,11 +1,12 @@
 ---
 title: Secure and view DNS traffic - Azure DNS (Preview)
 description: Learn how to filter and view Azure DNS traffic
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 02/24/2025
-ms.author: greglin
+ms.author: allensu
+# Customer intent: "As a network administrator, I want to configure and view DNS traffic security policies, so that I can monitor and control DNS queries in my virtual network for enhanced security and compliance."
 ---
 
 # Secure and view DNS traffic (Preview)

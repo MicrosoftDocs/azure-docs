@@ -2,11 +2,13 @@
 title: Azure Update Manager supported regions.
 description: Discover the regions where Azure Update Manager is supported for both Azure VMs and Azure Arc-enabled servers. This article provides a comprehensive list of supported regions across Azure Public Cloud, Azure for US Government, and Azure operated by 21Vianet
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 05/13/2025
 ms.topic: overview
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Supported regions for Azure Update Manager
@@ -60,7 +62,7 @@ China | ChinaEast </br> ChinaEast3 </br>  ChinaNorth </br> ChinaNorth3 </br> Chi
 
 ## Next steps
 
-- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manger.
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manager.
 - Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
 - Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).
 - Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).

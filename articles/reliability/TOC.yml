@@ -2,8 +2,6 @@
   href: index.yml
 - name: Overview
   href: overview.md
-- name: What's new
-  href: whats-new.md
 - name: Reliability fundamentals
   items:
   - name: Business continuity, high availability, and disaster recovery
@@ -50,8 +48,6 @@
         href: migrate-functions.md
       - name: Azure Cache for Redis
         href: migrate-cache-redis.md
-      - name: Azure AI Search
-        href: migrate-search-service.md
       - name: Azure Backup
         href: migrate-recovery-services-vault.md
       - name: Azure Batch
@@ -281,7 +277,7 @@
     - name: Azure Device Registry
       href: reliability-device-registry.md
     - name: Azure IoT Hub
-      href: reliability-iot-hub.md
+      href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#disable-disaster-recovery
     - name: Azure Notification Hubs
       href: reliability-notification-hubs.md
   - name: Media
@@ -353,11 +349,7 @@
     - name: Azure Traffic Manager
       href: reliability-traffic-manager.md
     - name: Azure Virtual Network
-      items:
-      - name: Availability zones
-        href: ../virtual-network/virtual-networks-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#virtual-networks-and-availability-zones
-      - name: Disaster recovery
-        href: ../virtual-network/virtual-network-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#business-continuity
+      href: reliability-virtual-network.md
     - name: Azure Virtual WAN
       items:
       - name: Availability zones

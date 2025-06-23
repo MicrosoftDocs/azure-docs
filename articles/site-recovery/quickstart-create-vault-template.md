@@ -4,8 +4,8 @@ description: In this quickstart, you learn how to create an Azure Recovery Servi
 ms.date: 05/23/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.service: azure-site-recovery
 ---
 
