@@ -13,8 +13,8 @@ ms.topic: overview
 ms.date: 01/15/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
-This document provides an overview about Azure Migrate application and code assessment for Java to help you generally understand its suitable scenarios to help you migrate Java applications to Azure.
 # Overview of Azure Migrate Application and Code Assessment for Java
+This document provides an overview about Azure Migrate application and code assessment for Java to help you generally understand its suitable scenarios to help you migrate Java applications to Azure.
 > [!NOTE]
 > This article is for *Azure Migrate application and code assessment for Java*, version 7.x. This version has entered into GA since July 2025.
 
