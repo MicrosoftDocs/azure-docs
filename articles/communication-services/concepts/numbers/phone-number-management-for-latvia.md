@@ -26,6 +26,8 @@ Use the below tables to find all the relevant information on number availability
 
 \* Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+
 
 ## Subscription eligibility
 
