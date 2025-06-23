@@ -54,7 +54,9 @@ Azure provides over 60 regions globally, that are located across many different 
 
 ## Azure availability zones
 
-Many Azure regions provide availability zones, which are separated groups of datacenters within a region. Availability zones are close enough to have low-latency connections to other availability zones, but are far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones. 
+Many Azure regions provide availability zones, which are separated groups of datacenters within a region. Availability zones are an important way to achieve reliability on the Azure platform because they provide some level of physical isolation within a region.
+
+Availability zones are close enough to have low-latency connections to other availability zones, but are far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones. 
 
 - For more information on availability zones, see [What are availability zones?](./availability-zones-overview.md).
 - To view which regions support availability zones, see [List of Azure regions](./regions-list.md).
