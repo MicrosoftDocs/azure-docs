@@ -15,6 +15,8 @@ ms.author: normesta
 
 You can deny all public access to your storage account, and then configure Azure network settings to accept requests that originate from specific virtual network subnets. To learn more, see [Permit access to virtual network subnets](storage-network-security.md#grant-access-from-a-virtual-network).
 
+To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets that are being added. A [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) or a user who has permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) can apply a rule by using a custom Azure role.
+
 ## [Portal](#tab/azure-portal)
 
 > [!NOTE]
