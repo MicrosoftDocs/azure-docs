@@ -7102,6 +7102,9 @@
     {
       "source_path": "articles/container-apps/sre-agent-troubleshoot.md",
       "redirect_url": "/azure/sre-agent/troubleshoot-azure-container-apps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/reliability/whats-new.md",
       "redirect_url": "/azure/reliability/overview",
       "redirect_document_id": false
