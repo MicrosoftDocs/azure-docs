@@ -28,25 +28,25 @@ The following diagram demonstrates a typical architecture of Azure NetApp Files 
 
 Before you begin the prerequisites, review the [Performance best practices](#performance-best-practices) section to learn about optimal performance of NFS datastores on Azure NetApp Files volumes.
 
-
-Ensure you have the correct permissions configured if you're using a custom role.
-<details><summary>For a complete list of permissions, expand this section.</summary>
-
-To create an Azure NetApp Files datastore, you must have the following permissions: 
-- `Microsoft.AVS/privateClouds/clusters/datastores/write`
-- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read`
-- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/updateAVSDataStoreInfo/action`
-
-To delete an Azure NetApp Files datastore, you must have the following permissions: :
-- `Microsoft.AVS/privateClouds/clusters/datastores/delete`
-- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read`
-- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/updateAVSDataStoreInfo/action`
-
-To update the service level: 
-- `Microsoft.AVS/privateClouds/clusters/datastores/write`
-- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write`
-
-For more information about custom roles, see [create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md).
+>[!IMPORTANT]
+>Ensure you have the correct permissions configured if you're using a custom role.
+><details><summary>For a complete list of permissions, expand this section.</summary>
+>
+>To create an Azure NetApp Files datastore, you must have the following permissions: 
+>- `Microsoft.AVS/privateClouds/clusters/datastores/write`
+>- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read`
+>- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/updateAVSDataStoreInfo/action`
+>
+>To delete an Azure NetApp Files datastore, you must have the following permissions: :
+>- `Microsoft.AVS/privateClouds/clusters/datastores/delete`
+>- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read`
+>- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/updateAVSDataStoreInfo/action`
+>
+>To update the service level: 
+>- `Microsoft.AVS/privateClouds/clusters/datastores/write`
+>- `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write`
+>
+>For more information about custom roles, see [create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md).
 </details>
 
 
