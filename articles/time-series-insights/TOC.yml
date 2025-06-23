@@ -105,6 +105,6 @@
     - name: Product requests and suggestions
       href: https://feedback.azure.com/d365community/forum/873d6d1c-0c25-ec11-b6e6-000d3a4f07b8
   - name: Azure videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights
+    href: /shows/azure/microsoft-azure-time-series-insights-overview
   - name: Azure IoT updates
     href: https://azure.microsoft.com/updates/?category=iot

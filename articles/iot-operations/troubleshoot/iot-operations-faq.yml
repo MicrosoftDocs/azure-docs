@@ -35,7 +35,7 @@ sections:
       answer: For information on high availability across availability zones and regions for ADR, see [Reliability in Azure Device Registry](../../reliability/reliability-device-registry.md).
     - question: |
          On which platforms is Azure IoT Operations supported?
-      answer: Currently, K3s on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production. To learn more, see [Supported environments](../deploy-iot-ops/overview-deploy.md#supported-environments).
+      answer: Currently, K3s on Ubuntu 24.04 and Tanzu Kubernetes are the only platforms for deploying Azure IoT Operations in production. To learn more, see [Supported environments](../deploy-iot-ops/overview-deploy.md#supported-environments).
     - question: |
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
       answer: Azure IoT Edge isn't an Azure Arc-enabled service like Azure IoT Operations is. Instead, IoT Edge is deeply integrated with and relies on Azure IoT Hub primitives such as device twins and direct methods for its functionality. While Azure IoT Operations can achieve outcomes similar to IoT Edge in some scenarios, the two services have fundamentally different architectures. As a result, there isn't a direct migration path for transitioning IoT Edge workload modules to Azure IoT Operations. 
