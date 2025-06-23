@@ -368,7 +368,7 @@ It's helpful to categorize IoT devices as follows:
   - Connect indirectly to the cloud through the MQTT broker in Azure IoT Operations.
   - Connect indirectly to IoT Hub through an Azure IoT Edge gateway.
 
-- **Device category 3**: These devices are virtual representations of physical assets such as servers, gateways, and cameras. The virtual representation has inbound endpoints for protocols such as ONVIF and OPC UA to enable connectivity and exists in the edge runtime. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
+- **Device category 3**: These devices connect to an edge-based runtime through a connector that enables the devices to use a specific protocol. For example, an OPC UA server and it's attached devices connect through a connector for OPC UA. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
 
 The following items are examples of category 1 and 2 IoT devices:
 
@@ -391,7 +391,7 @@ The following items are examples of category 3 devices:
 
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, IoT Edge, Device Provisioning Service
+Applies to: IoT Hub, IoT Central, IoT Edge, Device Provisioning Service, Azure IoT Operations
 
 ### Device Provisioning Service
 
