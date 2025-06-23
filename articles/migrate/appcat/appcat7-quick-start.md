@@ -116,4 +116,5 @@ In the **samples** directory, you can find the following scripts to run differen
 
 > [!div class="nextstepaction"]
 > [Interpret the report](appcat7-interpret-report.md)
+> [!div class="nextstepaction"]
 > [Understand more on CLI usage](appcat7-cli-guide.md)
