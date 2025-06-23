@@ -13,7 +13,6 @@ ms.date: 05/28/2025
 
 # CLI Command Guide for AppCAT 7
 
-## Overview
 The guide describes AppCAT CLI command usage.
 
 ## Commands
