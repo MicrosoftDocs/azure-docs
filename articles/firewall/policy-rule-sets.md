@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: duau
+# Customer intent: As a network security administrator, I want to organize and manage firewall policies with rule sets, so that I can efficiently filter and control network traffic based on specific security requirements.
 ---
 
 # Azure Firewall Policy rule sets

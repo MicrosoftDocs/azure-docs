@@ -8,7 +8,7 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.topic: how-to
-ms.date: 05/19/2025
+ms.date: 06/02/2025
 ms.author: cshoe
 ---
 
@@ -76,7 +76,17 @@ Access to this feature is only available after you have serverless GPU quota. Yo
 
 ## Supported regions
 
-Serverless GPUs are available in the *West US 3*, *Australia East*, and *Sweden Central* regions.
+Serverless GPUs are available in the following regions:
+
+| Region | A100 | T4 |
+|--|--|--|
+| West US 3 | Yes | Yes |
+| West US | Yes | No |
+| Australia East | Yes | Yes |
+| Sweden Central | Yes | Yes |
+| West Europe<sup>1</sup> | No | Yes |
+
+<sup>1</sup> To add a T4 serverless GPU workload profile in West Europe, you must create a new workload profile environment in the region.
 
 ## Use serverless GPUs
 

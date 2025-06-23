@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 5/8/2025
 ms.author: mbender
+# Customer intent: "As a web application developer, I want to implement server-sent events with Application Gateway for Containers, so that I can enable real-time updates to clients while managing connection timeouts effectively."
 ---
 
 # Server-sent events

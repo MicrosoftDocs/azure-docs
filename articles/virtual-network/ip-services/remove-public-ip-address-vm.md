@@ -10,6 +10,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to dissociate a public IP address from an Azure virtual machine, so that I can control network access and enhance security by removing its internet connectivity."
 ---
 
 # Dissociate a public IP address from an Azure VM 

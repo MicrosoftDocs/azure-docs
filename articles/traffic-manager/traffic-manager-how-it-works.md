@@ -8,6 +8,7 @@ ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 08/08/2024
 ms.author: allensu
+# Customer intent: As a web application developer, I want to implement Traffic Manager for my multi-region application, so that I can improve performance and ensure high availability by distributing client traffic efficiently across multiple endpoints.
 ---
 
 # How Traffic Manager Works
