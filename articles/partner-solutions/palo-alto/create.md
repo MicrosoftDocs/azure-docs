@@ -12,22 +12,28 @@ ms.date: 06/27/2025
 
 In this quickstart, you use Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource**.
 
-## Create a new Cloud NGFW by Palo Alto Networks resource
+## Prerequisites
 
-In this section, you see how create a Palo Alto Networks resource.
+[!INCLUDE create-prerequisites]
 
-### Basics
+## Create a Cloud NGFW resource
 
-1. In the Azure portal, create a Cloud NGFW by Palo Alto Networks resource using the Marketplace. Use search to find _Cloud NGFW by Palo Alto Networks_. Then, select **Subscribe**. Then, select **Create**.
+[!INCLUDE create-resource]
 
-1. Set the following values in the Basics tab.
+In this section, you'll create a Palo Alto Networks resource.
 
-   :::image type="content" source="media/palo-alto-create/palo-alto-basics.png" alt-text="Screenshot of Basics tab of the Palo Alto Networks create experience.":::
+### Basics tab
 
-   | Property  | Description |
+1. In the Azure portal, create a Cloud NGFW resource by using the Marketplace. Use search to find _Cloud NGFW by Palo Alto Networks_. Select **Subscribe** and then select **Create**.
+
+1. Set the following values on the **Basics** tab.
+
+   :::image type="content" source="media/palo-alto-create/palo-alto-basics.png" alt-text="Screenshot of the Basics tab of the Create Cloud NGFW page." lightbox="media/palo-alto-create/palo-alto-basics.png":::
+
+   | Setting  | Description |
    |---------|---------|
-   | **Subscription**  | From the drop-down, select your Azure subscription where you have owner access. |
-   | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see Azure Resource Group overview. |
+   | **Subscription**  | Select an Azure subscription for which you have owner access. |
+   | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [What is a resource group?](/azure/azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group). |
    | **Name**  | Put the name for the Palo Alto Networks account you want to create. |
    | **Region** | Select an appropriate region. |
    | **Pricing Plan**     | Specified based on the selected Palo Alto Networks plan. |
