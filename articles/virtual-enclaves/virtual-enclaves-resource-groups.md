@@ -14,7 +14,7 @@ Azure Virtual Enclaves simplifies the creation of complex secure environments an
 ## Single subscription deployment architecture
 For a deployment into a single subscription, the Azure Virtual Enclaves resources can be organized in one resource group. This example shows a community, an enclave, a workload with one workload resource group, and a workload with 3 workload resource groups.
 
-![Diagram showing Azure Virtual Enclaves organized into the different resource groups used in a deployment in one subscription.](./media/azure-virtual-enclaves-resource-groups-one-subscription.svg)
+[ ![Diagram showing Azure Virtual Enclaves organized into the different resource groups used in a deployment in one subscription.](./media/azure-virtual-enclaves-resource-groups-one-subscription.svg) ](./media/azure-virtual-enclaves-resource-groups-one-subscription.svg#lightbox)
  
 1.	The resource group where the Azure Virtual Enclave resources are deployed. The Azure Virtual Enclave resources can be organized into resource groups according to your needs. 
 2.	Community managed resource group - The managed resource group deployed with the community for the community resources like the firewall and Log Analytics workspace. Our documentation will refer to this resource group as the `community managed resource group` and one is created for each community. You should not normally deploy new Azure resources to this resource group manually. Azure Virtual Enclaves will manage resources in this resource group. This resource group is deleted when the community is deleted. [What gets deployed](./what-azure-virtual-enclaves.md#what-gets-deployed)
@@ -28,12 +28,12 @@ During the creation of a community or enclave, a new resource group is also crea
 ## Multi-subscription deployment architecture
 For a deployment into two subscriptions, the Azure Virtual Enclaves resources can be organized into two resource groups. This example shows a community in one subscription and an enclave, a workload with one workload resource group, and a workload with 3 workload resource groups in another subscription.
 
-![Diagram showing Azure Virtual Enclaves organized into the different resource groups used in a deployment in two subscriptions.](./media/azure-virtual-enclaves-resource-groups-two-subscriptions.svg)
+[ ![Diagram showing Azure Virtual Enclaves organized into the different resource groups used in a deployment in two subscriptions.](./media/azure-virtual-enclaves-resource-groups-two-subscriptions.svg) ](./media/azure-virtual-enclaves-resource-groups-two-subscriptions.svg#lightbox)
  
-The main difference with two subscriptions is that the Azure Virtual Enclaves resources are organized into two resource groups, one in each subscription. The other resource groups are aligned with the subscription as shown.
+In this archetecture with two subscriptions the Azure Virtual Enclaves resources are organized into two resource groups, one in each subscription (labeled each with a `#1`). The other resource groups are aligned with the subscription as shown. If you wanted to deploy more enclaves, you could deploy all of the enclaves in this second subscription, each enclave could have it's own subscription, or a combination to fit yours needs.
 
 ## Frequently asked questions
-Frequently asked questions about Azure Virtual Enclaves Approvals.
+Frequently asked questions about Azure Virtual Enclaves resource groups.
 
 ### How do I access the enclave portal page for management?
 If you wanted to manage the enclave, you would navigate to the enclave resource located in the #1 resource group. You could then perform management tasks on the enclave like enabling maintenance mode or adding an enclave endpoint. You can also navigate to this resource by searching for the enclave name in the list of all enclave resources in the portal.
