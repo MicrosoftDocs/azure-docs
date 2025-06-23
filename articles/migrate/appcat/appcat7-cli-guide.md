@@ -1,5 +1,5 @@
 ---
-title: Azure Migrate Application and Code Assessment for Java version 7 CLI Command Guide
+title: CLI Command Guide for AppCAT 7
 description: Learn how to run the CLI for Azure Migrate application and code assessment tool.
 author: KarlErickson
 ms.author: karler
