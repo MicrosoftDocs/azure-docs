@@ -82,7 +82,9 @@ The default Windows plan is **Workflow Standard WS1 (210 total ACU, 3.5 Gb memor
 
 ## Integrating with Azure Virtual Network
 
-If your log management server is hosted in Azure - for example, your VMware Cloud Foundation Operations for Logs in your Azure VMware Solution private cloud - you will need to integrate your Azure Logic App with the virtual network used by the log management server. This ensures the Logic App can communicate with endpoints that are only accessible within the virtual network. 
+If your log management server is hosted in Azure - for example, your VMware Cloud Foundation Operations for Logs in your Azure VMware Solution private cloud - you will need to integrate your Azure Logic App with an Azure virtual network that can be reached by the log management server. This ensures the Logic App can communicate with endpoints that are only accessible within the virtual network. 
+
+For example - if you're deploying your log management server on an Azure VMware Solution private cloud, you will need an Azure Virtual Network that can be peered to the private cloud's network (if using the Gen 1 architecture) or integrated directly to the Azure Virtual Network (if using the Gen 2 architecture).
 
 ###Prerequisites
 - The Azure Virtual Network and the Azure Logic App must be in the same region. **Cross-region integration is not supported and will cause the setup to fail.**
