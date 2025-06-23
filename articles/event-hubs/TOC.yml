@@ -455,4 +455,4 @@
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-eventhub
     - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
+      href: /shows/data-exposed/?expanded=azure&terms=event-hubs

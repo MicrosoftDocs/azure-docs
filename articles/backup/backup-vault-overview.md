@@ -2,7 +2,7 @@
 title: Overview of the Backup vaults
 description: An overview of Backup vaults.
 ms.topic: overview
-ms.date: 05/28/2025
+ms.date: 06/23/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
@@ -69,3 +69,4 @@ Learn [how to perform Cross Region Restore](manage-backup-vault.md#perform-cross
 
 - [Create and delete Backup vault](create-manage-backup-vault.md).
 - [Manage Backup vault](manage-backup-vault.md).
+- [Create a Backup vault using REST API](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md).
