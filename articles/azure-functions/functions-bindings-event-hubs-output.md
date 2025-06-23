@@ -458,6 +458,8 @@ There are two options for outputting an Event Hubs message from a function:
 
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Hubs message.
 
+The output function parameter must be defined as `func.Out[func.EventHubEvent]` or `func.Out[List[func.EventHubEvent]]`. Refer to the [output example](#example) for details.
+
 ::: zone-end
 
 [!INCLUDE [functions-event-hubs-connections](../../includes/functions-event-hubs-connections.md)]
