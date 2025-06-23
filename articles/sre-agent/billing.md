@@ -17,9 +17,9 @@ Agent actions carried out by Azure SRE Agent fall under two categories: always-o
 Use the following table to help you estimate the costs associated with how you use SRE Agent.
 
 | Action category | Calculation basis |
-|---|---|---|
+|---|---|
 | Always-on flow | 4 AAU per agent hour |
-| Active flow |  | 0.25 AAU per agent task, per second |
+| Active flow  | 0.25 AAU per agent task, per second |
 
 For more information on current AAU pricing for your region, see the Azure pricing calculator.
 
