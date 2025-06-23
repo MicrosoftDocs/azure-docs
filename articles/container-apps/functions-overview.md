@@ -66,8 +66,8 @@ To adhere to security best practices, connect to remote services using Microsoft
 
 Managed identities are available for the following connections:
 
-- [Default storage account](/azure/azure-functions/functions-reference) (AzureWebJobsStorage)
-- [Azure Container Registry](/azure/azure-functions/functions-deploy-container-apps?tabs=acr): When running in Container Apps, you can use Microsoft Entra ID with managed identities for all binding extensions that support managed identities. Currently, only these binding extensions support event-driven scaling when using managed identity authentication:
+- [Default storage account](../azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity) (AzureWebJobsStorage)
+- Azure Container Registry: When running in Container Apps, you can use Microsoft Entra ID with managed identities for all binding extensions that support managed identities. Currently, only these binding extensions support event-driven scaling when using managed identity authentication:
 - Azure Event Hubs
 - Azure Queue Storage
 - Azure Service Bus
