@@ -16,7 +16,7 @@ ms.date: 01/15/2025
 # Quick start to assess a java project using AppCAT 7
 This document describes how to download, install and run AppCAT 7 against a sample Java project. 
 
-### Prerequisites
+## Prerequisites
 Before downloading AppCAT, please make sure JDK is installed and configured correctly.
 - [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the `JAVA_HOME` environment variable is set.
 
@@ -73,7 +73,7 @@ Extract the binary from the downloaded file. You should see the following folder
 └── readme.html
 ```
 
-### Run AppCAT against a sample Java project
+## Run AppCAT against a sample Java project
 In following steps, let's do application assessment using AppCAT against [Airsonic-Advanced](https://github.com/airsonic-advanced/airsonic-advanced) - a community-driven, web-based media streamer that enables you to access and share your music collection.
 
 1. To run `appcat` from any location in your terminal, extract the archive to your desired location. Then, update the `PATH` environment variable to include the directory where you extracted the archive.
