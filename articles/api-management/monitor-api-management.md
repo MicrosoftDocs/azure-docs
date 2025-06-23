@@ -1,9 +1,11 @@
 ---
 title: Monitor Azure API Management
 description: Learn how to monitor Azure API Management using Azure Monitor, including data collection, analysis, and alerting.
-ms.date: 01/06/2025
-ms.custom: horz-monitor
-ms.topic: concept-article
+ms.date: 05/14/2025
+ms.custom:
+  - horz-monitor
+  - build-2025
+ms.topic: how-to
 author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
@@ -100,46 +102,48 @@ Use [Reports](/rest/api/apimanagement/reports) operations in the API Management 
 
 Available operations return report records by API, geography, API operations, product, request, subscription, time, or user.
 
-### Enable logging of developer portal usage in Azure API Management
+### Azure Monitor logs
 
-This section shows you how to enable Azure Monitor logs for auditing and troubleshooting usage of the API Management [developer portal](developer-portal-overview.md). When enabled through a diagnostic setting, the logs collect information about the requests that are received and processed by the developer portal.
+This section shows you how to enable Azure Monitor logs for auditing and troubleshooting usage of different features of your API Management instance. By enabling a diagnostic setting, you can enable collection of one or more of the following categories of resource logs:
 
-Developer portal usage logs include data about activity in the developer portal, including:
+|Category  |Description  | Notes |
+|---------|---------|-----|
+|API Management gateway     |  Requests processed by the API Management gateway, including HTTP methods, protocols, request and response bodies, headers, timings, error details, and cache involvement.       | Adjust settings for all APIs, or override them for individual APIs.<br/><br/>In API Management instances configured with [workspaces](workspaces-overview.md), gateway logs can be collected individually for each workspace and aggregated for centralized access by the platform team.  |
+|WebSocket connections     | Events for [WebSocket API](websocket-api.md) connections, starting from the handshake until the connection is terminated.       |
+|Developer portal usage     |  Requests that are received and processed by the API Management [developer portal](developer-portal-overview.md), including user authentication actions, views of API details, and API testing in the interactive test console.|
+| Generative AI gateway | Requests processed by the API Management gateway for large language model (LLM) REST APIs such as Azure OpenAI APIs, including token usage, models, and optionally details of request prompts and response completions. | Enable logging of request messages and/or response messages for specific LLM APIs.
 
-- User authentication actions, such as sign-in and sign-out
-- Views of API details, API operation details, and products
-- API testing in the interactive test console
+For more information, see [API Management monitoring data reference](monitor-api-management-reference.md).
 
-#### Enable diagnostic setting for developer portal logs
 
-To configure a diagnostic setting for developer portal usage logs:
+#### Enable diagnostic setting for Azure Monitor logs
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, under **Monitoring**, select **Diagnostic settings** > **+ Add diagnostic setting**.
+[!INCLUDE [api-management-diagnostic-settings](../../includes/api-management-diagnostic-settings.md)]
 
-   :::image type="content" source="media/developer-portal-enable-usage-logs/monitoring-menu.png" alt-text="Screenshot of adding a diagnostic setting in the portal.":::
-
-1. On the **Diagnostic setting** page, enter or select details for the setting:
-
-    1. **Diagnostic setting name**: Enter a descriptive name.
-    1. **Category groups**: Optionally make a selection for your scenario.
-    1. Under **Categories**: Select **Logs related to Developer Portal usage**. Optionally select other categories as needed.
-    1. Under **Destination details**, select one or more options and specify details for the destination. For example, archive logs to a storage account or stream them to an event hub. For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
-    1. Select **Save**.
-
-#### View diagnostic log data
+### View Azure Monitor log data
 
 Depending on the log destination you choose, it can take a few minutes for data to appear.
+
+#### View logs in Log Analytics workspace
+
+[!INCLUDE [api-management-log-analytics](../../includes/api-management-log-analytics.md)]
+
+#### View logs in storage account
 
 If you send logs to a storage account, you can access the data in the Azure portal and download it for analysis.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the storage account destination.
 1. In the left menu, select **Storage Browser**.
-1. Under **Blob containers**, select **insights-logs-developerportalauditlogs**.
+1. Under **Blob containers**, select a name for the log data, for example, **insights-logs-developerportalauditlogs** for developer portal usage logs.
 1. Navigate to the container for the logs in your API Management instance. The logs are partitioned in intervals of 1 hour.
 1. To retrieve the data for further analysis, select **Download**.
 
+### Modify API logging settings
+
+[!INCLUDE [api-management-api-logging](../../includes/api-management-api-logging.md)]
+
 [!INCLUDE [azmon-horz-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-tools.md)]
+
 
 ### Visualize API Management monitoring data using a Managed Grafana dashboard
 
@@ -195,4 +199,5 @@ To see how to set up an alert rule in Azure API Management, see [Set up an alert
 ## Related content
 
 - [API Management monitoring data reference](monitor-api-management-reference.md)
+- [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md)
 - [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)

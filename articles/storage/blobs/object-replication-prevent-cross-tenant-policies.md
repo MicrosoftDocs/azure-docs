@@ -4,11 +4,10 @@ titleSuffix: Azure Storage
 description: Prevent cross-tenant object replication
 services: storage
 author: normesta
-
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/08/2023
-ms.author: nachakra
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -24,9 +23,9 @@ For more information on how to configure object replication policies, including 
 
 ## Remediate cross-tenant object replication
 
-To prevent object replication across Microsoft Entra tenants, set the **AllowCrossTenantReplication** property for the storage account to **false**. If a storage account does not currently participate in any cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* prevents future configuration of cross-tenant object replication policies with this storage account as the source or destination. However, if a storage account currently participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* is not permitted until you delete the existing cross-tenant policies.
+To prevent object replication across Microsoft Entra tenants, set the **AllowCrossTenantReplication** property for the storage account to **false**. If a storage account doesn't currently participate in any cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* prevents future configuration of cross-tenant object replication policies with this storage account as the source or destination. However, if a storage account currently participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* isn't permitted until you delete the existing cross-tenant policies.
 
-Cross-tenant policies are not permitted by default for a storage account created after Dec 15, 2023. However, the **AllowCrossTenantReplication** property was not set by default for an existing storage account created before Dec 15, 2023, and does not return a value until you had explicitly set it. The storage account can participate in object replication policies across tenants when the property value is either **null** or **true** for accounts created prior to Dev 15, 2023. For accounts created after that time, the property needs to be set to true. Setting the **AllowCrossTenantReplication** property does not incur any downtime on the storage account.
+Cross-tenant policies aren't permitted by default for a storage account created after Dec 15, 2023. However, the **AllowCrossTenantReplication** property wasn't set by default for an existing storage account created before Dec 15, 2023, and doesn't return a value until you had explicitly set it. The storage account can participate in object replication policies across tenants when the property value is either **null** or **true** for accounts created prior to Dev 15, 2023. For accounts created after that time, the property needs to be set to true. Setting the **AllowCrossTenantReplication** property doesn't incur any downtime on the storage account.
 
 ### Remediate cross-tenant replication for a new account
 
@@ -95,7 +94,7 @@ To disallow cross-tenant replication for an existing storage account, use the Az
 
 #### [Azure portal](#tab/portal)
 
-To disallow cross-tenant object replication for an existing storage account that is not currently participating in any cross-tenant policies, follow these steps:
+To disallow cross-tenant object replication for an existing storage account that isn't currently participating in any cross-tenant policies, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Under **Data management**, select **Object replication**.
@@ -112,7 +111,7 @@ If the storage account is currently participating in one or more cross-tenant re
 
 #### [PowerShell](#tab/azure-powershell)
 
-To disallow cross-tenant object replication for an existing storage account that is not currently participating in any cross-tenant policies, first install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage)\, version 3.7.0 or later. Next, configure the **AllowCrossTenantReplication** property for the storage account.
+To disallow cross-tenant object replication for an existing storage account that isn't currently participating in any cross-tenant policies, first install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage)\, version 3.7.0 or later. Next, configure the **AllowCrossTenantReplication** property for the storage account.
 
 The following example shows how to disallow cross-tenant object replication for an existing storage account with PowerShell. Remember to replace the placeholder values in brackets with your own values:
 
@@ -129,7 +128,7 @@ If the storage account is currently participating in one or more cross-tenant re
 
 #### [Azure CLI](#tab/azure-cli)
 
-To disallow cross-tenant object replication for an existing storage account that is not currently participating in any cross-tenant policies, first install Azure CLI version 2.24.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowCrossTenantReplication** property for a new or existing storage account.
+To disallow cross-tenant object replication for an existing storage account that isn't currently participating in any cross-tenant policies, first install Azure CLI version 2.24.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowCrossTenantReplication** property for a new or existing storage account.
 
 The following example shows how to disallow cross-tenant object replication for an existing storage account with Azure CLI. Remember to replace the placeholder values in brackets with your own values:
 
@@ -144,7 +143,7 @@ If the storage account is currently participating in one or more cross-tenant re
 
 ---
 
-After you disallow cross-tenant replication, attempting to configure a cross-tenant policy with the storage account as the source or destination fails. Azure Storage returns an error indicating that cross-tenant object replication is not permitted for the storage account.
+After you disallow cross-tenant replication, attempting to configure a cross-tenant policy with the storage account as the source or destination fails. Azure Storage returns an error indicating that cross-tenant object replication isn't permitted for the storage account.
 
 When cross-tenant object replication is disallowed for a storage account, then any new object replication policies that you create with that account must include the full Azure Resource Manager IDs for the source and destination account. Azure Storage requires the full resource ID to verify whether the source and destination accounts reside within the same tenant. For more information, see [Specify full resource IDs for the source and destination accounts](object-replication-overview.md#specify-full-resource-ids-for-the-source-and-destination-accounts).
 
@@ -173,7 +172,7 @@ If you have a large number of storage accounts, you may want to perform an audit
 
 ### Create a policy with an Audit effect
 
-Azure Policy supports effects that determine what happens when a policy rule is evaluated against a resource. The Audit effect creates a warning when a resource is not in compliance, but does not stop the request. For more information about effects, see [Understand Azure Policy effects](../../governance/policy/concepts/effects.md).
+Azure Policy supports effects that determine what happens when a policy rule is evaluated against a resource. The Audit effect creates a warning when a resource isn't in compliance, but doesn't stop the request. For more information about effects, see [Understand Azure Policy effects](../../governance/policy/concepts/effects.md).
 
 To create a policy with an Audit effect for the cross-tenant object replication setting for a storage account with the Azure portal, follow these steps:
 
@@ -233,14 +232,14 @@ To view the compliance report in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the Azure Policy service.
 1. Select **Compliance**.
-1. Filter the results for the name of the policy assignment that you created in the previous step. The report shows resources that are not in compliance with the policy.
-1. You can drill down into the report for additional details, including a list of storage accounts that are not in compliance.
+1. Filter the results for the name of the policy assignment that you created in the previous step. The report shows resources that aren't in compliance with the policy.
+1. You can drill down into the report for additional details, including a list of storage accounts that aren't in compliance.
 
     :::image type="content" source="media/object-replication-prevent-cross-tenant-policies/compliance-report-cross-tenant-audit-effect-policy.png" alt-text="Screenshot showing compliance report for audit policy for blob cross-tenant object replication":::
 
 ## Use Azure Policy to enforce same-tenant replication policies
 
-Azure Policy supports cloud governance by ensuring that Azure resources adhere to requirements and standards. To ensure that storage accounts in your organization disallow cross-tenant replication, you can create a policy that prevents the creation of a new storage account that allows cross-tenant object replication policies. The enforcement policy uses the Deny effect to prevent a request that would create or modify a storage account to allow cross-tenant object replication. The Deny policy will also prevent all configuration changes to an existing account if the cross-tenant object replication setting for that account is not compliant with the policy. For more information about the Deny effect, see [Understand Azure Policy effects](../../governance/policy/concepts/effects.md).
+Azure Policy supports cloud governance by ensuring that Azure resources adhere to requirements and standards. To ensure that storage accounts in your organization disallow cross-tenant replication, you can create a policy that prevents the creation of a new storage account that allows cross-tenant object replication policies. The enforcement policy uses the Deny effect to prevent a request that would create or modify a storage account to allow cross-tenant object replication. The Deny policy will also prevent all configuration changes to an existing account if the cross-tenant object replication setting for that account isn't compliant with the policy. For more information about the Deny effect, see [Understand Azure Policy effects](../../governance/policy/concepts/effects.md).
 
 To create a policy with a Deny effect for cross-tenant object replication, follow the same steps described in [Use Azure Policy to audit for compliance](#use-azure-policy-to-audit-for-compliance), but provide the following JSON in the **policyRule** section of the policy definition:
 

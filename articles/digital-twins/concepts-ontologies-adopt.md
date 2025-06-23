@@ -5,7 +5,7 @@ description: Learn about existing industry ontologies that you can adopt for Azu
 author: baanders
 ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ---
 

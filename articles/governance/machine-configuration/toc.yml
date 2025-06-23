@@ -60,6 +60,8 @@ items:
           href: ./how-to/assign-configuration/azure-resource-manager.md
         - name: Using Bicep
           href: ./how-to/assign-configuration/bicep.md
+        - name: Using Rest API
+          href: ./how-to/assign-configuration/rest-api.md
         - name: Using Terraform
           href: ./how-to/assign-configuration/terraform.md
 

@@ -3,7 +3,9 @@ title: Bicep functions overview
 description: Learn about the functions that can be used in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
 ms.date: 02/12/2025
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Bicep functions overview
@@ -157,6 +159,10 @@ The following functions are available for getting resource values. Most of these
 * [resourceId](./bicep-functions-resource.md#resourceid) - This can be used at any scope, but the valid parameters change depending on the scope.
 * [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](./bicep-functions-resource.md#tenantresourceid)
+* [toLogicalZone](./bicep-functions-resource.md#tologicalzone)
+* [toLogicalZones](./bicep-functions-resource.md#tologicalzones)
+* [toPhysicalZone](./bicep-functions-resource.md#tophysicalzone)
+* [toPhysicalZones](./bicep-functions-resource.md#tophysicalzones)
 
 ## Scope functions
 

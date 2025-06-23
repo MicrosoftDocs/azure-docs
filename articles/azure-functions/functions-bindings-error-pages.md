@@ -3,7 +3,7 @@ title: Azure Functions error handling and retry guidance
 description: Learn how to handle errors and retry events in Azure Functions, with links to specific binding errors, including information on retry policies.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 04/24/2024
+ms.date: 05/06/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -20,22 +20,22 @@ This article describes general strategies for error handling and the available r
 
 Errors that occur in an Azure function can come from:
 
-- Use of built-in Functions [triggers and bindings](functions-triggers-bindings.md).
-- Calls to APIs of underlying Azure services.
-- Calls to REST endpoints.
-- Calls to client libraries, packages, or third-party APIs.
+- Use of built-in Functions [triggers and bindings](functions-triggers-bindings.md)
+- Calls to APIs of underlying Azure services
+- Calls to REST endpoints
+- Calls to client libraries, packages, or non-Microsoft APIs
 
 To avoid loss of data or missed messages, it's important to practice good error handling. This table describes some recommended error-handling practices and provides links to more information.
 
 | Recommendation | Details | 
 | ---- | ---- |
-| **Enable Application Insights** | Azure Functions integrates with Application Insights to collect error data, performance data, and runtime logs. You should use Application Insights to discover and better understand errors that occur in your function executions. To learn more, see [Monitor Azure Functions](functions-monitoring.md). |
+| **Enable Application Insights** | Azure Functions integrates with Application Insights to collect error data, performance data, and runtime logs. You should use Application Insights to discover and better understand errors that occur in your function executions. To learn more, see [Monitor executions in Azure Functions](functions-monitoring.md). |
 | **Use structured error handling** | Capturing and logging errors is critical to monitoring the health of your application. The top-most level of any function code should include a try/catch block. In the catch block, you can capture and log errors. For information about what errors might be raised by bindings, see [Binding error codes](#binding-error-codes). Depending on your specific retry strategy, you might also raise a new exception to run the function again.  |
 | **Plan your retry strategy** | Several Functions bindings extensions provide built-in support for retries and others let you define retry policies, which are implemented by the Functions runtime. For triggers that don't provide retry behaviors, you should consider implementing your own retry scheme. For more information, see [Retries](#retries).|
 | **Design for idempotency** | The occurrence of errors when you're processing data can be a problem for your functions, especially when you're processing messages. It's important to consider what happens when the error occurs and how to avoid duplicate processing. To learn more, see [Designing Azure Functions for identical input](functions-idempotent.md). |
 
 >[!TIP]  
-> When using output bindings, you aren't able to handle errors that occur when accessing the remote service. Because of this, you should validate all data passed to your output bindings to avoid raising any known exceptions. If you must be able to handle such exceptions in your function code, you should access the remote service by using the client SDK instead of relying on output bindings.
+> When using output bindings, you aren't able to handle errors that occur when accessing the remote service. Because of this behavior, you should validate all data passed to your output bindings to avoid raising any known exceptions. If you must be able to handle such exceptions in your function code, you should access the remote service by using the client SDK instead of relying on output bindings.
 
 ## Retries
 
@@ -63,10 +63,10 @@ The following table indicates which triggers support retries and where the retry
 
 Azure Functions lets you define retry policies for specific trigger types, which are enforced by the runtime. These trigger types currently support retry policies:
 
-+ [Azure Cosmos DB](./functions-bindings-cosmosdb-v2-trigger.md)
-+ [Event Hubs](./functions-bindings-event-hubs-trigger.md) 
-+ [Kafka](./functions-bindings-kafka-trigger.md)
-+ [Timer](./functions-bindings-timer.md)
+- [Azure Cosmos DB](./functions-bindings-cosmosdb-v2-trigger.md)
+- [Event Hubs](./functions-bindings-event-hubs-trigger.md) 
+- [Kafka](./functions-bindings-kafka-trigger.md)
+- [Timer](./functions-bindings-timer.md)
  
 ::: zone pivot="programming-language-python"  
 Retry support is the same for both v1 and v2 Python programming models.
@@ -80,9 +80,9 @@ The retry policy tells the runtime to rerun a failed execution until either succ
 A retry policy is evaluated when a function executed by a supported trigger type raises an uncaught exception. As a best practice, you should catch all exceptions in your code and raise new exceptions for any errors that you want to result in a retry.
 
 > [!IMPORTANT]
-> Event Hubs checkpoints aren't written until after the retry policy for the execution has completed. Because of this behavior, progress on the specific partition is paused until the current batch is done processing.
+> Event Hubs checkpoints aren't written until after the retry policy for the execution finishes. Because of this behavior, progress on the specific partition is paused until the current batch is done processing.
 >
-> The version 5.x of the Event Hubs extension supports additional retry capabilities for interactions between the Functions host and the event hub.  For more information, see `clientRetryOptions` in the [Event Hubs host.json reference](functions-bindings-event-hubs.md#host-json).
+> The version 5.x of the Event Hubs extension supports extra retry capabilities for interactions between the Functions host and the event hub. For more information, see `clientRetryOptions` in the [Event Hubs host.json reference](functions-bindings-event-hubs.md#host-json).
 
 ### Retry strategies
 
@@ -98,7 +98,7 @@ The first retry waits for the minimum delay. On subsequent retries, time is adde
 
 ---
 
-When running in a Consumption plan, you are only billed for time your function code is executing. You aren't billed for the wait time between executions in either of these retry strategies.
+When running in a Consumption plan, you're only billed for time your function code is executing. You aren't billed for the wait time between executions in either of these retry strategies.
 
 ### Max retry counts
 
@@ -347,17 +347,17 @@ public void run(
 
 When you're integrating with Azure services, errors might originate from the APIs of the underlying services. Information that relates to binding-specific errors is available in the "Exceptions and return codes" sections of the following articles:
 
-+ [Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb)
-+ [Blob Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
-+ [Event Grid](../event-grid/troubleshoot-errors.md)
-+ [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
-+ [IoT Hub](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
-+ [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
-+ [Queue Storage](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
-+ [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)
-+ [Table Storage](functions-bindings-storage-table-output.md#exceptions-and-return-codes)
+- [Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb)
+- [Blob Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
+- [Event Grid](../event-grid/troubleshoot-errors.md)
+- [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
+- [IoT Hub](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
+- [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
+- [Queue Storage](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
+- [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)
+- [Table Storage](functions-bindings-storage-table-output.md#exceptions-and-return-codes)
 
 ## Next steps
 
-+ [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md)
-+ [Best practices for reliable Azure functions](functions-best-practices.md)
+- [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md)
+- [Best practices for reliable Azure functions](functions-best-practices.md)

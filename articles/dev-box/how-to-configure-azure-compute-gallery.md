@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 03/23/2025
+ms.date: 04/03/2025
 ms.topic: how-to
 
 #customer intent: As a developer, I want to learn how to configure and attach an Azure compute gallery to a dev center in Microsoft Dev Box so that I can use a compute gallery to manage and share dev box images.
@@ -41,7 +41,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 A gallery used to configure dev box definitions must have at least [one image definition and one image version](/azure/virtual-machines/image-version).
 
-When you create a virtual machine (VM) image, select an image from the Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
+When you create a virtual machine (VM) image, select an image from Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
 - [Visual Studio 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019plustools?tab=Overview)
 - [Visual Studio 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudioplustools?tab=Overview) 
 
@@ -60,6 +60,7 @@ The image version must meet the following requirements:
     - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
 - Default 64-GB OS disk size
     - The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
+- Data disks cannot be attached to the VM prior to capturing the image.
 - The image definition must have [trusted launch enabled as the security type](/azure/virtual-machines/trusted-launch). You configure the security type when you create the image definition.
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::

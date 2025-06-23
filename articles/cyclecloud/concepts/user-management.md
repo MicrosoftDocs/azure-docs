@@ -6,64 +6,64 @@ ms.date: 04/15/2019
 ms.author: jechia
 ---
 
-# User Management
+# User management
 
-CycleCloud may be used to manage two separate but related types of user: CycleCloud users and cluster users. CycleCloud users exist on CycleCloud's application server and grant access to the web interface, command line and various APIs. Cluster users exist on the operating system of each node managed by CycleCloud. By default, these users are kept in sync by CycleCloud's built-in node authentication. However, this may be disabled in order to administer cluster users separately.
+CycleCloud can manage two types of users: CycleCloud users and cluster users. CycleCloud users exist on CycleCloud's application server and grant access to the web interface, command line, and various APIs. Cluster users exist on the operating system of each node that CycleCloud manages. By default, CycleCloud's built-in node authentication keeps these users in sync. However, you can disable this feature to administer cluster users separately.
 
-For more information on managing cluster users, please refer to [Cluster User Access](~/articles/cyclecloud/how-to/user-access.md).
+For more information on managing cluster users, see [Cluster user access](~/articles/cyclecloud/how-to/user-access.md).
 
-## Adding New Users to CycleCloud
+## Add new users to CycleCloud
 
-The user management page in CycleCloud can be accessed through the **Settings** link on the sidebar.  The **Users** tab will display a list of all users. Click on the **Create** button to add a new user.
+Access the user management page in CycleCloud through the **Settings** link on the sidebar. The **Users** tab displays a list of all users. Select **Create** to add a new user.
 
 ![Create User Dialog](~/articles/cyclecloud/images/create-user-dialog.png)
 
-A dialog will appear for adding a new user account. Select the **Password Reset** box to force the user to change their password on first login.
+A dialog appears for adding a new user account. Select the **Password Reset** box to force the user to change their password on first sign in.
 
-The **Superuser** checkbox grants the user access to all the data and Azure account information that is stored in CycleCloud, but does not grant log in access to any nodes.
+The **Superuser** checkbox grants the user access to all the data and Azure account information that CycleCloud stores, but it doesn't grant sign-in access to any nodes.
 
-Select the appropriate roles to assign privileges to the user. The [Roles](#user-roles) section below lists the privileges for each of the built-in roles.
+Select the appropriate roles to assign privileges to the user. The [Roles](#user-roles) section lists the privileges for each of the built-in roles.
 
-The **Node Settings** section contains settings for providing login access to nodes. To allow CycleCloud to create and manage this user on nodes, select **Enable node access for this user** and optionally supply the SSH public key that corresponds to the private key that the user will use to connect. Enabling node access will not grant login access to nodes, it simply indicates that CycleCloud should create and manage the user when login access is granted. See the [Cluster User Management](~/articles/cyclecloud/how-to/user-access.md) page for more information.
+The **Node Settings** section contains settings for providing sign-in access to nodes. To allow CycleCloud to create and manage this user on nodes, select **Enable node access for this user** and optionally supply the SSH public key that corresponds to the private key that the user uses to connect. Enabling node access doesn't grant sign-in access to nodes. It simply indicates that CycleCloud should create and manage the user when sign-in access is granted. For more information, see the [Cluster User Management](~/articles/cyclecloud/how-to/user-access.md) page.
 
 ## Edit User
 
-The **Edit** button on the user management page allows an administrator to modify roles and user properties. The administrator can also set the Unix **UID** for the user's local account on the cluster nodes. By default, CycleCloud will reserve UIDs 20000 and above for node users. Note that changing the UID here will not affect running nodes or change any existing file permissions on persistent storage. See [Cluster User Management](~/articles/cyclecloud/how-to/user-access.md) for details.
+Select **Edit** on the user management page to modify roles and user properties. You can also set the Unix **UID** for the user's local account on the cluster nodes. By default, CycleCloud reserves UIDs 20000 and higher for node users. Changing the UID doesn't affect running nodes or change any existing file permissions on persistent storage. For more information, see [Cluster User Management](~/articles/cyclecloud/how-to/user-access.md).
 
-## User Roles
+## User roles
 
 Each user can be assigned to one or more of the following roles that are built-in to the CycleCloud application server:
 
 | Role              | Privileges |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------|
-| User              | Log in to the CycleCloud web interface, view and manage own clusters. Does not grant permission to create new clusters.   |
+| User              | Sign in to the CycleCloud web interface, view, and manage own clusters. Doesn't grant permission to create new clusters.   |
 | Cluster Creator   | Grant all of the permissions of the `User` role, plus the ability to create new clusters.                           |
 | Administrator     | Create and edit all clusters and manage CycleCloud application settings.                                                  |
-| Global Node User  | Log in to every node managed by this CycleCloud installation.                                                     |
-| Global Node Admin | Log in with administrator privileges (sudo access) to every node managed by this CycleCloud installation.         |
+| Global Node User  | Sign in to every node managed by this CycleCloud installation.                                                     |
+| Global Node Admin | Sign in with administrator privileges (sudo access) to every node managed by this CycleCloud installation.         |
 
 
 > [!NOTE]
-> The **Superuser** checkbox described above supersedes all roles assigned to a user (except that it does not grant login access to nodes). All `Superusers` are `Administrators` with additional privileges to view and edit all data in the system.
+> The preceding **Superuser** checkbox supersedes all roles assigned to a user (except that it doesn't grant sign-in access to nodes). All `Superusers` are `Administrators` with extra privileges to view and edit all data in the system.
 
 ## Groups
 
-The **Settings** page also includes a tab for managing groups of users. Groups allow administrators to assign node login access and cluster permissions to more than one user at once.
+The **Settings** page also includes a tab for managing groups of users. Groups allow administrators to assign node sign-in access and cluster permissions to more than one user at once.
 
-Create a new group using the **Create** button. Use the **Add User** button to add users to the group. The **Add User** dialog box includes checkboxes for assigning the `Group Administrator` and `Group User` roles to assign cluster permissions. `Group Administrators` have permissions to view and manage all clusters assigned to the group, while `Group Users` have read-only access to the group's clusters.
+Select **Create** to create a new group. Select **Add User** to add users to the group. The **Add User** dialog box includes checkboxes for assigning the `Group Administrator` and `Group User` roles to assign cluster permissions. `Group Administrators` have permissions to view and manage all clusters assigned to the group, while `Group Users` have read-only access to the group's clusters.
 
-Each user in a group may also be assigned the `Group Node Admin` or `Group Node User` roles to grant login access. `Group Node Admins` have login and administrator access to every node in each of the group's clusters, while `Group Node Users` have login access but no administrator access.
+Assign the `Group Node Admin` or `Group Node User` roles to grant sign-in access to each user in a group. `Group Node Admins` have sign-in and administrator access to every node in each of the group's clusters, while `Group Node Users` have sign-in access but no administrator access.
 
-## Cluster Access, Ownership, and Sharing
+## Cluster access, ownership, and sharing
 
-While viewing a cluster, select the **Access** button to see a list of every user with permissions to the cluster.
+When you view a cluster, select the **Access** button to see a list of every user with permissions to the cluster.
 
 ![Cluster Access Dialog](~/articles/cyclecloud/images/cluster-access-dialog.png)
 
-This dialog shows a comprehensive list of every CycleCloud user with access to the cluster. By default, the owner is the user who created the cluster and has full permission to manage and log in to all nodes with administrator (sudo) privileges. Shared permissions grant explicit access to only the current cluster and may be modified by selecting each row. To share permissions with a new user, use the **Add User** button at the bottom of the list and select the permissions to share.
+This dialog shows a comprehensive list of every CycleCloud user with access to the cluster. By default, the owner is the user who created the cluster. The owner has full permission to manage and sign in to all nodes with administrator (sudo) privileges. Shared permissions grant explicit access to only the current cluster. You can modify shared permissions by selecting each row. To share permissions with a new user, use the **Add User** button at the bottom of the list and select the permissions to share.
 
-See [Cluster User Management](~/articles/cyclecloud/how-to/user-access.md) for more information about managing cluster node access.
+For more information about managing cluster node access, see [Cluster user management](~/articles/cyclecloud/how-to/user-access.md).
 
-## User Authentication
+## User authentication
 
-User authentication is provided by either the built-in authentication system or by integrating with a third-party authentication service. [See User Authentication](~/articles/cyclecloud/how-to/user-authentication.md) for more information.
+User authentication is provided by either the built-in authentication system or by integrating with a third-party authentication service. For more information, see [User authentication](~/articles/cyclecloud/how-to/user-authentication.md).

@@ -206,7 +206,7 @@ The following example shows how to read `UsedCapacity` data at the account level
 
 For multidimensional metrics, you need to define metadata filters if you want to read metric data on specific dimension values.
 
-The following example shows how to read metric data on the metric supporting multidimension:
+The following example shows how to read metric data on the metric supporting multidimensional values:
 
 ```csharp
     public static async Task ReadStorageMetricValueTest()
@@ -348,7 +348,7 @@ The following chart illustrates a workload that experienced a sudden increase in
 
 If your workload encounters **Success with Metadata Warnings** or **Success with Metadata Throttling** response types, consider implementing one or more of the following recommendations:
 
-- For SSD SMB file shares, enable [Metadata Caching](smb-performance.md#metadata-caching-for-premium-smb-file-shares).
+- For SSD SMB file shares, enable [Metadata Caching](smb-performance.md#metadata-caching-for-ssd-file-shares).
 - Distribute (shard) your workload across multiple file shares.
 - Reduce the volume of metadata IOPS.
 

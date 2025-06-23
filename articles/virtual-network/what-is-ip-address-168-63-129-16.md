@@ -4,8 +4,9 @@ description: Learn about IP address 168.63.129.16, specifically that it's used t
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/30/2023
+ms.date: 03/31/2025
 ms.author: allensu
+# Customer intent: As a network engineer, I want to understand the function and significance of IP address 168.63.129.16, so that I can ensure proper configuration and communication for my Azure resources.
 ---
 
 # What is IP address 168.63.129.16?
@@ -22,9 +23,6 @@ IP address 168.63.129.16 is a virtual public IP address that is used to facilita
 
 - Enables Guest Agent heartbeat messages for the PaaS role.
 
-> [!NOTE]
-> In a non-virtual network scenario (Classic), a private IP address is used instead of 168.63.129.16. This private IP address is dynamically discovered through DHCP. Firewall rules specific to 168.63.129.16 need to be adjusted as appropriate.
-
 ## Scope of IP address 168.63.129.16
 
 The public IP address 168.63.129.16 is used in all regions and all national clouds. Microsoft owns this special public IP address and it doesn't change. We recommend that you allow this IP address in any local (in the VM) firewall policies (outbound direction). The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in various scenarios. 168.63.129.16 is a [virtual IP of the host node](./network-security-groups-overview.md#azure-platform-considerations) and as such it isn't subject to user defined routes.
@@ -35,28 +33,38 @@ The public IP address 168.63.129.16 is used in all regions and all national clou
 
   By default DNS communication isn't subject to the configured network security groups unless targeted using the [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) service tag. To block DNS traffic to Azure DNS through NSG, create an outbound rule to deny traffic to [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags). Specify **"Any"** as **"Source"**, **"*"** as **"Destination port ranges"**, **"Any"** as protocol and **"Deny"** as action.
 
-  Additionally, the IP address 168.63.129.16 does not support reverse DNS lookup. This means if you try to retrieve the Fully Qualified Domain Name (FQDN) using reverse lookup commands like `host`, `nslookup`, or `dig -x` on 168.63.129.16, you won't receive any FQDN.
+  Additionally, the IP address 168.63.129.16 doesn't support reverse DNS lookup. This means if you try to retrieve the Fully Qualified Domain Name (FQDN) using reverse lookup commands like `host`, `nslookup`, or `dig -x` on 168.63.129.16, an FQDN isn't received.
 
 - When the VM is part of a load balancer backend pool, [health probe](../load-balancer/load-balancer-custom-probe-overview.md) communication should be allowed to originate from 168.63.129.16. The default network security group configuration has a rule that allows this communication. This rule uses the [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) service tag. If desired, this traffic can be blocked by configuring the network security group. The configuration of the block result in probes that fail.
 
 ## Troubleshoot connectivity
 
 > [!NOTE]
-> When running the following tests, the action must be run as Administrator (Windows) and Root (Linux) to ensure accurate results.
+> Execution of the following tests must be run as Administrator (Windows) and Root (Linux) to ensure accurate results.
 
-### Windows OS
+### [Windows](#tab/windows)
 
 You can test communication to 168.63.129.16 by using the following tests with PowerShell.
 
 ```powershell
-Test-NetConnection -ComputerName 168.63.129.16 -Port 80
-Test-NetConnection -ComputerName 168.63.129.16 -Port 32526
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://168.63.129.16/?comp=versions
+$Params = @{
+  ComputerName = "168.63.129.16"
+  Port         = 80
+}
+Test-NetConnection @Params
+
+$Params.Port = 32526
+Test-NetConnection @Params
+
+$Headers = @{
+  Metadata = "true"
+}
+Invoke-RestMethod -Headers $Headers -Method GET -Uri "http://168.63.129.16/?comp=versions"
 ```
 
 Results should return as follows.
 
-```powershell
+```output
 Test-NetConnection -ComputerName 168.63.129.16 -Port 80
 ComputerName     : 168.63.129.16
 RemoteAddress    : 168.63.129.16
@@ -66,7 +74,7 @@ SourceAddress    : 10.0.0.4
 TcpTestSucceeded : True
 ```
 
-```powershell
+```output
 Test-NetConnection -ComputerName 168.63.129.16 -Port 32526
 ComputerName     : 168.63.129.16
 RemoteAddress    : 168.63.129.16
@@ -76,7 +84,7 @@ SourceAddress    : 10.0.0.4
 TcpTestSucceeded : True
 ```
 
-```powershell
+```output
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://168.63.129.16/?comp=versions
 xml                            Versions
 ---                            --------
@@ -97,7 +105,7 @@ Psping 168.63.129.16:80 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test--port80.txt
 Psping 168.63.129.16:32526 >> C:\<<EDIT-DIRECTORY>>\168-63-129-16_test-port32526.txt
 ```
 
-### Linux OS
+### [Linux](#tab/linux)
 
 On Linux, you can test communication to 168.63.129.16 by using the following tests.
 
@@ -112,7 +120,7 @@ curl http://168.63.129.16/?comp=versions >> 168-63-129-16_test.txt
 
 Results inside 168-63-129-16_test.txt should return as follows.
 
-```bash
+```output
 traceroute -T -p 80 168.63.129.16
 traceroute to 168.63.129.16 (168.63.129.16), 30 hops max, 60 byte packets
 1  168.63.129.16 (168.63.129.16)  0.974 ms  1.085 ms  1.078 ms
@@ -140,6 +148,8 @@ curl http://168.63.129.16/?comp=versions
 <Version>2010-28-10</Version>
 </Supported>
 ```
+
+---
 
 ## Next steps
 

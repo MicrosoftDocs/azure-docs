@@ -20,8 +20,10 @@
   - name: Back up a VM - ARM template
     displayName: Resource Manager
     href: quick-backup-vm-template.md
-  - name: Back up a VM - Bicep template
-    href: quick-backup-vm-bicep-template.md
+  - name: Back up a VM - Bicep file
+    href: quick-backup-vm-bicep-file.md
+  - name: Back up a VM - Terraform
+    href: quick-backup-vm-terraform.md
   - name: Back up Azure PostgreSQL Database
     items:
     - name: Back up the database - Azure portal
@@ -60,7 +62,7 @@
       href: quick-backup-postgresql-flexible-server-terraform.md
     - name: With Azure Resource Manager template
       href: quick-backup-postgresql-flexible-server-arm.md
-    - name: With Azure Bicep template
+    - name: With Azure Bicep file
       href: quick-backup-postgresql-flexible-server-bicep.md
   - name: Configure vaulted backup for Azure Blob
     items: 
@@ -100,6 +102,8 @@
       href: quick-restore-hana-cli.md
   - name: Restore the entire SAP HANA system to snapshot restore point
     href: quick-sap-hana-database-instance-restore.md
+  - name: Run preregistration script for SAP ASE database backup
+    href: sap-ase-database-backup-run-preregistration-quickstart.md  
   - name: Enable enhanced soft delete
     href: quick-backup-azure-enable-enhanced-soft-delete.md
 - name: Tutorials
@@ -150,6 +154,8 @@
       href: tutorial-sap-hana-manage-cli.md
   - name: Configure SAP HANA database instance snapshot backup
     href: tutorial-configure-sap-hana-database-instance-snapshot-backup.md
+  - name: Back up SAP ASE database on Azure VMs
+    href: sap-ase-database-backup-tutorial.md  
   - name: Back up Azure Managed Disks
     href: back-up-managed-disks-tutorial.md
   - name: Configure Multi-user authorization (MUA)
@@ -186,10 +192,14 @@
       href: backup-azure-mysql-flexible-server-support-matrix.md
     - name: Azure files backup support matrix
       href: azure-file-share-support-matrix.md
+    - name: Azure Elastic SAN backup support matrix  
+      href: azure-elastic-san-backup-support-matrix.md
     - name: Azure Disk Backup support matrix
       href: disk-backup-support-matrix.md
     - name: Azure Blobs backup support matrix
       href: blob-backup-support-matrix.md
+    - name: Azure Data Lake Storage backup support matrix
+      href: azure-data-lake-storage-backup-support-matrix.md  
     - name: Active Directory domain controllers
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
@@ -214,8 +224,10 @@
       href: backup-azure-file-folder-backup-faq.yml
     - name: FAQ-Back up Azure Files
       href: backup-azure-files-faq.yml
-    - name: FAQ- Azure Disk Backup
+    - name: FAQ-Azure Disk Backup
       href: disk-backup-faq.yml
+    - name: FAQ-Azure Backup for AKS
+      href: aks-backup-faq.yml
     - name: FAQ-Back up SQL Server databases on Azure VMs
       href: faq-backup-sql-server.yml
     - name: FAQ-Back up SAP HANA databases on Azure VMs
@@ -266,6 +278,10 @@
       href: azure-kubernetes-service-cluster-backup-concept.md
   - name: Azure Blob backup
     href: blob-backup-overview.md
+  - name: Azure Data Lake Storage backup
+    href: azure-data-lake-storage-backup-overview.md  
+  - name: Azure Elastic SAN backup
+    href: azure-elastic-san-backup-overview.md
   - name: Azure Files backup
     href: azure-file-share-backup-overview.md
   - name: Windows backup using MARS agent
@@ -284,7 +300,7 @@
       href: multi-user-authorization-concept.md
     - name: Immutable vault
       href: backup-azure-immutable-vault-concept.md
-    - name: Secure by Default with Azure Backup (Preview)
+    - name: Secure by Default with Azure Backup
       href: secure-by-default.md
     - name: Private endpoints
       items:
@@ -309,7 +325,7 @@
       - name: Delete
         href: backup-azure-delete-vault.md
       - name: Relocate
-        href: ../operational-excellence/relocation-backup.md?toc=/azure/backup/toc.json
+        href: ../azure-resource-manager/management/relocation/relocation-backup.md?toc=/azure/backup/toc.json
       - name: Manage
         href: backup-azure-manage-windows-server.md
     - name: Backup vault
@@ -624,6 +640,14 @@
         href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
       - name: Restore
         href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
+  - name: Azure Data Lake Storage backup
+    items:
+    - name: Configure backup
+      href: azure-data-lake-storage-configure-backup.md
+    - name: Restore
+      href: azure-data-lake-storage-restore.md
+    - name: Manage
+      href: azure-data-lake-storage-backup-manage.md          
   - name: Azure Files backup
     items:
     - name: From the Azure portal
@@ -658,6 +682,14 @@
         href: restore-azure-file-share-rest-api.md
       - name: Manage
         href: manage-azure-file-share-rest-api.md
+  - name: Azure Elastic SAN backup
+    items:
+    - name: Configure backup
+      href: azure-elastic-san-backup-configure.md
+    - name: Restore
+      href: azure-elastic-san-backup-restore.md
+    - name: manage  
+      href: azure-elastic-san-backup-manage.md          
   - name: SAP HANA database on Azure VM backup
     items:
     - name: Backup
@@ -678,7 +710,7 @@
       href: sap-hana-database-manage.md
   - name: SAP ASE database on Azure VM backup
     items:
-    - name: Backup
+    - name: Configure backup
       href: sap-ase-database-backup.md
     - name: Restore
       href: sap-ase-database-restore.md
@@ -784,7 +816,7 @@
       items:
       - name: Azure Monitor alerts
         href: backup-azure-monitoring-alerts.md 
-      - name: Metrics (preview)
+      - name: Metrics
         href: metrics-overview.md   
       - name: Logs
         href: backup-azure-monitoring-use-azuremonitor.md
@@ -824,6 +856,8 @@
         href: backup-azure-auto-enable-backup.md
       - name: Configure vault diagnostics settings at scale
         href: azure-policy-configure-diagnostics.md
+      - name: Audit and Enforce backup for Azure Files using Azure policy  
+        href: backup-azure-files-policy-automation.md
       - name: Audit and Enforce backup for Managed Disks using Azure policy
         href: backup-managed-disks-policy.md
       - name: Audit and Enforce backup operations for Azure Kubernetes Service clusters using Azure policy
@@ -860,7 +894,7 @@
       href: backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md
     - name: Query backup information using ARG
       href: query-backups-using-azure-resource-graph.md
-    - name: Resource Manager and Bicep templates
+    - name: Resource Manager and Bicep files
       href: backup-rm-template-samples.md
   - name: Security and Ransomware protection
     items:
@@ -939,6 +973,8 @@
       href: backup-azure-mars-troubleshoot.md
     - name: Azure Blob backup
       href: backup-azure-troubleshoot-blob-backup.md
+    - name: Azure Data Lake Storage backup
+      href: azure-data-lake-storage-backup-troubleshoot.md  
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server
@@ -1024,8 +1060,8 @@
   items:
   - name: Compliance
     href: compliance-offerings.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?searchterms=Azure+Backup
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-backup.html
   - name: Pricing calculator
@@ -1033,4 +1069,4 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=backup
+    href: /shows/browse?terms=backup

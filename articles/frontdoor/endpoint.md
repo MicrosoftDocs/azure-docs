@@ -14,6 +14,8 @@ In Azure Front Door, an *endpoint* is a logical grouping of one or more routes a
 
 ## How many endpoints should I create?
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 A Front Door profile can contain multiple endpoints, but in many cases, a single endpoint might suffice.
 
 Consider the following factors when planning your endpoints:

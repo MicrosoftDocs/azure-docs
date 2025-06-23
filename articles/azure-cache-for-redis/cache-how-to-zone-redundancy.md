@@ -6,6 +6,8 @@ description: Learn how to set up zone redundancy for your Premium and Enterprise
 
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 

@@ -7,7 +7,7 @@ metadata:
   title: Microsoft Defender for IoT - OT monitoring appliance reference
   description: Learn about the appliances available for use with Microsoft Defender for IoT OT sensors.
   ms.topic: landing-page
-  ms.author: raynew
+  ms.author: lwainstein
   ms.date: 07/24/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -44,7 +44,7 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: Heptagon YB3x
+          - text: Heptagon Systems YB3x
             url: heptagon-yb3x.md
           - text: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-gen-11-nhp-2lff.md

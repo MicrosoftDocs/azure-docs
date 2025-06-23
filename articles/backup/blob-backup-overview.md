@@ -2,7 +2,7 @@
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
 ms.topic: overview
-ms.date: 01/22/2025
+ms.date: 06/17/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -90,7 +90,7 @@ Both operational and vaulted backups integrate directly with Azure Business Cont
 
 ## Restore
 
-You can restore data from any point in time for which a recovery point exists. A recovery point is created when a storage account is in protected state, and can be used to restore data as long as it falls in the retention period defined by the backup policy (and so the point-in-time restore capability of the blob service in the storage account). Operational backup uses blob point-in-time restore to restore data from a recovery point.
+You can restore data from any point in time for which a recovery point exists. A recovery point is created when a storage account is in protected state and can be used to restore data as long as it falls in the retention period defined by the backup policy (and so the point-in-time restore capability of the blob service in the storage account). Operational backup uses blob point-in-time restore to restore data from a recovery point.
 
 Operational backup gives you the option to restore all block blobs in the storage account, browse and restore specific containers, or use prefix matches to restore a subset of blobs. All restores can be performed to the source storage account only.
 
@@ -122,3 +122,9 @@ For generating the estimate for your scenario see the [Azure Backup pricing calc
 ## Next steps
 
 - [Configure and manage Azure Blobs backup](blob-backup-configure-manage.md)
+
+## Related content
+
+- [Create a backup policy for  Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md).
+- [Back up Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
+- Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

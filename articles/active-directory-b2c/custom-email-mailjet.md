@@ -20,6 +20,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Custom email verification with Mailjet
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -44,7 +45,7 @@ If you don't already have one, start by setting up a Mailjet account (Azure cust
 2. Navigate to the [API Key Management page](https://dev.mailjet.com/email/guides/senders-and-domains/#use-a-sender-on-all-api-keys-(metasender)). Record the **API Key** and **Secret Key** for use in a later step. Both keys are generated automatically when your account is created.
 
 > [!IMPORTANT]
-> Mailjet offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [How do I warm up my IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
+> Mailjet offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://documentation.mailjet.com/hc/en-us/articles/1260803352789-Dedicated-IPs-What-They-Are-and-How-to-Warm-Them-Up). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [How do I warm up my IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
 
 ## Create Azure AD B2C policy key
 

@@ -128,24 +128,29 @@ PUT {{FHIR_URL}}/SearchParameter/$status
   "parameter" : [
     {
      "name" : "searchParameterStatus",
-     "part" :{
-        "name" : "url",
-        "valueString" : "http://hl7.org/fhir/SearchParameter/Endpoint-name"
-     },
-     "part":{ 
-        "name" : "status",
-        "valueString" : "supported"
-     }
+     "part" :[
+			{
+				"name" : "url",
+				"valueString" : "http://hl7.org/fhir/SearchParameter/Endpoint-name"
+			},
+			{ 
+				"name" : "status",
+				"valueString" : "Supported"
+			}
+		]
     },
-         "name" : "searchParameterStatus",
-     "part" :{
-        "name" : "url",
-        "valueString" : "http://hl7.org/fhir/SearchParameter/HealthcareService-name"
-     },
-     "part":{ 
-        "name" : "status",
-        "valueString" : "supported"
-     }
+	{
+     "name" : "searchParameterStatus",
+     "part" :[
+		 {
+			"name" : "url",
+			"valueString" : "http://hl7.org/fhir/SearchParameter/HealthcareService-name"
+		 },
+		 { 
+			"name" : "status",
+			"valueString" : "Supported"
+		 }
+	 ]
     },
     ...
   ]

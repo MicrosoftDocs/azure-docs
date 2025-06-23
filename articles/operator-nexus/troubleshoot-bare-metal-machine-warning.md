@@ -4,7 +4,7 @@ description: Troubleshooting guide for Bare Metal Machines Warning status messag
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus
 ms.topic: troubleshooting
-ms.date: 03/03/2025
+ms.date: 04/17/2025
 author: robertstarling
 ms.author: robstarling
 ms.reviewer: ekarandjeff
@@ -26,9 +26,13 @@ The Detailed status message of the Bare Metal Machine (Operator Nexus) resource 
 
 ## Troubleshooting
 
-To check for any Bare Metal Machines (BMMs) which are reporting _Warning_ messages, run `az networkcloud baremetalmachine list -g <ResourceGroup_Name> -o table`. This command shows the current status of all BMMs in the specified resource group. Any active _Warning_ conditions are visible in the Detailed Status Message, as seen in the following example.
+Evaluate the current status of all BMMs in the specified resource group.
+Any active _Warning_ conditions are visible in the Detailed Status Message, as seen in the following example.
 
-```
+To check for any Bare Metal Machines (BMMs) which are reporting _Warning_ messages, run:
+
+```azurecli
+az networkcloud baremetalmachine list -g <ResourceGroup_Name> -o table
 Name            ResourceGroup                       DetailedStatus    DetailedStatusMessage
 --------------  ----------------------------------  ----------------  -------------------------------------------------------------------------------------------
 rack1control01  cluster-1-HostedResources-3EA53DF9  Provisioned       The OS is provisioned to the machine.
@@ -40,7 +44,12 @@ rack1compute01  cluster-1-HostedResources-3EA53DF9  Provisioned       The OS is 
 For more information, use an Azure CLI Bare Metal Machine `run-read-command` command such as the following to inspect the `conditions` status of the corresponding kubernetes BMM object.
 
 ```azurecli
-az networkcloud baremetalmachine run-read-command -g <ResourceGroup_Name> -n rack1control01 --limit-time-seconds 60 --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack1compute01,-o,json]}]" --output-directory .
+az networkcloud baremetalmachine run-read-command \
+  -g <ResourceGroup_Name> \
+  -n rack1control01 \
+  --limit-time-seconds 60 \
+  --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack1compute01,-o,json]}]" \
+  --output-directory .
 ```
 
 - Replace `<ResourceGroup_Name>` with the name of the resource group containing the BMM resources.
@@ -52,7 +61,7 @@ Review the `lastTransitionTime` and `message` fields for more information about 
 
 **Example `run-read-command` output (`kubectl get bmm`):**
 
-```
+```json
 {
   "status": {
     "conditions": [
@@ -85,7 +94,10 @@ Review the `lastTransitionTime` and `message` fields for more information about 
 
 ## `Warning: PXE port is unhealthy`
 
-This message in the BMM _Detailed status message_ field indicates a problem with network connectivity on the Preboot Execution Environment (PXE) Ethernet port on the underlying compute host. This port is used during provisioning and upgrade to download the operating system image and other software components. PXE connectivity issues shouldn't directly affect customer workloads running on a compute host. However they can cause failures in BMM lifecycle operations such as the following.
+This message in the BMM _Detailed status message_ field indicates a problem with network connectivity on the Preboot Execution Environment (PXE) Ethernet port on the underlying compute host.
+The PXE port is used during provisioning and upgrades to download the operating system image and other software components.
+PXE connectivity issues shouldn't directly affect customer workloads running on a compute host.
+However they can cause failures in BMM lifecycle operations such as the following.
 
 - Cluster Provisioning
 - Cluster Upgrade
@@ -140,11 +152,12 @@ To troubleshoot this issue:
 For more information about logging into the BMC, see [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
 
 > [!WARNING]
-> In versions 2502.1 and 2502.3, there's a known issue where `BMM power state doesn't match expected state` is incorrectly reported during deprovisioning and provisioning, for example when running the BMM Reimage or Replace actions. This issue is fixed in version 2504.1.
+> In versions 2502.1 and 2502.3, there's a known issue where `BMM power state doesn't match expected state` is incorrectly reported during deprovisioning and provisioning.
+> For example, the issue can happen when running the BMM Reimage or Replace actions. This issue is fixed in version 2504.1.
 
 **Example `conditions` output for unexpected power state**
 
-```
+```json
 "conditions": [
     {
       "lastTransitionTime": "2025-03-04T15:59:36Z",

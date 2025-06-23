@@ -11,6 +11,12 @@ items:
     href: whats-new.md
   - name: FAQ
     href: update-manager-faq.md
+  - name: Release Notes
+    items:
+    - name: 2025
+      items:
+      - name: March 2025
+        href: overview-arc-enabled-vm-extensions.md
 - name: Getting started
   items:
   - name: Prerequisites

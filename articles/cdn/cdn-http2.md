@@ -8,7 +8,8 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
+ms.date: 03/31/2025
+# Customer intent: "As a web developer, I want to utilize HTTP/2 in my application, so that I can improve performance and enhance the user experience with faster load times and efficient resource management."
 ---
 
 # HTTP/2 Support in Azure Content Delivery Network

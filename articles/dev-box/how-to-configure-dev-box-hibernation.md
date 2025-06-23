@@ -9,6 +9,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:03/23/2025
+  - build-2025
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 03/23/2025
@@ -21,17 +22,13 @@ ms.topic: how-to
 
 Hibernation in Microsoft Dev Box helps you manage cloud development environments efficiently while reducing costs. By enabling hibernation, you can preserve the state of open applications and windows, saving virtual machine (VM) costs without disrupting workflows. This article explains how to configure hibernation at the dev box image and definition levels, automate hibernation schedules, and address compatibility considerations.
 
-With Dev Box Hibernation (Preview), you can enable hibernation on new dev boxes, allowing you to hibernate and resume them seamlessly. This feature simplifies dev box management while maintaining productivity.
+With the introduction of Dev Box Hibernation, you can enable this capability on new dev boxes and hibernate and resume them. This feature provides a convenient way to manage your dev boxes while maintaining your work environment.
 
 Follow these three steps to enable hibernation: 
 
 1. Enable hibernation on your dev box image
 1. Enable hibernation on your dev box definition
 1. Automate hibernation of pools of dev boxes using auto-stop schedules, or stop on RDP disconnect.
-
-> [!IMPORTANT]
-> Dev Box Hibernation is currently in PREVIEW.
-> For more information about the preview status, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The document defines legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Considerations for hibernation-enabled images
 
@@ -53,10 +50,7 @@ Before you enable hibernation on your dev box, review the following consideratio
 
 - Hibernation doesn't support hypervisor-protected code integrity (HVCI)/ Memory Integrity features. Dev box disables this feature automatically.
 
-- Auto-stop schedules hibernate Dev Boxes created after you enable hibernation on the associated Dev Box definition. Dev Boxes that were created before you enabled hibernation on the Dev Box definition will continue to shut down.
-
-  > [!NOTE]
-  > The functionality to schedule dev boxes to hibernate automatically is available as a public preview.  
+- Auto-stop schedules will hibernate Dev Boxes that were created after you enabled hibernation on the associated Dev Box definition. Dev Boxes that were created before you enabled hibernation on the Dev Box definition will continue to shut down.
 
 ### Settings not compatible with hibernation
 
@@ -155,7 +149,9 @@ If you enable hibernation on a Dev Box definition and the definition reports tha
 - We recommend using the Visual Studio for Dev Box marketplace images, either directly, or as base images for generating your custom image.
 - The Windows + OS optimizations image contains optimized power settings and isn't compatible with hibernation.
 - If you're using a custom Azure Compute Gallery image, enable hibernation on your Azure Compute Gallery image before enabling hibernation on your Dev Box definition.
-- If hibernation can't be enabled on the definition even after you enable it on your gallery image, your custom image likely has a Windows configuration that prevents hibernation. 
+- If hibernation can't be enabled on the definition even after you enable it on your gallery image, your custom image likely has a Windows configuration that prevents hibernation.
+- If you experience issues while provisioning dev boxes, make sure that the image supports hibernation.
+- If the image support hibernation but there are still failures during provisioning, see [Troubleshooting hibernation on Windows VMs](/azure/virtual-machines/windows/hibernate-resume-troubleshooting-windows).
 
 For more information, see [Settings not compatible with hibernation](#settings-not-compatible-with-hibernation).
 

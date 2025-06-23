@@ -2,7 +2,7 @@
 title: Authentication Types by Deployment Methods
 description: Learn the available types of authentication with Azure App Service when you're deploying application code.
 ms.topic: concept-article
-ms.date: 01/24/2025
+ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to understand the authentication options available for different deployment methods in Azure App Service.
@@ -22,7 +22,7 @@ With Azure App Service, you have multiple options for deploying your web applica
 | SCM/Kudu/OneDeploy REST endpoint | Basic authentication<br/><br/>Microsoft Entra | [Deploy files to App Service](deploy-zip.md) |
 | Kudu UI | Basic authentication<br/><br/>Microsoft Entra | [Deploy files to App Service](deploy-zip.md) |
 | FTP/FTPS | Basic authentication | [Deploy your app to Azure App Service by using FTP/S](deploy-ftp.md) |
-| Visual Studio | Basic authentication  | [Quickstart: Deploy an ASP.NET web app](quickstart-dotnetcore.md)<br/><br/>[Develop and deploy WebJobs by using Visual Studio](webjobs-dotnet-deploy-vs.md)<br/><br/>[Troubleshoot an app in Azure App Service by using Visual Studio](troubleshoot-dotnet-visual-studio.md)<br/><br/>[GitHub Actions integration in Visual Studio](/visualstudio/azure/overview-github-actions)<br/><br/>[Deploy your application to Azure by using GitHub Actions workflows created by Visual Studio](/visualstudio/deployment/azure-deployment-using-github-actions) |
+| Visual Studio | Basic authentication<br/><br/>Microsoft Entra  | [Quickstart: Deploy an ASP.NET web app](quickstart-dotnetcore.md)<br/><br/>[Develop and deploy WebJobs by using Visual Studio](webjobs-dotnet-deploy-vs.md)<br/><br/>[Troubleshoot an app in Azure App Service by using Visual Studio](troubleshoot-dotnet-visual-studio.md)<br/><br/>[GitHub Actions integration in Visual Studio](/visualstudio/azure/overview-github-actions)<br/><br/>[Deploy your application to Azure by using GitHub Actions workflows created by Visual Studio](/visualstudio/deployment/azure-deployment-using-github-actions) |
 | Visual Studio Code | Microsoft Entra | [Quickstart: Deploy an ASP.NET web app](quickstart-dotnetcore.md)<br/><br/>[Working with GitHub in VS Code](https://code.visualstudio.com/docs/sourcecontrol/github) |
 | GitHub with GitHub Actions | Publish profile (basic authentication)<br/><br/>Service principal (Microsoft Entra)<br/><br/>OpenID Connect (Microsoft Entra) | [Deploy to App Service by using GitHub Actions](deploy-github-actions.md) |
 | GitHub with the App Service build service as a build engine | Basic authentication | [Continuous deployment to Azure App Service](deploy-continuous-deployment.md) |

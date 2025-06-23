@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Kubernetes Service backup
 description: Symptoms, causes, and resolutions of the Azure Kubernetes Service backup and restore operations.
 ms.topic: troubleshooting
-ms.date: 01/24/2025
+ms.date: 06/18/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -40,7 +40,7 @@ To scale node pool on Azure portal, follow these steps:
 **Error message**:
 
    ```Error
-   BackupStorageLocation "default" is unavailable: rpc error: code = Unknown desc = azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://management.azure.com/subscriptions/e30af180-aa96-4d81-981a-b67570b0d615/resourceGroups/AzureBackupRG_westeurope_1/providers/Microsoft.Storage/storageAccounts/devhayyabackup/listKeys?%24expand=kerb&api-version=2019-06-01: StatusCode=404 -- Original Error: adal: Refresh request failed. Status Code = '404'. Response body: no azure identity found for request clientID 4e95##### REDACTED #####0777`
+   BackupStorageLocation "default" is unavailable: rpc error: code = Unknown desc = azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/AzureBackupRG_westeurope_1/providers/Microsoft.Storage/storageAccounts/devhayyabackup/listKeys?%24expand=kerb&api-version=2019-06-01: StatusCode=404 -- Original Error: adal: Refresh request failed. Status Code = '404'. Response body: no azure identity found for request clientID 4e95##### REDACTED #####0777`
 
    Endpoint http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=4e95dcc5-a769-4745-b2d9-
    ```
@@ -64,6 +64,9 @@ The extension pods aren't exempt, and require the Microsoft Entra pod identity t
    ```
 
 3. To assign the *Storage Blob Data Contributor* role to the extension identity, run the following command:
+
+   >[!Note]
+   >Ensure that you use the latest Terraform script version. [Learn more](quick-kubernetes-backup-terraform.md#prerequisites).
 
    ```azurecli-interactive
    az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name aksclustername --resource-group aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Blob Data Contributor' --scope /subscriptions/subscriptionid/resourceGroups/storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/storageaccountname
@@ -163,6 +166,46 @@ Example log message:
 In this case, there is a Network/Calico policy or NSG that didn't allow dataprotection-microsoft pods to communicate with the API server. 
 You should allow the dataprotection-microsoft namespace, and then reinstall the extension.
 
+### Scenario 5
+
+Extension Agent Failing to Communicate with Data Plane Endpoints leading to backup extension pods to not be deployed. 
+
+**Error message**: 
+The extension agent in your AKS cluster is failing to connect to Azure Kubernetes Configuration service data plane endpoints `*.dp.kubernetesconfiguration.azure.com` in your region. This failure is indicated by reviewing the logs of the `extension-agent` pod. You will likely see repeated 403 errors for requests to data plane endpoints
+
+```
+Error code: 403  
+Message: This traffic is not authorized
+```
+This typically means that the traffic from the extension agent is being blocked or lacks the necessary authorization to reach the Azure service. This extension agent is requisite to install and run the backup extension in the AKS cluster.
+
+**Cause**
+This error occurs due to a conflict in private DNS resolution when both Azure Arc-enabled Kubernetes and an AKS managed cluster share the same virtual network (VNet) or private DNS server:
+
+The shared VNet (or private DNS zone) contains a preexisting private endpoint for Azure Arc-enabled Kubernetes.
+
+As a result, the data plane endpoint used by the AKS extension agent (e.g., *.dp.kubernetesconfiguration.azure.com) resolves to a private IP address (e.g., 10.x.x.x) instead of the intended public IP.
+
+This misrouting causes the AKS extension agent to send traffic to an unintended private endpoint, leading to 403 Unauthorized errors. You can verify the resolved IP address of the data plane endpoint from within your AKS cluster using the following command:
+
+```
+kubectl exec -it -n kube-system extension-agent-<podGuid> --nslookup <region>.dp.kubernetesconfiguration.azure.com
+```
+
+Replace `region` with your specific Azure region (e.g., eastus, westeurope).
+
+**Resolution**
+To resolve this issue, consider the following approaches:
+
+- **Use Separate VNets:** In case you are using both Azure Arc-enabled Kubernetes and AKS clusters, then deploy them in separate virtual networks to avoid DNS resolution conflicts caused by shared private endpoints.
+
+- **Configure CoreDNS Override:** Override the CoreDNS settings in your AKS cluster to explicitly resolve the extension data plane endpoint to its public IP address. Refer to Scenario 3 in the documentation for detailed steps on configuring a CoreDNS override for the extension.
+
+- **Verify Public IP Resolution:** Identify the correct public IP address of the extension data plane endpoint by using the nslookup command. Replace the region with your AKS cluster’s region:
+
+ ```
+ nslookup eastus2euap.dp.kubernetesconfiguration.azure.com
+ ```
 
 ## Backup Extension post installation related errors
 
@@ -331,6 +374,51 @@ These error codes appear due to issues based on the Backup extension installed i
 **Cause**: This error code appears when a Delete or Read Lock has been applied on the Snapshot Resource Group provided as input for Backup Extension.
 
 **Recommended action**: In case if you are configuring a new backup instance, use a resource group without a delete or read lock. If the backup instance already configured then remove the lock from the snapshot resource group. 
+
+### KubernetesBackupGenericWarning
+
+**Cause**: This error code indicates that a Kubernetes resource could not be backed up or restored, typically due to validation or dependency issues within the cluster. 
+
+One commonly observed scenario is a failure during the restoration of Ingress resources due to issues with validating webhooks. A required service (e.g., fabp-ingress-nginx-controller-admission) is missing, preventing the webhook validate.nginx.ingress.kubernetes.io from executing properly. The validating webhook configuration exists but references a non-existent or misconfigured service. DNS resolution issues are preventing the webhook from reaching the intended endpoint. The cluster uses custom admission webhooks that were not backed up or recreated before the restore. The webhook configuration is obsolete or unnecessary for the restored cluster state.
+
+**Recommended action**: 
+
+- Verify if the missing service fabp-ingress-nginx-controller-admission exists using:
+
+   ```json
+   kubectl get svc -n ingress-basic
+   ```
+
+- If the service is missing, check deployment configurations and recreate it if necessary.
+
+- Investigate potential DNS resolution issues by running:
+   
+  ```JSON  
+  kubectl get endpoints -n ingress-basic
+
+  nslookup fabp-ingress-nginx-controller-admission.ingress-basic.svc.cluster.local
+  ```
+
+- If the webhook validation is unnecessary, consider removing it using:
+
+  ```json
+  kubectl delete validatingwebhookconfiguration
+  ```
+
+- List all webhook configurations with:
+
+  ```json
+  kubectl get validatingwebhookconfigurations
+  ```
+
+- If the issue is resolved, manually restore the ingress by applying its YAML backup:
+
+  ```json
+  kubectl apply -f
+  ```
+
+>[!Note] 
+>This warning can arise from multiple causes. If the above steps do not resolve your issue, consult the Kubernetes controller logs and webhook configuration for more specific error messages.
 
 ## Vaulted backup based errors
 

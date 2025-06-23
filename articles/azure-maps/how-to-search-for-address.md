@@ -83,7 +83,7 @@ The example in this section uses `Fuzzy Search` to search the entire world for *
     ```
 
     > [!NOTE]
-    > The _json_ attribute in the URL path determines the response format. This article uses json for ease of use and readability. To find other supported response formats, see the `format` parameter definition in the [URI Parameter reference] documentation.
+    > The _json_ attribute in the URL path determines the response format. This article uses JSON for ease of use and readability. To find other supported response formats, see the `format` parameter definition in the [URI Parameter reference] documentation.
 
 1. Select the run button, then review the response body.
 

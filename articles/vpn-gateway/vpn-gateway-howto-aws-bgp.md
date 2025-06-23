@@ -7,10 +7,9 @@ ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
 ms.date: 12/13/2024
-ms.custom:
-  - migration
-  - aws-to-azure
-  - gcp-to-azure
+ms.collection:
+ - migration
+ - aws-to-azure
 ---
 
 # How to connect AWS and Azure using a BGP-enabled VPN gateway

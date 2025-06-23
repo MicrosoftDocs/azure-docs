@@ -42,6 +42,7 @@ The current version of the emulator has the following limitations:
 - It can't stream messages by using the JMS protocol.
 - Partitioned entities aren't compatible with emulator. 
 - It doesn't support on-the-fly management operations through a client-side SDK.
+- AMQP Web Sockets are not supported. AMQP TCP is the only supported transport type.
 
 > [!NOTE]
 > After a container restart, data and entities don't persist in the emulator.
@@ -59,9 +60,9 @@ The emulator doesn't support these high-level features:
 - Visual metrics and alerts
 
 > [!NOTE]
-> The emulator is intended solely for development and test scenarios. We discourage any kind of production use. We don't provide any official support for the emulator.
+> The emulator is intended for development and test scenarios, specifically for sequential testing use cases. The Service Bus emulator is not to be used for production workloads as it does not offer an SLA.
 >
-> Report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-service-bus-emulator-installer).
+> We don't provide any official support for the emulator. Report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-service-bus-emulator-installer).
 
 ## Usage quotas
 

@@ -105,7 +105,7 @@ After you customize your view to meet your needs, you might want to save and sha
 
 1. Save the view on a subscription, resource group, management group, or billing account.
 2. Share a URL with view configuration details, which they can use on any scope they have access to.
-3. Ping the view to an Azure portal dashboard. Pinning requires access to the same scope.
+3. Pin the view to an Azure portal dashboard. Pinning requires access to the same scope.
 4. Download an image of the chart or summarized cost details in an Excel or CSV file.
 5. Subscribe to scheduled alerts on a daily, weekly, or monthly basis.
 

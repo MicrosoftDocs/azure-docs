@@ -30,7 +30,7 @@ A load test configuration uses the following keys:
 | `testPlan` | string | Y |  | Reference to the test plan file.<br/><ul><li>If `testType: JMX`: relative path to the JMeter test script.</li><li>If `testType: Locust`: relative path to the Locust test script.</li><li>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md).</li></ul> |
 | `engineInstances` | integer | Y |  | Number of parallel test engine instances for running the test plan. Learn more about [configuring high-scale load](./how-to-high-scale-load.md). |
 | `configurationFiles` | array of string | N |  | List of external files, required by the test script. For example, JMX fragment files, CSV data files, images, or any other data file.<br/>Azure Load Testing uploads all files in the same folder as the test script. In the JMeter script or the Locust script, only refer to external files using the file name, and remove any file path information. |
-| `failureCriteria` | object | N |  | L oad test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
+| `failureCriteria` | object | N |  | Load test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
 | `autoStop` | string or object | N |  | Automatically stop the load test when the error percentage exceeds a value.<br/>Possible values:<br/>- `disable`: don't stop a load test automatically.<br/>- *object*: see [autostop](#autostop-configuration) configuration for more details. |
 | `properties` | object | N |  | <ul><li>If `testType: JMX`: JMeter user property file references.</li><li>If `testType: Locust`: Locust configuration file references.</li></ul> See [properties](#properties-configuration) for more details. |
 | `zipArtifacts` | array of string| N |  | Specifies the list of zip artifact files. For files other than the main test script and user properties for JMeter-based tests and Locust script and configuration files for Locust-based tests, if the file size exceeds 50 MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. Only applies for `testType: JMX` and `testType: Locust`. |
@@ -42,7 +42,7 @@ A load test configuration uses the following keys:
 | `subnetId` | string | N |  | Resource ID of the virtual network subnet for testing privately hosted endpoints. This subnet hosts the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 | `publicIPDisabled` | boolean | N |  | Disable the deployment of a public IP address, load balancer, and network security group while testing a private endpoint. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 | `regionalLoadTestConfig` | object | N |  | Distribute load across regions to simulate user traffic from multiple regions. For more information, See [regional load test configuration](#regional-load-test-configuration) for more details. |
-| `referenceIdentities` | object | N |  | List of managed identities used in the test for accessing the secrets from your Azure Key Vault, metrics for server-side failure criteria and authentication of your endpoints. See [referenceIentities](#referenceidentities-configuration) for more details. |
+| `referenceIdentities` | object | N |  | List of managed identities used in the test for accessing the secrets from your Azure Key Vault, metrics for server-side failure criteria and authentication of your endpoints. See [referenceIdentities](#referenceidentities-configuration) for more details. |
 
 ### Load test configuration sample
 
@@ -59,7 +59,7 @@ engineInstances: 1
 subnetId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Network/virtualNetworks/load-testing-vnet/subnets/load-testing
 configurationFiles:
   - 'sampledata.csv'
-  - ‘testfragment.jmx’
+  - 'testfragment.jmx'
 zipArtifacts:
    - bigdata.zip
 splitAllCSVs: True
@@ -78,7 +78,7 @@ keyVaultReferenceIdentity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/r
 
 ### `failureCriteria` configuration
 
-Test fail criteria enable you to define conditions to determine if a load test run was successful or not. If one or more fail criteria are met, the test gets a failed test result. Learn more about [using load test fail criteria](./how-to-define-test-criteria.md). You can define failure criteria on client metrics, such as response time, latency, etc., and on server-side metricc for your server-side app components.
+Test fail criteria enable you to define conditions to determine if a load test run was successful or not. If one or more fail criteria are met, the test gets a failed test result. Learn more about [using load test fail criteria](./how-to-define-test-criteria.md). You can define failure criteria on client metrics, such as response time, latency, etc., and on server-side metrics for your server-side app components.
 
 #### Client metrics
 
@@ -155,7 +155,7 @@ The following table describes the different fields in the `appComponents:` confi
 |---------------------|-------------|
 |`resourceId`      | *Required.* The resource ID of app component on which the criteria should be applied. |
 |`resourceName` | *Optional.* The name of the resource to be monitored.  |
-|`kind`          | *Optional.* The kind of the resource to be monitired. |
+|`kind`          | *Optional.* The kind of the resource to be monitored. |
 |`metrics`          | *Required.* The list of metrics to be monitored for the app component. This contains the name, namespace, and aggregation for the metric. |
 
 #### App Components configuration sample

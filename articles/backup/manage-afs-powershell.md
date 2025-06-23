@@ -10,7 +10,7 @@ ms.author: jsuri
 
 # Manage Azure Files backups with PowerShell
 
-This article describes how to manage and monitor the backed-up Azure Files ([snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups) using Azure Backup via Azure PowerShell.
+This article describes how to manage and monitor the backed-up Azure Files ([snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups) using Azure Backup via Azure PowerShell. You can also manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).
 
 > [!WARNING]
 > Make sure the PowerShell version is upgraded to the minimum version for `Az.RecoveryServices 2.6.0` for Azure Files backups. [Learn more about the requirements for the change](backup-azure-afs-automation.md#important-notice-backup-item-identification).

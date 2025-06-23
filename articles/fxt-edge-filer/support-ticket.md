@@ -4,7 +4,7 @@ description: Open a support ticket with Microsoft Customer Service and Support f
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-fxt-edge-filer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/10/2019
 ---
 

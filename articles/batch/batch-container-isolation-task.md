@@ -2,7 +2,7 @@
 title: Configure container isolation in Azure Batch task
 description: Learn how to configure isolation at task level in Azure Batch.
 ms.topic: how-to
-ms.date: 12/02/2024
+ms.date: 04/02/2025
 ms.devlang: csharp
 ms.custom: batch
 ---

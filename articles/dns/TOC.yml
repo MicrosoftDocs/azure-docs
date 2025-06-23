@@ -95,6 +95,8 @@
       href: private-resolver-reliability.md
 - name: Security
   items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: DNS security policy
     href: dns-security-policy.md
   - name: DNSSEC overview
@@ -103,8 +105,6 @@
     href: dns-protect-zones-recordsets.md
   - name: Protect private DNS zones and records
     href: dns-protect-private-zones-recordsets.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Network security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Deploy

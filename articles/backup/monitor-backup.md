@@ -3,7 +3,7 @@ title: Monitor Azure Backup
 description: Learn how to monitor Azure Backup using Azure Monitor, including data collection, analysis, and alerting.
 ms.date: 03/05/2025
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: FuzziWumpus
 ms.author: mkluck
 ms.service: azure-backup

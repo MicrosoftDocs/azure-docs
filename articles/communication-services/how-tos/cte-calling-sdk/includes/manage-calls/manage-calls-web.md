@@ -329,7 +329,7 @@ const localVideoStreams = call.localVideoStreams;
 
 ## Manage chat thread
 >[!IMPORTANT]
-> The optional chat ID is only available in [1.29.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.29.1) or later of the Calling SDK for JavaScript. If you're using an earlier version, ensure you provide a unique chat ID manually.
+> The optional Chat ID is only available in [1.31.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.31.2)/[1.31.2-beta.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.31.2-beta.2) or later of the Calling SDK for JavaScript. If you're using an earlier version, ensure you provide a unique thread ID manually.
 
 Providing a chat ID is optional for making group calls and adding participants to existing calls. Associated chat and call have a separate list of participants. Before adding participants to the call, add the user to the chat to provide the best user experience and satisfy information barrier requirements. Adding a user to the call without adding the user to the chat can result in exceptions if an information barrier is set up.
 

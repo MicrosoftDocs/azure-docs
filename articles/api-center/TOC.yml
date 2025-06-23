@@ -50,6 +50,10 @@
         href: design-api-github-copilot-azure.md
       - name: Register APIs - GitHub Actions
         href: register-apis-github-actions.md
+      - name: Register and discover MCP servers
+        href: register-discover-mcp-server.md
+      - name: Export API from API Center to Copilot Studio
+        href: export-to-copilot-studio.yml
 - name: API governance
   items:
       - name: Use metadata for governance
@@ -60,6 +64,8 @@
         href: enable-managed-api-analysis-linting.md
       - name: API analysis - self-managed
         href: enable-api-analysis-linting.md
+      - name: Authorize access to APIs
+        href: authorize-api-access.md    
       - name: Discover shadow APIs with Dev Proxy
         href: discover-shadow-apis-dev-proxy.md
       - name: Find nonproduction API requests with Dev Proxy

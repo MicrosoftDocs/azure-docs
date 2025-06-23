@@ -13,6 +13,7 @@ metadata:
   ms.author: duau
   manager: kumudD
   ms.date: 03/04/2025
+  ms.custom: portfolio-consolidation-2025
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -142,7 +143,7 @@ conceptualContent:
             - url: /training/modules/design-implement-network-security-monitoring/
               itemType: training
               text: Design implement network security
-            - url: /training/modules/secure-networking/
+            - url: /training/paths/secure-networking/
               itemType: training
               text: Secure networking
             - url: /training/modules/troubleshoot-network-security-issues/
@@ -214,7 +215,7 @@ additionalContent:
         - title: Network Foundations
           url: /azure/networking/foundations/
         - title: Load balancing and Content Delivery
-          url: /azure/networking/load-balancer-content-delivery/
+          url: /azure/networking/load-balancer-content-delivery/?wt.mc_id=aznetportfolioconsolidation_lbcdscenariohub_content_cnl
         - title: Hybrid connectivity
           url: /azure/networking/hybrid-connectivity/
         - title: Network monitoring and management

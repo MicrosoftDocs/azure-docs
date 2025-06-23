@@ -368,9 +368,9 @@
     - name: Move
       items:
       - name: Move a namespace to another region
-        href: ../operational-excellence/relocation-event-hub.md?toc=/azure/event-hubs/TOC.json
+        href: ../azure-resource-manager/management/relocation/relocation-event-hub.md?toc=/azure/event-hubs/TOC.json
       - name: Move a dedicated cluster to another region
-        href: ../operational-excellence/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
+        href: ../azure-resource-manager/management/relocation/relocation-event-hub-cluster.md?toc=/azure/event-hubs/TOC.json
 - name: Reference
   items:
     - name: Monitor data reference
@@ -445,7 +445,7 @@
     - name: FAQ
       href: event-hubs-faq.yml
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=iot
+      href: https://azure.microsoft.com/updates/?category=iot
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/event-hubs/
     - name: Pricing calculator
@@ -455,4 +455,4 @@
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-eventhub
     - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
+      href: /shows/data-exposed/?expanded=azure&terms=event-hubs

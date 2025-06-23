@@ -2,7 +2,7 @@
 title: Restore encrypted Azure VMs
 description: Describes how to restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 06/23/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -21,6 +21,7 @@ Review the known limitations before you start restore of an encrypted VM
 - Azure Backup supports VMs encrypted using standalone keys. Any key that's a part of a certificate used to encrypt a VM isn't currently supported.
 - ADE encrypted VMs can’t be recovered at the file/folder level. You need to recover the entire VM to restore files and folders.
 - When restoring a VM, you can't use the [replace existing VM](backup-azure-arm-restore-vms.md#restore-options) option for ADE encrypted VMs. This option is only supported for unencrypted managed disks.
+- - During Azure VM restore, the encryption settings appear only when the vault is CMK encryption enabled.
 
 
 ## Restore an encrypted VM
@@ -58,13 +59,18 @@ Do one of the following actions:
 
 Reinstall the ADE extension so the data disks are open and mounted.
 
+>[!Note]
+>If an Azure VM uses disks size >= 4097 GB, or includes > 16 disks, the restore job fails to restore ADE settings on the restored disk. The restored disk remains encrypted with ADE, as it was at the restoration point,but the ADE configuration doesn't apply to the restored disk.
+>
+>To re-enable ADE, create a new Azure VM from the restored disk and then re-encrypt it using ADE.
+
 ## Cross Region Restore for an encrypted Azure VM
 
 Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure paired regions](../reliability/cross-region-replication-azure.md). Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore) for an encrypted VM.
 
 ## Move an encrypted Azure VM
 
-Moving an encrypted VM across vault or resource group is same as moving a backed up Azure Virtual machine. See,
+Moving an encrypted VM across vault or resource group is same as moving a backed-up Azure Virtual machine. See,
 
 - [Steps to move an Azure virtual machine to a different recovery service vault](backup-azure-move-recovery-services-vault.md#move-an-azure-virtual-machine-to-a-different-recovery-service-vault)
 - [Steps to move an Azure virtual machine to different resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)

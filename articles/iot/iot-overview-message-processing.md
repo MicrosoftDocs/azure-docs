@@ -16,14 +16,14 @@ This overview introduces the key concepts around processing messages sent from y
 
 ## [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the message processing components of an edge-based IoT solution.
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the message processing components of an edge-based IoT solution.
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-message-processing/iot-edge-message-architecture.svg" alt-text="Diagram that shows the high-level edge-based IoT solution architecture highlighting message processing areas." border="false" lightbox="media/iot-overview-message-processing/iot-edge-message-architecture.svg":::
 
 ## [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the message processing components of a cloud-based IoT solution.
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the message processing components of a cloud-based IoT solution.
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-message-processing/iot-cloud-message-architecture.svg" alt-text="Diagram that shows the high-level cloud-based IoT solution architecture highlighting message processing areas." border="false" lightbox="media/iot-overview-message-processing/iot-cloud-message-architecture.svg":::
@@ -179,4 +179,4 @@ To learn more, see:
 
 - [Extend your IoT solution](iot-overview-solution-extensibility.md)
 - [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
-- [What Azure technologies and services can you use to create IoT solutions?](iot-services-and-technologies.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

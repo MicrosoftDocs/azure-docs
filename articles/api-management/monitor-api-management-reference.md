@@ -1,8 +1,10 @@
 ---
-title: Monitoring data reference for Azure API Management
+title: Monitoring Data Reference for Azure API Management
 description: This article contains important reference material you need when you monitor Azure API Management by using Azure Monitor.
-ms.date: 01/06/2025
-ms.custom: horz-monitor
+ms.date: 05/14/2025
+ms.custom:
+  - horz-monitor
+  - build-2025
 ms.topic: reference
 author: dlepow
 ms.author: danlep
@@ -43,6 +45,15 @@ The following table lists the metrics available for the Microsoft.ApiManagement/
 - ResourceType
 - Source
 - State
+
+### Supported metrics for Microsoft.ApiManagement/gateways
+
+The following table lists the metrics available for the Microsoft.ApiManagement/gateways resource type.  
+  
+[!INCLUDE [headings](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/metrics-headings.md)]  
+  
+[!INCLUDE [Microsoft.ApiManagement/gateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-apimanagement-gateways-metrics-include.md)]  
+
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 

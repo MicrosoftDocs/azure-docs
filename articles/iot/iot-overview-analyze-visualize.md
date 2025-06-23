@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 01/22/2025
+ms.date: 04/2/2025
 ms.custom: template-overview
 # Customer intent: As a solution builder, I want a high-level overview of the options for analyzing and visualizing device data in an IoT solution.
 ---
@@ -19,19 +19,19 @@ In Azure IoT, analysis and visualization services are used to identify and displ
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the areas relevant to analyzing and visualizing your IoT data:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the areas relevant to analyzing and visualizing your IoT data:
 
 :::image type="content" source="media/iot-overview-analyze-visualize/iot-edge-visualization-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution visualization areas." border="false":::
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the areas relevant to analyzing and visualizing your IoT data:
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the areas relevant to analyzing and visualizing your IoT data:
 
 :::image type="content" source="media/iot-overview-analyze-visualize/iot-cloud-visualization-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution visualization areas." border="false":::
 
 ## Azure Digital Twins
 
-The [Azure Digital Twins](../digital-twins/overview.md) service lets you build and maintain models that are live, up-to-date representations of the real world. You can query, analyze, and generate visualizations from these models to extract business insights. An example model might be a representation of a building that includes information about the rooms, the devices in the rooms, and the relationships between the rooms and devices. The real-world data that populates these models is typically collected from IoT devices and sent through an IoT hub.
+The [Azure Digital Twins](../digital-twins/overview.md) service lets you build and maintain models that are live, up-to-date representations of the real world. You can query, analyze, and generate visualizations from these models to extract business insights. An example model might be a representation of a building that includes information about the rooms, the devices in the rooms, and the relationships between the rooms and devices. The real-world data that populates these models is typically collected from IoT devices and sent through an IoT hub. 
 
 ## IoT Central
 
@@ -48,12 +48,18 @@ There are many services you can use to analyze and visualize your IoT data. Some
 
 ### Microsoft Fabric
 
-[Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an end-to-end analytics and data platform designed for enterprises that require a unified solution. It encompasses data movement, processing, ingestion, transformation, real-time event routing, and report building. It offers a comprehensive suite of services such as Data Science and Real-Time Analytics.
+[Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an end-to-end analytics and data platform designed for enterprises that require a unified solution. It encompasses data movement, processing, ingestion, transformation, real-time event routing, and report building. It offers a comprehensive suite of services such as Data Science and Real-Time Analytics. It also contains [digital twin builder (preview)](#digital-twin-builder-preview-in-fabric) for digital twin modeling in a Fabric environment.
 
 The following articles show some examples of how to use Microsoft Fabric to analyze and visualize IoT data:
 
 - [Tutorial: Get insights from your processed data](../iot-operations/end-to-end-tutorials/tutorial-get-insights.md)
 - [Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2](../iot-operations/connect-to-cloud/tutorial-opc-ua-to-data-lake.md)
+
+#### Digital twin builder (preview) in Fabric
+
+[Digital twin builder (preview)](/fabric/real-time-intelligence/digital-twin-builder/overview) is a new item within the Real-Time Intelligence workload in Microsoft Fabric. It creates digital representations of real-world environments to optimize physical operations using data.
+
+For an example scenario with digital twin builder, see [Tutorial: Digital twin builder (preview)](/fabric/real-time-intelligence/digital-twin-builder/tutorial-0-introduction).
 
 ### Azure Machine Learning
 
@@ -100,3 +106,9 @@ Azure Stream Analytics is a fully managed stream processing engine that is desig
 ### Azure Maps
 
 [Azure Maps](../azure-maps/about-azure-maps.md) is a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications. For an IoT example, see [Integrate with Azure Maps (Azure Digital Twins)](../digital-twins/how-to-integrate-maps.md).
+
+## Related content
+
+- [Message processing in an IoT solution](iot-overview-message-processing.md)
+- [Extend your IoT solution](iot-overview-solution-extensibility.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

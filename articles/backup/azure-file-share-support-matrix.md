@@ -2,7 +2,7 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 03/24/2025
+ms.date: 05/23/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -33,6 +33,9 @@ Vaulted backup for Azure Files is available in the following regions: UK South, 
 Cross Region Restore is currently supported in the following regions: Australia East, West US, North Central US, East US, East US2, West US2, South India, Australia Southeast, Brazil South, Canada East, Korea Central, Norway East, South Africa North, Switzerland North, France Central, Germany North, Japan West, Korea South, South Africa West, Switzerland West, Canada Central, France South, Germany West Central,  Japan East, Norway West, West Europe. This feature isn't supported in Sweden Central, UAE North, Jio India West.
 
 Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, and India Central.
+
+>[!Note]
+>Cross Subscription Backup and Restore are supported for vaulted backup.
 
 ---
 
@@ -140,7 +143,7 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 | Maximum size of a file (if the destination account is in a Vnet) | 1 TB |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large File Shares | 15  TiB |
-| Maximum duration of a restore job                           | 15 days
+| Maximum duration of a restore job                           | 7 days
 
 # [Vault-standard tier](#tab/vault-tier)
 
@@ -216,6 +219,18 @@ The following table lists the behavior of backups due to customer-initiated fail
 | --- | --- | --- | --- |
 | Customer-managed planned failover | Supported | Supported | Not supported |
 | Customer-managed unplanned failover | Not supported | Only cross-region restore from the vault is supported. | Not supported |
+
+## Permitted scope for copy operations(preview)
+
+The following table lists the scope for copy operation:
+
+| Configuration | Support |
+| --- | --- |
+| From any storage account | Supported |
+| From storage accounts in the same Microsoft Entra tenant | Supported |
+| From storage accounts with a private endpoint to the same virtual network | Unsupported |
+
+Azure Trusted Services are allowed, but private endpoints take priority; so, this won't work. 
 
 
 ## Next steps

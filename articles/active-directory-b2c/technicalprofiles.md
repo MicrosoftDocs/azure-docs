@@ -19,9 +19,9 @@ ms.subservice: b2c
 ---
 
 # Technical profiles
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
 A *technical profile* provides a framework with a built-in mechanism to communicate with different types of parties. Technical profiles are used to communicate with your Azure Active Directory B2C (Azure AD B2C) tenant to create a user or read a user profile. A technical profile can be self-asserted to enable interaction with the user. For example, a technical profile can collect the user's credential to sign in and then render the sign-up page or password reset page.
 
 ## Types of technical profiles

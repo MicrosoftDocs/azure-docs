@@ -3,7 +3,7 @@ title: Use location data in an Azure IoT Central solution
 description: Learn how to use location data sent from a device connected to your IoT Central application. Plot location data on a map or create geofencing rules.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/04/2024
+ms.date: 04/24/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -55,7 +55,7 @@ For reference, the [Digital Twins Definition Language (DTDL) v2](https://github.
 ```
 
 > [!NOTE]
-> The **geopoint** schema type is not part of the [DTDL specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
+> The **geopoint** schema type isn't part of the [DTDL specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Send location data from a device
 
@@ -101,7 +101,7 @@ You can use location telemetry to create a geofencing rule that generates an ale
 
 ## Next steps
 
-Now that you've learned how to use properties in your Azure IoT Central application, see:
+Now that you know how to use properties in your Azure IoT Central application, see:
 
 * [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md)
-* [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
+* [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)

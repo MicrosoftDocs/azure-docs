@@ -5,7 +5,9 @@ author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025
 ms.topic: conceptual
-ms.custom: migration
+ms.collection:
+ - migration
+ - gcp-to-azure
 ---
 
 # Migrate databases from Google Cloud Platform (GCP) to Azure
@@ -34,6 +36,6 @@ Use the following migration guides as examples to help structure your migration 
 The following list includes platform-agnostic articles that have general guidance about how to migrate databases and security components to GCP.
 
 - [Plan your migration to Microsoft Sentinel](/azure/sentinel/migration)
-- [Google Cloud Platform Identity and Access Management by using Azure Functions connector for Microsoft Sentinel](/azure/sentinel/data-connectors/google-cloud-platform-iam)
+- [Google Cloud Platform Identity and Access Management by using Azure Functions connector for Microsoft Sentinel](/azure/sentinel/data-connectors/google-cloud-platform-iam-using-azure-functions)
 
 Use the table of contents to explore other articles that relate to your workload's architecture.

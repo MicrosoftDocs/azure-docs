@@ -6,18 +6,15 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/07/2025
+ms.date: 06/09/2025
 # Customer intent: As a developer, I want to create a Standard logic app workflow that can run on customer-managed infrastructure, which can include on-premises systems, private clouds, and public clouds.
+ms.custom:
+  - build-2025
 ---
 
-# Create Standard logic app workflows for hybrid deployment on your own infrastructure (Preview)
+# Create Standard logic app workflows for hybrid deployment on your own infrastructure
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
->
-> This capability is in preview, incurs charges for usage, and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For scenarios where you need to use, control, and manage your own infrastructure, you can create Standard logic app workflows using the hybrid deployment model in Azure Logic Apps. This model provides capabilities for you to build and host integration solutions for partially connected environments that require local processing, storage, and network access. Your infrastructure can include on-premises systems, private clouds, and public clouds. With the hybrid model, your Standard logic app workflow is powered by the Azure Logic Apps runtime, which is hosted on premises as part of an Azure Container Apps extension.
 
@@ -27,20 +24,14 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 ## Limitations
 
-- Hybrid deployment for Standard logic apps is available and supported only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
+The following section describes the limitations for the hybrid deployment option:
 
-- Managed identity authentication for managed API connectors currently isn't available in this preview release.
-
-  Azure Arc-enabled Kubernetes clusters currently don't support managed identity authentication for managed API connections. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections).
-
-- Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account associated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the following app setting and provide your storage account connection string:
-
-  ```json
-  "Values": {
-    "name": "AzureWebJobsStorage",
-    "value": "{storage-account-connection-string}"
-  }
-  ```
+| Limitation | Description |
+|------------|-------------|
+| Supported Azure regions | Hybrid deployment is currently available and supported only in the following Azure regions: <br><br>- Central US <br>- East Asia <br>- East US <br>- North Central US <br>- Southeast Asia <br>- Sweden Central <br>- UK South <br>- West Europe <br>- West US <br> |
+| Data logging with a disconnected runtime | In partially connected mode, the Azure Logic Apps runtime can stay disconnected up to 24 hours and still retain data logs. However, any logging data past this duration might be lost. |
+| Unsupported capabilities available in single-tenant Azure Logic Apps (Standard) and related Azure services | - Deployment slots <br><br>- Azure Business process tracking <br><br>- Resource health under **Support + troubleshooting** in Azure portal <br><br>- Managed identity authentication for connector operations. Azure Arc-enabled Kubernetes clusters currently don't support managed identity authentication for managed API connections. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections). |
+| Function-based triggers | Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account associated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the app setting named **AzureWebJobsStorage** and provide your storage account connection string:<br><br>`"Values": {` <br>    `"name": "AzureWebJobsStorage",` <br>    `"value": "{storage-account-connection-string}"` <br>`}` |
 
 ## Prerequisites
 
@@ -49,7 +40,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 - The following on-premises resources, which must all exist within the same network for the required connectivity:
 
   - An Azure Kubernetes Service cluster that is connected to Azure Arc
-  - A SQL database to locally store workflow run history, inputs, and outputs for processing
+  - An SQL database to locally store workflow run history, inputs, and outputs for processing
   - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
   To meet these requirements, [set up these on-premises resources to support hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
@@ -66,7 +57,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 ### [Portal](#tab/azure-portal)
 
-After you meet the prerequisites, create your Standard logic app for hybrid deployment by following these steps:
+Create your Standard logic app for hybrid deployment by following these steps:
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps**, and select **Logic apps**.
 
@@ -81,7 +72,7 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your hybrid app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Hybrid-RG**. |
    | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only lowercase letters, numbers, or hyphens (**-**). <br><br>This example uses **my-logic-app-hybrid**. |
-   | **Region** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **East US**. |
+   | **Region** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#limitations). <br><br>This example uses **East US**. |
    | **Container App Connected Environment** | Yes | <*connected-environment-name*> | The Arc-enabled Kubernetes cluster that you created as the deployment environment for your logic app. For more information, see [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md). |
    | **Configure storage settings** | Yes | Enabled or disabled | Continues to the **Storage** tab on the **Create Logic App (Hybrid)** page. |
 
@@ -115,29 +106,9 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
 
    For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md).
 
-   > [!NOTE]
-   >
-   > A Standard logic app with the hybrid hosting option automatically creates a new *revision*, 
-   > which is a [versioning concept from Azure Container Apps](../container-apps/revisions.md), 
-   > whenever you save changes to a child workflow. This revision might take a little time to 
-   > activate, which means that after you save any changes, you might want to wait several 
-   > moments before you test your workflow.
-   >
-   > If your changes still haven't appeared in the workflow, you can check whether the revision exists:
-   >
-   > 1. On the resource menu, under **Revisions**, and select **Revisions and replicas**.
-   >
-   > 1. On the **Revisions and replicas** page, on the **Active revisions** tab, check whether 
-   >    a new revision appears on the list.
-   >
-   > For more information, see the following resources:
-   >
-   > - [Update and deploy changes in Azure Container Apps](../container-apps/revisions.md)
-   > - [Manage revisions in Azure Container Apps](../container-apps/revisions-manage.md) 
-
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-After you meet the prerequisites, but before you create your Standard logic app for hybrid deployment in Visual Studio Code, confirm that the following conditions are met:
+If you want to deploy with SMB file share, confirm that the following conditions are met before you create your Standard logic app for hybrid deployment in Visual Studio Code:
 
 - Your SMB file share server is accessible.
 - Port 445 is open on the computer where you run Visual Studio Code.
@@ -168,7 +139,7 @@ After you meet the prerequisites, but before you create your Standard logic app 
 
    This example uses **Hybrid-RG**.
 
-1. From the location list, select an Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
+1. From the location list, select an Azure region that is [supported for Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#limitations).
 
    This example uses **East US**.
 
@@ -178,7 +149,33 @@ After you meet the prerequisites, but before you create your Standard logic app 
 
 #### Deploy your logic app
 
-After you finish building your workflow, you can deploy your logic app to your Azure Container Apps connected environment.
+After you finish building your workflow, you can deploy your logic app to your on-premises Azure Container Apps connected environment.
+
+##### Zip deployment
+
+Zip deployment provides the following benefits over the SMB file share option.
+
+- Visual Studio Code doesn't need a connection to the SMB file share.
+- Subsequent deployments don't require credentials for the SMB file share.
+- Zip deployment provides a more stable and reliable option over SMB deployment, which is prone to 409 conflicts.
+
+To use zip deployment, follow these steps:
+
+1. [Create an app registration using Microsoft Entra ID](#create-an-app-registration-with-microsoft-entra-id). At the appropriate steps, provide a client ID, object ID, and client secret.
+
+1. To use zip deployment with an existing Standard logic app resource in the Azure portal, you must manually add the app registration as an app setting in your Standard logic app resource.
+
+   For more information, see [Add app registration values to your Standard logic app](/azure/logic-apps/create-standard-workflows-hybrid-deployment#add-app-registration-values-to-your-standard-logic-app&tabs=azure-portal).
+
+If you have concerns about creating an app registration, you can still use SMB file share deployment option.
+
+1. In Visual Studio Code, on the **Activity Bar**, select **Manage** (gear icon) > **Settings**.
+
+1. Under **Workspace**, select **Extensions** > **Azure Logic Apps (Standard)** > **Use SMBDeployment For Hybrid** > **Enable to use SMB deployment for hybrid logic apps**.
+
+1. Follow the next section for SMB file share deployment.
+
+##### SMB file share deployment
 
 1. In the Visual Studio Code **Explorer** window, open the shortcut menu for the workflow node, which is **my-stateful-workflow** in this example, and select **Deploy to logic app**.
 
@@ -210,23 +207,30 @@ After you finish building your workflow, you can deploy your logic app to your A
 
    After deployment completes, you can go to the Azure portal to view your deployed Standard logic app and workflow.
 
-> [!NOTE]
->
-> A Standard logic app with the hybrid hosting option automatically creates a new *revision*, 
-> which is a [versioning concept from Azure Container Apps](../container-apps/revisions.md), 
-> whenever you save changes to a child workflow. This revision might take a little time to 
-> activate, which means that after you save any changes, you might want to wait several 
-> moments before you test your workflow.
->
-> If your changes still haven't appeared in the workflow, you can check whether the revision exists:
->
-> 1. In the [Azure portal](https://portal.azure.com), open your resource. On the resource menu, 
->    under **Revisions**, select **Revisions and replicas**.
->
-> 1. On the **Revisions and replicas** page, on the **Active revisions** tab, check whether 
->    a new revision appears on the list.
-
 ---
+
+### Versioning for hybrid deployments
+
+A Standard logic app with the hybrid hosting option automatically creates a new *revision*, which is a [versioning concept from Azure Container Apps](../container-apps/revisions.md), whenever you save changes to a child workflow. This revision might take a little time to activate, which means that after you save any changes, you might want to wait several 
+moments before you test your workflow.
+
+If your changes still haven't appeared in the workflow, you can check whether the revision exists:
+
+1. In the [Azure portal](https://portal.azure.com), open your resource. On the resource menu, under **Revisions**, select **Revisions and replicas**.
+
+1. On the **Revisions and replicas** page, on the **Active revisions** tab, check whether a new revision appears on the list.
+
+For more information, see the following resources:
+
+- [Update and deploy changes in Azure Container Apps](../container-apps/revisions.md)
+
+- [Manage revisions in Azure Container Apps](../container-apps/revisions-manage.md) 
+
+## Set up enhanced telemetry or OpenTelemetry for performance monitoring
+
+You can set up enhanced telemetry collection in Application Insights for your Standard logic app and then view the collected data after your workflow finishes a run. This capability gives you a simpler experience to get insights about your workflows and more control over filtering events at the data source, which helps you reduce storage costs. These improvements focus on real-time performance metrics that provide insights into your system's health and behavior.
+
+For partially connected and on-premises scenarios, you can set up your Standard logic app to emit telemetry based on the [OpenTelemetry-supported](https://opentelemetry.io/) app settings that you define for the specific environment. By default, this telemetry data is sent to Application Insights. For more information, see [Enable enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md).
 
 <a name="change-vcpu-memory"></a>
 
@@ -245,7 +249,7 @@ You can edit the vCPU and memory settings for your Standard logic app resource. 
    | Property | Value | Description |
    |----------|-------|-------------|
    | **CPU cores** | - Default: 1 <br>- Minimum: 0.25 <br>- Maximum: 2 | Determines the vCPU cores to assign to your container instance. You can increase this value by 0.25 cores up to the maximum value. The total number across all container instances for this logic app is limited to 2 cores. |
-   | **Memory** | - Default: 2 <br>- Minimum: 0.1 <br>- Maximum: 4 | Determines the memory capacity in gibibytes (Gi) to assign to your container instance. You can increase this value by 0.1 Gi up to the maximum value. The total capacity across all container instances for this logic app is limited to 4 Gi. |
+   | **Memory** | - Default: 2 <br>- Minimum: 0.1 <br>- Maximum: 4 | Determines the memory capacity in gibibytes (GiB) to assign to your container instance. You can increase this value by 0.1 GiB up to the maximum value. The total capacity across all container instances for this logic app is limited to 4 GiB. |
 
 1. When you finish, select **Save**.
 
@@ -382,6 +386,18 @@ You can store the client ID and client secret values in your logic app resource 
 
 ## Known issues and troubleshooting
 
+The following section describes currently known issues and guidance for troubleshooting common problems.
+
+### General environment setup or portal deployment problems
+
+To help you diagnose and debug problems with your environment configuration or portal deployment failures, you can try running the **troubleshoot.ps1** PowerShell script provided for the hybrid deployment option.
+
+1. Go to the [Azure Logic Apps GitHub repository: **scripts/hybrid** folder](https://github.com/Azure/logicapps/blob/master/scripts/hybrid).
+
+1. Copy the **troubleshoot.ps1** file to a folder in the same on-premises location as your logic app deployment.
+
+1. Run the script using PowerShell.
+
 ### Arc-enabled Kubernetes clusters
 
 In rare scenarios, you might notice a high memory footprint in your cluster. To prevent this issue, either scale out or add autoscale for node pools.
@@ -464,3 +480,4 @@ For more information, see [Container Storage Interface (CSI) drivers on Azure Ku
 ## Related content
 
 - [Set up requirements for Standard logic app deployment on your own infrastructure](set-up-standard-workflows-hybrid-deployment-requirements.md)
+- [Enable enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md)

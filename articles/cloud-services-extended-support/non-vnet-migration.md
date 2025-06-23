@@ -12,6 +12,9 @@ ms.date: 07/24/2024
 
 # Migrate cloud services not in a virtual network to a virtual network
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 Some legacy cloud services are still running without virtual network support. While there's a process for migrating directly through the portal, there are certain considerations that should be made before migration. This article walks you through the process of migrating a non virtual network supporting Cloud Service to a virtual network supporting Cloud Service.
 
 ## Advantages of this approach

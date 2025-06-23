@@ -123,7 +123,7 @@ The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregist
 
 ### Service import statements
 
-Add these import statements to connect to Iot Hub, send cloud-to-device direct methods, and receive device direct method responses.
+Add these import statements to connect to IoT Hub, send cloud-to-device direct methods, and receive device direct method responses.
 
 ```python
 from azure.iot.hub import IoTHubRegistryManager

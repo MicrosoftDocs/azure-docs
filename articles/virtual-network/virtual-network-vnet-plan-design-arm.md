@@ -3,11 +3,12 @@ title: Plan Azure virtual networks
 description: Learn how to plan for virtual networks based on your isolation, connectivity, and location requirements.
 services: virtual-network
 author: asudbring
-manager: mtillman
+manager: kumudD
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 04/08/2020
+ms.date: 04/17/2025
 ms.author: allensu
+# Customer intent: As a cloud architect, I want to plan and deploy virtual networks considering isolation, connectivity, and regional requirements, so that I can effectively support my organization's production needs and ensure compliance with security and latency standards.
 ---
 
 # Plan virtual networks
@@ -50,7 +51,7 @@ A virtual network is a virtual, isolated portion of the Azure public network. Ea
 You can segment a virtual network into one or more subnets up to the [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits). When you decide whether to create one subnet or multiple virtual networks in a subscription, consider the following points:
 
 - Have a unique address range for each subnet, specified in CIDR format, within the address space of the virtual network. The address range can't overlap with other subnets in the virtual network.
-- Be aware that if you plan to deploy some Azure service resources into a virtual network, they might require, or create, their own subnet. There must be enough unallocated space for them to do so. To determine whether an Azure service creates its own subnet, see information for each [Azure service that you can deploy into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). For example, if you connect a virtual network to an on-premises network by using an Azure VPN gateway, the virtual network must have a dedicated subnet for the gateway. Learn more about [gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
+- If you plan to deploy some Azure service resources into a virtual network, they might require, or create, their own subnet. There must be enough unallocated space for them to do so. To determine whether an Azure service creates its own subnet, see information for each [Azure service that you can deploy into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). For example, if you connect a virtual network to an on-premises network by using an Azure VPN gateway, the virtual network must have a dedicated subnet for the gateway. Learn more about [gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
 - Override default routing for network traffic between all subnets in a virtual network. You want to prevent Azure routing between subnets or to route traffic between subnets through a network virtual appliance, for example. If you require that traffic between resources in the same virtual network flows through a network virtual appliance (NVA), deploy the resources to different subnets. Learn more in [Security](#security).
 - Limit access to Azure resources, such as an Azure Storage account or Azure SQL Database, to specific subnets with a virtual network service endpoint. You can also deny access to the resources from the internet. You can create multiple subnets and enable a service endpoint for some subnets, but not others. Learn more about [service endpoints](virtual-network-service-endpoints-overview.md) and the Azure resources for which you can enable them.
 - Associate zero or one network security group to each subnet in a virtual network. You can associate the same, or a different, network security group to each subnet. Each network security group contains rules, which allow or deny traffic to and from sources and destinations. Learn more about [network security groups](#traffic-filtering).
@@ -121,7 +122,7 @@ Policies are applied to the following hierarchy: management group, subscription,
 
 ## Related content
 
-Learn about all tasks, settings, and options for a:
+Learn about all tasks, settings, and options for virtual network resources & features in the following articles:
 
 - [Virtual network](manage-virtual-network.yml)
 - [Subnet and service endpoint](virtual-network-manage-subnet.md)

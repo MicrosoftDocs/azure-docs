@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 10/22/2024
 ms.custom: linux-related-content
+# Customer intent: "As a cloud architect, I want to implement Accelerated Networking on Azure VMs, so that I can enhance networking performance by reducing latency and CPU utilization for my high-demand applications."
 ---
 
 # Accelerated Networking overview
@@ -77,6 +78,7 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - Oracle Linux 7.4 and later with Red Hat Compatible Kernel (RHCK)
 - Oracle Linux 7.5 and later with UEK version 5
 - FreeBSD 10.4, 11.1, 12.0, or later
+- Flatcar Container Linux 3510 or later
 
 ### Supported VM instances
 

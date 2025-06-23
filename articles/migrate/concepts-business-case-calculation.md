@@ -1,7 +1,7 @@
 ---
 title: Business case in Azure Migrate 
 description: Learn about Business case in Azure Migrate 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 10/29/2024
 ms.custom: engagement-fy25
@@ -22,6 +22,7 @@ The Business case capability helps you build a business proposal to understand h
 - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
 - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
 - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
+- Sustainability insights to indicate a reduction in carbon emissions when moving from on-premises to Azure.
 
 Other key features:
 
@@ -42,7 +43,6 @@ There are three types of migration strategies that you can choose while building
 | **Modernize to PaaS (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets. <br/><br/>General servers are recommended with a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the *Recommended report* with optimization strategy - *Modernize to PaaS* from Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service and Azure Kubernetes Service assessments, with a preference to App Service. For general servers, sizing and cost comes from Azure VM assessment. |
  
 Although the Business case picks Azure recommendations from certain assessments, you won't be able to access the assessments directly. To deep dive into sizing, readiness, and Azure cost estimates, you can create respective assessments for the servers or workloads.
-
 
 ## Discovery sources to create a Business case
 
@@ -77,9 +77,9 @@ If you're using the Azure Migrate appliance, learn about the metadata and perfor
 If you use the appliance for discovery, it collects performance data for compute settings with these steps:
 
 1. The appliance collects a real-time sample point.
-    - **VMware VMs**: A sample point is collected every 20 seconds.
-    - **Hyper-V VMs**: A sample point is collected every 30 seconds.
-    - **Physical servers**: A sample point is collected every five minutes.
+    - **VMware VMs**: A sample point is collected for every 20 seconds.
+    - **Hyper-V VMs**: A sample point is collected for every 30 seconds.
+    - **Physical servers**: A sample point is collected for every five minutes.
 
 1. The appliance combines the sample points to create a single data point every 10 minutes for VMware and Hyper-V servers, and every 5 minutes for physical servers. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
 1. The assessment service stores all the 10-minute data points for the last month.
@@ -178,7 +178,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | **Storage** | **Storage Hardware** |   | Estimated as a sum of total storage hardware acquisition cost + software maintenance cost. <br> Total storage hardware acquisition cost = Total volume of storage attached to VMs (across all machines) * Cost per GB per month * 12. Cost per GB can be customized in the assumptions similar to the current On-premises storage cost. |
 | **Network** | **Network Hardware and software** | Network equipment (Cabinets, switches, routers, load balancers etc.) and software  | Estimated as a sum of total network hardware and software cost + network maintenance cost  Total network hardware and software cost is defaulted to 10%* (compute and licensing +storage cost) and can be customized in the assumptions. Network maintenance cost is defaulted to 15%*(Total network hardware and software cost) and can be customized in the assumptions Same as current On-premises networking cost. |
 | **Security** | **General Servers** | Server security cost | Estimated as sum of total protection cost for general servers and SQL workloads using MDC via Azure Arc. MDC Servers plan 2 is assumed for servers. Microsoft Defender for SQL on Azure-connected databases is assumed for SQL Server |
-| **acilities** | **Facilities & Infrastructure** | DC Facilities - Lease and Power | The facilities cost is based on a colocation model, which includes space, power, and lease costs per kWh.<br> Annual facilities cost = Total energy capacity * Average colocation costs * 12. (Assume 40% of datacenter energy capacity remains unused.) <br> Total energy capacity = Energy consumption by current workloads / (1 - unused energy capacity). <br>To determine energy consumption for your workloads: <br>- Compute resources: Total physical cores * On-Prem TDP (0.009 kWh per core) * Load factor (2.00) * On-Prem PUE (1.80).<br>- Storage resources: Total storage in TB * On-Prem storage power rating (10 kWh per TB) * Conversion factor (0.0001) * Load factor (2.00) * On-Prem PUE (1.80). |
+| **Facilities** | **Facilities & Infrastructure** | DC Facilities - Lease and Power | The facilities cost is based on a colocation model, which includes space, power, and lease costs per kWh.<br> Annual facilities cost = Total energy capacity * Average colocation costs * 12. (Assume 40% of datacenter energy capacity remains unused.) <br> Total energy capacity = Energy consumption by current workloads / (1 - unused energy capacity). <br>To determine energy consumption for your workloads: <br>- Compute resources: Total physical cores * On-Prem TDP (0.009 kWh per core) * Load factor (2.00) * On-Prem PUE (1.80).<br>- Storage resources: Total storage in TB * On-Prem storage power rating (10 kWh per TB) * Conversion factor (0.0001) * Load factor (2.00) * On-Prem PUE (1.80). |
 | **Labor** | **Labor**  | IT admin | Same as current On-premises labor cost.|
 | **Management** | **Management Software licensing** | System center or other management software | Estimated as sum of total management cost for general servers. This includes monitoring and patching. Patching is assumed to be free via Azure Update Manager as it is included in MDC Servers plan 2. Monitoring cost is calculated per day based on log storage and alerts and multiplied*365 Estimated as 70% of on-premises management labor cost by default as it is assumed that 30% of labor effects could be redirected to other high impact projects for the company due to productivity improvements.  Labor costs can be customized in Azure Arc setting under Azure cost assumptions. |
 
@@ -208,6 +208,24 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | **License Support** | License support cost for virtualization + Windows Server + SQL Server + Linux OS + Windows server extended security update (ESU) + SQL Server extended security update (ESU) |     | VMware licenses aren't retained; Windows, SQL and Hyper-V management software licenses are retained based on AHUB option in Azure. |
 | **Security** | Per year |  Per server annual security/protection cost.  |    |
 | **Datacenter Admin cost** | Number of people * hourly cost * 730 hours | Cost per hour based on location. |     |
+
+## Sustainability insights: Lower emissions with Azure
+
+The **Sustainability Benefits** capability is now embedded in Azure Migrate’s Business Case. It empowers IT, finance, and sustainability teams to:
+
+- **Estimate on-premises emissions (in MtCO₂e)**, using a standardized methodology considering compute, storage, power usage, and geographic carbon intensity.
+- **Compare against Azure emissions**, calculated using Microsoft’s internally validated **carbon rate cards** for each SKU and region.
+- **Visualize year-on-year reduction** as workloads migrate from on-premises to Azure. 
+- **Align cross-functional stakeholders** by presenting both **econoimic** and **environmental** benefits in one unified view.
+
+The method to calculate these emissions is explained below:
+
+| Category | Component | Logic |
+| --- | --- | --- |
+| On-premises emissions | Scope 1 emissions | Scope 1 includes emissions from on-premises generators that use fossil fuels. <br/><br/>  **Scope 1 emissions** (MtCO₂e)  = Number of Generators(1) * Average usage hours(2 hours per year) * Fuel consumption (0.4 L/hp hour) * Power output (1000 hp) * Fuel emission factor (0.002 MtCO2e/L) * Power alignment factor.
+|  | Scope 2 emissions – Compute emissions + Storage emissions | Scope 2 includes indirect emissions from the electricity used by physical servers. <br/><br/> **Scope 2 compute emissions** (MtCO2e) = Total cores count * Hours in a year * on-premises TDP (0.009 kWh per core) * on-premises PUE (1.8) * on-premises carbon intensity (based on region) * (1-% Power from renewable sources). <br/><br/> **Scope 2 storage emissions** (MtCO2e) = Total storage capacity (TB) * on-premises storage power rating (10 kWh/year per TB) * on-premises PUE (1.8) * on-premises carbon intensity (based on region) * (1-% Power from renewable sources). </br><br/> **Note**: These calculations use the market view for emissions. To calculate location view, follow the same steps but skip the adjustment for renewable energy.
+|  | Scope 3 emissions | Scope 3 accounts for emissions embedded in the manufacture, transport, and end-of-life of physical servers. <br/><br/> **Scope 3 compute emissions** (MtCO2e) – Total physical servers * {Manufacturing share of total emissions(18.2%) + Transport share of total emissions(0.1%) + End-of-life share of total emissions(0.5%)}  <br/><br/> **Scope 3 storage emissions (MtCO2e)** –  Total storage (in TB) * {Manufacturing share of total emissions(58 MtCO2e) + Transport share of total emissions(2 MtCO2e) + End-of-life share of total emissions(1 MtCO2e)} (MtCO2e) – Total physical servers * {Manufacturing share of total emissions(18.2%) + Transport share of total emissions(0.1%) + End-of-life share of total emissions(0.5%)}
+| Azure emissions | Scope 1, Scope 2, and Scope 3 | Azure emissions are powered by Microsoft’s carbon rate card. For more information, see [calculation methodology](/industry/sustainability/sustainability-data-solutions-fabric/azure-emissions-insights-calculation-methodology).The calculation methodology ensures consistency and transparency across Microsoft’s sustainability offerings.|
 
 ### On-premises with Arc and Azure (future state)
 

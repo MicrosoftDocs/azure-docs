@@ -15,6 +15,8 @@ ms.subservice: b2c
 ---
 # Configure Cloudflare Web Application Firewall with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this article, you can learn how to configure the [Cloudflare Web Application Firewall (WAF)](https://www.cloudflare.com/application-services/products/waf/) solution for Azure Active Directory B2C (Azure AD B2C) tenant with custom domain. Use Cloudflare WAF to help protect organizations from malicious attacks that can exploit vulnerabilities such as SQL Injection, and cross-site scripting (XSS).
 
 ## Prerequisites

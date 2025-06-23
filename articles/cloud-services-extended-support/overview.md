@@ -1,7 +1,7 @@
 ---
 title: About Azure Cloud Services (extended support)
 description: Learn about the child elements of the Network Configuration element of the service configuration file, which specifies Virtual Network and DNS values.
-ms.topic: article
+ms.topic: overview
 ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
@@ -11,6 +11,9 @@ ms.custom: devx-track-arm-template
 # Customer intent: As an IT admin managing legacy cloud applications, I want to migrate to Azure Resource Manager-based Cloud Services (extended support) so that I can enhance regional resiliency, utilize modern management features like RBAC and templates, and streamline operations with minimal application changes.
 ---
 # About Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 Cloud Services (extended support) is a new [Azure Resource Manager](../azure-resource-manager/management/overview.md) based deployment model for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product and is now generally available. Cloud Services (extended support) has the primary benefit of providing regional resiliency along with feature parity with Azure Cloud Services deployed using Azure Service Manager. It also offers some Azure Resource Manager capabilities such as role-based access and control (RBAC), tags, policy, and supports deployment templates.  
 

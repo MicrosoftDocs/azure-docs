@@ -9,7 +9,7 @@ metadata:
   ms.service: partner-services
   ms.subservice: confluent
   ms.topic: landing-page
-  ms.date: 11/20/2023
+  ms.date: 04/15/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,7 +23,7 @@ landingContent:
             url: overview.md
       - linkListType: how-to-guide
         links:
-          - text: Manage the Confluent Cloud resource
+          - text: Manage a resource
             url: manage.md
 
   # Card
@@ -31,9 +31,9 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure portal
+          - text: Create a resource - Azure portal
             url: create.md
-          - text: Get started with Apache Kafka & Apache Flink on Confluent Cloud - Azure CLI
+          - text: Create a resource - Azure CLI
             url: create-cli.md
       - linkListType: how-to-guide
         links:

@@ -1,13 +1,13 @@
 ---
-title: Connect your data sources to Microsoft Sentinel by using data connectors
-description: Learn how to install and configure a data connector in Microsoft Sentinel.
-author: cwatson-cat
+title: Connect Data Sources to Microsoft Sentinel Using Data Connectors
+description: Learn how to connect data sources to Microsoft Sentinel using data connectors for improved threat detection.
+author: batamig
 ms.topic: how-to
-ms.date: 03/28/2024
-ms.author: cwatson
+ms.date: 05/27/2025
+ms.author: bagol
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -15,21 +15,20 @@ ms.collection: usx-security
 
 ---
 
-# Connect your data sources to Microsoft Sentinel by using data connectors
+# Connect data sources to Microsoft Sentinel by using data connectors
 
-Install and configure data connectors to ingest your data into Microsoft Sentinel. Data connectors are available as part of solutions from the content hub in Microsoft Sentinel. After you install a solution from the content hub, the related data connectors are available to enable and configure. To find and install solutions that include data connectors, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md). 
-
-This article provides general information about how to enable a data connector and how to find more detailed installation instructions for other data connectors. For more information about data connectors in Microsoft Sentinel, see the following articles:
+Connect data sources to Microsoft Sentinel by installing and configuring data connectors. This article generally explains how to install data connectors available in the Microsoft Sentinel **Content hub** to ingest and analyze data for improved threat detection.
 
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
-
+- [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md)
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Prerequisites
 
 Before you begin, make sure you have the appropriate access and you or someone in your organization installs the related solution.
+
 - You must have read and write permissions on the Microsoft Sentinel workspace.
 - Install the solution that includes the data connector from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
@@ -38,26 +37,26 @@ Before you begin, make sure you have the appropriate access and you or someone i
 
 After you or someone in your organization installs the solution that includes the data connector you need, configure the data connector to start ingesting data.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configurations** > **Data connectors**.
-1. Search for and select the connector. If you don't see the data connector you want, install the solution associated with it from the **Content Hub**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configurations** > **Data connectors**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.
+
+1. Search for and select the connector. If you don't see the data connector you want, check again that the relevant solution is installed in the **Content hub**.
+
 1. Select **Open connector page**.  
 
-   #### [Azure portal](#tab/azure-portal)
-
-   :::image type="content" source="media/configure-data-connector/open-connector-page-option.png" alt-text="Screenshot of data connector details page with open connector page button.":::
-
    #### [Defender portal](#tab/defender-portal)
-
    :::image type="content" source="media/configure-data-connector/open-connector-page-option-defender-portal.png" alt-text="Screenshot of data connector details page in the Defender portal.":::
-
+   #### [Azure portal](#tab/azure-portal)
+   :::image type="content" source="media/configure-data-connector/open-connector-page-option.png" alt-text="Screenshot of data connector details page with open connector page button.":::
    ---
 
-1. Review the **Prerequisites**. To configure the data connector, fulfill all the prerequisites.
-1. Follow the steps outlined in the **Configurations** section.
+1. Review the **Prerequisites** for your data connector and ensure that they're fulfilled.
+
+1. Follow the steps outlined in the **Configurations** section for your data connector.
   
-   For some connectors, find more specific configuration information in the **Collect data** section in the Microsoft Sentinel documentation. For example, see the following articles:
+   For some connectors, find more specific configuration information in the **Collect data** section in the Microsoft Sentinel documentation.
+
    - [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
-   - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
+   - [Data connector prerequisites](data-connectors-reference.md#windows-security-events-via-ama)
   
    After you configure the data connector, it might take some time for the data to be ingested into Microsoft Sentinel. When the data connector is connected, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.  
 
@@ -65,19 +64,9 @@ After you or someone in your organization installs the solution that includes th
 
 ## Find your data
 
-After you enable the connector successfully, the connector begins to stream data to the table schemas related to the data types you configurated.
+After you enable the connector successfully, the connector begins to stream data to the table schemas related to the data types you configured.
 
-To view the data:
-
-   #### [Azure portal](#tab/azure-portal-1)
-
-   Query the tables in the Microsoft Sentinel workspace linked to your Microsoft Sentinel workspace.
-
-   #### [Defender portal](#tab/defender-portal-1)
-   
-   See [Where to find your Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender#where-to-find-your-microsoft-sentinel-data).
-
-   ---
+In the Defender portal, query data in the **Advanced hunting** page, or in the Azure portal, query data in the **Logs** page.
 
 ## Find support for a data connector
 
@@ -96,6 +85,4 @@ For more information about solutions and data connectors in Microsoft Sentinel, 
 
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
--  [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
-- [About Microsoft Sentinel content and solutions](sentinel-solutions.md)
-- [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md)
+- [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)

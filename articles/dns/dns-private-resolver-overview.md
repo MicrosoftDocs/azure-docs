@@ -2,12 +2,13 @@
 title: What is Azure DNS Private Resolver?
 description: In this article, get started with an overview of the Azure DNS Private Resolver service.
 ms.custom: references_regions
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: overview
 ms.date: 01/29/2025
-ms.author: greglin
+ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
+# Customer intent: "As a network administrator, I want to explore Azure DNS Private Resolver so that I can assess its capabilities for managing DNS queries between Azure and my on-premises environment without the need for traditional DNS servers."
 ---
 
 # What is Azure DNS Private Resolver? 
@@ -125,6 +126,7 @@ Outbound endpoints have the following limitations:
 
 ### Other restrictions
 
+- Linking rulesets cross-tenant is not supported.
 - IPv6 enabled subnets aren't supported.
 - DNS private resolver doesn't support Azure ExpressRoute FastPath.
 - DNS private resolver isn't compatible with [Azure Lighthouse](/azure/lighthouse/overview).

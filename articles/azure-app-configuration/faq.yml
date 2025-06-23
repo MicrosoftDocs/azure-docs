@@ -68,7 +68,7 @@ sections:
           
       - question: How much does App Configuration cost?
         answer: |
-          There are three pricing tiers: Free, Standard, and Premium. For detailed pricing information, refer to the [App Configuration pricing](https://azure.microsoft.com/en-us/pricing/details/app-configuration/) page.
+          There are four pricing tiers: Free, Developer, Standard, and Premium. For detailed pricing information, refer to the [App Configuration pricing](https://azure.microsoft.com/en-us/pricing/details/app-configuration/) page.
 
       - question: Which App Configuration tier should I use?
         answer: |
@@ -76,26 +76,43 @@ sections:
           
           The following are considerations for choosing a tier.
 
-          - **Purpose**: The Free tier is perfect for evaluating the service in non-production environments, allowing you to explore its features without any cost. The Standard tier is tailored for medium-volume production use cases, providing a balance of performance and cost-efficiency. For high-volume or enterprise-level production needs, the Premium tier offers the highest level of performance and scalability, ensuring your applications run smoothly even under heavy load.
-          - **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store per region in the Free tier. Subscriptions can have an unlimited number of configuration stores in the Standard and Premium tiers.
-          - **Storage per resource**: In the Free tier, each configuration store is limited to 10 MB of regular storage and 10 MB of snapshot storage. In the Standard tier, each configuration store can use up to 1 GB of regular storage and an additional 1 GB of snapshot storage. In the Premium tier, each configuration store can use up to 4 GB of regular storage and an additional 4 GB of snapshot storage.
-          - **Revision history**: App Configuration stores a history of all changes made to keys. In the Free tier, this history is stored for seven days. In the Standard and Premium tiers, this history is stored for 30 days.
+          - **Purpose**: The Free tier is perfect for evaluating the service in non-production environments, allowing you to explore its features without any cost.
+
+              The Developer tier is cost-efficient for low-volume, non-production use cases and comes equipped with features and capabilities specifically tailored for development and testing needs.
+
+              The Standard tier is designed for medium-volume production and non-production use cases, providing a balance of performance and cost-efficiency.
+
+              For high-volume or enterprise-level production needs, the Premium tier offers the highest level of performance and scalability, ensuring your applications run smoothly even under heavy loads.
+
+          - **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store per region in the Free tier. Subscriptions can have an unlimited number of configuration stores in the Developer, Standard and Premium tiers.
+          - **Storage per resource**: In the Free tier, each configuration store is limited to 10 MB of regular storage and 10 MB of snapshot storage. In the Developer tier, each configuration store can use up to 500 MB of regular storage and an additional 500 MB of snapshot storage. In the Standard tier, each configuration store can use up to 1 GB of regular storage and an additional 1 GB of snapshot storage. In the Premium tier, each configuration store can use up to 4 GB of regular storage and an additional 4 GB of snapshot storage.
+          - **Revision history**: App Configuration stores a history of all changes made to keys. In the Free and Developer tiers, this history is stored for seven days. In the Standard and Premium tiers, this history is stored for 30 days.
           - **Requests quota**: Free tier stores are limited to 1,000 requests per day. When a store reaches 1,000 requests, it returns HTTP status code 429 for all requests until midnight UTC.
+
+              Developer tier stores are limited to 6,000 requests per hour. Once the hourly quota is exhausted, additional requests return an HTTP status code 429, indicating too many requests, until the end of the hour.
           
               Standard tier stores are limited to 30,000 requests per hour. Once the hourly quota is exhausted, additional requests may return an HTTP status code 429, indicating too many requests, until the end of the hour. As more requests are sent which are above quota, a higher percentage of them may return status code 429. 
 
               Premium tier stores have no quota limit on requests, ensuring that access to the store is never blocked.
           - **Throughput**: App Configuration stores in all tiers have a throughput allowance. Requests exceeding this allowance receive an HTTP status code 429 response.
-              Stores in the Free tier have no guaranteed throughput.
+
+              Stores in the Free tier and Developer tier have no guaranteed throughput.
 
               Stores in the Standard tier allow run rate† up to 300 requests per second (RPS) for read requests and up to 60 RPS for write requests.
 
               Stores in the Premium tier allow run rate† up to 450 RPS for read requests and up to 100 RPS for write requests.
 
               †The run rate is typically measured as the average number of requests handled by an App Configuration store without throttling over a specified period.
-          - **Service level agreement**: The Free tier doesn't have an SLA. The Standard tier has an SLA of 99.9% availability and 99.95% availability with geo-replication enabled. The Premium tier has an SLA of 99.9% availability and 99.99% availability with geo-replication enabled.
-          - **Features**: All tiers include functionalities, including encryption with Microsoft-managed keys, authentication via access key or Microsoft Entra ID, Azure role-based access control (RBAC), managed identity, service tags, and availability zone redundancy. The Standard and Premium tiers offer more functionalities, including Private Link support, encryption with customer-managed keys, soft delete protection, and geo-replication capability.
+          - **Service level agreement**: The Free tier and Developer tier don't have an SLA. The Standard tier has an SLA of 99.9% availability and 99.95% availability with geo-replication enabled. The Premium tier has an SLA of 99.9% availability and 99.99% availability with geo-replication enabled.
+          - **Features**: All tiers include functionalities, including encryption with Microsoft-managed keys, authentication via access key or Microsoft Entra ID, Azure role-based access control (RBAC), managed identity, service tags, and availability zone redundancy.
+
+              The Developer tier also includes support for Private Link.
+
+              The Standard and Premium tiers offer more functionalities, including Private Link support, encryption with customer-managed keys, soft delete protection, and geo-replication capability.
+
           - **Cost**: There's no cost to use a Free tier store.
+
+              Developer tier stores have a daily usage charge, which includes the first 3,000 requests each day. Requests beyond this daily allocation incur an overage charge.
 
               Standard tier stores have a daily usage charge, which includes the first 200,000 requests each day. Requests beyond this daily allocation incur an overage charge.
 
@@ -103,7 +120,7 @@ sections:
           
       - question: Can I upgrade or downgrade an App Configuration store?
         answer: |
-          You can upgrade an App Configuration store at any time, for example, from the Free tier to the Standard or Premium tier, or from the Standard tier to the Premium tier.
+          You can upgrade an App Configuration store at any time, for example, from the Free tier to the Developer, Standard or Premium tier, or from the Developer, Standard tier to the Premium tier.
           
           You can downgrade an App Configuration store from the Premium tier to the Standard tier, as both tiers are designed for production usage. However, downgrading to a non-production tier, such as the Free tier, is not supported. To achieve this, you can create a new store in the desired tier and then [import configuration data into that store](howto-import-export-data.md).
           
@@ -123,9 +140,9 @@ sections:
 
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |        
-          App Configuration stores have different request quotas based on their tier. Free tier stores are limited to 1,000 requests per day, Standard tier stores to 30,000 requests per hour, and Premium tier stores have no request limits, ensuring uninterrupted access.
+          App Configuration stores have different request quotas based on their tier. Free tier stores are limited to 1,000 requests per day, Developer tier stores to 6,000 requests per hour, Standard tier stores to 30,000 requests per hour, and Premium tier stores have no request limits, ensuring uninterrupted access.
 
-          App Configuration stores have throughput allowances based on their tier. Free tier stores don't have guaranteed throughput. Standard tier stores support run rate up to 300 requests per second (RPS) for read operations and up to 60 RPS for write operations. Premium tier stores support run rate up to 450 RPS for read operations and up to 100 RPS for write operations.
+          App Configuration stores have throughput allowances based on their tier. Free tier and Developer tier stores don't have guaranteed throughput. Standard tier stores support run rate up to 300 requests per second (RPS) for read operations and up to 60 RPS for write operations. Premium tier stores support run rate up to 450 RPS for read operations and up to 100 RPS for write operations.
 
       - question: How do I estimate the number of requests my application may send to App Configuration?
         answer: |
@@ -146,6 +163,7 @@ sections:
           Your application may receive an HTTP status code 429 response under the following circumstances:
 
           - Exceeding the daily request quota for a store in the Free tier.
+          - Exceeding the hourly request quota for a store in the Developer tier.
           - Exceeding the hourly request quota for a store in the Standard tier.
           - Exceeding the throughput allowance for a store in any tier.
           - Exceeding the bandwidth allowance for a store in any tier.

@@ -19,7 +19,7 @@ In this tutorial, you create a microservice to demonstrate [Dapr's Bindings API]
 > * Run the application locally with the Dapr CLI. 
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with the provided Bicep. 
 
-The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostgreSql output binding.
+The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostgreSQL output binding.
 
 :::image type="content" source="media/microservices-dapr-azd/bindings-quickstart.png" alt-text="Diagram of the binding application.":::
 

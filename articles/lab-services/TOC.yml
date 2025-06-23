@@ -4,6 +4,8 @@
   items:
   - name: Azure Lab Services retirement guide
     href: retirement-guide.md
+  - name: Deletion policy for virtual machines
+    href: vm-deletion-policy.md
   - name: Find and delete lab resources
     href: find-delete-lab-resources.md
   - name: What is Azure Lab Services?

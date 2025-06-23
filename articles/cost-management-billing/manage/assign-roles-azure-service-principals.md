@@ -4,9 +4,9 @@ description: This article helps you assign EA roles to service principals by usi
 author: prashantsaini4
 ms.reviewer: prsaini
 ms.service: cost-management-billing
-ms.subservice: billing
+ms.subservice: enterprise
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 05/14/2025
 ms.author: prsaini
 ---
 
@@ -72,15 +72,20 @@ Later in this article, you give permission to the Microsoft Entra app to act by 
 
 | Role | Actions allowed | Role definition ID |
 | --- | --- | --- |
-| EnrollmentReader | Enrollment readers can view data at the enrollment, department, and account scopes. The data contains charges for all of the subscriptions under the scopes, including across tenants. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
-| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
+| EnrollmentReader | View data at the enrollment, department, and account scopes. The data contains charges for all of the subscriptions under the scopes, including across tenants. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
+| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4 |
 | DepartmentReader | Download the usage details for the department they administer. Can view the usage and charges associated with their department. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
+| Partner Admin Reader | View data for all enrollments under the partner organization. This role is only available for the following APIs:<br>- [Balances](/rest/api/consumption/balances/get-by-billing-account)<br>- [Exports V2 (api-version 2025-03-01 only)](/rest/api/cost-management/exports)<br>- [Generate Cost Details Report](/rest/api/cost-management/generate-cost-details-report)<br>- [Marketplaces](/rest/api/consumption/marketplaces/list)<br>- [Consumption Price sheet](/rest/api/consumption/price-sheet)<br>- [Cost Management Price sheet Download](/rest/api/cost-management/price-sheet/download-by-billing-account)<br>- [Generate Reservation Details Report](/rest/api/cost-management/generate-reservation-details-report/by-billing-account-id)<br>- [Reservation Summaries](/rest/api/consumption/reservations-summaries)<br>- [Reservation Recommendations](/rest/api/consumption/reservation-recommendations/list)<br>- [Reservation Transactions](/rest/api/consumption/reservation-transactions) | 4f6144c0-a809-4c55-b3c8-7f9b7b15a1bf |
 
-- An EnrollmentReader role can be assigned to a service principal only by a user who has an enrollment writer role. The EnrollmentReader role assigned to a service principal isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
-- A DepartmentReader role can be assigned to a service principal only by a user who has an enrollment writer or department writer role.
-- A SubscriptionCreator role can be assigned to a service principal only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
-- The EA purchaser role isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
+- The following user roles are required to assign each service principal role:
+  - **EnrollmentReader:** user assigning must have _enrollment writer_ role.
+  - **DepartmentReader:** user assigning must have _enrollment writer_ or _department writer_ role.
+  - **SubscriptionCreator:** user assigning must be the _enrollment account owner_ (EA administrator).
+  - **EA purchaser:** user assigning must have _enrollment writer_ role.
+  - **Partner Admin Reader:** user assigning must have _partner administrator_ role.
+
+All of these roles are created by programmatic means, aren't shown in the Azure portal, and are only for programmatic use.
 
 When you grant an EA role to a service principal, you must use the `billingRoleAssignmentName` required property. The parameter is a unique GUID that you must provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
@@ -96,7 +101,9 @@ A service principal can have only one role.
 
 1. Provide the following parameters as part of the API request.
 
-   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing** overview page.
+   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing** overview page. 
+     - For the **Partner Admin Reader** role, use the format `pcn.{PCN}` for the billing account name, where `{PCN}` is your partner organization's Partner Customer Number.
+     - For all other roles, use the standard billing account ID as shown in the Azure portal.
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 

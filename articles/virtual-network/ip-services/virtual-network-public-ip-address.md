@@ -9,6 +9,7 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
+# Customer intent: "As a cloud network administrator, I want to create, modify, or delete public IP addresses in Azure, so that I can manage network connectivity for my resources efficiently and ensure compliance before the upcoming SKU retirement deadline."
 ---
 
 # Create, change, or delete an Azure public IP address
@@ -76,6 +77,9 @@ For more detail on the specific attributes of a public IP address during creatio
 |Modify | For a disassociated IP, select **Configuration** to: </br> Modify idle timeout.</br> DNS name label.</br> Change assignment of an IP from static to dynamic.</br> Upgrade a basic IP to standard. |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) to update settings |[az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) to update |
 
    - **Delete**: Deletion of public IPs requires that the public IP object isn't associated to any IP configuration or virtual machine network interface. For more information, see the following table.
+
+>[!WARNING]
+   >Once a public IP address is deleted it can not be recovered.
 
 |Resource|Azure portal|Azure PowerShell|Azure CLI|
 |---|---|---|---|

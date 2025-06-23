@@ -2,11 +2,12 @@
 title: Troubleshoot Application Gateway for Containers
 description: Learn how to troubleshoot common issues with Application Gateway for Containers.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: troubleshooting
-ms.date: 2/15/2025
-ms.author: greglin
+ms.date: 3/31/2025
+ms.author: mbender
+# Customer intent: As a cloud platform administrator, I want to troubleshoot issues with Application Gateway for Containers, so that I can ensure the service operates smoothly and effectively resolves any deployment or configuration problems.
 ---
 
 # Troubleshooting in Application Gateway for Containers
@@ -25,10 +26,10 @@ Example output:
 
 | NAME                     | READY | UP-TO-DATE | AVAILABLE | AGE  | CONTAINERS              | IMAGES                                                                          | SELECTOR |
 | ------------------------ | ----- | ---------- | --------- | ---- | ----------------------- | ------------------------------------------------------------------------------- | -------- |
-| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**1.4.14**           | app=alb-controller |
-| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**1.4.14** | app=alb-controller-bootstrap |
+| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**1.5.2**           | app=alb-controller |
+| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**1.5.2** | app=alb-controller-bootstrap |
 
-In this example, the ALB controller version is **1.4.14**.
+In this example, the ALB controller version is **1.5.2**.
 
 The ALB Controller version can be upgraded by running the `helm upgrade alb-controller` command. For more information, see [Install the ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#install-the-alb-controller).
 

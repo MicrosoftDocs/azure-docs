@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure App Service
-description: Start here to learn how to monitor Azure App Service.
-ms.date: 03/05/2024
+description: Learn about options in Azure App Service for monitoring resources for availability, performance, and operation.
+ms.date: 04/18/2025
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: msangapu-msft
@@ -15,7 +15,7 @@ ms.service: azure-app-service
 
 ## App Service monitoring
 
-Azure App Service provides several monitoring options for monitoring resources for availability, performance, and operation. Options include Diagnostic Settings, Application Insights, log stream, metrics, quotas and alerts, and activity logs.
+Azure App Service provides several options for monitoring resources for availability, performance, and operation. Options include diagnostic settings, Application Insights, log stream, metrics, quotas and alerts, and activity logs.
 
 On the Azure portal page for your web app, you can select **Diagnose and solve problems** from the left navigation to access complete App Service diagnostics for your app. For more information about the App Service diagnostics tool, see [Azure App Service diagnostics overview](overview-diagnostics.md).
 
@@ -55,7 +55,7 @@ For more information about the resource types for App Service, see [App Service 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for App Service, see [App Service monitoring data reference](monitor-app-service-reference.md#metrics).
 
-For help understanding metrics in App Service, see [Understand metrics](web-sites-monitor.md#understand-metrics). Metrics can be viewed by aggregates on data (ie. average, max, min, etc.), instances, time range, and other filters. Metrics can monitor performance, memory, CPU, and other attributes.
+For help understanding metrics in App Service, see [Metrics](web-sites-monitor.md#understand-metrics). Metrics can be viewed by aggregates on data (such as average, max, min), instances, time range, and other filters. Metrics can monitor performance, memory, CPU, and other attributes.
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for App Service, see [App Service monitoring data reference](monitor-app-service-reference.md#resource-logs).
@@ -69,7 +69,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 Azure activity logs for App Service include details such as:
 
-- What operations were taken on the resources (ex: App Service Plans)
+- What operations were taken on the resources (for example, App Service plans)
 - Who started the operation
 - When the operation occurred
 - Status of the operation
@@ -130,7 +130,7 @@ See [Azure Monitor queries for App Service](https://github.com/microsoft/AzureMo
 
 ### Quotas and alerts
 
-Apps that are hosted in App Service are subject to certain limits on the resources they can use. [The limits](web-sites-monitor.md#understand-quotas) are defined by the App Service plan that's associated with the app. Metrics for an app or an App Service plan can be hooked up to alerts.
+Apps that are hosted in App Service are subject to certain limits on the resources they can use. The limits are defined by the App Service plan that's associated with the app. Metrics for an app or an App Service plan can be hooked up to alerts. To learn more, see [Quotas](web-sites-monitor.md#understand-quotas).
 
 ### App Service alert rules
 
@@ -140,15 +140,15 @@ The following table lists common and recommended alert rules for App Service.
 |:---|:---|:---|
 | Metric | Average connections| When number of connections exceed a set value|
 | Metric | HTTP 404| When HTTP 404 responses exceed a set value|
-| Metric | HTTP Server Errors| When HTTP 5xx errors exceed a set value|
-| Activity Log | Create or Update Web App | When app is created or updated|
-| Activity Log | Delete Web App | When app is deleted|
-| Activity Log | Restart Web App| When app is restarted|
-| Activity Log | Stop Web App| When app is stopped|
+| Metric | HTTP server errors| When HTTP 5xx errors exceed a set value|
+| Activity log | Create or update web app | When app is created or updated|
+| Activity log | Delete web app | When app is deleted|
+| Activity log | Restart web app| When app is restarted|
+| Activity log | Stop web app| When app is stopped|
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
 
-- See [App Service monitoring data reference](monitor-app-service-reference.md) for a reference of the metrics, logs, and other important values created for App Service.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
+- [Azure App Service monitoring data reference](monitor-app-service-reference.md)
+- [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)

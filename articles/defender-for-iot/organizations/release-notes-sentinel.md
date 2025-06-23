@@ -46,7 +46,7 @@ New features in this version include:
 
 - New SOC playbooks for automation with CVEs, triaging incidents that involve sensitive devices, and email notifications to device owners for new incidents.
 
-For more information, see [Updates to the Microsoft Defender for IoT solution](whats-new.md#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub).
+For more information, see [Updates to the Microsoft Defender for IoT solution](whats-new-archive.md#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub).
 
 ## Version 2.0.0
 
@@ -62,9 +62,8 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 New features in this version include:
 
-- [Microsoft Sentinel incident synch with Defender for IoT alerts](whats-new.md#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts)
+- [Microsoft Sentinel incident synch with Defender for IoT alerts](whats-new-archive.md#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts)
 - IoT device entities displayed in related Microsoft Sentinel incidents.
-
 
 ## Version 1.0.13
 

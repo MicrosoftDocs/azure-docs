@@ -48,7 +48,7 @@ Use the `check-header` policy  to enforce that a request has a specified HTTP he
 
 ## Usage
 
-- **[Policy sections:](./api-management-howto-policies.md#sections)** inbound
+- **[Policy sections:](./api-management-howto-policies.md#understanding-policy-configuration)** inbound
 - **[Policy scopes:](./api-management-howto-policies.md#scopes)** global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

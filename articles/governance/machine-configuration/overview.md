@@ -109,8 +109,8 @@ built-in content, machine configuration handles loading these tools automaticall
 
 | Operating system |                 Validation tool                 |                                                                         Notes                                                                          |
 | ---------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Windows          | [PowerShell Desired State Configuration][15] v2 | Side-loaded to a folder only used by Azure Policy. Doesn't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                |
-| Linux            | [PowerShell Desired State Configuration][15] v3 | Side-loaded to a folder only used by Azure Policy. PowerShell isn't added to system path.                                                              |
+| Windows          | [PowerShell Desired State Configuration][15]  | Side-loaded to a folder only used by Azure Policy. Doesn't conflict with Windows PowerShell DSC. PowerShell isn't added to system path.                |
+| Linux            | [PowerShell Desired State Configuration][15]  | Side-loaded to a folder only used by Azure Policy. PowerShell isn't added to system path.                                                              |
 | Linux            | [Chef InSpec][16]                               | Installs Chef InSpec version 2.2.61 in default location and adds it to system path. It installs InSpec's dependencies, including Ruby and Python, too. |
 
 ### Validation frequency
@@ -145,6 +145,7 @@ symbolic to represent new minor versions of Linux distributions.
 | Canonical | Ubuntu Server              | 16.04 - 24.x     |
 | Credativ  | Debian                     | 10.x - 12.x      |
 | Microsoft | CBL-Mariner                | 1 - 2            |
+| Microsoft | Azure Linux                | 3                |
 | Microsoft | Windows Client             | Windows 10, 11   |
 | Microsoft | Windows Server             | 2012 - 2025      |
 | Oracle    | Oracle-Linux               | 7.x - 8.x        |
@@ -356,6 +357,9 @@ assignments:
 Azure Policy definitions in the category `Guest Configuration` can be assigned to management groups
 when the effect is `AuditIfNotExists` or `DeployIfNotExists`.
 
+> [!IMPORTANT]
+> When [policy exemptions][47] are created on a Machine Confgiguration policy, the associated guest assignment will need to be deleted in order to stop the agent from scanning.
+
 ### Client log files
 
 The machine configuration extension writes log files to the following locations:
@@ -505,3 +509,4 @@ Machine configuration built-in policy samples are available in the following loc
 [44]: ../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration
 [45]: ../policy/overview.md
 [46]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration
+[47]: ../policy/concepts/exemption-structure.md

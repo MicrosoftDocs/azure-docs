@@ -1,12 +1,12 @@
 ---
 title: Replicate Azure virtual machines running in a proximity placement group
 description: Learn how to replicate Azure virtual machines running in proximity placement groups by using Azure Site Recovery.
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.topic: how-to
 ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
-ms.date: 03/21/2025
+ms.date: 04/26/2025
 ---
 
 # Replicate virtual machines running in a proximity placement group to another region
@@ -42,7 +42,9 @@ Site Recovery replicates the data from one Azure region to another region. It br
 You can choose to enable replication for a virtual machine through the virtual machine disaster recovery page. Or you can enable replication by going to a pre-created vault, going to the Site Recovery section, and then enabling replication. Let's look at how you can set up Site Recovery virtual machines inside a proximity placement group through both approaches.
 
 > [!NOTE]
-> Resource group of the target PPG should be same as that of target virtual machine.
+> - Ensure that the target PPG and the target virtual machine are in the same resource group.
+>
+> - If the VM is also a part of an *Availability Set*, ensure that the availability set, VM, and PPG all reside in the same resource group.
 
 To select a proximity placement group in the DR region while enabling replication through the infrastructure as a service (IaaS) virtual machine DR page:
 
