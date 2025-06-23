@@ -372,15 +372,19 @@ public static async Task CheckSiteAvailableWithPolling(
 # [C# (Isolated)](#tab/csharp-isolated)
 
 ```csharp
-[Function(nameof(CheckSiteAvailable))]
+[Function(nameof(CheckSiteAvailableWithPolling))]
 public static async Task CheckSiteAvailableWithPolling(
     [OrchestrationTrigger] TaskOrchestrationContext context)
 {
     Uri url = context.GetInput<Uri>();
 
     // Enable HTTP automatic polling on 202 response by setting asynchronousPatternEnabled to true.
-    DurableHttpResponse response =
-        await context.CallHttpAsync(HttpMethod.Get, url, asynchronousPatternEnabled: true);
+    DurableHttpResponse response =await context.CallHttpAsync(
+        HttpMethod.Get,
+        url!,
+        content: null,
+        retryOptions: null,
+        asynchronousPatternEnabled: true)
 }
 
 ```
