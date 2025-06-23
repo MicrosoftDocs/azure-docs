@@ -10,6 +10,8 @@ ms.topic: how-to
 ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to build vocabularies so I can use them with rulesets for my Azure Logic Apps Rules Engine project.
+ms.custom:
+  - build-2025
 ---
 
 # Create and manage vocabularies to use with rulesets using the Microsoft Rules Composer

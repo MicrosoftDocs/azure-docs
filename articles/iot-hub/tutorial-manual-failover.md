@@ -8,7 +8,9 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 11/17/2022
 ms.author: sonialopez
-ms.custom: [mvc, mqtt]
+ms.custom:
+  - [mvc,mqtt]
+  - build-2025
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
 ---
 

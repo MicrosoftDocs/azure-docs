@@ -5,7 +5,7 @@ author: matternst7258
 ms.author: matthewernst
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 11/11/2024
+ms.date: 05/21/2025
 ms.custom: template-concept
 ---
 
@@ -34,7 +34,7 @@ Patch runtime release is produced monthly in between the minor releases. These r
 
 Starting a runtime upgrade is defined under [Upgrading cluster runtime via Azure CLI](./howto-cluster-runtime-upgrade.md).
 
-The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. The spare control plane server is the first server to upgrade. The last control plane server deprovisions and transitions to `Available` state. These servers are updated serially and proceed only when each completes. The remaining management servers are upgraded into four different groups and completed one group at a time. 
+The runtime upgrade starts by upgrading the three management servers designated as the control plane nodes. The spare control plane server is the first server to upgrade. The last control plane server deprovisions and transitions to `Available` state. These servers are updated serially and proceed only when each completes. The remaining management servers are segregated into two groups. The runtime upgrade will now leverage two management groups, instead of a single group. Each group is upgraded in two stages and sequentially with 50% success threshold in each group. Introducing this capability allows for components running on the management servers to ensure resiliency during the runtime upgrade by applying affinity rules. For this release, each CSN will leverage this functionality by placing one instance in each management group. No customer interaction with this functionality. There may be additional labels seen on management nodes to identify the groups.
 
 > [!Note]
 > Customers may observe the spare server with a different runtime version. This is expected.

@@ -1,109 +1,125 @@
 ---
-title: Manage a Neon resource through the Azure portal
-description: This article describes management functions for Neon in Azure portal.
+title: Manage a Neon Resource Through the Azure Portal
+description: This article describes management functions for Neon in the Azure portal.
 author: ProfessorKendrick
 ms.topic: how-to
 ms.date: 05/06/2025
 ---
 
-# Manage your Neon integration through the portal
+# Manage your Neon integration through the Azure portal
 
-This article describes how to manage a Neon resource in Azure portal.
+This article describes how to manage a Neon resource in the Azure portal.
 
 ## Resource overview
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a Pure Storage resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
+:::image type="content" source="media/manage/resource-overview.png" alt-text="Screenshot of a Neon resource overview in the Azure portal." lightbox="media/manage/resource-overview.png":::
 
-The *Essentials* details include:
+The details under **Essentials** include:
 
 - Resource group
 - Location
 - Subscription
 - Subscription ID
 - Tags
+- Portal URL
+- Resource ID
+- Status
+- Subscribed plan
 
-To manage your resource, select the links next to corresponding details.
+To manage your resource, select the links next to the corresponding details.
 
-Below the essentials, you can navigate to other details about your resource by selecting the links.
+Below the essentials, you can go to other details about your resource by selecting the links.
 
-## Single sign-on
+## Access a Neon account
 
-Single sign-on (SSO) is already enabled when you create your Neon resource.
+To access your Neon account, select **Neon Console** on the working pane.
 
-[!INCLUDE [sso](../includes/sso.md)]
+:::image type="content" source="media/manage/set-password.png" alt-text="Screenshot of a Neon resource overview in the Azure portal. The Neon Console link is emphasized.":::
 
-> [!NOTE] 
-> The first time you access this URL, depending on your Azure tenant settings, you might be asked to verify your email address on the Neon portal. Once the email address is verified, you can access the Neon portal.
+If you don't have a Neon account for your Azure email address, you're prompted to configure your account and set a password.
 
-## Projects
+## View and create projects
 
-When you create your first Neon organization, a default project is created for you. You can create and view your projects from the resource overview.
+When you create your first Neon organization, a default project is created for you. You can view and create your projects from the resource overview.
 
 ### View projects
 
-To view your projects, Choose **Projects** from the sidebar.
+To view your projects, select **Projects** in the sidebar.
 
 To view a specific project, select the project's name.
 
-### Create a new project
+### Create a project
 
-1. From the menu bar in the working pane, select **+ Create project**.
+1. On the menu bar, select **+ Create Project**.
 
-    The **Create project** flyout appears in the right side of the working pane.
+    The **Create Project** pane appears.
 
-    :::image type="content" source="media/manage/create-project.png" alt-text="The Neon Create project flyout in the Azure portal.":::
+    :::image type="content" source="media/manage/create-project.png" alt-text="Screenshot of the pane for creating a Neon project in the Azure portal.":::
 
 1. Enter the values for each setting, or continue with the default values for your project.
 
-    |Field              |Action                                                             |
+    |Setting              |Action                                                             |
     |-------------------|-------------------------------------------------------------------|
-    |Project name       |Specify a name for your Neon project.                              |
-    |Postgres version   |Choose a Postgres version for your project.                        |
-    |Database name      |Specify a name for your first database in the project.             |
-    |Project region     |Choose the region for your database.                               |
+    |**Project name**       |Specify a name for your Neon project.                              |
+    |**Postgres version**   |Choose a Postgres version for your project.                        |
+    |**Database name**      |Specify a name for your first database in the project.             |
+    |**Project region**     |Choose the region for your database.                               |
 
     > [!NOTE]
-    > The *Project region* in this tab corresponds to your database. 
-    > Don't confuse this value with the *Region* from the Basics tab, which is where your Azure resource is deployed.
+    > The **Project region** value on this pane corresponds to your database. Don't confuse this value with the **Region** value from the **Basics** tab, which is where your Azure resource is deployed.
 
-1. Select the **Create** button.
+1. Select **Create**.
 
 ### Add a branch to a project
 
-A branch is a copy-on-write clone of your data. You can create a branch from a current or past state. Each Neon project is created with a root branch called main. The first branch that you create is branched from the project's root branch. Subsequent branches can branch off the root branch or from a previously created branch.
+A branch is a copy-on-write clone of your data. You can create a branch from a current or past state.
 
-To create a new branch, open the project in the working pane.
+Each Neon project is created with a root branch called **main**. The first branch that you create is branched from the project's root branch. Subsequent branches can branch off the root branch or from a previously created branch.
 
-1. Select **+ Create Branch** from the menu bar in the working pane.
+To create a branch:
 
-    The **Create Branch** flyout appears in the right side of the working pane.
+1. Open the project.
 
-    :::image type="content" source="media/manage/create-branch.png" alt-text="A screenshot of the + Create branch button emphasized inside the working pane with the Create branch flyout open.":::
+1. On the menu bar, select **+ Create Branch**.
+
+    The **Create new Branch** pane appears.
+
+    :::image type="content" source="media/manage/create-branch.png" alt-text="Screenshot of the button for creating a branch and the pane for creating a branch.":::
 
 1. Enter the values for each setting.
 
-1. Select the **Create** button.
+1. Select **Create**.
 
 ### Connect to a database
 
 You can connect clients and applications to a Neon database via a connection string.
 
-To generate a connection string, open your project or branch in the working pane.
+To generate a connection string:
 
-1. Select **Connect to database** from the menu bar in the working pane. 
+1. Open your project or branch.
 
-1. Verify the default values or select new values from each dropdown.
+1. On the menu bar, select **Connect to database**.
+
+1. Verify the default values, or select new values in each dropdown list.
 
 1. Select the copy icon next to the connection string.
 
-    :::image type="content" source="media/manage/connect.png" alt-text="A screenshot of the Connect to database options in the working pane with the copy icon emphasized.":::
+    :::image type="content" source="media/manage/connect.png" alt-text="Screenshot of the options for connecting to a database, with the copy icon emphasized.":::
 
 ## Delete a resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
+## Get Support
+
+Contact [Neon](https://neon.tech/docs/introduction/support) for customer support. 
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [log a support request in the Neon portal](https://neon.tech/docs/introduction/support). 
+
 ## Related content
 
-[Neon Serverless Postgres developer resources and tools](tools.md)
+- [Neon Serverless Postgres developer resources and tools](tools.md)

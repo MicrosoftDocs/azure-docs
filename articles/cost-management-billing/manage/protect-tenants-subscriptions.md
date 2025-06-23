@@ -8,6 +8,8 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 05/14/2025
 ms.author: macyso
+ms.custom:
+  - build-2025
 ---
 
 # Protect tenants and subscriptions from abuse and fraud attacks

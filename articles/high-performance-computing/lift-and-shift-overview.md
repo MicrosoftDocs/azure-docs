@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC administrator, I want to understand the lift and shift process for migrating on-premises infrastructure to the cloud, so that I can efficiently transition workloads while maintaining system performance and management."
 ---
 
 # End-to-end lift and shift architecture overview

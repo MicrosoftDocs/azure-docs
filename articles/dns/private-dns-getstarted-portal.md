@@ -2,13 +2,14 @@
 title: Quickstart - Create an Azure private DNS zone using the Azure portal
 description: In this quickstart, you create and test a private DNS zone and record in Azure DNS. This article is a step-by-step guide to create and manage your first private DNS zone and record using the Azure portal.
 services: dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.date: 01/09/2025
 ms.topic: quickstart
 ms.service: azure-dns
 ms.custom: mode-ui
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
+# Customer intent: "As a network administrator, I want to create a private DNS zone in Azure, so that I can manage hostname resolution for resources within my private virtual networks."
 ---
 
 # Quickstart: Create an Azure private DNS zone using the Azure portal

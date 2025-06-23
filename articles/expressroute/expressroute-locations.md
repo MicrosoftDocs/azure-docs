@@ -46,7 +46,7 @@ The following table shows locations by service provider. If you want to view ava
 |Service provider | Microsoft Azure | Microsoft 365  | Locations |
 | --- | --- | --- | --- |
 | **[1-IX.EU](https://1-ix.eu/)** |&check; |&check; | Amsterdam<br/>Frankfurt2<br/>Warsaw |
-| **[A1 Telekom Austria](https://www.a1.net/cloud-region)** |&check; |&check; | Vienna |
+| **[A1 Telekom Austria](https://www.a1.net/cloud-region)** |&check; |&check; | Vienna<br/>Vienna2 |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |&check; |&check; | Melbourne<br/>Sydney<br/>Sydney2 |
 | **[Airtel](https://www.airtel.in/business/#/)** | &check; | &check; | Chennai2<br/>Mumbai2<br/>Pune |
 | **[AIS](https://business.ais.co.th/solution/en/azure-expressroute.html)** | &check; | &check; | Bangkok |
@@ -139,7 +139,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** | &check; | &check; | London<br/>London2<br/>Newport(Wales) |
 | **KDDI** | &check; | &check; | Osaka<br/>Tokyo<br/>Tokyo2 |
 | **[KINX](https://www.kinx.net/service/cloudhub/clouds/microsoft_azure_expressroute/?lang=en)** | &check; | &check; | Seoul |
-| **[KIO](https://www.kio.tech/es-mx/microsoft-expressroute)** | &check; | &check; | Queretaro (Mexico) |
+| **[KIO](https://www.kio.tech)** | &check; | &check; | Queretaro (Mexico) |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | &check; | &check; | Auckland<br/>Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | &check; | &check; | Amsterdam<br/>Dublin2|
 | **[KT](https://cloud.kt.com/)** | &check; | &check; | Seoul<br/>Seoul2 |

@@ -1,7 +1,7 @@
 ---
-title: GCP data connector reference for the Codeless Connector Platform
+title: GCP data connector reference for the Codeless Connector Framework
 titleSuffix: Microsoft Sentinel
-description: This article provides reference JSON fields and properties for creating the GCP data connector type and its data connection rules as part of the Codeless Connector Platform.
+description: This article provides reference JSON fields and properties for creating the GCP data connector type and its data connection rules as part of the Codeless Connector Framework.
 services: sentinel
 author: austinmccollum
 ms.topic: reference
@@ -10,19 +10,19 @@ ms.author: austinmc
 
 ---
 
-# GCP data connector reference for the Codeless Connector Platform
+# GCP data connector reference for the Codeless Connector Framework
 
-To create a Google Cloud Platform (GCP) data connector with the Codeless Connector Platform (CCP), use this reference as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors/create-or-update?view=rest-securityinsights-2024-01-01-preview&tabs=HTTP#gcpdataconnector&preserve-view=true) docs.
+To create a Google Cloud Platform (GCP) data connector with the Codeless Connector Framework (CCF), use this reference as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors/create-or-update?view=rest-securityinsights-2024-01-01-preview&tabs=HTTP#gcpdataconnector&preserve-view=true) docs.
 
-Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel data connector. One data connector might have multiple connections, which fetch data from different endpoints. The JSON configuration built using this reference document is used to complete the deployment template for the CCP data connector. 
+Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel data connector. One data connector might have multiple connections, which fetch data from different endpoints. The JSON configuration built using this reference document is used to complete the deployment template for the CCF data connector. 
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md#create-the-deployment-template).
 
-## Build the GCP CCP data connector
+## Build the GCP CCF data connector
 
-Simplify the development of connecting your GCP data source with a sample GCP CCP data connector deployment template.
+Simplify the development of connecting your GCP data source with a sample GCP CCF data connector deployment template.
 
-[**GCP CCP example template**](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/Templates/Connector_GCP_CCP_template.json)
+[**GCP CCF example template**](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/Templates/Connector_GCP_CCP_template.json)
 
 With most of the deployment template sections filled out, you only need to build the first two components, the output table and the DCR. For more information, see the [Output table definition](create-codeless-connector.md#output-table-definition) and [Data Collection Rule (DCR)](create-codeless-connector.md#data-collection-rule) sections.
 
@@ -49,7 +49,7 @@ For more information about the latest API version, see [Data Connectors - Create
 
 ## Request body
 
-The request body for a `GCP` CCP data connector has the following structure:
+The request body for a `GCP` CCF data connector has the following structure:
 
 ```json
 {
@@ -68,7 +68,7 @@ The request body for a `GCP` CCP data connector has the following structure:
 
 ### GCP
 
-**GCP** represents a CCP data connector where the paging and expected response payloads for your Google Cloud Platform (GCP) data source has already been configured. Configuring your GCP service to send data to a GCP Pub/Sub must be done separately. For more information, see [Publish message in Pub/Sub overview](https://cloud.google.com/pubsub/docs/publish-message-overview).
+**GCP** represents a CCF data connector where the paging and expected response payloads for your Google Cloud Platform (GCP) data source has already been configured. Configuring your GCP service to send data to a GCP Pub/Sub must be done separately. For more information, see [Publish message in Pub/Sub overview](https://cloud.google.com/pubsub/docs/publish-message-overview).
 
 | Name | Required | Type | Description |
 | ---- | ---- | ---- | ---- |
@@ -88,7 +88,7 @@ As a best practice, use parameters in the auth section instead of hard-coding cr
 
 In order to create the deployment template which also uses parameters, you need to escape the parameters in this section with an extra starting `[`. This allows the parameters to assign a value based on the user interaction with the connector. For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
 
-To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters. For more information, see [Data connector definitions reference for the Codeless Connector Platform](data-connector-ui-definitions-reference.md#instructions).
+To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters. For more information, see [Data connector definitions reference for the Codeless Connector Framework](data-connector-ui-definitions-reference.md#instructions).
 
 GCP auth example:
 ```json
@@ -121,9 +121,9 @@ GCP request example:
 | **DataCollectionRuleImmutableId** | True | String | The DCR immutable ID. Find it by viewing the DCR creation response or using the [DCR API](/rest/api/monitor/data-collection-rules/get) |
 | **StreamName** | True | string | This value is the `streamDeclaration` defined in the DCR (prefix must begin with *Custom-*) |
 
-## Example CCP data connector
+## Example CCF data connector
 
-Here's an example of all the components of the `GCP` CCP data connector JSON together.
+Here's an example of all the components of the `GCP` CCF data connector JSON together.
 
 ```json
 {

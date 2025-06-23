@@ -6,6 +6,8 @@ ms.author: sherryg
 ms.date: 09/07/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Publish Nginx container as Containerized Network Function (CNF)
@@ -97,7 +99,7 @@ To construct the Network Function Definition (NFD), initiate the build process.
 az aosm nfd build -f input-cnf-nfd.jsonc --definition-type cnf
 ```
 
-The Az CLI AOSM extension generates a directory called `cnf-cli-output`. This directory contains the BICEP files defining the AOSM resources required to publish an NFDV and upload the images required to deploy it to AOSM-managed storage. Examine the generated files to gain a better understanding of the Network Function Definition (NFD) structure.
+The Az CLI AOSM extension generates a directory called `cnf-cli-output`. This directory contains the Bicep files defining the AOSM resources required to publish an NFDV and upload the images required to deploy it to AOSM-managed storage. Examine the generated files to gain a better understanding of the Network Function Definition (NFD) structure.
 
 | Directory/File             | Description                                                                                                                                    |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |

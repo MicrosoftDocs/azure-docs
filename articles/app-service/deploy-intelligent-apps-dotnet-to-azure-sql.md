@@ -5,7 +5,10 @@ author: jeffwmartinez
 ms.author: jefmarti
 ms.date: 04/17/2025
 ms.topic: article
-ms.custom: devx-track-dotnet, linux-related-content
+ms.custom:
+  - devx-track-dotnet
+  - linux-related-content
+  - build-2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
