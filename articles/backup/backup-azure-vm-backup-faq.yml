@@ -239,7 +239,7 @@ sections:
 
       - question: Is there a limit to trigger restore in a day?
         answer: |
-          Yes, the default maximum limit to trigger restore is 20 attempts per VM in 24 hours, and 24 hours window gets reset at *UTC 00:00*.
+          The restore limit applies per data source within a 24-hour window. You can restore the same VM up to 20 times in that period. Restoring multiple VMs simultaneously is allowed, but may trigger throttling from other Azure services, such as [Azure Resource Manager (ARM) due to request limits](/azure/azure-resource-manager/management/request-limits-and-throttling#migrating-to-regional-throttling-and-token-bucket-algorithm).
 
       - question: How does restored disk SKU depend on target SA provided?
         answer: |
