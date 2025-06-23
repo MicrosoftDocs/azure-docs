@@ -13,8 +13,10 @@ ms.topic: overview
 ms.date: 01/15/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
-### Prerequisites
+This document describes how to download, install and run AppCAT 7 against a sample Java project. 
 
+### Prerequisites
+Before downloading AppCAT, please make sure JDK is installed and configured correctly.
 - [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the `JAVA_HOME` environment variable is set.
 
 ## Download and install
@@ -51,8 +53,6 @@ To use the `appcat` CLI, you must download the package specific to your environm
 [17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64.zip.sha256sum.txt
 [18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64.zip.sig
 
-### Install AppCAT
-
 To install `appcat`, download the appropriate zip file for your platform. After you download the file, depending on your operating system, you should find either a **.tar.gz** (Linux/macOS) or **.zip** file (Windows).
 
 Extract the binary from the downloaded file. You should see the following folder structure:
@@ -86,7 +86,7 @@ In following steps, let's do application assessment using AppCAT against [Airson
 git clone https://github.com/airsonic-advanced/airsonic-advanced.git
 ```
 
-- After cloning, provide the path to the cloned folder when running the assessment scripts. Depending on your operating system, run the appropriate script, as shown in the following example. The reports are automatically generated and launched. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
+- After cloning, provide the path to the cloned folder when running the assessment scripts. Depending on your operating system, run the appropriate script, as shown in the following example. The reports are automatically generated and opened in your web browser. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
 
 # [Linux / macOS](#tab/linux)
 
