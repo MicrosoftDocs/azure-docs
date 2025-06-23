@@ -221,11 +221,20 @@ items:
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
     - name: Lifecycle management policies
-      href: lifecycle-management-overview.md
       items:
-      - name: Configure lifecycle management policies
+      - name: Overview
+        href: lifecycle-management-overview.md
+      - name: Policy structure
+        href: lifecycle-management-policy-structure.md
+      - name: Create and manage a policy
         href: lifecycle-management-policy-configure.md
-      - name: Lifecycle management performance characteristics
+      - name: 'Examples: Tiering blobs' 
+        href: lifecycle-management-policy-access-tiers.md
+      - name: 'Examples: Deleting blobs'
+        href: lifecycle-management-policy-delete.md
+      - name: Monitor policy runs
+        href: lifecycle-management-policy-monitor.md
+      - name: Performance characteristics
         href: lifecycle-management-performance-characteristics.md
     - name: Full text search
       href: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -504,12 +513,22 @@ items:
         href: map-rest-apis-transaction-categories.md
     - name: Estimate costs
       items:
-      - name: Estimate the cost of Azure Blob Storage
-        href: blob-storage-estimate-costs.md
-      - name: Estimate the cost of AzCopy transfers
-        href: azcopy-cost-estimation.md
-      - name: Estimate the cost to archive data
-        href: archive-cost-estimation.md
+      - name: Guides 
+        items:
+        - name: Estimate the cost of Azure Blob Storage
+          href: blob-storage-estimate-costs.md
+        - name: Estimate the cost of AzCopy transfers
+          href: azcopy-cost-estimation.md
+        - name: Estimate the cost to archive data
+          href: archive-cost-estimation.md
+      - name: Estimates
+        items:
+        - name: Retrieve data from the archive tier
+          href: cost-estimate-archive-retrieval-set-tier.md
+        - name: Move data out of the archive tier
+          href: cost-estimate-archive-retrieval-copy-blob.md
+        - name: Cross region data access
+          href: cost-estimate-multi-region-access.md
     - name: Optimize costs
       items:
       - name: Access tiers

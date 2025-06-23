@@ -57,8 +57,8 @@ Steps to create an image that removes the Azure Linux Agent are as follows:
     For Ubuntu 18.04+
     ```
     sudo chroot /mnt/dev/$imagedevice/ rm -rf /var/lib/walinuxagent
-    sudo chroot /mnt/dev/$imagedevice/ rm -rf /etc/ walinuxagent.conf
-    sudo chroot /mnt/dev/$imagedevice/ rm -rf /var/log/ walinuxagent.log
+    sudo chroot /mnt/dev/$imagedevice/ rm -rf /etc/walinuxagent.conf
+    sudo chroot /mnt/dev/$imagedevice/ rm -rf /var/log/walinuxagent.log
     ```
 
 5. Create a systemd service to provision the VM.
