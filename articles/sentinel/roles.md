@@ -27,7 +27,7 @@ This article is part of the [Deployment guide for Microsoft Sentinel](deploy-ove
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-## Azure roles for Microsoft Sentinel use cases
+## Azure roles for Microsoft Sentinel and Microsoft Sentinel data lake use cases
 
 The following built-in Azure roles are used specifically for Microsoft Sentinel, and all grant read access to the data in your Microsoft Sentinel workspace.
 
@@ -66,34 +66,6 @@ When you assign Microsoft Sentinel-specific Azure roles, you might come across o
 
 For example, a user assigned the **Microsoft Sentinel Reader** role, but not the **Microsoft Sentinel Contributor** role, can still edit items in Microsoft Sentinel, if that user is also assigned the Azure-level **Contributor** role. Therefore, if you want to grant permissions to a user only in Microsoft Sentinel, carefully remove this user’s prior permissions, making sure you don't break any needed access to another resource.
 
-### Reference of Azure roles, permissions, and allowed actions for Microsoft Sentinel
-
-The following table summarizes the Microsoft Sentinel roles and their allowed actions in Microsoft Sentinel.
-
-| Role | View and run playbooks | Create and edit playbooks | Create and edit analytics rules, workbooks, and other Microsoft Sentinel resources | Manage incidents (dismiss, assign, etc.) | View data, incidents, workbooks, and other Microsoft Sentinel resources | Install and manage content from the content hub|
-|---|---|---|---|---|---|--|
-| [Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) | -- | -- | --[*](#workbooks) | -- | &#10003; | --|
-| [Microsoft Sentinel Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)  | -- | -- | --[*](#workbooks) | &#10003; | &#10003; | --|
-| [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) | -- | -- | &#10003; | &#10003; | &#10003; | &#10003;|
-| [Microsoft Sentinel Playbook Operator](../role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator) | &#10003; | -- | -- | -- | -- | --|
-| [Logic App Contributor](/azure/role-based-access-control/built-in-roles/integration#logic-app-contributor) | &#10003; | &#10003; | -- | -- | -- |-- |
-
-<a name=workbooks></a>* Users with these roles can create and delete workbooks with the [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) role.
-
-### Recommendations for Azure roles and permissions
-
-The following table provides recommendations for assigning roles and permissions to users in your security operations center (SOC) for Microsoft Sentinel. 
-
-| User type  | Role | Resource group  | Description  |
-| --------- | --------- | --------- | --------- |
-| **Security analysts**     | [Microsoft Sentinel Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)        | Microsoft Sentinel's resource group        | View data, incidents, workbooks, and other Microsoft Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents.        |
-|     | [Microsoft Sentinel Playbook Operator](../role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules. <br>Run playbooks.        |
-|**Security engineers**     | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)       |Microsoft Sentinel's resource group         |   View data, incidents, workbooks, and other Microsoft Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents. <br><br>Create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.<br><br>Install and update solutions from content hub.  |
-|     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules. <br>Run and modify playbooks.         |
-|  **Service Principal**   | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)      |  Microsoft Sentinel's resource group       | Automated configuration for management tasks |
-
-More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles might be required, such as the [Security Administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) role, to [manage multiple workspaces](workspaces-defender-portal.md#permissions-to-manage-workspaces-and-view-workspace-data), or to set up data connectors for services in other Microsoft portals.
-
 ### Resource-based access control with Azure RBAC
 
 You might have some users who need to access only specific data in your Microsoft Sentinel workspace or data lake, but shouldn't have access to the entire Microsoft Sentinel environment. For example, you might want to provide a team outside of security operations with access to the Windows event data for the servers they own.
@@ -115,6 +87,52 @@ To use Microsoft Sentinel data lake, your workspace must be [onboarded to the De
 [!INCLUDE [sentinel-data-lake-notebook-write-permissions](../includes/sentinel-data-lake-notebook-write-permissions.md)]
 
 [!INCLUDE [sentinel-data-lake-job-permissions](../includes/sentinel-data-lake-job-permissions.md)]
+
+## Summary tables and recommendations
+
+The following tables summarize Microsoft Sentinel and Microsoft Sentinel data lake roles and permissions, and provide recommendations for assigning roles to users in your security operations center (SOC).
+
+### Reference of Azure roles, permissions, and allowed actions for Microsoft Sentinel
+
+The following table summarizes the Microsoft Sentinel roles and their allowed actions in Microsoft Sentinel.
+
+| Role | View and run playbooks | Create and edit playbooks | Create and edit analytics rules, workbooks, and other Microsoft Sentinel resources | Manage incidents (dismiss, assign, etc.) | View data, incidents, workbooks, and other Microsoft Sentinel resources | Install and manage content from the content hub|
+|---|---|---|---|---|---|--|
+| [Microsoft Sentinel Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) | -- | -- | --[*](#workbooks) | -- | &#10003; | --|
+| [Microsoft Sentinel Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)  | -- | -- | --[*](#workbooks) | &#10003; | &#10003; | --|
+| [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) | -- | -- | &#10003; | &#10003; | &#10003; | &#10003;|
+| [Microsoft Sentinel Playbook Operator](../role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator) | &#10003; | -- | -- | -- | -- | --|
+| [Logic App Contributor](/azure/role-based-access-control/built-in-roles/integration#logic-app-contributor) | &#10003; | &#10003; | -- | -- | -- |-- |
+
+<a name=workbooks></a>* Users with these roles can create and delete workbooks with the [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) role.
+
+### Recommendations for Azure roles and permissions for Microsoft Sentinel use cases
+
+The following table provides recommendations for assigning roles and permissions to users in your security operations center (SOC) for Microsoft Sentinel. 
+
+| User type  | Role | Resource group  | Description  |
+| --------- | --------- | --------- | --------- |
+| **Security analysts**     | [Microsoft Sentinel Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)        | Microsoft Sentinel's resource group        | View data, incidents, workbooks, and other Microsoft Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents.        |
+|     | [Microsoft Sentinel Playbook Operator](../role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules. <br>Run playbooks.        |
+|**Security engineers**     | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)       |Microsoft Sentinel's resource group         |   View data, incidents, workbooks, and other Microsoft Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents. <br><br>Create and edit workbooks, analytics rules, and other Microsoft Sentinel resources.<br><br>Install and update solutions from content hub.  |
+|     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules. <br>Run and modify playbooks.         |
+|  **Service Principal**   | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)      |  Microsoft Sentinel's resource group       | Automated configuration for management tasks |
+
+More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles might be required, such as the [Security Administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) role, to [manage multiple workspaces](workspaces-defender-portal.md#permissions-to-manage-workspaces-and-view-workspace-data), or to set up data connectors for services in other Microsoft portals.
+
+## Summary of Microsoft Sentinel data lake roles and permissions
+
+The following tables summarize permissions for the Microsoft Sentinel data lake, including both Azure and Microsoft Entra ID built-in roles, and extra Microsoft Defender XDR unified role-based access control (RBAC) roles.
+
+|Roles  |Supported tasks  |
+|---------|---------|
+|[Microsoft Entra ID Global Reader](/entra/identity/role-based-access-control/permissions-reference#global-reader) <br>OR<br>[Microsoft Entra ID Security Reader](/entra/identity/role-based-access-control/permissions-reference#security-reader)     |   - Access advanced analytics <br>- Run interactive queries on the default lake <br>- Run interactive queries on the workspace      |
+|[Microsoft Entra ID Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) <br>OR<br>[Microsoft Entra ID Security Administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) <br>OR<br> [Microsoft Entra ID Security Operator](/entra/identity/role-based-access-control/permissions-reference#security-operator)|  - Access advanced analytics <br>- Run interactive queries on the default lake <br>- Run interactive queries on the workspace <br>- Write output to the default data lake <br>- Write output to the Log Analytics workspace <br>- Schedule job management <br>- Set table retention <br>- Configure data connector        |
+|[Log Analytics Reader](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-reader) <br>OR<br> [Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-reader) <br>OR<br> [Reader](/azure/role-based-access-control/built-in-roles/general#reader)  |  - Access advanced analytics <br>- Run interactive queries on workspaces      |
+|[Log Analytics contributor](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-contributor) <br>OR<br>[Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor) <br>OR<br>[Owner](/azure/role-based-access-control/built-in-roles/privileged#owner)  |   - Access advanced analytics <br>- Run interactive queries on workspaces <br>- Write output to Log Analytics workspaces <br> Set table retention in Log Analytics workspaces <br> - Configure data connectors in the Log Analytics workspaces       |
+|[Microsoft Entra ID Global Reader](/entra/identity/role-based-access-control/permissions-reference#global-reader) <br> OR <br>[Microsoft Entra ID Security Reader](/entra/identity/role-based-access-control/permissions-reference#security-reader)  <br>AND<br> [Microsoft Defender XDR unified RBAC data (manage)](tbd) <br>AND<br> [Microsoft Sentinel unified RBAC advanced analytics job (manage)](tbd) over Microsoft Sentinel data collection   |  - Access advanced analytics <br>- Run interactive queries on the default lake <br>- Run interactive queries on the workspace <br>- Write output to the default data lake <br>- Write output to the Log Analytics workspace <br>- Schedule job management <br>- Set table retention in default data lake <br>- Configure data connectors in the default data lake       |
+|[Microsoft Defender XDR unified RBAC security data basics (read)](tbd) over Microsoft Sentinel data collection     |   - Access advanced analytics <br>- Run interactive queries on the default lake      |
+
 
 ## Custom roles and advanced RBAC
 
