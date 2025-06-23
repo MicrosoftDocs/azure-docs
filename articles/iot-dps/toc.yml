@@ -256,7 +256,7 @@ items:
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot
+    href: https://azure.microsoft.com/updates/?category=iot
   - name: Azure IoT Explorer tool
     href: https://github.com/Azure/azure-iot-explorer
   - name: iothub-diagnostics tool
@@ -270,4 +270,4 @@ items:
   - name: Technical case studies
     href: https://microsoft.github.io/generative-ai-for-beginners/#/
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
+    href: /shows/Inside-Azure-for-IT/?products=azure-iot-hub

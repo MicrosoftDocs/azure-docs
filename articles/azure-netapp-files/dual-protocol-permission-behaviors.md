@@ -7,6 +7,8 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 02/02/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 
 # Understand dual-protocol security style and permission behaviors in Azure NetApp Files

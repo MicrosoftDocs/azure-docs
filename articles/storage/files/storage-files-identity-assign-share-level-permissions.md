@@ -15,9 +15,6 @@ recommendations: false
 
 Once you've enabled an Active Directory (AD) source for your storage account, you must configure share-level permissions in order to get access to your file share. There are two ways you can assign share-level permissions. You can assign them to [specific Microsoft Entra users/groups](#share-level-permissions-for-specific-azure-ad-users-or-groups), and you can assign them to all authenticated identities as a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 
-> [!IMPORTANT]
-> Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Full administrative control isn't supported with identity-based authentication.
-
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
 |-|-|-|-|:-:|:-:|
@@ -41,7 +38,7 @@ Most users should assign share-level permissions to specific Microsoft Entra use
 There are three scenarios where we instead recommend using a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) to allow reader, contributor, elevated contributor, privileged contributor, or privileged reader access to all authenticated identities:
 
 - If you're unable to sync your on-premises AD DS to Microsoft Entra ID, you can use a default share-level permission. Assigning a default share-level permission allows you to work around the sync requirement because you don't need to specify the permission to identities in Microsoft Entra ID. Then you can use Windows ACLs for granular permission enforcement on your files and directories.
-    - Identities that are tied to an AD but aren't synching to Microsoft Entra ID can also leverage the default share-level permission. This could include standalone Managed Service Accounts (sMSA), group Managed Service Accounts (gMSA), and computer accounts.
+    - Identities that are tied to an AD but aren't syncing to Microsoft Entra ID can also leverage the default share-level permission. This could include standalone Managed Service Accounts (sMSA), group Managed Service Accounts (gMSA), and computer accounts.
 - The on-premises AD DS you're using is synched to a different Microsoft Entra ID than the Microsoft Entra ID the file share is deployed in.
     - This is typical when you're managing multitenant environments. Using a default share-level permission allows you to bypass the requirement for a Microsoft Entra ID [hybrid identity](../../active-directory/hybrid/whatis-hybrid-identity.md). You can still use Windows ACLs on your files and directories for granular permission enforcement.
 - You prefer to enforce authentication only using Windows ACLs at the file and directory level.

@@ -54,7 +54,7 @@ To set a policy at the blob level, you must enable version-level WORM on either 
 
 ### Migration
 
-Existing containers can support version-level immutability but must undergo a migration process first. This process might take some time. Once enabled, version-level WORM support for that container can't be removed. You can migrate 10 containers at a time per storage account. For more information about migrating a container to support version-level immutability, see [Migrate an existing container to support version-level immutability](immutable-policy-configure-version-scope.md#migrate-an-existing-container-to-support-version-level-immutability).
+Existing containers can support version-level immutability but must undergo a migration process first. This process might take some time. Once enabled, version-level WORM support for that container can't be removed. You can migrate 10 containers at a time per storage account. The amount of time it takes to migrate is dependent primarily on the amount of blobs in the container. Containers with a large number of blobs will take much longer to migrate. For more information about migrating a container to support version-level immutability, see [Migrate an existing container to support version-level immutability](immutable-policy-configure-version-scope.md#migrate-an-existing-container-to-support-version-level-immutability).
 
 ### Configure a policy on the current version
 

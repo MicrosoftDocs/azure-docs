@@ -1,8 +1,8 @@
 ---
 title: How to connect to the CycleCloud Portal through Bastion
-description: How to securily connect to the CycleCloud Portal using Bastion
+description: How to securely connect to the CycleCloud Portal using Bastion
 author: xpillons
-ms.date: 11/22/2024
+ms.date: 05/27/2025
 ms.author: padmalathas
 ---
 
@@ -10,7 +10,7 @@ ms.author: padmalathas
 You can deploy an Azure Bastion to establish an SSH tunnel to your Azure CycleCloud virtual machine when the HTTPS route is unavailable in your local environment. For detailed instructions, see [Connect to a VM - tunnel command](/azure/bastion/connect-vm-native-client-linux#tunnel).
 
 ## Step 1 – Retrieve the Resource ID of the CycleCloud VM
-To retrieve the resource ID of the `ccw-cyclecloud-vm` virtual machine, navigate to the Azure Portal. From the virtual machine view, select **Settings**, then **Properties**, and you will find the **ResourceID**.
+To retrieve the resource ID of the `ccw-cyclecloud-vm` virtual machine, navigate to the Azure portal. From the virtual machine view, select **Settings**, then **Properties**, and you'll find the **ResourceID**.
 
 ## Step 2 – Create a connect script
 Create a bash script using the template below. Paste the CycleCloud `resourceID` retrieved above.

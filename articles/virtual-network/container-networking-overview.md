@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 03/25/2023
 ms.author: allensu
+# Customer intent: As a cloud developer, I want to implement the Azure Virtual Network CNI plug-in for my containers, so that I can enable seamless connectivity and access to Azure network resources directly from my pods.
 ---
 
 # Enable containers to use Azure Virtual Network capabilities

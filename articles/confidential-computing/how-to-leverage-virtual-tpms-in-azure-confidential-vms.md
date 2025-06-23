@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/02/2023
 ms.author: simranparkhe
 ms.custom:
+  - build-2025
 ---
 
 # Leverage virtual TPMs in Azure confidential VMs

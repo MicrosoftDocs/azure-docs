@@ -6,6 +6,8 @@ ms.date: 02/18/2025
 ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba
+ms.custom:
+  - build-2025
 ---
 
 # Manage pre and post events maintenance configuration events
