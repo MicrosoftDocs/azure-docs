@@ -94,15 +94,15 @@ This section describes what to expect when a file storage account is configured 
 
 This section describes what to expect when a file storage account is configured for zone redundancy and there's an availability zone outage.
 
-**Detection and response**: Microsoft automatically detects zone failures and initiates failover processes. No customer action is required for zone-redundant storage accounts.
+- **Detection and response**: Microsoft automatically detects zone failures and initiates failover processes. No customer action is required for zone-redundant storage accounts.
 
-**Active requests**: In-flight requests might be dropped during the failover and should be retried. Applications should [implement retry logic](#transient-faults) to handle these temporary interruptions.
+- **Active requests**: In-flight requests might be dropped during the failover and should be retried. Applications should [implement retry logic](#transient-faults) to handle these temporary interruptions.
 
-**Expected data loss**: No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete.
+- **Expected data loss**: No data loss occurs during zone failures because data is synchronously replicated across multiple zones before write operations complete.
 
-**Expected downtime**: A small amount of downtime (typically a few seconds ) may occur during automatic failover as traffic is redirected to healthy zones.
+- **Expected downtime**: A small amount of downtime (typically a few seconds ) may occur during automatic failover as traffic is redirected to healthy zones.
 
-**Traffic rerouting**: Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
+- **Traffic rerouting**: Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
 
 ### Failback
 
@@ -158,29 +158,35 @@ Geo-redundant storage (GRS and GZRS) is priced higher than single-region options
 
 ### Normal operations
 
-**Traffic routing between regions**. During normal operations, all client traffic is directed to the primary region. The secondary region is passive and not accessible for read or write operations in standard GRS/GZRS configurations.
+TODO
 
-**Data replication between regions**. Azure Files replicates data asynchronously from the primary region to the secondary region. Data is first committed in the primary region (synchronously across zones for GZRS or locally for GRS), then replicated to the secondary region with potential delays of up to 15 minutes.
+- **Traffic routing between regions**. During normal operations, all client traffic is directed to the primary region. The secondary region is passive and not accessible for read or write operations in standard GRS/GZRS configurations.
+
+- **Data replication between regions**. Azure Files replicates data asynchronously from the primary region to the secondary region. Data is first committed in the primary region (synchronously across zones for GZRS or locally for GRS), then replicated to the secondary region with potential delays of up to 15 minutes.
 
 ### Region-down experience
 
-**Detection and response**: Microsoft automatically detects regional service health and can initiate Microsoft-managed failover during significant regional outages. Customers can also initiate customer-managed failover through Azure management tools when needed.
+TODO
 
-**Notification**: Regional outages are communicated through Azure Service Health and Azure Resource Health.
+- **Detection and response**: Microsoft automatically detects regional service health and can initiate Microsoft-managed failover during significant regional outages. Customers can also initiate customer-managed failover through Azure management tools when needed.
 
-**Active requests**: During regional failover, active requests to the primary region will fail until failover completes and traffic is redirected to the secondary region. Applications should implement retry logic to handle temporary failures during failover.
+- **Notification**: Regional outages are communicated through Azure Service Health and Azure Resource Health.
 
-**Expected data loss**: Some data loss may occur during regional failover due to asynchronous replication. Recent writes that have not yet replicated to the secondary region may be lost, with RPO typically less than 15 minutes.
+- **Active requests**: During regional failover, active requests to the primary region will fail until failover completes and traffic is redirected to the secondary region. Applications should implement retry logic to handle temporary failures during failover.
 
-**Expected downtime**: Customer-managed failover typically completes within one hour, though timing depends on data size and service conditions. Microsoft-managed failover timing varies based on the scope and severity of the regional outage.
+- **Expected data loss**: Some data loss may occur during regional failover due to asynchronous replication. Recent writes that have not yet replicated to the secondary region may be lost, with RPO typically less than 15 minutes.
 
-**Traffic rerouting**: After failover, the secondary region becomes the new primary region. File share endpoints remain the same, but DNS resolution redirects to the new primary region location.
+- **Expected downtime**: Customer-managed failover typically completes within one hour, though timing depends on data size and service conditions. Microsoft-managed failover timing varies based on the scope and severity of the regional outage.
+
+- **Traffic rerouting**: After failover, the secondary region becomes the new primary region. File share endpoints remain the same, but DNS resolution redirects to the new primary region location.
 
 ### Multi-region failback
 
-**Customer-managed failover failback**: After the original region recovers, you must manually initiate failback through the Azure portal, Azure CLI, or Azure PowerShell. The failback process converts the storage account from geo-redundant to locally redundant, requiring you to reconfigure redundancy settings.
+TODO
 
-**Microsoft-managed failover failback**: Microsoft does not automatically fail back after Microsoft-managed failover. You must evaluate service recovery and manually initiate failback when appropriate for your workload.
+- **Customer-managed failover failback**: After the original region recovers, you must manually initiate failback through the Azure portal, Azure CLI, or Azure PowerShell. The failback process converts the storage account from geo-redundant to locally redundant, requiring you to reconfigure redundancy settings.
+
+- **Microsoft-managed failover failback**: Microsoft does not automatically fail back after Microsoft-managed failover. You must evaluate service recovery and manually initiate failback when appropriate for your workload.
 
 ### Testing for region failures
 
@@ -203,12 +209,6 @@ Azure Files integrates with Azure Backup to provide point-in-time recovery capab
 Azure Backup for Azure Files creates share-level snapshots stored within the same storage account, providing rapid recovery for individual files or entire shares. Backup policies support retention periods up to 10 years with customizable backup frequency.
 
 For comprehensive protection, combine Azure Backup with geo-redundant storage to protect against both accidental data loss and regional outages. For more information, see [About Azure file share backup](/azure/backup/azure-file-share-backup-overview).
-
-## Reliability during service maintenance
-
-Azure Files is designed to maintain availability during planned maintenance events through redundancy and rolling update procedures. For zone-redundant and geo-redundant configurations, maintenance is performed in a rolling fashion across zones or regions to minimize service impact.
-
-Most maintenance operations are transparent to applications, though you may observe brief increases in latency during maintenance windows. Applications with appropriate retry logic should continue operating normally during maintenance events.
 
 ## Service-level agreement
 
