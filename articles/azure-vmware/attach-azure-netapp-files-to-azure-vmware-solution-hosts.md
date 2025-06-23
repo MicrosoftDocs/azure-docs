@@ -44,7 +44,7 @@ Before you begin the prerequisites, review the [Performance best practices](#per
     - `Microsoft.AVS/privateClouds/clusters/datastores/write`
     - `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write`
 
-    For more information about custom roles, see [create or update Azure custom roles using the Azure portal](../../role-based-access-control/custom-roles-portal.md).
+    For more information about custom roles, see [create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md).
 1. [Deploy Azure VMware Solution](./deploy-azure-vmware-solution.md) private cloud and a dedicated virtual network connected via ExpressRoute gateway. The virtual network gateway should be configured with the Ultra performance or ErGw3Az SKU and have FastPath enabled. For more information, see [Configure networking for your VMware private cloud](tutorial-configure-networking.md) and [Network planning checklist](tutorial-network-checklist.md).
 1. Create an [NFSv3 volume for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-create-volumes.md) in the same virtual network created in the previous step.
     1. Verify connectivity from the private cloud to Azure NetApp Files volume by pinging the attached target IP.
