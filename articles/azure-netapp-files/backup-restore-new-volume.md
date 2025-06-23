@@ -1,16 +1,16 @@
 ---
-title: Restore a backup to a new Azure NetApp Files volume | Microsoft Docs
+title: Restore a backup to a new Azure NetApp Files volume
 description: Describes how to restore a backup to a new volume.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/07/2025
+ms.date: 06/23/2025
 ms.author: anfdocs
 ---
 # Restore a backup to a new volume
 
-Restoring a backup creates a new volume with the same protocol type. This article explains the restore operation. 
+"When you restore a backup, a new volume is created using the same protocol type as the original. This article explains how to perform a restore."
 
 ## Considerations
 
@@ -26,6 +26,8 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 * For volumes greater than 10 TiB, it can take multiple hours to transfer all the data from the backup media.
 
+* When restoring a [large volume](large-volumes.md), the new volume must also be a large volume. When restoring a regular volume, the new volume must also be a regular volume. 
+
 * Restoring a backup to a new volume isn't dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
 
 * In the Volume overview page, refer to the **Originated from** field to see the name of the snapshot used to create the volume. 
@@ -34,7 +36,7 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 
 > [!IMPORTANT]
-> Running multiple concurrent volume restores using Azure NetApp Files backup may increase the time it takes for each individual, in-progress restore to complete. I time is a factor, prioritize and sequentialize the most important volume restores and wait until the restores are complete before starting other, lower priority volume restores.  
+> Running multiple concurrent volume restores using Azure NetApp Files backup may increase the time it takes for each individual, in-progress restore to complete. If time is a factor, prioritize and sequentialize the most important volume first. Wait until the restore operations complete before starting lower priority volume restores.  
 
 See [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md) for more considerations about using Azure NetApp Files backup. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) for information about minimums and maximums. 
 
@@ -49,15 +51,17 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 
     :::image type="content" source="./media/backup-restore-new-volume/backup-restore-new-volume.png" alt-text="Screenshot of selecting restore backup to new volume." lightbox="./media/backup-restore-new-volume/backup-restore-new-volume.png":::
 
-3. In the Create a Volume page that appears, provide information for the fields in the page as applicable, and select **Review + Create** to begin restoring the backup to a new volume.   
+3. In the Create a Volume page, provide information for the fields in the page as applicable. 
 
     * The **Protocol** field is pre-populated from the original volume and cannot be changed.    
-        However, if you restore a volume from the backup list at the NetApp account level, you need to specify the Protocol field. The Protocol field must match the protocol of the original volume. Otherwise, the restore operation fails with the following error:  
+        If you restore a volume from the backup list at the NetApp account level, you must specify the protocol. The **Protocol** field must match the protocol of the original volume. Otherwise, the restore operation fails with the following error:  
         `Protocol Type value mismatch between input and source volume of backupId <backup-id of the selected backup>. Supported protocol type : <Protocol Type of the source volume>`
 
     * The **Quota** value must be **at least 20% greater** than the size of the backup from which the restore is triggered. Once the restore is complete, the volume can be resized depending on the size used. 
 
-    * The **Capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation fails.   
+    * The **Capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation fails.
+
+    Select **Review + Create** to begin restoring the backup to a new volume.
 
     ![Screenshot that shows the Create a Volume page.](./media/backup-restore-new-volume/backup-restore-create-volume.png)
 

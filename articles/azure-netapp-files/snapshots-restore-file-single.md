@@ -1,11 +1,11 @@
 ---
-title: Restore individual files in Azure NetApp Files using single-file snapshot restore | Microsoft Docs
+title: Restore individual files in Azure NetApp Files using single-file snapshot restore
 description: Describes how to recover individual files directly within a volume from a snapshot.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 06/23/2025
 ms.author: anfdocs
 ---
 
@@ -27,6 +27,7 @@ The restore operation doesn't create directories in the process. If the specifie
     * You can't create new snapshots on the volume.  
     * You can't delete the snapshot from which the files are being restored. 
     * Policy-scheduled snapshots can't complete during a single-file snapshot restoration operation. The scheduled snapshot is skipped.
+* Single-file restore isn't currently supported with [large volumes](large-volumes.md).
 
 ## Steps
 
