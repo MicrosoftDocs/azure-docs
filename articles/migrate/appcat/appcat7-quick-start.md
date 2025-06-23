@@ -75,18 +75,18 @@ Extract the binary from the downloaded file. You should see the following folder
 ### Run AppCAT against a sample Java project
 In following steps, let's do application assessment using AppCAT against [Airsonic-Advanced](https://github.com/airsonic-advanced/airsonic-advanced) - a community-driven, web-based media streamer that enables you to access and share your music collection.
 
-1. firstly, To run `appcat` from any location in your terminal, extract the archive to your desired location. Then, update the `PATH` environment variable to include the directory where you extracted the archive.
+1. To run `appcat` from any location in your terminal, extract the archive to your desired location. Then, update the `PATH` environment variable to include the directory where you extracted the archive.
 
 > [!NOTE]
 > When the `appcat` binary is called, it first looks for its dependencies in the executable folder specified in the `PATH` environment variable. If the dependencies aren't found, it falls back to the user's home directory - **~/.appcat** on Linux/Mac or **%USERPROFILE%\\.appcat** on Windows.
 
-1.Clone the application repository to a local folder using the following command:
+2. Clone the application repository to a local folder using the following command:
 
 ```sh
 git clone https://github.com/airsonic-advanced/airsonic-advanced.git
 ```
 
-1.Provide the path to the cloned folder when running the assessment scripts. Depending on your operating system, run the appropriate script, as shown in the following example. The reports are automatically generated and opened in your web browser. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
+3. Provide the path to the cloned folder when running the assessment scripts. Depending on your operating system, run the appropriate script, as shown in the following example. The reports are automatically generated and opened in your web browser. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
 
 # [Linux / macOS](#tab/linux)
 
