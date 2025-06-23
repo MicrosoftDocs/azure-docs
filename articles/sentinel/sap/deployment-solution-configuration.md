@@ -4,7 +4,7 @@ description: This article shows you how to configure initial security content fo
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 09/15/2024
+ms.date: 12/11/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -94,6 +94,5 @@ For more information, see:
 
 For more information, see:
 
-- [Automatic attack disruption for SAP (Preview)](deployment-attack-disrupt.md)
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
 - [Update Microsoft Sentinel's SAP data connector agent](update-sap-data-connector.md)

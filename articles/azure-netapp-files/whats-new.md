@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 05/20/2025
+ms.date: 06/20/2025
 ms.author: anfdocs
 ---
 
@@ -16,10 +16,16 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Backup support for large volumes](large-volumes-requirements-considerations.md#back-up-large-volumes) (Preview)
+* [Backup support for large volumes](large-volumes-requirements-considerations.md#back-up-large-volumes) (preview)
 
     Azure NetApp Files backup now supports large volumes by moving point-in-time snapshot copy data to low-cost Azure storage to address long-term retention, data protection, and compliance needs. Azure NetApp Files backup employs an efficient data mover to backup data at high speeds for both initial and incremental subsequent backups. 
     
+## June 2025
+
+* The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
+
+    You can transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
+
 ## May 2025
 
 * [Volume encryption with customer-managed keys with managed Hardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) is now generally available (GA)
@@ -109,7 +115,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2025
 
-* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (preview)
 
     Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
 
@@ -119,7 +125,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## January 2025 
 
-* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (preview)
 
     Azure NetApp Files application volume groups for SAP HANA (with extension 1) and Oracle now support customer-managed keys, providing increased security and compliance. This feature is now in preview.
 
@@ -133,7 +139,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol) as long as they are in different availability zones. For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md), [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md), or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). This feature is now generally available. 
 
-* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (Preview)
+* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (preview)
 
     Cloud Backup for Virtual Machines now integrates with [Azure NetApp Files backup](backup-introduction.md), significantly enhancing data protection by offering a fully managed backup solution for long-term recovery, archiving, and compliance. This integration allows you to mount a datastore from a snapshot or Azure NetApp Files backup to restore files. You can [mount the backup](../azure-vmware/configure-cloud-backup-virtual-machine.md) to either the Azure VMware Solution host where it was created or to an alternate host.
     

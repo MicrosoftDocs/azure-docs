@@ -3,7 +3,7 @@ title: Creating STAC Items in Microsoft Planetary Computer Pro
 description: Learn how to create A STAC Item for a geospatial data asset for use with Microsoft Planetary Computer Pro. 
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 04/08/2025
 

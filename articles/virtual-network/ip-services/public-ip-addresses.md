@@ -10,6 +10,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 02/04/2025
 ms.custom: references_regions
+# Customer intent: "As a network engineer, I want to understand the characteristics and allocation methods of public IP addresses in Azure, so that I can effectively manage connectivity for Azure resources and comply with any budgeting and security requirements."
 ---
 
 # Public IP addresses
@@ -107,8 +108,6 @@ Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in
 | Non-zonal |  A non-zonal public IP address is placed into a zone for you by Azure and doesn't give a guarantee of redundancy. |
 | Zonal  |	 A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. |
 | Zone-redundant	| A zone-redundant IP is created in all zones for a region and can survive any single zone failure. |
-
-In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal. 
 
 ## Domain Name Label
 

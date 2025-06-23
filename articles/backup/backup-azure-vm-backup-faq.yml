@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 05/12/2025
+  ms.date: 06/23/2025
   author: jyothisuri
   ms.author: jsuri
   ms.custom: build-2025
@@ -149,6 +149,10 @@ sections:
         answer: |
           No, you can't retain one single restore point. When you delete the previous restore points, the chain gets deleted. Therefore, you can't selectively retain or delete a recovery point.
 
+      - question: In Azure VM Backup, what is the Snapshot Tier and Storage Redundancy for snapshot taken as part of backup?
+        answer: |
+          In Azure VM Backup, snapshots are taken using the Standard HDD tier type, regardless of the source VM disk tier. By default, the storage redundancy for these snapshots is Locally Redundant Storage (LRS). However, if the VM backups are managed by an Enhanced Policy and the underlying source disk storage supports Zone Redundant Storage (ZRS), the snapshots will be of the ZRS type.
+
       - question: How long can I retain backup points of Azure VMs using the backup policy?
         answer: |
           The maximum retentions of the backup points are:
@@ -261,7 +265,7 @@ sections:
 
       - question: Can I restore an Azure Virtual Machine in a different subscription?
         answer: |
-          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) and [secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region) restores.
+          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation).
 
       - question: Does Cross Subscription Restore support all Azure VM?
         answer: |
@@ -273,7 +277,7 @@ sections:
 
       - question: Can I perform Cross Subscription Restore for Azure VMs running in secondary regions?
         answer: |
-          No, [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) does not support restore from [secondary regions](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
+          Yes.
 
       - question: Can I use Enhanced policy for Cross Subscription Restore?
         answer: |

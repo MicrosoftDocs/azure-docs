@@ -2,7 +2,7 @@
 title: Back up Windows machines by using the MARS agent
 description: Use the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: how-to
-ms.date: 08/18/2023
+ms.date: 06/18/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy23
@@ -10,15 +10,17 @@ ms.custom: engagement-fy23
 
 # Back up Windows Server files and folders to Azure
 
-This article describes how to back up Windows machines by using the [Azure Backup](backup-overview.md) service and the Microsoft Azure Recovery Services (MARS) agent. MARS is also known as the Azure Backup agent.
+This article describes how to back up Windows machines by using the [Azure Backup](backup-overview.md) service and the Microsoft Azure Recovery Services (MARS) agent or Azure Backup agent. 
 
-## Before you start
+## Prerequisites
 
-* Learn how [Azure Backup uses the MARS agent to back up Windows machines](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
-* Learn about the [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs) that runs the MARS agent on a secondary MABS or Data Protection Manager server.
-* Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by the MARS agent.
+Before you back up Windows Server files and folders to Azure, review the following prerequisites:
+
+* Understand how [Azure Backup uses the MARS agent to back up Windows machines](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
+* Review the [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs) that runs the MARS agent on a secondary MABS or Data Protection Manager server.
+* Check the [supported backup scenarios](backup-support-matrix-mars-agent.md) by the MARS agent.
 * [Verify internet access](install-mars-agent.md#verify-internet-access) on the machines that you want to back up.
-* If the MARS agent isn't installed, learn how to install it [here](install-mars-agent.md).
+* [Install the MARS agent](install-mars-agent.md), if not done.
 
 ## Create a backup policy
 
@@ -139,7 +141,7 @@ To run an on-demand backup, follow these steps:
 
 After the initial backup finishes, the **Job completed** status appears in the Backup console.
 
-## Set up on-demand backup policy retention behavior
+## On-demand backup policy retention behavior
 
 The following table shows the data retention duration for various backup schedules:
 

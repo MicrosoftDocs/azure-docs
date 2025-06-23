@@ -65,7 +65,7 @@ You can use the `nconnect` mount option to get higher aggregate read and write p
 > [!IMPORTANT]
 > While the latest Linux distributions fully support nconnect, you should use this option only if your kernel has Azure nconnect support. Using the `nconnect` mount option without Azure nconnect support will decrease throughput, cause multiple timeouts, and cause commands such as `READDIR` and `READIRPLUS` to work incorrectly. 
 
-Azure nconnect support is available with most of the recent Ubuntu kernals that can be used with Azure virtual machines. To find out if Azure nconnect support is available for your kernel, run the following command.
+Azure nconnect support is available with most of the recent Ubuntu kernels that can be used with Azure virtual machines. To find out if Azure nconnect support is available for your kernel, run the following command.
 
 ```
 [ -e /sys/module/sunrpc/parameters/enable_azure_nconnect ] && echo "Yes" || echo "No"
