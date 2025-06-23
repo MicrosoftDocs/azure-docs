@@ -14,11 +14,11 @@ In this quickstart, you use Azure Marketplace to find and create an instance of 
 
 ## Prerequisites
 
-[!INCLUDE create-prerequisites]
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 
 ## Create a Cloud NGFW resource
 
-[!INCLUDE create-resource]
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
 In this section, you'll create a Palo Alto Networks resource.
 
@@ -33,79 +33,63 @@ In this section, you'll create a Palo Alto Networks resource.
    | Setting  | Description |
    |---------|---------|
    | **Subscription**  | Select an Azure subscription for which you have owner access. |
-   | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [What is a resource group?](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group). |
-   | **Name**  | Put the name for the Palo Alto Networks account you want to create. |
+   | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [What is a resource group?](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group). |
+   | **Name**  | Enter the name for the Palo Alto Networks account you want to create. |
    | **Region** | Select an appropriate region. |
    | **Pricing Plan**     | Specified based on the selected Palo Alto Networks plan. |
 
-### Networking
+### Networking tab
 
-1. After completing the Basics tap, select the **Next: Networking** to see the **Networking** tab. 1. Select either **Virtual Network** or **Virtual Wan Hub**.
+1. After providing the required information on the **Basics** tab, select **Next: Networking** to go to the **Networking** tab. 
 
-1. Use the dropdowns to set the **Virtual Network**, **Private Subnet**, and Public **Public Subnet** associated with the Palo Alto Networks deployment.
+1. Select either **Virtual Network** or **Virtual Wan Hub**.
+
+1. Use the dropdowns to set the **Virtual Network**, **Private Subnet**, and **Public Subnet** that are associated with the Cloud NGFW deployment.
 
 1. For **Public IP Address Configuration**,  select either **Create New** or **Use Existing** and type in a name for **Public IP Address Name(s)**.
 
-1. Select the checkbox **Enable Source NAT** to indicate your preferred NAT settings.
+1. Select the **Enable Source NAT** checkbox to indicate your preferred NAT settings.
 
 ### Security Policy
 
-1. After setting the Domain Name System (DNS) values, select the **Next: Security Policy** to see the **Security Policies** tab. You can set the policies for the firewall using this tab.
+1. After setting the Domain Name System (DNS) values, select **Next: Security Policy** to see the **Security Policies** tab. You can set the policies for the firewall on this tab.
 
-   :::image type="content" source="media/palo-alto-create/palo-alto-rulestack.png" alt-text="Screenshot of the Rulestack in the Palo Alto Networks create experience.":::
+   :::image type="content" source="media/palo-alto-create/palo-alto-rulestack.png" alt-text="Screenshot of the Rulestack tab of the Create Cloud NGFW page." lightbox="media/palo-alto-create/palo-alto-rulestack.png":::
 
-1. Select checkbox **Managed By** to indicate either **Azure Portal** or **Palo Alto Networks Panorama**.
+1. Under **Managed By**, select either **Azure Portal** or **Palo Alto Networks Panorama**.
 
-1. For **Choose Local Rulestack**, select either **Create New** or **Use Existing** options.
+1. Under **Choose a Local Rulestack**, select either **Create new** or **Use existing**.
 
-1. Input an existing rulestack in the **Local Rulestack** option.
+1. In **Local Rulestack**, enter an existing rulestack.
 
-1. Select the checkbox **Best practice rule** to indicate Firewall mode or IDS mode options.
+1. Under **Best practice rule** select either **Firewall mode** or **IDS mode**.
 
 ### DNS Proxy
 
-1. After completing the **Security Policies** values, select the **Next: DNS Proxy** to see the **DNS Proxy** screen.
+1. After completing the **Security Policies** values, select the **Next: DNS Proxy** to go to the **DNS Proxy** tab.
 
-   :::image type="content" source="media/palo-alto-create/palo-alto-dns-proxy.png" alt-text="Screenshot of the DNS Proxy in the Palo Alto Networks create experience.":::
+   :::image type="content" source="media/palo-alto-create/palo-alto-dns-proxy.png" alt-text="Screenshot of the DNS Proxy tab of the Create Cloud NGFW page." lightbox="media/palo-alto-create/palo-alto-dns-proxy.png":::
 
-1. Select the checkbox **DNS Proxy** to indicate **Disabled** or **Enabled**.
+1. Under **DNS Proxy**, selet either **Disabled** or **Enabled**.
 
-### Tags
+### Tags tab (optional)
 
-You can specify custom tags for the new Palo Alto Networks resource in Azure by adding custom key-value pairs.
-
-1. Select Tags.
-
-   :::image type="content" source="media/palo-alto-create/palo-alto-tags.png" alt-text="Screenshot showing the tags pane in the Palo Alto Networks create experience.":::
-
-1. Type in the **Name** and **Value** properties that you need.
-
-   | Property | Description |
-   |----------| -------------|
-   |**Name** | Name of the tag corresponding to the Azure Palo Alto Networks resource. |
-   | **Value** | Value of the tag corresponding to the Azure Palo Alto Networks resource. |
+You can optionally create tags for your resource. 
 
 ### Terms
 
-Next, you must accept the Terms of Use for the new Palo Alto Networks resource.
+Next, you must accept the terms of use for the new Palo Alto Networks resource.
 
-1. Select Terms.
+1. Select to to the **Terms** tab.
 
-   :::image type="content" source="media/palo-alto-create/palo-alto-terms.png" alt-text="Screenshot showing the terms pane in the Palo Alto create experience.":::
+   :::image type="content" source="media/palo-alto-create/palo-alto-terms.png" alt-text="Screenshot showing the Terms tab of the Create Cloud NGFW page.":::
 
-1. Select the checkbox **I Agree** to indicate approval.
+1. Select the **I Agree** checkbox to indicate your acceptance.
+1. Select **Next: Review + Create** to go to the final step of creating the resource.
 
-### Review and create
+### Review + create tab
 
-1. Select the **Next: Review + Create** to navigate to the final step for resource creation. When you get to the **Review + Create** page, all validations are run. At this point, review all the selections made in the Basics, Networking, and optionally Tags panes. You can also review the Palo Alto and Azure Marketplace terms and conditions.  
-
-1. After reviewing all the information, select **Create**. Azure now deploys the Cloud NGFW by Palo Alto Networks.
-
-## Deployment completed
-
-1. Once the create process is completed, select **Go to Resource** to navigate to the specific Cloud NGFW by Palo Alto Networks resource.
-
-1. Select **Overview** in the service menu to see information on the deployed resources.
+[!INCLUDE [review-create](../includes/review-create.md)]
 
 ## Next steps
 
