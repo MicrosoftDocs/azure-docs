@@ -11,7 +11,7 @@ ms.date: 05/28/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
-# Azure Migrate Application and Code Assessment for Java version 7 CLI Command Guide
+# CLI Command Guide for AppCAT 7
 
 ## Overview
 The guide describes AppCAT CLI command usage.
