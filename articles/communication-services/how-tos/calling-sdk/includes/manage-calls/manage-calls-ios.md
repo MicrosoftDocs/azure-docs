@@ -2,19 +2,19 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
-ms.author: rifox
+ms.date: 06/05/2025
+ms.author: micahvivion
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
 > [!NOTE]
-> When the application implements event delegates, it has to hold a strong reference to the objects that require event subscriptions. For example, when a `RemoteParticipant` object is returned on invoking the `call.addParticipant` method and the application sets the delegate to listen on `RemoteParticipantDelegate`, the application must hold a strong reference to the `RemoteParticipant` object. Otherwise, if this object gets collected, the delegate will throw a fatal exception when the Calling SDK tries to invoke the object.
+> When the application implements event delegates, it must hold a strong reference to the objects that require event subscriptions. For example, when you call the `call.addParticipant` method and it returns a `RemoteParticipant` object. Then the application sets the delegate to listen on `RemoteParticipantDelegate` and the application must hold a strong reference to the `RemoteParticipant` object. Otherwise, if this object is collected, the delegate throws a fatal exception when the Calling SDK tries to invoke the object.
 
 ## Place an outgoing call
 
 To create and start a call, you need to call one of the APIs on `CallAgent` and provide the Communication Services identity of a user that you've provisioned by using the Communication Services Management SDK.
 
-Call creation and start are synchronous. You'll receive a call instance that allows you to subscribe to all events on the call.
+Call creation and start are synchronous. You receive a call instance that enables you to subscribe to all events on the call.
 
 ### Place a 1:1 call to a user or a 1:n call with users and PSTN
 
@@ -31,10 +31,11 @@ self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { 
 ```
 
 ### Place a 1:n call with users and PSTN
-> [!NOTE]
-> Please check [details of PSTN calling offering](../../../../concepts/numbers/sub-eligibility-number-capability.md). For preview program access, [apply to the early adopter program](https://aka.ms/ACS-EarlyAdopter).
 
-To place the call to PSTN, you have to specify a phone number acquired with Communication Services.
+> [!NOTE]
+> See [details of PSTN calling offering](../../../../concepts/numbers/sub-eligibility-number-capability.md). For preview program access, [apply to the early adopter program](https://aka.ms/ACS-EarlyAdopter).
+
+To place a 1:n call to a user and a public switched telephone network (PSTN), you need to specify a phone number acquired with Communication Services.
 
 ```swift
 let pstnCallee = PhoneNumberIdentifier(phoneNumber: '+1999999999')
@@ -79,9 +80,10 @@ func joinRoomCall() {
 }
 ```
 
-A `room` offers application developers better control over **who** can join a call, **when** they meet and **how** they collaborate. To learn more about `rooms`, you can read the [conceptual documentation](../../../../concepts/rooms/room-concept.md) or follow the [quick start guide](../../../../quickstarts/rooms/join-rooms-call.md).
+A `room` offers application developers better control over *who* can join a call, *when* they meet and *how* they collaborate. For more information about rooms, see [Rooms API for structured meetings](../../../../concepts/rooms/room-concept.md) and [Join a room call](../../../../quickstarts/rooms/join-rooms-call.md).
 
 ## Join a group call
+
 To join a call, you need to call one of the APIs on `CallAgent`.
 
 ```swift
@@ -97,6 +99,7 @@ self.callAgent?.join(with: groupCallLocator, joinCallOptions: JoinCallOptions())
 ```
 
 ## Subscribe to an incoming call
+
 Subscribe to an incoming call event.
 
 ```swift
@@ -118,6 +121,7 @@ final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelega
 ```
 
 ### Accept an incoming call
+
 To accept a call, call the `accept` method on a `IncomingCall` object.
 
 ```swift
@@ -150,7 +154,7 @@ if let incomingCall = self.incomingCall {
 
 ## Perform mid-call operations
 
-You can perform various operations during a call to manage settings related to video and audio.
+You can perform operations during a call to manage settings related to video and audio.
 
 ### Mute and unmute
 
@@ -180,7 +184,7 @@ call!.unmute { (error) in
 
 ## Manage remote participants
 
-All remote participants are represented by the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance.
+The `RemoteParticipant` type represents all remote participants. They're available through the `remoteParticipants` collection on a call instance.
 
 ### List participants in a call
 
@@ -190,14 +194,15 @@ call.remoteParticipants
 
 ### Add a participant to a call
 
-To add a participant to a call (either a user or a phone number), you can invoke `addParticipant`. This command will synchronously return a remote participant instance.
+To add a participant to a call as either a user or a phone number, call the `addParticipant` operation. This operation synchronously returns a remote participant instance.
 
 ```swift
 let remoteParticipantAdded: RemoteParticipant = call.add(participant: CommunicationUserIdentifier(identifier: "userId"))
 ```
 
 ### Remove a participant from a call
-To remove a participant from a call (either a user or a phone number), you can invoke the `removeParticipant` API. This will resolve asynchronously.
+
+To remove a participant from a call as either a user or a phone number, call the `removeParticipant` operation. This operation resolves asynchronously.
 
 ```swift
 call!.remove(participant: remoteParticipantAdded) { (error) in
@@ -235,12 +240,13 @@ var videoStreams = remoteParticipant.videoStreams // [RemoteVideoStream, RemoteV
 ```
 
 ### Mute other participants
+
 > [!NOTE]
-> To use this API please use the Azure Communication Services Calling iOS SDK version 2.13.0 or higher. 
+> Use the Azure Communication Services Calling iOS SDK version 2.13.0 or higher. 
 
-Now when a PSTN participant is muted, they should get an announcement that they have been muted and that they can press a key combination (e.g. *6) to unmute themselves. When they press *6, they should be unmuted.
+When a PSTN participant is muted, they receive an announcement that they're muted and that they can press a key combination (such as **\*6**) to unmute themselves. When they press **\*6**, they're unmuted.
 
-To mute all other participants in a call, use the `muteAllRemoteParticipants` API on the call.
+To mute all other participants in a call, use the `muteAllRemoteParticipants` operation on the call.
 
 ```swift
 call!.muteAllRemoteParticipants { (error) in
@@ -252,7 +258,7 @@ call!.muteAllRemoteParticipants { (error) in
 }
 ```
 
-To mute a specific remote participant, use the `mute` API on a given remote participant.
+To mute a specific remote participant, use the `mute` operation on a given remote participant.
 
 ```swift
 remoteParticipant.mute { (error) in
@@ -264,4 +270,4 @@ remoteParticipant.mute { (error) in
 }
 ```
 
-To notify the local participant they have been muted by others, subscribe to the `onMutedByOthers` event. 
+To notify the local participant that they're muted by others, subscribe to the `onMutedByOthers` event. 

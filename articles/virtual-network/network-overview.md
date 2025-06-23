@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 04/15/2025
 ms.author: allensu
+# Customer intent: As a cloud architect, I want to design a virtual network ecosystem for my virtual machines, so that I can ensure secure and efficient communication between resources while meeting network and security requirements.
 ---
 
 # Virtual networks and virtual machines in Azure

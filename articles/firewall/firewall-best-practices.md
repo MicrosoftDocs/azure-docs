@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 01/13/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to implement best practices for Azure Firewall configuration, so that I can optimize its performance and ensure efficient network traffic management while maintaining security.
 ---
 
 # Best practices for Azure Firewall performance
