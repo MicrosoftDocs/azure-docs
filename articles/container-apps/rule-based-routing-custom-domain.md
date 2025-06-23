@@ -58,8 +58,8 @@ Update your Container Apps YAML file to include a `customDomains` section. Inclu
 | Certificate type | certificateId format |
 | -- | -- |
 | None | Leave blank |
-| Managed | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/certificates/{CertificateFriendlyName} |
-| Unmanaged | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/managedCertificates/{CertificateFriendlyName} |
+| Managed | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/managedCertificates/{CertificateFriendlyName} |
+| Unmanaged | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/certificates/{CertificateFriendlyName} |
 
 > [!NOTE]
 > To add a certificate to your environment, use one of the following methods:
