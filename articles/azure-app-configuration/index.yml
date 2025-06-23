@@ -103,6 +103,10 @@ landingContent:
           url: enable-dynamic-configuration-java-spring-app.md
         - text: Use dynamic config in Python
           url: enable-dynamic-configuration-python.md
+        - test: Use dynamic config in Go
+          url: enable-dynamic-configuration-go-console-app.md
+        - text: Use dynamic config in Go Gin
+          url: enable-dynamic-configuration-gin-web-app.md
       - linkListType: tutorial
         links:
         - text: Import data using Azure Pipelines
