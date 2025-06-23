@@ -392,6 +392,8 @@
       href: ../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
+    - name: Azure Files
+      href: reliability-storage-files.md
     - name: Azure NetApp Files
       href: ../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Storage Actions

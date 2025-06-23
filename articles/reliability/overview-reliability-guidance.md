@@ -77,7 +77,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Event Hubs| [Reliability in Azure Event Hubs](reliability-event-hubs.md)||
 |Azure ExpressRoute|| [Designing for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p>[Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Firewall|| [Deploy an Azure Firewall with Availability Zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
-|Azure Files||[Choose the right redundancy option](/azure/storage/files/files-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)</p>[Disaster recovery and failover for Azure Files](/azure/storage/files/files-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Files| [Reliability in Azure Files](reliability-storage-files.md)||
 |Azure Functions|  [Reliability in Azure Functions ](reliability-functions.md)||
 |Azure Guest Configuration||[Azure Guest Configuration Availability](../governance/machine-configuration/overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability) |
 |Azure Health Data Services: De-identification service (preview)|[Reliability in Azure Health Data Services: De-Identification service](reliability-health-data-services-deidentification.md)||
