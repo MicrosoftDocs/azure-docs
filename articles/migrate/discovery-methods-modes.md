@@ -17,13 +17,13 @@ This article explains the different discovery methods in Azure Migrate and gives
 
 ## Prerequisites
 
-Before you begin, make sure you create an Azure Migrate project by following the steps in [Quickstart: Create an Azure Migrate project using portal](quickstart-create-project.md)
+Before you begin, make sure you create an Azure Migrate project by following the steps in [Quickstart: Create an Azure Migrate project using portal](quickstart-create-project.md).
 
 ## Appliance-based discovery
 
 The appliance-based discovery method involves deploying a virtual appliance that scans your environment to collect metadata about resources. This approach is ideal for scenarios where detailed, automated, and continuous discovery are required. 
 
-**Key features**: 
+### Key features** 
 
 - Continuous collection of configuration and performance data.  
 - Supports discovering workloads such as SQL databases, webapps, and MySQL. 

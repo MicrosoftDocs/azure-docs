@@ -145,7 +145,7 @@ Run the script named `AzureMigrateInstaller.ps1` using this command:
     `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 1. Select from the scenario, cloud, and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** *(or servers running on other clouds like AWS, GCP, Xen, etc.)* to an Azure Migrate project with **default (public endpoint) connectivity** on **Azure public cloud**.
     
-    :::image type="content" source="./media/tutorial-discover-physical/set-up-appliance.png" alt-text="Screenshot that shows how to setup appliance." lightbox="./media/tutorial-discover-physical/set-up-appliance.png" :::
+    :::image type="content" source="./media/tutorial-discover-physical/set-up-appliance.png" alt-text="Screenshot that shows how to set up appliance." lightbox="./media/tutorial-discover-physical/set-up-appliance.png" :::
   
 1. The installer script does the following:
     1. Installs agents and a web application. 
@@ -198,7 +198,7 @@ In the configuration manager, select **Set up prerequisites**, and then follow t
 1. The appliance verifies the key and starts the auto-update service. This service updates all appliance components to their latest versions. After the update finishes, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
 1. To register the appliance, select Login. In **Continue with Azure Login** select **Copy code & Login** to copy the device code. You need this code to sign in to Azure. The browser opens a new tab with the Azure sign-in prompt. Make sure you turn off the pop-up blocker to see the prompt.
 
-    :::image type="content" source="./media/tutorial-discover-physical/continue-azure-login.png" alt-text="Screenshot that shows how to continue to azure login." lightbox="./media/tutorial-discover-physical/continue-azure-login.png" :::
+    :::image type="content" source="./media/tutorial-discover-physical/continue-azure-login.png" alt-text="Screenshot that shows how to continue to Azure login." lightbox="./media/tutorial-discover-physical/continue-azure-login.png" :::
    
 1. In a new browser tab, paste the device code and sign in using your Azure username and password. You cannot sign in with a PIN.
 
