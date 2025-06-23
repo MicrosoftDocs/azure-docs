@@ -1,5 +1,5 @@
 ---
-title: Release notes
+title: Release notes for AppCAT 7
 description: Azure Migrate application and code assessment tool - release notes.
 author: KarlErickson
 ms.author: karler
@@ -98,48 +98,6 @@ This release is based on a different set of components of the Konveyor project.
 **General Updates**
 
 - New engine based on the [Konveyor Analyzer LSP](https://github.com/konveyor/analyzer-lsp) project, with a CLI based on the [Konveyor Kantra](https://github.com/konveyor/kantra/) project.
-
-### 6.3.9.0
-
-This release contains the following fixes and includes a set of new rules.
-
-**General Updates**
-
-- Integrated changes from the Windup upstream repository (6.3.9.Final Release).
-- Resolved broken links in rule descriptions and help text.
-
-**Rules**
-
-- Azure Message Queue: updated and added new rules for `azure-message-queue-rabbitmq` and `azure-message-queue-amqp`.
-- Azure Service Bus: introduced a detection rule for Azure Service Bus.
-- MySQL and PostgreSQL: refined dependency detection rules.
-- Azure-AWS Rules: enhanced and improved existing rules.
-- S3 Spring Starter: added a detection rule for S3 Spring Starter.
-- RabbitMQ Spring JMS: added a detection rule for RabbitMQ Spring JMS.
-- Logging Rules: updated and refined logging-related rules.
-- Local-Storage Rule: updated and refined the local storage rule.
-- Azure File System Rule: updated and refined the Azure File System rule.
-
-**Libraries**
-
-- Updated libraries to address security vulnerabilities.
-
-### 6.3.0.9
-
-This release contains the following fixes and includes a set of new rules.
-
-- Resolved an issue with the `localhost-java-00001` rule.
-- Introduced new rules for identifying technologies such as AWS S3, AWS SQS, Alibaba Cloud OSS, Alibaba Cloud SMS, Alibaba Scheduler X, Alibaba Cloud Seata, and Alibaba Rocket MQ.
-- Updated the `azure-file-system-02000` to now support XML file extensions.
-- Upgraded various libraries to address security vulnerabilities.
-
-### 6.3.0.8
-
-Previously, a set of targets were enabled by default, making it difficult for certain customers to assess large applications with too many issues related to less critical issues. To reduce noise in reports, users must now specify multiple targets, with the parameter `--target`, when executing `appcat`, giving them the option to select only the targets that matter.
-
-### 6.3.0.7
-
-GA (Generally Available) release of Azure Migrate application and code assessment.
 
 ## Known issues
 ### 7.6.0.7
