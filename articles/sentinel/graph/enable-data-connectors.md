@@ -33,6 +33,8 @@ To enable and manage data connectors in the Microsoft Sentinel data lake, you ne
 - Ensure you have the necessary [access and permissions](../roles.md#microsoft-sentinel-roles-permissions-and-allowed-actions) to Microsoft Sentinel, as specified *Enablement* column of the previous table.
 - Install the [necessary solutions](../sentinel-solutions-catalog.md) from the Content Hub in Microsoft Sentinel.
 
+:::image type="content" source="./media/enable-data-connectors/content-hub.png" alt-text="Screenshot of Sentinel Defender content hub.":::
+
 ## Configure and Manage
 
 1. Enable Data Connectors
