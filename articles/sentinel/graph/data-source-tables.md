@@ -28,7 +28,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | properties                | Utf8             | Dynamic     | NVARCHAR(MAX)  | The item properties                                 |
 | tags                      | Utf8             | Dynamic     | NVARCHAR(MAX)  | Tag for the item                                    |
 | managedBy                 | Utf8             | String      | NVARCHAR(MAX)  | Entity managing the item                            |
-| SKU                       | Utf8             | Dynamic     | NVARCHAR(MAX)  | The stock keeping unit of the item                  |
+| sku                       | Utf8             | Dynamic     | NVARCHAR(MAX)  | The stock keeping unit of the item                  |
 | identity                  | Utf8             | Dynamic     | NVARCHAR(MAX)  | The identity of the item                            |
 | location                  | Utf8             | String      | NVARCHAR(MAX)  | The location of the item                            |
 | kind                      | Utf8             | String      | NVARCHAR(MAX)  | The item kind                                       |
@@ -58,7 +58,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | properties                | Utf8             | Dynamic     | NVARCHAR(MAX)  | The item properties                                 |
 | tags                      | Utf8             | Dynamic     | NVARCHAR(MAX)  | Tag for the item                                    |
 | managedBy                 | Utf8             | String      | NVARCHAR(MAX)  | Entity managing the item                            |
-| SKU                       | Utf8             | Dynamic     | NVARCHAR(MAX)  | The stock keeping unit of the item                  |
+| sku                       | Utf8             | Dynamic     | NVARCHAR(MAX)  | The stock keeping unit of the item                  |
 | identity                  | Utf8             | Dynamic     | NVARCHAR(MAX)  | The identity of the item                            |
 | location                  | Utf8             | String      | NVARCHAR(MAX)  | The location of the item                            |
 | kind                      | Utf8             | String      | NVARCHAR(MAX)  | The item kind                                       |
@@ -87,7 +87,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | properties                | Utf8             | Dynamic     | NVARCHAR(MAX)  | The item properties                                 |
 | tags                      | Utf8             | Dynamic     | NVARCHAR(MAX)  | Tag for the item                                    |
 | managedBy                 | Utf8             | String      | NVARCHAR(MAX)  | Entity managing the item                            |
-| SKU                       | Utf8             | Dynamic     | NVARCHAR(MAX)  | The stock keeping unit of the item                  |
+| sku                       | Utf8             | Dynamic     | NVARCHAR(MAX)  | The stock keeping unit of the item                  |
 | identity                  | Utf8             | Dynamic     | NVARCHAR(MAX)  | The identity of the item                            |
 | location                  | Utf8             | String      | NVARCHAR(MAX)  | The location of the item                            |
 | kind                      | Utf8             | String      | NVARCHAR(MAX)  | The item kind                                       |
