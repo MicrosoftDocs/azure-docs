@@ -14,7 +14,7 @@ ms.collection: ms-security
 
 # Enable data assets in the Microsoft Sentinel data lake (preview)
 
-This article explains how to enable and manage asset data from the data lake in Microsoft Sentinel. Data in the data lake can be ingested and managed through data connectors. These connectors allow you to integrate various data sources into Microsoft Sentinel, enabling enhanced security monitoring and threat detection capabilities.
+This article explains how to enable and manage asset data in Microsoft Sentinel's data lake. Data in the data lake is ingested and managed through data connectors. These data connectors allow you to integrate various data sources into Microsoft Sentinel, enabling enhanced security monitoring and threat detection capabilities.
 
 Data connectors are automatically enabled for anyone with the appropriate permissions in Microsoft Sentinel. The data is ingested into the Microsoft Sentinel data lake, which is a dedicated workspace for storing and managing security-related data.
 
@@ -39,8 +39,10 @@ To enable and manage data connectors in the Microsoft Sentinel data lake, you ne
 
 1. Enable Data Connectors
 
-    - Enable the data connector and use it to enable / disable ingesting data.
-    - Review prerequisites for each data connector.
+    - Data connectors are automatically enabled on login. Connect or disconnect to enable or disable ingesting data.
+    - Review prerequisites for each data connector to see permission requirements.
+
+    :::image type="content" source="./media/enable-data-connectors/connect.png" alt-text="Screenshot of asset home page with cennect button.":::
 
 1. Find and Manage Data
 
