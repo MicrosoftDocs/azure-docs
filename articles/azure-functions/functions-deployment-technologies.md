@@ -34,7 +34,7 @@ Currently, Functions offers five options for hosting your function apps:
 + [Consumption](consumption-plan.md)
 + [Elastic Premium plan](functions-premium-plan.md)
 + [Dedicated (App Service) plan](dedicated-plan.md)
-+ [Azure Container Apps](functions-container-apps-hosting.md)
++ [Azure Container Apps](../container-apps/functions-overview.md)
 
 Each plan has different behaviors. Not all deployment technologies are available for each hosting plan and operating system. This chart provides information on the supported deployment technologies:
 
