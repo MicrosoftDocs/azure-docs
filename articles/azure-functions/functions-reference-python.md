@@ -487,7 +487,7 @@ import logging
 app = func.FunctionApp()
 
 @app.route(route="req")
-@app.read_blob(arg_name="obj", path="samples/{id}", 
+@app.blob_input(arg_name="obj", path="samples/{id}", 
                connection="STORAGE_CONNECTION_STRING")
 def main(req: func.HttpRequest, obj: func.InputStream):
     logging.info(f'Python HTTP-triggered function processed: {obj.read()}')
@@ -513,7 +513,7 @@ For select triggers and bindings, you can work with data types implemented by th
 ### Prerequisites
 
 * [Azure Functions runtime version](functions-versions.md?pivots=programming-language-python) version 4.34, or a later version.
-* [Python](https://www.python.org/downloads/) version 3.9, or a later [supported version](#python-version).
+* [Python](https://www.python.org/downloads/) version 3.10, or a later [supported version](#python-version).
 
 ### SDK Types
 
@@ -1079,8 +1079,7 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.11<br/>3.10<br/>3.9<br/>3.8<br/>3.7 |
-| 3.x | 3.9<br/> 3.8<br/>3.7 |
+| 4.x | 3.12<br/>3.11<br/>3.10<br/>|
 
 \* Official Python distributions
 
@@ -1179,6 +1178,7 @@ func azure functionapp publish <APP_NAME> --no-build
 Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
 ## Unit testing
+### Unit testing through pytest
 
 Functions that are written in Python can be tested like other Python code by using standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package isn't immediately available, be sure to install it via your *requirements.txt* file as described in the [package management](#package-management) section above.
 
@@ -1344,6 +1344,27 @@ class TestFunction(unittest.TestCase):
 
 Inside your *.venv* Python virtual environment folder, install your favorite Python test framework, such as `pip install pytest`. Then run `pytest tests` to check the test result.
 
+### Unit testing by invoking the function directly
+With `azure-functions >= 1.21.0`, functions can also be called directly using the Python interpreter. This example shows how to unit test an HTTP trigger using the v2 programming model:
+```python
+# <project_root>/function_app.py
+import azure.functions as func
+import logging
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@app.route(route="http_trigger")
+def http_trigger(req: func.HttpRequest) -> func.HttpResponse:
+    return "Hello, World!"
+
+print(http_trigger(None))
+```
+
+Note that with this approach, no additional package or setup is required. The function can be tested by calling `python function_app.py`, and it results in `Hello, World!` output in the terminal.
+
+> [!NOTE]
+> Durable Functions require special syntax for unit testing. For more information, refer to [Unit Testing Durable Functions in Python](durable/durable-functions-unit-testing-python.md)
+
 ::: zone-end
 
 ## Temporary files
@@ -1382,10 +1403,9 @@ The Python standard library contains a list of built-in Python modules that are 
 To view the library for your Python version, go to:
 
 
-* [Python 3.8 standard library](https://docs.python.org/3.8/library/)
-* [Python 3.9 standard library](https://docs.python.org/3.9/library/)
 * [Python 3.10 standard library](https://docs.python.org/3.10/library/)
 * [Python 3.11 standard library](https://docs.python.org/3.11/library/)
+* [Python 3.12 standard library](https://docs.python.org/3.12/library/)
 
 ### Azure Functions Python worker dependencies
 

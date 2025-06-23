@@ -1,8 +1,8 @@
 ---
 title: Support matrix for Azure Elastic SAN Backup (preview)
-description: Learn about the  regional availability, supported scenarios, and limitations for backups of Azure Elastic SAN (preview).
+description: Learn about the  regional availability, supported scenarios, and limitations for Elastic SAN backup (preview).
 ms.topic: reference
-ms.date: 06/03/2025
+ms.date: 06/20/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -11,15 +11,15 @@ ms.author: jsuri
 
 # Support matrix for Azure Elastic SAN backup (preview)
 
-This article summarizes the regional availability, supported scenarios, and limitations for Azure Elastic storage area network (SAN) backups (preview).
+This article summarizes the regional availability, supported scenarios, and limitations for Elastic SAN backup (preview).
 
 ## Supported regions
 
-Backups are available in all Azure Public regions that Azure Elastic SAN supports. [Learn more](../storage/elastic-san/elastic-san-create.md#limitations).
+Backups are available in all Azure Public regions that Elastic SAN supports. [Learn more](../storage/elastic-san/elastic-san-create.md#limitations).
 
-## Supported and unsupported scenarios for Azure Elastic SAN protection (preview)
+## Supported and unsupported scenarios for Elastic SAN backup (preview)
 
-Azure Elastic SAN protection (preview) has the following supported and unsupported scenarios:
+Elastic SAN backup has the following supported and unsupported scenarios:
 
 - Operational-tier backup is supported for Elastic SAN; vault-tier isn't currently supported. So, the security-related settings ([immutability](backup-azure-immutable-vault-concept.md?tabs=backup-vault), [soft-delete](backup-azure-security-feature-cloud.md?tabs=azure-portal), [Multi-user authorization](multi-user-authorization-concept.md?tabs=backup-vault), and [customer-managed keys](encryption-at-rest-with-cmk.md?tabs=portal)) that are applicable for vault-tier aren't supported.
 - Same volume can't be protected multiple times as part of multiple backup instances.
@@ -50,9 +50,9 @@ Azure Elastic SAN protection (preview) has the following supported and unsupport
 
 ## Next steps
 
-- [Configure backup for  Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-configure.md).
-- [Restore Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-restore.md).
-- [Manage Azure Elastic SAN using Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).
+- [Configure Azure Elastic SAN backup using the Azure portal (preview)](azure-elastic-storage-area-network-backup-configure.md).
+- [Restore Azure Elastic SAN backup using the Azure portal (preview)](azure-elastic-storage-area-network-backup-restore.md).
+- [Manage Azure Elastic SAN backup using the Azure portal (preview)](azure-elastic-storage-area-network-backup-manage.md).
  
 
 

@@ -9,6 +9,7 @@ ms.date: 01/08/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
+# Customer intent: "As a cloud architect, I want to create and manage public IP address prefixes, so that I can efficiently allocate and utilize a range of public IP addresses for my Azure resources while minimizing management overhead."
 ---
 
 # Public IP address prefix
