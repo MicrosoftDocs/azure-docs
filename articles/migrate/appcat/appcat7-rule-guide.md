@@ -1,1 +1,125 @@
+---
+title: Azure Migrate Application and Code Assessment for Java version 7 Rules Development Guide
+description: Learn how to write and run custom rules for Azure Migrate application and code assessment tool.
+author: KarlErickson
+ms.author: karler
+ms.reviewer: brborges
+ms.service: azure
+ms.custom: devx-track-java, devx-track-extended-java
+ms.topic: overview
+ms.date: 05/28/2025
+#customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
+---
 
+# Azure Migrate Application and Code Assessment for Java version 7 Rules Development Guide
+## Overview
+
+This guide is for engineers, consultants, and others who want to create custom YAML-based rules for Azure Migrate application and code assessment for Java verion 7 (AppCAT) tools.
+
+For more information, see the Introduction to the [Azure Migrate application and code assessment for Java version 7 (preview)](./java-preview.md) for an overview and the [CLI Guide](./cli-guide.md) for details.
+
+The AppCAT contains rule-based migration tools that analyze the APIs, technologies, and architectures used by the applications you plan to migrate. In fact, the AppCAT analysis process is implemented using AppCAT rules. AppCAT uses rules internally to extract files from archives, decompile files, scan and classify file types, analyze XML and other file content, analyze the application code, and build the reports.
+
+## Getting start with rules
+The [AppCAT ruleset project ](https://github.com/Azure/appcat-konveyor-rulesets) contributes future rules to aid static code analysis as well as issues shared by subject matter experts to aid creation of richer Rulesets.
+
+The basic rule format is from upsream [konveyor ruleset](https://github.com/konveyor/analyzer-lsp/blob/main/docs/rules.md). Review the doc about rule metadata first.
+
+### Addtional rule metadata in AppCAT
+In addtion to the rule metadata describe in [konveyor ruleset](https://github.com/konveyor/analyzer-lsp/blob/main/docs/rules.md), AppCAT enrich more details about rules so that make the report more hierarchical.
+
+- AppCAT add three domains for rules
+    - Azure Readiness
+        - the goal is to migrate application resource to Azure to work seamlessly with Azure resource
+    - Cloud Native
+        - The goal is to optimize applications to follow cloud-friendly principles
+    - Java Modernization
+        - The goal is to opt applications by adopting supported Java versions and modern APIs while avoiding security risks from deprecated features.
+- Add rule category
+  - Different rules can be grouped into a category if necessary, for example, MySQL/PostgreSQL database found can both belong to database-migration
+
+The domain/category mededatas are written uder the `label` properties for custom rules. Only the rules with such label will be shown in the AppCAT report. For example
+
+```yaml
+labels:
+  - domain=azure-readiness
+  - category=database-migration
+```
+:::image type="content" source="media/guide/appcat-rule-domain.png" alt-text="Screenshot of the appcat rule domain in static report." lightbox="media/guide/appcat-rule-domain.png":::
+
+
+### Creating a rule
+Here is a rule example to identify if the MySQL database found in the project, if so, it recommends to migrate it to Azure Database for MySQL.
+```yaml
+- category: potential
+  customVariables: []
+  description: MySQL database found
+  effort: 3
+  labels:
+  - konveyor.io/target=azure-aks
+  - konveyor.io/source
+  - domain=azure-readiness
+  - category=database-migration
+  links:
+  - title: Azure Database for MySQL documentation
+    url: https://learn.microsoft.com/azure/mysql
+  message: |-
+    To migrate a Java application that uses a MySQL database to Azure, you can follow these recommendations:
+
+     * Use a managed **Azure Database for MySQL**: For that create a managed MySQL database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+     * **Migrate** the existing MySQL database: For that you can use the Azure Database Migration Service (DMS) to perform an online migration with minimal downtime.
+
+     * Update the application's **database connection** details: Modify the Java application's configuration to point to the newly provisioned Azure Database for MySQL. Update the connection string, hostname, port, username, and password information accordingly.
+
+     * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying MySQL database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+     * Implement **security** measures: Apply security best practices to protect your Java application and the MySQL database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+     * **Backup** your data: Azure Database for MySQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
+  ruleID: azure-database-mysql-01000
+  when:
+    and:
+    - or:
+      - java.dependency:
+          lowerbound: 0.0.0
+          nameregex: ([a-zA-Z0-9._-]*)mysql([a-zA-Z0-9._-]*)
+      - builtin.filecontent:
+          filePattern: build\.gradle$
+          pattern: mysql
+      - builtin.file:
+          pattern: ^([a-zA-Z0-9._-]*)mysql-connector([a-zA-Z0-9._-]*)\.jar$
+      - builtin.filecontent:
+          filePattern: (/|\\)([a-zA-Z0-9._-]+)\.(xml|properties|yaml|yml)$
+          pattern: (?i)jdbc:mysql
+      - builtin.filecontent:
+          filePattern: (/|\\)([a-zA-Z0-9._-]+)\.(xml|properties|yaml|yml)$
+          pattern: (?i)r2dbc:mysql
+      - builtin.filecontent:
+          filePattern: (/|\\)([a-zA-Z0-9._-]+)\.(xml|properties|yaml|yml)$
+          pattern: (?i)r2dbc:pool:mysql
+    - not: true
+      or:
+      - builtin.filecontent:
+          filePattern: (/|\\)(application|bootstrap)(-[a-zA-Z0-9]+)*?\.(properties|yaml|yml)$
+          pattern: ([a-zA-Z0-9-]+)\.mysql\.database\.azure\.com$
+      - java.dependency:
+          lowerbound: 0.0.0
+          nameregex: ([a-zA-Z0-9._-]*)spring-cloud-azure-starter-jdbc-mysql([a-zA-Z0-9._-]*)
+```
+
+The issue in the AppCAT report shows like below.
+
+:::image type="content" source="media/guide/appcat-rule-metadata.png" alt-text="Screenshot of the mysql database found issue in static report." lightbox="media/guide/appcat-rule-metadata.png":::
+
+### Run a rule
+When running rules in AppCAT CLI, you can choose run the rules only or run the rules with AppCAT default rulesets together.
+```shell
+
+# run appcat rules with default ruleset, it means run your rules with appcat provided rules toger
+appcat analyze --input xxx --output xxx --target xxx --rules custom-rule1.yaml,custome-rule2.yaml
+
+# only run your own rules
+appcat analyze --input xxx --output xxx --target xxx --rules custom-rule1.yaml,custome-rule2.yaml --enable-default-rulesets=false 
+
+```
