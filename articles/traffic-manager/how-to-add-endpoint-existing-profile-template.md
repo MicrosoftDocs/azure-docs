@@ -8,6 +8,7 @@ ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.custom: template-how-to
+# Customer intent: "As a cloud administrator, I want to add an external endpoint to an existing Traffic Manager profile using an ARM template, so that I can enhance traffic routing capabilities across my resources."
 ---
 
 # Add an external endpoint to an existing profile using an Azure Template

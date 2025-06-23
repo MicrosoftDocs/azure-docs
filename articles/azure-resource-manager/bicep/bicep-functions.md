@@ -160,7 +160,9 @@ The following functions are available for getting resource values. Most of these
 * [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](./bicep-functions-resource.md#tenantresourceid)
 * [toLogicalZone](./bicep-functions-resource.md#tologicalzone)
+* [toLogicalZones](./bicep-functions-resource.md#tologicalzones)
 * [toPhysicalZone](./bicep-functions-resource.md#tophysicalzone)
+* [toPhysicalZones](./bicep-functions-resource.md#tophysicalzones)
 
 ## Scope functions
 

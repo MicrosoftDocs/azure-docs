@@ -7,6 +7,7 @@ services: firewall
 ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: duau
+# Customer intent: "As a security administrator, I want to implement Azure Firewall Premium for my organization's network, so that I can enhance our security posture with advanced features like TLS inspection, IDPS, and URL filtering for regulated environments."
 ---
 
 # Azure Firewall Premium in the Azure portal

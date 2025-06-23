@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel experience when you onboard Micr
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 06/16/2025
+ms.date: 06/23/2025
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -20,12 +20,21 @@ Microsoft Defender provides a unified cybersecurity solution that integrates end
 
 Microsoft Sentinel is generally available in the Microsoft Defender portal, either with [Microsoft Defender XDR](/microsoft-365/security/defender), or on its own, delivering a unified experience across SIEM and XDR for faster and more accurate threat detection and response, simplified workflows, and enhanced operational efficiency.
 
-This article describes the Microsoft Sentinel experience in the Defender portal. New customers who've onboarded to Microsoft Sentinel after July 1, 2025 with permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) are automatically onboarded to the Defender portal, and use Microsoft Sentinel in the Defender portal only. While existing customers and other new customers without the relevant permissions can continue using Microsoft Sentinel in the Azure portal, we recommend that you [onboard to the Defender portal](/defender-xdr/microsoft-sentinel-onboard) for a [unified security operations experience](/unified-secops-platform/overview-unified-security). For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+This article describes the Microsoft Sentinel experience in the Defender portal.
+
+## Automatic onboarding and redirects for new customers
+
+Starting in July 2025, new customers onboarding to Microsoft Sentinel with permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) are automatically onboarded to the Defender portal, and use Microsoft Sentinel in the Defender portal only.
+
+Existing customers and other new customers without the relevant permissions, such as Azure-Lighthouse delegated users, can continue using Microsoft Sentinel in the Azure portal. However, we recommend that you [onboard to the Defender portal](/defender-xdr/microsoft-sentinel-onboard) for a [unified security operations experience](/unified-secops-platform/overview-unified-security). For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+
+In most cases, users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal. The exception is for Azure Lighthouse-delegated users who are accessing a new customer workspace onboarded to Microsoft Sentinel in the Azure portal. These users won't see the automatic redirection and can work in the Azure portal.
+
+For more information, see [Onboard Microsoft Sentinel](quickstart-onboard.md).
 
 ## New and improved capabilities
 
 The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel. Microsoft continues to innovate in this new experience with features that might be exclusive to the Defender portal.
-
 
 | Capabilities      | Description              | Learn more |
 | ----------------- | ------------------------ | ---------- |
@@ -35,16 +44,6 @@ The following table describes the new or improved capabilities available in the 
 | **Enhanced visibility and reduced risk exposure** | Analyze attack paths to see how a cyber attacker could exploit vulnerabilities. Use guided SOC optimization recommendations to reduce costs and exposure, and prioritize actions based on potential impact. | - [Optimize your security operations](soc-optimization/soc-optimization-access.md)<br><br>- [Use SOC optimizations programmatically](soc-optimization/soc-optimization-api.md)<br><br>- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md) |
 | **Tailored post-incident recommendations** | Prevent similar or repeat cyberattacks with tailored recommendations tied to Microsoft Security Exposure Management initiatives. | [Microsoft Security Exposure Management for enhanced security posture](/unified-secops-platform/overview-msem-strategy) |
 | **Cost and data optimization** | Customers can access both Microsoft Sentinel and Defender XDR data in a unified and consistent schema in the Defender portal. <br><br>Advanced hunting raw logs are available for 30 days for hunting free of charge without needing to ingest them into Microsoft Sentinel. | [What to expect to for Defender XDR tables streamed to Microsoft Sentinel](/defender-xdr/advanced-hunting-microsoft-defender#what-to-expect-for-defender-xdr-tables-streamed-to-microsoft-sentinel) |
-
-## Automatic redirects for new customers
-
-Starting in July 2025, new customers who onboard Microsoft Sentinel with permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) are automatically onboarded to the Defender portal.
-
-In most cases, users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal.
-
-The exception is for Azure Lighthouse-delegated users who are accessing a new customer workspace onboarded to Microsoft Sentinel in the Azure portal. These users won't see the automatic redirection and can work in the Azure portal.
-
-For more information, see [Onboard Microsoft Sentinel](quickstart-onboard.md).
 
 ## Limited or unavailable capabilities with Microsoft Sentinel only in the Defender portal
 

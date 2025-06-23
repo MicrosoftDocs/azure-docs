@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 04/13/2023
 ms.author: kendownie
+# Customer intent: As a system administrator, I want to understand how Azure File Sync cloud tiering works so that I can optimize local storage use and manage file access efficiently in my organization.
 ---
 
 # Cloud tiering overview

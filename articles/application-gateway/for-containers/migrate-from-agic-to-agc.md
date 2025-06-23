@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 10/28/2024
 ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to migrate services from Application Gateway Ingress Controller to Application Gateway for Containers, so that I can leverage improved performance, seamless scaling, and modern API compatibility without experiencing downtime during the transition.
 ---
 
 # Migrate from Application Gateway Ingress Controller (AGIC) to Application Gateway for Containers
