@@ -29,7 +29,7 @@ You can use the following DNS resolution scenarios:
   
 - [Peered virtual network workloads without Azure Private Resolver](#virtual-network-workloads-without-custom-dns-server)
 
-- [On-premises workloads using a DNS forwarder)](#on-premises-workloads-using-a-dns-forwarder-without-)
+- [On-premises workloads using a DNS forwarder)](#on-premises-workloads-using-a-dns-forwarder-without-azure-private-resolver)
    
 - [Azure Private Resolver for on-premises workloads](#azure-private-resolver-for-on-premises-workloads)
   
