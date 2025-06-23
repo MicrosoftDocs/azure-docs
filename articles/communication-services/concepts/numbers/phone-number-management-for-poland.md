@@ -21,7 +21,7 @@ Use the below tables to find all the relevant information on number availability
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   | -                    | -                    | -                    | General Availability\*       |
-| Mobile                    | Public Preview       | Public Preview       | -                    | -                      |
+| Mobile                    | General Availability\**       | General Availability\**      | -                    | -                      |
 | Alphanumeric Sender ID\**       | General Availability                   | -                    | - | - |
 
 
@@ -57,7 +57,8 @@ More details on eligible subscription types are as follows:
 
 [!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
-## Azure subscription billing locations where Poland mobile numbers are available
+## Azure subscription billing locations where Poland mobile numbers are available
+
 | Country/Region |
 | :---------- |
 | Australia       |
