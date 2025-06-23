@@ -5,7 +5,7 @@ ms.author: anaharris
 author: anaharris-ms
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: azure-files
+ms.service: azure-file-storage
 ms.date: 06/05/2025
 ---
 
