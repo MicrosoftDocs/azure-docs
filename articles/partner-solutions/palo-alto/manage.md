@@ -2,7 +2,7 @@
 title: Manage Cloud Next Generation Firewall (NGFW) by Palo Alto Networks resource through the Azure portal
 description: Manage your Cloud NGFW by Palo Alto Networks in Azure portal, including networking, NAT, rulestack settings, logging, Domain Name System (DNS) proxy configuration, and billing plan changes.
 ms.topic: how-to
-ms.date: 12/09/2024
+ms.date: 06/26/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-desc
