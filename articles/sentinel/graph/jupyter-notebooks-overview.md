@@ -30,37 +30,24 @@ The Microsoft Sentinel extension with Jupyter notebooks provides a powerful envi
 - **Collaboration and sharing**: Jupyter notebooks can be easily shared with colleagues, allowing for collaboration on data analysis projects. You can export notebooks in various formats, including HTML and PDF, for easy sharing and presentation.
 - **Documentation and reproducibility**: Jupyter notebooks allow you to document your code, analysis, and findings in a single file. This makes it easier to reproduce results and share your work with others.  
 
-## Exploration scenatios for notebooks
+## Lake exploration scenarios for notebooks
 
 The following scenarios illustrate how Jupyter notebooks in the Microsoft Sentinel Lake can be used to enhance security operations:
 
 | Scenario | Description |
 |----------|-------------|
-| User behavior from failed logins  | Establish a baseline of normal user behavior by analyzing patterns of failed login attempts. Investigate operations attempted before and after the failed logins to detect potential compromise or brute-force activity.                                                                                                                |
-| Sensitive data paths                    | Identify users and devices that have access to sensitive data assets. Combine access logs with organizational context to assess risk exposure, map access paths, and prioritize areas for security review.                                                                                                                               |
-| Anomaly threat analysis                 | Analyze threats by identifying deviations from established baselines—such as logins from unusual locations, devices, or times. Overlay user behavior with asset data to surface high-risk activity, including potential insider threats.                                                           |
-| Risk-scoring prioritization             | Apply custom risk scoring models to security events in the data lake. Enrich events with contextual signals (e.g., asset criticality, user role) to quantify risk, assess blast radius, and prioritize incidents for investigation.                                                               |
-| Exploratory analysis and visualization  | Perform exploratory data analysis across multiple log sources to reconstruct attack timelines, determine root causes, and build custom visualizations that help communicate findings to stakeholders.                                                                                              |
-
-This article shows you how to explore and interact with lake data using Jupyter notebooks in Visual Studio Code. 
-
-> [!NOTE]  
-> The Microsoft Sentinel extension is currently in Public Preview. Some functionality and performance limits may change as new releases are made available.  
- 
-## Prerequisites
-
-Before you can use the Microsoft Sentinel extension for Visual Studio Code, you must have the following prerequisites in place:
-+ Visual Studio Code   
-+ Microsoft Sentinel extension for Visual Studio Code 
-
+| User behavior from failed logins  | Establish a baseline of normal user behavior by analyzing patterns of failed login attempts. Investigate operations attempted before and after the failed logins to detect potential compromise or brute-force activity. |
+| Sensitive data paths | Identify users and devices that have access to sensitive data assets. Combine access logs with organizational context to assess risk exposure, map access paths, and prioritize areas for security review. |
+| Anomaly threat analysis | Analyze threats by identifying deviations from established baselines, such as logins from unusual locations, devices, or times. Overlay user behavior with asset data to identify high-risk activity, including potential insider threats. |
+| Risk-scoring prioritization | Apply custom risk scoring models to security events in the data lake. Enrich events with contextual signals such as asset criticality and user role to quantify risk, assess blast radius, and prioritize incidents for investigation. |
+| Exploratory analysis and visualization  | Perform exploratory data analysis across multiple log sources to reconstruct attack timelines, determine root causes, and build custom visualizations that help communicate findings to stakeholders. |
 
    
 
 
 ## Jobs and Scheduling
 
-You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.  
-
+You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.  For more information on notebook jobs, see
 
 ## Limitations 
  

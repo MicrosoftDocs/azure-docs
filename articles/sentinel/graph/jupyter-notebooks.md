@@ -165,41 +165,9 @@ Logs can be viewed in the **Output** pane of Visual Studio Code.
 :::image type="content" source="media/spark-notebooks/output-pane.png" lightbox="media/spark-notebooks/output-pane.png" alt-text="A screenshot showing the output pane.":::
 
    
-
-
 ## Jobs and Scheduling
 
-You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.  
-
-To schedule a job, you must save your notebook as a file.
-
-1. Select **File** > **Save As** and save the notebook with a `.ipynb` extension.
-1. Open the folder where you saved the notebook file using **File** > **Open folder**.
-
-1. In the **Explorer** pane, right-click the notebook file and select **Microsoft Sentinel**, then select **Create schedule Job**.
-
-    :::image type="content" source="./media/spark-notebooks/create-job.png" lightbox="./media/spark-notebooks/create-job.png" alt-text="A screenshot showing how to create a new job in VS Code."  :::
-
-1. On the **Job configuration** page, in the **Job details** section enter a **name** and **description** for the job.
-1. To run a job manually without a schedule select **Off** under **Scheduled Run** in the **Schedule Configuration** section.    
-     
-    1. Select **Publish job** to save the job configuration and publish the job.
-    
-1. To sepeficy a schedule for the job, select **On** under **Scheduled Run** in the **Schedule Configuration** section.  
-    1. Select a **Repeat** frequency for the job. You can choose from **By the minute**, **By the hour**, or **By the day**.
-
-    1. Select a **Start and end time** for the job to run.
-    1. Select a **Time zone** for the start and end times.
-    1. Select **Publish job** to save the job configuration and publish the job.
-
-    :::image type="content" source="./media/spark-notebooks/job-configuration.png" lightbox="./media/spark-notebooks/job-configuration.png" alt-text="A screenshot showing the job configuration page."  :::
-
-1. Select the Microsoft Sentinel shield icon in the left toolbar to view the job in the **Jobs** section.
-
-1. Select the job then select **Run now** to run a job immediately. If your job is a scheduled job, it runs at the specified time and frequency. 
-1. View the job status in the **Runs** tab.
-
-  :::image type="content" source="./media/spark-notebooks/job-runs.png" lightbox="./media/spark-notebooks/job-runs.png" alt-text="A screenshot showing the job runs page."  :::
+You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.  For more information on creating and managing jobs, see [Create and manage Jupyter notebook jobs](./jupyter-notebook-jobs.md).
 
 
 ## Limitations 
@@ -254,6 +222,7 @@ The following table lists common errors you may encounter when working with note
 
 ## Related content
 
+- [Create and manage Jupyter notebook jobs](./jupyter-notebook-jobs.md)
 - [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
 - [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
 - [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
