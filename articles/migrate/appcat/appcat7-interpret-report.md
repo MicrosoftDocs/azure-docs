@@ -32,12 +32,13 @@ The application report consists of three sections:
 :::image type="content" source="media/java/appcat-7-report-app.png" alt-text="app view of the AppCAT assessment report." lightbox="media/java/appcat-7-report-app.png":::
 ### Issues
 Access this report by clicking the Issues tab. It provides a categorized issue list of various aspects of Azure readiness, cloud native, and Java modernization that you need to address to successfully migrate the application to Azure. Learn more about domains and criticality via below sections. 
-||Domain||Description||
+|Domain|Description|
+|---------|---------|
 |Azure readiness|Identifies app dependencies and suggests equivalent Azure solutions|
 |cloud native|Assesses how well the app follows cloud-native practices like scalability and containerization|
 |Java modernization|Identifies JDK and framework issues for version upgrade|
 
-||Criticality||Description||
+|Criticality|Description|
 |Mandatory|Issues that must be fixed for migration to Azure|
 |Potential|Issues that might impact migration and need review|
 |Optional|Low-impact issues; fixing them is recommended but optional|
