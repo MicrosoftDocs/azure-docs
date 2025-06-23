@@ -8,13 +8,17 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 06/20/2025
+ms.date: 06/23/2025
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+* [Security enhancement: new required permissions for Azure NetApp Files datastore with Azure VMware Solution (AVS)](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites)
+
+    Due to security enhancements in Azure, new role requirements have been introduced to perform CRUD operations on Azure NetApp Files datastores for AVS. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), might have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for you Azure NetApp Files datastore. 
 
 ## June 2025
 
