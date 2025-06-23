@@ -79,6 +79,8 @@
   - name: Guidance for throttled requests
     displayName: pagination, batching, throttling, parallel
     href: ./concepts/guidance-for-throttled-requests.md
+  - name: Guidance for the Azure Resource Graph GET/LIST API
+    href: ./concepts/azure-resource-graph-get-list-api.md
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark

@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
+# Customer intent: As a data manager, I want to efficiently manage Azure Blob Storage resources using a graphical interface, so that I can create, view, delete, and modify blob containers and their contents with ease.
 ---
 
 # Manage Azure Blob Storage resources with Storage Explorer

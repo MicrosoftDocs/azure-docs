@@ -4,8 +4,8 @@ description: The article provides the steps to manage the pre and post maintenan
 ms.service: azure-update-manager
 ms.date: 02/18/2025
 ms.topic: how-to
-ms.author: sudhirsneha
-author: SnehaSudhirG
+author: habibaum
+ms.author: v-uhabiba
 ms.custom:
   - build-2025
 ---

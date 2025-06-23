@@ -1,35 +1,34 @@
 ---
-title: Azure API Management workspace gateways - VNet integration - network resources
-description: Learn about requirements for network resources when you integrate your API Management workspace gateway in an Azure virtual network.
+title: Azure API Management workspace gateways - virtual network requirements
+description: Learn about requirements for network resources when you integrate or inject your API Management workspace gateway in an Azure virtual network.
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 07/15/2024
+ms.date: 06/18/2025
 ms.author: danlep
 ---
 
-# Network resource requirements for integration of a workspace gateway into a virtual network
+# Network resource requirements to integrate or inject a workspace gateway into a virtual network
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
-Network isolation is an optional feature of an API Management [workspace gateway](workspaces-overview.md#workspace-gateway). This article provides network resource requirements when you integrate your gateway in an Azure virtual network. Some requirements differ depending on the desired inbound and outbound access mode. The following modes are supported:
+Network isolation is an optional feature of an API Management [workspace gateway](workspaces-overview.md#workspace-gateway). This article provides network resource requirements when you integrate or inject your gateway in an Azure virtual network. Some requirements differ depending on the desired inbound and outbound access mode. The following modes are supported:
 
-* Public inbound access, private outbound access (Public/Private)
-* Private inbound access, private outbound access (Private/Private)
+* **Virtual network integration**: public inbound access, private outbound access 
+* **Virtual network injection**: private inbound access, private outbound access
 
-For information about networking options in API Management, see [Use a virtual network to secure inbound or outbound traffic for Azure API Management](virtual-network-concepts.md).
+For background about networking options in API Management, see [Use a virtual network to secure inbound or outbound traffic for Azure API Management](virtual-network-concepts.md).
 
 [!INCLUDE [api-management-virtual-network-workspaces-alert](../../includes/api-management-virtual-network-workspaces-alert.md)]
 
-
 ## Network location
 
-* The virtual network must be in the same region and Azure subscription as the API Management instance.
+The virtual network must be in the same region and Azure subscription as the API Management instance.
 
 ### Dedicated subnet
 
-* The subnet used for virtual network integration can only be used by a single workspace gateway. It can't be shared with another Azure resource.
+* The subnet used for virtual network integration or injection can only be used by a single workspace gateway. It can't be shared with another Azure resource.
 
 ## Subnet size 
 
@@ -42,19 +41,19 @@ The subnet must be delegated as follows to enable the desired inbound and outbou
 
 For information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
-#### [Public/Private](#tab/external)
+#### [Virtual network integration](#tab/external)
 
 
-For Public/Private mode, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
+For virtual network integration, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-external.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/serverFarms in the portal.":::
 
 > [!NOTE]
 > You might need to register the `Microsoft.Web/serverFarms` resource provider in the subscription so that you can delegate the subnet to the service.
 
-#### [Private/Private](#tab/internal)
+#### [Virtual network injection](#tab/internal)
 
-For Private/Private mode, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** service.
+For virtual network injection, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-internal.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/hostingEnvironments in the portal.":::
 
@@ -67,35 +66,32 @@ For Private/Private mode, the subnet needs to be delegated to the **Microsoft.We
 
 ## Network security group (NSG) rules
 
-A network security group (NSG) must be attached to the subnet to explicitly allow inbound connectivity. Configure the following rules in the NSG. Set the priority of these rules higher than that of the default rules.
+A network security group (NSG) must be attached to the subnet to explicitly allow certain inbound or outbound connectivity. Configure the following rules in the NSG. Set the priority of these rules higher than that of the default rules.
 
-#### [Public/Private](#tab/external)
+Configure other NSG rules to meet your organization's network access requirements.
 
-| Source / Destination Port(s) | Direction          | Transport protocol |   Source | Destination   | Purpose |
-|------------------------------|--------------------|--------------------|---------------------------------------|----------------------------------|-----------|
-| */80                          | Inbound            | TCP                | AzureLoadBalancer | Workspace gateway subnet range                           | Allow internal health ping traffic     |
-| */80,443 | Inbound | TCP | Internet | Workspace gateway subnet range | Allow inbound traffic |
+#### [Virtual network integration](#tab/external)
 
-#### [Private/Private](#tab/internal)
+| Direction | Source  | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | 
+|-------|--------------|----------|---------|------------|-----------|-----|--------|
+| Inbound | AzureLoadBalancer | * | Workspace gateway subnet range  | 80 | TCP | Allow | Allow internal health ping traffic |
+| Inbound | Internet | * | Workspace gateway subnet range  | 80,443 | TCP | Allow | Allow inbound traffic |
 
-| Source / Destination Port(s) | Direction          | Transport protocol |   Source | Destination   | Purpose |
-|------------------------------|--------------------|--------------------|---------------------------------------|----------------------------------|-----------|
-| */80                          | Inbound            | TCP                | AzureLoadBalancer | Workspace gateway subnet range                           | Allow internal health ping traffic     |
-| */80,443 | Inbound | TCP | Virtual network | Workspace gateway subnet range | Allow inbound traffic |
+#### [Virtual network injection](#tab/internal)
+
+| Direction | Source  | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | 
+|-------|--------------|----------|---------|------------|-----------|-----|--------|
+| Inbound | AzureLoadBalancer | * | Workspace gateway subnet range  | 80 | TCP | Allow | Allow internal health ping traffic |
+| Inbound | VirtualNetwork | * | Workspace gateway subnet range  | 80,443 | TCP | Allow | Allow inbound traffic |
+| Outbound | VirtualNetwork | * | Storage | 443 | TCP | Allow | Dependency on Azure Storage |
 
 ---
 
-## DNS settings for Private/Private configuration
+## DNS settings for virtual network injection
 
-In the Private/Private network configuration, you have to manage your own DNS to enable inbound access to your workspace gateway. 
+For virtual network injection, you have to manage your own DNS to enable inbound access to your workspace gateway. 
 
-We recommend:
-
-1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
-1. Link the Azure DNS private zone to the VNet into which you've deployed your workspace gateway. 
-
-Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
-
+[!INCLUDE [api-management-virtual-network-dns-resolver](../../includes/api-management-virtual-network-dns-resolver.md)]
 
 ### Access on default hostname
 
@@ -106,9 +102,9 @@ When you create an API Management workspace, the workspace gateway is assigned a
 
 ### Configure DNS record
 
-Create an A record in your DNS server to access the workspace from within your VNet. Map the endpoint record to the private VIP address of your workspace gateway.
+Create an A record in your DNS server to access the workspace from within your virtual network. Map the endpoint record to the private VIP address of your workspace gateway.
 
-For testing purposes, you might update the hosts file on a virtual machine in a subnet connected to the VNet in which API Management is deployed. Assuming the private virtual IP address for your workspace gateway is 10.1.0.5, you can map the hosts file as shown in the following example. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). 
+For testing purposes, you might update the hosts file on a virtual machine in a subnet connected to the virtual network in which API Management is deployed. Assuming the private virtual IP address for your workspace gateway is 10.1.0.5, you can map the hosts file as shown in the following example. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). 
 
 | Internal virtual IP address | Gateway hostname |
 | ----- | ----- |

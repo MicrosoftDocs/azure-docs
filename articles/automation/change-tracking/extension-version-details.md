@@ -6,6 +6,8 @@ ms.subservice: change-inventory-management
 ms.date: 03/21/2025
 ms.topic: overview
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Change tracking and inventory extension version details and known issues

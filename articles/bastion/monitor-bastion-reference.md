@@ -7,6 +7,7 @@ ms.topic: reference
 author: abell
 ms.author: abell
 ms.service: azure-bastion
+# Customer intent: As a cloud administrator, I want to monitor the performance metrics and logs of Azure Bastion, so that I can ensure its availability and optimize resource utilization for my organization's needs.
 ---
 # Azure Bastion monitoring data reference
 
