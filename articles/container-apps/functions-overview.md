@@ -27,7 +27,7 @@ By running Functions in Container Apps, you benefit from automatic scaling, easy
 
 ## Scenarios
 
-Azure Functions on Container Apps provide a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where paring Azure Container Apps with Azure Functions gives you the control and scaling features you need.
+Azure Functions on Container Apps provide a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where pairing Azure Container Apps with Azure Functions gives you the control and scaling features you need.
 
 - **Line-of-business APIs**: Package custom libraries, packages, and APIs with Functions for line-of-business applications.
 
