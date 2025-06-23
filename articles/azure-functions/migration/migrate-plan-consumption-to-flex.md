@@ -31,6 +31,8 @@ Before staring a migration, keep these considerations in mind:
 
 + You should prioritize the migration of your apps that run in a Consumption plan on Linux.  
 
++ If you have a [Premium plan app](../functions-premium-plan.md) on Windows, you must first [migrate your app to a Consumption plan](../functions-how-to-use-azure-function-app-settings.md?tabs=to-consumption#plan-migration) before you can migrate to the Flex Consumption plan using this guide. This migration path isn't available for Linux apps in the Premium plan. 
+
 + This article assumes that you have a general understanding of Functions concepts and architectures and are familiar with features of your apps being migrated. Such concepts include triggers and bindings, authentication, and networking customization. 
 
 + Where possible, this article is targeted to a specific language runtime stack. Make sure to choose your app's language at the top of the article. 
@@ -1464,7 +1466,7 @@ After a successful migration, you should perform these follow-up tasks:
 
 ### Enable monitoring
 
-After a successful migration, make sure that Application Insights in enabled in your new app. Implement a comprehensive monitoring strategy that covers app metrics, logs, and costs. By using such a strategy, you can validate the success of your migration, identify any issues promptly, and optimize the performance and cost of your new app. For more information, see [Configure monitoring](../flex-consumption-how-to.md#configure-monitoring).
+After a successful migration, make sure that Application Insights in enabled in your new app. Implement a comprehensive monitoring strategy that covers app metrics, logs, and costs. By using such a strategy, you can validate the success of your migration, identify any issues promptly, and optimize the performance and cost of your new app. For more information, see [Configure monitoring](../flex-consumption-how-to.md#monitor-your-app-in-azure).
 
 ### Capture performance benchmarks 
 
@@ -1486,7 +1488,7 @@ requests
 ```
 
 >[!NOTE]  
->Flex Consumption plan metrics differ from Consumption plan metrics. When comparing performance before and after migration, keep in mind that you must use different metrics to track similar performance characteristics. For more information, see [Configure monitoring](../flex-consumption-how-to.md#configure-monitoring). 
+>Flex Consumption plan metrics differ from Consumption plan metrics. When comparing performance before and after migration, keep in mind that you must use different metrics to track similar performance characteristics. For more information, see [Configure monitoring](../flex-consumption-how-to.md#monitor-your-app-in-azure). 
 
 ### Create custom dashboards
 
