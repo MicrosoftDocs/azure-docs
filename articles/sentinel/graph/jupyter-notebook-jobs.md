@@ -21,6 +21,7 @@ To create and run jobs, and write to the data lake and analytics tiers, you will
 [!INCLUDE [sentinel-data-lake-notebook write-permissions](../includes/sentinel-data-lake-notebook-write-permissions.md)]
 [!INCLUDE [sentinel-data-lake-job-permissions](../includes/sentinel-data-lake-job-permissions.md)]
 
+
 ## Create and schedule a job
 
 To create schedule a job, you must save your notebook as a file.
@@ -52,6 +53,13 @@ To create schedule a job, you must save your notebook as a file.
 1. View the job status in the **Runs** tab.
 
   :::image type="content" source="./media/spark-notebooks/job-runs.png" lightbox="./media/spark-notebooks/job-runs.png" alt-text="A screenshot showing the job runs page."  :::
+
+
+## Editing a published job
+
+Publishing a job creates a job definition that includes the notebook file, the job configuration, and the schedule. The job definition is uploaded from your VS Code editor and stored in the Microsoft Sentinel data lake. Once published, the job is no longer connected to the notebook file on your local file system. If you want to edit the code in the notebook job, you must download the job definition, edit the notebook file, and then republish the job.
+
+
 
 
 ## Limitations 

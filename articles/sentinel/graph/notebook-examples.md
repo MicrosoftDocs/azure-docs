@@ -16,7 +16,7 @@ Below are some sample code snippets that demonstrate how to interact with lake d
 
 To run these examples, must have the require permissions and Visual Studio Code installed with the Microsoft Sentinel extension for Visual Studio Code. For more information, see [Sentinel data lake permissions](./sentinel-lake-permissions.md) and  [Use Jupyter notebooks with Microsoft Sentinel Data lake](./spark-notebooks.md).
 
-
+## [Failed login attempts](#tab/failed-login-attempts)
 ## Failed login attempts analysis
 
 This example, identifies users with failed logins attempted. To do so, this notebook example processes login data from two tables: 
@@ -108,6 +108,7 @@ The following screenshot shows a sample of the output of the code above, display
 
 :::image type="content" source="media/notebook-examples/failed-login-analysis.png" lightbox="media/notebook-examples/failed-login-analysis.png" alt-text="A screenshot showing a bar chart of the users with the highest number of failed login attempts.":::
 
+## [Access Lake Tier Entra ID Group Table](#tab/access-entra-id-group-table)
 ## Access Lake Tier Entra ID Group Table  
 
 
@@ -125,6 +126,8 @@ The following screenshot shows a sample of the output of the code above, display
 
 :::image type="content" source="media/notebook-examples/entra-id-group-output.png" lightbox="media/notebook-examples/entra-id-group-output.png" alt-text="A screenshot showing sample output from the Entra ID group table.":::
 
+
+## [Access Entra ID SignInLogs for a Specific User](#tab/access-entra-id-signinlogs-user)
 ### Access Entra ID SignInLogs for a Specific User  
 
 The following code sample demonstrates how to access the Entra ID `SignInLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
@@ -142,7 +145,7 @@ df.select("UserDisplayName", "UserPrincipalName", "UserId", "CorrelationId", "Us
 ```  
 
 
- 
+## [Examine SignIn Locations](#tab/examine-signin-locations)
 ## Examine SignIn Locations  
 
 The following code sample demonstrates how to extract and display sign-in locations from the Entra ID SignInLogs table. It uses the `from_json` function to parse the JSON structure of the `LocationDetails` field, allowing you to access specific location attributes such as city, state, and country or region.
@@ -171,12 +174,114 @@ sign_in_locations_df = df.orderBy("CreatedDateTime", ascending=False)
 sign_in_locations_df.show(100, truncate=False) 
 ```  
 
+## [Sign-ins from unusual countries](#tab/signins-unusual-countries)
+## Sign-ins from unusual countries
+The following code sample demonstrates how to identify sign-ins from countries that are not part of a user’s typical login pattern.
+```python
+from sentinel_lake.providers import MicrosoftSentinelProvider
+from pyspark.sql.functions import from_json, col
+from pyspark.sql.types import StructType, StructField, StringType
+
+data_provider = MicrosoftSentinelProvider(spark)
+table_name = "microsoft.entra.id.signinlogs"
+df = data_provider.read_table(table_name)
+
+location_schema = StructType([
+    StructField("city", StringType(), True),
+    StructField("state", StringType(), True),
+    StructField("countryOrRegion", StringType(), True)
+])
+
+# Extract location details from JSON
+df = df.withColumn("LocationDetails", from_json(col("LocationDetails"), location_schema))
+df = df.select(
+    "UserPrincipalName",
+    "CreatedDateTime",
+    "IPAddress",
+    "LocationDetails.city",
+    "LocationDetails.state",
+    "LocationDetails.countryOrRegion"
+)
+
+sign_in_locations_df = df.orderBy("CreatedDateTime", ascending=False)
+sign_in_locations_df.show(100, truncate=False)
+```
+
+## [Brute force attack from multiple failed logins](#tab/brute-force-failed-logins)
+## Brute force attack from multiple failed logins
+
+Identify potential brute force attacks by analyzing user sign-in logs for accounts with a high number of failed login attempts
+
+```python
+from sentinel_lake.providers import MicrosoftSentinelProvider
+from pyspark.sql.functions import col, when, count, from_json, desc
+from pyspark.sql.types import StructType, StructField, StringType
+
+data_provider = MicrosoftSentinelProvider(spark)
+
+def process_data(table_name):
+    df = data_provider.read_table(table_name)
+    status_schema = StructType([StructField("errorCode", StringType(), True)])
+    df = df.withColumn("Status_json", from_json(col("Status"), status_schema)) \
+           .withColumn("ResultType", col("Status_json.errorCode"))
+    success_codes = ["0", "50125", "50140", "70043", "70044"]
+    df = df.withColumn("FailureOrSuccess", when(col("ResultType").isin(success_codes), "Success").otherwise("Failure"))
+    df = df.groupBy("UserPrincipalName", "UserDisplayName", "IPAddress") \
+           .agg(count(when(col("FailureOrSuccess") == "Failure", True)).alias("FailureCount"),
+                count(when(col("FailureOrSuccess") == "Success", True)).alias("SuccessCount"))
+    # Lower the brute force threshold to >10 failures and remove the success requirement
+    df = df.filter(col("FailureCount") > 10)
+    df = df.orderBy(desc("FailureCount"))
+    df = df.withColumn("AccountCustomEntity", col("UserPrincipalName")) \
+           .withColumn("IPCustomEntity", col("IPAddress"))
+    return df
+
+aad_signin = process_data("microsoft.entra.id.SignInLogs")
+aad_non_int = process_data("microsoft.entra.id.AADNonInteractiveUserSignInLogs")
+result_df = aad_signin.unionByName(aad_non_int)
+result_df.show()
+```
+
+## [Detecting lateral movement attempts](#tab/detect-lateral-movement)
+
+Use DeviceNetworkEvents to identify suspicious internal IP connections that may signal lateral movement (e.g., abnormal SMB/RDP traffic between endpoints)
+
+```python
+from sentinel_lake.providers import MicrosoftSentinelProvider
+from pyspark.sql.functions import col, count, countDistinct, desc
+
+deviceNetworkEventTable = "DeviceNetworkEvents"
+workspace_id = "<your-workspace-name>"
+
+data_provider = MicrosoftSentinelProvider(spark)
+device_network_events = data_provider.read_table(deviceNetworkEventTable, workspace_id)
+
+# Define internal IP address range (example: 10.x.x.x, 192.168.x.x, 172.16.x.x - 172.31.x.x)
+internal_ip_regex = r"^(10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2[0-9]|3[0-1])\.\d{1,3}\.\d{1,3})$"
+
+# Filter for internal-to-internal connections
+internal_connections = device_network_events.filter(
+    col("RemoteIP").rlike(internal_ip_regex) &
+    col("LocalIP").rlike(internal_ip_regex)
+)
+
+# Group by source and destination, count connections
+suspicious_lateral = (
+    internal_connections.groupBy("LocalIP", "RemoteIP", "InitiatingProcessAccountName")
+    .agg(count("*").alias("ConnectionCount"))
+    .filter(col("ConnectionCount") > 10)  # Threshold can be adjusted
+    .orderBy(desc("ConnectionCount"))
+)
+suspicious_lateral.show()
+```
+
+---
 
 ## Related content
 
-[Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
-[Sentinel data lake overview](./sentinel-lake-overview.md)
-[Sentinel data lake permissions](./sentinel-lake-permissions.md)
-[Use Jupyter notebooks with Microsoft Sentinel Data lake](./spark-notebooks.md)
++ [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
++ [Sentinel data lake overview](./sentinel-lake-overview.md)
++ [Sentinel data lake permissions](./sentinel-lake-permissions.md)
++ [Use Jupyter notebooks with Microsoft Sentinel Data lake](./spark-notebooks.md)
 
 
