@@ -1,5 +1,5 @@
 ---  
-title: Notebook examples for querying the Sentinel data lake (Preview)
+title: Notebook examples for querying the Microsoft Sentinel data lake (Preview)
 titleSuffix: Microsoft Security  
 description: This article provides sample code snippets for querying the Microsoft Sentinel data lake using Jupyter notebooks, demonstrating how to access and analyze security data.
 author: EdB-MSFT  
@@ -12,28 +12,28 @@ ms.author: edbayansh
  
 # Jupyter Notebook code examples  
  
-Below are some sample code snippets that demonstrate how to interact with lake data using Jupyter notebooks.  
+This article presents some sample code snippets that demonstrate how to interact with lake data using Jupyter notebooks to analyze security data in the Microsoft Sentinel data lake. These examples illustrate how to access and analyze data from various tables, such as Entra ID sign-in logs, group information, and device network events. The code snippets are designed to be run in Jupyter notebooks within Visual Studio Code using the Microsoft Sentinel extension.
 
-To run these examples, must have the require permissions and Visual Studio Code installed with the Microsoft Sentinel extension for Visual Studio Code. For more information, see [Sentinel data lake permissions](./sentinel-lake-permissions.md) and  [Use Jupyter notebooks with Microsoft Sentinel Data lake](./jupyter-notebooks.md).
+To run these examples, must have the required permissions and Visual Studio Code installed with the Microsoft Sentinel extension. For more information, see [Microsoft Sentinel data lake permissions](./sentinel-lake-permissions.md) and  [Use Jupyter notebooks with Microsoft Sentinel Data lake](./jupyter-notebooks.md).
 
-## Failed login attempts analysis
+## Failed sign in attempts analysis
 
-This example, identifies users with failed logins attempted. To do so, this notebook example processes login data from two tables: 
+This example identifies users with failed sign in attempts. To do so, this notebook example processes sign in data from two tables: 
  + microsoft.entra.id.SignInLogs 
  + microsoft.entra.id.AADNonInteractiveUserSignInLogs
 
 The notebook performs the following steps:
 1. Create a function to process data from the specified tables, which includes:
     1. Load data from the specified tables into DataFrames.
-    1. Parse the 'Status' JSON field to extract 'errorCode' and determines whether each login attempt was a success or failure.
-    1. Aggregate the data to count the number of failed and successful login attempts for each user.
-    1. Filter the data to include only users with more than 100 failed login attempts and at least one successful login attempt.
-    1. Order the results by the number of failed login attempts.
+    1. Parse the 'Status' JSON field to extract 'errorCode' and determines whether each sign in attempt was a success or failure.
+    1. Aggregate the data to count the number of failed and successful sign in attempts for each user.
+    1. Filter the data to include only users with more than 100 failed sign in attempts and at least one successful sign in attempt.
+    1. Order the results by the number of failed sign in attempts.
 1. Call the function for both `SignInLogs` and `AADNonInteractiveUserSignInLogs` tables.
 1. Combine the results from both tables into a single DataFrame.
 1. Convert the DataFrame to a Pandas DataFrame.
-1. Filter the Pandas DataFrame to show the top 20 users with the highest number of failed login attempts.
-1. Create a bar chart to visualize the users with the highest number of failed login attempts.
+1. Filter the Pandas DataFrame to show the top 20 users with the highest number of failed sign in attempts.
+1. Create a bar chart to visualize the users with the highest number of failed sign in attempts.
 
 > [!NOTE] 
 > This notebook may take around 10 minutes to run on the Large pool depending on the volume of data in the logs tables
@@ -89,23 +89,23 @@ result_df.show()
 # Convert the Spark DataFrame to a Pandas DataFrame
 result_pd_df = result_df.toPandas()
 
-# Filter to show table with top 20 users with the highest failed logins attempted
+# Filter to show table with top 20 users with the highest failed sign ins attempted
 top_20_df = result_pd_df.nlargest(20, 'FailureCount')
 
-# Create bar chart to show users by highest failed logins attempted
+# Create bar chart to show users by highest failed sign ins attempted
 plt.figure(figsize=(12, 6))
 plt.bar(top_20_df['UserDisplayName'], top_20_df['FailureCount'], color='skyblue')
 plt.xlabel('Users')
-plt.ylabel('Number of Failed Logins')
-plt.title('Top 20 Users with Failed Logins')
+plt.ylabel('Number of Failed Sign ins')
+plt.title('Top 20 Users with Failed Sign ins')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
 ```
 
-The following screenshot shows a sample of the output of the code above, displaying the top 20 users with the highest number of failed login attempts in a bar chart format.
+The following screenshot shows a sample of the output of the code above, displaying the top 20 users with the highest number of failed sign in attempts in a bar chart format.
 
-:::image type="content" source="media/notebook-examples/failed-login-analysis.png" lightbox="media/notebook-examples/failed-login-analysis.png" alt-text="A screenshot showing a bar chart of the users with the highest number of failed login attempts.":::
+:::image type="content" source="media/notebook-examples/failed-login-analysis.png" lightbox="media/notebook-examples/failed-login-analysis.png" alt-text="A screenshot showing a bar chart of the users with the highest number of failed sign in attempts.":::
 
 ## Access lake tier Entra ID Group Table  
 
@@ -125,7 +125,7 @@ The following screenshot shows a sample of the output of the code above, display
 :::image type="content" source="media/notebook-examples/entra-id-group-output.png" lightbox="media/notebook-examples/entra-id-group-output.png" alt-text="A screenshot showing sample output from the Entra ID group table.":::
 
 
-## Access Entra ID signin logs for a specific user  
+## Access Entra ID sign in logs for a specific user  
 
 The following code sample demonstrates how to access the Entra ID `SignInLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
 
@@ -142,7 +142,7 @@ df.select("UserDisplayName", "UserPrincipalName", "UserId", "CorrelationId", "Us
 ```  
 
 
-## Examine signIn locations  
+## Examine sign in locations  
 
 The following code sample demonstrates how to extract and display sign-in locations from the Entra ID SignInLogs table. It uses the `from_json` function to parse the JSON structure of the `LocationDetails` field, allowing you to access specific location attributes such as city, state, and country or region.
 
@@ -173,7 +173,7 @@ sign_in_locations_df.show(100, truncate=False)
 
 ## Sign-ins from unusual countries
 
-The following code sample demonstrates how to identify sign-ins from countries that are not part of a user’s typical login pattern.
+The following code sample demonstrates how to identify sign-ins from countries that aren't part of a user’s typical sign in pattern.
 ```python
 from sentinel_lake.providers import MicrosoftSentinelProvider
 from pyspark.sql.functions import from_json, col
@@ -205,9 +205,9 @@ sign_in_locations_df.show(100, truncate=False)
 ```
 
 
-## Brute force attack from multiple failed logins
+## Brute force attack from multiple failed sign ins
 
-Identify potential brute force attacks by analyzing user sign-in logs for accounts with a high number of failed login attempts
+Identify potential brute force attacks by analyzing user sign-in logs for accounts with a high number of failed sign in attempts
 
 ```python
 from sentinel_lake.providers import MicrosoftSentinelProvider
@@ -241,7 +241,7 @@ result_df.show()
 
 ## Detecting lateral movement attempts
 
-Use DeviceNetworkEvents to identify suspicious internal IP connections that may signal lateral movement (e.g., abnormal SMB/RDP traffic between endpoints)
+Use DeviceNetworkEvents to identify suspicious internal IP connections that may signal lateral movement for example, abnormal SMB/RDP traffic between endpoints
 
 ```python
 from sentinel_lake.providers import MicrosoftSentinelProvider

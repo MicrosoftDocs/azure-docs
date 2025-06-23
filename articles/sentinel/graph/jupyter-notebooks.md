@@ -1,16 +1,18 @@
 ---  
-title: Exploring and interacting with lake data using Jupyter Notebooks (Preview)
+title: Running notebooks on the Microsoft Sentinel data lake (Preview)
 titleSuffix: Microsoft Security  
-description: This article describes how to explore and interact with lake data using Spark notebooks in Visual Studio Code.
+description: This article describes how to explore and interact with lake data using Jupyter notebooks in Visual Studio Code.
 author: EdB-MSFT  
 ms.topic: how-to  
-ms.date: 06/04/2025
+ms.service: microsoft-sentinel
+ms.subservice: sentinel-graph
+ms.date: 06/23/2025
 ms.author: edbayansh  
 
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
 ---
 
-# Explore the Microsoft Sentinel data lake using Jupyter notebooks (Preview)
+# Running notebooks on the Microsoft Sentinel data lake (Preview)
  
 ## Overview  
 
@@ -45,22 +47,28 @@ For more information on roles and permissions, see [Microsoft Sentinel lake role
 
 ### Install Visual Studio Code  
   
-- Visual Studio Code for Desktop. Download and install VS Code for [Mac](https://code.visualstudio.com/docs/?dv=osx), [Linux](https://code.visualstudio.com/docs/?dv=linux), or [Windows](https://code.visualstudio.com/docs/?dv=win).
+- Visual Studio Code for Desktop. Download and install Visual Studio Code for [Mac](https://code.visualstudio.com/docs/?dv=osx), [Linux](https://code.visualstudio.com/docs/?dv=linux), or [Windows](https://code.visualstudio.com/docs/?dv=win).
 
  
 ###  Microsoft Sentinel extension for Visual Studio Code  
  
-The Microsoft Sentinel extension for Visual Studio Code (VS Code) is installed from the extensions marketplace in VS Code. To install the extension, follow these steps:
+The Microsoft Sentinel extension for Visual Studio Code (VS Code) is installed from the extensions marketplace. To install the extension, follow these steps:
 
 1. Select the Extensions Marketplace in the left toolbar
 1. Search for *Sentinel*
 1. Select the **Microsoft Sentinel** extension and select **Install**
+1. After the extension is installed,  the Microsoft Sentinel shield icon appears in the left toolbar.
 
   :::image type="content" source="./media/jupyter-notebooks/install-Sentinel-extension.png" lightbox="./media/jupyter-notebooks/install-sentinel-extension.png" alt-text="A screenshot showing the extension market place.":::  
 
+Install the GitHub Copilot extension for Visual Studio Code to enable code completion and suggestions in notebooks. 
+
+1. Search for *GitHub Copilot* in the Extensions Marketplace and install it.
+1. After installation, sign in to GitHub Copilot using your GitHub account.
+
 ### Onboarding to the Microsoft Sentinel data lake
 
-If you have not already onboarded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until you have ingested a sufficient volume of data before you can create meaningful analyses using notebooks.
+If you haven't already onboarded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until sufficient volume of data is ingested before you can create meaningful analyses using notebooks.
  
  
 ## Explore lake-tier tables
@@ -70,6 +78,7 @@ After installing the Microsoft Sentinel extension, you can start exploring lake-
 ### Sign in to the Microsoft Sentinel extension
  
 1. Select the Microsoft Sentinel shield icon in the left toolbar.
+
 1. A dialog appears with the following text **The extension "Microsoft Sentinel" wants to sign in using Microsoft**. Select **Allow**.
 
 :::image type="content" source="./media/jupyter-notebooks/sign-in.png" lightbox="./media/jupyter-notebooks/sign-in.png" alt-text="A screenshot showing the sign in dialog."::: 
@@ -80,7 +89,7 @@ After installing the Microsoft Sentinel extension, you can start exploring lake-
 
 ### View lake tables and jobs
 
-Once you have signed in, the Microsoft Sentinel extension displays a list of **Lake tables** and **Jobs** in the left pane. Select a table to see the column definitions.
+Once you sign in, the Microsoft Sentinel extension displays a list of **Lake tables** and **Jobs** in the left pane. Select a table to see the column definitions.
 
 For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
 
@@ -167,7 +176,7 @@ Logs can be viewed in the **Output** pane of Visual Studio Code.
    
 ## Jobs and scheduling
 
-You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.  For more information on creating and managing jobs, see [Create and manage Jupyter notebook jobs](./jupyter-notebook-jobs.md).
+You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier. For more information on creating and managing jobs, see [Create and manage Jupyter notebook jobs](./jupyter-notebook-jobs.md).
 
 ## Service limits 
  
@@ -178,7 +187,7 @@ You can schedule jobs to run at specific times or intervals using the Microsoft 
 
 | Category | Limit |
 |----------|-------|
-| Session start up time | 5 minutes |
+| Session start-up time | 5 minutes |
 | Interactive: Session inactivity timeout | 20 minutes |
 | Interactive: Query timeout | 2 hours |
 | Gateway web socket timeout | 2 hours |
@@ -186,8 +195,8 @@ You can schedule jobs to run at specific times or intervals using the Microsoft 
 | Supported libraries | Azure Synapse libraries, Microsoft Sentinel Provider. Pip install and custom libraries aren't supported |
 | Language | Python |
 | Max concurrent users on interactive querying | 8-10 on Large pool |
-| Max concurrent notebook jobs | 3, after that they are queued |
-| Custom table in Analytics tier | User cannot delete the custom table in Analytics Tier from Notebook; must use Log Analytics. Only Lake custom tables can be deleted from Notebook. |
+| Max concurrent notebook jobs | 3, subsequent jobs are queued |
+| Custom table in Analytics tier | Custom tables in Analytics tier can't be deleted from a notebook; Use Log Analytics to delete these tables. |
 
 
 
@@ -199,22 +208,22 @@ The following table lists common errors you may encounter when working with note
 |-------|---------------|------------|------------------|
 | Spark compute | Spark compute session timeout | Spark session has been idle for too long and auto-terminated | Restart the session and rerun the cell |
 | Spark compute | LIVY_JOB_TIMED_OUT: Livy session has failed. Session state: Dead. Error code: LIVY_JOB_TIMED_OUT. Job failed during run time with state=[dead]. Source: Unknown. | Session timed out or user stopped the session | Run the cell again. |
-| Spark compute | Spark compute pool not available | Compute pool is not started or is being used by other users or jobs | Start the pool if stopped |
-| Spark compute | Spark pools are not displayed | User does not have the required roles to run interactive notebook or schedule job | Check if you have required role for interactive notebook or notebook job |
+| Spark compute | Spark compute pool not available | Compute pool hasn't started or is being used by other users or jobs | Reconnect to the pool |
+| Spark compute | Spark pools are not displayed | You don't have the required roles to run interactive notebook or schedule job | Check if you have the required role for interactive notebook or notebook job |
 | Spark compute | Driver memory exceeded or executor failure | Job ran out of drive memory, or one or more executors failed | View job run logs or optimize your query |
 | VS Code Runtime | Kernel not connected | VS Code lost connection to the compute kernel | Reconnect or restart the kernel via the VS Code UI |
-| VS Code Runtime | Module not found | Missing import (e.g., Microsoft Sentinel Library library) | Run the setup/init cell again |
+| VS Code Runtime | Module not found | Missing the import of the Microsoft Sentinel Library library | Run the setup/init cell again |
 | VS Code Runtime | Invalid syntax | Python or PySpark syntax error | Review code syntax; check for missing colons, parentheses, or quotes |
 | VS Code Runtime | Unbound variable | Variable used before assignment | Ensure all required setup cells have been run in order |
-| Interactive notebook | The specified source table does not exist. | One or more source tables do not exist in the given workspaces or were recently deleted from your workspace. | Verify if source tables exist in the workspace. |
-| Interactive notebook | The workspace or database name provided in the query is invalid or inaccessible. | The referenced database does not exist | Confirm the database name is correct |
+| Interactive notebook | The specified source table doesn't exist. | One or more source tables don't exist in the given workspaces or were recently deleted from your workspace. | Verify if source tables exist in the workspace. |
+| Interactive notebook | The workspace or database name provided in the query is invalid or inaccessible. | The referenced database doesn't exist | Confirm the database name is correct |
 | | Gateway 401 error | Gateway has a 1 hour timeout that was reached | |
 | Library | Table not found | Incorrect table name or database name used | Verify table name used is correct |
 | Library | Access denied | User doesn’t have permission to read/write/delete the specified table | Verify user has the role required |
 | Library | Schema mismatch on write | save_as_table() is writing data that doesn’t match the existing schema | Check the dataframe schema and align it with the destination table. |
 | Library | Missing suffix _SPRK for writing table to lake | save_as_table() is writing data to a table that requires _SPRK | Add _SPRK as suffix for writing to custom table in Lake |
 | Library | Missing suffix _SPRK_CL for writing table to analytics tier | save_as_table() is writing data to a table that requires _SPRK_CL | Add _SPRK as suffix for writing to custom table in analytics tier |
-| Library | Invalid write | Attempted to write to system table, this action is not permitted. | Specify a custom table to write to |
+| Library | Invalid write | Attempted to write to system table, this action isn't permitted. | Specify a custom table to write to |
 | Library | Invalid notebook | Incorrect arguments passed to a library method (for example, missing ‘mode’ in save_as_table) | Validate parameter names and values. Refer to method documentation or use autocomplete in VS Code |
 | Job | Job quota exceeded | The notebook is corrupted or contains unsupported syntax for scheduled execution | Open the notebook and validate that all cells run sequentially without manual input. |
 | Job | Job quota exceeded | User or workspace has hit the limit for concurrent or scheduled jobs | Reduce the number of active jobs, or wait for some to finish. |
