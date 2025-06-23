@@ -16,7 +16,7 @@ Use the links below to view and download Azure Storage sample code and applicati
 
 ## Azure Code Samples library
 
-The [Azure Code Samples](https://learn.microsoft.com/samples/browse/?products=azure-storage) library includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+The [Azure Code Samples](/samples/browse/?products=azure-storage) library includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
 
 ## .NET samples
 
