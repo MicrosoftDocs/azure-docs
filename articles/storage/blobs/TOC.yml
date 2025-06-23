@@ -305,19 +305,22 @@ items:
         href: ../common/storage-network-security-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Manage public access
         items:
-        - name: Manage public network access
-          href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Set the default access level
-          href: ../common/storage-network-security-set-default-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Permit virtual networks
-          href: ../common/storage-network-security-virtual-networks.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Permit IP address ranges
-          href: ../common/storage-network-security-ip-address-range.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Permit resource instances
-          href: ../common/storage-network-security-resource-instances.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Manage exceptions
-          href: ../common/storage-network-security-manage-exceptions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Use a network security perimeter
+        - name: 
+        - name: Firewalls and virtual networks
+          items:
+          - name: Overview of configuration tasks
+            href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Set the default access level
+            href: ../common/storage-network-security-set-default-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Permit virtual networks
+            href: ../common/storage-network-security-virtual-networks.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Permit IP address ranges
+            href: ../common/storage-network-security-ip-address-range.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Permit resource instances
+            href: ../common/storage-network-security-resource-instances.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Manage exceptions
+            href: ../common/storage-network-security-manage-exceptions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Network security perimeter
           href: ../common/storage-network-security-perimeter.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Use private endpoints
         href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
