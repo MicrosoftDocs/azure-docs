@@ -80,13 +80,13 @@ In following steps, let's do application assessment using AppCAT against [Airson
 > [!NOTE]
 > When the `appcat` binary is called, it first looks for its dependencies in the executable folder specified in the `PATH` environment variable. If the dependencies aren't found, it falls back to the user's home directory - **~/.appcat** on Linux/Mac or **%USERPROFILE%\\.appcat** on Windows.
 
-1. Clone the application repository to a local folder using the following command:
+1.Clone the application repository to a local folder using the following command:
 
 ```sh
 git clone https://github.com/airsonic-advanced/airsonic-advanced.git
 ```
 
-1. Provide the path to the cloned folder when running the assessment scripts. Depending on your operating system, run the appropriate script, as shown in the following example. The reports are automatically generated and opened in your web browser. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
+1.Provide the path to the cloned folder when running the assessment scripts. Depending on your operating system, run the appropriate script, as shown in the following example. The reports are automatically generated and opened in your web browser. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
 
 # [Linux / macOS](#tab/linux)
 
