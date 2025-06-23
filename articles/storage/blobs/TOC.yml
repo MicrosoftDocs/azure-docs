@@ -307,7 +307,7 @@ items:
         items:
         - name: Default access level
           href: ../common/storage-network-security-set-default-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Firewalls and virtual networks
+        - name: Firewall and virtual networks
           items:
           - name: Configuration tasks
             href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json

@@ -13,30 +13,28 @@ ms.author: normesta
 
 # Configure Azure Storage firewalls and virtual networks
 
-When you disable public network access to your storage account, all incoming requests for data are blocked by default. Traffic is permitted only if it originates from sources that you specify in the firewall settings of the storage account. Sources can include virtual network subnets, IP address ranges, specific resource instances, or trusted Azure services. 
+When you disable public network access to your storage account, all incoming requests for data are blocked by default. Traffic is permitted only if it originates from sources that you specify in the firewall settings of the storage account. Sources can include [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) subnets, public IP address ranges, specific Azure resource instances. You can also add exceptions to allow traffic from other trusted Azure services. 
+
+> [!NOTE]
+> Clients from allowed sources must also meet the authorization requirements of the storage account to access the data. See [Authorization](storage-network-security-overview.md).
 
 <a id="grant-access-from-a-virtual-network"></a>
 
-## Allowing traffic from virtual networks
+## Virtual network subnets
 
-Virtual network service endpoints are public and accessible via the internet. You can configure storage accounts to allow access only from specific subnets in a virtual network. Virtual networks can be in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. With [cross-region service endpoints](#azure-storage-cross-region-service-endpoints), the allowed subnets can also be in different regions from the storage account.
+You can enable traffic from specific subnets in one or more virtual networks. These virtual networks can come from any subscription, in any Microsoft Entra tenant and from any Azure region. To enable traffic, you create a *virtual network rule*. Each storage account supports up to **400** virtual network rules. You can combine these rules with [IP network rules](storage-network-security-ip-address-range.md).
 
-You can enable a [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage within the virtual network. The service endpoint routes traffic from the virtual network through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a virtual network. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
+To enable traffic from a virtual network, you must enable a Virtual Network *service endpoint* for Azure Storage in the virtual network settings. Service endpoints provides secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. These endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network. The identities of the subnet and the virtual network are also transmitted with each request. To learn more, see [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-Each storage account supports up to 400 virtual network rules. You can combine these rules with [IP network rules](storage-network-security-ip-address-range.md).
+### Azure Storage service endpoint
 
-> [!IMPORTANT]
-> When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.
->
-> Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
-
-The storage account and the virtual networks that get access can be in different subscriptions, including subscriptions that are a part of a different Microsoft Entra tenant.
+The Azure Storage service endpoint *(Microsoft.Storage)* is designed to enable communication between a virtual network and storage accounts that are located in the **same region**.   
 
 <a id="azure-storage-cross-region-service-endpoints"></a>
 
-### Azure Storage cross-region service endpoints
+### Azure Storage cross-region service endpoint
 
-Cross-region service endpoints work between virtual networks and storage service instances in any region. With cross-region service endpoints, subnets no longer use a public IP address to communicate with any storage account, including those in another region. Instead, all the traffic from subnets to storage accounts uses a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets no longer have an effect.
+The Azure Storage cross-region service endpoint *(Microsoft.Storage.Global)* is designed to enable communication between a virtual network and storage accounts that are located in the **any region**.
 
 Configuring service endpoints between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md) can be an important part of your disaster recovery plan. Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
@@ -47,9 +45,11 @@ Local and cross-region service endpoints can't coexist on the same subnet. To re
 <a id="grant-access-from-an-internet-ip-range"></a>
 <a id="managing-ip-network-rules"></a>
 
-## Allowing traffic from IP address ranges
+## IP address ranges
 
-You can use IP network rules to allow access from specific public internet IP address ranges by creating IP network rules. Each storage account supports up to 400 rules. These rules grant access to specific internet-based services and on-premises networks and block general internet traffic.
+You can use IP network rules to allow access from specific public internet IP address ranges by creating IP network rules. Each storage account supports up to **400** rules. These rules grant access to specific internet-based services and on-premises networks and block general internet traffic.
+
+If you've enabled a service endpoint for a subnet, then traffic from that subnet won't use a public IP address to communicate with a storage account. Instead, all the traffic uses a private IP address as a source IP. As a result, IP network rules that permit traffic from those subnets no longer have an effect.
 
 ### Restrictions for IP network rules
 
@@ -84,7 +84,7 @@ To allow access to your service resources, you must allow these public IP addres
 
 <a id="grant-access-from-azure-resource-instances"></a>
 
-## Allow traffic from Azure resource instances
+## Azure resource instances
 
 In some cases, an application might depend on Azure resources that can't be isolated through a virtual network or an IP address rule. But you still want to secure and restrict storage account access to only your application's Azure resources. You can configure storage accounts to allow access to specific resource instances of trusted Azure services by creating a resource instance rule.
 
@@ -95,7 +95,7 @@ The Azure role assignments of the resource instance determine the types of opera
 <a id="trusted-microsoft-services"></a>
 <a id="exceptions"></a>
 
-## Allowing traffic from trusted Azure services
+## Trusted Azure services
 
 Some Azure services operate from networks that you can't include in your network rules. You can grant a subset of such trusted Azure services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to connect to your storage account.
 
@@ -189,6 +189,27 @@ You can also combine Azure roles and ACLs together to grant access. To learn mor
 
 We recommend that you [use resource instance rules to grant access to specific resources](storage-network-security-resource-instances.md).
 
+## Restrictions and considerations
+
+Before implementing network security for your storage accounts, review the important restrictions and considerations discussed in this section.
+
+- Azure Storage firewall rules only apply to [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. [Control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane) operations are not subject to the restrictions specified in firewall rules.
+
+- Review the [Restrictions for IP network rules](storage-network-security.md#restrictions-for-ip-network-rules).
+
+- To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
+
+- Network rules are enforced on all network protocols for Azure Storage, including REST and SMB.
+
+- Network rules don't affect virtual machine (VM) disk traffic, including mount and unmount operations and disk I/O, but they do help protect REST access to page blobs.
+
+- You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by [creating an exception](storage-network-security.md#manage-exceptions). Firewall exceptions aren't applicable to managed disks, because Azure already manages them.
+
+- If you delete a subnet that's included in a virtual network rule, it will be removed from the network rules for the storage account. If you create a new subnet by the same name, it won't have access to the storage account. To allow access, you must explicitly authorize the new subnet in the network rules for the storage account.
+
+- When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior. Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
+
+- By design, access to a storage account from trusted services takes the highest precedence over other network access restrictions. If you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [resource instances](storage-network-security.md#grant-access-from-azure-resource-instances) and [exceptions](storage-network-security.md#manage-exceptions) that you previously configured, including [Allow Azure services on the trusted services list to access this storage account](storage-network-security.md#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services might still have access to the storage account.
 
 ## Next steps
 

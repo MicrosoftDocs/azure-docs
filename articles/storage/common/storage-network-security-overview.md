@@ -74,23 +74,6 @@ To secure your storage account and build a secure network boundary for your appl
 
 After you apply network rules, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but they don't grant new access beyond configured network rules.
 
-## Restrictions and considerations
-
-Before implementing network security for your storage accounts, review the important restrictions and considerations discussed in this section.
-
-> [!div class="checklist"]
->
-> - Azure Storage firewall rules only apply to [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. [Control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane) operations are not subject to the restrictions specified in firewall rules.
-> - Review the [Restrictions for IP network rules](storage-network-security.md#restrictions-for-ip-network-rules).
-> - To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
-> - Network rules are enforced on all network protocols for Azure Storage, including REST and SMB.
-> - Network rules don't affect virtual machine (VM) disk traffic, including mount and unmount operations and disk I/O, but they do help protect REST access to page blobs.
-> - You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by [creating an exception](storage-network-security.md#manage-exceptions). Firewall exceptions aren't applicable to managed disks, because Azure already manages them.
-> - Classic storage accounts don't support firewalls and virtual networks.
-> - If you delete a subnet that's included in a virtual network rule, it will be removed from the network rules for the storage account. If you create a new subnet by the same name, it won't have access to the storage account. To allow access, you must explicitly authorize the new subnet in the network rules for the storage account.
-> - When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior. Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
-> - By design, access to a storage account from trusted services takes the highest precedence over other network access restrictions. If you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [resource instances](storage-network-security.md#grant-access-from-azure-resource-instances) and [exceptions](storage-network-security.md#manage-exceptions) that you previously configured, including [Allow Azure services on the trusted services list to access this storage account](storage-network-security.md#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services might still have access to the storage account.
-
 ### Authorization
 
 Clients granted access via network rules must continue to meet the authorization requirements of the storage account to access the data. Authorization is supported with Microsoft Entra credentials for blobs and queues, with a valid account access key, or with a shared access signature (SAS) token.
