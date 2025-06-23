@@ -29,7 +29,7 @@ Azure Firewall filters traffic using any of the following methods:
 Application rules are preferred over network rules to inspect traffic destined to private endpoints because Azure Firewall always SNATs traffic with application rules. SNAT is recommended when inspecting traffic destined to a private endpoint due to the limitation described here: [What is a private endpoint?][private-endpoint-overview]. If you're planning on using network rules instead, it's recommended to configure Azure Firewall to always perform SNAT: [Azure Firewall SNAT private IP address ranges][firewall-snat-private-ranges].
 
  > [!IMPORTANT]
-   > Regardless of the type of rules configured in the Azure Firewall, make sure [Network Policies][network-policies-overview] (at least for UDR support) are enabled in the subnet(s) where the private endpoints are deployed. This ensures traffic destined to private endpoints doesn't bypass the Azure Firewall. 
+> Regardless of the rules configured in Azure Firewall, ensure that [network policies](../virtual-network/network-policies-overview.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed. This ensures that traffic destined for private endpoints does not bypass Azure Firewall.
 
  Microsoft manages secured virtual hubs, which can't be linked to a [Private DNS Zone](../dns/private-dns-privatednszone.md). This is required to resolve a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource) FQDN to its corresponding private endpoint IP address.
 
