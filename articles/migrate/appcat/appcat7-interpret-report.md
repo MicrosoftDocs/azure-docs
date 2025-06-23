@@ -65,4 +65,4 @@ Access this report by clicking the Insights tab.
 
 ## Next steps
 
-> [Understand more on CLI usage](appcat7-cli-guide.md)
+- [Understand more on CLI usage](appcat7-cli-guide.md)
