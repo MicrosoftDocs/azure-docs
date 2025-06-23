@@ -1,26 +1,27 @@
 ---
 title: 'Quickstart: Send custom events to a queue - Event Grid, Azure CLI'
 description: Learn how to use Azure Event Grid and the Azure CLI to publish a topic and subscribe to that event, by using a queue for the endpoint.
-ms.date: 01/31/2024
+ms.date: 06/24/2025
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, mode-api
+#customer intent: As a developer, I want to use Azure Event Grid to integrate applications by using events.
 ---
 
 # Quickstart: Route custom events to a queue by using Event Grid and the Azure CLI
 
-[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications via events. Event Grid delivers events to supported event handlers, such as Azure Queue storage. For more information, see [Event handlers](event-handlers.md).
-
 In this quickstart, you use the Azure CLI to create an Event Grid custom topic and a Queue Storage subscription for that topic. You then send sample events to the custom topic and verify that those events are delivered to a queue.
+
+[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications via events. Event Grid delivers events to supported event handlers, such as Azure Queue storage. For more information, see [Event handlers](event-handlers.md).
 
 [!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create a resource group
 
-Event Grid topics are Azure resources, and they must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
+Event Grid topics are Azure resources. Place them in an Azure resource group. The resource group is a logical collection in which Azure resources are deployed and managed.
 
 Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `gridResourceGroup` in the `westus2` location.
 
-Select **Open Cloud Shell** to open Azure Cloud Shell on the right pane. Select the **Copy** button to copy the command, paste it in Cloud Shell, and then select the Enter key to run the command.
+Select **Open Cloud Shell** to open Azure Cloud Shell on the right pane. Select the **Copy** button to copy the command, paste it in Cloud Shell, and then select the **Enter** key to run the command.
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
@@ -68,7 +69,7 @@ Before you subscribe to the custom topic, create the endpoint for the event mess
 
 ## Subscribe to a custom topic
 
-The following example subscribes to the custom topic that you created, and it passes the resource ID of the queue for the endpoint. With the Azure CLI, you pass the queue ID as the endpoint. The endpoint is in this format:
+The following example subscribes to the custom topic that you created. It passes the resource ID of the queue for the endpoint. With the Azure CLI, you pass the queue ID as the endpoint. The endpoint is in this format:
 
 `/subscriptions/<AZURE SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/queueservices/default/queues/<QUEUE NAME>`
 
@@ -89,7 +90,7 @@ az eventgrid event-subscription create \
   --expiration-date "<yyyy-mm-dd>"
 ```
 
-The account that creates the event subscription must have write access to the queue. Notice that an expiration date is set for the subscription.
+The account that creates the event subscription must have write access to the queue. An expiration date is set for the subscription.
 
 If you use the REST API to create the subscription, you pass the ID of the storage account and the name of the queue as a separate parameter:
 
@@ -112,7 +113,7 @@ endpoint=$(az eventgrid topic show --name $topicname --resource-group gridResour
 key=$(az eventgrid topic key list --name $topicname --resource-group gridResourceGroup --query "key1" --output tsv)
 ```
 
-For the sake of simplicity in this article, you use sample event data to send to the custom topic. Typically, an application or an Azure service would send the event data.
+For simplicity, this article uses sample event data to send to the custom topic. Typically, an application or an Azure service would send the event data.
 
 The cURL tool sends HTTP requests. In this article, you use cURL to send the event to the custom topic. The following example sends three events to the Event Grid topic:
 
@@ -124,7 +125,7 @@ do
 done
 ```
 
-Go to the queue in the Azure portal, and notice that Event Grid sent those three events to the queue.
+Go to the queue in the Azure portal to see that Event Grid sent those three events to the queue.
 
 :::image type="content" source="./media/custom-event-to-queue-storage/messages.png" alt-text="Screenshot that shows a list of messages received from Event Grid in a queue.":::
 
