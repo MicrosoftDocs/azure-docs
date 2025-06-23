@@ -842,7 +842,7 @@ The *host.json* file must also be updated to include an HTTP `routePrefix`, as s
   "extensionBundle": 
   {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.*, 4.0.0)"
+    "version": "[4.*, 5.0.0)"
   },
   "extensions": 
   {
@@ -910,7 +910,7 @@ You can use Asynchronous Server Gateway Interface (ASGI)-compatible and Web Serv
   "extensionBundle": 
   {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[2.*, 3.0.0)"
+    "version": "[4.*, 5.0.0)"
   },
   "extensions": 
   {
