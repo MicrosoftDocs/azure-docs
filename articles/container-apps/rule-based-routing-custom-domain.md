@@ -43,17 +43,33 @@ Using the DNS provider that is hosting your domain, create DNS records for your 
 > [!NOTE]
 > The IP address of your Container Apps environment and the domain verification code can be found in the [Custom DNS suffix settings](./environment-custom-dns-suffix.md#add-a-custom-dns-suffix-and-certificate) of the Container App Environment.
 >
-> Don't bind the custom domain to the Container App Environment or to a Container App.
+> Don't bind the custom domain to the Container App Environment or to a Container App.  A domain can only be bound to one app, route, or environment.
 
 ## Route configuration
 
-> [!NOTE]
-> If you set bindingType: "Auto" or "Disabled", you don't need a certificateId. Create the route before you add the certificate so that the certificate registration check for ownership succeeds. If you are bringing your own certificate, set the bindingType to "Auto" or "Disabled" when you first create the route, and then set bindingType to "SniEnabled" and set the certificateId after you add the certificate to the environment.
-Once you add the certificate, Container Apps automatically adds it to the route spec and binds it to the domain. The site is only accessible over HTTP (not HTTPS) until setup is complete.
->
-> The certificateId is in the format /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/certificates/{CertificateFriendlyName}
+Update your Container Apps YAML file to include a `customDomains` section. Include a bindingType and certificateId, based on the following criteria.:
 
-Update your Container Apps YAML file to include a `customDomains` section. The following example demonstrates how to set up this configuration.
+| bindingType value | Description | 
+|--|--|
+| Disabled | No certificate is provided. The domain will only be available over HTTP. HTTPS will not be available. |
+| Auto | A certificate is optional. If a managed certificate is already created for this domain, it will be added to the route automatically. Otherwise, the domain will initially only be available over HTTP. To create a managed certificate for this domain, create a new managed certificate after the route is created. After the certificate is created, it will automatically be added to the route. |
+| SniEnabled | A certificate is required. |
+
+| Certificate type | certificateId format |
+| -- | -- |
+| None | Leave blank |
+| Managed | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/certificates/{CertificateFriendlyName} |
+| Unmanaged | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/managedCertificates/{CertificateFriendlyName} |
+
+> [!NOTE]
+> To add a certificate to your environment, use one of the following methods:
+> - To add a Container Apps managed certificate, use the [az containerapp env certificate create](/cli/azure/containerapp/env/certificate#az-containerapp-env-certificate-create) CLI command.
+> - To bring your own existing certificate, use the [az containerapp env certificate upload](/cli/azure/containerapp/env/certificate#az-containerapp-env-certificate-upload) CLI command.
+>
+> Don't bind the certificate to a Container App.
+
+
+The following example demonstrates how to set up the route configuration.
 
 ```yml
 customDomains:
@@ -166,15 +182,6 @@ az containerapp env http-route-config delete \
     --name <ENVIRONMENT_NAME> \
     --http-route-config-name <CONFIGURATION_NAME>
 ```
-
-## Add a certificate
-
-To add a certificate to your environment, use one of the following methods:
-- To add a Container Apps managed certificate, use the [az containerapp env certificate create](/cli/azure/containerapp/env/certificate#az-containerapp-env-certificate-create) CLI command.
-- To bring your own existing certificate, use the [az containerapp env certificate upload](/cli/azure/containerapp/env/certificate#az-containerapp-env-certificate-upload) CLI command.
-
-> [!NOTE]
-> Don't bind the certificate to a Container App.
 
 ## Verify HTTP routing
 
