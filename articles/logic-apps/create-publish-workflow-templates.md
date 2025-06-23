@@ -11,19 +11,41 @@ ms.date: 06/16/2025
 
 # Create and publish workflow templates for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Azure Logic Apps provides prebuilt integration workflow templates that you can use to accelerate the process of building integration applications. These templates follow commonly used patterns and help you streamline development by providing a starting point or baseline with predefined business logic and configurations.
+Azure Logic Apps provides prebuilt, reusable automation and integration workflow templates that you can use to speed up the process of building integration applications. These templates follow commonly used patterns and help you streamline development by providing a starting point or baseline with predefined business logic and configurations.
 
-Not only can you kickstart development with workflow templates, you can create workflow templates for your own use or share them with others. Your template can include artifacts such as schemas, maps, and custom assemblies. To add your template to the templates gallery in the Azure portal, create a template package by using this how-to guide. When you're done, visit the [workflow template repository in GitHub for Azure Logic Apps](https://github.com/Azure/LogicAppsTemplates) where you can create a pull request for your template package and have the Azure Logic Apps team review your template.
+Not only can you kickstart development by using workflow templates, you can create and publish workflow templates for your organization's use alone within an Azure subscription or share them with others. Your template can include artifacts such as schemas, maps, and custom assemblies.
+
+Organizational templates let you standardize integration patterns, share best practices, and reuse solutions across your enterprise internally without making them public. This capability is especially useful for businesses that want to promote consistency while keeping options open for flexibility. Whether your scenarios include embedding internal APIs, handling domain-specific logic, or enforcing architectural patterns, organizational templates help you scale and grow while you stay in control.
+
+To add your template to the templates gallery in the Azure portal, create a template package by using this how-to guide. When you're done, visit the [workflow template repository in GitHub for Azure Logic Apps](https://github.com/Azure/LogicAppsTemplates) where you can create a pull request for your template package and have the Azure Logic Apps team review your template.
+
+Azure Logic Apps templates also give you the following capabilities:
+
+- Publish templates in test or production mode, which allow you to safely experiment and gate keep releases.
+
+- Directly use APIs and internal systems in templates without having to externalize them.
+
+- Download template packages and optionally add them to the public workflow template repository in GitHub.
+
+- Graduate your templates from test to production by using the built-in lifecycle management in Azure DevOps, which gives your team structure but preserves agility.
+
+- As first-class resources in Azure, templates support Azure role-based access control (RBAC).
+
+  - You can manage template permissions like any other Azure resource.
+
+    These permissions respect subscription and role scopes, which means developers can see and access only those templates in subscriptions where developers have access.
+
+    This capability provides enterprise-grade control over who can author, view, and deploy templates. You have full control over the way that you want organize templates so that you can make sure the right teams get access to the automation patterns they need.
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Standard logic app resource with at least one workflow to use as the source workflow definition for the template.
+- The deployed Consumption or Standard logic app resource and workflow to use as the source workflow definition for the template.
 
-  If you don't have this resource, see [Create an example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md).
+  If you don't have this resource, see [Create an example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md). Your logic app resource and workflow must be deployed before you create your template. Also, make sure that any values that the workflow user must provide are correctly parameterized, rather than hardcoded. 
 
 - Screenshots that show a read-only preview for the workflow template with **.png** file name extension. These preview images for template appear on the template overview pane in the templates gallery.
 
@@ -59,7 +81,7 @@ Workflow templates currently support only Standard logic apps.
 
 ### [Portal](#tab/portal)
 
-#### Create a blank template
+To create your workflow template through the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com) search box, find and select **logic apps templates**.
 
@@ -76,7 +98,7 @@ Workflow templates currently support only Standard logic apps.
 
 1. When you're done, select **Review + create**. Review the provided information, and select **Create**.
 
-   Azure creates an empty template resource.
+   Azure creates the template resource.
 
 Next, choose the source workflow definition to use for your template.
 
@@ -116,6 +138,31 @@ Next, choose the source workflow definition to use for your template.
    | **Dark mode image** | The dark-themed preview image for your template. |
 
 1. When you're done, select **Save**.
+
+1. On the **Connections** tab, review and confirm the connections that Azure automatically pulls from the source workflows.
+
+   You don't have to take any other actions.
+
+1. When you're ready, select **Next**.
+
+#### Customize parameters
+
+On the **Parameters** tab, add customization for any parameters that you want for the workflow.
+
+1. On the **Parameters** tab, select the edit icon for the parameter.
+
+1. Provide the following information for the parameter:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Display name** | Yes | The parameter name that appears in Azure portal. |
+   | **Default value** | No | The default value for the parameter. |
+   | **Description** | No | The description for parameter's purpose. |
+   | **Required Field** | No | Whether or not the workflow requires the parameter. |
+
+1. When you're done, select **Save**.
+
+
 
 ### [Manual](#tab/manual)
 
