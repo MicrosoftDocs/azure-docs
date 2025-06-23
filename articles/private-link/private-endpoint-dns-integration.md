@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 03/25/2025
+ms.date: 06/23/2025
 ms.author: abell
 ms.custom: fasttrack-edit
 # Customer intent: As a network administrator, I want to configure DNS settings for Azure Private Endpoints, so that I can ensure secure and efficient resolution of private IP addresses required for my applications and services within the virtual network.
@@ -69,7 +69,7 @@ In this scenario, there's a [hub and spoke](/azure/architecture/reference-archit
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Diagram of hub and spoke with Azure-provided DNS." lightbox="media/private-endpoint-dns/hub-and-spoke-azure-dns.png"::: 
 
-## On-premises workloads using a DNS forwarder without Azure Private Resolver
+## On-premises workloads without Azure Private Resolver
 
 This configuration is appropriate for on-premises networks that already have a DNS solution in place and don't use Azure Private Resolver. In this scenario, the on-premises DNS server is configured to forward DNS queries for Azure private endpoint zones to the Azure-provided DNS service.
 
