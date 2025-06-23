@@ -1,6 +1,6 @@
 ---
-title: Manage Cloud Next Generation Firewall (NGFW) by Palo Alto Networks resource through the Azure portal
-description: Manage your Cloud NGFW by Palo Alto Networks in Azure portal, including networking, NAT, rulestack settings, logging, Domain Name System (DNS) proxy configuration, and billing plan changes.
+title: Manage a Cloud Next-Generation Firewall (NGFW) by Palo Alto Networks Resource by Using the Azure Portal
+description: Manage your Cloud NGFW resource in the Azure portal, including networking, NAT, rulestack settings, logging, Domain Name System (DNS) proxy configuration, and billing plan changes.
 ms.topic: how-to
 ms.date: 06/26/2025
 ms.custom:
@@ -9,9 +9,9 @@ ms.custom:
   - ai-seo-date:12/09/2024
 ---
 
-# Manage your Cloud NGFW by Palo Alto Networks through the portal
+# Manage your Cloud NGFW by Palo Alto Networks resource by using the Azure portal
 
-Once your Cloud NGFW by Palo Alto Networks resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your Palo Alto resource.
+After you create your Cloud NGFW by Palo Alto Networks resource, you might need to get information about it or change it. You can manage your Cloud NGFW resource in the following ways:
 
 - [Networking and NAT](#networking-and-nat)
 - [Rulestack](#rulestack)
@@ -20,7 +20,9 @@ Once your Cloud NGFW by Palo Alto Networks resource is created in the Azure port
 - [Rules](#rules)
 - [Delete a resource](#delete-a-resource)
 
-From the service menu, select your Cloud NGFW by Palo Alto Networks deployment. Use the service menu to move through the settings for your Cloud NGFW by Palo Alto Networks.
+## Resource overview 
+
+[!INCLUDE [manage](../includes/manage.md)]
 
 ## Networking and NAT
 
