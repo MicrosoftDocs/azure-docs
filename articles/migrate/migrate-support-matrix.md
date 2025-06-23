@@ -74,6 +74,8 @@ Italy | North Italy
 Japan |  Japan East or Japan West
 Jio India | Jio India West 
 Korea | Korea Central
+Mexico | Mexico Central
+NewZealand | New Zealand North
 Norway | Norway East
 Spain  | Spain Central 
 Sweden | Sweden Central
