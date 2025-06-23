@@ -87,7 +87,7 @@ In following steps, let's do application assessment using AppCAT against [Airson
 git clone https://github.com/airsonic-advanced/airsonic-advanced.git
 ```
 
-3. Provide the path to the cloned folder when running the assessment scripts. Depending on your operating system, run the appropriate script, as shown in the following example. The reports are automatically generated and opened in your web browser. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
+3. Run the assessment scripts living in samples folder of the downloaded AppCAT release package with providing the path to the cloned folder above. Depending on your operating system, run the appropriate script, as shown in the following example. The reports are automatically generated and opened in your web browser. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
 
 # [Linux / macOS](#tab/linux)
 
@@ -114,4 +114,4 @@ In the **samples** directory, you can find the following scripts to run differen
 
 ## Next steps
 - [Interpret the report](appcat7-interpret-report.md)
-- [Understand more on CLI usage](appcat7-cli-guide.md)
+- [CLI Command Guide for AppCAT 7](appcat7-cli-guide.md)
