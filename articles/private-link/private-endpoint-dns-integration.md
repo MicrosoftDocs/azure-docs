@@ -34,6 +34,8 @@ Based on your preferences, the following scenarios are available with DNS resolu
 - [Azure Private Resolver with on-premises DNS forwarder](#on-premises-workloads-using-a-dns-forwarder)
   
 - [Azure Private Resolver for virtual network and on-premises workloads](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
+  
+- [On-premises workloads using a DNS forwarder without Azure Private Resolver)](#on-premises-workloads-using-a-dns-forwarder-without-azure-private-resolver)
 
 ## Virtual network workloads without Azure Private Resolver
 
@@ -66,6 +68,31 @@ You can extend this model to peered virtual networks associated to the same priv
 In this scenario, there's a [hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology. The spoke networks share a private endpoint. The spoke virtual networks are linked to the same private DNS zone.
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Diagram of hub and spoke with Azure-provided DNS." lightbox="media/private-endpoint-dns/hub-and-spoke-azure-dns.png"::: 
+
+## On-premises workloads using a DNS forwarder without Azure Private Resolver
+
+This configuration is appropriate for on-premises networks that already have a DNS solution in place and don't use Azure Private Resolver. In this scenario, the on-premises DNS server is configured to forward DNS queries for Azure private endpoint zones to the Azure-provided DNS service.
+
+> [!NOTE]
+> This scenario uses the Azure SQL Database-recommended private DNS zone. For other services, you can adjust the model using the following reference: [Azure services DNS zone configuration](private-endpoint-dns.md).
+
+To configure properly, you need the following resources:
+
+- On-premises network with a custom DNS solution in place
+- Virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/)
+- Private DNS zone [privatelink.database.windows.net](../dns/private-dns-privatednszone.md) with [type A record](../dns/dns-zones-records.md#record-types)
+- Private endpoint information (FQDN record name and private IP address)
+
+The on-premises DNS server is configured with a conditional forwarder for the private DNS zone that forwards queries to the [Azure-provided DNS IP address](../virtual-network/what-is-ip-address-168-63-129-16.md).
+
+> [!IMPORTANT]
+> The conditional forwarding must be made to the recommended public DNS zone forwarder. For example: `database.windows.net` instead of **privatelink**.database.windows.net.
+
+This approach allows on-premises workloads to resolve Azure private endpoint FQDNs to their private IP addresses without deploying Azure Private Resolver.
+
+The following diagram illustrates the DNS resolution from an on-premises network. DNS resolution is conditionally forwarded to Azure. The resolution is made by a private DNS zone [linked to a virtual network](../dns/private-dns-virtual-network-links.md):
+
+<!-- :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Diagram of on-premises forwarding to Azure DNS without Azure Private Resolver." lightbox="media/private-endpoint-dns/on-premises-forwarding-to-azure.png"::: -->
 
 ## Azure Private Resolver for on-premises workloads
 
@@ -155,6 +182,7 @@ The resolution is made by a private DNS zone [linked to a virtual n
 
 :::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Diagram of hybrid scenario with private DNS zone." lightbox="media/private-endpoint-dns/hybrid-scenario.png"::: 
 
+
 ## Private DNS zone group
 
 If you choose to integrate your private endpoint with a private DNS zone, a private DNS zone group is also created. The DNS zone group has a strong association between the private DNS zone and the private endpoint. It helps with managing the private DNS zone records when there's an update on the private endpoint. For example, when you add or remove regions, the private DNS zone is automatically updated with the correct number of records.
@@ -169,5 +197,8 @@ In a hub-and-spoke topology, a common scenario allows the creation of private DN
 > - Adding multiple DNS zone groups to a single Private Endpoint isn't supported.
 > - Delete and update operations for DNS records can be seen performed by **Azure Traffic Manager and DNS.** This is a normal platform operation necessary for managing your DNS Records.
 
-## Next steps
+## Related Content
 - [Learn about private endpoints](private-endpoint-overview.md)
+- [Private endpoint private DNS zone values](private-endpoint-dns.md)
+
+
