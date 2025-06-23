@@ -27,6 +27,8 @@ Use the below tables to find all the relevant information on number availability
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+
 
 ## Subscription eligibility
 
