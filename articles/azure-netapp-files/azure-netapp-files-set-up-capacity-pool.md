@@ -28,7 +28,7 @@ Creating a capacity pool enables you to create volumes within it.
 
     1. Register the feature: 
 
-    ```azpowershell-interactive
+    ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexibleServiceLevel
     ```
 
