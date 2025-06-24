@@ -7,7 +7,6 @@ ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-blob-storage
 ms.date: 06/04/2025
-ms.update-cycle: 180-days
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure Blob Storage works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
 
@@ -68,6 +67,8 @@ When you enable zone-redundant storage, you're charged at a different rate than 
 - **Create a blob storage account with zone redundancy:** To create a new storage account with zone-redundant storage, see [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, GZRS, or RA-GZRS as the redundancy option during account creation.
 
 - **Migration**. To convert an existing storage account to zone-redundant storage, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration) for detailed migration options and requirements.
+
+- **Disable zone redundancy.** Convert zone-redundant storage accounts back to a nonzonal configuration (LRS) through the same redundancy configuration change process.
 
 ### Normal operations
 
@@ -159,6 +160,8 @@ Multi-region Azure Blob Storage configurations incur additional costs for cross-
   >
   > **To avoid a major data loss**, check the value of the [Last Sync Time property](/azure/storage/common/last-sync-time-get) before initiating an unplanned failover. To evaluate potential data loss, compare the last sync time to the last time at which data was written to the new primary.
 
+- **Disable geo-redundancy.** Convert geo-redundant storage accounts back to single-region configurations (LRS or ZRS) through the same redundancy configuration change process.
+
 ### Normal operations
 
 This section describes what to expect when a storage account is configured for geo-redundancy and all regions are operational.
@@ -238,7 +241,7 @@ You can simulate regional failures to test your disaster recovery procedures:
 
 If your application requires geo-replication across nonpaired regions, or you need more control over multi-region deployment than the native geo-redundant options provide, consider implementing a custom multi-region architecture.
 
-Azure Blob Storage can be deployed in multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
+Azure Blob Storage can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
 
 **Object replication** provides an additional option for cross-region data replication that enables asynchronous copying of block blobs between storage accounts. Unlike the built-in geo-redundant storage options that use fixed paired regions, object replication allows you to replicate data between storage accounts in any Azure regions, including non-paired regions. This approach gives you full control over source and destination regions, replication policies, and the specific containers and blob prefixes to replicate.
 
