@@ -101,6 +101,8 @@ git clone https://github.com/airsonic-advanced/airsonic-advanced.git
 .\samples\run-assessment.bat <path-to-airsonic-advanced>
 ```
 
+---
+
 > [!NOTE]
 > Ensure that the file permissions for scripts in the extracted folder are set to allow execution.
 
