@@ -14,4 +14,4 @@ ms.custom: "include file"
 >
 > Starting in **July 2026**, all customers using Microsoft Sentinel in the Azure portal will be redirected to the Defender portal. We recommend that you start planning your transition to the Defender portal to ensure a smooth transition and take full advantage of the new features offered by Microsoft Defender.
 >
-> For more information, see [Microsoft Sentinel in the Azure portal deprecation timeline](../overview.md#microsoft-sentinel-in-the-azure-portal-deprecation-timeline).
+> For more information, see [Microsoft Sentinel in the Azure portal deprecation timeline](../overview.md#microsoft-sentinel-in-the-azure-portal-deprecation-timeline) and [It’s Time to Move: Retiring Microsoft Sentinel’s Azure Portal for Greater Security](blog).
