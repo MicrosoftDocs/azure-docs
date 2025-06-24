@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 11/08/2024
 ms.author: kendownie
 recommendations: false
+# Customer intent: As a storage account administrator, I want to update the Active Directory Domain Services identity password for my storage account, so that I can maintain Kerberos authentication and ensure uninterrupted access to Azure file shares.
 ---
 
 # Update the password of your storage account identity in AD DS

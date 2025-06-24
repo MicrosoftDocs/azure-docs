@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 06/23/2025
 ms.author: kendownie
+# Customer intent: "As an IT administrator managing virtual desktop environments, I want to implement Azure Files with FSLogix for user profiles, so that I can ensure high availability, performance, and scalability for our users across multiple sessions."
 ---
 
 # Azure Files guidance for virtual desktop workloads
