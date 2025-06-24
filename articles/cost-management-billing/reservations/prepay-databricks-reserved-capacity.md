@@ -20,7 +20,7 @@ The prepurchase discount applies only to the DBU usage. Other charges such as co
 
 ## Determine the right size to buy
 
-Databricks prepurchase applies to all Databricks workloads and tiers. You can think of the prepurchase as a pool of prepaid Databricks commit units. Usage is deducted from the pool, regardless of the workload or tier. Usage is deducted from the pool at a ratio matching the DBU list price of the workload. Workload pricing can be found on the [Azure Databricks Pricing Page](https://azure.microsoft.com/en-us/pricing/details/databricks/).
+Databricks prepurchase applies to all Databricks workloads and tiers. You can think of the prepurchase as a pool of prepaid Databricks commit units. Usage is deducted from the pool, regardless of the workload or tier. Usage is deducted from the pool at a ratio matching the DBU list price of the workload. Workload pricing can be found on the [Azure Databricks Pricing Page](https://azure.microsoft.com/pricing/details/databricks/).
  
 For example, when All-purpose compute – Premium Tier DBUs are consumed, the prepurchased Databricks commit units get deducted by 0.55 units. When Jobs compute – Premium Tier capacity gets used, the prepurchased Databricks commit unit gets deducted by 0.30 units.
 
