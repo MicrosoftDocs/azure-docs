@@ -2,7 +2,7 @@
 title: Delete a Microsoft Azure Recovery Services vault 
 description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: how-to
-ms.date: 09/20/2024
+ms.date: 06/23/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 author: jyothisuri
@@ -480,3 +480,7 @@ For more information on the ARMClient command, see [ARMClient README](https://gi
 
 - [Learn about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md).
 - [Learn about monitoring and managing Recovery Services vaults](backup-azure-manage-windows-server.md).
+
+## Related content
+
+[Update the soft delete state for Recovery Services vault using REST API](use-restapi-update-vault-properties.md).

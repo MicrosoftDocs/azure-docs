@@ -596,6 +596,7 @@ You can install the self-hosted integration runtime by downloading a Managed Ide
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine doesn't hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Regularly back up the credentials associated with the self-hosted integration runtime.
 - To automate self-hosted IR setup operations, refer to [Set up an existing self hosted IR via PowerShell](#setting-up-a-self-hosted-integration-runtime).
+- Install the self-hosted integration runtime on dedicated machine(s) for better resource isolation and performance.
 
 ## Important considerations
 
