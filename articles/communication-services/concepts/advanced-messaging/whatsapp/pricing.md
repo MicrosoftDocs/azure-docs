@@ -40,6 +40,16 @@ When you connect your WhatsApp Business account to Azure, Azure Communication Se
 >
 > See [Pricing Updates on the WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing/) for additional details.
 
+## Pricing example: Contoso sends appointment reminders to their WhatsApp customers
+
+Contoso provides a virtual visit solution for its patients. Contoso is scheduling the visit and sends WhatsApp invites to all patients reminding them about their upcoming visit. WhatsApp classifies appointment reminders as **Utility Conversations**. In this case, each WhatsApp conversation is a single message.
+Contoso sends appointment reminders to 2,000 patients in North America each month and the pricing would be:
+
+**Advanced Messaging usage for messages:**
+
+2,000 messages × \$0.005/message = \$10.00 USD + WhatsApp Fee 
+
+Please see WhatsApp pricing in detail here: [WhatsApp Pricing Documentation](https://developers.facebook.com/docs/whatsapp/pricing).
 
 ## Next steps
 
