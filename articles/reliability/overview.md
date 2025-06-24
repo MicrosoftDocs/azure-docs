@@ -56,7 +56,7 @@ Availability zones are close enough to have low-latency connections to other ava
 
 ## Reliability concepts
 
-The reliability concepts section provides an overview of the key concepts and principles that underpin reliability in Azure. 
+The reliability concepts section provides an overview of some of the key concepts and principles that underpin reliability in Azure. 
 
 ### Business continuity, high availability, and disaster recovery
 
