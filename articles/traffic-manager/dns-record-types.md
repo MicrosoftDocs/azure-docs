@@ -10,8 +10,6 @@ ms.author: allensu
 
 # DNS record types and IPv6 support in Azure Traffic Manager
 
-## DNS record types
-
 Azure Traffic Manager is a DNS-based traffic load balancer that distributes traffic across global Azure regions. To effectively route traffic to your applications, Traffic Manager supports multiple DNS record types that work with both IPv4 and IPv6 protocols.
 
 This article explains the DNS record types that Traffic Manager supports and how they enable dual-stack networking environments. You learn about AAAA records for IPv6 addresses, A records for IPv4 addresses, and CNAME records for domain aliasing. Understanding these record types helps you choose the right configuration for your network infrastructure and ensures optimal traffic routing for your applications.
