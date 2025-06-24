@@ -27,12 +27,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/redis/tutorial-functions-getting-started.md",
+            "source_path_from_root": "/articles/redis/tutorial-functions-getting-started.md",
             "redirect_url": "../../azure/azure-functions/functions-bindings-cache",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/redis/tutorial-write-behind.md",
+            "source_path_from_root": "/articles/redis/tutorial-write-behind.md",
             "redirect_url": "../../azure/azure-functions/functions-bindings-cache",
             "redirect_document_id": false
         }
