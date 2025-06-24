@@ -23,50 +23,43 @@ HTTP route configurations support custom domains, allowing you to route traffic 
 
 ## Custom domain configuration
 
-Using the DNS provider that is hosting your domain, create DNS records for your custom domain.
-
-- If you are using the root domain (for example, contoso.com), create the following DNS records:
-
+Using the DNS provider hosting your domain, create the appropriate DNS records for your custom domain.
+- If you are using the root domain (for example, `contoso.com`), create the following DNS records:
 	| Record type | Host | Value |
 	|--|--|--|
 	| A | `@` | The IP address of your Container Apps environment. |
 	| TXT | `asuid` | The domain verification code. |
 	
-	
-- If you are using a subdomain (for example, www.contoso.com), create the following DNS records:
-
+- If you are using a subdomain (for example, `www.contoso.com`), create the following DNS records:
 	| Record type | Host | Value |
 	|--|--|--|
-	| A | The subdomain (for example, www) | The IP address of your Container Apps environment. |
-	| TXT | `asuid.{subdomain}` (for example, asuid.www) | The domain verification code. |
-
+	| A | The subdomain (for example, `www`) | The IP address of your Container Apps environment. |
+	| TXT | `asuid.{subdomain}` (for example, `asuid.www`) | The domain verification code. |
 > [!NOTE]
-> The IP address of your Container Apps environment and the domain verification code can be found in the [Custom DNS suffix settings](./environment-custom-dns-suffix.md#add-a-custom-dns-suffix-and-certificate) of the Container App Environment.
+> The IP address of your Container Apps environment and the domain verification code can be found in the [Custom DNS suffix settings](./environment-custom-dns-suffix.md#add-a-custom-dns-suffix-and-certificate) of your Container Apps environment.
 >
-> Don't bind the custom domain to the Container App Environment or to a Container App.  A domain can only be bound to one app, route, or environment.
+> Don't bind the custom domain to your Container Apps environment or to a container app.  Domains are only bound to one app, route, or environment.
 
 ## Route configuration
 
-Update your Container Apps YAML file to include a `customDomains` section. Include a bindingType and certificateId, based on the following criteria:
-
+Update your Container Apps YAML file to include a `customDomains` section. Include a `bindingType` and `certificateId`, based on the following criteria:
 | bindingType value | Description | 
 |--|--|
-| Disabled | No certificate is provided. The domain will only be available over HTTP. HTTPS will not be available. |
-| Auto | A certificate is optional. If a managed certificate is already created for this domain, it will be added to the route automatically. Otherwise, the domain will initially only be available over HTTP. To create a managed certificate for this domain, create a new managed certificate after the route is created. After the certificate is created, it will automatically be added to the route. |
+| Disabled | No certificate is provided. The domain is only available over HTTP, and HTTPS is not available. |
+| Auto | A certificate is optional. If a managed certificate is already created for this domain, it is added to the route automatically. Otherwise, the domain is initially only available over HTTP. To create a managed certificate for this domain, create a new managed certificate after the route is created. After the certificate is created, it is automatically added to the route. |
 | SniEnabled | A certificate is required. |
-
 | Certificate type | certificateId format |
 | -- | -- |
 | None | Leave blank |
-| Managed | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/managedCertificates/{CertificateFriendlyName} |
-| Unmanaged | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/certificates/{CertificateFriendlyName} |
+| Managed | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/managedCertificates/{CertificateFriendlyName}` |
+| Unmanaged | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/managedEnvironments/{ContainerAppEnvironmentName}/certificates/{CertificateFriendlyName}` |
 
 > [!NOTE]
 > To add a certificate to your environment, use one of the following methods:
 > - To add a Container Apps managed certificate, use the [az containerapp env certificate create](/cli/azure/containerapp/env/certificate#az-containerapp-env-certificate-create) CLI command.
 > - To bring your own existing certificate, use the [az containerapp env certificate upload](/cli/azure/containerapp/env/certificate#az-containerapp-env-certificate-upload) CLI command.
 >
-> Don't bind the certificate to a Container App.
+> Don't bind the certificate to a container app.
 
 
 The following example demonstrates how to set up the route configuration.
