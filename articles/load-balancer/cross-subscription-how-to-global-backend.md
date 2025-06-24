@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 02/20/2025
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud architect, I want to configure a global load balancer with backends across multiple subscriptions, so that I can optimize traffic management and resource utilization across different Azure environments.
 ---
 
 # Create a global load balancer with cross-subscription backends
