@@ -29,6 +29,9 @@ To install Azure IoT Operations, have the following hardware requirements availa
 | Available memory for Azure IoT Operations (RAM) | 10-GB | Depends on usage |
 | CPU  | 4 vCPUs | 8 vCPUs     |
 
+>[!NOTE]
+>The minimum configuration is appropriate when running AIO only.
+
 ## Choose your features
 
 Azure IoT Operations offers two deployment modes. You can choose to deploy with *test settings*, a basic subset of features that are simpler to get started with for evaluation scenarios. Or, you can choose to deploy with *secure settings*, the full feature set.
