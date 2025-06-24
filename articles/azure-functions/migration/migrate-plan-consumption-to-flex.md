@@ -4,7 +4,7 @@ description: Learn how to migrate an existing function app in Azure running in a
 ms.service: azure-functions
 ms.collection: 
  - migration
-ms.date: 06/23/2025
+ms.date: 06/24/2025
 ms.topic: concept-article
 
 #customer intent: As a developer, I want to learn how to migrate my existing serverless applications in Azure Functions from the Consumption host plan to the Flex Consumption hosting plan.
@@ -1446,7 +1446,7 @@ After a successful migration, you should perform these follow-up tasks:
 
     #### [Azure CLI](#tab/azure-cli)
     
-    Use this [`az functionapp show`](/cli/azure/functionap#az-functionapp-show) command two view the details about the hosting plan:
+    Use this [`az functionapp show`](/cli/azure/functionapp#az-functionapp-show) command two view the details about the hosting plan:
     
     ```azurecli    
     az functionapp show --name <APP_NAME> --resource-group <RESOURCE_GROUP> --query "serverFarmId"
