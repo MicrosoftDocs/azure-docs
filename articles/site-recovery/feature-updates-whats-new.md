@@ -39,7 +39,7 @@ You can use the benefits of Shared Disk for your mission-critical applications s
 
 ### Azure Site Recovery support for Azure Trusted Launch VMs (Linux OS) (preview)
 
-Azure Site Recovery support for [Azure Trusted Launch VMs](/azure/virtual-machines/trusted-launch.md) running Linux OS is in public preview. Azure Trusted Launch VMs provide foundational compute security to Azure Generation 2 VMs by enabling Secure Boot and vTPM capabilities. This public preview is available for Azure Trusted launch VMs running Linux OS. Azure Site Recovery support for Trusted launch VM running Windows OS is already generally available.  [Learn more](concepts-trusted-vm.md).
+Azure Site Recovery support for [Azure Trusted Launch VMs](/azure/virtual-machines/trusted-launch) running Linux OS is in public preview. Azure Trusted Launch VMs provide foundational compute security to Azure Generation 2 VMs by enabling Secure Boot and vTPM capabilities. This public preview is available for Azure Trusted launch VMs running Linux OS. Azure Site Recovery support for Trusted launch VM running Windows OS is already generally available.  [Learn more](concepts-trusted-vm.md).
 
 ## Updates (May 2024)
 
