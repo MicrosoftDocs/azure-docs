@@ -15,7 +15,7 @@ ms.custom: Include file
 
 <!-- For certain API Management resources, limits are set only in the Consumption tier; in other API Management classic tiers, where indicated, these resources are unlimited. However, your practical upper limit depends on service configuration including pricing tier, service capacity, number of scale units, policy configuration, API definitions and types, number of concurrent requests, and other factors.  -->
 
-Limits in the following table are effective July 2025.
+Limits in the following table are being introduced starting July 2025.
 
 To request a limit increase, create a support request from the Azure portal. For more information, see [Azure support plans](https://azure.microsoft.com/support/options/).
 
