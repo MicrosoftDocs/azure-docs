@@ -13,8 +13,6 @@ ms.date:     06/04/2025
 
 
 
-## What is Zero Trust ?
-
 Zero Trust is a security strategy. It isn't a product or a service, but an approach in designing and implementing the following set of security principles.
 
 |Principle|Description|
@@ -71,9 +69,9 @@ Traffic patterns are visualized using built-in dashboards, with flexibility to c
 
 As a first critical step to deploy Zero Trust Segmentation over existing or new Azure deployment user needs to
 
-- **Start with default deny posture**: It starts with removing or disabling all existing inbound and outbound rules that allows traffic broadly (eg., Allow All, Allow, etc.,) and adding explicit deny rules for both inbound and outbound traffic.
-
 - **Observe the patterns through Traffic Analytics**: Analyze Flow Logs to identify the traffic patterns that are essential for your workload. 
+
+- **Start with default deny posture**: It starts with removing or disabling all existing inbound and outbound rules that allows traffic broadly (eg., Allow All, Allow) and adding explicit deny rules for both inbound and outbound traffic
 
 - **Create selective allow rules**: Based on insights from Traffic Analytics, define rules that explicitly allow only the observed and necessary traffic. This approach ensures that only validated, required traffic is permitted, aligning with Zero Trust principle of Verifying explicitly.
 
