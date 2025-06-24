@@ -203,15 +203,25 @@ This section describes what to expect when a storage account is configured for g
 
 ### Alternative multi-region approaches
 
-If your application requires geo-replication across nonpaired regions, or you need more control over multi-region deployment than the native geo-redundant options provide, consider implementing a custom multi-region architecture. <!-- TODO active/active, or when geo-redundant storage limitations prevent its use (such as with premium SSD file shares) -->
+The cross-region failover capabilities of Azure Files aren't suitable for the following scenarios:
 
-Azure Files can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
+- Your storage account is in a nonpaired region.
 
-TODO
+- Your business uptime goals aren't satisfied by the recovery time or data loss that the built-in failover options provide.
 
-**Azure File Sync**: Deploy Azure File Sync with sync servers in multiple regions connected to regional file shares. This provides multi-region access with local performance while maintaining central management.
+- You need to fail over to a region that isn't your primary region's pair.
 
-**Application-level replication**: Implement custom replication logic using Azure Data Factory, AzCopy, or Azure Functions to synchronize data between file shares in different regions. This approach requires custom development and conflict resolution mechanisms.
+- You use file share types that don't support geo-redundancy. <!-- TODO reconfirm this -->
+
+- You need an active/active configuration across regions.
+
+You can design a cross-region failover solution tailored to your needs. A complete treatment of deployment topologies for Azure Files is outside the scope of this article, but you can consider a multi-region deployment model. Common custom multi-region approaches include:
+
+- **Multiple storage accounts:** Azure Files can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
+
+- **Azure File Sync**: Deploy [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) with sync servers in multiple regions connected to regional file shares. This provides multi-region access with local performance while maintaining central management.
+
+- **Application-level replication**: Implement custom replication logic using [Azure Data Factory](/azure/data-factory/introduction) or [AzCopy](/azure/storage/common/storage-use-azcopy-v10) to synchronize data between file shares in different regions. This approach requires custom development and conflict resolution mechanisms.
 
 ## Backups
 
