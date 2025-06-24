@@ -4,8 +4,8 @@ description: The Cloud-to-Cloud Migration feature (preview) in Azure Storage mov
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
-ms.topic: how-to
-ms.date: 06/18/2025
+ms.topic: quickstart
+ms.date: 06/24/2025
 ---
 
 # Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)

@@ -157,6 +157,9 @@
             - name: Check access to required FQDNs and endpoints
               displayName: network, fqdn, endpoint, urls, connections, connectivity
               href: check-access-validate-required-fqdn-endpoint.md
+        - name: RDP Multipath
+          displayName: network connectivity, connections, udp
+          href: rdp-multipath.md
         - name: RDP Shortpath
           items:
             - name: RDP Shortpath overview
@@ -425,7 +428,7 @@
         - name: Security baseline
           href: /security/benchmark/azure/baselines/virtual-desktop-security-baseline?context=/azure/virtual-desktop/context/context
         - name: Screen capture protection
-          displayName: security
+          displayName: security, scp
           href: screen-capture-protection.md
         - name: Watermarking
           displayName: security

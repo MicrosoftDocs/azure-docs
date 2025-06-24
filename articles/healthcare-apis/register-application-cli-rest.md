@@ -5,7 +5,7 @@ services: healthcare-apis
 author: chachachachami
 ms.service: azure-health-data-services
 ms.topic: tutorial
-ms.date: 05/03/2022
+ms.date: 06/09/2025
 ms.author: chrupa
 ---
 
