@@ -12,20 +12,20 @@ ms.author: spelluru
 
 An Event Hubs namespace provides a unique scoping container, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following actions:
 
-1. In the Azure portal, select **All services** in the left menu, and select **star (`*`)** next to **Event Hubs** in the **Analytics** category. Confirm that **Event Hubs** is added to **FAVORITES** in the left navigational menu.
+1. In the Azure portal, from the flyout menu, select **All services**. In the **All services** page, search for and select **Event Hubs**.
 
    :::image type="content" source="./media/create-event-hubs-namespace/select-event-hubs-menu.png" alt-text="Screenshot showing the selection of Event Hubs in the All services page.":::
 
-1. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Create** on the toolbar.
+1. In the **Event Hubs** page, select **Create**.
 
    :::image type="content" source="./media/create-event-hubs-namespace/event-hubs-add-toolbar.png" alt-text="Screenshot showing the selection of Create button on the Event hubs page.":::
 
 1. On the **Create namespace** page, take the following steps:
 
-   1. Select the **subscription** in which you want to create the namespace.
-   1. Select the **resource group** you created in the previous step.
-   1. Enter a **name** for the namespace. The system immediately checks to see if the name is available.
-   1. Select a **location** for the namespace.
+   1. Select the **Subscription** in which you want to create the namespace.
+   1. Select the **Resource group** you created in the previous step.
+   1. Enter a name for the namespace. The system immediately checks to see if the name is available.
+   1. Select a **Region** for the namespace.
    1. Choose **Basic** for the **pricing tier**. If you plan to use the namespace from **Apache Kafka** apps, use the **Standard** tier. The basic tier doesn't support Apache Kafka workloads. To learn about differences between tiers, see [Quotas and limits](../event-hubs-quotas.md), [Event Hubs Premium](../event-hubs-premium-overview.md), and [Event Hubs Dedicated](../event-hubs-dedicated-overview.md) articles. 
    1. Leave the **throughput units** (for standard tier) or **processing units** (for premium tier) settings as it is. To learn about throughput units or processing units: [Event Hubs scalability](../event-hubs-scalability.md).
    1. Select **Review + Create** at the bottom of the page.
