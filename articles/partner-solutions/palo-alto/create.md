@@ -24,8 +24,6 @@ In this section, you'll create a Palo Alto Networks resource.
 
 ### Basics tab
 
-1. In the Azure portal, create a Cloud NGFW resource by using the Marketplace. Use search to find _Cloud NGFW by Palo Alto Networks_. Select **Subscribe** and then select **Create**.
-
 1. Set the following values on the **Basics** tab.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-basics.png" alt-text="Screenshot of the Basics tab of the Create Cloud NGFW page." lightbox="media/palo-alto-create/palo-alto-basics.png":::
@@ -34,17 +32,17 @@ In this section, you'll create a Palo Alto Networks resource.
    |---------|---------|
    | **Subscription**  | Select an Azure subscription for which you have owner access. |
    | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [What is a resource group?](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group). |
-   | **Name**  | Enter the name for the Palo Alto Networks account you want to create. |
+   | **Firewall name**  | Enter a name for the firewall. |
    | **Region** | Select an appropriate region. |
-   | **Pricing Plan**     | Specified based on the selected Palo Alto Networks plan. |
+   | **Marketplace Plan**     | Select **Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service (PAYG)**. |
 
 ### Networking tab
 
-1. After providing the required information on the **Basics** tab, select **Next: Networking** to go to the **Networking** tab. 
+1. After providing the required information on the **Basics** tab, select **Next** to go to the **Networking** tab. 
 
 1. Select either **Virtual Network** or **Virtual Wan Hub**.
 
-1. Use the dropdowns to set the **Virtual Network**, **Private Subnet**, and **Public Subnet** that are associated with the Cloud NGFW deployment.
+1. Use the dropdown arrows to set the **Virtual Network**, **Private Subnet**, and **Public Subnet** that are associated with the Cloud NGFW deployment.
 
 1. For **Public IP Address Configuration**,  select either **Create New** or **Use Existing** and type in a name for **Public IP Address Name(s)**.
 
