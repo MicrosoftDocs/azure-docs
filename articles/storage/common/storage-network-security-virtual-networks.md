@@ -133,7 +133,6 @@ To apply a virtual network rule to a storage account, the user must have the app
 
 ---
 
-## Next steps
+## See also
 
-- Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
-- Dig deeper into [security recommendations for Azure Blob storage](../blobs/security-recommendations.md).
+- [Azure Storage firewall and virtual network rules](storage-network-security.md)

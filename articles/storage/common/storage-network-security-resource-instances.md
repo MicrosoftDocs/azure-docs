@@ -1,5 +1,5 @@
 ---
-title: Grant Access to Azure Storage from Resource Instances
+title: Create an resource instance network rule for Azure Storage
 description: Configure the Azure Storage firewall to accept requests from from resource instances.
 services: storage
 author: normesta
@@ -11,17 +11,13 @@ ms.author: normesta
 
 ---
 
-# Configure Azure Storage to accept requests from resource instances
+# Create an resource instance network rule for Azure Storage
 
-Put something here.
+You can enable traffic from specific Azure resource instances by creating a *resource instance network rule*. 
 
-<a id="grant-access-specific-instances"></a>
+Resource instance network rules can be added together with other network rules to control traffic to the storage account. To learn more, see [Azure Storage firewall and virtual network rules](storage-network-security.md).
 
-## Grant access from Azure resource instances
-
-In some cases, an application might depend on Azure resources that can't be isolated through a virtual network or an IP address rule. But you still want to secure and restrict storage account access to only your application's Azure resources. You can configure storage accounts to allow access to specific resource instances of trusted Azure services by creating a resource instance rule.
-
-The Azure role assignments of the resource instance determine the types of operations that a resource instance can perform on storage account data. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
+## Create a resource instance network rule
 
 ### [Portal](#tab/azure-portal)
 
@@ -147,8 +143,6 @@ az storage account network-rule list \
 
 ---
 
+## See also
 
-## Next steps
-
-- Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
-- Dig deeper into [security recommendations for Azure Blob storage](../blobs/security-recommendations.md).
+- [Azure Storage firewall and virtual network rules](storage-network-security.md)

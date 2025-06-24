@@ -103,7 +103,7 @@ You can also combine Azure roles and ACLs together to grant access. To learn mor
 
 We recommend that you [use resource instance rules to grant access to specific resources](storage-network-security-resource-instances.md).
 
-## Next steps
+## See also
 
-- Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
-- Dig deeper into [security recommendations for Azure Blob storage](../blobs/security-recommendations.md).
+- [Azure Storage firewall and virtual network rules](storage-network-security.md)
+- [Manage Network security exceptions](storage-network-security-manage-exceptions.md)

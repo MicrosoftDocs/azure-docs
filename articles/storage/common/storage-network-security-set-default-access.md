@@ -94,5 +94,5 @@ By default, storage accounts accept connections from clients on any network. You
 
 ## Next steps
 
-- Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
-- Dig deeper into [security recommendations for Azure Blob storage](../blobs/security-recommendations.md).
+- [Azure Storage firewall and virtual network rules](storage-network-security.md)
+- [Private endpoints](storage-private-endpoints.md)

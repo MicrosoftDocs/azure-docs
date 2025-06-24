@@ -1,6 +1,6 @@
 ---
-title: Manage network security exceptions
-description: Put something here.
+title: Manage network security exceptions for Azure Storage
+description: Learn how to enable traffic from an Azure service outside of the network boundary by adding a *network security exception*.
 services: storage
 author: normesta
 ms.service: azure-storage
@@ -11,9 +11,13 @@ ms.author: normesta
 
 ---
 
-# Manage Network security exceptions
+# Manage network security exceptions
 
-Something goes here.
+You can enable traffic from an Azure service outside of the network boundary by adding a *network security exception*.
+
+For a complete list of trusted Azure services, see [Trusted Azure services](storage-network-security-trusted-azure-services.md).
+
+## Add a network security exception
 
 ### [Portal](#tab/azure-portal)
 
@@ -73,9 +77,7 @@ Something goes here.
 
 ---
 
+## See also
 
-
-## Next steps
-
-- Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
-- Dig deeper into [security recommendations for Azure Blob storage](../blobs/security-recommendations.md).
+- [Azure Storage firewall and virtual network rules](storage-network-security.md)
+- [Trusted Azure services](storage-network-security-trusted-azure-services.md)

@@ -309,20 +309,20 @@ items:
           href: ../common/storage-network-security-set-default-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Firewall and virtual networks
           items:
-          - name: Overview
+          - name: Firewall and virtual networks
             href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Restrictions and considerations
             href: ../common/storage-network-security-limitations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Allow virtual networks
+          - name: Virtual network rules
             href: ../common/storage-network-security-virtual-networks.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Allow IP address ranges
+          - name: IP network rules
             href: ../common/storage-network-security-ip-address-range.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Allow resource instances
+          - name: Resource instance rules
             href: ../common/storage-network-security-resource-instances.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Manage Exceptions
+          - name: Network rule exceptions
             href: ../common/storage-network-security-manage-exceptions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Trusted Azure services
-            href: ../common/storage-network-security-trusted-microsoft-services.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            href: ../common/storage-network-security-trusted-azure-services.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Network security perimeter
           href: ../common/storage-network-security-perimeter.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Private endpoints

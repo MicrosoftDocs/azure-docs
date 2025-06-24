@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Storage firewalls and virtual networks
+title: Azure Storage firewall and virtual network rules
 description: Configure layered network security for your storage account by using the Azure Storage firewall.
 services: storage
 author: normesta
@@ -11,7 +11,7 @@ ms.author: normesta
 
 ---
 
-# Configure Azure Storage firewalls and virtual networks
+# Azure Storage firewall and virtual network rules
 
 You can disable public network access to your storage account, and permit traffic only if it originates from sources that you specify. Sources can include [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) subnets, public IP address ranges, specific Azure resource instances or traffic from trusted Azure services. Clients that make requests from allowed sources must also meet the authorization requirements of the storage account. To learn more about account authorization, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
@@ -72,9 +72,9 @@ To allow access to your service resources, you must allow these public IP addres
 
 ## Azure resource instances
 
-Some Azure resources can't be isolated through a virtual network or IP address rule. You can enable traffic from those resources by creating a *resource instance rule*. The Azure role assignments of the resource instance determine the types of operations that a resource instance can perform on storage account data. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
+Some Azure resources can't be isolated through a virtual network or IP address rule. You can enable traffic from those resources by creating a *resource instance network rule*. The Azure role assignments of the resource instance determine the types of operations that a resource instance can perform on storage account data. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
 
-To learn how to configure a resource instance rule, see [Configure Azure Storage to accept requests from resource instances](storage-network-security-resource-instances.md).
+To learn how to configure a resource instance rule, see [Create an resource instance network rule for Azure Storage](storage-network-security-resource-instances.md).
 
 <a id="grant-access-to-trusted-azure-services"></a>
 <a id="manage-exceptions"></a>
@@ -88,7 +88,7 @@ To learn how to configure a resource instance rule, see [Configure Azure Storage
 
 If you need to enable traffic from an Azure service outside of the network boundary, you can add a *network security exception*. This can be useful in cases where an Azure service operates from a network that you can't include in your virtual network or IP network rules. For example, some services might need to read resource logs and metrics in your account. You can allow read access for the log files, metrics tables, or both by creating a network rule exception. These services connect to your storage account by using strong authentication.
 
-To learn more about how to add a network security exception, see [Manage Network security exceptions](storage-network-security-manage-exceptions.md).
+To learn more about how to add a network security exception, see [Manage network security exceptions](storage-network-security-manage-exceptions.md).
 
 For a complete list of Azure services you can enable traffic for, see [Trusted Azure services](storage-network-security-trusted-azure-services.md).
 
@@ -96,7 +96,12 @@ For a complete list of Azure services you can enable traffic for, see [Trusted A
 
 Before implementing network security for your storage accounts, make sure to review all restrictions and considerations. For a complete list, see [Restrictions and limitations for Azure Storage firewall and virtual network configuration](storage-network-security-limitations.md).
 
-## Next steps
+## See also
 
-- Learn more about [Azure network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
-- Dig deeper into [security recommendations for Azure Blob storage](../blobs/security-recommendations.md).
+- [Azure Storage network security overview](azure-storage-network-security-overview.md)
+- [Restrictions and considerations](storage-network-security-limitations.md)
+- [Virtual network rules](storage-network-security-virtual-networks.md)
+- [IP network rules](storage-network-security-ip-address-range.md)
+- [Resource instance rules](storage-network-security-resource-instances.md)
+- [Network rule exceptions](storage-network-security-manage-exceptions.md)
+- [Trusted Azure services](storage-network-security-trusted-azure-services.md)
