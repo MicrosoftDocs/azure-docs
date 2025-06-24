@@ -13,13 +13,13 @@
   - name: Best Practices
     expanded: false
     items:
-      - name: Role-based persona Model
+      - name: Role-Based Persona Model
         href: roles-interfaces.md
-      - name: Publisher tenants, subscriptions, regions and preview
+      - name: Publisher Tenants, Subscriptions and Regions
         href: publisher-resource-preview-management.md
       - name: Helm Package Requirements
         href: helm-requirements.md
-      - name: Onboarding and deployment considerations
+      - name: Onboarding and Deployment Considerations
         href: best-practices-onboard-deploy.md
       - name: Workload Configuration Management 
         href: configuration-guide.md
