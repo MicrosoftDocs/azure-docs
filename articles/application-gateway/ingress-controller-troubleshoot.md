@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 01/31/2024
 ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to troubleshoot the Application Gateway Ingress Controller installation, so that I can ensure it is configured correctly and resolve any issues affecting application accessibility.
 ---
 
 # Troubleshoot common questions or issues with Ingress Controller
