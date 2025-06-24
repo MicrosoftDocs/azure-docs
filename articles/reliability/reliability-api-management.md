@@ -33,6 +33,9 @@ The reliability model differs based on your service tier:
 
 Scale units within an instance work together to process requests, with automatic load balancing between available units. If a unit becomes unavailable, remaining units continue to handle traffic, though with potentially reduced capacity.
 
+> [!NOTE]
+> Some tiers of Azure API Management support [self-hosted gateways](../api-management/self-hosted-gateway-overview.md), which you can run on your own infrastructure. When you use self-hosted gateways, you're responsible for configuring them to meet your reliability requirements. Self-hosted gateways are beyond scope of this article.
+
 ## Production deployment recommendations
 
 - Use Premium tier (classic) for production workloads that require high availability. The Premium tier (classic) provides zone redundancy and multi-region deployment capabilities.
@@ -132,7 +135,7 @@ This section describes what to expect when Azure API Management instances are co
 
 - **Traffic routing between zones:** During normal operations, traffic is routed between all of your available API Management units across all selected availability zones.
 
-- **Data replication between zones:** The following data is stored and replicated by API Management:
+- **Data replication between zones:** The following data is stored and replicated by Azure API Management:
     - *Gateway configuration*, such as APIs and policy definitions, are regularly synchronized between the availability zones you select for the instance. Propagation of updates between the availability zones normally takes less than 10 seconds.
     - *Data in the internal cache*, if you use the internal cache provided by Azure API Management. Cache entries are sharded between availability zones.
     - *Rate limit counters*, if you use rate limiting capabilities provided by Azure API Management. Rate limit counters are asynchronously replicated between availability zones.
@@ -181,9 +184,11 @@ For zonal instances, there's no way to simulate an outage of the availability zo
 
 ::: zone pivot="premium-v2,developer,basic,standard,consumption"
 
-Azure API Management doesn't support multi-region deployments in the Premium v2, Developer, Basic, and Standard tiers. These tiers are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that availability zones offer.
+Azure API Management doesn't support multi-region deployments in the Premium v2, Developer, Basic, and Standard tiers:
+- The Premium v2 tier with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
+- The Developer, Basic, and Standard tiers are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that availability zones offer.
 
-To achieve high availability and multi-region support, consider using the Premium (classic) tier, which supports availability zones and multi-region deployments. To learn more about the Premium (classic) tier, select it at the top of this page.
+To achieve high availability and zone redundancy, consider using the Premium (classic) tier, which supports availability zones and multi-region deployments. To learn more about the Premium (classic) tier, select it at the top of this page. To upgrade your instance to Premium tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 ::: zone-end
 
@@ -201,7 +206,7 @@ When adding a region, you configure:
 
 ### Region support
 
-You can create multi-region deployments with any Azure region that supports Azure API Management. To see which regions support multi-region deployments, see [Product Availability by Region](/explore/global-infrastructure/products-by-region/table).
+You can create multi-region deployments with any Azure region that supports Azure API Management. To see which regions support multi-region deployments, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ### Requirements
 
@@ -209,11 +214,11 @@ You must use the Premium (classic) tier to enable multi-region support. To upgra
 
 ### Considerations
 
-- Only the gateway component of your API Management instance is replicated to multiple regions. The instance's management plane and developer portal remain hosted only in the primary region where you originally deployed the service.
+- **Gateway only:** Only the gateway component of your API Management instance is replicated to multiple regions. The instance's management plane and developer portal remain hosted only in the primary region where you originally deployed the service.
 
-- If you want to configure a secondary location for your API Management instance when it's deployed (injected) in a virtual network, the VNet and subnet region should match with the secondary location you're configuring. If you're adding, removing, or enabling the availability zone in the primary region, or if you're changing the subnet of the primary region, then the VIP address of your API Management instance will change. For more information, see [IP addresses of Azure API Management service](/azure/api-management/api-management-howto-ip-addresses#changes-to-ip-addresses). However, if you're adding a secondary region, the primary region's VIP won't change because every region has its own private VIP.
+- **Network requirements:** If you want to configure a secondary location for your API Management instance when it's deployed (injected) in a virtual network, the VNet and subnet region should match with the secondary location you're configuring. If you're adding, removing, or enabling the availability zone in the primary region, or if you're changing the subnet of the primary region, then the VIP address of your API Management instance will change. For more information, see [IP addresses of Azure API Management service](/azure/api-management/api-management-howto-ip-addresses#changes-to-ip-addresses). However, if you're adding a secondary region, the primary region's VIP won't change because every region has its own private VIP.
 
-- The gateway in each region (including the primary region) has a regional DNS name that follows the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net`, for example `https://contoso-westus2-01.regional.azure-api.net`.
+- **DNS names:** The gateway in each region (including the primary region) has a regional DNS name that follows the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net`, for example `https://contoso-westus2-01.regional.azure-api.net`.
 
 ### Cost
 
@@ -241,6 +246,8 @@ This section describes what to expect when Azure API Management instances are co
 
 - **Data replication between regions:** Gateway configuration, such as APIs and policy definitions, are regularly synchronized between the primary and secondary regions you add. Propagation of updates to the regional gateways normally takes less than 10 seconds.
 
+    Data in the internal cache, and rate limit counters, are region-specific and aren't replicated between regions.
+
 ### Region-down experience
 
 This section describes what to expect when Azure API Management instances are configured with multi-region support and there's a region outage.
@@ -249,9 +256,11 @@ This section describes what to expect when Azure API Management instances are co
 
 - **Active requests**: Any active requests are dropped and should be retried by the client.
 
-- **Expected data loss**: Azure API Management doesn't store data.
+- **Expected data loss**: Azure API Management doesn't store data, with the exception of configuration, a cache, and rate limit counters.
 
     Configuration changes are replicated to each region within approximately 10 seconds. If an outage of your primary region occurs, you might lose configuration changes that haven't been replicated.
+
+    Data in the internal cache, and rate limit counters, are region-specific and aren't replicated between regions.
 
 - **Expected downtime**: If the primary region goes offline, the API Management management plane and developer portal become unavailable, but secondary regions continue to serve API requests using the most recent gateway configuration. No gateway downtime is expected during a regional failover.
 
@@ -280,6 +289,8 @@ For more information on backup in Azure API Management, see [How to implement di
 
 ## Reliability during service maintenance
 
+<!-- Anastasia: Leaving it with you to decide whether to wrap this section in a zone pivot. It only applies to a few tiers. -->
+
 Azure API Management performs regular service upgrades, as well as other forms of maintenance.
 
 In the Basic, Standard, and Premium (classic) tiers, you can customize when in the update process your instance receives an update. If you need to validate the effect of upgrades on your workload, consider configuring a test instance to receive updates early in the cycle, and set your production instance to receive updates late in the cycle. You can also specify a maintenance window, which is the time of the day you want the instance to apply service updates.
@@ -294,14 +305,8 @@ When you deploy an API Management instance in multiple availability zones or reg
 
 ## Related content
 
-- [Reliability in Azure](/azure/availability-zones/overview)
 - [Disaster recovery and business continuity for API Management](/azure/api-management/api-management-howto-disaster-recovery-backup-restore)
 - [Use availability zones in Azure API Management](/azure/api-management/zone-redundancy)
 - [Multi-region deployment of API Management](/azure/api-management/api-management-howto-deploy-multi-region)
-- [Azure API Management networking options](/azure/api-management/api-management-using-with-vnet)
 - [Monitoring Azure API Management](/azure/api-management/api-management-howto-use-azure-monitor)
 - [Azure API Management capacity planning](/azure/api-management/api-management-capacity)
-- [Self-hosted gateway overview](/azure/api-management/self-hosted-gateway-overview)
-- [Azure API Management security controls](/azure/api-management/security-controls-policy)
-- [Azure Well-Architected Framework - Reliability pillar](/azure/well-architected/reliability/)
-- [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/availability-zones/cross-region-replication-azure)
