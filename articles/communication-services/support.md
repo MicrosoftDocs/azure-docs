@@ -21,7 +21,7 @@ You can explore and review many [support options and plans](https://azure.micros
 
 ## Post a question to Microsoft Q&A
 
-For quick and reliable answers to product or technical questions you might have about Azure Communication Services, engage with us on [Microsoft Q&A](/answers/products/azure-communication-services.html). You can get answers from:
+For quick and reliable answers to product or technical questions you might have about Azure Communication Services, engage with us on [Microsoft Q&A](/answers/tags/128/azure-communication-services). You can get answers from:
 
 - Microsoft engineers
 - Azure Most Valuable Professionals (MVPs)
