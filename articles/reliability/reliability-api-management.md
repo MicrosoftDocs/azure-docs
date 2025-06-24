@@ -105,13 +105,13 @@ You must use the Premium (classic) tier to configure availability zone support. 
     
     To determine the number of units that provide your required gateway performance, use [capacity metrics](/azure/api-management/api-management-capacity) and your own testing. For more information about scaling and upgrading your service instance, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale).
 
-- **Autoscaling:** If you enable availability zones on an an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
+- **Autoscaling:** If you enable availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 
 - **IP address requirements:** When you're manually configuring zone redundancy on an API Management instance that's deployed in an external or internal virtual network, you must specify a public IP address resource for the instance to use. In an internal virtual network, the public IP address is used only for management operations, not for API requests. [Learn more about IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). <!-- Dan: Please reverify this paragraph. Also, does this information apply to zonal instances too? If so, then the first sentence should say "enabling availability zone support" instead of "enabling zone redundancy". -->
 
 ### Cost
 
-Regardless of your availability zone configuration, if you add more units, it can incurs additional costs. For information, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+Regardless of your availability zone configuration, if you add more units, it can incur additional costs. For information, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 ### Configure availability zone support
 
@@ -123,7 +123,7 @@ Regardless of your availability zone configuration, if you add more units, it ca
 
     [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-    When changing availability zone configuration, changes can take 15 to 45 minutes to apply. The API Management gateway can continue to handle API requests during this time.
+    When you change availability zone configuration, changes can take 15 to 45 minutes to apply. The API Management gateway can continue to handle API requests during this time.
 
     Changing the availability zone configuration triggers a public and private [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-ip-addresses).
 
@@ -199,7 +199,7 @@ The failback behavior depends on the availability zone configuration that your i
 
 ### Testing for zone failures
 
-The options for testing for zone failures depends on the availability zone configuration that your instance uses:
+The options for testing for zone failures depend on the availability zone configuration that your instance uses:
 
 - For instances that use automatic availability zone support with more than one unit, and for zone-redundant instances, the Azure API Management platform manages traffic routing, failover, and failback. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
 
