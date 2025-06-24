@@ -52,7 +52,7 @@ The following are alerts from Azure Backup solutions are:
 
 For Azure workload backup solutions, such as SQL and SAP HANA, log backups can be generated frequently (up to every 15 minutes according to the policy). So, you might encounter frequent log backup failures (up to every 15 minutes). In this scenario, the end user will be overwhelmed if an alert is raised for each failure occurrence.
 
-So, an alert is sent for the first occurrence, and if the later failures are because of the same root cause, then further alerts aren't generated. The first alert is updated with the failure count. But if you've inactivated the alert, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups.
+So, an alert is sent for the first occurrence, and if the later failures are because of the same root cause, then further alerts aren't generated. The first alert is updated with the failure count. But if you've deactivated the alert, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups.
 
 On-demand backup jobs aren't consolidated.
 
@@ -94,9 +94,9 @@ If the frequency was set to an hourly digest, and an alert was raised and resolv
 
 ## Inactivating alerts
 
-To inactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to inactivate. This opens up a screen that shows detailed information about the alert, with an **Inactivate** button at the top. Selecting this button will change the status of the alert to **Inactive**. You may also inactivate an alert by right-clicking the list item corresponding to that alert and selecting **Inactivate**.
+To deactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to deactivate. This opens up a screen that shows detailed information about the alert, with an **Inactivate** button at the top. Selecting this button will change the status of the alert to **Inactive**. You may also deactivate an alert by right-clicking the list item corresponding to that alert and selecting **Inactivate**.
 
-:::image type="content" source="./media/backup-azure-monitoring-laworkspace/vault-alert-inactivate.png" alt-text="Screenshot showing how to inactivate alerts via Backup center.":::
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/vault-alert-deactivate.png" alt-text="Screenshot showing how to deactivate alerts via Backup center.":::
 
 
 
