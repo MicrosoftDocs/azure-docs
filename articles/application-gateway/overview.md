@@ -9,6 +9,7 @@ ms.custom: mvc, portfolio-consolidation-2025
 ms.date: 09/27/2023
 ms.author: mbender
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
+# Customer intent: "As an IT administrator, I want to understand how to use a web traffic load balancer for managing application routing, so that I can optimize traffic distribution based on HTTP request attributes and enhance application performance."
 ---
 
 # What is Azure Application Gateway?

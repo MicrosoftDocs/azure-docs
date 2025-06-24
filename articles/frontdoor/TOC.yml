@@ -81,8 +81,6 @@
       href: front-door-rules-engine-actions.md?pivots=front-door-standard-premium
     - name: Configure a rule set
       href: standard-premium/how-to-configure-rule-set.md
-    - name: Configure security headers
-      href: front-door-security-headers.md?pivots=front-door-standard-premium
     - name: Configure delivery rules
       href: standard-premium/front-door-add-rules-cli.md
     - name: Rules engine scenarios
@@ -275,23 +273,21 @@
     href: compare-cdn-front-door-price.md
 - name: Troubleshoot
   items:
-  - name: Front Door
-    items:
-    - name: Troubleshooting with RefString
-      href: refstring.md
-    - name: Troubleshooting Front Door issues
-      href: troubleshoot-issues.md
-    - name: Troubleshooting Front Door performance issues
-      href: troubleshoot-performance-issues.md
-    - name: Allowed certificate authorities
-      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
-    - name: File compression
-      href: standard-premium/troubleshoot-compression.md
-    - name: Subscription offers and bandwidth throttling
-      href: standard-premium/subscription-offers.md
-    - name: Questions & answers
-      href: /answers/tags/96/azure-front-door
-- name: Legacy CDN
+  - name: Troubleshoot with RefString
+    href: refstring.md
+  - name: Troubleshoot Front Door issues
+    href: troubleshoot-issues.md
+  - name: Troubleshoot Front Door performance issues
+    href: troubleshoot-performance-issues.md
+  - name: Troubleshoot file compression
+    href: standard-premium/troubleshoot-compression.md
+  - name: Allowed certificate authorities
+    href: https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT
+  - name: Subscription offers and bandwidth throttling
+    href: standard-premium/subscription-offers.md
+  - name: Questions & answers
+    href: /answers/tags/96/azure-front-door
+- name: CDN and Front Door (classic)
   items:
   - name: Get started
     items:
@@ -428,7 +424,7 @@
       - name: File compression
         href: ../cdn/cdn-troubleshoot-compression.md?toc=/azure/frontdoor/toc.json
       - name: Allowed certificate authorities
-        href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
+        href: https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT
       - name: Subscription offers and bandwidth throttling
         href: ../cdn/subscription-offerings.md?toc=/azure/frontdoor/toc.json
       - name: Questions & answers
