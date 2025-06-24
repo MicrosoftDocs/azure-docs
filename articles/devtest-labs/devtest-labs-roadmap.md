@@ -10,23 +10,23 @@ ms.date: 06/24/2025
 #customer intent: As a customer, I want to understand upcoming features and enhancements in Azure DevTest Labs so that I can plan and optimize development and deployment strategies.
 
 ---
-# Azure DevTest Labs Roadmap 
+# Azure DevTest Labs roadmap
 
-This roadmap outlines Microsoft's planned feature releases to support enterprise development and testing teams with Azure DevTest Labs. DevTest Labs enables teams to self-serve customized test machines in the Cloud while adhering to governance policies. This list highlights the key features we're developing over the next six months. Some might be previews and evolve based on feedback before general release. We always consider your input, so timing and priorities might change. 
+This article outlines Microsoft's planned feature releases to support enterprise development and testing teams with Azure DevTest Labs. DevTest Labs lets teams self-serve customized test machines in the cloud while following governance policies. This list highlights the key features we're developing in the next six months. Some features might be previews and can change based on feedback before general release. We value your input, so timing and priorities might change.
 
-Key DevTest Labs deliverables can be grouped under the following themes: 
+Key DevTest Labs deliverables group under these themes:
 
 - [Ready-to-test virtual machines](#ready-to-test-virtual-machines)
-- [Enterprise management](#enterprise-management) 
+- [Enterprise management](#enterprise-management)
 - [Performance and reliability](#performance-and-reliability) 
 
 ## Ready-to-test virtual machines
 
 The fundamental goal of DevTest Labs is to provide a seamless, intuitive experience that empowers development and testing teams. DevTest Labs enables you to swiftly access ready-to-test machines for deploying and validating the latest versions or features of any version of your application. We're dedicated to advancing this vision by continuously listening to our customers and investing in innovative technologies to enhance machine customization and optimize testing efficiency. 
 
-- **Lab-level Secrets:** This feature allows platform engineers to securely store and centrally manage sensitive information—like admin passwords or API keys—at the lab level. This enables teams to share secrets across VMs without hardcoding them, simplifies automation, and improves security and governance in multi-user labs. 
+- **Lab-level Secrets:** This feature lets platform engineers securely store and centrally manage sensitive information, like admin passwords or API keys, at the lab level. Teams can share secrets across VMs without hardcoding them, which simplifies automation and improves security and governance in multi-user labs. 
 
-- **Multiple Shared Image Galleries:** This feature allows lab owners to attach more than one shared image gallery (SIG) to a DevTest Lab, enabling platform engineering teams to better organize images by team, product, or specific use cases. It improves governance, simplifies image maintenance, and gives teams more flexibility in managing and accessing the right VM images for their workflows. 
+- **Multiple Shared Image Galleries:** This feature lets lab owners attach more than one shared image gallery (SIG) to a DevTest Lab. Platform engineering teams can better organize images by team, product, or use case. This approach improves governance, simplifies image maintenance, and gives teams more flexibility in managing and accessing the right VM images for their workflows. 
 
 - **Modify VM expiration date in the Azure portal:** This feature will allow users to easily update the expiration date of their virtual machines directly from the Azure portal. While already supported via API, this enhancement brings a user-friendly interface to manage VM lifecycles more intuitively, helping teams reduce costs and clean up unused resources without needing manual API calls. 
 
