@@ -3,7 +3,7 @@ title: What is load balancing and content delivery?
 description: Learn about load balancing and content delivery in Azure, and the services that can help you optimize the performance and reliability of your web applications.
 ms.service: azure-load-balancer
 ms.topic: article
-ms.date: 04/28/2025
+ms.date: 06/24/2025
 ms.author: mbender
 author: mbender-ms
 ms.custom: portfolio-consolidation-2025

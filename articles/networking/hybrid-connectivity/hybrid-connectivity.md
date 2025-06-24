@@ -3,7 +3,7 @@ title: What is hybrid connectivity?
 description: Learn about hybrid connectivity in Azure, and the services that can help you connect and maintain resiliency with your Azure resources.
 ms.service: azure-virtual-network
 ms.topic: conceptual
-ms.date: 04/24/2025
+ms.date: 06/24/2025
 ms.author: cherylmc
 author: cherylmc
 ---
@@ -82,6 +82,8 @@ For more information about Azure Virtual WAN, see [Virtual WAN overview](../../v
 ## Azure portal experience
 
 The Azure portal provides a unified experience for [managing hybrid connectivity](https://go.microsoft.com/fwlink/?linkid=2313683) services. The portal provides a guided experience for setting up a Site-to-Site VPN connection and an ExpressRoute connection from your on-premises network to Azure.
+
+:::image type="content" source="media/hybrid-connectivity/hybrid-services-portal.png" alt-text="Screenshot of hybrid connectivity hub with service selections." lightbox="media/hybrid-connectivity/hybrid-services-portal-expanded.png":::
 
 The hybrid connectivity hub page provides a consolidated view of all Azure VPN Gateway, Azure ExpressRoute, and Azure Virtual WAN resources deployed in your subscription. From this single view, you can select and manage the specific resource you need.
 

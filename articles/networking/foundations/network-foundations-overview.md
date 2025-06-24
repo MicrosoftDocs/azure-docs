@@ -2,11 +2,11 @@
 title: Azure network foundation services overview
 description: Learn about Azure network foundation services.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: overview
-ms.date: 04/01/2025
-ms.author: greglin
+ms.date: 06/24/2025
+ms.author: allensu
 # Customer intent: As an administrator, I want to learn about Azure's foundation services.
 ---
 
