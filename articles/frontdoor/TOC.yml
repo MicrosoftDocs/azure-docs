@@ -271,16 +271,16 @@
     href: compare-cdn-front-door-price.md
 - name: Troubleshoot
   items:
-  - name: Troubleshooting with RefString
+  - name: Troubleshoot with RefString
     href: refstring.md
-  - name: Troubleshooting Front Door issues
+  - name: Troubleshoot Front Door issues
     href: troubleshoot-issues.md
-  - name: Troubleshooting Front Door performance issues
+  - name: Troubleshoot Front Door performance issues
     href: troubleshoot-performance-issues.md
+  - name: Troubleshoot file compression
+    href: standard-premium/troubleshoot-compression.md
   - name: Allowed certificate authorities
     href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
-  - name: File compression
-    href: standard-premium/troubleshoot-compression.md
   - name: Subscription offers and bandwidth throttling
     href: standard-premium/subscription-offers.md
   - name: Questions & answers
