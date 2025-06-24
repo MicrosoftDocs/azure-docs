@@ -7,6 +7,7 @@ ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/21/2025
 ms.author: kendownie
+# Customer intent: As a Linux user, I want to mount Azure file shares over SMB, so that I can access and manage files stored in Azure directly from my Linux environment while considering security best practices.
 ---
 
 # Mount SMB Azure file shares on Linux clients

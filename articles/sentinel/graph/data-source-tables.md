@@ -18,7 +18,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 
 ## Azure Resource Graph (ARG) tables
 
-### ARG resources
+### ARGResources
 
 | Property                  | Parquet Type     | Kusto Type  | SQL Type       | Description                                         |
 |---------------------------|------------------|-------------|----------------|-----------------------------------------------------|
@@ -48,7 +48,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | _SnapshotTime             | TimestampMicros  | DateTime    | DATETIME2(7)   | Timestamp when the snapshot was created             |
 | _ReceivedTime             | TimestampMicros  | DateTime    | DATETIME2(7)   | Timestamp when the data was received by the system  |
 
-### ARG resource containers
+### ARGResourceContainers
 
 | Property                  | Parquet Type     | Kusto Type  | SQL Type       | Description                                         |
 |---------------------------|------------------|-------------|----------------|-----------------------------------------------------|
@@ -77,7 +77,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | _SnapshotTime             | TimestampMicros  | DateTime    | DATETIME2(7)   | Timestamp when the snapshot was created             |
 | _ReceivedTime             | TimestampMicros  | DateTime    | DATETIME2(7)   | Timestamp when the data was received by the system  |
 
-### ARG authorization resources
+### ARGAuthorizationResources
 
 | Property                  | Parquet Type     | Kusto Type  | SQL Type       | Description                                         |
 |---------------------------|------------------|-------------|----------------|-----------------------------------------------------|
@@ -109,7 +109,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 
 ## Microsoft Entra ID asset data tables
 
-### Microsoft Entra applications
+### EntraApplications
 
 | Property                   | Parquet Type     | Kusto Type  | SQL Type       | Descriptions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |----------------------------|------------------|-------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -133,7 +133,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | _ReceivedTime              | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp (in microseconds) when the data was received by the system. Helps track data ingestion latency.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | TimeGenerated              | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp (in microseconds) when the data was originally generated at the source. Important for event sequencing and time-based analytics.                                                                                                                                                                                                                                                                                                                                                                                        |
 
-### Microsoft Entra group memberships
+### EntraGroupMemberships
 
 | Property        | Parquet Type     | Kusto Type  | SQL Type       | Description                                                                                                                                     |
 |-----------------|------------------|-------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -145,7 +145,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | _ReceivedTime   | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp (in microseconds) when the data was received by the system. Helps track data ingestion latency.                                   |
 | TimeGenerated   | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp (in microseconds) when the data was originally generated at the source. Important for event sequencing and time-based analytics.  |
 
-### Microsoft Entra groups
+### EntraGroups
 
 | Property                       | Parquet Type     | Kusto Type  | SQL Type       | Description                                                                                                                                                                                                                                                                                                                                                                 |
 |--------------------------------|------------------|-------------|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -183,7 +183,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | _ReceivedTime                  | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp (in microseconds) when the data was received by the system. Helps track data ingestion latency.                                                                                                                                                                                                                                                               |
 | TimeGenerated                  | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp (in microseconds) when the data was originally generated at the source. Important for event sequencing and time-based analytics.                                                                                                                                                                                                                              |
 
-### Microsoft Entra members
+### EntraMembers
 
 | Property         | Parquet Type      | Kusto Type   | SQL Type        | Description                                                                                                                      |
 |------------------|-------------------|--------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------|
@@ -197,7 +197,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | _ReceivedTime    | TimestampMicros   | DateTime     | DATETIME2(7)    | Timestamp indicating when the data was ingested into the system or data lake.                                                    |
 | TimeGenerated    | TimestampMicros   | DateTime     | DATETIME2(7)    | Timestamp when the data was originally generated at the source. For snapshot data, this is typically the same as _SnapshotTime.  |
 
-### Microsoft Entra organizations
+### EntraOrganizations
 
 | Property                             | Parquet Type     | Kusto Type  | SQL Type       | Description                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------------------|------------------|-------------|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -225,7 +225,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | _ReceivedTime                        | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp (in microseconds) when the data was received by the system. Helps track data ingestion latency.                                                                                                                                                                                                                                          |
 | TimeGenerated                        | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp (in microseconds) when the data was originally generated at the source. Important for event sequencing and time-based analytics.                                                                                                                                                                                                         |
 
-### Microsoft Entra service principals
+### EntraServicePrincipals
 
 | Property                            | Parquet Type     | Kusto Type  | SQL Type       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |-------------------------------------|------------------|-------------|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -254,7 +254,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | _ReceivedTime                       | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp (in microseconds) when the data was received by the system. Helps track data ingestion latency.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | TimeGenerated                       | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp (in microseconds) when the data was originally generated at the source. Important for event sequencing and time-based analytics.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
-### Microsoft Entra users
+### EntraUsers
 
 | Property                         | Parquet Type     | Kusto Type  | SQL Type       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |----------------------------------|------------------|-------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -318,7 +318,7 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 
 ## Microsoft 365 asset data tables
 
-### SharePoint sites and lists
+### SharePointSitesAndLists
 
 | Property              | Parquet Type     | Kusto Type | SQL Type      | Description                                                                                   |
 |-----------------------|------------------|------------|---------------|-----------------------------------------------------------------------------------------------|
