@@ -90,9 +90,21 @@ The ingestion service strictly enforces the [STAC specification](./stac-overview
     *   For single-item ingestion, the STAC Item JSON **must** include the `collection` field, with its value set to the ID of the target collection in your GeoCatalog.
 3.  **Format Datetime:** Verify that all `datetime` fields conform to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard (for example, `YYYY-MM-DDTHH:MM:SSZ`). The `pystac` library provides utilities to format datetimes correctly.
 4.  **Check for Invalid Characters and Lengths:**
-    *   STAC `Collection IDs`, `Item IDs`, and `Asset keys` must not contain the following characters: `-`, `_`, `+`, `(`, `)`, and `.`.
-    *   `Item IDs` must be fewer than 150 characters.
-    *   `Asset keys` must be fewer than 256 characters.
+      * STAC `Item IDs`, and `Asset keys`:
+         * Must only contain the following characters:
+            * Letters: `A-Z`, `a-z`
+            * Digits: `0-9`
+            * Symbols: ``-``, ``_``, ``+``, `,`, `(`, `)`, `.`
+         * All other characters are invalid. 
+         *   `Item IDs` must be fewer than 150 characters.
+         *   `Asset keys` must be fewer than 256 characters.
+      * STAC `Collection IDs`:
+         * Must only use contain the following characters:
+            * Letters: `A-Z`, `a-z`
+            * Digits: `0-9`
+            * Symbols: ``-``, ``_``, `.`
+         * All other characters are invalid
+
 5.  **Retry Ingestion:** After correcting the STAC metadata, try the ingestion again.
 
 ### Solution 2.2: Simplify STAC extensions
