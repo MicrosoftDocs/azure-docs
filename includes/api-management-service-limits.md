@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 06/14/2024
+ms.date: 06/24/2025
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -34,10 +34,12 @@ To request a limit increase, create a support request from the Azure portal. For
 | APIs (including revisions) | 50 | 100 | 100 | 100 | 100 |
 | API releases | 100 | 100 | 100 | 100 | 100 |
 | API operations | 1,000 | 1,000 | 1,000 | 1,000 | 1,000 |
-| API operations per API | 200 | 200 | 200 | 200 | 200 |
+| API operations per API | 100 | 100 | 100 | 100 | 100 |
 | API version sets | 100 | 100 | 100 | 100 | 100 |
-| API tag descriptions | 100,000 | 100,000 | 100,000 | 100,000 | 100,000 |
-| API tag descriptions per API | 75,000 | 75,000 | 75,000 | 75,000 | 75,000 |
+| API tags | 100 | 100 | 100 | 100 | 100 |
+| API tags per API | 100 | 100 | 100 | 100 | 100 |
+| API tag descriptions | 100 | 100 | 100 | 100 | 100 |
+| API tag descriptions per API | 100 | 100 | 100 | 100 | 100 |
 | APIs per product | 100 | 100 | 100 | 100 | 100 |
 | Backends | 100 | 100 | 100 | 100 | 100 |
 | Products | 100 | 100 | 100 | 100 | 100 |
@@ -67,7 +69,7 @@ To request a limit increase, create a support request from the Azure portal. For
 | Self-hosted gateways<sup>3</sup> | N/A | 25 | N/A | N/A | 25 |
 | OpenID Connect providers | 10 | 10 | 10 | 10 | 10 |
 | Active WebSocket connections per unit<sup>4</sup> | N/A | 2,500 | 5,000 | 5,000 | 5,000 |
-| Tags | 100,000 | 100,000 | 100,000 | 100,000 | 100,000 |
+| Tags | 100| 100 | 100 | 100 | 100 |
 | Tags per product | 100 | 100 | 100 | 100 | 100 |
 | Credential providers| 1,000 | 1,000 | 1,000 | 1,000 | 1,000 |
 | Connections per credential provider| 10,000 | 10,000 | 10,000 | 10,000 | 10,000 |
