@@ -4,7 +4,7 @@ description: Learn how to enable Active Directory Domain Services authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/10/2025
+ms.date: 06/24/2025
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 # Customer intent: As an IT administrator, I want to enable Active Directory Domain Services authentication for Azure file shares, so that our domain-joined Windows virtual machines can securely access and manage file shares using existing AD credentials.
@@ -173,6 +173,12 @@ The cmdlets should return the key value. Once you have the kerb1 key, create eit
    ```powershell
    Set-ADUser -Identity $UserSamAccountName -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<DNSRoot>
    ```
+> [!IMPORTANT]
+> ** Do **not** sync users with invalid **userPrincipalName (UPN)** values. UPNs must not contain special characters such as `/`, spaces, or other unsupported symbols.
+> Attempting to sync users with invalid UPNs (i.e. using `/` in the username) will result in Azure AD Connect errors.
+> If such identities exist in your on-premises directory, either:
+> - Update the UPN to a valid format (e.g., `user@domain.com`), **or**
+> - Exclude the user from synchronization using filtering rules in Azure AD Connect.
 
 3. Set the AD account password to the value of the kerb1 key.
 
