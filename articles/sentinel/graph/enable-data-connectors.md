@@ -39,12 +39,12 @@ To enable and manage data connectors in the Microsoft Sentinel data lake, you ne
 
 1. Enable Data Connectors
 
-    - Data connectors are automatically enabled on login, if the user has the right permissions. Disconnect from the Asset home page to disable ingesting data. Reconnect to re-enable data ingestion. (Manual disonnect is not yet available for Microsoft Entra ID.)
+    - Data connectors are automatically enabled on login, if the user has the right permissions. Disconnect or reconnect from the Asset home page (not yet available for Microsoft Entra ID.). Enable or disable ingesting data.
     - Review prerequisites for each data connector to see permission requirements.
 
     :::image type="content" source="./media/enable-data-connectors/connect.png" alt-text="Screenshot of asset home page with cennect button.":::
 
 1. Find and Manage Data
 
-    - Use the Table Management documentation for details on tiering options and retention settings.
+    - See the [Table Management documentation] for details on tiering options and retention settings.
     - Query data in the Microsoft Sentinel data lake.
