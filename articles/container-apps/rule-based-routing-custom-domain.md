@@ -25,16 +25,19 @@ HTTP route configurations support custom domains, allowing you to route traffic 
 
 Using the DNS provider hosting your domain, create the appropriate DNS records for your custom domain.
 - If you are using the root domain (for example, `contoso.com`), create the following DNS records:
+
 	| Record type | Host | Value |
 	|--|--|--|
 	| A | `@` | The IP address of your Container Apps environment. |
 	| TXT | `asuid` | The domain verification code. |
 	
 - If you are using a subdomain (for example, `www.contoso.com`), create the following DNS records:
+
 	| Record type | Host | Value |
 	|--|--|--|
 	| A | The subdomain (for example, `www`) | The IP address of your Container Apps environment. |
 	| TXT | `asuid.{subdomain}` (for example, `asuid.www`) | The domain verification code. |
+
 > [!NOTE]
 > The IP address of your Container Apps environment and the domain verification code can be found in the [Custom DNS suffix settings](./environment-custom-dns-suffix.md#add-a-custom-dns-suffix-and-certificate) of your Container Apps environment.
 >
@@ -43,11 +46,13 @@ Using the DNS provider hosting your domain, create the appropriate DNS records f
 ## Route configuration
 
 Update your Container Apps YAML file to include a `customDomains` section. Include a `bindingType` and `certificateId`, based on the following criteria:
+
 | bindingType value | Description | 
 |--|--|
 | Disabled | No certificate is provided. The domain is only available over HTTP, and HTTPS is not available. |
 | Auto | A certificate is optional. If a managed certificate is already created for this domain, it is added to the route automatically. Otherwise, the domain is initially only available over HTTP. To create a managed certificate for this domain, create a new managed certificate after the route is created. After the certificate is created, it is automatically added to the route. |
 | SniEnabled | A certificate is required. |
+
 | Certificate type | certificateId format |
 | -- | -- |
 | None | Leave blank |
