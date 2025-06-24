@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Storage to accept requests from IP address ranges
-description: Configure the Azure Storage firewall to accept requests from IP address ranges.
+title: Create an IP network rule for Azure Storage
+description: Learn how to create an IP network rule that enables traffic to an Azure Storage account from IP address ranges.
 services: storage
 author: normesta
 ms.service: azure-storage
@@ -10,11 +10,13 @@ ms.date: 06/18/2025
 ms.author: normesta
 ---
 
-# Configure the Azure Storage firewall to accept requests from IP address ranges
+# Create an IP network rule for Azure Storage
 
-You can deny all public access to your storage account, and then configure Azure network settings to accept requests from specific IP address ranges. To learn more, see [Permit access to IP address ranges](storage-network-security.md#grant-access-from-an-internet-ip-range).
+You can deny all public access to your storage account, and then configure Azure network settings to accept requests from specific IP address ranges. To enable traffic from a specific public IP address ranges, create one or more IP network rules. To learn more, see [Permit access to IP address ranges](storage-network-security.md#grant-access-from-an-internet-ip-range).
 
-## [Portal](#tab/azure-portal)
+## Create an IP network rule
+
+### [Portal](#tab/azure-portal)
 
 1. Go to the storage account for which you want to manage IP network rules.
 
@@ -28,7 +30,7 @@ You can deny all public access to your storage account, and then configure Azure
 
 6. Select **Save** to apply your changes.
 
-## [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
@@ -71,7 +73,7 @@ You can deny all public access to your storage account, and then configure Azure
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
-## [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 

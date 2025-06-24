@@ -34,7 +34,7 @@ The following table describes each type of service endpoint that you can enable 
 > [!NOTE]
 > You can associate only one of these endpoint types to a subnet. If one of these endpoints is already associated with the subnet, you'll have to delete that endpoint before adding the other. 
 
-To learn how to configure a virtual network rule and enable service endpoints, see [Configure Azure Storage to accept requests from virtual networks](storage-network-security-virtual-networks.md).
+To learn how to configure a virtual network rule and enable service endpoints, see [Create a virtual network rule for Azure Storage](storage-network-security-virtual-networks.md).
 
 <a id="grant-access-from-an-internet-ip-range"></a>
 <a id="managing-ip-network-rules"></a>
@@ -51,7 +51,7 @@ When you're planning for disaster recovery during a regional outage, create the 
 
 For clients and services not located in a virtual network, you can enable traffic by creating *IP network rules*. Each IP network rule can enable traffic from a specific public IP address range. For example, if a client from an on-premises network needs to access storage data, then a rule can include the public IP address of that client. Each storage account supports up to **400** IP network rules. 
 
-To learn how to create IP network rules, see [Configure the Azure Storage firewall to accept requests from IP address ranges](storage-network-security-ip-address-range.md).
+To learn how to create IP network rules, see [Create an IP network rule for Azure Storage](storage-network-security-ip-address-range.md).
 
 If you've enabled a service endpoint for a subnet, then traffic from that subnet won't use a public IP address to communicate with a storage account. Instead, all the traffic uses a private IP address as a source IP. As a result, IP network rules that permit traffic from those subnets no longer have an effect.
 
@@ -82,6 +82,7 @@ To learn how to configure a resource instance rule, see [Configure Azure Storage
 <a id="exceptions"></a>
 <a id="trusted-access-based-on-system-assigned-managed-identity"></a>
 <a id="trusted-access-based-on-a-managed-identity"></a>
+<a id="trusted-access-for-resources-registered-in-your-microsoft-entra-tenant"></a>
 
 ## Trusted Azure services
 
