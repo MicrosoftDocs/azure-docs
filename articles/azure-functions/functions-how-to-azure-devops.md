@@ -240,7 +240,7 @@ variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: <Docker registry service connection>
   imageRepository: <Name of your image repository>
-  containerRegistry: <Name of the Azure container registry>
+  containerRegistry: <Name of the Azure Container Registry>
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   
