@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 05/16/2025
 ms.custom: references_regions, ignite-2024
 #CustomerIntent: As a network administrator, I want to enable diagnostic logging for Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
+# Customer intent: "As a network administrator, I want to enable and configure diagnostic logging for the Network Security Perimeter, so that I can effectively monitor and analyze access logs for enhanced security oversight."
 ---
 
 # Diagnostic logs for Network Security Perimeter
