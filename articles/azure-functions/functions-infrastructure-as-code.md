@@ -2016,7 +2016,7 @@ You might also need to use these settings when your function app has network res
 ::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan" 
 ### Considerations for network restrictions
 
-When you're restricting access to the storage account through the private endpoints, you aren't able to access the storage account through the portal or any device outside the virtual network. You can give access to your secured IP address or virtual network in the storage account by [Managing the default network access rule](../storage/common/storage-network-security.md#change-the-default-network-access-rule).
+When you're restricting access to the storage account through the private endpoints, you aren't able to access the storage account through the portal or any device outside the virtual network. You can give access to your secured IP address or virtual network in the storage account by [Managing the default network access rule](../storage/common/storage-network-security-set-default-access.md).
 ::: zone-end
 ## Function access keys
 

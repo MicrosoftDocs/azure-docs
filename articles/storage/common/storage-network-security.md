@@ -19,31 +19,35 @@ When you disable public network access to your storage account, all incoming req
 > Clients from allowed sources must also meet the authorization requirements of the storage account to access the data. See [Authorization](storage-network-security-overview.md).
 
 <a id="grant-access-from-a-virtual-network"></a>
+<a id="azure-storage-cross-region-service-endpoints"></a>
 
 ## Virtual network subnets
 
-You can enable traffic from specific subnets in one or more virtual networks. These virtual networks can come from any subscription, in any Microsoft Entra tenant and from any Azure region. To enable traffic, you create a *virtual network rule*. Each storage account supports up to **400** virtual network rules. You can combine these rules with [IP network rules](storage-network-security-ip-address-range.md).
+You can enable traffic from specific subnets in one or more virtual networks. These virtual networks can come from any subscription, in any Microsoft Entra tenant and from any Azure region. To enable traffic, you create a *virtual network rule* for each subnet. Each storage account supports up to **400** virtual network rules. You can combine these rules with [IP network rules](storage-network-security-ip-address-range.md).
 
-To enable traffic from a virtual network, you must enable a Virtual Network *service endpoint* for Azure Storage in the virtual network settings. Service endpoints provides secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. These endpoints enable private IP addresses in the virtual network to reach the endpoint of an Azure service without needing a public IP address on the virtual network. The identities of the subnet and the virtual network are also transmitted with each request. To learn more, see [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). 
+To enable traffic from a virtual network, you must enable a Virtual Network *service endpoint* for Azure Storage in the virtual network settings. To learn more about service endpoints, see [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-### Azure Storage service endpoint
+The following table describes each type of service endpoint that you can enable for Azure Storage:
 
-The Azure Storage service endpoint *(Microsoft.Storage)* is designed to enable communication between a virtual network and storage accounts that are located in the **same region**.   
+| Service endpoint | Resource name | Description |
+|---|---|--|
+| Azure Storage endpoint | Microsoft.Storage | Allows traffic from a virtual network that is located in the **same region** as the storage account. |
+| Azure Storage cross-region service endpoint | Microsoft.Storage.Global | Allows traffic from a virtual network that is located in **any region**. | 
 
-<a id="azure-storage-cross-region-service-endpoints"></a>
+ To learn how to configure a virtual network rule and enable service endpoints, see [Configure Azure Storage to accept requests from virtual networks](storage-network-security-virtual-networks.md).
 
-### Azure Storage cross-region service endpoint
+Local and cross-region service endpoints can't coexist on the same subnet. To replace existing service endpoints with cross-region ones, delete the existing `Microsoft.Storage` endpoints and re-create them as cross-region endpoints (`Microsoft.Storage.Global`). 
 
-The Azure Storage cross-region service endpoint *(Microsoft.Storage.Global)* is designed to enable communication between a virtual network and storage accounts that are located in the **any region**.
+<a id="grant-access-from-an-internet-ip-range"></a>
+<a id="managing-ip-network-rules"></a>
+
+### Paired regions
+
+By default, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, service endpoints also work between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md).
 
 Configuring service endpoints between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md) can be an important part of your disaster recovery plan. Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
 When you're planning for disaster recovery during a regional outage, create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
-
-Local and cross-region service endpoints can't coexist on the same subnet. To replace existing service endpoints with cross-region ones, delete the existing `Microsoft.Storage` endpoints and re-create them as cross-region endpoints (`Microsoft.Storage.Global`).
-
-<a id="grant-access-from-an-internet-ip-range"></a>
-<a id="managing-ip-network-rules"></a>
 
 ## IP address ranges
 

@@ -74,7 +74,7 @@ The value for **`arrAccountKey`** can either be primary or secondary key.
 
 This paragraph explains how to link storage accounts to your Remote Rendering account. With a linked account, it isn't necessary anymore to generate a SAS URI every time you want to interact with the data in your account. Instead, you can use the storage account names directly as described in the [loading a model section](../concepts/models.md#loading-models).
 
-Another advantage of this approach is that the storage access level can be limited to private endpoints as described in the [Azure documentation how to configure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md#change-the-default-network-access-rule). Loading from blob storage through a SAS token on the other hand only works if the blob storage has been configured with the "Enabled from all networks" option.
+Another advantage of this approach is that the storage access level can be limited to private endpoints as described in the [Azure documentation how to configure Storage firewalls and virtual networks](../../storage/common/storage-network-security-set-default-access.md). Loading from blob storage through a SAS token on the other hand only works if the blob storage has been configured with the "Enabled from all networks" option.
 
 The steps in this paragraph have to be performed for each storage account that should use this access method. If you haven't created storage accounts yet, you can walk through the respective step in the [convert a model for rendering quickstart](../quickstarts/convert-model.md#storage-account-creation).
 
