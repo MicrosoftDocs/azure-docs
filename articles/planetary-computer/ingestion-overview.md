@@ -78,7 +78,7 @@ If you encounter issues during data ingestion, such as authentication failures, 
 - [Error codes: Microsoft Planetary Computer Pro ingestion](./error-codes-ingestion.md): This reference lists specific error codes you might encounter during ingestion, along with their meanings and resolution steps.
 
 ## Next steps
-Learn more about how to setup an Ingestion Source:
+Learn more about how to set up an Ingestion Source:
 
 > [!div class="nextstepaction"]
 > [Ingestion Sources](./ingestion-source.md)

@@ -37,7 +37,7 @@ landingContent:
             url: supported-data-types.md
 
   # Card
-  - title: Deploy & setup
+  - title: Deploy & Set up
     linkLists:
       - linkListType: get-started
         links:

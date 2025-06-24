@@ -16,6 +16,8 @@ This article lists the error codes that can occur when ingesting or deleting geo
 
 Ingestion errors can occur during various stages of the data ingestion process, including authentication, validation, transformation, and storage operations (adding and deleting). The following table provides detailed information about each error code, its meaning, and steps to resolve the issue.
 
+## Table of Error Codes:
+
 | Code | Explanation | Troubleshooting |
 | --- | --- | --- |
 | `AssetTransformationError` | The system failed to transform the asset during ingestion. | • Verify asset files are in a [supported format](./supported-data-types.md)<br>• Check that asset files aren't corrupted<br>• Ensure asset URLs are accessible from your ingestion source |
@@ -56,9 +58,9 @@ Ingestion errors can occur during various stages of the data ingestion process, 
 
 ## Related content
 
+- [Troubleshooting data ingestion in Microsoft Planetary Computer Pro](./troubleshooting-ingestion.md)
 - [Ingest data into Microsoft Planetary Computer Pro](./ingestion-overview.md)
 - [Configure an ingestion source using managed identity](./set-up-ingestion-credentials-managed-identity.md)
 - [Configure an ingestion source using SAS tokens](./set-up-ingestion-credentials-sas-tokens.md)
 - [Create a STAC Item](./create-stac-item.md)
 - [Bulk Ingestion API](./bulk-ingestion-api.md)
-- [Troubleshooting data ingestion in Microsoft Planetary Computer Pro](./troubleshooting-ingestion.md)
