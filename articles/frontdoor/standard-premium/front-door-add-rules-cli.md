@@ -225,9 +225,9 @@ az afd security-policy create \
 
 When you create the Azure Front Door Standard/Premium profile, it takes a few minutes for the configuration to be deployed globally. Once completed, you can access the frontend host you created. In a browser, go to `contoso-frontend.z01.azurefd.net`. Your request will automatically get routed to the nearest server from the specified servers in the origin group.
 
-To test instant global failover, we'll use the following steps:
+To test instant global failover, use the following steps:
 
-1. Open a browser, as described above, and go to the frontend address: `contoso-frontend.azurefd.net`.
+1. Open a browser, and go to the frontend address: `contoso-frontend.azurefd.net`.
 
 2. In the Azure portal, search for and select *App services*. Scroll down to find one of your web apps, **WebAppContoso-1** in this example.
 
