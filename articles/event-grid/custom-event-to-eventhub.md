@@ -120,7 +120,7 @@ Typically, you create an application that retrieves event messages from the even
 
 ## Clean up resources
 
-If you plan to continue working with this event, don't remove the resources that you created in this article. Otherwise, use the following command to delete the resources:
+If you plan to continue working with this custom topic and subscription, don't remove the resources that you created in this article. Otherwise, use the following command to delete the resources:
 
 ```azurecli-interactive
 az group delete --name gridResourceGroup
