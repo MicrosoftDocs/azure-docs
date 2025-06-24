@@ -11,6 +11,7 @@ ms.date: 6/8/2023
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a cloud architect, I want to create an Azure Traffic Manager profile using Terraform, so that I can efficiently manage and route user traffic based on performance.
 ---
 
 # Quickstart: Create an Azure Traffic Manager profile using Terraform
