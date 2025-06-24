@@ -12,9 +12,9 @@ ms.date: 06/16/2025
 
 # Error codes: Microsoft Planetary Computer Pro ingestion
 
-This article lists the error codes that can occur when ingesting geospatial data into a Microsoft Planetary Computer Pro GeoCatalog. Use this reference to identify the cause of ingestion failures and find resolution steps for each error type.
+This article lists the error codes that can occur when ingesting or deleting geospatial data from a Microsoft Planetary Computer Pro GeoCatalog. Use this reference to identify the cause of ingestion failures and find resolution steps for each error type.
 
-Ingestion errors can occur during various stages of the data ingestion process, including authentication, validation, transformation, and storage operations. The following table provides detailed information about each error code, its meaning, and steps to resolve the issue.
+Ingestion errors can occur during various stages of the data ingestion process, including authentication, validation, transformation, and storage operations (adding and deleting). The following table provides detailed information about each error code, its meaning, and steps to resolve the issue.
 
 | Code | Explanation | Troubleshooting |
 | --- | --- | --- |

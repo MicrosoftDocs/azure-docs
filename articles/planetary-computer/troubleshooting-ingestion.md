@@ -33,11 +33,13 @@ Data ingestion workflows fail with specific [error codes](./error-codes-ingestio
 
 For [Single Item Ingestion](./ingestion-overview.md#single-item-ingestion), if an ingestion error occurs, the API response or user interface returns the error code.
 
+   [ ![Screenshot of a single item ingestion error including a highlight of where to find the error code](media/single-item-ingestion-error.png) ](media/single-item-ingestion-error.png#lightbox)
+
 For [Bulk Ingestion](./ingestion-overview.md#bulk-ingestion), the errors can be different for each of the individual STAC Items. To see the individual errors, navigate to the Azure portal and locate the **Diagnostic Settings** for your GeoCatalog resource. Here, you can enable **Ingestion Logs.**
 
    [ ![Screenshot of searching for GeoCatalogs in the Azure portal.](media/ingestion-diagnostic-settings.png) ](media/ingestion-diagnostic-settings.png#lightbox)
 
-Once logging is enabled, attempt your ingestion again. If the ingestion fails, go to the diagnostic endpoint you specified to review the errors. 
+Once logging is enabled, attempt your ingestion again. If the ingestion fails, go to the location you specified in diagnostic settings to review the errors. 
 
 ## Cause 1: GeoCatalog can't access source data
 
@@ -52,12 +54,12 @@ The GeoCatalog service lacks the necessary permissions to read your STAC metadat
 
 2. **Validate credentials**
    
-   For managed identity:
+   For [managed identity](./set-up-ingestion-credentials-managed-identity.md):
    - Ensure the managed identity has the **Storage Blob Data Reader** role
    - Verify the role assignment is at the correct scope (storage account or container level)
    - Check that the managed identity is associated with your GeoCatalog
    
-   For SAS tokens:
+   For [SAS tokens](./set-up-ingestion-credentials-managed-identity.md):
    - Verify the token isn't expired
    - Ensure the token has `read` and `list` permissions
    - Confirm the token is scoped to the correct container
