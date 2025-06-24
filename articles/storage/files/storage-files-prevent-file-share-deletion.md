@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 01/21/2025
 ms.author: kendownie
 services: storage
+# Customer intent: As a cloud storage administrator, I want to enable soft delete for Azure file shares, so that I can recover files and protect against accidental deletions in my storage account.
 ---
 
 # Azure file share soft-delete
