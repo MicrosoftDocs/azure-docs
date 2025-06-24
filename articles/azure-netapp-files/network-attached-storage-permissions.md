@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 # Understand NAS share permissions in Azure NetApp Files
 
-Azure NetApp Files provides several ways to secure your NAS data. One aspect of that security is permissions. In NAS, permissions can be broken down into two categories: 
+Azure NetApp Files provides several ways to secure your network attached storage (NAS) data. One aspect of that security is permissions. In NAS, permissions can be broken down into two categories: 
 
 * **Share access permissions** limit who can mount a NAS volume. NFS controls share access permissions via IP address or hostname. SMB controls this via user and group access control lists (ACLs). 
 * **[File access permissions](network-attached-file-permissions.md)** limit what users and groups can do once a NAS volume is mounted. File access permissions are applied to individual files and folders. 
@@ -49,7 +49,7 @@ When creating an Azure NetApp Files volume, there are several options configurab
 
 ### Default policy rule in Azure NetApp Files
 
-When creating a new volume, a default policy rule is created. The default policy prevents a scenario where a volume is created without policy rules, which would restrict access for any client attempting access to the export. If there are no rules, there is no access. 
+When creating a new volume, a default policy rule is created. The default policy prevents a scenario where a volume is created without policy rules, which would restrict access for any client attempting access to the export. Without rules, there's no access to the volume.  
 
 The default rule has the following values:
 
@@ -85,7 +85,7 @@ To learn more about managing export policies, see [Configure export policies for
 
 #### Export policy rule ordering
 
-The order of export policy rules determines how they are applied. The first rule in the list that applies to an NFS client is the rule used for that client. When using CIDR ranges/subnets for export policy rules, an NFS client in that range may receive unwanted access due to the range in which it's included.
+The order of export policy rules determines how they're applied. The first rule in the list that applies to an NFS client is the rule used for that client. When using CIDR ranges/subnets for export policy rules, an NFS client in that range might receive unwanted access due to the range in which it's included.
 
 Consider the following example:
 
@@ -103,7 +103,7 @@ To fix this and set access to the desired level, the rules can be re-ordered to 
 
 ## SMB shares 
 
-SMB shares enable end users can access SMB or dual-protocol volumes in Azure NetApp Files. Access controls for SMB shares are limited in the Azure NetApp Files control plane to only SMB security options such as access-based enumeration and non-browsable share functionality. These security options are configured during volume creation with the **Edit volume** functionality. 
+SMB shares enable end users can access SMB or dual-protocol volumes in Azure NetApp Files. Access controls for SMB shares are limited in the Azure NetApp Files control plane to only SMB security options such as access-based enumeration and nonbrowsable share functionality. These security options are configured during volume creation with the **Edit volume** functionality. 
 
 :::image type="content" source="./media/network-attached-storage-permissions/share-level-permissions.png" alt-text="Screenshot of share-level permissions." lightbox="./media/network-attached-storage-permissions/share-level-permissions.png":::
 
@@ -137,19 +137,19 @@ With access-based enumeration enabled, `ABE-file` doesn't display to the user.
 
 #### Non-browsable shares
 
-The non-browsable shares feature in Azure NetApp Files limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. 
+The nonbrowsable shares feature in Azure NetApp Files limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. 
 
-In the following image, the non-browsable share property isn't enabled for `SMBVolume`, so the volume displays in the listing of the file server (using `\\servername`).
+In the following image, the nonbrowsable share property isn't enabled for `SMBVolume`, so the volume displays in the listing of the file server (using `\\servername`).
 
 :::image type="content" source="./media/network-attached-storage-permissions/directory-with-smb-volume.png" alt-text="Screenshot of a directory that includes folder SMBVolume." lightbox="./media/network-attached-storage-permissions/directory-with-smb-volume.png":::
 
-With non-browsable shares enabled on `SMBVolume` in Azure NetApp Files, the same view of the file server excludes `SMBVolume`.
+With nonbrowsable shares enabled on `SMBVolume` in Azure NetApp Files, the same view of the file server excludes `SMBVolume`.
 
-In the next image, the share `SMBVolume` has non-browsable shares enabled in Azure NetApp Files. When that is enabled, this is the view of the top level of the file server.
+In the next image, the share `SMBVolume` has nonbrowsable shares enabled in Azure NetApp Files. When that is enabled, this is the view of the top level of the file server.
 
 :::image type="content" source="./media/network-attached-storage-permissions/directory-no-smb-volume.png" alt-text="Screenshot of a directory with two sub-directories." lightbox="./media/network-attached-storage-permissions/directory-no-smb-volume.png":::
 
-Even though the volume in the listing cannot be seen, it remains accessible if the user knows the file path. 
+Even though the volume in the listing can't be seen, it remains accessible if the user knows the file path. 
 
 :::image type="content" source="./media/network-attached-storage-permissions/smb-volume-file-path.png" alt-text="Screenshot of Windows Explorer with file path highlighted." lightbox="./media/network-attached-storage-permissions/smb-volume-file-path.png":::
 
