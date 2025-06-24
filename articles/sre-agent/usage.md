@@ -46,7 +46,7 @@ You need to grant your agent the correct permissions and access to the right nam
 
 To create an SRE Agent, follow these steps:
 
-1. Go to the Azure portal and search for and select **Azure SRE Agent**.
+1. Follow the link provided in your onboarding email to access the Azure SRE Agent portal window.
 
 1. Select **Create**.
 
