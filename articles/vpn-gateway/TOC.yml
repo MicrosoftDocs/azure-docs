@@ -56,17 +56,13 @@
     items:
     - name: About gateway SKUs
       href: about-gateway-skus.md
-    - name: Gateway SKU consolidation & migration
-      items:
-      - name: About SKU consolidation & migration
-        href: gateway-sku-consolidation.md
-    - name: Resize a gateway SKU
-      href: gateway-sku-resize.md
-    - name: Change a gateway SKU
-      href: gateway-sku-change.md
+    - name: About gateway SKU consolidation & migration
+      href: gateway-sku-consolidation.md
+    - name: Upgrade a gateway SKU
+      href: gateway-sku-upgrade.md
     - name: Manage legacy gateway SKUs
       href: vpn-gateway-about-skus-legacy.md
-  - name: Public IP addresses
+  - name: Public IP address SKUs
     items:
     - name: About Basic SKU public IP address migration
       href: basic-public-ip-migrate-about.md
@@ -98,10 +94,6 @@
       href: about-gateway-skus.md
     - name: Gateway SKU consolidation
       href: gateway-sku-consolidation.md
-    - name: Resize a gateway SKU
-      href: gateway-sku-resize.md
-    - name: Change a gateway SKU
-      href: gateway-sku-change.md
     - name: Manage legacy gateway SKUs
       href: vpn-gateway-about-skus-legacy.md
   - name: Migrate classic gateways to Resource Manager
