@@ -7,7 +7,7 @@ metadata:
   description: Find documentation for the DICOM® service, which enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently.
   ms.service: azure-health-data-services
   ms.subservice: dicom-service
-  ms.topic: landing-page 
+  ms.topic: landing-page
   author: mmitrik
   ms.author: mmitrik
   ms.date: 11/06/2024
@@ -22,10 +22,10 @@ landingContent:
         links:
           - text: What is the DICOM service?
             url: dicom-services-overview.md
-          - text: Deploy the DICOM service with Azure Data Lake Storage 
+          - text: Deploy the DICOM service with Azure Data Lake Storage
             url: deploy-dicom-services-in-azure-data-lake.md
           - text: Deploy the DICOM service in the Azure portal
-            url: deploy-dicom-services-in-azure.md            
+            url: deploy-dicom-services-in-azure.md
   - title: Use cases
     linkLists:
       - linkListType: tutorial
@@ -49,20 +49,20 @@ landingContent:
             url: change-feed-overview.md
           - text: Extended query tags API
             url: dicom-extended-query-tags-overview.md
-  - title: DICOM change feed 
+  - title: DICOM change feed
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: What is the DICOM change feed? 
+          - text: What is the DICOM change feed?
             url: change-feed-overview.md
           - text: Access the DICOM change feed
             url: pull-dicom-changes-from-change-feed.md
 
-  - title: Configuration 
+  - title: Configuration
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure customer-managed keys 
+          - text: Configure customer-managed keys
             url: configure-customer-managed-keys.md
           - text: Configure cross-origin resource sharing (CORS)
             url: configure-cross-origin-resource-sharing.md
@@ -70,15 +70,17 @@ landingContent:
             url: dicom-configure-azure-rbac.md
           - text: Enable audit and diagnostic logging
             url: enable-diagnostic-logging.md
-  - title: Operations 
+  - title: Operations
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Import DICOM files 
+          - text: Index DICOM files in Azure Storage
+            url: index-dicom-storage.md
+          - text: Import DICOM files
             url: import-files.md
           - text: Export DICOM files
             url: export-files.md
           - text: Bulk update DICOM files
-            url: update-files.md    
+            url: update-files.md
           - text: External metadata
-            url: external-metadata.md           
+            url: external-metadata.md
