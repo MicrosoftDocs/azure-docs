@@ -20,6 +20,7 @@ The listed features were released in the last six months. For information about 
 
 ## July 2025
 
+- [Microsoft Sentinel in the Defender portal to be deprecated July 2026](#microsoft-sentinel-in-the-defender-portal-to-be-deprecated-july-2026)
 - [For new customers only: Automatic onboarding and redirection to the Microsoft Defender portal](#for-new-customers-only-automatic-onboarding-and-redirection-to-the-microsoft-defender-portal)
 
 ### Microsoft Sentinel in the Defender portal to be deprecated July 2026
@@ -33,7 +34,7 @@ For more information, see:
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
 - [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md)
 - [Microsoft Sentinel in the Azure portal deprecation timeline](overview.md#microsoft-sentinel-in-the-azure-portal-deprecation-timeline)
-- [It’s Time to Move: Retiring Microsoft Sentinel’s Azure Portal for Greater Security](blog)
+- [It’s Time to Move: Retiring Microsoft Sentinel’s Azure Portal for Greater Security](https://aka.ms/time-to-move-to-defender)
 
 ### For new customers only: Automatic onboarding and redirection to the Microsoft Defender portal
 

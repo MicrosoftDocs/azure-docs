@@ -20,10 +20,6 @@ Microsoft Sentinel also natively incorporates proven Azure services, like Log An
 
 Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames. This article highlights the key capabilities in Microsoft Sentinel.
 
-
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
-
-
 Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](/azure/azure-monitor/logs/data-security#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service-no-note.md)]
@@ -122,13 +118,15 @@ The following table highlights the key capabilities in Microsoft Sentinel for th
 
 ## Microsoft Sentinel in the Azure portal deprecation timeline
 
-Microsoft Sentinel is generally available in the Microsoft Defender portal, including for customers without Microsoft Defender XDR or an E5 license. This means that you can use Microsoft Sentinel in the Defender portal even if you aren't using other Microsoft Defender services. We recommend that all customers still working in the Azure portal start planning to [onboard to the Defender portal](/defender-xdr/microsoft-sentinel-onboard) for a [unified security operations experience](/unified-secops-platform/overview-unified-security). For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+Microsoft Sentinel is generally available in the Microsoft Defender portal, including for customers without Microsoft Defender XDR or an E5 license. This means that you can use Microsoft Sentinel in the Defender portal even if you aren't using other Microsoft Defender services.
+
+We recommend that all customers still working in the Azure portal start planning to [onboard to the Defender portal](/defender-xdr/microsoft-sentinel-onboard) for a [unified security operations experience](/unified-secops-platform/overview-unified-security). For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
 
 ### Changes for new customers
 
 Starting in **July 2025**, new customers [onboarding to Microsoft Sentinel](quickstart-onboard.md) with permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) are automatically onboarded to the Defender portal, and use Microsoft Sentinel in the Defender portal only.
 
-Existing customers and other new customers without the relevant permissions, such as Azure-Lighthouse delegated users, can continue using Microsoft Sentinel in the Azure portal until they onboard to the Defender protal.
+Existing customers and other new customers without the relevant permissions, such as Azure-Lighthouse delegated users, can continue using Microsoft Sentinel in the Azure portal until they onboard to the Defender portal.
 
 In most cases, users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal. The exception is for Azure Lighthouse-delegated users who are accessing a new customer workspace onboarded to Microsoft Sentinel in the Azure portal. These users won't see the automatic redirection and can work in the Azure portal.
 
@@ -139,6 +137,8 @@ When manually onboarding to the Defender portal, you must onboard each workspace
 Starting in **July 2026**, Microsoft Sentinel will be supported in the Defender portal only, and any remaining customers using the Azure portal will be automatically redirected. 
 
 If you're currently using Microsoft Sentinel in the Azure portal, we recommend that you start planning your migration to the Defender portal now to ensure a smooth transition and take full advantage of the new features offered by Microsoft Defender.
+
+There are no changes being made to [Microsoft Sentinel APIs](/rest/api/securityinsights/).
 
 ## Related content
 
