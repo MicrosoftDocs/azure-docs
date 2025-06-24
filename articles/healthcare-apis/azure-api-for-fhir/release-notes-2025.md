@@ -19,14 +19,20 @@ ms.author: kesheth
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## June 2025
+**Enhanced error logging for $export**: Previously, $export would return a 500 Internal Server Error if there was no associated storage account for the export. Now, the error message has been improved to state to the user "The storage account not found."
+
+#### Bug fixes:
+**Support Added for Standalone Extensions on Primitive Type "code"**: Previously, extensions for primitive type "code" could not be uploaded individually, and would lead to a HTTP 400 Bad Request response. This bug has been fixed, and users can now upload extensions without their corresponding "origin" attributes.
+
+**_summary Search Parameter Now Included in CapabilityStatement**: Previously, the CapabilityStatement was missing the _summary search parameter. We have fixed this and added the _summary search parameter to the CapabilityStatement.
+
 ## May 2025
 **Enhanced error handling for $export**: Previously, 409 and 412 errors from Cosmos DB weren't retried, and would be surfaced as 500 InternalServerError. The issue is fixed, and these requests are now retried. 
 
 **Improved error handling for exports or imports that have missing Managed Identity**: Previously, export or import jobs with a missing Managed Identity would result in an unknown server error (HTTP status code 500). We have improved error handling for this case, expect message—'Failed to get access token'—to be shown. 
 
 **Support multiple pages of include results in bulk delete**: Previously, bulk deletes with _include and _revinclude couldn't delete more than 100 included resources. We have made a fix to lift that limit by supporting multiple pages of include results, and bulk delete will be able to delete more than 100 included resources.
-
-**Enhanced error logging for $export**: Previously, $export would return a 500 Internal Server Error if there was no associated storage account for the export. Now, the error message has been improved to state to the user "The storage account not found."
 
 #### Bug fixes:
 **Creation after deletion of search parameters fix**: Previously, creating the same search parameter that was deleted in the past could fail due to an issue in updating the cache for Search Parameter definition manager. The issue is fixed, and now, the cache is synced before validating a search parameter in an incoming request.
@@ -40,10 +46,6 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 **Custom search parameters with same "code" value on different resource types fix**: An issue was discovered when running a delete or update search parameter operation. All other matched related search parameters on the same "code" value were being removed, regardless of resource type. This issue was fixed, and users are now able to update and delete custom search parameters without affecting other search parameters or resource types with the same "code" value.
 
 **Fix for deleting and uploading custom search parameters**: An issue when deleting a custom search parameter and then using the PUT operation to reupload that same search parameter potentially causes a 424 Failed Dependency error. This issue is fixed. A check was added to ensure that if the previous version of the search parameter was already deleted, it's properly handled. Users are now able to delete a custom search parameter and then reupload that search parameter using PUT.
-
-**Support Added for Standalone Extensions on Primitive Type "code"**: Previously, extensions for primitive type "code" could not be uploaded individually, and would lead to a HTTP 400 Bad Request response. This bug has been fixed, and users can now upload extensions without their corresponding "origin" attributes.
-
-**_summary Search Parameter Now Included in CapabilityStatement**: Previously, the CapabilityStatement was missing the _summary search parameter. We have fixed this and added the _summary search parameter to the CapabilityStatement.
 
 ## March 2025
 
