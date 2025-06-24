@@ -59,7 +59,7 @@ The following table provides additional details and links so that you can compar
 For more information, see:
 
 - [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md)
-- [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy) <!--i wonder if we should move this doc out of the XDR docset and into usx?-->
+- [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy)
 
 ### Configure multi-workspace and multitenant management
 
