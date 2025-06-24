@@ -11,6 +11,7 @@ ms.custom:
   - references_regions
   - build-2025
 #Customer intent: As a network administrator, I want to securely connect to Azure Files NFS v4.1 volumes using a TLS channel so that I can protect data in transit from interception. By using AZNFS mount helper package for simplified setup, I can ensure data confidentiality without needing complex setups or external authentication systems.
+# Customer intent: As a network administrator, I want to securely encrypt data in transit for NFS Azure file shares using TLS, so that I can protect sensitive information from interception and ensure data confidentiality without complex authentication setups.
 ---
 
 # Encryption in transit for NFS Azure file shares (preview)
