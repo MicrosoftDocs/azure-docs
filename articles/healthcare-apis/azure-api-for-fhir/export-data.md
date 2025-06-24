@@ -69,6 +69,7 @@ The Azure API for FHIR supports the following query parameters. All of these par
 | \_till | No |  Allows you to only export resources that have been modified up to the time provided. This parameter is only applicable to System-Level export. In this case, if historical versions haven't been disabled or purged, export guarantees a true snapshot view. In other words, enables time travel. |
 |includeAssociatedData | No | Allows you to export history and soft deleted resources. This filter doesn't work with the '_typeFilter' query parameter. Include the value as '_history' to export history (non-latest versioned) resources. Include the value as '_deleted' to export soft deleted resources. |
 |\_isparallel| No |The "_isparallel" query parameter can be added to the export operation to enhance its throughput. The value needs to be set to true to enable parallelization. Note: Using this parameter may result in an increase in request units consumption over the life of export. |
+|\_maxCount| No |The "_maxCount" allows you to reduce the number of resources exported by a single job. The default value is 10,000. The export operation requires memory to serialize data when writing to the lake. To avoid out-of-memory exceptions caused by high memory usage, you can reduce the _maxCount value in decrements of 1,000. It is also beneficial to increase the compute memory on the FHIR server. |
 
 ## Secure Export to Azure Storage
 

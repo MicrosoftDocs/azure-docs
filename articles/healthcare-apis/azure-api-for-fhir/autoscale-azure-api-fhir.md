@@ -40,11 +40,11 @@ When autoscale is enabled, the system calculates and sets the initial `Tmax` val
 
 You can increase the max `RU/s` or `Tmax` value and go as high as the service supports. When the service is busy, the throughput `RU/s` are scaled up to the `Tmax` value. When the service is idle, the throughput `RU/s` are scaled down to 10% `Tmax` value.
  
-You can also decrease the max `RU/s` or `Tmax` value. When you lower the max `RU/s`, the minimum value you can set it to is: `MAX (4000, highest max RU/s ever provisioned / 10, current storage in GB * 400)` rounded to the nearest 1000 `RU/s`.
+You can also decrease the max `RU/s` or `Tmax` value. When you lower the max `RU/s`, the minimum value you can set it to is: `MAX (400, highest max RU/s ever provisioned / 10, current storage in GB * 40)` rounded to the nearest 100 `RU/s`.
 
-* **Example 1**: You have 1-GB data and the highest provisioned `RU/s` is 10,000. The minimum value is Max (**4000**, 10,000/10, 1x400) = 4000. The first number, **4000**, is used.
-* **Example 2**: You have 20-GB data and the highest provisioned `RU/s` is 100,000. The minimum value is Max (4000, **100,000/10**, 20x400) = 10,000. The second number, **100,000/10 =10,000**, is used.
-* **Example 3**: You have 80-GB data and the highest provisioned RU/s is 300,000. The minimum value is Max (4000, 300,000/10, **80x400**) = 32,000. The third number, **80x400=32,000**, is used.
+* **Example 1**: You have 1-GB data and the highest provisioned `RU/s` is 10,000. The minimum value is Max (400, **10,000/10**, 1x40) = 1000. The second number, **10,000/10 = 1000**, is used.
+* **Example 2**: You have 20-GB data and the highest provisioned `RU/s` is 100,000. The minimum value is Max (400, **100,000/10**, 20x40) = 10,000. The second number, **100,000/10 =10,000**, is used.
+* **Example 3**: You have 80-GB data and the highest provisioned RU/s is 300,000. The minimum value is Max (400, **300,000/10**, 80x40) = 30,000. The second number, **300,000/10 = 30,000**, is used.
 
 You can adjust the max `RU/s` or `Tmax` value through the portal if it's a valid number and no greater than 100,000 `RU/s`. You can create a support ticket to request `Tmax` value larger than 100,000.
 
@@ -86,7 +86,7 @@ Keep in mind that this is only an estimate based on data size and that there are
 
 ### I enabled autoscale how can I migrate to scaling manually?
 
-A support ticket is required to change autoscale to manual scale and specify the throughput RU/s. The minimum value for manual scale you can set is: `MAX (400, highest max RU/s ever provisioned / 100, current storage in GB * 40)` rounded to the nearest 1000 `RU/s`. The numbers used here are different from those used in autoscale.
+A support ticket is required to change autoscale to manual scale and specify the throughput RU/s. The minimum value for manual scale you can set is: `MAX (400, highest max RU/s ever provisioned / 10, current storage in GB * 40)` rounded to the nearest 100 `RU/s`. The numbers used here are different from those used in autoscale.
 
 Once the change is completed, the new billing rates are based on manual scale.
 
