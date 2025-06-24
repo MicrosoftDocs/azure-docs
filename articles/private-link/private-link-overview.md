@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 03/25/2025
 ms.author: abell
 ms.custom: template-overview, fasttrack-edit, references_regions, FY23 content-maintenance, ignite-2024
+# Customer intent: As a network architect, I want to implement Azure Private Link to access Azure services privately, so that I can enhance security and eliminate data leakage risks while maintaining seamless connectivity across my organization's virtual networks.
 ---
 
 # What is Azure Private Link? 

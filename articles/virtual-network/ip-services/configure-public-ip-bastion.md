@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 01/07/2025
 ms.custom: template-how-to 
+# Customer intent: As a network administrator, I want to set up an Azure Bastion host using an existing public IP address, so that I can securely manage virtual machines without exposing their public IPs.
 ---
 
 # Manage a public IP address with Azure Bastion

@@ -6,6 +6,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: duau
+# Customer intent: As a network administrator, I want to interconnect the networks of acquired companies using Azure networking features, so that I can ensure seamless communication between on-premises and cloud resources post-merger.
 ---
 
 # Cross-network connectivity
