@@ -7,6 +7,7 @@ author: mbender-ms
 ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 6/11/2024
+# Customer intent: As an IT network engineer, I want to understand the implications of using ExpressRoute for Microsoft 365 traffic, so that I can make informed decisions about network architecture and optimize connectivity while avoiding unnecessary latency issues.
 ---
 
 # Using ExpressRoute for routing Microsoft 365 traffic

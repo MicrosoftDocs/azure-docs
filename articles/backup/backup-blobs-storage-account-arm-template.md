@@ -3,7 +3,7 @@ title: Quickstart - Back up blobs in a storage account via ARM template using Az
 description: Learn how to back up blobs in a storage account with an ARM template.
 ms.topic: quickstart
 ms.custom: devx-track-arm-template
-ms.date: 02/12/2025
+ms.date: 06/17/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -439,4 +439,5 @@ This template allows you to configure backup for two containers in a storage acc
 
 ## Next step
 
-Learn [how to create ARM templates](../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+- [Create ARM templates](../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+- Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

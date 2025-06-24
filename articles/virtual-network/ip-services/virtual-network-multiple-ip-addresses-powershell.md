@@ -10,6 +10,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to assign multiple IP addresses to a virtual machine using PowerShell, so that I can host multiple services and improve network configurations on a single server.
 ---
 
 # Assign multiple IP addresses to virtual machines using Azure PowerShell

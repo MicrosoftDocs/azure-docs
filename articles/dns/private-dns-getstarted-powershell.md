@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.service: azure-dns
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
+# Customer intent: As a network administrator, I want to create and manage a private DNS zone using Azure PowerShell, so that I can facilitate hostname resolution within my private virtual networks.
 ---
 
 # Quickstart: Create an Azure private DNS zone using Azure PowerShell
