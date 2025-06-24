@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   href: overview.md
-    items:
+  items:
     - name: Overview
       href: availability-zones-migration-overview.md
     - name: Migration guides by service
