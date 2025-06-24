@@ -99,7 +99,7 @@ The ingestion service strictly enforces the [STAC specification](./stac-overview
          *   `Item IDs` must be fewer than 150 characters.
          *   `Asset keys` must be fewer than 256 characters.
       * STAC `Collection IDs`:
-         * Must only use contain the following characters:
+         * Must only contain the following characters:
             * Letters: `A-Z`, `a-z`
             * Digits: `0-9`
             * Symbols: ``-``, ``_``, `.`
