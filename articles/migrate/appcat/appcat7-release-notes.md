@@ -17,8 +17,8 @@ ms.date: 01/15/2025
 # Release notes
 ### 7.7.0.0 (GA)
 This release contains the following fixes and enhancements:
-- added graceful error handling with well-defined exit codes for different kinds of errors.
-- Removed "appcat test" command.
+- Added graceful error handling with well-defined exit codes for different kinds of errors.
+- Removed `appcat test` command.
 - Enhanced report with adding application overview section.
 - Bug Fix: fixed mvnw is not executable in Linux and macOS.
 
