@@ -11,6 +11,7 @@ ms.custom:
 ms.topic: concept-article
 ms.date: 05/19/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to migrate my existing ExpressRoute gateway to an Availability Zone-enabled SKU, so that I can enhance the reliability and high availability of my network connections without significant downtime.
 ---
 
 # About ExpressRoute Gateway Migration
@@ -20,20 +21,19 @@ This article explains the ExpressRoute gateway migration process, enabling you t
 For guidance on upgrading Basic SKU public IP addresses for other networking services, see [Upgrading Basic to Standard SKU](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md#steps-to-complete-the-upgrade).
 
 > [!IMPORTANT]
->On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. 
+>On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you're currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. 
 
 ## Gateway SKUs
 The **ErGw1Az**, **ErGw2Az**, **ErGw3Az**, and **ErGwScale** (Preview) SKUs are known as Availability Zone (Az)-enabled SKUs. These SKUs allow deployment across multiple availability zones, increasing resiliency and high availability by distributing gateway resources across zones.
 
-By comparison, the **Standard**, **HighPerformance**, and **UltraPerformance** SKUs are non-Az-enabled. They are typically used with Basic public IP addresses and do not support availability zone distribution.
+By comparison, the **Standard**, **HighPerformance**, and **UltraPerformance** SKUs are non-Az-enabled. They're typically used with Basic public IP addresses and don't support availability zone distribution.
 
 ## Gateway migration experience
 
 The gateway migration experience allows you to deploy a second virtual network gateway in the same GatewaySubnet. Azure migrates your configurations from the old gateway to the new one. Both gateways run simultaneously during migration, minimizing disruption – though brief connectivity interruptions may still occur.
 
 After migration, the old gateway and its connections are deleted, and the new gateway is tagged with **CreatedBy: GatewaySKUMigration** to identify it as a migrated resource and shouldn’t be deleted.
-
-## Supported migration scenarios
+## Supported Migration Scenarios
 
 The guided gateway migration experience supports the following scenarios:
 
@@ -49,8 +49,8 @@ For enhanced reliability and high availability, we recommend migrating to an Az-
 
 1. **Validate**: Check that all resources are in a succeeded state. If any prerequisites aren't met, validation fails and migration can't proceed.
 2. **Prepare**: Azure creates a new virtual network gateway, public IP, and connections. This step can take up to 45 minutes. You can specify a name for the new gateway, or Azure will add **_migrated** to the original name by default. During preparation, the existing gateway is locked to prevent changes. If you need to stop the migration, you can **abort** at this stage, which deletes the new gateway and connections.
-   
-> [!Note]
+
+> [!NOTE]
 > The new gateway is created in the same region as the existing one. To change regions, you must delete the current gateway and create a new one in the desired region.
 
 3. **Migrate**: Switch traffic from the old gateway to the new one. This step can take up to 15 minutes and may cause brief connectivity interruptions.
@@ -82,6 +82,8 @@ Adding multiple prefixes to the GatewaySubnet is currently in Public Preview and
 ### How do I monitor the health of the new gateway?
 
 Monitoring for the new gateway is the same as for the old gateway. The new gateway is a separate resource with its own metrics. During migration, you can also observe traffic patterns using the migration tool.
+
+After migration, if you had existing monitoring, alerting, customer-defined maintenance windows, or diagnostic settings configured, you'll need to reconfigure these on the newly created gateway.
 
 ### Will migration cause downtime?
 

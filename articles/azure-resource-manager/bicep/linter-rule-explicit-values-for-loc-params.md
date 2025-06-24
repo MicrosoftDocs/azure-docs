@@ -3,12 +3,15 @@ title: Linter rule - use explicit values for module location parameters
 description: Linter rule - use explicit values for module location parameters.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 06/19/2025
 ---
 
 # Linter rule - use explicit values for module location parameters
 
 This rule finds module parameters that are used for resource locations and may inadvertently default to an unexpected value.
+
+> [!NOTE]
+> This rule is off by default. Change the level in [bicepconfig.json](./bicep-config-linter.md) to enable it.
 
 ## Linter rule code
 

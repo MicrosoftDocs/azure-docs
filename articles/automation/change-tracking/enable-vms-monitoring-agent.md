@@ -6,8 +6,8 @@ ms.subservice: change-inventory-management
 ms.date: 04/03/2025
 ms.topic: how-to
 ms.service: azure-automation
-ms.author: sudhirsneha
-author: SnehaSudhirG
+ms.author: v-jasmineme
+author: jasminemehndir
 zone_pivot_groups: enable-change-tracking-inventory-using-monitoring-agent
 ---
 

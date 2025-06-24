@@ -6,6 +6,8 @@ ms.subservice:
 ms.date: 08/24/2023
 ms.topic: troubleshooting 
 ms.custom:
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Troubleshoot shared resource issues

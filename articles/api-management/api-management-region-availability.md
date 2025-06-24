@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/28/2025
+ms.date: 06/17/2025
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -34,7 +34,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Central India  | ✅ | ✅ | |  |
 | East Asia | ✅ | ✅ | | ✅ |
 | East US  | ✅ | ✅ |  |  |
-| East US 2 | ✅ | ✅ |  | ✅ |
+| East US 2 | ✅ | ✅ | ✅ | ✅ |
 | France Central  | ✅ | ✅ | | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ | ✅ |
 | Japan East | ✅ | ✅ | | ✅ |

@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: 
 services: 
+# Customer intent: As a cloud architect, I want to understand the steps for migrating storage resources in high-performance computing environments so that I can optimize data management, ensure cost efficiency, and effectively support the scalability of cloud infrastructure.
 ---
 
 # Storage migration overview
