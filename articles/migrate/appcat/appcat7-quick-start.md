@@ -117,3 +117,4 @@ In the **samples** directory, you can find the following scripts to run differen
 ## Next steps
 - [Interpret the report](appcat7-interpret-report.md)
 - [CLI Command Guide for AppCAT 7](appcat7-cli-guide.md)
+- [create custom rules](appcat7-rule-guide.md)
