@@ -4,7 +4,7 @@ description: Learn the step-by-step process to configure render settings for vis
 author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
-ms.topic: get-started
+ms.topic: quickstart
 ms.date: 05/08/2025
 ms.custom:
   - build-2025
@@ -12,14 +12,41 @@ ms.custom:
 
 # Microsoft Planetary Computer Pro Data Visualization Gallery
 
+This gallery provides ready-to-use configuration examples for visualizing common geospatial data types in Microsoft Planetary Computer Pro. Each example includes comprehensive JSON configurations for mosaics, render options, tile settings, and STAC collection metadata that you can adapt for your own datasets.
+
+## Prerequisites
+
+Before using these examples, you should have:
+
+- A deployed [Microsoft Planetary Computer Pro GeoCatalog resource](./deploy-geocatalog-resource.md)
+- Basic familiarity with [STAC concepts](./stac-overview.md) and [collection configuration](./collection-configuration-concept.md)
+- Data [ingested into a STAC collection](./ingestion-overview.md)
+
+## How to use these examples
+
+Each example in this gallery includes:
+
+1. **Description and context** - Information about the data source and visualization approach
+2. **Visual example** - Screenshot of the rendered data in the Explorer
+3. **Complete configuration settings** organized in tabs:
+   - **Mosaic** - How to filter and select items for display
+   - **Render Options** - How to style and visualize the data
+   - **Tile Settings** - How to optimize display parameters
+   - **STAC Collection** - The underlying collection metadata structure
+
+To apply these examples to your own data:
+
+1. Create a new collection in your GeoCatalog
+2. Navigate to the collection's configuration page
+3. Modify the example JSON to match your dataset's specific bands, assets, and properties
+4. Apply the configurations to your collection
+5. View the results in the Explorer
 
 ## Sentinel-2-l2a Collection Configuration
 
-[Collection description to be added here]
-
 [ ![Screenshot of Sentinel-2-l2a data visualization](media/sentinel-2-imagery.png) ](media/sentinel-2-imagery.png#lightbox)
 
-[Description of data source and link to where to get the data]
+[Sentinel-2](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2) is a high-resolution, multi-spectral imaging mission from the European Space Agency (ESA) as part of the Copernicus Program.
 
 ## Configuration details
 
@@ -27,7 +54,7 @@ ms.custom:
 
 ## Mosaic Configuration
 
-The mosaic configuration defines how images are combined when displayed in the Explorer.
+The mosaic configuration shown below tells the Explorer to display the most recent Sentinel-2 images from the collection, but only those with cloud cover less than or equal to 40%. The cql (Common Query Language) filter ensures that only relatively clear images are included, making the visualization more useful for most applications. Each mosaic entry can define different criteria for selecting and combining images, and this example uses a single "default" mosaic focused on recent, low-cloud imagery.
 
 ```json
 [
@@ -54,7 +81,30 @@ The mosaic configuration defines how images are combined when displayed in the E
 
 ## Render Options Configuration
 
-The render options configuration defines how imagery is displayed in the Explorer.
+This render configuration defines several ways to visualize Sentinel-2 satellite imagery in the Explorer. Each entry describes a different style or scientific product, such as **Natural color** (what you’d see with your eyes), **Color infrared** (to highlight vegetation), or **NDVI** (a vegetation health index).
+
+The `options` string specifies how to visualize the data:
+
+- `assets=B04&assets=B03&assets=B02`:  
+  This tells the system which bands (layers of satellite data) to use for the image. For example, B04 is red, B03 is green, and B02 is blue—together, they make a true-color image.
+
+- `nodata=0`:  
+  Any pixel with a value of 0 is treated as missing or transparent.
+
+- `color_formula=Gamma RGB 3.2 Saturation 0.8 Sigmoidal RGB 25 0.35`:  
+  This applies color corrections to make the image look more natural or visually appealing.  
+  - **Gamma** adjusts brightness  
+  - **Saturation** changes color intensity  
+  - **Sigmoidal** adjusts contrast
+
+- `expression=(B08-B04)/(B08+B04)`:  
+  For NDVI and NDWI, this calculates a mathematical formula using the bands to create a new image that highlights vegetation or moisture.
+
+- `rescale=-1,1`:  
+  This stretches the calculated values to fit a color scale, so the results are easy to interpret.
+
+- `colormap_name=rdylgn`:  
+  This applies a color palette (red-yellow-green) to the result, making it easier to see differences.
 
 ```json
 [
@@ -144,6 +194,15 @@ The tile settings configuration defines how data is tiled and displayed at diffe
 ## STAC Collection configuration
 
 The STAC Collection configuration defines the core metadata for this collection.
+
+The `item_assets` section in the STAC Collection JSON serves as a critical catalog of all available data assets in the collection. It defines each spectral band (B01-B12, B8A, etc.) and its properties, including:
+
+* Asset keys (like "B04", "B03") that are referenced by the render configuration
+Metadata about each band (resolution, data type, roles)
+* Band descriptions that explain what each band represents (e.g., B04 is "red", B08 is "near infrared")
+* Wavelength information useful for scientific applications
+
+The render configuration directly references these asset keys to create different visualizations. For example, when the render configuration specifies `assets=B04&assets=B03&assets=B02`, it's pulling the red, green, and blue bands defined in item_assets to create a natural color image. 
 
 ```json
 {
@@ -720,7 +779,38 @@ The mosaic configuration defines how images are combined when displayed in the E
 
 ## Render Options Configuration
 
-The render options configuration defines how imagery is displayed in the Explorer.
+This render configuration offers three different ways to visualize the National Agriculture Imagery Program (NAIP) data. NAIP imagery contains four spectral bands stored in a single multi-band asset called "image":
+
+1. **Band 1**: Red
+2. **Band 2**: Green
+3. **Band 3**: Blue
+4. **Band 4**: Near Infrared (NIR)
+
+Each visualization option uses these bands differently:
+
+### Natural Color (True Color)
+
+- **Configuration**: `"options": "assets=image&asset_bidx=image|1,2,3"`
+- **How it works**: This option maps the first three bands of the NAIP imagery to the corresponding Red, Green, and Blue channels for display.
+  - **Red channel**: Band 1 (Red)
+  - **Green channel**: Band 2 (Green)
+  - **Blue channel**: Band 3 (Blue)
+- **Result**: This produces a "true color" image that approximates what the human eye would see.
+
+### Color Infrared
+
+- **Configuration**: `"options": "assets=image&asset_bidx=image|4,1,2&color_formula=Sigmoidal RGB 15 0.35"`
+- **How it works**: This is a "false color" composite that is particularly useful for vegetation analysis. It maps the bands as follows:
+  - **Red channel**: Band 4 (Near Infrared)
+  - **Green channel**: Band 1 (Red)
+  - **Blue channel**: Band 2 (Green)
+- **Result**: Healthy vegetation reflects strongly in the near-infrared spectrum, so it appears as bright red in the resulting image. Urban areas or bare soil appear blue or gray. The `color_formula` is used to increase the contrast and visual appeal of the image.
+
+### Normalized Difference Vegetation Index (NDVI)
+
+- **Configuration**: `"options": "expression=(image_b4 - image_b1)/(image_b4 + image_b1)&rescale=-1,1&colormap_name=rdylgn"`
+- **How it works**: This option doesn't display the source imagery directly. Instead, it calculates the NDVI for each pixel using a mathematical formula: `(NIR - Red) / (NIR + Red)`. In this case, that corresponds to `(Band 4 - Band 1) / (Band 4 + Band 1)`.
+- **Result**: The result of the NDVI calculation is a value between -1 and 1, which is a measure of vegetation health and density. The `rescale=-1,1` parameter scales the output colors to this range, and the `colormap_name=rdylgn` parameter applies a "Red-Yellow-Green" color map. Areas with dense, healthy vegetation appear green, while areas with little or no vegetation appear red or yellow.
 
 ```json
 [
@@ -992,7 +1082,7 @@ The STAC Collection configuration defines the core metadata for this collection.
 
 ## Mosaic Configuration
 
-The mosaic configuration defines how images are combined when displayed in the Explorer.
+This is the default mosaic configuration. 
 
 ```json
 [
@@ -1009,7 +1099,18 @@ The mosaic configuration defines how images are combined when displayed in the E
 
 ## Render Options Configuration
 
-The render options configuration defines how imagery is displayed in the Explorer.
+The render configuration works as follows:
+
+**VV polarization**: Refers to "Vertical transmit, Vertical receive" radar signals, which are effective for detecting man-made structures and surface roughness
+
+* **Key parameters**:
+  * `assets=GEC`: Selects the geocoded ellipsoid corrected (GEC) asset from the STAC item
+  * `rescale=0,255`: Transforms the radar backscatter values to an 8-bit range for proper visualization
+  * `colormap_name=gray`: Applies a grayscale color palette appropriate for intensity data
+* **Conditions**: Only applies this rendering to items that specifically have VV polarization data
+* **minZoom:** Sets the minimum map zoom level (8) at which this layer becomes visible
+
+This configuration creates a grayscale visualization where brighter areas represent stronger radar returns, typically indicating buildings, rough terrain, or other surfaces that strongly reflect radar signals. 
 
 ```json
 [
@@ -1050,8 +1151,24 @@ The tile settings configuration defines how data is tiled and displayed at diffe
 
 ## STAC Collection configuration
 
-The STAC Collection configuration defines the core metadata for this collection.
+The `item_assets` section is a critical component of the STAC Collection JSON that defines the assets (data files) available within each item of this collection. For this Umbra SAR collection:
 
+This section tells us:
+
+1. **Asset Key**: `GEC` is the key identifier used to reference this asset in render configurations (`assets=GEC`)
+
+2. **Data Format**: The asset is a cloud-optimized GeoTIFF, which allows efficient access to portions of the imagery
+
+3. **Radar Properties**: 
+   - This is VV polarization data (vertical transmit, vertical receive)
+   - Contains terrain-corrected gamma naught values with radiometric correction
+
+4. **Technical Specifications**:
+   - `nodata` value of `-32768` indicates pixels with no data
+   - Data is stored as 8-bit unsigned integers (`uint8`)
+   - The spatial resolution is approximately 0.48 meters per pixel
+
+This asset definition is directly referenced in the render configuration via `assets=GEC`, and the rendering parameters (`rescale=0,255&colormap_name=gray`) are designed to properly visualize the SAR backscatter values in this specific data asset.
 ```json
 {
   "id": "umbra-sar",
