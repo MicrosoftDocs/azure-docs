@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
+# Customer intent: As a network engineer, I want to configure high availability ports on an internal load balancer, so that I can efficiently load-balance all traffic across multiple ports for enhanced reliability and performance of network virtual appliances.
 ---
 
 # High availability ports overview

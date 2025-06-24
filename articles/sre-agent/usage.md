@@ -36,6 +36,14 @@ You need to grant your agent the correct permissions and access to the right nam
 
 * **Security context**: Before you can create a new agent, make sure your user account has the `Microsoft.Authorization/roleAssignments/write` permissions using either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
 
+* **Associate your allow list subscription ID**: Make sure your Azure CLI session is set to 
+the subscription ID on the preview allow list. If you need to set the CLI context to your 
+subscription ID, use the following command:
+
+    ```azurecli  
+    az account set --subscription "<SUBSCRIPTION_ID>"
+    ```
+
 * **Namespace**: Using the cloud shell in the Azure portal, run the following command:
 
     ```azurecli  
@@ -46,7 +54,7 @@ You need to grant your agent the correct permissions and access to the right nam
 
 To create an SRE Agent, follow these steps:
 
-1. Go to the Azure portal and search for and select **Azure SRE Agent**.
+1. Follow the link provided in your onboarding email to access the Azure SRE Agent portal window.
 
 1. Select **Create**.
 
