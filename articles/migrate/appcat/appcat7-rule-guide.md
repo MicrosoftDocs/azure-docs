@@ -16,7 +16,7 @@ ms.date: 05/28/2025
 
 This guide is for engineers, consultants, and others who want to create custom YAML-based rules for Azure Migrate application and code assessment for Java verion 7 (AppCAT) tools.
 
-For more information, see the Introduction to the [Azure Migrate application and code assessment for Java version 7 (preview)](./java-preview.md) for an overview and the [CLI Guide](./cli-guide.md) for details.
+For more information, see the Introduction to the [Azure Migrate application and code assessment for Java version 7](./appcat7-overview.md) for an overview and the [CLI Guide](./appcat7-cli-guide.md) for details.
 
 The AppCAT contains rule-based migration tools that analyze the APIs, technologies, and architectures used by the applications you plan to migrate. In fact, the AppCAT analysis process is implemented using AppCAT rules. AppCAT uses rules internally to extract files from archives, decompile files, scan and classify file types, analyze XML and other file content, analyze the application code, and build the reports.
 
