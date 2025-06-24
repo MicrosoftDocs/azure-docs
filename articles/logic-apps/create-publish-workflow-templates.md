@@ -59,13 +59,9 @@ Azure Logic Apps templates also give you the following capabilities:
 
   1. Save each image using the **.png** file name extension and a name that follows the [Names and style conventions](#names-style-conventions), for example, **<*image-name*>-light.png** and **<*image-name*>-dark.png**.
 
-## Limitations
-
-Workflow templates currently support only Standard logic apps.
-
 <a name="workflow-best-practices"></a>
 
-### Workflow best practices
+## Workflow best practices
 
 - Use the built-in operations as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
 
@@ -219,7 +215,7 @@ After you're done, [copy the underlying workflow definition](#copy-workflow-defi
 
 <a name="copy-workflow-definition"></a>
 
-### Copy the underlying workflow definition
+#### Copy the underlying workflow definition
 
 1. In the [Azure portal](https://portal.azure.com), on the workflow menu, under **Developer**, select **Code**.
 
@@ -229,7 +225,7 @@ After you're done, [copy the underlying workflow definition](#copy-workflow-defi
 
 1. In an empty file named **workflow.json**, save the workflow definition.
 
-### Parameter references in workflow.json
+#### Parameter references in workflow.json
 
 When you reference parameters in the **workflow.json** file, you must reflect the parameter names that use the suffix **_#workflowname#** in the following way:
 
@@ -239,7 +235,7 @@ For example:
 
 **`"name": "@parameters('sharepoint-folder-path_#workflowname#')"`**
 
-### Connection references in workflow.json
+#### Connection references in workflow.json
 
 When you reference connections in the **workflow.json** file, you must reflect the connection names that use the suffix **_#workflowname#** in the following way:
 
@@ -257,7 +253,7 @@ For example:
 
 For more information about the connector ID, see [Find the connector ID](#find-connector-id).
 
-### Create a manifest.json file
+#### Create a manifest.json file
 
 The **manifest.json** file describes the relationship between a workflow and related components. Currently, you need to manually create this file, or you can repurpose the **manifest.json** file from an existing prebuilt template in the [Azure Logic Apps workflow template repository in GitHub](https://github.com/Azure/LogicAppsTemplates). As you create the **manifest.json** file, make sure to review the [names and style conventions](#names-and-style-conventions).
 
@@ -289,7 +285,7 @@ In the **manifest.json** file for your workflow template package, add the same i
    ```
 <a name="find-connector-id"></a>
 
-## Find the connector ID
+#### Find the connector ID
 
 To find the connector ID to use for a connection in the **manifest.json** file or a connection reference in the **workflow.json** file, follow these steps:
 
@@ -329,7 +325,7 @@ To find the connector ID to use for a connection in the **manifest.json** file o
 
 <a name="find-featured-connections-operation-properties"></a>
 
-## Find the operation 'kind' and 'type' properties for featuredConnections
+#### Find the operation 'kind' and 'type' properties for featuredConnections
 
 In the **manifest.json** file, the **`featuredConnections`** section can include icons for any other operations that you want to include with the template gallery in the Azure portal. For this section, which is an array, you need to provide the **`kind`** and **`type`** attributes for each operation.
 
@@ -339,9 +335,9 @@ To get these attribute values, follow these steps in the [Azure portal](https://
 
 1. In the code view window, in the **`actions`** section, find the operation that you want, and then find the **`kind`** and **`type`** values.
 
-## Add template package to GitHub repository
+#### Add template package to GitHub repository
 
-To publish your template to the templates gallery in the Azure portal, set up GitHub, and create a pull request with your template package for validation and review:
+To publish your template package to the templates gallery in the Azure portal, set up GitHub, and create a pull request with your template package for validation and review:
 
 1. [Create a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github), if you don't have one.
 
