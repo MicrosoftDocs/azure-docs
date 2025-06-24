@@ -120,6 +120,26 @@ The following table highlights the key capabilities in Microsoft Sentinel for th
 |Automation rules|Centrally manage the automation of incident handling in Microsoft Sentinel by defining and coordinating a small set of rules that cover different scenarios. |[Automate threat response in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)|
 |Playbooks|Automate and orchestrate your threat response by using playbooks, which are a collection of remediation actions. Run a playbook on-demand or automatically in response to specific alerts or incidents, when triggered by an automation rule. <br><br>  To build playbooks with Azure Logic Apps, choose from a constantly expanding gallery of connectors for various services and systems like ServiceNow, Jira, and more. These connectors allow you to apply any custom logic in your workflow. |[Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)<br><br>[List of all Logic App connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)|
 
+## Microsoft Sentinel in the Azure portal deprecation timeline
+
+Microsoft Sentinel is generally available in the Microsoft Defender portal, including for customers without Microsoft Defender XDR or an E5 license. This means that you can use Microsoft Sentinel in the Defender portal even if you aren't using other Microsoft Defender services. We recommend that all customers still working in the Azure portal start planning to [onboard to the Defender portal](/defender-xdr/microsoft-sentinel-onboard) for a [unified security operations experience](/unified-secops-platform/overview-unified-security). For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+
+### Changes for new customers
+
+Starting in **July 2025**, new customers [onboarding to Microsoft Sentinel](quickstart-onboard.md) with permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) are automatically onboarded to the Defender portal, and use Microsoft Sentinel in the Defender portal only.
+
+Existing customers and other new customers without the relevant permissions, such as Azure-Lighthouse delegated users, can continue using Microsoft Sentinel in the Azure portal until they onboard to the Defender protal.
+
+In most cases, users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal. The exception is for Azure Lighthouse-delegated users who are accessing a new customer workspace onboarded to Microsoft Sentinel in the Azure portal. These users won't see the automatic redirection and can work in the Azure portal.
+
+When manually onboarding to the Defender portal, you must onboard each workspace individually. When [working with multiple workspaces and other Defender services](workspaces-defender-portal.md), make sure to define the primary workspace where you want to correlate Microsoft Sentinel incidents with Microsoft Defender incidents. View incidents in other workspaces separately. 
+
+### Changes for existing customers
+
+Starting in **July 2026**, Microsoft Sentinel will be supported in the Defender portal only, and any remaining customers using the Azure portal will be automatically redirected. 
+
+If you're currently using Microsoft Sentinel in the Azure portal, we recommend that you start planning your migration to the Defender portal now to ensure a smooth transition and take full advantage of the new features offered by Microsoft Defender.
+
 ## Related content
 
 - [Onboard Microsoft Sentinel](quickstart-onboard.md)

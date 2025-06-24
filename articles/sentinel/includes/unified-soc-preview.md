@@ -10,8 +10,8 @@ ms.custom: "include file"
 ---
 
 > [!IMPORTANT]
->New customers onboarding after July 1, 2025 with the relevant permissions are automatically onboarded to the Microsoft Defender portal and access Microsoft Sentinel in the Azure portal only.
+>New customers onboarding after **July 1, 2025** with the relevant permissions are automatically onboarded to the Microsoft Defender portal and access Microsoft Sentinel in the Azure portal only. Existing customers, and new users without relevant permissions, can continue to use Microsoft Sentinel in the Azure portal.
 >
->Existing customers, and new users without relevant permissions, can continue to use Microsoft Sentinel in the Azure portal. We recommend that you onboard to the Microsoft Defender portal for a unified security operations (SecOps) experience. 
+> Starting in **July 2026**, all customers using Microsoft Sentinel in the Azure portal will be redirected to the Defender portal. We recommend that you start planning your transition to the Defender portal to ensure a smooth transition and take full advantage of the new features offered by Microsoft Defender.
 >
->For more information, see [Sunset timeline for Microsoft Sentinel in the Azure portal (new customers only)](../microsoft-sentinel-defender-portal.md#sunset-timeline-for-microsoft-sentinel-in-the-azure-portal-new-customers-only).
+> For more information, see [Microsoft Sentinel in the Azure portal deprecation timeline](../overview.md#microsoft-sentinel-in-the-azure-portal-deprecation-timeline).

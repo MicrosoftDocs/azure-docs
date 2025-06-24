@@ -22,13 +22,30 @@ The listed features were released in the last six months. For information about 
 
 - [For new customers only: Automatic onboarding and redirection to the Microsoft Defender portal](#for-new-customers-only-automatic-onboarding-and-redirection-to-the-microsoft-defender-portal)
 
+### Microsoft Sentinel in the Defender portal to be deprecated July 2026
+
+Microsoft is transitioning Microsoft Sentinel from the Azure portal to the Microsoft Defender portal to provide a unified, efficient, and modern experience for security teams. This move integrates Microsoft Sentinel with Microsoft Defender's extensive threat protection capabilities, enhancing security outcomes.
+
+Starting in July 2026, Microsoft Sentinel will be supported only in the Microsoft Defender portal, and any remaining customers in the Azure portal will be automatically redirected to the Defender portal. We recommend that such customers start planning their migration to the Defender portal to ensure a smooth transition and take full advantage of the new features offered by Microsoft Defender.
+
+For more information, see:
+
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+- [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md)
+- [Microsoft Sentinel in the Azure portal deprecation timeline](overview.md#microsoft-sentinel-in-the-azure-portal-deprecation-timeline)
+- [It’s Time to Move: Retiring Microsoft Sentinel’s Azure Portal for Greater Security](blog)
+
 ### For new customers only: Automatic onboarding and redirection to the Microsoft Defender portal
 
 New customers onboarding to Microsoft Sentinel with the permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) now automatically have their workspaces onboarded to the Microsoft Defender portal. Users of such workspaces access Microsoft Sentinel in the Defender portal only, and accessing Microsoft Sentinel in the Azure portal automatically shows redirection links to Defender.
 
 This change streamlines the onboarding process and ensures that new customers can immediately take advantage of unified security operations capabilities without the extra step of manually onboarding their workspaces.
 
-For more information, see [Onboard Microsoft Sentinel](quickstart-onboard.md) and [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
+For more information, see:
+
+- [Onboard Microsoft Sentinel](quickstart-onboard.md)
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+- [Changes for new customers](overview.md#changes-for-new-customers)
 
 ## June 2025
 
