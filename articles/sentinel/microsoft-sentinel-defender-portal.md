@@ -22,7 +22,9 @@ Microsoft Sentinel is generally available in the Microsoft Defender portal, eith
 
 This article describes the Microsoft Sentinel experience in the Defender portal.
 
-## Automatic onboarding and redirects for new customers
+## Sunset timeline for Microsoft Sentinel in the Azure portal (new customers only)
+
+Microsoft Sentinel is generally available in the Microsoft Defender portal, including for customers without Microsoft Defender XDR or an E5 license. This means that you can use Microsoft Sentinel in the Defender portal even if you aren't using other Microsoft Defender services.
 
 Starting in July 2025, new customers onboarding to Microsoft Sentinel with permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) are automatically onboarded to the Defender portal, and use Microsoft Sentinel in the Defender portal only.
 
@@ -30,7 +32,9 @@ Existing customers and other new customers without the relevant permissions, suc
 
 In most cases, users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal. The exception is for Azure Lighthouse-delegated users who are accessing a new customer workspace onboarded to Microsoft Sentinel in the Azure portal. These users won't see the automatic redirection and can work in the Azure portal.
 
-For more information, see [Onboard Microsoft Sentinel](quickstart-onboard.md).
+When manually onboarding to the Defender portal, you must onboard each workspace individually. When working with multiple workspaces and other Defender services, make sure to define the primary workspace where you want to correlate Microsoft Sentinel incidents with Microsoft Defender incidents. View incidents in other workspaces separately. 
+
+For more information, see [Onboard Microsoft Sentinel](quickstart-onboard.md) and [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md).
 
 ## New and improved capabilities
 
