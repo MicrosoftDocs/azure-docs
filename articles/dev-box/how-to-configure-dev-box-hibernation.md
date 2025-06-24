@@ -26,15 +26,15 @@ With the introduction of Dev Box Hibernation, you can enable this capability on 
 
 Follow these three steps to enable hibernation: 
 
-1. Enable hibernation on your dev box image
-1. Enable hibernation on your dev box definition
-1. Automate hibernation of pools of dev boxes using auto-stop schedules, or stop on RDP disconnect.
+1. Enable hibernation on your dev box image.
+1. Enable hibernation on your dev box definition.
+1. Automate hibernation for pools of dev boxes by using auto-stop schedules or stopping on RDP disconnect.
 
 ## Considerations for hibernation-enabled images
 
 Before you enable hibernation on your dev box, review the following considerations for hibernation-enabled images.
 
-- Currently, two SKUs support hibernation: 8 and 16 vCPU SKUs. Currently, 32 vCPU SKUs don't support hibernation.
+- Currently, two SKUs support hibernation: 8 and 16 vCPU SKUs. 32 vCPU SKUs don't support hibernation.
 
 - You can enable hibernation only on new dev boxes created with hibernation-enabled dev box definitions. You can't enable hibernation on existing dev boxes.
 
