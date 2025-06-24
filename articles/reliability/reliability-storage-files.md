@@ -148,9 +148,7 @@ Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS), as well as cu
 
 ### Requirements
 
-You must use Standard general-purpose v2 storage accounts with standard HDD file shares to enable geo-redundant storage. Premium FileStorage accounts and premium SSD file shares do not support geo-redundant configurations. <!-- TODO check -->
-
-Geo-redundant storage options (GRS and GZRS) are only supported for standard HDD file shares. Premium SSD file shares do not support geo-redundant configurations and are limited to locally redundant or zone-redundant storage within a single region. For information on to configure multi-region support with Premium SSD file shares, see [Alternative Multi-region approaches](#alternative-multi-region-approaches). <!-- TODO check this -->
+You must use Standard general-purpose v2 storage accounts with standard HDD file shares to enable geo-redundant storage. Premium FileStorage accounts and premium SSD file shares do not support geo-redundant configurations. For information on to configure multi-region support with Premium SSD file shares, see [Alternative Multi-region approaches](#alternative-multi-region-approaches).
 
 ### Considerations
 
@@ -160,11 +158,11 @@ When implementing multi-region Azure Files, consider the following important fac
 
 - **Secondary region access**: The secondary region is not accessible for reads until a failover occurs.
 
-- **Feature limitations**: Some Azure Blob Storage features are not supported or have limitations when using geo-redundant storage or when using customer-managed failover. These include certain blob types, access tiers, and management operations. Review [feature compatibility documentation](/azure/storage/common/storage-disaster-recovery-guidance#unsupported-features-and-services) before implementing geo-redundancy. <!-- TODO check what this applies to files -->
+- **Feature limitations**: Some Azure Files features are not supported or have limitations when using geo-redundant storage or when using customer-managed failover. These include certain file share types, access tiers, and management tools and operations. Review [feature compatibility documentation](/azure/storage/common/storage-disaster-recovery-guidance#unsupported-features-and-services) before implementing geo-redundancy.
 
 ### Cost
 
-Multi-region Azure Files configurations incur additional costs for cross-region replication and storage in the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates. For detailed pricing information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Multi-region Azure Files configurations incur additional costs for cross-region replication and storage in the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates. For detailed pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ### Configure multi-region support
 
@@ -175,7 +173,7 @@ Multi-region Azure Files configurations incur additional costs for cross-region 
   > [!WARNING]
   > After your account is reconfigured for geo-redundancy, it may take a significant amount of time before existing data in the new primary region is fully copied to the new secondary.
   >
-  > **To avoid a major data loss**, check the value of the [Last Sync Time property](/azure/storage/common/last-sync-time-get) before initiating an unplanned failover. To evaluate potential data loss, compare the last sync time to the last time at which data was written to the new primary. <!-- TODO check this applies to files -->
+  > **To avoid a major data loss**, check the value of the [Last Sync Time property](/azure/storage/common/last-sync-time-get) before initiating an unplanned failover. To evaluate potential data loss, compare the last sync time to the last time at which data was written to the new primary.
 
 - **Disable geo-redundancy.** Convert geo-redundant storage accounts back to single-region configurations (LRS or ZRS) through the same redundancy configuration change process.
 
@@ -211,7 +209,7 @@ The cross-region failover capabilities of Azure Files aren't suitable for the fo
 
 - You need to fail over to a region that isn't your primary region's pair.
 
-- You use file share types that don't support geo-redundancy. <!-- TODO reconfirm this -->
+- You use file share types that don't support geo-redundancy.
 
 - You need an active/active configuration across regions.
 
@@ -225,7 +223,7 @@ You can design a cross-region failover solution tailored to your needs. A comple
 
 ## Backups
 
-<!-- TODO check this -->
+<!-- TODO compare to blob storage once edited -->
 
 Azure Files integrates with Azure Backup to provide point-in-time recovery capabilities that complement redundancy features for protection against accidental deletion, corruption, or ransomware attacks.
 
