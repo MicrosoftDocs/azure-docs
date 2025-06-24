@@ -114,8 +114,10 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
-          - text: Best Practices onboard and deploy
+          - text: Best Practices Onboard and Deploy
             url: best-practices-onboard-deploy.md
+          - text: Workload Configuration Management
+            url: configuration-guide.md
       - linkListType: reference
         links:
           - text: Glossary

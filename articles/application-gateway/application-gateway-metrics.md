@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:06/11/2025
+# Customer intent: "As a network administrator, I want to monitor the performance metrics of the Application Gateway, so that I can identify latency issues and optimize the response times for better service delivery."
 ---
 
 # Metrics for Application Gateway
