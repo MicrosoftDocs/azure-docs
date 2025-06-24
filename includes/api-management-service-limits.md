@@ -31,9 +31,9 @@ To request a limit increase, create a support request from the Azure portal. For
 | Custom gateway domains | N/A | 20 | N/A | N/A | 20 |
 | CA certificates | N/A | 10 | 10 | 10 | 10 |
 | Client certificates | 50 | 100 | 100 | 100 | 100 |
-| APIs (including revisions) | 50 | 100 | 100 | 100 | 100 |
+| APIs (including revisions) | 150 | 150 | 150 | 500 | 2,500 |
 | API releases | 100 | 100 | 100 | 100 | 100 |
-| API operations | 1,000 | 1,000 | 1,000 | 1,000 | 1,000 |
+| API operations | 3,000 | 3,000 | 3,000 | 10,000 | 20,000 |
 | API operations per API | 100 | 100 | 100 | 100 | 100 |
 | API version sets | 100 | 100 | 100 | 100 | 100 |
 | API tags | 100 | 100 | 100 | 100 | 100 |
@@ -42,17 +42,17 @@ To request a limit increase, create a support request from the Azure portal. For
 | API tag descriptions per API | 100 | 100 | 100 | 100 | 100 |
 | APIs per product | 100 | 100 | 100 | 100 | 100 |
 | Backends | 100 | 100 | 100 | 100 | 100 |
-| Products | 100 | 100 | 100 | 100 | 100 |
-| Subscriptions | N/A | 500 | 500 | 500 | 500 |
+| Products | 50 | 50 | 50 | 200 | 400 |
+| Subscriptions | N/A | 500 | 500 | 2,000 | 4,000 |
 | Subscriptions per user | N/A | 100 | 100 | 100 | 100 |
 | Subscriptions per product | 100 | 100 | 100 | 100 | 100 |
-| Groups | N/A | 100 | 100 | 100 | 100 |
+| Groups | N/A | 20 | 20 | 100 | 200 |
 | Groups per product | N/A | 100 | 100 | 100 | 100 |
 | Groups per user | N/A | 100 | 100 | 100 | 100 |
-| Users | N/A | 100 | 100 | 100 | 100 |
+| Users | N/A | 300 | 300 | 2,000 | 4,000 |
 | Users per product | N/A | 100 | 100 | 100 | 100 |
 | Loggers | 100 | 100 | 100 | 100 | 100 |
-| Policy fragments | 100 | 100 | 100 | 100 | 100 |
+| Policy fragments | 50 | 50 | 50 | 50 | 100 |
 | Named values | 100 | 100 | 100 | 100 | 100 |
 | Private endpoints | 100 | 100 | 100 | 100 | 100 |
 | Total request duration | 30 seconds | Unlimited | Unlimited | Unlimited | Unlimited |
@@ -74,6 +74,7 @@ To request a limit increase, create a support request from the Azure portal. For
 | Credential providers| 1,000 | 1,000 | 1,000 | 1,000 | 1,000 |
 | Connections per credential provider| 10,000 | 10,000 | 10,000 | 10,000 | 10,000 |
 | Access policies per connection | 100 | 100 | 100 | 100 | 100 |
+| Authorization servers | 10 | 10 | 10 | 500 | 500 |
 | Authorization requests per minute per connection | 250 | 250 | 250 | 250 | 250 |
 | GraphQL resolvers | 100 | 100 | 100 | 100 | 100 |
 | GraphQL resolvers per API | 100 | 100 | 100 | 100 | 100 |
