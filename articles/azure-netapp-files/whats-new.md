@@ -16,9 +16,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Backup support for large volumes](large-volumes-requirements-considerations.md#back-up-large-volumes) (preview)
+* [Backup support for large volumes](large-volumes-requirements-considerations.md) (preview)
 
-    Azure NetApp Files backup now supports large volumes by moving point-in-time snapshot copy data to low-cost Azure storage to address long-term retention, data protection, and compliance needs. Azure NetApp Files backup employs an efficient data mover to backup data at high speeds for both initial and incremental subsequent backups. 
+    [Azure NetApp Files backup](backup-introduction.md) now supports large volumes by moving point-in-time snapshot copy data to low-cost Azure storage to address long-term retention, data protection, and compliance needs. Azure NetApp Files backup employs an efficient data mover to backup data at high speeds for both initial and incremental subsequent backups. You must be [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) to use this feature. 
     
 ## June 2025
 

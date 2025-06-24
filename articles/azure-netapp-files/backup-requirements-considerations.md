@@ -51,7 +51,7 @@ You need to be aware of several requirements and considerations before using Azu
 
 * If you need to delete a parent resource group or subscription that contains backups, you should delete any backups first. Deleting the resource group or subscription doesn't delete the backups.
 
-* Azure NetApp Files backups is supported with large volumes. To create a backup of an Azure NetApp Files large volume, you must register AFECs for both [large volumes feature _and_ large volumes with backup](large-volumes-requirements-considerations.md).
+* Azure NetApp Files backups is supported with large volumes. To create a backup of an Azure NetApp Files large volume, you must be registered to use [large volumes feature](large-volumes-requirements-considerations.md#register-the-feature).
 
 
 ## Next steps
