@@ -79,8 +79,6 @@
       href: front-door-rules-engine-actions.md?pivots=front-door-standard-premium
     - name: Configure a rule set
       href: standard-premium/how-to-configure-rule-set.md
-    - name: Configure security headers
-      href: front-door-security-headers.md?pivots=front-door-standard-premium
     - name: Configure delivery rules
       href: standard-premium/front-door-add-rules-cli.md
     - name: Rules engine scenarios
@@ -273,23 +271,21 @@
     href: compare-cdn-front-door-price.md
 - name: Troubleshoot
   items:
-  - name: Front Door
-    items:
-    - name: Troubleshooting with RefString
-      href: refstring.md
-    - name: Troubleshooting Front Door issues
-      href: troubleshoot-issues.md
-    - name: Troubleshooting Front Door performance issues
-      href: troubleshoot-performance-issues.md
-    - name: Allowed certificate authorities
-      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
-    - name: File compression
-      href: standard-premium/troubleshoot-compression.md
-    - name: Subscription offers and bandwidth throttling
-      href: standard-premium/subscription-offers.md
-    - name: Questions & answers
-      href: /answers/tags/96/azure-front-door
-- name: Legacy CDN
+  - name: Troubleshooting with RefString
+    href: refstring.md
+  - name: Troubleshooting Front Door issues
+    href: troubleshoot-issues.md
+  - name: Troubleshooting Front Door performance issues
+    href: troubleshoot-performance-issues.md
+  - name: Allowed certificate authorities
+    href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
+  - name: File compression
+    href: standard-premium/troubleshoot-compression.md
+  - name: Subscription offers and bandwidth throttling
+    href: standard-premium/subscription-offers.md
+  - name: Questions & answers
+    href: /answers/tags/96/azure-front-door
+- name: CDN and Front Door (classic)
   items:
   - name: Get started
     items:
