@@ -48,7 +48,7 @@ When you import the API, API Management automatically configures:
 
 * Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference)
 * A system-assigned identity with the necessary permissions to access the Azure OpenAI resource.
-* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure OpenAI Service endpoint.
+* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure OpenAI endpoint.
 * Authentication to the Azure OpenAI backend using the instance's system-assigned managed identity.
 * (optionally) Policies to help you monitor and manage the Azure OpenAI API.
 
@@ -58,7 +58,7 @@ To import an Azure OpenAI API to API Management:
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
 1. Under **Create from Azure resource**, select **Azure OpenAI Service**.
 
-    :::image type="content" source="media/azure-openai-api-from-specification/azure-openai-api.png" alt-text="Screenshot of creating an API from Azure OpenAI Service in the portal." :::
+    :::image type="content" source="media/azure-openai-api-from-specification/azure-openai-api.png" alt-text="Screenshot of creating an API from Azure OpenAI in the portal." :::
 
 1. On the **Basics** tab:
     1. Select the Azure OpenAI resource that you want to import.
@@ -88,7 +88,7 @@ Alternatively, manually download the OpenAPI specification for the Azure OpenAI 
 Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2024-10-21 GA version](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-10-21/inference.json).
 
 1. In a text editor, open the specification file that you downloaded.
-1. In the `servers` element in the specification, substitute the name of your Azure OpenAI Service endpoint in the placeholder values of `url` and `default` endpoint in the specification. For example, if your Azure OpenAI Service endpoint is `contoso.openai.azure.com`, update the `servers` element with the following values:
+1. In the `servers` element in the specification, substitute the name of your Azure OpenAI endpoint in the placeholder values of `url` and `default` endpoint in the specification. For example, if your Azure OpenAI endpoint is `contoso.openai.azure.com`, update the `servers` element with the following values:
 
     * **url**: `https://contoso.openai.azure.com/openai`
     * **default** endpoint: `contoso.openai.azure.com`
@@ -134,9 +134,9 @@ To ensure that your Azure OpenAI API is working as expected, test it in the API 
 1. Select an operation that's compatible with the model you deployed in the Azure OpenAI resource. 
     The page displays fields for parameters and headers.
 1. In **Template parameters**, enter the following values:
-    * `deployment-id` - the ID of a deployment in the Azure OpenAI service 
+    * `deployment-id` - the ID of a deployment in Azure OpenAI  
     * `api-version` - a valid Azure OpenAI API version, such as the API version you selected when you imported the API.
-      :::image type="content" source="media/azure-openai-api-from-specification/test-azure-openai-api.png" alt-text="Screenshot of testing an Azure OpenAI Service API in the portal." lightbox="media/azure-openai-api-from-specification/test-azure-openai-api.png" :::
+      :::image type="content" source="media/azure-openai-api-from-specification/test-azure-openai-api.png" alt-text="Screenshot of testing an Azure OpenAI API in the portal." lightbox="media/azure-openai-api-from-specification/test-azure-openai-api.png" :::
 1. Enter other parameters and headers as needed. Depending on the operation, you might need to configure or update a **Request body**.
     > [!NOTE]
     > In the test console, API Management automatically populates an **Ocp-Apim-Subscription-Key** header, and configures the subscription key of the built-in [all-access subscription](api-management-subscriptions.md#all-access-subscription). This key enables access to every API in the API Management instance. Optionally display the **Ocp-Apim-Subscription-Key** header by selecting the "eye" icon next to the **HTTP Request**.
