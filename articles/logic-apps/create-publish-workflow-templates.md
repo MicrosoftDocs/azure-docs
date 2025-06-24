@@ -162,7 +162,18 @@ On the **Parameters** tab, add customization for any parameters that you want fo
 
 1. When you're done, select **Save**.
 
+#### Provide template information
 
+The **Profile** tab specifies information about your template that appears in the template gallery, for example, the template's display name, publisher name, connectors, and other metadata.
+
+| Property | Required | Description |
+|----------|----------|-------------|
+| **Display name** | Yes | The workflow template display name that appears in the template gallery. |
+| **By** | Yes | The workflow template publisher name. |
+| **Summary** | Yes | The description for the workflow that the template creates. |
+| **Featured connectors** | Yes | The names for the primary connectors in the workflow template. |
+| **Category** | No | The category where the template belongs. |
+| **Tags** | No | Any tags that you want to use for labeling the workflow. |
 
 ### [Manual](#tab/manual)
 
