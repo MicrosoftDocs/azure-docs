@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: mbender
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud architect, I want to create and configure an application gateway with a Virtual Machine Scale Set via the command line, so that I can efficiently manage and secure web traffic to my backend servers.
 ---
 
 # Manage web traffic with an application gateway using the Azure CLI

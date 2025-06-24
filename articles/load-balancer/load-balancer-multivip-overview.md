@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 04/12/2024
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to configure multiple frontends on an Azure Load Balancer, so that I can efficiently distribute traffic across multiple services and improve the performance and availability of my applications.
 ---
 
 # Multiple frontends for Azure Load Balancer

@@ -12,7 +12,7 @@ ms.custom:
   - build-2025
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 03/23/2025
+ms.date: 06/23/2025
 ms.topic: how-to
 
 #customer intent: As a platform engineer, I want to configure hibernation for dev box definitions so that I can manage resource usage efficiently. 
@@ -26,15 +26,15 @@ With the introduction of Dev Box Hibernation, you can enable this capability on 
 
 Follow these three steps to enable hibernation: 
 
-1. Enable hibernation on your dev box image
-1. Enable hibernation on your dev box definition
-1. Automate hibernation of pools of dev boxes using auto-stop schedules, or stop on RDP disconnect.
+1. Enable hibernation on your dev box image.
+1. Enable hibernation on your dev box definition.
+1. Automate hibernation for pools of dev boxes by using auto-stop schedules or stopping on RDP disconnect.
 
 ## Considerations for hibernation-enabled images
 
 Before you enable hibernation on your dev box, review the following considerations for hibernation-enabled images.
 
-- Currently, two SKUs support hibernation: 8 and 16 vCPU SKUs. Currently, 32 vCPU SKUs don't support hibernation.
+- Currently, two SKUs support hibernation: 8 and 16 vCPU SKUs. 32 vCPU SKUs don't support hibernation.
 
 - You can enable hibernation only on new dev boxes created with hibernation-enabled dev box definitions. You can't enable hibernation on existing dev boxes.
 
@@ -142,6 +142,26 @@ To enable hibernation for the dev box definition from the Azure CLI, set the `hi
 az devcenter admin devbox-definition update 
 --dev-box-definition-name <devBoxDefinitionName> -–dev-center-name <devCenterName> --resource-group <resourceGroupName> –-hibernateSupport Enabled
 ``` 
+
+## Enable automatic hibernation for dev boxes that have never been accessed
+
+This feature helps you minimize costs by automatically hibernating dev boxes that start but no user connects to. If a dev box starts and no one connects with RDP, it enters hibernation after the grace period you set. This setting makes sure idle dev boxes don't use resources unnecessarily, so you optimize costs and resource usage.
+
+To set up hibernation for dev boxes that have never been accessed, you need to enable the setting in the dev box pool.
+ 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the search box, enter **projects**. In the list of results, select **Projects**.
+1. Open the project with the dev box pool you want to update, and then select **Dev box pools**.
+1. Select the dev box pool you want to update, then on the Dev box operations menu (**...**), select **Edit**.
+1. On the **Edit dev box pool** page, select **Hibernate dev boxes that have never been accessed**.
+ 
+   :::image type="content" source="media/how-to-configure-dev-box-hibernation/dev-box-pool-enable-hibernation-not-connected.png" alt-text="Screenshot of the Dev Box pool settings page showing the option to enable hibernation for dev boxes that have not been connected."::: 
+
+1. When you select **Hibernate dev boxes that have never been accessed**, you can set a grace period. This lets users connect to the dev box before it hibernates. Set the **Grace period in minutes** to the time you want.
+
+   :::image type="content" source="media/how-to-configure-dev-box-hibernation/dev-box-pool-hibernation-not-connected-options.png" alt-text="Screenshot of the Dev Box pool settings page showing configuration options for hibernating dev boxes that have not been connected, including the grace period setting.":::
+
+1. Select **Save**.
 
 ### Troubleshooting
 

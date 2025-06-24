@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 12/06/2024
 ms.author: mbender
+# Customer intent: "As a cloud infrastructure manager, I want to stay informed about the latest features, improvements, and known issues related to Azure Load Balancer, so that I can effectively manage performance, troubleshoot problems, and ensure optimal functionality of load balancing services in our environment."
 ---
 
 # What's new in Azure Load Balancer?

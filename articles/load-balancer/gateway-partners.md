@@ -6,6 +6,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to explore partner integrations with Azure Gateway Load Balancer so that I can enhance network security and optimize performance across my cloud infrastructure."
 ---
 
 # Azure Gateway Load Balancer partners

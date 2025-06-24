@@ -11,7 +11,7 @@
   - name: Supported data types
     href: supported-data-types.md
   expanded: true
-- name: Deploy & setup
+- name: Deploy & set up
   items:
   - name: Get started with Microsoft Planetary Computer Pro
     href: get-started-planetary-computer.md
@@ -37,7 +37,7 @@
     href: ingestion-overview.md
   - name: Ingestion sources
     href: ingestion-source.md
-  - name: Setup an ingestion source using managed identity through the UI
+  - name: Set up an ingestion source using managed identity through the UI
     href: set-up-ingestion-credentials-managed-identity.md
   - name: Set up ingestion source using SAS tokens
     href: set-up-ingestion-credentials-sas-tokens.md
@@ -47,8 +47,12 @@
     href: create-stac-item.md
   - name: Add a STAC item to a collection
     href: add-stac-item-to-collection.md
-  - name: Bulk ingest data
+  - name: Bulk ingestion
     href: bulk-ingestion-api.md
+  - name: Troubleshooting ingestion
+    href: troubleshooting-ingestion.md
+  - name: Error codes from ingestion
+    href: error-codes-ingestion.md
 - name: Configure collections for visualization
   items:
   - name: Collection configuration overview

@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-application-gateway
+# Customer intent: "As a cloud administrator, I want to set up monitoring for Azure Application Gateway, so that I can ensure optimal performance, maintain availability, and quickly identify operational issues."
 ---
 
 # Monitor Azure Application Gateway

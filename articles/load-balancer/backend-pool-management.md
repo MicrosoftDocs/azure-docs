@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 06/26/2024
 ms.author: mbender 
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+# Customer intent: As a cloud administrator, I want to configure and manage backend pools for a load balancer by IP address and virtual network, so that I can ensure proper resource allocation and traffic distribution for my applications.
 ---
 
 # Backend pool management

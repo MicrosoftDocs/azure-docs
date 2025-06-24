@@ -83,5 +83,3 @@ The end-to-end GeoCatalog product lifecycle traverses the following stages:
 - [Supported Data Types](./supported-data-types.md)
 - [Use Explorer](./use-explorer.md)
 - [Data Cube Quickstart](./data-cube-quickstart.md)
-- [Queryables for Explorer Custom Search Filter](./queryables-for-explorer-custom-search-filter.md)
-- [Delete a GeoCatalog](./delete-geocatalog-resource.md)

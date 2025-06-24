@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 9/17/2024
 ms.author: mbender
+# Customer intent: As a DevOps engineer, I want to configure autoscaling for AKS pods using Application Gateway metrics so that I can optimize resource usage based on incoming traffic demands.
 ---
 
 # Autoscale your AKS pods by using Application Gateway metrics

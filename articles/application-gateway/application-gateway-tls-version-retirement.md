@@ -9,6 +9,7 @@ ms.date: 05/15/2025
 ms.author: mbender
 ms.custom:
   - build-2025
+# Customer intent: "As an Application Gateway owner, I want to transition away from TLS versions 1.0 and 1.1, so that I can maintain security and compliance with upcoming changes effective August 2025."
 ---
 
 # Managing your Application Gateway with TLS 1.0 and 1.1 retirement

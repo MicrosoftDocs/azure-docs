@@ -6,6 +6,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 10/22/2024
 ms.author: mbender
+# Customer intent: As a cloud network engineer, I want to configure HTTP header and URL rewrites in the application gateway, so that I can optimize traffic management and enhance security for my web applications.
 ---
 
 # Rewrite HTTP headers and URL with Application Gateway

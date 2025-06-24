@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 09/30/2024
 ms.author: mbender
 ms.custom: template-tutorial
+# Customer intent: As a cloud architect, I want to implement Azure DDoS Protection for my public load balancer, so that I can safeguard my applications against DDoS attacks and ensure their availability.
 ---
 
 # Tutorial: Protect your public load balancer with Azure DDoS Protection

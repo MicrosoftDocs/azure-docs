@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/23/2023
 ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to expose my AKS services over HTTP and HTTPS using an Application Gateway, so that I can manage secure access to my applications from external clients.
 ---
 
 # Expose an AKS service over HTTP or HTTPS by using Application Gateway

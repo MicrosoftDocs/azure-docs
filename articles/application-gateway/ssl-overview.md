@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 06/09/2023
 ms.author: mbender
 
+# Customer intent: "As a cloud architect, I want to configure end to end TLS on the application gateway, so that I can ensure secure communication and compliance for sensitive data transmitted between clients and backend servers."
 ---
 # Overview of TLS termination and end to end TLS with Application Gateway
 

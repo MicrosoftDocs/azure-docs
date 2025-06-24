@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.author: mbender
 ms.date: 09/30/2024
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep,engagement-fy23
+# Customer intent: As a cloud architect, I want to create an internal load balancer using a Bicep file, so that I can efficiently distribute traffic among virtual machines in a secure network environment.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using Bicep

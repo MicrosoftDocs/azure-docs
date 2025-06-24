@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 06/27/2024
 ms.author: mbender
+# Customer intent: As a system administrator, I want to configure the frontend IP addresses for an application gateway, so that I can manage public and private access for clients and services according to our organizational requirements.
 ---
 
 # Application Gateway frontend IP address configuration

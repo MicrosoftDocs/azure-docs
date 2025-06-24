@@ -9,6 +9,7 @@ ms.date: 04/27/2023
 ms.author: mbender
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
+# Customer intent: As an IT administrator, I want to configure URL-based routing for web traffic using the CLI, so that I can optimize resource allocation and enhance user experience by directing requests to the appropriate server pools.
 ---
 
 # Route web traffic based on the URL using the Azure CLI

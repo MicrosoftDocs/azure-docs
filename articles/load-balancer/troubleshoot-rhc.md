@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 02/08/2025
 ms.author: mbender
 ms.custom: FY23 content-maintenance
+# Customer intent: "As a network administrator, I want to diagnose issues impacting the availability of Azure Load Balancer resources, so that I can ensure reliable backend connectivity and optimal performance for my applications."
 ---
 
 # Troubleshoot resource health and inbound availability problems

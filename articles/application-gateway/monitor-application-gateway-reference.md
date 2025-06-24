@@ -7,6 +7,7 @@ ms.topic: reference
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-application-gateway
+# Customer intent: "As a cloud administrator, I want to access detailed performance metrics for Azure Application Gateway, so that I can effectively monitor traffic handling, optimize resource usage, and ensure high availability of services."
 ---
 
 # Azure Application Gateway monitoring data reference

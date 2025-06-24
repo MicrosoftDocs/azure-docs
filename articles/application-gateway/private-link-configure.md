@@ -13,6 +13,7 @@ ms.custom:
 ms.topic: how-to
 ms.date: 06/16/2025
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to configure Application Gateway Private Link so that I can securely connect workloads over a private network without exposing them to the public internet.
 ---
 
 # Configure Azure Application Gateway Private Link

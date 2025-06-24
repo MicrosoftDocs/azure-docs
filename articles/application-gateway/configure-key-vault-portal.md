@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to 
 ms.date: 10/01/2021
 ms.custom: template-how-to
+# Customer intent: "As an IT admin, I want to configure TLS termination with Key Vault certificates for my application gateway, so that I can secure my web applications with SSL/TLS encryption."
 ---
 
 # Configure TLS termination with Key Vault certificates using Azure portal

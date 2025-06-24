@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 04/19/2022
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to implement traffic redirection in the application gateway, so that I can optimize resource usage while ensuring secure and efficient user communication through automatic HTTP to HTTPS redirection and other advanced scenarios.
 ---
 
 # Application Gateway redirect overview

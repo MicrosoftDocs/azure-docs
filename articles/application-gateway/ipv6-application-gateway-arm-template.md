@@ -9,6 +9,7 @@ ms.date: 11/06/2022
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+# Customer intent: "As a cloud architect, I want to deploy an Azure Application Gateway with an IPv6 frontend, so that I can ensure my web applications can handle dual-stack traffic effectively in a scalable and secure manner."
 ---
 
 # Deploy an Azure Application Gateway with an IPv6 frontend - ARM template

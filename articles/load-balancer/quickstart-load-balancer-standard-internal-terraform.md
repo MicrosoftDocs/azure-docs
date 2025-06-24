@@ -11,6 +11,7 @@ ms.date: 04/02/2025
 ms.author: mbender
 ms.custom: devx-track-terraform
 #Customer intent: I want to create an internal load balancer by using Terraform so that I can load balance internal traffic to VMs.
+# Customer intent: As a cloud engineer, I want to create an internal load balancer with Terraform so that I can efficiently manage and distribute internal traffic to virtual machines.
 ---
 
 # Quickstart: Create an internal load balancer to load balance internal traffic to VMs using Terraform

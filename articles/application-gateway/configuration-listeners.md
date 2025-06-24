@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:06/16/2025
+# Customer intent: As a network administrator, I want to configure listeners for the Azure Application Gateway, so that I can manage incoming requests effectively based on protocols, ports, and host headers for optimal traffic routing.
 ---
 
 # Application Gateway listener configuration

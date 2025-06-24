@@ -119,7 +119,6 @@ Here are the known restrictions of app cloning:
 
 * Autoscale settings aren't cloned.
 * Backup schedule settings aren't cloned.
-* Virtual network settings aren't cloned.
 * Application Insights isn't automatically set up on the destination app.
 * Easy Auth settings aren't cloned.
 * Kudu extensions aren't cloned.

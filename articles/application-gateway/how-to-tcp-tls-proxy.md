@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 05/12/2025
 ms.author: mbender
+# Customer intent: "As a network engineer, I want to configure the Azure Application Gateway TCP/TLS proxy for SQL Server, so that I can efficiently manage non-HTTP workloads and ensure proper connectivity for database operations."
 ---
 
 # Configure Azure Application Gateway TCP/TLS proxy (Preview)

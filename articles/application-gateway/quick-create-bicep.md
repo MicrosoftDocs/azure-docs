@@ -9,6 +9,7 @@ ms.date: 05/30/2024
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
+# Customer intent: As a cloud engineer, I want to deploy an Azure Application Gateway using Bicep, so that I can efficiently direct web traffic to backend virtual machines and ensure optimal performance and security for my applications.
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Bicep

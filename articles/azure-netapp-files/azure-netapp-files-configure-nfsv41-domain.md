@@ -1,10 +1,10 @@
 ---
-title: Configure NFSv4.1 ID domain for Azure NetApp Files | Microsoft Docs
+title: Configure NFSv4.1 ID domain for Azure NetApp Files
 description: Learn how to configure NFSv4.1 ID domain for using NFSv4.1 with Azure NetApp Files.
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 04/12/2025
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 ID domain for Azure NetApp Files

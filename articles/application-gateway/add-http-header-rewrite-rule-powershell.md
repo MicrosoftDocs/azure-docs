@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to configure HTTP header rewrites using Azure PowerShell, so that I can efficiently modify headers in requests and responses for my Application Gateway."
 ---
 # Rewrite HTTP request and response headers with Azure Application Gateway - Azure PowerShell
 

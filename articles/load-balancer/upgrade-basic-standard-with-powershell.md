@@ -12,6 +12,7 @@ ms.custom:
   - template-how-to
   - engagement-fy23
   - build-2025
+# Customer intent: "As a cloud administrator, I want to upgrade Basic Load Balancers to Standard SKU using PowerShell, so that I can ensure high availability and functionality before the retirement date of Basic Load Balancers."
 ---
 
 # Upgrade a basic load balancer with PowerShell

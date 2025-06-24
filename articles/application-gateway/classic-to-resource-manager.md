@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 05/01/2025
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to migrate Azure Application Gateway from the classic deployment model to Resource Manager, so that I can leverage the latest features and improve resource management capabilities for our infrastructure."
 ---
 
 # Application gateway classic to Resource Manager migration

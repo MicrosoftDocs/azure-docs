@@ -138,7 +138,7 @@ container_name = parsed_url.path.lstrip("/")
 # Login to Azure using the Azure CLI
 credential = azure.identity.AzureCliCredential()
 
-# Setup Blob Service Client
+# Set up Blob Service Client
 with azure.storage.blob.BlobServiceClient(
         account_url=account_url,
         credential=credential,
@@ -196,7 +196,7 @@ else:
 ```
 
 ## Next steps
-Now that you have setup managed identity, its time to ingest data. 
+Now that you have set up managed identity, its time to ingest data. 
 
 For Single Item Ingestion:
 
