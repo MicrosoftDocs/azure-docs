@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: reference
-ms.date: 06/11/2025
+ms.date: 06/24/2025
 ms.custom: references_regions, linux-related-content
 ms.service: azure-backup
 author: jyothisuri
@@ -202,6 +202,9 @@ The following table lists the workload specific operations supported even if zon
 | **Blob** | Recovery is successful, if the protected storage account is in ZRS. |
 | **Disk** | - Backups are successful, if the protected disk is in an active zone. <br><br> - Restore to an active zone is successful. |
 | **MARS** | Backups and restores are successful. |
+
+>[!Note]
+>Archive Tier is unsupported on Zone-redundant storage (ZRS) in Azure Storage and Recovery Services vault.
 
 ## Monitoring and Reporting support
 
