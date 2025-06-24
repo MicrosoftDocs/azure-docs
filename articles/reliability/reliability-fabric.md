@@ -200,7 +200,7 @@ OneLake data remains accessible through multiple channels:
     
     * Explore tab: You can access the Explore tab to view all items and workspaces, including their metadata and related details.
 
-    * Govern tab: You can access the Govern tab to view insights, recommended actions, and governance tools - based on the most recent successful model refresh prior to 
+    * Govern tab: You can access the Govern tab to view insights, recommended actions, and governance tools - based on the most recent successful model refresh prior to failover. 
 
 #### Phase 3: Recovery plan
 
