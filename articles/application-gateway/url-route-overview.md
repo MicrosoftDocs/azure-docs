@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.date: 03/28/2023
 ms.author: mbender
 ms.topic: concept-article
+# Customer intent: "As a cloud architect, I want to configure URL-based routing rules on an application gateway, so that I can effectively direct traffic to specific backend server pools based on URL paths and optimize content delivery."
 ---
 
 # URL Path Based Routing overview
