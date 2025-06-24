@@ -104,6 +104,7 @@ The ingestion service strictly enforces the [STAC specification](./stac-overview
             * Digits: `0-9`
             * Symbols: ``-``, ``_``, `.`
          * All other characters are invalid
+         *   `Collection IDs` must be fewer than 243 characters.
 
 5.  **Retry Ingestion:** After correcting the STAC metadata, try the ingestion again.
 
