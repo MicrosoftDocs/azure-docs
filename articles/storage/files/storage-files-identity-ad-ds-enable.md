@@ -174,7 +174,7 @@ The cmdlets should return the key value. Once you have the kerb1 key, create eit
    Set-ADUser -Identity $UserSamAccountName -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<DNSRoot>
    ```
 > [!IMPORTANT]
-> ** Do **not** sync users with invalid **userPrincipalName (UPN)** values. UPNs must not contain special characters such as `/`, spaces, or other unsupported symbols.
+> **Don't sync users with invalid userPrincipalName (UPN) values**. UPNs must not contain special characters such as `/`, spaces, or other unsupported symbols.
 > Attempting to sync users with invalid UPNs (i.e. using `/` in the username) will result in Azure AD Connect errors.
 > If such identities exist in your on-premises directory, either:
 > - Update the UPN to a valid format (e.g., `user@domain.com`), **or**
