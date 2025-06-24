@@ -1,8 +1,10 @@
 ---
+title: include file
+description: include file
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 06/24/2025
+ms.date: 11/07/2023
 ms.author: anfdocs
 ms.custom: include file
 
@@ -10,7 +12,7 @@ ms.custom: include file
 # enable-continuous-availability-existing-SMB.md
 ---
 
-You should enable Continuous Availability for only the following workloads and use cases:
+You should enable Continuous Availability for the following workloads/use cases only:
 
 * [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html)
 * [FSLogix user profile containers](../../virtual-desktop/create-fslogix-profile-container.md), including [FSLogix ODFC containers](/fslogix/concepts-container-types#odfc-container)
