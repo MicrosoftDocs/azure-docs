@@ -18,7 +18,7 @@ A *namespace* in Azure Event Grid is a logical container for one or more topics,
 To create a namespace:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **search box**, enter **Event Grid Namespaces** and select **Event Grid Namespaces** from the results.
+1. In the search box, enter **Event Grid Namespaces** and select **Event Grid Namespaces** from the results.
 
    :::image type="content" source="../media/create-view-manage-namespaces/portal-search-box-namespaces.png" alt-text="Screenshot showing Event Grid Namespaces in the search results.":::
 
@@ -29,9 +29,9 @@ To create a namespace:
 1. On the **Basics** page, follow these steps.
 
     1. Select the Azure subscription in which to create the namespace.
-    1. Select an existing **Resource Group** or create a resource group.
+    1. Select an existing **Resource group** or create a resource group.
     1. Enter a **Name** for the namespace.
-    1. Select the region to create the namespace. 
+    1. Select the **Location** for the namespace. 
     1. Select **Review + create**. 
     
        :::image type="content" source="../media/create-view-manage-namespaces/create-namespace-basics-page.png" alt-text="Screenshot showing the Basics tab of Create namespace page.":::

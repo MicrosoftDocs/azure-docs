@@ -11,7 +11,7 @@ ms.author: spelluru
 
 To create an event hub within the namespace, do the following actions:
 
-1. On the **Overview** page, select **+ Event hub**.
+1. On the **Overview** page, select **+ Event Hub**.
 
    :::image type="content" source="./media/create-event-hub/create-event-hub4.png" alt-text="Screenshot of the selection of Add event hub button on the command bar.":::
 

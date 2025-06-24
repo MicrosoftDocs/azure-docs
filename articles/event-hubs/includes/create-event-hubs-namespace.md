@@ -18,7 +18,7 @@ An Event Hubs namespace provides a unique scoping container in which you create 
 
 1. In the **Event Hubs** page, select **Create**.
 
-   :::image type="content" source="./media/create-event-hubs-namespace/event-hubs-add-toolbar.png" alt-text="Screenshot showing the selection of Create button on the Event hubs page.":::
+   :::image type="content" source="./media/create-event-hubs-namespace/event-hubs-add-toolbar.png" alt-text="Screenshot showing the selection of Create button on the Event hubs page." lightbox="./media/create-event-hubs-namespace/event-hubs-add-toolbar.png":::
 
 1. On the **Create namespace** page, take the following steps:
 
@@ -31,7 +31,7 @@ An Event Hubs namespace provides a unique scoping container in which you create 
       > [!NOTE]
       > If you plan to use the namespace from **Apache Kafka** apps, use the **Standard** tier. The basic tier doesn't support Apache Kafka workloads. To learn about differences between tiers, see [Quotas and limits](../event-hubs-quotas.md), [Event Hubs Premium](../event-hubs-premium-overview.md), and [Event Hubs Dedicated](../event-hubs-dedicated-overview.md) articles. 
 
-   1. Leave the **throughput units** (for standard tier) or **processing units** (for premium tier) settings as it is. To learn about throughput units or processing units, see [Event Hubs scalability](../event-hubs-scalability.md).
+   1. Leave the **throughput units** (for standard tier) or **processing units** (for premium tier) setting as it is. To learn about throughput units or processing units, see [Event Hubs scalability](../event-hubs-scalability.md).
    1. Select **Review + Create**.
 
       :::image type="content" source="./media/create-event-hubs-namespace/create-event-hub1.png" alt-text="Screenshot of the Create Namespace page in the Azure portal.":::

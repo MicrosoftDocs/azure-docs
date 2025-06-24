@@ -46,7 +46,7 @@ In a separate tab of the Web browser or in a separate window, use the Azure port
 
 1. On the **Add role assignment** page, from the list of roles, select **Azure Event Hubs Data Sender**, and then select **Next**.
 
-   :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal-namespace-topics/select-azure-event-hubs-data-sender.png" alt-text="Screenshot that shows the Add role assignment page with Azure Event Hubs Data Sender selected.":::
+   :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal-namespace-topics/select-azure-event-hubs-data-sender.png" alt-text="Screenshot that shows the Add role assignment page with Azure Event Hubs Data Sender selected." lightbox="./media/mqtt-routing-to-event-hubs-portal-namespace-topics/select-azure-event-hubs-data-sender.png":::
 
 1. On the **Members** page, follow these steps:
 
@@ -88,7 +88,7 @@ In a separate tab of the Web browser or in a separate window, use the Azure port
 
        :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal-namespace-topics/create-subscription-page.png" alt-text="Screenshot that shows the Create Subscription page.":::
 
-    1. On the **Select Event Hub**, follow these steps:
+    1. On the **Select Event Hub** page, follow these steps:
 
         1. Select the Azure subscription that has the event hub.
         1. Select the **Resource Group** that has the event hub.
@@ -132,7 +132,7 @@ Follow steps in this quickstart: [Publish and subscribe on an MQTT topic](./mqtt
 
 Navigate to the Event Hubs instance (event hub) in your event subscription in the Azure portal. Process data from your event hub by using Stream Analytics. For more information, see [Process data from your event hub using Azure Stream Analytics](../event-hubs/process-data-azure-stream-analytics.md). You can see the MQTT messages in the query.
 
-:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/view-data-in-event-hub-instance-using-azure-stream-analytics-query.png" alt-text="Screenshot that shows the MQTT messages data in Event Hubs by using the Stream Analytics query tool.":::
+:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/view-data-in-event-hub-instance-using-azure-stream-analytics-query.png" alt-text="Screenshot that shows the MQTT messages data in Event Hubs by using the Stream Analytics query tool." lightbox="./media/mqtt-routing-to-event-hubs-portal/view-data-in-event-hub-instance-using-azure-stream-analytics-query.png":::
 
 ## Next step
 
