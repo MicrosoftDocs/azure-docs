@@ -3,8 +3,8 @@ title: Roadmap for Azure DevTest Labs
 description: Learn about features in development and coming soon for Azure DevTest Labs.
 ms.service: azure-devtest-labs
 ms.topic: concept-article
-author: anishtrakru
-ms.author: anishtrakru
+author: tanmayeekamath
+ms.author: takamath
 ms.date: 06/24/2025
 
 #customer intent: As a customer, I want to understand upcoming features and enhancements in Azure DevTest Labs so that I can plan and optimize development and deployment strategies.
