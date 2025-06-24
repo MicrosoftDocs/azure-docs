@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 manager: kumud
 ms.service: azure-frontdoor
-ms.topic: troubleshooting
+ms.topic: troubleshooting-general
 ms.date: 11/18/2024
 ---
 
