@@ -9,6 +9,7 @@ ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
   - build-2025
+# Customer intent: As a cloud administrator, I want to configure OAuth authentication for accessing Azure file shares, so that I can streamline access management and enhance security by eliminating the need for storage account keys while leveraging role-based permissions.
 ---
 
 # Access Azure file shares using Microsoft Entra ID with Azure Files OAuth over REST

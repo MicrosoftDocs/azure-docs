@@ -34,6 +34,10 @@ To enable Private Link Configuration, a subnet, different from the Application G
 > [!NOTE]
 > The maximum number of IP addresses per private link configuration is eight. Only dynamic allocation is supported.
 
+> [!NOTE]
+> The Application Gateway name and Private link name together shouldn't exceed 70 characters.To avoid deployment failures due to name length constraints, ensure that both the Application Gateway name and the Private Link configuration name are kept sufficiently short.
+
+
 Complete the following steps to create a new subnet:
 
 [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
