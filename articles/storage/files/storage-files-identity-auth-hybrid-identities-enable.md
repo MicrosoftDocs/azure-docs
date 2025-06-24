@@ -206,7 +206,8 @@ Use one of the following three methods:
 
 Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#cloudkerberosticketretrievalenabled), set to 1
 
-> **Note:** When configuring **CloudKerberosTicketRetrievalEnabled** via Intune, use the **Settings Catalog** instead of the OMA-URI method.  
+> > [!NOTE]
+> > When configuring **CloudKerberosTicketRetrievalEnabled** via Intune, use the **Settings Catalog** instead of the OMA-URI method.  
 > The OMA-URI method does **not** work on **Azure Virtual Desktop (AVD) multi-session** devices. AVD multi-session is a common deployment scenario for **Entra Kerberos with hybrid identities**, including configurations involving **Entra ID Join**, **FSLogix**, and **Azure Files**.  
 > Using the Settings Catalog ensures proper application of the policy in multi-session environments.
 
