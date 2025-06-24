@@ -4,7 +4,7 @@ description: This article explains how Front Door can help you to build a well a
 author: johndowns
 ms.author: jodowns
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/13/2023
 ---
 
