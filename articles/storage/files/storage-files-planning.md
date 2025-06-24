@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 06/07/2024
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: As a system architect, I want to evaluate deployment options for Azure Files, so that I can determine the best approach for directly mounting or caching file shares while considering performance, compatibility, and organizational needs.
 ---
 
 # Plan to deploy Azure Files

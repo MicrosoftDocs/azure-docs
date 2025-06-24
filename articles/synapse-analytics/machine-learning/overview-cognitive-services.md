@@ -92,7 +92,7 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](/azu
 
 ### Search
 
-* [**Bing Image search**](https://azure.microsoft.com/services/services-services/bing-image-search-api/) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/bing/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.bing.html#module-synapse.ml.services.bing.BingImageSearch))
+* [**Bing Image search**](https://www.microsoft.com/bing/apis/bing-image-search-api) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/bing/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.bing.html#module-synapse.ml.services.bing.BingImageSearch))
 * [**Azure Cognitive search**](/azure/search/search-what-is-azure-search) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/search/AzureSearchWriter$.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.search.html#module-synapse.ml.services.search.AzureSearchWriter))
 
 ## Prepare your system
@@ -211,7 +211,7 @@ display(healthcare.transform(df))
 
 ## Translate text into a different language
 
-[Translator](https://azure.microsoft.com/services/ai-services/translator/) is a cloud-based machine translation service and is part of the Azure AI services family of AI APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in 90 languages and dialects and can be used to translate text without hosting your own algorithm.
+[Translator](https://azure.microsoft.com/products/ai-services/ai-translator) is a cloud-based machine translation service and is part of the Azure AI services family of AI APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in 90 languages and dialects and can be used to translate text without hosting your own algorithm.
 
 The following code sample does a simple text translation by providing the sentences you want to translate and target languages you want to translate them to.
 

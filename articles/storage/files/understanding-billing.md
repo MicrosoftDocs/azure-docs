@@ -9,6 +9,7 @@ ms.author: kendownie
 ms.custom:
   - references_regions
   - build-2025
+# Customer intent: "As a financial analyst working with cloud storage, I want to understand the billing models and cost factors for Azure Files, so that I can accurately estimate and manage storage expenses for our organization's cloud strategy."
 ---
 
 # Understand Azure Files billing models

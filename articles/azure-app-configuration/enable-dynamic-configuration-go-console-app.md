@@ -12,7 +12,7 @@ ms.date: 05/22/2025
 ms.author: linglingye
 ---
 
-# Quickstart: Enable dynamic configuration refresh in a Go console app
+# Tutorial: Enable dynamic configuration refresh in a Go console app
 
 In this quickstart, you'll enhance a basic Go console application to dynamically refresh configuration from Azure App Configuration. This allows your application to pick up configuration changes without requiring a restart.
 

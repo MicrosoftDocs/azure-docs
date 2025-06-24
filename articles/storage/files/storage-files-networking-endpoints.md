@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 05/10/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to configure both public and private network endpoints for Azure file shares, so that I can manage access and enhance security for my organization's data storage solutions."
 ---
 
 # Configure network endpoints for accessing Azure file shares

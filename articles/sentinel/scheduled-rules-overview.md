@@ -92,11 +92,11 @@ Everything you type into the rule query window is instantly validated, so you fi
 
 - We recommend you use an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) as your query source, instead of using a native table. This will ensure that the query supports any current or future relevant data source or family of data sources, rather than relying on a single data source.
 
-- The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true) to overcome the query length limitation, as a single function can replace dozens of lines of code.
+- The query length should be between 1 and 10,000 characters and can't contain "`search *`" or "`union *`". You can use [user-defined functions](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true) to overcome the query length limitation, as a single function can replace dozens of lines of code.
 
 - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
 
-- When using the **`bag_unpack`** function in a query, if you [project the columns](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true) as follows:
+- When using the **`bag_unpack`** function in a query, if you [project the columns](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true) as fields using "`project field1`" and the column doesn't exist, the query fails. To guard against this happening, you must [project the column](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true) as follows:
 
    `project field1 = column_ifexists("field1","")`
 
@@ -136,11 +136,11 @@ This setting allows you to customize otherwise-standard alert properties accordi
 To learn more about customizing alert details, and to get complete instructions, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
 > [!NOTE]
-> In the Microsoft Defender portal, the Defender XDR correlation engine is solely in charge of naming incidents, so any alert names you customized may be overridden when incidents are created from these alerts.
+> In the Microsoft Defender portal, the Defender XDR correlation engine is solely in charge of naming incidents, so any alert names you customized might be overridden when incidents are created from these alerts.
 
 ### Query scheduling
 
-The following parameters determine how often your scheduled rule will run, and what time period it will examine each time it runs.
+The following parameters determine how often your scheduled rule runs, and what time period it examines each time it runs.
 
 | Setting | Behavior |
 | --- | --- |
@@ -149,14 +149,14 @@ The following parameters determine how often your scheduled rule will run, and w
 
 - The allowed range for both of these parameters is from **5 minutes** to **14 days**.
 
-- The query interval must be shorter than or equal to the lookback period. If it's shorter, the query periods will overlap and this may cause some duplication of results. The rule validation will not allow you to set an interval longer than the lookback period, though, as that would result in gaps in your coverage.
+- The query interval must be shorter than or equal to the lookback period. If it's shorter, the query periods overlap, which can cause some duplication of results. The rule validation doesn't allow you to set an interval longer than the lookback period, though, as that would result in gaps in your coverage.
 
 The **Start running** setting, now in PREVIEW, allows you to create a rule with status **Enabled**, but to delay its first execution until a predetermined date and time. This setting is helpful if you want to time the execution of your rules according to when data is expected to be ingested from the source, or to when your SOC analysts start their work day.
 
 | Setting | Behavior |
 | --- | --- |
-| **Automatically** | The rule will run for the first time immediately upon being created, and after that at the interval set in the **Run query every** setting. |
-| **At specific time** (Preview) | Set a date and time for the rule to first run, after which it will run at the interval set in the **Run query every** setting. |
+| **Automatically** | The rule runs for the first time immediately upon being created, and after that at the interval set in the **Run query every** setting. |
+| **At specific time** (Preview) | Set a date and time for the rule to first run, after which it runs at the interval set in the **Run query every** setting. |
 
 - The **start running** time must be between 10 minutes and 30 days after the rule creation (or enablement) time.
 
@@ -168,13 +168,13 @@ The **Start running** setting, now in PREVIEW, allows you to create a rule with 
 >
 > **Ingestion delay**
 >
-> To account for **latency** that may occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
+> To account for **latency** that might occur between an event's generation at the source and its ingestion into Microsoft Sentinel, and to ensure complete coverage without data duplication, Microsoft Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
 >
 > For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
 
 ### Alert threshold
 
-Many types of security events are normal or even expected in small numbers, but are a sign of a threat in larger numbers. Different scales of large numbers can mean different kinds of threats. For example, two or three failed sign-in attempts in the space of a minute is a sign of a user not remembering a password, but fifty in a minute could be a sign of a human attack, and a thousand is probably an automated attack.
+Many types of security events are normal or even expected in small numbers, but are a sign of a threat in larger numbers. Different scales of large numbers can mean different kinds of threats. For example, two or three failed sign-in attempts in the space of a minute is a sign of a user not remembering a password, but 50 in a minute could be a sign of a human attack, and a thousand is probably an automated attack.
 
 Depending on what kind of activity your rule is trying to detect, you can set a minimum number of events (query results) necessary to trigger an alert. The threshold applies separately to each time the rule runs, not collectively.
 
@@ -186,9 +186,21 @@ There are two ways to handle the grouping of **events** into **alerts**:
 
 - **Group all events into a single alert:** This is the default. The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** explained in the previous section. This single alert summarizes all the events returned in the query results.
 
-- **Trigger an alert for each event:** The rule generates a unique alert for each event (result) returned by the query. This mode is useful if you want events to be displayed individually, or if you want to group them by certain parameters&mdash;by user, hostname, or something else. You can define these parameters in the query. |
+- **Trigger an alert for each event:** The rule generates a unique alert for each event (result) returned by the query. This mode is useful if you want events to be displayed individually, or if you want to group them by certain parameters&mdash;by user, hostname, or something else. You can define these parameters in the query.
 
 Analytics rules can generate up to 150 alerts. If **Event grouping** is set to **Trigger an alert for each event**, and the rule's query returns *more than 150 events*, the first 149 events will each generate a unique alert (for 149 alerts), and the 150th alert will summarize the entire set of returned events. In other words, the 150th alert is what would have been generated if **Event grouping** had been set to **Group all events into a single alert**.
+
+The *Query* section of the alert is different in each of these two modes. In the **Group all events into a single alert** mode, the alert returns a query that allows you to see all the events that triggered the alert. You can drill down into the query results to see the individual events. In the **Trigger an alert for each event** mode, the alert returns a base64 encoded result in the query area. Copy and run this output in Log Analytics to decode the base64 and show the original event.
+
+#### [Single alert](#tab/event-grouping)
+
+:::image type="content" source="./media/scheduled-rules-overview/single-alert.png" alt-text="Screenshot of sample results for single alert mode showing a query.":::
+
+#### [Alert for each event](#tab/trigger-alert-per-event)
+
+:::image type="content" source="./media/scheduled-rules-overview/per-event.png" alt-text="Screenshot of sample results for trigger an alert for each event mode showing a base64 encoded query.":::
+
+---
 
 The **Trigger an alert for each event** setting might cause an issue where query results appear to be missing or different than expected. For more information on this scenario, see [Troubleshooting analytics rules in Microsoft Sentinel | Issue: No events appear in query results](troubleshoot-analytics-rules.md#issue-no-events-appear-in-query-results).
 
@@ -200,7 +212,7 @@ If you want this rule to stop working for a period of time after it generates an
 
 The analytics rule wizard allows you to test its efficacy by running it on the current data set. When you run the test, the **Results simulation** window shows you a graph of the results the query would have generated over the last 50 times it would have run, according to the currently defined schedule. If you modify the query, you can run the test again to update the graph. The graph shows the number of results over the defined time period, which is determined by the query schedule you defined.
 
-Here's what the results simulation might look like for the query in the screenshot above. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
+Here's what the results simulation might look like for the query in the previous screenshot. The left side is the default view, and the right side is what you see when you hover over a point in time on the graph.
 
 :::image type="content" source="media/create-analytics-rules/results-simulation.png" alt-text="Screenshots of results simulations.":::
 
@@ -235,7 +247,7 @@ To group alerts together, set the alert grouping setting to **Enabled**.
 
 There are a few options to consider when grouping alerts:
 
-- **Time frame:** By default, alerts created up to 5 hours after the first alert in an incident are added to the same incident. After 5 hours, a new incident is created. You can alter this time period to anywhere between 5 minutes and 7 days.
+- **Time frame:** By default, alerts created up to 5 hours after the first alert in an incident are added to the same incident. After 5 hours, a new incident is created. You can alter this time period to anywhere between 5 minutes and seven days.
 
 - **Grouping criteria:** Choose how to determine which alerts are included in the group. The following table shows the possible choices:
 
@@ -243,9 +255,9 @@ There are a few options to consider when grouping alerts:
     | ------- | ---------- |
     | **Group alerts into a single incident if all the entities match** | Alerts are grouped together if they share identical values for each of the [mapped entities](#entity-mapping) defined earlier. This is the recommended setting. |
     | **Group all alerts triggered by this rule into a single incident** | All the alerts generated by this rule are grouped together even if they share no identical values. |
-    | **Group alerts into a single incident if the selected entities and details match** | Alerts are grouped together if they share identical values for all of the [mapped entities](#entity-mapping), [alert details](#alert-details), and [custom details](#custom-details) that you select for this setting. Choose the entities and details from the drop-down lists that appear when you select this option.<br><br>You might want to use this setting if, for example, you want to create separate incidents based on the source or target IP addresses, or if you want to group alerts that match a specific entity and severity.<br><br>**Note**: When you select this option, you must have at least one entity or detail selected for the rule. Otherwise, the rule validation fails and the rule is not created. |
+    | **Group alerts into a single incident if the selected entities and details match** | Alerts are grouped together if they share identical values for all of the [mapped entities](#entity-mapping), [alert details](#alert-details), and [custom details](#custom-details) that you select for this setting. Choose the entities and details from the drop-down lists that appear when you select this option.<br><br>You might want to use this setting if, for example, you want to create separate incidents based on the source or target IP addresses, or if you want to group alerts that match a specific entity and severity.<br><br>**Note**: When you select this option, you must have at least one entity or detail selected for the rule. Otherwise, the rule validation fails and the rule isn't created. |
 
-- **Reopening incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the new alert to create a new incident.
+- **Reopening incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident reopened, and leave as **Disabled** if you want the new alert to create a new incident.
 
     The option to reopen closed incidents is **not available** if you onboarded Microsoft Sentinel to the Defender portal.
 
@@ -268,13 +280,13 @@ Automate more complex tasks and invoke responses from remote systems to remediat
 
 - For more information about when to use the **incident created trigger**, the **incident updated trigger**, or the **alert created trigger**, see [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary).
 
-- Under the **Alert automation (classic)** heading, you might see a list of playbooks configured to run automatically using an old method due to be **deprecated in March 2026**. You can't add anything to this list. Any playbooks listed here should have automation rules created, based on the **alert created trigger**, to invoke the playbooks. After you've done that, select the ellipsis at the end of the line of the playbook listed here, and select **Remove**. See [Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules](migrate-playbooks-to-automation-rules.md) for full instructions.
+- Under the **Alert automation (classic)** heading, you might see a list of playbooks configured to run automatically using an old method due to be **deprecated in March 2026**. You can't add anything to this list. Any playbooks listed here should have automation rules created, based on the **alert created trigger**, to invoke the playbooks. After you do that, select the ellipsis at the end of the line of the playbook listed here, and select **Remove**. See [Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules](migrate-playbooks-to-automation-rules.md) for full instructions.
 
 ## Next steps
 
 When using Microsoft Sentinel analytics rules to detect threats across your environment, make sure you enable all rules associated with your connected data sources to ensure full security coverage for your environment.
 
-To automate rule enablement, push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
+To automate rule enablement, push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), even though doing so requires more effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell can help when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
 
 For more information, see:
 

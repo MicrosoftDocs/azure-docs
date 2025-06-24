@@ -8,6 +8,7 @@ ms.date: 10/18/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
+# Customer intent: As a system administrator, I want to mount an SMB Azure file share using identity-based access so that I can manage file storage securely and efficiently with the appropriate access permissions.
 ---
 
 # Mount an SMB Azure file share

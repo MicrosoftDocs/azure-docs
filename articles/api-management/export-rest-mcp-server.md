@@ -85,6 +85,9 @@ To verify that the MCP server is working, you can use Visual Studio Code to send
 
 In Visual Studio Code, use GitHub Copilot chat in agent mode (preview) to add the MCP server and use the tools. For background about MCP servers in Visual Studio Code, see [Use MCP Servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
+> [!TIP]
+> If you use the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) to test an MCP server created by API Management, we recommend using version 0.9.0.
+
 ### Add the MCP server in Visual Studio Code
 
 To add the MCP server in Visual Studio Code:

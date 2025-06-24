@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 05/10/2024
 ms.author: kendownie
+# Customer intent: As a network administrator, I want to configure public and private access to Azure Files, so that I can securely manage file shares based on my organization’s networking and security policies.
 ---
 
 # Azure Files networking considerations

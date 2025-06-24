@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.author: kendownie
+# Customer intent: "As a Linux administrator, I want to enable Kerberos authentication for accessing Azure file shares, so that I can securely manage file access using Active Directory and streamline authentication processes for users."
 ---
 
 # Enable Active Directory authentication over SMB for Linux clients accessing Azure Files

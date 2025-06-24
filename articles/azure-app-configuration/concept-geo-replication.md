@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/13/2024
+ms.date: 06/04/2025
 ---
 
 # Geo-replication overview
@@ -31,7 +31,7 @@ This team would benefit from geo-replication. They can create a replica of their
 
 ## Considerations
 
-- Geo-replication isn't available in the free tier.  
+- Geo-replication isn't available in the Free and Developer tiers.  
 - Each replica has limits, as outlined in the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/). These limits are isolated per replica. 
 - Azure App Configuration also supports Azure availability zones to create a resilient and highly available store within an Azure Region. Availability zone support is automatically included for a replica if the replica's region has availability zone support. The combination of availability zones for redundancy within a region, and geo-replication across multiple regions, enhances both the availability and performance of a configuration store.
 <!--

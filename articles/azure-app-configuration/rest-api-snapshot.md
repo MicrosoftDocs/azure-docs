@@ -5,7 +5,7 @@ author: jimmyca15
 ms.author: jimmyca
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/02/2024
+ms.date: 06/04/2025
 zone_pivot_groups: appconfig-data-plane-api-version
 
 ---
@@ -287,7 +287,7 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 | filters[\<index\>].label | no | null | Multi-match label filters (for example: "*", "comma,separated") aren't supported with 'key' composition type. |
 | tags | no | {} | |
 | composition_type | no | key | |
-| retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (seven days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (one hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (one hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 604800 (seven days) |
+| retention_period | no | Standard and Premium tiers <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier and Developer tiers <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (seven days) | Standard and Premium tiers <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (one hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 7776000 (90 days) <br/> Free tier and Developer tiers <br/> &nbsp;&nbsp;&nbsp;&nbsp; Minimum: 3600 (one hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; Maximum: 604800 (seven days) |
 
 ```http
 PUT /snapshot/{name}?api-version={api-version} HTTP/1.1

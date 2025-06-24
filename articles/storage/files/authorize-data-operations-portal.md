@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/17/2025
 ms.author: kendownie
+# Customer intent: "As a cloud administrator, I want to configure authorization access for Azure file shares, so that I can securely manage user permissions and control data access through the Azure portal."
 ---
 
 # Choose how to authorize access to file data in the Azure portal

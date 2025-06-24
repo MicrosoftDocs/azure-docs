@@ -130,7 +130,7 @@ cd "${RELEASE_VERSION}"
 # Download release artifacts from githug (on a machine with github access)
 cyclecloud project fetch "${RELEASE_URL}" .
 
-# Create a tarbal with the project files pre-staged
+# Create a tarball with the project files pre-staged
 cyclecloud project build
 mv ./build/slurm "./${RELEASE_VERSION}"
 tar czf "slurm-${RELEASE_VERSION}.tgz" ./blobs "./${RELEASE_VERSION}"

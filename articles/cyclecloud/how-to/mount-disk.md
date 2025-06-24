@@ -76,7 +76,7 @@ The above example shows there are three volumes that should be attached to the n
 ## Disk Encryption
 CycleCloud supports server-side encryption (SSE) for OS and data disk Volumes using [Azure Disk Encryption Sets](/azure/virtual-machines/disk-encryption).
 Azure uses _Platform Managed Keys_ (PMK) by default. However, to use _Customer Managed Keys_ (CMK), you must first set up an Azure Disk Encryption Set and a Key Vault with your key.
-Follow the documention here to [set up your Disk Encryption Set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal).  
+Follow the documentation here to [set up your Disk Encryption Set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal).  
 
 Record the ``Resource ID`` of the Disk Encryption Set when you create it.  You can find this in the Azure Portal under **Properties** in the **Disk Encryption Sets** blade.
 

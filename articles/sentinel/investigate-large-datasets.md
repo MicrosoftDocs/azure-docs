@@ -1,6 +1,6 @@
 ---
 title: Start an investigation by searching large datasets - Microsoft Sentinel
-description: Learn about search jobs and restoring archived data in Microsoft Sentinel.
+description: Learn about search jobs and restoring data from long-term retention in Microsoft Sentinel.
 author: cwatson-cat
 ms.topic: conceptual
 ms.date: 03/03/2024
@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: As a security analyst, I want to search and restore archived log data so that I can conduct thorough investigations on historical events.
+#Customer intent: As a security analyst, I want to search and restore log data from long-term retention so that I can conduct thorough investigations on historical events.
 
 ---
 
@@ -47,26 +47,11 @@ You can also search analytics or basic log data stored in [long-term retention](
 
 ### Limitations of a search job
 
-Before you start a search job, be aware of the following limitations:
+See [Search job limitations](/azure/azure-monitor/logs/search-jobs#limitations) in the Azure Monitor documentation.
 
-- Optimized to query one table at a time.
-- Search date range is up to seven years.
-- Supports long running searches up to a 24-hour time-out.
-- Results are limited to one million records in the record set.
-- Concurrent execution per user is limited to five search jobs per workspace.
-- Limited to 100 search results tables per workspace.
-- Limited to 100 search job executions per day per workspace.
+## Restore log data from long-term retention
 
-Search jobs aren't currently supported for the following workspaces:
-
-- Customer-managed key enabled workspaces
-- Workspaces in the China East 2 region
-
-To learn more, see [Search job in Azure Monitor](/azure/azure-monitor/logs/search-jobs) in the Azure Monitor documentation.
-
-## Restore historical data from archived logs
-
-When you need to do a full investigation on data stored in archived logs, restore a table from the **Search** page in Microsoft Sentinel. Specify a target table and time range for the data you want to restore. Within a few minutes, the log data is restored and available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL.
+When you need to do a full investigation on log data in long-term retention, restore a table from the **Search** page in Microsoft Sentinel. Specify a target table and time range for the data you want to restore. Within a few minutes, the log data is restored and available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL.
 
 A restored log table is available in a new table that has a *_RST suffix. The restored data is available as long as the underlying source data is available. But you can delete restored tables at any time without deleting the underlying source data. To save costs, we recommend you delete the restored table when you no longer need it.
 
@@ -76,17 +61,7 @@ The following image shows the restore option on a saved search.
 
 ### Limitations of log restore
 
-Before you start to restore an archived log table, be aware of the following limitations:
-
-
-- Restore data for a minimum of two days.
-- Restore data more than 14 days old.
-- Restore up to 60 TB.
-- Restore is limited to one active restore per table.
-- Restore up to four archived tables per workspace per week.
-- Limited to two concurrent restore jobs per workspace.
-
-To learn more, see [Restore logs in Azure Monitor](/azure/azure-monitor/logs/restore).
+See [Restore limitations](/azure/azure-monitor/logs/restore#limitations) in the Azure Monitor documentation.
 
 ## Bookmark search results or restored data rows
 
@@ -95,4 +70,4 @@ Similar to the [threat hunting dashboard](hunting.md#use-the-hunting-dashboard),
 ## Next steps
 
 - [Search across long time spans in large datasets](search-jobs.md)
-- [Restore archived logs from search](restore.md)
+- [Restore logs from long-term retention](restore.md)

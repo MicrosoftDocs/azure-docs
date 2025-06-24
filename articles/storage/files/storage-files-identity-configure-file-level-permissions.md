@@ -8,6 +8,7 @@ ms.date: 10/18/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
+# Customer intent: "As a system administrator, I want to configure directory and file-level permissions for Azure file shares using Windows ACLs, so that I can ensure granular access control and enhance security for users accessing shared files."
 ---
 
 # Configure directory and file-level permissions for Azure file shares

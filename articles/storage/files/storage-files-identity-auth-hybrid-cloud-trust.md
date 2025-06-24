@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 01/24/2025
 ms.author: kendownie
 recommendations: false
+# Customer intent: As an IT administrator, I want to configure a cloud trust between on-premises Active Directory and Microsoft Entra ID, so that users can access Azure file shares using their existing credentials in a hybrid environment.
 ---
 
 # Configure a cloud trust between on premises AD DS and Microsoft Entra ID for accessing Azure Files

@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 05/08/2024
 ms.author: kendownie
 author: khdownie
+# Customer intent: "As an IT administrator, I want to migrate on-premises SMB file shares to SMB Azure file shares using a managed service, so that I can ensure full fidelity transfer and streamline my data management in the cloud."
 ---
 
 # Use Azure Storage Mover to migrate to SMB Azure file shares

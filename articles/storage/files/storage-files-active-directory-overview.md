@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 01/24/2025
 ms.author: kendownie
+# Customer intent: "As a cloud architect, I want to implement identity-based authentication for Azure file shares over SMB, so that I can enhance security and streamline access for users migrating from on-premises environments."
 ---
 
 # Overview of Azure Files identity-based authentication for SMB access

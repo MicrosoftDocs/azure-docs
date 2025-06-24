@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 05/08/2024
 ms.author: kendownie
 ms.custom: monitoring
+# Customer intent: As a cloud administrator, I want to create monitoring alerts for Azure Files metrics and logs, so that I can proactively identify and resolve issues before they impact users.
 ---
 
 # Create monitoring alerts for Azure Files

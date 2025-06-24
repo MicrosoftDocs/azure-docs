@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 02/10/2025
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
+# Customer intent: As an IT administrator, I want to enable Active Directory Domain Services authentication for Azure file shares, so that our domain-joined Windows virtual machines can securely access and manage file shares using existing AD credentials.
 ---
 
 # Enable Active Directory Domain Services authentication for Azure file shares

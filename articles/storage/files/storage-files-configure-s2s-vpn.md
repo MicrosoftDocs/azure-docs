@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 09/06/2024
 ms.author: kendownie
+# Customer intent: As a network administrator, I want to configure a site-to-site VPN for Azure Files, so that I can securely mount and access Azure file shares from my on-premises network without exposing the data over the internet.
 ---
 
 # Configure a site-to-site VPN for use with Azure Files

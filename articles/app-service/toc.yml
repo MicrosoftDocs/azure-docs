@@ -246,13 +246,7 @@ items:
 - name: Logs and monitoring
   items:
     - name: Troubleshoot and resolve issues with an agent
-      items:
-        - name: Overview
-          href: sre-agent-overview.md
-        - name: Use an SRE agent
-          href: sre-agent-usage.md
-        - name: SRE Agent tutorial
-          href: tutorial-sre-agent.md    
+      href: ../sre-agent/troubleshoot-azure-app-service.md  
     - name: Monitor App Service
       href: monitor-app-service.md
     - name: Monitoring data reference

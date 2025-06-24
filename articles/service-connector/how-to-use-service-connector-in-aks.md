@@ -203,7 +203,7 @@ The Service Connector Kubernetes extension is built on top of [Azure Arc-enabled
 
 ### Check Kubernetes cluster logs
 
-If an error occurs during the extension installation and the error message in the `statuses` property doesn't provide sufficient information, you can further investigate by checking the Kubernetes logs with the followings steps.
+If an error occurs during the extension installation and the error message in the `statuses` property doesn't provide sufficient information, you can further investigate by checking the Kubernetes logs with the following steps.
 
 1. Connect to your AKS cluster.
 

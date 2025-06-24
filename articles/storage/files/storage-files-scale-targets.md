@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 05/30/2025
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: As an IT administrator, I want to assess the scalability and performance targets for Azure Files and Azure File Sync, so that I can ensure my storage solutions meet the needs of my organization’s workload requirements.
 ---
 
 # Scalability and performance targets for Azure Files and Azure File Sync
