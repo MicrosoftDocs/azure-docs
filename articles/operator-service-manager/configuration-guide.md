@@ -1,6 +1,6 @@
 ---
-title: Congiufration Group Best Practices for Azure Operator Service Manager
-description: Learn about configuration group best pracites when using Azure Operator Service Manager.
+title: Configuration Group Best Practices for Azure Operator Service Manager
+description: Learn about configuration group best practices when using Azure Operator Service Manager.
 author: msftadam
 ms.author: adamdor
 ms.date: 06/24/2025
