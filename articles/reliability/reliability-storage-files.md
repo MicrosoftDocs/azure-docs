@@ -37,9 +37,7 @@ To effectively manage transient faults when using Azure Files, implement the fol
 
 - **Use the Azure Storage client libraries** which include built-in retry policies with exponential backoff and jitter. The .NET, Java, Python, and JavaScript SDKs automatically handle retries for transient failures. For detailed retry configuration options, see [Azure Storage retry policy guidance](/azure/storage/blobs/storage-retry-policy).
 
-- **Configure appropriate timeout values** for your file operations based on file size and network conditions. Larger files require longer timeouts, while smaller operations can use shorter values to detect failures quickly. <!-- TODO verify -->
-
-<!-- TODO check about SMB vs. NFS -->
+- **Configure appropriate timeout values** for your file operations based on file size and network conditions. Larger files require longer timeouts, while smaller operations can use shorter values to detect failures quickly. <!-- PG: Please verify this is valid advice. -->
 
 ## Availability zone support
 
@@ -113,96 +111,111 @@ When the failed availability zone recovers, Azure Files automatically restores n
 Azure Files manages replication, traffic routing, failover, and failback for zone-redundant storage. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
 
 ## Multi-region support
-<!-- TODO here down -->
 
-Azure Files provides native multi-region support through geo-redundant storage configurations. Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) automatically replicate your data to a paired secondary region, providing protection against regional outages.
+Azure Files provides a range of geo-redundancy and failover capabilities to suit different requirements.
 
-Geo-redundant storage options (GRS and GZRS) are only supported for standard HDD file shares. Premium SSD file shares do not support geo-redundant configurations and are limited to locally redundant or zone-redundant storage within a single region. For information on to configure multi-region support with Premium SSD file shares, see [Alternative Multi-region approaches](#alternative-multi-region-approaches).
+> [!IMPORTANT]
+> Geo-redundant storage works within [Azure paired regions](./regions-paired.md). If your storage account's region isn't paired, consider using the [alternative multi-region approaches](#alternative-multi-region-approaches).
 
-- [GRS](/azure/storage/common/storage-redundancy#geo-redundant-storage) provides support for planned and unplanned failovers to the Azure paired region when there's an outage in the primary region. GRS asynchronously replicates data from the primary region to the paired region.
+#### Replication across paired regions
+
+Azure Files provides two types of geo-redundant storage in paired regions:
+
+- [Geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) provides support for planned and unplanned failovers to the Azure paired region when there's an outage in the primary region. GRS asynchronously replicates data from the primary region to the paired region. Data in the secondary region is always replicated using locally redundant storage (LRS), providing protection against hardware failures within the secondary region.
 
    :::image type="content" source="media/reliability-storage-files/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated with GRS." lightbox="media/reliability-storage-files/geo-redundant-storage.png" border="false":::
 
-- [GZRS](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) replicates data in multiple availabilty zones in the primary region, and also into the paired region.
+- [Geo-zone redundant storage (GZRS)](/azure/storage/common/storage-redundancy#geo-zone-redundant-storage) replicates data in multiple availabilty zones in the primary region, and also into the paired region.
 
   :::image type="content" source="media/reliability-storage-files/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with GZRS." lightbox="media/reliability-storage-files/geo-redundant-storage.png" border="false":::
 
->[NOTE]
->The secondary region is automatically determined by Azure based on the primary region selection using established Azure paired regions. Data in the secondary region is only accessible during a Microsoft-managed failover or through customer-managed failover capabilities.
+> [!IMPORTANT]
+> Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the file shares will be configured and billed as GRS or GZRS.
+
+#### Failover types
+
+Azure Files supports three types of failover that are intended for different situations:
+
+- **Customer-managed unplanned failover:** Enables you to initiate recovery if there's a region-wide storage failure in your primary region.
+
+- **Customer-managed planned failover:** Enables you to initiate recovery if another part of your solution has a failure in your primary region, and you need to switch your whole solution over to a secondary region.
+
+- **Microsoft-managed failover:** In exceptional situations, Microsoft might initiate failover for all GRS storage accounts in a region. However, Microsoft-managed failover is a last resort and is expected to only be performed after an extended period of outage. You shouldn't rely on Microsoft-managed failover.
 
 ### Region support
 
-Azure Files geo-redundant configurations use Azure paired regions for secondary region replication. The secondary region is automatically determined based on the primary region selection and cannot be customized. For a complete list of Azure paired regions, see [Azure paired regions](./regions-list.md).
-
-Geo-redundant storage is available in regions that support paired regions. Not all regions have established pairs, so verify region pairing before deploying geo-redundant configurations.
+Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS), as well as customer initiated failover and failback are available in all [Azure paired regions](./regions-paired.md) that support general-purpose v2 storage accounts.
 
 ### Requirements
 
-You must use Standard general-purpose v2 storage accounts with standard HDD file shares to enable geo-redundant storage. Premium FileStorage accounts and premium SSD file shares do not support geo-redundant configurations.
+You must use Standard general-purpose v2 storage accounts with standard HDD file shares to enable geo-redundant storage. Premium FileStorage accounts and premium SSD file shares do not support geo-redundant configurations. <!-- TODO check -->
+
+Geo-redundant storage options (GRS and GZRS) are only supported for standard HDD file shares. Premium SSD file shares do not support geo-redundant configurations and are limited to locally redundant or zone-redundant storage within a single region. For information on to configure multi-region support with Premium SSD file shares, see [Alternative Multi-region approaches](#alternative-multi-region-approaches). <!-- TODO check this -->
 
 ### Considerations
 
-During normal operations, geo-redundant storage provides the same performance as locally redundant or zone-redundant storage since all operations target the primary region. The secondary region data is only accessible during failover scenarios.
+When implementing multi-region Azure Files, consider the following important factors:
 
-Data in the secondary region is replicated asynchronously, which means recent writes may not be available in the secondary region during failover. The Recovery Point Objective (RPO) is typically less than 15 minutes but is not guaranteed.
+- **Asynchronous replication latency**: Data replication to the secondary region is asynchronous, which means there's a lag between when data is written to the primary region and when it becomes available in the secondary region. This lag can result in potential data loss (measured as Recovery Point Objective or RPO) if a primary region failure occurs before recent data is replicated. The replication lag is expected to be less than 15 minutes, but this is an estimate and not guaranteed.
+
+- **Secondary region access**: The secondary region is not accessible for reads until a failover occurs.
+
+- **Feature limitations**: Some Azure Blob Storage features are not supported or have limitations when using geo-redundant storage or when using customer-managed failover. These include certain blob types, access tiers, and management operations. Review [feature compatibility documentation](/azure/storage/common/storage-disaster-recovery-guidance#unsupported-features-and-services) before implementing geo-redundancy. <!-- TODO check what this applies to files -->
 
 ### Cost
 
-Geo-redundant storage (GRS and GZRS) is priced higher than single-region options due to cross-region replication and additional storage in the secondary region. For current pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+Multi-region Azure Files configurations incur additional costs for cross-region replication and storage in the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates. For detailed pricing information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ### Configure multi-region support
 
-- **Create**. When creating a new storage account, select Geo-redundant storage (GRS) or Geo-zone-redundant storage (GZRS) as the redundancy option for standard file shares. For detailed steps, see [Create a storage account](/azure/storage/common/storage-account-create).
-- **Migrate**. Convert existing storage accounts to geo-redundant configurations using the redundancy configuration change feature. Review supported conversion types at [Change how a storage account is replicated](/azure/storage/common/redundancy-migration).
-- **Disable**. Convert geo-redundant storage accounts back to single-region configurations (LRS or ZRS) through the same redundancy configuration change process.
+- **Create a new storage account plan with geo-redundancy.** To create a storage account with geo-redundant configuration, see [Create a storage account](/azure/storage/common/storage-account-create) and select GRS, RA-GRS, GZRS, or RA-GZRS during account creation.
+
+- **Migration.** To convert an existing storage account to geo-redundant storage, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration) for step-by-step conversion procedures.
+
+  > [!WARNING]
+  > After your account is reconfigured for geo-redundancy, it may take a significant amount of time before existing data in the new primary region is fully copied to the new secondary.
+  >
+  > **To avoid a major data loss**, check the value of the [Last Sync Time property](/azure/storage/common/last-sync-time-get) before initiating an unplanned failover. To evaluate potential data loss, compare the last sync time to the last time at which data was written to the new primary. <!-- TODO check this applies to files -->
+
+- **Disable geo-redundancy.** Convert geo-redundant storage accounts back to single-region configurations (LRS or ZRS) through the same redundancy configuration change process.
 
 ### Normal operations
 
-TODO
+This section describes what to expect when a storage account is configured for geo-redundancy and all regions are operational.
 
-- **Traffic routing between regions**. During normal operations, all client traffic is directed to the primary region. The secondary region is passive and not accessible for read or write operations in standard GRS/GZRS configurations.
+- **Traffic routing between regions**: Azure Files uses an active/passive approach where all write operations and most read operations are directed to the primary region.
 
-- **Data replication between regions**. Azure Files replicates data asynchronously from the primary region to the secondary region. Data is first committed in the primary region (synchronously across zones for GZRS or locally for GRS), then replicated to the secondary region with potential delays of up to 15 minutes.
+- **Data replication between regions**: Write operations are first committed to the primary region using the configured redundancy type (LRS for GRS, or ZRS for GZRS). After successful completion in the primary region, data is asynchronously replicated to the secondary region where it's stored using locally redundant storage (LRS).
+	
+   The asynchronous nature of cross-region replication means there's typically a lag time between when data is written to primary and when it's available in the secondary region. You can monitor the replication time through the [Last Sync Time property](/azure/storage/common/last-sync-time-get).
 
 ### Region-down experience
 
-TODO
-
-- **Detection and response**: Microsoft automatically detects regional service health and can initiate Microsoft-managed failover during significant regional outages. Customers can also initiate customer-managed failover through Azure management tools when needed.
-
-- **Notification**: Regional outages are communicated through Azure Service Health and Azure Resource Health.
-
-- **Active requests**: During regional failover, active requests to the primary region will fail until failover completes and traffic is redirected to the secondary region. Applications should implement retry logic to handle temporary failures during failover.
-
-- **Expected data loss**: Some data loss may occur during regional failover due to asynchronous replication. Recent writes that have not yet replicated to the secondary region may be lost, with RPO typically less than 15 minutes.
-
-- **Expected downtime**: Customer-managed failover typically completes within one hour, though timing depends on data size and service conditions. Microsoft-managed failover timing varies based on the scope and severity of the regional outage.
-
-- **Traffic rerouting**: After failover, the secondary region becomes the new primary region. File share endpoints remain the same, but DNS resolution redirects to the new primary region location.
+<!-- TODO copy from blob storage guide -->
 
 ### Multi-region failback
 
-TODO
-
-- **Customer-managed failover failback**: After the original region recovers, you must manually initiate failback through the Azure portal, Azure CLI, or Azure PowerShell. The failback process converts the storage account from geo-redundant to locally redundant, requiring you to reconfigure redundancy settings.
-
-- **Microsoft-managed failover failback**: Microsoft does not automatically fail back after Microsoft-managed failover. You must evaluate service recovery and manually initiate failback when appropriate for your workload.
+<!-- TODO copy from blob storage guide -->
 
 ### Testing for region failures
 
-You can test regional failover by initiating customer-managed failover through Azure management tools. This process validates your disaster recovery procedures and application resilience to regional outages. Plan testing during maintenance windows since failover affects service availability.
+<!-- TODO copy from blob storage guide -->
 
 ### Alternative multi-region approaches
 
-For applications requiring active-active multi-region access or when geo-redundant storage limitations prevent its use (such as with premium SSD file shares), consider these approaches:
+If your application requires geo-replication across nonpaired regions, or you need more control over multi-region deployment than the native geo-redundant options provide, consider implementing a custom multi-region architecture. <!-- TODO active/active, or when geo-redundant storage limitations prevent its use (such as with premium SSD file shares) -->
+
+Azure Files can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
+
+TODO
 
 **Azure File Sync**: Deploy Azure File Sync with sync servers in multiple regions connected to regional file shares. This provides multi-region access with local performance while maintaining central management.
 
 **Application-level replication**: Implement custom replication logic using Azure Data Factory, AzCopy, or Azure Functions to synchronize data between file shares in different regions. This approach requires custom development and conflict resolution mechanisms.
 
-**Regional deployment patterns**: Deploy separate Azure Files instances in multiple regions with application-level traffic management using Azure Traffic Manager or Azure Front Door for routing and failover.
-
 ## Backups
+
+<!-- TODO check this -->
 
 Azure Files integrates with Azure Backup to provide point-in-time recovery capabilities that complement redundancy features for protection against accidental deletion, corruption, or ransomware attacks.
 
