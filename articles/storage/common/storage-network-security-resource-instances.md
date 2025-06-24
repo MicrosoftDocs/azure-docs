@@ -11,7 +11,7 @@ ms.author: normesta
 
 ---
 
-# Grant access to Azure Storage from resource instances
+# Configure Azure Storage to accept requests from resource instances
 
 Put something here.
 
