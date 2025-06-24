@@ -60,7 +60,13 @@ When you use Azure API Management in front of an API, you might need to retry re
 
 ::: zone pivot="premium-classic"
 
-Azure API Management supports automatic zone-redundancy when you deploy an API Management instance in a supported region and don't specify which availability zones to use. The Azure API Management platform makes a best-effort attempt to spread the units among availability zones.
+Azure API Management supports automatic availability zone when you:
+
+- Deploy an API Management instance in a supported region.
+- Don't specify which availability zones to use. 
+- You have more than one unit.
+
+With automatic availability zone support, the Azure API Management platform makes a best-effort attempt to spread the units among availability zones.
 
 If you want to explicitly select availability zones, you can choose between zone-redundant and zonal configurations:
 
@@ -110,9 +116,7 @@ You must use the Premium (classic) tier to configure availability zone support. 
 
 ### Cost
 
-<!-- John: Assuming this is for manual zone redundancy? What about automatic? Any more costs associated? -->
-
-When you manually configure zone redundancy, you might need to add more units. Adding units incurs additional costs. For information, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+Regardless of your availability zone configuration, if you add more units, it can incurs additional costs. For information, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 ### Configure availability zone support
 
