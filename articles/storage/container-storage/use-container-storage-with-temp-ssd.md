@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 07/25/2024
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: "As a Kubernetes administrator, I want to set up Azure Container Storage using temp SSD with ephemeral disks, so that I can optimize storage performance for my applications without the need for data durability."
 ---
 
 # Use Azure Container Storage with temp SSD

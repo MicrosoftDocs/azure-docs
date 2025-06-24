@@ -1,27 +1,27 @@
 ---
-title: Search across long time spans in large datasets - Microsoft Sentinel
+title: Search for specific events across large datasets in Microsoft Sentinel
 description: Learn how to use search jobs to search large datasets.
-author: austinmccollum
+author: guywi-ms
 ms.topic: how-to
-ms.date: 03/07/2024
-ms.author: austinmc
+ms.date: 03/06/2025
+ms.author: guywild
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
-#Customer intent: As a security analyst, I want to search and analyze historical log data across large datasets so that I can investigate and identify specific events.
+#Customer intent: As a security analyst, I want to search through historical log data in a specific table so that I can find and analyze specific events.
 
 ---
 
-# Search across long time spans in large datasets
+# Search for specific events across large datasets in Microsoft Sentinel
 
-Use a search job when you start an investigation to find specific events in logs up to seven years ago. You can search events across all your logs, including events in Analytics, Basic, and Archived log plans. Filter and look for events that match your criteria.
+Use a search job when you start an investigation to scan through up to a year of data in a table for specific events. You can a run search job on any table, including tables with the Analytics, Basic, and Auxiliary log plans. The search job sends its results to a new Analytics table in the same workspace as the source data. 
 
-- For more information on search job concepts and limitations, see [Start an investigation by searching large datasets](investigate-large-datasets.md) and [Search jobs in Azure Monitor](/azure/azure-monitor/logs/search-jobs).
+This article explains how to run a search job in Microsoft Sentinel and how to work with the search job results.
 
-- Search jobs across certain data sets might incur extra charges. For more information, see [Microsoft Sentinel pricing page](billing.md).
+Search jobs across certain data sets might incur extra charges. For more information, see [Microsoft Sentinel pricing page](billing.md).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -51,7 +51,7 @@ Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft De
 
    :::image type="content" source="media/search-jobs/search-job-advanced-kql-ellipsis.png" alt-text="Screenshot of KQL editor with revised search with ellipsis highlighted for Search job mode." lightbox="media/search-jobs/search-job-advanced-kql-ellipsis.png":::
 
-1. Specify the search job date range using the **Time range** selector. Don't include a time range in your KQL query as it is ignored.
+1. Specify the search job date range using the **Time range** selector. If your query also specifies a time range, Microsoft Sentinel runs the search job on the union of the time ranges.
 
 1. Resolve any KQL issues indicated by a squiggly red line in the editor.
 
@@ -91,5 +91,5 @@ View the status and results of your search job by going to the **Saved Searches*
 To learn more, see the following articles.
 
 - [Hunt with bookmarks](bookmarks.md)
-- [Restore archived logs](restore.md)
-- [Configure data retention and archive policies in Azure Monitor Logs (Preview)](/azure/azure-monitor/logs/data-retention-configure)
+- [Restore logs from long-term retention](restore.md)
+- [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure)

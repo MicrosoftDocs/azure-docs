@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 05/15/2024
 ms.author: allensu
+# Customer intent: "As a cloud administrator, I want to link a virtual network to a private DNS zone, so that I can manage DNS records for virtual machines deployed within the network and enable seamless name resolution in my cloud environment."
 ---
 
 # What is a virtual network link?

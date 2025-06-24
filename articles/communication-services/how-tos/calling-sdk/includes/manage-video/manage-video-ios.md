@@ -1,16 +1,17 @@
 ---
-author: probableprime
+author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
-ms.author: rifox
+ms.date: 06/10/2025
+ms.author: micahvivion
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
 ## Manage devices
-To begin using video with Calling, you will need to know how to manage devices. Devices allow you to control what transmits Audio and Video to the call.
 
-`DeviceManager` lets you enumerate local devices that can be used in a call to transmit audio or video streams. It also allows you to request permission from a user to access a microphone or camera. You can access `deviceManager` on the `callClient` object.
+To begin using video with Calling, you need to know how to manage devices. Devices enable you to control what transmits Audio and Video to the call.
+
+`DeviceManager` lets you enumerate local devices that can be used in a call to transmit audio or video streams. It also enables you to request permission from a user to access a microphone or camera. You can access `deviceManager` on the `callClient` object.
 
 ```swift
 self.callClient!.getDeviceManager { (deviceManager, error) in
@@ -34,7 +35,7 @@ var localCameras = deviceManager.cameras // [VideoDeviceInfo, VideoDeviceInfo...
 
 ### Get a local camera preview
 
-You can use `Renderer` to begin rendering a stream from your local camera. This stream won't be sent to other participants; it's a local preview feed. This is an asynchronous action.
+You can use `Renderer` to begin rendering a stream from your local camera. This stream isn't to other participants; it's a local preview feed. This is an asynchronous action.
 
 ```swift
 let camera: VideoDeviceInfo = self.deviceManager!.cameras.first!
@@ -45,7 +46,7 @@ self.view = try! localRenderer.createView()
 
 ### Get local camera preview properties
 
-The renderer has set of properties and methods that allow you to control the rendering.
+The renderer includes a set of properties and methods that enable you to control the rendering.
 
 ```swift
 // Constructor can take in LocalVideoStream or RemoteVideoStream
@@ -69,6 +70,7 @@ localRenderer.dispose()
 ```
 
 ## Place a 1:1 call with video
+
 To get a device manager instance, see the section about [managing devices](#manage-devices).
 
 ```swift

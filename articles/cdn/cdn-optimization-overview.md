@@ -8,6 +8,7 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: As a content manager, I want to optimize the Azure Content Delivery Network for different types of content delivery, so that I can enhance performance and improve the user experience across various scenarios, such as media streaming and large file downloads.
 ---
 
 # Optimize Azure Content Delivery Network for the type of content delivery
