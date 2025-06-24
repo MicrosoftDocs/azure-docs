@@ -12,11 +12,11 @@ ms.service: azure
 
 The Azure SRE Agent works on your behalf in two different ways. As soon as you create the agent, it begins monitoring your resources. During this time, the agent looks at telemetry data and learns about your resource's behavior. This continuous attention ensures the agent is ready to respond to issues regardless of the scale or complexity of what you deploy on Azure.
 
-By contrast, the agent works in a different context from continuous monitoring when you prompt the agent or it works on a discrete action on its own. For example, when the agent detects a situation requiring attention, it carries out distinct, measurable tasks that use AI components to attempt to address the issue. The same holds true when you issue a prompt to the agent.
+By contrast, the agent works differently from continuous monitoring when you prompt the agent or it works on tasks on its own. For example, when the agent detects a situation requiring attention, it carries out distinct, measurable tasks that use AI components to attempt to address the issue. The same holds true when you issue a prompt to the agent.
 
-The distinctions between these two types of operations are known as *always-on flow* and *active flow*.
+The distinctions between these two types of actions are known as *always-on flow* and *active flow*.
 
-| Flow type | Description | Triggered when... |
+| Action type | Description | Triggered when... |
 |---|---|---|
 | Always-on | Continuous monitoring of your resources. | You create the agent, and monitoring continues until the agent is deleted. |
 | Active | Discrete, measurable tasks taken by the agent in an attempt to mitigate issues or interact with you. | Either you prompt the agent to take action, or the agent autonomously takes action on your behalf and reports the results. |
@@ -31,12 +31,12 @@ Actions in the *always-on flow* are billed at one rate, while *active flow* acti
 
 Use the following table to help you estimate the costs associated with how you use SRE Agent.
 
-| Action category | Calculation basis |
+| Action type | Calculation basis |
 |---|---|
 | Always-on flow | 4 AAU per agent hour |
 | Active flow  | 0.25 AAU per agent task, per second |
 
-AAUs continuously accumulate under the *always-on flow* for as long as your agent exists. Charges associated with *active flow* accumulate as the agent works on  specific tasks. These tasks include (but aren't limited to) the following actions:
+AAUs continuously accumulate under the *always-on flow* for as long as your agent exists. Charges associated with *active flow* accumulate as the agent works on specific tasks. These tasks include (but aren't limited to) the following actions:
 
 - Answering questions from your prompts
 - Generating reports, summaries, and responses for you
