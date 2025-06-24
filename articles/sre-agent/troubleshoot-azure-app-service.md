@@ -1,24 +1,23 @@
 ---
-title: 'Tutorial: Troubleshoot an App using Azure SRE Agent (preview) in Azure App Service'
-description: Learn how to use Azure SRE Agent and Azure App Service to identify and fix app issues with AI-assisted troubleshooting.
-author: msangapu-msft
-ms.author: msangapu
+title: 'Tutorial: Troubleshoot an app using Azure SRE Agent (preview) in Azure App Service'
+description: Learn how to use Azure SRE Agent (preview) and Azure App Service to identify and fix app issues with AI-assisted troubleshooting.
+author: craigshoemaker
+ms.author: cshoe
 ms.topic: tutorial
-ms.date: 05/18/2025
-ms.custom:
-  - build-2025
+ms.date: 06/17/2025
+ms.service: azure
 ---
 
 # Troubleshoot an App Service app using Azure SRE Agent (preview)
 
 > [!NOTE]
-> Azure SRE Agent is in preview. By using SRE Agent, you consent the product-specific [Preview Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure SRE Agent is in preview. By using SRE Agent, you consent to the product-specific [Preview Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. An SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
 
 This sample app demonstrates error detection by simulating HTTP 500 failures in a controlled way. You can safely test these scenarios using Azure App Service **deployment slots**, which let you run different app configurations side by side.
 
-You enable error simulation by setting the `INJECT_ERROR` app setting to `1`. When enabled, the app throws an HTTP 500 error after several button clicks, allowing you to see how the SRE Agent responds to application failures.
+You enable error simulation by setting the `INJECT_ERROR` app setting to `1`. When enabled, the app throws an HTTP 500 error after you select the button a few times, allowing you to see how the SRE Agent responds to application failures.
 
 In this tutorial, you will:
 
@@ -35,9 +34,15 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-To complete this tutorial, you need:
-- An [Azure subscription](https://azure.microsoft.com/free/).
-- `Microsoft.Authorization/roleAssignments/write` permissions to create role assignments (Role Based Access Control Administrator or User Access Administrator) for SRE Agent setup.
+* **Azure account**: An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* **Security context**: Ensure your user account has the `Microsoft.Authorization/roleAssignments/write` permissions using either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
+
+* **Namespace**: Using the cloud shell in the Azure portal, run the following command:
+
+    ```azurecli  
+    az provider register --namespace "Microsoft.App"
+    ```
 
 ## 1. Create an App Service app
 
@@ -70,13 +75,12 @@ In the *Basics* tab, provide the following details:
 | Operating System| **Windows**                 |
 | Region          | A region near you             |
 
-
 1. Select the **Deployment** tab.
 
 1. Under *Authentication settings*, enable **Basic authentication**.
 
     > [!NOTE]
-    > Basic authentication is used later for a one-time deployment from GitHub. [Disable Basic Auth](configure-basic-auth-disable.md?tabs=portal) in production.
+    > Basic authentication is used later for a one-time deployment from GitHub. [Disable basic auth](/azure/app-service/configure-basic-auth-disable?tabs=portal) in production.
     >
 
 1. Select **Review and create**, then **Create** when validation passes.
@@ -93,11 +97,11 @@ Now that your App Service app is created, deploy the sample application from Git
 
 1. In the *Settings* tab, configure:
 
-| Property   | Value                                                        |
-|------------|--------------------------------------------------------------|
-| Source     | **External Git**                                             |
-| Repository | `https://github.com/Azure-Samples/app-service-dotnet-agent-tutorial`|
-| Branch     | `main`                                                    |
+    | Property   | Value                                                        |
+    |------------|--------------------------------------------------------------|
+    | Source     | **External Git**                                             |
+    | Repository | `https://github.com/Azure-Samples/app-service-dotnet-agent-tutorial`|
+    | Branch     | `main`                                                    |
 
 1. Select **Save** to apply the deployment settings.
 
@@ -110,8 +114,8 @@ After deployment, confirm that the sample app is running as expected.
 1. Select **Browse** to open the app in a new browser tab. (It might take a minute to load.)
 
 1. The app displays a large counter and two buttons:
- 
-   :::image type="content" source="media/tutorial-sre-agent/verify-sample-primary-slot.png" alt-text="Screenshot of the .NET sample in the primary slot." border="false":::
+
+    :::image type="content" source="media/troubleshoot-azure-app-service/verify-sample-primary-slot.png" alt-text="Screenshot of the .NET sample in the primary slot.":::
 
 1. Select the *Increment* button several times to observe the counter increase.
 
@@ -228,7 +232,7 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 1. Select **Swap**.
 
 1. In the *Swap* dialog, configure:
-    
+
     | Property | Value               | Remarks                          |
     |----------|---------------------|----------------------------------|
     | Source   | `my-sre-app-broken` | The slot with the faulty version |
@@ -238,13 +242,13 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 
 1. Once the swap is complete, browse to the app’s URL.
 
-    :::image type="content" source="media/tutorial-sre-agent/verify-sample-broken-slot.png" alt-text="Screenshot of the .NET sample in the broken slot." border="false":::
+    :::image type="content" source="media/troubleshoot-azure-app-service/verify-sample-broken-slot.png" alt-text="Screenshot of the .NET sample in the broken slot.":::
 
 1. Select the "Increment" button six times.
 
 1. You should see the app fail and return an HTTP 500 error.
 
-1. Refresh the page (by pressing Command-R or F5) several times to generate additional HTTP 500 errors, which help the SRE Agent detect and diagnose the issue.
+1. Refresh the page (by pressing Command-R or F5) several times to generate more HTTP 500 errors, which help the SRE Agent detect and diagnose the issue.
 
 ## 8. Fix the app
 
@@ -291,7 +295,7 @@ After the SRE Agent rolls back the slot swap, confirm that your app is functioni
 
 1. Open your App Service app in a browser by selecting **Browse** from the **Overview** page.
 
-1. Notice that the text "ERROR INJECTION ENABLED" no longer appears, confirming the app has reverted to its original state.
+1. Notice that the text "ERROR INJECTION ENABLED" no longer appears, confirming the app reverted to its original state.
 
 1. Select the **Increment** button six times to ensure no errors take place.
 
@@ -316,5 +320,5 @@ Repeat the following steps for both of these resource groups:
 
 ## Next steps
 
-* [Overview of Azure App Service](overview.md)
-* [Use Azure Developer CLI for modern app development](/azure/developer/azure-developer-cli/overview)
+* [SRE Agent overview](./overview.md)
+* [Azure SRE Agent usage](./usage.md)

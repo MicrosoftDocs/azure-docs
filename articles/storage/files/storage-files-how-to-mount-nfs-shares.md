@@ -7,6 +7,7 @@ ms.custom: linux-related-content, references_regions
 ms.topic: how-to
 ms.date: 05/27/2025
 ms.author: kendownie
+# Customer intent: As a Linux system administrator, I want to mount an NFS Azure file share, so that I can securely access and manage data stored in Azure from my Linux environment.
 ---
 
 # Mount NFS Azure file shares on Linux
