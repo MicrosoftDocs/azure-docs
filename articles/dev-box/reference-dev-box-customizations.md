@@ -79,16 +79,16 @@ tasks:
     package: GitHub.GitHubDesktop
 ```
 
-All tasks support the `timeout` parameter, which is optional.
+All tasks support the `timeout` property, which is optional.
 
 Example:
 
 ```
 tasks:
 - name: powershell
+  timeout: 1800 # in seconds
   parameters:
     command: <command>
-    timeout: 1800 # in seconds
 ```
 
 ### Built-in tasks

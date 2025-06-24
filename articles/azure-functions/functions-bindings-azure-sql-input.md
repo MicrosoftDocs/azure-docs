@@ -121,7 +121,7 @@ namespace AzureSQLSamples
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `dbo.DeleteToDo` must be created on the SQL database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
@@ -237,7 +237,7 @@ namespace AzureSQLSamples
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `dbo.DeleteToDo` must be created on the SQL database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `dbo.DeleteToDo` must be created on the SQL database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
@@ -289,7 +289,7 @@ public class ToDoItem {
 <a id="http-trigger-get-multiple-items-java"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query and returns the results in the HTTP response.
 
 ```java
 package com.function;
@@ -327,7 +327,7 @@ public class GetToDoItems {
 <a id="http-trigger-look-up-id-from-query-string-java"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query, which is filtered by a parameter from the query string, and it returns the row in the HTTP response.
 
 ```java
 public class GetToDoItem {
@@ -354,9 +354,9 @@ public class GetToDoItem {
 <a id="http-trigger-delete-one-or-multiple-rows-java"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `dbo.DeleteToDo` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
@@ -402,7 +402,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-javascript"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query and returns the results in the HTTP response.
 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
@@ -477,7 +477,7 @@ module.exports = async function (context, req, todoItems) {
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query, which is filtered by a parameter from the query string, and it returns the row in the HTTP response.
 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
@@ -553,9 +553,9 @@ module.exports = async function (context, req, todoItem) {
 <a id="http-trigger-delete-one-or-multiple-rows-javascript"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `dbo.DeleteToDo` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
@@ -644,7 +644,7 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-powershell"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query and returns the results in the HTTP response.
 
 The following is binding data in the function.json file:
 
@@ -693,7 +693,7 @@ Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
 <a id="http-trigger-look-up-id-from-query-string-powershell"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding in a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query, which is filtered by a parameter from the query string, and it returns the row in the HTTP response.
 
 The following is binding data in the function.json file:
 
@@ -744,9 +744,9 @@ Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
 <a id="http-trigger-delete-one-or-multiple-rows-powershell"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `dbo.DeleteToDo` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
@@ -814,17 +814,16 @@ The examples refer to a database table:
 <a id="http-trigger-get-multiple-items-python"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query and returns the results in the HTTP response.
 
 # [v2](#tab/python-v2)
 
-The following is sample python code for the function_app.py file:
+The following python code is a sample function_app.py file:
 
 ```python
 import json
 import logging
 import azure.functions as func
-from azure.functions.decorators.core import DataType
 
 app = func.FunctionApp()
 
@@ -875,7 +874,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample Python code:
+The following Python code is a sample `__init__.py` file:
 
 
 ```python
@@ -897,11 +896,11 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
 ### HTTP trigger, get row by ID from query string
 
-The following example shows a SQL input binding in a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows a SQL input binding in a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It reads from a query, which is filtered by a parameter from the query string, and it returns the row in the HTTP response.
 
 # [v2](#tab/python-v2)
 
-The following is sample python code for the function_app.py file:
+The following python code is a sample function_app.py file:
 
 ```python
 import json
@@ -960,7 +959,7 @@ The following is binding data in the function.json file:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample Python code:
+The following Python code is a sample `__init__.py` file:
 
 
 ```python
@@ -982,15 +981,15 @@ def main(req: func.HttpRequest, todoItem: func.SqlRowList) -> func.HttpResponse:
 <a id="http-trigger-delete-one-or-multiple-rows-python"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a SQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request. It executes a stored procedure with input from the HTTP request query parameter.
 
-The stored procedure `dbo.DeleteToDo` must be created on the database.  In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `dbo.DeleteToDo` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
 # [v2](#tab/python-v2)
 
-The following is sample python code for the function_app.py file:
+The following python code is a sample function_app.py file:
 
 ```python
 import json
@@ -1047,7 +1046,7 @@ def get_todo(req: func.HttpRequest, todo: func.SqlRowList) -> func.HttpResponse:
 
 The [configuration](#configuration) section explains these properties.
 
-The following is sample Python code:
+The following Python code is a sample `__init__.py` file:
 
 
 ```python
@@ -1079,7 +1078,7 @@ The [C# library](functions-dotnet-class-library.md) uses the [SqlAttribute](http
 | **CommandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
 | **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
 | **CommandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **Parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **Parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
 
 ::: zone-end  
 
@@ -1094,7 +1093,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is ["Text"](/dotnet/api/system.data.commandtype#fields) for a query and ["StoredProcedure"](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 |**name** |  Required. The unique name of the function binding. | 
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -1108,9 +1107,9 @@ The following table explains the properties that you can set on the `options` ob
 | Property | Description |
 |---------|----------------------|
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name.  Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1122,9 +1121,9 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `in`. |
 |**name** |  Required. The name of the variable that represents the query results in function code. | 
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name.  Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
 
 ---
 
@@ -1140,9 +1139,9 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `in`. |
 |**name** |  Required. The name of the variable that represents the query results in function code. | 
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name.  Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
 ::: zone-end  
 
 
@@ -1156,11 +1155,11 @@ The binding definition includes the SQL command text, the command type, paramete
 
 Queries executed by the input binding are [parameterized](/dotnet/api/microsoft.data.sqlclient.sqlparameter) in Microsoft.Data.SqlClient to reduce the risk of [SQL injection](/sql/relational-databases/security/sql-injection) from the parameter values passed into the binding.
 
-If an exception occurs when a SQL input binding is executed then the function code won't execute.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
+If an exception occurs when a SQL input binding is executed, then the function code doesn't execute. This behavior may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
 
 ## Next steps
 
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
 - [Run a function when data is changed in a SQL table (Trigger)](./functions-bindings-azure-sql-trigger.md)
-- [Run a function from a HTTP request (trigger)](./functions-bindings-http-webhook-trigger.md)
+- [Run a function from an HTTP request (trigger)](./functions-bindings-http-webhook-trigger.md)
 - [Review ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)

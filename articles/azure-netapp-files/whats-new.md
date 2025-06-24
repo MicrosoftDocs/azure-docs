@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 05/20/2025
+ms.date: 06/20/2025
 ms.author: anfdocs
 ---
 
@@ -18,7 +18,13 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Restore individual files using single-file restore from backup](restore-single-file-backup.md) (preview)
 
-    Expanding on Azure NetApp Files' capabilities to [restore data from snapshots](snapshots-introduction.md), you can now also restore individual files from Azure NetApp Files backups without the need to issue a full restore to a volume first. Single-file restore can reduce your RTO (Recovery Time Objective) and lower costs, especially on large-sized volumes by avoiding full volumes restore operations. With this feature, you can simply issue a restore of individual files directly from the snapshot in the backup. This feature is currently in preview. 
+    Expanding on Azure NetApp Files' capabilities to [restore data from snapshots](snapshots-introduction.md), you can now also restore individual files from Azure NetApp Files backups without the need to issue a full restore to a volume first. Single-file restore can reduce your recovery time objective (RTO) and lower costs, especially on large-sized volumes by avoiding full volumes restore operations. With this feature, you can simply issue a restore of individual files directly from the snapshot in the backup. This feature is currently in preview. 
+
+## June 2025
+
+* The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
+
+    You can transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
 
 ## May 2025
 
