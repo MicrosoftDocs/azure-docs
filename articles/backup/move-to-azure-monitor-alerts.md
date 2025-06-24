@@ -96,7 +96,7 @@ If the frequency was set to an hourly digest, and an alert was raised and resolv
 
 To deactivate/resolve an active alert, you can select the list item corresponding to the alert you wish to deactivate. This opens up a screen that shows detailed information about the alert, with an **Inactivate** button at the top. Selecting this button will change the status of the alert to **Inactive**. You may also deactivate an alert by right-clicking the list item corresponding to that alert and selecting **Inactivate**.
 
-:::image type="content" source="./media/backup-azure-monitoring-laworkspace/vault-alert-deactivate.png" alt-text="Screenshot showing how to deactivate alerts via Backup center.":::
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/vault-alert-inactivate.png" alt-text="Screenshot showing how to deactivate alerts via Backup center.":::
 
 
 
