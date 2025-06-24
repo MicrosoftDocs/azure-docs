@@ -40,7 +40,7 @@ Ingestion errors can occur during various stages of the data ingestion process, 
 | `InvalidInputData` | The STAC item or collection data contains invalid fields or values. | [Troubleshooting STAC validation errors](./troubleshooting-ingestion.md#cause-2-stac-metadata-validation-failed) |
 | `InvalidStacCatalog` | The STAC catalog structure doesn't conform to specifications. | [Troubleshooting STAC validation errors](./troubleshooting-ingestion.md#cause-2-stac-metadata-validation-failed) |
 | `ItemAlreadyExistsInCollection` | A STAC item with the same ID already exists in the collection. | • Use unique IDs for each item<br>• Delete the existing item before attempting to ingest again |
-| `ItemSizeExceeded` | The STAC item JSON exceeds the maximum allowed size. | • Reduce the number of assets or properties in the item<br>• Split large items into multiple smaller items |
+| `ItemSizeExceeded` | The STAC item JSON exceeds the maximum allowed size (1 MB). | • Reduce the number of assets or properties in the item<br>• Split large items into multiple smaller items |
 | `ItemTransformationError` | Failed to process or transform the STAC item. | [Troubleshooting STAC validation errors](./troubleshooting-ingestion.md#cause-2-stac-metadata-validation-failed) |
 | `ManagedIdentityInfoNotFound` | The specified managed identity doesn't exist or isn't associated with the GeoCatalog. | [Troubleshooting access permission issues](./troubleshooting-ingestion.md#cause-1-geocatalog-cant-access-source-data) |
 | `NoRecordsToDelete` | The delete operation didn't find any matching records. | • Verify the STAC item IDs or search criteria used for deletion<br>• Confirm items exist in the specified collection |
@@ -52,7 +52,7 @@ Ingestion errors can occur during various stages of the data ingestion process, 
 | `PostItemCollectionSizeExceeded` | The batch of items being posted exceeds the size limit. | • Reduce the number of items in a single request<br>• Use the [bulk ingestion API](./bulk-ingestion-api.md) for large datasets |
 | `PublicAccessRestricted` | The storage resource doesn't allow public access. | [Troubleshooting access permission issues](./troubleshooting-ingestion.md#cause-1-geocatalog-cant-access-source-data) |
 | `StacValidationFailed` | The STAC item doesn't meet validation requirements. | [Troubleshooting STAC validation errors](./troubleshooting-ingestion.md#cause-2-stac-metadata-validation-failed) |
-| `TotalAssetsExceeded` | The STAC item contains too many assets. | • Reduce the number of assets per item<br>• Split into multiple items<br>• Check service limits for maximum assets per item |
+| `TotalAssetsExceeded` | The STAC item contains too many assets (100 assets max). | • Reduce the number of assets per item to below 100<br>• Split into multiple items<br> |
 
 ## Related content
 
