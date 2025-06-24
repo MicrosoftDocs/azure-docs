@@ -280,7 +280,7 @@
   - name: Troubleshoot file compression
     href: standard-premium/troubleshoot-compression.md
   - name: Allowed certificate authorities
-    href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
+    href: https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT
   - name: Subscription offers and bandwidth throttling
     href: standard-premium/subscription-offers.md
   - name: Questions & answers
@@ -422,7 +422,7 @@
       - name: File compression
         href: ../cdn/cdn-troubleshoot-compression.md?toc=/azure/frontdoor/toc.json
       - name: Allowed certificate authorities
-        href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
+        href: https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT
       - name: Subscription offers and bandwidth throttling
         href: ../cdn/subscription-offerings.md?toc=/azure/frontdoor/toc.json
       - name: Questions & answers
