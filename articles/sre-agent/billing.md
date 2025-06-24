@@ -18,8 +18,8 @@ The distinctions between these two types of actions are known as *always-on flow
 
 | Action type | Description | Triggered when... |
 |---|---|---|
-| Always-on | Continuous monitoring of your resources. | You create the agent, and monitoring continues until the agent is deleted. |
-| Active | Discrete, measurable tasks taken by the agent in an attempt to mitigate issues or interact with you. | Either you prompt the agent to take action, or the agent autonomously takes action on your behalf and reports the results. |
+| Always-on flow | Continuous monitoring of your resources. | You create the agent, and monitoring continues until the agent is deleted. |
+| Active flow | Discrete, measurable tasks taken by the agent in an attempt to mitigate issues or interact with you. | Either you prompt the agent to take action, or the agent autonomously takes action on your behalf and reports the results. |
 
 The amount of time your agent spends in these flows affects how you're billed for the agent.
 
