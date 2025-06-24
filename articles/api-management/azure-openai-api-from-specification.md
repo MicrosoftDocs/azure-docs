@@ -1,6 +1,6 @@
 ---
 title: Import an Azure OpenAI API as REST API - Azure API Management
-description: How to import an Azure OpenAI API as a REST API from the Azure OpenAI Service or from an OpenAPI specification.
+description: How to import an Azure OpenAI API as a REST API from Azure OpenAI in Foundry Models or from an OpenAPI specification.
 ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
@@ -14,12 +14,12 @@ ms.custom: template-how-to, build-2024
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-You can import AI model endpoints deployed in [Azure OpenAI Service](/azure/ai-services/openai/overview) to your API Management instance as a REST API. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
+You can import AI model endpoints deployed in [Azure OpenAI in Foundry Models](/azure/ai-services/openai/overview) to your API Management instance as a REST API. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 
 This article shows two options to import an Azure OpenAI API into an Azure API Management instance as a REST API:
 
-- [Import an Azure OpenAI API directly from Azure OpenAI Service](#option-1-import-api-from-azure-openai-service) (recommended)
+- [Import an Azure OpenAI API directly from Azure OpenAI](#option-1-import-api-from-azure-openai-service) (recommended)
 - [Download and add the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
 
 Learn more about managing AI APIs in API Management:
@@ -29,18 +29,18 @@ Learn more about managing AI APIs in API Management:
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An Azure OpenAI resource with a model deployed. For more information about model deployment in Azure OpenAI service, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
+- An Azure OpenAI resource with a model deployed. For more information about model deployment in Azure OpenAI, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
     Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
 
     > [!NOTE]
-    > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) are supported for certain API endpoints exposed through specific Azure OpenAI Service models. For more information, see [Supported Azure OpenAI Service models](azure-openai-token-limit-policy.md#supported-azure-openai-service-models).
+    > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) are supported for certain API endpoints exposed through specific Azure OpenAI models. For more information, see [Supported Azure OpenAI models](azure-openai-token-limit-policy.md#supported-azure-openai-service-models).
 
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.
 
-## Option 1. Import API from Azure OpenAI Service
+## Option 1. Import API from Azure OpenAI 
 
-You can import an Azure OpenAI API directly from Azure OpenAI Service to API Management. 
+You can import an Azure OpenAI API directly from Azure OpenAI to API Management. 
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
