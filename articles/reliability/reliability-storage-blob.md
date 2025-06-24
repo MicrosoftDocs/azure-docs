@@ -253,6 +253,7 @@ For detailed implementation guidance, see [Object replication for block blobs](/
 
 ## Backups
 
+<!-- Anastasia: I mostly left this as-is from the draft, but is it too much detail? -->
 Azure Blob Storage provides multiple data protection mechanisms that complement redundancy for comprehensive backup strategies. While the service's built-in redundancy protects against infrastructure failures, additional backup capabilities protect against accidental deletion, corruption, and malicious activities.
 
 **Point-in-time restore** allows you to restore block blob data to a previous state within a configured retention period (up to 365 days). This feature is fully managed by Microsoft and provides granular recovery capabilities at the container or blob level. Point-in-time restore data is stored in the same region as the source account and is accessible even during regional outages if using geo-redundant configurations.
