@@ -22,20 +22,6 @@ Microsoft Sentinel is generally available in the Microsoft Defender portal, eith
 
 This article describes the Microsoft Sentinel experience in the Defender portal.
 
-## Sunset timeline for Microsoft Sentinel in the Azure portal (new customers only)
-
-Microsoft Sentinel is generally available in the Microsoft Defender portal, including for customers without Microsoft Defender XDR or an E5 license. This means that you can use Microsoft Sentinel in the Defender portal even if you aren't using other Microsoft Defender services.
-
-Starting in July 2025, new customers onboarding to Microsoft Sentinel with permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) are automatically onboarded to the Defender portal, and use Microsoft Sentinel in the Defender portal only.
-
-Existing customers and other new customers without the relevant permissions, such as Azure-Lighthouse delegated users, can continue using Microsoft Sentinel in the Azure portal. However, we recommend that you [onboard to the Defender portal](/defender-xdr/microsoft-sentinel-onboard) for a [unified security operations experience](/unified-secops-platform/overview-unified-security). For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
-
-In most cases, users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal. The exception is for Azure Lighthouse-delegated users who are accessing a new customer workspace onboarded to Microsoft Sentinel in the Azure portal. These users won't see the automatic redirection and can work in the Azure portal.
-
-When manually onboarding to the Defender portal, you must onboard each workspace individually. When working with multiple workspaces and other Defender services, make sure to define the primary workspace where you want to correlate Microsoft Sentinel incidents with Microsoft Defender incidents. View incidents in other workspaces separately. 
-
-For more information, see [Onboard Microsoft Sentinel](quickstart-onboard.md) and [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md).
-
 ## New and improved capabilities
 
 The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel. Microsoft continues to innovate in this new experience with features that might be exclusive to the Defender portal.
@@ -56,6 +42,21 @@ When you onboard Microsoft Sentinel to the Defender portal without Defender XDR 
 - [Microsoft Security Exposure Management](/security-exposure-management/)
 - [Custom detection rules](/defender-xdr/custom-detections-overview), provided by Microsoft Defender XDR
 - The [Action center](/defender-xdr/m365d-action-center), provided by Microsoft Defender XDR
+
+
+## Sunset timeline for Microsoft Sentinel in the Azure portal (new customers only)
+
+Microsoft Sentinel is generally available in the Microsoft Defender portal, including for customers without Microsoft Defender XDR or an E5 license. This means that you can use Microsoft Sentinel in the Defender portal even if you aren't using other Microsoft Defender services.
+
+Starting in July 2025, new customers onboarding to Microsoft Sentinel with permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) are automatically onboarded to the Defender portal, and use Microsoft Sentinel in the Defender portal only.
+
+Existing customers and other new customers without the relevant permissions, such as Azure-Lighthouse delegated users, can continue using Microsoft Sentinel in the Azure portal. However, we recommend that you [onboard to the Defender portal](/defender-xdr/microsoft-sentinel-onboard) for a [unified security operations experience](/unified-secops-platform/overview-unified-security). For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+
+In most cases, users of workspaces that are automatically onboarded to the Defender portal use Microsoft Sentinel in the Defender portal only, and are redirected to the Defender portal from Microsoft Sentinel in the Azure portal. The exception is for Azure Lighthouse-delegated users who are accessing a new customer workspace onboarded to Microsoft Sentinel in the Azure portal. These users won't see the automatic redirection and can work in the Azure portal.
+
+When manually onboarding to the Defender portal, you must onboard each workspace individually. When working with multiple workspaces and other Defender services, make sure to define the primary workspace where you want to correlate Microsoft Sentinel incidents with Microsoft Defender incidents. View incidents in other workspaces separately. 
+
+For more information, see [Onboard Microsoft Sentinel](quickstart-onboard.md) and [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md).
 
 ## Quick reference
 

@@ -14,5 +14,4 @@ ms.custom: "include file"
 >
 >Existing customers, and new users without relevant permissions, can continue to use Microsoft Sentinel in the Azure portal. We recommend that you onboard to the Microsoft Defender portal for a unified security operations (SecOps) experience. 
 >
->For more information, see [Automatic onboarding and redirects for new customers](../microsoft-sentinel-defender-portal.md#automatic-onboarding-and-redirects-for-new-customers).
-
+>For more information, see [Sunset timeline for Microsoft Sentinel in the Azure portal (new customers only)](../microsoft-sentinel-defender-portal.md#sunset-timeline-for-microsoft-sentinel-in-the-azure-portal-new-customers-only).
