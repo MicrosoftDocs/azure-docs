@@ -15,6 +15,8 @@
     items:
       - name: Onboard and deploy a Network Function
         href: best-practices-onboard-deploy.md
+      - name: Workload Configuration Management 
+        href: configuration-guide.md
       - name: Roles and Interfaces
         href: roles-interfaces.md
       - name: Helm Package Requirements
