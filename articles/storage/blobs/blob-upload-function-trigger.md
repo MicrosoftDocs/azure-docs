@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 3/11/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
+# Customer intent: As a developer, I want to upload images to cloud storage and analyze their content using serverless functions, so that I can extract and store text data for further processing.
 ---
 
 # Tutorial: Upload and analyze a file with Azure Functions and Blob Storage

@@ -1,5 +1,5 @@
 ---
-title: Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes | Microsoft Docs
+title: Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes
 description: Describes the considerations and steps for enabling LDAP with extended groups when you create an NFS volume by using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/21/2025
 ms.author: anfdocs
 ---
-# Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes
+# Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS 
 
 When you [create an NFS volume](azure-netapp-files-create-volumes.md), you can enable the LDAP with extended groups feature (the **LDAP** option) for the volume. This feature enables Active Directory LDAP users and extended groups (up to 1024 groups) to access files and directories in the volume. You can use the LDAP with extended groups feature with both NFSv4.1 and NFSv3 volumes. 
 
 > [!NOTE]
-> By default, in Active Directory LDAP servers, the `MaxPageSize` attribute is set to a default of 1,000. This setting means that groups beyond 1,000 are truncated in LDAP queries. To enable full support with the 1,024 value for extended groups, the `MaxPageSiz`e attribute must be modified to reflect the 1,024 value. For information about how to change that value, see [How to view and set LDAP policy in Active Directory by using Ntdsutil.exe](/troubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil).
+> By default, in Active Directory LDAP servers, the `MaxPageSize` attribute is set to a default of 1,000. This setting means that groups beyond 1,000 are truncated in LDAP queries. To enable full support with the 1,024 value for extended groups, the `MaxPageSize` attribute must be modified to reflect the 1,024 value. For information about how to change that value, see [How to view and set LDAP policy in Active Directory by using Ntdsutil.exe](/troubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil).
 
 Azure NetApp Files supports fetching of extended groups from the LDAP name service rather than from the RPC header. Azure NetApp Files interacts with LDAP by querying for attributes such as usernames, numeric IDs, groups, and group memberships for NFS protocol operations.
 

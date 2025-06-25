@@ -10,6 +10,7 @@ ms.date: 07/29/2024
 ms.topic: overview
 ms.author: normesta
 ms.reviewer: prishet
+# Customer intent: "As a data manager, I want to understand the data protection strategies available for Blob Storage and Data Lake Storage, so that I can effectively safeguard and recover my data from accidental deletion or modification."
 ---
 
 # Data protection overview

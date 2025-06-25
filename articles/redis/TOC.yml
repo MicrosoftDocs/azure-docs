@@ -216,16 +216,10 @@ items:
     items:
     - name: Use ASP.NET core output cache
       href: aspnet-core-output-cache-provider.md
-    - name: Use session state provider
-      href: aspnet-session-state-provider.md
-    - name: Use output cache provider
-      href: aspnet-output-cache-provider.md
   - name: Java Spring
     items:
     - name: Use Spring Boot Initializer
       href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
-  - name: Create leaderboards
-    href: web-app-cache-aside-leaderboard.md
   - name: Create Web App with Redis cache - Bicep
     displayName: ARM, Resource Manager, Template
     href: web-app-bicep-with-redis-cache-provision.md

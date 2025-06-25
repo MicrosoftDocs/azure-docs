@@ -10,6 +10,7 @@ ms.service: azure-kubernetes-service
 ms.custom:
   - ignite-fall-2023
   - ignite-2023
+# Customer intent: As a cloud developer, I want to implement Confidential Containers on Azure Kubernetes Service, so that I can ensure enhanced security and isolation for workloads handling sensitive data while maintaining compatibility with my existing Linux containers.
 ---
 
 # Confidential Containers (preview) on Azure Kubernetes Service

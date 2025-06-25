@@ -198,6 +198,9 @@ You might need to configure the target resource to allow access from your load t
 
 Similarly, if you want to [set failure criteria on server metrics](./how-to-define-test-criteria.md), you should specify a Metrics Reference Identity to fetch metrics for. You should configure the target resource such that the identity can read the metrics from the resource.
 
+> [!IMPORTANT]
+> When a managed identity is assigned to a Load Testing resource, users authorized to run load tests can use the managed identity during test execution to access target resources like Azure Key Vault. 
+
 ## Related content
 
 * [Use secrets or certificates in your load test](./how-to-parameterize-load-tests.md)

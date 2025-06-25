@@ -8,6 +8,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 07/03/2024
 ms.author: ananyagarg
+# Customer intent: As a data analyst, I want to utilize Opaque's confidential computing platform, so that I can securely process sensitive data and accelerate AI insights without compromising privacy or compliance.
 ---
 
 # Opaque Systems, Inc.

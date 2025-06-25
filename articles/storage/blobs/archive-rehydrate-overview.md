@@ -7,6 +7,7 @@ ms.author: normesta
 ms.date: 07/31/2024
 ms.service: azure-blob-storage
 ms.topic: concept-article
+# Customer intent: As a cloud storage administrator, I want to rehydrate archived blobs to an online tier, so that I can access and modify the stored data as needed for operational tasks.
 ---
 
 # Blob rehydration from the archive tier

@@ -57,6 +57,10 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
+### Usage notes
+
+* Using multiple `send-one-way-request` policies in outbound section is not supported in self-hosted gateway.
+
 ## Example
 
 This example uses the `send-one-way-request` policy to send a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).

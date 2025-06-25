@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/20/2025
 ms.author: kendownie
+# Customer intent: As an IT administrator, I want to learn how to install and manage the Azure File Sync agent extension on Azure Arc-enabled Windows servers.
 ---
 
 # Install and manage the Azure File Sync agent extension on Azure Arc-enabled Windows servers

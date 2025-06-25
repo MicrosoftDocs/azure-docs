@@ -7,6 +7,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 05/02/2023
 ms.author: joelinscott
+# Customer intent: As a security architect, I want to understand the different types of attestation and their scenarios, so that I can effectively implement trust verification for our computing systems and ensure compliance with regulatory standards.
 ---
 
 # Attestation types and scenarios

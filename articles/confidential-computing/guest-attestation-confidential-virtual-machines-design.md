@@ -8,6 +8,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 02/06/2025
 ms.custom: template-concept
+# Customer intent: "As a cloud developer, I want to understand the vTPM-based guest attestation design for Azure confidential VMs, so that I can ensure secure verification and trustworthiness of my applications running in those environments."
 ---
 
 # Confidential VM Guest Attestation Design Detail

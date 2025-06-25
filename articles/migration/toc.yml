@@ -72,5 +72,6 @@ items:
         href: /azure/architecture/gcp-professional/services#security-and-identity
       - name: Migrate your SIEM in Google Cloud to Microsoft Sentinel
         href: /azure/sentinel/migration
-      - name: Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel
-        href:  /azure/sentinel/data-connectors/google-cloud-platform-iam                       
+      - name: Google Cloud Platform IAM connector for Microsoft Sentinel
+        href: /azure/sentinel/connect-google-cloud-platform
+        

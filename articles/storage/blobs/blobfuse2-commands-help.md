@@ -7,6 +7,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
+# Customer intent: "As a cloud engineer, I want to use the help command with BlobFuse2, so that I can receive guidance on command syntax and available options for managing blob storage effectively."
 ---
 
 # BlobFuse2 help command

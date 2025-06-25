@@ -9,6 +9,7 @@ ms.date: 03/28/2024
 ms.topic: concept-article
 ms.author: normesta
 ms.custom: references_regions
+# Customer intent: "As a cloud storage administrator, I want to generate inventory reports for blob data, so that I can audit data properties and automate workflows to efficiently manage storage resources."
 ---
 
 # Azure Storage blob inventory

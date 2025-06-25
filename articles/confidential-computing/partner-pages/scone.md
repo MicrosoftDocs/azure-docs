@@ -8,6 +8,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: "As a software developer, I want to utilize the SCONE platform on Azure so that I can build and deploy confidential cloud-native applications without altering my existing codebase."
 ---
 
 # Scontain
