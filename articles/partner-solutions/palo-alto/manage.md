@@ -22,7 +22,7 @@ After you create your Cloud NGFW by Palo Alto Networks resource, you might need 
 You can view and change settings by selecting one of the following settings categories under **Settings** in the left pane:
 
 - Networking & NAT
-- Seurity Policies
+- Security Policies
 - Log Settings
 - DNS Proxy
 - Rules
