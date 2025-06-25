@@ -39,7 +39,8 @@ In order to use the hunts feature, you either need to be assigned a built-in Mic
 - Assign the built-in [Microsoft Sentinel Contributor role assignment](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor).<br>
     To learn more about roles in Microsoft Sentinel, see [Roles and permissions in Microsoft Sentinel](roles.md).
 
-- Assign a custom Azure RBAC role with the appropriate permissions under [*Microsoft.SecurityInsights/hunts*](/azure/role-based-access-control/resource-provider-operations#microsoftsecurityinsights).
+- Assign a custom Azure RBAC role with the appropriate permissions under [*Microsoft.SecurityInsights/hunts*](/azure/role-based-access-control/resource-provider-operations#microsoftsecurityinsights).<br>
+    To learn more about custom roles, see [Custom roles and advanced Azure RBAC](roles.md#custom-roles-and-advanced-azure-rbac).
 
 For more information, see [Roles and permissions in the Microsoft Sentinel platform](roles.md).
 
