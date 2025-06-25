@@ -50,3 +50,4 @@ These types of questions can be answered through the emission and analysis of fe
 1. Continue to the following instructions to use telemetry in your application for the language or platform you're using.
 
     * [Python](./howto-telemetry-python.md)
+    * [JavaScript](./howto-telemetry-javascript.md)
