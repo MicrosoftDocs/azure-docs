@@ -151,8 +151,6 @@ cloud:
         vaults:
           keyvault1:
             endpoint: ${KEY_VAULT_SSL_BUNDLES_KEYVAULT_URI_01}
-            profile:
-              tenant-id: ${KEY_VAULT_SSL_BUNDLES_TENANT_ID}  # Required for user-assigned managed identity
             credential:
               client-id: ${KEY_VAULT_SSL_BUNDLES_CLIENT_ID}  # Required for user-assigned managed identity
               managed-identity-enabled: true
@@ -203,15 +201,11 @@ cloud:
         vaults:
           keyvault1:
             endpoint: ${KEY_VAULT_SSL_BUNDLES_KEYVAULT_URI_01}
-            profile:
-              tenant-id: ${KEY_VAULT_SSL_BUNDLES_TENANT_ID}  # Required for user-assigned managed identity
             credential:
               client-id: ${KEY_VAULT_SSL_BUNDLES_CLIENT_ID}  # Required for user-assigned managed identity
               managed-identity-enabled: true
           keyvault2:
             endpoint: ${KEY_VAULT_SSL_BUNDLES_KEYVAULT_URI_02}
-            profile:
-              tenant-id: ${KEY_VAULT_SSL_BUNDLES_TENANT_ID}  # Required for user-assigned managed identity
             credential:
               client-id: ${KEY_VAULT_SSL_BUNDLES_CLIENT_ID}  # Required for user-assigned managed identity
               managed-identity-enabled: true
