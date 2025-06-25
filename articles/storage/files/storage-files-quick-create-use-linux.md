@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 05/27/2025
 ms.author: kendownie
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
+# Customer intent: "As an IT admin evaluating Azure file services, I want to create and mount an NFS file share on a Linux VM, so that I can assess its performance and integration with my existing workflows."
 ---
 
 # Create an NFS Azure file share and mount it on a Linux VM using the Azure portal
