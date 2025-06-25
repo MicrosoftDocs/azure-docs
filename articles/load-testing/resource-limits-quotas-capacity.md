@@ -71,9 +71,15 @@ Azure Load Testing captures metrics, test results, and logs for each test run. T
 
 To raise the limit or quota above the default limit, [open an online customer support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) at no charge.
 
-1. Select **Create a support ticket**.
+1. Select **Create a support request**.
 
-1. Provide a **summary** of your issue.
+1. Enter "quota" in **Describe your issue** and press the **go** button.
+
+1. Select **Service and Subscription Limits (Quotas)** in **Which service are you having an issue with?** and click **Next** button.
+
+1. Click the **Create a support request** button on the screen.
+
+1. The New support request screen will open. Select **Azure services** in **What is your issue related to?** in the **1. Problem description** tab.
 
 1. Select **Issue type** as *Service and subscription limits (quotas)*.
 
