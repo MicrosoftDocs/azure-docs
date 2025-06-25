@@ -12,9 +12,10 @@ ms.service: azure-communication-services
 ms.subservice: sms
 ---
 
+# Opt-Out management overview
+
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
-# Opt-Out management overview
 The Opt-Out Management API enables you to manage opt-out requests for SMS messages. It provides a self-service platform for businesses to handle opt-out requests, ensuring compliance with regulations and protecting customer privacy.
 Currently, opt-out handling includes configuring responses to mandatory opt-out keywords, such as STOP/START/HELP and others. The responses to these keywords are stored as part of program/campaign brief. The list of opted-out numbers is maintained in the Azure Communication Services Opt-Out database. This database management is automatic.
 The Opt-Out database contains entries added when a recipient sends an opt-out keyword. An entry includes the fields: Sender, Recipient, and Country. If a recipient opts back in, the corresponding entry is deleted.
