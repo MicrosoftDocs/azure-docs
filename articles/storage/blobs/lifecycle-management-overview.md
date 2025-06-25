@@ -25,7 +25,10 @@ With the lifecycle management policy, you can:
 
 - Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles. 
 
-- Apply rules to an entire storage account, to select containers, or to a subset of blobs using name prefixes or blob index tags as filters. 
+- Apply rules to an entire storage account, to select containers, or to a subset of blobs using name prefixes or blob index tags as filters.
+
+> [!NOTE]
+> We cannot use LCM policy to re-hydrate blobs. There are other options to achieve blob re-hydration like using Azure Portal, Storage Task, REST API.
 
 > [!TIP]
 > While lifecycle management helps you optimize your costs for a single account, you can use [Azure Storage Actions](../../storage-actions/overview.md) to accomplish multiple data operations at scale across multiple accounts.
