@@ -79,7 +79,8 @@ Copy
 
 | Algorithm  | Download  | SHA256  | 
 | --- | --- | --- |
-| Zip file (693 MB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | c88e90691ebf87166243dafb2d3a18dd34066b4624595ee3f9b4fbe6885e81da   |
+| Zip file (693 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 88e90691ebf87166243dafb2d3a18dd34066b4624595ee3f9b4fbe6885e81da  |
+
 
 ## Appliance services
 
