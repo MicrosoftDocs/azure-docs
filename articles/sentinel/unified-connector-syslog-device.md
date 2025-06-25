@@ -14,11 +14,14 @@ ms.date: 06/27/2024
 
 # Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion
 
-Log collection from many security appliances and devices  are supported by the **Syslog via AMA** data connector in Microsoft Sentinel. This article lists provider supplied installation instructions for specific security appliances and devices that use this data connector. Contact the provider for updates, more information, or where information is unavailable for your security appliance or device.
+The **Syslog via AMA** data connector in Microsoft Sentinel collects logs from many security appliances and devices. This article lists provider-supplied installation instructions for specific security appliances and devices that use this data connector. Contact the provider for updates, more information, or where information is unavailable for your security appliance or device.
 
 To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). As you complete those steps, install the **Syslog via AMA** data connector in Microsoft Sentinel. Then, use the appropriate provider's instructions in this article to complete the setup.
 
 For more information about the related Microsoft Sentinel solution for each of these appliances or devices, search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for the **Product Type** > **Solution Templates** or review the solution from the **Content hub** in Microsoft Sentinel.
+
+> [!IMPORTANT]
+> Solutions provided by third-party vendors might still reference a deprecated **Log Analytics agent** connector. These connectors are not supported for new deployments. You can continue to use the same solutions with the **Syslog via AMA** data connector instead.
 
 ## Barracuda CloudGen Firewall
 
@@ -68,7 +71,7 @@ This data connector was developed using Cisco Stealthwatch version 7.3.2
 >
 > Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line.
 >
-> To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **CiscoUCS**. Alternatively, directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Cisco%20UCS/Parsers/CiscoUCS.yaml). It might take about 15-minutes post-installation to update.
+> To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **CiscoUCS**. Alternatively, directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Cisco%20UCS/Parsers/CiscoUCS.yaml). It might take about 15-minutes post-installation to update. Although the solution references the deprecated **Log Analytics agent** connector, you can continue to use the same solution, including the referenced parser, with the **Syslog via AMA** data connector instead.
 
 ## Cisco Web Security Appliance (WSA)
 
@@ -90,7 +93,7 @@ Configure Citrix ADC (former NetScaler) to forward logs via Syslog.
 5. For more information, see the [Citrix ADC (former NetScaler) documentation](https://docs.netscaler.com/).
 
 > [!NOTE]
-> The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation. To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **CitrixADCEvent**. Alternatively, you can directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Citrix%20ADC/Parsers/CitrixADCEvent.yaml). It might take about 15 minutes post-installation to update.
+> The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation. To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **CitrixADCEvent**. Alternatively, you can directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Citrix%20ADC/Parsers/CitrixADCEvent.yaml). It might take about 15 minutes post-installation to update. Although the solution references the deprecated **Log Analytics agent** connector, you can continue to use the same solution, including the referenced parser, with the **Syslog via AMA** data connector instead.
 >
 > This parser requires a watchlist named `Sources_by_SourceType`.
 >
@@ -161,7 +164,7 @@ This data connector was developed using Forescout Syslog Plugin version: v3.6
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
 >
-> To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **Infoblox**. Alternatively, you can directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Infoblox%20NIOS/Parsers/Infoblox.yaml). It might take about 15 minutes post-installation to update.
+> To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **Infoblox**. Alternatively, you can directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Infoblox%20NIOS/Parsers/Infoblox.yaml). It might take about 15 minutes post-installation to update. Although the solution references the deprecated **Log Analytics agent** connector, you can continue to use the same solution, including the referenced parser, with the **Syslog via AMA** data connector instead.
 > 
 > This parser requires a watchlist named **`Sources_by_SourceType`**.
 >
