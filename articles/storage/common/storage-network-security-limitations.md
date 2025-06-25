@@ -1,6 +1,6 @@
 ---
-title: Restrictions and limitations for Azure Storage firewall and virtual network configuration
-description: Learn about the restrictions and limitations for Azure Storage firewall and virtual network configuration.
+title: 'Guidelines & limitations: Azure Storage firewall'
+description: Learn about the restrictions and limitations for Azure Storage firewall configuration.
 services: storage
 author: normesta
 ms.service: azure-storage
@@ -11,15 +11,21 @@ ms.author: normesta
 
 ---
 
-# Restrictions and limitations for Azure Storage firewall and virtual network configuration
+# Guidelines and limitations for the Azure Storage firewall
 
 Before you implement network security for your storage accounts, review the important restrictions and considerations discussed in this section.
 
-## General restrictions and considerations
+## General guidelines and limitations
 
 - Azure Storage firewall rules apply only to [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) operations. [Control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane) operations are not subject to the restrictions specified in firewall rules.
 
 - To access data by using tools such as the Azure portal, Azure Storage Explorer, and AzCopy, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
+
+  Some operations, such as blob container operations, can be performed through both the control plane and the data plane. So if you attempt to perform an operation such as listing containers from the Azure portal, the operation will succeed unless it is blocked by another mechanism. Attempts to access blob data from an application such as Azure Storage Explorer are controlled by the firewall restrictions.
+
+  For a list of data plane operations, see the [Azure Storage REST API Reference](/rest/api/storageservices/).
+
+  For a list of control plane operations, see the [Azure Storage Resource Provider REST API Reference](/rest/api/storagerp/).
 
 - Network rules are enforced on all network protocols for Azure Storage, including REST and SMB.
 

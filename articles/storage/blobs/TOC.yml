@@ -303,15 +303,17 @@ items:
       items:
       - name: Network security overview
         href: ../common/storage-network-security-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Private endpoints
+        href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Public endpoints
         items:
         - name: Default access level
           href: ../common/storage-network-security-set-default-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Firewall and virtual networks
+        - name: Firewall rules
           items:
-          - name: Firewall and virtual networks
+          - name: Firewall rules overview
             href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Restrictions and considerations
+          - name: Guidelines and limitations
             href: ../common/storage-network-security-limitations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Virtual network rules
             href: ../common/storage-network-security-virtual-networks.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -325,11 +327,12 @@ items:
             href: ../common/storage-network-security-trusted-azure-services.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Network security perimeter
           href: ../common/storage-network-security-perimeter.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Private endpoints
-        href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Copy operation restrictions
-        href: ../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json
-      - name: Secure transfer
+        - name: Network routing
+          href: ../common/network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          items:
+          - name: Configure network routing preference
+            href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json
+      - name: Transport Layer Security
         items:
         - name: Require secure transfer
           href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -338,12 +341,9 @@ items:
         - name: Configure TLS version for a client
           href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Migrate to TLS 1.2
-          href: ../common/transport-layer-security-configure-migrate-to-TLS2.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Network routing
-        href: ../common/network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        items:
-        - name: Configure network routing preference
-          href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json
+          href: ../common/transport-layer-security-configure-migrate-to-TLS2.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.jso
+      - name: Copy operation scopes
+        href: ../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json
       - name: Custom domains
         href: storage-custom-domain-name.md
     - name: Authorization

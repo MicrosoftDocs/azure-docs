@@ -1,5 +1,5 @@
----
-title: Azure Storage firewall and virtual network rules
+--- 
+title: Azure Storage firewall rules
 description: Learn about settings that you can use to secure traffic to the public endpoints of your Azure Storage account.
 services: storage
 author: normesta
@@ -11,7 +11,7 @@ ms.author: normesta
 
 ---
 
-# Azure Storage firewall and virtual network rules
+# Azure Storage firewall rules
 
 You can disable public network access to your storage account and permit traffic only if it originates from sources that you specify. Sources can include [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) subnets, public IP address ranges, specific Azure resource instances, or traffic from trusted Azure services. 
 
