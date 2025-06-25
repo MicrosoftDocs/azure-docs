@@ -27,22 +27,21 @@ This article applies to the **Azure Stack Edge 2506** release, which maps to sof
 
 ## Supported update paths
 
-To apply the 2506 update, your device must be running version 2403 or later.
+To apply the 2506 update, your device must be running version **2501** or later.
 
- - If you aren't running the minimum required version, you see this error: 
+ - If you aren't running the minimum required version, you see this error:
 
-   *Update package can't be installed as its dependencies aren't met.* 
+   *Update package can't be installed as its dependencies aren't met.*
 
- - You can update to 2403 from 2303 or later, and then update to 2506.
+ - You can update to **2501** from 2403 or later, and then update to 2506.
 
 You can update to the latest version using the following update paths:
 
 | Current version of Azure Stack Edge software and Kubernetes     | Update to Azure Stack Edge software and Kubernetes  | Desired update to 2506  |
 | --------------------| -----------| -----------|
-|2303   |2403   |2506   |
-|2309   |2403   |2506   |
-|2312   |2403   |2506   |
-|2403   |Directly to   |2506   |
+|earlier than 2403  | update to 2403, then to 2501   | 2506   |
+|earlier than 2501  | update to 2501   | 2506   |
+|2501   | Directly to   | 2506   |
 
 ## What's new
 
