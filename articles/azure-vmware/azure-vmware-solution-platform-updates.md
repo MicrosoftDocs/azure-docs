@@ -14,7 +14,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 * [Security enhancement: new required permissions for Azure NetApp Files datastore with AVS](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites)
 
-    Due to security enhancements in Azure, new role requirements have been introduced to perform CRUD operations on Azure NetApp Files datastores for AVS. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), might have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for you Azure NetApp Files datastore. 
+    To enhance security, appropriate permissions are needed across Azure VMware Solution and Azure NetApp Files resources when working with datastores. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for you Azure NetApp Files datastore. 
 
 
 ## May 2025
