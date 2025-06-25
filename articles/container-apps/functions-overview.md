@@ -109,6 +109,19 @@ Managed identities are available for the following connections:
 
 For other bindings, use fixed replicas when using managed identity authentication. For more information, see the [Functions developer guide](/azure/azure-functions/functions-reference).
 
+## Scaling and Performance
+
+Azure Functions on ACA scale automatically based on events using KEDA, with no need to configure scale rules manually. You can still set min/max replicas to control scaling behavior.
+
+- **Event-driven scaling**: Automatically scales based on triggers like Event Grid, Service Bus, or HTTP.
+- **Scale to zero**: Idle apps scale down to zero to save costs.
+- **Cold start control**: Avoid cold starts by setting minReplicas ≥ 1.
+- **Concurrency**: Each instance can process multiple events in parallel.
+- **High scale**: Scale up to 1000 instances per app (default is 10).
+- **GPU support**: Run compute-heavy workloads like AI inference using GPU-backed nodes in Dedicated plans.
+
+This makes ACA ideal for both bursty and steady-state workloads. To learn more, see [set scaling rules in azure container apps](../container-apps/scale-app.md)
+
 ## Application logging
 
 You can monitor your containerized function app hosted in Container Apps using Azure Monitor Application Insights in the same way you do with apps hosted by Azure Functions. For more information, see [Monitor Azure Functions](/azure/azure-functions/monitor-functions).
