@@ -4,7 +4,7 @@ description: Integrate an API Management instance to Azure API Center for automa
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 06/25/2025
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
@@ -70,7 +70,8 @@ You can integrate an API Management instance using the portal or the Azure CLI.
 1. Under **Platforms**, select **Integrations**.
 1. Select **+ New integration** > **From Azure API Management**.
 1. In the **Integrate your Azure API Management Service** page:
-    1. Select the **Subscription**, **Resource group**, and **Azure API Management service** that you want to integrate.
+    1. Select whether to synchronize all APIs from the API Management instance or only APIs that are in an API Management [workspace](../api-management/workspaces-overview.md). 
+    1. Select the **Subscription**, **Resource group**, and **Azure API Management service** that you want to integrate. If you want to synchronize only APIs from a workspace, make a selection in **Choose a workspace**.
     1. In **Integration details**, enter an identifier.
         If you haven't already configured a managed identity with access to the API Management instance, enable **Automatically configure managed identity and assign permissions**. This selection automatically assigns the API center's system-assigned managed identity the necessary permissions to synchronize APIs from the API Management instance.
     1. In **Environment details**, enter an **Environment title** (name), **Environment type**, and optional **Description**.
@@ -98,9 +99,7 @@ az apic integration create apim \
 ``` 
 ---
 
-The environment is added in your API center. The API Management APIs are imported to the API center inventory.
-
-:::image type="content" source="media/synchronize-api-management-apis/environment-link-list.png" alt-text="Screenshot of environment list in the portal.":::
+The API Management instance is integrated as an environment in your API center. The API Management APIs are synchronized to the API center inventory.
 
 [!INCLUDE [delete-api-integration](includes/delete-api-integration.md)]
 

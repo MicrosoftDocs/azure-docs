@@ -14,7 +14,7 @@ ms.collection:
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
 ---
 
-# Synchronize APIs from Amazon API Gateway to Azure API Center (preview)
+# Synchronize APIs from Amazon API Gateway to Azure API Center
 
 This article shows how to integrate an Amazon API Gateway so that the gateway's APIs are continuously kept up to date in your [API center](overview.md) inventory.
 
@@ -31,7 +31,6 @@ When you integrate an Amazon API Gateway as an API source, the following happens
 Synchronization is one-way from Amazon API Gateway to your Azure API center, meaning API updates in the API center aren't synchronized back to Amazon API Gateway.
 
 > [!NOTE]
-> * Integration of Amazon API Gateway is currently in preview.
 > * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) for the number of integrated API sources.
 > * APIs in Amazon API Gateway synchronize to your API center once per hour. Only REST APIs are synchronized.
 > * API definitions also synchronize to the API center if you select the option to include them during integration. Only definitions from deployed APIs are synchronized.
@@ -114,7 +113,7 @@ You can integrate an Amazon API Gateway using the portal or the Azure CLI.
 
 #### [Azure CLI](#tab/cli)
 
-Run the [az apic integration create aws](/cli/azure/apic/integration/create#az-apic-integration-create-aws) (preview) command to integrate an Amazon API Gateway to your API center. 
+Run the [az apic integration create aws](/cli/azure/apic/integration/create#az-apic-integration-create-aws) command to integrate an Amazon API Gateway to your API center. 
 
 * Provide the names of the resource group, API center, and integration. 
 
