@@ -97,7 +97,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | - |
 | [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | - |
 | [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | - |
-| [Azure OpenAI service](azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices | - |
+| [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices | - |
 
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.
