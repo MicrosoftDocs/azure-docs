@@ -190,7 +190,7 @@ Click **Next** to proceed to the **Campaign details** section.
       
       [COMPANY NAME] TEXT MESSAGE SERVICE PRIVACY POLICY
       
-      We respect your privacy. We only use information you provide through this service to transmit your mobile messages and respond to you. This includes, but isn't limited to, sharing information with platform providers, phone companies, and other vendors who assist us in the delivery of mobile messages. Mobile information will not be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. Nonetheless, we reserve the right always to disclose any information as necessary to satisfy any law, regulation or governmental request, to avoid liability, or to protect our rights or property. This Text Message Service Privacy Policy applies to your use of the Text Message Service and isn't intended to modify our general [“Privacy Policy” OR RELEVANT NAME OF PRIVACY POLICY REFERENCED IN SECTION ABOVE], incorporated by reference above, which may govern the relationship between you and us in other contexts.
+      We respect your privacy. We only use information you provide through this service to transmit your mobile messages and respond to you. This includes, but isn't limited to, sharing information with platform providers, phone companies, and other vendors who assist us in the           delivery of mobile messages. Mobile information will not be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.       Nonetheless, we reserve the right always to disclose any information as necessary to satisfy any law, regulation or governmental request, to avoid liability, or to protect our rights or property. This Text Message Service Privacy Policy applies to your use of the Text Message       Service and isn't intended to modify our general [“Privacy Policy” OR RELEVANT NAME OF PRIVACY POLICY REFERENCED IN SECTION ABOVE], incorporated by reference above, which may govern the relationship between you and us in other contexts.
       
       COSTS OF TEXT MESSAGES
       
@@ -198,11 +198,11 @@ Click **Next** to proceed to the **Campaign details** section.
       
       FREQUENCY OF TEXT MESSAGES
       
-      This Text Messaging Service is for conversational communication between you and [COMPANY NAME]. We may send you an initial message providing details about the service. After that, the number of text messages you receive will vary depending on how you use our services and whether you take steps to generate more text messages from us (such as by sending a HELP request).
+      This Text Messaging Service is for conversational communication between you and [COMPANY NAME]. We may send you an initial message providing details about the service. After that, the number of text messages you receive will vary depending on how you use our services and            whether you take steps to generate more text messages from us (such as by sending a HELP request).
       
       OPTING OUT OF TEXT MESSAGES
       
-      If you no longer want to receive text messages, you may reply to any text message with STOP, QUIT, END, REVOKE, OPT OUT, CANCEL, or UNSUBSCRIBE. Opt-out requests are specific to each conversation between you and [COMPANY NAME]. After unsubscribing, we may send you confirmation of your opt-out via text message.
+      If you no longer want to receive text messages, you may reply to any text message with STOP, QUIT, END, REVOKE, OPT OUT, CANCEL, or UNSUBSCRIBE. Opt-out requests are specific to each conversation between you and [COMPANY NAME]. After unsubscribing, we may send you                   confirmation of your opt-out via text message.
       
       CONTACT US
       
