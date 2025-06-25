@@ -87,6 +87,9 @@ Submit the regulatory document. Brand registration may take 2 to 3 days to compl
 
 ### 1.3 Brand Vetting Process
 
+> [!TIP]
+> Standard Vetting may only be required for **Standard**, **Enhanced**, **Emergency**, **Franchise**, or **Charity** brands to increase throughput or meet compliance.
+
 During 10DLC brand registration, some brands might be required to undergo Standard Vetting to validate their identity and improve trust with mobile carriers. This step is typically triggered when:
 
    - The brand receives a low Trust Score during automated checks, or
