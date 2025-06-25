@@ -227,7 +227,10 @@ After completing the **Use Case** tab, click next to proceed to the **Campaign a
 
 ### 2.3 Campaign and content attributes
 
-Fill in the campaign and content attributes as follows:
+   #### A. Opt-in/out and Help attributes 
+
+   Fill in the campaign and content attributes as follows:
+
    - **Subscriber Opt-in**: Select **Yes** or **No** to indicate if subscriber opt-in is required.
    - **Subscriber Opt-in Message**: If **Yes** is selected, enter the message for subscribers to receive when opting into the campaign.
    - **Subscriber Opt-out**: Select **Yes** or **No** to indicate if subscribers can opt out.
@@ -235,9 +238,11 @@ Fill in the campaign and content attributes as follows:
    - **Subscriber Help**: Select **Yes** or **No** to indicate if subscriber help is available.
    - **Subscriber Help Answer**: If **Yes** is selected, provide the message for subscribers seeking assistance.
 
-      #### Opt-in Message
+     #####  PRO TIP: Make Opt-In/Out and HELP Messages Clear and Compliant
 
-     The Opt-In Message must include the following information:
+        ###### Opt-in Message
+
+        The Opt-In Message must include the following information:
 
       - Brand name
       - Message frequency disclosure (for example, "Msg frequency varies")
@@ -249,9 +254,9 @@ Fill in the campaign and content attributes as follows:
 
       > *Thank you for opting in to receive [type of messages] from [Brand Name]. Msg frequency varies. Msg & data rates may apply. Reply HELP for help. Reply STOP to opt out from receiving messages from this number. Send START to resume a conversation.*
 
-      #### Opt-out Message
+        ###### Opt-out Message
 
-     The Opt-Out Message must include the following information:
+        The Opt-Out Message must include the following information:
 
       - Brand name
       - Confirmation that the recipient will receive no further messages.
@@ -260,9 +265,9 @@ Fill in the campaign and content attributes as follows:
 
       > *You have successfully opted out of messages from this [Brand Name] number. You'll receive no further messages. Reply START to resume. Msg & data rates may apply.*
 
-      #### Help Message
+        ###### Help Message
 
-      The Help Message must include the following information:
+        The Help Message must include the following information:
 
       - Brand name
       - Support contact information (for example, an email address, phone number, or website)
@@ -276,7 +281,7 @@ Fill in the campaign and content attributes as follows:
 > [!Important]
 >Only the keywords START, HELP, and STOP, QUIT, END, REVOKE, OPT OUT, CANCEL, UNSUBSCRIBE are monitored and enforced.
 
-#### More attributes
+   #### B. More attributes
 
    - **Direct Lending or Loan Arrangement**: Indicate if the campaign involves any lending or loan arrangements.
    - **Embedded Link**: Select **Yes** or **No** to indicate if embedded links are sent in messages. Public URL shorteners (bitly, tinyurl) aren't accepted. If selected, at least one sample message must include an embedded link.
