@@ -205,7 +205,7 @@ You can import up to 1000 OPC UA data points at a time from a CSV file:
 
 1. To export all the data points from an asset to a CSV file, select **Export all** and choose a location for the file:
 
-    :::image type="content" source="media/howto-configure-opcua/export-data points.png" alt-text="A screenshot that shows how to export tag definitions from an asset in the operations experience.":::
+    :::image type="content" source="media/howto-configure-opcua/export-data-points.png" alt-text="A screenshot that shows how to export tag definitions from an asset in the operations experience.":::
 
 1. On the **data points** page, select **Next** to go to the **Add events** page.
 
@@ -324,7 +324,7 @@ To update a tag, select an existing tag and update the tag information. Then sel
 
 To remove data points, select one or more data points and then select **Remove data points**:
 
-:::image type="content" source="media/howto-configure-opcua/asset-remove-data points.png" alt-text="A screenshot that shows how to delete a tag in the operations experience.":::
+:::image type="content" source="media/howto-configure-opcua/asset-remove-data-points.png" alt-text="A screenshot that shows how to delete a tag in the operations experience.":::
 
 You can also add, update, and delete events and properties in the same way.
 

@@ -556,12 +556,12 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/iot-operations/discover-manage-assets/concept-assets-asset-endpoints.md",
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-assets-asset-endpoints.md",
             "redirect_url": "/azure/iot-operations/discover-manage-assets/concept-assets-devices",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/iot-operations/discover-manage-assets/howto-manage-assets-remotely.md",
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-manage-assets-remotely.md",
             "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-manage-assets-devices",
             "redirect_document_id": true
         }
