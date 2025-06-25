@@ -60,7 +60,19 @@ Azure Functions on Container Apps provide a versatile combination of services to
 
 - **Serverless workloads**: Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources.
 
-- **Common Azure Functions scenarios**: All common Azure Functions scenarios like processing file uploads, running scheduled tasks, responding to database changes, machine learning/AI and others detailed in [Azure Functions scenarios](/azure/azure-functions/functions-scenarios?pivots=programming-language-csharp). 
+- **Common Azure Functions scenarios**: All common Azure Functions scenarios like processing file uploads, running scheduled tasks, responding to database changes, machine learning/AI and others detailed in [Azure Functions scenarios](/azure/azure-functions/functions-scenarios?pivots=programming-language-csharp).
+
+## Pricing and Billing
+Azure Functions on Azure Container Apps (ACA) follows the same pricing model as Azure Container Apps. Billing is based on the [plan type](../container-apps/plans.md) you select for your environment, which can be either Consumption or Dedicated.
+- [Consumption plan](..//container-apps/billing.md#consumption-plan): This serverless compute option bills you only for the resources your apps use while they are running.
+- [Dedicated plan](../container-apps/billing.md#consumption-dedicated): This option provides customized compute resources, billing you for the instances allocated to each workload profile.
+
+Your choice of plan determines how billing calculations are made. Different applications within an environment can use different plans.
+
+Key points to note:
+- There are no additional charges for using the Azure Functions programming model within ACA.
+- Durable Functions and other advanced patterns are supported and billed under the same ACA pricing model.
+For detailed billing mechanics and examples, refer to the [Billing in Azure Container Apps](../container-apps/billing.md) documentation.
 
 ## Event-driven scaling
 
