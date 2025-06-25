@@ -56,7 +56,7 @@ To import an Azure OpenAI API to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
-1. Under **Create from Azure resource**, select **Azure OpenAI Service**.
+1. Under **Create from Azure resource**, select **Azure OpenAI**.
 
     :::image type="content" source="media/azure-openai-api-from-specification/azure-openai-api.png" alt-text="Screenshot of creating an API from Azure OpenAI in the portal." :::
 
