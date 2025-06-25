@@ -201,11 +201,11 @@
     - name: Troubleshoot and resolve issues with an agent
       items:
         - name: Overview
-          href: ../app-service/sre-agent-overview.md
+          href: ../sre-agent/overview.md
         - name: Use an SRE agent
-          href: ../app-service/sre-agent-usage.md
+          href: ../sre-agent/usage.md
         - name: Fix app issues with an SRE agent
-          href: sre-agent-troubleshoot.md
+          href: ../sre-agent/troubleshoot-azure-container-apps.md
     - name: Application logging
       href: logging.md
     - name: Real time data
@@ -270,6 +270,9 @@
           href: authentication-openid.md
 - name: Security
   items:
+    - name: Overview
+      href: security.md
+      displayName: Security overview
     - name: Manage secrets
       href: manage-secrets.md
     - name: Token store

@@ -10,6 +10,7 @@ ms.date: 04/27/2023
 ms.author: mbender
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
+# Customer intent: As an IT administrator, I want to configure an application gateway using the CLI to host multiple websites, so that I can manage web traffic effectively across different domains while ensuring accessibility for my users.
 ---
 
 # Create an application gateway that hosts multiple web sites using the Azure CLI

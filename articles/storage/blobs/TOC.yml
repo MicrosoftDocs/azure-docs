@@ -523,9 +523,9 @@ items:
           href: archive-cost-estimation.md
       - name: Estimates
         items:
-        - name: Rehydrate from archive by setting tiers
+        - name: Retrieve data from the archive tier
           href: cost-estimate-archive-retrieval-set-tier.md
-        - name: Rehydrate from archive by copying blobs
+        - name: Move data out of the archive tier
           href: cost-estimate-archive-retrieval-copy-blob.md
         - name: Cross region data access
           href: cost-estimate-multi-region-access.md
@@ -1167,7 +1167,7 @@ items:
     - name: Azure pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+      href: /shows/data-exposed/?products=azure-blob-storage
     - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
       href: ../common/nfs-comparison.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: NuGet packages (.NET)
@@ -1537,7 +1537,7 @@ items:
   - name: Azure pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    href: /shows/data-exposed/?products=azure-blob-storage
   - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
     href: ../common/nfs-comparison.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: NuGet packages (.NET)

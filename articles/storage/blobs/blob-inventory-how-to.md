@@ -208,7 +208,7 @@ While you can disable individual reports, you can also prevent blob inventory fr
 
 ## Subscribe to blob inventory policy completed event
 
-You can suscribe to blob inventory completed event to receive information on the outcome of your inventory runs. This event gets triggered when the inventory run completes for a rule that is defined an inventory policy. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container isn't present will trigger the event.
+You can subscribe to blob inventory completed event to receive information on the outcome of your inventory runs. This event gets triggered when the inventory run completes for a rule that is defined an inventory policy. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container isn't present will trigger the event.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

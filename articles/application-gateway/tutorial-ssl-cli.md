@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: mbender
 ms.custom: mvc, devx-track-azurecli
+# Customer intent: "As a cloud engineer, I want to create an application gateway with TLS termination using the CLI, so that I can securely manage traffic to my backend services with automated deployment processes."
 ---
 
 # Create an application gateway with TLS termination using the Azure CLI
