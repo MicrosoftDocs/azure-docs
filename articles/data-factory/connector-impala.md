@@ -16,7 +16,7 @@ ms.author: jianleishen
 This article outlines how to use Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Impala. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The Impala connector version 2.0 (Preview) provides improved native Impala support. If you are using the Impala connector version 1.0 in your solution, please [upgrade your Impala connector](#upgrade-the-impala-connector) before **September 30, 2025**. Refer to this [section](#differences-between-impala-version-20-and-version-10) for details on the difference between version 2.0 (Preview) and version 1.0.
+> The Impala connector version 2.0 provides improved native Impala support. If you are using the Impala connector version 1.0 in your solution, please [upgrade your Impala connector](#upgrade-the-impala-connector) before **September 30, 2025**. Refer to this [section](#differences-between-impala-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -36,6 +36,9 @@ The service provides a built-in driver to enable connectivity. Therefore, you do
 ## Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
+
+> [!NOTE]
+> For Impala connector version 2.0, if you use the self-hosted integration runtime, its version should be 5.55 or above.
 
 ## Get started
 
@@ -70,14 +73,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Impala connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-impala-connector) to upgrade your Impala connector version from version 1.0. For the property details, see the corresponding sections.
+The Impala connector now supports version 2.0. Refer to this [section](#upgrade-the-impala-connector) to upgrade your Impala connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0 (Preview)](#version-20)
+- [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
 
-### <a name="version-20"></a> Version 2.0 (Preview)
+### <a name="version-20"></a> Version 2.0
 
-The Impala linked service supports the following properties when apply version 2.0 (Preview):
+The Impala linked service supports the following properties when apply version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -91,7 +94,7 @@ The Impala linked service supports the following properties when apply version 2
 | password | The password that corresponds to the user name when you use UsernameAndPassword. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifies whether the connections to the server are encrypted by using TLS. The default value is true.  | No |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. Always use System Trust Store. The default value is true. | No |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. If you use the self-hosted integration runtime, its version should be 5.55 or above. |No |
 
 **Example:**
 
@@ -247,7 +250,7 @@ To copy data from Impala, set the source type in the copy activity to **ImpalaSo
 
 When you copy data from and to Impala, the following interim data type mappings are used within the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Impala data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
+| Impala data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
 | ARRAY        | String                   | String                 |
 | BIGINT       | Int64                    | Int64                  |
@@ -277,14 +280,15 @@ The following table shows the release stage and change logs for different versio
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
 | Version 1.0 | End of support announced | / |
-| Version 2.0 (Preview) | GA version available | • SASLUsername authentication type is not supported. <br><br>• The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br>`enableServerCertificateValidation` is supported.  <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• TINYINT is read as SByte data type. |
+| Version 2.0 | GA version available | • SASLUsername authentication type is not supported. <br><br>• The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br>`enableServerCertificateValidation` is supported.  <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• TINYINT is read as SByte data type. <br><br>• The self-hosted integration runtime version should be 5.55 or above. |
 
-### <a name="upgrade-the-impala-connector"></a> Upgrade the Impala connector from version 1.0 to version 2.0 (Preview)
+### <a name="upgrade-the-impala-connector"></a> Upgrade the Impala connector from version 1.0 to version 2.0
 
-1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties version 2.0 (Preview)](#version-20).
+1. In **Edit linked service** page, select version 2.0 and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
 
-2. The data type mapping for the Impala linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Impala](#data-type-mapping-for-impala).
+2. The data type mapping for the Impala linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Impala](#data-type-mapping-for-impala).
 
+3. If you use the version 2.0, your self-hosted integration runtime version should be 5.55 or above.
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
