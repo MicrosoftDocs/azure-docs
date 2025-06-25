@@ -100,7 +100,7 @@ Follow these steps to assign any of the supported roles to a service principal:
 2. Sign in to the tenant with the required access.
 3. Provide the following parameters in your API request:
    - `billingAccountName`: The **Billing account ID**. For the Partner Admin Reader role, use the format `pcn.{PCN}` (where `{PCN}` is your Partner Customer Number). For all other roles, use the standard billing account ID from the Azure portal.
-   - 
+  
    :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 
    - `billingRoleAssignmentName`: A unique GUID you generate (see [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid)).
@@ -118,7 +118,7 @@ Follow these steps to assign any of the supported roles to a service principal:
 | SubscriptionCreator   | Enrollment account owner (EA admin) | a0bcee42-bf30-4d1b-926a-48d21664ef71 | [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put) | Use enrollmentAccountName parameter. |
 | Partner Admin Reader  | Partner Administrator       | 4f6144c0-a809-4c55-b3c8-7f9b7b15a1bf        | [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/role-assignments/put) | Use `pcn.{PCN}` for billingAccountName.                                |
 
-4. Select **Run** to execute the command.
+1. Select **Run** to execute the command.
    
  :::image type="content" source="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" alt-text="Screenshot showing an example role assignment with example information that is ready to run." lightbox="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" :::
 
