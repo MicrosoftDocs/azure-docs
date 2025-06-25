@@ -238,9 +238,10 @@ After completing the **Use Case** tab, click next to proceed to the **Campaign a
    - **Subscriber Help**: Select **Yes** or **No** to indicate if subscriber help is available.
    - **Subscriber Help Answer**: If **Yes** is selected, provide the message for subscribers seeking assistance.
 
-     #####  PRO TIP: Make Opt-In/Out and HELP Messages Clear and Compliant
+      > [!TIP]
+      > **PRO TIP:** Make Opt-In/Out and HELP Messages Clear and Compliant
 
-        ###### Opt-in Message
+       **Opt-in Message Requirements**
 
         The Opt-In Message must include the following information:
 
@@ -250,29 +251,29 @@ After completing the **Use Case** tab, click next to proceed to the **Campaign a
       - Help information (for example, "send HELP for help")
       - Opt-out information (for example, "send STOP to unsubscribe")
 
-      An example might look like this:
+      **An example might look like this:**
 
       > *Thank you for opting in to receive [type of messages] from [Brand Name]. Msg frequency varies. Msg & data rates may apply. Reply HELP for help. Reply STOP to opt out from receiving messages from this number. Send START to resume a conversation.*
 
-        ###### Opt-out Message
+        **Opt-out Message Requirements**
 
         The Opt-Out Message must include the following information:
 
       - Brand name
       - Confirmation that the recipient will receive no further messages.
      
-     An example might look like this:
+     **An example might look like this:**
 
       > *You have successfully opted out of messages from this [Brand Name] number. You'll receive no further messages. Reply START to resume. Msg & data rates may apply.*
 
-        ###### Help Message
+        **Help Message Requirements**
 
         The Help Message must include the following information:
 
       - Brand name
       - Support contact information (for example, an email address, phone number, or website)
  
-       An example might look like this:
+       **An example might look like this:**
 
       > *Thank you for contacting [Brand Name] support. Please email us at [email address] for support. Reply STOP to opt-out from receiving messages from this number. Msg & data rates may apply.*
 
