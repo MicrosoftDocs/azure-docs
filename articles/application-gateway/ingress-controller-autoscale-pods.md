@@ -123,7 +123,7 @@ spec:
 Test your setup by using a load test tool like ApacheBench:
 
 ```bash
-ab -n10000 http://<applicaiton-gateway-ip-address>/
+ab -n10000 http://<application-gateway-ip-address>/
 ```
 
 ## Related content
