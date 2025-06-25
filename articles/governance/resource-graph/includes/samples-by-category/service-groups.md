@@ -29,7 +29,7 @@ Search-AzGraph -Query "resourcecontainers | where type == 'microsoft.management/
 
 # [Portal](#tab/azure-portal)
 
-- Azure portal: <a href="https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/ResourceContainers%0a%7c%20where%20type%20%3d%7e%20%27microsoft.management%2fmanagementgroups%27%0a%7c%20project%20mgname%20%3d%20name%0a%7c%20join%20kind%3dleftouter%20(resourcecontainers%20%7c%20where%20type%3d%7e%20%27microsoft.resources%2fsubscriptions%27%0a%7c%20extend%20%20mgParent%20%3d%20properties.managementGroupAncestorsChain%20%7c%20project%20id%2c%20mgname%20%3d%20tostring(mgParent%5b0%5d.name))%20on%20mgname%0a%7c%20summarize%20count()%20by%20mgname](https://ms.portal.azure.com/#view/HubsExtension/ArgQueryBlade/query/resourcecontainers%0A%7C%20where%20type%20%3D%3D%20%22microsoft.management%2Fservicegroups%22)" target="_blank">portal.azure.com</a>
+- Azure portal: <a>[portal.azure.com](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade/query/resourcecontainers%0A%7C%20where%20type%20%3D%3D%20%22microsoft.management%2Fservicegroups%22)</a>
 
 ---
 
@@ -58,7 +58,7 @@ Search-AzGraph -Query "relationshipresources| where type == 'microsoft.relations
 
 # [Portal](#tab/azure-portal)
 
-- Azure portal: <a href="https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/relationshipresources%7C%20where%20type%20%3D%3D%20'microsoft.relationships%2Fservicegroupmember'%7C%20where%20properties.TargetId%20%3D%3D%20'%2Fproviders%2FMicrosoft.Management%2FserviceGroups%2F123'%20%7C%20project%20properties.SourceId" target="_blank">portal.azure.com</a>
+- Azure portal: <a>[portal.azure.com](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade/query/relationshipresources%7C%20where%20type%20%3D%3D%20'microsoft.relationships%2Fservicegroupmember'%7C%20where%20properties.TargetId%20%3D%3D%20'%2Fproviders%2FMicrosoft.Management%2FserviceGroups%2F123'%20%7C%20project%20properties.SourceId)</a>
 
 ---
 
@@ -87,6 +87,6 @@ Search-AzGraph -Query "relationshipresources| where type == 'microsoft.relations
 
 # [Portal](#tab/azure-portal)
 
-- Azure portal: <a href="https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/relationshipresources%7C%20where%20type%20%3D%3D%20'microsoft.relationships%2Fservicegroupmember'%7C%20where%20properties.TargetId%20%3D%3D%20'%2Fproviders%2FMicrosoft.Management%2FserviceGroups%2F123'%20%7C%20count" target="_blank">portal.azure.com</a>
+- Azure portal: <a>[portal.azure.com](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade/query/relationshipresources%7C%20where%20type%20%3D%3D%20'microsoft.relationships%2Fservicegroupmember'%7C%20where%20properties.TargetId%20%3D%3D%20'%2Fproviders%2FMicrosoft.Management%2FserviceGroups%2F123'%20%7C%20count)</a>
 
 ---
