@@ -46,7 +46,7 @@ If you need to secure your custom domain in Azure Container Apps, you can use a 
 
 If you have a private certificate stored locally, you can upload it. For more information, see [Custom domain names and bring your own certificates in Azure Container Apps](../../container-apps/custom-domains-certificates.md).
 
-If your certificate is from Azure Key Vault, see [Import certificates from Azure Key Vault to Azure Container Apps](../../container-apps/key-vault-certificates-manage.md) for more information.
+If your certificate is from Azure Key Vault, you can import certificates to Azure Container Apps directly. For more informaiton, see [Import certificates from Azure Key Vault to Azure Container Apps](../../container-apps/key-vault-certificates-manage.md).
 
 If you want to continue using the original certificate and domain name from Azure Spring Apps, you can upload the certificate to container apps or Azure Key Vault. Also, you can update the A record or CNAME in your DNS provider to redirect the original domain name to the container app IP or URL.
 
@@ -156,7 +156,7 @@ cloud:
               managed-identity-enabled: true
 ```
 
-1. Update your `RestTemplate` or `WebClient` bean configuration to apply the Key Vault SSL bundle:
+1. To apply the Key Vault SSL bundle, update your `RestTemplate` or `WebClient` bean configuration:
 
 ```java
 // For RestTemplate
@@ -211,7 +211,7 @@ cloud:
               managed-identity-enabled: true
 ```
 
-1. Update your `RestTemplate` or `WebClient` bean configuration to apply the Key Vault SSL bundle:
+1. To apply the Key Vault SSL bundle, update your `RestTemplate` or `WebClient` bean configuration:
 
 ```java
 // For RestTemplate
