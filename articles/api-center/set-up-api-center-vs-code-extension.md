@@ -29,7 +29,7 @@ In this quickstart, you create an Azure API center using the [Azure API Center e
 1. Enter a name for your API center.
 1. Select a location for the resource.
 
- The extension will show progress and notify you when the resource is ready. The API center is created in a resource group of the same name.
+ The extension will show progress and notify you when the resource is ready. The API center is created in the Free plan in a resource group of the same name.
 
 ## Verify your API center
 
