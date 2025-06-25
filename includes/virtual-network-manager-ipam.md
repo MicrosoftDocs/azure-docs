@@ -25,7 +25,6 @@ ms.custom: include-file, references_regions
 > - France South
 > - Germany West Central
 > - India Central
-> - India West
 > - Japan East
 > - Korea Central
 > - Mexico Central
