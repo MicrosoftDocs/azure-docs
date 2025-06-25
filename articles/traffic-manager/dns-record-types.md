@@ -22,7 +22,7 @@ Azure Traffic Manager now includes these IPv6 capabilities:
 
 - **IPv6 Maps in DNS Nameservers**: Enables efficient IPv6 address management and resolution by including IPv6 address space in internal DNS maps, providing low-latency resolution for global IPv6 clients.
 
-- **IPv6 Client Subnet (ECS) Support**: Enables geographically accurate traffic routing by using part of the client's IPv6 address through EDNS Client Subnet extension, reducing latency for end users.
+- **IPv6 Client Subnet (ECS) Support**: Enables geographically accurate traffic routing by using part of the client's IPv6 address through EDNS Client Subnet extension, reducing latency for end users. ECS is used in Performance, Subnet, and Geographic Routing methods.
 
 - **IPv6 Subnet Overrides**: Lets you control traffic routing based on the source IP address of DNS queries, supporting both IPv4 and IPv6 addresses.
 
