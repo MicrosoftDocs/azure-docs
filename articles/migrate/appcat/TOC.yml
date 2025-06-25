@@ -10,7 +10,7 @@ items:
         expanded: true
         items:
           - name: Overview
-            href: appcat.md
+            href: java.md
           - name: Release notes
             href: appcat7-release-notes.md
           - name: Quick Start to assess a Java project
