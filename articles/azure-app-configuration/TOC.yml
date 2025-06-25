@@ -442,6 +442,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: Azure MCP Server
+    href: /azure/developer/azure-mcp-server/tools/app-configuration?toc=/azure/azure-app-configuration/TOC.json
 - name: Resources
   items:
   - name: Pricing
