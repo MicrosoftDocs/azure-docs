@@ -20,11 +20,6 @@ The release notes are continuously updated, and as critical issues requiring a w
 
 This article applies to the **Azure Stack Edge 2506** release, which maps to software version **3.3.2506.1064**.
 
-> [!Warning] 
-> In this release, you must update the packet core version to AP5GC 2308 before you update to Azure Stack Edge 2506. For detailed steps, see [Azure Private 5G Core 2308 release notes](../private-5g-core/azure-private-5g-core-release-notes-2308.md).
-> If you update to Azure Stack Edge 2506 before updating to Packet Core 2308.0.1, you will experience a total system outage. In this case, you must delete and re-create the Azure Kubernetes service cluster on your Azure Stack Edge device.
-> Each time you change the Kubernetes workload profile, you are prompted for the Kubernetes update. Go ahead and apply the update.
-
 ## Supported update paths
 
 To apply the 2506 update, your device must be running version **2501** or later.
@@ -45,13 +40,12 @@ You can update to the latest version using the following update paths:
 
 ## What's new
 
-The 2506 release has the no new features or enhancements.
+There are no new features or enhancements in this release.
 
 
 ## Known issues in this release
 
-| No. | Feature | Issue | Workaround/comments |
-| --- | --- | --- | --- |
+There are no known issues in this release.
 
 
 ## Known issues from previous releases
