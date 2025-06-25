@@ -1,17 +1,17 @@
 ---
-title: Manage registered servers with Azure File Sync
+title: Manage Registered Servers with Azure File Sync
 description: Learn how to register and unregister a Windows Server with an Azure File Sync Storage Sync Service.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/07/2024
 ms.author: kendownie
-# Customer intent: "As a systems administrator, I want to register and manage Windows Servers with Azure File Sync, so that I can ensure seamless integration of on-premises file shares with cloud storage for better data accessibility and reliability."
+# Customer intent: "As a systems administrator, I want to register or unregister one or more Windows Servers with Azure File Sync, so that I can ensure seamless integration of on-premises file shares with cloud storage for better data accessibility and reliability."
 ---
 
 # Manage registered servers with Azure File Sync
 
-Azure File Sync allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure file share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
+Azure File Sync allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure file share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS), and you can have as many caches as you need across the world.
 
 The following article illustrates how to register and manage a server with a Storage Sync Service. See [How to deploy Azure File Sync](file-sync-deployment-guide.md) for information on how to deploy Azure File Sync end-to-end.
 
