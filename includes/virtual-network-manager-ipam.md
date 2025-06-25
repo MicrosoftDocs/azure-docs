@@ -20,7 +20,6 @@ ms.custom: include-file, references_regions
 > - Canada Central
 > - Central US EUAP
 > - East US
-> - East US 2
 > - East US 2 EUAP
 > - Europe North
 > - France South
@@ -28,13 +27,10 @@ ms.custom: include-file, references_regions
 > - India Central
 > - India West
 > - Japan East
-> - Jio India West
 > - Korea Central
-> - Malaysia South
 > - Mexico Central
 > - North Central US
 > - Norway West
-> - Qatar Central
 > - South Africa North
 > - Sweden Central
 > - Switzerland West
