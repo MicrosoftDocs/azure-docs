@@ -48,24 +48,24 @@ The following settings are supported:
 
 | Setting   | Description  | Default setting  |
 |-----------|--------------|------------------|
-| **azurite.blobHost** | The Blob service listening endpoint. | 127.0.0.1 |
-| **azurite.blobPort** | The Blob service listening port. | 10000 |
-| **azurite.queueHost** | The Queue service listening endpoint. | 127.0.0.1 |
-| **azurite.queuePort** | The Queue service listening port. | 10001 |
-| **azurite.tableHost** | The Table service listening endpoint. | 127.0.0.1 |
-| **azurite.tablePort** | The Table service listening port. | 10002 |
-| **azurite.cert** | Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode. | None |
-| **azurite.debug** | Output the debug log to the Azurite channel. | false |
-| **azurite.key** | Path to a locally trusted PEM key file, required when **Azurite: Cert** points to a PEM file. | None |
+| **azurite.blobHost** | The Blob service listening endpoint. | *127.0.0.1* |
+| **azurite.blobPort** | The Blob service listening port. | *10000* |
+| **azurite.queueHost** | The Queue service listening endpoint. | *127.0.0.1* |
+| **azurite.queuePort** | The Queue service listening port. | *10001* |
+| **azurite.tableHost** | The Table service listening endpoint. | *127.0.0.1* |
+| **azurite.tablePort** | The Table service listening port. | *10002* |
+| **azurite.cert** | Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode. |  |
+| **azurite.debug** | Output the debug log to the Azurite channel. | *false* |
+| **azurite.key** | Path to a locally trusted PEM key file, required when **Azurite: Cert** points to a PEM file. |  |
 | **azurite.location** | The workspace location path. | Visual Studio Code working folder |
 | **azurite.loose** | Enable loose mode, which ignores unsupported headers and parameters. | *false* |
 | **azurite.oauth** | Optional OAuth level. | None |
-| **azurite.pwd** | Password for PFX file. Required when **Azurite: Cert** points to a PFX file. | None |
+| **azurite.pwd** | Password for PFX file. Required when **Azurite: Cert** points to a PFX file. |  |
 | **azurite.silent** | Silent mode disables the access log. | *false* |
 | **azurite.skipApiVersionCheck** | Skip the request API version check. | *false* |
 | **azurite.disableProductStyleUrl** | Force the parsing of the storage account name from request Uri path, instead of from request Uri host. | *false* |
 | **azurite.inMemoryPersistence** | Disable persisting any data to disk and only store data in-memory. | *false* |
-| **azurite.extentMemoryLimit** | The in-memory extent store (for blob and queue content) limit in megabytes. | 50% of the total memory on the host machine |
+| **azurite.extentMemoryLimit** | The in-memory extent store (for blob and queue content) limit in megabytes. | *50% of the total memory on the host machine* |
 | **azurite.disableTelemetry** | Disable telemetry data collection for the current Azurite execution. | *false* |
 
 ### [npm](#tab/npm)
@@ -133,7 +133,6 @@ Navigate to the appropriate location and start `azurite.exe`. After you run the 
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="media/storage-use-azurite/azurite-command-line-output-vs-sml.png" alt-text="Screen capture of Azurite command-line output." lightbox="media/storage-use-azurite/azurite-command-line-output-vs.png":::
-> ![Azurite command-line output](media/storage-use-azurite/azurite-command-line-output-vs.png)
 
 To learn more about available command line options to configure Azurite, see [Command line options](#command-line-options).
 
