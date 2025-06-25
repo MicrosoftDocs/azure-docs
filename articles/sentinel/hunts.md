@@ -42,7 +42,6 @@ In order to use the hunts feature, you either need to be assigned a built-in Mic
 - Assign a custom Azure RBAC role with the appropriate permissions under [*Microsoft.SecurityInsights/hunts*](/azure/role-based-access-control/resource-provider-operations#microsoftsecurityinsights).<br>
     To learn more about custom roles, see [Custom roles and advanced Azure RBAC](roles.md#custom-roles-and-advanced-azure-rbac).
 
-For more information, see [Roles and permissions in the Microsoft Sentinel platform](roles.md).
 
 ## Define your hypothesis
 Defining a hypothesis is an open ended, flexible process and can include any idea you want to validate. Common hypotheses include:
