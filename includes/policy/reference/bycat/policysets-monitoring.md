@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/14/2025
+ms.date: 06/23/2025
 ms.author: jasongroce
 author: jasongroce
 ms.custom: generated
@@ -23,5 +23,5 @@ ms.custom: generated
 |[Enable Azure Monitor for Hybrid VMs with AMA](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_HybridVM_AMA_new.json) |Enable Azure Monitor for the hybrid virtual machines with AMA. |6 |1.0.0 |
 |[Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA)](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VM_AMA_new.json) |Enable Azure Monitor for the virtual machines (VMs) with AMA. |7 |1.2.0 |
 |[Enable Azure Monitor for VMSS with Azure Monitoring Agent(AMA)](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VMSS_AMA_new.json) |Enable Azure Monitor for the virtual machines scale set (VMSS) with AMA. |7 |1.2.0 |
-|[Legacy - Enable Azure Monitor for Virtual Machine Scale Sets](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VMSS.json) |Legacy - Enable Azure Monitor for the Virtual Machine Scale Sets in the specified scope (Management group, Subscription or resource group). Takes Log Analytics workspace as parameter. Use the new initiative named: Enable Azure Monitor for VMSS with Azure Monitoring Agent(AMA). Note: if your scale set upgradePolicy is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be az vmss update-instances. |6 |1.0.2 |
-|[Legacy - Enable Azure Monitor for VMs](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VM.json) |Legacy - Enable Azure Monitor for the virtual machines (VMs) in the specified scope (management group, subscription or resource group). Takes Log Analytics workspace as parameter. Use the new initiative named: Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA) |10 |2.0.1 |
+|[Legacy - Enable Azure Monitor for Virtual Machine Scale Sets](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VMSS.json) |Legacy - Enable Azure Monitor for the Virtual Machine Scale Sets in the specified scope (Management group, Subscription or resource group). Takes Log Analytics workspace as parameter. Use the new initiative named: Enable Azure Monitor for VMSS with Azure Monitoring Agent(AMA). Note: if your scale set upgradePolicy is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be az vmss update-instances. |4 |1.1.0 |
+|[Legacy - Enable Azure Monitor for VMs](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Monitoring/AzureMonitor_VM.json) |Legacy - Enable Azure Monitor for the virtual machines (VMs) in the specified scope (management group, subscription or resource group). Takes Log Analytics workspace as parameter. Use the new initiative named: Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA) |8 |2.1.0 |

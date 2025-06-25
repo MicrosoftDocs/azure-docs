@@ -14,13 +14,13 @@ ms.collection: usx-security
 
 Microsoft Sentinel is available in the Microsoft Defender portal with [Microsoft Defender XDR](/microsoft-365/security/defender) or on its own. It delivers a unified experience across SIEM and XDR for faster, more accurate threat detection and response, simpler workflows, and better operational efficiency.
 
-This article explains how to transition your Microsoft Sentinel experience from the Azure portal to the Defender portal. If you use Microsoft Sentinel in the Azure portal, transition to Microsoft Defender to get the unified SecOps experience and the latest features. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
+This article explains how to transition your Microsoft Sentinel experience from the Azure portal to the Defender portal. If you use Microsoft Sentinel in the Azure portal, transition to Microsoft Defender for unified security operations and the latest features. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md) or watch our [YouTube playlist](https://www.youtube.com/playlist?list=PL3ZTgFEc7Lyska6WLWBzc8sob-kYA2jPj).
 
 ## Prerequisites
 
 Before you start, note:
 
-- This article is for customers with an existing workspace enabled for Microsoft Sentinel who want to transition their Microsoft Sentinel experience to the Defender portal. If you're a new customer, see [Deploy unified security operations in the Defender portal](/unified-secops-platform/overview-deploy) to learn how to create a new workspace for Microsoft Sentinel in the Defender portal.
+- This article is for customers with an existing workspace enabled for Microsoft Sentinel who want to transition their Microsoft Sentinel experience to the Defender portal. If you're a new customer, see [Deploy for unified security operations in the Defender portal](/unified-secops-platform/overview-deploy) to learn how to create a new workspace for Microsoft Sentinel in the Defender portal.
 - When relevant, detailed prerequisites are in the linked articles for each step.
 - Some Microsoft Sentinel features have new locations in the Defender portal. For more information, see [Quick reference](microsoft-sentinel-defender-portal.md#quick-reference).
 
@@ -28,13 +28,18 @@ Before you start, note:
 
 **Audience**: Security architects
 
+**Videos**:
+
+- [Onboarding a Microsoft Sentinel workspace in Microsoft Defender](https://youtu.be/Hgcz87XdJx0?si=n78kqKVoLvbwZp5k)
+- [Managing unified RBAC in Microsoft Defender](https://youtu.be/0xvPy1zWIfg?si=sBuxxOVr1O_yuTyS)
+
 ### Review planning guidance, complete prerequisites, and onboard
  
 Review all planning guidance and finish all prerequisites before you onboard your workspace to the Defender portal. For more information, see the following articles:
 
 - [**Plan for unified security operations in the Defender portal**](/unified-secops-platform/overview-plan)
 
-- [**Deploy unified security operations in the Defender portal**](/unified-secops-platform/overview-deploy). While this article is for new customers who don't yet have a workspace for Microsoft Sentinel or other services onboarded to the Defender portal, use it as a reference if you're moving to the Defender portal.
+- [**Deploy for unified security operations in the Defender portal**](/unified-secops-platform/overview-deploy). While this article is for new customers who don't yet have a workspace for Microsoft Sentinel or other services onboarded to the Defender portal, use it as a reference if you're moving to the Defender portal.
 
 - [**Connect Microsoft Sentinel to the Defender portal**](/unified-secops-platform/microsoft-sentinel-onboard). This article lists the prerequisites for onboarding your workspace to the Defender portal. If you plan to use Microsoft Sentinel without Defender XDR, you need to take an extra step to trigger the connection between Microsoft Sentinel and the Defender portal.
 
@@ -54,7 +59,7 @@ The following table provides additional details and links so that you can compar
 For more information, see:
 
 - [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md)
-- [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy) <!--i wonder if we should move this doc out of the XDR docset and into usx?-->
+- [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy)
 
 ### Configure multi-workspace and multitenant management
 
@@ -74,6 +79,8 @@ For more information, see:
 
 **Audience**: Security engineers
 
+**Video**: [Managing connectors in Microsoft Defender](https://youtu.be/IW9WOhhLbmY?si=XX4IXe47o9bXnWlV)
+
 ### Confirm and configure data collection
 
 When Microsoft Sentinel is integrated with Microsoft Defender, the fundamental architecture of data collection and telemetry flow remains intact. Existing connectors that were configured in Microsoft Sentinel, whether for Microsoft Defender products or other data sources, continue operating without interruption.
@@ -83,7 +90,7 @@ From a Log Analytics perspective, Microsoft Sentinel’s integration into Micros
 #### Integrate with Microsoft Defender for Cloud
 
 - If you're using the tenant-based data connector for Defender for Cloud, make sure to take action to prevent duplicate events and alerts. 
-- If you're using the legacy, subscription-based connector instead, make sure to opt out of synching incidents and alerts to Microsoft Defender.
+- If you're using the legacy, subscription-based connector instead, make sure to opt out of syncing incidents and alerts to Microsoft Defender.
 
 For more information, see [Alerts and incidents in Microsoft Defender](/azure/defender-for-cloud/concept-integration-365#microsoft-sentinel-customers).
 
@@ -155,6 +162,16 @@ The following table lists fields that are important in the response snippets, an
 ## Run operations in the Defender portal
 
 **Audience**: Security analysts
+
+**Videos**:
+
+- [Discover and manage Microsoft Sentinel content and threat intelligence in Microsoft Defender](https://youtu.be/HQ4JxM8-v5g?si=tMdCCMYOkPv28m_w)
+- [Create automation and workbooks in Microsoft Defender](https://youtu.be/Lc0T_hPTug4?si=TgEpXViwxet7M7t1)
+- [Alert correlation in Microsoft Defender](https://youtu.be/GIIxN1dMJTc?si=7VEO6asJA6dBC-V0)
+- [Incident investigation in Microsoft Defender](https://youtu.be/BnZBVm8ZGsY?si=I-uHGASquUrr4xN5)
+- [Case management in Microsft Defender](https://youtu.be/TxLz-NsxcrM?si=hgg3DujUICLozuYt)
+- [Advanced hunting in Microsoft Defender](https://youtu.be/06ukKCHMkeY?si=520Gg8JNmRVYUXKD)
+- [SOC optimizations in Microsoft Defender](https://youtu.be/-Cv5K8A4kfY?si=3o9xVB7WnfH0E3VR)
 
 ### Update incident triage processes for the Defender portal
 
@@ -253,6 +270,7 @@ For more information, see [Visualize and monitor your data by using workbooks in
 
 ## Related content
 
+- [The Best of Microsoft Sentinel - now in Microsoft Defender](https://techcommunity.microsoft.com/blog/MicrosoftThreatProtectionBlog/the-best-of-microsoft-sentinel-%E2%80%94-now-in-microsoft-defender/4415822) (blog)
 - Watch the webinar: [Transition to the Unified SOC Platform: Deep Dive and Interactive Q&A for SOC Professionals](https://www.youtube.com/watch?v=WIM6fbJDkK4).
 - See frequently asked questions in the [TechCommunity blog](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/unified-security-operations-platform---technical-faq/4189136) or the [Microsoft Community Hub](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/frequently-asked-questions-about-the-unified-security-operations-platform/4212048).
 

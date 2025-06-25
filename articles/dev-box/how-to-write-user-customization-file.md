@@ -17,9 +17,6 @@ ms.date: 05/09/2025
 
 # Write a user customization file for a dev box
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
-
 The Dev Box user customizations feature helps you streamline the setup of your dev boxes. Starting a new project or joining a team is often complex and time consuming. With customizations, you can configure your dev boxes with the applications, tools, repositories, code libraries, packages, and build scripts that you need. This article guides you through the process of creating, testing, and editing a user customization file for your dev box using Visual Studio Code (VS Code). 
 
 You can use customizations in Microsoft Dev Box in two ways. Team customizations are used to create a shared configuration for a team of developers. User customizations are used to create a personal configuration for an individual developer. The following table summarizes the differences between the two types of customizations.

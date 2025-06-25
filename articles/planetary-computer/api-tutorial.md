@@ -3,12 +3,13 @@ title: Microsoft Planetary Computer Pro API Usage Guide
 description: "In this tutorial, you'll create and store satellite imagery within a Microsoft Planetary Computer Pro GeoCatalog"
 author: TaylorCorbett
 ms.author: gecorbet
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: tutorial
 ms.date: 4/25/2025
 
 #customer intent: As a user, I want to create a GeoCatalog collection and populate it with satellite imagery so that I can learn how to repeat the process with my own data.
-
+ms.custom:
+  - build-2025
 ---
 
 # Tutorial: Using the Microsoft Planetary Computer Pro APIs to ingest and visualize data
@@ -440,8 +441,8 @@ for item in items:
         params={"api-version": api_version}
     )
 
-    operation_ids.append(response.json()["operationId"])
-    print(f"Ingesting item {item_json['id']} with operation id {response.json()['operationId']}")
+    operation_ids.append(response.json()['id'])
+    print(f"Ingesting item {item_json['id']} with operation id {response.json()['id']}")
 
 ```
 

@@ -3,10 +3,15 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/01/2024
+ms.date: 05/27/2025
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell, devx-track-python
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-python
+  - build-2025
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage modules in Azure Automation
@@ -16,10 +21,10 @@ ms.service: azure-automation
 
 Azure Automation uses a number of PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations. Supported modules include:
 
-* [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az).
+* [Azure PowerShell Az modules](/powershell/azure/new-azureps-module-az).
 * Other PowerShell modules.
-* Internal `Orchestrator.AssetManagement.Cmdlets` module.
-* Python 2 modules.
+* Internal `Orchestrator.AssetManagement.Cmdlets` module (not available on a Linux Hybrid Runbook Worker).
+* Python 2 and Python 3 modules.
 * Custom modules that you create.
 
 When you create an Automation account, Azure Automation imports some modules by default. See [Default modules](#default-modules).

@@ -2,8 +2,8 @@
 title: Programmatically manage updates for Azure VMs
 description: This article tells how to use Azure Update Manager in Azure using REST API with Azure virtual machines.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 10/17/2024
 ms.topic: overview
 ---

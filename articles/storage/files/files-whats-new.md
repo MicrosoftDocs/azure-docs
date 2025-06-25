@@ -6,6 +6,9 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 05/21/2025
 ms.author: kendownie
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud storage administrator, I want to stay informed about the latest features and enhancements in Azure Files and Azure File Sync, so that I can leverage new capabilities for improved security, performance, and data management in my organization.
 ---
 
 # What's new in Azure Files and Azure File Sync

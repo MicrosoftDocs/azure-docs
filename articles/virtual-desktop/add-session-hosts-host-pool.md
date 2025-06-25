@@ -5,7 +5,7 @@ ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 author: dougeby
 ms.author: avdcontent
-ms.date: 03/18/2025
+ms.date: 06/11/2025
 ---
 
 # Add session hosts to a host pool
@@ -17,7 +17,7 @@ ms.date: 03/18/2025
 >
 > - Azure Virtual Desktop on Azure Extended Zones.
 >
-> - Managing session hosts using a session host configuration. This limited preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability.
+> - Managing session hosts using a session host configuration. This limited preview is provided as-is, with all faults and as available, and is excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability.
 >
 > For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -46,17 +46,14 @@ This article shows you how to generate a registration key by using the Azure por
 
 For a general idea of what's required, such as supported operating systems, virtual networks, and identity providers, review the [prerequisites for Azure Virtual Desktop](prerequisites.md). In addition:
 
-::: zone pivot="host-pool-session-host-configuration"
-- You need an existing host pool with a session host configuration.
-::: zone-end
-
 ::: zone pivot="host-pool-standard"
 - You need an existing host pool with standard management. Each host pool must only contain session hosts on Azure or on Azure Local. You can't mix session hosts on Azure and on Azure Local in the same host pool.
+- If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that you used. All session hosts in a host pool should have the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
 ::: zone-end
 
-- If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that you used. All session hosts in a host pool should have the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
-
 ::: zone pivot="host-pool-session-host-configuration"
+- You need an existing host pool with a session host configuration.
+
 - The Azure account you use must have the following built-in role-based access control (RBAC) roles or equivalent as a minimum on the resource group:
 
    | Action | RBAC role |
@@ -181,7 +178,12 @@ Here's how to generate a registration key by using the [desktopvirtualization](/
 ::: zone pivot="host-pool-session-host-configuration"
 ## Add session hosts
 
-You can use the Azure portal to specify the number of session hosts you want to add, then Azure Virtual Desktop automatically creates them based on the session host configuration. You can't use PowerShell to add session hosts to a host pool with a session host configuration.
+You can use the Azure portal to specify the number of session hosts you want to add, then Azure Virtual Desktop automatically creates them based on the session host configuration. At this time, you can't use PowerShell to add session hosts to a host pool with a session host configuration.
+
+> [!NOTE]
+> [Diagnostics for host pools using a session host configuration](session-host-update-diagnostics.md) are recorded with Log Analytics in Azure Monitor and won't be available in your Azure Resource Manager deployments history. We recommended that you [enable Log Analytics](diagnostics-log-analytics.md) for any host pool using a session host configuration.
+> 
+> You can choose to use the legacy method of using an ARM template to create session hosts through the Azure portal until September 1, 2025. To access that experience, use this link to access the [Azure portal](https://portal.azure.com/?feature.enableSessionHostProvisioning=false).
 
 Here's how to add session hosts:
 
@@ -193,9 +195,25 @@ Here's how to add session hosts:
 
 1. On the host pool overview, select **Session hosts**, then select **+ Add**.
 
-1. For **Number of session hosts to be added**, enter the number of session hosts you want to create. If you want to review the session host configuration that is used, see **View session host configuration**. To edit the session host configuration, see [Schedule an update and edit session host configuration](session-host-update-configure.md#schedule-an-update-and-edit-a-session-host-configuration). 
+1. For **Number of session hosts to be added**, enter the number of session hosts you want to create. If you want to review the session host configuration that is used, see **View session host configuration**. To edit the session host configuration, see [Schedule an update and edit session host configuration](session-host-update-configure.md#schedule-an-update-and-edit-a-session-host-configuration).
+
+1. Confirm that the calculated total host pool size reflects your desired quantity of session hosts.
+
+1. Optionally change the failed session host cleanup policy or drain mode policy.
 
 1. Select **Add**. The number of session hosts you entered is created and added to the host pool.
+
+### Cancel in-progress session host creation
+
+You can cancel in-progress session host creation using the Azure portal. Session hosts that are in the process of being created can't be canceled.
+
+Here's how to cancel session host creation:
+
+1. Return to the host pool overview where session host creation is in progress.
+
+1. On the host pool overview, select **Session hosts**, then select **Cancel**.
+
+1. Review the message providing cancellation details, then select **Confirm**.
 ::: zone-end
 
 ::: zone pivot="host-pool-standard"
@@ -232,7 +250,7 @@ Here's how to create session hosts and register them to a host pool by using the
       | **Security type** | Select from **Standard**, [Trusted launch virtual machines](/azure/virtual-machines/trusted-launch), or [Confidential virtual machines](/azure/confidential-computing/confidential-vm-overview).<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
       | **Image** | Select the OS image that you want to use from the list, or select **See all images** to see more. The full list includes any images that you created and stored as an [Azure Compute Gallery shared image](/azure/virtual-machines/shared-image-galleries) or a [managed image](/azure/virtual-machines/windows/capture-image-resource). |
       | **Virtual machine size** | Select a size. If you want to use a different size, select **Change size**, and then select from the list. |
-      | **Hibernate** | Select the box to enable hibernation. Hibernation is available only for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Microsoft Teams media optimizations, you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).<br /><br />FSLogix and app attach currently don't support hibernation. Don't enable hibernation if you're using FSLogix or app attach for your personal host pools.|
+      | **Hibernate** | Select the box to enable hibernation. Hibernation is available only for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Microsoft Teams media optimizations, you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).<br /><br />FSLogix and App Attach currently don't support hibernation. Don't enable hibernation if you're using FSLogix or App Attach for your personal host pools.|
       | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can deploy up to 400 session hosts at this point if you want (depending on your [subscription quota](/azure/quotas/view-quotas)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits) and [Virtual Machines limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-machines-limits---azure-resource-manager). |
       | **OS disk type** | Select the disk type to use for your session hosts. We recommend that you use only **Premium SSD** for production workloads. |
       | **OS disk size** | Select a size for the OS disk.<br /><br />If you enable hibernation, ensure that the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |

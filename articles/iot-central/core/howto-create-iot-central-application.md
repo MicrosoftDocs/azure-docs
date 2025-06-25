@@ -5,7 +5,7 @@ services: iot-central
 ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/03/2024
+ms.date: 05/23/2025
 ms.topic: how-to
 ---
 
@@ -19,12 +19,12 @@ Whichever approach you choose, the configuration options are the same, and the p
 
 Other approaches, not described in this article include:
 
-- [Use the REST API to create and manage IoT Central applications.](../core/howto-manage-iot-central-with-rest-api.md).
+- [Use the REST API to create and manage IoT Central applications](../core/howto-manage-iot-central-with-rest-api.md).
 - [Create and manage an Azure IoT Central application from the Microsoft Cloud Solution Provider portal](https://partner.microsoft.com/cloud-solution-provider).
 
 ## Parameters
 
-This section describes the available parameters when you create an IoT Central application. Depending on the method you choose to create your application, you might need to supply the parameter values on a web form or at the command-line. In some cases, there are default values that you can use:
+This section describes the available parameters when you create an IoT Central application. Depending on the method you choose to create your application, you might need to supply the parameter values on a web form or at the command line. In some cases, there are default values that you can use:
 
 ### Pricing plan
 
@@ -79,17 +79,17 @@ The easiest way to get started creating IoT Central applications is in the [Azur
 
 :::image type="content" source="media/howto-create-iot-central-application/create-app-portal.png" alt-text="Screenshot that shows the create application experience in the Azure portal.":::
 
-Select **Review + create**, Then select **Create** to create the application.
+Select **Review + create**, then select **Create** to create the application.
 
-When the app is ready, you can navigate to it from the Azure portal:
+When the app is ready, you can go to it from the Azure portal:
 
 :::image type="content" source="media/howto-create-iot-central-application/view-app-portal.png" alt-text="Screenshot that shows the IoT Central application resource in the Azure portal. The application URL is highlighted.":::
 
-To list all the IoT Central apps in your subscription, navigate to [IoT Central Applications](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.IoTCentral%2FIoTApps).
+To list all the IoT Central apps in your subscription, go to [IoT Central Applications](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.IoTCentral%2FIoTApps).
 
 # [Azure CLI](#tab/azure-cli)
 
-If you haven't already installed the extension, run the following command to install it:
+To install the extension, run the following command:
 
 ```azurecli
 az extension add --name azure-iot
@@ -118,7 +118,7 @@ az iot central app list
 
 # [PowerShell](#tab/azure-powershell)
 
-If you haven't already installed the PowerShell module, run the following command to install it:
+To install the PowerShell module, run the following command:
 
 ```powershell
 Install-Module Az.IotCentral
@@ -153,13 +153,13 @@ To list all the IoT Central applications you have access to, navigate to [IoT Ce
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy uses a standard pricing plan that you're billed for:
 
 1. Sign in to the application you want to copy.
-1. Navigate to **Application > Management** and select **Copy**.
+1. Go to **Application > Management** and select **Copy**.
 1. In the dialog box, enter the details for the new application.
 1. Select **Copy** to confirm that you want to continue.
 
 :::image type="content" source="media/howto-create-iot-central-application/app-copy.png" alt-text="Screenshot that shows the copy application settings page." lightbox="media/howto-create-iot-central-application/app-copy.png":::
 
-After the application copy operation succeeds, you can navigate to the new application using the link.
+After the application copy operation succeeds, you can go to the new application using the link.
 
 Be aware of the following issues in the new application:
 
@@ -195,7 +195,7 @@ Add these items manually to any applications created from an application templat
 
 To create an application template from an existing IoT Central application:
 
-1. Navigate to the **Application** section in your application.
+1. Go to the **Application** section in your application.
 1. Select **Template Export**.
 1. On the **Template Export** page, enter a name and description for your template.
 1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:

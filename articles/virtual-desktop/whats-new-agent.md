@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent?
 description: Learn about new features and product updates for the Azure Virtual Desktop Agent.
 author: dougeby
 ms.topic: release-notes
-ms.date: 05/16/2025
+ms.date: 06/17/2025
 ms.author: avdcontent
 ms.custom: references_regions
 ---
@@ -31,11 +31,21 @@ Here's information about the Azure Virtual Desktop Agent.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.11212.1600 |
+| Production | 1.0.11262.1900 |
 | Validation | 1.0.11262.1600 |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
+
+## Version 1.0.11262.1900
+
+*Published: June 2025*
+
+In this update, we made the following changes:
+
+- Resolved an issue that impacted Microsoft Entra ID joins. 
+- Improved telemetry flows.  
+- Enhanced resiliency checks for Microsoft Intune enrollment. 
 
 ## Version 1.0.11262.1600 (validation)
 
@@ -182,7 +192,7 @@ In this update, we made the following changes:
 
 In this update, we made the following changes:
 
-- Fixed an issue relating to app attach expansion from the portal.
+- Fixed an issue relating to App Attach expansion from the portal.
 - General improvements and bug fixes. 
 
 ## Version 1.0.9742.1900
@@ -243,7 +253,7 @@ In this update, we made the following changes:
 
 - Enable customers to change relative path while leaving image path the same. 
 
-- Update app attach packages to fetch and store timestamp info from certificate. 
+- Update App Attach packages to fetch and store timestamp info from certificate. 
 
 ## Version 1.0.8431.2300
 
@@ -251,7 +261,7 @@ In this update, we made the following changes:
 
 In this update, we made the following changes:
 
-- Fixed an issue with App Attach diagnostics that caused the agent to always report timeout exceptions. Now the agent only reports timeout exceptions to diagnostics when app attach registration is unsuccessful.
+- Fixed an issue with App Attach diagnostics that caused the agent to always report timeout exceptions. Now the agent only reports timeout exceptions to diagnostics when App Attach registration is unsuccessful.
 
 - General improvements and bug fixes. 
 
@@ -469,7 +479,7 @@ In this release, we made the following changes:
 In this release, we made the following changes:
 
 - Fixed a bug that prevented the Agent MSI from downloading on the first try.
-- Modified app attach on-demand registration.
+- Modified App Attach on-demand registration.
 - Enhanced the AgentUpdateTelemetry parameter to help with StackFlighting data.
 - Removed unnecessary WebRTC health check.
 - Fixed an issue with the RDAgentMetadata parameter.

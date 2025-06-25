@@ -2,12 +2,13 @@
 title: What is Azure Application Gateway v2?
 description: Learn about Azure application Gateway v2 features.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: overview
 ms.date: 10/02/2024
-ms.author: greglin
+ms.author: mbender
 ms.custom: references_regions, devx-track-azurepowershell
+# Customer intent: As a cloud architect, I want to understand the features and enhancements of Azure Application Gateway v2, so that I can effectively plan migration from v1 and utilize its capabilities for improved application performance and reliability.
 ---
 
 # What is Azure Application Gateway v2?

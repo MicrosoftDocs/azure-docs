@@ -1,21 +1,18 @@
 ---
-title: Requirements and considerations for Azure NetApp Files application volume group for Oracle | Microsoft Docs
+title: Requirements and considerations for Azure NetApp Files application volume group for Oracle
 description: Describes the requirements and considerations you need to be aware of before using Azure NetApp Files application volume group for Oracle.  
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: concept-article
 ms.date:  01/29/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
-# Requirements and considerations for application volume group for Oracle 
+# Requirements and considerations for Azure NetApp Files application volume group for Oracle 
 
 This article describes the requirements and considerations you need to be aware of before using Azure NetApp Files application volume group for Oracle.
 

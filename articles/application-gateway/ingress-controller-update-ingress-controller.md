@@ -2,11 +2,12 @@
 title: Upgrade ingress controller with Helm
 description: This article provides information on how to upgrade an Application Gateway Ingress Controller by using Helm.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 4/4/2025
-ms.author: greglin
+ms.author: mbender
+# Customer intent: "As a Kubernetes administrator, I want to upgrade the Application Gateway Ingress Controller using Helm, so that I can ensure my ingress solution is running the latest features and improvements."
 ---
 
 # Upgrade AGIC by using Helm

@@ -2,11 +2,14 @@
 title: Azure Application Gateway Backend Settings configuration
 description: This article describes how to configure Azure Application Gateway Backend Settings.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 05/15/2025
-ms.author: greglin
+ms.author: mbender
+ms.custom:
+  - build-2025
+# Customer intent: "As a cloud architect, I want to configure the Backend Settings for Azure Application Gateway, so that I can manage backend connections and optimize traffic routing based on various protocols and settings."
 ---
 
 # Application Gateway backend settings configuration
@@ -75,7 +78,7 @@ By default, the Application Gateway resource includes popular CA certificates, a
 
 ### Request timeout
 
-This setting is the number of seconds that the application gateway waits to receive a response from the backend server.
+This setting is the number of seconds that the application gateway waits to receive a response from the backend server. The default value is 20 seconds. However, you may wish to adjust this setting to the needs of your application.
 
 ### Override backend path
 

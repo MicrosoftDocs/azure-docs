@@ -5,13 +5,18 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 02/01/2025
+ms.date: 05/21/2025
 ms.author: phjensen
 ---
 
 # Release Notes for Azure Application Consistent Snapshot tool
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
+
+We recommend that customers always use the latest release of the Azure Application Consistent Snapshot tool (AzAcSnap) to benefit from the most up-to-date security enhancements, performance improvements, and expanded platform support. Each release is designed to strengthen the tool’s reliability and security posture, ensuring alignment with Microsoft’s evolving best practices for data protection and compliance.
+
+> [!IMPORTANT]
+> To ensure accurate troubleshooting and support, issues should be reproduced using the latest AzAcSnap release. Please update to the most recent version before reporting any problems.
 
 Download the latest release of the binary for [Linux](https://aka.ms/azacsnap-linux) or [Windows](https://aka.ms/azacsnap-windows) and review how to [get started](azacsnap-get-started.md).  
 

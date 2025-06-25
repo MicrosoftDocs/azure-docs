@@ -8,6 +8,7 @@ ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 11/18/2024
 ms.author: normesta
+# Customer intent: "As a data administrator, I want to manage access control lists in Azure Data Lake Storage using a graphical interface, so that I can efficiently configure permissions for directories and files, including recursive updates for child items."
 ---
 
 # Use Azure Storage Explorer to manage ACLs in Azure Data Lake Storage

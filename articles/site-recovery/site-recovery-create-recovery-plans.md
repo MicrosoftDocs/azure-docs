@@ -4,8 +4,8 @@ description: Learn how to create and customize recovery plans for disaster recov
 ms.topic: how-to
 ms.service: azure-site-recovery
 ms.date: 01/23/2020
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 
 # Create and customize recovery plans
