@@ -8,14 +8,14 @@ items:
   expanded: true
 - name: Concepts
   items: 
-  - name: placeholder
+  - name: Planning for deployment
     href: overview.md  
 - name: How-To
   items: 
   - name: Deploy
     items:
-    - name: placeholder
-      href: overview.md      
+    - name: Create Storage Discovery Workspace
+      href: discovery-create.md      
   - name: Manage
     items:
     - name: placeholder

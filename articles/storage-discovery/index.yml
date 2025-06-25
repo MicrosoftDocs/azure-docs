@@ -11,7 +11,7 @@ metadata:
   ms.service: azure-storage-mover
   ms.topic: hub-page
   author: pthippeswamy
-  ms.author: faupthippeswamyhse
+  ms.author: pthippeswamy
   ms.date: 06/24/2025
 
 
@@ -22,7 +22,7 @@ highlightedContent:
     - title: What is Azure Storage Discovery?
       itemType: concept
       url: overview.md
-    - title: What is Azure Storage MoDiscoveryver?
+    - title: What is Azure Storage Discovery?
       itemType: concept
       url: overview.md
  
