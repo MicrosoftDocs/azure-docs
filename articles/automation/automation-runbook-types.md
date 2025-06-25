@@ -26,7 +26,7 @@ The Azure Automation Process Automation feature supports several types of runboo
 To learn about the process automation environment, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
 
 > [!NOTE]
-> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent the products, [PowerShell](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/), respectively. We recommend that you to use runbooks with supported language versions.
+> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent the products, [PowerShell](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/), respectively. We recommend that you use runbooks with supported language versions.
 
 Take into account the following considerations when determining which type to use for a particular runbook:
 
@@ -328,7 +328,7 @@ Currently, Python 3.10 runtime version is supported for both Cloud and Hybrid jo
 ### Advantages
 
 > [!NOTE]
-> Importing a Python package may take several minutes. The advantages are:
+> Importing a Python package may take several minutes.
 
 - Uses the robust Python libraries.
 - Can run in Azure or on Hybrid Runbook Workers.
@@ -339,7 +339,7 @@ Currently, Python 3.10 runtime version is supported for both Cloud and Hybrid jo
 
 ### Limitations
 
-Following are the limitations of Python runbooks
+The limitations of Python runbooks are:
 
 # [Python 3.10](#tab/py10)
 

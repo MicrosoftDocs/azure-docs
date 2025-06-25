@@ -21,7 +21,7 @@ This article provides information on how to create Runtime Environment and perfo
 
 Before you assign permissions to managed identities, ensure you meet these prerequisites:
 
-An Azure Automation account is supported in all public regions except Brazil Southeast and Gov clouds.
+- An Azure Automation account is supported in all public regions except Brazil Southeast and Gov clouds.
 
 
 ## Switch between Runtime environment and old experience
@@ -42,7 +42,7 @@ To switch to Runtime environment, follow these steps:
 
 ### Old experience
 
-To switch to the old experience, follow these steps:
+To switch to the old experience, follow this step:
 
 1. Go to your Automation account, under **Process Automation**, the **Runtime environments** is removed and under **Shared resources**, **Modules** and **Python packages** can be seen.
 
@@ -56,13 +56,14 @@ To switch to the old experience, follow these steps:
 
 ### Create Runtime environment
 
-To create a Runtime environment in Azure portal, follow these steps:
-
 #### [Azure portal](#tab/create-runtime-portal)
+
+To create a Runtime environment, follow these steps:
+
 1. Sign in to the [Azure portal](https://portal.azure.com) and select your Automation account.
 1. In the **Overview** page, select **Try Runtime Environment experience**, if not already in the new experience.
 1. Under **Process Automation**, select **Runtime Environments** and then select **Create**.
-1. On **Basics**, enter the following details:
+1. On the **Basics** tab, enter the following details:
     1. **Name** for the Runtime environment. It must begin with alphabet and can contain only alphabets, numbers, underscores, and dashes.  
     1. From the **Language** drop-down, select the scripting language for Runtime environment.
         - Choose **PowerShell** for PowerShell scripting language or **Python** for Python scripting language.
@@ -137,9 +138,9 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 
 ### List Runtime environments
 
-To list all the Runtime environments from the Automation account, follow these steps:
-
 #### [Azure portal](#tab/list-runtime-portal)
+
+To list all the Runtime environments from the Automation account, follow these steps:
 
 1. In your Automation account, under **Process Automation**, select **Runtime Environments**.
 
@@ -164,9 +165,9 @@ Job output would show all the component packages and their versions.
 
 ### Delete Runtime environment
 
-To delete the Runtime environment from the Automation account, follow these steps:
-
 #### [Azure portal](#tab/delete-runtime-portal)
+
+To delete the Runtime environment from the Automation account, follow these steps:
 
 1. In your Automation account, under **Process Automation**, select **Runtime Environments**.
 1. Select the runtime environment that you want to delete.
@@ -186,9 +187,9 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 
 Runtime language and Runtime version are immutable properties. However, you can update the version of modules and add or remove packages in the Runtime environment. Runbooks linked to the Runtime environment are automatically updated with the new settings.
 
-To update a Runtime environment, follow these steps:
-
 #### [Azure portal](#tab/update-runtime-portal)
+
+To update a Runtime environment, follow these steps:
 
 1. In your Automation account, under **Process Automation**, select **Runtime Environments**.
 1. Select the Runtime environment that you want to update.
