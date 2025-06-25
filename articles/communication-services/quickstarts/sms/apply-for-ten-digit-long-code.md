@@ -239,8 +239,10 @@ After completing the **Use Case** tab, click next to proceed to the **Campaign a
    - **Subscriber Help Answer**: If **Yes** is selected, provide the message for subscribers seeking assistance.
 
       > [!TIP]
-      > **PRO TIP:** Make Opt-In/Out and HELP Messages Clear and Compliant
-      
+      > PRO TIP: Make Opt-In/Out and HELP Messages Clear and Compliant
+      <!-- This is a [!TIP] block — will render correctly in production -->
+
+     
        **Opt-in Message Requirements**
 
         The Opt-In Message must include the following information:
