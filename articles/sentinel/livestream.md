@@ -3,8 +3,8 @@ title: Detect threats by using hunting livestream in Microsoft Sentinel
 description: Learn how to use hunting livestream in Microsoft Sentinel to actively monitor a compromise event.
 ms.topic: how-to
 ms.date: 04/24/2024
-ms.author: austinmc
-author: austinmccollum
+ms.author: mberdugo 
+author: monaberdugo 
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
