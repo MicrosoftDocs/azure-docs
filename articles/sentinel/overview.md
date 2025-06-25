@@ -134,7 +134,7 @@ When manually onboarding to the Defender portal, you must onboard each workspace
 
 ### Changes for existing customers
 
-Starting in **July 2026**, Microsoft Sentinel will be supported in the Defender portal only, and any remaining customers using the Azure portal will be automatically redirected. [Microsoft Sentinel APIs](/rest/api/securityinsights/) are also planned for deprecation in July 2028.
+Starting in **July 2026**, Microsoft Sentinel will be supported in the Defender portal only, and any remaining customers using the Azure portal will be automatically redirected. There are no changes in API usage. 
 
 If you're currently using Microsoft Sentinel in the Azure portal, we recommend that you start planning your migration to the Defender portal now to ensure a smooth transition and take full advantage of the new features offered by Microsoft Defender.
 
