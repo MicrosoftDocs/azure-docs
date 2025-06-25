@@ -113,7 +113,7 @@ az containerapp env update \
 
 After you enable peer-to-peer-encryption, one container app can access other container apps using HTTPS with mTLS - for example, `https://<app-name>`. The certificate used in mTLS is system-assigned.
 
-For more information, see the [Peer-to-peer encryption](../../container-apps/environment-level-networking.md#peer-to-peer-encryption) section of [Networking configuration in Azure Container Apps environment](../../container-apps/environment-level-networking.md).
+For more information, see the [Peer-to-peer encryption](../../container-apps/ingress-environment-configuration.md#peer-to-peer-encryption) section of [Configure ingress in an Azure Container Apps environment](../../container-apps/ingress-environment-configuration.md).
 
 ## Traffic to external services
 

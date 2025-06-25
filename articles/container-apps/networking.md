@@ -163,4 +163,4 @@ IP addresses are broken down into the following types:
 
 ## Next steps
 
-- [Networking configuration in Azure Container Apps environment](environment-level-networking.md)
+- [Ingress in Azure Container Apps](ingress-overview.md)
