@@ -95,7 +95,7 @@ In this tutorial, you use telemetry in your Node.js application to track feature
 
 1. Use 10 different users to visit the application. As you use a different user, you get a different message variant for some of them. ~50% of the time you get no message. 25% of the time you get the message "Hello!" and 25% of the time you get "I hope this makes your day!".
 
-1. With some of the users click the **Like**(heart) button to trigger the telemetry event.
+1. With some of the users click the **Like** button to trigger the telemetry event.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the application with like button clicked.](./media/howto-telemetry-javascript/like-button.png)
