@@ -25,7 +25,7 @@ To help you evaluate NC2 on Azure, Nutanix offers and manages a 30-day free tria
 
 **One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial does not reset, and you will be billed.
 
-**Track the trial period*: Nutanix software tracks trial periods for the NC2 software, but this may not align with the initial BareMetal deployment date. You should track your BareMetal deployment date manually as there is no visible trial date tracker in the software.
+**Track the trial period**: Nutanix software tracks trial periods for the NC2 software, but this may not align with the initial BareMetal deployment date. You should track your BareMetal deployment date manually as there is no visible trial date tracker in the software.
 
 For more information, see [Start your free trial today with Nutanix on Azure](https://www.nutanix.com/products/nutanix-cloud-clusters/azure/free-trial)
 
