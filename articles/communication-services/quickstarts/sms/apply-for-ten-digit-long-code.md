@@ -240,7 +240,7 @@ After completing the **Use Case** tab, click next to proceed to the **Campaign a
 
       > [!TIP]
       > **PRO TIP:** Make Opt-In/Out and HELP Messages Clear and Compliant
-
+      
        **Opt-in Message Requirements**
 
         The Opt-In Message must include the following information:
