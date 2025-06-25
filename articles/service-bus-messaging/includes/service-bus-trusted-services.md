@@ -13,6 +13,9 @@ ms.custom: "include file"
 ## Trusted Microsoft services
 When you enable the **Allow trusted Microsoft services to bypass this firewall** setting, the following services are granted access to your Service Bus resources.
 
+> [!IMPORTANT]
+> When enabling trusted Microsoft services, always assign a Managed Identity. This identity facilitates secure communication between your Service Bus namespace and the trusted Microsoft service.
+
 | Trusted service | Supported usage scenarios | 
 | --------------- | ------------------------- | 
 | Azure Event Grid | Allows Azure Event Grid to send events to queues or topics in your Service Bus namespace. You also need to do the following steps: <ul><li>Enable system-assigned identity for a topic or a domain</li><li>Add the identity to the Azure Service Bus Data Sender role on the Service Bus namespace</li><li>Then, configure the event subscription that uses a Service Bus queue or topic as an endpoint to use the system-assigned identity.</li></ul> <p>For more information, see [Event delivery with a managed identity](../../event-grid/managed-service-identity.md)</p>|
@@ -33,6 +36,3 @@ The other trusted services for Azure Service Bus can be found below:
 - Microsoft Purview
 - Microsoft Defender for Cloud
 - Azure Provider Hub
-
-> [!IMPORTANT]
-> When allowing trusted Microsoft services, make sure you use a Managed Identity. This identity is used to allow communication with the trusted Microsoft service.
