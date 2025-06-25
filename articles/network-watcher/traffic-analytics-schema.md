@@ -32,6 +32,14 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 - `FlowStartTime` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`.
 - For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
 
+The following query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
+
+```
+NTANetAnalytics
+| where SubType == "FlowLog" and FlowStartTime >= ago(30d) and FlowType == "ExternalPublic"
+| project SrcSubnet, DestSubnet
+```
+
 # [**Network security group flow logs**](#tab/nsg)
 
 - All flow logs at a network security group between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t` are captured at one-minute intervals as blobs in a storage account.
@@ -40,8 +48,6 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 - This single record is decorated (details in the section below) and ingested in Azure Monitor logs by traffic analytics. This process can take up to 1 hour.
 - `FlowStartTime_t` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
 - For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen by the network security group, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
-
----
 
 The following query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
 
@@ -87,8 +93,9 @@ The previous query constructs a URL to access the blob directly. The URL with pl
 
 ```
 https://{storageAccountName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{networkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
-
 ```
+
+---
 
 ## Traffic analytics schema
 
