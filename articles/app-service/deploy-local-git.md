@@ -13,7 +13,7 @@ ms.author: cephalin
 One of the simplest ways to deploy code is from your local computer. This article shows you how to deploy your app to [Azure App Service](overview.md) from a Git repository on your local computer.
 
 > [!NOTE]
-> Local Git deployment requires [Source Control Manager (SCM) basic authentication](deploy-configure-credentials.md), which is less secure than [other deployment methods](deploy-authentication-types.md). If [basic authentication is disabled]((configure-basic-auth-disable.md)), you can't configure local Git deployment in the app Deployment Center.
+> Local Git deployment requires [Source Control Manager (SCM) basic authentication](deploy-configure-credentials.md), which is less secure than [other deployment methods](deploy-authentication-types.md). If [basic authentication is disabled](configure-basic-auth-disable.md), you can't configure local Git deployment in the app's Deployment Center.
 
 ## Prerequisites
 
@@ -94,7 +94,7 @@ The URL contains the user-scope deployment user name. If there's no user-scope d
 
 1. The **Git clone URI** appears under **Local Git** on the **Settings** screen. This URI doesn't contain any sign-in information. Copy the value to use in the next step.
 
-If you already have an app to use, you can configure local Git deployment from the **Settings** tab of the app's **Deployment Center**. Copy the deployment URI.
+If you already have an App Service app to use, you can configure local Git deployment from the **Settings** tab of the app's **Deployment Center**. Copy the deployment URI.
 
 -----
 
@@ -126,7 +126,7 @@ When you push commits to your `azure` App Service repository, App Service deploy
   git push azure main:master
   ```
 
-- Change the `DEPLOYMENT_BRANCH` app setting to `main`, and then push the commit to `main`.
+- Change the `DEPLOYMENT_BRANCH` app setting to `main` before you push the commit to `main`.
 
   - Azure CLI:
 
