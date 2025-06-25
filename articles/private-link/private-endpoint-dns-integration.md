@@ -209,4 +209,4 @@ In a hub-and-spoke topology, a common scenario allows the creation of private DN
 ## Related content
 - [Learn about private endpoints](private-endpoint-overview.md)
 - [Private endpoint private DNS zone values](private-endpoint-dns.md)
-- [Private endpoint private DNS zone configuration](private-endpoint-dns-configuration.md)
+
