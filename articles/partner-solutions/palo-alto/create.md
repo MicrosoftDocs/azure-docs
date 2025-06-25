@@ -20,7 +20,7 @@ In this quickstart, you use Azure Marketplace to find and create an instance of 
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
-In this section, you'll create a Palo Alto Networks resource.
+In this section, you'll create a Cloud NGFW by Palo Alto Networks resource.
 
 ### Basics tab
 
@@ -72,13 +72,13 @@ In this section, you'll create a Palo Alto Networks resource.
 
 You can optionally create tags for your resource. 
 
-### Terms
+### Terms tab
 
-Next, you must accept the terms of use for the new Palo Alto Networks resource.
+Next, you must accept the terms of use for the new Cloud NGFW resource.
 
 1. Select the **Terms** tab.
 
-   :::image type="content" source="media/palo-alto-create/palo-alto-terms.png" alt-text="Screenshot showing the Terms tab of the Create Cloud NGFW page.":::
+   :::image type="content" source="media/palo-alto-create/palo-alto-terms.png" alt-text="Screenshot showing the Terms tab of the Create Cloud NGFW page." lightbox="media/palo-alto-create/palo-alto-terms.png":::
 
 1. Select the **I Agree** box to indicate your acceptance.
 1. Select **Next** to go to the final step of creating the resource.
