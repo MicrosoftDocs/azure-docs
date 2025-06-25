@@ -25,6 +25,29 @@ This article shows you how to create and deploy an Azure Functions app that runs
 
 By running Functions in Container Apps, you benefit from automatic scaling, easy configuration, and a fully managed container environment—all without having to manage the underlying infrastructure yourself.
 
+## Key Benefits
+The Container Apps (ACA) hosting model builds on the flexibility of containerized workloads and the event-driven nature of Azure Functions. It offers the following key advantages:
+- **Run functions as containers** with custom dependencies and language stacks.
+- **Scale to zero and up to 1000 instances** using KEDA.
+- **Secure networking** with full VNet integration.
+- **Advanced deployment features** like revisions, traffic splitting, and Dapr integration.
+- **[Serverless and Dedicated GPU](../container-apps/gpu-serverless-overview.md)** support for compute-intensive workloads.
+- **Unified ACA environment** to run Functions alongside microservices, APIs, and background jobs.
+
+This table helps you directly compare the features of function on ACA with Flex consumption and classic consumption plan.
+| Feature |	Container Apps (ACA) | Flex Consumption Plan |
+| --- | --- | --- |
+| Scale to Zero |	Yes (via KEDA) | Yes |
+| Max Scale-Out | 1000 (default 10, configurable) |	1000 |
+| Always-On Instances |	Yes (via minReplicas) |	Yes (via always-ready instances) |
+| VNet Integration |	Yes |	Yes |
+| Custom Container Support | Yes (bring your own image) |	Limited (no bring your own container) |
+| GPU Support | Yes (via Serverless GPU Dedicated workload profile) | No |
+| Built-in Features |	ACA feature support e.g. KEDA, Dapr, Multi-revisions, mTLS, sidecars, Ingress control and more |	Functions-only features |
+| Billing Model |	ACA pricing: Consumption plan (vCPU, memory, requests) & Dedicated plan (workload profile based) |	Execution-time + always-ready instances |
+
+For a complete comparison of the Function on ACA against Flex Consumption plan and all other plan and hosting types, see [function scale and hosting options](../azure-functions/functions-scale.md).
+
 ## Scenarios
 
 Azure Functions on Container Apps provide a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where paring Azure Container Apps with Azure Functions gives you the control and scaling features you need.
