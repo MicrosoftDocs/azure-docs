@@ -117,7 +117,7 @@ For more information, see the [Peer-to-peer encryption](../../container-apps/net
 
 ## Traffic to external services
 
-This sample shows how to enable TLS and mTLS for traffic to external services by loading the certificate from Azure Key Vault using the `spring-cloud-azure-starter-keyvault-jca` library. Your Java project must use Spring Boot 3.1+ and include the following dependency in `pom.xml`:
+This sample shows how to enable TLS and mTLS for traffic to external services by loading the certificate from Azure Key Vault using the `spring-cloud-azure-starter-keyvault-jca` library. Your Java project must use Spring Boot 3.1+ and include the following dependency in your **pom.xml** file:
 
 ```xml
 <dependency>
@@ -127,104 +127,112 @@ This sample shows how to enable TLS and mTLS for traffic to external services by
 </dependency>
 ```
 
-### Load certificate into truststore from Key Vault with SSL bundle
+### Load a certificate into the truststore from Key Vault with SSL bundle
+
+Use the following steps to load a certificate into the truststore from Azure Key Vault using the `spring-cloud-azure-starter-keyvault-jca` library:
 
 1. Generate or import certificates in Azure Key Vault. For more information, see [Create and import certificates in Azure Key Vault](/azure/key-vault/certificates/certificate-scenarios#creating-and-importing-certificates).
+
 1. Enable managed identity in your container app. To enable managed identity in your container app, see [Managed identities in Azure Container Apps](../../container-apps/managed-identity.md).
+
 1. Grant the `Key Vault Certificate User` role to the managed identity in your Key Vault. For more information, see [Best Practices for individual keys, secrets, and certificates role assignments](/azure/key-vault/general/rbac-guide#best-practices-for-individual-keys-secrets-and-certificates-role-assignments).
-1. Configure `application.yml`:
 
-```yml
-spring:
-  ssl:
-    bundle:
-      keyvault:
-        tlsClientBundle:
-          truststore:
-            keyvault-ref: keyvault1
-cloud:
-  azure:
-    keyvault:
-      jca:
-        vaults:
-          keyvault1:
-            endpoint: ${KEY_VAULT_SSL_BUNDLES_KEYVAULT_URI_01}
-            credential:
-              client-id: ${KEY_VAULT_SSL_BUNDLES_CLIENT_ID}  # Required for user-assigned managed identity
-              managed-identity-enabled: true
-```
+1. Add the following configuration to your **application.yml** file:
 
-1. To apply the Key Vault SSL bundle, update your `RestTemplate` or `WebClient` bean configuration:
+   ```yml
+   spring:
+     ssl:
+       bundle:
+         keyvault:
+           tlsClientBundle:
+             truststore:
+               keyvault-ref: keyvault1
+   cloud:
+     azure:
+       keyvault:
+         jca:
+           vaults:
+             keyvault1:
+               endpoint: ${KEY_VAULT_SSL_BUNDLES_KEYVAULT_URI_01}
+               credential:
+                 client-id: ${KEY_VAULT_SSL_BUNDLES_CLIENT_ID}  # Required for user-assigned managed identity
+                 managed-identity-enabled: true
+   ```
 
-```java
-// For RestTemplate
-@Bean
-RestTemplate restTemplateWithTLS(RestTemplateBuilder restTemplateBuilder, SslBundles sslBundles) {
-  return restTemplateBuilder.sslBundle(sslBundles.getBundle("tlsClientBundle")).build();
-}
+1. To apply the Key Vault SSL bundle, update your `RestTemplate` or `WebClient` bean configuration, as shown in the following example:
 
-// For WebClient
-@Bean
-WebClient webClientWithTLS(WebClientSsl ssl) {
-  return WebClient.builder().apply(ssl.fromBundle("tlsClientBundle")).build();
-}
-```
+   ```java
+   // For RestTemplate
+   @Bean
+   RestTemplate restTemplateWithTLS(RestTemplateBuilder restTemplateBuilder, SslBundles sslBundles) {
+     return restTemplateBuilder.sslBundle(sslBundles.getBundle("tlsClientBundle")).build();
+   }
+
+   // For WebClient
+   @Bean
+   WebClient webClientWithTLS(WebClientSsl ssl) {
+     return WebClient.builder().apply(ssl.fromBundle("tlsClientBundle")).build();
+   }
+   ```
 
 ### Enable mTLS communication
 
-Set up mTLS for two-way authentication between client and server.
+Use the following steps to set up mTLS for two-way authentication between client and server:
 
 1. Generate or import both client and server certificates to Azure Key Vault. For more information, see [Create and import certificates in Azure Key Vault](/azure/key-vault/certificates/certificate-scenarios#creating-and-importing-certificates).
+
 1. Enable managed identity for your container app. To enable managed identity in your container app, see [Managed identities in Azure Container Apps](../../container-apps/managed-identity.md).
-1. Grant `Key Vault Certificate User` role to the managed identity for both Key Vaults. For more information, see [Best Practices for individual keys, secrets, and certificates role assignments](/azure/key-vault/general/rbac-guide#best-practices-for-individual-keys-secrets-and-certificates-role-assignments).
-1. Configure `application.yml` for mTLS:
 
-```yml
-spring:
-  ssl:
-    bundle:
-      keyvault:
-        mtlsClientBundle:
-          key:
-            alias: client
-          for-client-auth: true
-          keystore:
-            keyvault-ref: keyvault2
-          truststore:
-            keyvault-ref: keyvault1
-cloud:
-  azure:
-    keyvault:
-      jca:
-        vaults:
-          keyvault1:
-            endpoint: ${KEY_VAULT_SSL_BUNDLES_KEYVAULT_URI_01}
-            credential:
-              client-id: ${KEY_VAULT_SSL_BUNDLES_CLIENT_ID}  # Required for user-assigned managed identity
-              managed-identity-enabled: true
-          keyvault2:
-            endpoint: ${KEY_VAULT_SSL_BUNDLES_KEYVAULT_URI_02}
-            credential:
-              client-id: ${KEY_VAULT_SSL_BUNDLES_CLIENT_ID}  # Required for user-assigned managed identity
-              managed-identity-enabled: true
-```
+1. Grant the `Key Vault Certificate User` role to the managed identity for both key vaults. For more information, see [Best Practices for individual keys, secrets, and certificates role assignments](/azure/key-vault/general/rbac-guide#best-practices-for-individual-keys-secrets-and-certificates-role-assignments).
 
-1. To apply the Key Vault SSL bundle, update your `RestTemplate` or `WebClient` bean configuration:
+1. Add the following configuration to your **application.yml** file for mTLS:
 
-```java
-// For RestTemplate
-@Bean
-RestTemplate restTemplateWithMTLS(RestTemplateBuilder restTemplateBuilder, SslBundles sslBundles) {
-  return restTemplateBuilder.sslBundle(sslBundles.getBundle("mtlsClientBundle")).build();
-}
+   ```yml
+   spring:
+     ssl:
+       bundle:
+         keyvault:
+           mtlsClientBundle:
+             key:
+               alias: client
+             for-client-auth: true
+             keystore:
+               keyvault-ref: keyvault2
+             truststore:
+               keyvault-ref: keyvault1
+   cloud:
+     azure:
+       keyvault:
+         jca:
+           vaults:
+             keyvault1:
+               endpoint: ${KEY_VAULT_SSL_BUNDLES_KEYVAULT_URI_01}
+               credential:
+                 client-id: ${KEY_VAULT_SSL_BUNDLES_CLIENT_ID}  # Required for user-assigned managed identity
+                 managed-identity-enabled: true
+             keyvault2:
+               endpoint: ${KEY_VAULT_SSL_BUNDLES_KEYVAULT_URI_02}
+               credential:
+                 client-id: ${KEY_VAULT_SSL_BUNDLES_CLIENT_ID}  # Required for user-assigned managed identity
+                 managed-identity-enabled: true
+   ```
 
-// For WebClient
-@Bean
-WebClient webClientWithMTLS(WebClientSsl ssl) {
-  return WebClient.builder().apply(ssl.fromBundle("mtlsClientBundle")).build();
-}
-```
+1. To apply the Key Vault SSL bundle, update your `RestTemplate` or `WebClient` bean configuration, as shown in the following example:
 
-For more information on using the `spring-cloud-azure-starter-keyvault-jca` in your Spring Boot application, see [Introducing Spring Cloud Azure Starter Key Vault JCA: Streamlined TLS and mTLS for Spring Boot](https://devblogs.microsoft.com/azure-sdk/introducing-spring-cloud-azure-starter-key-vault-jca-streamlined-tls-and-mtls-for-spring-boot/).
+   ```java
+   // For RestTemplate
+   @Bean
+   RestTemplate restTemplateWithMTLS(RestTemplateBuilder restTemplateBuilder, SslBundles sslBundles) {
+     return restTemplateBuilder.sslBundle(sslBundles.getBundle("mtlsClientBundle")).build();
+   }
+
+   // For WebClient
+   @Bean
+   WebClient webClientWithMTLS(WebClientSsl ssl) {
+     return WebClient.builder().apply(ssl.fromBundle("mtlsClientBundle")).build();
+   }
+   ```
+
+For more information on using the `spring-cloud-azure-starter-keyvault-jca` library in your Spring Boot application, see [Introducing Spring Cloud Azure Starter Key Vault JCA: Streamlined TLS and mTLS for Spring Boot](https://devblogs.microsoft.com/azure-sdk/introducing-spring-cloud-azure-starter-key-vault-jca-streamlined-tls-and-mtls-for-spring-boot/).
 
 By following these steps, you can successfully migrate your custom domain with TLS/SSL from Azure Spring Apps to Azure Container Apps, maintaining secure and efficient communication across all traffic types.
