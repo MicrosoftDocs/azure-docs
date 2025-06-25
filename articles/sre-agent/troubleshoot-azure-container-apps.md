@@ -1,14 +1,11 @@
 ---
 title: 'Tutorial: Troubleshoot an app using an Azure SRE Agent (preview) in Azure Container Apps'
 description: Deploy an automated agent to help monitor and resolve issues with an SRE Agent in Azure Container Apps.
-services: container-apps
 author: craigshoemaker
-ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 05/19/2025
+ms.date: 06/17/2025
 ms.author: cshoe
-ms.custom:
-  - build-2025
+ms.service: azure
 ---
 
 # Tutorial: Troubleshoot an app using an Azure SRE Agent (preview) in Azure Container Apps
@@ -24,13 +21,19 @@ In this tutorial, you:
 > * Use AI-driven prompts to troubleshoot and fix errors
 
 > [!IMPORTANT]
-> The following tutorial features an AI-enabled service powered by a language model. The steps represented in this article reflect how the model is expected to respond. However, the responses you encounter from your agent will differ from what you see listed here. Use the  sample prompts as examples to help you achieve your goals.
+> The following tutorial features an AI-enabled service powered by a language model. The steps represented in this article reflect how the model is expected to respond. However, the responses you encounter from your agent differs from what you see listed here. Use the  sample prompts as examples to help you achieve your goals.
 
 ## Prerequisites
 
 * **Azure account**: An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * **Security context**: Ensure your user account has the `Microsoft.Authorization/roleAssignments/write` permissions using either [Role Based Access Control Administrator](/azure/role-based-access-control/built-in-roles) or [User Access Administrator](/azure/role-based-access-control/built-in-roles).
+
+* **Namespace**: Using the cloud shell in the Azure portal, run the following command:
+
+    ```azurecli  
+    az provider register --namespace "Microsoft.App"
+    ```
 
 ## 1. Create a container app
 
@@ -88,7 +91,7 @@ In the *Basics* tab, take the following actions.
 
 1. The following message appears in your browser.
 
-    :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
+    :::image type="content" source="media/troubleshoot-azure-container-apps/azure-container-apps-quickstart.png" alt-text="Screenshot of your first Azure Container Apps deployment.":::
 
 ## 2. Create an agent
 
@@ -102,13 +105,20 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
 
     During this step, you create a new resource group specifically for your agent which is independent of the resource group used for your application.
 
+    In the *Project details* section, enter the following values:
+
     | Property | Value |
     |---|---|
     | Subscription | Select your Azure subscription. |
     | Resource group | Enter **my-sre-agent-group**. |
-    | Name | Enter **my-aca-sre-agent**. |
+
+    In the *Agent details* section, enter the following values:
+
+    | Property | Value |
+    |---|---|
+    | Agent name | Enter **my-aca-sre-agent**. |
     | Region | Select **Sweden Central**.<br><br>During preview, the SRE Agent is only available in the *Sweden Central* region, but an agent can monitor resources in any Azure region. |
-    | Choose role | Select **Contributor role**. |
+    | Run mode| Select **Review*.<br><br>When in *review mode*, the agent works on your behalf only with your approval. |
 
 1. In the *Managed resource groups* section, select the **Select resource groups** button.
 
@@ -122,13 +132,13 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
 
 1. Select **Create**.
 
+    A page with the message *Deployment is in progress* is displayed.
+
+    Once the deployment is complete, select **Chat with agent**.
+
 ## 3. Chat with your agent
 
 Your agent has access to any resource inside the resource groups associated with the agent. Use the chat feature to help you inquire about and resolve issues related to your resources.
-
-1. Go to the Azure portal, search for and select **SRE Agent**.
-
-1. Select **my-aca-sre-agent** from the list.
 
 1. In the chat box, give your agent the following command.
 
@@ -182,13 +192,18 @@ By introducing a typo into the container image tag, you bring the app down so th
 
     While every chat session is different, you should see a response that resembles the following response.
 
-    > The image reference for **my-container-app** is `mcr.microsoft.com/k8se/quickstart:latest1`, which is a Microsoft Container Registry (MCR) image.
+    > ⚠️ I found a potential issue with crs-aca-app:
     >
-    > **The tag `latest1` does not exist, causing the image pull failure.**
+    > * The container image specified is: `mcr.microsoft.com/k8se/quickstart:latest1`
     >
-    > You should update the image tag to a valid one, such as `latest`. Would you like me to update the container image to `mcr.microsoft.com/k8se/quickstart:latest` and redeploy the app?
+    > This image tag (`latest1`) looks unusual. The typical image tag is `latest`, not `latest1`. If this image does not exist in the registry, your container app will fail to pull and start the container, even though the provisioning state may show as "Succeeded" and the status as "Running" at the platform level.
+    >
+    > **Recommendation**:
+    > Check and update the container image reference for **crs-aca-app** to use a valid tag (such as `latest`) if `latest1` is not intentional or does not exist.
+    >
+    > Would you like help correcting the image tag or need to investigate further into logs or events for this app?
 
-1. In the chat box, respond with **yes** to approve the request to redeploy.
+1. In the chat box, respond with **yes** to approve the request to fix the problem.
 
     If your agent doesn't respond with a "yes or no" question, you can give your agent the following command and wait for a response.
 
@@ -200,7 +215,7 @@ By introducing a typo into the container image tag, you bring the app down so th
 
     Select **Approve** to approve the action to fix your  container app.
 
-    :::image type="content" source="media/sre-agent-troubleshoot/azure-container-apps-sre-agent-approve.png" alt-text="Screenshot of an SRE Agent requesting permission to fix a container app.":::
+    :::image type="content" source="media/troubleshoot-azure-container-apps/azure-container-apps-agent-approve.png" alt-text="Screenshot of an SRE Agent requesting permission to fix a container app.":::
 
     After the rollback is successful, you should see a response similar to:
 
@@ -238,5 +253,5 @@ Execute the following steps for both the *my-aca-app-group* and *my-sre-agent-gr
 
 ## Related content
 
-* [SRE Agent overview](../app-service/sre-agent-overview.md)
-* [Azure SRE Agent usage](../app-service/sre-agent-usage.md)
+* [SRE Agent overview](./overview.md)
+* [Azure SRE Agent usage](./usage.md)
