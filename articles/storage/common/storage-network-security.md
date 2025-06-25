@@ -98,7 +98,7 @@ Before implementing network security for your storage accounts, make sure to rev
 
 ## See also
 
-- [Azure Storage network security overview](azure-storage-network-security-overview.md)
+- [Azure Storage network security overview](storage-network-security-overview.md)
 - [Restrictions and considerations](storage-network-security-limitations.md)
 - [Virtual network rules](storage-network-security-virtual-networks.md)
 - [IP network rules](storage-network-security-ip-address-range.md)
