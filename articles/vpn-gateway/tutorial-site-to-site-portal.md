@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 01/15/2025
+ms.date: 06/24/2025
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network.
 ---
@@ -171,9 +171,9 @@ You can specify a different shared key for your connection.
 1. Save your changes.
 1. Update your VPN device with the new shared key as necessary.
 
-### <a name="resize"></a>Resize or change a gateway SKU
+### <a name="resize"></a>Upgrade a gateway SKU
 
-You can resize a gateway SKU, or you can change the gateway SKU. There are specific rules regarding which option is available, depending on the SKU your gateway is currently using. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
+You can upgrade the SKU of your VPN gateway to a different SKU. There are rules regarding which SKUs are available for upgrade. For more information, see [Upgrade a gatewway SKU](gateway-sku-upgrade.md).
 
 ### <a name="additional"></a>More configuration considerations
 
