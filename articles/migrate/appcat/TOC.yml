@@ -10,7 +10,7 @@ items:
         expanded: true
         items:
           - name: Overview
-            href: appcat7-overview.md
+            href: appcat.md
           - name: Release notes
             href: appcat7-release-notes.md
           - name: Quick Start to assess a Java project
@@ -25,7 +25,7 @@ items:
         expanded: true
         items:
           - name: Assess Java applications and code
-            href: java.md
+            href: java-6.md
           - name: CLI usage guide
             href: https://azure.github.io/appcat-docs/cli/
           - name: Rules development guide
