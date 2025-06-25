@@ -7,7 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
 ms.date: 06/24/2025
-zone_pivot_groups: api-management-sku
+
 ---
 
 # Reliability in Azure API Management
@@ -27,7 +27,7 @@ The service provides built-in redundancy within a single datacenter, automatical
 The reliability model differs based on your service tier:
 
 - **Premium tier (classic)**: Supports multiple units that can be distributed across availability zones and regions for maximum resilience.
-- **Premium v2, Basic and Standard tiers**: Supports multiple units within a single datacenter. Doesn't support availability zone distribution.
+- **Premium v2, Basic and Standard tiers**: Supports multiple units within a single datacenter. Doesn't support availability zone distribution or multi-region deployments.
 - **Developer tier**: Supports only a single unit and provides no availability zone or multi-region support. This tier is designed for development and testing scenarios, and isn't suitable for production workloads.
 - **Consumption tier**: The Consumption tier of Azure API Management has built-in resiliency capabilities, and is resilient to a range of faults within a single Azure datacenter. However, the Consumption tier doesn't provide support for availability zones or multi-region deployments. To understand the expected uptime of a consumption tier Azure API Management instance, review the [service level agreement](#service-level-agreement).
 
@@ -52,9 +52,7 @@ When you use Azure API Management in front of an API, you might need to retry re
 
 [!INCLUDE[introduction to AZ](includes/reliability-availability-zone-description-include.md)]
 
-::: zone pivot="premium-classic"
-
-Azure API Management provides *automatic* availability zone support when you:
+Azure API Management provides *automatic* availability zone support for Premium (classic) tier, when you:
 
 - Deploy a Premium (classic) API Management instance in a supported region.
 - Don't specify which availability zones to use. 
@@ -73,29 +71,21 @@ If you want to explicitly select the availability zones to use, you can choose b
     > [!IMPORTANT]
     > Pinning to a single availability zone is only recommended when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) is too high for your needs, and when you have verified that the latency doesn't meet your requirements. By itself, a zonal instance doesn’t provide resiliency to an availability zone outage. To improve the resiliency of a zonal API Management deployment, you need to explicitly deploy separate instances into multiple availability zones and configure traffic routing and failover.
 
-::: zone-end
 
-::: zone pivot="developer,basic,standard,premium-v2,consumption"
 
-Azure API Management doesn't support availability zones in the Premium v2, Developer, Basic, and Standard tiers:
+### Region support
+
+Azure API Management supports availability zones for Premium (classic) tier in all of the [Azure regions that support availability zones](./regions-list.md).
+
+### Requirements
+
+You must use the Premium (classic) tier to configure availability zone support. Azure API Management doesn't support availability zones in the Premium v2, Developer, Basic, and Standard tiers:
 
 - **The Premium v2 tier** with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
 
 - **The Developer, Basic, and Standard tiers** are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that availability zones offer.
 
-To achieve high availability and zone redundancy, consider using the Premium (classic) tier, which supports availability zones and multi-region deployments. To learn more about the Premium (classic) tier, select it at the top of this page. To upgrade your instance to Premium tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
-
-::: zone-end
-
-::: zone pivot="premium-classic"
-
-### Region support
-
-Azure API Management supports availability zones in all of the [Azure regions that support availability zones](./regions-list.md).
-
-### Requirements
-
-You must use the Premium (classic) tier to configure availability zone support. To upgrade your instance to Premium tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
+To upgrade your instance to Premium tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 ### Considerations
 
@@ -209,21 +199,9 @@ The options for testing for zone failures depend on the availability zone config
 
 - *Zonal:* For zonal instances, there's no way to simulate an outage of the availability zone that contains your Azure API Management instance. However, you can manually configure upstream gateways or load balancers to redirect traffic to a different instance in a different availability zone.
 
-::: zone-end
-
 ## Multi-region support
 
-::: zone pivot="premium-v2,developer,basic,standard,consumption"
-
-Azure API Management doesn't support multi-region deployments in the Premium v2, Developer, Basic, and Standard tiers:
-- The Premium v2 tier with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
-- The Developer, Basic, and Standard tiers are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that availability zones offer.
-
-To achieve high availability and zone redundancy, consider using the Premium (classic) tier, which supports availability zones and multi-region deployments. To learn more about the Premium (classic) tier, select it at the top of this page. To upgrade your instance to Premium tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
-
-::: zone-end
-
-::: zone pivot="premium-classic"
+Azure API Management only supports multi-region deployments in the Premium (classic) tier. It doesn't support multi-region deployments in the Premium v2, Developer, Basic, and Standard tiers. For more information, see [Requirements](#requirements).
 
 With a multi-region deployment, you can add regional API gateways to an existing API Management instance in one or more supported Azure regions. Multi-region deployment helps to reduce any request latency that's perceived by geographically distributed API consumers. A multi-region deployment also improves service availability if one region goes offline.
 
@@ -237,11 +215,17 @@ When adding a region, you configure:
 
 ### Region support
 
-You can create multi-region deployments with any Azure region that supports Azure API Management. To see which regions support multi-region deployments, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
+You can create multi-region deployments in Premium (classic) tier with any Azure region that supports Azure API Management. To see which regions support multi-region deployments, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ### Requirements
 
-You must use the Premium (classic) tier to enable multi-region support. To upgrade your instance to Premium tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
+You must use the Premium (classic) tier to configure availability zone support. Azure API Management doesn't support availability zones in the Premium v2, Developer, Basic, and Standard tiers:
+
+- **The Premium v2 tier** with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
+
+- **The Developer, Basic, and Standard tiers** are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that availability zones offer.
+
+To upgrade your instance to Premium tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 ### Considerations
 
@@ -305,7 +289,6 @@ When the primary region recovers, Azure API Management automatically restores un
 
 To be ready for unexpected region outages, it's recommended that you regularly test your responses to region failures. You can simulate some aspects of a region failure by [disabling routing to a regional gateway](../api-management/api-management-howto-deploy-multi-region.md#disable-routing-to-a-regional-gateway).
 
-::: zone-end
 
 ## Backups
 
