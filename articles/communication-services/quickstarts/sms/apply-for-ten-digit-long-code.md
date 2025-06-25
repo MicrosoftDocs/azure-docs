@@ -166,6 +166,7 @@ Click **Next** to proceed to the **Campaign details** section.
    > [!Important]
    > DISCLAIMER: This template is for informational purposes only and isn't intended as, and should not be substituted for, consultation with appropriate legal counsel and/or your organization's regulatory compliance team. This template is applicable only to approved uses of SMS from Azure Communication Services. Appropriate terms may vary depending on how you use this service and the nature of your business, and we recommend seeking legal counsel to ensure compliance with all applicable regulatory and legal obligations.
    
+   ```
       TEMPLATE: SMS Terms of use
       
       [COMPANY NAME] TEXT MESSAGING TERMS OF USE
@@ -209,7 +210,7 @@ Click **Next** to proceed to the **Campaign details** section.
       For support, [EMAIL ADDRESS OR PHONE NUMBER AND, IF AVAILABLE, SUPPORT PAGE].
       
       [BINDING ARBITRATION, CLASS ACTION WAIVER, AND SEVERABILITY CLAUSES, IF APPLICABLE]
-
+```
 
 ### 2.2 Use cases
 
