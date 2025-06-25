@@ -12,9 +12,9 @@ ms.author: azfuncdf
 Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in the future. Durable Functions can easily grow in complexity so introducing unit tests helps avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and activity functions.
 
 > [!NOTE]
-> This article provides guidance for unit testing for Durable Functions apps written in C# for the .NET isolated worker. For more information about Durable Functions in the .NET isolated worker, see the [Durable Functions in the .NET isolated worker](durable-functions-dotnet-isolated-overview.md) article.
-> **The complete sample code for this unit testing guide can be found in [the sample code repository](https://github.com/Azure/azure-functions-durable-extension/tree/dev/samples/isolated-unit-tests)**.
-> The unit testing guide for Durable Functions written in C# in-process can be found [here](durable-functions-unit-testing.md).
+> - This article provides guidance for unit testing for Durable Functions apps written in C# for the .NET isolated worker. For more information about Durable Functions in the .NET isolated worker, see the [Durable Functions in the .NET isolated worker](durable-functions-dotnet-isolated-overview.md) article.
+> - **The complete sample code for this unit testing guide can be found in [the sample code repository](https://github.com/Azure/azure-functions-durable-extension/tree/dev/samples/isolated-unit-tests)**.
+> - The unit testing guide for Durable Functions written in C# in-process can be found [here](durable-functions-unit-testing.md).
 
 ## Prerequisites
 
