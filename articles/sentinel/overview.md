@@ -138,7 +138,7 @@ Starting in **July 2026**, Microsoft Sentinel will be supported in the Defender 
 
 If you're currently using Microsoft Sentinel in the Azure portal, we recommend that you start planning your migration to the Defender portal now to ensure a smooth transition and take full advantage of the new features offered by Microsoft Defender.
 
-There are no changes being made to [Microsoft Sentinel APIs](/rest/api/securityinsights/).
+[Microsoft Sentinel APIs](/rest/api/securityinsights/) are also planned for deprecation in three years' time, in July 2028.
 
 ## Related content
 
