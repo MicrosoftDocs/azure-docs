@@ -19,7 +19,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 ## June 2025
 ### FHIR service
-**Added a configuration option in $import**: Allows users to enable eventual consistency for the $import operation.
+**Added configuration for eventual consistency option in $import**: Allows users to enable eventual consistency for the $import operation.
 
 **Bulk delete enhancement**: Added a parameter to bulk delete that can receive a list of resources to exclude from the bulk delete operation.
 
