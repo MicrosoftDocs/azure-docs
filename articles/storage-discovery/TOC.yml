@@ -1,5 +1,5 @@
 items:
-- name: Azure Storage Mover documentation
+- name: Azure Storage Discovery documentation
   href: ./index.yml
 - name: Overview
   items:

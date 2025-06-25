@@ -7,22 +7,22 @@ brand: azure
 
 metadata:
   title: Azure Storage Discovery documentation
-  description: Azure Storage Discovery is ..... 
+  description: Azure Storage Discovery provides organizations with deep, actionable insights into your data estate. It addresses the growing complexity of managing large-scale, distributed data by offering  visibility into Capacity, Operations, Resource and security configurations. 
   ms.service: azure-storage-mover
   ms.topic: hub-page
-  author: fauhse
-  ms.author: fauhse
-  ms.date: 06/15/2025
+  author: pthippeswamy
+  ms.author: faupthippeswamyhse
+  ms.date: 06/24/2025
 
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     # Card
-    - title: What is Azure Storage Mover?
+    - title: What is Azure Storage Discovery?
       itemType: concept
       url: overview.md
-    - title: What is Azure Storage Mover?
+    - title: What is Azure Storage MoDiscoveryver?
       itemType: concept
       url: overview.md
  
@@ -37,7 +37,7 @@ additionalContent:
         - title: Overview
           links:
           - url: overview.md
-            text: Planning for a storage mover deployment
+            text: Planning for a storage discovery deployment
           - url: overview.md
             text: Deploying a Storage Discovery resource
         # Card
