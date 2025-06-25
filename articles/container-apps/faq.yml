@@ -8,7 +8,7 @@ metadata:
   ms.service: azure-container-apps
   ms.custom:
     - ignite-2023
-  ms.date: 06/16/2025
+  ms.date: 06/25/2025
   ms.author: cshoe
 title: Azure Container Apps frequently asked questions (FAQs)
 summary: This article lists commonly asked questions about Azure Container Apps together with related answers.
@@ -60,7 +60,7 @@ sections:
         answer: |
           Azure Container Apps decodes the URL to protect your app against [URL confusion attacks](https://snyk.io/blog/url-confusion-vulnerabilities/). A request URL that has encoded portions, such as `http://mysite.com/archive/http%3A%2F%2Fmysite.com%2Farchive%2F123`, is sent to your app as `http://mysite.com/archive/http%3A/mysite.com/archive/123`.
       - question: |
-          Do Consumption-only environments support custom user-defined routes (UDRs)?
+          Do Consumption only environments support custom user-defined routes?
         answer: |
           Consumption-only environments have limited support for user-defined routes (UDRs). ExpressRoute isn't supported. Limited UDR support is available when configured as follows:
 
