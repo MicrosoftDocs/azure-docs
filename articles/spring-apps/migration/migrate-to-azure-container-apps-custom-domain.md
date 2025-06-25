@@ -117,9 +117,7 @@ For more information, see the [Peer-to-peer encryption](../../container-apps/net
 
 ## Traffic to external services
 
-When you define a certificate, you create a reference to a certificate stored in Azure Key Vault. You can enable TLS and mTLS for traffic to external services by loading the certificate from Azure Key Vault with `spring-cloud-azure-starter-keyvault-jca`.
-
-To use this feature, your java project must be Spring Boot 3.1+ and adding the following dependency to your `pom.xml`:
+This sample shows how to enable TLS and mTLS for traffic to external services by loading the certificate from Azure Key Vault using the `spring-cloud-azure-starter-keyvault-jca` library. Your Java project must use Spring Boot 3.1+ and include the following dependency in `pom.xml`:
 
 ```xml
 <dependency>
