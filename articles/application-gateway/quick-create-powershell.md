@@ -9,6 +9,7 @@ ms.date: 05/30/2024
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell, mvc, mode-api
+# Customer intent: "As a cloud architect, I want to use Azure PowerShell to create and configure an application gateway, so that I can effectively manage web traffic to my backend resources with improved routing and load balancing."
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway using Azure PowerShell

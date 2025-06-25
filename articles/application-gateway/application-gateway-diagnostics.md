@@ -12,7 +12,8 @@ ms.author: mbender
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
-  - ai-seo-date:06/16/2025
+  - ai-seo-date:06/16/2025 
+# Customer intent: "As an IT administrator, I want to enable and configure diagnostic logging for Azure Application Gateway, so that I can monitor resource performance and troubleshoot issues effectively."
 ---
 
 # Diagnostic logs for Application Gateway

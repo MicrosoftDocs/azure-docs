@@ -8,6 +8,7 @@ ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: how-to
 ms.date: 4/4/2025
 ms.author: mbender
+# Customer intent: "As a cloud architect managing Kubernetes deployments, I want to deploy an ingress controller using an existing Application Gateway, so that I can effectively manage and route traffic to my application services in a secure and scalable manner."
 ---
 
 # Install AGIC by using an existing Application Gateway deployment

@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 05/26/2025
 ms.author: mbender
+# Customer intent: "As an IT administrator managing Azure Application Gateway, I want to understand HTTP response codes and their causes, so that I can effectively troubleshoot client and server errors to ensure high availability and optimal performance of my applications."
 ---
 
 # HTTP response codes in Application Gateway
