@@ -19,3 +19,5 @@ items:
   items:
     - name: Autonomous vs review mode
       href: permissions.md
+    - name: Billing
+      href: billing.md
