@@ -79,13 +79,12 @@ Azure API Management supports availability zones for Premium (classic) tier in a
 
 ### Requirements
 
-You must use the Premium (classic) tier to configure availability zone support. Azure API Management doesn't support availability zones in the Premium v2, Developer, Basic, and Standard tiers. To upgrade your instance to Premium (classic)tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
+You must use the Premium (classic) tier to configure availability zone support. Azure API Management doesn't support availability zones in the Premium v2, Developer, Basic, and Standard tiers. To upgrade your instance to Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 
 >[!NOTE]
 > - **The Premium v2 tier** with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
->
->- **The Developer, Basic, and Standard tiers** are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that availability zones offer.
+
 
 
 ### Considerations
@@ -225,8 +224,7 @@ You must use the Premium (classic) tier to configure multi-region support. Azure
 
 >[!NOTE]
 > - **The Premium v2 tier** with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
->
->- **The Developer, Basic, and Standard tiers** are designed for development, testing, and lower-scale production workloads, and don't provide the high availability features that availability zones offer.
+
 
 
 ### Considerations
