@@ -9,6 +9,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to 
 ms.date: 11/04/2024
 #customer intent: As a network administrator, I want to connect virtual networks in different subscriptions using service principal names so that I can allow resources in different subscriptions to communicate with each other.
+# Customer intent: As a network administrator, I want to peer virtual networks across different subscriptions using service principal names, so that I can enable secure communication between resources in those networks.
 ---
 # Connect virtual networks in different subscriptions with service principal names
 

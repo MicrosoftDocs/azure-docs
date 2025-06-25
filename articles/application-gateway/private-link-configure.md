@@ -13,6 +13,7 @@ ms.custom:
 ms.topic: how-to
 ms.date: 06/16/2025
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to configure Application Gateway Private Link so that I can securely connect workloads over a private network without exposing them to the public internet.
 ---
 
 # Configure Azure Application Gateway Private Link
@@ -33,6 +34,10 @@ To enable Private Link Configuration, a subnet, different from the Application G
 
 > [!NOTE]
 > The maximum number of IP addresses per private link configuration is eight. Only dynamic allocation is supported.
+
+> [!NOTE]
+> The Application Gateway name and Private link name together shouldn't exceed 70 characters.To avoid deployment failures due to name length constraints, ensure that both the Application Gateway name and the Private Link configuration name are kept sufficiently short.
+
 
 Complete the following steps to create a new subnet:
 

@@ -11,6 +11,7 @@ ms.date: 05/12/2022
 ms.reviewer: nachakra
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
+# Customer intent: As an IT administrator, I want to use Microsoft Entra credentials to run PowerShell commands on Azure Blob Storage, so that I can manage blob data securely without needing to use account keys or SAS tokens.
 ---
 
 # Run PowerShell commands with Microsoft Entra credentials to access blob data

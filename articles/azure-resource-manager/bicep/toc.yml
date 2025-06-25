@@ -331,7 +331,7 @@ items:
       displayName: dateTimeAdd,dateTimeFromEpoch,dateTimeToEpoch,utcNow
       href: bicep-functions-date.md
     - name: Deployment functions
-      displayName: deployment,environment
+      displayName: deployer,deployment,environment
       href: bicep-functions-deployment.md
     - name: File functions
       displayName: loadFileAsBase64,loadJsonContent,loadYamlContent,loadTextContent
@@ -340,7 +340,7 @@ items:
       displayName: fail
       href: bicep-functions-flow-control.md
     - name: Lambda functions
-      displayName: filter,map,reduce,sort,toObject
+      displayName: filter,groupBy,map,mapValue,reduce,sort,toObject
       href: bicep-functions-lambda.md
     - name: Logical functions
       displayName: bool
@@ -349,13 +349,13 @@ items:
       displayName: int,max,min
       href: bicep-functions-numeric.md
     - name: Object functions
-      displayName: contains,empty,intersection,items,json,length,union
+      displayName: contains,empty,intersection,items,json,length,objectKeys,shallowMerge,union
       href: bicep-functions-object.md
     - name: Parameters file functions
       displayName: getSecret,readEnvironmentVariable
       href: bicep-functions-parameters-file.md
     - name: Resource functions
-      displayName: extensionResourceId,getSecret,list,pickZones,providers,reference,resourceId,subscriptionResourceId,managementGroupResourceId,tenantResourceId
+      displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,subscriptionResourceId,tenantResourceId,toLogicalZone,toLogicalZones,toPhysicalZone,toPhysicalZones
       href: bicep-functions-resource.md
     - name: Scope functions
       displayName: managementGroup,resourceGroup,subscription,tenant
@@ -740,5 +740,7 @@ items:
       href: diagnostics/bcp401.md
     - name: BCP414
       href: diagnostics/bcp414.md
+    - name: BCP420
+      href: diagnostics/bcp420.md
   - name: Azure CLI
     href: /cli/azure/resource

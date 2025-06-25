@@ -8,6 +8,7 @@ ms.service: azure-private-link
 ms.topic: how-to 
 ms.date: 01/06/2025
 ms.custom: template-how-to
+# Customer intent: As a cloud administrator, I want to export DNS records for a private endpoint in the portal, so that I can ensure proper name resolution for my Azure resources.
 ---
 
 # Export DNS records for a private endpoint by using the Azure portal

@@ -8,6 +8,7 @@ ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 05/29/2025
 ms.custom: template-tutorial
+# Customer intent: As a network administrator, I want to integrate a NAT gateway with Azure Firewall in a hub and spoke network, so that I can ensure scalable outbound connectivity for my workloads while optimizing resource usage.
 ---
 
 # Integrate NAT gateway with Azure Firewall in a hub and spoke network for outbound connectivity
