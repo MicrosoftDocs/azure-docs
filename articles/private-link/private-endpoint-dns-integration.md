@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 06/23/2025
+ms.date: 06/25/2025
 ms.author: abell
 ms.custom: fasttrack-edit
 # Customer intent: As a network administrator, I want to configure DNS settings for Azure Private Endpoints, so that I can ensure secure and efficient resolution of private IP addresses required for my applications and services within the virtual network.
@@ -79,12 +79,10 @@ A [DNS forwarder](/windows-server/identity/ad-ds/plan/reviewing-dns-concepts#res
 
 > [!NOTE]
 > DNS queries for private endpoints must originate from the virtual network that is linked to the private DNS zone. The DNS forwarder enables this by proxying queries on behalf of on-premises clients.
+> This scenario uses the Azure SQL Database-recommended private DNS zone. For other services, you can adjust the model using the following reference: [Azure services DNS zone configuration](private-endpoint-dns.md).
 
 
 The following scenario is for an on-premises network that has a DNS forwarder in Azure. This forwarder resolves DNS queries via a server-level forwarder to the Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md).
-
-> [!NOTE]
-> This scenario uses the Azure SQL Database-recommended private DNS zone. For other services, you can adjust the model using the following reference: [Azure services DNS zone configuration](private-endpoint-dns.md).
 
 To configure properly, you need the following resources:
 
@@ -101,9 +99,9 @@ To configure properly, you need the following resources:
 - Extend this configuration for on-premises networks that already have a custom DNS solution.
 - Configure your on-premises DNS solution with a [conditional forwarder](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) for the private DNS zone. The conditional forwarder should point to the DNS forwarder deployed in Azure, so DNS queries for private endpoints are correctly resolved.
 
-The following diagram illustrates the DNS resolution from an on-premises network. DNS resolution is conditionally forwarded to Azure. The resolution is made by a private DNS zone [linked to a virtual network](../dns/private-dns-virtual-network-links.md):
+The resolution is made by a private DNS zone [linked to a virtual network](../dns/private-dns-virtual-network-links.md):
 
-<!-- :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Diagram of on-premises forwarding to Azure DNS without Azure Private Resolver." lightbox="media/private-endpoint-dns/on-premises-forwarding-to-azure.png"::: -->
+:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure-no-resolver.png" alt-text="Diagram of on-premises forwarding to Azure DNS without Azure Private Resolver." lightbox="media/private-endpoint-dns/on-premises-forwarding-to-azure-no-resolver.png":::
 
 ## Azure Private Resolver for on-premises workloads
 
