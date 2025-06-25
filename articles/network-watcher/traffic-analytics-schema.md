@@ -132,8 +132,8 @@ The following table lists the fields in the schema and what they signify for vir
 > | **MACAddress** | MAC Address | MAC address of the NIC at which the flow was captured. |
 > | **SrcSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
 > | **DestSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the destination IP in the flow belongs to. |
-> | **SrcRegion** | Azure Region | Azure region of virtual network / network interface / virtual machine to which the source IP in the flow belongs to. |
-> | **DestRegion** | Azure Region | Azure region of virtual network to which the destination IP in the flow belongs to. |
+> | **SrcRegion** | Azure Region | Azure region of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
+> | **DestRegion** | Azure Region | Azure region of virtual network that the destination IP in the flow belongs to. |
 > | **SrcNic** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
 > | **DestNic** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the destination IP in the flow. |
 > | **SrcVm** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the source IP in the flow.  |
