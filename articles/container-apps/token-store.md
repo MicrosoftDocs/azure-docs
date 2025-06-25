@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 06/16/2025
+ms.date: 06/25/2025
 ms.author: cshoe
 ---
 
@@ -56,14 +56,13 @@ With SAS URL generated, you can save it in your container app as a secret. Make 
 
 1. Select **Add** and enter the following values in the *Add secret* window.
 
-> [!NOTE]
-> All the properties in the *Add secret* window are mandatory.
-
-| Property | Value |
-|---|---|
-| Key | Enter a name for your SAS secret. |
-| Type | Select **Container Apps secret**. |
-| Value | Enter the SAS URL value you generated from your storage container. |
+    > [!NOTE]
+    > All the properties in the *Add secret* window are mandatory.
+    | Property | Value |
+    |---|---|
+    | Key | Enter a name for your SAS secret. |
+    | Type | Select **Container Apps secret**. |
+    | Value | Enter the SAS URL value you generated from your storage container. |
 
 ## Create a token store
 
