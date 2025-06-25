@@ -145,7 +145,7 @@ This issue arises when the provisioning of the Resource Account is incomplete or
 
 ### No Incoming Call notification in Call Automation application and no audio is heard and call disconnects when calling a Teams Service Number
 
-This issue arises when the provisioning of the Resource Account is incomplete or incorrect or failure to grant consent. Check [Provisioning Resource Account](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-quickstart#teams-admin-provision-resource-account) and [Server Consent](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-access-teams-phone#provide-server-consent), making changes as needed.
+This issue arises when the provisioning of the Resource Account is incomplete or incorrect or failure to grant consent. Check [Provisioning Resource Account](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#teams-admin-provision-resource-account) and [Server Consent](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md#provide-server-consent), making changes as needed.
 
 ## Related articles
 
