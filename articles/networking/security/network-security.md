@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: overview
-ms.date: 04/24/2025
+ms.date: 06/24/2025
 ms.custom: ai-usage
 ---
 
