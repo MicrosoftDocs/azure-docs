@@ -42,29 +42,27 @@ In this section, you'll create a Palo Alto Networks resource.
 
 1. Select either **Virtual Network** or **Virtual Wan Hub**.
 
-1. Use the dropdown arrows to set the **Virtual Network**, **Private Subnet**, and **Public Subnet** that are associated with the Cloud NGFW deployment.
+1. Select the dropdown arrows to set the **Virtual Network**, **Private Subnet**, and **Public Subnet** that are associated with the Cloud NGFW deployment.
 
-1. For **Public IP Address Configuration**,  select either **Create New** or **Use Existing** and type in a name for **Public IP Address Name(s)**.
+1. Under **Public IP Address Configuration**,  select either **Create new** or **Use existing**. 
 
-1. Select the **Enable Source NAT** checkbox to indicate your preferred NAT settings.
+1. If you select **Create new**, accept the supplied public IP address name or enter a name. If you select **Use existing**, select a public IP addess name.
 
-### Security Policy
+1. Under **Source NAT Settings**, indicate your preferred NAT settings.
 
-1. After setting the Domain Name System (DNS) values, select **Next: Security Policy** to see the **Security Policies** tab. You can set the policies for the firewall on this tab.
+### Security Policies tab
 
-   :::image type="content" source="media/palo-alto-create/palo-alto-rulestack.png" alt-text="Screenshot of the Rulestack tab of the Create Cloud NGFW page." lightbox="media/palo-alto-create/palo-alto-rulestack.png":::
+1. After setting the networking values, select **Next** to go to the **Security Policies** tab. You can set the policies for the firewall on this tab.
 
-1. Under **Managed By**, select either **Azure Portal** or **Palo Alto Networks Panorama**.
+   :::image type="content" source="media/palo-alto-create/palo-alto-rulestack.png" alt-text="Screenshot of the Security Policies tab of the Create Cloud NGFW page." lightbox="media/palo-alto-create/palo-alto-rulestack.png":::
 
-1. Under **Choose a Local Rulestack**, select either **Create new** or **Use existing**.
+1. Under **Managed by**, select **Azure Rulestack**, **Palo Alto Networks Panorama**, or **Palo Alto Networks Strata Cloud Manager**.
 
-1. In **Local Rulestack**, enter an existing rulestack.
-
-1. Under **Best practice rule** select either **Firewall mode** or **IDS mode**.
+1. Your options depend on the choice you made in the previous step. Indicate your choices for the required settings.
 
 ### DNS Proxy
 
-1. After completing the **Security Policies** values, select the **Next: DNS Proxy** to go to the **DNS Proxy** tab.
+1. After you configure the **Security Policies** values, select **Next** to go to the **DNS Proxy** tab.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-dns-proxy.png" alt-text="Screenshot of the DNS Proxy tab of the Create Cloud NGFW page." lightbox="media/palo-alto-create/palo-alto-dns-proxy.png":::
 
@@ -78,12 +76,12 @@ You can optionally create tags for your resource.
 
 Next, you must accept the terms of use for the new Palo Alto Networks resource.
 
-1. Select to to the **Terms** tab.
+1. Select the **Terms** tab.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-terms.png" alt-text="Screenshot showing the Terms tab of the Create Cloud NGFW page.":::
 
-1. Select the **I Agree** checkbox to indicate your acceptance.
-1. Select **Next: Review + Create** to go to the final step of creating the resource.
+1. Select the **I Agree** box to indicate your acceptance.
+1. Select **Next** to go to the final step of creating the resource.
 
 ### Review + create tab
 
