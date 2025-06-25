@@ -11,6 +11,7 @@ ms.custom:
 ms.topic: concept-article
 ms.date: 05/19/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to migrate my existing ExpressRoute gateway to an Availability Zone-enabled SKU, so that I can enhance the reliability and high availability of my network connections without significant downtime.
 ---
 
 # About ExpressRoute Gateway Migration
@@ -32,8 +33,7 @@ By comparison, the **Standard**, **HighPerformance**, and **UltraPerformance** S
 The gateway migration experience allows you to deploy a second virtual network gateway in the same GatewaySubnet. Azure migrates your configurations from the old gateway to the new one. Both gateways run simultaneously during migration, minimizing disruption – though brief connectivity interruptions may still occur.
 
 After migration, the old gateway and its connections are deleted, and the new gateway is tagged with **CreatedBy: GatewaySKUMigration** to identify it as a migrated resource and shouldn’t be deleted.
-
-## Supported migration scenarios
+## Supported Migration Scenarios
 
 The guided gateway migration experience supports the following scenarios:
 
@@ -49,8 +49,8 @@ For enhanced reliability and high availability, we recommend migrating to an Az-
 
 1. **Validate**: Check that all resources are in a succeeded state. If any prerequisites aren't met, validation fails and migration can't proceed.
 2. **Prepare**: Azure creates a new virtual network gateway, public IP, and connections. This step can take up to 45 minutes. You can specify a name for the new gateway, or Azure will add **_migrated** to the original name by default. During preparation, the existing gateway is locked to prevent changes. If you need to stop the migration, you can **abort** at this stage, which deletes the new gateway and connections.
-   
-> [!Note]
+
+> [!NOTE]
 > The new gateway is created in the same region as the existing one. To change regions, you must delete the current gateway and create a new one in the desired region.
 
 3. **Migrate**: Switch traffic from the old gateway to the new one. This step can take up to 15 minutes and may cause brief connectivity interruptions.

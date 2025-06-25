@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: dougeby
 ms.author: avdcontent
-ms.date: 04/30/2025
+ms.date: 06/17/2025
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,48 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## June 2025
+
+Here's what changed in June 2025:
+
+### High Efficiency Video Coding (HEVC/H.265) hardware acceleration support is now generally available
+
+Azure Virtual Desktop graphics processing unit (GPU) acceleration support for frame encoding using HEVC/H.265 is now generally available. GPU acceleration improves graphical experiences when using the Remote Desktop Protocol (RDP) with a compatible GPU-enabled Azure Virtual Machine.
+
+For more information, see [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md).
+
+### Session host creation using a session host configuration
+
+We extended the session host creation functionality from session host update and dynamic autoscaling to apply to all session hosts created in a host pool with a session host configuration. We also added support for Microsoft Entra-joined devices. This update brings the following changes:
+
+- You can configure a host pool to use Microsoft Entra-join without needing to assign the **Virtual Machine User** RBAC role to a user.
+- Error reporting is consistent across services and auto-retry functionality is added to session host creation to mitigate transient errors.
+- Log analytics for a host pool now includes session host creation activity, providing a consolidated view of session host management. Resource group deployments no longer contain per-session host creation details.
+- The host pool user interface, including banners, provides session host creation status on the session host menu item, though you should also enable log analytics on a host pool to see a detailed diagnostic history.
+- You can now increase the host pool size via API or custom ARM templates, which triggers the Azure Virtual Desktop service to create new session hosts.
+
+For more information, see [Create a host pool with a session host configuration](deploy-azure-virtual-desktop.md?pivots=host-pool-session-host-configuration) and [Add session hosts to a host pool](add-session-hosts-host-pool.md?pivots=host-pool-session-host-configuration).
+
+### Microsoft Teams media optimization for iOS/iPadOS is in preview
+
+You can now use Microsoft Teams media optimization when connecting to Azure Virtual Desktop from iOS/iPadOS, which is now available in preview. Teams Media optimization redirects calling and meeting functionality to the local device when using Windows App. For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [Supported features for Microsoft Teams on Azure Virtual Desktop](teams-supported-features.md).
+
+## May 2025
+
+Here's what changed in May 2025:
+
+### Connect directly to Azure Virtual Desktop with a direct launch URL
+
+You can now connect directly to Azure Virtual Desktop using a direct launch URL. The direct launch URL opens Windows App in a web browser and connects directly to a specific resource, such as a desktop or application, without requiring the user to select it from a list. This feature is useful for scenarios where you want to provide a direct link to a specific resource.
+
+For more information, see [Access desktops and apps using direct launch URLs for Windows App in a web browser](/windows-app/direct-launch-urls?tabs=avd).
+
+### Multiple personal desktops for a single user is now generally available
+
+Multiple personal desktop assignment allows you to assign more than one personal desktop to a single user in a single host pool, and is now generally available. Multiple desktops are useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments.
+
+For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user).
 
 ## April 2025
 
@@ -880,7 +922,7 @@ For more information, see [our blog post](https://techcommunity.microsoft.com/t5
 
 ### Teams media optimizations for macOS now generally available
 
-Teams media optimizations for redirecting audio and video during calls and meetings to a local macOS machine is now generally available. To use this feature, you need to update or install, at a minimum, version 10.7.7 of the Azure Virtual Desktop macOS client. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-media-optimizations-is-now-generally-available/ba-p/3563125).
+Teams media optimizations for redirecting audio and video during calls and meetings to a local macOS machine is now generally available. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-media-optimizations-is-now-generally-available/ba-p/3563125).
 
 ## May 2022
 

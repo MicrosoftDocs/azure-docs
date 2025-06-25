@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 03/25/2025
 
 #CustomerIntent: As a network administrator, I want to configure the private DNS zone values for Azure services that support private endpoints.
+# Customer intent: As a network administrator, I want to configure private DNS zone values for Azure services with private endpoints, so that I can ensure proper DNS resolution for secure connections within my network.
 ---
 
 # Azure Private Endpoint private DNS zone values
@@ -31,7 +32,7 @@ You can use the following options to configure your DNS settings for private end
 > [!CAUTION]
 > - It's not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service listed later in this article.
 > 
-> - Existing Private DNS Zones linked to a single Azure service should not be associated with two different Azure service Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issue when attempting to access that service from each respective Private Endpoint. Create a DNS zone for each Private Endpoint of like services. Don't place records for multiple services in the same DNS zone.
+> - Existing Private DNS Zones linked to a single Azure service should not be associated with two different Azure service Private Endpoints. This will cause a deletion of the initial A-record and result in resolution issues when attempting to access that service from each respective Private Endpoint. Create a DNS zone for each Private Endpoint of like services. Don't place records for multiple services in the same DNS zone.
 
 ## Azure services DNS zone configuration
 

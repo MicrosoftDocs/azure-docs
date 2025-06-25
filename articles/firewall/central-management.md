@@ -7,6 +7,7 @@ services: firewall
 ms.topic: concept-article
 ms.date: 07/13/2020
 ms.author: duau
+# Customer intent: As a network security administrator, I want to centrally manage firewall policies using Azure Firewall Manager, so that I can ensure consistent security across multiple firewalls while allowing DevOps teams to implement local policies for greater flexibility.
 ---
 
 # Azure Firewall central management

@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 9/16/2024
 ms.author: mbender
+# Customer intent: "As a cloud application developer, I want to configure gRPC routing using Application Gateway for Containers, so that I can efficiently manage inter-service communication and improve performance in my cloud-native applications."
 ---
 
 # gRPC on Application Gateway for Containers
