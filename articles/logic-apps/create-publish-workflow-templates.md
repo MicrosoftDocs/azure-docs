@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/16/2025
+ms.date: 06/24/2025
 #Customer intent: As a developer, I want to create and share workflow templates for use with Azure Logic Apps.
 ---
 
@@ -19,15 +19,13 @@ Not only can you kickstart development by using workflow templates, you can crea
 
 Organizational templates let you standardize integration patterns, share best practices, and reuse solutions across your enterprise internally without making them public. This capability is especially useful for businesses that want to promote consistency while keeping options open for flexibility. Whether your scenarios include embedding internal APIs, handling domain-specific logic, or enforcing architectural patterns, organizational templates help you scale and grow while you stay in control.
 
-To add your template to the templates gallery in the Azure portal, create a template package by using this how-to guide. When you're done, visit the [workflow template repository in GitHub for Azure Logic Apps](https://github.com/Azure/LogicAppsTemplates) where you can create a pull request for your template package and have the Azure Logic Apps team review your template.
-
 Azure Logic Apps templates also give you the following capabilities:
 
 - Publish templates in test or production mode, which allow you to safely experiment and gate keep releases.
 
 - Directly use APIs and internal systems in templates without having to externalize them.
 
-- Download template packages and optionally add them to the public workflow template repository in GitHub.
+- Download template packages and optionally add them to the [public workflow template repository for Azure Logic Apps in GitHub](https://github.com/Azure/LogicAppsTemplates).
 
 - Graduate your templates from test to production by using the built-in lifecycle management in Azure DevOps, which gives your team structure but preserves agility.
 
@@ -38,6 +36,20 @@ Azure Logic Apps templates also give you the following capabilities:
     These permissions respect subscription and role scopes, which means developers can see and access only those templates in subscriptions where developers have access.
 
     This capability provides enterprise-grade control over who can author, view, and deploy templates. You have full control over the way that you want organize templates so that you can make sure the right teams get access to the automation patterns they need.
+
+The following screenshot shows the workflow template gallery scoped to an organization and Azure subscription with example templates that show status labels such as **Testing** and **Production**:
+
+:::image type="content" source="media/create-publish-workflow-templates/templates-labels.png" alt-text="Screenshot shows Azure portal and workflow template gallery with Azure subscription-scoped custom templates in testing and production." lightbox="media/create-publish-workflow-templates/templates-labels.png":::
+
+This guide shows how to create and publish a workflow template in the following ways:
+
+- For only your organization to use. See [Create workflow template - Azure portal](?tab=portal#create-a-workflow-template).
+
+  This path has you create your template by using the wizard in the Azure portal to specify the source logic app workflows, information about your template, and the options to publish for testing before you release the template to production.
+
+- For all Azure customers to use. See [Create workflow template - Manual](?tab=manual#create-a-workflow-template).
+
+  This path requires that you create template package and submit the package as a pull request to the [public workflow template repository for Azure Logic Apps in GitHub](https://github.com/Azure/LogicAppsTemplates).
 
 ## Prerequisites
 
@@ -199,7 +211,7 @@ You can also include any other files to maintain and support your template, for 
 
   **<*workflow-task*>-<*product*>-<*pattern-or-protocol*, if any>**
 
-  For examples, see the [workflow template repository for Azure Logic Apps in GitHub](https://github.com/Azure/LogicAppsTemplates). 
+  For examples, see the [workflow template repository for Azure Logic Apps in GitHub](https://github.com/Azure/LogicAppsTemplates).
 
 - To correctly register your template package folder, you must add the folder name to the [repository's root-level manifest.json file](https://github.com/Azure/LogicAppsTemplates/blob/main/manifest.json).
 
@@ -337,7 +349,7 @@ To get these attribute values, follow these steps in the [Azure portal](https://
 
 #### Add template package to GitHub repository
 
-To publish your template package to the templates gallery in the Azure portal, set up GitHub, and create a pull request with your template package for validation and review:
+To publish your template package to the workflow templates gallery in the Azure portal, you need to set up your GitHub account, visit the [workflow template repository in GitHub for Azure Logic Apps](https://github.com/Azure/LogicAppsTemplates), and create a pull request for your template package so that the Azure Logic Apps team can review and validate your PR
 
 1. [Create a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github), if you don't have one.
 
