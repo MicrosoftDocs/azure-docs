@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 06/02/2025
+ms.date: 06/25/2025
 ms.author: cshoe
 ms.custom:
   - build-2025
@@ -100,6 +100,7 @@ For more information about different networking scenarios, see [Ingress in Azure
 |Feature |Learn how to |
 |---------|---------|
 |[Using Azure Firewall](using-azure-firewall.md) | Use Azure Firewall to control outbound traffic from your container app. |
+|[Virtual networks](custom-virtual-networks.md) | Configure the VNet for your container app environment. |
 |[Securing a existing VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
 |[NAT gateway integration](custom-virtual-networks.md#nat-gateway-integration)| Use NAT Gateway to simplify outbound internet connectivity in your virtual network in a workload profiles environment. |
 
@@ -110,7 +111,6 @@ For more information about different networking scenarios, see [Ingress in Azure
 |[Use a virtual network](vnet-custom.md) | Use a virtual network. |
 |[Configure WAF Application Gateway](waf-app-gateway.md) | Configure a WAF application gateway. |
 |[Enable User Defined Routes (UDR)](user-defined-routes.md) | Enable user defined routes (UDR). |
-|[Secure an existing VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
 |[Use Mutual Transport Layer Security (mTLS)](mtls.md) | Build an mTLS application in Azure Container Apps. |
 |[Use a private endpoint](how-to-use-private-endpoint.md) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
 |[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
