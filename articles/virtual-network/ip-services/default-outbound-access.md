@@ -161,13 +161,13 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 
 * In configurations using User Defined Routes (UDRs), any configured routes with [next hop type `Internet`](../virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) will break in a Private subnet.
 
-  * A common example is the use of a UDRs to steer traffic to an upstream network virtual appliance/firewall, with exceptions for certain Azure Service Tags to bypass inspection.
+  * A common example is the use of a UDR to steer traffic to an upstream network virtual appliance/firewall, with exceptions for certain Azure Service Tags to bypass inspection.
 
     * A default route for the destination 0.0.0.0/0, with a next hop type of Virtual Appliance applies in the general case.
 
-    * One or more routes are configured to [Service Tag destinations](../virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) with next hop type `Internet`, to bypass the NVA/firewall. Unless an [explicit outbound connectivity method](#add-an-explicit-outbound-connectivity-method) is also configured for the source of the connection to these destinations, attempts to connection to these destinations will fail, because defaullt outbound access is not available.
+    * One or more routes are configured to [Service Tag destinations](../virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) with next hop type `Internet`, to bypass the NVA/firewall. Unless an [explicit outbound connectivity method](#add-an-explicit-outbound-connectivity-method) is also configured for the source of the connection to these destinations, attempts to connection to these destinations will fail, because default outbound access isn't available.
 
-  * This limitation does not apply to the use of Service Endpoints, which use a different next hop type `VirtualNetworkServiceEndpoint`. See [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md).
+  * This limitation doesn't apply to the use of Service Endpoints, which use a different next hop type `VirtualNetworkServiceEndpoint`. See [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md).
 
 * Private Subnets aren't applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
  
