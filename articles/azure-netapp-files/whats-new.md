@@ -18,7 +18,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Restore individual files using single-file restore from backup](restore-single-file-backup.md) (preview)
 
-    Expanding on Azure NetApp Files' capabilities to [restore data from snapshots](snapshots-introduction.md), you can now also restore individual files from Azure NetApp Files backups without the need to issue a full restore to a volume first. Single-file restore can reduce your recovery time objective (RTO) and lower costs, especially on large-sized volumes by avoiding full volumes restore operations. With this feature, you can simply issue a restore of individual files directly from the snapshot in the backup. This feature is currently in preview. 
+    With Azure NetApp Files single file restore from backup, you can restore individual files from Azure NetApp Files backup vault without needing to restore an entire volume. By restoring only the necessary files, you can save cost and time needed for restoring data. This feature is now in public preview.
 
 ## June 2025
 
