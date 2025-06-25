@@ -80,26 +80,28 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 
    1. Copy and paste the following command into the Cloud Shell window. Change the resource group name and location if you want.
 
-        ```azurecli
-        az group create -l eastus -n rgDataMigration
-        ```
+      ```azurecli
+      az group create --name rgDataMigration --location eastus
+      ```
 
-    1. Press **ENTER**.
+   1. Press **Enter**.
 
-       Here's an example:
+      Here's an example:
 
-       ```azurecli
-       user@Azure:~$ az group create -l eastus -n rgDataMigration
-       {
-         "id": "/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/rgDataMigration",
-         "location": "eastus",
-         "managedBy": null,
-         "name": "rgDataMigration",
-         "properties": {
-           "provisioningState": "Succeeded"
-         },
-         "tags": null
-       }
+      ```azurecli
+      user@Azure:~$ az group create --name rgDataMigration --location eastus
+
+      {
+        "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgDataMigration",
+        "location": "eastus",
+        "managedBy": null,
+        "name": "rgDataMigration",
+        "properties": {
+          "provisioningState": "Succeeded"
+        },
+        "tags": null,
+        "type": "Microsoft.Resources/resourceGroups"
+      }
        ```
 
 1. Deploy all the resources mentioned in the previous section (event hub, storage account, functions app, Azure Synapse Analytics) by running the following CLI command:
@@ -132,7 +134,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
 
 ### Verify that the resources are created
 
-1. In the Azure portal, select **Resource groups** on the left menu.
+1. In the Azure portal, in the search box, enter *Resource groups*. From the results, select **Resource groups**.
 1. Filter the list of resource groups by entering the name of your resource group in the search box.
 1. Select your resource group in the list.
 
