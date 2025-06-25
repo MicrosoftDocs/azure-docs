@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ---
 
 # Workload configuration management
-This article provides Azure Operator Service Manager (AOSM) guidelines to optimize the design of configuration group schemas (CGS) and the operation of configuration group values (CGV). NF vendors, telco operators, and their partners should keep these practices in mind when onboarding and deploying NFs.
+This article provides Azure Operator Service Manager (AOSM) guidelines to optimize the design of configuration group schemas (CGS) and the operation of configuration group values (CGV). Network function (NF) vendors, telco operators, and their partners should keep these practices in mind when onboarding and deploying NFs.
 
 ## What is JSON schema?
 JSON Schema is an Internet Engineering Task Force (IETF) standard providing a format for what JSON data is required for a given application and how to interact with it. Applying such standards for a JSON document lets you enforce consistency and data validity across JSON data
@@ -78,20 +78,20 @@ The following rules are applied when validating a default value. Consider these 
 * Where a property value is type object, and neither it or it's key exist in the input CGV, then no defaults for the object are evaluated.
 
 ## CGS considerations
-Overtime, the recommended approach to best design configuration group schemas has changed. While the original 1-CGS approach remains supported, for all new projects we now recommend the 3-CGS approach. Further details on converting from 1-CGS to 3-CGS can be requested.
+Overtime, the recommended approach to best design configuration group schemas changed. While the original 1-CGS approach remains supported, for all new projects we now recommend the 3-CGS approach. Further details on converting from 1-CGS to 3-CGS can be requested.
 
 ### 1-CGS approach
-Originaly it was recommended to use only a single CGS for the entire NF. This consolidated site-specific, instance-specific and security-specific parameters into a single set of configuration group objects. Multiple object sets were avoided, except for rare cases where a service was composed of multiple components. Many partners have successfully onboarded services using this approach and it remains supported.
+Originally it was recommended to use only a single CGS for the entire NF. This consolidated site-specific, instance-specific, and security-specific parameters into a single set of configuration group objects. Multiple object sets were avoided, except for rare cases where a service was composed of multiple components. Many partners successfully onboarded services using this approach and it remains supported.
 
 ### 3-CGS approach
-More recently, it is now recommended to use at least three CGS for the entire NF. This organizes properties based on site-specific, instance-specific and security-specific parameters into unique configuration group object sets. Examples of site-specific parameters are ip addresses or unique names. Examples of instance-spccific parameters are timeouts or debug levels. Examples of security-specific parameters would be passwords or certificates. In the case of security-specific values, Azure Keyvault is used to store secure private information.
+More recently, it's now recommended to use at least three CGS for the entire NF, organizing parameters into site-specific, instance-specific, and security-specific configuration group sets. Examples of site-specific parameters are ip addresses or unique names. Examples of instance-spccific parameters are timeouts or debug levels. Examples of security-specific parameters would be passwords or certificates. With security-specific parameters, Azure Keyvault is used to store secure values.
 
 ### Designing 3-CGS object sets 
 Consider the following meta-schema guidelines when designing 3-CGS objects;
 - Choose which parameters to expose.
-  - A rule of thumb is to expose those parameters which can be set by direct operation, such as a compute SKU or helm value.
-  - As opposed to a parameter which is acted on by another agent, such as cloudinit userdata.
-- Sort the parameters into site-specific, instance-specific and security-specific sets.
+  - A rule of thumb is to expose those parameters set using a direct operation, such as a compute SKU or helm value.
+  - As opposed to a parameter that is acted on by another agent, such as `cloudinit` user-data.
+- Sort the parameters into site-specific, instance-specific, and security-specific sets.
 - Define required versus optional parameters.
   - For optional parameters, define a reasonable default value.
 - Ensure no overlapping parameters between CGS objects.
