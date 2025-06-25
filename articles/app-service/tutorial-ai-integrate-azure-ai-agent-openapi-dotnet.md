@@ -47,6 +47,33 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 1. In *Controllers/TodosController.cs*, add the following API methods. To make them compatible with the Azure AI Foundry Agent Service, you must specify the `OperationId` property in the `SwaggerOperation` attribute (see [How to use Azure AI Foundry Agent Service with OpenAPI Specified Tools: Prerequisites](/azure/ai-services/agents/how-to/tools/openapi-spec#prerequisites)).
 
     ```csharp
+        // GET: api/TodosApi
+        [HttpGet]
+        [SwaggerOperation(Summary = "Gets all Todo items", OperationId = "GetTodos")]
+        [ProducesResponseType(typeof(IEnumerable<Todo>), 200)]
+        public async Task<ActionResult<IEnumerable<Todo>> GetTodos()
+        {
+            return await _context.Todo.ToListAsync();
+        }
+
+        // GET: api/todos/5
+        [HttpGet("api/todos/{id}")]
+        [SwaggerOperation(Summary = "Gets a Todo item by ID", OperationId = "GetTodoById")]
+        [ProducesResponseType(typeof(Todo), 200)]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult<Todo>> GetTodo(int id)
+        {
+            var todo = await _context.Todo.FindAsync(id);
+
+            if (todo == null)
+            {
+                return NotFound();
+            }
+
+            return todo;
+        }
+
+
     // POST: api/todos
     [HttpPost("api/todos")]
     [ProducesResponseType(StatusCodes.Status201Created)]
