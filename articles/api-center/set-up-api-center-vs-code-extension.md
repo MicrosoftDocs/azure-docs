@@ -43,9 +43,6 @@ Once deployment completes, refresh the Azure API Center view. Your new API cente
 
 ## Next steps
 
-> [!div class="nextstepaction"]
 * [Build and register APIs with the Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md)
 * [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
 * [Discover and consume APIs with the Azure API Center extension for Visual Studio Code](discover-apis-vscode-extension.md)
-
-
