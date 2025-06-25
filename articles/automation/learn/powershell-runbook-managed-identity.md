@@ -1,5 +1,5 @@
 ---
-title: Create PowerShell runbook using managed identity in Azure Automation
+title: Create PowerShell Runbook Using Managed Identity in Azure Automation
 description: In this tutorial, you learn how to use managed identities with a PowerShell runbook in Azure Automation.
 services: automation
 ms.subservice: process-automation
@@ -14,7 +14,7 @@ author: jasminemehndir
 
 # Tutorial: Create Automation PowerShell runbook using managed identity
 
-This tutorial walks you through creating a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that uses a [managed identity](../automation-security-overview.md#managed-identities), rather than the Run As account to interact with resources. PowerShell runbooks are based on Windows PowerShell. A managed identity from Microsoft Entra ID allows your runbook to easily access other Microsoft Entra protected resources.
+This tutorial walks you through creating a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that uses a [managed identity](../automation-security-overview.md#managed-identities) to interact with resources. PowerShell runbooks are based on Windows PowerShell. A managed identity from Microsoft Entra ID allows your runbook to easily access other Microsoft Entra protected resources.
 
 In this tutorial, you learn how to:
 
@@ -26,6 +26,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+Before you assign permissions to managed identities, ensure you meet these prerequisites:
+
 * An Azure Automation account with at least one user-assigned managed identity. For more information, see [Using a user-assigned managed identity for an Azure Automation account](../add-user-assigned-identity.md).
 * Az modules: `Az.Accounts`, `Az.Automation`, `Az.ManagedServiceIdentity`, and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](../shared-resources/modules.md#import-az-modules).
 * The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell). `Az.ManagedServiceIdentity` is a preview module and not installed as part of the Az module. To install it, run `Install-Module -Name Az.ManagedServiceIdentity`.
@@ -36,7 +38,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Assign permissions to the managed identities to allow them to stop and start a virtual machine.
 
-1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet and follow the instructions.
+To assign permissions to managed identities, follow these steps:
+
+1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet and follow the instructions:
 
     ```powershell
     # Sign in to your Azure subscription
@@ -49,7 +53,7 @@ Assign permissions to the managed identities to allow them to stop and start a v
     # Select-AzSubscription -SubscriptionId <SUBSCRIPTIONID>
     ```
 
-1. Provide an appropriate value for the variables below and then execute the script.
+1. Enter an appropriate value for the variables below and then execute the script.
 
     ```powershell
     $resourceGroup = "resourceGroupName"
@@ -93,20 +97,24 @@ Assign permissions to the managed identities to allow them to stop and start a v
 
 ## Create PowerShell runbook
 
-Create a runbook that will allow execution by either managed identity. The runbook will start a stopped VM, or stop a running VM.
+Create a runbook that will allow execution by either managed identity. The runbook will start a stopped VM or stop a running VM.
+
+To create a PowerShell runbook, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/), and navigate to your Automation account.
 
+1. In the **Overview** page, select **Try Runtime Environment experience**, if not already in the new experience .
+
 1. Under **Process Automation**, select **Runbooks**.
 
-1. Select **Create a runbook**.
+1. Select **Create a runbook** and do the following:
 
     1. Name the runbook `miTesting`.
     1. From the **Runbook type** drop-down, select **PowerShell**. 
-    1. From the **Runtime version** drop-down, select either **7.1 (preview)** or **5.1**.
+    1. From the **Runtime Environment** dropdown, **Select existing** Runtime environment or **Create new** with Runtime PowerShell and version 7.4.
     1. Enter an applicable **Description**.
     
-1. Click **Create** to create the runbook.
+1. Select **Create** to create the runbook.
 
 1. In the runbook editor, paste the following code:
 
