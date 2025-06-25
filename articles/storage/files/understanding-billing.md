@@ -9,6 +9,7 @@ ms.author: kendownie
 ms.custom:
   - references_regions
   - build-2025
+# Customer intent: "As a financial analyst working with cloud storage, I want to understand the billing models and cost factors for Azure Files, so that I can accurately estimate and manage storage expenses for our organization's cloud strategy."
 ---
 
 # Understand Azure Files billing models
@@ -116,60 +117,8 @@ The provisioned v2 model is provided for file shares in storage accounts with th
 
 Currently, these SKUs are generally available in a limited subset of regions:
 
-- France Central
-- France South
-- Australia East
-- Australia Southeast
-- East Asia
-- Southeast Asia
-- West US 2
-- West Central US
-- West Europe
-- North Europe
-- Germany West Central
-- Germany North
-- UK South
-- UK West
-- Central India
-- South India
-- Canada Central
-- Canada East
-- UAE Central
-- UAE North
-- Brazil South
-- Brazil Southeast
-- South Central US
-- North Central US
-- West US
-- East US
-- Japan East
-- Japan West
-- Korea Central
-- Korea South
-- East US 2
-- Central US
-- US Gov Virginia
-- US Gov Arizona
-- US Gov Texas
-- Poland Central
-- West US 3
-- Spain Central
-- New Zealand North
-- Italy North
-- Indonesia Central
-- Sweden Central
-- Sweden South
-- Australia Central
-- Australia Central 2
-- South Africa North
-- South Africa West
-- Switzerland North
-- Switzerland West
-- Norway East
-- Norway West
-- Israel Central
-- Qatar Central
-- Mexico Central
+- All Azure public cloud regions.
+- All Azure US Government cloud regions.
 
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:

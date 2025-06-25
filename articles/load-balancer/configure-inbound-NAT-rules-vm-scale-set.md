@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: how-to 
 ms.date: 02/14/2024
 ms.custom: template-how-to, devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to configure and manage inbound NAT rules for Virtual Machine Scale Sets, so that I can efficiently handle traffic distribution and improve scalability in my applications.
 ---
 
 # Configure inbound NAT Rules for Virtual Machine Scale Sets

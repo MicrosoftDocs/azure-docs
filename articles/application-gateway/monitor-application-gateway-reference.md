@@ -1,12 +1,13 @@
 ---
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
-ms.date: 05/12/2025
+ms.date: 06/04/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-application-gateway
+# Customer intent: "As a cloud administrator, I want to access detailed performance metrics for Azure Application Gateway, so that I can effectively monitor traffic handling, optimize resource usage, and ensure high availability of services."
 ---
 
 # Azure Application Gateway monitoring data reference
@@ -494,6 +495,7 @@ Application Gateway's Layer 4 proxy provides log data through access logs. These
 | sslProtocol | SSL/TLS protocol being used (for TLS protocol listeners). |
 | serverRouted | The backend server IP and port number to which the traffic was routed. |
 | serverStatus | 200 - session completed successfully. 400 - client data couldn't be parsed. 500 - internal server error. 502 - bad gateway. For example, when an upstream server couldn't be reached. 503 - service unavailable. For example, if access is limited by the number of connections. |
+| error_info | The reason for the error as per serverStatus code. |
 | ResourceId | Application Gateway resource URI. |
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
