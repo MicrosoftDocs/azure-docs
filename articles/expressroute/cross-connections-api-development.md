@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 02/06/2020
 ms.author: duau
 
+# Customer intent: "As an ExpressRoute partner, I want to utilize the expressRouteCrossConnections API for managing layer-2 and layer-3 configurations, so that I can efficiently handle customer ExpressRoute circuits and enhance connectivity management."
 ---
 
 

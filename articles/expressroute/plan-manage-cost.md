@@ -7,6 +7,7 @@ ms.custom: subject-cost-optimization
 ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 01/31/2025
+# Customer intent: As a cost manager, I want to use cost analysis tools for Azure ExpressRoute, so that I can effectively estimate, monitor, and manage our expenses associated with Azure resources and ensure optimal budget adherence.
 ---
 
 # Plan and manage costs for Azure ExpressRoute

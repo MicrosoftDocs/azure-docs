@@ -10,6 +10,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 ms.author: mbender
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: As a cloud administrator, I want to create an internal load balancer with virtual machines using the command-line interface, so that I can efficiently manage and distribute internal traffic within my network resources.
 ---
 # Quickstart: Create an internal basic load balancer to load balance VMs by using the Azure CLI
 

@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 01/07/2025
+# Customer intent: As an IT network engineer, I want to manage public IP addresses with a load balancer, so that I can efficiently configure and optimize resource accessibility and egress for backend services, while preparing for future infrastructure changes.
 ---
 
 # Manage a public IP address with a load balancer

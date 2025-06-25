@@ -36,6 +36,7 @@ API Management supports two client compatibility options for AI APIs. Choose the
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
+
 - An Azure AI service in your subscription with one or more models deployed. Examples include models deployed in Azure AI Foundry or Azure OpenAI.
 
 ## Import AI Foundry API using the portal

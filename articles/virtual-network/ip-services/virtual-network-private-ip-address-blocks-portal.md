@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 
+# Customer intent: As a cloud administrator, I want to assign private IP address prefixes to virtual machines, so that I can efficiently manage network configurations for varying workloads in my environment.
 ---
 # Assign private IP address prefixes to virtual machines using the Azure portal - Preview
 
