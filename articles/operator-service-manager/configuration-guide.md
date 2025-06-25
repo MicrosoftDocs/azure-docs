@@ -15,9 +15,9 @@ This article provides Azure Operator Service Manager (AOSM) guidelines to optimi
 JSON Schema is an Internet Engineering Task Force (IETF) standard providing a format for what JSON data is required for a given application and how to interact with it. Applying such standards for a JSON document lets you enforce consistency and data validity across JSON data
 
 ### Where is JSON schema used?
-* AOSM service uses JSON schema notation as a meta-schema within CGS `ConfigurationGroupSchemaPropertiesFormat` object `schemaDefinition` properties.
-* AOSM service allows the designer and publisher to specify the JSON schema where operator must provide data (JSON Values) when instantiating an SNS/NF.
-* AOSM service allows the meta-schema properties be optional or required. Where a property is marked required, it must be specified in the values Json.  
+* AOSM uses JSON schema notation as a meta-schema within CGS `ConfigurationGroupSchemaPropertiesFormat` object `schemaDefinition` properties.
+* AOSM allows the designer and publisher to specify the JSON schema where operator must provide data (JSON Values) when instantiating an SNS/NF.
+* AOSM allows the meta-schema properties be optional or required. Where a property is marked required, it must be specified in the values Json.  
 
 ### What JSON keywords are supported?
 For the CGS meta-schema, AOSM implements supports for JSON standard keywords on a type by type basis.
@@ -45,7 +45,6 @@ A property is declared optional by including a `required` keyword, which omits t
 "required":  ["abc"]
 } 
 ```
-
 
 ## Defaults Values in JSON Schema
 For optional properties, AOSM implements a custom method of default value handling. When a default value is defined in CGS meta-schema, AOSM uses that value where the property is missing or undefined in the input CGV data. AOSM validator logic essentially hydrates the CGV value with the default value when no value is provided by operator.
@@ -78,24 +77,26 @@ The following rules are applied when validating a default value. Consider these 
 * Where a property value doesn't exist in the input CGV, it's evaluated for a default, along with any children.
 * Where a property value is type object, and neither it or it's key exist in the input CGV, then no defaults for the object are evaluated.
 
-## Configuration Group Schema considerations
-We recommend that you always start with a single CGS for the entire NF. If there are site-specific or instance-specific parameters, we still recommend that you keep them in a single CGS. We recommend splitting into multiple CGSs when there are multiple components (rarely NFs, more commonly, infrastructure) or configurations that are shared across multiple NFs. The number of CGSs defines the number of CGVs.
+## CGS considerations
+Overtime, the recommended approach to best design configuration group schemas has changed. While the original 1-CGS approach remains supported, for all new projects we now recommend the 3-CGS approach. Further details on converting from 1-CGS to 3-CGS can be requested.
 
-### Scenario
+### 1-CGS approach
+Originaly it was recommended to use only a single CGS for the entire NF. This consolidated site-specific, instance-specific and security-specific parameters into a single set of configuration group objects. Multiple object sets were avoided, except for rare cases where a service was composed of multiple components. Many partners have successfully onboarded services using this approach and it remains supported.
 
-- FluentD, Kibana, and Splunk (common third-party components) are always deployed for all NFs within a network service design (NSD). We recommend grouping these components into a single network function design group (NFDG).
-- NSD has multiple NFs that all share a few configurations (deployment location, publisher name, and a few chart configurations).
+### 3-CGS approach
+More recently, it is now recommended to use at least three CGS for the entire NF. This organizes properties based on site-specific, instance-specific and security-specific parameters into unique configuration group object sets. Examples of site-specific parameters are ip addresses or unique names. Examples of instance-spccific parameters are timeouts or debug levels. Examples of security-specific parameters would be passwords or certificates. In the case of security-specific values, Azure Keyvault is used to store secure private information.
 
-In this scenario, we recommend that you use a single global CGS to expose the common NF and third-party component configurations. You can define NF-specific CGS as needed.
+### Designing 3-CGS object sets 
+Consider the following meta-schema guidelines when designing 3-CGS objects;
+- Choose which parameters to expose.
+  - A rule of thumb is to expose those parameters which can be set by direct operation, such as a compute SKU or helm value.
+  - As opposed to a parameter which is acted on by another agent, such as cloudinit userdata.
+- Sort the parameters into site-specific, instance-specific and security-specific sets.
+- Define required versus optional parameters.
+  - For optional parameters, define a reasonable default value.
+- Ensure no overlapping parameters between CGS objects.
 
-### Choose parameters to expose
-
-- CGS should only have parameters that are used by NFs (day 0/N configuration) or shared components.
-- Parameters that are rarely configured should have default values defined.
-- If multiple CGSs are used, we recommend little to no overlap between the parameters. If overlap is required, make sure the parameter names are clearly distinguishable between the CGSs.
-- What can be defined via API (Azure Operator Nexus, Azure Operator Service Manager) should be considered for CGS. As opposed to, for example, defining those configuration values via CloudInit files.
-- When unsure, a good starting point is to expose the parameter and have a reasonable default specified in the CGS. The following example shows the sample CGS and corresponding CGV payloads.
-- A single user-assigned managed identity should be used in all the NF ARM templates and should be exposed via CGS.
+The following example shows a sample CGS and corresponding CGV payloads.
 
 CGS payload:
 
