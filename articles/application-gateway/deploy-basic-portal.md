@@ -9,6 +9,7 @@ ms.date: 05/06/2024
 ms.author: mbender
 ms.service: azure-application-gateway
 ms.custom: mvc, mode-ui, devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to deploy an Application Gateway using the Basic SKU, so that I can efficiently manage web traffic and route requests to my backend resources while ensuring a scalable and secure service architecture.
 ---
 
 # Deploy Application Gateway Basic (Preview)

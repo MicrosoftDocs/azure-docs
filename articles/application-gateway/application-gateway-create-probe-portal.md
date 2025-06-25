@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/10/2022
 ms.author: mbender
+# Customer intent: As an IT administrator, I want to create a custom health probe for the application gateway using the portal, so that I can monitor the health of backend resources effectively.
 ---
 
 # Create a custom probe for Application Gateway by using the portal
