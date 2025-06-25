@@ -33,3 +33,6 @@ The other trusted services for Azure Service Bus can be found below:
 - Microsoft Purview
 - Microsoft Defender for Cloud
 - Azure Provider Hub
+
+> [!IMPORTANT]
+> When allowing trusted Microsoft services, make sure you use a Managed Identity. This identity is used to allow communication with the trusted Microsoft service.
