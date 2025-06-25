@@ -12,9 +12,9 @@ ms.topic: quickstart
 zone_pivot_groups: acs-js-csharp-java
 ---
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
-
 # Send OptOut API requests with API (HMAC)
+
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
 This article describes how to enable opt-out management for your Azure Communication Services resource using hash message authentication code (HMAC) based authentication.
 
