@@ -69,6 +69,7 @@ When you enable ZRS, you're charged at a different rate than LRS due to the addi
 
 - **Create a blob storage account with zone redundancy:** To create a new storage account with zone-redundant storage, see [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage(GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation.
 
+<!-- John: We have a migration document for storage. Have you taken that into consideration. Do we break that out into a how-to?-->
 - **Migration**. To convert an existing storage account to ZRS and learn about migration options and requirements, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration).
 
 - **Disable zone redundancy.** Convert ZRS accounts back to a nonzonal configuration (LRS) through the same redundancy configuration change process.
