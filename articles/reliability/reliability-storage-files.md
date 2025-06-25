@@ -21,7 +21,9 @@ To learn about how to deploy Azure Files to support your solution's reliability 
 
 ## Reliability architecture overview
 
-Azure Files implements redundancy at the storage account level, with file shares inheriting the redundancy configuration. The service supports multiple redundancy models that differ in their approach to data protection:
+Azure Files is available in two tiers: the premium tier uses solid state disks (SSD) for high performance, and the standard tier supports hard disk drives (HDD) for cost efficiency. To learn more about Azure Files tiers, see [Plan to deploy Azure Files](/azure/storage/files/storage-files-planning#storage-tiers).
+
+Azure Files implements redundancy at the storage account level, with file shares inheriting the redundancy configuration. The service supports multiple redundancy models that differ in their approach to data protection.
 
 <!-- The rest of this section is copied from the Blob guide -->
 [Locally redundant storage (LRS)](/azure/storage/common/storage-redundancy?branch=main#locally-redundant-storage), the lowest-cost redundancy option, automatically stores and replicates three copies of your storage account within a single datacenter. Although LRS protects your data against server rack and drive failures, it doesn't account for disasters such as fire or flooding within a datacenter. In the face of such disasters, all replicas of a storage account configured to use LRS might be lost or unrecoverable.
@@ -34,11 +36,7 @@ Zone-redundant storage and geo-redundant storage provide additional protections,
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-To effectively manage transient faults when using Azure Files, implement the following recommendations:
-
-- **Use the Azure Storage client libraries** which include built-in retry policies with exponential backoff and jitter. The .NET, Java, Python, and JavaScript SDKs automatically handle retries for transient failures. For detailed retry configuration options, see [Azure Storage retry policy guidance](/azure/storage/blobs/storage-retry-policy). <!-- TODO check if there's a files one -->
-
-- **Configure appropriate timeout values** for your file operations based on file size and network conditions. Larger files require longer timeouts, while smaller operations can use shorter values to detect failures quickly. <!-- PG: Please verify this is valid advice. -->
+To effectively manage transient faults when using Azure Files, configure appropriate timeout values for your file operations based on file size and network conditions. Larger files require longer timeouts, while smaller operations can use shorter values to detect failures quickly. <!-- PG: Please verify this is valid advice. -->
 
 ## Availability zone support
 
@@ -51,26 +49,9 @@ Azure Files provides robust availability zone support through zone-redundant sto
 
 ### Region support
 
-<!-- TODO check this. Looks like SSD file shares are supported in a subset of regions: https://learn.microsoft.com/en-us/azure/storage/files/redundancy-premium-file-shares#zrs-support-for-ssd-azure-file-shares -->
+ZRS is supported in HDD (standard) file shares in [all regions with availability zones](./regions-list.md).
 
-Zone-redundant Azure Files can be deployed in any region that supports availability zones, with the following exceptions:
-- Australia East
-- Brazil South  
-- Canada Central
-- Central India
-- Korea Central
-
-For the complete list of regions that support availability zones, see [Azure regions with availability zones](./regions-list.md).
-
-### Requirements
-
-<!-- TODO check this -->
-
-Zone redundancy is available for the following storage account types:
-
-- Standard general-purpose v2 storage accounts with Standard_ZRS SKU
-- Premium FileStorage accounts with Premium_ZRS SKU
-- Standard HDD file shares and premium SSD file shares.
+ZRS is supported for SSD (premium) file shares through the `FileStorage` storage account kind. For a list of regions that support ZRS for SSD file share accounts, see [ZRS support for SSD file shares](/azure/storage/files/redundancy-premium-file-shares#zrs-support-for-ssd-azure-file-shares).
 
 ### Cost
 
@@ -163,7 +144,7 @@ Geo-redundant storage, as well as customer initiated failover and failback are a
 
 ### Requirements
 
-You must use Standard general-purpose v2 storage accounts with standard HDD file shares to enable geo-redundant storage. Premium FileStorage accounts and premium SSD file shares do not support geo-redundant configurations. For information on to configure multi-region support with Premium SSD file shares, see [Alternative Multi-region approaches](#alternative-multi-region-approaches).
+Azure Files only supports geo-redundancy (GRS or GZRS) for standard (HDD) file shares. Premium (SSD) file shares must use LRS or ZRS. If you have premium file shares and you want to replicate the data across regions for higher resiliency, see [Alternative multi-region approaches](#alternative-multi-region-approaches).
 
 ### Considerations
 
@@ -295,13 +276,13 @@ You can design a cross-region failover solution tailored to your needs. A comple
 
 - **Multiple storage accounts:** Azure Files can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
 
-- **Azure File Sync**: Deploy [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) with sync servers in multiple regions connected to regional file shares. This provides multi-region access with local performance while maintaining central management.
+- **Azure File Sync**: Deploy [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) with sync servers in multiple regions connected to regional file shares. This provides multi-region access with local performance while maintaining central management. For an example approach, see [Sync between two Azure file shares for Backup and Disaster Recovery](https://github.com/Azure-Samples/azure-files-samples/tree/master/SyncBetweenTwoAzureFileSharesForDR).
 
 - **Application-level replication**: Implement custom replication logic using [Azure Data Factory](/azure/data-factory/introduction) or [AzCopy](/azure/storage/common/storage-use-azcopy-v10) to synchronize data between file shares in different regions. This approach requires custom development and conflict resolution mechanisms.
 
 ## Backups
 
-<!-- TODO compare to blob storage once edited -->
+<!-- Anastasia: I'll revisit this after we finalise the 'backups' section in the blob storage article. -->
 
 Azure Files integrates with Azure Backup to provide point-in-time recovery capabilities that complement redundancy features for protection against accidental deletion, corruption, or ransomware attacks.
 
