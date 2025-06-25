@@ -11,7 +11,7 @@ ms.custom:
 
 # Manage your Cloud NGFW by Palo Alto Networks resource by using the Azure portal
 
-After you create your Cloud NGFW by Palo Alto Networks resource, you might need to get information about it or change it. 
+After you create your Cloud NGFW by Palo Alto Networks resource, you might need to get information about it or change its settings. 
 
 ## Resource overview 
 
@@ -38,7 +38,7 @@ To change the Cloud NGFW's billing plan, go to **Overview** and select **Change 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 > [!NOTE]
-> The delete button on the main account is only activated if all the sub-accounts mapped to the main account are already deleted. For more information, see [Azure Resource Manager resource group and resource deletion](/azure/azure-resource-manager/management/delete-resource-group).
+> The **Delete** button on the resource is activated only if all connected resources are already deleted. For more information, see [Azure Resource Manager resource group and resource deletion](/azure/azure-resource-manager/management/delete-resource-group).
 
 ## Next step
 
