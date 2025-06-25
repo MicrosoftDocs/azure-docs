@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 03/28/2025
 ms.author: kendownie
+# Customer intent: "As a system administrator, I want to understand the migration process to SMB Azure file shares, so that I can efficiently move our data with full fidelity and select the appropriate tools for a seamless transition to cloud storage."
 ---
 
 # Migrate to SMB Azure file shares
