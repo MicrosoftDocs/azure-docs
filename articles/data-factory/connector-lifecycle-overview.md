@@ -68,7 +68,7 @@ When a version reaches its end-of-support date, users are no longer allowed to c
 
 In addition to major and minor version updates, the service also delivers new features and bug fixes that are fully backward compatible with your existing setup. These changes do not require a version update to the connector. Depending on the nature of the change, users may either receive the improvements automatically or have the option to enable new features as needed. This approach ensures a seamless experience while maintaining stability and flexibility.
 
-## Automatic Connector Upgrade 
+## Automatic connector upgrade 
 
 In addition to providing [tools](connector-upgrade-advisor.md) and [best practices](connector-upgrade-guidance.md) to help users manually upgrade their connectors, the service now also provides a more streamlined upgrade process for some cases where applicable. This is designed to help users adopt the most reliable and supported connector versions with minimal disruption.
 
