@@ -36,7 +36,7 @@ After you enable secure settings, the resource group that contains your Azure Io
 
 Ensure that when you configure secure settings that you [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the **Key Vault Secrets Officer** role.
 
-To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites).
+To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-configure-opcua.md#prerequisites).
 
 Unless otherwise noted, you can run the console commands in this tutorial in either a Bash or PowerShell environment.
 

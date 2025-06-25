@@ -111,8 +111,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-manage-assets-remotely.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-manage-assets-remotely",
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opcua.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opcua",
             "redirect_document_id": true
         },
         {
@@ -549,6 +549,16 @@
             "source_path_from_root": "/articles/iot-operations/reference/observability-metrics-akri.md",
             "redirect_url": "/azure/iot-operations/reference/observability-metrics-opcua-broker",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-operations/discover-manage-assets/concept-assets-devices.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/concept-assets-devices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-operations/discover-manage-assets/howto-manage-assets-remotely.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opcua",
+            "redirect_document_id": true
         }
     ]
 }

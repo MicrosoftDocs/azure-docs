@@ -95,7 +95,7 @@ From the list of discovered assets, you can import an asset into your Azure IoT 
 
     :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/provisioned-asset.png" alt-text="Screenshot that shows how to view the imported asset.":::
 
-To learn more about managing asset configurations, see [Manage asset configurations remotely](howto-manage-assets-remotely.md).
+To learn more about managing asset configurations, see [Manage asset configurations remotely](howto-configure-opcua.md).
 
 ## Review the asset definitions in the Azure portal (optional)
 
