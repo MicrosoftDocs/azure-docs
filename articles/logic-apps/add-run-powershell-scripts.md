@@ -23,7 +23,7 @@ This capability provides the following benefits:
 
 - Write your own scripts within the workflow designer so you can solve complex integration challenges. No other service plans are necessary.
 
-  This benefit streamlines workflow development, and it reduces the complexity and cost with managing more services.
+  This benefit reduces the complexity and cost because you can manage more services and streamlines workflow development.
 
 - Generate a dedicated code file, which provides a personalized scripting space within your workflow.
 
@@ -68,7 +68,7 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
 1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
 
-1. Add the **Inline Code Operations** action named **Execute PowerShell Code** to your workflow by following the [general steps to add a trigger](add-trigger-action-workflow.md?tabs=standard#add-action).
+1. Add the **Inline Code Operations** action named **Execute PowerShell Code** to your workflow by following the [general steps to add an action](add-trigger-action-workflow.md?tabs=standard#add-action).
 
 1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopulated sample code with your own code.
 
@@ -224,7 +224,7 @@ From inside the **Execute PowerShell Code** action, you can authenticate and aut
 
 To use the managed identity from inside the **Execute PowerShell Code** action, you must follow these steps:
 
-1. Set up the managed identity on your logic app and grant the managed identity access on the target Azure resource. To learn how, see [Authenticate access and connections to Azure resources with managed identities](authenticate-with-managed-identity.md?tabs=standard).
+1. Set up the managed identity on your logic app and grant the managed identity access on the target Azure resource. For detailed steps, see [Authenticate access and connections to Azure resources with managed identities](authenticate-with-managed-identity.md?tabs=standard).
 
    On the target Azure resource, review the following considerations:
 
@@ -291,7 +291,7 @@ A module organizes PowerShell code, making it easier to distribute. For example,
 
 To find publicly available modules, visit the [PowerShell gallery](https://www.powershellgallery.com). A Standard logic app resource can support up to 10 public modules. To use any public module, you must enable this capability by following these steps:
 
-1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under Development Tools, select **Advanced Tools**.
+1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**.
 
@@ -299,7 +299,7 @@ To find publicly available modules, visit the [PowerShell gallery](https://www.p
 
 1. Browse to your logic app's root level at **C:\home\site\wwwroot** by using the directory structure or the command line.
 
-1. Open the workflow's *host.json* file, and set the **managed dependency** property to **true**, which is already set by default.
+1. Open the workflow's *host.json* file, and set the `ManagedDependency.enabled` property to `true`, which is already set by default.
 
    ```json
    "managedDependency": {
@@ -328,7 +328,7 @@ If you use dependency management, the following considerations apply:
 
 You can generate your own private PowerShell modules. To create your first PowerShell module, see [Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
-1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under Development Tools, select **Advanced Tools**.
+1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**.
 
