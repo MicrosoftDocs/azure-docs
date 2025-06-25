@@ -29,7 +29,7 @@ The following diagram demonstrates a typical architecture of Azure NetApp Files 
 Before you begin the prerequisites, review the [Performance best practices](#performance-best-practices) section to learn about optimal performance of NFS datastores on Azure NetApp Files volumes.
 
 >[!IMPORTANT]
->Ensure you have the correct permissions configured if you're using a custom role.
+>As of July 2025, creating and deleting a datastore in Azure VMware Solution and changing the service level of an Azure NetApp Files datastore requires appropriate permissions. If you are using built-in roles, like Owner and Contributor, across the these two services, no changes are necessary. Ensure you have the correct permissions configured if you're using custom roles.
 ><details><summary>For a complete list of permissions, expand this section.</summary>
 >
 >To create an Azure NetApp Files datastore, you must have the following permissions: 
