@@ -226,6 +226,11 @@
       href: resiliency-validation.md
 - name: Security
   items:
+<<<<<<< HEAD
+=======
+    - name: Secure your Expressroute
+      href: secure-expressroute.md
+>>>>>>> f3db198ba89abe2ec14d679f84e0a2ddff4e520a
     - name: Security baseline
       href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
     - name: Roles and permissions
@@ -348,6 +353,7 @@
     - name: ExpressRoute for Cloud Solution Providers (CSP)
       href: expressroute-for-cloud-solution-providers.md
     - name: Videos
+<<<<<<< HEAD
       href: https://azure.microsoft.com/documentation/videos/index/?services=expressroute
       items:
         - name: Connect a virtual network gateway to a circuit
@@ -366,6 +372,17 @@
           href: /events/ignite-2015/brk1454
         - name: Set up Microsoft peering for your circuit
           href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
+=======
+      items:
+        - name: Videos
+          href: /shows/Inside-Azure-for-IT/?products=azure-expressroute
+        - name: Microsoft Azure hybrid connectivity overview
+          href: /shows/inside-azure-for-it/microsoft-azure-hybrid-connectivity-overview
+        - name: Evolve your network infrastructure for connectivity
+          href: /events/ignite-2015/brk2481
+        - name: 'Hybrid partnerships: Enabling on-premises scenarios'
+          href: /events/ignite-2015/brk1454
+>>>>>>> f3db198ba89abe2ec14d679f84e0a2ddff4e520a
     - name: Classic and legacy articles
       items:
         - name: Modify a circuit

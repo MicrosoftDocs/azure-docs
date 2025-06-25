@@ -54,17 +54,13 @@
     items:
     - name: About gateway SKUs
       href: about-gateway-skus.md
-    - name: Gateway SKU consolidation & migration
-      items:
-      - name: About SKU consolidation & migration
-        href: gateway-sku-consolidation.md
-    - name: Resize a gateway SKU
-      href: gateway-sku-resize.md
-    - name: Change a gateway SKU
-      href: gateway-sku-change.md
+    - name: About gateway SKU consolidation & migration
+      href: gateway-sku-consolidation.md
+    - name: Upgrade a gateway SKU
+      href: gateway-sku-upgrade.md
     - name: Manage legacy gateway SKUs
       href: vpn-gateway-about-skus-legacy.md
-  - name: Public IP addresses
+  - name: Public IP address SKUs
     items:
     - name: About Basic SKU public IP address migration
       href: basic-public-ip-migrate-about.md
@@ -96,10 +92,6 @@
       href: about-gateway-skus.md
     - name: Gateway SKU consolidation
       href: gateway-sku-consolidation.md
-    - name: Resize a gateway SKU
-      href: gateway-sku-resize.md
-    - name: Change a gateway SKU
-      href: gateway-sku-change.md
     - name: Manage legacy gateway SKUs
       href: vpn-gateway-about-skus-legacy.md
   - name: Migrate classic gateways to Resource Manager
@@ -156,6 +148,8 @@
     href: add-remove-site-to-site-connections.md
   - name: Forced tunneling
     href: about-site-to-site-tunneling.md
+  - name: Custom traffic selectors
+    href: custom-traffic-selectors.md
   - name: Configure custom IPsec/IKE connection policies
     items:
     - name: Azure portal
@@ -368,6 +362,8 @@
       href: nat-overview.md
     - name: Configure NAT for VPN Gateway
       href: nat-howto.md
+  - name: Custom traffic selectors
+    href: custom-traffic-selectors.md
   - name: Point-to-site routing
     items:
     - name: Advertise custom routes to P2S clients

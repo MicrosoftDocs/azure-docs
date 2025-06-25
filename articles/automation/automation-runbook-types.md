@@ -7,6 +7,8 @@ ms.date: 09/09/2024
 ms.topic: overview
 ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Azure Automation runbook types

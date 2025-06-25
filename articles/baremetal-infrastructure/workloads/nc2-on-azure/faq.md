@@ -15,6 +15,20 @@ ms.service: azure-baremetal-infrastructure
 
 This article addresses questions most frequently asked about NC2 on Azure.
 
+## How does the 30-day free trial work?
+
+To help you evaluate NC2 on Azure, Nutanix offers and manages a 30-day free trial. You can sign up for the trial with Nutanix. The following considerations are important:
+
+**Cost coverage**: The BareMetal cluster nodes have no cost through the trial. Additional components like VMs for Flow Gateway networking and other Azure services are billed and not included in the trial.
+
+**Trial duration**: The trial begins with the initial hardware node deployment and lasts for 30 consecutive days. It cannot be paused, and the start date is fixed regardless of cluster activity.
+
+**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial does not reset, and you will be billed.
+
+**Track the trial period**: Nutanix software tracks trial periods for the NC2 software, but this may not align with the initial BareMetal deployment date. You should track your BareMetal deployment date manually as there is no visible trial date tracker in the software.
+
+For more information, see [Start your free trial today with Nutanix on Azure](https://www.nutanix.com/products/nutanix-cloud-clusters/azure/free-trial)
+
 ## What is Hyperconverged Infrastructure (HCI)?
 
 Hyper-converged infrastructure (HCI) uses locally attached storage resources to combine common data center hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)

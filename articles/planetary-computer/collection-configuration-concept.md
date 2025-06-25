@@ -3,7 +3,7 @@ title: Collection configuration guide for Microsoft Planetary Computer Pro
 description: "This article describes collection configuration in Microsoft Planetary Computer Pro."
 author: beharris
 ms.author: brentharris
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: concept-article #Don't change.
 ms.date: 04/24/2025
 

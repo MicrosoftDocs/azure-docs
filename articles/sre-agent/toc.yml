@@ -1,0 +1,23 @@
+items:
+- name: Azure SRE Agent documentation
+  href: index.yml
+- name: Get started
+  expanded: true
+  items:
+    - name: About Azure SRE Agent
+      href: overview.md
+    - name: Use Azure SRE Agent
+      href: usage.md
+    - name: Tutorials
+      items:
+      - name: Troubleshoot App Service
+        href: troubleshoot-azure-app-service.md
+      - name: Troubleshoot Container Apps
+        href: troubleshoot-azure-container-apps.md
+- name: Key concepts
+  expanded: true
+  items:
+    - name: Autonomous vs review mode
+      href: permissions.md
+    - name: Billing
+      href: billing.md

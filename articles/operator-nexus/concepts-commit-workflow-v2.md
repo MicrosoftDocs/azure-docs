@@ -19,12 +19,20 @@ With this update, users can lock configuration states, preview device-level chan
 
 Commit Workflow v2 is built around a structured change management flow. The following core features are available:
 
-- **Explicit configuration locking:** Users must explicitly lock the configuration of a Network Fabric resource after making changes. This process ensures updates are applied in a predictable and controlled manner.
+- **Explicit configuration locking:**
+  Users must explicitly lock the configuration of a Network Fabric resource after making changes. This process ensures updates are applied in a predictable and controlled manner.
 
-- **Full device configuration preview:** Enables visibility into the exact configuration that is applied to each device before the commit. This helps validate intent and catch issues early.
+- **Full device configuration preview:**
+  Enables visibility into the exact configuration that is applied to each device before the commit. This helps validate intent and catch issues early.
 
-- **Commit configuration to devices**
+- **Commit configuration to devices:**
   Once validated, changes can be committed to the devices. This final step applies the locked configuration updates across the fabric.
+
+- **Discard Batch Updates:**
+  Allows rollback of all uncommitted resource changes to their last known state.
+
+- **Enhanced Constraints:**
+  Enforces strict update rules during lock/maintenance/upgrade phases for stability.
 
 ## Prerequisites
 
@@ -52,33 +60,57 @@ Before using Commit Workflow v2, ensure the following environment requirements a
 
 Commit Workflow v2 introduces new operational expectations and constraints to ensure consistency and safety in configuration management:
 
-- **Availability & Irreversibility**
+### Availability & locking rules 
 
-Commit Workflow v2 is only available after upgrading to Runtime Version 5.0.1. Once upgraded, reverting to Commit Workflow v1 is n't supported.
+- Available only on Runtime Version 5.0.1+. Downgrade to v1 isn't supported.
 
-- **Configuration lock requirements**
+- Locking is allowed only when:
 
-Locking is only possible when:
+  - No commit is in progress.
 
-- There's no ongoing commit operation.
+  - Fabric isn't under maintenance or upgrade.
 
-- The fabric isn't in maintenance or upgrade mode.
+  - Fabric is in an administrative enabled state.
 
-- The fabric is in an administrative enabled state.
+### Unsupported during maintenance or upgrade
 
-- **Unsupported during maintenance or upgrade**
+`Lock`, `ViewDeviceConfiguration`, and `related post-actions` aren't allowed during maintenance or upgrade windows.
 
-Configuration Lock and View Device Configuration aren't allowed during maintenance or upgrade windows.
+### Commit Finality
 
-- **Commit is final**
+Once committed, changes **can't be rolled back**. Any further edits require a new lock-validate-commit cycle.
 
-Once a configuration is committed, it can't be rolled back. Future changes must go through another lock-commit cycle.
+### Discard Batch Behavior
+
+- The `discard-commit-batch` operation:
+
+  - Reverts all ARM resource changes to their last known good state.
+
+  - Updates admin/config states (for example, external/internal networks become disabled and rejected).
+
+  - Doesn't delete resources; users must delete them manually if desired.
+
+  - Enables further patching to reapply changes.
+
+- When the discard batch action is performed:
+
+  - The administrative state of internal/external network resources moves to disabled and their configuration state to rejected; however, the resources aren't deleted automatically. A separate delete operation is required for removal.
+
+  - Enabled Network Monitor resources attached to a fabric can't be attached to another fabric unless first detached and committed.
+
+  - For Network Monitor resources in administrative state disabled (in commit queue), discard batch moves the config state to rejected. Users can reapply updates (PUT/patch) and commit again to enable.
+
+### Resource update restrictions
+
+**Post-lock**, only a limited set of `Create`/`Update`/`Delete` (CUD) actions are supported (for example, unattached ACLs, TAP rules).
+
+Device-impacting resources (like Network-to-Network Interconnect (NNI), Isolation Domain (ISD), Route Policy, or ACLs attached to parent resources) are blocked during configuration lock.
 
 ### Supported resource actions via Commit workflow v2 (when parent resources are in administrative state – Enabled)
 
 | **Supported resource actions which require commit workflow**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | **Unsupported resource actions which doesn’t require commit workflow**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **All resource updates impacting device configuration:**<br>• Updates to Network Fabric resource<br>• Updates to Network-to-Network Interconnect (NNI)<br>• Updates to ISD (L2 and L3)<br>• Creation and updates to Internal and External Networks of enabled L3 ISD<br>• Addition/updates/removal of Route Policy in Internal, External, ISD, and NNI resources<br>• Addition/updates/removal of IP Prefixes, IP Community, and Extended IP Community when attached to Route Policy or Fabric<br>• Addition/updates/removal of ACLs to Internal, External, ISD, and NNI resources<br>• Addition/updates/removal of Network Fabric resource in Network Monitor resource<br>• Additional description updates to Network Device properties<br>• Creation of multiple NNI | **Creation/updating of resources not impacting device configuration:**<br>• Creation of Isolation Domain (ISD) (L3 and L2)<br>• Network Fabric Controller (NFC) creation/updates<br>• Creation and updates to Network TAP rules, Network TAP, Neighbor groups<br>• Creation and updates to Network TAP rules, Network TAP, Neighbor groups<br>• Creation of new Route Policy and connected resources (IP Prefix, IP Community, IP Extended Community)<br>• Update of Route Policy and connected resources when not attached to ISD/Internal/External/NNI<br>• Creation/update of new Access Control List (ACL) which is not attached<br><br>**ARM resources updates only:**<br>• Tag updates for all supported resources<br><br>**Other administrative actions and post actions which manage lifecycle events:**<br>• Enabling/Disabling Isolation Domain (ISD), Return Material Authorization (RMA), Upgrade, and all administrative actions (enable/disable), serial number update<br>• Deletion of all Nexus Network Fabric (NNF) resources |
+| **All resource updates impacting device configuration:**<br>• Updates to Network Fabric resource<br>• Updates to Network-to-Network Interconnect (NNI)<br>• Updates to ISD (L2 and L3)<br>• Creation and updates to Internal and External Networks of enabled L3 ISD<br>• Addition/updates/removal of Route Policy in Internal, External, ISD, and NNI resources<br>• Addition/updates/removal of IP Prefixes, IP Community, and Extended IP Community when attached to Route Policy or Fabric<br>• Addition/updates/removal of ACLs to Internal, External, ISD, and NNI resources<br>• Addition/updates/removal of Network Fabric resource in Network Monitor resource<br>• Additional description updates to Network Device properties<br>• Creation of multiple NNI | **Creation/updating of resources not impacting device configuration:**<br>• Creation of Isolation Domain (ISD) (L3 and L2)<br>• Network Fabric Controller (NFC) creation/updates<br>• Creation and updates to Network TAP rules, Network TAP, Neighbor groups<br>• Creation and updates to Network TAP rules, Network TAP, Neighbor groups<br>• Creation of new Route Policy and connected resources (IP Prefix, IP Community, IP Extended Community)<br>• Update of Route Policy and connected resources when not attached to ISD/Internal/External/NNI<br>• Creation/update of new Access Control List (ACL) which isn't attached<br><br>**ARM resources updates only:**<br>• Tag updates for all supported resources<br><br>**Other administrative actions and post actions which manage lifecycle events:**<br>• Enabling/Disabling Isolation Domain (ISD), Return Material Authorization (RMA), Upgrade, and all administrative actions (enable/disable), serial number update<br>• Deletion of all Nexus Network Fabric (NNF) resources |
 
 
 ### Allowed actions after configuration lock
@@ -87,7 +119,7 @@ Here's a clear, structured table showing **Supported actions post configuration 
 
 ---
 
-### **Supported and unsupported actions Post configuration lock**
+### **Supported and unsupported actions post configuration lock**
 
 | **Actions**                          | **Supported resource actions when fabric is under configuration lock**                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | **Unsupported resource actions when fabric is under configuration lock**                                                                                                                                                                                                                                                                                                                                                                                           |
 | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
