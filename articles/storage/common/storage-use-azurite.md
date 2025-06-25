@@ -3,7 +3,7 @@ title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 01/26/2024
+ms.date: 06/24/2025
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
@@ -33,7 +33,7 @@ Azurite is automatically available with [Visual Studio 2022](https://visualstudi
 
 In Visual Studio Code, select the **Extensions** icon and search for **Azurite**. Select the **Install** button to install the Azurite extension.
 
-:::image type="content" source="./media/storage-use-azurite/azurite-vs-code-extension.png" alt-text="A screenshot showing how to search for and install the Azurite extension in Visual Studio Code." lightbox="media/storage-use-azurite/azurite-vs-code-extension.png":::
+:::image type="content" source="./media/storage-use-azurite/azurite-vs-code-extension.png" alt-text="A screenshot showing how to search for and install the Azurite extension in Visual Studio Code.":::
 
 You can also navigate to [Visual Studio Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
 
@@ -41,27 +41,32 @@ You can also navigate to [Visual Studio Code extension market](https://marketpla
 
 To configure Azurite settings within Visual Studio Code, select the **Extensions** icon. Select the **Manage** gear button for the **Azurite** entry. Select **Extension Settings**.
 
-:::image type="content" source="./media/storage-use-azurite/azurite-configure-extension-settings.png" alt-text="A screenshot showing how to modify the Azurite extension settings." lightbox="media/storage-use-azurite/azurite-configure-extension-settings.png":::
+:::image type="content" source="./media/storage-use-azurite/azurite-configure-extension-settings-sml.png" alt-text="A screenshot showing how to modify the Azurite extension settings." lightbox="media/storage-use-azurite/azurite-configure-extension-settings.png":::
 
 The following settings are supported:
 
-   - **azurite.blobHost** - The Blob service listening endpoint. The default setting is 127.0.0.1.
-   - **azurite.blobPort** - The Blob service listening port. The default port is 10000.
-   - **azurite.queueHost** - The Queue service listening endpoint. The default setting is 127.0.0.1.
-   - **azurite.queuePort** - The Queue service listening port. The default port is 10001.
-   - **azurite.tableHost** - The Table service listening endpoint, by default setting is 127.0.0.1.
-   - **azurite.tablePort** - The Table service listening port, by default 10002.
-   - **azurite.cert** - Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode.
-   - **azurite.debug** - Output the debug log to the Azurite channel. The default value is **false**.
-   - **azurite.key** - Path to a locally trusted PEM key file, required when **Azurite: Cert** points to a PEM file.
-   - **azurite.location** - The workspace location path. The default is the Visual Studio Code working folder.
-   - **azurite.loose** - Enable loose mode, which ignores unsupported headers and parameters.
-   - **azurite.oauth** - Optional OAuth level.
-   - **azurite.pwd** - Password for PFX file. Required when **Azurite: Cert** points to a PFX file.
 
-   - **azurite.silent** - Silent mode disables the access log. The default value is **false**.
-   - **azurite.skipApiVersionCheck** - Skip the request API version check. The default value is **false**.
-   - **azurite.disableProductStyleUrl** Force the parsing of the storage account name from request Uri path, instead of from request Uri host.
+| Setting   | Description  | Default setting  |
+|-----------|--------------|------------------|
+| **azurite.blobHost** | The Blob service listening endpoint. | 127.0.0.1 |
+| **azurite.blobPort** | The Blob service listening port. | 10000 |
+| **azurite.queueHost** | The Queue service listening endpoint. | 127.0.0.1 |
+| **azurite.queuePort** | The Queue service listening port. | 10001 |
+| **azurite.tableHost** | The Table service listening endpoint. | 127.0.0.1 |
+| **azurite.tablePort** | The Table service listening port. | 10002 |
+| **azurite.cert** | Path to a locally trusted PEM or PFX certificate file path to enable HTTPS mode. | None |
+| **azurite.debug** | Output the debug log to the Azurite channel. | false |
+| **azurite.key** | Path to a locally trusted PEM key file, required when **Azurite: Cert** points to a PEM file. | None |
+| **azurite.location** | The workspace location path. | Visual Studio Code working folder |
+| **azurite.loose** | Enable loose mode, which ignores unsupported headers and parameters. | *false* |
+| **azurite.oauth** | Optional OAuth level. | None |
+| **azurite.pwd** | Password for PFX file. Required when **Azurite: Cert** points to a PFX file. | None |
+| **azurite.silent** | Silent mode disables the access log. | *false* |
+| **azurite.skipApiVersionCheck** | Skip the request API version check. | *false* |
+| **azurite.disableProductStyleUrl** | Force the parsing of the storage account name from request Uri path, instead of from request Uri host. | *false* |
+| **azurite.inMemoryPersistence** | Disable persisting any data to disk and only store data in-memory. | *false* |
+| **azurite.extentMemoryLimit** | The in-memory extent store (for blob and queue content) limit in megabytes. | 50% of the total memory on the host machine |
+| **azurite.disableTelemetry** | Disable telemetry data collection for the current Azurite execution. | *false* |
 
 ### [npm](#tab/npm)
 
@@ -127,6 +132,7 @@ You can find the Azurite executable file in the extensions folder of your Visual
 Navigate to the appropriate location and start `azurite.exe`. After you run the executable file, Azurite listens for connections. 
 
 > [!div class="mx-imgBorder"]
+> :::image type="content" source="media/storage-use-azurite/azurite-command-line-output-vs-sml.png" alt-text="Screen capture of Azurite command-line output." lightbox="media/storage-use-azurite/azurite-command-line-output-vs.png":::
 > ![Azurite command-line output](media/storage-use-azurite/azurite-command-line-output-vs.png)
 
 To learn more about available command line options to configure Azurite, see [Command line options](#command-line-options).
@@ -135,11 +141,11 @@ To learn more about available command line options to configure Azurite, see [Co
 
 In Visual Studio 2022, create an **Azure Functions** project. While setting the project options, mark the box labeled **Use Azurite for runtime storage account**.
 
-:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions.png" alt-text="A screenshot showing how to set Azurite to be the runtime storage account for an Azure Functions project." lightbox="media/storage-use-azurite/azurite-azure-functions.png":::
+:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions-sml.png" alt-text="A screenshot showing how to set Azurite to be the runtime storage account for an Azure Functions project." lightbox="media/storage-use-azurite/azurite-azure-functions.png":::
 
 After you create the project, Azurite starts automatically. The location of the Azurite executable file is detailed in the [Azurite executable file location table](#azurite-executable-file-location). The output looks similar to the following screenshot:
 
-:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions-output.png" alt-text="A screenshot showing output after setting Azurite to be the runtime storage account for an Azure Functions project." lightbox="media/storage-use-azurite/azurite-azure-functions-output.png":::
+:::image type="content" source="./media/storage-use-azurite/azurite-azure-functions-output-sml.png" alt-text="A screenshot showing output after setting Azurite to be the runtime storage account for an Azure Functions project." lightbox="media/storage-use-azurite/azurite-azure-functions-output.png":::
 
 This configuration option can be changed later by modifying the project's **Connected Services** dependencies.
 
@@ -147,11 +153,11 @@ This configuration option can be changed later by modifying the project's **Conn
 
 In Visual Studio 2022, create an **ASP.NET Core Web App** project. Then, open the **Connected Services** dialog box, select **Add a service dependency**, and then select **Storage Azurite emulator**.
 
-:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connect.png" alt-text="A screenshot showing how to add Azurite as a dependency to an ASP.NET project." lightbox="media/storage-use-azurite/azurite-aspnet-connect.png":::
+:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connect-sml.png" alt-text="A screenshot showing how to add Azurite as a dependency to an ASP.NET project." lightbox="media/storage-use-azurite/azurite-aspnet-connect.png":::
 
 In the **Configure Storage Azurite emulator** dialog box, set the **Connection string name** field to `StorageConnectionString`, and then select **Finish**.
 
-:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connection-string.png" alt-text="A screenshot showing how to configure a connection string to use Azurite with an ASP.NET project." lightbox="media/storage-use-azurite/azurite-aspnet-connection-string.png":::
+:::image type="content" source="./media/storage-use-azurite/azurite-aspnet-connection-string-sml.png" alt-text="A screenshot showing how to configure a connection string to use Azurite with an ASP.NET project." lightbox="media/storage-use-azurite/azurite-aspnet-connection-string.png":::
 
 When the configuration completes, select **Close**, and the Azurite emulator starts automatically. The location of the Azurite executable file is detailed in the [Azurite executable file location table](#azurite-executable-file-location). The output looks similar to the following screenshot:
 
