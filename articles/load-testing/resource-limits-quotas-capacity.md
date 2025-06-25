@@ -75,7 +75,9 @@ To raise the limit or quota above the default limit, [open an online customer su
 
 1. Enter "quota" in **Describe your issue** and press the **go** button.
 
-1. Select **Service and Subscription Limits (Quotas)** in **Which service are you having an issue with?** and click **Next** button.
+1. Select **Service and Subscription Limits (Quotas)** in **Which service are you having an issue with?**.
+
+1. Select **Next** to continue.
 
 1. Click the **Create a support request** button on the screen.
 
