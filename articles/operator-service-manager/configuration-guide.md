@@ -15,7 +15,7 @@ This article provides Azure Operator Service Manager (AOSM) guidelines to optimi
 JSON Schema is an Internet Engineering Task Force (IETF) standard providing a format for what JSON data is required for a given application and how to interact with it. Applying such standards for a JSON document lets you enforce consistency and data validity across JSON data
 
 ### Where is JSON schema used
-* AOSM service uses JSON schema notation as a meta-schema within CGS `ConfigurationGroupSchemaPropertiesFormat` object `schemaDefinition` properties. For more information on CGS, see the [swagger documentation](https://learn.microsoft.com/en-us/rest/api/hybridnetwork/configuration-group-schemas/create-or-update).
+* AOSM service uses JSON schema notation as a meta-schema within CGS `ConfigurationGroupSchemaPropertiesFormat` object `schemaDefinition` properties.
 * AOSM service allows the designer and publisher to specify the JSON schema where operator must provide data (JSON Values) when instantiating an SNS/NF.
 * AOSM service allows the meta-schema properties be optional or required. Where a property is marked required, it must be specified in the values Json.  
 
