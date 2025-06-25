@@ -48,6 +48,8 @@
     href: virtual-wan-global-transit-network-architecture.md
   - name: SD-WAN connectivity architecture
     href: sd-wan-connectivity-architecture.md
+  - name: Disaster recovery design
+    href: disaster-recovery-design.md
   - name: Private Link and DNS architecture for Virtual WAN
     href: /azure/architecture//guide/networking/private-link-virtual-wan-dns-guide?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Configure Virtual WAN for Azure NetApp Files

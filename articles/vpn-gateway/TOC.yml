@@ -150,6 +150,8 @@
     href: add-remove-site-to-site-connections.md
   - name: Forced tunneling
     href: about-site-to-site-tunneling.md
+  - name: Custom traffic selectors
+    href: custom-traffic-selectors.md
   - name: Configure custom IPsec/IKE connection policies
     items:
     - name: Azure portal
@@ -362,6 +364,8 @@
       href: nat-overview.md
     - name: Configure NAT for VPN Gateway
       href: nat-howto.md
+  - name: Custom traffic selectors
+    href: custom-traffic-selectors.md
   - name: Point-to-site routing
     items:
     - name: Advertise custom routes to P2S clients
