@@ -1,8 +1,8 @@
 ---
 title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 06/24/2025
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
@@ -168,7 +168,7 @@ This configuration option can be changed later by modifying the project's **Conn
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 > [!NOTE]
-> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette to run commands. Configuration settings are detailed at [Configure Azurite extension settings](#configure-azurite-extension-settings).
+> Azurite can't be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette to run commands. Configuration settings are detailed at [Configure Azurite extension settings](#configure-azurite-extension-settings).
 
 The Azurite extension supports the following Visual Studio Code commands. To open the command palette, press **F1** in Visual Studio Code.
 
@@ -268,7 +268,7 @@ azurite --blobHost 0.0.0.0
 ```
 
 > [!CAUTION]
-> Allowing remote requests may make your system vulnerable to external attacks.
+> Allowing remote requests might make your system vulnerable to external attacks.
 
 #### [Queue Storage](#tab/queue-storage)
 
@@ -287,7 +287,7 @@ azurite --queueHost 0.0.0.0
 ```
 
 > [!CAUTION]
-> Allowing remote requests may make your system vulnerable to external attacks.
+> Allowing remote requests might make your system vulnerable to external attacks.
 
 #### [Table Storage](#tab/table-storage)
 
@@ -306,7 +306,7 @@ azurite --tableHost 0.0.0.0
 ```
 
 > [!CAUTION]
-> Allowing remote requests may make your system vulnerable to external attacks.
+> Allowing remote requests might make your system vulnerable to external attacks.
 
 ---
 
@@ -466,7 +466,7 @@ azurite --skipApiVersionCheck
 
 #### Disable production-style URL
 
-**Optional**. When using the fully qualified domain name instead of the IP in request Uri host, by default Azurite parses the storage account name from request URI host. You can force the parsing of the storage account name from request URI path by using `--disableProductStyleUrl`:
+**Optional**. When you use the fully qualified domain name instead of the IP in request Uri host, Azurite parses the storage account name from request URI host by default. You can force the parsing of the storage account name from request URI path by using `--disableProductStyleUrl`:
 
 ```cmd
 azurite --disableProductStyleUrl
@@ -490,7 +490,7 @@ This setting is rejected when the SQL-based metadata implementation is enabled (
 azurite --extentMemoryLimit <megabytes>
 ```
 
-There's no restriction on the value specified for this option, but virtual memory might be used if the limit exceeds the amount of available physical memory as provided by the operating system. A high limit might eventually lead to out of memory errors or reduced performance. This option is rejected when `--inMemoryPersistence` isn't specified.
+There's no restriction on the value specified for this option. However, virtual memory might be used if the limit exceeds the amount of available physical memory as provided by the operating system. A high limit might eventually lead to out of memory errors or reduced performance. This option is rejected when `--inMemoryPersistence` isn't specified.
 
 To learn more, see [Use in-memory storage](https://github.com/Azure/Azurite#use-in-memory-storage).
 
