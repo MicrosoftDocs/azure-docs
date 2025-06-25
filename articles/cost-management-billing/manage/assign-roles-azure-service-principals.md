@@ -78,7 +78,7 @@ Later in this article, you give permission to the Microsoft Entra app to act by 
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
 | Partner Admin Reader | View data for all enrollments under the partner organization. This role is only available for the following APIs:<br>- [Balances](/rest/api/consumption/balances/get-by-billing-account)<br>- [Exports V2 (api-version 2025-03-01 only)](/rest/api/cost-management/exports)<br>- [Generate Cost Details Report](/rest/api/cost-management/generate-cost-details-report)<br>- [Marketplaces](/rest/api/consumption/marketplaces/list)<br>- [Consumption Price sheet](/rest/api/consumption/price-sheet)<br>- [Cost Management Price sheet Download](/rest/api/cost-management/price-sheet/download-by-billing-account)<br>- [Generate Reservation Details Report](/rest/api/cost-management/generate-reservation-details-report/by-billing-account-id)<br>- [Reservation Summaries](/rest/api/consumption/reservations-summaries)<br>- [Reservation Recommendations](/rest/api/consumption/reservation-recommendations/list)<br>- [Reservation Transactions](/rest/api/consumption/reservation-transactions) | 4f6144c0-a809-4c55-b3c8-7f9b7b15a1bf |
 
-- The following user roles are required to assign each service principal role:
+The following user roles are required to assign each service principal role:
   - **EnrollmentReader:** user assigning must have _enrollment writer_ role.
   - **DepartmentReader:** user assigning must have _enrollment writer_ or _department writer_ role.
   - **SubscriptionCreator:** user assigning must be the _enrollment account owner_ (EA administrator).
@@ -95,7 +95,7 @@ A service principal can have only one role.
 
 Follow these steps to assign any of the supported roles to a service principal:
 
-1. Use the appropriate Role Assignments Put REST API and select **Try it**. Find the correct API to use in the table below.
+1. Use the appropriate **Role Assignments Put REST API** and select **Try it**. Find the correct API to use in the table below.
  :::image type="content" source="./media/assign-roles-azure-service-principals/put-try-it.png" alt-text="Screenshot showing the Try It option in the Put article." lightbox="./media/assign-roles-azure-service-principals/put-try-it.png" :::
 2. Sign in to the tenant with the required access.
 3. Provide the following parameters in your API request:
