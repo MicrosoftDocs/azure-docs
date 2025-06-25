@@ -117,7 +117,7 @@
     - name: Deploy cross-tenant IP address pools
       href: deploy-cross-tenant-ip-address-management.md
     - name: Deploy IP address pools with Bicep
-      href: deploy-ipam-pools-virtual-network-manager-bicep.md
+      href: deploy-ip-address-management-pools-bicep.md
 - name: Troubleshoot
   items:
     - name: Common issues 

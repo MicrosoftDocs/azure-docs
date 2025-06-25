@@ -94,7 +94,7 @@ The **IPAM Pool User** role alone is sufficient for delegation when using IPAM. 
 
 Without this role, users with only the **IPAM Pool User** role don't see available pools and virtual networks.
 
-Learn more about [Azure role-based access control (Azure RBAC)](/role-based-access-control/overview.md).
+Learn more about [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 ## Next steps
 

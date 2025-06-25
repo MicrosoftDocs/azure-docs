@@ -16,18 +16,9 @@ ms.custom:
 
 # Quickstart: Deploy IPAM pools and static CIDRs with Azure Virtual Network Manager - Bicep
 
-Learn how to deploy Azure Virtual Network Manager with IP Address Management (IPAM) pools and static CIDR allocations using Bicep templates. Azure Virtual Network Manager simplifies IP address planning by providing centralized management and automatic allocation of non-overlapping address spaces.
+ Azure Virtual Network Manager simplifies IP address planning by providing centralized management and automatic allocation of non-overlapping address spaces. In this article, learn how to deploy Azure Virtual Network Manager with IP Address Management (IPAM) pools and static CIDR allocations using Bicep templates. You'll create an IPAM pool, allocate a static CIDR block, and associate existing virtual networks with the IPAM pools. You can also create new virtual networks that automatically receive IP address allocations from the IPAM pool. All of this is done using Bicep templates, which provide a declarative way to define and deploy Azure resources.
 
 [!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
-
-In this quickstart, you:
-
-- Deploy an Azure Virtual Network Manager instance
-- Create an IPAM pool with specified address space
-- Allocate a static CIDR block within the pool
-- Associate existing virtual networks to IPAM pools
-- Create new virtual networks using IPAM pool allocations
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
