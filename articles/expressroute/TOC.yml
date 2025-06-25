@@ -182,22 +182,22 @@
               href: expressroute-howto-add-gateway-portal-resource-manager.md
             - name: Azure PowerShell
               href: expressroute-howto-add-gateway-resource-manager.md
-    - name: Zone-redundant gateway
-      items:
-        - name: Overview
-          href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/expressroute/toc.json
-        - name: Deploy a zone-redundant gateway
-          href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/expressroute/toc.json
-        - name: Migrate to zone-redundant gateway
+        - name: Zone-redundant gateway
           items:
             - name: Overview
-              href: gateway-migration.md
-            - name: Migrate
+              href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/expressroute/toc.json
+            - name: Deploy a zone-redundant gateway
+              href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/expressroute/toc.json
+            - name: Migrate to zone-redundant gateway
               items:
-                - name: Azure portal
-                  href: expressroute-howto-gateway-migration-portal.md
-                - name: Azure PowerShell
-                  href: expressroute-howto-gateway-migration-powershell.md
+                - name: Overview
+                  href: gateway-migration.md
+                - name: Migrate
+                  items:
+                    - name: Azure portal
+                      href: expressroute-howto-gateway-migration-portal.md
+                    - name: Azure PowerShell
+                      href: expressroute-howto-gateway-migration-powershell.md
     - name: Traffic collector
       items:
         - name: Overview
@@ -349,7 +349,6 @@
       href: https://azure.microsoft.com/support/legal/sla/
     - name: ExpressRoute for Cloud Solution Providers (CSP)
       href: expressroute-for-cloud-solution-providers.md
-    - name: Videos
       items:
         - name: Videos
           href: /shows/Inside-Azure-for-IT/?products=azure-expressroute
