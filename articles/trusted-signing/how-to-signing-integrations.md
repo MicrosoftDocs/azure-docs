@@ -165,14 +165,25 @@ Each authentication method can be disabled individually to avoid unnecessary att
 
 For example, when authenticating with [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) specifically, disable the other credentials with the following inputs:
 
-ExcludeEnvironmentCredential: false
-ExcludeManagedIdentityCredential: true
-ExcludeSharedTokenCacheCredential: true
-ExcludeVisualStudioCredential: true
-ExcludeVisualStudioCodeCredential: true
-ExcludeAzureCliCredential: true
-ExcludeAzurePowershellCredential: true
-ExcludeInteractiveBrowserCredential: true
+   ```json
+   {
+     "Endpoint": "<Trusted Signing account endpoint>",
+     "CodeSigningAccountName": "<Trusted Signing account name>",
+     "CertificateProfileName": "<Certificate profile name>",
+     "CorrelationId": "<Optional CorrelationId value>",
+     "ExcludeCredentials": [
+        "ManagedIdentityCredential",
+        "WorkloadIdentityCredential",
+        "SharedTokenCacheCredential",
+        "VisualStudioCredential",
+        "VisualStudioCodeCredential",
+        "AzureCliCredential",
+        "AzurePowerShellCredential",
+        "AzureDeveloperCliCredential",
+        "InteractiveBrowserCredential"
+    ]
+   }
+   ```
 
 Similarly, if using for example an [AzureCliCredential](/dotnet/api/azure.identity.azureclicredential) , then we want to skip over attempting to authenticate with the several methods that come before it in order.
 
