@@ -154,6 +154,9 @@ Click **Next** to proceed to the **Campaign details** section.
       - Support contact information (for example, "send HELP for support," "contact help@contoso.com for support")
       - Opt-out information (for example, "Send STOP to unsubscribe")
 
+      :::image type="content" source="./media/apply-for-brand-registration/campaign-creation-ga-2.png" alt-text="Screenshot showing campaign registration form 2." lightbox="./media/apply-for-brand-registration/campaign-creation-ga-2.png":::
+
+      Click **Next** to proceed to the **Use Case** section
 
       > [!NOTE]
       > SMS senders in the US are required to include a link to reference Terms and conditions, Privacy policy, and information about how to get help in the initial message to an SMS recipient.  
@@ -207,9 +210,6 @@ Click **Next** to proceed to the **Campaign details** section.
    
    [BINDING ARBITRATION, CLASS ACTION WAIVER, AND SEVERABILITY CLAUSES, IF APPLICABLE]
 
-:::image type="content" source="./media/apply-for-brand-registration/campaign-creation-2.png" alt-text="Screenshot showing campaign registration form 2." lightbox="./media/apply-for-brand-registration/campaign-creation-2.png":::
-
-Click **Next** to proceed to the **Use Case** section
 
 ### Use cases
 
