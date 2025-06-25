@@ -74,16 +74,10 @@ The solution allows you to gain visibility to user activities on SAP RISE/ECS an
    This diagram shows an example of Microsoft Sentinel connected through an intermediary VM or container to SAP managed SAP system. The intermediary VM or container runs in customer's own subscription with configured SAP data connector agent. Connection to SAP Business Technology Platform (BTP) uses SAP's public APIs for the Audit Log Management Service.
 :::image-end:::
 
-For SAP RISE/ECS, the Microsoft Sentinel solution must be deployed in customer's Azure subscription. All parts of the Sentinel solution are managed by customer and not by SAP. Private network connectivity from customer's vnet is needed to reach the SAP landscapes managed by SAP RISE/ECS. Typically, this connection is over the established vnet peering or through alternatives described in this document.
-
-To enable the solution, only an authorized RFC user is required and nothing needs to be installed on the SAP systems. The container-based [SAP data collection agent](../../sentinel/sap/deployment-overview.md) included with the solution can be installed either on VM or AKS/any Kubernetes environment. The collector agent uses an SAP service user to consume application log data from your SAP landscape through RFC interface using standard RFC calls. 
-- Authentication methods supported in SAP RISE: SAP username and password or X509/SNC certificates
-- Only RFC based connections are possible currently with SAP RISE/ECS environments
+For SAP RISE/ECS, the Microsoft Sentinel solution must be deployed in customer's Azure subscription. All parts of the Sentinel solution are managed by customer and not by SAP.
 
 > [!IMPORTANT]
-> 
-> - Running Microsoft Sentinel in an SAP RISE/ECS environment requires: Importing an SAP transport change request for the following log fields/source: Client IP address information from SAP security audit log, DB table logs (preview), spool output log. Sentinel's built-in content (detections, workbooks and playbooks) provides extensive coverage and correlation without those log sources.
-> - SAP infrastructure and operating system logs aren't available to Sentinel in RISE, due to shared responsibility model.
+> As per the RISE shared responsibility model customers using the Sentinel solution for SAP can only integrate the SAP app layer. SAP RISE infrastructure and operating system logs are only available through the optional SAP LogServ solution. It natively supports Sentinel integration. Learn more [here](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/ultimate-blog-series-sap-logserv-integration-with-microsoft-sentinel/ba-p/14126401).
 
 ### Automatic response with Sentinel's SOAR capabilities
 
