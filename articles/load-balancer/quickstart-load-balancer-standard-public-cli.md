@@ -9,6 +9,7 @@ ms.date: 09/30/2024
 ms.author: mbender
 ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+# Customer intent: As a cloud administrator, I want to create a public load balancer using the Azure CLI, so that I can efficiently distribute internet traffic across multiple virtual machines.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using the Azure CLI

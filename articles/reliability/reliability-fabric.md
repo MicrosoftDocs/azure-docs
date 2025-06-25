@@ -196,6 +196,12 @@ OneLake data remains accessible through multiple channels:
 
     * OneLake File Explorer: See [Use OneLake file explorer to access Fabric data](/fabric/onelake/onelake-file-explorer)
 
+* In a disaster scenario, the OneLake catalog is in read-only mode:
+    
+    * Explore tab: You can access the Explore tab to view all items and workspaces, including their metadata and related details.
+
+    * Govern tab: You can access the Govern tab to view insights, recommended actions, and governance tools - based on the most recent successful model refresh prior to failover. 
+
 #### Phase 3: Recovery plan
 
 While Fabric ensures that data remains accessible after a disaster, you can also act to fully restore their services to the state before the incident. This section provides a step-by-step guide to help you through the recovery process.

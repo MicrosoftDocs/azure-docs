@@ -2435,6 +2435,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/gateway-sku-change.md",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/gateway-sku-resize.md",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
       "redirect_document_id": false
@@ -7082,6 +7092,26 @@
     {
       "source_path": "articles/cyclecloud/release-notes/ccws/2025.02.06.md",
       "redirect_url": "/azure/cyclecloud/release-notes/ccws/2025-02-06",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/sre-agent-overview.md",
+      "redirect_url": "/azure/sre-agent/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/sre-agent-usage.md",
+      "redirect_url": "/azure/sre-agent/usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/tutorial-sre-agent.md",
+      "redirect_url": "/azure/sre-agent/troubleshoot-azure-app-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-apps/sre-agent-troubleshoot.md",
+      "redirect_url": "/azure/sre-agent/troubleshoot-azure-container-apps",
       "redirect_document_id": false
     },
     {
