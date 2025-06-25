@@ -137,7 +137,7 @@ The most common root cause of this error is a misconfiguration of the 3P Azure B
 
 ### Error 400 Bad Requests when adding a Teams Channel in Azure Bot
 
-This issue generally arises if the bot was created with a reserved Microsoft Entra App ID. Delete your bot and recreate it with your Microsoft Entra App ID created or used in [Create Bot](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-quickstart#ccaas-developer-create-the-bot).
+This issue generally arises if the bot was created with a reserved Microsoft Entra App ID. Delete your bot and recreate it with your Microsoft Entra App ID created or used in [Create Bot](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#ccaas-developer-create-the-bot).
 
 ### No Incoming Call notification in Call Automation application and a busy signal is heard instead of custom greeting when calling a Teams Service Number
 
