@@ -122,6 +122,18 @@ Azure Functions on ACA scale automatically based on events using KEDA, with no n
 
 This makes ACA ideal for both bursty and steady-state workloads. To learn more, see [set scaling rules in azure container apps](../container-apps/scale-app.md)
 
+## Networking and Security
+
+Azure Functions on ACA benefit from ACA’s robust [networking](../container-apps/networking.md) and [security features](../container-apps/security.md) for secure, scalable deployments:
+
+- **VNet Integration**: Access private resources securely via internal endpoints and private databases.
+- **Managed Identity**: Authenticate with Azure services using system/user-assigned identities—no secrets or connection strings needed.
+- **Dapr Support**: Enable pub/sub, state management, and secure service invocation via Dapr sidecars. (To learn more see [Microservice APIs powered by Dapr](../container-apps/dapr-overview.md))
+- **Ingress &amp; TLS**: Expose secure HTTP endpoints with TLS/mTLS, custom domains, or keep them internal.
+- **Environment Isolation**: Functions share ACA environment boundaries for secure, scoped communication.
+
+These capabilities make ACA-hosted Functions ideal for enterprise-grade, secure serverless applications.
+
 ## Application logging
 
 You can monitor your containerized function app hosted in Container Apps using Azure Monitor Application Insights in the same way you do with apps hosted by Azure Functions. For more information, see [Monitor Azure Functions](/azure/azure-functions/monitor-functions).
