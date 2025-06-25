@@ -1,11 +1,11 @@
 ---
 title: What is Microsoft Sentinel? | Microsoft Docs
 description: Learn about Microsoft Sentinel, a security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbayansh
 ms.topic: overview
 ms.service: microsoft-sentinel
-ms.date: 05/13/2024
+ms.date: 06/25/2025
 
 
 #CustomerIntent: As a business decision maker, I want to understand what Microsoft Sentinel offers so that I can determine whether the service meets my organization's requirements.
@@ -14,11 +14,11 @@ ms.date: 05/13/2024
 
 # What is Microsoft Sentinel?
 
-Microsoft Sentinel is a scalable, cloud-native security information and event management (SIEM) that delivers an intelligent and comprehensive solution for SIEM and security orchestration, automation, and response (SOAR). Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting, with a bird's-eye view across your enterprise.
+Microsoft Sentinel is a scalable, cloud-native security information and event management (SIEM) that delivers scalable, cost-efficient security across multicloud and multi-platform environments with built-in AI, automation, threat intelligence, and a modern data lake architecture. Microsoft Sentinel provides cyberthreat detection, investigation, response, and proactive hunting, with a bird's-eye view across your enterprise.
 
 Microsoft Sentinel also natively incorporates proven Azure services, like Log Analytics and Logic Apps, and enriches your investigation and detection with AI. It uses both Microsoft's threat intelligence stream and also enables you to bring your own threat intelligence.
 
-Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames. This article highlights the key capabilities in Microsoft Sentinel.
+Microsoft Sentinel empowers analysts to anticipate and stop attacks across clouds and platforms, faster and with greater precision. Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames. This article highlights the key capabilities in Microsoft Sentinel.
 
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
@@ -66,6 +66,19 @@ The following table highlights the key capabilities in Microsoft Sentinel for da
 |Custom connectors    |  Microsoft Sentinel supports ingesting data from some sources without a dedicated connector. If you're unable to connect your data source to Microsoft Sentinel using an existing solution, create your own data source connector.        |  [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).       |
 |Data normalization     | Microsoft Sentinel uses both query time and ingestion time normalization to translate various sources into a uniform, normalized view.        |   [Normalization and the Advanced Security Information Model (ASIM)](normalization.md)      |
 
+## Microsoft Sentinel data lake
+
+Microsoft Sentinel provides a modern data lake, designed to help security operations teams simplify data management, optimize costs, and accelerate the adoption of AI. Microsoft Sentinel data lake provides affordable, long-term storage so that organizations no longer are required to compromise between cost and better security. Security operations teams now have enhanced visibility to resolve incidents faster within the Microsoft Sentinel experience and enriched through integration with data analytics tools.
+
+| Capability | Description | Get started  |
+|-------------|------------|--------------|
+| Optimize costs and coverage | Manage costs and coverage with seamless data tiering and a centralized management experience.  | [Log retention plans in Microsoft Sentinel data lake](/unified-secops-platform/manage-data-defender-portal-overview#how-data-tiers-and-retention-work)                                |
+| Interactive KQL Exploration | KQL queries allow you to interactively explore and analyze data in the Microsoft Sentinel data lake. You can run ad-hoc queries, create scheduled jobs, and promote data to the Analytics tier for further analysis. The KQL query editor provides a familiar interface for security analysts to work with long-term data.                        | [KQL and Microsoft Sentinel data lake (overview)](graph/kql-overview.md)                        |
+| Notebooks for Exploration   | Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by a Visual Studio Code extension that allows you to interact with the data lake using Python and Apache Spark. Notebooks enable you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment. | [Notebooks (overview)](graph/notebooks-overview.md)                                                               |
+| Bring your own machine learning | Threat hunters, detection engineers, and data scientists looking to enhance their cybersecurity measures can leverage ML and the Microsoft Sentinel data lake for advanced analytics, to detect anomalies, predict threats, and enhance overall security measures.                                                                           | [Introduction to machine learning in Microsoft Sentinel data lake](graph/machine-learning.md)            |
+
+:::image type="content" source="media/overview/data-lake-exploration.png" lightbox="media/overview/data-lake-exploration.png" alt-text="A screenshot showing the KQL query editor page in Data lake exploration.":::
+
 ## Detect threats
 
 Detect previously undetected threats, and minimize false positives using Microsoft's analytics and unparalleled threat intelligence.
@@ -84,7 +97,7 @@ The following table highlights the key capabilities in Microsoft Sentinel for th
 
 |Capacity  |Description |Get started|
 |---------|---------|---------|
-|Analytics    | Helps you reduce noise and minimize the number of alerts you have to review and investigate. Microsoft Sentinel uses analytics to group alerts into incidents. Use the out of the box analytic rules as-is, or as a starting point to build your own rules. Microsoft Sentinel also provides rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots, by combining low fidelity alerts about different entities into potential high-fidelity security incidents.|[Detect threats out-of-the-box](detect-threats-built-in.md)   |
+|Analytics | Helps you reduce noise and minimize the number of alerts you have to review and investigate. Microsoft Sentinel uses analytics to group alerts into incidents. Use the out of the box analytic rules as-is, or as a starting point to build your own rules. Microsoft Sentinel also provides rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots, by combining low fidelity alerts about different entities into potential high-fidelity security incidents.|[Detect threats out-of-the-box](detect-threats-built-in.md)   |
 |MITRE ATT&CK coverage   | Microsoft Sentinel analyzes ingested data, not only to detect threats and help you investigate, but also to visualize the nature and coverage of your organization's security status based on the tactics and techniques from the MITRE ATT&CK® framework.|[Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md)     |
 |Threat intelligence    | Integrate numerous sources of threat intelligence into Microsoft Sentinel to detect malicious activity in your environment and provide context to security investigators for informed response decisions. | [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md)      |
 |Watchlists   |  Correlate data from a data source you provide, a watchlist, with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high-value assets, terminated employees, or service accounts in your environment. Use watchlists in your search, detection rules, threat hunting, and response playbooks. | [Watchlists in Microsoft Sentinel](watchlists.md)   |
