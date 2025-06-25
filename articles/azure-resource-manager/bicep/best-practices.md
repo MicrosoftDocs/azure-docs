@@ -105,7 +105,7 @@ For more information about Bicep variables, see [Variables in Bicep](variables.m
 
 ## Outputs
 
-* Make sure you don't create outputs for sensitive data. Output values can be accessed by anyone who has access to the deployment history. They're not appropriate for handling secrets.
+* Make sure you don't create outputs for sensitive data unless they're marked as secure. Output values can be accessed by anyone who has access to the deployment history. To protect secrets, use the @secure() decorator (available in Bicep v0.35.1 and later) to prevent sensitive outputs from being logged or displayed.
 
 * Instead of passing property values around through outputs, use the [existing keyword](existing-resource.md) to look up properties of resources that already exist. It's a best practice to look up keys from other resources in this way instead of passing them around through outputs. You'll always get the most up-to-date data.
 
