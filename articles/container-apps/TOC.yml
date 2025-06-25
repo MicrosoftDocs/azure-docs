@@ -389,6 +389,8 @@
       href: using-azure-firewall.md
     - name: Private endpoints and DNS
       href: dns.md
+    - name: Securing a custom VNET with an NSG
+      href: firewall-integration.md
     - name: Tutorials
       items:
         - name: Use a custom virtual network
@@ -403,8 +405,6 @@
             href: rule-based-routing.md
           - name: Use a custom domain with rule-based routing
             href: rule-based-routing-custom-domain.md
-        - name: Securing a custom VNET with an NSG
-          href: firewall-integration.md
         - name: Use a private endpoint
           href: how-to-use-private-endpoint.md
         - name: Use mTLS
