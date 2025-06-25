@@ -10,7 +10,7 @@ ms.date: 06/18/2025
 ms.author: normesta
 ---
 
-# Set the default public network access rule of an Azure Storage account
+# Set the default public network access rule of a Azure Storage account
 
 By default, storage accounts accept connections from clients on any network. You can limit access to selected networks *or* prevent traffic from all networks and permit access only through a [private endpoint](storage-private-endpoints.md).
 
