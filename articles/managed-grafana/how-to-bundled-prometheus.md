@@ -56,7 +56,8 @@ Alert rules monitor your Prometheus metrics and trigger notifications when speci
 Follow these steps to create an alert rule:
 
 1. In the Grafana UI, go to **Alerting** > **Alert rules** and select **New alert rule**.
-    :::image type="content" source="media/bundled-prometheus/new-alert-rule.png" alt-text="Screenshot of the Alert rules page in Grafana with the New recording rule button highlighted.":::
+    :::image type="content" source="media/bundled-prometheus/new-alert-rule.png" alt-text="Screenshot of the Alert rules page in Grafana with the New alert rule action highlighted.":::
+
 1. Enter an alert rule name that describes what you're monitoring.
 1. Define a query and alert condition: select **bundled-azure-prometheus** from the dropdown and define your query and alert condition.
 1. Set an evaluation behavior: set the evaluation interval and the conditions for firing or resolving the alert.
@@ -114,7 +115,7 @@ If you no longer need bundled Prometheus, you can disable it from your Azure Man
    1. To continue accessing existing data in the Azure Monitor workspace, consider [setting up Azure Monitor Workspace integration in Azure Managed Grafana](./how-to-connect-azure-monitor-workspace.md)
     
     > [!NOTE] 
-    > Disabling bundled Prometheus removes the integration but does not delete existing data in your Azure Monitor workspace.
+    > Disabling bundled Prometheus removes the integration but doesn't delete existing data in your Azure Monitor workspace.
 
 ## Related content
 
