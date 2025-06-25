@@ -51,7 +51,7 @@ Before you run the following commands, make sure to replace the placeholders sur
 
 Get the ARM ID of your container app:
 
-```azurecli
+```bash
 APP_ID=$(az containerapp show \
   --name <APP_NAME> \
   --resource-group <RESOURCE_GROUP> \
@@ -75,6 +75,9 @@ az rest \
     }
   }'
 ```
+
+> [!NOTE]
+> Be sure to use a valid and stable API version that supports this feature. For example, replace <API_VERSION> in the command with 2025-01-01 or another supported version.
 
 The value for `clientCertificateMode` varies what you need to provide for Container Apps to manage your certificate:
 - When `require` is set, the client must provide a certificate.
