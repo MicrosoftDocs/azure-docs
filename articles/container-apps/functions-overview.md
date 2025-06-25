@@ -140,6 +140,10 @@ You can monitor your containerized function app hosted in Container Apps using A
 
 For bindings that support event-driven scaling, scale events are logged as `FunctionsScalerInfo` and `FunctionsScalerError` events in your Log Analytics workspace. For more information, see [Application Logging in Azure Container Apps](./logging.md).
 
+## Submit Feedback
+
+Submit an issue or a feature request to the [Azure Container Apps GitHub repo](https://github.com/microsoft/azure-container-apps/issues).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
