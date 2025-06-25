@@ -18,7 +18,7 @@ The following release notes identify critical open issues and resolved issues fo
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2506** release, which maps to software version **3.3.2506.xxxx**.
+This article applies to the **Azure Stack Edge 2506** release, which maps to software version **3.3.2506.1064**.
 
 > [!Warning] 
 > In this release, you must update the packet core version to AP5GC 2308 before you update to Azure Stack Edge 2506. For detailed steps, see [Azure Private 5G Core 2308 release notes](../private-5g-core/azure-private-5g-core-release-notes-2308.md).
@@ -53,7 +53,7 @@ The 2506 release has the no new features or enhancements.
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**| Unable to add VM images to Azure Stack Edge| Customers may be unable to add VM images to their Azure Stack Edge due to changes in blob permissions. | To add a VM image to Azure Stack Edge, you must have the `Storage blob data reader` or `Storage blob data contributor` role on the storage account, resource group, or subscription. Alternatively, you can have someone with those permissions perform the operation. |
+
 
 ## Known issues from previous releases
 
@@ -94,6 +94,7 @@ The following table provides a summary of known issues carried over from the pre
 |**31.**| Network connectivity | On a two-node Azure Stack Edge Pro 2 cluster with a teamed virtual switch for Port 1 and Port 2, if a Port 1 or Port 2 link is down, it can take up to 5 seconds to resume network connectivity on the remaining active port. If a Kubernetes cluster uses this teamed virtual switch for management traffic, pod communication may be disrupted up to 5 seconds. |  |
 |**32.**| Virtual machine | After the host or Kubernetes node pool VM is shut down, there's a chance that kubelet in node pool VM fails to start due to a CPU static policy error. Node pool VM shows **Not ready** status, and pods won't be scheduled on this VM. | Enter a support session and ssh into the node pool VM, then follow steps in [Changing the CPU Manager Policy](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#changing-the-cpu-manager-policy) to remediate the kubelet service. |
 |**33.**|VM creation | If you have a Marketplace image created with Azure Stack Edge earlier than 2403 and then create a VM from the existing Marketplace image, your VM creation fails because Azure Stack Edge 2407 changed the download path for the Marketplace image. | Delete the Marketplace image and then create a new image from Azure portal. For detailed steps, see [Troubleshoot VM creation issues](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md#vm-creation-fails). |
+|**34.**| Unable to add VM images to Azure Stack Edge| Customers may be unable to add VM images to their Azure Stack Edge due to changes in blob permissions. | To add a VM image to Azure Stack Edge, you must have the `Storage blob data reader` or `Storage blob data contributor` role on the storage account, resource group, or subscription. Alternatively, you can have someone with those permissions perform the operation. |
 
 ## Next steps
 
