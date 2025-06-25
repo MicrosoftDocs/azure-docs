@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: duau
 #Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+# Customer intent: As a network administrator, I want to deploy and configure Azure Firewall in a hybrid network, so that I can effectively control and secure access between on-premises and Azure virtual networks.
 ---
 
 # Deploy and configure Azure Firewall in a hybrid network by using the Azure portal

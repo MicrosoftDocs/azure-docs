@@ -7,6 +7,7 @@ ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 01/28/2025
 ms.author: allensu
+# Customer intent: As a Cloud Architect, I want to understand Azure Traffic Manager functionalities and limitations, so that I can effectively implement it for DNS-based traffic routing and ensure optimal performance of my distributed applications.
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)

@@ -61,7 +61,7 @@ It's helpful to categorize IoT devices as follows:
   - Connect indirectly to the cloud through the MQTT broker in Azure IoT Operations.
   - Connect indirectly to IoT Hub through an IoT Edge gateway.
 
-- **Device category 3**: These devices are virtual representations of physical assets such as servers, gateways, and cameras. The virtual representation has inbound endpoints for protocols such as ONVIF and OPC UA to enable connectivity and exists in the edge runtime. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
+- **Device category 3**: These devices connect to an edge-based runtime through a connector that enables the devices to use a specific protocol. For example, an OPC UA server and its attached devices connect through a connector for OPC UA. These devices aren't relevant in cloud-based solutions such as Azure IoT Hub.
 
 The following diagram shows the relationships between the device categories and the cloud services in a cloud-based solution:
 
@@ -99,18 +99,18 @@ graph LR
 
     subgraph Physical devices
         D2[Category 2:<br/>Device connects directly to the edge-based MQTT broker]
-        D3[Physical asset such as an<br>OPC UA server or<br>ONVIF compliant camera]
+        D3[Category 3:<br>Device such as ONVIF compliant camera<br>or server such as OPC UA with attached assets]
     end
 
     subgraph IoT Operations edge cluster
         B2[MQTT broker]
-        B3[Category 3:<br>Virtual device in cluster <br>with endpoints such as<br>OPC UA and ONVIF]
+        B3[Connector such as<br>ONVIF or OPC UA]
     end
 
     D2 -- Publish --&gt; B2
     B2 -. Forwards data (optional) .-> A1
     B3 -- Publish --&gt; B2
-    D3 -- Communicates using protocols such as ONVIF and OPC UA) --&gt; B3
+    D3 -- Communicates using protocols<br>such as ONVIF and OPC UA --&gt; B3
 ```
 -->
 
@@ -125,7 +125,12 @@ IoT devices in categories 1 and 2 are typically made up of a circuit board with 
 - An accelerometer in an elevator.
 - Presence sensors in a room.
 
-Category 3 devices are virtual representations physical assets in your environment that you want to monitor and control. Connectivity to these physical assets is through device endpoints that support protocols such as ONVIF and OPC UA. The following items are examples of category 3 devices:
+Category 3 devices are physical devices in your environment that you want to monitor and control. These devices might:
+
+- Have built-in firmware provided by the manufacturer that implements a standard protocol such as ONVIF.
+- Be servers, with attached assets, that implement industrial protocols such as OPC UA.
+
+The following are examples of category 3 devices:
 
 - Robotic arms and conveyor belts.
 - Industrial CNC machines, lathes, saws, and drills.

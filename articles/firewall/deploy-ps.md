@@ -9,6 +9,7 @@ ms.author: duau
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
+# Customer intent: As a network administrator, I want to deploy and configure Azure Firewall using PowerShell, so that I can control outbound network access from an Azure subnet to enhance overall network security.
 ---
 
 # Deploy and configure Azure Firewall using Azure PowerShell
