@@ -52,7 +52,7 @@ When you use Azure API Management in front of an API, you might need to retry re
 
 [!INCLUDE[introduction to AZ](includes/reliability-availability-zone-description-include.md)]
 
-Azure API Management provides *automatic* availability zone support for Premium (classic) tier, when you:
+Azure API Management provides *automatic* availability zone support when you:
 
 - Deploy a Premium (classic) API Management instance in a supported region.
 - Don't specify which availability zones to use. 
