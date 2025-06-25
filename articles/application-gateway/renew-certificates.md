@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: mbender 
 ms.devlang: azurecli
+# Customer intent: As an IT administrator managing an Application Gateway, I want to renew SSL certificates seamlessly, so that I can ensure secure TLS/SSL encryption without incurring downtime for users.
 ---
 
 # Renew Application Gateway certificates
