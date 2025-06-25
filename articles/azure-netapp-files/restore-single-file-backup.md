@@ -15,9 +15,10 @@ To restore individual files no longer available in an online snapshot [single-fi
 
 ## Considerations
 
-* If no destination path is provided during the restore operation (in which case you still need to enter a slash (/) in the Destination path), the file is restored in the original file location. If the file already exists at that location, it's overwritten by the restore operation. 
+* If no destination path is provided during the restore operation, the file is restored in the original file location. If the file already exists at that location, it's overwritten by the restore operation. 
+    * The destination path can't be blank. To restore to the original location, enter a slash (/) in the destination path field. 
     * If the file being restored has a multi-level directory depth (for example, `/dir1/dir2/file.txt`), all of the parent directories must be present in the active file system for the restore operation to succeed. The restore operation can't create new directories. 
-* If the destination path provided is invalid (non-existent in the Active file system), the operation will fail.
+* If the destination path provided is invalid (that is, it doesn't exist in the active file system), the operation fails.
 * A maximum of eight files can be restored to a volume in a single operation. You must wait for a restore operation to complete before initiating another operation to restore more files to that volume.
 * The file list field has a character limit of 1,024 characters. 
 * The target volume for the restore operation must have enough logical free space available to accommodate all the files being restored.
@@ -25,7 +26,7 @@ To restore individual files no longer available in an online snapshot [single-fi
 
 ## Register the feature
 
-Single file backup restore is currently in preview. Before using single file backup restore for the first time, you need to register the feature first.
+Single-file restore from backup is currently in preview. Before using single file restore from a backup for the first time, you need to register the feature first.
 
 1. Register the feature: 
 
@@ -51,19 +52,19 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     :::image type="content" source="./media/restore-single-file-backup/restore-files-select.jpg" alt-text="Screenshot depicting restore file options: restore to a new volume, delete, or restore files." lightbox="./media/restore-single-file-backup/restore-files-select.jpg":::
 
-1. In the **File paths** field, enter the file names with the complete file path for each file, for example `/dir/file1.txt`. Multiple files can be entered as a comma-separated list or with line breaks between entries.
+1. In the **File paths** field, enter the file names with the complete file path for each file, for example `/dir/file1.txt`. You can enter the names of multiples files as a comma-separated list or by entering each file path on a separate line. 
 
     The menu includes three optional fields:
-    * **NetApp account**: This field specifies the NetApp account to which the destination volume belongs. If no value is specified, the files will be restored to the original volume.
 
-    * **Destination volume**: This field specifies the volume to which the files will be restored. If no value is specified, the files will be restored to the original volume.
+    * **NetApp account**: the NetApp account that hosts the destination volume. If no value is specified, the files are restored to the original volume.
 
-    * **Destination path**: The field specifies the directory to which the files will be restored. The destination path must already exist in the destination volume.  This field cannot be left blank. Enter a slash ( / ) to restore files to their original path locations.
+    * **Destination volume**: the volume where the files will be restored. If no value is specified, the files will be restored to the original volume.
+
+    * **Destination path**: the directory where the files will be restored. The destination path must already exist in the destination volume. This field cannot be left blank. Enter a slash ( / ) to restore files to their original path locations.
 
     :::image type="content" source="./media/restore-single-file-backup/restore-files-file-path.jpg" alt-text="Screenshot of restore interface." lightbox="./media/restore-single-file-backup/restore-files-file-path.jpg":::
 
 1. Select **Restore** to complete the operation. 
-
 
 ## Next steps
 

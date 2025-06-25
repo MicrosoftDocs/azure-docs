@@ -28,30 +28,6 @@ The restore operation doesn't create directories in the process. If the specifie
     * You can't delete the snapshot from which the files are being restored. 
     * Policy-scheduled snapshots can't complete during a single-file snapshot restoration operation. The scheduled snapshot is skipped.
 
-
-## Register the feature  
-
-The single-file snapshot restore feature is currently in preview. If you're using this feature for the first time, register the feature before using it.
-
-> [!IMPORTANT]
-> If you're using [Azure NetApp Files for Azure Government](azure-government.md), contact your account team to access this feature instead of following the steps below.
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSingleFileSnapshotRestore
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSingleFileSnapshotRestore
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
- 
 ## Steps
 
 1. Navigate to the volume that contains the snapshot to use for restoring files.    

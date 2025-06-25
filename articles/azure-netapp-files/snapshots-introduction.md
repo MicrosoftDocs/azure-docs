@@ -185,12 +185,12 @@ The following diagram illustrates the operation of restoring a selected vaulted 
 
 There are two methods for restoring individual files or directories from vaulted snapshots.
 
-1. If you need to restore ten or fewer files and you know the exact file and path names, you can use the Restore Files function. This function allows you to restore specific files or directories from a backup. To learn more, [Restore individual files using single-file restore from backup](restore-single-file-backup.md)
+1. If you need to restore eight or fewer files and you know the exact file and path names, you can restore the specific files. This function allows you to restore specific files or directories from a backup. To learn more, see [Restore individual files using single-file restore from backup](restore-single-file-backup.md)
 
     >[!NOTE]
     >If files with the same paths and names exist, those will be overwritten by this action.
 
-1. Restore the entire vaulted snapshot to a new volume. In this workflow, the volume can be mounted to browse for the files or directories to be restored then copy the necessary files from the restored volume to the appropriate destination. Once you have restored the necessary files or directories, you can delete the restored volume. See [Restore a backup to a new volume](backup-restore-new-volume.md) for details.
+1. Restore the entire vaulted snapshot to a new volume. With this method, you can mount the volume to browse for the files or directories to be restored then copy the necessary files from the restored volume to the appropriate destination. Once you have restored the necessary files or directories, you can delete the restored volume. For more information, see [Restore a backup to a new volume](backup-restore-new-volume.md).
 
 If a volume is deleted, its vaulted snapshots (backups) are still retained, unlike the online snapshots, which are part of the volume and are deleted with the volume deletion. You can restore complete volumes and then individual directories from vaulted backups even if the parent volume was deleted or lost due to application or user error. You can do so by selecting the appropriate vaulted snapshot from the backup list and restoring it to a new volume.
 
