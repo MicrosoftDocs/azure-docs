@@ -12,8 +12,9 @@ ms.author: azfuncdf
 Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in the future. Durable Functions can easily grow in complexity so introducing unit tests helps avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and activity functions.
 
 > [!NOTE]
-> This article provides guidance for unit testing for Durable Functions apps written in C# for the .NET out-of-process worker. For more information about Durable Functions in the .NET isolated worker, see the [Durable Functions in the .NET isolated worker](durable-functions-dotnet-isolated-overview.md) article.
-> The complete sample code for this unit testing guide can be found in [the sample code repository](https://github.com/Azure/azure-functions-durable-extension/tree/dev/samples/isolated-unit-tests).
+> This article provides guidance for unit testing for Durable Functions apps written in C# for the .NET isolated worker. For more information about Durable Functions in the .NET isolated worker, see the [Durable Functions in the .NET isolated worker](durable-functions-dotnet-isolated-overview.md) article.
+> **The complete sample code for this unit testing guide can be found in [the sample code repository](https://github.com/Azure/azure-functions-durable-extension/tree/dev/samples/isolated-unit-tests)**.
+> The unit testing guide for Durable Functions written in C# in-process can be found [here](durable-functions-unit-testing.md).
 
 ## Prerequisites
 
@@ -33,7 +34,7 @@ Mocking is supported via the following interfaces and classes:
 * `FunctionContext` - For function execution context
 * `HttpRequestData` and `HttpResponseData` - For HTTP trigger functions
 
-These classes can be used with the various trigger and bindings supported by Durable Functions. While it is executing your Azure Functions, the functions runtime runs your function code with concrete implementations of these classes. For unit testing, you can pass in a mocked version of these classes to test your business logic.
+These classes can be used with the various trigger and bindings supported by Durable Functions. While it's executing your Azure Functions, the functions runtime runs your function code with concrete implementations of these classes. For unit testing, you can pass in a mocked version of these classes to test your business logic.
 
 ## Unit testing trigger functions
 
@@ -65,7 +66,7 @@ var durableClientMock = new Mock<DurableTaskClient>("testClient");
 var functionContextMock = new Mock<FunctionContext>();
 ```
 
-Then `ScheduleNewOrchestrationInstanceAsync` method is mocked to return a instance ID:
+Then `ScheduleNewOrchestrationInstanceAsync` method is mocked to return an instance ID:
 
 ```csharp
 var instanceId = Guid.NewGuid().ToString();
@@ -170,7 +171,8 @@ Assert.Equal(instanceId, serializedResponseBody!.GetProperty("Id").GetString());
 ```
 
 > [!NOTE]
-> Currently, loggers created via FunctionContext in trigger functions are not supported for mocking in unit tests.
+> Currently, loggers created via FunctionContext in trigger functions aren't supported for mocking in unit tests.
+
 
 ## Unit testing orchestrator functions
 
@@ -179,7 +181,7 @@ Orchestrator functions manage the execution of multiple activity functions. To t
 * Mock the `TaskOrchestrationContext` to control function execution
 * Replace `TaskOrchestrationContext` methods needed for orchestrator execution like `CallActivityAsync` with mock functions
 * Call the orchestrator directly with the mocked context
-* Verify the orchestrator result using assertions
+* Verify the orchestrator results using assertions
 
 In this section, the unit test validates the behavior of the `HelloCities` orchestrator function:
 
@@ -296,7 +298,7 @@ public void SayHello_ReturnsExpectedGreeting()
 ```
 
 > [!NOTE]
-> Currently, loggers created via FunctionContext in activity functions are not supported for mocking in unit tests.
+> Currently, loggers created via FunctionContext in activity functions aren't supported for mocking in unit tests.
 
 ## Next steps
 
