@@ -54,11 +54,11 @@ landingContent:
             url: sentinel-solutions-deploy.md  
             
   # Card
-  - title: Microsoft's unified security operations platform
+  - title: Unified security operations
     linkLists:
       - linkListType: overview
         links:
-          - text: "What is Microsoft's unified SecOps platform?"
+          - text: "What are unified security operations?"
             url: /unified-secops-platform/overview-unified-security
           - text: "Microsoft Defender portal overview"
             url: /unified-secops-platform/overview-defender-portal
@@ -66,9 +66,9 @@ landingContent:
             url: microsoft-sentinel-defender-portal.md
       - linkListType: deploy
         links:
-          - text: "Plan your unified SecOps deployment"
+          - text: "Plan for unified security operations"
             url: /unified-secops-platform/overview-plan
-          - text: "Deploy Microsoft's unified SecOps platform"
+          - text: "Deploy unified security operations"
             url: /unified-secops-platform/overview-deploy
       - linkListType: how-to-guide
         links:

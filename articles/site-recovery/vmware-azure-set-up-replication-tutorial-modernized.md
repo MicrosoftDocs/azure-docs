@@ -5,8 +5,8 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 04/26/2025
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
 

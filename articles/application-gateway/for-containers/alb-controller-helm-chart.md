@@ -2,11 +2,12 @@
 title: ALB Controller Helm Chart
 description: This article documents the latest helm chart for Application Gateway for Containers' ALB Controller.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
 ms.date: 5/2/2025
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a Kubernetes operator, I want to install the ALB Controller using a Helm chart, so that I can manage Application Load Balancer resources effectively within my container environment.
 ---
 <!-- Custom Resource Definitions (CRDs) -->
 

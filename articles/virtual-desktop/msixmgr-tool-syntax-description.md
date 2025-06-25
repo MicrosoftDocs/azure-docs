@@ -9,9 +9,6 @@ ms.date: 03/05/2024
 
 # MSIXMGR tool parameters
 
-> [!IMPORTANT]
-> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
-
 This article contains the command line parameters and syntax you can use with the MSIXMGR tool.
 
 ## Prerequisites
@@ -202,10 +199,10 @@ msixmgr.exe -AddPackage "C:\MSIX\myapp.msix" -quietUX
 
 ## Next steps
 
-To learn more about MSIX app attach, check out these articles:
+To learn more about App Attach, check out these articles:
 
-- [Create an MSIX image to use with app attach](app-attach-create-msix-image.md)
+- [Create an MSIX image to use with App Attach](app-attach-create-msix-image.md)
 - [What's new in the MSIXMGR tool](whats-new-msixmgr.md)
-- [App attach and MSIX app attach](app-attach-overview.md)
-- [Add and manage app attach and MSIX app attach applications](app-attach-setup.md)
-- [Test MSIX packages for app attach](app-attach-test-msix-packages.md)
+- [App in Azure Virtual Desktop](app-attach-overview.md)
+- [Add and manage App Attach applications](app-attach-setup.md)
+- [Test MSIX packages for App Attach](app-attach-test-msix-packages.md)

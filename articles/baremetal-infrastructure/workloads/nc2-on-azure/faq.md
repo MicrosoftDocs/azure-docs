@@ -8,11 +8,22 @@ ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
 ms.date: 12/10/2024
 ms.service: azure-baremetal-infrastructure
+# Customer intent: As a cloud solutions architect, I want to understand the support structure and integration capabilities of NC2 on Azure, so that I can effectively design and implement solutions that leverage both Nutanix software and Azure infrastructure.
 ---
 
 # Frequently asked questions about NC2 on Azure
 
 This article addresses questions most frequently asked about NC2 on Azure.
+
+## How can I join the 30-day NC2 trial on Azure?
+
+**Cost coverage**: The trial covers BareMetal nodes and NC2 software. Additional services like VMs for Flow Gateway Networking are not included.
+
+**Trial duration**: The trial begins with the initial hardware node deployment and lasts for 30 consecutive days. It cannot be paused, and the start date is fixed regardless of cluster activity.
+
+**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the trial period, billing will be based on the initial deployment date.
+
+**Tracking**: NC2 software tracks trial periods, but this may not align with the BareMetal start date. Track your deployment date as there is no visible trial date tracker for BareMetal.
 
 ## What is Hyperconverged Infrastructure (HCI)?
 

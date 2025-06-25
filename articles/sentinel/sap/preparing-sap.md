@@ -52,15 +52,13 @@ To allow the SAP data connector to connect to your SAP system, you must create a
 
 :::zone pivot="connection-agent"
 
-- **To include both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender)**, we recommend creating this role by loading role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
+We recommend creating this role by deploying the *NPLK900271* SAP change request (CR): [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL) | [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL)
 
-- **To include log retrieval only**, we recommend creating this role by deploying the *NPLK900271* SAP change request (CR): [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL) | [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL)
+Deploy the CRs on your SAP system as needed just as you'd deploy other CRs. We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
 
-    Deploy the CRs on your SAP system as needed just as you'd deploy other CRs. We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
+Alternately, load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file, which includes all the basic permissions for the data connector to operate.
 
-    Alternately, load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file, which includes all the basic permissions for the data connector to operate.
-
-    Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, create a role manually with the relevant authorizations required for the logs you want to ingest. For more information, see [Required ABAP authorizations](required-abap-authorizations.md). Examples in our documentation use the **/MSFTSEN/SENTINEL_RESPONDER** name.
+Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, create a role manually with the relevant authorizations required for the logs you want to ingest. For more information, see [Required ABAP authorizations](required-abap-authorizations.md). Examples in our documentation use the **/MSFTSEN/SENTINEL_RESPONDER** name.
 
 When configuring the role, we recommend that you:
 
@@ -189,17 +187,27 @@ For more information, see [Database Collector in Background Processing](https://
 
 For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/initial-setup).
 
-## Perform initial connector configuration
+## Configure the connector in Microsoft Sentinel and in your SAP system
 
-This procedure starts in Microsoft Sentinel and requires that the solution be installed before you start.
+This procedure has steps both in Microsoft Sentinel and your SAP system, and requires coordination with the SAP administrator.
 
-1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agent-less (Preview)** data connector.
+1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agentless (Preview)** data connector.
 
-1. In the **Configuration** area, expand and follow the instructions in the **Initial connector configuration - Run the steps below once:** area. These steps will require a mixture of your Security and SAP BASIS teams.
+1. In the **Configuration** section, expand and follow the instructions in the **Initial connector configuration - Run the steps below once:** section. These steps will require both your SecuritySOC engineer and the SAP admin.
+    1. Trigger automatic deployment of Azure resources (SOC Engineer).
+       If, after you deploy the Azure resources, the values in the steps 2 and 3 aren't automatically populated, close and re-expand step 1 to refresh the values in steps 2 and 3.
+   1. Deploy an OAuth2 client credentials artifact in the SAP Integration (SAP Admin).
+   1. Deploy a Secure Parameter artifact in SAP Integration (SAP Admin) named **workspaceKey** containing the Log Analytics workspace key visible in the data connector UI.
+      
+    1. Deploy the SAP agentless data connector package to the SAP Integration Suite (SAP Admin).
+        1. Download the [integration package](https://aka.ms/SAPAgentlessPackage) and upload it to your SAP Integration Suite. For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/importing-integration-packages).
+        1. Open the package and go to the **Artifacts** tab. Then select the **Data Collector** configuration. For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/importing-integration-packages).
+        1. Configure the integration flow with the **LogIngestionURL** and the **DCRImmutableID**.
+        1. Deploy the i-flow using SAP Cloud Integration as the runtime service.
 
-    If, after you deploy the Azure resources step 1, the values in the steps 2 and 3 aren't automatically populated, close and re-expand step 1 to refresh the values in steps 2 and 3.
 
-1. Included in the package is **Prerequisite checker** iflow. We recommend running this iflow before continuing to the next step to ensure that your SAP system meets the system prerequisites.
+## Run the prerequisite checker
+1. The **Prerequisite checker** iflow is included in the package. We recommend running this iflow before continuing to the next step to ensure that your SAP system meets the system prerequisites.
 
     [!INCLUDE [sap-agentless-prerequisites](../includes/sap-agentless-prerequisites.md)]
 
@@ -226,6 +234,8 @@ This procedure starts in Microsoft Sentinel and requires that the solution be in
    - **RFC_READ_TABLE**, to read data from required tables
       
    - **SIAG_ROLE_GET_AUTH**, to retrieve security role authorizations
+      
+   - **/OSP/SYSTEM_TIMEZONE**, to retrieve SAP system timezone details
       
 1. Add a new destination in SAP BTP that points the virtual host you'd created earlier. Use the following details to populate the new destination:
 

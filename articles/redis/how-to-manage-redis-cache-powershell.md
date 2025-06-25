@@ -7,7 +7,8 @@ zone_pivot_groups: redis-type
 appliesto:
   - ✅ Azure Cache for Redis
   - ✅ Azure Managed Redis
-
+ms.custom:
+  - build-2025
 ---
 
 # Manage Azure Redis with Azure PowerShell

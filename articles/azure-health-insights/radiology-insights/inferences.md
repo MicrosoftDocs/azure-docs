@@ -12,7 +12,7 @@ ms.author: JanSchietse
 ---
 
 
-# Radiolody Insights Inferences
+# Radiology Insights Inferences
 
 ## 1. Introduction
 
@@ -68,19 +68,18 @@ So, for example, if the word at position 137 and with length 2 (that is, between
 Find below the list of inferences in scope of Radiology Insights. 
 
 - Age Mismatch
-- Laterality Discrepancy
 - Sex Mismatch
+- Laterality Discrepancy
 - Complete Order Discrepancy
 - Limited Order Discrepancy
 - Finding
 - Critical Result
-- follow-up Recommendation
+- Follow-up Recommendation
 - Communication
 - Radiology Procedure
-
 - Scoring and Assessment
 - Quality Measure
-- Guidance
+- Clinical Guidance
 
 
 In the next section, a definition is provided and clicking on the inference name provides details.
@@ -100,4 +99,44 @@ Annotation triggered when there's discrepancy between sex information in meta-da
 
 #### [LateralityMismatchInference](laterality-mismatch-inference.md)
 
-Annotation triggered when there's a discrepancy between laterality information in meta-data and narrative text or between findings and impression section in report text.
+Annotation triggered when there's a discrepancy between laterality information in meta-data and narrative text or between findings and impression section in report text. 
+
+#### [FindingInference](finding-inference.md)  
+
+Annotation that identifies and highlights an assembly of clinical information pertaining to a, clinically relevant, notion found in the report text. 
+
+#### [CompleteOrderDiscrepancyInference](complete-order-discrepancy-inference.md)  
+
+Annotation triggered when report text doesn't contain all relevant body parts according to information in the metadata that a complete study is ordered. 
+
+#### [LimitedOrderDiscrepancyInference](limited-order-discrepancy-inference.md)  
+
+Annotation triggered when limited selection of body parts according to the procedure order present in meta-data should be checked, but report text includes all relevant body parts. 
+
+#### [FollowupCommunicationInference](communication-inference.md)  
+
+Annotation that identifies and highlights when noted in report text that the findings are strict or nonstrictly communicated with the recipient. 
+
+#### [FollowupRecommendationInference](recommendation-inference.md) 
+
+Annotation that identifies and highlights one or more recommendations in the report text and provides a normalization of each recommendation to a set of structured data fields. 
+
+#### [CriticalResultInference](critical-result-inference.md)  
+
+Annotation that identifies and highlights findings in report text that should be communicated within a certain time limit according to regulatory compliance. 
+
+#### [RadiologyProcedureInference](radiology-procedure-inference.md)  
+
+Normalization of procedure order information present in meta-data using Loinc/Radlex codes. 
+
+#### [ScoringAndAssessmentInference](scoring-and-assessment-inference.md)  
+
+Risk scoring and assessment systems are used in medical imaging and diagnostics to standardize the evaluation and reporting of clinical findings. The model surfaces key scoring and assessment risks with values the radiologist dictates in a radiology note or report. 
+
+#### [QualityMeasureInference](quality-measure-inference.md) 
+
+The model evaluates if quality measure performance was met or not met when executing a medical procedure. The quality measure performance is explained by surfacing evidence from the document and/or lack of evidence from the document. 
+ 
+#### [GuidanceInference](guidance-inference.md)
+
+Clinical guidance can be considered as a decision tree, providing a structured approach of evidence-based guidelines (ACR Guidelines1 and Fleischner Society Guidelines2) to help healthcare providers make the most appropriate imaging or treatment decisions for clinical conditions. The model surfaces the key information from the documentation to feed the decision tree, as such to propose one or more candidate recommendations. 
