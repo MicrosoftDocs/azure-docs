@@ -9,25 +9,25 @@ ms.service: azure-operator-service-manager
 ---
 
 # Workload configuration management
-This article provides guidelines that NF vendors, telco operators, and their partners can follow to optimize the design of configuration group schemes and the operation of configuration group values. Keep these practices in mind when you onboard and deploy your NFs.
+This article provides guidelines that NF vendors, telco operators, and their partners can follow to optimize the design of configuration group schemas (CGS) and the operation of configuration group values (CGV) when using Azure Operator Service Manager (AOSM). Keep these practices in mind when you onboard and deploy your NFs.
 
 ## What is JSON schema
-JSON Schema is an IETF standard providing a format for what JSON data is required for a given application and how to interact with it. Applying such standards for a JSON document lets you enforce consistency and data validity across JSON data
+JSON Schema is an Internet Engineering Task Force (IETF) standard providing a format for what JSON data is required for a given application and how to interact with it. Applying such standards for a JSON document lets you enforce consistency and data validity across JSON data
 
 ### Where is JSON schema used
-* AOSM service uses JSON schema notation as a meta-schema within CGS `ConfigurationGroupSchemaPropertiesFormat` object `schemaDefinition` properties. For more information on CG schema see the [swagger documentation](https://learn.microsoft.com/en-us/rest/api/hybridnetwork/configuration-group-schemas/create-or-update?view=rest-hybridnetwork-2023-09-01&tabs=HTTP#configurationgroupschemapropertiesformat).
+* AOSM service uses JSON schema notation as a meta-schema within CGS `ConfigurationGroupSchemaPropertiesFormat` object `schemaDefinition` properties. For more information on CGS, see the [swagger documentation](https://learn.microsoft.com/en-us/rest/api/hybridnetwork/configuration-group-schemas/create-or-update?view=rest-hybridnetwork-2023-09-01&tabs=HTTP#configurationgroupschemapropertiesformat).
 * AOSM service allows the designer and publisher to specify the JSON schema where operator must provide data (JSON Values) when instantiating an SNS/NF.
 * AOSM service allows the meta-schema properties be optional or required. Where a property is marked required, it must be specified in the values Json.  
 
 ### What JSON keywords are supported
-For the CG meta-schema, AOSM implements supports for JSON standard keywoards on a type by type basis.
+For the CG meta-schema, AOSM implements supports for JSON standard keywords on a type by type basis.
  
 * For object types, keyword supported is limited by filter policy. See JSON Schema - [object](https://json-schema.org/understanding-json-schema/reference/object)
-* For string types, keyword support is not limited or filtered. See JSON Schema - [string](https://json-schema.org/understanding-json-schema/reference/string)
-* For numeric types, keyword support is not limited or filtered. See JSON Schema - [numeric](https://json-schema.org/understanding-json-schema/reference/numeric)
+* For string types, keyword support isn't limited or filtered. See JSON Schema - [string](https://json-schema.org/understanding-json-schema/reference/string)
+* For numeric types, keyword support isn't limited or filtered. See JSON Schema - [numeric](https://json-schema.org/understanding-json-schema/reference/numeric)
 
 ## Optional and Required fields
-A property can be declared as an optional field if publisher/designer explicitly provides a required section and the required section does not contain the property that needs to be optional. An optional property can also have defaults to it. A property is required if the designer/publisher has not specified the required section and the property does not have defaults.
+An optional property is declared by including a required keywork which doesn't contain the optional property. An optional property can also have defaults to it. A property is required if the designer/publisher hasn't specified the required section and the property doesn't have defaults.
 
 ```json
 {
@@ -48,10 +48,10 @@ A property can be declared as an optional field if publisher/designer explicitly
 
 
 ## Defaults Values in JSON Schema
-AOSM service implements a custom method of default value handling, which can be provided for optional properties. When the publisher or designer define default values in CG meta-schema, AOSM uses these value for properties that are missing or undefined in the input CG values data. AOSM service validator logic essemtially hydrates the CG value input with default where no optional value has been provided by operator.
+For optional properties, AOSM implements a custom method of default value handling. When a default value is defined in CGS meta-schema, AOSM uses that value where the property is missing or undefined in the input CGV data. AOSM validator logic essentially hydrates the CGV value with the default value when no value has been provided by operator.
 
 ### How to define defaults
-Defaults must be specified either inside properties or inside items of array. The following example demonstrates defaults with integer and strying property types.
+Defaults must be specified either inside properties or inside items of array. The following example demonstrates defaults with integer and trying property types.
 
 ```json
 {
@@ -70,18 +70,20 @@ Defaults must be specified either inside properties or inside items of array. Th
 ```
 
 ### Rules for defining defaults
-A field which has a “default” should not be defined in the required section of the schema. During the validation process (CGV creation and NF creation), if a property is missing or undefined in the input data, the validator will assign values from default keyword in the schemas of properties and items (when it is the array of schemas) to the missing properties and items.
+The following rules are applied when validating a default value. Consider these rules when using default values to ensure expected outcomes:
 
-Defaults are evaluated in top-down order from where the property is seen. If a property exists in input Json, only its child properties will be evaluated for defaults. If the property does not exist in input Json, then its default will be evaluated along with any child properties which do not exist in the defaults of the property.
-
-If default for an object is not specified and the input json does not contain the object key, then no defaults which are provided under the properties of the object are evaluated.
+* A default value shouldn't be applied to a required property.
+* A default value is evaluated in top-down order, from where the keyword is first seen.
+* Where a property value exist in the input CGV, only children of those properties are evaluated for defaults.
+* Where a property value doesn't exist in the input CGV, it is evaluated for a default, along with any children.
+* Where a proerty value is type object, and neither it nor it's key exist in the input CGV, then no defaults for the object are evaluated.
 
 ## Configuration Group Schema considerations
 We recommend that you always start with a single CGS for the entire NF. If there are site-specific or instance-specific parameters, we still recommend that you keep them in a single CGS. We recommend splitting into multiple CGSs when there are multiple components (rarely NFs, more commonly, infrastructure) or configurations that are shared across multiple NFs. The number of CGSs defines the number of CGVs.
 
 ### Scenario
 
-- FluentD, Kibana, and Splunk (common third-party components) are always deployed for all NFs within an NSD. We recommend grouping these components into a single NFDG.
+- FluentD, Kibana, and Splunk (common third-party components) are always deployed for all NFs within an network service design (NSD). We recommend grouping these components into a single network function design group (NFDG).
 - NSD has multiple NFs that all share a few configurations (deployment location, publisher name, and a few chart configurations).
 
 In this scenario, we recommend that you use a single global CGS to expose the common NF and third-party component configurations. You can define NF-specific CGS as needed.
@@ -97,43 +99,43 @@ In this scenario, we recommend that you use a single global CGS to expose the co
 
 CGS payload:
 
-<pre>
+```json
 { 
-  "type": "object", 
-  "properties": { 
-    "abc": { 
-    "type": "integer", 
-    <b>"default": 30</b>
-    }, 
-    "xyz": { 
-    "type": "integer", 
-    <b>"default": 40</b>
-    },
-    "qwe": {
-    "type": "integer" //doesn't have defaults
-    }
-  }
-  "required": "qwe"
+  "type": "object", 
+  "properties": {
+    "abc": { 
+      "type": "integer", 
+      "default": 30
+    }, 
+    "xyz": { 
+      "type": "integer", 
+      "default": 40
+    },
+    "qwe": {
+      "type": "integer"
+    }
+   }
+   "required": "qwe"
 }
-</pre>
+```
 
 Corresponding CGV payload passed by the operator:
 
-<pre>
+```json
 {
 "qwe": 20
 }
-</pre>
+```
 
 Resulting CGV payload generated by Azure Operator Service Manager:
 
-<pre>
+```json
 {
 "abc": 30,
 "xyz": 40,
 "qwe": 20
 }
-</pre>
+```
 
 ## Configuration Group Values considerations
 
