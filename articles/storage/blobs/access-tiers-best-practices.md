@@ -8,6 +8,7 @@ ms.author: normesta
 ms.date: 06/13/2025
 ms.service: azure-data-lake-storage
 ms.topic: concept-article
+# Customer intent: "As a cloud storage manager, I want to optimize blob data access tiers, so that I can reduce storage costs and improve data accessibility based on usage patterns."
 ---
 
 # Best practices for using blob access tiers
