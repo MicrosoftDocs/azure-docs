@@ -56,7 +56,7 @@ This method uses the managed identity of the Azure IoT Operations instance to au
 1. Select the **SAS Key Authentication** section to view the connection details.
 1. Copy the details for the values for the **Bootstrap server**, **Topic name**, and **Connection string-primary key**. You use these values to configure the data flow endpoint.
 
-    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka-sasl.png" alt-text="Screenshot in Microsoft Fabric that has the custom endpoint connection details.":::
+    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka-key.png" alt-text="Screenshot in Microsoft Fabric that has the custom endpoint connection details.":::
     
     | Settings              | Description                                                                           |
     |-----------------------|---------------------------------------------------------------------------------------|
