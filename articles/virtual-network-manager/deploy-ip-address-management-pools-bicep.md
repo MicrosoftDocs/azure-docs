@@ -1,24 +1,37 @@
 ---
-title: 'Quickstart: Deploy IPAM pools and static CIDRs with Azure Virtual Network Manager - Bicep'
-description: In this quickstart, you learn how to deploy Azure Virtual Network Manager with IPAM pools and static CIDR allocations using Bicep templates.
+title: Deploy IPAM pools and static CIDRs with Azure Virtual Network Manager - Bicep
+description: Deploy IPAM pools and static CIDRs with Azure Virtual Network Manager using Bicep. Create non-overlapping address spaces and associate existing virtual networks in minutes.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 06/20/2025
+ms.date: 06/25/2025
 ms.custom:
   - template-quickstart
   - mode-arm
   - devx-track-bicep
   - devx-track-azurepowershell
   - devx-track-azurecli
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:06/25/2025
 ---
 
-# Quickstart: Deploy IPAM pools and static CIDRs with Azure Virtual Network Manager - Bicep
+# Deploy IPAM pools and static CIDRs with Azure Virtual Network Manager - Bicep
 
- Azure Virtual Network Manager simplifies IP address planning by providing centralized management and automatic allocation of non-overlapping address spaces. In this article, learn how to deploy Azure Virtual Network Manager with IP Address Management (IPAM) pools and static CIDR allocations using Bicep templates. You'll create an IPAM pool, allocate a static CIDR block, and associate existing virtual networks with the IPAM pools. You can also create new virtual networks that automatically receive IP address allocations from the IPAM pool. All of this is done using Bicep templates, which provide a declarative way to define and deploy Azure resources.
+Azure Virtual Network Manager provides centralized IP address management (IPAM) that helps you avoid overlapping address spaces across your virtual networks. With IPAM pools, you can define large address ranges and automatically allocate non-overlapping subnets to your virtual networks.
+
+This article shows you how to use Bicep templates to:
+
+- Create an Azure Virtual Network Manager instance with IPAM capabilities
+- Set up an IPAM pool with a static CIDR allocation
+- Associate existing virtual networks with IPAM pools
+- Create new virtual networks that automatically receive IP addresses from IPAM pools
+
+When you finish, you'll have a working IPAM configuration that you can use to manage IP address allocation across multiple virtual networks.
 
 [!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -144,7 +157,7 @@ param existingVnetName string = 'vnet-existing-001'
 param existingVnetLocation string = 'eastus2'
 
 @description('Resource ID of an existing IPAM pool')
-param existingIpamPoolId string = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-network-manager/providers/Microsoft.Network/networkManagers/vnm-learn-prod-eastus2-001/ipamPools/ipam-pool-learn-prod-001'
+param existingIpamPoolId string = '/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/rg-network-manager/providers/Microsoft.Network/networkManagers/vnm-learn-prod-eastus2-001/ipamPools/ipam-pool-learn-prod-001'
 
 // Virtual Network
 resource existingVnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
@@ -168,14 +181,14 @@ resource existingVnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
 
 1. Save the Bicep template to your local computer as **associate-existing-vnet.bicep**.
 
-2. Use a text or code editor to update the following parameters in the file:
+1. Use a text or code editor to update the following parameters in the file:
    - Change `existingVnetName` to the name of your existing virtual network
    - Change `existingVnetLocation` to the location of your existing virtual network
    - Change `existingIpamPoolId` to the resource ID of your existing IPAM pool
 
-3. Save the **associate-existing-vnet.bicep** file.
+1. Save the **associate-existing-vnet.bicep** file.
 
-4. Deploy the Bicep template using either Azure CLI or Azure PowerShell. Replace `rg-existing-vnet` with the resource group name of the existing virtual network:
+1. Deploy the Bicep template using either Azure CLI or Azure PowerShell. Replace `rg-existing-vnet` with the resource group name of the existing virtual network:
 
 ### [Azure CLI](#tab/azure-cli-associate)
 
@@ -218,7 +231,7 @@ param subnetName string = 'snet-default-001'
 param locationName string = resourceGroup().location
 
 @description('Resource ID of an existing IPAM pool')
-param existingIpamPoolId string = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-network-manager/providers/Microsoft.Network/networkManagers/vnm-learn-prod-eastus2-001/ipamPools/ipam-pool-learn-prod-001'
+param existingIpamPoolId string = '/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/rg-network-manager/providers/Microsoft.Network/networkManagers/vnm-learn-prod-eastus2-001/ipamPools/ipam-pool-learn-prod-001'
 
 @description('Number of IP addresses for virtual network')
 param vnetNumberOfIpAddresses string = '256'
@@ -264,12 +277,12 @@ resource newVnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
 
 1. Save the Bicep template to your local computer as **create-ipam-managed-vnet.bicep**.
 
-2. Use a text or code editor to update the following parameter in the file:
+1. Use a text or code editor to update the following parameter in the file:
    - Change `existingIpamPoolId` to the resource ID of your existing IPAM pool
 
-3. Save the **create-ipam-managed-vnet.bicep** file.
+1. Save the **create-ipam-managed-vnet.bicep** file.
 
-4. Deploy the Bicep template using either Azure CLI or Azure PowerShell:
+1. Deploy the Bicep template using either Azure CLI or Azure PowerShell:
 
 ### [Azure CLI](#tab/azure-cli-create)
 
@@ -299,11 +312,11 @@ After deploying the templates, verify that the IPAM pool and virtual network con
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Virtual Network Manager instance.
 
-2. Under **IP address management**, select **IP address pools**.
+1. Under **IP address management**, select **IP address pools**.
 
-3. Select your IPAM pool to view its allocations and usage statistics.
+1. Select your IPAM pool to view its allocations and usage statistics.
 
-4. Under **Settings**, select **Allocations** to see all resources associated with the pool, including static CIDR blocks and virtual networks.
+1. Under **Settings**, select **Allocations** to see all resources associated with the pool, including static CIDR blocks and virtual networks.
 
 ## Clean up resources
 
