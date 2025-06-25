@@ -4,13 +4,15 @@ description: Learn about the different log retention plans that are available in
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 07/15/2024
+ms.date: 06/25/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 ---
 # Log retention plans in Microsoft Sentinel
+
+For Sentinel workspaces connected to Defender, tiering and retention management must be done from the new table management experience in the Defender portal. For unattached Sentinel workspaces, continue to use the experiences described below to manage data in your workspaces. If you have Basic logs in your workspace, convert them to Analytics tier first from Log Analytics Tables experience before you can change tiering or retention from the Defender’s new table management experience.  For more information, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](/unified-secops-platform/manage-data-defender-portal-overview).
 
 There are two competing aspects of log collection and retention that are critical to a successful threat detection program. On the one hand, you want to maximize the number of log sources that you collect, so that you have the most comprehensive security coverage possible. On the other hand, you need to minimize the costs incurred by the ingestion of all that data.
 
