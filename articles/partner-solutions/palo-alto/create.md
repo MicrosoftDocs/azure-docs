@@ -46,7 +46,7 @@ In this section, you'll create a Palo Alto Networks resource.
 
 1. Under **Public IP Address Configuration**,  select either **Create new** or **Use existing**. 
 
-1. If you select **Create new**, accept the supplied public IP address name or enter a name. If you select **Use existing**, select a public IP addess name.
+1. If you select **Create new**, accept the supplied public IP address name or enter a name. If you select **Use existing**, select a public IP address name.
 
 1. Under **Source NAT Settings**, indicate your preferred NAT settings.
 
@@ -66,7 +66,7 @@ In this section, you'll create a Palo Alto Networks resource.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-dns-proxy.png" alt-text="Screenshot of the DNS Proxy tab of the Create Cloud NGFW page." lightbox="media/palo-alto-create/palo-alto-dns-proxy.png":::
 
-1. Under **DNS Proxy**, selet either **Disabled** or **Enabled**.
+1. Under **DNS Proxy**, select either **Disabled** or **Enabled**.
 
 ### Tags tab (optional)
 
