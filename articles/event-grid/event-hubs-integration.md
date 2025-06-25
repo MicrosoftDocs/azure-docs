@@ -57,25 +57,13 @@ In this section, deploy the required infrastructure with a [Resource Manager tem
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Cloud Shell** button at the top.
 
-   :::image type="content" source="media/event-hubs-functions-synapse-analytics/azure-portal.png" alt-text="Screenshot of Azure portal showing the selection of Cloud Shell button.":::
+   :::image type="content" source="media/event-hubs-functions-synapse-analytics/azure-portal.png" alt-text="Screenshot of Azure portal showing the selection of Cloud Shell button." lightbox="media/event-hubs-functions-synapse-analytics/azure-portal.png":::
 
-1. You see the Cloud Shell opened at the bottom of the browser.
+   You see the Cloud Shell opened at the bottom of the browser.
 
-   1. If you're using the Cloud Shell for the first time:
+   :::image type="content" source="media/event-hubs-functions-synapse-analytics/cloud-shell-initialized.png" alt-text="Screenshot showing the Cloud Shell initialized." lightbox="media/event-hubs-functions-synapse-analytics/cloud-shell-initialized.png":::
 
-      1. If you see an option to select between **Bash** and **PowerShell**, select **Bash**.
-
-         :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
-
-      1. Create a storage account by selecting **Create storage**. Azure Cloud Shell requires an Azure storage account to store some files.
-
-          :::image type="content" source="media/event-hubs-functions-synapse-analytics/create-storage-cloud-shell.png" alt-text="Screenshot showing the creation of storage for Cloud Shell.":::
-
-      1. Wait until the Cloud Shell is initialized.
-
-         :::image type="content" source="media/event-hubs-functions-synapse-analytics/cloud-shell-initialized.png" alt-text="Screenshot showing the Cloud Shell initialized.":::
-
-1. In the Cloud Shell, select **Bash** as shown in the preceding image, if it isn't already selected.
+1. Cloud Shell offers Bash and PowerShell versions. Switch between the options by using the button at the top of the terminal area. If your Cloud Shell opened as **PowerShell**, select **Bash**.
 1. Create an Azure resource group by running the following CLI command:
 
    1. Copy and paste the following command into the Cloud Shell window. Change the resource group name and location if you want.
@@ -151,7 +139,7 @@ In this section, you create a table in the dedicated SQL pool you created earlie
 1. In the list of resources in the resource group, select your *dedicated SQL pool*.
 1. On the **Dedicated SQL pool** page, under **Common Tasks**, select **Query editor (preview)**.
 
-   :::image type="content" source="media/event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png" alt-text="Screenshot showing the selection of Query Editor on a Dedicated SQL pool page in the Azure portal.":::
+   :::image type="content" source="media/event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png" alt-text="Screenshot showing the selection of Query Editor on a Dedicated SQL pool page in the Azure portal." lightbox="media/event-hubs-functions-synapse-analytics/sql-data-warehouse-page.png":::
 
 1. Enter the user name and password for the SQL server, and select **OK**. If you see a message about allowing your client to access the SQL server, select **Allowlist IP &lt;your IP Address&gt; on server &lt;your SQL server&gt;**, and then select **OK**.
 1. In the query window, copy and run the following SQL script:
@@ -167,7 +155,7 @@ In this section, you create a table in the dedicated SQL pool you created earlie
    WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
    ```
 
-   :::image type="content" source="media/event-hubs-functions-synapse-analytics/run-sql-query.png" alt-text="Screenshot showing the query editor.":::
+   :::image type="content" source="media/event-hubs-functions-synapse-analytics/run-sql-query.png" alt-text="Screenshot showing the query editor." lightbox="media/event-hubs-functions-synapse-analytics/run-sql-query.png":::
 
 1. Keep this tab or window open so that you can verify that the data is created at the end of the tutorial.
 
@@ -201,7 +189,7 @@ First, get the publish profile for the Functions app from the Azure portal. Then
 1. When Visual Studio configures the profile, select **Publish**. Confirm that the publishing succeeded.
 1. In the web browser that has the **Azure Function** page open, select  **Functions** in the middle pane. Confirm that the **EventGridTriggerMigrateData** function shows up in the list. If you don't see it, try publishing from Visual Studio again, and then refresh the page in the portal.
 
-   :::image type="content" source="media/event-hubs-functions-synapse-analytics/confirm-function-creation.png" alt-text="Screenshot showing the confirmation of function creation.":::
+   :::image type="content" source="media/event-hubs-functions-synapse-analytics/confirm-function-creation.png" alt-text="Screenshot showing the confirmation of function creation." lightbox="media/event-hubs-functions-synapse-analytics/confirm-function-creation.png":::
 
 After publishing the function, you're ready to subscribe to the event.
 
@@ -214,7 +202,7 @@ After publishing the function, you're ready to subscribe to the event.
 1. Select the **Event Hubs namespace** from the list of resources.
 1. On the **Event Hubs Namespace** page, select **Events**, and then select **+ Event Subscription** on the toolbar.
 
-   :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-hub-add-subscription-link.png" alt-text="Screenshot of the Events page for an Event Hubs namespace with Add event subscription link selected. ":::
+   :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-hub-add-subscription-link.png" alt-text="Screenshot of the Events page for an Event Hubs namespace with Add event subscription link selected." lightbox="media/event-hubs-functions-synapse-analytics/event-hub-add-subscription-link.png":::
 
 1. On the **Create Event Subscription** page, follow these steps:
 
@@ -269,7 +257,7 @@ You finished setting up your event hub, dedicate SQL pool (formerly SQL Data War
    select * from [dbo].[Fact_WindTurbineMetrics]
    ```
 
-   :::image type="content" source="media/event-hubs-functions-synapse-analytics/query-results.png" alt-text="Screenshot showing the query results.":::
+   :::image type="content" source="media/event-hubs-functions-synapse-analytics/query-results.png" alt-text="Screenshot showing the query results." lightbox="media/event-hubs-functions-synapse-analytics/query-results.png":::
 
 > [!IMPORTANT]
 > In this example, using the connection string to authenticate to Azure Event Hubs namespace keeps the tutorial simple. We recommend that you use Microsoft Entra ID authentication in production environments. When you use an application, enable managed identity for the application and assign the identity an appropriate role (Azure Event Hubs Owner, Azure Event Hubs Data Sender, or Azure Event Hubs Data Receiver) on the Event Hubs namespace. For more information, see [Authorize access to Event Hubs using Microsoft Entra ID](../event-hubs/authorize-access-azure-active-directory.md).
@@ -334,7 +322,7 @@ This section helps you with monitoring or troubleshooting the solution.
 
 In the browser tab where you have the query window open, query the table in your dedicated SQL pool for the migrated data.
 
-:::image type="content" source="media/event-hubs-functions-synapse-analytics/query-results.png" alt-text="Screenshot showing the final query results.":::
+:::image type="content" source="media/event-hubs-functions-synapse-analytics/query-results.png" alt-text="Screenshot showing the final query results." lightbox="media/event-hubs-functions-synapse-analytics/query-results.png":::
 
 ## Related content
 
