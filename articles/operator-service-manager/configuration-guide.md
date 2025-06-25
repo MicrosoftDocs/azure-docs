@@ -11,15 +11,15 @@ ms.service: azure-operator-service-manager
 # Workload configuration management
 This article provides Azure Operator Service Manager (AOSM) guidelines to optimize the design of configuration group schemas (CGS) and the operation of configuration group values (CGV). NF vendors, telco operators, and their partners should keep these practices in mind when onboarding and deploying NFs.
 
-## What is JSON schema
+## What is JSON schema?
 JSON Schema is an Internet Engineering Task Force (IETF) standard providing a format for what JSON data is required for a given application and how to interact with it. Applying such standards for a JSON document lets you enforce consistency and data validity across JSON data
 
-### Where is JSON schema used
+### Where is JSON schema used?
 * AOSM service uses JSON schema notation as a meta-schema within CGS `ConfigurationGroupSchemaPropertiesFormat` object `schemaDefinition` properties.
 * AOSM service allows the designer and publisher to specify the JSON schema where operator must provide data (JSON Values) when instantiating an SNS/NF.
 * AOSM service allows the meta-schema properties be optional or required. Where a property is marked required, it must be specified in the values Json.  
 
-### What JSON keywords are supported
+### What JSON keywords are supported?
 For the CGS meta-schema, AOSM implements supports for JSON standard keywords on a type by type basis.
  
 * For object types, keyword supported is limited by filter policy. See JSON Schema - [object](https://json-schema.org/understanding-json-schema/reference/object)
