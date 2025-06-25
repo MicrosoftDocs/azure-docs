@@ -80,6 +80,8 @@ Another file, *HelloOrchestration.cs*, contains the basic building blocks of a D
 
 For more information about these functions, see [Durable Functions types and features](./durable-functions-types-features-overview.md).
 
+[Code sample for Durable Functions in .NET](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=in-process%2Cnodejs-v3%2Cv1-model&pivots=csharp)
+
 ## Configure storage
 
 You can use [Azurite](../../storage/common/storage-use-azurite.md?tabs=visual-studio-code), an emulator for Azure Storage, to test the function locally. In *local.settings.json*, set the value for `AzureWebJobsStorage` to `UseDevelopmentStorage=true` like in this example:
