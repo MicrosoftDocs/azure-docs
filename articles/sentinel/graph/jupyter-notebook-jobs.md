@@ -14,6 +14,8 @@ ms.author: edbayansh
  
 You can create schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.  
 
+
+
 ## Permissions
 
 To create and run jobs, and write to the data lake and analytics tiers, you will need the correct roles and permissions. 
@@ -59,7 +61,16 @@ To create schedule a job, you must save your notebook as a file.
 
 Publishing a job creates a job definition that includes the notebook file, the job configuration, and the schedule. The job definition is uploaded from your VS Code editor and stored in the Microsoft Sentinel data lake. Once published, the job is no longer connected to the notebook file on your local file system. If you want to edit the code in the notebook job, you must download the job definition, edit the notebook file, and then republish the job.
 
-To edit a job......
+To edit a Job follow the steps below:
+
+1. In the **Jobs** section, select the job you want to edit.
+1. Select the **Download** icon to download the job definition to your local file system.
+1. Save the workbook to your local file system.
+    :::image type="content" source="./media/jupyter-notebook-jobs/download-job.png" lightbox="./media/jupyter-notebooks/download-job.png" alt-text="A screenshot showing the download job icon in VS Code."  :::
+1. Open the downloaded notebook file in VS Code and make your changes.
+
+## Viewing jobs in the Microsoft Defender portal
+
 
 ## Service limits
 
