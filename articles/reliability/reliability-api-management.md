@@ -7,7 +7,6 @@ ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
 ms.date: 06/24/2025
-
 ---
 
 # Reliability in Azure API Management
@@ -71,21 +70,16 @@ If you want to explicitly select the availability zones to use, you can choose b
     > [!IMPORTANT]
     > Pinning to a single availability zone is only recommended when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) is too high for your needs, and when you have verified that the latency doesn't meet your requirements. By itself, a zonal instance doesn’t provide resiliency to an availability zone outage. To improve the resiliency of a zonal API Management deployment, you need to explicitly deploy separate instances into multiple availability zones and configure traffic routing and failover.
 
-
-
 ### Region support
 
 Azure API Management supports availability zones for Premium (classic) tier in all of the [Azure regions that support availability zones](./regions-list.md).
 
 ### Requirements
 
-You must use the Premium (classic) tier to configure availability zone support. Azure API Management doesn't support availability zones in the Premium v2, Developer, Basic, and Standard tiers. To upgrade your instance to Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
-
+You must use the Premium (classic) tier to configure availability zone support. Azure API Management doesn't support availability zones in the Premium v2, Developer, Basic, and Standard tiers. To upgrade your instance to the Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 >[!NOTE]
 > - **The Premium v2 tier** with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
-
-
 
 ### Considerations
 
@@ -219,13 +213,10 @@ You can create multi-region deployments in Premium (classic) tier with any Azure
 
 ### Requirements
 
-You must use the Premium (classic) tier to configure multi-region support. Azure API Management doesn't support multi-region deployments in the Premium v2, Developer, Basic, and Standard tiers. To upgrade your instance to Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
+You must use the Premium (classic) tier to configure multi-region support. Azure API Management doesn't support multi-region deployments in the Premium v2, Developer, Basic, and Standard tiers. To upgrade your instance to the Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
-
->[!NOTE]
-> - **The Premium v2 tier** with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
-
-
+> [!NOTE]
+> **The Premium v2 tier** with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
 
 ### Considerations
 
@@ -288,7 +279,6 @@ When the primary region recovers, Azure API Management automatically restores un
 ### Testing for region failures
 
 To be ready for unexpected region outages, it's recommended that you regularly test your responses to region failures. You can simulate some aspects of a region failure by [disabling routing to a regional gateway](../api-management/api-management-howto-deploy-multi-region.md#disable-routing-to-a-regional-gateway).
-
 
 ## Backups
 
