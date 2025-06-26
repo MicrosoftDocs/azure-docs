@@ -77,7 +77,7 @@ The solution allows you to gain visibility to user activities on SAP RISE/ECS an
 For SAP RISE/ECS, the Microsoft Sentinel Solution for SAP must be deployed in customer's Azure subscription. All parts of the Sentinel solution are managed by customer and not by SAP. The SAP Cloud Connector can be hosted either by SAP in the RISE subscription or by the customer in their network if virtual network connectivity is established.
 
 > [!NOTE]
-> Alternatively, you can deploy the Microsoft Sentinel solution for SAP applications without using SAP Integration Suite and SAP Cloud Connector. This approach uses an agent-based data connector that requires you to host a container in your own environment — either in your Azure subscription or on-premises infrastructure.
+> Alternatively, you can deploy the Microsoft Sentinel solution for SAP applications without using SAP Integration Suite and SAP Cloud Connector. This approach uses an agent-based data connector that requires you to host a container in your own environment — either in your Azure subscription or on-premises infrastructure. Learn more [here](../../sentinel/sap/deployment-overview.md).
 
 > [!IMPORTANT]
 > As per the RISE shared responsibility model customers using the Sentinel solution for SAP can only integrate the SAP app layer. SAP RISE infrastructure and operating system logs are only available through the optional SAP LogServ solution. It natively supports Sentinel integration. Learn more [here](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/ultimate-blog-series-sap-logserv-integration-with-microsoft-sentinel/ba-p/14126401).
