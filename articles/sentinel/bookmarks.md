@@ -26,9 +26,8 @@ Hunting bookmarks in Microsoft Sentinel helps you preserve the queries and query
 Create a bookmark to preserve the queries, results, your observations, and findings.
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**  select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**.
-1. From the **Hunting** tab, select a hunt.
-1. Select one of the hunting queries.
-1. In the hunting query details, select **Run Query**.
+1. From the **Queries** tab, select one or more of the hunting queries.
+1. From the top command bar, select **Run selected queries**.
 
 1. Select **View query results**. For example:
 
@@ -38,7 +37,7 @@ Create a bookmark to preserve the queries, results, your observations, and findi
 
 1. From the log query results list, use the checkboxes to select one or more rows that contain the information you find interesting.
 
-1. Select **Add bookmark**:
+1. In Azure portal, select **Add bookmark**:
 
     :::image type="content" source="media/bookmarks/add-hunting-bookmark.png" alt-text="Screenshot of adding hunting bookmark to query." lightbox="media/bookmarks/add-hunting-bookmark.png":::
 
@@ -56,7 +55,7 @@ Create a bookmark to preserve the queries, results, your observations, and findi
 
 1. Select **Save** to commit your changes and add the bookmark. All bookmarked data is shared with other analysts, and is a first step toward a collaborative investigation experience.
 
-The log query results support bookmarks whenever this pane is opened from Microsoft Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. You can't create bookmarks when the **Logs** pane is opened from other locations, such as directly from Azure Monitor.
+The log query results support bookmarks whenever this pane is opened from Microsoft Sentinel. For example, if you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. You can't create bookmarks when the **Logs** pane is opened from another location, such as directly from Azure Monitor.
 
 ## View and update bookmarks
 
@@ -86,7 +85,7 @@ For instructions to use the investigation graph, see [Use the investigation grap
 
 ## Add bookmarks to a new or existing incident
 
-Add bookmarks to an incident from the bookmarks tab on the **Hunting** page. 
+Add bookmarks to an incident from the bookmarks tab on the **Hunting** page.
 
 1. From the **Bookmarks** tab, select the bookmark or bookmarks you want to add to an incident.
 
