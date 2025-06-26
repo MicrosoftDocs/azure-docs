@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 01/29/2025
+ms.date: 06/17/2025
 ms.author: danlep
 ---
 
@@ -30,6 +30,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
     header-name="name of HTTP header containing the token (alternatively, use query-parameter-name or token-value attribute to specify token)"
     query-parameter-name="name of query parameter used to pass the token (alternative, use header-name or token-value attribute to specify token)"
     token-value="expression returning the token as a string (alternatively, use header-name or query-parameter attribute to specify token)"
+    authentication-endpoint="Microsoft Entra environment endpoint"
     failed-validation-httpcode="HTTP status code to return on failure"
     failed-validation-error-message="error message to return on failure"
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
@@ -66,6 +67,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 | header-name                     | The name of the HTTP header holding the token. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                       | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | `Authorization`                                                                               |
 | query-parameter-name            | The name of the query parameter holding the token. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | token-value                     | Expression returning a string containing the token. You must not return `Bearer` as part of the token value. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                          | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
+| authentication-endpoint |         Microsoft Entra endpoint used to acquire tokens in environments such as national clouds.  Prefix `https://` is optional. Example: `https://login.microsoftonline.us` for Microsoft Entra ID for US Government. | No | `https://login-microsoftonline.com` |
 | failed-validation-httpcode      | HTTP status code to return if the JWT doesn't pass validation. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                        | No                                                                               | 401                                                                               |
 | failed-validation-error-message | Error message to return in the HTTP response body if the JWT doesn't pass validation. This message must have any special characters properly escaped. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                | No                                                                               | Default error message depends on validation issue, for example "JWT not present." |
 | output-token-variable-name      | String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation. Policy expressions aren't allowed.                                                                                                                                                                                                                                                                                     | No                                                                               | N/A                                                                               |
@@ -95,7 +97,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

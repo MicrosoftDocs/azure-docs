@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 02/14/2025
 ms.author: kendownie
+# Customer intent: As a cloud architect, I want to implement Azure Files for shared network storage, so that I can simplify file management and enhance accessibility across various operating systems in both cloud and hybrid environments.
 ---
 
 # What is Azure Files?
@@ -17,7 +18,7 @@ Here are some videos on common use cases for Azure Files:
 * [Replace your file server with a serverless Azure file share](https://youtu.be/H04e9AgbcSc)
 * [Getting started with FSLogix profile containers on Azure Files in Azure Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
-To get started using Azure Files, see [Quickstart: Create and use an Azure file share](storage-how-to-use-files-portal.md).
+To get started using Azure Files, see [How to create an SMB Azure file share](storage-how-to-create-file-share.md).
 
 ## Why Azure Files is useful
 

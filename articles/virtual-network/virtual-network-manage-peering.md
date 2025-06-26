@@ -6,7 +6,13 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - build-2025
+# Customer intent: As a network administrator, I want to create, modify, or delete virtual network peerings, so that I can improve connectivity and manage traffic flow between virtual networks across regions using the Azure backbone network.
 ---
 
 # Create, Change, or Delete Azure Virtual Network Peering
@@ -350,8 +356,7 @@ If your account isn't assigned to the previous role, it must be assigned to a [c
 
 | Action                                                          | Name |
 |---                                                              |---   |
-| **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write**  | Required to create a peering from virtual network A to virtual network B. Virtual network A must be a virtual network         |
-| **Microsoft.Network/virtualNetworks/peer/action**                   | Required to create a peering from virtual network B to virtual network A                                                       |
+| **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write**  | Required to create a peering from virtual network A to virtual network B.         |
 | **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read**   | Read a virtual network peering   |
 | **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete** | Delete a virtual network peering |
 

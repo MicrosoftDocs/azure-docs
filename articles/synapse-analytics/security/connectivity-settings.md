@@ -163,7 +163,7 @@ Ensure that **Public network access** is set to **Selected networks** to be able
 
 ## Minimum TLS version
 
-The minimum [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) version setting allows customers to choose which version of TLS is in use. It's possible to change the minimum TLS version by using the Azure portal, Azure PowerShell, and the Azure CLI.
+The minimum [Transport Layer Security (TLS)](/troubleshoot/sql/database-engine/connect/tls-1-2-support-microsoft-sql-server) version setting allows customers to choose which version of TLS is in use. It's possible to change the minimum TLS version by using the Azure portal, Azure PowerShell, and the Azure CLI.
 
 After you test to confirm that your applications support it, we recommend setting the minimal TLS version to 1.3. This version includes fixes for vulnerabilities in previous versions and is the highest supported version of TLS for standalone dedicated SQL pools.
 

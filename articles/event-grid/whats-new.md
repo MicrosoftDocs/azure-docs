@@ -2,12 +2,43 @@
 title: What's new? Azure Event Grid
 description: Learn what is new with Azure Event Grid, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 ms.topic: overview
-ms.date: 11/18/2024
+ms.date: 05/01/2024
+ms.custom:
+  - build-2025
 ---
 
 # What's new in Azure Event Grid?
 
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release. 
+
+## May 2025
+The following features of Event Grid Namespaces moved from public preview to general availability (GA).
+
+- [Cross-tenant delivery in the basic tier](cross-tenant-delivery-using-managed-identity.md)
+    - Event Hubs
+    - Service Bus (queues and topics)
+    - Storage queues
+- MQTT compliance – [Message ordering](mqtt-support.md#message-ordering) is supported now. 
+- [MQTT limits](quotas-limits.md) change:
+    - Segments per topic/ topic filter: 15 
+    - MQTT connect rate per client session:  1 connection attempt per second per client session. 
+
+The following features are released in Preview: 
+
+- [Network Security Perimeter (NSP) support for inbound and outbound communication in Azure Event Grid topics and domains](configure-network-security-perimeter.md) 
+- [Managed identity support for webhook delivery](deliver-events-using-managed-identity.md#deliver-events-to-webhooks-using-managed-identity) 
+- [Cross-tenant delivery in the basic tier](cross-tenant-delivery-using-managed-identity.md)
+    - Webhooks
+    - Namespace topics
+- [Cross-tenant delivery in the standard tier (Event Grid namespaces)](cross-tenant-delivery-using-managed-identity.md) 
+    - Event Hubs
+    - Webhooks
+    - Blob storage (Dead letter storage)
+- [OAuth 2.0 (JSON Web Token) authentication ( Refresh- with Direct upload of (Privacy-Enhanced Mail) PEM certificates)](authenticate-with-namespaces-using-json-web-tokens.md#configure-oauth-20-jwt-authentication-settings-on-your-event-grid-namespace---direct-upload) 
+- [Custom Webhook Authentication](authenticate-with-namespaces-using-webhook-authentication.md)
+- [Send MQTT events directly to Microsoft Fabric using Azure Event Grid ](mqtt-events-fabric.md)
+- MQTT Compliance –  [Supports assigned client identifier](mqtt-support.md#assigned-client-identifiers-preview). 
+- [MQTT limit change](quotas-limits.md) – Inbound MQTT publishing requests per session: 1,000 messages per second. 
 
 ## November 2024
 The following features of Event Grid Namespaces moved from public preview to general availability (GA).

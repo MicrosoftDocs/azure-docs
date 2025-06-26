@@ -5,8 +5,9 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
-ms.date: 04/29/2025
+ms.date: 05/27/2025
 ms.author: kendownie
+# Customer intent: As a Linux system administrator, I want to mount an NFS Azure file share, so that I can securely access and manage data stored in Azure from my Linux environment.
 ---
 
 # Mount NFS Azure file shares on Linux
@@ -48,7 +49,7 @@ To use NFS Azure file shares, you must either [create a private endpoint](storag
 
 ### Disable secure transfer
 
-Azure Files doesn't currently support encryption-in-transit with the NFS protocol and relies instead on network-level security. Therefore, you need to disable secure transfer on your storage account.
+Follow these steps to disable secure transfer on your storage account. Alternatively, you can [enable encryption in transit (preview)](encryption-in-transit-for-nfs-shares.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and access the storage account containing the NFS share you created.
 1. Select **Configuration**.

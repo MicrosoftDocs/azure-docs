@@ -12,6 +12,8 @@ ms.custom: devx-track-azurecli
 
 # Cache Purging in Azure Front Door Using Azure CLI
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Azure Front Door caches assets until their time-to-live (TTL) expires. When a client requests an asset with an expired TTL, Azure Front Door retrieves a new copy of the asset, serves the request, and updates the cache.
 
 To ensure users always get the latest assets, version your assets for each update and publish them with new URLs. Azure Front Door fetches the new assets for subsequent client requests. Sometimes, you might need to purge cached content from all edge nodes to force them to retrieve updated assets. This action is useful when updates are made to your application or need to correct incorrect information.

@@ -3,8 +3,10 @@ title: "Quickstart: Host a Durable Task SDK app on Azure Container Apps (preview
 description: Learn how to configure an existing container app for the Durable Task Scheduler using the Durable Task SDKs and deploy using Azure Developer CLI.
 ms.subservice: durable-task-scheduler
 ms.topic: quickstart
-ms.date: 05/06/2025
+ms.date: 05/15/2025
 zone_pivot_groups: df-languages
+ms.custom:
+  - build-2025
 ---
 
 # Quickstart: Host a Durable Task SDK app on Azure Container Apps (preview)
@@ -21,14 +23,7 @@ zone_pivot_groups: df-languages
 
 ::: zone-end
 
-::: zone pivot="java"
-
-> [!IMPORTANT]
-> Currently, this quickstart sample isn't available for Java.
-
-::: zone-end
-
-::: zone pivot="csharp,python"
+::: zone pivot="csharp,python,java"
 
 In this quickstart, you learn how to:
 
@@ -64,7 +59,16 @@ Before you begin:
 
 ::: zone-end
 
-::: zone pivot="csharp,python"
+::: zone pivot="java"
+
+- Make sure you have [Java 8 or 11](https://www.java.com/en/download/).
+- Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
+- Install [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
+- Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
+
+::: zone-end
+
+::: zone pivot="csharp,python,java"
 
 ## Prepare the project
 
@@ -88,7 +92,15 @@ cd /samples/durable-task-sdks/python/function-chaining
 
 ::: zone-end
 
-::: zone pivot="csharp,python"
+::: zone pivot="java"
+
+```bash
+cd /samples/durable-task-sdks/java/function-chaining
+```
+
+::: zone-end
+
+::: zone pivot="csharp,python,java"
 
 ## Deploy using Azure Developer CLI
 
@@ -169,6 +181,10 @@ In the Azure portal, verify the orchestrations are running successfully.
 
 1. Select **Monitoring** > **Log stream**.
 
+::: zone-end
+
+::: zone pivot="csharp,python"
+
 1. Confirm the client container is logging the function chaining tasks.
 
    :::image type="content" source="media/quickstart-container-apps-durable-task-sdk/client-app-log-stream.png" alt-text="Screenshot of the client container's log stream in the Azure portal.":::
@@ -183,7 +199,15 @@ In the Azure portal, verify the orchestrations are running successfully.
 
 ::: zone-end
 
-::: zone pivot="csharp,python"
+::: zone pivot="java"
+
+1. Confirm the sample container app is logging the function chaining tasks.
+
+   :::image type="content" source="media/quickstart-container-apps-durable-task-sdk/java-sample-app-log-stream.png" alt-text="Screenshot of the Java sample app's log stream in the Azure portal.":::
+
+::: zone-end
+
+::: zone pivot="csharp,python,java"
 
 ## Understanding the code
 
@@ -390,6 +414,109 @@ with DurableTaskSchedulerWorker(
     worker.start()
 ```
 
+
+::: zone-end
+
+::: zone pivot="java"
+
+The sample container app contains both the worker and client code. 
+
+### Client
+
+The client code: 
+
+- Uses the same connection string logic as the worker
+- Implements a sequential orchestration scheduler that:
+  - Schedules 20 orchestration instances, one at a time
+  - Waits 5 seconds between scheduling each orchestration
+  - Tracks all orchestration instances in a list
+  - Waits for all orchestrations to complete before exiting
+- Uses standard logging to show progress and results
+
+```java
+// Create client using Azure-managed extensions
+DurableTaskClient client = (credential != null 
+    ? DurableTaskSchedulerClientExtensions.createClientBuilder(endpoint, taskHubName, credential)
+    : DurableTaskSchedulerClientExtensions.createClientBuilder(connectionString)).build();
+
+// Start a new instance of the registered "ActivityChaining" orchestration
+String instanceId = client.scheduleNewOrchestrationInstance(
+        "ActivityChaining",
+        new NewOrchestrationInstanceOptions().setInput("Hello, world!"));
+logger.info("Started new orchestration instance: {}", instanceId);
+
+// Block until the orchestration completes. Then print the final status, which includes the output.
+OrchestrationMetadata completedInstance = client.waitForInstanceCompletion(
+        instanceId,
+        Duration.ofSeconds(30),
+        true);
+logger.info("Orchestration completed: {}", completedInstance);
+logger.info("Output: {}", completedInstance.readOutputAs(String.class))
+```
+
+### Worker
+
+The orchestration directly calls each activity in sequence using the standard `callActivity` method:
+
+```java
+DurableTaskGrpcWorker worker = (credential != null 
+    ? DurableTaskSchedulerWorkerExtensions.createWorkerBuilder(endpoint, taskHubName, credential)
+    : DurableTaskSchedulerWorkerExtensions.createWorkerBuilder(connectionString))
+    .addOrchestration(new TaskOrchestrationFactory() {
+        @Override
+        public String getName() { return "ActivityChaining"; }
+
+        @Override
+        public TaskOrchestration create() {
+            return ctx -> {
+                String input = ctx.getInput(String.class);
+                String x = ctx.callActivity("Reverse", input, String.class).await();
+                String y = ctx.callActivity("Capitalize", x, String.class).await();
+                String z = ctx.callActivity("ReplaceWhitespace", y, String.class).await();
+                ctx.complete(z);
+            };
+        }
+    })
+    .addActivity(new TaskActivityFactory() {
+        @Override
+        public String getName() { return "Reverse"; }
+
+        @Override
+        public TaskActivity create() {
+            return ctx -> {
+                String input = ctx.getInput(String.class);
+                StringBuilder builder = new StringBuilder(input);
+                builder.reverse();
+                return builder.toString();
+            };
+        }
+    })
+    .addActivity(new TaskActivityFactory() {
+        @Override
+        public String getName() { return "Capitalize"; }
+
+        @Override
+        public TaskActivity create() {
+            return ctx -> ctx.getInput(String.class).toUpperCase();
+        }
+    })
+    .addActivity(new TaskActivityFactory() {
+        @Override
+        public String getName() { return "ReplaceWhitespace"; }
+
+        @Override
+        public TaskActivity create() {
+            return ctx -> {
+                String input = ctx.getInput(String.class);
+                return input.trim().replaceAll("\\s", "-");
+            };
+        }
+    })
+    .build();
+
+// Start the worker
+worker.start();
+```
 
 ::: zone-end
 

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: concept-article
-ms.date: 10/22/2024
+ms.date: 05/12/2025
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand how the OPC UA industrial edge Kubernetes environment should be configured to enable mutual trust between the connector for OPC UA and the downstream OPC UA servers.
 ms.service: azure-iot-operations
@@ -24,9 +24,27 @@ This article focuses on application authentication and how to configure the conn
 
 To learn more about OPC UA application security, see [Application Authentication](https://reference.opcfoundation.org/Core/Part2/v105/docs/4.10).
 
+The following diagram shows the sequence of events that occur when the connector for OPC UA connects to an OPC UA server. The sections later in this article discuss the details of each step in the sequence:
+
+:::image type="content" source="media/overview-opcua-broker-certificates-management/mutual-trust.svg" alt-text="Diagram that summarizes the OPC UA connector connection handshake." border="false":::
+
+<!-- ```mermaid
+sequenceDiagram
+    participant Connector as Connector for OPC UA
+    participant OPCUA as OPC UA server
+
+    Connector->>OPCUA: Presents connector for OPC UA application instance certificate
+
+    OPCUA->>OPCUA: Validate connector for OPC UA<br>application instance certificate
+
+    OPCUA->>Connector: Presents OPC UA server application instance certificate
+
+    Connector->>Connector: Validate OPC UA server certificate against<br>connector for OPC UA trusted certificates list<br>or trusted issuers list.
+``` -->
+
 ## Connector for OPC UA application instance certificate
 
-The connector for OPC UA is an OPC UA client application. The connector for OPC UA makes use of a single OPC UA application instance certificate for all the sessions it establishes to collect telemetry data from OPC UA servers. A default deployment of the connector for OPC UA uses [cert-manager](https://cert-manager.io/) to manage its application instance certificate:
+The connector for OPC UA is an OPC UA client application. The connector for OPC UA makes use of a single OPC UA application instance certificate for all the sessions it establishes to collect messages and data from OPC UA servers. A default deployment of the connector for OPC UA uses [cert-manager](https://cert-manager.io/) to manage its application instance certificate:
 
 - Cert-manager generates a self-signed OPC UA compatible certificate and stores it as Kubernetes native secret. The default name for this certificate is *aio-opc-opcuabroker-default-application-cert*.
 - The connector for OPC UA maps and uses this certificate for all the pods it uses to connect to OPC UA servers.
@@ -39,27 +57,37 @@ By default, the connector for OPC UA connects to an OPC UA server by using the e
 
 Mutual trust validation between the OPC UA server and the connector for OPC UA is now possible. You can now configure an `AssetEndpointProfile` for the OPC UA server in the operations experience web UI and start working with it.
 
-## The connector for OPC UA trusted certificates list
+## Use self-signed OPC UA server application instance certificates
 
-You need to maintain a trusted certificate list that contains the certificates of all the OPC UA servers that the connector for OPC UA trusts. To create a session with an OPC UA server:
+In this scenario, you need to maintain a trusted certificate list that contains the certificates of all the OPC UA servers that the connector for OPC UA trusts. To create a session with an OPC UA server:
 
-- The connector for OPC UA sends its certificate's public key.
+- The connector for OPC UA sends the public key of its application instance certificate to the OPC UA server.
 - The OPC UA server validates the connector's certificate against its trusted certificates list.
 - The connector validates the OPC UA server's certificate against its trusted certificates list.
 
-If the connector for OPC UA trusts a certificate authority, it automatically trusts any server that has a valid application instance certificate signed by the certificate authority.
-
-To learn how to project the trusted certificates from Azure Key Vault into the Kubernetes cluster, see [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
+To learn how to manage the trusted certificates list, see [Configure the trusted certificates list](howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
 
 The default name for the `SecretProviderClass` custom resource that handles the trusted certificates list is *aio-opc-ua-broker-trust-list*.
 
-## The connector for OPC UA issuer certificates list
+## Use OPC UA server application instance certificates signed by a certificate authority
 
-If your OPC UA server's application instance certificate is signed by an intermediate certificate authority, but you don't want to automatically trust all the certificates issued by the certificate authority, you can use an issuer certificate list to manage the trust relationship. This _issuer certificate list_ stores the certificate authority certificates that the connector for OPC UA trusts.
+In this scenario, you add the certificate authority's public key to the trusted certificates list for the connector for OPC UA. The connector for OPC UA automatically trusts any server that has a valid application instance certificate signed by the certificate authority.
 
-If the application certificate of an OPC UA server is signed by an intermediate certificate authority, the connector for OPC UA validates the full chain of certificate authorities up to the root. The issuer certificate list should contain the certificates of all the certificate authorities in the chain to ensure that the connector for OPC UA can validate the OPC UA servers.
+You can also upload a certificate revocation list (CRL) to the trusted certificates list. The connector for OPC UA uses the CRL to check if the certificate authority has revoked the certificate of an OPC UA server.
 
-You manage the issuer certificate list in the same way you manage the trusted certificates list. The default name for the `SecretProviderClass` custom resource that handles the issuer certificates list is *aio-opc-ua-broker-issuer-list*.
+To learn how to manage the trusted certificates list, see [Configure the trusted certificates list](howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
+
+## Use OPC UA server application instance certificates signed by an intermediate certificate authority
+
+In this scenario, you want to trust a subset of the certificates issued by the certificate authority. You can use an _issuer certificate list_ to manage the trust relationship. This issuer certificate list stores the intermediate certificates that the connector for OPC UA trusts. The connector for OPC UA only trusts certificates signed by the intermediate certificates in the issuer certificate list.
+
+You must also upload the root certificate authority's public key to the trusted certificates list for the connector for OPC UA. The connector for OPC UA uses the root certificate authority's public key to validate the intermediate certificates in the issuer certificate list.
+
+You can also upload a certificate revocation list (CRL) to the issuer certificates list. The connector for OPC UA uses the CRL to check if the certificate authority has revoked the certificate of an OPC UA server.
+
+The default name for the `SecretProviderClass` custom resource that handles the issuer certificates list is *aio-opc-ua-broker-issuer-list*.
+
+To learn how to manage the issuer certificates list, see [Configure the issuer certificates list](howto-configure-opcua-certificates-infrastructure.md#configure-the-issuer-certificates-list).
 
 ## Features supported
 

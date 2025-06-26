@@ -310,6 +310,8 @@ items:
     items:
     - name: Create data factory - Azure CLI
       href: quickstart-create-data-factory-azure-cli.md
+    - name: Create data factory - ARM
+      href: quickstart-create-data-factory-resource-manager-template.md
     - name: Create data factory - Azure PowerShell
       href: quickstart-create-data-factory-powershell.md
     - name: Create data factory - .NET
@@ -365,6 +367,20 @@ items:
     items:
     - name: Connector overview
       href: connector-overview.md
+    - name: Connector lifecycle
+      items:
+      - name: Connector lifecycle overview
+        href: connector-lifecycle-overview.md
+      - name: Connector upgrade guidance
+        href: connector-upgrade-guidance.md
+      - name: Connector upgrade advisor
+        href: connector-upgrade-advisor.md
+      - name: Connector release stages and timelines
+        href: connector-release-stages-and-timelines.md
+      - name: Connector upgrade FAQ
+        href: connector-deprecation-frequently-asked-questions.md  
+      - name: Guidance for Bring Your Own Driver (BYOD)
+        href: guidance-for-byod-approach.md        
     - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
@@ -1281,6 +1297,9 @@ items:
       - name: Snowflake
         href: connector-troubleshoot-snowflake.md
         displayName: troubleshooting
+      - name: Teradata
+        href: connector-troubleshoot-teradata.md
+        displayName: troubleshooting
       - name: XML format
         href: connector-troubleshoot-xml.md
         displayName: troubleshooting
@@ -1406,14 +1425,6 @@ items:
     href: monitor-data-factory-reference.md
 - name: Resources
   items:
-  - name: Important changes coming
-    items: 
-    - name: Connector upgrades
-      href: connector-deprecation-plan.md
-    - name: Connector upgrade FAQ
-      href: connector-deprecation-frequently-asked-questions.md
-    - name: Connector upgrade advisor
-      href: connector-upgrade-advisor.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ

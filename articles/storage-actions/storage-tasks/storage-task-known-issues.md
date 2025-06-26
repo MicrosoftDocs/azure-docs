@@ -14,10 +14,6 @@ ms.author: normesta
 
 This article describes limitations and known issues of storage tasks. The issues that appear in this article reflect the current state of the service. This list will change over time as support continues to expand.
 
-## Storage account regions
-
-During the public, you can target only storage accounts that are in the same region as the storage tasks.
-
 ## Scale limits
 
 | Scale factor | Supported limit |
@@ -30,6 +26,10 @@ During the public, you can target only storage accounts that are in the same reg
 
 Azure Storage Actions autoscales its processing tasks based on the volume of data in a storage account, subject to internal limits. The duration of execution depends on the number of blobs in the storage account, as well as their hierarchy in Azure Data Lake Storage Gen2. The first execution of a task over a path prefix might take longer than subsequent executions. Azure Storage Actions are also designed to be self-regulating and to allow application workloads on the storage account to take precedence. As a result, the scale and the duration of execution also depend on the available transaction capacity given the storage account's maximum request limit. The following are typical processing scales, which might be higher if you have more transaction capacity available, or might be lower for lesser spare transaction capacity on the storage account.
 
+## Task assignments applied on storage accounts across regions
+
+Task assignments can only be applied on storage accounts that are in the same region as the storage tasks.
+
 ## Billing doesn't show task assignment name 
 
 Billing meters show up on the bill with only the storage account name. Subscription bill doesn't show the task assignment name for which the meter was emitted. To correlate the meter with the task assignment, you must look at the resource metrics for Storage Actions filtered by the storage account for that day.
@@ -40,7 +40,7 @@ Task assignments aren't updated when changes are made to a task definition. New 
 
 ## Stopping task assignments
 
-We don't plan to support "Disable" for task assignments and "Stop" for in-progress runs. You can work around this by removing the role assignment for the underlying managed identity. 
+You can stop an in-progress run by [removing the role assignment](/azure/role-based-access-control/role-assignments-remove) for the underlying managed identity.
 
 ## Move for storage account resource is blocked when a task assignment exists
 
@@ -110,6 +110,10 @@ Creating assignments on premium block blobs storage accounts doesn't work.
 ## Soft deleted blobs are included in listing during scanning as objects targeted 
 
 The workaround is to exclude the specific prefixes which are soft deleted.
+
+## No option to choose priority when rehydrating blobs to an online tier 
+
+When rehydrating archived blobs, there's no option to choose a priority. The blobs are rehydrated with the standard priority. 
 
 ## See Also
 

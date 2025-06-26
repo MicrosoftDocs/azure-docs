@@ -1,16 +1,18 @@
 ---
-title: Best practices for hosting a Kubernetes client application for Azure Managed Redis (preview)
+title: Best practices for hosting a Kubernetes client application for Azure Managed Redis
 description: Learn how to host a Kubernetes client application that uses Azure Managed Redis.
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
-ms.custom: linux-related-content, ignite-2024
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.custom:
+  - linux-related-content
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Kubernetes-hosted client application with Azure Managed Redis (preview)
+# Kubernetes-hosted client application with Azure Managed Redis
 
 ## Client connections from multiple pods
 
@@ -24,11 +26,11 @@ Ensure that the pod running your client application is given enough CPU and memo
 
 ## Sufficient node resources
 
-A pod running the client application can be affected by other pods running on the same node and throttle Redis connections or IO operations. So always ensure that the node on which your client application pods run have enough memory, CPU, and network bandwidth. Running low on any of these resources could result in connectivity issues.
+Other pods running on the same node might affect the pod running the client application to throttle Redis connections or IO operations. Always ensure that the node on which your client application pods run have enough memory, CPU, and network bandwidth. Running low on any of these resources could result in connectivity issues.
 
 ## Linux-hosted client applications and TCP settings
 
-If your Azure Managed Redis (preview) client application runs on a Linux-based container, we recommend updating some TCP settings. These settings are detailed in [TCP settings for Linux-hosted client applications](best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications).
+If your Azure Managed Redis client application runs on a Linux-based container, we recommend updating some TCP settings. These settings are detailed in [TCP settings for Linux-hosted client applications](best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications).
 
 ## Related content
 

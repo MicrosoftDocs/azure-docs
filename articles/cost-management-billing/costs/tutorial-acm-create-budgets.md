@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Create and manage budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
@@ -45,17 +45,19 @@ Budgets are supported for the following types of Azure account types and scopes:
   - Resource group
     
 - Enterprise Agreement scopes
-    - Billing account
-    - Department
-    - Enrollment account
+  - Billing account
+  - Department
+  - Enrollment account
 - Individual agreements
-    - Billing account
+  - Billing account
 - Microsoft Customer Agreement scopes
-    - Billing account - Budget evaluation only supports USD currency, not the billing currency. An exception is that customers in the China 21V cloud have their budgets evaluated in CNY currency.
-    - Billing profile
-    - Invoice section
-    - Customer
 
+  - Billing account – Budget evaluation at billing account scope uses **USD currency**, regardless of the billing currency.  
+    > **Note:** In sovereign clouds like China 21V, the budget is always evaluated in the **billing currency** instead of USD.
+  - Billing profile – Evaluated in billing currency  
+  - Invoice section – Evaluated in billing currency  
+  - Customer – Evaluated in billing currency  
+    
 To view budgets, you need at least read access for your Azure account.
 
 If you have a new subscription, you can't immediately create a budget or use other Cost Management features. It might take up to 48 hours before you can use all Cost Management features.

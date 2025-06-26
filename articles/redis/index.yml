@@ -1,18 +1,16 @@
 ### YamlMime:Landing
 title: Azure Redis Documentation
-summary: There are two fully managed Redis services on Azure - Azure Managed Redis (preview) and Azure Cache for Redis. Either service can be used as a data cache, session store, or messaging broker that provides high throughput and low-latency access to data for applications. Azure Managed Redis is the latest offering and provides higher performance and more advanced features. It can be used for more applications, such as storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Azure Managed Redis from any application on Azure. For information about Azure Cache for Redis, see the links on this page.
+summary: There are two fully managed Redis services on Azure - Azure Managed Redis and Azure Cache for Redis. Either service can be used as a data cache, session store, or messaging broker that provides high throughput and low-latency access to data for applications. Azure Managed Redis is the latest offering and provides higher performance and more advanced features. It can be used for more applications, such as storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Azure Managed Redis from any application on Azure. For information about Azure Cache for Redis, see the links on this page.
 
 
 metadata:
   title: Azure Redis Documentation
   description: Learn how to use Azure Redis for secure data caches and messaging brokers that give applications fast access to data. Tutorials, API references, and more.
-  
+  ms.date: 05/18/2025
   ms.topic: landing-page
   ms.custom:
     - ignite-2024
-  
-
-  ms.date: 03/11/2025
+    - build-2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -61,8 +59,6 @@ landingContent:
             url: aspnet-output-cache-provider.md
           - text: Use Redis as a semantic cache
             url: tutorial-semantic-cache.md
-          - text: Use Redis triggers and bindings with Azure Functions
-            url: tutorial-functions-getting-started.md
           - text: Use Spring Boot Initializer
             url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
   - title: Azure Managed Redis Fundamentals
@@ -89,8 +85,6 @@ landingContent:
            url: how-to-redis-cli-tool.md
       - linkListType: concept
         links:
-         - text: High availability
-           url: high-availability.md
          - text: Storing embeddings vectors and performing vector similarity search
            url: overview-vector-similarity.md
          - text: Redis modules

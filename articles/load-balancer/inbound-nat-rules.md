@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
 #Customer intent: As a administrator, I want to create an inbound NAT rule so that I can forward a port to a virtual machine in the backend pool of an Azure Load Balancer.
+# Customer intent: As an IT administrator, I want to configure inbound NAT rules on the load balancer so that I can efficiently forward traffic to specific virtual machines in the backend pool.
 ---
 
 # Inbound NAT rules

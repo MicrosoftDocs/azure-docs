@@ -18,29 +18,29 @@ There are two types of network features: default and advance.
 
 ### Default network features
 Default network features enable basic network connectivity for both new and existing Oracle Database@Azure deployments. These features are available across all supported Oracle Database@Azure regions and provide the foundational networking required for your deployment
-### Advanced network features (preview)
-Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. These features are currently in public preview and available in the following regions: 
+### Advanced network features 
+Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. These features are generally available for new deployments in the following regions:
+
 * Australia East
-* Australia Southeast 
+* Australia Southeast
+* Canada Central
 * Central US 
 * East US 
 * East US2 
 * US West  
 * UK South 
 * UK West
+* Germany West Central 
 
 > [!NOTE]
 > Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
 > Existing virtual networks with previously created Oracle Database@Azure delegated subnets will not support these features at this time. Support for existing deployments is planned for later this year. 
-
-
-### Registration required
-
-To use advanced network features, you must first register using the commands below (via AZCLI) before creating your virtual network for the Oracle Database@Azure deployment.
-
-```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" ```
-
-```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Network" ```
+> ### Registration required for delegated subnets
+>To use advanced network features, use the following commands (via AZCLI) to register before creating your virtual network for the Oracle Database@Azure deployment.
+>
+> ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" ```
+>
+> ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Network" ```
 
 > [!NOTE]
 > Registration state can be in the 'Registering' state for up to 60 minutes before changing to 'Registered'. Wait until the status is 'Registered' before continuing with the delegated subnet creation. 
@@ -81,21 +81,44 @@ The following table describes required configurations of supported network featu
 |Connectivity from an Oracle database cluster to a [private endpoint](../../private-link/private-endpoint-overview.md) in a different spoke virtual network connected to a virtual WAN|Yes| Yes|
 |NSG support on the Private link | No| Yes| 
 | Connectivity to serverless Apps like Azure functions via private endpoints | No| Yes|
-|Support for DNS Private resolver | No | Yes|
-|Load balancers for Oracle database cluster traffic|No| Yes|
+| Azure SLB and ILB support for Oracle database cluster traffic  | No | No |
 |Dual stack (IPv4 and IPv6) virtual network|Only IPv4 is supported| Only IPv4 is supported|
+| Service tags support| No | Yes | 
 
 > [!NOTE]
 > When using NSGs (Network Security Groups) on the Azure side, ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. Misalignment between these policies could lead to unintended access issues or operational disruptions. 
 
-> [!IMPORTANT]
-> For traffic destined to Oracle Database@Azure, when routing traffic through a Network Virtual Appliance (NVA) or firewall to Oracle Database@Azure, the UDR prefix must be at least as specific as the delegated subnet of the instance.
-> If the delegated subnet for your instance is x.x.x.x/27, configure the UDR on the Gateway Subnet as:  
-> x.x.x.x/27 (same as the subnet) ✅  
-> x.x.x.x/32 (more specific) ✅  
-> x.x.x.x/24  (too broad) ❌ 
 
+ ### UDR requirements for routing traffic to Oracle Database@Azure
+When routing traffic to Oracle Database@Azure through a Network Virtual Appliance (NVA)/firewall, the User-Defined Route (UDR) prefix **must be at least as specific as the subnet delegated to the Oracle Database@Azure instance**. Broader prefixes may cause traffic to be dropped.
+ 
+ If the delegated subnet for your instance is x.x.x.x/27, configure the UDR on the Gateway Subnet as:  
 
+ | Route Prefix | Routing Outcome |
+ |--------------|-----------------|
+ |x.x.x.x/27 | (same as the subnet) ✅ | 
+ |x.x.x.x/32 |(more specific) ✅| 
+ |x.x.x.x/24 | (too broad) ❌ |
+
+#### Topology-specific guidance
+**Hub-and-spoke topology**
+- Define the UDR on the gateway subnet.
+- Use a route prefix of `x.x.x.x/27` or more specific.
+- Set the next hop to your NVA/Firewall.
+
+**Virtual WAN (VWAN)**
+- **With Routing Intent**:
+  - Add the delegated subnet prefix (`x.x.x.x/27`) to the Routing Intent’s list of prefixes.
+
+- **Without Routing Intent**:
+  - Add a route to the VWAN's route table for `x.x.x.x/27` and point the next hop to the NVA/firewall.
+
+> [!Note]
+>   When **advanced network features are not enabled**, and for **traffic originating from the Oracle Database@Azure delegated subnet that needs   to traverse a gateway** (for example, to reach on-premises networks, AVS, other clouds, etc.), you must configure specific UDRs on the delegated subnet.  
+>These UDRs should define the specific destination IP prefixes and set the next hop to the appropriate NVA/firewall in the hub.  
+> Without these routes, outbound traffic may bypass required inspection paths or fail to reach the intended destination.
+
+ 
 
 ## FAQ 
 ### What are advanced network features? 

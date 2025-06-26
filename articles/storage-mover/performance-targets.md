@@ -5,31 +5,31 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: conceptual
-ms.date: 08/07/2023
+ms.date: 05/29/2025
 ---
 
 <!-- 
 !########################################################
-STATUS: IN REVIEW
+STATUS: COMPLETE
 
-CONTENT: final
+CONTENT: COMPLETE
 
-REVIEW Stephen/Fabian: not reviewed
+REVIEW Stephen/Fabian: REVIEWED
 REVIEW Engineering: not reviewed
 
 Initial doc score: 83
-Current doc score: 93 (1201 words and 10 false-positive issues)
+Current doc score: 93 (1457 words and 7 false-positive issues)
 
 !########################################################
 -->
 
 # Azure Storage Mover scale and performance targets
 
-The performance of a storage migration service is a key aspect for any migration. In this article, we share performance test results, though because Azure Storage Mover is a new service, your experience may vary.
+The performance of a storage migration service is a key aspect for any migration. In this article, we share performance test results, though because Azure Storage Mover is a new service, your experience might vary.
 
 ## Scale targets
 
-Azure Storage Mover is tested with 100 million namespace items (files and folders), migrated from a [supported source to a supported target](service-overview.md#supported-sources-and-targets) in Azure.
+Azure Storage Mover is tested with 500 million namespace items (files and folders), migrated from a [supported source to a supported target](service-overview.md#supported-sources-and-targets) in Azure.
 
 ## How we test
 
@@ -51,11 +51,11 @@ The following table describes the characteristics of the test environments that 
 
 |Test No.        |No. of files    |Total files weight    |File size    |Folder structure                                               |
 |----------------|----------------|----------------------|-------------|---------------------------------------------------------------|
-|**1**           |12 million      |12 GB                 |1 KB each    |12 folders, each with 100 sub-folders containing 10,000 files  |
+|**1**           |12 million      |12 GB                 |1 KB each    |12 folders, each with 100 subfolders containing 10,000 files  |
 |**2**           |30              |20 GB                 |             |1 folder                                                       |
 |**3**           |1 million       |100 GB                |100 KB each  |1,000 folders, each with 1,000 files                           |
 |**4**           |1               |                      |4 TB         |                                                               |
-|**5**           |117 million     |117 GB                |1 KB each    |117 folders, each with 100 sub-folders containing 10,000 files |
+|**5**           |117 million     |117 GB                |1 KB each    |117 folders, each with 100 subfolders containing 10,000 files |
 |**6**           |1               |                      |1 TB         |                                                               |
 |**7**           |3.3 million     |45 GB                 |13 KB each   |200,000 folders, each contains 16\17 files                     |
 |**8**           |50 million      |1 TB                  |20 KB each   |2,940,000 folders, each contains 17 files                      |
@@ -110,7 +110,7 @@ The following table describes the characteristics of the test environment that p
 |Test               | Result                                                                                                                        |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------|
 |Test namespace     | 19% files 0 KiB - 1 KiB <br />57% files 1 KiB - 16 KiB <br />16% files 16 KiB - 1 MiB <br />6% folders                        |
-|Test source device | Linux server VM <br />16 virtual CPU cores<br />64-GiB RAM                                                                    |
+|Test source device | Linux server virtual machine (VM) <br />16 virtual CPU cores<br />64-GiB RAM                                                                    |
 |Test source share  | NFS v3.0 share <br /> Warm cache: Data set in memory (baseline test). In real-world scenarios, add disk recall times.         |
 |Network            | Dedicated, over-provisioned configuration, negligible latency. No bottle neck between source - agent - target Azure storage.  |
 
@@ -119,7 +119,7 @@ Different agent resource configurations are tested on NFS endpoints:
 1. **Minspec: 4 CPU / 8 GB RAM**<br/>
    4 virtual CPU cores at 2.7 GHz each and 8 GiB of memory (RAM) is the minimum specification for an Azure Storage Mover agent.
 
-   |Test                      | Single file, 1 TiB|&tilde;3.3M files, &tilde;200 K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
+   |Test                      | Single file, 1 TiB|&tilde;3.3M files, &tilde;200-K folders, &tilde;45 GiB |&tilde;50M files, &tilde;3M folders, &tilde;1 TiB |
    |--------------------------|-------------------|------------------------------------------------------|--------------------------------------------------|
    |Elapsed time              | 16 Min, 42 Sec    | 15 Min, 18 Sec                                       | 5 hr, 28 Min                                  |
    |Items* per Second         | -                 | 3548                                                 | 2860                                             |
@@ -147,26 +147,26 @@ Different agent resource configurations are tested on NFS endpoints:
 
 ## Why migration performance varies
 
-Fundamentally, network quality and the ability to process files, folders and their metadata impact your migration velocity.
+Fundamentally, network quality and the ability to process files, folders, and their metadata affect your migration velocity.
 
 Across the two core areas of network and compute, several aspects have an impact:
 
 - **Migration scenario** <br />Copying into an empty target is faster as compared to a target with content. This behavior is due the migration engine evaluating not only the source, but also the target to make copy decisions.
 - **Namespace item count** <br />Migrating 1 GiB of small files takes more time than migrating 1 GiB of larger files.
 - **Namespace shape** <br />A wide folder hierarchy lends itself to more parallel processing than a narrow or deep directory structure. The file to folder ratio also plays a roll.
-- **Namespace churn**  <br />How many files, folders, and metadata have changed between two copy runs from the same source to the same target. 
+- **Namespace churn**  <br />How many files, folders, and metadata change between two copy runs from the same source to the same target. 
 - **Network**
     - bandwidth and latency between source and migration agent
     - bandwidth and latency between migration agent and the target in Azure
 - **Migration agent resources** <br />The amount of memory (RAM), number of compute cores, and even the amount of available, local disk capacity on the migration agent can have a profound impact on the migration velocity. More compute resources help to optimize the utilization of the available bandwidth, especially when large amounts of smaller files need to be processed in a migration.
 
-For example, a traditional migration requires a strategy to minimize downtime of the workload that depends on the storage that is to be migrated. Azure Storage Mover supports such a strategy. It's called convergent, n-pass migration.
+For example, a traditional migration requires a strategy to minimize downtime of the workload that depends on the storage that is to be migrated. Azure Storage Mover supports this strategy, referred to as *convergent, n-pass migration*.
 
-In this strategy, you copy from source to target several times. During these copy iterations, the source remains available for read and write to the workload. Just before the final copy iteration, you take the source offline. It's expected that the final copy finishes faster than say the first copy you've ever made and takes about as long as the one immediately preceding it. After the final copy, the workload is failed over to use the new target storage in Azure and available for use again.
+In this strategy, you copy from source to target several times. During these copy iterations, the source remains available for read and write to the workload. Just before the final copy iteration, you take the source offline. The final copy is expected to finish faster than the first copy you make, and take about as long as the one immediately preceding it. After the final copy, the workload is failed over to use the new target storage in Azure and available for use again.
 
 During the first copy from source to target, the target is likely empty and all the source content must travel to the target. As a result, the first copy is likely most constrained by the available network resources. 
 
-Towards the end of a migration, when you've copied the source to the target several times already, only a few files, folders, and metadata has changed since the last copy. In this last copy iteration, comparing each file in source and target to see if it needs to be updated, requires more compute resources and fewer network resources. Copy runs in this late stage of a migration are often more compute-constrained. Proper [resourcing of the Storage Mover agent](agent-deploy.md#recommended-compute-and-memory-resources) becomes increasingly important.
+Towards the end of a migration, after you copy the source to the target several times already, only a few files, folders, and metadata are modified following the last copy. In this last copy iteration, comparing each file in source and target to see if it needs to be updated, requires more compute resources and fewer network resources. Copy runs in this late stage of a migration are often more compute-constrained. Proper [resourcing of the Storage Mover agent](agent-deploy.md#recommended-compute-and-memory-resources) becomes increasingly important.
 
 ## Next steps
 

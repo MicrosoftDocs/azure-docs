@@ -4,8 +4,8 @@ description: Learn how to set up disaster recovery to Azure for large numbers of
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 08/31/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.custom: engagement-fy23
 
 ---

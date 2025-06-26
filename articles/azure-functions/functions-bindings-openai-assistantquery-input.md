@@ -2,15 +2,17 @@
 title: Azure OpenAI assistant query input binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant query input binding to access Azure OpenAI Assistants APIs during function execution in Azure Functions.
 ms.topic: reference
-ms.custom: 
+ms.custom:
   - build-2024
   - devx-track-extended-java
   - devx-track-js
   - devx-track-python
   - devx-track-ts
+  - build-2025
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 01/07/2025
+ms.date: 05/15/2025
+ms.update-cycle: 180-days
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -29,7 +31,7 @@ For information on setup and configuration details of the Azure OpenAI extension
 ::: zone pivot="programming-language-csharp"  
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="74-83"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="70-80"::: 
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
@@ -37,7 +39,7 @@ This example demonstrates the creation process, where the HTTP GET function that
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
 
-:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="63-78":::
+:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="79-97":::
 
 
 ::: zone-end  
@@ -46,14 +48,14 @@ This example demonstrates the creation process, where the HTTP GET function that
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="6-7,63-79":::  
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,63-79":::  
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="6-7,63-79":::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-5,63-79":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -72,7 +74,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="37-41":::
+:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="55-65":::
 
 ::: zone-end  
 <!--- End code examples section -->  

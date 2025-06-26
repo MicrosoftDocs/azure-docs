@@ -3,12 +3,12 @@ title: Pay your Microsoft Customer Agreement or Microsoft Online Subscription Pr
 description: Learn how to pay your bill in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
 author: lindseyshep
+ms.author: lishepar
 ms.reviewer: lishepar, jobailey
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/08/2025
-ms.author: lishepar
+ms.date: 05/01/2025
 ---
 
 # Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
@@ -76,7 +76,7 @@ Refunds are treated as a regular charge. They go to your bank account.
 
 ## Partial payments
 
-Partial payment is available for Azure global pay-as-you-go customers in China and in Egypt. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
+Partial payment is available for Azure global pay-as-you-go customers who experience a payment failure during the [Pay Now](https://learn.microsoft.com/azure/cost-management-billing/understand/pay-bill#pay-now-in-the-azure-portal) flow. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
 
 A minimum payment has a minimum value that you can pay, which varies by country/region.
 
@@ -110,7 +110,9 @@ Although you can generally use debit cards to pay your Azure bill, consider thes
 
 - Hong Kong Special Administrative Region and Brazil don't allow the use of debit cards. They support only credit cards.
 - India supports debit and credit cards through Visa and Mastercard.
-- You can't use virtual and prepaid debit cards to pay your Azure bill.
+- You can't use virtual cards to pay your Azure bill.
+
+- Prepaid cards (aka stored value cards, Visa gift cards, MasterCard gift cards, etc.) are not accepted as valid payment instruments.
 
 ## Wire transfer
 

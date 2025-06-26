@@ -329,3 +329,9 @@ If you receive one of the following error messages:
 - Code: PermissionDenied
 
 Verify your Microsoft Entra ID account meets the requirements in the [prerequisites](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites) section for operations experience access.
+
+## Troubleshoot data flows
+
+### You see a "Global error: AllBrokersDown" error message
+
+If you see a `Global error: AllBrokersDown` error message in the data flow logs this means that the data flow hasn't processed any messages for about four or five minutes. Check that the data flow source is correctly configured and sending messages. For example, check that you're using the correct topic name from the MQTT broker.

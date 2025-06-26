@@ -4,7 +4,7 @@ description: This article shows you how to enable export of application logs and
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
-ms.date: 05/16/2024
+ms.date: 05/19/2025
 zone_pivot_groups: programming-languages-set-functions
 
 #CustomerIntent: As a developer, I want to learn how to enable the export of logs and metrics from my function apps by using OpenTelemetry so I can consume and analyze my application telemetry data either in Application Insights or to any OTLP-compliant tools.
@@ -81,7 +81,7 @@ The way that you instrument your application to use OpenTelemetry depends on you
     ```cmd
     dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry --version 1.0.0-preview1 
     dotnet add package OpenTelemetry.Extensions.Hosting 
-    dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore  
+    dotnet add package Azure.Monitor.OpenTelemetry.Exporter  
     ```
 
     ### [OTLP Exporter](#tab/otlp-export) 
@@ -98,7 +98,7 @@ The way that you instrument your application to use OpenTelemetry depends on you
     ### [Application Insights](#tab/app-insights)
 
     ```csharp
-    using Azure.Monitor.OpenTelemetry.AspNetCore; 
+    using Azure.Monitor.OpenTelemetry.Exporter; 
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
@@ -113,15 +113,15 @@ The way that you instrument your application to use OpenTelemetry depends on you
 
     ```csharp
     services.AddOpenTelemetry()
-    .UseFunctionsWorkerDefaults()
-    .UseAzureMonitor();
+    .UseAzureMonitorExporter()
+    .UseFunctionsWorkerDefaults();
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
     ```csharp
     services.AddOpenTelemetry()
-    .UseFunctionsWorkerDefaults()
-    .UseOtlpExporter();
+    .UseOtlpExporter()
+    .UseFunctionsWorkerDefaults();
     ```
     ---
 
@@ -215,6 +215,8 @@ These instructions only apply for an OTLP exporter:
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
+1. Add an application setting named PYTHON_ENABLE_OPENTELEMETRY with value of True.
+
 1. Add this entry in your `requirements.txt` file:
 
     ### [Application Insights](#tab/app-insights)
@@ -278,11 +280,21 @@ These instructions only apply for an OTLP exporter:
 
 When you export your data using OpenTelemetry, keep these current considerations in mind.
 
-+ When the host is configured to use OpenTelemetry, only logs and traces are exported. Host metrics aren't currently exported. 
++ At this time, only HTTP, Service Bus and Event Hub triggers are supported with OpenTelemetry outputs. 
 
-+ You can't currently run your app project locally using Core Tools when you have OpenTelemetry enabled in the host. You currently need to deploy your code to Azure to validate your OpenTelemetry-related updates. 
++ When the host is configured to use OpenTelemetry, the Azure portal doesn't support log streaming or recent function invocation traces.
 
-+ At this time, only HTTP trigger and Azure SDK-based triggers are supported with OpenTelemetry outputs. 
++ [Azure Functions diagnostics](functions-diagnostics.md) in the Azure portal is a useful resource for detecting and diagnosing potential monitoring-related issues. 
+
+To access diagnostics in your app:
+
+  1. In the [Azure portal](https://portal.azure.com) navigate to your function app resource. 
+  
+  1. In the left pane, select **Diagnose and solve problems** and search for the *Function App missing telemetry Application Insights or OpenTelemetry* workflow. 
+  
+  1. Select this workflow, choose your ingestion method, and select **Next**.
+  
+  1. Review the guidelines and any recommendations provided by the troubleshooter.
 
 ## Related content
 

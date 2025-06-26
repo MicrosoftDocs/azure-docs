@@ -6,9 +6,10 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 03/25/2025
+ms.date: 05/16/2025
 ms.custom: references_regions, ignite-2024
 #CustomerIntent: As a network administrator, I want to enable diagnostic logging for Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
+# Customer intent: "As a network administrator, I want to enable and configure diagnostic logging for the Network Security Perimeter, so that I can effectively monitor and analyze access logs for enhanced security oversight."
 ---
 
 # Diagnostic logs for Network Security Perimeter
@@ -23,17 +24,20 @@ Access logs categories for a network security perimeter are based on the results
 
 | **Log category** | **Description** | **Applicable to Modes** |
 | --- | --- | --- |
-| **NspPublicInboundPerimeterRulesAllowed** | Inbound access is allowed based on network security perimeter access rules. | Learning/Enforced |
+| **NspPublicInboundPerimeterRulesAllowed** | Inbound access is allowed based on network security perimeter access rules. | Transition/Enforced |
 | **NspPublicInboundPerimeterRulesDenied** | Public inbound access denied by network security perimeter. | Enforced |
-| **NspPublicOutboundPerimeterRulesAllowed** | Outbound access is allowed based on network security perimeter access rules. | Learning/Enforced |
+| **NspPublicOutboundPerimeterRulesAllowed** | Outbound access is allowed based on network security perimeter access rules. | Transition/Enforced |
 | **NspPublicOutboundPerimeterRulesDenied** | Public outbound access denied by network security perimeter. | Enforced |
-| **NspOutboundAttempt** | Outbound attempt within network security perimeter. | Learning/Enforced |
-| **NspIntraPerimeterInboundAllowed** | Inbound access within perimeter is allowed. | Learning/Enforced |
-| **NspPublicInboundResourceRulesAllowed** | When network security perimeter rules deny, inbound access is allowed based on PaaS resource rules. | Learning |
-| **NspPublicInboundResourceRulesDenied** | When network security perimeter rules deny, inbound access denied by PaaS resource rules. | Learning |
-| **NspPublicOutboundResourceRulesAllowed** | When network security perimeter rules deny, outbound access allowed based on PaaS resource rules. | Learning |
-| **NspPublicOutboundResourceRulesDenied** | When network security perimeter rules deny, outbound access denied by PaaS resource rules. | Learning |
-| **NspPrivateInboundAllowed** | Private endpoint traffic is allowed. | Learning/Enforced |
+| **NspOutboundAttempt** | Outbound attempt within network security perimeter. | Transition/Enforced |
+| **NspIntraPerimeterInboundAllowed** | Inbound access within perimeter is allowed. | Transition/Enforced |
+| **NspPublicInboundResourceRulesAllowed** | When network security perimeter rules deny, inbound access is allowed based on PaaS resource rules. | Transition |
+| **NspPublicInboundResourceRulesDenied** | When network security perimeter rules deny, inbound access denied by PaaS resource rules. | Transition |
+| **NspPublicOutboundResourceRulesAllowed** | When network security perimeter rules deny, outbound access allowed based on PaaS resource rules. | Transition |
+| **NspPublicOutboundResourceRulesDenied** | When network security perimeter rules deny, outbound access denied by PaaS resource rules. | Transition |
+| **NspPrivateInboundAllowed** | Private endpoint traffic is allowed. | Transition/Enforced |
+
+> [!NOTE]
+> The available access modes for a network security perimeter are **Transition** and **Enforced**. The **Transition** mode was previously named **Learning** mode. You may continue to see references to **Learning** mode in some instances. 
 
 ## Logging destination options for access logs  
 
