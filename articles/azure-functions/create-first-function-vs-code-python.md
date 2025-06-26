@@ -4,9 +4,8 @@ description: Learn how to create a Python function, then publish the local proje
 ms.topic: quickstart
 ms.date: 06/26/2025
 ms.devlang: python
-ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete, ai-video-demo
+ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete, ai-video-demo, copilot-scenario-highlight
 ai-usage: ai-assisted
-ms.custom: copilot-scenario-highlight
 ---
 
 # Quickstart: Create a function in Azure with Python using Visual Studio Code
