@@ -100,7 +100,7 @@ Based on whether you want to make your workflow template available only for your
 
 ### [Organization only](#tab/organization)
 
-To create your workflow template through the Azure portal, follow these steps:
+These steps describe how to create and publish a workflow template available only for members in a specific Azure subscription.
 
 1. In the [Azure portal](https://portal.azure.com) search box, find and select **logic apps templates**.
 
@@ -196,7 +196,7 @@ The **Profile** tab specifies information about your template that appears in th
 
 ### [All Azure](#tab/all-azure)
 
-For the manual approach to create a template, you need to create a template package. 
+These steps describe how to create and publish a workflow template available for everyone to use in Azure. For this approach, you need to create a template package.
 
 #### What is in a template package?
 
