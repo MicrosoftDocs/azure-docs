@@ -1,12 +1,12 @@
 ---
 title: Reliability in Azure API Management
 description: Find out about reliability in Azure API Management, including availability zones and multi-region deployments.
-author: anaharris-ms # Dan: Please update this to you
-ms.author: anaharris
+author: dlepow
+ms.author: danlep
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
-ms.date: 06/24/2025
+ms.date: 06/26/2025
 ---
 
 # Reliability in Azure API Management
@@ -26,7 +26,7 @@ The service provides built-in redundancy within a single datacenter, automatical
 The reliability model differs based on your service tier:
 
 - **Premium tier (classic)**: Supports multiple units that can be distributed across availability zones and regions for maximum resilience.
-- **Premium v2, Basic and Standard tiers**: Supports multiple units within a single datacenter. Doesn't support availability zone distribution or multi-region deployments.
+- **Basic v2, Standard, Standard v2, and Premium v2 (preview)** tiers: Support multiple units within a single datacenter. Currently don't support availability zone or multi-region deployments.
 - **Developer tier**: Supports only a single unit and provides no availability zone or multi-region support. This tier is designed for development and testing scenarios, and isn't suitable for production workloads.
 - **Consumption tier**: The Consumption tier of Azure API Management has built-in resiliency capabilities, and is resilient to a range of faults within a single Azure datacenter. However, the Consumption tier doesn't provide support for availability zones or multi-region deployments. To understand the expected uptime of a consumption tier Azure API Management instance, review the [service level agreement](#service-level-agreement).
 
@@ -56,10 +56,10 @@ Azure API Management provides *automatic* availability zone support when you:
 - Deploy a Premium (classic) API Management instance in a supported region.
 - Don't specify which availability zones to use. 
 
-With automatic availability zone support, the Azure API Management platform makes a best-effort attempt to spread your units among the region's availability zones. There's no way to determine which availability zones your units are placed into. <!-- Dan: please confirm. -->
+With automatic availability zone support, the Azure API Management platform makes a best-effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into. 
 
 > [!NOTE]
-> If your instance uses automatic availability zone support and has a single instance, the unit could be placed into any availability zone. If that zone has an outage your API Management service could be unavailable. You should use multiple units to ensure zone resiliency.
+> If your instance uses automatic availability zone support and has a single instance, the unit could be placed into any availability zone. If that zone has an outage your API Management service could be unavailable. We recommend that you deploy a minimum of three units to ensure zone resiliency.
 
 If you want to explicitly select the availability zones to use, you can choose between zone-redundant and zonal configurations:
 
@@ -76,7 +76,7 @@ Azure API Management supports availability zones for Premium (classic) tier in a
 
 ### Requirements
 
-You must use the Premium (classic) tier to configure availability zone support. Azure API Management doesn't support availability zones in the Premium v2, Developer, Basic, and Standard tiers. To upgrade your instance to the Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
+You must use the Premium (classic) tier to configure availability zone support. Azure API Management doesn't support availability zones in the classic Consumption, Developer, Basic, and Standard tiers, nor in the Basic v2, Standard v2, or Premium v2 tiers. To upgrade your instance to the Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 >[!NOTE]
 > - **The Premium v2 tier** with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
@@ -85,17 +85,17 @@ You must use the Premium (classic) tier to configure availability zone support. 
 
 - **Number of units for zone-redundant instances:** If you manually configure zone redundancy for an instance, you also need to configure a number of API Management units that can be distributed evenly across all of your selected availability zones. For example, if you configure two zones, you must configure at least two units. You can instead configure four units, or another multiple of two units. If you configure three availability zones, you must configure three units, six units, or another multiple of three units.
 
-    If you simply default to the automatic availability zone support, there's no requirement to use a specific number of units. The units you deploy are distributed among the availability zones in a best-effort manner. However, you should use at least two units to ensure that an availability zone outage doesn't affect your instance. <!-- Dan: please confirm the last sentence is accurate -->
+    If you simply default to the automatic availability zone support, there's no requirement to use a specific number of units. The units you deploy are distributed among the availability zones in a best-effort manner. However, you should use at least two units to ensure that an availability zone outage doesn't affect your instance. 
     
     To determine the number of units that provide your required gateway performance, use [capacity metrics](/azure/api-management/api-management-capacity) and your own testing. For more information about scaling and upgrading your service instance, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale).
 
-- **Autoscaling:** If you enable availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
+- **Autoscaling:** If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. U you simply default to the automatic availability zone support, you don't need to adjust your autoscale settings. 
 
-- **IP address requirements:** When you're manually configuring zone redundancy on an API Management instance that's deployed in an external or internal virtual network, you must specify a public IP address resource for the instance to use. In an internal virtual network, the public IP address is used only for management operations, not for API requests. [Learn more about IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). <!-- Dan: Please reverify this paragraph. Also, does this information apply to zonal instances too? If so, then the first sentence should say "enabling availability zone support" instead of "enabling zone redundancy". -->
+- **IP address requirements:** When you're enabling availability zone support on an API Management instance that's deployed in an external or internal virtual network, you must specify a public IP address resource for the instance to use. In an internal virtual network, the public IP address is used only for management operations, not for API requests. [Learn more about IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). 
 
 ### Cost
 
-Regardless of your availability zone configuration, if you add more units, it can incur additional costs. For information, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+Regardless of your availability zone configuration, if you add more units, it incurs greater costs. For information, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 ### Configure availability zone support
 
@@ -103,7 +103,7 @@ Regardless of your availability zone configuration, if you add more units, it ca
 
     [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-- **Enable or reconfigure availability zone support:** You can change the availability zone configuration for an API Management instance, including adding additional availability zones and moving a zonal instance between availability zones. To configure availability zone support on an API Management instance, see [Enable availability zone support on Azure API Management instances](../api-management/enable-availability-zone-support.md). <!--John: this link is to the how-to guide. I did edit it a bit however. --> There are no downtime requirements for any of the configuration options.
+- **Enable or reconfigure availability zone support:** You can change the availability zone configuration for an API Management instance, including adding availability zones and moving a zonal instance between availability zones. To configure availability zone support on an API Management instance, see [Enable availability zone support on Azure API Management instances](../api-management/enable-availability-zone-support.md). There are no downtime requirements for any of the configuration options.
 
     [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
@@ -113,7 +113,7 @@ Regardless of your availability zone configuration, if you add more units, it ca
 
 ### Capacity planning and management
 
-In a zone-down scenario, there's no guarantee that requests for additional capacity in another availability zone will succeed. The back filling of lost units occurs on a best-effort basis. If you need guaranteed capacity when an availability zone is lost, you should create and configure your API Management instance to account for losing a zone. You can do that by:
+In a zone-down scenario, there's no guarantee that requests for additional capacity in another availability zone will succeed. The back-filling of lost units occurs on a best-effort basis. If you need guaranteed capacity when an availability zone is lost, you should create and configure your API Management instance to account for losing a zone. You can do that by:
 
 - Over-provisioning the units of your API Management instance
 - Using automatic or zone redundant availability zone configuration
@@ -153,7 +153,7 @@ This section describes what to expect when Azure API Management instances are co
 
     - *Gateway configuration changes*, which are replicated to each selected availability zone within approximately 10 seconds. If an outage of an availability zone occurs, you might lose configuration changes that haven't been replicated.
     - *Data in the internal cache*, if you use the internal cache feature. The internal cache is volatile and data isn't guaranteed to be persisted. During an availability zone outage, some or all cached data might be lost. Consider using an external cache if you need to persist cached data.
-    - *Rate limit counters*, if you use the rate limit feature. During an availability zone outage, rate limit counters might not be completely up-to-date in the surviving zones.
+    - *Rate limit counters*, if you use the rate limit feature. During an availability zone outage, rate limit counters might not be up-to-date in the surviving zones.
 
 - **Expected downtime:** The downtime you can expect depends on the availability zone configuration your instance uses: <!-- Dan: please confirm everything in this section is accurate. -->
 
@@ -166,6 +166,7 @@ This section describes what to expect when Azure API Management instances are co
     - *Zonal:* For zonal instances, when a zone is unavailable, your instance is unavailable until the availability zone recovers.
 
 - **Traffic rerouting:** The traffic rerouting behavior depends on the availability zone configuration that your instance uses.
+<!-- Not sure about these points -->
 
     - *Automatic:* Instances that use automatic availability zone support don't automatically recover into another zone. Any units in the affected zone will be unavailable. You can choose to scale your instance to add more units 
 
@@ -195,7 +196,7 @@ The options for testing for zone failures depend on the availability zone config
 
 ## Multi-region support
 
-Azure API Management only supports multi-region deployments in the Premium (classic) tier. It doesn't support multi-region deployments in the Premium v2, Developer, Basic, and Standard tiers. For more information, see [Requirements](#requirements).
+Azure API Management only supports multi-region deployments in the Premium (classic) tier. It doesn't support multi-region deployments in the Consumption, Developer, Basic, Basic v2, Standard, Standard v2, and Premium v2 (preview) tiers. For more information, see [Requirements](#requirements).
 
 With a multi-region deployment, you can add regional API gateways to an existing API Management instance in one or more supported Azure regions. Multi-region deployment helps to reduce any request latency that's perceived by geographically distributed API consumers. A multi-region deployment also improves service availability if one region goes offline.
 
@@ -213,7 +214,7 @@ You can create multi-region deployments in Premium (classic) tier with any Azure
 
 ### Requirements
 
-You must use the Premium (classic) tier to configure multi-region support. Azure API Management doesn't support multi-region deployments in the Premium v2, Developer, Basic, and Standard tiers. To upgrade your instance to the Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
+You must use the Premium (classic) tier to configure multi-region support. To upgrade your instance to the Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 > [!NOTE]
 > **The Premium v2 tier** with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
@@ -222,13 +223,13 @@ You must use the Premium (classic) tier to configure multi-region support. Azure
 
 - **Gateway only:** Only the gateway component of your API Management instance is replicated to multiple regions. The instance's management plane and developer portal remain hosted only in the primary region where you originally deployed the service.
 
-- **Network requirements:** If you want to configure a secondary location for your API Management instance when it's deployed (injected) in a virtual network, the VNet and subnet region should match with the secondary location you're configuring. If you're adding, removing, or enabling the availability zone in the primary region, or if you're changing the subnet of the primary region, then the VIP address of your API Management instance will change. For more information, see [IP addresses of Azure API Management service](/azure/api-management/api-management-howto-ip-addresses#changes-to-ip-addresses). However, if you're adding a secondary region, the primary region's VIP won't change because every region has its own private VIP.
+- **Network requirements:** If you want to configure a secondary location for your API Management instance when it's deployed (injected) in a virtual network, the virtual network and subnet region should match with the secondary location you're configuring. If you're adding, removing, or enabling the availability zone in the primary region, or if you're changing the subnet of the primary region, then the VIP address of your API Management instance will change. For more information, see [IP addresses of Azure API Management service](/azure/api-management/api-management-howto-ip-addresses#changes-to-ip-addresses). However, if you're adding a secondary region, the primary region's VIP won't change because every region has its own private VIP.
 
 - **DNS names:** The gateway in each region (including the primary region) has a regional DNS name that follows the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net`, for example `https://contoso-westus2-01.regional.azure-api.net`.
 
 ### Cost
 
-Adding regions incurs additional costs. For information, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+Adding regions incurs greater costs. For information, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 ### Configure multi-region support
 
@@ -240,7 +241,7 @@ To remove a region from an API Management instance, see [Remove an Azure API Man
 
 In a region-down scenario, there's no guarantee that requests for additional capacity in another region will succeed. If you need guaranteed capacity when a region is lost, you should create and configure your API Management instance to account for losing a region. You can do that by overprovisioning the capacity of your API Management instance.
 
-In multi-region deployments, automatic scaling applies only to the primary region. Secondary regions require manual scaling adjustments.
+In multi-region deployments, automatic scaling applies only to the primary region. Secondary regions require manual scaling adjustments or other techniques that you control.
 
 ### Normal operations
 
@@ -252,7 +253,7 @@ This section describes what to expect when Azure API Management instances are co
 
 - **Data replication between regions:** Gateway configuration, such as APIs and policy definitions, are regularly synchronized between the primary and secondary regions you add. Propagation of updates to the regional gateways normally takes less than 10 seconds.
 
-    Data in the internal cache, and rate limit counters, are region-specific and aren't replicated between regions.
+    Data in the internal cache, and rate limit counters, are region-specific, and aren't replicated between regions.
 
 ### Region-down experience
 
@@ -291,9 +292,11 @@ Backup is supported in Developer, Basic, Standard, and Premium tiers.
 
 For more information on backup in Azure API Management, see [How to implement disaster recovery using service backup and restore in Azure API Management](/azure/api-management/api-management-howto-disaster-recovery-backup-restore).
 
+For backup or restore of some service components or resources, customer-managed options such as [APIOps tooling](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops) and infrastructure as code (IaC) solutions can also be considered. 
+
 ## Reliability during service maintenance
 
-Azure API Management performs regular service upgrades, as well as other forms of maintenance.
+Azure API Management performs regular service upgrades and other forms of maintenance.
 
 In the Basic, Standard, and Premium (classic) tiers, you can customize when in the update process your instance receives an update. If you need to validate the effect of upgrades on your workload, consider configuring a test instance to receive updates early in the cycle, and set your production instance to receive updates late in the cycle. You can also specify a maintenance window, which is the time of the day you want the instance to apply service updates.
 
@@ -304,6 +307,8 @@ To learn more about maintenance preferences, see [Configure service update setti
 The service-level agreement (SLA) for Azure API Management describes the expected availability of the service. It also describes the conditions that must be met to achieve that availability expectation. To understand those conditions, it's important that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 When you deploy an API Management instance in multiple availability zones or regions, the uptime percentage defined in the SLA increases.
+
+The service provides its own SLA, but you also need to account for the anticipated reliability of other workload components, such as the API backends.
 
 ## Related content
 

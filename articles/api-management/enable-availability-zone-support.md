@@ -1,16 +1,18 @@
 ---
 title: Enable availability support on Azure API Management instances
 description: Learn how to enable availability zone support on your Azure API Management instances.
-author: shaunjacob 
+author: dlepow 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/05/2025
-ms.author: anaharris
+ms.date: 06/26/2025
+ms.author: danlep
 ms.custom: references_regions, subject-reliability
 #Customer intent: As an engineer responsible for business continuity, I want to learn how to enable zone redundancy for my Azure API Management instances. 
 ---
 
 # Enable availability zone support on Azure API Management instances
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 This how-to guide shows you how to enable and configure availability zones on an API Management instance. 
 
@@ -29,7 +31,7 @@ For more detailed information about reliability features of API Management, such
 
 ## Enable availability zone support for an existing gateway location
 
-There are two options for enabling zone redundancy on an existing location of your API Management instance, depending on whether the instance is injected in a virtual network.
+There are two configuration options for zone redundancy on an existing location of your API Management instance, depending on whether the instance is injected in a virtual network.
 
 ### Gateway not injected in a virtual network
 
