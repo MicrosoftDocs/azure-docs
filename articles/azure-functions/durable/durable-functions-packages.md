@@ -55,7 +55,7 @@ Users of [Extension Bundles](../extension-bundles.md) (the recommended Azure Fun
 * PowerShell: The [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) module.
 
 > [!NOTE]
-> For PowerShell users: the standalone [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) module is now generally available (GA) and is the recommended approach. See the [migration guide](./durable-functions-powershell-v2-sdk-migration-guide.md) for details. The legacy SDK is also built into the Azure Functions PowerShell language worker for backward compatibility. However, the legacy SDK may not receive new features or bug fixes, and it may be eventually removed from the worker.
+> For PowerShell users: the standalone [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) module is now generally available (GA) and is recommended over the legacy SDK that's built into the Azure Functions PowerShell language worker. Going forward, the legacy SDK may not receive new features or bug fixes, and may eventually be removed from the worker. See [migration guide](./durable-functions-powershell-v2-sdk-migration-guide.md) for details on migrating to the standalone SDK. 
 
 ## GitHub repositories
 

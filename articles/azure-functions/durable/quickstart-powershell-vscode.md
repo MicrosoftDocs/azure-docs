@@ -149,7 +149,7 @@ You added an HTTP-triggered function that starts an orchestration. Open *HttpSta
 You now have a Durable Functions app that you can run locally and deploy to Azure.
 
 > [!TIP]
-> This quickstart uses the standalone Durable Functions PowerShell SDK, which is now generally available and provides the best performance and latest features. For more information about the SDK and migration from the built-in version, see the [standalone PowerShell SDK guide](./durable-functions-powershell-v2-sdk-migration-guide.md).
+> This quickstart uses the standalone Durable Functions PowerShell SDK, which is now generally available and provides the best performance and latest features. For more information about the SDK and migration from the legacy built-in version, see the [standalone PowerShell SDK guide](./durable-functions-powershell-v2-sdk-migration-guide.md).
 
 ## Test the function locally
 
