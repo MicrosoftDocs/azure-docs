@@ -27,25 +27,25 @@ items:
         href: iot-overview-security.md
       - name: Scalability, high availability
         href: iot-overview-scalability-high-availability.md
-        
-  - name: Choose an Azure IoT service
+
+  - name: Choose Azure IoT service
     href: iot-services-and-technologies.md
 
   - name: Develop with IoT devices
     items:
-    - name: What is IoT device development
+    - name: Overview
       href: concepts-iot-device-development.md
     - name: Tutorial - Send telemetry to IoT Hub
       href: tutorial-send-telemetry-iot-hub.md
-    - name: Develop embedded devices
+    - name: Tutorials - Develop embedded devices
       items:
-        - name: Tutorial - Connect an MXCHIP AZ3166 to IoT Hub
+        - name: Connect an MXCHIP AZ3166 to IoT Hub
           href: tutorial-devkit-mxchip-az3166-iot-hub.md
-        - name: Tutorial - Connect an STMicroelectronics B-L475E to IoT Hub
+        - name: Connect an STMicroelectronics B-L475E to IoT Hub
           href: Tutorial-devkit-stm-b-l475e-iot-hub.md
-        - name: Tutorial - Connect an ESPRESSIF ESP32 Kit to IoT Hub
+        - name: Connect an ESPRESSIF ESP32 Kit to IoT Hub
           href: Tutorial-devkit-espressif-esp32-freertos-iot-hub.md
-        - name: Tutorial - Troubleshoot embedded device
+        - name: Troubleshoot embedded device
           href: troubleshoot-embedded-device-tutorials.md
     - name: IoT device types
       href: concepts-iot-device-types.md
@@ -55,9 +55,9 @@ items:
       href: concepts-manage-device-reconnections.md
     - name: IoT device selection
       href: concepts-iot-device-selection.md
-  - name: Integrate with IoT Plug and Play
+  - name: Integrate using IoT Plug and Play
     items:
-    - name: What is IoT Plug and Play?
+    - name: Overview
       href: overview-iot-plug-and-play.md
     - name: Turn smartphone into an IoT device
       href: iot-phone-app-how-to.md
@@ -81,22 +81,22 @@ items:
         href: concepts-modeling-guide.md
       - name: Use models in a solution
         href: concepts-model-discovery.md
-  - name: Communicate with MQTT protocol
+  - name: Communicate using MQTT protocol
     items:
-    - name: Use MQTT with IoT Hub
+    - name: Azure IoT Hub
       href: iot-mqtt-connect-to-iot-hub.md
-    - name: Use MQTT with DPS
+    - name: Azure IoT Device Provisioning Service (DPS) 
       href: iot-mqtt-connect-to-iot-dps.md
     - name: Tutorial - Connect a device with MQTT
       href: tutorial-use-mqtt.md
     
-  - name: Solutions
+  - name: Deliver solution
     items:
-    - name: Implement the Industrial IoT reference solution
+    - name: Implement industrial IoT reference solution
       href: tutorial-iot-industrial-solution-architecture.md
-    - name: Connect an on-premises SAP system to Azure
+    - name: Connect on-premises SAP system to Azure
       href: howto-connect-on-premises-sap-to-azure.md
-    - name: Enable an industrial dataspace in Azure
+    - name: Enable industrial dataspace in Azure
       href: howto-iot-industrial-dataspaces.md
 
   - name: References
