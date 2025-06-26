@@ -16,12 +16,12 @@ zone_pivot_groups: redis-type
 
 # Quickstart: Use Azure Redis with Go
 
-In this article, you learn how to use a Azure Redis cache with the Go language and connect using Microsoft Entra ID.
+In this article, you learn how to use an Azure Redis cache with the Go language and connect using Microsoft Entra ID.
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Go](https://go.dev/doc/install) 
+- [Go](https://go.dev/doc/install)
 - You must also add two imports from Redis to your project and add them to your development environment.
   - `entraid "github.com/redis/go-redis-entraid"`
   - `"github.com/redis/go-redis/v9"`
@@ -30,16 +30,16 @@ In this article, you learn how to use a Azure Redis cache with the Go language a
 
 First you must create a cache. You can create a cache using Azure Managed Redis or Azure Cache for Redis using the Azure portal. In this Quickstart, we use Azure Managed Redis.
 
-When you create the cache you should create it Microsoft Entra ID is enabled by default. Your cache must also use public endpoint for this QuickStart.
+When you create the cache, you should create it Microsoft Entra ID is enabled by default. Your cache must also use public endpoint for this QuickStart.
 
-To create a chace with the portal, follow one of these procedure
+To create a cache with the portal, follow one of these procedures:
 
 - [Azure Managed Redis](includes/managed-redis-create.md)
 - [Azure Cache for Redis](/azure/azure-cache-for-redis/quickstart-create-redis)
 
 Optionally, you can create a cache using Azure CLI, PowerShell, or any means that you prefer.
 
-## Code to connect to a AMR Cache
+## Code to connect to a Redis cache
 
 The first part of the code sample, you set your connection to your cache:
 
@@ -95,7 +95,7 @@ In the next section, we test the connection using the Redis command "ping" that 
 
 ## Code set a key, get a key
 
-In this section, we show a basic `set` and `get` sequence to demonstrte using the Redis cache.
+In this section, we show a basic `set` and `get` sequence to demonstrate using the Redis cache.
 
 ```go
         // Do something with Redis and a key-value pair
@@ -120,7 +120,7 @@ In this section, we show a basic `set` and `get` sequence to demonstrte using th
 
 ```
 
-Before you can run this code, you must add yourself as a Redis user. And you must also authorize your connection to Azure from the command line using the Azure command line or Azure developer command line (azd). 
+Before you can run this code, you must add yourself as a Redis user. And you must also authorize your connection to Azure from the command line using the Azure command line or Azure developer command line (azd).
 
 You should also [add any user](entra-for-authentication.md) [Add users or System principal to your cache](entra-for-authentication.md#add-users-or-system-principal-to-your-cache) who might run the program as a user on the Redis cache.
 
@@ -131,6 +131,7 @@ Ping returned:  PONG
 SET Message succeeded: OK
 GET Message returned: Hello, The cache is working with Go!
 ```
+
 You can see this code sample in its entirety.
 
 ```go
