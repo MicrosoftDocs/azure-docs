@@ -129,7 +129,7 @@ The issue appears when agent attempts to sign in to the agent application.
    {"error":{"code":"UserLicenseNotPresentForbidden","message":"User Login. Teams is disabled in user licenses"}}
 ```
 
-This issue appears if the agent doesn't have a Teams license assigned or is disabled in Teams. Add the appropriate license and validate if user isn't disabled for Teams access and has all the required [Prerequisites]([https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md#prerequisites](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md#prerequisites)).
+This issue appears if the agent doesn't have a Teams license assigned or is disabled in Teams. Add the appropriate license and validate if user isn't disabled for Teams access and has all the required [Prerequisites](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md#prerequisites).
 
 ### Error 403 subcode 10105 Connecting Call end reason=NoPermission
 
