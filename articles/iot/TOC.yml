@@ -39,11 +39,11 @@ items:
       href: tutorial-send-telemetry-iot-hub.md
     - name: Tutorials - Develop embedded devices
       items:
-        - name: Connect an MXCHIP AZ3166 to IoT Hub
+        - name: Connect MXCHIP AZ3166 to IoT Hub
           href: tutorial-devkit-mxchip-az3166-iot-hub.md
-        - name: Connect an STMicroelectronics B-L475E to IoT Hub
+        - name: Connect STMicroelectronics B-L475E to IoT Hub
           href: Tutorial-devkit-stm-b-l475e-iot-hub.md
-        - name: Connect an ESPRESSIF ESP32 Kit to IoT Hub
+        - name: Connect ESPRESSIF ESP32 Kit to IoT Hub
           href: Tutorial-devkit-espressif-esp32-freertos-iot-hub.md
         - name: Troubleshoot embedded device
           href: troubleshoot-embedded-device-tutorials.md
