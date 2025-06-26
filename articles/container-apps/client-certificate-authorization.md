@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 06/26/2025
 ms.author: cshoe
 ---
 
@@ -17,7 +17,7 @@ When client certificates are used, the TLS certificates are exchanged between th
 
 For example, you might want to require a client certificate for a container app that manages sensitive data.
 
-Container Apps accepts client certificates in the PKCS12 format are that issued by a trusted certificate authority (CA), or are self-signed.
+Container Apps accepts client certificates in the PKCS12 format when a trusted certificate authority (CA) issues them or when they're self-signed.
 
 ## Configure client certificate authorization
 
@@ -38,7 +38,7 @@ The following ARM template example configures ingress to require a client certif
   "properties": {
     "configuration": {
       "ingress": {
-        "clientCertificateMode": "require | accept | ignore"
+        "clientCertificateMode": "require"
       }
     }
   }
@@ -49,7 +49,7 @@ The following ARM template example configures ingress to require a client certif
 
 Before you run the following commands, make sure to replace the placeholders surrounded by `<>` with your own values.
 
-Get the ARM ID of your container app:
+Get the Azure Resource Manager (ARM) ID of your container app:
 
 ```bash
 APP_ID=$(az containerapp show \
@@ -79,17 +79,27 @@ az rest \
 > [!NOTE]
 > Be sure to use a valid and stable API version that supports this feature. For example, replace <API_VERSION> in the command with 2025-01-01 or another supported version.
 
+## Client certificate mode and header format
+
 The value for `clientCertificateMode` varies what you need to provide for Container Apps to manage your certificate:
 - When `require` is set, the client must provide a certificate.
 - When `accept` is set, the certificate is optional. If the client provides a certificate, it passes to the app in the `X-Forwarded-Client-Cert` header, as a semicolon-separated list. 
 
-For example:
+### Example `X-Forwarded-Client-Cert` header value
 
-Before you use the following example, make sure to replace the placeholders surrounded by `<>` with your own values.
+The following example is a sample value of the `X-Forwarded-Client-Cert` header that your app might receive:
 
 ```text
 Hash=<HASH_VALUE>;Cert="-----BEGIN CERTIFICATE-----<CERTIFICATE_VALUE>";Chain="-----BEGIN CERTIFICATE-----<CERTIFICATE_VALUE>";
 ```
+
+### Header field breakdown
+
+| Field   | Description                                                                | How to Use It                                                  |
+| `Hash`  | The SHA-256 thumbprint of the client certificate.                         | Use the thumbprint to identify or validate the client certificate.              |
+| `Cert`  | The base64-encoded client certificate in PEM format (single certificate). | Parse the certificate to inspect metadata such as subject and issuer. |
+| `Chain` | One or more PEM-encoded intermediate certificates.                        | Provide the intermediate certificates when building a full trust chain for validation. |
+
 
 ## Next Steps
 
