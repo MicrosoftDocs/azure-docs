@@ -106,7 +106,7 @@ For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
    from sentinel_lake.providers import MicrosoftSentinelProvider
    data_provider = MicrosoftSentinelProvider(spark)
 
-   table_name = "microsoft.entra.id.group"  
+   table_name = "EntraGroups"  
    df = data_provider.read_table(table_name)  
    df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100,   truncate=False)  
    ```  
