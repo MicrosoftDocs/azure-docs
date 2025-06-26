@@ -78,6 +78,7 @@ Application Gateway for Containers supports the following features for traffic m
 - TLS policies
 - URL redirect
 - URL rewrite
+- Web Application Firewall (WAF) (Preview)
 - WebSocket support
 
 ### Deployment strategies
