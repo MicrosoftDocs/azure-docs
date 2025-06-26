@@ -96,7 +96,9 @@ This guide shows how to create and publish a workflow template in the following 
 
 ## Create a workflow template
 
-### [Portal](#tab/portal)
+Based on whether you want to make your workflow template available only for your organization or for everyone in Azure, follow the corresponding steps:
+
+### [Organization only](#tab/organization)
 
 To create your workflow template through the Azure portal, follow these steps:
 
@@ -192,7 +194,7 @@ The **Profile** tab specifies information about your template that appears in th
 | **Category** | No | The category where the template belongs. |
 | **Tags** | No | Any tags that you want to use for labeling the workflow. |
 
-### [Manual](#tab/manual)
+### [All Azure](#tab/all-azure)
 
 For the manual approach to create a template, you need to create a template package. 
 
