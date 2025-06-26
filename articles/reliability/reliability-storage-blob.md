@@ -34,7 +34,6 @@ However, LRS is the lowest-cost redundancy option. Although LRS protects your da
 
 For higher levels of protection, consider [zone-redundant storage](#availability-zone-support) or [geo-redundant storage](#multi-region-support), which replicate your data across multiple zones or regions.
 
-
 ## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
@@ -69,7 +68,6 @@ When you enable ZRS, you're charged at a different rate than LRS due to the addi
 
 - **Create a blob storage account with zone redundancy:** To create a new storage account with zone-redundant storage, see [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage(GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation.
 
-<!-- John: We have a migration document for storage. Have you taken that into consideration. Do we break that out into a how-to?-->
 - **Migration**. To convert an existing storage account to ZRS and learn about migration options and requirements, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration).
 
 - **Disable zone redundancy.** Convert ZRS accounts back to a nonzonal configuration (LRS) through the same redundancy configuration change process.
@@ -280,17 +278,6 @@ Azure Blob Storage provides multiple data protection mechanisms that complement 
 **Blob snapshots** create read-only point-in-time copies of blobs that can be used for backup and recovery scenarios. Snapshots are stored in the same storage account and follow the same redundancy and geo-replication settings as the base blob.
 
 For cross-region backup requirements, consider using **Azure Backup for Blobs**, which provides centralized backup management and can store backup data in different regions from the source data. This service provides operational and vaulted backup options with configurable retention policies and restore capabilities. For more information, see [Azure Backup for Blobs overview](/azure/backup/blob-backup-overview).
-
-
-## Reliability during service maintenance
-
-Azure Blob Storage is designed to maintain high availability during planned maintenance activities. Microsoft performs regular maintenance on the underlying storage infrastructure, including hardware updates, software patches, and capacity management operations.
-
-During planned maintenance, Azure Blob Storage leverages its redundant architecture to maintain service availability. For zone-redundant storage configurations, maintenance is performed on one availability zone at a time, ensuring that your data remains accessible through the other zones. For geo-redundant configurations, maintenance in the primary region doesn't affect read access to the secondary region for RA-GRS and RA-GZRS accounts.
-
-Most maintenance operations are transparent to applications and don't require any action from customers. However, you may experience slight increases in latency during maintenance windows as traffic is redistributed across available infrastructure. Applications with built-in retry logic and appropriate timeout configurations will handle these temporary variations automatically.
-
-Microsoft provides advance notification of planned maintenance that may impact service availability through Azure Service Health notifications. For critical workloads, it's best to implement monitoring and alerting to track storage account performance during maintenance windows. Tracking and monitoring can help you to ensure that your applications are performing as expected.
 
 ## Service-level agreement
 

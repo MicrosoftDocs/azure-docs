@@ -31,6 +31,7 @@ To improve the reliability of your solution, it's a good practice to enable avai
 - [Azure Cosmos DB](./reliability-cosmos-db-nosql.md#migrate-to-availability-zone-support)
 - [Azure Database for MySQL - Flexible Server](migrate-database-mysql-flex.md)
 - [Azure Database for PostgreSQL](./reliability-postgresql-flexible-server.md#availability-zone-redeployment-and-migration)
+- [Azure Disk Storage](migrate-vm.md)
 - [Azure Elastic SAN](reliability-elastic-san.md#availability-zone-migration)
 - [Azure ExpressRoute](/azure/expressroute/expressroute-howto-gateway-migration-portal)
 - [Azure Functions](reliability-functions.md#availability-zone-migration)
@@ -44,11 +45,8 @@ To improve the reliability of your solution, it's a good practice to enable avai
 - [Azure Service Fabric](migrate-service-fabric.md)
 - [Azure SQL Database](migrate-sql-database.md)
 - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-zone-redundancy-configure)
-- [Azure Storage account: Blob Storage, Azure Data Lake Storage, Files Storage](migrate-storage.md)
-- [Azure Storage: Managed Disks](migrate-vm.md)
+- [Azure Storage: Azure Blob Storage, Azure Data Lake Storage Gen2, Azure Files](/azure/storage/common/redundancy-migration)
 - [Azure Virtual Machines and Azure Virtual Machine Scale Sets](migrate-vm.md)
-
-
 
 
 ## Related resources
