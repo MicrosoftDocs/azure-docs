@@ -44,7 +44,7 @@ items:
     href: tcp-session-behavior.md
   - name: Explicit Proxy
     href: explicit-proxy.md
-  - name: Multi hub and spoke
+  - name: Routing in hub and spoke 
     href: firewall-multi-hub-spoke.md
   - name: Central management
     href: central-management.md
