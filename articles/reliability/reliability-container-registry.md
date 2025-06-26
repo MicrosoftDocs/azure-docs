@@ -97,7 +97,7 @@ For multi-region scenarios, geo-replication creates additional registry replicas
 
 Azure Container Registry handles transient faults internally through several mechanisms. The service implements automatic retry logic for registry operations and maintains connection pooling for efficient resource utilization. Container Registry operations are designed to be idempotent, allowing safe retries of push and pull operations. For more information on registry operations, see [Push your first image to your Azure container registry using the Docker CLI](/azure/container-registry/container-registry-get-started-docker-cli).
 
-For client applications using Azure Container Registry, implement appropriate retry policies with exponential backoff when performing registry operations. Use the official Docker client or Azure Container Registry SDKs which include built-in retry mechanisms for common transient failures. For guidance on using SDKs, see [Azure Container Registry client libraries](/azure/container-registry/container-registry-client-libraries).
+For client applications using Azure Container Registry, implement appropriate retry policies with exponential backoff when performing registry operations. Use the official Docker client or Azure Container Registry SDKs which include built-in retry mechanisms for common transient failures. For guidance on using SDKs, see References to client libraries in [Azure Container Registry documentation](/azure/container-registry/).
 
 Monitor registry operations through Azure Monitor metrics and logs to identify patterns of transient faults. Set up alerts for registry availability metrics to proactively detect issues that might impact your container workloads. For monitoring guidance, see [Monitor Azure Container Registry](/azure/container-registry/monitor-service).
 
@@ -280,7 +280,7 @@ When the affected availability zone recovers, Azure Container Registry automatic
 
 ### Testing for zone failures
 
-Zone failover testing is managed by Microsoft and does not require customer-initiated testing. The service is designed to automatically handle zone failures without impacting registry availability or data integrity. For more information on testing strategies, see [Azure reliability testing guidance](/azure/reliability/reliability-testing-guidance).
+Zone failover testing is managed by Microsoft and does not require customer-initiated testing. The service is designed to automatically handle zone failures without impacting registry availability or data integrity. For more information on testing strategies, see [Azure reliability testing guidance](/azure/well-architected/reliability/testing-strategy).
 
 ## Multi-region support
 
@@ -354,7 +354,7 @@ You must use the Premium tier to enable geo-replication. Geo-replication can be 
 
 ### Considerations
 
-Each geo-replicated region functions as an independent registry endpoint. Container clients can connect to any regional endpoint for registry operations. Consider configuring your container orchestration platforms to use the regional endpoint closest to their deployment location for optimal performance. For client configuration guidance, see [Azure Container Registry client libraries](/azure/container-registry/container-registry-client-libraries).
+Each geo-replicated region functions as an independent registry endpoint. Container clients can connect to any regional endpoint for registry operations. Consider configuring your container orchestration platforms to use the regional endpoint closest to their deployment location for optimal performance. For client configuration guidance, see References in the [Azure Container Registry documentation](/azure/container-registry/).
 
 Geo-replication provides eventual consistency across regions, with replication typically completing within minutes of changes. Large container images or high-frequency updates may take longer to replicate across all regions.
 
@@ -465,7 +465,7 @@ When a region recovers, registry operations automatically resume for that region
 
 ### Testing for region failures
 
-Test your applications' ability to handle regional failures by temporarily blocking access to a regional registry endpoint and verifying that container operations successfully failover to alternative regions. Use Azure Chaos Studio or manual testing procedures to validate your disaster recovery capabilities. For testing guidance, see [Azure Chaos Studio](/azure/chaos-studio/) and [Azure reliability testing guidance](/azure/reliability/reliability-testing-guidance).
+Test your applications' ability to handle regional failures by temporarily blocking access to a regional registry endpoint and verifying that container operations successfully failover to alternative regions. Use Azure Chaos Studio or manual testing procedures to validate your disaster recovery capabilities. For testing guidance, see [Azure Chaos Studio](/azure/chaos-studio/) and [Azure reliability testing guidance](/azure/well-architected/reliability/testing-strategy).
 
 ## Backups
 
