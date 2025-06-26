@@ -5,13 +5,13 @@ description: Use the Defender portal's Data lake exploration KQL queries to crea
 author: EdB-MSFT  
 ms.service: microsoft-sentinel  
 ms.topic: conceptual
-ms.custom: sentinel-lake-graph
+ms.custom: sentinel-graph
 ms.date: 05/29/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
 
-# Customer intent: As a security engineer or administrator, I want to create jobs in the Microsoft Sentinel data lake so that I can run KQL queries  against the data in the lake tier and promote the results to the analytics tier.
+# Customer intent: As a security engineer or administrator, I want to create jobs in the Microsoft Sentinel data lake so that I can run KQL queries against the data in the lake tier and promote the results to the analytics tier.
 
 ---  
  
@@ -88,7 +88,7 @@ In the **Schedule the query job** panel, select whether you want to run the job 
    
 1. Select **Next** to review the job details.
 
-    :::image type="content" source="media/kql-jobs/schedule-query-job.png" alt-text="A screenshot showing the schedule job panel." lightbox="media/kql-jobs/schedule-job.png":::
+    :::image type="content" source="media/kql-jobs/schedule-query-job.png" alt-text="A screenshot showing the schedule job panel." lightbox="media/kql-jobs/schedule-query-job.png":::
 
 1. Review the job details and select **Submit** to create the job. If the job is a one-time job, it runs after you select **Submit**. If the job is scheduled, it's added to the list of jobs in the **Jobs** page of the data Data lake exploration and runs according to the start data and time.
     :::image type="content" source="media/kql-jobs/review-job-details.png" alt-text="A screenshot showing the review job details panel." lightbox="media/kql-jobs/review-job-details.png":::
@@ -114,7 +114,7 @@ The following table lists the limitations for KQL jobs in the Microsoft Sentinel
 > [!NOTE]
 >  Partial results may be promoted if the job's query exceeds the one hour limit.
 
-For troubleshooting tips and error messages, see [Troubleshooting KQL queries for the Microsoft Sentinel data lake (Preview)](troubleshooting-kql.md).
+For troubleshooting tips and error messages, see [Troubleshooting KQL queries for the Microsoft Sentinel data lake (Preview)](kql-troubleshooting.md).
 
 
 ## Related content

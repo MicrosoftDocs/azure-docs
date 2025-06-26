@@ -3,7 +3,7 @@ title: KQL and the Microsoft Sentinel data lake. (Preview)
 titleSuffix: Microsoft Security  
 description: Exploring and interacting with the Microsoft Sentinel data lake using KQL.
 author: EdB-MSFT  
-ms.service: sentinel  
+ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.subservice: sentinel-graph
 ms.date: 06/22/2025
@@ -72,4 +72,4 @@ The following scenarios illustrate how KQL queries in the Microsoft Sentinel Lak
 - [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
 - [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md)
 - [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
-- [Create and run notebooks in the Microsoft Sentinel data lake](notebooks.md)
+- [Create and run notebooks in the Microsoft Sentinel data lake](jupyter-notebooks-overview.md)

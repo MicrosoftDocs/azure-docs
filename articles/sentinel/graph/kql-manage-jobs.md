@@ -78,7 +78,7 @@ To edit a job, select the **Edit** button in the job details panel. The job deta
 
 The following details can be edited:
 + Job description
-+ KQL query. The query can be updated but must return the same output schema as the original query. For example, you can cgane the time range in the query, but you can't change the columns returned by the query.
++ KQL query. The query can be updated but must return the same output schema as the original query. For example, you can change the time range in the query, but you can't change the columns returned by the query.
 + Job schedule. You can change the job to run once or on a schedule, or change the schedule.
 
 Select **Next** to continue to the next screen. 
@@ -107,4 +107,4 @@ To delete a job, select the **Delete** button in the job details panel. A confir
 - [Overview of the Microsoft Sentinel data lake](sentinel-lake-overview.md)
 - [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md)
 - [Data lake exploration - KQL queries (Preview).](kql-queries.md)
-- [Microsoft Sentinel lake roles and permissions](roles-permissions.md)
+- [Microsoft Sentinel lake roles and permissions](../roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
