@@ -283,7 +283,7 @@ To be ready for unexpected region outages, it's recommended that you regularly t
 
 ## Backups
 
-Azure API Management doesn't store data. However, you can back up your Azure API Management service configuration. Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging.
+Azure API Management itself doesn't store most runtime data. However, you can back up your Azure API Management service configuration. Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging.
 
 > [!IMPORTANT]
 > In a backup procedure, runtime data such as users and subscriptions are included, which might not always be desirable.
