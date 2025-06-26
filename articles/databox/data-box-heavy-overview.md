@@ -8,6 +8,7 @@ ms.service: azure-data-box-heavy
 ms.topic: overview
 ms.date: 05/30/2024
 ms.author: shaas
+# Customer intent: "As a data engineer, I want to utilize a secure and efficient method for transferring hundreds of terabytes of data to Azure, so that I can perform large-scale data migrations without impacting network performance."
 ---
 
 # What is Azure Data Box Heavy?
