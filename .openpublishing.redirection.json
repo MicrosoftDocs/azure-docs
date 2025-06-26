@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-manage.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-restore.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-configure.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-support-matrix.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-support-matrix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-overview.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/cdn-traffic-manager.md",
       "redirect_url": "/previous-versions/azure/cdn/cdn-traffic-manager",
       "redirect_document_id": false
@@ -2407,6 +2432,16 @@
     {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-cross-premises-options.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/gateway-sku-change.md",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/gateway-sku-resize.md",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
       "redirect_document_id": false
     },
     {
@@ -7058,6 +7093,32 @@
       "source_path": "articles/cyclecloud/release-notes/ccws/2025.02.06.md",
       "redirect_url": "/azure/cyclecloud/release-notes/ccws/2025-02-06",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/sre-agent-overview.md",
+      "redirect_url": "/azure/sre-agent/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/sre-agent-usage.md",
+      "redirect_url": "/azure/sre-agent/usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/tutorial-sre-agent.md",
+      "redirect_url": "/azure/sre-agent/troubleshoot-azure-app-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-apps/sre-agent-troubleshoot.md",
+      "redirect_url": "/azure/sre-agent/troubleshoot-azure-container-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/whats-new.md",
+      "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
     }
   ]
 }
+

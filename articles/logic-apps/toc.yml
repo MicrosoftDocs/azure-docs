@@ -611,7 +611,7 @@ items:
   - name: Azure Logic Apps roadmap
     href: https://aka.ms/logicappsroadmap/
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Pricing for Azure Logic Apps
     href: https://azure.microsoft.com/pricing/details/logic-apps/
   - name: Pricing calculator
@@ -619,7 +619,7 @@ items:
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
+    href: /shows/browse?terms=logic-apps
   - name: Microsoft Q&A question page
     href: /answers/tags/134/azure-logic-apps
   - name: Stack Overflow

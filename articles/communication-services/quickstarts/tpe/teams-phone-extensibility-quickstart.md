@@ -24,9 +24,9 @@ This article describes how an independent software vendor (ISV) can provision Te
 - ISV’s Customer has access to Microsoft 365 Admin Center.
 - ISV has access to change Azure Communication Services Resource settings.
 - You grant Teams Tenant access to a CCaaS service for Graph API usage.
-- ISV is using the .NET ACS Call Automation SDK version 1.5.0-beta.1
-- ISV is using the JavaScript ACS Call Automation SDK version 1.5.0-beta.2
-- ISV is using the JavaScript ACS Client SDK version 1.36.1-beta.1
+- ISV is using the .NET ACS Call Automation SDK version 1.5.0-beta.1.
+- ISV is using the JavaScript ACS Call Automation SDK version 1.5.0-beta.2.
+- ISV is using the JavaScript ACS Client SDK version 1.36.1-beta.1.
 
 
 ## Quick start
@@ -35,26 +35,45 @@ The rest of this article describes quick starts for two different personas: CCaa
 
 ### CCaaS Developer: Provision the AppID (Application ID)
 
-Before you can create a bot, you need to register an `ApplicationID` using steps 1 through 4 in [Registering a calling bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html#registering-an-app-registration).
+Before you can create a bot, you need to register an Application ID.
+
+1. From the Azure portal, open **App Registrations**.
+
+    :::image type="content" source="media/teams-phone-extensibility-app-registration.png" alt-text="Screen capture showing the Azure portal with App registration selected from services."  lightbox="media/teams-phone-extensibility-app-registration.png":::
+
+2. Select **New registration**.
+3. Complete the required fields and click **Register**.
+4. When the portal completes the resource, click **Go to resource**.
+5. Record the values for the **Application (client) ID** and **Directory (tenant) ID**.
+
+    :::image type="content" source="media/teams-phone-extensibility-app-registration-resources.png" alt-text="Screen capture showing the Azure portal App registrations resource displaying Essentials including Application (client) ID and Directory (tenant) ID."  lightbox="media/teams-phone-extensibility-app-registration-resources.png":::
+
+6. Open **Certificates & secrets**. Create new a client secret and record the certificate and secret ID values.
+
+For more information, see [Registering a calling bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html#registering-an-app-registration).
 
 ### CCaaS Developer: Create the Bot 
 
-Once you create the `AppID`, Teams Phone system also uses the current process as defined for Graph to create a bot. Complete steps 1 through 4 in [Registering a calling bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html#registering-an-app-registration).
+Once you create the `AppID`, Teams Phone system also uses the current process as defined for Graph to create a bot.
 
 Alternatively, you can complete the following steps to create just the bot after you create an  Application ID using the Azure CLI.
 
-1. Download Azure CLI
-1. Sign in with your Azure account used for the preceding App Registration:  
+1. Download Azure CLI.
+2. Sign in with your Azure account used for the preceding App Registration: 
+
     ```azurecli
     az login 
     ```
-1. If not already, Install `Az.BotService`:  
+
+3. If not already installed, install `Az.BotService`:  
+
     ```azurecli
     Install-Module Az.BotService -AllowClobber 
     ```
-1. Provision the bot using the following command. For more information, see [Publish a bot with Azure PowerShell - Azure AI Bot Service - Bot Service](/azure/bot-service/powershell/bot-builder-powershell-quickstart):
 
-If your environment is already provisioned, skip these steps.
+4. Provision the bot using the following command. For more information, see [Publish a bot with Azure PowerShell - Azure AI Bot Service - Bot Service](/azure/bot-service/powershell/bot-builder-powershell-quickstart):
+
+If your environment is already provisioned, skip the following steps.
 
 ```azurecli
 Connect-AzAccount 
@@ -412,7 +431,7 @@ Once you set the call options, then use the `startCall()` method in the [TeamsCa
 
 After you sign in as an agent with a dual persona identity, you can add that Teams Phone extensibility call agent to an established call using their dual persona identity.
 
-The following example shows a request to add a Teams Phone extensibility call agent with Microsoft Entra ID identifier `e5b7f628-ea94-4fdc-b3d9-1af1fe231111` in tenant `87d349ed-44d7-43e1-9a83-5f2406dee5bd` scoped to Azure Communication Services Resource `0269be4d-5be0-4770-bf9c-a1bf50ee78d5`. 
+The following example shows a request to add a Teams Phone extensibility call agent with Microsoft Entra ID identifier `0269be4d-5be0-4770-bf9c-a1bf50ee78d5` in tenant `87d349ed-44d7-43e1-9a83-5f2406dee5bd` scoped to Azure Communication Services Resource `e5b7f628-ea94-4fdc-b3d9-1af1fe231111`. 
 
 ```csharp
 //Call is already established
@@ -488,10 +507,11 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions("<callConnect
 Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
 .StartAsync(recordingOptions);
 ```
-> [!NOTE]
-> Recording started with connection Id is started async (204 response code) and recording state change is updated via call back event (Microsoft.Communication.RecordingStateChanged) received on RecordingStateCallbackUri.
-Additionally any failures to start recording is reported via a new callback event (Microsoft.Communication.StartRecordingFailed) received on RecordingStateCallbackUri.
 
+> [!NOTE]
+> Recording started with connection ID is started async (204 response code) and recording state change is updated via callback event `Microsoft.Communication.RecordingStateChanged` received on `RecordingStateCallbackUri`.
+>
+> In addition, any failure to start recording is reported via a new callback event `Microsoft.Communication.StartRecordingFailed` received on `RecordingStateCallbackUri`.
 
 ## Alpha SDKs
 

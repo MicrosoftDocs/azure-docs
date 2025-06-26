@@ -31,7 +31,7 @@ Make sure you enable the relevant Azure features to provide global, cross-region
 
 Some Azure IoT services also include built-in business disaster recovery features:
 
-- [Azure IoT Hub high-availability disaster recovery](../articles/iot-hub/iot-hub-ha-dr.md), which includes intra-region redundancy
+- [Reliability in Azure IoT Hub](/azure/reliability/reliability-iot-hub), which includes intra-region redundancy
 - [Azure Event Hubs policies](../articles/event-hubs/event-hubs-geo-dr.md)
 - [Azure Storage redundancy](../articles/storage/common/storage-redundancy.md)
 

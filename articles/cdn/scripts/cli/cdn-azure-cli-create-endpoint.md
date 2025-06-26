@@ -11,6 +11,7 @@ ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ms.tool: azure-cli
 ROBOTS: NOINDEX
+# Customer intent: As a cloud engineer, I want to create and manage a Content Delivery Network profile and endpoint using CLI commands, so that I can efficiently deploy and configure CDN resources without using the Azure portal.
 ---
 
 # Create an Azure Content Delivery Network profile and endpoint using the Azure CLI

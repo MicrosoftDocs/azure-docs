@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: mbender
+# Customer intent: "As a network administrator, I want to export authentication and trusted root certificates from backend certificates, so that I can configure Azure Application Gateway for end-to-end TLS encryption and ensure secure communication between backend servers."
 ---
 
 # Create certificates to allow the backend with Azure Application Gateway

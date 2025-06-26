@@ -15,7 +15,41 @@
             "source_path_from_root": "/articles/redis/best-practices-managed-cache.md",
             "redirect_url": "/azure/redis/overview",
             "redirect_document_id": false
+        },
+                {
+            "source_path_from_root": "/articles/redis/machine-learning.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/rust-get-started.md",
+            "redirect_url": "https://github.com/Azure-Samples/azure-redis-cache-rust-quickstart/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/tutorial-functions-getting-started.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/tutorial-write-behind.md",
+            "redirect_url": "/azure/azure-functions/functions-bindings-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/aspnet-output-cache-provider.md",
+            "redirect_url": "../../aspnet/core/performance/caching/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/aspnet-session-state-provider.md",
+            "redirect_url": "../../aspnet/core/performance/caching/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/web-app-cache-aside-leaderboard.md",
+            "redirect_url": "../../aspnet/core/performance/caching/overview",
+            "redirect_document_id": false
         }
-      ]
-}  
-  
+    ]
+}
