@@ -18,7 +18,7 @@ ms.subservice: advanced-messaging
 
 ## Overview
 
-This article will cover the prerequisites to configuring WhatsApp as a Channel in Microsoft Copilot Studio.
+This article covers the prerequisites to configuring WhatsApp as a Channel in Microsoft Copilot Studio.
 
 1. Create an Azure Communication Services resource in Azure Portal.
 2. Get a phone number that can receive SMS.
@@ -52,7 +52,7 @@ When following those instructions, here are helpful tips:
 
 ## Get a phone number
 
-The phone number will be used to link your Azure Communication Services resource to your WhatsApp Business Account and then your AI agent in Microsoft Copilot Studio.
+The phone number is used to link your Azure Communication Services resource to your WhatsApp Business Account and then your AI agent in Microsoft Copilot Studio.
 
 Make sure the phone number has the following capabilities:
 
@@ -117,9 +117,9 @@ When following those instructions, here are helpful tips:
 5. Select the SMS enabled phone number you wish to use to connect to your WhatsApp Business Account. This can be either the [Azure Communication Services Toll-free phone number](#provision-an-azure-communication-services-phone-number) you previously provisioned or bring your own phone number.
 6. Select the **Next** button.
 7. Select the **Login with Facebook** button to link your WhatsApp business account.
-8. A new Facebook Login page will pop up as a new window. Provide your login. 
+8. A new Facebook Login page pops up as a new window. Provide your login. 
 9. The next screen notifies you that the Azure Communication Services app will receive your name and profile picture. It gives permission to Azure Communication Service APIs to manage your WhatsApp Business Account. Select **Continue**.
-10. After signing in, the next screen summarizes the permissions you'll be granting Azure Communication Services to manage your WhatsApp Business Account. Select the Get Started button.
+10. After signing in, the next screen summarizes the permissions, you'll be granting Azure Communication Services to manage your WhatsApp Business Account. Select the **Get Started** button.
 11. Now that the WhatsApp Business Account is signed into, select or create the existing **Business portfolio**. Then select the **Next** button.
 
     [image show select]
@@ -128,7 +128,7 @@ When following those instructions, here are helpful tips:
 
     [image show create business account and select business profile]
 
-13. A phone number is needed, and it will be what people will see when they chat with you. Another WhatsApp Business account can't use this phone number.
+13. A phone number is needed, and it is what people see when they chat with you. Another WhatsApp Business account can't use this phone number.
 
     Use the Azure Communication Service toll-free phone number you provisioned previously or bring your own phone number.
 
