@@ -20,10 +20,9 @@ Eligible startups can receive $1,000 USD in Azure credits to explore AI models a
 
 1. Go to microsoft.com/startups.
 2. Sign in with your personal Microsoft Account (MSA).
-3. Set up your Azure account to redeem the credits.
-4. Your credits will be automatically applied to your new Azure Sponsorship subscription.
+1. Set up your Azure account to redeem the credits. Your credits are automatically applied to your new Azure Sponsorship subscription.
 
-You'll have 90 days to use your credits. Your subscription will automatically convert to pay-as-you-go once your startup credit is fully used, or 90 days have passed, whichever comes first.
+You have 90 days to use your credits. Your subscription automatically converts to pay-as-you-go once your startup credit is fully used, or 90 days have passed, whichever comes first.
 
 ### Eligibility requirements
 
@@ -47,13 +46,14 @@ From the Azure portal, follow the prompts to:
 
 Verification may take up to seven business days. To check your status, go to the Azure portal and select "Check verification status" from the homepage.
 
-Once verified, the additional credits will be applied automatically to your Azure account. You'll have 180 days to use your startup credits. Your subscription will automatically convert to pay-as-you-go after the 180-day period or once credits are exhausted.
+Once verified, the additional credits are applied automatically to your Azure account. You have 180 days to use your startup credits. Your subscription automatically converts to pay-as-you-go after the 180-day period or once credits are exhausted.
 
 ### Additional eligibility requirements
 
 To qualify for up to $5,000 in Azure credits:
 
-- You must have redeemed the initial $1,000 startup credit
+- You must have redeemed the initial $1,000 startup credit.
+
 - Your startup must be a registered legal business entity.
 - Verification must be completed within 90 days of initial redemption.
 - You must develop and own a software-based product or service. The software must not be licensed from another party.
@@ -65,7 +65,7 @@ By redeeming and using Azure startup credits, you agree to the [Azure Service Ag
 
 Startup credits cannot be used for Microsoft Azure support plans, third-party branded products, products sold through Microsoft Azure Marketplace, or products otherwise sold separately from Microsoft Azure. Additionally, startup credits cannot be combined with other licensing, prepaid, or credit offers.
 
-By redeeming the startup credit offer, you agree not to facilitate, engage in, or participate in any use of Azure services for crypto currency mining, denial of service attacks, spamming, or illegal activity, and/or any use that could cause harm to Microsoft or others, and will enforce strong internal controls to prevent the same. If Microsoft believes for any reason that such Azure services are being used for any prohibited purpose, Microsoft may, in its sole discretion, suspend or terminate your access to the Azure services.
+By redeeming startup credits, you agree not to facilitate, engage in, or participate in any use of Azure services for crypto currency mining, denial of service attacks, spamming, or illegal activity, and/or any use that could cause harm to Microsoft or others, and will enforce strong internal controls to prevent the same. If Microsoft believes for any reason that such Azure services are being used for any prohibited purpose, Microsoft may, in its sole discretion, suspend or terminate your access to the Azure services.
 
 ## Frequently asked questions
 
@@ -75,8 +75,6 @@ The startup credit offer is only available for new Azure customers using a perso
 
 - Confirm you’re signed in with an MSA. If signed in with a work or school account, sign out and switch to an MSA.
 - Ensure you don’t have an existing Azure subscription. If you do, you aren't eligible for the startup credit offer.
-- If ineligible, you can still explore relevant Azure services and AI templates.
-
 ### Why do I need a credit card to redeem my startup credit offer?
 
 Your credit card is required to:
@@ -89,7 +87,7 @@ If you're having trouble, learn how to [troubleshoot credit card issues](/azure/
 
 ### Why is business verification required to get more credits?
 
-Verification confirms your eligibility and helps prevent fraudulent use of the startup credits.
+Verification confirms your eligibility and helps prevent fraudulent use of the startup credits. Verification can only be submitted once per startup, so ensure all your information is complete and accurate before submitting.
 
 ### I don't see the option to verify. What now?
 
@@ -101,15 +99,15 @@ If you're not seeing the option to verify, make sure that:
 
 ### What if my business can't be verified?
 
-You can continue using the $1,000 startup credit but won’t be eligible for additional credits. Verification can only be submitted once per startup, so ensure all your information is complete and accurate before submitting.
+You can continue using the $1,000 startup credit but are not eligible for additional credits.
 
 ### What happens when my startup credits run out or expire?
 
-Your subscription will automatically convert to pay-as-you-go. There’s no upfront commitment, and you can [cancel your subscription](/azure/cost-management-billing/manage/cancel-azure-subscription) at any time.
+Your subscription automatically converts to pay-as-you-go. There’s no upfront commitment, and you can [cancel your subscription](/azure/cost-management-billing/manage/cancel-azure-subscription) at any time.
 
 ### Can I request more time to use my startup credits?
 
-No, any unused credits expire 90 days after initial redemption or 180 days after successful verification. Expiration periods cannot be extended.
+No, any unused credits expire 90 days after initial redemption or 180 days after successful verification. Expiration periods can't be extended.
 
 ### Can I transfer my startup credits to a different Microsoft Account (MSA)?
 
@@ -127,7 +125,7 @@ Learn more about [Microsoft for Startups](/microsoft-for-startups/).
 
 ### What is the difference between the Azure startup credit offer and Microsoft for Startups?
 
-Microsoft is committed to supporting startups at every stage–from the first line of code to global scale. We offer two paths to get started with Azure:
+Microsoft is committed to supporting startups at every stage. We offer two paths to get started with Azure:
 
 - Azure startup credit offer - Open to all eligible startups with no application required. This offer provides up to $5,000 USD in Azure credits, with $1,000 available immediately to explore the latest AI models and start building on Azure.
 - Microsoft for Startups – Designed for startups affiliated with the Microsoft for Startups Investor Network, this program offers enhanced benefits designed to help you build faster, scale smarter, and reach more customers. Benefits include increased Azure credits, access to advanced AI services, expert technical guidance, and go-to-market support to help drive visibility and growth.
@@ -148,4 +146,4 @@ See the [Microsoft Account troubleshooting guide](https://support.microsoft.com/
 
 By submitting your business verification, you acknowledge that you have read the [Microsoft Privacy Statement](https://www.microsoft.com/privacy/privacystatement) and give Microsoft permission to collect your data and contact you regarding your application.
 
-To delete your data, you'll need to [close your Microsoft account](https://support.microsoft.com/en-us/account-billing/how-to-close-your-microsoft-account-c1b2d13f-4de6-6e1b-4a31-d9d668849979). Once your account is closed and the re-open window has passed, [your data](https://support.microsoft.com/en-us/windows/view-your-data-on-the-privacy-dashboard-03d3e27f-1981-5ff4-ba1c-d6b1031ae433) will be permanently deleted. If you'd like a copy of your data, you can [download your data](https://account.microsoft.com/privacy/download-data).
+To delete your data, you need to [close your Microsoft account](https://support.microsoft.com/en-us/account-billing/how-to-close-your-microsoft-account-c1b2d13f-4de6-6e1b-4a31-d9d668849979). Once your account is closed and the re-open window has passed, [your data](https://support.microsoft.com/en-us/windows/view-your-data-on-the-privacy-dashboard-03d3e27f-1981-5ff4-ba1c-d6b1031ae433) will be permanently deleted. If you'd like a copy of your data, you can [download your data](https://account.microsoft.com/privacy/download-data).
