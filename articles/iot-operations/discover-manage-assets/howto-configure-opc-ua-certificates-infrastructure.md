@@ -21,7 +21,7 @@ Based on the [OPC UA specification](https://reference.opcfoundation.org/), the c
 The connector for OPC UA must trust the OPC UA servers it connects to. The connector maintains a list of trusted certificates. To learn more, see:
 
 - [Manage certificates for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-certificates.md) - this article describes how Azure IoT Operations uses Azure Key Vault to manage certificates.
-- [OPC UA certificates infrastructure for the connector for OPC UA](overview-opcua-broker-certificates-management.md) - this article describes the roles of the trusted certificates list and issuer certificates list.
+- [OPC UA certificates infrastructure for the connector for OPC UA](overview-opc-ua-connector-certificates-management.md) - this article describes the roles of the trusted certificates list and issuer certificates list.
 
 ## Prerequisites
 
@@ -55,11 +55,11 @@ To use the operations experience web UI to manage the trusted certificates list,
 
 1. To view the trusted certificates list, select **Manage certificates and secrets** and then **Certificates**:
 
-    :::image type="content" source="media/howto-configure-opcua-certificates-infrastructure/view-trusted-certificates.png" lightbox="media/howto-configure-opcua-certificates-infrastructure/view-trusted-certificates.png" alt-text="Screenshot of operations experience showing certificate upload page for the trusted certificates list.":::
+    :::image type="content" source="media/howto-configure-opc-ua-certificates-infrastructure/view-trusted-certificates.png" lightbox="media/howto-configure-opc-ua-certificates-infrastructure/view-trusted-certificates.png" alt-text="Screenshot of operations experience showing certificate upload page for the trusted certificates list.":::
 
 1. You can upload a certificate file from your local machine or add one that you previously added as a secret in your Azure Key Vault:
 
-    :::image type="content" source="media/howto-configure-opcua-certificates-infrastructure/successful-certificate-upload.png" lightbox="media/howto-configure-opcua-certificates-infrastructure/successful-certificate-upload.png" alt-text="Screenshot of operations experience showing successfully uploaded certificate.":::
+    :::image type="content" source="media/howto-configure-opc-ua-certificates-infrastructure/successful-certificate-upload.png" lightbox="media/howto-configure-opc-ua-certificates-infrastructure/successful-certificate-upload.png" alt-text="Screenshot of operations experience showing successfully uploaded certificate.":::
 
 1. Select **Apply** to save the changes. The certificate is now added to the trusted certificates list. If you upload the certificate, it's automatically added to your Azure Key Vault as a secret.
 
@@ -167,11 +167,11 @@ To use the operations experience web UI to manage the issuer certificates list, 
 
 1. To view the issuer certificates list, select **Manage certificates and secrets** and then **Certificates**:
 
-    :::image type="content" source="media/howto-configure-opcua-certificates-infrastructure/upload-issuer-certificate.png" lightbox="media/howto-configure-opcua-certificates-infrastructure/upload-issuer-certificate.png" alt-text="Screenshot of operations experience showing certificate upload page for the issuer certificates list.":::
+    :::image type="content" source="media/howto-configure-opc-ua-certificates-infrastructure/upload-issuer-certificate.png" lightbox="media/howto-configure-opc-ua-certificates-infrastructure/upload-issuer-certificate.png" alt-text="Screenshot of operations experience showing certificate upload page for the issuer certificates list.":::
 
 1. You can upload an issuer certificate file from your local machine or add one that you previously added as a secret in your Azure Key Vault:
 
-    :::image type="content" source="media/howto-configure-opcua-certificates-infrastructure/successful-issuer-upload.png" lightbox="media/howto-configure-opcua-certificates-infrastructure/successful-issuer-upload.png" alt-text="Screenshot of operations experience showing successfully uploaded issuer certificate.":::
+    :::image type="content" source="media/howto-configure-opc-ua-certificates-infrastructure/successful-issuer-upload.png" lightbox="media/howto-configure-opc-ua-certificates-infrastructure/successful-issuer-upload.png" alt-text="Screenshot of operations experience showing successfully uploaded issuer certificate.":::
 
 1. Select **Apply** to save the changes. The certificate is now added to the issuer certificates list. If you upload the certificate, it's automatically added to your Azure Key Vault as a secret.
 

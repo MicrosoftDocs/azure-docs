@@ -76,7 +76,7 @@ Before the OPC PLC simulator can send data to the connector for OPC UA, you need
 - The connector for OPC UA's application instance certificate is stored in the `aio-opc-opcuabroker-default-application-cert` Kubernetes secret.
 
 > [!IMPORTANT]
-> In a production environment use enterprise grade application instance certificates to establish the mutual trust. To learn more, see [Configure an enterprise grade application instance certificate](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-an-enterprise-grade-application-instance-certificate).
+> In a production environment use enterprise grade application instance certificates to establish the mutual trust. To learn more, see [Configure an enterprise grade application instance certificate](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-an-enterprise-grade-application-instance-certificate).
 
 ### Add the connector's certificate to the simulator's trust list
 

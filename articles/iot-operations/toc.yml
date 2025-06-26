@@ -74,21 +74,21 @@ items:
       - name: OPC UA (connect to your assets)
         items:
         - name: What is connector for OPC UA?
-          href: discover-manage-assets/overview-opcua-broker.md
+          href: discover-manage-assets/overview-opc-ua-connector.md
         - name: Message format
-          href: discover-manage-assets/concept-opcua-message-format.md
+          href: discover-manage-assets/concept-opc-ua-message-format.md
           displayName: OPC UA, payload
         - name: Configure OPC UA assets and devices
           href: discover-manage-assets/howto-configure-opc-ua.md
           displayName: operations, experience, OPC UA, device, data points, events
         - name: OPC UA application authentication overview
-          href: discover-manage-assets/overview-opcua-broker-certificates-management.md
+          href: discover-manage-assets/overview-opc-ua-connector-certificates-management.md
           displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn
         - name: Configure OPC UA application authentication
-          href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
+          href: discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md
           displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn
         - name: Configure OPC UA user authentication
-          href: discover-manage-assets/howto-configure-opcua-authentication-options.md
+          href: discover-manage-assets/howto-configure-opc-ua-authentication-options.md
           displayName: connector, username, password, Key Vault, secret, sync, synchronize, auth, authn
         - name: Configure and use automatic asset discovery
           href: discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri.md

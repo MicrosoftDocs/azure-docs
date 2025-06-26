@@ -104,7 +104,7 @@ Currently, the southbound connectors available in Azure IoT Operations are the c
 - A device stores the information you need to connect to an OPC UA server.
 - A device stores the information you need to connect to a media source and ONVIF compliant source.
 
-For more information, see [What is the connector for OPC UA?](../iot-operations/discover-manage-assets/overview-opcua-broker.md).
+For more information, see [What is the connector for OPC UA?](../iot-operations/discover-manage-assets/overview-opc-ua-connector.md).
 
 ### Asset, data points, and events creation
 

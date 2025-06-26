@@ -26,7 +26,7 @@ To learn more about OPC UA application security, see [Application Authentication
 
 The following diagram shows the sequence of events that occur when the connector for OPC UA connects to an OPC UA server. The sections later in this article discuss the details of each step in the sequence:
 
-:::image type="content" source="media/overview-opcua-broker-certificates-management/mutual-trust.svg" alt-text="Diagram that summarizes the OPC UA connector connection handshake." border="false":::
+:::image type="content" source="media/overview-opc-ua-connector-certificates-management/mutual-trust.svg" alt-text="Diagram that summarizes the OPC UA connector connection handshake." border="false":::
 
 <!-- ```mermaid
 sequenceDiagram
@@ -65,7 +65,7 @@ In this scenario, you need to maintain a trusted certificate list that contains 
 - The OPC UA server validates the connector's certificate against its trusted certificates list.
 - The connector validates the OPC UA server's certificate against its trusted certificates list.
 
-To learn how to manage the trusted certificates list, see [Configure the trusted certificates list](howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
+To learn how to manage the trusted certificates list, see [Configure the trusted certificates list](howto-configure-opc-ua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
 
 The default name for the `SecretProviderClass` custom resource that handles the trusted certificates list is *aio-opc-ua-broker-trust-list*.
 
@@ -75,7 +75,7 @@ In this scenario, you add the certificate authority's public key to the trusted 
 
 You can also upload a certificate revocation list (CRL) to the trusted certificates list. The connector for OPC UA uses the CRL to check if the certificate authority has revoked the certificate of an OPC UA server.
 
-To learn how to manage the trusted certificates list, see [Configure the trusted certificates list](howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
+To learn how to manage the trusted certificates list, see [Configure the trusted certificates list](howto-configure-opc-ua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
 
 ## Use OPC UA server application instance certificates signed by an intermediate certificate authority
 
@@ -87,7 +87,7 @@ You can also upload a certificate revocation list (CRL) to the issuer certificat
 
 The default name for the `SecretProviderClass` custom resource that handles the issuer certificates list is *aio-opc-ua-broker-issuer-list*.
 
-To learn how to manage the issuer certificates list, see [Configure the issuer certificates list](howto-configure-opcua-certificates-infrastructure.md#configure-the-issuer-certificates-list).
+To learn how to manage the issuer certificates list, see [Configure the issuer certificates list](howto-configure-opc-ua-certificates-infrastructure.md#configure-the-issuer-certificates-list).
 
 ## Features supported
 

@@ -6,6 +6,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-opcua-message-format.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/concept-opc-ua-message-format",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-mq-layered-network.md",
             "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
             "redirect_document_id": false
@@ -17,17 +22,17 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-real-time-dashboard-fabric.md",
-            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric",
+            "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-add-assets",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-upload-mqtt-lakehouse.md",
-            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-upload-mqtt-lakehouse",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-connect-event-grid.md",
-            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-configure",
             "redirect_document_id": false
         },
         {
@@ -37,7 +42,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/get-started/quickstart-process-telemetry.md",
-            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-configure",
             "redirect_document_id": false
         },
         {
@@ -47,13 +52,13 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/get-started/quickstart-add-assets.md",
-            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-add-assets",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-configure",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/get-started/quickstart-upload-telemetry-to-cloud.md",
-            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-configure",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/get-started/quickstart-get-insights.md",
@@ -97,12 +102,22 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-opcua-broker.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opcua-broker",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opc-ua-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/overview-opcua-broker.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opc-ua-connector",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-opcua-broker-certificates-management.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opcua-broker-certificates-management",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opc-ua-connector-certificates-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/overview-opcua-broker-certificates-management.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opc-ua-connector-certificates-management",
             "redirect_document_id": true
         },
         {
@@ -112,12 +127,22 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opcua-certificates-infrastructure.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opcua-authentication-options.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opcua-authentication-options",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opc-ua-authentication-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-configure-opcua-authentication-options.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opc-ua-authentication-options",
             "redirect_document_id": true
         },
         {
@@ -207,8 +232,8 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-observability-manual.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability-manual",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-diagnostics.md",
@@ -222,17 +247,17 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-add-cluster.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-add-cluster",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-upload-mqtt-lakehouse.md",
-            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-upload-mqtt-lakehouse",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-real-time-dashboard-fabric.md",
-            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-real-time-dashboard-fabric",
+            "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-add-assets",
             "redirect_document_id": true
         },
         {
@@ -462,7 +487,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/tutorial-connect-event-grid.md",
-            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-configure",
             "redirect_document_id": false
         },
         {

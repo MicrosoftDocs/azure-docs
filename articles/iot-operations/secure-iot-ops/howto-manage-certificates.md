@@ -149,7 +149,7 @@ To set up Azure IoT Operations with your own issuer for internal communications,
 
 The certificate management experience for external communications uses Azure Key vault as the managed vault solution on the cloud. Certificates are added to the key vault as secrets and synchronized to the edge as Kubernetes secrets via [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension).
 
-For example, the connector for OPC UA uses the certificate management experience to configure OPC UA client application authentication to an external OPC UA server. Azure IoT Operations manages two distinct certificate stores for the connector for OPC UA: one for the *Trust list* and one for the *Issuer list*. To learn more about how the connector for OPC UA uses certificates to establish mutual trust with an OPC UA server, see [OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/overview-opcua-broker-certificates-management.md).
+For example, the connector for OPC UA uses the certificate management experience to configure OPC UA client application authentication to an external OPC UA server. Azure IoT Operations manages two distinct certificate stores for the connector for OPC UA: one for the *Trust list* and one for the *Issuer list*. To learn more about how the connector for OPC UA uses certificates to establish mutual trust with an OPC UA server, see [OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/overview-opc-ua-connector-certificates-management.md).
 
 
 When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the Kubernetes cluster to be used in the *Trust list* and *Issuer list* stores for OPC UA connections:
@@ -176,6 +176,6 @@ Using the list view you can manage the synchronized certificates. You can view a
 
 :::image type="content" source="media/howto-manage-certificates/list-certificates.png" lightbox="media/howto-manage-certificates/list-certificates.png" alt-text="Screenshot that shows the list of certificates in the asset endpoints page and how to filter by Trust List and Issuer List.":::
 
-- To learn more about the *Trust list* and *Issuer list* stores, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
+- To learn more about the *Trust list* and *Issuer list* stores, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md).
 
 You can delete synced certificates as well. When you delete a synced certificate, it only deletes the synced certificate from the Kubernetes cluster, and doesn't delete the contained secret reference from Azure Key Vault. You must delete the certificate secret manually from the key vault.
