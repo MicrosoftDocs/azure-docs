@@ -74,7 +74,7 @@ ErGwScale is available in most regions except the following regions:
 
 ### Pricing
 
-ErGwScale is free of charge during the preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](/pricing/details/expressroute/#pricing).
+ErGwScale is free of charge during the preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute/#pricing).
 
 ## Next steps
 

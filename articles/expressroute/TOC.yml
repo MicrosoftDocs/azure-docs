@@ -4,8 +4,10 @@
   items:
     - name: What is ExpressRoute?
       href: expressroute-introduction.md
-    - name: Well-Architected for ExpressRoute
-      href: /azure/well-architected/service-guides/azure-expressroute
+    - name: Architecture best practices for Azure ExpressRoute
+      href: /azure/well-architected/service-guides/azure-expressroute?toc=/azure/expressroute/toc.jso
+    - name: What is hybrid connectivity?
+      url: ../networking/hybrid-connectivity/hybrid-connectivity.md
     - name: Before you start using ExpressRoute
       items:
         - name: Prerequisites
@@ -350,7 +352,6 @@
     - name: ExpressRoute for Cloud Solution Providers (CSP)
       href: expressroute-for-cloud-solution-providers.md
     - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=expressroute
       items:
         - name: Connect a virtual network gateway to a circuit
           href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/
