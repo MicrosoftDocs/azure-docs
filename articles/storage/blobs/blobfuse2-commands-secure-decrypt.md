@@ -7,6 +7,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
+# Customer intent: "As a system administrator, I want to use the command-line tool to decrypt a BlobFuse2 configuration file, so that I can access the sensitive information stored in it securely."
 ---
 
 # How to use the BlobFuse2 secure decrypt command to decrypt a BlobFuse2 configuration file

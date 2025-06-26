@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 3/31/2025
 ms.author: mbender
+# Customer intent: "As an AKS administrator, I want to deploy the Application Gateway Ingress Controller, so that I can efficiently manage ingress traffic and leverage Azure's L7 load-balancer capabilities for improved performance and security."
 ---
 
 # What is Application Gateway Ingress Controller?

@@ -9,6 +9,7 @@ ms.topic: troubleshooting
 ms.date: 03/05/2025
 ms.author: mbender
 ms.custom: engagement-fy23
+# Customer intent: As a cloud engineer, I want to troubleshoot Azure Load Balancer traffic issues, so that I can ensure proper distribution and connectivity for backend virtual machines in my network.
 ---
 
 # Troubleshoot Azure Load Balancer backend traffic responses

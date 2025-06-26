@@ -1036,6 +1036,10 @@
         "articles/web-application-firewall/*.md": "networking",
         "articles/web-application-firewall/*.yml": "networking"
       },
+      "ms.update-cycle": {
+        "articles/copilot/*.md": "180-days",
+        "articles/copilot/*.yml": "180-days"
+      },
       "ms.service": {
         "articles/advisor/**/*.md": "azure-advisor",
         "articles/ansible/**/*.md": "ansible",

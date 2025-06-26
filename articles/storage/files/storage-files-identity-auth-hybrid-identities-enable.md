@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 02/10/2025
 ms.author: kendownie
 recommendations: false
+# Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication for hybrid user identities on Azure Files, so that users can securely access file shares with their existing credentials without requiring constant connectivity to on-premises domain controllers.
 ---
 
 # Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files
