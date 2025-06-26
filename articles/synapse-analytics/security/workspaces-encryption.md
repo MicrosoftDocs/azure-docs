@@ -9,6 +9,7 @@ ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
 ---
+
 # Encryption for Azure Synapse Analytics workspaces
 
 This article will describe:
@@ -49,11 +50,78 @@ Workspaces can be configured to enable double encryption with a customer-managed
 
 :::image type="content" source="media/workspaces-encryption/workspaces-encryption.png" alt-text="This diagram shows the option that must be selected to enable a workspace for double encryption with a customer-managed key." lightbox="media/workspaces-encryption/workspaces-encryption.png":::
 
+---
+
+## Prerequisites: Key Rotation and SQL Pool Status
+
+> [!WARNING]
+> **Before changing the encryption key of your workspace:**
+>
+> - **Ensure all dedicated SQL pools are in the Online state.** Offline pools will not be re-encrypted and cannot resume if the old key or key version is deleted, disabled, or expired.
+> - **Retain all old keys and key versions** used for encryption until every SQL pool has been brought online and re-encrypted with the new key. Only disable or delete the old key after all pools have successfully rotated to the new key.
+>
+> ⚠️ *Failure to follow these prerequisites may result in SQL pools being permanently inaccessible, or backup data becoming unrecoverable.*
+
+**Key Rotation Checklist**
+
+| Step | Action                                                        | Status |
+|------|---------------------------------------------------------------|--------|
+| 1    | Confirm all SQL pools are Online                              | ☐      |
+| 2    | Ensure old key is retained and enabled                        | ☐      |
+| 3    | Rotate CMK                                                    | ☐      |
+| 4    | Verify all pools are re-encrypted                             | ☐      |
+| 5    | Safely disable old key or key version (after all pools done)  | ☐      |
+
+---
+
+## Key management best practices
+
+> [!IMPORTANT]
+> 
+> When changing the encryption key of a workspace, **retain the old key** until you have replaced it in the workspace with a new key. This allows decryption of data with the old key before it gets re-encrypted with the new key.  
+> 
+> The state of the SQL pool (**Online/Offline**) does **not** affect the workspace customer managed key (CMK) rotation process, but *offline pools will remain encrypted with the old key or key version*.  
+> 
+> If the old key or key version is disabled or expired, **offline pools will not resume** as decryption is not possible. Upon resuming these pools, the old key or key version must (1) be enabled and (2) have an expiration date set in the future to allow decryption and subsequent re-encryption with the new key or key version.  
+>
+> **To ensure a smooth CMK rotation,** if some SQL pools are offline during the process, the old key or key version should remain enabled and have its expiration date set in the future. This is crucial until the offline pools are successfully resumed and re-encrypted with the new key or key version.
+>
+> **Do not delete old keys or key versions** until all pools and backups have been successfully re-encrypted and validated. Only *disable* the old key after all requirements are met.
+
+---
+
+### Key Rotation Troubleshooting
+
+If a SQL pool is stuck offline after a key rotation:
+
+1. **Check the SQL pool key version** using PowerShell to confirm which key or key version the pool is expecting:
+    ```powershell
+    Get-AzSqlServerTransparentDataEncryptionProtector -ServerName 'ContosoServer' -ResourceGroupName 'WORKSPACE_MANAGED_RESOURCE_GROUP'
+    ```
+    > **Note:**  
+    > The `ResourceGroupName` refers to the workspace's **managed resource group**. You can find this in the Azure portal by selecting your Synapse workspace and viewing the `managedResourceGroup` value in the JSON view.
+2. **Enable** the required old key or key version in Azure Key Vault.
+3. **Set an expiration date** in the future for the old key or key version.
+4. Resume the SQL pool.
+5. Once the pool is back online, allow it to re-encrypt with the new key.
+6. **Verify the encryption status** of each database by running the following T-SQL query in your SQL pool:
+    ```sql
+    SELECT
+        [name],
+        [is_encrypted]
+    FROM
+        sys.databases;
+    ```
+    - The `is_encrypted` column will show the encryption status (`1` = encrypted, `0` = not encrypted).
+7. After confirming all pools and backups are accessible and encrypted, you may safely disable (not delete) the old key or key version.
+
+---
+
 ### Key access and workspace activation
 
 The Azure Synapse encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or [Azure Key Vault RBAC](/azure/key-vault/general/rbac-guide). When granting permissions via an Azure Key Vault access policy, choose the ["Application-only"](/azure/key-vault/general/security-features#key-vault-authentication-options) option during policy creation (select the workspaces managed identity and do not add it as an authorized application).
 
- The workspace managed identity must be granted the permissions it needs on the key vault before the workspace can be activated. This phased approach to workspace activation ensures that data in the workspace is encrypted with the customer-managed key. Encryption can be enabled or disabled for individual dedicated SQL Pools. Each dedicated pool is not enabled for encryption by default.
+The workspace managed identity must be granted the permissions it needs on the key vault before the workspace can be activated. This phased approach to workspace activation ensures that data in the workspace is encrypted with the customer-managed key. Encryption can be enabled or disabled for individual dedicated SQL Pools. Each dedicated pool is not enabled for encryption by default.
 
 <a id="using-a-user-assigned-managed-identity"></a>
 
@@ -79,24 +147,21 @@ If you do not configure a user-assigned managed identity to access customer mana
 
 :::image type="content" source="media/workspaces-encryption/workspace-activation.png" alt-text="This diagram shows the banner with the activation link for the workspace." lightbox="media/workspaces-encryption/workspace-activation.png":::
 
-
 ### Manage the workspace customer-managed key
 
 You can change the customer-managed key used to encrypt data from the **Encryption** page in the Azure portal. Here too, you can choose a new key using a key identifier or select from Key Vaults that you have access to in the same region as the workspace. If you choose a key in a different key vault from the ones previously used, grant the workspace-managed identity "Get", "Wrap", and "Unwrap" permissions on the new key vault. The workspace will validate its access to the new key vault and all data in the workspace will be re-encrypted with the new key.
 
 :::image type="content" source="media/workspaces-encryption/workspace-encryption-management.png" alt-text="This diagram shows the workspace Encryption section in the Azure portal." lightbox="media/workspaces-encryption/workspace-encryption-management.png":::
 
-> [!IMPORTANT]
->
-> When changing the encryption key of a workspace, retain the old key until you replace it in the workspace with a new key. This allows decryption of data with the old key before it gets re-encrypted with the new key.
-> The state of the SQL pool (Online/Offline) does not affect the workspace customer managed key (CMK) rotation process. 
->- SQL pools that are offline during the CMK rotation will remain encrypted with the old key or key version. If the old key or key version is disabled or expired, the pools will not resume as decryption is not possible. Upon resuming these pools, the old key or key version must 1) be enabled and 2) have an expiration date set in the future to allow decryption and subsequent re-encryption with the new key or key version. 
->
->- To ensure a smooth CMK rotation, if some SQL pools are offline during the process, the old key or key version should remain enabled and have its expiration date set in the future. This is crucial until the offline pools are successfully resumed and re-encrypted with the new key or key version.
->- It is highly recommended not to *delete* old keys or key versions, as they might still be needed to decrypt backups. Instead, after all SQL pools have been re-encrypted with the new key or key version, *disable* the old key or key version. This ensures the old key or key version remains available for decrypting older backups if necessary.
-
-
 Azure Key Vaults policies for automatic, periodic rotation of keys, or actions on the keys can result in the creation of new key versions. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. As an example, to update data encryption using the latest version of active key Key1, change the workspace customer-managed key to temporary key, Key2. Wait for encryption with Key2 to finish. Then switch the workspace customer-managed key back to Key1-data in the workspace will be re-encrypted with the latest version of Key1.
+
+> [!NOTE]
+> **Key rotation is a three-step process:**
+> 1. Change the workspace customer-managed key from your **main key** to a **temporary key**.
+> 2. **Wait 15–30 minutes** for the re-encryption process to complete.
+> 3. Change the workspace customer-managed key back to your **main key** (now using the new version).
+>
+> This process ensures all workspace data is securely re-encrypted with the latest key version.
 
 > [!NOTE]
 > Azure Synapse Analytics does not automatically re-encrypt data when new key versions are created. To ensure consistency in your workspace, force the re-encryption of data using the process detailed above.
@@ -120,7 +185,6 @@ Use the following cmdlets for Azure Synapse workspace.
 | [Update-AzSynapseWorkspace](/powershell/module/az.synapse/update-azsynapseworkspace) |Sets the transparent data encryption protector for a workspace. |
 | [Get-AzSynapseWorkspace](/powershell/module/az.synapse/get-azsynapseworkspace) |Gets the transparent data encryption protector |
 | [Remove-AzSynapseWorkspaceKey](/powershell/module/az.synapse/remove-azsynapseworkspacekey) |Removes a Key Vault key from a workspace. |
-
 
 
 ## Related content
