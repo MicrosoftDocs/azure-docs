@@ -85,7 +85,7 @@ items:
           href: discover-manage-assets/overview-opcua-broker-certificates-management.md
           displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn
         - name: Configure OPC UA application authentication
-          href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
+          href: discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md
           displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn
         - name: Configure OPC UA user authentication
           href: discover-manage-assets/howto-configure-opc-ua-authentication-options.md

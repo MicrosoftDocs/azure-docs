@@ -127,7 +127,7 @@ When you create a new resource, manage its authorization:
 For connecting to assets at production, [configure OPC UA authentication](../discover-manage-assets/overview-opcua-broker-certificates-management.md):
 
 * Don't use no-auth. Connectivity to OPC UA servers isn't supported without authentication.
-* Set up a secure connection to OPC UA server. Use a production PKI and [configure application certificates](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-a-self-signed-application-instance-certificate-for-the-connector-for-opc-ua) and [trust list](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
+* Set up a secure connection to OPC UA server. Use a production PKI and [configure application certificates](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-a-self-signed-application-instance-certificate-for-the-connector-for-opc-ua) and [trust list](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
 
 ### Data flows
 
