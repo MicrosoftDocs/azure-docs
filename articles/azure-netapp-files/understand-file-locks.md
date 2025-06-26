@@ -1,10 +1,10 @@
 ---
-title: Understand file locking and lock types in Azure NetApp Files | Microsoft Docs
+title: Understand file locking and lock types in Azure NetApp Files 
 description: Understand the concept of file locking and the different types of NFS locks.
 services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/20/2024
 ms.author: anfdocs
 ---

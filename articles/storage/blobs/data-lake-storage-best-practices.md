@@ -5,10 +5,11 @@ description: Learn how to optimize performance, reduce costs, and secure your Da
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2024
 ms.author: normesta
 ms.reviewer: sachins
+# Customer intent: "As a data engineer, I want to implement best practices for optimizing Azure Data Lake Storage, so that I can enhance performance, reduce costs, and ensure the security of my data assets."
 ---
 
 # Best practices for using Azure Data Lake Storage

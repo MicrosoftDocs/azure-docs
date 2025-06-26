@@ -36,9 +36,9 @@
     items:
     - name: Cross-tenant connection support
       href: concept-cross-tenant.md
-    - name: Configure cross-tenant connection - Portal
+    - name: Configure cross-tenant connections - Portal
       href: how-to-configure-cross-tenant-portal.md
-    - name: Configure cross-tenant connection - CLI
+    - name: Configure cross-tenant connections - CLI
       href: how-to-configure-cross-tenant-cli.md
   - name: Create a network topology
     items:
@@ -114,8 +114,14 @@
       href: Prevent-overlapping-ip-address-space-policy-ipam.md
     - Name: Create IP address pools with IPAM
       href: how-to-manage-ip-addresses-network-manager.md
+    - name: Deploy cross-tenant IP address pools
+      href: deploy-cross-tenant-ip-address-management.md
+    - name: Deploy IP address pools with Bicep
+      href: deploy-ip-address-management-pools-bicep.md
 - name: Troubleshoot
   items:
+    - name: Common issues 
+      href: common-issues.md
     - name: Event Log Options for Azure Virtual Network Manager
       href: concept-event-logs.md
     - name: Configure Event Logs for Azure Virtual Network Manager

@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 04/21/2025
 ms.author: avirupcha
 ms.custom: references_regions
+# Customer intent: "As a network administrator, I want to stream virtual machine network traffic using a TAP configuration, so that I can analyze and monitor network performance effectively with a partner solution."
 ---
 
 # Virtual network TAP
@@ -55,8 +56,8 @@ Following are limitations during our preview.
 
 ### Coming soon
 
-- UK South (May 5)
-- US East (May 15)
+- UK South
+- US East
 
 ## Virtual network TAP partner solutions
 
@@ -65,7 +66,6 @@ Following are limitations during our preview.
 |Partner|Product|
 |-------------|----------|
 |**Gigamon**|[GigaVUE Cloud Suite for Azure](https://www.gigamon.com/solutions/cloud/public-cloud/gigavue-cloud-suite-azure.html)|
-|**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
 |**Keysight**|[CloudLens](https://www.keysight.com/us/en/products/network-visibility/cloud-visibility/cloudlens-software-suite.html)|
 
 ### Security analytics, network/application performance management
@@ -78,6 +78,7 @@ Following are limitations during our preview.
 |**Vectra**|[Vectra NDR](https://www.vectra.ai/products/ndr)|
 |**Fortinet**|[FortiNDR Cloud](https://www.fortinet.com/products/network-detection-and-response)|
 ||[FortiGate VM](https://azuremarketplace.microsoft.com/en/marketplace/apps/fortinet.fortinet_fortigate-vm_v5?tab=Overview)|
+|**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
 |**TrendMicro**|[Trend Vision One™ Network Security](https://www.trendmicro.com/en_ca/business/products/network.html)|
 |**Extrahop**|[Reveal(x)](https://www.extrahop.com/platform/revealx)|
 |**Bitdefender**|[GravityZone Extended Detection and Response for Network](https://www.bitdefender.com/en-us/business/products/gravityzone-xdr)|

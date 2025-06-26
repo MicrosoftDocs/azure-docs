@@ -7,8 +7,10 @@ items:
     href: overview.md 
   - name: About App Service Environments
     href: environment/overview.md
-- name: Compare web hosting options
-  href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Compare web hosting options
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+- name: Integrate AI with App Service
+  href: overview-ai-integration.md
 - name: Get started
   items:
   - name: Get started
@@ -49,6 +51,19 @@ items:
         href: app-service-asp-net-migration.md
       - name: Migrate containerized .NET
         href: ../migrate/tutorial-app-containerization-aspnet-app-service.md?bc=/azure/bread/toc.json&toc=/azure/app-service/toc.json
+    - name: AI
+      items:
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-dotnet.md
+        - name: RAG with Azure OpenAI and your data
+          href: tutorial-ai-openai-search-dotnet.md
+        - name: RAG Azure OpenAI and Azure SQL
+          href: deploy-intelligent-apps-dotnet-to-azure-sql.md
+        - name: Invoke OpenAPI app from Azure AI Agent
+          href: invoke-openapi-web-app-from-azure-ai-agent-service.md
+        - name: Chatbot with local SLM
+          href: tutorial-ai-slm-dotnet.md
+
   - name: Java
     items:
     - name: Quickstart
@@ -69,6 +84,8 @@ items:
       items:
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
+        - name: Quarkus with PostgreSQL
+          href: tutorial-java-quarkus-postgresql-app.md
         - name: Tomcat with MySQL
           href: tutorial-java-tomcat-mysql-app.md             
         - name: Java Tomcat to Postgres
@@ -87,6 +104,14 @@ items:
         href: /azure/developer/java/migration/migrate-weblogic-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
       - name: WebSphere
         href: /azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
+    - name: AI
+      items:
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-java.md
+        - name: RAG with Azure OpenAI with your data
+          href: tutorial-ai-openai-search-java.md
+        - name: Chatbot with local SLM
+          href: tutorial-ai-slm-spring-boot.md
   - name: Node.js
     items:
     - name: Quickstart
@@ -103,6 +128,14 @@ items:
         href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
       - name: to other Azure services with managed identity
         href: tutorial-connect-app-access-storage-javascript.md
+    - name: AI
+      items:
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-node.md
+        - name: RAG with Azure OpenAI and your data
+          href: tutorial-ai-openai-search-nodejs.md
+        - name: Chatbot with local SLM
+          href: tutorial-ai-slm-expressjs.md
   - name: Python
     items:
     - name: Quickstart
@@ -119,6 +152,16 @@ items:
         href: tutorial-python-postgresql-app-django.md
       - name: using FastAPI
         href: tutorial-python-postgresql-app-fastapi.md
+    - name: AI
+      items:
+        - name: Chatbot with OpenAI
+          href: tutorial-ai-openai-chatbot-python.md
+        - name: RAG with Azure OpenAI and your data
+          href: tutorial-ai-openai-search-python.md
+        - name: Chatbot with local SLM
+          href: tutorial-ai-slm-fastapi.md
+        - name: Web app from Azure AI Foundry
+          href: /azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
   - name: PHP
     items:
     - name: Quickstart
@@ -202,6 +245,8 @@ items:
           href: /azure/templates/microsoft.web/allversions
 - name: Logs and monitoring
   items:
+    - name: Troubleshoot and resolve issues with an agent
+      href: ../sre-agent/troubleshoot-azure-app-service.md  
     - name: Monitor App Service
       href: monitor-app-service.md
     - name: Monitoring data reference
@@ -396,6 +441,8 @@ items:
               href: configure-vnet-integration-routing.md
             - name: Configure gateway-required integration
               href: configure-gateway-required-vnet-integration.md
+            - name: Migrate from gateway-based integration
+              href: migrate-gateway-based-vnet-integration.md
         - name: Deploy app behind private endpoint
           href: overview-private-endpoint.md
         - name: Control outbound traffic with Azure Firewall
@@ -420,7 +467,9 @@ items:
     - name: Manage App Service plan
       href: app-service-plan-manage.md
     - name: Configure PremiumV3 tier
-      href: app-service-configure-premium-tier.md
+      href: app-service-configure-premium-v3-tier.md
+    - name: Configure PremiumV4 tier
+      href: app-service-configure-premium-v4-tier.md      
     - name: Back up and restore app
       href: manage-backup.md
     - name: Clone app
@@ -451,35 +500,29 @@ items:
           href: tutorial-custom-container.md
         - name: Deploy with Azure Pipelines
           href: deploy-container-azure-pipelines.md
-- name: Integrate AI with App Service
-  items:
-    - name: Deploy an application that uses OpenAI on App Service
-      href: deploy-intelligent-apps.md
-    - name: Run an SLM in sidecar
-      href: tutorial-sidecar-local-small-language-model.md
-    - name: Deploy a .NET app with Azure OpenAI and Azure SQL
-      href: deploy-intelligent-apps-dotnet-to-azure-sql.md
-    - name: Invoke OpenAPI app from Azure AI Agent
-      href: invoke-openapi-web-app-from-azure-ai-agent-service.md
 - name: WebJobs
   items:
-    - name: Overview 
-      href: overview-webjobs.md 
+    - name: Overview
+      href: overview-webjobs.md
+    - name: Background jobs best practices
+      href: /azure/architecture/best-practices/background-jobs?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
       displayName: WebJobs overview
     - name: WebJobs Quickstart
       href: quickstart-webjobs.md
       displayName: Create a scheduled WebJob
     - name: WebJobs Tutorial
-      href: tutorial-webjobs.md      
-      displayName: Prepare and schedule a WebJob
-    - name: WebJobs How-to
+      href: tutorial-webjobs.md
+      displayName: Prepare and schedule a WebJob      
+    - name: How to create WebJobs
       href: webjobs-create.md
+    - name: How WebJobs work
+      href: webjobs-execution.md
     - name: Develop WebJobs using VS
       href: webjobs-dotnet-deploy-vs.md
     - name: Get started with WebJobs SDK
       href: webjobs-sdk-get-started.md
     - name: Use WebJobs SDK
-      href: webjobs-sdk-how-to.md          
+      href: webjobs-sdk-how-to.md
 - name: Reliability
   items:
   - name: Reliability in Azure App Service
@@ -515,7 +558,7 @@ items:
     - name: Build your skills with Microsoft Learn training
       href: /training/browse/
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-service/
     - name: Quota Information
@@ -549,7 +592,7 @@ items:
     - name: Samples
       href: https://azure.microsoft.com/resources/samples/?service=app-service
     - name: Videos
-      href: https://azure.microsoft.com/resources/videos/index/?services=app-service
+      href: /shows/browse?products=azure-app-service
     - name: Migrate to App Service
       items:
         - name: Assess .NET

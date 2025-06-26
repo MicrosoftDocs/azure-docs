@@ -1,7 +1,7 @@
 ---
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/23/2025
 ---
 

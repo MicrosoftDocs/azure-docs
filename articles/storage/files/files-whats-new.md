@@ -3,9 +3,12 @@ title: What's new in Azure Files and Azure File Sync
 description: Learn about new features and enhancements in Azure Files and Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 04/01/2025
+ms.topic: concept-article
+ms.date: 05/21/2025
 ms.author: kendownie
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud storage administrator, I want to stay informed about the latest features and enhancements in Azure Files and Azure File Sync, so that I can leverage new capabilities for improved security, performance, and data management in my organization.
 ---
 
 # What's new in Azure Files and Azure File Sync
@@ -15,6 +18,10 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 ## What's new in 2025
 
 ### 2025 quarter 2 (April, May, June)
+
+#### Encryption in Transit (EiT) for NFS file shares is now in public preview
+
+With the launch of Encryption in Transit for NFSv4.1 shares, Azure Files now delivers enterprise-grade security on par with industry standards, closing a key security gap for enterprise workloads. [Learn more](encryption-in-transit-for-nfs-shares.md).
 
 #### Metadata caching for SSD SMB file shares is now generally available
 
@@ -263,7 +270,7 @@ For more information, see:
 
 ### 2021 quarter 1 (January, February, March)
 #### Azure Files management now available through the control plane
-Management APIs for Azure Files resources, the file service and file shares, are now available through control plane (`Microsoft.Storage` resource provider). This enables Azure file shares to be created with an Azure Resource Manager or Bicep template, to be fully manageable when the data plane (i.e. the FileREST API) is inaccessible (like when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
+Management APIs for Azure Files resources, the file service and file shares, are now available through control plane (`Microsoft.Storage` resource provider). This enables Azure file shares to be created with an Azure Resource Manager or Bicep file, to be fully manageable when the data plane (i.e. the FileREST API) is inaccessible (like when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
 
 We recommend you manage Azure Files through the control plane in most cases. To support management of the file service and file shares through the control plane, the Azure portal, Azure storage PowerShell module, and Azure CLI have been updated to support most management actions through the control plane. 
 

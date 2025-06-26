@@ -31,7 +31,21 @@ You can create Azure Communication Service user identities for free. The only ch
 
 Managing a mapping between Azure Communication Services user identities and your own identity system is your responsibility as a developer, and doesn't come built-in. For example, you can add a `CommunicationServicesId` column in your existing user table to store the associated Azure Communication Services identity. A mapping design is described in more detail under [Client-server architecture](#client-server-architecture).
 
-## Access tokens 
+## (Preview) Simplify identity mapping with `customId`
+
+> [!IMPORTANT]  
+> This feature is available starting with the Identity SDK version `1.4.0-beta1` and REST API version `2025-03-02-preview`.
+
+> [!NOTE]
+> This feature is currently in preview.
+
+Previously, developers were responsible for maintaining a mapping between their own user identity system and Azure Communication Services identities. With the introduction of the `customId` parameter, you can now associate your own user identifiers—such as email addresses or internal user IDs—directly when creating a Communication Services identity.
+
+When you create a user with a `customId`, Azure Communication Services will return the same identity if you call the method again with the same `customId`. This eliminates the need to store and manage the mapping yourself.
+
+This feature is supported in both the SDK and REST API, and is especially useful for scenarios where you want to maintain a consistent identity across sessions, devices, or services without additional storage overhead.
+
+## Access tokens
 
 After you create a user identity, the end-user then needs an access token with specific scopes to participate in communications using chat or calls. For example, only a user with a token of `chat` scope can participate in chat. Only a user with a token of `voip` scope can participate in a VoIP call.
 

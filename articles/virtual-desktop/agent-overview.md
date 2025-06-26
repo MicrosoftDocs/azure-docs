@@ -1,7 +1,7 @@
 ---
 title: Get started with the Azure Virtual Desktop Agent
 description: An overview of the Azure Virtual Desktop Agent and update processes.
-author: ErikjeMS
+author: dougeby
 ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: avdcontent

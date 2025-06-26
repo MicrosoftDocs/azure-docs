@@ -1,25 +1,18 @@
 ---
 title: Publish applications with RemoteApp in Azure Virtual Desktop - Azure
 description: How to publish applications with RemoteApp in Azure Virtual Desktop using the Azure portal and Azure PowerShell.
-author: ErikjeMS
+author: dougeby
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 12/11/2024
+ms.date: 06/04/2025
 ms.author: avdcontent
 ---
 
 # Publish applications with RemoteApp in Azure Virtual Desktop
 
-> [!IMPORTANT]
-> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
+There are two ways to make applications available to users in Azure Virtual Desktop: as part of a full desktop or as individual applications with *RemoteApp*. You publish applications by adding them to an application group, which is associated with a host pool and workspace, and assigned to users. For more information about application groups, see [Terminology](terminology.md#application-groups).
 
-There are two ways to make applications available to users in Azure Virtual Desktop: as part of a full desktop or as individual applications with RemoteApp. You publish applications by adding them to an application group, which is associated with a host pool and workspace, and assigned to users. For more information about application groups, see [Terminology](terminology.md#application-groups).
-
-You publish applications in the following scenarios:
-
-- For *RemoteApp* application groups, you publish applications to stream remotely that are installed locally on session hosts or delivered dynamically using *app attach* and *MSIX app attach* and presented to users as individual applications in one of the [supported Remote Desktop clients](users/remote-desktop-clients-overview.md).
-
-- For *desktop* application groups, you can only publish a full desktop and all applications in MSIX packages using *MSIX app attach* to appear in the user's start menu in a desktop session. If you use *app attach*, applications aren't added to a desktop application group.
+With RemoteApp application groups, you publish applications to stream remotely that are installed locally on session hosts or delivered dynamically using *App Attach*. These applications are presented to users as individual applications in [Windows App](/windows-app/overview).
 
 This article shows you how to publish applications that are installed locally with RemoteApp using the Azure portal and Azure PowerShell. You can't publish applications using Azure CLI.
 
@@ -38,7 +31,7 @@ In order to publish an application to a RemoteApp application group, you need th
 
 - At least one session host is powered on in the host pool the application group is assigned to.
 
-- The applications you want to publish are installed on the session hosts in the host pool the application group is assigned to. If you're using app attach, you must add and assign an MSIX, Appx, or App-V package to your host pool before you start. For more information, see [Add and manage app attach applications](app-attach-setup.md).
+- The applications you want to publish are installed on the session hosts in the host pool the application group is assigned to. If you're using App Attach, you must add and assign an MSIX, Appx, or App-V package to your host pool before you start. For more information, see [Add and manage App Attach applications](app-attach-setup.md).
 
 - As a minimum, the Azure account you use must have the [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) built-in role-based access control (RBAC) roles on the resource group, or on the subscription to create the resources.
 
@@ -52,11 +45,11 @@ In order to publish an application to a RemoteApp application group, you need th
 
 - At least one session host is powered on in the host pool the application group is assigned to.
 
-- The applications you want to publish are installed on the session hosts in the host pool the application group is assigned to. If you're using app attach, you must add and assign an MSIX package to your host pool. For more information, see [Add and manage app attach applications](app-attach-setup.md).
+- The applications you want to publish are installed on the session hosts in the host pool the application group is assigned to. If you're using App Attach, you must add and assign an MSIX package to your host pool. For more information, see [Add and manage App Attach applications](app-attach-setup.md).
 
 - As a minimum, the Azure account you use must have the [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) built-in role-based access control (RBAC) roles on the resource group, or on the subscription to create the resources.
 
-- If you want to publish an app attach application, you need to use version 4.2.0 or later of the *Az.DesktopVirtualization* PowerShell module, which contains the cmdlets that support app attach. You can download and install the Az.DesktopVirtualization PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/).
+- If you want to publish an App Attach application, you need to use version 4.2.0 or later of the *Az.DesktopVirtualization* PowerShell module, which contains the cmdlets that support App Attach. You can download and install the Az.DesktopVirtualization PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/).
 
 - If you want to publish an application from the Microsoft Store, you also need the [Appx](/powershell/module/appx) module, which is part of Windows.
 
@@ -84,7 +77,7 @@ Here's how to add applications to a RemoteApp application group using the Azure 
 
       | Parameter | Value/Description |
       |--|--|
-      | Package | Select a package available for the host pool from the drop-down list. Regional packages are from *app attach* and host pool packages are from *MSIX app attach*. |
+      | Package | Select a package available for the host pool from the drop-down list. |
       | Application | Select an application from the drop-down list. |
       | Application identifier | Enter a unique identifier for the application. |
       | Display name | Enter a friendly name for the application that is to users. |
@@ -112,7 +105,7 @@ Here's how to add applications to a RemoteApp application group using the Azure 
 
    Once you've completed this tab, select **Next**.
 
-1. On the **Icon** tab, the options you see depend on the application source you selected on the **Basics** tab. With **app attach** you can use a UNC path, but for **Start Menu** and **File path** you can only use a local path.
+1. On the **Icon** tab, the options you see depend on the application source you selected on the **Basics** tab. With **App Attach** you can use a UNC path, but for **Start Menu** and **File path** you can only use a local path.
 
    - If you selected **App Attach**, select **Default** to use the default icon for the application, or select **File path** to use a custom icon.
      
@@ -181,39 +174,9 @@ Here's how to add applications to a RemoteApp application group using the [Az.De
       New-AzWvdApplication @parameters
       ```
 
-   - To add an MSIX or Appx application from *app attach* or *MSIX app attach*, your MSIX package must already be [added and assigned to your host pool](app-attach-setup.md). Run the commands from one of the following examples:
+   - To add an MSIX or Appx application from App Attach, your MSIX package must already be [added and assigned to your host pool](app-attach-setup.md). Run the commands from one of the following examples:
    
-      - For **MSIX app attach**, get the application details and store them in a variable:
-      
-         ```azurepowershell
-         $parameters = @{
-             HostPoolName = '<HostPoolName>'
-             ResourceGroupName = '<ResourceGroupName>'
-         }
-         
-         $package = Get-AzWvdMsixPackage @parameters | ? DisplayName -like *<DisplayName>*
-         
-         Write-Host "These are the application IDs available in the package. Many packages only contain one application." -ForegroundColor Yellow
-         $package.PackageApplication.AppId
-         ```
-
-         Make a note of the application ID you want to publish (for example `App`), then run the following commands to add the application to the RemoteApp application group:
-      
-         ```azurepowershell
-         $parameters = @{
-             Name = '<ApplicationName>'
-             ApplicationType = 'MsixApplication'
-             MsixPackageFamilyName = $package.PackageFamilyName
-             MsixPackageApplicationId = '<ApplicationID>'
-             GroupName = '<ApplicationGroupName>'
-             ResourceGroupName = '<ResourceGroupName>'
-             CommandLineSetting = 'DoNotAllow'
-         }
-      
-         New-AzWvdApplication @parameters
-         ```
-
-      - For **app attach**, get the package and application details and store them in a variable by running the following commands:
+      - Get the package and application details and store them in a variable by running the following commands:
       
          ```azurepowershell
          $parameters = @{
@@ -258,7 +221,7 @@ Here's how to add applications to a RemoteApp application group using the [Az.De
 
 ## Assign applications to users
 
-Applications aren't assigned individually to users unless you're using app attach. Instead, users are assigned to application groups. When a user is assigned to an application group, they can access all the applications in that group. To learn how to assign users to application groups, see [Assign users to an application group](create-application-group-workspace.md#assign-users-to-an-application-group) or [Add and manage app attach applications](app-attach-setup.md?pivots=app-attach).
+Applications aren't assigned individually to users unless you're using App Attach. Instead, users are assigned to application groups. When a user is assigned to an application group, they can access all the applications in that group. To learn how to assign users to application groups, see [Assign users to an application group](create-application-group-workspace.md#assign-users-to-an-application-group) or [Add and manage App Attach applications](app-attach-setup.md?pivots=app-attach).
 
 ## Publish Microsoft Store applications
 
@@ -343,7 +306,7 @@ Your session hosts need to use a virtual machine (VM) size that supports [nested
 
 - Connect to your RemoteApp. For more information, select [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop).
 
-- Learn how to [Add and manage app attach applications](app-attach-setup.md).
+- Learn how to [Add and manage App Attach applications](app-attach-setup.md).
 
 - Learn about how to [customize the feed](customize-feed-for-virtual-desktop-users.md) so resources appear in a recognizable way for your users.
 

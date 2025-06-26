@@ -4,11 +4,12 @@ description: How to choose the right confidential container offerings to meet yo
 author: angarg05
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/01/2021
 ms.author: ananyagarg
 ms.custom:
   - ignite-2023
+# Customer intent: As a cloud architect, I want to evaluate different container offerings for Azure Confidential Computing, so that I can select the best solution for my workload requirements and ensure the security and isolation of sensitive data during processing.
 ---
 
 # Preread Recommendations

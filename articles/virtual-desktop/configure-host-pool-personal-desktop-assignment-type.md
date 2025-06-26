@@ -1,9 +1,9 @@
 ---
 title: Configure personal desktop assignment in Azure Virtual Desktop  - Azure
 description: How to configure the assignment type of a personal host pool, unassign or reassign desktops, assign multiple desktops to a user, or set a friendly name for a desktop in Azure Virtual Desktop.
-author: ErikjeMS
+author: dougeby
 ms.topic: how-to
-ms.date: 03/20/2025
+ms.date: 05/28/2025
 ms.author: avdcontent
 ms.custom: devx-track-azurepowershell
 ---
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 A personal host pool is a type of host pool that has personal desktops. Personal desktops have one-to-one mapping, which means a single user can only be assigned to a single personal desktop. Every time the user signs in, their user session is directed to their assigned personal desktop session host.
 
-Personal desktops are ideal for users with resource-intensive workloads because user experience and session performance improves if there's only one session on the session host. Another benefit of this host pool type is that user activities, files, and settings can persist on the virtual machine operating system (VM OS) disk after the user signs out because it's only for them.
+Personal desktops are ideal for users with resource-intensive workloads because the user experience and session performance improves if there's only one session on the session host. Another benefit of this host pool type is that user activities, files, and settings can persist on the virtual machine operating system (VM OS) disk after the user signs out because it's only for them.
 
 Users can automatically be assigned to any previously unassigned personal desktop in the host pool when they connect. Alternatively, you can assign users to a specific personal desktop before they connect.
 
@@ -31,7 +31,7 @@ To configure personal desktop assignment, you need to meet the following prerequ
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
-- For assigning multiple personal desktops to a user, you need to use version **5.3.0-preview** or later preview version of the *Az.DesktopVirtualization* PowerShell module. The non-preview version of the module doesn't contain the required values. You can download and install the Az.DesktopVirtualization PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/).
+- To assign multiple personal desktops to a user using PowerShell, you need to use version **5.3.0-preview** or later preview version of the *Az.DesktopVirtualization* PowerShell module. The non-preview version of the module doesn't contain the required values. You can download and install the Az.DesktopVirtualization PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/).
 
 ## Configure automatic assignment
 
@@ -310,20 +310,18 @@ Here's how to reassign a personal desktop using Azure PowerShell. Be sure to cha
 
 ---
 
-## Assign multiple personal desktops to a single user (preview)
+## Assign multiple personal desktops to a single user
 
 Multiple personal desktop assignment allows you to assign more than one personal desktop to a single user in a single host pool. Multiple desktops are useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments. Previously, users were restricted to one personal desktop per host pool, meaning you needed to create multiple host pools for extra desktops. Multiple personal desktop assignment streamlines the process, eliminating the need for multiple host pools in this scenario, and simplifying user assignment management.
 
 >[!IMPORTANT]
->- This preview feature is only for personal host pools with direct assignment type. Pooled host pools aren't supported and personal host pools with automatic assignment type aren't supported.
+>- You can only assign multiple personal desktops to a single user for personal host pools with direct assignment type. Pooled host pools aren't supported and personal host pools with automatic assignment type aren't supported.
 >
->- If you're using FSLogix and have a single FSLogix profile container for a single host pool, be sure to allow concurrent connections to FSLogix profile containers to avoid errors.
+>- If you're using FSLogix and have a single FSLogix profile container for a single host pool, be sure to allow [multiple connections to FSLogix profile containers](/fslogix/concepts-multi-concurrent-connections#concurrent-connections) to avoid errors.
 >
 >- You should [Give session hosts in a personal host pool a friendly name](#give-session-hosts-in-a-personal-host-pool-a-friendly-name) so that your users can distinguish between the multiple personal desktops you assigned to them.
 >
 >- Once a host pool is enabled for multiple personal desktop assignment, it can't be disabled.
->
-> Assigning multiple personal desktops to a single user is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Enable multiple personal desktop assignment
 
@@ -408,7 +406,7 @@ To assign a user to multiple personal desktops to a user in the Azure portal:
 
 1. In the new pane, search for and select the user you want to assign. Select **Assign**.
 
-1. Repeat steps 4-6 for each of session hosts that you want to assign the user to. There isn't a limit to the number of personal desktops you can assign to a user in a single host pool.
+1. Repeat steps 4-6 for each session host that you want to assign the user to. There isn't a limit to the number of personal desktops you can assign to a user in a single host pool.
 
 #### [Azure PowerShell](#tab/powershell2)
 
@@ -438,11 +436,3 @@ Here's how to assign a user to multiple personal desktops using Azure PowerShell
 You can give personal desktops you create *friendly names* to help users distinguish them in their feeds using PowerShell. The Azure portal or Azure CLI doesn't currently have a way to give session host friendly names.
 
 [!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)]
-
-## Known issues
-
-We're aware of the following issues with the preview of multiple personal desktop assignment:
-
-- When viewing the list host pools in the Azure portal, the load balancing type for host pools with multiple personal desktop assignment enabled is showing **-** instead of **Multiple Persistent**.
-
-- To enable multiple personal desktop assignment on existing personal host pool with the **Automatic** assignment type, you first need to change the assignment type to **Direct** and save the change, and then e multiple personal desktop assignment. These actions need to be done in separate steps. If you try to do both in a single step, you get an error message.

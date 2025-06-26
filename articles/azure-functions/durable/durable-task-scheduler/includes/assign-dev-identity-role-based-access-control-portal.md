@@ -1,10 +1,11 @@
 ---
 ms.service: azure-functions
+ms.subservice: durable-task-scheduler
 ms.topic: include
-ms.date: 03/17/2025
-ms.author: jiayma
+ms.date: 04/11/2025
+ms.author: hannahhunter
 ms.reviewer: azfuncdf
-author: lilyjma
+author: hhunter-ms
 ---
 
 > [!NOTE] 

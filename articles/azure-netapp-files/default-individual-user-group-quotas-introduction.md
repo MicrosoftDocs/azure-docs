@@ -4,7 +4,7 @@ description: Helps you understand the use cases of managing default and individu
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/21/2025
 ms.author: anfdocs
 ---

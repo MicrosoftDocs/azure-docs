@@ -4,7 +4,7 @@ description: Describes considerations for Azure VMware Solution datastore design
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 3/22/2024
 ms.author: anfdocs
 ---

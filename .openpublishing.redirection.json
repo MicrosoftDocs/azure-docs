@@ -1,6 +1,121 @@
 {
   "redirections": [
     {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-manage.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-restore.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-configure.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-support-matrix.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-support-matrix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-overview.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-traffic-manager.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-traffic-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-terraform.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-terraform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-template.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-powershell.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-cli.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-bicep.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-bicep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-application-and-service-availability-faq.yml",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-application-and-service-availability-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-configuration-and-management-faq.yml",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-configuration-and-management-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-connectivity-and-networking-faq.yml",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-connectivity-and-networking-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-deployment-faq.yml",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-deployment-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/index.yml",
+      "redirect_url": "/previous-versions/azure/cloud-services/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-multi-access-edge-compute-mec/index.yml",
+      "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/shared-disks-common-questions.md",
+      "redirect_url": "/azure/site-recovery/azure-to-azure-common-questions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/traffic-analytics-schema-update.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/traffic-analytics-schema-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-nsg-grafana.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-nsg-grafana",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/api-management/migrate-stv1-to-stv2-no-vnet.md",
       "redirect_url": "/previous-versions/azure/api-management/migrate-stv1-to-stv2-no-vnet",
       "redirect_document_id": false
@@ -227,7 +342,7 @@
     },
     {
       "source_path": "articles/databox-online/azure-stack-edge-2301-release-notes.md",
-      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2301-release-notes",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2301-release-notes"
     },
     {
       "source_path": "articles/network-watcher/nsg-flow-logs-rest.md",
@@ -472,6 +587,11 @@
     {
       "source_path": "articles/security/fundamentals/tls-certificate-changes.md",
       "redirect_url": "/azure/security/fundamentals/azure-CA-details",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/recover-from-identity-compromise.md",
+      "redirect_url": "/azure/security/fundamentals/ransomware-detect-respond#road-to-recovery",
       "redirect_document_id": false
     },
     {
@@ -2315,6 +2435,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/gateway-sku-change.md",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/gateway-sku-resize.md",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
       "redirect_document_id": false
@@ -2393,7 +2523,12 @@
       "source_path_from_root": "/articles/app-service/manage-disaster-recovery.md",
       "redirect_url": "/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service",
       "redirect_document_id": false
-    },       
+    },
+    {
+      "source_path_from_root": "/articles/app-service/app-service-configure-premium-tier.md",
+      "redirect_url": "/azure/app-service/app-service-configure-premium-v4-tier",
+      "redirect_document_id": false
+    },           
     {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
@@ -6851,7 +6986,27 @@
     },
     {
       "source_path_from_root": "/articles/azure-functions/migration.md",
-      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/migrate-lambda-workloads-overview.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/discover-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/assess-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/migrate-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
       "redirect_document_id": false
     },
     {
@@ -6875,49 +7030,100 @@
       "redirect_document_id": false
     },
     {
-         "source_path": "articles/storage/files/storage-files-enable-soft-delete.md",
+      "source_path": "articles/storage/files/storage-files-enable-soft-delete.md",
       "redirect_url": "/azure/storage/files/storage-files-prevent-file-share-deletion",
       "redirect_document_id": false
-     },
-     {
+    },
+    {
       "source_path": "articles/defender-for-iot/organizations/release-notes-archive.md",
       "redirect_url": "/azure/defender-for-iot/organizations/release-notes-ot-monitoring-sensor-archive",
-       "redirect_document_id": false
-     },
-     {
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-portal.md",
       "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
-       "redirect_document_id": false
-     },
-     {
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-powershell.md",
       "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
-       "redirect_document_id": false
-     },
-     {
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-cli.md",
       "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
-       "redirect_document_id": false
-     },
-     {
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-template.md",
       "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
-       "redirect_document_id": false
-     },
-     {
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-terraform.md",
       "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
-       "redirect_document_id": false
-     },
-     {
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-bicep.md",
       "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
-       "redirect_document_id": false
-     },
-     {
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/eiot-sensor.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/concept-enterprise",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.09.18.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2024-09-18",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.11.08.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2024-11-08",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2024.12.18.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2024-12-18",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/release-notes/ccws/2025.02.06.md",
+      "redirect_url": "/azure/cyclecloud/release-notes/ccws/2025-02-06",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/sre-agent-overview.md",
+      "redirect_url": "/azure/sre-agent/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/sre-agent-usage.md",
+      "redirect_url": "/azure/sre-agent/usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/tutorial-sre-agent.md",
+      "redirect_url": "/azure/sre-agent/troubleshoot-azure-app-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-apps/sre-agent-troubleshoot.md",
+      "redirect_url": "/azure/sre-agent/troubleshoot-azure-container-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/whats-new.md",
+      "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/reliability/migrate-storage.md",
       "redirect_url": "/azure/storage/common/redundancy-migration",
       "redirect_document_id": false
-     }
+    }
   ]
 }
+

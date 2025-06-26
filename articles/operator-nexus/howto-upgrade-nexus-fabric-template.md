@@ -14,6 +14,8 @@ ms.custom: azure-operator-nexus, template-include
 This how-to guide provides a step-by-step template for upgrading a Nexus Fabric designed to assist users in managing a reproducible end-to-end upgrade through Azure APIs and standard operating procedures. Regular updates are crucial for maintaining system integrity and accessing the latest product improvements.
 
 ## Overview
+<details>
+<summary> Overview of Fabric runtime upgrade template </summary>
 
 **Runtime bundle components**: These components require operator consent for upgrades that may affect traffic behavior or necessitate device reboots. The network fabric's design allows for updates to be applied while maintaining continuous data traffic flow.
 
@@ -22,92 +24,135 @@ Runtime changes are categorized as follows:
 - **Base configuration updates**: Initial settings applied during device bootstrapping.
 - **Configuration structure updates**: Generated based on user input for conf
 
+</details>
+
 ## Prerequisites
+<details>
+<summary> Prerequisites for using this template to upgrade a Fabric </summary>
 
-1. Install the latest version of [Azure CLI](https://aka.ms/azcli).
-2. The latest `managednetworkfabric` CLI extension is required. It can be installed following the steps listed in [Install CLI Extension](howto-install-cli-extensions.md).
-3. Subscription access to run the Azure Operator Nexus Network Fabric (NF) and network cloud (NC) CLI extension commands.
-4. Target Fabric must be healthy in a running state, with all Devices healthy.
+- Latest version of [Azure CLI](https://aka.ms/azcli).
+- Latest `managednetworkfabric` [CLI extension](howto-install-cli-extensions.md).
+- Latest `networkcloud` [CLI extension](howto-install-cli-extensions.md).
+- Subscription access to run the Azure Operator Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands.
+- Target Fabric must be healthy in a running state, with all Devices healthy.
 
-## Required Parameters:
-- <START_DATE>: Planned start date/time of upgrade
-- \<ENVIRONMENT\>: Instance name
+</details>
+
+## Required Parameters
+<details>
+<summary> Parameters used in this document </summary>
+
+- \<ENVIRONMENT\>: - Instance name
 - <AZURE_REGION>: - Azure region of instance
 - <CUSTOMER_SUB_NAME>: Subscription name
 - <CUSTOMER_SUB_ID>: Subscription ID
-- <NEXUS_VERSION>: Operator Nexus release version (for example, 2504.1)
+- \<NEXUS_VERSION\>: Nexus release version (for example, 2504.1)
 - <NNF_VERSION>: Operator Nexus Fabric release version (for example, 8.1) 
 - <NF_VERSION>: NF runtime version for upgrade (for example, 5.0.0)
-- <NF_DEVICE_NAME>: Network Fabric Device Name
-- <NF_DEVICE_RID>: Network Fabric Device Resource ID
-- <NF_NAME>: Network Fabric Name
-- <NF_RG>: Network Fabric Resource Group
-- <NF_RID>: Network Fabric ARM ID
 - <NFC_NAME>: Associated Network Fabric Controller (NFC)
 - <NFC_RG>: NFC Resource Group
 - <NFC_RID>: NFC ARM ID
 - <NFC_MRG>: NFC Managed Resource Group
-- \<DURATION\>: Estimated Duration of upgrade
-- <DE_ID>: Deployment Engineer performing upgrade
+- <NF_NAME>: Network Fabric Name
+- <NF_RG>: Network Fabric Resource Group
+- <NF_RID>: Network Fabric ARM ID
+- <NF_DEVICE_NAME>: Network Fabric Device Name
+- <NF_DEVICE_RID>: Network Fabric Device Resource ID
+- <CM_NAME>: Associated Cluster Manager (CM)
 - <CLUSTER_NAME>: Associated Cluster name
 - <MISE_CID>: Microsoft.Identity.ServiceEssentials (MISE) Correlation ID in debug output for Device updates
 - <CORRELATION_ID>: Operation Correlation ID in debug output for Device updates
 - <ASYNC_URL>: Asynchronous (ASYNC) URL in debug output for Device updates
 
+</details>
 
-## Links
-- [Azure portal](https://aka.ms/nexus-portal)
-- [Network Fabric Upgrade](howto-upgrade-nexus-fabric.md)
-- [Azure CLI](https://aka.ms/azcli)
-- [Install CLI Extension](howto-install-cli-extensions.md)
+## Deployment Data
+<details>
+<summary> Deployment data details </summary>
 
-## Pre-Checks
+```
+- Nexus: <NEXUS_VERSION>
+- NC: <NC_VERSION>
+- NF: <NF_VERSION>
+- Subscription Name: <CUSTOMER_SUB_NAME>
+- Subscription ID: <CUSTOMER_SUB_ID>
+- Tenant ID: <CUSTOMER_SUB_TENANT_ID>
+```
+
+</details>
+
+## Debug information for Azure CLI commands
+<details>
+<summary> How to collect debug information for Azure CLI commands </summary>
+
+Azure CLI deployment commands issued with `--debug` contain the following information in the command output:
+```
+cli.azure.cli.core.sdk.policies:     'mise-correlation-id': '<MISE_CID>'
+cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '<CORRELATION_ID>'
+cli.azure.cli.core.sdk.policies:     'Azure-AsyncOperation': '<ASYNC_URL>'
+```
+
+To view status of long running asynchronous operations, run the following command with `az rest`:
+```
+az rest -m get -u '<ASYNC_URL>'
+```
+
+Command status information is returned along with detailed informational or error messages:
+- `"status": "Accepted"`
+- `"status": "Succeeded"`
+- `"status": "Failed"`
+
+If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and detailed messages when opening a support request.
+
+</details>
+
+## Prechecks
+<details>
+<summary> Prechecks before starting Fabric upgrade </summary>
 
 1. The following role permissions should be assigned to end users responsible for Fabric create, upgrade, and delete operations.
-  
-   These permissions can be granted temporarily, limited to the duration required to perform the upgrade. 
+
+   These permissions can be granted temporarily, limited to the duration required to perform the upgrade.
    * Microsoft.NexusIdentity/identitySets/read
    * Microsoft.NexusIdentity/identitySets/write
    * Microsoft.NexusIdentity/identitySets/delete
    * Ensure that `Role Based Access Control Administrator` is successfully activated.
-   * Check in Azure portal from the following path: `Network Fabrics` -> <NF_NAME> -> `Access control (IAM)` -> `View my access`.
+   * Check in Azure portal from the following path:
+     `Network Fabrics` -> `NF_NAME` -> `Access control (IAM)` -> `View my access`.
    * In current 'Role assignments', you should see the following two roles:
      - Nexus Contributor
      - Role Based Access Control Administrator
 
 2. Validate the provisioning status for the Network Fabric Controller (NFC), Fabric, and Fabric Devices.
-   
-   Set up the subscription, NFC, and NF parameters:
-   ```  
-   export SUBSCRIPTION_ID=<CUSTOMER_SUB_ID>
-   export NFC_RG=<NFC_RG>
-   export NFC_NAME=<NFC_NAME>
-   export NF_RG=<NF_RG>
-   export NF_NAME=<NF_NAME>
+
+   Log in to Azure CLI and select or set the `<CUSTOMER_SUB_ID>`:
+   ```
+   az login
+   az account set --subscription <CUSTOMER_SUB_ID>
    ```
 
    Check that the NFC is in Provisioned state:
    ```
-   az networkfabric controller show -g $NFC_RG --resource-name $NFC_NAME --subscription $SUBSCRIPTION_ID -o table
+   az networkfabric controller show -g <NFC_RG> --resource-name <NFC_NAME> --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
    Check the NF status:
-   ```  
-   az networkfabric fabric show -g $NF_RG --resource-name $NF_NAME --subscription $SUBSCRIPTION_ID -o table
+   ```
+   az networkfabric fabric show -g <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
    ```
    Record down the `fabricVersion` and `provisioningState`.
 
    Check the Devices status.
    ```
-   az networkfabric device list -g $NF_RG -o table --subscription $SUBSCRIPTION_ID
+   az networkfabric device list -g <NF_RG> -o table --subscription <CUSTOMER_SUB_ID>
    ```
 
    >[!Note]
-   > If `provisioningState` is not `Succeeded`, stop the upgrade until issues are resolved.**
+   > If `provisioningState` is not `Succeeded`, stop the upgrade until issues are resolved.
 
 3. Check `Microsoft.NexusIdentity` user Resource Provider (RP) is registered on the customer subscription:
    ```
-   az provider show --namespace Microsoft.NexusIdentity -o table --subscription $SUBSCRIPTION_ID
+   az provider show --namespace Microsoft.NexusIdentity -o table --subscription <CUSTOMER_SUB_ID>
    Namespace                RegistrationPolicy    RegistrationState
    -----------------------  --------------------  -------------------
    Microsoft.NexusIdentity  RegistrationRequired  Registered
@@ -115,7 +160,7 @@ Runtime changes are categorized as follows:
 
    If not registered, run the following to register:
    ```
-   az provider register --namespace Microsoft.NexusIdentity --wait --subscription $SUBSCRIPTION_ID
+   az provider register --namespace Microsoft.NexusIdentity --wait --subscription <CUSTOMER_SUB_ID>
 
    az provider show --namespace Microsoft.NexusIdentity -o table
    Namespace                RegistrationPolicy    RegistrationState
@@ -127,11 +172,11 @@ Runtime changes are categorized as follows:
 
    Verify the available space on each Fabric Devices using the following Azure CLI command. 
    ```
-   az networkfabric device run-ro --resource-name <ND_DEVICE_NAME> --resource-group <NF_RG> --ro-command "dir flash" --subscription <CUSTOMER_SUB_ID> --debug
+   az networkfabric device run-ro --resource-name <NF_DEVICE_NAME> --resource-group <NF_RG> --ro-command "dir flash" --subscription <CUSTOMER_SUB_ID> --debug
    ```
 
    Contact Microsoft support if there isn't enough space to perform the upgrade. Archived Extensible Operating System (EOS) images and support bundle files can be removed at the direction of support.
-   
+
 5. Check the Fabric's Network Packet Broker (NPB) for any orphaned `Network Taps` in Azure portal.
    * Select `Network Fabrics` under `Azure Services` and then select the <NF_NAME>.
    * Click on the `Resource group` for the Fabric.
@@ -143,7 +188,7 @@ Runtime changes are categorized as follows:
 
    >[!Note]
    > If any Taps show `Not Found`, `Failed`, or `Error` status, stop the upgrade until issues are cleared. Provide this information to Microsoft Support when opening a support ticket for Tap issues.
-   
+
 6. Run and validate the Fabric cable validation report.
    Follow [Validate Cables for Nexus Network Fabric](how-to-validate-cables.md) to set up and run the report
 
@@ -151,50 +196,25 @@ Runtime changes are categorized as follows:
    > Resolve any connection and cable issues before continuing the upgrade.
 
 7. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
-   
-## Send notification to Operations of upgrade schedule for the Fabric.
 
-The following template can be used through email or support ticket:
-```
-Title: <ENVIRONMENT> <AZURE_REGION> <NF_NAME> Runtime upgrade to <NF_VERSION> <START_TIME> - Completion ETA <DURATION>
-
-Operations Support:
-
-Deployment Team notification for <ENVIRONMENT> <AZURE_REGION> <NF_NAME> runtime upgrade to <NF_VERSION> <START_TIME> - Completion ETA <DURATION>
-
-Subscription: <CUSTOMER_SUB_ID>
-NFC: <NFC_NAME>
-CM: <CM_NAME>
-Fabric: <NF_NAME>
-Cluster: <CLUSTER_NAME>
-Region: <AZURE_REGION>
-Version: <NEXUS_VERSION>
-
-CC: stakeholder-list
-```
-
-## Add resource tag on Fabric resource in Azure portal
-To help track upgrades, add a tag to the Fabric resource in Azure portal (optional):
-```
-|Name            | Value          |
-|----------------|-----------------
-|BF in progress  |<DE_ID>         |
-```
+</details>
 
 ## Upgrade Procedure
+<details>
+<summary> Fabric runtime upgrade procedure details </summary>
 
-### Verify current Fabric runtime version.
+### Verify current Fabric runtime version
 [How to check current cluster runtime version.](./howto-check-runtime-version.md#check-current-fabric-runtime-version)
 
 ```
-az networkfabric fabric list -g $NF_RG --query "[].{name:name,fabricVersion:fabricVersion,configurationState:configurationState,provisioningState:provisioningState}" -o table --subscription $SUBSCRIPTION_ID
-az networkfabric fabric show -g $NF_RG --resource-name $NF_NAME --subscription $SUBSCRIPTION_ID
+az networkfabric fabric list -g <NF_RG> --query "[].{name:name,fabricVersion:fabricVersion,configurationState:configurationState,provisioningState:provisioningState}" -o table --subscription <CUSTOMER_SUB_ID>
+az networkfabric fabric show -g <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID>
 ```
-   
-### Initiate Fabric upgrade.
+
+### Initiate Fabric upgrade
 Start the upgrade with the following command:
 ```Azure CLI
-az networkfabric fabric upgrade -g [resource-group] --resource-name [fabric-name] --action start --version "5.0.0"
+az networkfabric fabric upgrade -g <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> --action start --version "5.0.0"
 {}
 ```
 
@@ -205,7 +225,7 @@ The Fabric Resource Provider validates if the version upgrade is allowed from th
 
 On successful completion, the command puts the Fabric status into `Under Maintenance` and prevents any other operation on the Fabric.
 
-### Device-specific workflow:
+### Follow device-specific workflow
 
 Nexus Network Fabric Racks are composed of the following Devices types:
 - Customer Edge (CE) Switches
@@ -236,10 +256,10 @@ Four Rack environments have 17 Devices:
 >[!NOTE]
 > Wait for successful upgrade on all Devices in a group before moving to the next group.
 
-### Device-specific upgrade:
+### Follow device-specific upgrade
 Run the following command to upgrade the version on each Device:
 ```
-az networkfabric device upgrade --version $NF_VERSION -g $NF_RG --resource-name $NF_DEVICE_NAME --subscription $SUBSCRIPTION_ID --debug
+az networkfabric device upgrade --version <NF_VERSION> -g <NF_RG> --resource-name <NF_DEVICE_NAME> --subscription <CUSTOMER_SUB_ID> --debug
 ```
 
 As part of the upgrade, the Devices are put into maintenance mode. The Device drains all traffic and stops advertising routes so that the traffic flow to the device stops. At completion, the Nexus Network Fabric (NNF) service updates the Device resource version property to the new version.
@@ -254,57 +274,76 @@ Provide this information to Microsoft Support when opening a support ticket for 
 
 After Device upgrades are complete, make sure that all the Devices are showing with <NF_VERSION> by running the following command:
 ```
-az networkfabric device list -g $NF_RG --query "[].{name:name,version:version}" -o table --subscription $SUBSCRIPTION_ID
+az networkfabric device list -g <NF_RG> --query "[].{name:name,version:version}" -o table --subscription <CUSTOMER_SUB_ID>
 ```
 
 ### Complete Network Fabric Upgrade
 Once all the Devices are upgraded, run the following command to take the Network Fabric out of maintenance state.
 ```
-az networkfabric fabric upgrade --action Complete --version $NF_VERSION -g $NF_RG --resource-name $NF_NAME --debug --subscription $SUBSCRIPTION_ID
+az networkfabric fabric upgrade --action Complete --version <NF_VERSION> -g <NF_RG> --resource-name <NF_NAME> --debug --subscription <CUSTOMER_SUB_ID>
 ```
 
-## Troubleshooting Device update failures.
+### How to troubleshoot Device update failures
 1. Collect any errors in the Azure CLI output.
 2. Collect device operation state from Azure portal or Azure CLI.
 3. Create Azure Support Request for any device upgrade failures and attach any errors along with ASYNC URL, correlation ID, and operation state of Fabric and Devices.
 
-## Post-upgrade Validation
-Once complete, run the following commands to check the status of the Fabric and Devices:
+</details>
+
+## Post-upgrade tasks
+<details>
+ <summary> Detailed steps for post-upgrade tasks </summary>
+
+### Review Operator Nexus release notes
+Review the Operator Nexus release notes for any version specific actions required post-upgrade.
+
+### Validate Nexus Instance
+
+Validate the health and status of all the Nexus Instance resources with the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md).
+
+If not using IRT, perform resource validation of all Nexus Instance components with Azure CLI:
 ```
-az networkfabric fabric list -g $NF_RG --query "[].{name:name,fabricVersion:fabricVersion,configurationState:configurationState,provisioningState:provisioningState}" -o table --subscription $SUBSCRIPTION_ID
-az networkfabric fabric show -g $NF_RG --resource-name $NF_NAME --subscription $SUBSCRIPTION_ID
-az networkfabric device list -g $NF_RG --query "[].{name:name,version:version}" -o table --subscription $SUBSCRIPTION_ID
+# Check `ProvisioningState = Succeeded` in all resources
+
+# NFC
+az networkfabric controller list -g <NFC_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az customlocation list -g <NFC_MRG> --subscription <CUSTOMER_SUB_ID> -o table
+
+# Fabric
+az networkfabric fabric list -g <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric rack list -g <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric fabric device list -g <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric nni list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric acl list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric l2domain list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
+
+# CM
+az networkcloud clustermanager list -g <CM_RG> --subscription <CUSTOMER_SUB_ID> -o table
+
+# Cluster
+az networkcloud cluster list -g <CLUSTER_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkcloud baremetalmachine list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> --query "sort_by([]. {name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
+az networkcloud storageappliance list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> -o table
+
+# Tenant Workloads
+az networkcloud virtualmachine list --sub <CUSTOMER_SUB_ID> --query "reverse(sort_by([?clusterId=='<CLUSTER_RID>'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
+az networkcloud kubernetescluster list --sub <CUSTOMER_SUB_ID> --query "[?clusterId=='<CLUSTER_RID>'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
 ```
 
-## Send notification to Operations of Fabric upgrade completion
+> [!Note]
+> IRT validation provides a complete functional test of networking and workloads across all components of the Nexus Instance. Simple validation does not provide functional testing.
 
-The following template can be used through email or ticketing system:
-```
-Title: <ENVIRONMENT> <AZURE_REGION> <NF_NAME> Runtime <NF_VERSION> Upgrade Complete
+</details>
 
-Operations:
-Deployment Team notification for <ENVIRONMENT> <AZURE_REGION> <NF_NAME> runtime <NF_VERSION> Upgrade Complete
+## Links
+<details>
+<summary> Reference Links for Fabric upgrade </summary>
 
-Subscription: <CUSTOMER_SUB_ID>
-NFC: <NFC_NAME>
-CM: <CM_NAME>
-Fabric: <NF_NAME>
-Cluster: <CLUSTER_NAME>
-Region: <AZURE_REGION>
-Version: <NEXUS_VERSION>
- 
-CC: stakeholder_list
-```
+Reference links for Fabric upgrade:
+- Access the [Azure portal](https://aka.ms/nexus-portal)
+- [Install Azure CLI](https://aka.ms/azcli)
+- [Install CLI Extension](howto-install-cli-extensions.md)
+- Reference the [Network Fabric Upgrade](howto-upgrade-nexus-fabric.md)
+- Reference the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md)
 
-## Remove resource tag on Fabric resource in Azure portal
-Remove the resource tag on the Fabric resource tracking the upgrade in Azure portal (if added previously):
-```
-|Name            | Value          |
-|----------------|-----------------
-|BF in progress  |<DE_ID>         |
-```
-
-## Close out any Work Items in your ticketing system
-* Update Task hours for upgrade duration.
-* Set Fabric upgrade work item to `Complete`.
-* Add any notes on support tickets and issues encountered during upgrade
+</details>

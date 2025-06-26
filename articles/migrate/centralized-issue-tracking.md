@@ -4,7 +4,7 @@ description: Describes how to track issues and provide resolutions from one tab.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
 ---

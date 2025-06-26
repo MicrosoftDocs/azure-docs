@@ -4,9 +4,10 @@ description: Concept guide on what SKR is and its usage with Azure Confidential 
 author: angarg05
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 8/22/2023
 ms.author: ananyagarg
+# Customer intent: "As a security architect, I want to implement Secure Key Release with Azure Key Vault and Trusted Execution Environments, so that I can enhance the protection and access control for sensitive encryption keys during their use in cloud applications."
 ---
 
 # Secure Key Release feature with AKV and Azure Confidential Computing (ACC)

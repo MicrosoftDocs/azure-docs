@@ -5,8 +5,10 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/23/2025
+ms.date: 05/13/2025
 ms.author: phjensen
+ms.custom:
+  - build-2025
 ---
 
 # Configure the database for Azure Application Consistent Snapshot tool
@@ -23,6 +25,10 @@ This section explains how to enable communication with the database. Use the fol
 If you're deploying to a centralized virtual machine, you need to install and set up the SAP HANA client so that the AzAcSnap user can run `hdbsql` and `hdbuserstore` commands. You can download the SAP HANA client from the [SAP Development Tools website](https://tools.hana.ondemand.com/#hanatools).
 
 The snapshot tools communicate with SAP HANA and need a user with appropriate permissions to initiate and release the database save point. The following example shows the setup of the SAP HANA 2.0 user and `hdbuserstore` for communication to the SAP HANA database.
+
+> [!IMPORTANT]
+> Make sure to install the SAP HANA client for running `hdbsql` and `hdbuserstore` commands on **all** nodes which run AzAcSnap.
+> For example, if running AzAcSnap instance 1 from node 1 and AzAcSnap instance 2 from node 2, the SAP HANA client **must** be installed on both node 1 and node 2.
 
 The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on an SAP HANA 2.0 database. Change the IP address, usernames, and passwords as appropriate.
 
@@ -78,6 +84,10 @@ The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on an SAP 
     hdbuserstore Set AZACSNAP <IP_address_of_host>:30013 AZACSNAP <AZACSNAP_PASSWORD_CHANGE_ME>
     ```
 
+    > [!NOTE]
+    > This step to setup the SAP HANA Secure User Store `KEY` will need to be done for all SAP HANA databases AzAcSnap will communicate with.
+    > For example, if AzAcSnap is on `client01` and you have the SAP HANA database server installed on the hosts `dbserver01` and `dbserver02`, then the `hdbuserstore Set` command  will need to be run twice to setup two keys on `client01` so AzAcSnap can communicate with both servers.
+
 1. Check that you correctly set up the SAP HANA Secure User Store. Use the `hdbuserstore` command to list the output, similar to the following example. More details on using `hdbuserstore` are available on the SAP website.
 
     ```bash
@@ -93,7 +103,7 @@ The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on an SAP 
       USER: AZACSNAP
     ```
     
-    > [!IMPORTANT]
+    > [!NOTE]
     > The value of the `KEY` field is used for the configuration question "What is the SAP HANA HDB User Store Key (e.g. `hdbuserstore List`)?".
 
 ### Using SSL for communication with SAP HANA

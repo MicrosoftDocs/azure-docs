@@ -2,7 +2,7 @@
 title: Use cases for Azure Virtual Desktop Insights - Azure Virtual Desktop
 description: Learn about how using Azure Virtual Desktop Insights can help you understand your deployments of Azure Virtual Desktop, including some use cases and example scenarios.
 ms.topic: how-to
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 06/21/2024
 ---
@@ -69,7 +69,7 @@ You can also analyze connection errors by different pivots to determine the root
    | Subscription | Groups events by the subscription that contains related resources. When more than one subscription has Azure Virtual Desktop resources, it helps to determine whether issues are scoped to one or more subscriptions. |
    | Resource group | Groups events by the resource group that contains related resources. |
    | Host pool | Groups events by host pool. |
-   | Transport | Groups events by the network transport layer used for connections, either UDP or TCP.<br /><br />For UDP, valid values are `Relay`, `ShortpathPublic`, and `ShortpathPrivate`.<br /><br />For TCP, valid values are `NotUsed` and `<>` |
+   | Transport | Groups events by the network transport layer used for connections, either UDP or TCP.<br /><br />For UDP, valid values are `Multipath`, `Relay`, `ShortpathPublic`, and `ShortpathPrivate`.<br /><br />For TCP, valid values are `NotUsed` and `<>` |
    | Session host | Groups events by session host. |
    | Session host IP/16 | Groups events by the IPv4 address of each session host, collated by the first two octets, for example (**1.2**.3.4). |
    | Client type | Groups events by the client used to connect to a remote session, including platform and processor architecture of the connecting device. |

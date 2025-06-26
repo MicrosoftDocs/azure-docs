@@ -3,11 +3,12 @@ title: Confidential containers on Azure
 description: Learn about unmodified container support with confidential containers.
 services: container-service
 author: angarg05
-ms.topic: article
+ms.topic: overview
 ms.date: 9/12/2023
 ms.author: ananyagarg
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
+# Customer intent: As a cloud architect, I want to implement confidential containers for my applications so that I can enhance data security and ensure code integrity while benefiting from a lift-and-shift deployment model without altering existing container images.
 ---
 
 # Confidential containers on Azure

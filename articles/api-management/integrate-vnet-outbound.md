@@ -48,7 +48,7 @@ If you want to inject a Premium v2 (preview) API Management instance into a virt
 
 ### Network security group
 
-A network security group must be associated with the subnet. Configure any network security group rules that you need for the gateway to access your API backends. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
+A network security group must be associated with the subnet. Configure any network security group rules that you need for the gateway to access your API backends. Network security groups (NSG) can also be used to block outbound traffic to the internet and access only resources in your virtual network. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
 
 ### Subnet delegation
 

@@ -1,7 +1,7 @@
 ---
 title: Azure Migrate supported geographies
 description: Provides a list of regions where Azure Migrate is supported
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
 ---

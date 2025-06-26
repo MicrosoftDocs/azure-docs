@@ -3,7 +3,7 @@ title: Configure smart card device redirection over the Remote Desktop Protocol
 description: Learn how to redirect smart card devices from a local device to a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 07/05/2024
 ---

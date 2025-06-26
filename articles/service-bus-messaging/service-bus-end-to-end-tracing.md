@@ -139,7 +139,7 @@ All events will have the following properties that conform with the open telemet
 - `message_bus.destination` – queue/topic/subscription path
 - `peer.address` – fully qualified namespace
 - `kind` – either producer, consumer, or client. Producer is used when sending messages, consumer when receiving, and client when settling.
-- `component` – `servicebus`
+- `messaging.system` – `servicebus`
 
 All events also have `Entity` and `Endpoint` properties.
 * `Entity` -  - Name of the entity (queue, topic, and so on.)

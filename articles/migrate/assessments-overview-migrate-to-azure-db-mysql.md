@@ -3,8 +3,8 @@ title: Overview of Assessments for Migration to Azure Database for MySQL (previe
 description: Learn how to assess your on-premises MySQL database instances for migration to Azure Database for MySQL using the Azure Migrate Discovery and Assessment tool. This article provides an overview of the assessment process, types of assessments, and key criteria for evaluating readiness, sizing, and cost.
 author: ankitsurkar06
 ms.author: ankitsurkar
-ms.topic: conceptual
-ms.date: 02/24/2025
+ms.topic: concept-article
+ms.date: 05/08/2025
 monikerRange: migrate-classic
 ---
 
@@ -22,10 +22,10 @@ The Azure Migrate: Discovery and assessment tool supports the following types of
 
 **Assessment Type** | **Details**
 --- | ---
-**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines.<br/><br>You can assess your on-premises servers in [VMware environment](vmware/how-to-set-up-appliance-vmware.md), [Hyper-V environment](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
+**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines.<br/><br>You can assess your on-premises servers in [VMware environment](how-to-set-up-appliance-vmware.md), [Hyper-V environment](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure Databases** | Assessments to migrate your on-premises [SQL servers to Azure SQL Database or Azure SQL Managed Instance](concepts-azure-sql-assessment-calculation.md), or on-premises MySQL database instances to Azure Database for MySQL.
 **Web apps on Azure** | Assessments to migrate your on-premises [Spring Boot apps to Azure Spring Apps](concepts-azure-spring-apps-assessment-calculation.md) or [ASP.NET/Java web apps to Azure App Service](concepts-azure-webapps-assessment-calculation.md).
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises [VMware VMs](vmware/how-to-set-up-appliance-vmware.md) to [Azure VMware Solution (AVS)](/azure/azure-vmware/introduction). [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) to [Azure VMware Solution (AVS)](/azure/azure-vmware/introduction). [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
 
 ## MySQL assessments - Overview and sizing criteria

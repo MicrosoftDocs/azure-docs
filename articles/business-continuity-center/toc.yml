@@ -35,7 +35,9 @@
   - name: Support matrices
     href: business-continuity-center-support-matrix.md
   - name: Security levels
-    href: security-levels-concept.md  
+    href: security-levels-concept.md
+  - name: Protect Azure Elastic SAN via Azure Backup (preview)
+    href: ../backup/azure-elastic-storage-area-network-backup-overview.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json      
 - name: How-to guides
   items:
   - name: Vaults
@@ -50,4 +52,11 @@
       href: backup-protection-policy.md
     - name: Manage  
       href: manage-protection-policy.md
-  
+  - name: Protect Azure Elastic SAN via Azure Backup (preview)
+    items:
+    - name: Backup
+      href: ../backup/azure-elastic-storage-area-network-backup-configure.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json  
+    - name: Restore
+      href: ../backup/azure-elastic-storage-area-network-backup-restore.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json  
+    - name: Manage
+      href: ../backup/azure-elastic-storage-area-network-backup-manage.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json      

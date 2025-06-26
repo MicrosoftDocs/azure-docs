@@ -3,9 +3,10 @@ title: Understand Azure File Sync cloud tiering
 description: Understand cloud tiering, an optional Azure File Sync feature. Frequently accessed files are cached locally on the server; others are tiered to Azure Files.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/13/2023
 ms.author: kendownie
+# Customer intent: As a system administrator, I want to understand how Azure File Sync cloud tiering works so that I can optimize local storage use and manage file access efficiently in my organization.
 ---
 
 # Cloud tiering overview

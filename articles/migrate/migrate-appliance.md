@@ -4,7 +4,7 @@ description: Provides a summary of support for the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
@@ -101,7 +101,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Discovery limits** | An appliance can discover up to 1000 physical servers.
 **Supported deployment** | Deploy on an existing server running Windows Server 2022 using PowerShell installer script.
 **PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zip file from the project or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). [Learn more](tutorial-discover-physical.md).<br><br> Download size is 85.8 MB.
-**Script verification** | [Verify](tutorial-discover-physical.md#verify-security) the PowerShell installer script downloaded from project by checking the hash values.
+**Script verification** | Verify the PowerShell installer script downloaded from project by checking the hash values.
 **Hardware and network requirements** |  The appliance should run on server with Windows Server 2019 or Windows Server 2022, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on an existing server, make sure that it is running Windows Server 2019 or Windows Server 2022, and meets hardware requirements.
 
 

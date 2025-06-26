@@ -5,9 +5,10 @@ services: virtual-machines
 author: ananyagarg
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: "As an AI developer, I want to utilize a secure platform for algorithm development on sensitive data, so that I can ensure compliance and ethical standards while maintaining privacy and security."
 ---
 
 # BeeKeeperAI, Inc.

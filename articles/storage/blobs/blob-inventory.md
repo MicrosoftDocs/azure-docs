@@ -6,9 +6,10 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.date: 03/28/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.custom: references_regions
+# Customer intent: "As a cloud storage administrator, I want to generate inventory reports for blob data, so that I can audit data properties and automate workflows to efficiently manage storage resources."
 ---
 
 # Azure Storage blob inventory
@@ -260,7 +261,8 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 If you configure a rule to run daily, then it will be scheduled to run every day. If you configure a rule to run weekly, then it will be scheduled to run each week on Sunday UTC time. 
 
-Most inventory runs complete within 24 hours. For hierarchical namespace enabled accounts, a run can take as long as two days, and depending on the number of files being processed, the run might not complete by end of that two days. The maximum amount of time that a run can complete before it fails is six days. 
+The time taken to generate an inventory report depends on various factors and the maximum amount of time that an inventory run can complete before it fails is six days. To learn more about these influencing factors, see [Blob inventory performance characteristics](blob-inventory-performance-characteristics.md).
+
 
 Runs don't overlap so a run must complete before another run of the same rule can begin. For example, if a rule is scheduled to run daily, but the previous day's run of that same rule is still in progress, then a new run won't be initiated that day. Rules that are scheduled to run weekly will run each Sunday regardless of whether a previous run succeeds or fails. If a run doesn't complete successfully, check subsequent runs to see if they complete before contacting support. The performance of a run can vary, so if a run doesn't complete, it's possible that subsequent runs will.
 

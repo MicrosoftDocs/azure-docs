@@ -4,7 +4,7 @@ description: 'Learn about support for Hyper-V assessment with Azure Migrate: Dis
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 04/04/2025
 ms.custom: engagement-fy25

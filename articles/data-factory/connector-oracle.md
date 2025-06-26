@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/20/2025
+ms.date: 06/04/2025
 ms.author: jianleishen
 ---
 
@@ -15,6 +15,9 @@ ms.author: jianleishen
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from and to an Oracle database. It builds on the [copy activity overview](copy-activity-overview.md).
+
+> [!IMPORTANT]
+> The Oracle connector version 2.0 provides improved native Oracle support. If you are using Oracle connector version 1.0 in your solution, please [upgrade the Oracle connector](#upgrade-the-oracle-connector) before **October 31, 2025**. Refer to this [section](#differences-between-oracle-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -32,7 +35,7 @@ For a list of data stores that are supported as sources or sinks by the copy act
 
 Specifically, this Oracle connector supports:
 
-- The following versions of an Oracle database for version 2.0 (Preview):
+- The following versions of an Oracle database for version 2.0:
     - Oracle Database 19c or later
 - The following versions of an Oracle database for version 1.0:
     - Oracle 19c R1 (19.1) and higher
@@ -86,14 +89,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Oracle connector version 2.0 (Preview) supports TLS 1.3. Refer to this [section](#upgrade-the-oracle-connector) to upgrade your Oracle connector version from version 1.0. For the property details, see the corresponding sections.
+The Oracle connector version 2.0 supports TLS 1.3. Refer to this [section](#upgrade-the-oracle-connector) to upgrade your Oracle connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0 (Preview)](#version-20-preview)
+- [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
 
-### Version 2.0 (Preview)
+### Version 2.0
 
-The Oracle linked service supports the following properties when apply version 2.0 (Preview):
+The Oracle linked service supports the following properties when apply version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -105,7 +108,7 @@ The Oracle linked service supports the following properties when apply version 2
 | password | The Oracle database password. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
-More connection properties you can set in linked service per your case:
+You can set the following additional connection properties in the linked service depending on your case.
 
 | Property | Description | Required | Default value |
 |:--- |:--- |:--- |:--- |
@@ -348,7 +351,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `OracleSource`. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
-| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Oracle version 2.0 (Preview), this property will only be allowed to be set when supportV1DataTypes is true. | No |
+| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Oracle version 2.0, this property will only be allowed to be set when supportV1DataTypes is true. | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | partitionNames | The list of physical partitions that needs to be copied. <br>Apply when the partition option is `PhysicalPartitionsOfTable`. If you use a query to retrieve the source data, hook `?AdfTabularPartitionName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
@@ -487,7 +490,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 When you copy data from and to Oracle, the following interim data type mappings are used within the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Oracle data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
+| Oracle data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
 | BFILE |Byte[] | Byte[] |
 | BINARY_FLOAT | Single | Single |
@@ -504,8 +507,8 @@ When you copy data from and to Oracle, the following interim data type mappings 
 | LONG RAW |Byte[] |Byte[] |
 | NCHAR |String |String |
 | NCLOB |String |String |
-| NUMBER (p,s) |Int16, Int32, Int64, Double, Single, Decimal |Decimal, String (if p > 28) |
-| NUMBER without precision and scale | Decimal |Double |
+| NUMBER (p,s) |Int16, Int32, Int64, Single, Double, Decimal |Decimal, String (if p > 28) |
+| NUMBER without precision and scale | Decimal (256,130)  |Double |
 | NVARCHAR2 |String |String |
 | RAW |Byte[] |Byte[] |
 | TIMESTAMP |DateTime |DateTime |
@@ -514,8 +517,17 @@ When you copy data from and to Oracle, the following interim data type mappings 
 | VARCHAR2 |String |String |
 | XMLTYPE |String |String |
 
-> [!NOTE]
-> NUMBER(p,s) is mapped to the appropriate interim service data type depending on the precision (p) and scale (s).
+
+NUMBER(p,s) is mapped to the appropriate version 2.0 interim service data type depending on the precision (p) and scale (s):
+
+| Interim service data type | Condition                                                                                                    |
+|:--------------------------|:----------------------------------------------------------------------------------------------------------------|
+| Int16                    | scale <= 0 AND (precision - scale) < 5                                                                         |
+| Int32                    | scale <= 0 AND 5 <= (precision - scale) < 10                                                                   |
+| Int64                    | scale <= 0 AND 10 <= (precision - scale) < 19                                                                  |
+| Single                   | precision < 8 AND ((scale <= 0 AND (precision - scale) <= 38) OR (scale &gt; 0 AND scale <= 44))                  |
+| Decimal                  | precision &gt;= 16 
+| Double                   | If none of the above conditions are met.                                                                       |
 
 ## Lookup activity properties
 
@@ -525,9 +537,9 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade the Oracle connector: 
 
-1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties version 2.0 (Preview)](#version-20-preview). 
+1. In **Edit linked service** page, select **2.0** under **Version** and configure the linked service by referring to [Linked service properties version 2.0](#version-20). 
 
-    For the authentication related properties including username and password, specify the original values in the corresponding fields in version 2.0 (Preview). Other connection properties such as host, port, and Oracle Service Name/Oracle SID in version 1.0 are now parameters of the [`server` property in version 2.0 (Preview)](#server-property-configuration).
+    For the authentication related properties including username and password, specify the original values in the corresponding fields in version 2.0. Other connection properties such as host, port, and Oracle Service Name/Oracle SID in version 1.0 are now parameters of the [`server` property in version 2.0](#server-property-configuration).
 
     For example, if you configure the version 1.0 linked service as shown below:
     
@@ -549,7 +561,7 @@ Here are steps that help you upgrade the Oracle connector:
     }
     ```
     
-    The identical version 2.0 (Preview) linked service configuration using **Easy Connect (Plus) Naming** is: 
+    The identical version 2.0 linked service configuration using **Easy Connect (Plus) Naming** is: 
     
     :::image type="content" source="media/connector-oracle/easy-connect-naming-linked-service.png" alt-text="Screenshot of linked service using easy connector (Plus) naming.":::
     
@@ -573,7 +585,7 @@ Here are steps that help you upgrade the Oracle connector:
     } 
     ```
     
-    The identical version 2.0 (Preview) linked service configuration using **Connector Descriptor** is:
+    The identical version 2.0 linked service configuration using **Connector Descriptor** is:
     
     :::image type="content" source="media/connector-oracle/connector-descriptor-linked-service.png" alt-text="Screenshot of linked service using connector descriptor.":::
     
@@ -603,13 +615,13 @@ Here are steps that help you upgrade the Oracle connector:
 
     Note that: 
     
-    - If you use **Oracle Service Name** in version 1.0, you can use **Easy Connect (Plus) Naming** or **Connector Descriptor** as the server format in version 2.0 (Preview).  
+    - If you use **Oracle Service Name** in version 1.0, you can use **Easy Connect (Plus) Naming** or **Connector Descriptor** as the server format in version 2.0.  
     
-    - If you use **Oracle SID** in version 1.0, you need to use **Connector Descriptor** as the server format in version 2.0 (Preview).  
+    - If you use **Oracle SID** in version 1.0, you need to use **Connector Descriptor** as the server format in version 2.0.  
     
-    - For some additional connection properties in version 1.0, we provide alternative properties or parameters in the `server` property in version 2.0 (Preview). You can refer to the table below to upgrade the version 1.0 properties.
+    - For some additional connection properties in version 1.0, we provide alternative properties or parameters in the `server` property in version 2.0. You can refer to the table below to upgrade the version 1.0 properties.
     
-        | Version 1.0 | Version 2.0 (Preview)  | 
+        | Version 1.0 | Version 2.0 | 
         |:--- |:--- |
         | encryptionmethod| PROTOCOL (parameter in `server`) | 
         | tnsnamesfile | TNS_ADMIN (environment variable supported on the self-hosted integration runtime)  | 
@@ -625,7 +637,7 @@ Here are steps that help you upgrade the Oracle connector:
         | cryptoprotocolversion | SSL_VERSION (parameter in `server`) | 
         | truststore | WALLET_LOCATION (parameter in `server`) | 
     
-        For example, if you use `alternateservers` in version 1.0, you can set the `DESCRIPTION_LIST` parameter in the server property in version 2.0 (Preview):
+        For example, if you use `alternateservers` in version 1.0, you can set the `DESCRIPTION_LIST` parameter in the server property in version 2.0:
     
         Version 1.0 linked service using `alternateservers`:
     
@@ -641,7 +653,7 @@ Here are steps that help you upgrade the Oracle connector:
         }
         ```
         
-        Identical version 2.0 (Preview) linked service using `DESCRIPTION_LIST` parameter in **Connector Descriptor**:
+        Identical version 2.0 linked service using `DESCRIPTION_LIST` parameter in **Connector Descriptor**:
     
         ```json
         {
@@ -659,18 +671,18 @@ Here are steps that help you upgrade the Oracle connector:
         }
         ```
 
-2. The data type mapping for the Oracle linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Oracle](#data-type-mapping-for-oracle). 
+2. The data type mapping for the Oracle linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Oracle](#data-type-mapping-for-oracle). 
 
-    An additional connection property `supportV1DataTypes` in version 2.0 (Preview) can reduce upgrade difficulties caused by data type changes. Setting this property to `true` ensures that the data type in version 2.0 (Preview) remains consistent with version 1.0. 
+    An additional connection property `supportV1DataTypes` in version 2.0 can reduce upgrade difficulties caused by data type changes. Setting this property to `true` ensures that the data type in version 2.0 remains consistent with version 1.0. 
 
-## Differences between Oracle version 2.0 (Preview) and version 1.0 
+## Differences between Oracle version 2.0 and version 1.0 
 
-The Oracle connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (Preview) and version 1.0. 
+The Oracle connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 and version 1.0. 
 
-| Version 2.0 (Preview) | Version 1.0  | 
+| Version 2.0 | Version 1.0  | 
 |:--- |:--- |
-|The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Double, Single, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
+|The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Single, Double, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
 | Support convertDecimalToInteger in copy source when `supportV1DataTypes` is set to `true`. | Support convertDecimalToInteger in copy source.  | 
 | Using `?` as a placeholder for script activity query parameters is not support. You can use the named parameter (such as `:paramA`) or the positional parameter (such as `:1`) as a replacement.    | Support using `?` as a placeholder for script activity query parameters.  | 
 | Support TLS 1.3.| TLS 1.3 is not supported. | 
-
+| Two-way TLS/SSL with Oracle SSO wallet is supported. For more information, see this [article](https://docs.oracle.com/en/database/oracle/oracle-database/23/odpnt/featConnecting.html#GUID-0DF481DD-2BBE-4746-936C-1AF7830423F2)| Two-way TLS/SSL with Oracle wallet is not supported. | 

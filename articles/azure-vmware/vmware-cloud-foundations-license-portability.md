@@ -143,7 +143,7 @@ Yes, you can switch between AVS and AVS VCF BYOL SKUs anytime.
 The 30-day Pilot Program **does not** require you to bring your own VCF subscription, as you can leverage AVS-owned VCF during the Pilot period. However, if you wish to bring your own VCF subscription instead of continuing with the AVS-owned VCF after the Pilot, you must **register your VCF subscription before the Pilot program ends**. If you don't register before the end of the Pilot program, you'll automatically be converted to AVS pay-as-you-go pricing.
 
 ### 4. Is VCF portability available for Gov Cloud as well?**
-VCF portability is **not available in Gov Cloud.** Ensure to check the availability of this feature in your region before proceeding.
+Yes, VCF portability is **now available in Gov Cloud.** 
 
 ## "Onboarding to portable VCF on Azure VMware Solution" Checklist
 

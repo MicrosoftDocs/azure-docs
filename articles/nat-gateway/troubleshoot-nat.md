@@ -8,6 +8,7 @@ ms.service: azure-nat-gateway
 ms.topic: troubleshooting
 ms.date: 02/14/2024
 ms.author: allensu
+# Customer intent: "As a network engineer, I want to troubleshoot configuration and connectivity issues with the NAT gateway, so that I can ensure reliable outbound internet access for my virtual network resources."
 ---
 
 # Troubleshoot Azure NAT Gateway

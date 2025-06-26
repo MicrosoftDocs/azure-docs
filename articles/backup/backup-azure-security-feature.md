@@ -3,7 +3,7 @@ title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
 ms.topic: how-to
-ms.date: 09/10/2024
+ms.date: 06/20/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -60,8 +60,8 @@ If security features setting is enabled, Azure Backup retains deleted backup dat
 
 For **Azure Recovery Services agent** users:
 
-1. If the computer where backups were happening is still available, reprotect the deleted data sources, and use the [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in Azure Recovery Services, to recover from all the old recovery points.
-2. If this computer isn't available, use [Recover to an alternate machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) to use another Azure Recovery Services computer to get this data.
+1. If the computer where backups were happening is still available, reprotect the deleted data sources, and use the [Recover data to the same machine](backup-azure-restore-windows-server.md#recover-data-to-the-same-machine-using-instant-restore) in Azure Recovery Services, to recover from all the old recovery points.
+2. If this computer isn't available, use [Recover to an alternate machine](backup-azure-restore-windows-server.md#restore-data-to-an-alternate-machine-using-instant-restore) to use another Azure Recovery Services computer to get this data.
 
 For **Azure Backup Server** users:
 

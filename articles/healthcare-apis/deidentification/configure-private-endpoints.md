@@ -1,7 +1,7 @@
 ---
 title: Configure Private Endpoint network access to Azure Health Data Services de-identification service
 description: Learn how to restrict network access to your de-identification service.
-ms.date: 10/22/2024
+ms.date: 06/16/2025
 ms.topic: how-to
 author: jovinson-ms
 ms.author: jovinson

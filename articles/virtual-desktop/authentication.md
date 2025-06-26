@@ -1,7 +1,7 @@
 ---
 title: Azure Virtual Desktop identities and authentication - Azure
 description: Identities and authentication methods for Azure Virtual Desktop.
-author: ErikjeMS
+author: dougeby
 ms.topic: conceptual
 ms.date: 07/16/2024
 ms.author: avdcontent
@@ -16,7 +16,7 @@ In this article, we'll give you a brief overview of what kinds of identities and
 Azure Virtual Desktop supports different types of identities depending on which configuration you choose. This section explains which identities you can use for each configuration.
 
 >[!IMPORTANT]
->Azure Virtual Desktop doesn't support signing in to Microsoft Entra ID with one user account, then signing in to Windows with a separate user account. Signing in with two different accounts at the same time can lead to users reconnecting to the wrong session host, incorrect or missing information in the Azure portal, and error messages appearing while using app attach or MSIX app attach.
+>Azure Virtual Desktop doesn't support signing in to Microsoft Entra ID with one user account, then signing in to Windows with a separate user account. Signing in with two different accounts at the same time can lead to users reconnecting to the wrong session host, incorrect or missing information in the Azure portal, and error messages appearing while using App Attach.
 
 ### On-premises identity
 

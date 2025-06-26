@@ -3,7 +3,7 @@ title: Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Des
 description: Learn how to assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals by using the Azure portal, Azure CLI, or Azure PowerShell.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 12/20/2023
 ---
@@ -12,7 +12,7 @@ ms.date: 12/20/2023
 
 Several Azure Virtual Desktop features require you to assign Azure role-based access control (Azure RBAC) roles or Microsoft Entra roles to one of the Azure Virtual Desktop service principals. Features that you need to assign a role to an Azure Virtual Desktop service principal include:
 
-- [App attach](app-attach-setup.md) (when using Azure Files and your session hosts joined to Microsoft Entra ID).
+- [App Attach](app-attach-setup.md) (when using Azure Files and your session hosts joined to Microsoft Entra ID).
 - [Autoscale](autoscale-scaling-plan.md).
 - [Session host update](session-host-update.md)
 - [Start VM on Connect](start-virtual-machine-connect.md).

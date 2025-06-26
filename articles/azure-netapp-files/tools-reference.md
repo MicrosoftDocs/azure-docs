@@ -4,8 +4,8 @@ description: Learn about the tools available to you to maximize your experience 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 02/11/2025
+ms.topic: concept-article
+ms.date: 05/08/2025
 ms.author: anfdocs
 ---
 
@@ -13,6 +13,10 @@ ms.author: anfdocs
 
 Azure NetApp Files offers [multiple tools](https://azure.github.io/azure-netapp-files/) to estimate costs, understand features and availability, and monitor your Azure NetApp Files deployment.
 
+* [Azure NetApp Files effective price estimator](https://azure.github.io/azure-netapp-files/effective-calc/)
+
+    This tool is designed to estimate effective price based on the compound savings when enabling [Azure NetApp Files storage with cool access](cool-access-introduction.md), [Azure NetApp Files reserved capacity](reservations.md), [Azure NetApp Files snapshots](snapshots-introduction.md), and the [Azure NetApp Files Flexible service level](azure-netapp-files-service-levels.md#Flexible). Azure NetApp Files delivers advanced storage cost savings by leveraging automated data tiering, space-efficient snapshots, reserved capacity pricing based on Azure reservations, and the Flexible service level allowing you to decouple storage capacity and throughput. These features can work together or independently to significantly improve the effective price of Azure NetApp Files.
+    
 * [**Azure NetApp Files Performance Calculator**](https://azure.github.io/azure-netapp-files/calc/)
 
     The Azure NetApp Files Performance Calculator enables you to easily calculate the performance and estimated cost of a volume based on the size and service level or performance requirements. It also helps you estimate backup and replication costs.

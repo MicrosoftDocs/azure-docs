@@ -1,16 +1,20 @@
 ---
-title: Add volumes for an SAP HANA system as a DR system using Azure NetApp Files cross-region replication  | Microsoft Docs
+title: Add volumes for an SAP HANA system as a DR system using Azure NetApp Files cross-region replication
 description: Describes using an application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/22/2025
+ms.date: 05/15/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
 
 This article describes using an application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system. This configuration uses Azure NetApp Files cross-region replication (CRR) functionality.
+
+[!INCLUDE [PowerShell & CLI call-out](includes/application-volume-group-powershell.md)]
 
 ## CRR between source and destination HANA servers
 
@@ -26,7 +30,7 @@ The following diagram illustrates cross-region replication between the source an
 > When you use an HA deployment with HSR at the primary side, you can choose to replicate not only the primary HANA system as described in this section, but also the HANA secondary system using cross-region replication. To automatically adapt the naming convention, you select both the **HSR secondary** and **Disaster recovery destination** options in the Create a Volume Group screen. The prefix then changes to `DR2-`. 
 
 > [!IMPORTANT]
-> * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions such as SnapCenter and the [Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap).
+> * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions including [SnapCenter](https://docs.netapp.com/us-en/snapcenter/protect-azure/protect-applications-azure-netapp-files.html), [Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap), or other [validated partner solutions](../storage/solution-integration/validated-partners/backup-archive-disaster-recovery/partner-overview.md).
 > * You need to replicate at least the data volume and the log-backup volume. 
 > * You can optionally replicate the data-backup volume and the shared volume. 
 > * You should *never* replicate the log volume. The application volume group will create the log volume as a standard volume.

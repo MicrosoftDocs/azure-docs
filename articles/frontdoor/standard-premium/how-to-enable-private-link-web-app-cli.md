@@ -7,10 +7,14 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/18/2024
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Connect Azure Front Door Premium to an App Service origin with Private Link using Azure CLI
+
+**Applies to:** :heavy_check_mark: Front Door Premium
 
 This article guides you through configuring Azure Front Door Premium to connect to your App Service privately using Azure Private Link with Azure CLI.
 
@@ -62,6 +66,12 @@ az afd origin create --enabled-state Enabled \
     ```
 
 3. Once approved, it takes a few minutes for the connection to fully establish. You can now access your App Service from Azure Front Door Premium. Direct access to the App Service from the public internet will be disabled after the private endpoint is enabled.
+
+## Common mistakes to avoid
+
+The following are common mistakes when configuring an origin with Azure Private Link enabled:
+
+* Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
 
 ## Next steps
 

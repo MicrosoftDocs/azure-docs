@@ -5,7 +5,7 @@ description: Learn how to connect to Azure Blob Storage by using an SSH File Tra
 author: normesta
 ms.custom:
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/18/2024
 ms.author: normesta
 ---
@@ -36,6 +36,8 @@ The SFTP username is `storage_account_name`.`username`.  In the example above th
 
 To complete the connection, you might have to respond to one or more prompts. For example, if you configured the local user with password authentication, then you are prompted to enter that password. You might also be prompted to trust a host key. Valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
 
+> [!NOTE]
+> SFTP operates over the Blob Storage endpoint (blob.core.windows.net) and NOT the Data Lake Storage endpoint (dfs.core.windows.net). Therefore, Data Lake Storage endpoints such as contoso4.contosouser@contoso4.dfs.core.windows.net aren't supported. 
 ### Connect using a custom domain
 
 If you want to connect to the blob service endpoint by using a custom domain, then the connection string is `myaccount.myuser@customdomain.com`. If the home directory isn't specified for the user, then the connection string is `myaccount.mycontainer.myuser@customdomain.com`.

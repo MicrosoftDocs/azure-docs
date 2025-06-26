@@ -11,6 +11,8 @@ ms.date: 04/21/2025
 
 # Improve performance by compressing files in Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 File compression is an effective method to improve file transfer speed and increase page-load performance. The server compresses the file to reduce its size before sending it. File compression can reduce bandwidth costs and provide a better experience for your users.
 
 There are two ways to enable file compression:

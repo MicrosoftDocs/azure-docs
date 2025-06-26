@@ -4,9 +4,10 @@ description: Examples of AKV SKR policies across offered Azure Confidential Comp
 author: angarg05
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 3/5/2023
 ms.author: ananyagarg
+# Customer intent: As a security architect, I want to define secure key release policies for Azure Confidential Computing environments, so that I can ensure the integrity and compliance of encrypted data management across different trusted execution environments.
 ---
 
 # Secure Key Release policy examples for Azure Confidential Computing

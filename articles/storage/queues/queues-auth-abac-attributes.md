@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.service: azure-queue-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/09/2023
 ms.author: pauljewell
 ms.reviewer: nachakra

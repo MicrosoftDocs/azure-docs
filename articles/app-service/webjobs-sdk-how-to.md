@@ -6,9 +6,9 @@ author: ggailey777
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: how-to
-ms.date: 06/24/2021
+ms.date: 05/09/2025
 ms.author: glenga
-#Customer intent: As an Azure App Service developer, I want use the WebJobs SDK to execute event-driven code in Azure.
+#Customer intent: As an Azure App Service developer, I want use the WebJobs SDK to run event-driven code in Azure.
 ---
 
 # Use the Azure WebJobs SDK for event-driven background processing
@@ -20,7 +20,7 @@ This article describes how to work with the Azure WebJobs SDK. To quickly get st
 The key differences between version 3.*x* and version 2.*x* of the WebJobs SDK are:
 
 * Version 3.*x* adds support for .NET Core.
-* In version 3.*x*, you install the Storage binding extension that is required by the WebJobs SDK. In version 2.*x*, the Storage bindings are included in the SDK.
+* In version 3.*x*, you install the Storage binding extension that's required by the WebJobs SDK. In version 2.*x*, the Storage bindings are included in the SDK.
 * Visual Studio 2019 tooling for .NET Core (3.*x*) projects differs from tooling for .NET Framework (2.*x*) projects. For more information, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 Some examples in this article are provided for both WebJobs version 3.*x* and WebJobs version 2.*x*.
@@ -44,7 +44,7 @@ This architectural change is a key difference between using the WebJobs SDK dire
 
 The WebJobs SDK looks for Azure Storage and Azure Service Bus connections in the `local.settings.json` file when you run locally or in the environment of the WebJob when you run in Azure. By default, the WebJobs SDK requires a storage connection named `AzureWebJobsStorage`.
 
-When the connection name resolves to a single exact value, the runtime identifies the value as a *connection string*, which typically includes a secret. The details of a connection string depend on the service to which you connect. However, a connection name can also refer to a collection of multiple configuration items, useful for configuring identity-based connections. Environment variables can be treated as a collection by using a shared prefix that ends in double underscores (`__`). The group can then be referenced by setting the connection name to this prefix.
+When the connection name resolves to a single exact value, the runtime identifies the value as a connection string, which typically includes a secret. The details of a connection string depend on the service to which you connect. However, a connection name can also refer to a collection of multiple configuration items. This method is useful for configuring identity-based connections. You can treat environment variables as a collection by using a shared prefix that ends in double underscores (`__`). You can then reference the group by setting the connection name to this prefix.
 
 For example, the `connection` property for an Azure Blob Storage trigger definition might be `Storage1`. As long as there's no single string value configured by an environment variable named `Storage1`,  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
 
@@ -66,7 +66,7 @@ The following example shows what your project file might look like after you mak
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.41" />
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.42" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage.Queues" Version="5.3.1" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Host.Storage" Version="5.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
@@ -80,7 +80,7 @@ The following example shows what your project file might look like after you mak
 </Project>
 ```
 
-When you set up WebJobs within your HostBuilder instance, make sure that you include a call to `AddAzureStorageCoreServices`. This call allows `AzureWebJobsStorage` and other Storage triggers and bindings to use the identity.
+When you set up WebJobs in your HostBuilder instance, make sure that you include a call to `AddAzureStorageCoreServices`. This call allows `AzureWebJobsStorage` and other Storage triggers and bindings to use the identity.
 
 Here's an example:
 
@@ -88,18 +88,18 @@ Here's an example:
     builder.ConfigureWebJobs(b =>
     {
         b.AddAzureStorageCoreServices();
-        // other configurations...
+        // Other configurations...
     });
 ```
 
-Then, you can configure the `AzureWebJobsStorage` connection by setting environment variables (or application settings when hosted in App Service):
+You can then configure the `AzureWebJobsStorage` connection by setting environment variables (or application settings when your code is hosted in Azure App Service):
 
-| Environment variable                       | Description                                | Example value                                        |
-|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-| `AzureWebJobsStorage__blobServiceUri` | The data plane URI of the blob service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
-| `AzureWebJobsStorage__queueServiceUri` | The data plane URI of the queue service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
+| Environment variable | Description  | Example value   
+|-----|-----------|-----------------------|
+| `AzureWebJobsStorage__blobServiceUri` | The data plane URI of the blob service of the storage account. It uses the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
+| `AzureWebJobsStorage__queueServiceUri` | The data plane URI of the queue service of the storage account. It uses the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
 
-If you provide your configuration through any means other than environment variables, such as in an `appsettings.json` config file, you instead must provide a structured configuration for the connection and its properties:
+If you provide your configuration by any means other than environment variables, such as in an `appsettings.json` config file, you instead must provide a structured configuration for the connection and its properties:
 
 ```json
 {
@@ -114,7 +114,7 @@ You can omit the `queueServiceUri` property if you don't plan to use blob trigge
 
 When your code runs locally, the default is to use your developer identity as described for [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential).
 
-When your code is hosted in Azure App Service, the configuration in the preceding example defaults to the [system-assigned managed identity](./overview-managed-identity.md#add-a-system-assigned-identity) for the resource. To instead use a [user-assigned identity](./overview-managed-identity.md#add-a-user-assigned-identity) that is assigned to the app, you must add properties for your connection to specify which identity to use. The `credential` property (`AzureWebJobsStorage__credential` as an environment variable) should be set to the string `managedidentity`. The `clientId` property (`AzureWebJobsStorage__clientId` as an environment variable) should be set to the client ID of the user-assigned managed identity to be used.
+When your code is hosted in App Service, the configuration in the preceding example defaults to the [system-assigned managed identity](./overview-managed-identity.md#add-a-system-assigned-identity) for the resource. To instead use a [user-assigned identity](./overview-managed-identity.md#add-a-user-assigned-identity) that's assigned to the app, you must add properties for your connection to specify which identity to use. The `credential` property (`AzureWebJobsStorage__credential` as an environment variable) should be set to the string `managedidentity`. The `clientId` property (`AzureWebJobsStorage__clientId` as an environment variable) should be set to the client ID of the user-assigned managed identity to use.
 
 As a structured configuration, the complete object would be similar to this example:
 
@@ -131,19 +131,19 @@ As a structured configuration, the complete object would be similar to this exam
 
 The identity used for `AzureWebJobsStorage` should have role assignments that grant it the [Storage Blob Data Owner], [Storage Queue Data Contributor], and [Storage Account Contributor] roles. You can omit the [Storage Queue Data Contributor] and [Storage Account Contributor] roles if you don't plan to use blob triggers.
 
-The following table shows built-in roles that we recommend when you use triggers in bindings in normal operation. Your application might require more permissions based on the code you write.
+The following table shows built-in roles that we recommend when you use triggers in bindings in normal operation. Your application might require more permissions, depending on the code you write.
 
-| Binding                         | Example built-in roles                                                                                                              |
-|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Blob trigger                    | [Storage Blob Data Owner] *and* [Storage Queue Data Contributor]<br/>Also see the preceding requirements for `AzureWebJobsStorage`. |
-| Blob (input)                    | [Storage Blob Data Reader]                                                                                                          |
+| Binding | Example built-in roles     |
+|------|--------------|
+| Blob trigger | [Storage Blob Data Owner] *and* [Storage Queue Data Contributor]<br/>Also see the preceding requirements for `AzureWebJobsStorage`. |
+| Blob (input)  | [Storage Blob Data Reader]                     |
 | Blob (output)                   | [Storage Blob Data Owner]                                                                                                           |
 | Queue trigger                   | [Storage Queue Data Reader], [Storage Queue Data Message Processor]                                                                 |
 | Queue (output)                  | [Storage Queue Data Contributor], [Storage Queue Data Message Sender]                                                               |
-| Service Bus trigger<sup>1</sup> | [Azure Service Bus Data Receiver], [Azure Service Bus Data Owner]                                                                   |
-| Service Bus (output)            | [Azure Service Bus Data Sender]                                                                                                     |
+| Service Bus trigger<sup>1</sup> | [Azure Service Bus Data Receiver], [Azure Service Bus Data Owner]              |
+| Service Bus (output)  | [Azure Service Bus Data Sender]      |
 
-<sup>1</sup> For triggering from Azure Service Bus topics, the role assignment must have effective scope over the Service Bus subscription resource. If only the topic is included, an error occurs. Some clients, such as the Azure portal, don't expose the Service Bus subscription resource as a scope for role assignment. In these scenarios, you can use the Azure CLI instead. For more information, see [Azure built-in roles for Azure Service Bus][role-assignment-scope].
+<sup>1</sup> For triggering from Service Bus topics, the role assignment must have effective scope over the Service Bus subscription resource. If only the topic is included, an error occurs. Some clients, such as the Azure portal, don't expose the Service Bus subscription resource as a scope for role assignment. In these scenarios, you can use the Azure CLI instead. For more information, see [Azure built-in roles for Azure Service Bus][role-assignment-scope].
 
 [Storage Blob Data Reader]: ../role-based-access-control/built-in-roles.md#storage-blob-data-reader
 [Storage Blob Data Owner]: ../role-based-access-control/built-in-roles.md#storage-blob-data-owner
@@ -157,9 +157,9 @@ The following table shows built-in roles that we recommend when you use triggers
 [Azure Service Bus Data Owner]: ../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner
 [role-assignment-scope]: ../service-bus-messaging/service-bus-managed-service-identity.md#resource-scope
 
-#### Connection strings in version 2.x
+#### Connection strings in version 2.*x*
 
-Version 2.*x* of the SDK doesn't require a specific name. In version 2.*x*, you can use your own names for these connection strings, and you can store them elsewhere. You can set names in code by using [`JobHostConfiguration`], like in this example:
+Version 2.*x* of the SDK doesn't require a specific name for connection strings. In version 2.*x*, you can use your own names for these connection strings, and you can store them elsewhere. You can set names in code by using [`JobHostConfiguration`], like in this example:
 
 ```csharp
 static void Main(string[] args)
@@ -196,7 +196,7 @@ The process for enabling development mode depends on the SDK version.
 
 #### Version 3.*x*
 
-Version 3.*x* uses the standard ASP.NET Core APIs. Call the [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. Pass a string named `development`, as in this example:
+In version 3.*x*, you use the standard ASP.NET Core APIs to change the host environment. Call the [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. Pass a string named `development`, as in this example:
 
 ```csharp
 static async Task Main()
@@ -238,13 +238,13 @@ static void Main()
 
 In version 3.*x*, the connection limit defaults to infinite connections. If for some reason you need to change this limit, you can use the [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) property of the [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) class.
 
-In version 2.*x*, you control the number of concurrent connections to a host by using the [`ServicePointManager.DefaultConnectionLimit`](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. In 2.*x*, you should increase this value from the default of `2` before you start your WebJobs host.
+In version 2.*x*, you control the number of concurrent connections to a host by using the [`ServicePointManager.DefaultConnectionLimit`](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) property. In 2.*x*, you should increase this value from the default of `2` before you start your WebJobs host.
 
 All outgoing HTTP requests that you make from a function by using `HttpClient` flow through `ServicePointManager`. After you reach the value set in `DefaultConnectionLimit`, `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to `2` and your code makes 1,000 HTTP requests. Initially, only 2 requests are allowed through to the OS. The other 998 requests are queued until there's room for them. Your `HttpClient` might time out because it appears to have made the request, but the request was never sent by the OS to the destination server. You might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms.
 
-The default value for ASP.NET applications is `Int32.MaxValue`, and that's likely to work well for WebJobs running in a Basic or higher App Service plan. WebJobs typically need the **Always On** setting, and that is supported only by Basic and higher App Service plans.
+The default value for ASP.NET applications is `Int32.MaxValue`, and that's likely to work well for WebJobs running in a Basic or higher App Service plan. WebJobs typically need the **Always On** setting, and that's supported only by Basic and higher App Service plans.
 
-If your WebJob is running in a Free or Shared App Service plan, your application is restricted by the App Service sandbox, which currently has a [connection limit of 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits). With an unbound connection limit in `ServicePointManager`, it's more likely that the sandbox connection threshold is reached, and the site shuts down. In that case, setting `DefaultConnectionLimit` to something lower, like 50 or 100, can prevent this scenario from occurring and still allow sufficient throughput.
+If your WebJob is running in a Free or Shared App Service plan, your application is restricted by the App Service sandbox, which currently has a [connection limit of 600](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits). If you have an unbound connection limit in `ServicePointManager`, it's more likely that the sandbox connection threshold is reached, and the site shuts down. In that case, setting `DefaultConnectionLimit` to something lower, like 200, can prevent this scenario from occurring and still allow sufficient throughput.
 
 The setting must be configured before any HTTP requests are made. For this reason, the WebJobs host shouldn't adjust the setting automatically. There might be HTTP requests that occur before the host starts, which can lead to unexpected behavior. The best approach is to set the value immediately in your `Main` method before you initialize `JobHost`, as shown in this example:
 
@@ -261,13 +261,13 @@ static void Main(string[] args)
 
 ## Triggers
 
-The WebJobs SDK supports the same set of triggers and binding that [Azure Functions](../azure-functions/functions-triggers-bindings.md) uses. In the WebJobs SDK, triggers are function-specific and not related to the WebJob deployment type. WebJobs that have event-triggered functions created by using the SDK should always be published as a *continuous* WebJob, with *Always on* enabled.
+The WebJobs SDK supports the same set of triggers and binding that [Azure Functions](../azure-functions/functions-triggers-bindings.md) uses. In the WebJobs SDK, triggers are function-specific and not related to the WebJob deployment type. WebJobs that have event-triggered functions created by using the SDK should always be published as a *continuous* WebJob, with **Always on** enabled.
 
 Functions must be public methods, and they must have one trigger attribute or the [`NoAutomaticTrigger`](#manual-triggers) attribute.
 
 ### Automatic triggers
 
-Automatic triggers call a function in response to an event. Consider this example of a function that is triggered by a message added to Azure Queue Storage. The function responds by reading a blob from Blob storage:
+Automatic triggers call a function in response to an event. Consider this example of a function that's triggered by a message added to Azure Queue Storage. The function responds by reading a blob from Blob storage:
 
 ```csharp
 public static void Run(
@@ -480,7 +480,7 @@ These binding-specific settings are equivalent to settings in the [`host.json` p
 You can configure the following bindings:
 
 * [Azure Cosmos DB trigger](#azure-cosmos-db-trigger-configuration-version-3x)
-* [Event Hubs trigger](#event-hubs-trigger-configuration-version-3x)
+* [Event Hubs trigger](#azure-event-hubs-trigger-configuration-version-3x)
 * [Queue storage trigger](#queue-storage-trigger-configuration)
 * [SendGrid binding](#sendgrid-binding-configuration-version-3x)
 * [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
@@ -514,7 +514,7 @@ static async Task Main()
 
 For more information, see [Azure Cosmos DB binding](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings).
 
-#### Event Hubs trigger configuration (version 3.*x*)
+#### Azure Event Hubs trigger configuration (version 3.*x*)
 
 This example shows how to configure the Event Hubs trigger:
 
@@ -542,11 +542,11 @@ static async Task Main()
 
 For more information, see [Event Hubs binding](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings).
 
-### Queue storage trigger configuration
+#### Queue storage trigger configuration
 
 The following examples show how to configure the Queue storage trigger.
 
-#### Version 3.*x*
+##### Version 3.*x*
 
 ```csharp
 static async Task Main()
@@ -572,7 +572,7 @@ static async Task Main()
 
 For more information, see [Queue storage binding](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties).
 
-#### Version 2.*x*
+##### Version 2.*x*
 
 ```csharp
 static void Main(string[] args)
@@ -589,7 +589,7 @@ static void Main(string[] args)
 
 For more information, see the [`host.json` v1.x reference](../azure-functions/functions-host-json-v1.md#queues).
 
-### SendGrid binding configuration (version 3.*x*)
+#### SendGrid binding configuration (version 3.*x*)
 
 This example shows how to configure the SendGrid output binding:
 
@@ -616,7 +616,7 @@ static async Task Main()
 
 For more information, see [`SendGrid` binding](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
 
-### Service Bus trigger configuration (version 3.*x*)
+#### Service Bus trigger configuration (version 3.*x*)
 
 This example shows how to configure the Service Bus trigger:
 
@@ -643,11 +643,11 @@ static async Task Main()
 
 For more information, see [Service Bus binding](../azure-functions/functions-bindings-service-bus.md).
 
-### Configuration for other bindings
+#### Configuration for other bindings
 
 Some trigger and binding types define their own custom configuration types. For example, you can use the File trigger to specify the root path to monitor, as in the following examples.
 
-#### Version 3.*x*
+##### Version 3.*x*
 
 ```csharp
 static async Task Main()
@@ -666,7 +666,7 @@ static async Task Main()
 }
 ```
 
-#### Version 2.*x*
+##### Version 2.*x*
 
 ```csharp
 static void Main()
@@ -816,7 +816,7 @@ For a full list of bindings supported in the Azure Functions runtime, see [Suppo
 
 ## Attributes: Disable, Timeout, and Singleton
 
-With these attributes, you can control function triggering, cancel functions, and ensure that only one instance of a function runs.
+You can use these attributes to control function triggering, cancel functions, and ensure that only one instance of a function runs.
 
 ### Disable attribute
 
@@ -834,11 +834,11 @@ public static void TestJob([QueueTrigger("testqueue2")] string message)
 
 When you change app setting values in the Azure portal, the WebJob restarts to pick up the new setting.
 
-The attribute can be declared at the level of parameter, method, or class. The setting name can also contain binding expressions.
+The attribute can be declared at the parameter, method, or class level. The setting name can also contain binding expressions.
 
 ### Timeout attribute
 
-The [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't finish within a specified amount of time. In the following example, the function would run for one day without the `Timeout` attribute. Time-out causes the function to be canceled after 15 seconds. When the `Timeout` attribute `throwOnError` parameter is set to `true`, the function invocation is terminated by having an exception thrown by the WebJobs SDK when the time-out interval is exceeded. The default value of `throwOnError` is `false`. When the `Timeout` attribute is used, the default behavior is to cancel the function invocation by setting the cancellation token while allowing the invocation to run indefinitely until the function code returns or throws an exception.
+The [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't finish within a specified amount of time. In the following example, the function would run for one day without the `Timeout` attribute. Timeout causes the function to be canceled after 15 seconds. When the `Timeout` attribute `throwOnError` parameter is set to `true`, the function invocation is terminated by having an exception thrown by the WebJobs SDK when the timeout interval is exceeded. The default value of `throwOnError` is `false`. When the `Timeout` attribute is used, the default behavior is to cancel the function invocation by setting the cancellation token while allowing the invocation to run indefinitely until the function code returns or throws an exception.
 
 ```csharp
 [Timeout("00:00:15")]
@@ -853,7 +853,7 @@ public static async Task TimeoutJob(
 }
 ```
 
-You can apply the `Timeout` attribute at the class level or the method level, and you can specify a global time-out by using `JobHostConfiguration.FunctionTimeout`. Class-level or method-level time-outs override global time-outs.
+You can apply the `Timeout` attribute at the class level or the method level, and you can specify a global timeout by using `JobHostConfiguration.FunctionTimeout`. Class-level or method-level timeouts override global timeouts.
 
 ### Singleton attribute
 
@@ -922,7 +922,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 ## Viewing lease blobs
 
-The WebJobs SDK uses [Azure blob leases](../storage/blobs/concurrency-manage.md#pessimistic-concurrency-for-blobs) to implement distributed locking. The lease blobs used by `Singleton` can be found in the `azure-webjobs-host` container in the `AzureWebJobsStorage` storage account under the path "locks." For example, the lease blob path for the first `ProcessImage` example shown earlier might be `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. All paths include the JobHost ID, in this case, 061851c758f04938a4426aa9ab3869c0.
+The WebJobs SDK uses [Azure blob leases](../storage/blobs/concurrency-manage.md#pessimistic-concurrency-for-blobs) to implement distributed locking. The lease blobs used by `Singleton` can be found in the `azure-webjobs-host` container in the `AzureWebJobsStorage` storage account under the path "locks." For example, the lease blob path for the first `ProcessImage` example shown earlier might be `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. All paths include the JobHost ID, in this case 061851c758f04938a4426aa9ab3869c0.
 
 ## Async functions
 
@@ -944,7 +944,7 @@ If you want to ensure that only one instance of a function runs, even when there
 
 ## Filters
 
-Function Filters (preview) provide a way to customize the WebJobs execution pipeline by using your own logic. Filters are similar to [ASP.NET Core filters](/aspnet/core/mvc/controllers/filters). You can implement them as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
+Function Filters (preview) provide a way to customize the WebJobs execution pipeline by using your own logic. These filters are similar to [ASP.NET Core filters](/aspnet/core/mvc/controllers/filters). You can implement them as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
 
 ## Logging and monitoring
 
@@ -968,7 +968,7 @@ You can independently filter each category to a particular [`LogLevel`](/dotnet/
 
 #### Version 3.*x*
 
-Version 3.*x* of the SDK relies on the filtering that is built into .NET Core. Use the `LogCategories` class to define categories for specific functions, triggers, or users. The `LogCategories` class also defines filters for specific host states, like `Startup` and `Results`, so you can fine-tune the logging output. If no match is found in the defined categories, the filter falls back to the `Default` value when deciding whether to filter the message.
+Version 3.*x* of the SDK relies on the filtering that's built into .NET Core. Use the `LogCategories` class to define categories for specific functions, triggers, or users. The `LogCategories` class also defines filters for specific host states, like `Startup` and `Results`, so you can fine-tune the logging output. If no match is found in the defined categories, the filter falls back to the `Default` value when determining whether to filter the message.
 
 `LogCategories` requires the following `using` statement:
 
@@ -976,7 +976,7 @@ Version 3.*x* of the SDK relies on the filtering that is built into .NET Core. U
 using Microsoft.Azure.WebJobs.Logging; 
 ```
 
-The following example constructs a filter that, by default, filters all logs at the `Warning` level. The `Function` and `results` categories (equivalent to `Host.Results` in version 2.*x*) are filtered at the `Error` level. The filter compares the current category to all registered levels in the `LogCategories` instance and chooses the longest match. The `Debug` level registered for `Host.Triggers` then matches `Host.Triggers.Queue` or `Host.Triggers.Blob`. You can control broader categories without needing to add each one.
+The following example constructs a filter that, by default, filters all logs at the `Warning` level. The `Function` and `results` categories (equivalent to `Host.Results` in version 2.*x*) are filtered at the `Error` level. The filter compares the current category to all registered levels in the `LogCategories` instance and chooses the longest match. So the `Debug` level registered for `Host.Triggers` matches `Host.Triggers.Queue` or `Host.Triggers.Blob`. You can control broader categories without needing to add each one.
 
 ```csharp
 static async Task Main(string[] args)
@@ -1007,9 +1007,9 @@ static async Task Main(string[] args)
 
 In version 2.*x* of the SDK, you use the `LogCategoryFilter` class to control filtering. The `LogCategoryFilter` has a `Default` property with an initial value of `Information`, meaning that any messages at the `Information`, `Warning`, `Error`, or `Critical` levels are logged, but any messages at the `Debug` or `Trace` levels are filtered away.
 
-As with `LogCategories` in version 3.*x*, the `CategoryLevels` property allows you to specify log levels for specific categories so you can fine-tune the logging output. If no match is found within the `CategoryLevels` dictionary, the filter falls back to the `Default` value when deciding whether to filter the message.
+As with `LogCategories` in version 3.*x*, the `CategoryLevels` property allows you to specify log levels for specific categories so you can fine-tune the logging output. If no match is found within the `CategoryLevels` dictionary, the filter falls back to the `Default` value when determining whether to filter the message.
 
-The following example constructs a filter that by default filters all logs at the `Warning` level. The `Function` and `Host.Results` categories are filtered at the `Error` level. The `LogCategoryFilter` compares the current category to all registered `CategoryLevels` and chooses the longest match. The `Debug` level registered for `Host.Triggers` then matches `Host.Triggers.Queue` or `Host.Triggers.Blob`. You can control broader categories without needing to add each one.
+The following example constructs a filter that by default filters all logs at the `Warning` level. The `Function` and `Host.Results` categories are filtered at the `Error` level. The `LogCategoryFilter` compares the current category to all registered `CategoryLevels` and chooses the longest match. So the `Debug` level registered for `Host.Triggers` matches `Host.Triggers.Queue` or `Host.Triggers.Blob`. You can control broader categories without needing to add each one.
 
 ```csharp
 var filter = new LogCategoryFilter();
@@ -1067,7 +1067,7 @@ static async Task Main()
         string appInsightsKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
         if (!string.IsNullOrEmpty(appInsightsKey))
         {
-            // This uses the options callback to explicitly set the instrumentation key.
+            // This code uses the options callback to explicitly set the instrumentation key.
             b.AddApplicationInsights(o => o.InstrumentationKey = appInsightsKey);
         }
     });
@@ -1128,7 +1128,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ## <a id="nextsteps"></a> Related content
 
-This article provides code snippets that show you how to handle common scenarios for working with the WebJobs SDK. For complete samples, see [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
+This article provides code snippets that show how to handle common scenarios for working with the WebJobs SDK. For complete samples, see [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
 
 [`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient

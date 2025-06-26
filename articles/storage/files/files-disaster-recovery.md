@@ -3,9 +3,10 @@ title: Disaster recovery and failover for Azure Files
 description: Learn how to recover your data in Azure Files. Understand the concepts and processes involved with disaster recovery and storage account failover.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/05/2024
 ms.author: kendownie
+# Customer intent: "As a cloud architect, I want to understand the disaster recovery and failover processes for Azure Files, so that I can implement a robust data protection strategy that ensures data availability during unplanned outages."
 ---
 
 # Disaster recovery and failover for Azure Files

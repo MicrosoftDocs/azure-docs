@@ -7,6 +7,7 @@ ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 03/25/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a network administrator, I want to set up alert-triggered packet captures using cloud-based monitoring tools, so that I can proactively analyze network traffic anomalies and respond to potential issues efficiently.
 ---
 
 # Monitor networks proactively with alerts and Azure Functions using packet capture

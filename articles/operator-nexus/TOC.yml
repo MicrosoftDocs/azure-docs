@@ -11,6 +11,8 @@
       href: concepts-resource-types.md
     - name: Compute overview
       href: concepts-compute.md
+    - name: Telco Input Template
+      href: concepts-telco-input-template.md
     - name: Storage
       expanded: false
       items:
@@ -48,6 +50,8 @@
           href: concepts-disable-border-gateway-protocol-neighbors.md
         - name: Network Packet Broker
           href: concepts-nexus-network-packet-broker.md
+        - name: Commit Workflow v2
+          href: concepts-commit-workflow-v2.md
         - name: Route Policy
           expanded: false
           items:
@@ -98,6 +102,11 @@
       href: concepts-security-access-identity.md
     - name: Availability
       href: concepts-nexus-availability.md
+    - name: Credential
+      expanded: false
+      items:
+        - name: Baseboard Management Controller Credential Rotation Overview
+          href: concepts-baseboard-management-controller-credential-rotation.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -230,6 +239,8 @@
           href: howto-append-custom-suffix-to-interface-descriptions.md
         - name: How to reboot Network Device in Azure Operator Nexus Network Fabric
           href: howto-reboot-network-device.md
+        - name: How to replace a device in Azure Operator Nexus Network Fabric
+          href: howto-replace-a-device-in-azure-operator-nexus-network-fabric.md
         - name: How to Configure NNF with Bring Your Own (BYO) Storage
           href: howto-configure-bring-your-own-storage-network-fabric.md
         - name: How to upgrade OS of terminal server
@@ -242,6 +253,10 @@
           href: concepts-bmp-log-streaming.md
         - name: How to enable / disable BMP log streaming Azure Operator Nexus
           href: howto-enable-log-streaming.md
+        - name: How to use Commit Workflow v2 in Azure Operator Nexus
+          href: howto-use-commit-workflow-v2.md
+        - name: How to set administrative lock or unlock for Network fabric
+          href: howto-set-administrative-lock-or-unlock-for-network-fabric.md
     - name: Cluster
       expanded: false
       items:
@@ -346,6 +361,8 @@
           href: howto-check-runtime-version.md
         - name: Site decommission checklist
           href: howto-decommission-nexus-instance-checklist.md
+        - name: Nexus Instance Deployment Template
+          href: howto-nexus-instance-deployment-template.md
 
 - name: Troubleshooting
   expanded: true
@@ -471,6 +488,8 @@
           href: reference-acl-examples.md
     - name: Operator Nexus SKUs
       href: reference-operator-nexus-skus.md
+    - name: Password By Key Vault Reference
+      href: reference-key-vault-credential.md
 - name: Release Notes
   items:
     - name: 2024

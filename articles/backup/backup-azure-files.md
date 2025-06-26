@@ -2,7 +2,7 @@
 title: Back up Azure Files in the Azure portal
 description: Learn how to use the Azure portal to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
@@ -31,7 +31,7 @@ Azure Files backup is a native cloud solution that protects your data and elimin
 * Ensure that the target storage account has the [supported configurations](azure-file-share-support-matrix.md#permitted-scope-for-copy-operationspreview).
 
 >[!IMPORTANT]
->To perform [Cross Subscription Backup (CSB) for protecting Azure Files (preview)](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the given prerequisites.
+>To perform [Cross Subscription Backup (CSB) for protecting Azure Files](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the given prerequisites.
 
 
 ## Configure the backup
@@ -184,4 +184,5 @@ Once the backup configuration is complete, you can [run an on-demand backup](tut
 ## Next steps
 
 * [Restore Azure Files using Azure portal](restore-afs.md).
-* [Manage Azure Files backups using Azure portal](manage-afs-backup.md).
+* Restore Azure Files using [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
+* Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

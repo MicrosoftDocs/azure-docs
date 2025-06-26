@@ -78,8 +78,6 @@
       href: https://youtu.be/OxmVds31qL8
     - name: Communicate between multiple apps
       href: connect-apps.md
-    - name: Reduce cold-start times
-      href: cold-start.md
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -171,6 +169,8 @@
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Workflow
+      href: workflows-overview.md
     - name: Troubleshooting
       items:
         - name: Overview
@@ -198,6 +198,14 @@
     - name: Overview
       href: observability.md
       displayName: Observability overview
+    - name: Troubleshoot and resolve issues with an agent
+      items:
+        - name: Overview
+          href: ../sre-agent/overview.md
+        - name: Use an SRE agent
+          href: ../sre-agent/usage.md
+        - name: Fix app issues with an SRE agent
+          href: ../sre-agent/troubleshoot-azure-container-apps.md
     - name: Application logging
       href: logging.md
     - name: Real time data
@@ -225,6 +233,8 @@
       displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Domains & certificates
   items:
   - name: Overview
@@ -260,6 +270,9 @@
           href: authentication-openid.md
 - name: Security
   items:
+    - name: Overview
+      href: security.md
+      displayName: Security overview
     - name: Manage secrets
       href: manage-secrets.md
     - name: Token store
@@ -315,7 +328,7 @@
           href: microservices-dapr.md
         - name: Deploy using ARM or Bicep
           href: microservices-dapr-azure-resource-manager.md
-        - name: Enable Dapr on an existing container app
+        - name: Configure Dapr on an existing container app
           href: enable-dapr.md
         - name: Deploy using the Dapr extension for Azure Functions
           href: dapr-functions-extension.md
@@ -354,7 +367,9 @@
         - name: Overview
           href: ingress-overview.md
           displayName: Ingress overview
-        - name: Configure ingress
+        - name: Environment-level configuration
+          href: ingress-environment-configuration.md
+        - name: Application-level configuration
           href: ingress-how-to.md
         - name: Configure IP restrictions
           href: ip-restrictions.md
@@ -506,6 +521,8 @@
       href: whats-new.md
 - name: API docs & reference
   items:
+    - name: Azure Container Apps extension release notes
+      href: container-apps-extension-release-notes.md
     - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI

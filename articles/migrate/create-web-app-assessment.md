@@ -4,7 +4,7 @@ description: Learn how to create assessment for web apps in Azure Migrate
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
-ms.date: 04/17/2025
+ms.date: 06/16/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy24
 monikerRange: migrate
@@ -13,7 +13,7 @@ monikerRange: migrate
 
 This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or Azure App Service using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month. 
 
-In this article, you learn how to: 
+In this article, you'll learn how to: 
 
 - Set up your Azure Migrate environment to assess web apps. 
 - Choose a set of related web applications discovered using the Azure Migrate appliance. 
@@ -22,7 +22,7 @@ In this article, you learn how to:
 
 ## Prerequisites 
 
-- Deploy and configure the Azure Migrate appliance in your [VMware](./vmware/tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical](tutorial-discover-physical.md) environments. 
+- Deploy and configure the Azure Migrate appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical](tutorial-discover-physical.md) environments. 
 - Check the [appliance requirements](migrate-appliance.md#appliance---vmware) and [URL access](migrate-appliance.md#url-access) to be provided. 
 - Follow [these steps](how-to-discover-sql-existing-project.md) to discover web apps running on your environment. 
 
@@ -30,13 +30,27 @@ In this article, you learn how to:
 
 To create an assessment, follow these steps.
 
-1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**. 
+1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**.  
+
+    :::image type="content" source="./media/create-web-app-assessment/create-workload-assessment.png" alt-text="Screenshot shows how to create web app assessment." lightbox="./media/create-web-app-assessment/create-workload-assessment.png" :::
+
 1. Select **Create assessment**.
+    
+    :::image type="content" source="./media/create-web-app-assessment/select-create-assessment.png" alt-text="Screenshot shows how to select and create assessment." lightbox="./media/create-web-app-assessment/select-create-assessment.png" :::
+
 1. Provide a suitable name for the assessment and select **Add workloads**. 
+
+    :::image type="content" source="./media/create-web-app-assessment/add-workloads.png" alt-text="Screenshot shows how to add workloads." lightbox="./media/create-web-app-assessment/add-workloads.png" :::
+
 1. Using the filters, select **web apps**, and select **Add**. 
+
+     :::image type="content" source="./media/create-web-app-assessment/add-workloads-using-filters.png" alt-text="Screenshot shows how to use filters and add workloads." lightbox="./media/create-web-app-assessment/add-workloads-using-filters.png" :::
+
 1. Review the selected workloads and select **Next**. 
+
+    :::image type="content" source="./media/create-web-app-assessment/review-selected-workload.png" alt-text="Screenshot shows how to review selected workloads." lightbox="./media/create-web-app-assessment/review-selected-workload.png" :::
 1. On the **General settings** tab, modify the assessment settings that are applicable across all Azure targets. 
- 
+
     | **Setting**  | **Possible Values**  | **Description**  |
     |----------|-------|---|
     | Default target location | All locations supported by Azure targets | Used to generate regional cost for Azure targets.   |
@@ -49,6 +63,8 @@ To create an assessment, follow these steps.
     | Microsoft Defender for Cloud | -                                                 | Includes Microsoft Defender for App Service cost in the month over month cost estimate.                                |
  
 1. On the **Advanced settings** tab, select **Edit defaults** to choose the preferred Azure targets and target-specific settings. 
+
+    :::image type="content" source="./media/create-web-app-assessment/edit-defaults.png" alt-text="Screenshot shows how to edit defaults to choose the preferred target." lightbox="./media/create-web-app-assessment/edit-defaults.png" :::
 
    **AKS Settings**
 
@@ -66,7 +82,9 @@ To create an assessment, follow these steps.
     | Isolation required | No   <br> Yes   | The Isolated plan allows you to run your apps in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard.|
 
 1. Review and create the assessment. 
- 
+
+     :::image type="content" source="./media/create-web-app-assessment/review-and-create.png" alt-text="Screenshot shows how to review and create the assessment." lightbox="./media/create-web-app-assessment/review-and-create.png" :::
+
 ## Next steps 
 
 - Understand the [assessment insights](https://microsoftapc.sharepoint.com/:w:/t/AzureCoreIDC/EQ8jF5QuAeJDqoYwJ8Y_k1IBOH8E2zjyGIChYANVLUxRdw?e=WIsw26) to make data-driven decisions for web app modernization. 

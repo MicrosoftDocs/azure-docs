@@ -1,12 +1,14 @@
 ---
 title: Provision Web App that uses Azure Cache for Redis using Bicep
 description: Use Bicep to deploy web app with Azure Cache for Redis.
-ms.custom: devx-track-bicep, ignite-2024
-ms.topic: conceptual
 ms.date: 05/24/2022
+ms.topic: conceptual
+ms.custom:
+  - devx-track-bicep
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Cache for Redis
-
 ---
 
 # Create a Web App plus Azure Cache for Redis using Bicep
@@ -32,7 +34,7 @@ With this Bicep file, you deploy:
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites)
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms)
 
-### Azure Managed Redis (Preview)
+### Azure Managed Redis
 
 ```bicep
 @description('Describes plan\'s pricing tier and instance size. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/')

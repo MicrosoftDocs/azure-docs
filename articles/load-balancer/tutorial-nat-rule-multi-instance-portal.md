@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 09/30/2024
 ms.custom: template-tutorial
+# Customer intent: "As a network administrator, I want to set up inbound NAT rules using an Azure Load Balancer, so that I can efficiently manage connections to multiple virtual machines in my virtual network."
 ---
 
 # Tutorial: Create inbound NAT rule V2 using the Azure portal

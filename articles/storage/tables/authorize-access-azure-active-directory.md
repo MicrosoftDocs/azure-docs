@@ -6,7 +6,7 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-table-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/09/2023
 ms.author: akashdubey
 ---
