@@ -6,7 +6,7 @@ ms.date: 05/21/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
-# Customer intent: "As a cloud administrator, I want to configure and manage backup for Azure Elastic SAN volumes, so that I can ensure data protection and seamless restoration against data loss in my cloud environment."
+# Customer intent: "As a cloud administrator, I want to understand the backup aspects before configuring and manage backup for Azure Elastic SAN volumes, so that I can ensure data protection and seamless restoration against data loss in my cloud environment."
 --- 
 
 # About Azure Elastic SAN backup (preview)

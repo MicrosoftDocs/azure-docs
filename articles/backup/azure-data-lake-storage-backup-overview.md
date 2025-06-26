@@ -6,7 +6,7 @@ ms.date: 04/16/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
-# Customer intent: As a data engineer, I want to configure vaulted backups for Azure Data Lake Storage, so that I can ensure reliable data protection and restore capabilities for my storage accounts.
+# Customer intent: As a data engineer, I want to understand the backup aspects before configuring vaulted backups for Azure Data Lake Storage, so that I can ensure reliable data protection and restore capabilities for my storage accounts.
 --- 
 
 # About Azure Data Lake Storage vaulted backup (preview)

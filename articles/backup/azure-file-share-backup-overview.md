@@ -9,7 +9,7 @@ ms.custom:
   - ignite-2023
 author: jyothisuri
 ms.author: jsuri
-# Customer intent: As an IT administrator managing cloud storage, I want to configure Azure Files backup using a Recovery Services vault, so that I can ensure data protection, streamline recovery processes, and eliminate on-premises maintenance overhead.
+# Customer intent: As an IT administrator managing cloud storage, I want to understand the backup aspects before configuring Azure Files backup using a Recovery Services vault, so that I can ensure data protection, streamline recovery processes, and eliminate on-premises maintenance overhead.
 ---
 
 # About Azure Files backup
