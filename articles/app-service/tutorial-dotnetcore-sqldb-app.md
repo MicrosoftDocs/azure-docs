@@ -4,6 +4,7 @@ title: Deploy ASP.NET Core and Azure SQL Database app
 description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
 ms.topic: tutorial
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 author: cephalin
 ms.author: cephalin
 ms.devlang: csharp

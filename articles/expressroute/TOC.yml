@@ -4,8 +4,10 @@
   items:
     - name: What is ExpressRoute?
       href: expressroute-introduction.md
-    - name: Well-Architected for ExpressRoute
-      href: /azure/well-architected/service-guides/azure-expressroute
+    - name: Architecture best practices for Azure ExpressRoute
+      href: /azure/well-architected/service-guides/azure-expressroute?toc=/azure/expressroute/toc.jso
+    - name: What is hybrid connectivity?
+      url: ../networking/hybrid-connectivity/hybrid-connectivity.md
     - name: Before you start using ExpressRoute
       items:
         - name: Prerequisites
