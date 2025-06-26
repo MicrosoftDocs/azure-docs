@@ -25,7 +25,7 @@
   - name: Network security
     items:
     - name: Network security overview
-      href: ../network-security/network-security.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../security/network-security.md?toc=/azure/networking/fundamentals/toc.json
     - name: Network security hub
       href: ../security/index.yml
   - name: Hybrid connectivity
