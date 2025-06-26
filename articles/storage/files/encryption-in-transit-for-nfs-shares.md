@@ -15,9 +15,9 @@ ms.custom:
 
 # Encryption in transit for NFS Azure file shares
  
-This article explains how you can encrypt data in transit for NFS Azure file shares.
+This article explains how you can encrypt data in transit for NFS Azure file shares. Azure Files NFS v4.1 volumes enhance network security by enabling secure TLS connections, protecting data in transit from interception, including MITM attacks.
 
-Azure Files NFS v4.1 volumes enhance network security by enabling secure TLS connections, protecting data in transit from interception, including MITM attacks.
+## Overview
 
 Using [Stunnel](https://www.stunnel.org/), an open-source TLS wrapper, Azure Files encrypts the TCP stream between the NFS client and Azure Files with strong encryption using AES-GCM, without needing Kerberos. This ensures data confidentiality while eliminating the need for complex setups or external authentication systems like Active Directory.
 
@@ -29,11 +29,23 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 - **AZNFS watchdog**: The AZNFS package runs a background job that ensures stunnel processes are running, automatically restarts terminated tunnels, and cleans up unused processes after all associated NFS mounts are unmounted.
 
+> [!IMPORTANT]
+>
+> AZNFS supported Linux distributions are:
+>
+> - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
+> - Centos7, Centos8
+> - RedHat7, RedHat8, RedHat9
+> - Rocky8, Rocky9
+> - SUSE (SLES 15)
+> - Oracle Linux
+> - Alma Linux
+
 ## Supported regions
 
-EiT is now Generally Available (GA) in all regions that support Azure Premium Files except China North3, New Zealand North, West Europe, US East2, US Central, US South and Korea Central. These remaining regions are currently running preview. You need to register your subscription per the instructions shared below to use EiT in the preview regions.
+EiT is now Generally Available (GA) in all regions that support Azure Premium Files except China North3, New Zealand North, West Europe, US East2, US Central, US South and Korea Central. These remaining regions are currently running preview. You must register your subscription per the instructions below to use EiT in the preview regions.
 
-## Register for preview
+### Register for preview
  
 To enable encryption in transit for your storage accounts and NFS shares in the preview regions (China North3, New Zealand North, West Europe, US East2, US Central, US South, and Korea Central), you must register for the preview. No registration is needed in the GA regions.
 
@@ -72,18 +84,6 @@ By enabling the **Secure transfer required** setting on the storage account, you
 
 However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the **Secure transfer** setting must remain OFF.
 
-> [!IMPORTANT]
->
-> AZNFS supported Linux distributions are:
->
-> - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
-> - Centos7, Centos8
-> - RedHat7, RedHat8, RedHat9
-> - Rocky8, Rocky9
-> - SUSE (SLES 15)
-> - Oracle Linux
-> - Alma Linux
-
 ## Encrypt data in transit for NFS shares
 
 You can encrypt data in transit for NFS Azure file shares by using the Azure portal or Azure CLI.
@@ -94,12 +94,12 @@ Azure portal offers a step-by-step, ready-to-use installation script tailored to
 
 :::image type="content" source="./media/encryption-in-transit-nfs-shares/storage-account-settings.png" alt-text="Screenshot showing how to enable Secure transfer on a storage account." lightbox="./media/encryption-in-transit-nfs-shares/storage-account-settings.png":::
 
-To support scenarios requiring both TLS and non-TLS connections within the same storage account, ensure that the Secure transfer required setting remains disabled.
+To support scenarios requiring both TLS and non-TLS connections within the same storage account, ensure that the *Secure transfer required* setting remains disabled.
 
 ### Encrypt data in transit for NFS shares using Azure CLI
- 
+
 Follow these steps to encrypt data in transit:
- 
+
 1. Ensure the required AZNFS mount helper package is installed on the client.
 1. Mount the NFS file share with TLS encryption.
 1. Verify that the encryption of data succeeded.
