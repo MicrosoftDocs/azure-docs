@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.date: 06/13/2025
 ms.topic: concept-article
 ms.author: normesta
+# Customer intent: "As a data analyst, I want to estimate the costs associated with retrieving and analyzing archived data from cloud storage, so that I can understand the financial implications and optimize my data retrieval strategies."
 ---
 
 # Cost estimate: Retrieve data from archive storage for analysis 
