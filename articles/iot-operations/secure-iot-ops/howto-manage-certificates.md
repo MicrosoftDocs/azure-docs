@@ -1,6 +1,6 @@
 ---
 title: Manage certificates
-description: Azure IoT Operations uses TLS to encrypt communication. Learn how to manage certificates for internal and external communications, and how to bring your own certificate authority (CA) issuer for a production deployment.
+description: Azure IoT Operations uses TLS to encrypt communication. Learn how to manage certificates for internal and...or for OPC UA uses the certificate management experience to configure OPC UA client application authentication to an external OPC UA server. Azure IoT Operations manages two distinct certificate stores for the connector for OPC UA: one for the *Trust list* and one for the *Issuer list*. To learn more about how the connector for OPC UA uses certificates to establish mutual trust with an OPC UA server, see [OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/overview-opc-ua-connector-certificates-management.md).external communications, and how to bring your own certificate authority (CA) issuer for a production deployment.
 author: asergaz
 ms.author: sergaz
 ms.topic: how-to

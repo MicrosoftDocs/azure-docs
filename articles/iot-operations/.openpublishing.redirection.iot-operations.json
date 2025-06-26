@@ -107,7 +107,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-opcua-broker-certificates-management.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opcua-broker-certificates-management",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opc-ua-connector-certificates-management",
             "redirect_document_id": true
         },
         {
@@ -133,6 +133,11 @@
         {
             "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md",
             "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/overview-opcua-broker-certificates-management.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opc-ua-connector-certificates-management",
             "redirect_document_id": true
         },
         {
