@@ -66,19 +66,6 @@ The following scenarios illustrate how KQL queries in the Microsoft Sentinel Lak
 | Explore asset data from sources beyond traditional security logs | Enrich investigation using asset inventory such as Microsoft Entra ID objects and Azure resources. | Analysts can use KQL to query identity and resource asset information, such as Microsoft Entra ID users, apps, groups, or Azure Resources inventories, to correlate logs for broader context that complements existing security data. |
 
 
-
-## Considerations and limitations
-
-When using KQL queries in the Microsoft Sentinel Lake, be aware of the following constraints:
-
-<< use include file for known limitations >>
-- Supported Kusto commands.
-- Using out-of-the-box or custom functions isn't currently supported in Lake Explorer.
-- Calling external data via KQL query in Lake isn't supported.
-- `ingestion_time()` function isn't supported on tables in Lake.
-- Kusto interactive query limitations such as default 10-minutes timeout or 64MB of data are applied.
-- Interactive queries are limited to show up to 30,000 results. To obtain results beyond 30,000 rows, it is recommended to submit a KQL job.
-
 ## Related content
 
 - [Microsoft Sentinel data lake overview (Preview)](sentinel-lake-overview.md)
