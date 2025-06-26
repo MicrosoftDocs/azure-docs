@@ -8,14 +8,11 @@ ms.date: 06/12/2025
 ms.topic: conceptual
 ms.service: azure-maps
 ms.subservice: routing
-zone_pivot_groups: azure-maps-coverage
 ---
 
 # Azure Maps Route service coverage
 
 This article provides coverage information for the Azure Maps Route service. Upon a search query, Azure Maps returns an optimal route from location A to location B. You're provided with accurate travel times, live updates of travel information, and route instructions. You can also add more search parameters such as current traffic, vehicle type, and conditions to avoid. The optimization of the route depends on the region. That's because, Azure Maps has various levels of information and accuracy for different regions. The tables in this article list the regions and what kind of information you can request for them.
-
-::: zone pivot="service-latest"
 
 ## Route directions
 
@@ -39,29 +36,6 @@ The Route Range API generates a polygon that illustrates the area accessible fro
 
 Snap to Roads processes GPS point data, represented by longitude and latitude coordinates, to generate points that align with existing roadways on a map. This process, known as "snapping to roads," creates a series of objects that trace a path closely following the road network. For more information, see [Post Snap To Roads](/rest/api/maps/route/post-snap-to-roads) in the REST API documentation.
 
-::: zone-end
-
-::: zone pivot="service-previous"
-<!-----------------------------  ROUTING v1   ---------------------------------------------------------------------------->
-
-## Calculate Route
-
-The Calculate Route service calculates a route between an origin and a destination, passing through waypoints if they're specified. For more information, see [Get Route Directions] in the REST API documentation.
-
-## Calculate Reachable Range
-
-The Calculate Reachable Range service calculates a set of locations that can be reached from the origin point. For more information, see [Get Route Range] in the REST API documentation.
-
-## Matrix Routing
-
-The Matrix Routing service calculates travel time and distance between all possible pairs in a list of origins and destinations. It doesn't provide any detailed information about the routes. You can get one-to-many, many-to-one, or many-to-many route options simply by varying the number of origins and/or destinations. For more information, see [Matrix Routing service](/rest/api/maps/route/post-route-matrix?view=rest-maps-1.0) in the REST API documentation.
-
-## Traffic
-
-Delivers real-time information to show current traffic conditions, including congestion, accidents, road closures, and a detailed view of the current speed and travel times across the entire road network. For more information, see [Traffic service](/rest/api/maps/traffic?view=rest-maps-1.0) in the REST API documentation.
-
-::: zone-end
-
 ## Truck routes
 
 The Azure Maps Truck Routing API provides travel routes that take truck attributes into consideration. Truck attributes include things such as width, height, weight, turning radius and type of cargo. This is important as not all trucks can travel the same routes as other vehicles. Here are some examples:
@@ -76,22 +50,11 @@ Azure Maps supports truck routing in the countries/regions indicated in the foll
 
 ## Azure Maps Route service coverage tables
 
-::: zone pivot="service-previous"
-
-<!------------------------------------------------------------------
-### Legend
-
-| Symbol | Meaning                          |
-|:------:|----------------------------------|
-|   ✓    | Region has full routing data.    |
-|   ◑    | Region has partial routing data. |
----------------------------------------------------------------->
-
 The following tables provide coverage information for version 1 of the Azure Maps routing service:
-<!-------------------------------ROUTING------------------------------------------------------------------------------->
+
 ### Americas
 
-| Country/Region         | Calculate Route, Reachable Range & Matrix Routing | Real-time Traffic | Truck Route |
+| Country/Region         | Route directions, range & matrix, snap to roads  | Real-time traffic | Truck route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Anguilla                               |                ✓                  |                   |             |
 | Antigua & Barbuda                      |                ✓                  |                   |             |
@@ -116,7 +79,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Dominican Republic                     |                ✓                  |                   |             |
 | Ecuador                                |                ✓                  |                   |             |
 | El Salvador                            |                ✓                  |                   |             |
-| Falkland Islands                       |                ✓                  |                   |             |
+| Falkland Islands<sup>1</sup>           |                ✓                  |                   |             |
 | French Guiana                          |                ✓                  |                   |             |
 | Grenada                                |                ✓                  |                   |             |
 | Guadeloupe                             |                ✓                  |                   |             |
@@ -134,7 +97,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Peru                                   |                ✓                  |         ✓         |             |
 | Puerto Rico                            |                ✓                  |                   |             |
 | Sint Maarten                           |                ✓                  |                   |             |
-| South Georgia & South Sandwich Islands |                ✓                  |                   |             |
+| South Georgia & South Sandwich Islands<sup>1</sup>|     ✓                  |                   |             |
 | St. Barthélemy                         |                ✓                  |                   |             |
 | St. Kitts & Nevis                      |                ✓                  |                   |             |
 | St. Lucia                              |                ✓                  |                   |             |
@@ -149,63 +112,73 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Uruguay                                |                ✓                  |         ✓         |     ✓      |
 | Venezuela                              |                ✓                  |                   |             |
 
+<sup>1</sup> Country/region has partial road data with at least coverage for major roads.
+
 ### Asia Pacific
 
-| Country/Region         | Calculate Route, Reachable Range & Matrix Routing | Real-time Traffic | Truck Route |
+| Country/Region         | Route directions, range & matrix, snap to roads | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | American Samoa                         |                ✓                  |                   |             |
 | Australia                              |                ✓                  |         ✓         |     ✓      |
-| Bangladesh                             |                ✓                  |                   |             |
-| Bhutan                                 |                ✓                  |                   |             |
+| Bangladesh<sup>1</sup>                 |                ✓                  |                   |             |
+| Bhutan<sup>1</sup>                     |                ✓                  |                   |             |
 | Brunei                                 |                ✓                  |         ✓         |             |
 | Cambodia                               |                ✓                  |                   |             |
-| China                                  |                ✓                  |                   |             |
+| China<sup>3</sup>                      |                ✓                  |                   |             |
 | Christmas Island                       |                ✓                  |                   |             |
-| Cocos (Keeling) Islands                |                ✓                  |                   |             |
-| Comoros                                |                ✓                  |                   |             |
+| Cocos (Keeling) Islands<sup>1</sup>    |                ✓                  |                   |             |
+| Comoros<sup>1</sup>                    |                ✓                  |                   |             |
 | Cook Islands                           |                ✓                  |                   |             |
 | Fiji                                   |                ✓                  |                   |             |
-| French Polynesia                       |                ✓                  |                   |             |
+| French Polynesia<sup>1</sup>           |                ✓                  |                   |             |
 | Guam                                   |                ✓                  |                   |             |
 | Hong Kong SAR                          |                ✓                  |         ✓         |             |
 | India                                  |                ✓                  |         ✓         |             |
 | Indonesia                              |                ✓                  |         ✓         |     ✓      |
-| Kiribati                               |                ✓                  |                   |             |
+| Kiribati<sup>1</sup>                   |                ✓                  |                   |             |
 | Laos                                   |                ✓                  |                   |             |
 | Macao SAR                              |                ✓                  |         ✓         |             |
 | Malaysia                               |                ✓                  |         ✓         |      ✓     |
-| Micronesia                             |                ✓                  |                   |             |
-| Mongolia                               |                ✓                  |                   |             |
+| Micronesia<sup>1</sup>                 |                ✓                  |                   |             |
+| Mongolia<sup>1</sup>                   |                ✓                  |                   |             |
 | Myanmar                                |                ✓                  |                   |             |
-| Nauru                                  |                ✓                  |                   |             |
-| Nepal                                  |                ✓                  |                   |             |
-| New Caledonia                          |                ✓                  |                   |             |
+| Nauru<sup>1</sup>                      |                ✓                  |                   |             |
+| Nepal<sup>1</sup>                      |                ✓                  |                   |             |
+| New Caledonia<sup>1</sup>              |                ✓                  |                   |             |
 | New Zealand                            |                ✓                  |         ✓         |     ✓      |
-| Niue                                   |                ✓                  |                   |             |
-| Norfolk Island                         |                ✓                  |                   |             |
+| Niue<sup>1</sup>                       |                ✓                  |                   |             |
+| Norfolk Island<sup>1</sup>             |                ✓                  |                   |             |
+| North Korea<sup>1</sup>                |               ✓                   |                   |             |
 | Northern Mariana Islands               |                ✓                  |                   |             |
-| Pakistan                               |                ✓                  |                   |             |
-| Palau                                  |                ✓                  |                   |             |
-| Papua New Guinea                       |                ✓                  |                   |             |
+| Pakistan<sup>1</sup>                   |                ✓                  |                   |             |
+| Palau<sup>1</sup>                      |                ✓                  |                   |             |
+| Papua New Guinea<sup>1</sup>           |                ✓                  |                   |             |
 | Philippines                            |                ✓                  |         ✓         |      ✓     |
-| Pitcairn Islands                       |                ✓                  |                   |             |
-| Samoa                                  |                ✓                  |                   |             |
+| Pitcairn Islands<sup>1</sup>           |                ✓                  |                   |             |
+| Samoa<sup>1</sup>                      |                ✓                  |                   |             |
 | Singapore                              |                ✓                  |         ✓         |     ✓      |
-| Solomon Islands                        |                ✓                  |                   |             |
-| Sri Lanka                              |                ✓                  |                   |             |
+| Solomon Islands<sup>1</sup>            |                ✓                  |                   |             |
+| South Korea<sup>2</sup>                |               ✓                   |         ✓         |     ✓      |
+| Sri Lanka<sup>1</sup>                  |                ✓                  |                   |             |
 | Taiwan                                 |                ✓                  |         ✓         |      ✓     |
 | Thailand                               |                ✓                  |         ✓         |      ✓     |
-| Timor-Leste                            |                ✓                  |                   |             |
-| Tokelau                                |                ✓                  |                   |             |
-| Tonga                                  |                ✓                  |                   |             |
+| Timor-Leste<sup>1</sup>                |                ✓                  |                   |             |
+| Tokelau<sup>1</sup>                    |                ✓                  |                   |             |
+| Tonga<sup>1</sup>                      |                ✓                  |                   |             |
 | Tuvalu                                 |                ✓                  |                   |             |
-| Vanuatu                                |                ✓                  |                   |             |
+| Vanuatu<sup>1</sup>                    |                ✓                  |                   |             |
 | Vietnam                                |                ✓                  |         ✓         |      ✓     |
-| Wallis & Futuna                        |                ✓                  |                   |             |
+| Wallis & Futuna<sup>1</sup>            |                ✓                  |                   |             |
+
+<sup>1</sup> Country/region has partial road data with at least coverage for major roads.
+
+<sup>2</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
+
+<sup>3</sup> <!--(Placeholder - real text is coming soon) Route information is unavailable for China when in China.-->
 
 ### Europe
 
-| Country/Region         | Calculate Route, Reachable Range & Matrix Routing | Real-time Traffic | Truck Route |
+| Country/Region         | Route directions, range & matrix, snap to roads | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Albania                                |                ✓                  |                   |     ✓       |
 | Andorra                                |                ✓                  |         ✓         |     ✓      |
@@ -215,7 +188,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Belarus                                |                ✓                  |         ✓         |             |
 | Belgium                                |                ✓                  |         ✓         |     ✓      |
 | Bosnia & Herzegovina                   |                ✓                  |         ✓         |     ✓      |
-| Bouvet Island                          |                ✓                  |                   |             |
+| Bouvet Island<sup>1</sup>              |                ✓                  |                   |             |
 | Bulgaria                               |                ✓                  |         ✓         |     ✓      |
 | Croatia                                |                ✓                  |         ✓         |     ✓      |
 | Cyprus                                 |                ✓                  |                   |     ✓       |
@@ -229,7 +202,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Germany                                |                ✓                  |         ✓         |     ✓      |
 | Gibraltar                              |                ✓                  |         ✓         |     ✓      |
 | Greece                                 |                ✓                  |         ✓         |     ✓      |
-| Greenland                              |                ✓                  |                   |             |
+| Greenland<sup>1</sup>                  |                ✓                  |                   |             |
 | Guernsey                               |                ✓                  |                   |             |
 | Hungary                                |                ✓                  |         ✓         |     ✓      |
 | Iceland                                |                ✓                  |         ✓         |             |
@@ -238,7 +211,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Italy                                  |                ✓                  |         ✓         |     ✓      |
 | Jersey                                 |                ✓                  |                   |             |
 | Kazakhstan                             |                ✓                  |         ✓         |             |
-| Kyrgyzstan                             |                ✓                  |                   |             |
+| Kyrgyzstan<sup>1</sup>                 |                ✓                  |                   |             |
 | Latvia                                 |                ✓                  |         ✓         |     ✓      |
 | Liechtenstein                          |                ✓                  |         ✓         |     ✓      |
 | Lithuania                              |                ✓                  |         ✓         |     ✓      |
@@ -261,45 +234,47 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Spain                                  |                ✓                  |         ✓         |     ✓      |
 | Sweden                                 |                ✓                  |         ✓         |     ✓      |
 | Switzerland                            |                ✓                  |         ✓         |     ✓      |
-| Tajikistan                             |                ✓                  |                   |             |
+| Tajikistan<sup>1</sup>                 |                ✓                  |                   |             |
 | Türkiye                                |                ✓                  |         ✓         |     ✓      |
-| Turkmenistan                           |                ✓                  |                   |             |
+| Turkmenistan<sup>1</sup>               |                ✓                  |                   |             |
 | Ukraine                                |                ✓                  |         ✓         |             |
 | United Kingdom                         |                ✓                  |         ✓         |     ✓      |
-| Uzbekistan                             |                ✓                  |                   |             |
+| Uzbekistan<sup>1</sup>                 |                ✓                  |                   |             |
 | Vatican City                           |                ✓                  |         ✓         |     ✓      |
+
+<sup>1</sup> Country/region has partial road data with at least coverage for major roads.
 
 ### Middle East & Africa
 
-| Country/Region         | Calculate Route, Reachable Range & Matrix Routing | Real-time Traffic | Truck Route |
+| Country/Region         | Route directions, range & matrix, snap to roads | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
-| Afghanistan                            |                ✓                  |                   |             |
+| Afghanistan<sup>1</sup>                |                ✓                  |                   |             |
 | Algeria                                |                ✓                  |                   |             |
 | Angola                                 |                ✓                  |                   |             |
 | Bahrain                                |                ✓                  |         ✓         |             |
-| Benin                                  |                ✓                  |                   |             |
+| Benin<sup>1</sup>                      |                ✓                  |                   |             |
 | Botswana                               |                ✓                  |                   |             |
-| Burkina Faso                           |                ✓                  |                   |             |
+| Burkina Faso<sup>1</sup>               |                ✓                  |                   |             |
 | Burundi                                |                ✓                  |                   |             |
-| Cameroon                               |                ✓                  |                   |             |
+| Cameroon<sup>1</sup>                   |                ✓                  |                   |             |
 | Cabo Verde                             |                ✓                  |                   |             |
-| Central African Republic               |                ✓                  |                   |             |
-| Chad                                   |                ✓                  |                   |             |
-| Congo                                  |                ✓                  |                   |             |
-| Congo (DRC)                            |                ✓                  |                   |             |
+| Central African Republic<sup>1</sup>   |                ✓                  |                   |             |
+| Chad<sup>1</sup>                       |                ✓                  |                   |             |
+| Congo<sup>1</sup>                      |                ✓                  |                   |             |
+| Congo (DRC)<sup>1</sup>                |                ✓                  |                   |             |
 | Côte d'Ivoire                          |                ✓                  |                   |             |
-| Djibouti                               |                ✓                  |                   |             |
+| Djibouti<sup>1</sup>                   |                ✓                  |                   |             |
 | Egypt                                  |                ✓                  |         ✓         |             |
-| Equatorial Guinea                      |                ✓                  |                   |             |
-| Eritrea                                |                ✓                  |                   |             |
-| Ethiopia                               |                ✓                  |                   |             |
-| French Southern Territories            |                ✓                  |                   |             |
-| Gabon                                  |                ✓                  |                   |             |
-| Gambia                                 |                ✓                  |                   |             |
+| Equatorial Guinea<sup>1</sup>          |                ✓                  |                   |             |
+| Eritrea<sup>1</sup>                    |                ✓                  |                   |             |
+| Ethiopia<sup>1</sup>                   |                ✓                  |                   |             |
+| French Southern Territories<sup>1</sup>|                ✓                  |                   |             |
+| Gabon<sup>1</sup>                      |                ✓                  |                   |             |
+| Gambia<sup>1</sup>                     |                ✓                  |                   |             |
 | Ghana                                  |                ✓                  |                   |             |
-| Guinea                                 |                ✓                  |                   |             |
-| Guinea-Bissau                          |                ✓                  |                   |             |
-| Iran                                   |                ✓                  |                   |             |
+| Guinea<sup>1</sup>                     |                ✓                  |                   |             |
+| Guinea-Bissau<sup>1</sup>              |                ✓                  |                   |             |
+| Iran<sup>1</sup>                       |                ✓                  |                   |             |
 | Iraq                                   |                ✓                  |                   |             |
 | Israel                                 |                ✓                  |         ✓         |      ✓     |
 | Jordan                                 |                ✓                  |                   |             |
@@ -307,39 +282,39 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Kuwait                                 |                ✓                  |         ✓         |             |
 | Lebanon                                |                ✓                  |                   |             |
 | Lesotho                                |                ✓                  |         ✓         |             |
-| Liberia                                |                ✓                  |                   |             |
-| Libya                                  |                ✓                  |                   |             |
-| Madagascar                             |                ✓                  |                   |             |
+| Liberia<sup>1</sup>                    |                ✓                  |                   |             |
+| Libya<sup>1</sup>                      |                ✓                  |                   |             |
+| Madagascar<sup>1</sup>                 |                ✓                  |                   |             |
 | Malawi                                 |                ✓                  |                   |             |
-| Maldives                               |                ✓                  |                   |             |
-| Mali                                   |                ✓                  |                   |             |
-| Marshall Islands                       |                ✓                  |                   |             |
-| Mauritania                             |                ✓                  |                   |             |
+| Maldives<sup>1</sup>                   |                ✓                  |                   |             |
+| Mali<sup>1</sup>                       |                ✓                  |                   |             |
+| Marshall Islands<sup>1</sup>           |                ✓                  |                   |             |
+| Mauritania<sup>1</sup>                 |                ✓                  |                   |             |
 | Mauritius                              |                ✓                  |                   |             |
 | Mayotte                                |                ✓                  |                   |             |
 | Morocco                                |                ✓                  |         ✓         |             |
 | Mozambique                             |                ✓                  |         ✓         |             |
 | Namibia                                |                ✓                  |                   |             |
-| Niger                                  |                ✓                  |                   |             |
+| Niger<sup>1</sup>                      |                ✓                  |                   |             |
 | Nigeria                                |                ✓                  |         ✓         |             |
 | Oman                                   |                ✓                  |         ✓         |             |
 | Qatar                                  |                ✓                  |         ✓         |             |
 | Réunion                                |                ✓                  |                   |             |
 | Rwanda                                 |                ✓                  |                   |             |
-| São Tomé & Príncipe                    |                ✓                  |                   |             |
+| São Tomé & Príncipe<sup>1</sup>        |                ✓                  |                   |             |
 | Saudi Arabia                           |                ✓                  |         ✓         |             |
 | Senegal                                |                ✓                  |                   |             |
 | Seychelles                             |                ✓                  |                   |             |
-| Sierra Leone                           |                ✓                  |                   |             |
-| Somalia                                |                ✓                  |                   |             |
+| Sierra Leone<sup>1</sup>               |                ✓                  |                   |             |
+| Somalia<sup>1</sup>                    |                ✓                  |                   |             |
 | South Africa                           |                ✓                  |         ✓         |      ✓     |
-| South Sudan                            |                ✓                  |                   |             |
-| St. Helena, Ascension, and Tristan da Cunha |           ✓                  |                   |             |
-| Sudan                                  |                ✓                  |                   |             |
+| South Sudan<sup>1</sup>                |                ✓                  |                   |             |
+| St. Helena, Ascension, and Tristan da Cunha<sup>1</sup>|           ✓                  |                   |             |
+| Sudan<sup>1</sup>                      |                ✓                  |                   |             |
 | Swaziland                              |                ✓                  |                   |             |
-| Syria                                  |                ✓                  |                   |             |
+| Syria<sup>1</sup>                      |                ✓                  |                   |             |
 | Tanzania                               |                ✓                  |                   |             |
-| Togo                                   |                ✓                  |                   |             |
+| Togo<sup>1</sup>                       |                ✓                  |                   |             |
 | Tunisia                                |                ✓                  |                   |             |
 | Uganda                                 |                ✓                  |                   |             |
 | United Arab Emirates                   |                ✓                  |         ✓         |             |
@@ -347,10 +322,9 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Zambia                                 |                ✓                  |                   |             |
 | Zimbabwe                               |                ✓                  |                   |             |
 
-::: zone-end
+<sup>1</sup> Country/region has partial road data with at least coverage for major roads.
 
-<!-----------------------------  ROUTING v2025-01-01   --------------------------------------------------------------------->
-::: zone pivot="service-latest"
+<!-----------------------------  ::: zone pivot="service-latest"   ---------------------------------------------------------------------
 
 The Azure Maps Routing service contains different levels of geographic coverage for every country/region in the world.
 
@@ -609,9 +583,10 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Zimbabwe                               |               ✓                  |                    |                        |          ✓           |
 
 <sup>1</sup> Country/region has partial road data with at least coverage for major roads.
+
 <sup>2</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
 
-::: zone-end
+::: zone-end -------------------------------------------------------------------------------------------------------------------------->
 
 ## Next steps
 
@@ -625,8 +600,6 @@ For more coverage tables, see:
 
 [Azure Maps Route Service]: /rest/api/maps/route/
 [Geocoding]: geocoding-coverage.md
-[Get Route Directions]: /rest/api/maps/route/get-route-directions
-[Get Route Range]: /rest/api/maps/route/get-route-range
 [Matrix Routing service]: /rest/api/maps/route/post-route-matrix
 [Render]: render-coverage.md
 [Routing service]: /rest/api/maps/route
