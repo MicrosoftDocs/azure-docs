@@ -428,6 +428,8 @@
           items:
             - name: Due To Bare Metal Machine Power Failure
               href: troubleshoot-kubernetes-cluster-stuck-workloads-due-to-power-failure.md
+        - name: Troubleshoot a Kubernetes Cluster Node in NotReady,Scheduling Disabled after Runtime Upgrade
+          href: troubleshoot-kubernetes-cluster-node-cordoned.md
     - name: Storage Appliance
       expanded: false
       items:
