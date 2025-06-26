@@ -19,6 +19,7 @@ One of the simplest ways to deploy code is from your local computer. This articl
 
 To complete the steps in this article, you need:
 
+- An Azure account and subscription with permission to create App Services resources. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - [Git installed](https://www.git-scm.com/downloads), and a local Git repository that contains app code to deploy.
 
   You can clone a sample Node.js app repository by running the following command in your local Bash terminal window:
@@ -27,23 +28,8 @@ To complete the steps in this article, you need:
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
   ```
 
-# [Azure CLI](#tab/cli)
-
-To run the Azure CLI commands, you need:
-
-- An Azure account and subscription with permission to create App Services resources. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- The latest version of the [Azure CLI](/cli/azure/install-azure-cli) installed on your local machine. Sign in to Azure using [az login](/cli/azure/reference-index#az-login).
-
-# [Azure PowerShell](#tab/powershell)
-
-To run the Azure PowerShell commands, you need:
-
-- An Azure account and subscription with permission to create App Services resources. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- The latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) installed. Sign in to Azure using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
-
-# [Azure portal](#tab/portal)
-
-- An Azure account and subscription with permission to create App Services resources. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+- If you want to use the Azure CLI commands, you need the latest version of the [Azure CLI installed](/cli/azure/install-azure-cli) on your local machine. Sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+- If you want to run the Azure PowerShell commands, you need the latest version of [Azure PowerShell installed](/powershell/azure/install-azure-powershell). Sign in to Azure using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ### Deployment user
 
