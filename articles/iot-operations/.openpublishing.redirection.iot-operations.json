@@ -111,11 +111,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opcua.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opcua",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opcua-certificates-infrastructure.md",
             "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure",
             "redirect_document_id": true

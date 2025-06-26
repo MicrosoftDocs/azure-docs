@@ -79,7 +79,7 @@ items:
           href: discover-manage-assets/concept-opcua-message-format.md
           displayName: OPC UA, payload
         - name: Configure OPC UA assets and devices
-          href: discover-manage-assets/howto-configure-opcua.md
+          href: discover-manage-assets/howto-configure-opc-ua.md
           displayName: operations, experience, OPC UA, device, data points, events
         - name: OPC UA application authentication overview
           href: discover-manage-assets/overview-opcua-broker-certificates-management.md

@@ -48,7 +48,7 @@ An Azure IoT Operations deployment can include an optional built-in OPC PLC simu
 
 1. Select **devices** and then **Create device**:
 
-    :::image type="content" source="media/howto-configure-opcua/asset-endpoints.png" alt-text="Screenshot that shows the devices page in the operations experience.":::
+    :::image type="content" source="media/howto-configure-opc-ua/asset-endpoints.png" alt-text="Screenshot that shows the devices page in the operations experience." lightbox="media/howto-configure-opc-ua/asset-endpoints.png":::
 
     > [!TIP]
     > You can use the filter box to search for devices.
@@ -118,7 +118,7 @@ To add an asset in the operations experience:
 
 1. Select the **Assets** tab. Before you create any assets, you see the following screen:
 
-    :::image type="content" source="media/howto-configure-opcua/create-asset-empty.png" alt-text="Screenshot that shows an empty Assets tab in the operations experience.":::
+    :::image type="content" source="media/howto-configure-opc-ua/create-asset-empty.png" alt-text="Screenshot that shows an empty Assets tab in the operations experience." lightbox="media/howto-configure-opc-ua/create-asset-empty.png":::
 
     > [!TIP]
     > You can use the filter box to search for assets.
@@ -143,7 +143,7 @@ To add an asset in the operations experience:
     - Serial number
     - Documentation URI
 
-    :::image type="content" source="media/howto-configure-opcua/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the operations experience.":::
+    :::image type="content" source="media/howto-configure-opc-ua/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the operations experience." lightbox="media/howto-configure-opc-ua/create-asset-details.png":::
 
 1. Select **Next** to go to the **Add data points** page.
 
@@ -166,7 +166,7 @@ Now you can define the data points associated with the asset. To add OPC UA data
       - Sampling Interval (milliseconds). You can override the default value for this tag.
       - Queue size. You can override the default value for this tag.
 
-    :::image type="content" source="media/howto-configure-opcua/add-tag.png" alt-text="Screenshot that shows adding data points in the operations experience.":::
+    :::image type="content" source="media/howto-configure-opc-ua/add-tag.png" alt-text="Screenshot that shows adding data points in the operations experience." lightbox="media/howto-configure-opc-ua/add-tag.png":::
 
     The following table shows some example tag values that you can use with the built-in OPC PLC simulator:
 
@@ -195,17 +195,17 @@ You can import up to 1000 OPC UA data points at a time from a CSV file:
 
 1. Select **Add tag or CSV > Import CSV (.csv) file**. Select the CSV file you created and select **Open**. The data points defined in the CSV file are imported:
 
-    :::image type="content" source="media/howto-configure-opcua/import-complete.png" alt-text="A screenshot that shows the completed import from the Excel file in the operations experience.":::
+    :::image type="content" source="media/howto-configure-opc-ua/import-complete.png" alt-text="A screenshot that shows the completed import from the Excel file in the operations experience." lightbox="media/howto-configure-opc-ua/import-complete.png":::
 
     If you import a CSV file that contains data points that are duplicates of existing data points, the operations experience displays the following message:
 
-    :::image type="content" source="media/howto-configure-opcua/import-duplicates.png" alt-text="A screenshot that shows the error message when you import duplicate tag definitions in the operations experience.":::
+    :::image type="content" source="media/howto-configure-opc-ua/import-duplicates.png" alt-text="A screenshot that shows the error message when you import duplicate tag definitions in the operations experience." lightbox="media/howto-configure-opc-ua/import-duplicates.png":::
 
     You can either replace the duplicate data points and add new data points from the import file, or you can cancel the import.
 
 1. To export all the data points from an asset to a CSV file, select **Export all** and choose a location for the file:
 
-    :::image type="content" source="media/howto-configure-opcua/export-data-points.png" alt-text="A screenshot that shows how to export tag definitions from an asset in the operations experience.":::
+    :::image type="content" source="media/howto-configure-opc-ua/export-data-points.png" alt-text="A screenshot that shows how to export tag definitions from an asset in the operations experience." lightbox="media/howto-configure-opc-ua/export-data-points.png":::
 
 1. On the **data points** page, select **Next** to go to the **Add events** page.
 
@@ -265,7 +265,7 @@ Now you can define the events associated with the asset. To add OPC UA events:
         - Log
       - Queue size. You can override the default value for this tag.
 
-    :::image type="content" source="media/howto-configure-opcua/add-event.png" alt-text="Screenshot that shows adding events in the operations experience.":::
+    :::image type="content" source="media/howto-configure-opc-ua/add-event.png" alt-text="Screenshot that shows adding events in the operations experience." lightbox="media/howto-configure-opc-ua/add-event.png":::
 
 1. Select **Manage default settings** to configure default event settings for the asset. These settings apply to all the OPC UA events that belong to the asset. You can override these settings for each event that you add. Default event settings include:
 
@@ -287,7 +287,7 @@ On the **Events** page, select **Next** to go to the **Review** page.
 
 Review your asset and OPC UA tag and event details and make any adjustments you need:
 
-:::image type="content" source="media/howto-configure-opcua/review-asset.png" alt-text="A screenshot that shows how to review your asset, data points, and events in the operations experience.":::
+:::image type="content" source="media/howto-configure-opc-ua/review-asset.png" alt-text="A screenshot that shows how to review your asset, data points, and events in the operations experience." lightbox="media/howto-configure-opc-ua/review-asset.png":::
 
 # [Azure CLI](#tab/cli)
 
@@ -314,17 +314,17 @@ You can also use the a[z iot ops asset event](/cli/azure/iot/ops/asset/event) co
 
 Find and select the asset you created previously. Use the **Asset details**, **data points**, and **Events** tabs to make any changes:
 
-:::image type="content" source="media/howto-configure-opcua/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the operations experience.":::
+:::image type="content" source="media/howto-configure-opc-ua/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the operations experience." lightbox="media/howto-configure-opc-ua/asset-update-property-save.png":::
 
 On the **data points** tab, you can add data points, update existing data points, or remove data points.
 
 To update a tag, select an existing tag and update the tag information. Then select **Update**:
 
-:::image type="content" source="media/howto-configure-opcua/asset-update-tag.png" alt-text="A screenshot that shows how to update an existing tag in the operations experience.":::
+:::image type="content" source="media/howto-configure-opc-ua/asset-update-tag.png" alt-text="A screenshot that shows how to update an existing tag in the operations experience." lightbox="media/howto-configure-opc-ua/asset-update-tag.png":::
 
 To remove data points, select one or more data points and then select **Remove data points**:
 
-:::image type="content" source="media/howto-configure-opcua/asset-remove-data-points.png" alt-text="A screenshot that shows how to delete a tag in the operations experience.":::
+:::image type="content" source="media/howto-configure-opc-ua/asset-remove-data-points.png" alt-text="A screenshot that shows how to delete a tag in the operations experience." lightbox="media/howto-configure-opc-ua/asset-remove-data-points.png":::
 
 You can also add, update, and delete events and properties in the same way.
 
@@ -383,7 +383,7 @@ You can manage an asset's events by using the `az iot ops asset event` commands.
 
 To delete an asset, select the asset you want to delete. On the **Asset**  details page, select **Delete**. Confirm your changes to delete the asset:
 
-:::image type="content" source="media/howto-configure-opcua/asset-delete.png" alt-text="A screenshot that shows how to delete an asset from the operations experience.":::
+:::image type="content" source="media/howto-configure-opc-ua/asset-delete.png" alt-text="A screenshot that shows how to delete an asset from the operations experience." lightbox="media/howto-configure-opc-ua/asset-delete.png":::
 
 # [Azure CLI](#tab/cli)
 

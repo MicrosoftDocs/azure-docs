@@ -15,7 +15,7 @@ An _asset_ in Azure IoT Operations is a logical entity that you create to repres
 
 _OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
 
-A _device_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to connector for OPC UA modules. This connection enables a connector for OPC UA to access an asset's data points. Without an device, data can't flow from an OPC UA server to the connector for OPC UA and MQTT broker. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards messages such as sensor data to the connector for OPC UA.
+A _device_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to connector for OPC UA modules. This connection enables a connector for OPC UA to access an asset's data points. Without a device, data can't flow from an OPC UA server to the connector for OPC UA and MQTT broker. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards messages such as sensor data to the connector for OPC UA.
 
 A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
@@ -53,7 +53,7 @@ To sign in to the operations experience, go to the [operations experience](https
 
 After you sign in, the operations experience displays a list of sites. Each site is a collection of Azure IoT Operations instances where you can configure and manage your assets. A site typically represents a physical location where you have physical assets deployed. Sites make it easier for you to locate and manage assets. Your [IT administrator is responsible for grouping instances in to sites](/azure/azure-arc/site-manager/overview). Any Azure IoT Operations instances that aren't assigned to a site appear in the **Unassigned instances** node. Select the site that you want to use:
 
-:::image type="content" source="media/howto-manage-assets-devices/site-list.png" alt-text="Screenshot that shows a list of sites in the operations experience.":::
+:::image type="content" source="media/howto-manage-assets-devices/site-list.png" alt-text="Screenshot that shows a list of sites in the operations experience." lightbox="media/howto-manage-assets-devices/site-list.png":::
 
 > [!TIP]
 > You can use the filter box to search for sites.
@@ -64,7 +64,7 @@ If you don't see any sites, you might not be in the right Azure Active Directory
 
 After you select a site, the operations experience displays a list of the Azure IoT Operations instances that are part of the site. Select the instance that you want to use:
 
-:::image type="content" source="media/howto-manage-assets-devices/cluster-list.png" alt-text="Screenshot that shows the list of instances in the operations experience.":::
+:::image type="content" source="media/howto-manage-assets-devices/cluster-list.png" alt-text="Screenshot that shows the list of instances in the operations experience." lightbox="media/howto-manage-assets-devices/cluster-list.png":::
 
 > [!TIP]
 > You can use the filter box to search for instances.
@@ -81,13 +81,13 @@ az login
 
 After you select your instance, the operations experience displays the **Overview** page for the instance. The **Overview** page shows the status of the instance and the resources, such as assets, that are associated with it:
 
-:::image type="content" source="media/howto-manage-assets-devices/instance-overview.png" alt-text="Screenshot that shows the overview page for an instance in the operations experience.":::
+:::image type="content" source="media/howto-manage-assets-devices/instance-overview.png" alt-text="Screenshot that shows the overview page for an instance in the operations experience." lightbox="media/howto-manage-assets-devices/instance-overview.png":::
 
 ## Import and export devices
 
-Use the **Import** and **Export** buttons to import or export an device in the operations experience:
+Use the **Import** and **Export** buttons to import or export a device in the operations experience:
 
-:::image type="content" source="media/howto-manage-assets-devices/export-import-devices.png" alt-text="Screenshot showing the options to import and export an device.":::
+:::image type="content" source="media/howto-manage-assets-devices/export-import-devices.png" alt-text="Screenshot showing the options to import and export a device." lightbox="media/howto-manage-assets-devices/export-import-devices.png":::
 
 The JSON file that you export contains the device definition. You can use this file to import the device into another instance of Azure IoT Operations or modify it to create a new device in the current instance:
 
@@ -122,7 +122,7 @@ The JSON file that you export contains the device definition. You can use this f
 
 Use the **Import** and **Export** buttons to import or export an asset in the operations experience:
 
-:::image type="content" source="media/howto-manage-assets-devices/export-import-assets.png" alt-text="Screenshot showing the options to import and export an asset.":::
+:::image type="content" source="media/howto-manage-assets-devices/export-import-assets.png" alt-text="Screenshot showing the options to import and export an asset." lightbox="media/howto-manage-assets-devices/export-import-assets.png":::
 
 The JSON file that you export contains the asset definition. You can use this file to import the asset into another instance of Azure IoT Operations or modify it to create a new asset in the current instance. The following JSON example shows an example import file to use to create a thermostat asset:
 
@@ -182,7 +182,7 @@ The JSON file that you export contains the asset definition. You can use this fi
 
 Whenever you make a change to asset in the operations experience, you see a notification that reports the status of the operation:
 
-:::image type="content" source="media/howto-manage-assets-devices/portal-notifications.png" alt-text="A screenshot that shows the notifications in the operations experience.":::
+:::image type="content" source="media/howto-manage-assets-devices/portal-notifications.png" alt-text="A screenshot that shows the notifications in the operations experience." lightbox="media/howto-manage-assets-devices/portal-notifications.png":::
 
 ## View activity logs
 
@@ -190,7 +190,7 @@ In the operations experience, you can view activity logs for each instance or ea
 
 To view activity logs at the instance level, select the **Activity logs** tab. You can use the **Timespan** and **Resource type** filters to customize the view.
 
-:::image type="content" source="./media/howto-manage-assets-devices/view-instance-activity-logs.png" alt-text="A screenshot that shows the activity logs for an instance in the operations experience.":::
+:::image type="content" source="./media/howto-manage-assets-devices/view-instance-activity-logs.png" alt-text="A screenshot that shows the activity logs for an instance in the operations experience." lightbox="./media/howto-manage-assets-devices/view-instance-activity-logs.png":::
 
 To view activity logs as the resource level, select the resource that you want to inspect. This resource can be an asset, device, or data pipeline. In the resource overview, select **View activity logs**. You can use the **Timespan** filter to customize the view.
 

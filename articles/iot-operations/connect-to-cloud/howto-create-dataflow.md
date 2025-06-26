@@ -326,7 +326,7 @@ Configuring an asset as a source is only available in the operations experience.
 
 ---
 
-When using an asset as the source, the asset definition is used to infer the schema for the data flow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-configure-opcua.md).
+When using an asset as the source, the asset definition is used to infer the schema for the data flow. The asset definition includes the schema for the asset's datapoints. To learn more, see [Manage asset configurations remotely](../discover-manage-assets/howto-configure-opc-ua.md).
 
 Once configured, the data from the asset reaches the data flow via the local MQTT broker. So, when using an asset as the source, the data flow uses the local MQTT broker default endpoint as the source in actuality.
 

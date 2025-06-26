@@ -10,7 +10,7 @@ ai-usage: ai-assisted
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing devices and assets, so that I can effectively manage the devices and assets in my solution. 
 ---
 
-# What is asset and device management in Azure IoT Operations
+# What is asset and device management in Azure IoT Operations?
 
 In Azure IoT Operations, a key task is to manage the assets and devices that are part of your solution. This article:
 
@@ -87,7 +87,7 @@ Azure IoT Operations includes several services that help you manage devices and 
 
 The following tasks are useful for operations teams in sectors such as industry, retail, and health:
 
-- Use the operations experience experience or Azure CLI to create assets
+- Use the operations experience or Azure CLI to create assets.
 - Subscribe to asset data points, events, and streams to access data from your physical assets and devices.
 - Manage connected media sources such as cameras.
 

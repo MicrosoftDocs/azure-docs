@@ -44,11 +44,11 @@ An IT user adds connector templates in the Azure portal. A connector template de
 
 Azure Device Registry registers assets and devices as Azure resources. Azure Device Registry also syncs these cloud resources to the edge as [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
 
-You can create, edit, and delete devices and assets by using the Azure IoT Operations CLI or the operations experience web UI. For more information, see [Manage asset configurations](./howto-configure-opcua.md).
+You can create, edit, and delete devices and assets by using the Azure IoT Operations CLI or the operations experience web UI. For more information, see [Manage asset configurations](./howto-configure-opc-ua.md).
 
 ## Devices
 
-Before you can create an asset, you need to define a device. An device is a profile that describes southbound edge connectivity information for one or more assets.
+Before you can create an asset, you need to define a device. A device is a profile that describes southbound edge connectivity information for one or more assets.
 
 Currently, the only southbound connectors available in Azure IoT Operations are the connector for OPC UA, the media connector (preview), the connector for ONVIF (preview), the connector for SQL (preview), and the connector for HTTP/REST (preview). You can use the Azure IoT Operations SDKs to create custom connectors. Devices are configurations for a connector that enable it to connect to an asset. For example:
 
