@@ -66,21 +66,21 @@ Before you use the OVA/VHD/Zip file to deploy appliance, verify that the file is
 
     - Use the OVA file to set up the VMware appliance in Azure public cloud.       
 
-| Algorithm  | Download  | SHA256  | 
-| --- | --- | --- |
-| VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 68907FC88C4215358779234AE74686DD10C76178686895ACB0663E1C3F56F207  |
+    | Algorithm  | Download  | SHA256  | 
+    | --- | --- | --- |
+    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 68907FC88C4215358779234AE74686DD10C76178686895ACB0663E1C3F56F207  |
 
  - Use the VHD file to set up the Hyper-V appliance in Azure public cloud.
 
-| Algorithm  | Download  | SHA256  | 
-| --- | --- | --- |
-| Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | DFECBFC9865C59F5A7B88BF78FA1028AD24919945059AE387BE9DA619C42A421  |
+    | Algorithm  | Download  | SHA256  | 
+    | --- | --- | --- |
+    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | DFECBFC9865C59F5A7B88BF78FA1028AD24919945059AE387BE9DA619C42A421  |
 
  - Use the Zip file to set up the VMware, Hyper-V, or Physical appliance stack in Azure public cloud and Azure Government.
 
-| Algorithm  | Download  | SHA256  | 
-| --- | --- | --- |
-| Zip file (693 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 88e90691ebf87166243dafb2d3a18dd34066b4624595ee3f9b4fbe6885e81da  |
+    | Algorithm  | Download  | SHA256  | 
+    | --- | --- | --- |
+    | Zip file (693 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 88e90691ebf87166243dafb2d3a18dd34066b4624595ee3f9b4fbe6885e81da  |
 
 
 ## Appliance services
