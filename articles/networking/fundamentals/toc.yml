@@ -148,7 +148,7 @@
         href: ../../application-gateway/overview.md?toc=/azure/networking/fundamentals/toc.json
       - name: Create a web application load balancer
         href: ../../application-gateway/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Dns-based load balancer
+    - name: DNS-based load balancer
       href: ../../traffic-manager/traffic-manager-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Create a dns-based load balancer
       href: ../../traffic-manager/quickstart-create-traffic-manager-profile.md?toc=/azure/networking/fundamentals/toc.json
