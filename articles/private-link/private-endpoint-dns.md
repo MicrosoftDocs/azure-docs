@@ -271,6 +271,7 @@ For Azure services, use the recommended zone names as described in the following
 >[!div class="mx-tdBreakAll"]
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
+>| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironments | privatelink.{regionName}.azurecontainerapps.us | azurecontainerapps.us |
 >| Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.us </br> {regionName}.privatelink.azurecr.us | azurecr.us </br> {regionName}.azurecr.us |
 
 ### Databases
