@@ -7,6 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 04/18/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:

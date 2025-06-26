@@ -74,6 +74,8 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 - Tiering isn't yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
 
+- Lifecycle management policies can't be used to rehydrate blobs to an online tier.
+
 - A lifecycle management policy must be read or written in full. Partial updates aren't supported.
 
 - Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
