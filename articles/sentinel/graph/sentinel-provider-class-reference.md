@@ -105,7 +105,7 @@ Parameters:
 - `table_name` (str): The name of the table to create or overwrite.
 - `database` (str): The name of the database (workspace) to save the table in.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
-- `WriteOptions` (dict, optional): Options for writing the table, such as `mode` ("Append", "Overwrite").
+- `WriteOptions` (dict, optional): Options for writing the table, such as `mode` ("append", "overwrite").
 
 Returns:
 - `str`: The run ID of the write operation.
@@ -125,8 +125,10 @@ lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierwor
 
 Append or overwrite to an existing custom table in the analytics tier
 ```python
-
-lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace", mode:"Append")
+write_options = {
+    'mode': 'append'
+}
+lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace", write_options)
 ```
 
 ### delete_table
