@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot a KubernetesCluster with a node in NotReady,Scheduling Disabled state
-description: Learn what to do when you see a KubernetesCluster node in the state "NotReady,Scheduling Disabled" after a BareMetalMachine has been uncordoned
+title: Troubleshoot a Kubernetes Cluster Node in NotReady,Scheduling Disabled after Runtime Upgrade
+description: Learn what to do when you see a Kubernetes Cluster Node in the state NotReady,Scheduling Disabled after a Baremetal Machine has been finished a runtime upgrade.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -8,9 +8,9 @@ ms.date: 06/25/2025
 ms.author: jeremyhouser
 author: jeremyhouser-ms
 ---
-# Troubleshoot a KubernetesCluster with a node in NotReady,Scheduling Disabled state
+# Troubleshoot a Kubernetes Cluster Node in NotReady,Scheduling Disabled state
 
-The purpose of this guide is to show how to troubleshoot a KubernetesCluster when some of it's nodes fail to uncordon, remaining in `Ready,SchedulingDisabled`.
+The purpose of this guide is to troubleshoot a Kubernetes Cluster when 1 or more of it's nodes fail to uncordon after a runtime upgrade. This guide is only applicable if that Node remains in the state `Ready,SchedulingDisabled`.
 
 ## Prerequisites
 
@@ -19,9 +19,9 @@ The purpose of this guide is to show how to troubleshoot a KubernetesCluster whe
 
 ## Typical Cause
 
-During a runtime upgrade, before a BareMetalMachine is shutdown for reimaging, the machine lifecycle controller will cordon and attempt to drain VirtualMachine resources scheduled to that BareMetalMachine. Once the BareMetalMachine has resolved the reimaging process, the expectation is that VirtualMachines running on the host will reschedule to the BareMetalMachine, and then uncordon and become `Ready`.
+After a runtime upgrade, before a Baremetal Machine is shutdown for reimaging, the machine lifecycle controller will cordon and attempt to drain Virtual Machine resources scheduled to that Baremetal Machine. Once the Baremetal Machine has resolved the reimaging process, the expectation is that Virtual Machines tied to that Baremetal Machine will reschedule to the Baremetal Machine, and then be uncordoned by the machine lifecycle controller. The Kubernetes Cluster node should then reflect the state `Ready`.
 
-However, a race condition may occur in which the MachineLifecycleController fails to find the virt-launcher pods responsible for scheduling VirtualMachines to appropriate BareMetalMachines. This is believed to be because the virt-launcher pod's OS image pulling job has not yet completed. Only after this image pulling process is complete will the pod be scheduled to a node upon which it will deploy the VirtualMachine. When the MachineLifecycleController examines these virt-launcher pods during the uncordon action execution, it cannot find which BMM it is tied to, and skips the resource.0 This problem should appear only during uncordon actions, infrequently on small clusters but frequently for large clusters, as multiple concurrent image pulls will result in longer scheduling times.
+However, a race condition may occur in which the machine lifecycle controller will fail to find the virt-launcher pods responsible for scheduling Virtual Machines to appropriate Baremetal Machines. This is believed to be because the virt-launcher pod's OS image-pull job has not completed. Only after the image pull job is complete will the pod be schedulable to a Baremetal Machine upon which it will deploy the Virtual Machine. When the machine lifecycle controller examines these virt-launcher pods during the uncordon action execution, it cannot find which Baremetal Machine it is tied to, and skips the resource. This problem should only appear during uncordon actions initiated by the machine lifecycle controller. It should occur infrequently on small clusters but frequently for large clusters, as multiple concurrent image pulls will result in longer scheduling times.
 
 ## Procedure
 
