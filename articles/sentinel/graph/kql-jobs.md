@@ -122,4 +122,4 @@ For troubleshooting tips and error messages, see [Troubleshooting KQL queries fo
 - [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
 - [Microsoft Sentinel data lake overview (Preview)](sentinel-lake-overview.md)
 - [KQL queries in the Microsoft Sentinel data lake](kql-queries.md)
-- [Jupyter notebooks and the Microsoft Sentinel data lake (Preview)](jupyter-notebooks.md)
+- [Jupyter notebooks and the Microsoft Sentinel data lake (Preview)](notebooks.md)
