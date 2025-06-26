@@ -19,29 +19,32 @@ Microsoft Sentinel uses [Azure role-based access control (Azure RBAC)](/azure/ro
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
+> [!IMPORTANT]
+> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.
+
 ## Built-in Azure roles for Microsoft Sentinel
 
 The following built-in Azure roles are used for Microsoft Sentinel and grant read access to the workspace data, including support for the Microsoft Sentinel data lake. Assign these roles at the resource group level for best results.
 
 | Role | Microsoft Sentinel support | Microsoft Sentinel data lake support |
 |------|----------------------|------------------|
-| [**Microsoft Sentinel Reader**](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) | View data, incidents, workbooks, and other resources | Access advanced analytics and run interactive queries on workspaces only. |
-| [**Microsoft Sentinel Responder**](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) | All Reader permissions, plus manage incidents | N/A |
-| [**Microsoft Sentinel Contributor**](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) | All Responder permissions, plus install/update solutions, create/edit resources | Access advanced analytics and run interactive queries on workspaces only. |
-| [**Microsoft Sentinel Playbook Operator**](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator) | List, view, and manually run playbooks | N/A |
-| [**Microsoft Sentinel Automation Contributor**](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-automation-contributor) | Allows Microsoft Sentinel to add playbooks to automation rules. Not used for user accounts. | N/A |
+| [**Microsoft Sentinel Reader**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader) | View data, incidents, workbooks, and other resources | Access advanced analytics and run interactive queries on workspaces only. |
+| [**Microsoft Sentinel Responder**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder) | All Reader permissions, plus manage incidents | N/A |
+| [**Microsoft Sentinel Contributor**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) | All Responder permissions, plus install/update solutions, create/edit resources | Access advanced analytics and run interactive queries on workspaces only. |
+| [**Microsoft Sentinel Playbook Operator**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-playbook-operator) | List, view, and manually run playbooks | N/A |
+| [**Microsoft Sentinel Automation Contributor**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-automation-contributor) | Allows Microsoft Sentinel to add playbooks to automation rules. Not used for user accounts. | N/A |
 
 For example, the following table shows examples of tasks that each role can perform in Microsoft Sentinel:
 
 | Role | Run playbooks | Create/edit playbooks | Create/edit analytics rules, workbooks, etc. | Manage incidents | View data, incidents, workbooks | Manage content hub |
 |------|--------------|----------------------|----------------------------------------------|------------------|-------------------------------|-------------------|
-| [**Microsoft Sentinel Reader**](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-reader) | -- | -- | --* | -- | ✓ | -- |
-| [**Microsoft Sentinel Responder**](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) | -- | -- | --* | ✓ | ✓ | -- |
-| [**Microsoft Sentinel Contributor**](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) | -- | -- | ✓ | ✓ | ✓ | ✓ |
-| [**Microsoft Sentinel Playbook Operator**](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator) | ✓ | -- | -- | -- | -- | -- |
+| [**Microsoft Sentinel Reader**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-reader) | -- | -- | --* | -- | ✓ | -- |
+| [**Microsoft Sentinel Responder**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder) | -- | -- | --* | ✓ | ✓ | -- |
+| [**Microsoft Sentinel Contributor**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) | -- | -- | ✓ | ✓ | ✓ | ✓ |
+| [**Microsoft Sentinel Playbook Operator**](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-playbook-operator) | ✓ | -- | -- | -- | -- | -- |
 | [**Logic App Contributor**](/azure/role-based-access-control/built-in-roles/integration#logic-app-contributor) | ✓ | ✓ | -- | -- | -- | -- |
 
-*With [Workbook Contributor](/azure/role-based-access-control/built-in-roles.md#workbook-contributor) role.
+*With [Workbook Contributor](/azure/role-based-access-control/built-in-roles#workbook-contributor) role.
 
 We recommend that you assign roles to the resource group that contains the Microsoft Sentinel workspace. This ensures that all related resources, such as Logic Apps and playbooks, are covered by the same role assignments.
 
@@ -54,18 +57,18 @@ Users with particular job requirements might need to be assigned other roles or 
 | Task | Required roles/permissions |
 |------|---------------------------|
 | **Connect data sources** | **Write** permission on the workspace. Check connector docs for extra permissions required per connector. |
-| **Manage content from Content hub** | [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) at the resource group level |
-| **Automate responses with playbooks** | [Microsoft Sentinel Playbook Operator](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator), to run playbooks, and [Logic App Contributor](/azure/role-based-access-control/built-in-roles/integration#logic-app-contributor) to create/edit playbooks. <br><br> Microsoft Sentinel uses playbooks for automated threat response. Playbooks are built on Azure Logic Apps, and are a separate Azure resource. For specific members of your security operations team, you might want to assign the ability to use Logic Apps for Security Orchestration, Automation, and Response (SOAR) operations.|
-| **Allow Microsoft Sentinel to run playbooks via automation** | Service account needs explicit permissions to playbook resource group; your account needs [Owner](/azure/role-based-access-control/built-in-roles.md#owner) permissions to assign these. <br><br>Microsoft Sentinel uses a special service account to run incident-trigger playbooks manually or to call them from automation rules. The use of this account (as opposed to your user account) increases the security level of the service. <br><br>For an automation rule to run a playbook, this account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule can run any playbook in that resource group. |
-| **Guest users assign incidents** | [Directory Reader](/entra/identity/role-based-access-control/permissions-reference) AND [Microsoft Sentinel Responder](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) <br><br>The Directory Reader role isn't an Azure role but a Microsoft Entra ID role, and regular (nonguest) users have this role assigned by default.|
-| **Create/delete workbooks** | [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) or a lesser Microsoft Sentinel role AND [Workbook Contributor](/azure/role-based-access-control/built-in-roles.md#workbook-contributor) |
+| **Manage content from Content hub** | [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) at the resource group level |
+| **Automate responses with playbooks** | [Microsoft Sentinel Playbook Operator](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-playbook-operator), to run playbooks, and [Logic App Contributor](/azure/role-based-access-control/built-in-roles/integration#logic-app-contributor) to create/edit playbooks. <br><br> Microsoft Sentinel uses playbooks for automated threat response. Playbooks are built on Azure Logic Apps, and are a separate Azure resource. For specific members of your security operations team, you might want to assign the ability to use Logic Apps for Security Orchestration, Automation, and Response (SOAR) operations.|
+| **Allow Microsoft Sentinel to run playbooks via automation** | Service account needs explicit permissions to playbook resource group; your account needs [Owner](/azure/role-based-access-control/built-in-roles#owner) permissions to assign these. <br><br>Microsoft Sentinel uses a special service account to run incident-trigger playbooks manually or to call them from automation rules. The use of this account (as opposed to your user account) increases the security level of the service. <br><br>For an automation rule to run a playbook, this account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule can run any playbook in that resource group. |
+| **Guest users assign incidents** | [Directory Reader](/entra/identity/role-based-access-control/permissions-reference) AND [Microsoft Sentinel Responder](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder) <br><br>The Directory Reader role isn't an Azure role but a Microsoft Entra ID role, and regular (nonguest) users have this role assigned by default.|
+| **Create/delete workbooks** | [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) or a lesser Microsoft Sentinel role AND [Workbook Contributor](/azure/role-based-access-control/built-in-roles#workbook-contributor) |
 
 ### Other Azure and Log Analytics roles
 
 When you assign Microsoft Sentinel-specific Azure roles, you might come across other Azure and Log Analytics roles that might be assigned to users for other purposes. These roles grant a wider set of permissions that include access to your Microsoft Sentinel workspace and other resources:
 
-- **Azure roles:** [Owner](/azure/role-based-access-control/built-in-roles.md#owner), [Contributor](/azure/role-based-access-control/built-in-roles.md#contributor), [Reader](/azure/role-based-access-control/built-in-roles.md#reader) – grant broad access across Azure resources.
-- **Log Analytics roles:** [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles.md#log-analytics-contributor), [Log Analytics Reader](/azure/role-based-access-control/built-in-roles.md#log-analytics-reader) – grant access to Log Analytics workspaces.
+- **Azure roles:** [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), [Reader](/azure/role-based-access-control/built-in-roles#reader) – grant broad access across Azure resources.
+- **Log Analytics roles:** [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles#log-analytics-contributor), [Log Analytics Reader](/azure/role-based-access-control/built-in-roles#log-analytics-reader) – grant access to Log Analytics workspaces.
 
 > [!IMPORTANT]
 > Role assignments are cumulative. A user with both **Microsoft Sentinel Reader** and **Contributor** roles may have more permissions than intended.
@@ -74,11 +77,11 @@ When you assign Microsoft Sentinel-specific Azure roles, you might come across o
 
 | User type | Role | Resource group | Description |
 |-----------|------|---------------|-------------|
-| **Security analysts** | [Microsoft Sentinel Responder](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) | Microsoft Sentinel resource group | View/manage incidents, data, workbooks |
-|  | [Microsoft Sentinel Playbook Operator](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-playbook-operator) | Microsoft Sentinel/playbook resource group | Attach/run playbooks |
-| **Security engineers** |[Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)  | Microsoft Sentinel resource group | Manage incidents, content, resources |
+| **Security analysts** | [Microsoft Sentinel Responder](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-responder) | Microsoft Sentinel resource group | View/manage incidents, data, workbooks |
+|  | [Microsoft Sentinel Playbook Operator](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-playbook-operator) | Microsoft Sentinel/playbook resource group | Attach/run playbooks |
+| **Security engineers** |[Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor)  | Microsoft Sentinel resource group | Manage incidents, content, resources |
 |  | [Logic App Contributor](/azure/role-based-access-control/built-in-roles/integration#logic-app-contributor) | Microsoft Sentinel/playbook resource group | Run/modify playbooks |
-| **Service Principal** | [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)  | Microsoft Sentinel resource group | Automated management tasks |
+| **Service Principal** | [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor)  | Microsoft Sentinel resource group | Automated management tasks |
 
 ## Roles and permissions for the Microsoft Sentinel data lake (Preview)
 
