@@ -309,7 +309,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Somalia<sup>1</sup>                    |                ✓                  |                   |             |
 | South Africa                           |                ✓                  |         ✓         |      ✓     |
 | South Sudan<sup>1</sup>                |                ✓                  |                   |             |
-| St. Helena, Ascension, and Tristan da Cunha<sup>1</sup>|           ✓                  |                   |             |
+| St. Helena, Ascension, and Tristan da Cunha<sup>1</sup>|           ✓       |                   |             |
 | Sudan<sup>1</sup>                      |                ✓                  |                   |             |
 | Swaziland                              |                ✓                  |                   |             |
 | Syria<sup>1</sup>                      |                ✓                  |                   |             |
