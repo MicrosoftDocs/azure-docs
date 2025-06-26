@@ -3,7 +3,7 @@ title: How to create and manage private endpoints (with v2 experience) for Azure
 description: This article explains how to configure and manage private endpoints for Azure Backup.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 05/26/2025
+ms.date: 06/26/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -140,12 +140,11 @@ Once the private endpoints created for the vault in your VNet have been approved
 >[!IMPORTANT]
 >Ensure that you've completed all the steps mentioned above in the document successfully before proceeding. To recap, you must have completed the steps in the following checklist:
 >
->1. Created a (new) Recovery Services vault
->2. Enabled the vault to use system assigned Managed Identity
->3. Assigned relevant permissions to the Managed Identity of the vault
->4. Created a Private Endpoint for your vault
->5. Approved the Private Endpoint (if not auto approved)
->6. Ensured all DNS records are appropriately added (except blob and queue records for custom servers, which will be discussed in the following sections)
+>1. Created a (new) Recovery Services vault.
+>2. Enabled the vault to use system assigned Managed Identity.
+>3. Created a Private Endpoint for your vault.
+>4. Approved the Private Endpoint (if not auto approved).
+>5. Ensured all DNS records are appropriately added (except blob and queue records for custom servers, which will be discussed in the following sections).
 
 ### Check VM connectivity
 
@@ -214,6 +213,8 @@ To perform Cross Subscription Restore to a Private Endpoint enabled vault:
 4. In the **Virtual Network** section, select the **VNet** of the target VM that you want to restore across subscription.
 5. Create the **Private Endpoint** and trigger the restore process.
 
+   >[!Note]
+   >In the **DNS** section, ensure that the virtual machine in the target subscription can resolve the DNS names associated with the new private endpoint. To enable access to the resource, create a private endpoint for the target virtual machine. For DNS resolution to work correctly, select a different private DNS zone other than the one used in the original vault subscription. Reuse of the same DNS zone overwrites existing entries.
 #### Cross region restore to a private endpoint enabled vault
 
 You can create a **Secondary Private Endpoint** before or after adding protected items in the vault.

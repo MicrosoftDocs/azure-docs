@@ -8,9 +8,9 @@ metadata:
   description: Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, show you how to set up and manage DNS zones and records for domain names.
   ms.service: azure-dns
   ms.topic: landing-page
-  author: asudbring
-  ms.author: allensu
-  ms.date: 10/27/2024
+  author: greg-lindsay
+  ms.author: greglin
+  ms.date: 05/28/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -102,13 +102,15 @@ landingContent:
           - text: Create an alias record to support apex domain names with Traffic Manager
             url: tutorial-alias-tm.md
 # Card
-  - title: Network foundation
+  - title: Related network foundations services 
     linkLists:
       - linkListType: get-started
         links:
-          - text: Documentation
-            url: https://aka.ms/networkfoundationdocs
-      - linkListType: concept
+          - text: What is network foundations?
+            url: /azure/networking/foundations/network-foundations-overview
+          - text: Learn more about network foundations
+            url: /azure/networking/foundations/
+      - linkListType: overview
         links:
           - text: Azure Bastion overview
             url: /azure/bastion/bastion-overview

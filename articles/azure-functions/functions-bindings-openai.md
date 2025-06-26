@@ -12,6 +12,7 @@ ms.custom:
 ms.collection: 
   - ce-skilling-ai-copilot
 ms.date: 05/14/2024
+ms.update-cycle: 180-days
 zone_pivot_groups: programming-languages-set-functions
 ---
 

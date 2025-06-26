@@ -11,8 +11,7 @@ metadata:
   author: greg-lindsay
   ms.author: greglin
   manager: kumudD
-  ms.date: 09/27/2024
-  ms.custom: portfolio-consolidation-2025
+  ms.date: 04/03/2025
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -20,9 +19,9 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: "Azure networking documentation" 
-      itemType: concept
-      url: /azure/networking/
+    - title: Azure network foundations
+      itemType: overview
+      url: ./network-foundations-overview.md
     # Card
     - title: "What is Azure Virtual Network"
       itemType: "video"
@@ -148,6 +147,9 @@ conceptualContent:
             - url: /azure/architecture/networking/guide/private-link-hub-spoke-network
               itemType: architecture
               text: Azure Private Link in a hub-and-spoke network
+            - url: /azure/well-architected/service-guides/virtual-network
+              itemType: architecture
+              text: Architecture best practices for Azure Virtual Network - Azure Well-Architected Framework
             - url: /azure/architecture/networking/architecture/azure-dns-private-resolver
               itemType: architecture
               text: Azure DNS Private Resolver
@@ -214,7 +216,7 @@ additionalContent:
     - title: Networking services
       items:
         - title: Load balancing and Content Delivery
-          url: /azure/networking/load-balancer-content-delivery/?wt.mc_id=aznetportfolioconsolidation_lbcdscenariohub_content_cnl
+          url: /azure/networking/load-balancer-content-delivery/
         - title: Network security
           url: /azure/networking/security/
         - title: Hybrid connectivity

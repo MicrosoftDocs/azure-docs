@@ -23,7 +23,7 @@
         },
         {
             "source_path_from_root": "/articles/redis/rust-get-started.md",
-            "redirect_url": "https://github.com/Azure-Samples/azure-redis-cache-rust-quickstart/",
+            "redirect_url": "/azure/redis/",
             "redirect_document_id": false
         },
         {

@@ -6,6 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.date: 06/09/2025
+ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.localizationpriority: high
 ms.collection: Tier1, ce-skilling-ai-copilot

@@ -4,6 +4,7 @@ description: Integrate your app in Azure App Service with Azure virtual networks
 author: madsd
 ms.topic: conceptual
 ms.date: 03/14/2025
+ms.update-cycle: 1095-days
 ms.author: madsd
 ms.custom:
   - UpdateFrequency3

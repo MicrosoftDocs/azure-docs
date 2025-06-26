@@ -7,6 +7,7 @@ ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
 ms.custom: "mvc, devx-track-csharp"
+ms.update-cycle: 180-days
 ms.date: 02/18/2025
 ---
 

@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/17/2025
+ms.date: 06/25/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for  Microsoft Fabric Real-Time Intelligence in Azure IoT Operations so that I can send real-time data to Microsoft Fabric.
@@ -32,13 +32,31 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 
 Retrieve the [Kafka-compatible connection details for the custom endpoint](/fabric/real-time-intelligence/event-streams/add-source-custom-app#kafka). The connection details are used to configure the data flow endpoint in Azure IoT Operations. 
 
+# [Entra ID authentication](#tab/entra-id)
 
-1. The connection details are in the Fabric portal under the **Destinations** section of your event stream. 
+This method uses the managed identity of the Azure IoT Operations instance to authenticate with the event stream. Use the system-assigned managed identity authentication methods to configure the data flow endpoint.
+
+1. The connection details are in the Fabric portal under the **Sources** section of your event stream. 
+1. In the details panel for the custom endpoint, select **Kafka** protocol.
+1. Select the **Entra ID Authentication** section to view the connection details.
+1. Copy the details for the values for the **Bootstrap server**, **Topic name**, and **Connection string-primary key**. You use these values to configure the data flow endpoint.
+
+    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka-entra-id.png" alt-text="Screenshot in Microsoft Fabric that has the custom endpoint connection details.":::
+    
+    | Settings              | Description                                                                           |
+    |-----------------------|---------------------------------------------------------------------------------------|
+    | Bootstrap server      | The bootstrap server address is used for the hostname property in data flow endpoint. |
+    | Topic name            | The event hub name is used as the Kafka topic and is of the the format *es_aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb*. |
+
+
+# [SASL authentication](#tab/sasl)
+
+1. The connection details are in the Fabric portal under the **Sources** section of your event stream. 
 1. In the details panel for the custom endpoint, select **Kafka** protocol.
 1. Select the **SAS Key Authentication** section to view the connection details.
 1. Copy the details for the values for the **Bootstrap server**, **Topic name**, and **Connection string-primary key**. You use these values to configure the data flow endpoint.
 
-    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka.png" alt-text="Screenshot in Microsoft Fabric that has the custom endpoint connection details.":::
+    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka-key.png" alt-text="Screenshot in Microsoft Fabric that has the custom endpoint connection details.":::
     
     | Settings              | Description                                                                           |
     |-----------------------|---------------------------------------------------------------------------------------|
@@ -46,9 +64,11 @@ Retrieve the [Kafka-compatible connection details for the custom endpoint](/fabr
     | Topic name            | The event hub name is used as the Kafka topic and is of the the format *es_aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb*. |
     | Connection string-primary key | The connection string with the primary key. |
 
+---
+
 ## Create a Microsoft Fabric Real-Time Intelligence data flow endpoint
 
-Microsoft Fabric Real-Time Intelligence, supports Simple Authentication and Security Layer (SASL), System-assigned managed identity, and User-assigned managed identity authentication methods. For details on the available authentication methods, see [Available authentication methods](#available-authentication-methods).
+Microsoft Fabric Real-Time Intelligence supports Simple Authentication and Security Layer (SASL), System-assigned managed identity, and User-assigned managed identity authentication methods. For details on the available authentication methods, see [Available authentication methods](#available-authentication-methods).
 
 # [Operations experience](#tab/portal)
 
@@ -62,7 +82,7 @@ Microsoft Fabric Real-Time Intelligence, supports Simple Authentication and Secu
     | --------------------- | ----------------------------------------------------------------- |
     | Name                  | The name of the data flow endpoint. |
     | Host                  | The hostname of the event stream custom endpoint in the format `*.servicebus.windows.net:9093`. Use the bootstrap server address noted previously. |
-    | Authentication method | The method used for authentication. Choose [*System assigned managed identity*](#system-assigned-managed-identity), [*User assigned managed identity*](#user-assigned-managed-identity), or [*SASL*](#sasl). |
+    | Authentication method | The method used for authentication. Choose [*System assigned managed identity*](#system-assigned-managed-identity) for Entra ID, [*User assigned managed identity*](#user-assigned-managed-identity), or [*SASL*](#sasl). |
 
 
     If you choose the SASL authentication method, you must also enter the following settings:

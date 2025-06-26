@@ -2,6 +2,7 @@
 title: "Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Managed Redis"
 description: In this tutorial, you learn how to use Azure Managed Redis to store and search for vector embeddings.
 ms.date: 02/27/2025
+ms.update-cycle: 180-days
 ms.topic: tutorial
 ms.collection:
   - ce-skilling-ai-copilot

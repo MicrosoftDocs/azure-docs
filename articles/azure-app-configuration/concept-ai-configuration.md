@@ -6,6 +6,7 @@ ms.author: mgichohi
 ms.service: azure-app-configuration
 ms.topic: concept-article
 ms.date: 04/18/2025
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
 

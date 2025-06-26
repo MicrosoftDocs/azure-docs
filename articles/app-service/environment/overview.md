@@ -4,6 +4,7 @@ description: Learn about App Service Environment, which is a fully isolated and 
 author: madsd
 ms.topic: overview
 ms.date: 06/18/2024
+ms.update-cycle: 1095-days
 ms.author: madsd
 ms.custom:
   - "UpdateFrequency3, references_regions"

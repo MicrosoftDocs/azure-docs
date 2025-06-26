@@ -21,7 +21,7 @@ ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, 
 
 ## Using the ARG GET/LIST API 
 
-To use the [ARG GET/LIST API](./guidance-for-throttled-requests.md#still-being-throttled), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which routes the request to this ARG backend for response.
+To use the [ARG GET/LIST API](./guidance-for-throttled-requests.md#arg-getlist-api), first identify whether or not your scenario matches the conditions mentioned in the guidance for throttled requests. You can then append the flag `&useResourceGraph=true` to your applicable GET/LIST API calls, which routes the request to this ARG backend for response.
 
 You're required to contact the ARG product group by sending an email to [Azure Resource Graph team](mailto:azureresourcegraphsupport@microsoft.com) sharing a brief overview of your scenario and the ARG team will reach out to you with next steps.
 

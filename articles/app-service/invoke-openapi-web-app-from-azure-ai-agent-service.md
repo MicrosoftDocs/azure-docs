@@ -4,6 +4,7 @@ description: Learn how to integrate App Service with AI Foundry Agent Service an
 author: seligj95
 ms.author: jordanselig
 ms.date: 06/13/2025
+ms.update-cycle: 180-days
 ms.topic: article
 ms.custom:
   - devx-track-dotnet

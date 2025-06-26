@@ -113,6 +113,7 @@ The following note applies to all SDKs:
 
 > [!NOTE]
 > Establishing a connection is an expensive operation that you can avoid by reusing the same factory or client objects for multiple operations. You can safely use these client objects for concurrent asynchronous operations and from multiple threads.
+> This applies to all SDKs except the Python client. For Python, [locks must be used](/python/api/overview/azure/servicebus-readme?view=azure-python#thread-safety&preserve-view=true) when using threads and concurrent asynchronous operations.
 
 ## Concurrent operations
 Operations such as send, receive, delete, and so on, take some time. This time includes the time that the Service Bus service takes to process the operation and the latency of the request and the response. To increase the number of operations per time, operations must execute concurrently.

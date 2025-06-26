@@ -5,6 +5,7 @@ keywords: azure app service, web app, deploy, deployment, pipelines, build
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: best-practice
 ms.date: 01/17/2025
+ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3
 author: cephalin
 ms.author: cephalin

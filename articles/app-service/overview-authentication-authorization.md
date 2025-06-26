@@ -4,6 +4,7 @@ description: Learn about the built-in authentication and authorization support i
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: conceptual
 ms.date: 03/28/2025
+ms.update-cycle: 1095-days
 ms.reviewer: mahender
 ms.custom: UpdateFrequency3, fasttrack-edit, AppServiceIdentity
 author: cephalin

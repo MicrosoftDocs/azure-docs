@@ -5,6 +5,7 @@ author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: concept-article
 ms.date: 12/27/2024
+ms.update-cycle: 180-days
 ms.author: jsuri
 ms.custom: UpdateFrequency.5
 

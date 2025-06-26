@@ -10,27 +10,27 @@
     href: cross-region-overview.md
   - name: Cross-subscription load balancer overview
     href: cross-subscription-overview.md
-  - name: Choose a load balancing solution
-    href: /azure/architecture/guide/technology-choices/load-balancing-overview
+  - name: Architecture best practices for Azure Load Balancer
+    href: /azure/well-architected/service-guides/azure-load-balancer?toc=/azure/load-balancer/toc.json
   - name: Health probes
     href: load-balancer-custom-probe-overview.md
   - name: Administrative state
     href: admin-state-overview.md
   - name: SKUs
     href: skus.md
-  - name: Quickstarts
-    items:
-    - name: Create a public load balancer
-      href: quickstart-load-balancer-standard-public-portal.md
-    - name: Create an internal load balancer
-      href: quickstart-load-balancer-standard-internal-portal.md
-    expanded: false
-  - name: FAQ
-    href: load-balancer-faqs.yml
-  - name: Load balancer best practices
-    href: load-balancer-best-practices.md
+  - name: Create a public load balancer
+    href: quickstart-load-balancer-standard-public-portal.md
+  - name: Create an internal load balancer
+    href: quickstart-load-balancer-standard-internal-portal.md
   - name: What's new?
     href: whats-new.md
+  - name: What is load balancing and content delivery?
+    href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md
+  - name: Choose a load balancing solution
+    href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/load-balancer/toc.json
+  - name: FAQ
+    href: load-balancer-faqs.yml
+  expanded: false
 - name: Deploy
   items:
   - name: Portal settings
@@ -41,6 +41,8 @@
     href: concepts.md
   - name: Distribution modes
     href: distribution-mode-concepts.md
+  - name: Load balancer best practices
+    href: load-balancer-best-practices.md
   - name: Public load balancer
     items:
     - name: Create a public load balancer
@@ -326,3 +328,5 @@
     href: https://azure.microsoft.com/updates/?product=load-balancer
   - name: Azure Network blog
     href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-load-balancer

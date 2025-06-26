@@ -6,6 +6,7 @@ author: msangapu-msft
 ai-usage: ai-assisted
 ms.topic: overview
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 # ms.devlang: wordpress
 ms.author: msangapu
 ms.subservice: wordpress

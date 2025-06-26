@@ -3,6 +3,7 @@ title: MCP tool bindings for Azure Functions
 description: Learn how you can expose your functions as model context protocol (MCP) tools using bindings in Azure Functions.
 ms.topic: reference
 ms.date: 05/03/2025
+ms.update-cycle: 180-days
 ms.custom: 
   - build-2025
 ai-usage: ai-assisted
