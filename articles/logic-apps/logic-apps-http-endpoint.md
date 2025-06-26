@@ -1,6 +1,6 @@
 ---
 title: Create Callable or Nestable Workflows
-description: Create workflows that receive inbound requests over HTTPS endpoints in Azure Logic Apps.
+description: Learn how to create workflows that receive inbound requests through HTTPS endpoints in Azure Logic Apps.
 services: logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
@@ -210,7 +210,7 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
 By default, the **Request** trigger expects a `POST` request. However, you can specify a different method that the caller must use, but only a single method.
 
-1. In the **Request** trigger, select the **Method** dropdown, then choose the method that the trigger should expect instead. Or, you can specify a custom method.
+1. In the **Request** trigger, from the **Method** list, select the method that the trigger should expect instead. Or, you can specify a custom method.
 
    For example, select the **GET** method so that you can test your endpoint's URL later.
 
@@ -234,11 +234,11 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 ### [Standard](#tab/standard)
 
-1. In the **Request** trigger, select the **Method** dropdown, and then choose the **GET** method.
+1. In the **Request** trigger, from the **Method** list, select the **GET** method.
 
    For more information, see [Select expected request method](#select-method).
 
-1. Add the action named **Response** to your workflow by following the [general steps to add an action](add-trigger-action-workflow.md?tabs=standard#add-action).
+1. Add the **Response** action to your workflow by following the [general steps to add an action](add-trigger-action-workflow.md?tabs=standard#add-action).
 
 1. To build the `triggerOutputs()` expression that retrieves the parameter value, follow these steps:
 
@@ -370,7 +370,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
    1. In the **Body** property, enter `Postal Code: ` with a trailing space. Keep your cursor inside the edit box so that the dynamic content list remains open.
 
-   1. Select the lightning symbol to open the dynamic content list. From the **When a HTTP request is received** section, select the **postalCode** trigger output.
+   1. Select the lightning icon to open the dynamic content list. From the **When a HTTP request is received** section, select the **postalCode** trigger output.
 
       :::image type="content" source="./media/logic-apps-http-endpoint/response-trigger-output-standard.png" alt-text="Screenshot shows Standard workflow, Response action, and specified trigger output to include in response body." lightbox="./media/logic-apps-http-endpoint/response-trigger-output-standard.png":::
 

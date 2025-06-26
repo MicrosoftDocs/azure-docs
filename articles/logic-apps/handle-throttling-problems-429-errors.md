@@ -1,6 +1,6 @@
 ---
 title: Handle Throttling Problems or 429 Too Many Requests
-description: How to work around throttling problems or 'HTTP 429 Too many requests' errors in Azure Logic Apps.
+description: Learn how to handle workflow throttling problems or 'HTTP 429 Too many requests' errors in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -72,11 +72,11 @@ To handle throttling at this level, you have the following options:
 
   * A Standard workflow has no limit on the number of actions that can run during any interval.
 
-* Disable array debatching or **SplitOn** behavior in triggers.
+* Disable array debatching or **Split On** setting in triggers.
 
-  If a trigger returns an array for the remaining workflow actions to process, the trigger's [SplitOn setting](logic-apps-workflow-actions-triggers.md#split-on-debatch) divides up the array items and starts a workflow instance for each array item. This behavior effectively triggers multiple concurrent runs up to the [SplitOn limit](logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits).
+  If a trigger returns an array for the remaining workflow actions to process, the trigger's [**Split On** setting](logic-apps-workflow-actions-triggers.md#split-on-debatch) divides up the array items and starts a workflow instance for each array item. This behavior effectively triggers multiple concurrent runs up to the [**Split On** limit](logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits).
 
-  To control throttling, turn off the trigger's **SplitOn** behavior and have your workflow process the entire array with a single call, rather than handle a single item per call.
+  To control throttling, turn off the trigger's **Split On** setting and have your workflow process the entire array with a single call, rather than handle a single item per call.
 
 * Refactor actions into multiple, smaller workflows.
 
@@ -104,7 +104,7 @@ Each connector has its own throttling limits, which you can find on [each connec
 
 Some triggers and actions, such as HTTP, have a [retry policy](logic-apps-exception-handling.md#retry-policies) that you can customize based on the [retry policy limits](logic-apps-limits-and-config.md#retry-policy-limits) to implement exception handling. This policy specifies whether and how often a trigger or action retries a request when the original request fails or times out and results in a 408, 429, or 5xx response. So, when throttling starts and returns a 429 error, Logic Apps follows the retry policy where supported.
 
-To learn whether a trigger or action supports retry policies, check the trigger or action's settings. To view a trigger or action's retry attempts, go to your logic app's run history, select the run that you want to review, and expand that trigger or action to view details about inputs, outputs, and any retries.
+To learn whether a trigger or action supports retry policies, check the trigger or action's settings. To view a trigger or action's retry attempts, go to your logic app workflow's run history, select the run that you want to review, and expand that trigger or action to view details about inputs, outputs, and any retries.
 
 The following Consumption workflow example shows where you can find this information for an HTTP action:
 

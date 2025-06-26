@@ -1,6 +1,6 @@
 ---
-title: Add and Run JavaScript in Workflows
-description: Write and run JavaScript code snippets in workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
+title: Run JavaScript in Workflows
+description: Learn how to run JavaScript code snippets in workflows for custom integration tasks by using Inline Code operations in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -42,7 +42,7 @@ The following diagram shows the highlights from an example workflow:
 
 * The logic app resource with the workflow where you want to add your code snippet. The workflow must already start with a trigger.
 
-  This article's example uses the Office 365 Outlook trigger named **When a new email arrives**.
+  This article's example uses the **Office 365 Outlook** trigger named **When a new email arrives**.
 
   If you don't have a logic app resource and workflow, create them now by following the steps for the logic app that you want:
 
@@ -107,7 +107,9 @@ The following diagram shows the highlights from an example workflow:
 
    :::image type="content" source="media/add-run-javascript/save-email-body-variable-consumption.png" alt-text="Screenshot showing the Consumption workflow, Execute JavaScript Code action, and example code that creates variables.":::
 
-1. With your cursor still in the **Code** box, select **Add dynamic content**. Find the **When a new email arrives** section, and select the **Body** property, which references the email message's body.
+1. With your cursor still in the **Code** box, select the lightning icon to open the dynamic content list.
+
+1. In the list, under the **When a new email arrives** section, select the **Body** property, which references the trigger output with the email message body.
 
    :::image type="content" source="media/add-run-javascript/select-output-consumption.png" alt-text="Screenshot showing the Consumption workflow, Execute JavaScript Code action, dynamic content list, and email message's Body property selected.":::
 
@@ -355,13 +357,13 @@ Before you start, you need the JSON name for the trigger or action in the underl
 
   `My.Action.Name`
 
-1. On the workflow menu, select **Code view**. In the `actions` object, find the action's name.
+1. On the workflow menu, under **Tools**, select **Code** to view the workflow's JSON definition. In the `actions` object, find the action's name.
 
    For example, `Send_approval_email` is the JSON name for the **Send approval email** action.
 
    :::image type="content" source="media/add-run-javascript/find-action-name-json.png" alt-text="Screenshot showing the action name in JSON.":::
 
-1. To return to designer view, on the workflow menu, select **Designer**.
+1. To return to designer view, on the workflow menu, under **Tools**, select **Designer**.
 
 1. Now add the JSON name to the **Execute JavaScript Code** action.
 
@@ -394,5 +396,5 @@ For more information about the **Execute JavaScript Code** action's structure an
 
 ## Related content
 
-* [List of all Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Built-in connectors in Azure Logic Apps](../connectors/built-in.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)
