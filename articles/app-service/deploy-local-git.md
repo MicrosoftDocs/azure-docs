@@ -35,7 +35,7 @@ To complete the steps in this article, you need:
 
 ### Deployment user credentials
 
-To authenticate and deploy your app, you need deployment user credentials. These are different from your Azure subscription credentials, and you can use either [user-scope](deploy-configure-credentials.md#userscope) or [application-scope](deploy-configure-credentials.md#appscope) credentials.
+You need deployment user credentials to authenticate and deploy your app. These are different from your Azure subscription credentials, and you can use either [user-scope](deploy-configure-credentials.md#userscope) or [application-scope](deploy-configure-credentials.md#appscope) credentials.
 
 A user-scope deployment user for local Git deployment only needs a user name, not a password. You can set the user-scope user name by running the Azure CLI command `az webapp deployment user set --user-name <username>`, or under **User-scope** on the **Local Git/FTPS credentials** tab of an app's **Deployment Center**.
 
