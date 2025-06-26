@@ -10,6 +10,7 @@ ms.date: 03/25/2024
 ms.author: shaas
 zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
+# Customer intent: "As an IT administrator, I want to copy data from my on-premises system to Azure Data Box using NFS, so that I can efficiently transfer large datasets to the cloud for storage and processing."
 ---
 # Tutorial: Copy data to Azure Data Box via NFS
 
