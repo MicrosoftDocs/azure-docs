@@ -91,7 +91,7 @@ For more information about different networking scenarios, see [Ingress in Azure
 |[Cross origin resource sharing (CORS)](cors.md) | Enable CORS for your container app, which allows requests made through the browser to a domain that doesn't match the page's origin. |
 |[Path-based routing](rule-based-routing.md) | Use rules to route requests to different container apps in your environment, depending on the path of each request. |
 |[Virtual networks](custom-virtual-networks.md) | Configure the VNet for your container app environment. |
-|[DNS](dns.md) | Configure DNS for your container app environment's VNet. |
+|[DNS](private-endpoints-with-dns.md#dns) | Configure DNS for your container app environment's VNet. |
 |[Private endpoint](how-to-use-private-endpoint.md) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
 |[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
 
@@ -99,7 +99,7 @@ For more information about different networking scenarios, see [Ingress in Azure
 
 |Feature |Learn how to |
 |---------|---------|
-|[Using Azure Firewall](using-azure-firewall.md) | Use Azure Firewall to control outbound traffic from your container app. |
+|[Using Azure Firewall](use-azure-firewall.md) | Use Azure Firewall to control outbound traffic from your container app. |
 |[Virtual networks](custom-virtual-networks.md) | Configure the VNet for your container app environment. |
 |[Securing a existing VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
 |[NAT gateway integration](custom-virtual-networks.md#nat-gateway-integration)| Use NAT Gateway to simplify outbound internet connectivity in your virtual network in a workload profiles environment. |

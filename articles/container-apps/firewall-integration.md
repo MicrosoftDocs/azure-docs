@@ -15,7 +15,7 @@ Network Security Groups (NSGs) needed to configure virtual networks closely rese
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./using-azure-firewall.md) are supported.
+In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./use-azure-firewall.md) are supported.
 
 > [!NOTE]
 > For a guide on how to set up UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the how to for [Container Apps and Azure Firewall](user-defined-routes.md).
