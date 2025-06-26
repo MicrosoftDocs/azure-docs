@@ -66,6 +66,10 @@ Validate the settings by using this CLI command:
 az resource show --resource-group <group-name> --name <app-name> --query properties.dnsConfiguration --resource-type "Microsoft.Web/sites"
 ```
 
+## Limitations
+
+- App Service does not support falling back to DNS resolution over TCP when it encounters a truncated response over UDP. Configuring App Services to use a DNS server which does not implmenent EDNS to negotiate UDP responses larger than the standard 512 byte limit may result in DNS resolution failures.
+
 ## Next steps
 
 - [Configure virtual network integration](./configure-vnet-integration-enable.md)
