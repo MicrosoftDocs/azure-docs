@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 05/19/2025
+ms.date: 06/26/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal-bicep
 ---
@@ -725,16 +725,16 @@ Scaling behavior has the following defaults:
 | Cool down period | 300 seconds |
 | Scale up stabilization window | 0 seconds |
 | Scale down stabilization window | 300 seconds |
-| Scale up step | 1, 4, 100% of current |
-| Scale down step | 100% of current |
+| Scale up step | 1, 4, 8, 16, 32, ... up to configured maximum replica count |
+| Scale down step | 100% of replicas that need to shut down |
 | Scaling algorithm | `desiredReplicas = ceil(currentMetricValue / targetMetricValue)` |
 
 - **Polling interval** is how frequently event sources are queried by KEDA. This value doesn't apply to HTTP and TCP scale rules.
 - **Cool down period** is how long after the last event was observed before the application scales down to its minimum replica count.
 - **Scale up stabilization window** is how long to wait before performing a scale up decision once scale up conditions were met.
 - **Scale down stabilization window** is how long to wait before performing a scale down decision once scale down conditions were met.
-- **Scale up step** is the rate new instances are added at. It starts with 1, 4, 8, 16, 32, ... up to the configured maximum replica count.
-- **Scale down step** is the rate at which replicas are removed. By default 100% of replicas that need to shut down are removed.
+- **Scale up step** is how many replicas are added as your container app scales out. It starts at 1, then increases to 4, 8, 16, 32, and so on, up to the configured maximum replica count.
+- **Scale down step** is how many replicas are removed as your container app scales in. By default, 100% of replicas that need to shut down are removed.
 - **Scaling algorithm** is the formula used to calculate the current desired number of replicas.
 
 ### Example
