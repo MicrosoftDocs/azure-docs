@@ -37,8 +37,8 @@ For EU communication resources, when the organizer, initiator, or guests join a 
 Azure Communication Services guarantees that SMS data within the EUDB is stored in EUDB regions. As of today, we process and store data in the Netherlands, Ireland, or Switzerland regions, ensuring no unauthorized data transfer outside the EEA (European Economic Area). 
 Also, Azure Communication Services employs advanced security measures, including encryption, to protect SMS data both at rest and in transit. Customers can select their preferred data residency within the EUDB, making sure data remains within the designated EU regions. 
 
-> **Note:** Azure Communication Services is regulated in the EU and UK as a provider of interpersonal communications services (ICS). Azure Communication Services complies with rules and regulations applicable to ICS in the EU and UK, as established in each Member State's national laws, including licensing or registration, annual revenue and statistical reporting, regulatory fees, security, telecommunications secrecy, CLI restrictions, data retention, anti-spam and anti-fraud measures, among many others.
-
+> [!NOTE]
+> Azure Communication Services is regulated in the EU and UK as a provider of interpersonal communications services (ICS). Azure Communication Services complies with rules and regulations applicable to ICS in the EU and UK, as established in each Member State's national laws, including licensing or registration, annual revenue and statistical reporting, regulatory fees, security, telecommunications secrecy, CLI restrictions, data retention, anti-spam and anti-fraud measures, among many others.
 
 #### SMS EUDB FAQ
 
