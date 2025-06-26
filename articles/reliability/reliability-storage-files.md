@@ -6,22 +6,29 @@ author: anaharris-ms
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-file-storage
-ms.date: 06/05/2025
+ms.date: 06/26/2025
 ---
 
 # Reliability in Azure Files
 
-Azure Files provides fully managed file shares in the cloud that are accessible via Server Message Block (SMB) and Network File System (NFS) protocols. Azure Files supports multiple redundancy options including locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS). The service offers availability zone support through zone-redundant storage configurations and provides built-in transient fault handling through Azure Storage client libraries with configurable retry policies.
+Azure Files provides fully managed file shares in the cloud that are accessible via industry-standard Server Message Block (SMB) and Network File System (NFS) protocols. As a comprehensive cloud storage solution, Azure Files is designed to deliver enterprise-grade reliability and high availability for both on-premises integration and cloud-native workloads. 
 
-This article describes reliability and availability zones support in [Azure Files](/azure/storage/files/storage-files-introduction). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
+Azure Files supports multiple redundancy configurations including locally redundant storage (LRS) for protection within a single datacenter, zone-redundant storage (ZRS) for availability zone deployments, geo-redundant storage (GRS) for cross-region protection, and geo-zone-redundant storage (GZRS) for the highest level of durability. 
+
+This article describes reliability and availability zones support in [Azure Files](/azure/well-architected/service-guides/azure-files), covering both regional resiliency through availability zone configurations and cross-region protection through geo-redundant storage options. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
 
 ## Production deployment recommendations
 
-To learn about how to deploy Azure Files to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see Architecture best practices for [Azure Files](/azure/well-architected/service-guides/azure-files) in the Azure Well-Architected Framework.
+To learn about how to deploy Azure Files to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices forAzure Files](/azure/well-architected/service-guides/azure-files) in the Azure Well-Architected Framework.
 
 ## Reliability architecture overview
 
-Azure Files is available in two tiers: the premium tier uses solid state disks (SSD) for high performance, and the standard tier supports hard disk drives (HDD) for cost efficiency. To learn more about Azure Files tiers, see [Plan to deploy Azure Files](/azure/storage/files/storage-files-planning#storage-tiers).
+Azure Files is available in two tiers: 
+
+- **Premium tier** uses solid state disks (SSD) for high performance.
+- **Standard tier** supports hard disk drives (HDD) for cost efficiency. 
+
+To learn more about Azure Files tiers, see [Plan to deploy Azure Files](/azure/storage/files/storage-files-planning#storage-tiers).
 
 Azure Files implements redundancy at the storage account level, with file shares inheriting the redundancy configuration. The service supports multiple redundancy models that differ in their approach to data protection.
 
@@ -55,11 +62,11 @@ ZRS is supported for SSD (premium) file shares through the `FileStorage` storage
 
 ### Cost
 
-When you enable zone-redundant storage, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead. For detailed pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+When you enable ZRS, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead. For detailed pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ### Configure availability zone support
 
-- **Create a file share with zone redundancy:** To create a new file share with zone-redundant storage, see [Create an Azure file share](/azure/storage/files/storage-how-to-create-file-share) and select ZRS or GZRS as the redundancy option during account creation.
+- **Create a file share with zone redundancy:** To create a new file share with ZRS, see [Create an Azure file share](/azure/storage/files/storage-how-to-create-file-share) and select ZRS or GZRS as the redundancy option during account creation.
 
 <!-- The rest of this section is copied from the Blob guide -->
 - **Migration**. To convert an existing storage account to ZRS and learn about migration options and requirements, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration).
