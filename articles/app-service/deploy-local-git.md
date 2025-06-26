@@ -2,7 +2,7 @@
 title: Deploy From a Local Git Repository
 description: Learn how to configure and carry out local Git deployment to Azure App Service.
 ms.topic: how-to
-ms.date: 06/24/2025
+ms.date: 06/26/2025
 ms.reviewer: dariac
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: cephalin
@@ -28,16 +28,16 @@ To complete the steps in this article, you need:
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
   ```
 
-- If you want to use the Azure CLI commands, you need the latest version of the [Azure CLI installed](/cli/azure/install-azure-cli) on your local machine. Sign in to Azure using [az login](/cli/azure/reference-index#az-login).
-- If you want to run the Azure PowerShell commands, you need the latest version of [Azure PowerShell installed](/powershell/azure/install-azure-powershell). Sign in to Azure using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+- If you want to use the Azure CLI commands, the latest version of the [Azure CLI installed](/cli/azure/install-azure-cli) on your local machine. Sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+- If you want to run the Azure PowerShell commands, the latest version of [Azure PowerShell installed](/powershell/azure/install-azure-powershell). Sign in to Azure using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ### Deployment user credentials
 
-You need deployment user credentials to authenticate and deploy your app. These are different from your Azure subscription credentials, and you can use either [user-scope](deploy-configure-credentials.md#userscope) or [application-scope](deploy-configure-credentials.md#appscope) credentials.
+To authenticate and deploy your app, you need deployment user credentials. These are different from your Azure subscription credentials, and you can use either [user-scope](deploy-configure-credentials.md#userscope) or [application-scope](deploy-configure-credentials.md#appscope) credentials.
 
-A user-scope deployment user for local Git deployment only needs a user name, not a password. You can create the user-scope user name by running the Azure CLI command `az webapp deployment user set --user-name <username>`, or under **User-scope** on the **Local Git/FTPS credentials** tab of an app's **Deployment Center**.
+A user-scope deployment user for local Git deployment only needs a user name, not a password. You can set the user-scope user name by running the Azure CLI command `az webapp deployment user set --user-name <username>`, or under **User-scope** on the **Local Git/FTPS credentials** tab of an app's **Deployment Center**.
 
 Once you create your user-scope deployment user, you can use it for all the App Service apps you have access to. For more information, see [Configure user-scope credentials](deploy-configure-credentials.md#userscope).
 
@@ -66,7 +66,7 @@ Either command produces output that includes a URL, such as:
 ```output
 Local git is configured with url of 'https://contoso-user@myapp.scm.azurewebsites.net/myApp.git'
 ```
-The preceding URL contains the user-scope deployment user name `contoso-user`. If you don't have a user-scope deployment user name, the URL uses the [application-scope user name](deploy-configure-credentials.md#appscope), for example `https://$myApp@myApp.scm.azurewebsites.net/myApp.git`.
+The preceding URL contains the [user-scope deployment user name](deploy-configure-credentials.md#userscope) `contoso-user`. If you don't have a user-scope deployment user name, the URL uses the [application-scope user name](deploy-configure-credentials.md#appscope), for example `https://$myApp@myApp.scm.azurewebsites.net/myApp.git`.
 
 Use this Git clone URL to deploy your app in the next step.
 
@@ -81,7 +81,7 @@ Use this Git clone URL to deploy your app in the next step.
 
    When you run this cmdlet from a directory that's a Git repository, it automatically creates a Git remote repository named `azure` for your App Service app.
 
-1. Run the [Set-AzResource](/powershell/module/az.resources/set-azresource) cmdlet to set the `scmType` of your new or preexisting app, for example:
+1. For your new or preexisting app, run the [Set-AzResource](/powershell/module/az.resources/set-azresource) cmdlet to set the `scmType` to `LocalGit`. For example:
 
    ```azurepowershell
    $PropertiesObject = @{
@@ -132,7 +132,7 @@ If you used Azure PowerShell `New-AzWebApp` to create the app from the sample co
 <a name="change-deployment-branch"></a>
 ### Push to the correct branch
 
-App Service repositories deploy files to the `master` branch by default. If your local files are in the `master` branch of your repository, you can now deploy your app by running `git push azure master`.
+App Service repositories deploy files to the `master` branch by default. If your preexisting local files are in the `master` branch of your repository, you can now deploy your app by running `git push azure master`.
 
 However, many Git repositories, including the sample code repository for this article, use `main` or another default branch name. To deploy to the correct branch, you must either explicitly deploy to the remote `master` branch, or change the deployment branch to `main` or other branch name and deploy to that branch.
 
