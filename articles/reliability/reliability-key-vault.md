@@ -38,11 +38,6 @@ To ensure high durability and availability of your keys, secrets, and certificat
 By default, Azure Key Vault achieves redundancy by replicating your key vault and its contents within the region.
 
 In addition, if the region has a [paired region](./regions-list.md) and that paired region is in the same geography as the primary region, the contents are also replicated to the paired region. This approach ensures high durability of your keys and secrets, protecting against hardware failures, network outages, or localized disasters.
-
-<!-- John: I am assuming that the paired region replication is by default as well?-->
-
-
-
 ## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
