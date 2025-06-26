@@ -9,6 +9,7 @@ ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 11/18/2022
 ms.author: shaas
+# Customer intent: As a data administrator, I want to ensure that access control lists (ACLs), timestamps, and file attributes are preserved during data transfers to Azure, so that the integrity and security settings of my data are maintained throughout the process.
 ---
 
 # Preserving file ACLs, attributes, and timestamps with Azure Data Box

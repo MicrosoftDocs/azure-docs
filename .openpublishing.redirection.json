@@ -1,6 +1,91 @@
 {
   "redirections": [
     {
+      "source_path": "articles/fxt-edge-filer/add-nodes.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/add-nodes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/add-storage.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/add-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/additional-doc.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/additional-doc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/cluster-create.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/cluster-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/configure-network.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/configure-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/index.yml",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/install.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/monitor.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/mount-clients.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/mount-clients",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/network-power.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/network-power",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/node-password.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/node-password",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/overview.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/port-list.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/port-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/power-off.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/power-off",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/specs.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/specs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/support-ticket.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/support-ticket",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/supported-ciphers.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/supported-ciphers",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/azure-elastic-storage-area-network-backup-manage.md",
       "redirect_url": "/azure/backup/azure-elastic-san-backup-manage",
       "redirect_document_id": false

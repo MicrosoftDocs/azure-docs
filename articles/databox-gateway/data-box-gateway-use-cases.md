@@ -8,6 +8,7 @@ ms.service: azure-data-box-gateway
 ms.topic: concept-article
 ms.date: 09/28/2021
 ms.author: shaas
+# Customer intent: As a data manager, I want to utilize a cloud storage gateway to ingest, archive, and manage data transfers to Azure, so that I can efficiently handle large datasets and ensure long-term data retention while reducing operational costs.
 ---
 
 # Use cases for Azure Data Box Gateway

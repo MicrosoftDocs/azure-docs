@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 #Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage.
+# Customer intent: "As a web application developer, I want to manage blobs using the Azure Blob storage client library in the browser, so that I can create a single-page application that allows users to upload, list, and delete files dynamically."
 ---
 
 # Quickstart: Manage blobs with JavaScript v12 SDK in a browser

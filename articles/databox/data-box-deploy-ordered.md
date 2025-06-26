@@ -10,6 +10,7 @@ ms.author: shaas
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
+# Customer intent: "As an IT admin, I want to order an Azure Data Box to transfer on-premises data to Azure, so that I can efficiently manage and migrate large volumes of data to the cloud."
 ---
 # Tutorial: Order Azure Data Box
 

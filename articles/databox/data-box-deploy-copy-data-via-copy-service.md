@@ -11,6 +11,7 @@ ms.date: 05/28/2024
 ms.author: shaas
 zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
+# Customer intent: As an IT admin, I want to copy data to my device using the data copy service, so that I can efficiently upload on-premises data to Azure without requiring an intermediate host.
 ---
 # Tutorial: Use the data copy service to copy data into Azure Data Box
 

@@ -7,6 +7,7 @@ ms.service: azure-data-box-disk
 ms.topic: how-to
 ms.date: 05/04/2021
 ms.author: shaas
+# Customer intent: "As a Data Box user, I want to log a support ticket for technical issues, so that I can receive timely assistance and resolve my service-related problems effectively."
 ---
 # Open a support ticket for Azure Data Box
 

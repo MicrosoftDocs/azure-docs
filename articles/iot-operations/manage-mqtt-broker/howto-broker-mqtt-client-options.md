@@ -6,7 +6,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 11/11/2024
+ms.date: 06/26/2025
 
 #CustomerIntent: As an operator, I want to configure an MQTT broker so that I can control MQTT client interactions.
 ---
@@ -81,6 +81,14 @@ The `maxMessageExpirySeconds` setting controls how long a message can stay in th
 The `maxSessionExpirySeconds` setting works with the subscriber queue limit to ensure that messages aren't kept in the queue indefinitely. If a session expires, all messages in the queue for that session are dropped. This practice helps prevent offline subscribers from using too much memory by eventually clearing the entire queue.
 
 Both message expiry and session expiry are important for managing slow and offline subscribers and ensuring efficient memory usage.
+
+## Max message expiry and retained Messages
+
+In MQTT 5, retained messages respect the message expiry interval specified in the `PUBLISH` packet. If an expiry interval is set, the retained message is removed once the interval elapses. If no interval is provided, the message remains available indefinitely.
+
+The `maxMessageExpirySeconds` setting defines a global upper limit for message expiry, applying to all messages, including retained ones. For example, if `maxMessageExpirySeconds` is set to `1000` seconds and a retained message specifies an expiry interval of `2000` seconds, the message is still removed after `1000` seconds.
+
+By default, `maxMessageExpirySeconds` is not set. In this case, retained messages do not expire unless an expiry interval is explicitly defined in the message.
 
 ## Related content
 

@@ -46,7 +46,7 @@ If you're a billing account or billing profile admin, you can create and manage 
     - **Billing profiles**: Select one or more billing profiles. Note: Only billing profiles under the current billing account that are linked to your customers are shown.
     - **Adjust price by**: Enter markup or markdown value that adjusts your (partner's) price and costs and appears in the customer's cost and price views.
     - **Effective from**: During an open month, markup always defaults to the start of the month. You can't set the date for any previous month (closed periods).
-    - **End date:** An optional field. If not selected, the markup rule has no end date unless the rule is explicitly inactivated.
+    - **End date:** An optional field. If not selected, the markup rule has no end date unless the rule is explicitly deactivated.
     - **Description**: Optional field to capture notes or comments as needed.
 
 >[!NOTE]

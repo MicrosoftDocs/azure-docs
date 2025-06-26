@@ -11,6 +11,7 @@ ms.author: pauljewell
 ms.reviewer: artek
 ms.devlang: javascript
 ms.custom:
+# Customer intent: As an application developer, I want to simulate failures in reading data from the primary storage region, so that I can test the failover capabilities and ensure the reliability of my application using read-access geo-zone-redundant storage.
 ---
 
 # Tutorial: Simulate a failure in reading data from the primary region

@@ -12,6 +12,7 @@ ms.author: normesta
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+# Customer intent: "As a data administrator, I want to configure immutability policies for blob containers, so that I can ensure critical data remains unmodifiable and protected from deletions for regulatory compliance."
 ---
 
 # Configure immutability policies for containers

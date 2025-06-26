@@ -9,6 +9,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/06/2025
 ms.author: shaas
+# Customer intent: "As a data administrator, I want to manage the storage tiers of large data transfers using Azure Data Box, so that I can optimize costs based on access patterns for Hot, Cool, and Archive data according to my organization's requirements."
 ---
 
 # Use Azure Data Box devices to send data to the appropriate Azure Storage blob tier

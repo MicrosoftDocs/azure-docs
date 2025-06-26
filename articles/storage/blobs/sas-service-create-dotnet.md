@@ -11,6 +11,7 @@ ms.author: pauljewell
 ms.reviewer: nachakra
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, engagement-fy23, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to create a service shared access signature (SAS) for a blob or container, so that I can manage access permissions and operations for storage resources securely and efficiently.
 ---
 
 # Create a service SAS for a container or blob with .NET

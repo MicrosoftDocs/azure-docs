@@ -4,13 +4,13 @@ description: Integrate an API Management instance to Azure API Center for automa
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 06/25/2025
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
 ---
 
-# Synchronize APIs from an API Management instance (preview)
+# Synchronize APIs from an API Management instance
 
 This article shows how to integrate an API Management instance so that the instances's APIs are continuously kept up to date in your [API center](overview.md) inventory. 
 
@@ -30,7 +30,6 @@ When you integrate an API Management instance as an API source, the following ha
 API Management APIs automatically synchronize to the API center whenever existing APIs' settings change (for example, new versions are added), new APIs are created, or APIs are deleted. This synchronization is one-way from API Management to your Azure API center, meaning API updates in the API center aren't synchronized back to the API Management instance.
 
 > [!NOTE]
-> * Integration of Azure API Management is currently in preview.
 > * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) for the number of integrated API Management instances (API sources).
 > * An integrated API Management instance can be configured in a virtual network.
 > * API updates in API Management typically synchronize to your API center within minutes, but synchronization can take up to 24 hours.
@@ -70,7 +69,8 @@ You can integrate an API Management instance using the portal or the Azure CLI.
 1. Under **Platforms**, select **Integrations**.
 1. Select **+ New integration** > **From Azure API Management**.
 1. In the **Integrate your Azure API Management Service** page:
-    1. Select the **Subscription**, **Resource group**, and **Azure API Management service** that you want to integrate.
+    1. Select whether to synchronize all APIs from the API Management instance or only APIs that are in an API Management [workspace](../api-management/workspaces-overview.md). 
+    1. Select the **Subscription**, **Resource group**, and **Azure API Management service** that you want to integrate. If you want to synchronize only APIs from a workspace, make a selection in **Choose a workspace**.
     1. In **Integration details**, enter an identifier.
         If you haven't already configured a managed identity with access to the API Management instance, enable **Automatically configure managed identity and assign permissions**. This selection automatically assigns the API center's system-assigned managed identity the necessary permissions to synchronize APIs from the API Management instance.
     1. In **Environment details**, enter an **Environment title** (name), **Environment type**, and optional **Description**.
@@ -98,9 +98,7 @@ az apic integration create apim \
 ``` 
 ---
 
-The environment is added in your API center. The API Management APIs are imported to the API center inventory.
-
-:::image type="content" source="media/synchronize-api-management-apis/environment-link-list.png" alt-text="Screenshot of environment list in the portal.":::
+The API Management instance is integrated as an environment in your API center. The API Management APIs are synchronized to the API center inventory.
 
 [!INCLUDE [delete-api-integration](includes/delete-api-integration.md)]
 

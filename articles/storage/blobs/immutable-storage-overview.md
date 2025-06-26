@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: overview
 ms.date: 05/01/2024
 ms.author: normesta
+# Customer intent: "As a compliance officer, I want to implement immutable storage policies for blob data, so that I can ensure regulatory compliance and protect business-critical information from unauthorized modifications or deletions."
 ---
 
 # Store business-critical blob data with immutable storage in a write once, read many (WORM) state
