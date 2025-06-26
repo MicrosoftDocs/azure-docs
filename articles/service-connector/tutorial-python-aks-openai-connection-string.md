@@ -7,6 +7,7 @@ author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python, build-2024, devx-track-azurecli
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
 ms.date: 01/29/2025
