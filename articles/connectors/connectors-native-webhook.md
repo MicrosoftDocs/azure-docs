@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/20/2025
+ms.date: 06/26/2025
 ---
 
 # Subscribe and wait for events to run workflows using HTTP webhooks in Azure Logic Apps
@@ -75,7 +75,7 @@ This built-in trigger calls the subscribe endpoint on the target service and reg
 
 1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
 
-1. Add the trigger named **HTTP Webhook** to your workflow by following the [general steps to add a trigger](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
+1. Add the **HTTP Webhook** trigger to your workflow by following the [general steps to add a trigger](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
 
    This example renames the trigger to **HTTP Webhook trigger** so that the step has a more descriptive name. Also, the example later adds an HTTP Webhook action, and both names must be unique.
 
@@ -99,7 +99,7 @@ This built-in trigger calls the subscribe endpoint on the target service and reg
 
    :::image type="content" source="media/connectors-native-webhook/webhook-trigger-parameters-standard.png" alt-text="Screenshot shows Standard workflow with HTTP Webhook trigger parameters." lightbox="media/connectors-native-webhook/webhook-trigger-parameters-standard.png":::
 
-   If you need to use authentication, you can add the **Subscribe Authentication** and **Unsubscribe Authentication** properties. For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   If you need to use authentication, you can add the **Subscribe Authentication** and **Unsubscribe Authentication** properties. For more information about authentication types available for **HTTP Webhook**, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continue building your workflow with actions that run when the trigger fires.
 
@@ -111,7 +111,7 @@ This built-in trigger calls the subscribe endpoint on the target service and reg
 
 1. On the sidebar menu, under **Development Tools**, select the designer to open the blank workflow.
 
-1. Add the trigger named **HTTP Webhook** to your workflow by following the [general steps to add a trigger](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger).
+1. Add the **HTTP Webhook** trigger to your workflow by following the [general steps to add a trigger](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger).
 
    This example renames the trigger to **HTTP Webhook trigger** so that the step has a more descriptive name. Also, the example later adds an HTTP Webhook action, and both names must be unique.
 
@@ -132,7 +132,7 @@ This built-in trigger calls the subscribe endpoint on the target service and reg
 
    :::image type="content" source="media/connectors-native-webhook/webhook-trigger-add-properties-consumption.png" alt-text="Screenshot shows Consumption workflow with HTTP Webhook trigger and more properties." lightbox="media/connectors-native-webhook/webhook-trigger-add-properties-consumption.png":::
 
-   For example, if you need to use authentication, you can add the **Subscribe Authentication** and **Unsubscribe Authentication** properties. For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   For example, if you need to use authentication, you can add the **Subscribe Authentication** and **Unsubscribe Authentication** properties. For more information about authentication types available for **HTTP Webhook**, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continue building your workflow with actions that run when the trigger fires.
 
@@ -156,11 +156,11 @@ This built-in action calls the subscribe endpoint on the target service and regi
 
    This example uses the **HTTP Webhook** trigger as the first step.
 
-1. Add the action named **HTTP Webhook** to your workflow by following the [general steps to add a action](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
+1. Add the **HTTP Webhook** action to your workflow by following the [general steps to add a action](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
 
    This example renames the action to **HTTP Webhook action** so that the step has a more descriptive name.
 
-1. Provide the values for the HTTP Webhook action parameters, which are similar to the [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger), that you want to use for the subscribe and unsubscribe calls.
+1. Provide the values for the **HTTP Webhook** action parameters, which are similar to the [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger), that you want to use for the subscribe and unsubscribe calls.
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -182,7 +182,7 @@ This built-in action calls the subscribe endpoint on the target service and regi
 
 1. To add other action properties, open the **Advanced parameters** list.
 
-   For example, if you need to use authentication, you can add the **Subscribe Authentication** and **Unsubscribe Authentication** properties. For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   For example, if you need to use authentication, you can add the **Subscribe Authentication** and **Unsubscribe Authentication** properties. For more information about authentication types available for **HTTP Webhook**, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -192,11 +192,11 @@ This built-in action calls the subscribe endpoint on the target service and regi
 
    This example uses the **HTTP Webhook** trigger as the first step.
 
-1. Add the action named **HTTP Webhook** to your workflow by following the [general steps to add an action](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action).
+1. Add the **HTTP Webhook** action to your workflow by following the [general steps to add an action](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action).
 
    This example renames the action to **HTTP Webhook action** so that the step has a more descriptive name.
 
-1. Provide the values for the HTTP Webhook action parameters, which are similar to the [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger), that you want to use for the subscribe and unsubscribe calls.
+1. Provide the values for the **HTTP Webhook** action parameters, which are similar to the [HTTP Webhook trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger), that you want to use for the subscribe and unsubscribe calls.
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -213,7 +213,7 @@ This built-in action calls the subscribe endpoint on the target service and regi
 
    :::image type="content" source="media/connectors-native-webhook/webhook-action-add-properties-consumption.png" alt-text="Screenshot shows Consumption workflow with HTTP Webhook action and more properties." lightbox="media/connectors-native-webhook/webhook-action-add-properties-consumption.png":::
 
-   For example, if you need to use authentication, you can add the **Subscribe Authentication** and **Unsubscribe Authentication** properties. For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   For example, if you need to use authentication, you can add the **Subscribe Authentication** and **Unsubscribe Authentication** properties. For more information about authentication types available for **HTTP Webhook**, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -223,7 +223,7 @@ When this action runs, your workflow calls the subscribe endpoint on the target 
 
 ## Trigger and action outputs
 
-Here is more information about the outputs from an HTTP Webhook trigger or action, which returns this information:
+Here is more information about the outputs from an **HTTP Webhook** trigger or action, which returns this information:
 
 | Property name | Type | Description |
 |---------------|------|-------------|
@@ -249,7 +249,7 @@ To use the secondary key instead for callback URL generation, follow these steps
 
 1. From the workflow designer, switch to code view.
 
-1. In the **HttpWebhook** trigger definition. find the `accessKeyType` parameter.
+1. In the `HttpWebhook` trigger definition, find the `accessKeyType` parameter.
 
 1. Specify the word `Secondary` as the parameter value.
 

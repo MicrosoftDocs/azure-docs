@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 06/20/2025
+ms.date: 06/26/2025
 ---
 
 # Troubleshoot and diagnose workflow failures in Azure Logic Apps
@@ -23,7 +23,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
 ### [Consumption](#tab/consumption)
 
-1. To check the trigger's status in your Consumption logic app, [review the trigger history](monitor-logic-apps.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
+1. To check the trigger's status in your Consumption logic app, review the [workflow's trigger history](monitor-logic-apps.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
 
    :::image type="content" source="media/logic-apps-diagnosing-failures/logic-app-trigger-history-consumption.png" alt-text="Screenshot showing Azure portal with Consumption logic app workflow trigger history." lightbox="media/logic-apps-diagnosing-failures/logic-app-trigger-history-consumption.png":::
 
@@ -48,7 +48,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
 ### [Standard](#tab/standard)
 
-1. To check the trigger's status in your Standard logic app, [review the trigger history](monitor-logic-apps.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
+1. To check the trigger's status in your Standard logic app, review the [workflow's trigger history](monitor-logic-apps.md#review-trigger-history). To view more information about the trigger attempt, select that trigger event, for example:
 
    :::image type="content" source="media/logic-apps-diagnosing-failures/logic-app-trigger-history-standard.png" alt-text="Screenshot showing Azure portal with Standard logic app workflow trigger history." lightbox="media/logic-apps-diagnosing-failures/logic-app-trigger-history-standard.png":::
 
@@ -81,7 +81,7 @@ Each time that the trigger fires, Azure Logic Apps creates a workflow instance a
 
 ### [Consumption](#tab/consumption)
 
-1. To check the workflow's run status in your Consumption logic app, [review the runs history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
+1. To check the workflow's run status in your Consumption logic app, review the [workflow's run history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
 
    :::image type="content" source="media/logic-apps-diagnosing-failures/logic-app-runs-history-consumption.png" alt-text="Screenshot showing Azure portal with Consumption logic app workflow runs and a failed run selected." lightbox="media/logic-apps-diagnosing-failures/logic-app-runs-history-consumption.png":::
 
@@ -99,7 +99,7 @@ Each time that the trigger fires, Azure Logic Apps creates a workflow instance a
 
 ### [Standard](#tab/standard)
 
-1. To check the workflow's run status in your Standard logic app, [review the runs history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
+1. To check the workflow's run status in your Standard logic app, review the [workflow's run history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
 
    :::image type="content" source="media/logic-apps-diagnosing-failures/logic-app-runs-history-standard.png" alt-text="Screenshot showing Azure portal with Standard logic app workflow runs and a failed run selected." lightbox="media/logic-apps-diagnosing-failures/logic-app-runs-history-standard.png":::
 
@@ -123,13 +123,13 @@ To help with debugging, you can add diagnostic steps to a logic app workflow, al
 
 1. In a browser, go to the [Webhook Tester](https://webhook.site/) site, and copy the generated unique URL.
 
-1. In your logic app, add an HTTP POST action with the body content that you want to test, for example, an expression or another step output.
+1. In your logic app, add an **HTTP POST** action with the body content that you want to test, for example, an expression or another step output.
 
-1. Paste your URL from Webhook Tester into the HTTP POST action.
+1. Paste your URL from Webhook Tester into the **HTTP POST** action.
 
 1. To review how Azure Logic Apps generates and forms a request, run the logic app workflow. You can then revisit the Webhook Tester site for more information.
 
-## Frequently asked questions (FAQ)
+## Frequently asked questions
 
 ### Why is the workflow run duration longer than the sum of all the workflow action durations?
 
@@ -213,7 +213,7 @@ The following list includes possible causes for these errors and steps to help t
 
      * If the storage service has a [private endpoint](../private-link/private-endpoint-overview.md), the service resolves to the respective network interface controller (NIC) private IP addresses.
 
-   1. If the previous domain name server (DNS) queries resolve successfully, run the `psping` or `tcpping` commands to check connectivity to the storage account over port 443:
+  1. If the previous domain name server (DNS) queries resolve successfully, run the `psping` or `tcpping` commands to check connectivity to the storage account over port 443:
 
       Syntax: `psping [StorageaccountHostName] [Port] [OptionalDNSServer]`
 
@@ -225,13 +225,13 @@ The following list includes possible causes for these errors and steps to help t
 
       Queue: `psping {StorageaccountName}.queue.core.windows.net:443`
 
-   1. If each storage service is resolvable from your Azure virtual machine, find the DNS that's used by the virtual machine for resolution. 
+  1. If each storage service is resolvable from your Azure virtual machine, find the DNS that's used by the virtual machine for resolution. 
 
       1. Set your logic app's **WEBSITE_DNS_SERVER** app setting to the DNS, and confirm that the DNS works successfully.
 
       1. Confirm that virtual network integration is set up correctly with appropriate virtual network and subnet in your Standard logic app.
 
-   1. If you use [private Azure DNS zones](../dns/private-dns-privatednszone.md) for your storage account's private endpoint services, check that a [virtual network link](../dns/private-dns-virtual-network-links.md) was created to your logic app's integrated virtual network.
+  1. If you use [private Azure DNS zones](../dns/private-dns-privatednszone.md) for your storage account's private endpoint services, check that a [virtual network link](../dns/private-dns-virtual-network-links.md) was created to your logic app's integrated virtual network.
 
 For more information, see [Deploy Standard logic app to a storage account behind a firewall using service or private endpoints](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/deploying-standard-logic-app-to-storage-account-behind-firewall/ba-p/2626286).
 
