@@ -1,7 +1,7 @@
 ---
 title: Reliability in Azure API Management
 description: Find out about reliability in Azure API Management, including availability zones and multi-region deployments.
-author: anaharris-ms
+author: anaharris-ms # Dan: Please update this to you
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
