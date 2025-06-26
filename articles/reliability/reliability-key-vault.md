@@ -122,7 +122,7 @@ Azure Key Vault resources are deployed into a single Azure region. If the region
 
 ### Microsoft-managed failover to a paired region
 
-Azure Key Vault supports Microsoft-managed failover for key vaults in most paired regions. The contents of your key vault are replicated both within the region and, asynchronously, to the paired region. This approach ensures high durability of your keys and secrets. In the unlikely event of a prolonged region failure, Microsoft might initiate a regional failover of your key vault.
+Azure Key Vault supports Microsoft-managed replication and failover for key vaults in most paired regions. The contents of your key vault are automatically replicated both within the region and, asynchronously, to the paired region. This approach ensures high durability of your keys and secrets. In the unlikely event of a prolonged region failure, Microsoft might initiate a regional failover of your key vault.
 
 The following regions don't support Microsoft-managed replication or failover across regions:
 - Brazil South
