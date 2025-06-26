@@ -5,7 +5,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, swghimire, shahparth, azla
 ms.topic: how-to
-ms.date: 06/20/2025
+ms.date: 06/25/2025
 # Customer intent: As a logic app workflow developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
@@ -23,7 +23,7 @@ This capability provides the following benefits:
 
 - Write your own scripts within the workflow designer so you can solve complex integration challenges. No other service plans are necessary.
 
-  This benefit reduces the complexity and cost because you can manage more services and streamlines workflow development.
+  This benefit reduces the complexity and cost because you can manage more services and streamline workflow development.
 
 - Generate a dedicated code file, which provides a personalized scripting space within your workflow.
 

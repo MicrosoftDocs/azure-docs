@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/20/2025
+ms.date: 06/25/2025
 ---
 
 # Add conditions to control workflow action execution in Azure Logic Apps
