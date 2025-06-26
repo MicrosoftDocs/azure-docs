@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 06/24/2025
+ms.date: 06/26/2025
 ---
 
 # Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
@@ -79,7 +79,7 @@ Follow the steps in this section to configure an AWS connector within your Stora
     
 1. Within the **Authentication template** tab, follow the on-screen instructions to create the *AWS CloudFormation Stack* using the AWS portal.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-authentication-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Authentication Template tab selected. The AWS CloudFormation template and instructions for creating the stack are displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solutions.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-authentication-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Authentication Template tab selected. The AWS CloudFormation template and instructions for creating the stack are displayed." lightbox="media/cloud-to-cloud-migration/add-connector-authentication.png":::
 
     Select **Next** to continue to the **Tags** tab.
 
@@ -92,6 +92,14 @@ Follow the steps in this section to configure an AWS connector within your Stora
 1. The **Review + Create** tab displays a summary of the configuration settings you provided in the previous steps. Review these settings to ensure they are correct. If you need to make changes, select the **Previous** button to return to the appropriate tab. If all settings are correct, select **Create** to create your multicloud connector.
 
     :::image type="content" source="media/cloud-to-cloud-migration/add-connector-review-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/add-connector-review.png":::
+
+    After the connector is created, you are redirected to the new connector's **Overview** page as shown in the following image. 
+
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-deployed-sml.png" alt-text="A screen capture showing the Multicloud Connector Overview page with the connector's properties displayed." lightbox="media/cloud-to-cloud-migration/add-connector-deployed.png":::
+
+    Your new connector also appears in the **Connectors available** pane. To access the list of available connectors, navigate to your Storage Mover resource. In the **Overview** pane, select the **Multicloud migration** tab, and in the **Connect to data source** section, select **View existing multicloud connectors** as shown in the following image. From the **Multicloud connectors** pane, you can select your newly created connector to open it.
+
+    :::image type="content" source="media/cloud-to-cloud-migration/connectors-available-sml.gif" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/connectors-available.gif":::
 
 ## Configure Source and Destination Endpoints
 
