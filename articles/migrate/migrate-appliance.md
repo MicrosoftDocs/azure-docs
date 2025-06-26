@@ -48,21 +48,22 @@ Before you use the OVA/VHD/Zip file to deploy appliance, verify that the file is
 1. On the server where you downloaded the file, open Command Prompt window by using **Run as administrator** option.
 1. Run this command to create the hash for the OVA/VHD/Zip file:
 
-Copy 
+    Copy 
 
-`C:\>CertUtil -HashFile <file_location> <hashing_algorithm>` 
+    `C:\>CertUtil -HashFile <file_location> <hashing_algorithm>` 
 
-For example: 
+    For example: 
 
-Copy 
+    Copy 
 
-`C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256` 
+    `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256` 
 
-`C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
+    `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
 
-`C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256`
+    `C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256`    
 
 1. Verify the latest appliance versions and hash values: 
+
     - Use the OVA file to set up the VMware appliance in Azure public cloud.       
 
 | Algorithm  | Download  | SHA256  | 
