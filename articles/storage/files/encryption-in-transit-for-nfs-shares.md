@@ -1,10 +1,10 @@
 ---
-title: How to Encrypt Data in Transit for NFS shares (preview)
+title: How to Encrypt Data in Transit for NFS shares
 description: This article explains how you can encrypt data in transit (EiT) for NFS Azure file shares by using a TLS channel.
 author: guptasonia
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/11/2025
+ms.date: 06/27/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -13,13 +13,9 @@ ms.custom:
 # Customer intent: As a network administrator, I want to securely encrypt data in transit for NFS Azure file shares using TLS, so that I can protect sensitive information from interception and ensure data confidentiality without complex network security or authentication setups.
 ---
 
-# Encryption in transit for NFS Azure file shares (preview)
+# Encryption in transit for NFS Azure file shares
  
 This article explains how you can encrypt data in transit for NFS Azure file shares.
-
-> [!IMPORTANT]
-> - Encryption in transit for Azure file shares NFS v4.1 is currently in **preview**. 
-> - See the [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Files NFS v4.1 volumes enhance network security by enabling secure TLS connections, protecting data in transit from interception, including MITM attacks.
 
@@ -35,13 +31,11 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 ## Supported regions
 
-All regions that support Azure Premium Files now support encryption in transit.
-
+EiT is now Generally Available (GA) in all regions that support Azure Premium Files except China North3, New Zealand North, West Europe, US East2, US Central, US South and Korea Central. These remaining regions are currently running preview. You need to register your subscription per the instructions shared below to use EiT in the preview regions.
 
 ## Register for preview
  
-To enable encryption in transit for your NFS shares, you must register for the preview feature.
-
+To enable encryption in transit for your storage accounts and NFS shares in the preview regions (China North3, New Zealand North, West Europe, US East2, US Central, US South, and Korea Central), you must register for the preview. No registration is needed in the GA regions.
 
 ### [Portal](#tab/azure-portal)
 
@@ -72,13 +66,37 @@ az feature register --name AllowEncryptionInTransitNFS4 --namespace Microsoft.St
 
 ## Enforce encryption in transit
  
-By enabling the **Secure transfer required** setting on the storage account, you can ensure that all the mounts to the NFS volumes in the storage account are encrypted.
+By enabling the **Secure transfer required** setting on the storage account, you can ensure that all the mounts to the NFS volumes in the storage account are encrypted. EiT can be enabled on both new and existing storage accounts and NFS Azure file shares. There is no additional cost for enabling EiT.
+
+:::image type="content" source="./media/encryption-in-transit-nfs-shares/mount-nfs-share-using-encryption-in-transit.png" alt-text="Screenshot showing AZNFS mount instructions in the Azure portal." lightbox="./media/encryption-in-transit-nfs-shares/mount-nfs-share-using-encryption-in-transit.png":::
+
+However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the **Secure transfer** setting must remain OFF.
+
+> [!IMPORTANT]
+>
+> AZNFS supported Linux distributions are:
+>
+> - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
+> - Centos7, Centos8
+> - RedHat7, RedHat8, RedHat9
+> - Rocky8, Rocky9
+> - SUSE (SLES 15)
+> - Oracle Linux
+> - Alma Linux
+
+## Encrypt data in transit for NFS shares
+
+You can encrypt data in transit for NFS Azure file shares by using the Azure portal or Azure CLI.
+
+### Encrypt data in transit for NFS shares using the Azure portal
+
+Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package. Once installed, you can use the provided AZNFS mount script to securely mount the NFS share, establishing an encrypted transmission channel between the client and the server.
 
 :::image type="content" source="./media/encryption-in-transit-nfs-shares/storage-account-settings.png" alt-text="Screenshot showing how to enable Secure transfer on a storage account." lightbox="./media/encryption-in-transit-nfs-shares/storage-account-settings.png":::
 
-However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the **Secure transfer** setting must remain OFF.
- 
-## How to encrypt data in transit for NFS shares (preview)
+To support scenarios requiring both TLS and non-TLS connections within the same storage account, ensure that the Secure transfer required setting remains disabled.
+
+### Encrypt data in transit for NFS shares using Azure CLI
  
 Follow these steps to encrypt data in transit:
  
@@ -142,17 +160,6 @@ sudo yum install -y aznfs
 ```
 ---
 
-> [!IMPORTANT]
->
-> AZNFS supported Linux distributions are:
->
-> - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS) 
-> - Centos7, Centos8 
-> - RedHat7, RedHat8, RedHat9 
-> - Rocky8, Rocky9 
-> - SUSE (SLES 15) 
-> - Oracle Linux
-> - Alma Linux
 
 ### Step 2: Mount the NFS file share
 
@@ -216,6 +223,8 @@ To resolve this issue, remount the share using the clean option, which immediate
 ```bash
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4,notls,clean
 ```
+
+If a VM is **custom domain joined**, use custom DNS FQDN or short names for file share in `/etc/fstab` as defined in the DNS. To verify the hostname resolution, check using `nslookup <hostname>` and `getent host <hostname>` commands. Before running the mount command, ensure that the environment variable `AZURE_ENDPOINT_OVERRIDE` is set.
 
 If mounting issues continue, check the log files for more troubleshooting details:
 
