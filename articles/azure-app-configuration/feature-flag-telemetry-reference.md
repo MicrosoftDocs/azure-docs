@@ -21,7 +21,7 @@ In this document, you:
 
 ## Feature evaluation
 
-The Feature evaluation event is emitted whenever a feature flag is evaluated in your application that has Telemetry enabled. This event occurs each time your code checks if a feature flags status or gets a variant. The event captures the evaluation result, variant assignment details, and contextual information about why specific decisions were made.
+The Feature evaluation event is emitted whenever a feature flag that has telemetry enabled is evaluated in your application. This event occurs each time your code checks if a feature flags status or gets a variant. The event captures the evaluation result, variant assignment details, and contextual information about why specific decisions were made.
 
 This event contains the following fields:
 
