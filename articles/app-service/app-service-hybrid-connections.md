@@ -97,7 +97,7 @@ resource hybridConnection 'Microsoft.Relay/namespaces/hybridConnections@2024-01-
   name: hybridConnectionName
   properties: {
     requiresClientAuthorization: true
-    userMetadata: '[{"key": "endpoint", "value : "<HOST>:<PORT>"}]'
+    userMetadata: '[{/"key/": /"endpoint/", /"value/" : /"<HOST>:<PORT>/"}]'
   }
 }
 ```
