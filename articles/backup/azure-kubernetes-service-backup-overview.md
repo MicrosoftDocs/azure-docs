@@ -9,7 +9,7 @@ ms.custom:
 ms.date: 04/15/2025
 author: jyothisuri
 ms.author: jsuri
-# Customer intent: As a cloud administrator, I want to configure scheduled backups for my AKS clusters, so that I can ensure the protection and easy restoration of containerized applications and data in case of failures or operational needs.
+# Customer intent: As a cloud administrator, I want to understand more about AKS before configuring scheduled backups for my AKS clusters, so that I can ensure the protection and easy restoration of containerized applications and data in case of failures or operational needs.
 ---
 
 # What is Azure Kubernetes Service backup?
