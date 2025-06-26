@@ -10,6 +10,7 @@ ms.custom:
   - build-2024
 ms.topic: reference
 ms.date: 02/18/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 
