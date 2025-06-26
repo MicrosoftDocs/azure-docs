@@ -19,9 +19,9 @@ The purpose of this guide is to troubleshoot a Kubernetes Cluster when 1 or more
 
 ## Typical Cause
 
-After a runtime upgrade, before a Baremetal Machine is shut down for reimaging, the machine lifecycle controller will cordon and drain Virtual Machine resources scheduled to that Baremetal Machine. Once the Baremetal Machine resolves the reimaging process, the expectation is that Virtual Machine resources reschedule to the Baremetal Machine, and then be uncordoned by the machine lifecycle controller, reflecting the appropriate state `Ready`.
+After a runtime upgrade, before a Baremetal Machine is shut down for reimaging, the machine lifecycle controller will cordon and drain Virtual Machine resources scheduled to that Baremetal Machine. Once the Baremetal Machine resolves the reimaging process, the expectation is that Virtual Machine resources reschedule to that Baremetal Machine, and then be uncordoned by the machine lifecycle controller, reflecting the appropriate state `Ready`.
 
-However, a race condition may occur wherein the machine lifecycle controller fails to find the virt-launcher pods responsible for deploying Virtual Machines. This is because the virt-launcher pod's image pull job isn't yet complete. Only after the image pull job is complete will the pod be schedulable to a Baremetal Machine. When the machine lifecycle controller examines these virt-launcher pods during the uncordon action execution, it can't find which Baremetal Machine the pod is tied to, and skips the pod and the Virtual Machine it represents.
+However, a race condition may occur wherein the machine lifecycle controller fails to find Virtual Machines which should be scheduled to that Baremetal Machine. Each Virtual Machine is deployed using a virt-launcher pod. This race condition happens when the virt-launcher pod's image pull job isn't yet complete. Only after the image pull job is complete will the pod be schedulable to a Baremetal Machine. When the machine lifecycle controller examines these virt-launcher pods during the uncordon action execution, it can't find which Baremetal Machine the pod is tied to. This is because the pod itself has not yet been scheduled. Therefore the machine lifecycle controller skips uncordoning that Virtual Machine which that pod represents.
 
 ## Procedure
 
