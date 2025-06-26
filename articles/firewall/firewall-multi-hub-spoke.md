@@ -34,7 +34,10 @@ You need to consider routing for each of the potential flows in the single-regio
 - **On-premises to/from spoke**: in this case you need to consider each of the two directions separately:
   - **On-premises to spoke**: traffic arrives from the on-premises network to the VPN or ExpressRoute gateways. With the default routing in Azure, a system route is be created in the GatewaySubnet (as well as any other subnet in the hub VNet) for each of the spokes. You need to overwrite each of these system routes and set the next hop to the Azure Firewall's private IP address. In the example above, this means having two routes in a route table associated to the gateway subnet, one for each spoke (`10.1.1.0/24` and `10.1.2.0/24`). Note that if you try to use a summary such as `10.1.0.0/16` that encompasses all spoke VNets it will not work, since the system routes injected by the VNet peerings in the gateway subnet are more specific (`/24` as compared to the `/16` summary). Note that this route table must have the checkbox "Disable gateway route propagation" enabled, otherwise routing can become unpredictable.
   - **Spoke to on-premises**: the key to notice here is that the VNet peerings between the hub and the spokes must have the settings Allow Gateway Transit (on the hub side) and Use Remote Gateways (on the spoke side). These settings are required so that the VPN / ExpressRoute gateways advertise the spoke prefixes over BGP to on-premises, but another effect is that the spokes learn by default the prefixes advertised from on-premises to Azure. Since these prefixes would be more specific than the user-defined route `0.0.0.0/0` in the spoke route table, this means that by default traffic from the spokes to on-premises would bypass the firewall. To provent this from happening you can enable the checkbox "Disable gateway route propagation" in the spoke route table, so that the on-premises prefixes are not learnt and the `0.0.0.0/0` route is also used for traffic to on-premises.
- 
+
+> [!NOTE]
+> Use the exact spoke virtual network IP prefixes in the route table associated with the gateway subnet instead of a network summary. Otherwise, the system routes introduced by the VNet peerings with the spokes will override your user-defined route, since they are more specific.
+
 Both the route table associated to the spoke subnets as well as the route table associated to the gateway subnet can be managed with Azure Virtual Network Manager to reduce administrative overhead. See [AVNM - Use Azure Firewall as the next hop][avnm-azfw] for more details.
 
 ## Workloads in the hub VNet
@@ -51,7 +54,7 @@ The critical detail to notice is that the user-defined routes configured in both
 - Configuring a route in the spoke subnets for the whole hub VNet (`10.1.0.0/24` in this example) overrides the system route created by the peering with the hub VNet. All traffic sent to the hub would be sent to the Azure Firewall, including traffic that is sourced from the Azure Firewall itself, such as Internet-to-spoke traffic that has gone through Source Network Address Translation (SNAT). This introduces asymmetric traffic in the design, and the effect is that a part of your flows are dropped.
 
 > [!NOTE]
-> If you deploy workloads in the hub VNet, never use the whole VNet IP prefix in your user-defined routes.
+> If you deploy workloads in the hub VNet, do not use the whole VNet IP prefix in your user-defined routes.
 
 ## Inter-subnet traffic
 
@@ -77,7 +80,6 @@ There are different ways of integrating SDWAN NVAs in Azure, please refer to [SD
 If you don't want to to configure each spoke VNet's prefix in the route table associated to the NVA subnet, there is an alternative design you can do by placing the SDWAN NVAs in their dedicated VNet. This way, the NVA VNet does not learn the spokes' prefixes, since they are not directly peered, and a summary route is possible as the following diagram shows: 
 
 :::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-sdwan2.png" alt-text="Low-level routing design for a two-region self-managed hub-and-spoke architecture with SDWAN NVAs in a separate VNet." lightbox="media/firewall-multi-hub-spoke/multi-hub-spoke-sdwan2.png":::
-
 
 ## Multi-region architecture
 
