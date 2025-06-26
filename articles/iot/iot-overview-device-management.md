@@ -120,7 +120,7 @@ When you define an asset using either the operations experience web UI or Azure 
 - A *tag* is a description of a data point that can be collected from an asset. OPC UA tags provide real-time or historical data about an asset.
 - An *event* is a notification from an OPC UA server that can inform you about state changes to your asset.
 
- For more information, see [Define assets and asset endpoints](../iot-operations/discover-manage-assets/concept-assets-asset-endpoints.md).
+ For more information, see [Define assets and asset endpoints](../iot-operations/discover-manage-assets/concept-assets-devices.md).
 
 ### Asset endpoints secrets management
 

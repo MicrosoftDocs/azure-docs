@@ -111,11 +111,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-manage-assets-remotely.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-manage-assets-remotely",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opcua-certificates-infrastructure.md",
             "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure",
             "redirect_document_id": true
@@ -553,6 +548,16 @@
         {
             "source_path_from_root": "/articles/iot-operations/secure-iot-ops/concept-default-root-ca.md",
             "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-manage-certificates",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-assets-asset-endpoints.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/concept-assets-devices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-manage-assets-remotely.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-manage-assets-devices",
             "redirect_document_id": true
         }
     ]

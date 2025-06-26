@@ -3,7 +3,7 @@ title: What is Azure IoT Operations?
 description: Azure IoT Operations is a unified data plane for the edge, that runs on Azure Arc-enabled Kubernetes clusters, and part of the Microsoft adaptive cloud approach.
 author: dominicbetts
 ms.author: dobett
-ms.topic: conceptual
+ms.topic: overview
 ms.custom:
   - ignite-2023
   - references_regions
@@ -69,7 +69,7 @@ Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You ca
 
 ## Manage devices and assets
 
-Azure IoT Operations can connect to various industrial devices and assets. You can use the [operations experience](discover-manage-assets/howto-manage-assets-remotely.md?tabs=portal) or the [Azure CLI](discover-manage-assets/howto-manage-assets-remotely.md?tabs=cli) to manage the devices and assets that you want to connect to.
+Azure IoT Operations can connect to various industrial devices and assets. You can use the [operations experience](discover-manage-assets/howto-configure-opc-ua.md) or the [Azure CLI](discover-manage-assets/howto-configure-opc-ua.md) to manage the devices and assets that you want to connect to.
 
 The [connector for OPC UA](discover-manage-assets/overview-opcua-broker.md) manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers to MQTT broker topics.
 

@@ -13,7 +13,7 @@ items:
         displayName: get started, end-to-end, e2e, sample
       - name: Configure your instance
         href: get-started-end-to-end-sample/quickstart-configure.md
-        displayName: get started, end-to-end, e2e, sample, asset, asset endpoint, MQTT, broker, OPC UA, connector, data flow
+        displayName: get started, end-to-end, e2e, sample, asset, device, MQTT, broker, OPC UA, connector, data flow
       - name: Get insights from your data
         href: get-started-end-to-end-sample/quickstart-get-insights.md
         displayName: get started, end-to-end, e2e, sample, fabric, dashboard, Event Hubs
@@ -57,20 +57,20 @@ items:
       - name: Secure your solution
         href: ../iot/iot-overview-security.md
         displayName: security, best practice, guidelines, defender
-    - name: Discover and manage assets
+    - name: Discover and manage assets and devices
       items:
-      - name: Asset management overview
+      - name: Asset and device management overview
         href: discover-manage-assets/overview-manage-assets.md
         displayName: operations, experience, connector, OPC UA, ONVIF, media, device, registry, discovery, detect, discover
-      - name: Understand assets and asset endpoints
-        href: discover-manage-assets/concept-assets-asset-endpoints.md
-        displayName: tags, events, operations, experience
-      - name: Discover assets
+      - name: Understand assets and devices
+        href: discover-manage-assets/concept-assets-devices.md
+        displayName: data points, events, operations, experience
+      - name: Discovery overview
         href: discover-manage-assets/overview-akri.md
         displayName: OPC UA, akri, detect, device, registry
-      - name: Manage your assets
-        href: discover-manage-assets/howto-manage-assets-remotely.md
-        displayName: operations, experience, site, instance, OPC UA, asset endpoint, tags, events
+      - name: Use the operations experience and CLI
+        href: discover-manage-assets/howto-manage-assets-devices.md
+        displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl
       - name: OPC UA (connect to your assets)
         items:
         - name: What is connector for OPC UA?
@@ -78,6 +78,9 @@ items:
         - name: Message format
           href: discover-manage-assets/concept-opcua-message-format.md
           displayName: OPC UA, payload
+        - name: Configure OPC UA assets and devices
+          href: discover-manage-assets/howto-configure-opc-ua.md
+          displayName: operations, experience, OPC UA, device, data points, events
         - name: OPC UA application authentication overview
           href: discover-manage-assets/overview-opcua-broker-certificates-management.md
           displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn
@@ -258,10 +261,10 @@ items:
         items:
         - name: Add OPC UA assets to your cluster
           href: end-to-end-tutorials/tutorial-add-assets.md
-          displayName: tutorial, e2e, end-to-end, asset, asset endpoint, OPC UA, connector, MQTT
+          displayName: tutorial, e2e, end-to-end, asset, device, OPC UA, connector, MQTT
         - name: Upload sensor data to the cloud
           href: end-to-end-tutorials/tutorial-upload-messages-to-cloud.md
-          displayName: tutorial, e2e, end-to-end, asset, asset endpoint, OPC UA, connector, MQTT
+          displayName: tutorial, e2e, end-to-end, asset, device, OPC UA, connector, MQTT
         - name: Get insights from your data
           href: end-to-end-tutorials/tutorial-get-insights.md
       - name: Bi-directional messaging with Event Grid

@@ -4,7 +4,7 @@ description: Understand the structure of the OPC UA messages published to the MQ
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/22/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the structure of the messages that the connector for OPC UA publishes so that I can process the messages.
