@@ -1,25 +1,26 @@
 ---
-title: Quickstart - Add raw media access to your app (Android)
-titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
+title: Add raw media access to your app (Android)
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add raw media access calling capabilities to your app by using Azure Communication Services.
 author: yassirbisteni
 
 ms.author: yassirb
-ms.date: 06/09/2022
+ms.date: 06/24/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
 
-In this quickstart, you learn how to implement raw media access by using the Azure Communication Services Calling SDK for Android.
+This article describes how to implement raw media access by using the Azure Communication Services Calling SDK for Android.
 
-The Azure Communication Services Calling SDK offers APIs that allow apps to generate their own video frames to send to remote participants in a call.
+The Azure Communication Services Calling SDK enables apps to generate their own video frames to send to remote participants in a call.
 
-This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
+This article builds on [Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
 
-## RawAudio access 
-Accessing raw audio media gives you access to the incoming audio stream of the call, along with the ability to view and send custom outgoing audio streams during a call.
+## RawAudio access
+
+Processing raw audio media gives you access to the incoming audio stream of the call, along with the ability to view and send custom outgoing audio streams during a call.
 
 ### Send Raw Outgoing audio
 
@@ -155,7 +156,7 @@ buffer received events.
     rawIncomingAudioStream.addMixedAudioBufferReceivedListener(this::onMixedAudioBufferReceived);
 ```
 
-It's also important to remember to stop the audio stream in the current call `Call` instance:
+Remember to stop the audio stream in the current `Call` instance:
 
 ```java
 
@@ -164,14 +165,14 @@ It's also important to remember to stop the audio stream in the current call `Ca
 
 ## RawVideo access
 
-Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
+Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information enables the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
 
-## Virtual Video
+## Virtual video
 
 ### Supported video resolutions
 
 | Aspect ratio | Resolution  | Maximum FPS  |
-| :--: | :-: | :-: |
+| --- | --- | --- |
 | 16x9 | 1080p | 30 |
 | 16x9 | 720p | 30 |
 | 16x9 | 540p | 30 |
@@ -222,7 +223,7 @@ Because the app generates the video frames, the app must inform the Azure Commun
     });
     ```
 
-6. Create an instance of the following helper class to generate random `RawVideoFrame`'s using `VideoStreamPixelFormat.RGBA`
+6. Create an instance of the following helper class to generate random `RawVideoFrame` using `VideoStreamPixelFormat.RGBA`.
 
     ```java
     public class VideoFrameSender
@@ -377,7 +378,7 @@ Because the Windows system generates the frames, you must implement your own for
 ### Supported video resolutions
 
 | Aspect ratio | Resolution  | Maximum FPS  |
-| :--: | :-: | :-: |
+| --- | --- | --- |
 | Anything | Anything up to 1080p | 30 |
 
 ### Steps to create a screen share video stream
@@ -412,7 +413,7 @@ Because the Windows system generates the frames, you must implement your own for
     ScreenShareOutgoingVideoStream rawOutgoingVideoStream = new ScreenShareOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
 
-4. Capture and send the video frame in the following way.
+4. Capture and send the video frame as follows:
 
     ```java
     private void SendRawVideoFrame()
@@ -437,11 +438,11 @@ Because the Windows system generates the frames, you must implement your own for
     }
     ```
 
-## Raw Incoming Video
+## Raw incoming video
 
-This feature gives you access the video frames inside the `IncomingVideoStream` objects in order to manipulate those frames locally
+This feature gives you access the video frames inside the `IncomingVideoStream` objects to manipulate those frames locally
 
-1. Create an instance of `IncomingVideoOptions` that sets through `JoinCallOptions` setting `VideoStreamKind.RawIncoming`
+1. Create an instance of `IncomingVideoOptions` that sets through `JoinCallOptions` setting `VideoStreamKind.RawIncoming`.
 
     ```java
     IncomingVideoOptions incomingVideoOptions = new IncomingVideoOptions()
@@ -519,6 +520,6 @@ This feature gives you access the video frames inside the `IncomingVideoStream` 
     }
     ```
 
-## Quickstart: Try out the test app
+## Next steps
 
-- [Raw Video](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/RawVideo)
+- Use the sample app on GitHub at [Raw Video](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/RawVideo).

@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Add raw media access to your app (iOS)
-titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
+title: Add raw media access to your app (iOS)
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add raw media access calling capabilities to your app by using Azure Communication Services.
 author: lucianopa-msft
 
 ms.author: lucianopa
@@ -12,17 +12,19 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-In this quickstart, you learn how to implement raw media access by using the Azure Communication Services Calling SDK for iOS.
+This article describes how to implement raw media access by using the Azure Communication Services Calling SDK for iOS.
 
-The Azure Communication Services Calling SDK offers APIs that allow apps to generate their own video frames to send to remote participants in a call.
+The Azure Communication Services Calling SDK enables apps to generate their own video frames to send to remote participants in a call.
 
-This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-ios) for iOS.
+This article builds on [Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-ios) for iOS.
 
 
-## RawAudio access 
-Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
+## Raw audio access 
 
-### Send Raw Outgoing audio
+Processing raw audio media gives you access to the incoming call audio stream, along with the ability to view and send custom outgoing audio streams during a call.
+
+### Send raw outgoing audio
+
 Make an options object specifying the raw stream properties we want to send. 
 
 ```swift
@@ -73,7 +75,7 @@ To observe the audio stream state change, we implement the `RawOutgoingAudioStre
     self.rawOutgoingAudioStream.delegate = DelegateImplementer()
 ```
 
-or use closure based 
+Or use closure based:
 
 ```swift
     self.rawOutgoingAudioStream.events.onStateChanged = { args in
@@ -81,9 +83,9 @@ or use closure based
     }
 ```
 
-When the stream started, we can start sending [`AVAudioPCMBuffer`](https://developer.apple.com/documentation/avfaudio/avaudiopcmbuffer) audio samples to the call. 
+When the stream starts, we can send [`AVAudioPCMBuffer`](https://developer.apple.com/documentation/avfaudio/avaudiopcmbuffer) audio samples to the call. 
 
-The audio buffer format should match the specified stream properties.
+The audio buffer format must match the specified stream properties.
 
 ```swift
     protocol SamplesProducer {
@@ -187,8 +189,7 @@ The audio buffer format should match the specified stream properties.
     }
 ```
 
-
-It's also important to remember to stop the audio stream in the current call `Call` instance:
+It's also important to remember to stop the audio stream in the current `Call` instance:
 
 ```swift
 
@@ -199,7 +200,7 @@ It's also important to remember to stop the audio stream in the current call `Ca
 
 ### Capturing microphone samples
 
-Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) we can capture microphone frames by tapping into the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode). And capturing the microphone data and being able to use raw audio functionality, we're able to process the audio before sending it to a call. 
+Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) we can capture microphone frames by tapping into the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode). And capture the microphone data to use raw audio functionality. Use this method to process the audio before sending it to a call.
 
 ```swift 
     import AVFoundation
@@ -273,17 +274,15 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
     }
 ```
 
->[!NOTE]
->The sample rate of the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode) defaults to a >value of the preferred sample rate for the shared audio session. So we can't install tap in that node using a different value. 
->So we have to ensure that the `RawOutgoingStream` properties sample rate matches the one we get from tap into microphone samples or convert the tap buffers to the format that matches what is expected on the outgoing stream.
->
+> [!NOTE]
+> The sample rate of the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode) defaults to a >value of the preferred sample rate for the shared audio session. So we can't install tap in that node using a different value. 
+> You need to ensure that the `RawOutgoingStream` properties sample rate matches the one received from tap into microphone samples or convert the tap buffers to the format that matches what is expected on the outgoing stream.
 
-With this small sample, we learned how we can capture the microphone [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) data and send those samples to a call using raw outgoing audio feature.
+With this small sample, we learned how to capture the microphone [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) data and send those samples to a call using raw outgoing audio feature.
 
 ### Receive Raw Incoming audio
 
 We can also receive the call audio stream samples as [`AVAudioPCMBuffer`](https://developer.apple.com/documentation/avfaudio/avaudiopcmbuffer) if we want to process the audio before playback.
-
 
 Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
 
@@ -296,7 +295,7 @@ Create a `RawIncomingAudioStreamOptions` object specifying the raw stream proper
     options.properties = properties
 ```
 
-Create a `RawOutgoingAudioStream` and attach it to join call options
+Create a `RawOutgoingAudioStream` and attach it to join call options.
 
 ```swift 
     let options =  JoinCallOptions() // or StartCallOptions()
@@ -306,7 +305,8 @@ Create a `RawOutgoingAudioStream` and attach it to join call options
     incomingAudioOptions.stream = self.rawIncomingStream
     options.incomingAudioOptions = incomingAudioOptions
 ```
-Or we can also attach the stream to an existing `Call` instance instead:
+
+Or we can attach the stream to an existing `Call` instance instead:
 
 ```swift
 
@@ -315,7 +315,7 @@ Or we can also attach the stream to an existing `Call` instance instead:
     }
 ```
 
-For starting to receive raw audio buffer from the incoming stream implement the `RawIncomingAudioStreamDelegate`:
+To receive raw audio buffer from the incoming stream, implement the `RawIncomingAudioStreamDelegate`:
 
 ```swift
     class RawIncomingReceiver: NSObject, RawIncomingAudioStreamDelegate {
@@ -333,7 +333,7 @@ For starting to receive raw audio buffer from the incoming stream implement the 
     self.rawIncomingStream.delegate = RawIncomingReceiver()
 ```
 
-or
+Or:
 
 ```swift
     rawIncomingAudioStream.events.mixedAudioBufferReceived = { args in
@@ -347,14 +347,14 @@ or
 
 ## RawVideo access
 
-Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
+Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information enables the Calling SDK to pick the best video format configuration for the network conditions at that time.
 
 ## Virtual Video
 
 ### Supported video resolutions
 
 | Aspect ratio | Resolution  | Maximum FPS  |
-| :--: | :-: | :-: |
+| --- | --- | --- |
 | 16x9 | 1080p | 30 |
 | 16x9 | 720p | 30 |
 | 16x9 | 540p | 30 |
@@ -391,17 +391,18 @@ Because the app generates the video frames, the app must inform the Azure Commun
     ```
 
 3. Create an instance of `VirtualOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
+
     ```swift
     var rawOutgoingVideoStream = VirtualOutgoingVideoStream(videoStreamOptions: rawOutgoingVideoStreamOptions)
     ```
 
-4. Implement to the `VirtualOutgoingVideoStreamDelegate` delegate. The `didChangeFormat` event informs whenever the `VideoStreamFormat` has been changed from one of the video formats provided on the list.
+4. Implement to the `VirtualOutgoingVideoStreamDelegate` delegate. The `didChangeFormat` event informs whenever the `VideoStreamFormat` changed from one of the video formats provided on the list.
 
     ```swift
     virtualOutgoingVideoStream.delegate = /* Attach delegate and implement didChangeFormat */
     ```
 
-5. Create an instance of the following helper class to access `CVPixelBuffer` data
+5. Create an instance of the following helper class to access `CVPixelBuffer` data.
 
     ```swift
     final class BufferExtensions: NSObject {
@@ -424,7 +425,7 @@ Because the app generates the video frames, the app must inform the Azure Commun
     }
     ```
 
-6. Create an instance of the following helper class to generate random `RawVideoFrameBuffer`'s using `VideoStreamPixelFormat.rgba`
+6. Create an instance of the following helper class to generate random `RawVideoFrameBuffer` using `VideoStreamPixelFormat.rgba`.
 
     ```swift
     final class VideoFrameSender : NSObject
@@ -531,7 +532,8 @@ Because the app generates the video frames, the app must inform the Azure Commun
     }
     ```
 
-7. Implement to the `VirtualOutgoingVideoStreamDelegate`. The `didChangeState` event informs the state of the current stream. 
+7. Implement to the `VirtualOutgoingVideoStreamDelegate`. The `didChangeState` event informs the state of the current stream.
+
    Don't send frames if the state isn't equal to `VideoStreamState.started`.
 
     ```swift
@@ -563,7 +565,7 @@ Because the Windows system generates the frames, you must implement your own for
 ### Supported video resolutions
 
 | Aspect ratio | Resolution  | Maximum FPS  |
-| :--: | :-: | :-: |
+| --- | --- | --- |
 | Anything | Anything up to 1080p | 30 |
 
 ### Steps to create a screen share video stream
@@ -615,9 +617,9 @@ Because the Windows system generates the frames, you must implement your own for
 
 ## Raw Incoming Video
 
-This feature gives you access the video frames inside the `IncomingVideoStream`'s in order to manipulate those stream objects locally
+This feature gives you access the video frames inside `IncomingVideoStream` to manipulate those stream objects locally.
 
-1. Create an instance of `IncomingVideoOptions` that sets through `JoinCallOptions` setting `VideoStreamKind.RawIncoming`
+1. Create an instance of `IncomingVideoOptions` that sets through `JoinCallOptions` setting `VideoStreamKind.RawIncoming`.
 
     ```swift
     var incomingVideoOptions = IncomingVideoOptions()
@@ -627,6 +629,7 @@ This feature gives you access the video frames inside the `IncomingVideoStream`'
     ```
 
 2. Once you receive a `ParticipantsUpdatedEventArgs` event attach `RemoteParticipant.delegate.didChangedVideoStreamState` delegate. This event informs the state of the `IncomingVideoStream` objects.
+
     ```swift
     private var remoteParticipantList: [RemoteParticipant] = []
 
@@ -679,6 +682,6 @@ This feature gives you access the video frames inside the `IncomingVideoStream`'
     }
     ```
 
-## Quickstart: Try out the test app
+## Next steps
 
-- [Raw Video](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/raw-video)
+- Use the sample app on GitHub at [Raw Video](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/raw-video).

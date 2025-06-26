@@ -1,25 +1,30 @@
 ---
-title: Quickstart - Add raw media access to your app (Windows)
-titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
+title: Add raw media access to your app (Windows)
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add raw media access calling capabilities to your app by using Azure Communication Services.
 author: yassirbisteni
 ms.author: yassirb
-ms.date: 06/09/2022
+ms.date: 06/24/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
 
-In this quickstart, you learn how to implement raw media access by using the Azure Communication Services Calling SDK for Windows.
-The Azure Communication Services Calling SDK offers APIs that allow apps to generate their own video frames to send to remote participants in a call.
-This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-windows) for Windows.
+This article describes how to implement raw media access by using the Azure Communication Services Calling SDK for Windows.
 
-## RawAudio access 
-Accessing raw audio media gives you access to the incoming call's audio stream, along with the ability to view and send custom outgoing audio streams during a call.
+The Azure Communication Services Calling SDK enables apps to generate their own video frames to send to remote participants in a call.
 
-### Send Raw Outgoing audio
-Make an options object specifying the raw stream properties we want to send. 
+This article builds on [Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-windows) for Windows.
+
+## Raw audio access
+
+Processing raw audio media gives you access to the incoming call audio stream, along with the ability to view and send custom outgoing audio streams during a call.
+
+### Send raw outgoing audio
+
+Make an options object specifying the raw stream properties we want to send.
+
 ```csharp
     RawOutgoingAudioStreamProperties outgoingAudioProperties = new RawOutgoingAudioStreamProperties()
     {
@@ -33,7 +38,9 @@ Make an options object specifying the raw stream properties we want to send.
         Properties = outgoingAudioProperties
     };
 ```
+
 Create a `RawOutgoingAudioStream` and attach it to join call options and the stream automatically starts when call is connected.
+
 ```csharp 
     JoinCallOptions options =  JoinCallOptions(); // or StartCallOptions()
     OutgoingAudioOptions outgoingAudioOptions = new OutgoingAudioOptions();
@@ -42,14 +49,19 @@ Create a `RawOutgoingAudioStream` and attach it to join call options and the str
     options.OutgoingAudioOptions = outgoingAudioOptions;
     // Start or Join call with those call options.
 ```
+
 ### Attach stream to a call
+
 Or you can also attach the stream to an existing `Call` instance instead:
+
 ```csharp
     await call.StartAudio(rawOutgoingAudioStream);
 ```
 ### Start sending raw samples
+
 We can only start sending data once the stream state is `AudioStreamState.Started`. 
 To observe the audio stream state change, add a listener to the `OnStateChangedListener` event.
+
 ```csharp
     unsafe private void AudioStateChanged(object sender, AudioStreamStateChanged args)
     {
@@ -60,8 +72,11 @@ To observe the audio stream state change, add a listener to the `OnStateChangedL
     }
     outgoingAudioStream.StateChanged += AudioStateChanged;
 ```
+
 When the stream started, we can start sending [`MemoryBuffer`](/uwp/api/windows.foundation.memorybuffer) audio samples to the call.
+
 The audio buffer format should match the specified stream properties.
+
 ```csharp
     void Start()
     {
@@ -92,9 +107,12 @@ The audio buffer format should match the specified stream properties.
         }).Start();
     }
 ```
-### Receive Raw Incoming audio
+
+### Receive raw incoming audio
+
 We can also receive the call audio stream samples as [`MemoryBuffer`](/uwp/api/windows.foundation.memorybuffer) if we want to process the call audio stream before playback.
 Create a `RawIncomingAudioStreamOptions` object specifying the raw stream properties we want to receive.
+
 ```csharp
     RawIncomingAudioStreamProperties properties = new RawIncomingAudioStreamProperties()
     {
@@ -107,7 +125,9 @@ Create a `RawIncomingAudioStreamOptions` object specifying the raw stream proper
         Properties = properties
     };
 ```
-Create a `RawIncomingAudioStream` and attach it to join call options
+
+Create a `RawIncomingAudioStream` and attach it to join call options.
+
 ```csharp
     JoinCallOptions options =  JoinCallOptions(); // or StartCallOptions()
     RawIncomingAudioStream rawIncomingAudioStream = new RawIncomingAudioStream(audioStreamOptions);
@@ -117,12 +137,15 @@ Create a `RawIncomingAudioStream` and attach it to join call options
     };
     options.IncomingAudioOptions = incomingAudioOptions;
 ```
+
 Or we can also attach the stream to an existing `Call` instance instead:
+
 ```csharp
     await call.startAudio(context, rawIncomingAudioStream);
 ```
-For starting to receive raw audio buffers from the incoming stream add listeners to the incoming stream state and
-buffer received events.
+
+For starting to receive raw audio buffers from the incoming stream add listeners to the incoming stream state and buffer received events.
+
 ```csharp
     unsafe private void OnAudioStateChanged(object sender, AudioStreamStateChanged args)
     {
@@ -146,15 +169,16 @@ buffer received events.
     rawIncomingAudioStream.MixedAudioBufferReceived += OnRawIncomingMixedAudioBufferAvailable;
 ```
 
-## RawVideo access
+## Raw video access
 
-Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information allows the Azure Communication Services Calling SDK to pick the best video format configuration for the network conditions at that time.
+Because the app generates the video frames, the app must inform the Azure Communication Services Calling SDK about the video formats that the app can generate. This information enables the Calling SDK to pick the best video format configuration for the network conditions at that time.
 
-## Virtual Video
+## Virtual video
 
 ### Supported video resolutions
+
 | Aspect ratio | Resolution  | Maximum FPS  |
-| :--: | :-: | :-: |
+| --- | --- | --- |
 | 16x9 | 1080p | 30 |
 | 16x9 | 720p | 30 |
 | 16x9 | 540p | 30 |
@@ -167,8 +191,10 @@ Because the app generates the video frames, the app must inform the Azure Commun
 | 4x3 | 424x320 | 15 |
 | 4x3 | QVGA (320x240) | 15 |
 | 4x3 | 212x160 | 15 |
+
 1. Create an array of `VideoFormat` using the VideoStreamPixelFormat the SDK supports.
    When multiple formats are available, the order of the formats in the list doesn't influence or prioritize which one is used. The criteria for format selection are based on external factors like network bandwidth.
+
     ```csharp
     var videoStreamFormat = new VideoStreamFormat
     {
@@ -179,7 +205,9 @@ Because the app generates the video frames, the app must inform the Azure Commun
     };
     VideoStreamFormat[] videoStreamFormats = { videoStreamFormat };
     ```
+
 2. Create `RawOutgoingVideoStreamOptions`, and set `Formats` with the previously created object.
+
     ```csharp
     var rawOutgoingVideoStreamOptions = new RawOutgoingVideoStreamOptions
     {
@@ -187,17 +215,22 @@ Because the app generates the video frames, the app must inform the Azure Commun
     };
     ```
 3. Create an instance of `VirtualOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
+
     ```csharp
     var rawOutgoingVideoStream = new VirtualOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
-4. Subscribe to the `RawOutgoingVideoStream.FormatChanged` delegate. This event informs whenever the `VideoStreamFormat` has been changed from one of the video formats provided on the list.
+
+4. Subscribe to the `RawOutgoingVideoStream.FormatChanged` delegate. This event informs whenever the `VideoStreamFormat` changed from one of the video formats provided on the list.
+
     ```csharp
     rawOutgoingVideoStream.FormatChanged += (object sender, VideoStreamFormatChangedEventArgs args)
     {
         VideoStreamFormat videoStreamFormat = args.Format;
     }
     ```
-6. Create an instance of the following helper class to access the buffer data
+
+6. Create an instance of the following helper class to access the buffer data.
+
     ```csharp
     [ComImport]
     [Guid("5B0D3235-4DBA-4D44-865E-8F1D0E4FD04D")]
@@ -236,7 +269,8 @@ Because the app generates the video frames, the app must inform the Azure Commun
     }
     ```
 
-7. Create an instance of the following helper class to generate random `RawVideoFrame`'s using `VideoStreamPixelFormat.Rgba`
+7. Create an instance of the following helper class to generate random `RawVideoFrame` using `VideoStreamPixelFormat.Rgba`.
+
     ```csharp
     public class VideoFrameSender
     {
@@ -368,7 +402,9 @@ Because the app generates the video frames, the app must inform the Azure Commun
         }
     }
     ```
+
 8. Subscribe to the `VideoStream.StateChanged` delegate. This event informs the state of the current stream. Don't send frames if the state isn't equal to `VideoStreamState.Started`.
+
     ```csharp
     private VideoFrameSender videoFrameSender;
     rawOutgoingVideoStream.StateChanged += (object sender, VideoStreamStateChangedEventArgs args) =>
@@ -393,15 +429,22 @@ Because the app generates the video frames, the app must inform the Azure Commun
             }
     };
     ```
-## Screen Share Video
+
+## Screen share video
+
 Because the Windows system generates the frames, you must implement your own foreground service to capture the frames and send them by using the Azure Communication Services Calling API.
+
 ### Supported video resolutions
+
 | Aspect ratio | Resolution  | Maximum FPS  |
-| :--: | :-: | :-: |
+| --- | --- | --- |
 | Anything | Anything up to 1080p | 30 |
+
 ### Steps to create a screen share video stream
+
 1. Create an array of `VideoFormat` using the VideoStreamPixelFormat the SDK supports.
-   When multiple formats are available, the order of the formats in the list doesn't influence or prioritize which one is used. The criteria for format selection are based on external factors like network bandwidth.
+   When multiple formats are available, the order of the formats in the list doesn't influence or prioritize which one you can use. The criteria for format selection are based on external factors like network bandwidth.
+
     ```csharp
     var videoStreamFormat = new VideoStreamFormat
     {
@@ -414,18 +457,24 @@ Because the Windows system generates the frames, you must implement your own for
     };
     VideoStreamFormat[] videoStreamFormats = { videoStreamFormat };
     ```
-2. Create `RawOutgoingVideoStreamOptions`, and set `VideoFormats` with the previously created object.
+
+1. Create `RawOutgoingVideoStreamOptions`, and set `VideoFormats` with the previously created object.
+
     ```csharp
     var rawOutgoingVideoStreamOptions = new RawOutgoingVideoStreamOptions
     {
         Formats = videoStreamFormats
     };
     ```
-3. Create an instance of `VirtualOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
+
+1. Create an instance of `VirtualOutgoingVideoStream` by using the `RawOutgoingVideoStreamOptions` instance that you created previously.
+
     ```csharp
     var rawOutgoingVideoStream = new ScreenShareOutgoingVideoStream(rawOutgoingVideoStreamOptions);
     ```
-4. Capture and send the video frame in the following way.
+
+1. Capture and send the video frame in the following way.
+
     ```csharp
     private async Task SendRawVideoFrame()
     {
@@ -473,9 +522,13 @@ Because the Windows system generates the frames, you must implement your own for
         }
     }
     ```
-## Raw Incoming Video
-This feature gives you access the video frames inside the `IncomingVideoStream`'s in order to manipulate those streams locally
-1. Create an instance of `IncomingVideoOptions` that sets through `JoinCallOptions` setting `VideoStreamKind.RawIncoming`
+
+## Raw incoming video
+
+This feature gives you access the video frames inside the `IncomingVideoStream` to manipulate those streams locally.
+
+1. Create an instance of `IncomingVideoOptions` that sets through `JoinCallOptions` setting `VideoStreamKind.RawIncoming`.
+
     ```csharp
     var frameKind = RawVideoFrameKind.Buffer;  // Use the frameKind you prefer to receive
     var incomingVideoOptions = new IncomingVideoOptions
@@ -488,7 +541,9 @@ This feature gives you access the video frames inside the `IncomingVideoStream`'
         IncomingVideoOptions = incomingVideoOptions
     };
     ```
+
 2. Once you receive a `ParticipantsUpdatedEventArgs` event attach `RemoteParticipant.VideoStreamStateChanged` delegate. This event informs the state of the `IncomingVideoStream` objects.
+
     ```csharp
     private List<RemoteParticipant> remoteParticipantList;
     private void OnRemoteParticipantsUpdated(object sender, ParticipantsUpdatedEventArgs args)
@@ -536,7 +591,9 @@ This feature gives you access the video frames inside the `IncomingVideoStream`'
         }
     }
     ```
+
 3. At the time, the `IncomingVideoStream` has `VideoStreamState.Available` state attach `RawIncomingVideoStream.RawVideoFrameReceived` delegate as shown on the previous step. That provides the new `RawVideoFrame` objects.
+
     ```csharp
     private async void OnVideoFrameReceived(object sender, RawVideoFrameReceivedEventArgs args)
     {
@@ -553,6 +610,6 @@ This feature gives you access the video frames inside the `IncomingVideoStream`'
     }
     ```
 
-## Quickstart: Try out the test app
+## Next steps
 
-- [Raw Video](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/RawVideo)
+- Use the sample app on GitHub at [Raw Video](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/RawVideo).
