@@ -12,6 +12,7 @@ metadata:
   author: jasongroce
   ms.author: jasongroce
   ms.date: 03/24/2025
+  ms.custom: build-2025
 
 highlightedContent:
   items:
@@ -40,6 +41,17 @@ productDirectory:
           text: Protect your resource hierarchy
         - url: ./management-groups/index.yml
           text: See more >
+    - title: Azure Service Groups
+      imageSrc: ./media/management-groups.svg
+      links:
+        - url: ./service-groups/overview.md
+          text: Developer overview
+        - url: ./service-groups/create-service-group-rest-api.md
+          text: Create a service group using the REST API
+        - url: ./service-groups/create-service-group-member-rest-api.md
+          text: Connect resources or resource containers to service groups 
+        - url: ./service-groups/manage-service-groups.md
+          text: Manage Service Groups
     - title: Azure Policy
       imageSrc: ./media/azure-policy.svg
       links:

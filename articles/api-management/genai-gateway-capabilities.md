@@ -8,7 +8,10 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
 ms.date: 04/29/2025
+ms.update-cycle: 180-days
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 # Overview of AI gateway capabilities in Azure API Management
@@ -104,6 +107,16 @@ In API Management, enable semantic caching by using Azure Redis Enterprise, Azur
 > [!TIP]
 > To enable semantic caching for other LLM APIs, API Management provides the equivalent [llm-semantic-cache-store-policy](llm-semantic-cache-store-policy.md) and [llm-semantic-cache-lookup-policy](llm-semantic-cache-lookup-policy.md) policies.
 
+## Logging token usage, prompts, and completions
+
+Enable a [diagnostic setting](monitor-api-management.md#enable-diagnostic-setting-for-azure-monitor-logs) in your API Management instance to log requests processed by the gateway for large language model REST APIs. For each request, data is sent to Azure Monitor including token usage (prompt tokens, completion tokens, and total tokens), name of the model used, and optionally the request and response messages (prompt and completion). Large requests and responses are split into multiple log entries that are sequentially numbered for later reconstruction if needed.
+
+The API Management administrator can use LLM gateway logs along with API Management gateway logs for scenarios such as the following:
+
+* **Calculate usage for billing** - Calculate usage metrics for billing based on the number of tokens consumed by each application or API consumer (for example, segmented by subscription ID or IP address).
+* **Inspect messages** - To help with debugging or auditing, inspect and analyze prompts and completions.
+
+Learn more about [monitoring API Management with Azure Monitor](monitor-api-management.md).
 
 ## Content safety policy
 
@@ -114,6 +127,7 @@ To help safeguard users from harmful, offensive, or misleading content, you can 
 ## Labs and samples
 
 * [Labs for the AI gateway capabilities of Azure API Management](https://github.com/Azure-Samples/ai-gateway)
+* [AI gateway workshop](https://aka.ms/ai-gateway/workshop)
 * [Azure API Management (APIM) - Azure OpenAI Sample (Node.js)](https://github.com/Azure-Samples/genai-gateway-apim)
 * [Python sample code for using Azure OpenAI with API Management](https://github.com/Azure-Samples/openai-apim-lb/blob/main/docs/sample-code.md)
 

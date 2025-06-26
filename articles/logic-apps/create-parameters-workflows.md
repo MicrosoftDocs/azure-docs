@@ -6,6 +6,8 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/06/2024
+ms.custom:
+  - build-2025
 ---
 
 # Create cross-environment parameters for workflow inputs in Azure Logic Apps
@@ -325,11 +327,11 @@ To add or update an app setting using the Azure CLI, run the command `az logicap
 az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
 
-#### Resource Manager or Bicep template
+#### Resource Manager or Bicep file
 
-To review and define your app settings in an ARM template or Bicep template, find your logic app's resource definition, and update the `appSettings` JSON object. For the full resource definition, see the [ARM template reference](/azure/templates/microsoft.web/sites).
+To review and define your app settings in an ARM template or Bicep file, find your logic app's resource definition, and update the `appSettings` JSON object. For the full resource definition, see the [ARM template reference](/azure/templates/microsoft.web/sites).
 
-This example shows file settings for either ARM templates or Bicep templates:
+This example shows file settings for either ARM templates or Bicep files:
 
 ```json
 "appSettings": [

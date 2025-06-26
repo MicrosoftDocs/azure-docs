@@ -350,7 +350,7 @@ Some storage account features aren't compatible with other features or operation
 
 Boot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a `StorageAccountTypeNotSupported` error upon starting their virtual machine (VM). 
 
-Any conversion attempts to add zonal redundancy, such as LRS to ZRS or GRS to GZRS, will fail. To convert your account to a zone-redundant SKU, disable boot diagnostics on your account and resubmit the request. To learn more about boot diagnostics, review the [Azure boot diagnotics](/azure/virtual-machines/boot-diagnostics#enable-managed-boot-diagnostics) article.
+Any conversion attempts to add zonal redundancy, such as LRS to ZRS or GRS to GZRS, will fail. To convert your account to a zone-redundant SKU, disable boot diagnostics on your account and resubmit the request. To learn more about boot diagnostics, review the [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics#enable-managed-boot-diagnostics) article.
 
 ### Storage account type
 
@@ -431,7 +431,7 @@ An LRS storage account containing blobs in the archive tier can be switched to G
 
 ### Protocol support
 
-You can't convert storage accounts to zone-redundancy (ZRS, GZRS, or RA-GZRS) if either of the following cases are true:
+Customer and support initiated conversions are not supported if either of the following cases are true:
 
 - NFSv3 protocol support is enabled for Azure Blob Storage
 - The storage account contains Azure Files NFSv4.1 shares with public endpoint access enabled

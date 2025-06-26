@@ -2,31 +2,28 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
+ms.date: 06/15/2025
 ms.author: rifox
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
+[!INCLUDE [common](dominant-speaker-common.md)]
 
-Dominant speakers for a call is an extended feature of the core `Call` API and allows you to obtain a list of the active speakers in the call. 
-
-This is a ranked list, where the first element in the list represents the last active speaker on the call and so on.
-
-In order to obtain the dominant speakers in a call, you first need to obtain the call dominant speakers feature API object:
+To use the Dominant Speakers call feature for Android, the first step is to obtain the Dominant Speakers object:
 
 ```js
 const callDominantSpeakersApi = call.feature(Features.CallDominantSpeakers);
 ```
 
-Then, obtain the list of the dominant speakers by calling `dominantSpeakers`. This has a type of `DominantSpeakersInfo`, which has the following members:
+Then, obtain the list of the dominant speakers by calling `dominantSpeakers`. This object has a type of `DominantSpeakersInfo`, which has the following members:
 
-- `speakersList` contains the list of the ranked dominant speakers in the call. These are represented by their participant ID.
+- `speakersList` contains the list of the ranked dominant speakers in the call. You can identify the speakers by their participant ID.
 - `timestamp` is the latest update time for the dominant speakers in the call.
 
 ```js
 let dominantSpeakers: DominantSpeakersInfo = callDominantSpeakersApi.dominantSpeakers;
 ```
-Also, you can subscribe to the `dominantSpeakersChanged` event to know when the dominant speakers list has changed
+Also, you can subscribe to the `dominantSpeakersChanged` event to know when the dominant speakers list changes.
 
 ```js
 const dominantSpeakersChangedHandler = () => {
@@ -37,7 +34,7 @@ callDominantSpeakersApi.on('dominantSpeakersChanged', dominantSpeakersChangedHan
 ``` 
 #### Handle the Dominant Speaker's video streams
 
-Your application can use the `DominantSpeakers` feature to render one or more of dominant speaker's video streams, and keep updating UI whenever dominant speaker list updates. This can be achieved with the following code example.
+Your application can use the `DominantSpeakers` feature to render one or more of dominant speaker's video streams, and keep updating UI whenever dominant speaker list updates. Use the following code example.
 
 ```js
 // RemoteParticipant obj representation of the dominant speaker

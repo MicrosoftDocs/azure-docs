@@ -5,12 +5,49 @@ services: automation
 ms.date: 05/09/2024
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Troubleshoot runbook issues
 
  This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
 
+## Graphical PowerShell Workflow runbooks with child runbooks fail to execute
+
+### Issue
+Graphical PowerShell Workflow runbooks with child runbooks fail to execute as expected.
+
+### Cause
+To improve the security posture of Graphical PowerShell Workflow runbooks, the service no longer executes Graphical PowerShell Workflow runbooks with child scripts.
+
+### Resolution
+
+Workaround is to use Start-AzAutomationRunbook (from [Az.Automation module](/powershell/module/Az.Automation/Start-AzAutomationRunbook)) from within the parent runbook to start child runbook. For example, use the InlineScript block:
+
+```
+
+$job = Start-AzAutomationRunbook `
+
+    -AutomationAccountName "MyAccount" `
+
+    -ResourceGroupName "MyRG" `
+
+    -Name "ReusableTaskRunbook" `
+
+    -Parameters @{ TaskId = '1234' }
+
+ 
+
+#Optional: Wait for job completion
+
+do {
+
+    Start-Sleep -Seconds 5
+
+    $jobStatus = Get-AzAutomationJob -Id $job.Id -AutomationAccountName "MyAccount" -ResourceGroupName "MyRG"} while ($jobStatus.Status -ne "Completed")
+
+```
 
 ## It is no longer possible to use cmdlets from imported non-default modules in graphical PowerShell runbooks
 

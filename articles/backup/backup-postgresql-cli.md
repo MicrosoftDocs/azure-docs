@@ -2,8 +2,10 @@
 title: Back Up a PostgreSQL Databases by Using the Azure CLI
 description: Learn how to back up PostgreSQL databases in Azure Virtual Machines by using the Azure CLI.
 ms.topic: how-to
-ms.date: 04/16/2025
-ms.custom: devx-track-azurecli
+ms.date: 05/20/2025
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -11,7 +13,7 @@ ms.author: jsuri
 
 # Back up PostgreSQL databases by using the Azure CLI
 
-This article describes how to back up PostgreSQL databases in [Azure Virtual Machines](/azure/postgresql/overview#azure-database-for-postgresql---single-server) by using the Azure CLI. You can also to [create a backup policy](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md) and [configure backup](backup-azure-data-protection-use-rest-api-backup-postgresql.md) for PostgreSQL databases using REST API.
+This article describes how to back up PostgreSQL databases in [Azure Virtual Machines](/azure/postgresql/overview#azure-database-for-postgresql---single-server) by using the Azure CLI. You can also configure backup using [Azure portal](backup-azure-database-postgresql.md), [Azure PowerShell](backup-postgresql-ps.md), and [REST API](backup-azure-data-protection-use-rest-api-backup-postgresql.md) for PostgreSQL databases. 
 
 Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq) for backing up Azure Database for PostgreSQL.
 
@@ -54,7 +56,7 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
 
 ## Create a backup policy
 
-After you create a vault, you can create a backup policy to help protect PostgreSQL databases.
+After you create a vault, you can create a backup policy to help protect PostgreSQL databases. You can also [create a backup policy for PostgreSQL databases using REST API](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md).
 
 ### Understand the PostgreSQL backup policy
 
@@ -443,4 +445,6 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseFor
 
 ## Related content
 
-- [Restore PostgreSQL databases by using the Azure CLI](restore-postgresql-database-cli.md)
+- [Restore PostgreSQL databases by using the Azure CLI](restore-postgresql-database-cli.md).
+- Restore a PostgreSQL database using [Azure portal](restore-azure-database-postgresql.md), [Azure PowerShell](restore-postgresql-database-ps.md), and [REST API](restore-postgresql-database-use-rest-api.md).
+

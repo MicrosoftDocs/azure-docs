@@ -11,6 +11,8 @@ ms.date: 03/31/2024
 
 # Configure caching on Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 This article shows you how to configure caching on Azure Front Door. To learn more about caching, see [Caching with Azure Front Door](front-door-caching.md).
 
 ## Prerequisites

@@ -216,7 +216,7 @@ to:
 ```xml
     <ValidationTechnicalProfile ReferenceId="ValidateAccessCodeViaHttp"/>
 ```
-At this point, the Technical Profile with `Id` *CheckAccessCodeViaClaimsTransformationChecker* isn't needed, and can be removed. 
+At this point, the Technical Profile with `Id` *CheckAccessCodeViaClaimsTransformationChecker* isn't needed and can be removed.
 
 
 ## Step 3 - Upload custom policy file

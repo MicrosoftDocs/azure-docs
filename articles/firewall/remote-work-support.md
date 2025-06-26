@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 05/04/2020
 ms.author: duau
+# Customer intent: "As an IT manager, I want to implement Azure Firewall for our remote workforce, so that I can ensure secure access and protect our Virtual Desktop Infrastructure from potential threats."
 ---
 
 # Azure Firewall remote work support

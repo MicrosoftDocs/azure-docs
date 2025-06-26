@@ -1,10 +1,8 @@
 ---
 ms.service: azure-functions
+ms.subservice: durable-task-scheduler
 ms.topic: include
 ms.date: 03/19/2025
-ms.author: jiayma
-ms.reviewer: azfuncdf
-author: lilyjma
 ---
 
 1. Navigate to the Function app creation blade and select **Functions Premium** or **App Service** as a hosting option.
@@ -44,9 +42,9 @@ author: lilyjma
 
 1. Click **Review + create** to review the resource creation. 
 
-   A user-assigned managed identity with the required role-based access control (RBAC) permission is created automatically so that the Function app can access durable task scheduler. You can find in the summary view information related to the managed identity resource, such as:
-   - The RBAC assigned to it (*Durable Task Data Contributor*) 
-   - The assignment scope (the scheduler or task hub name)
+   A user-assigned managed identity with the required role-based access control (RBAC) permission is created automatically and added to the Function app. You can find in the summary view information related to the managed identity resource, such as:
+   - The role assigned to it (*Durable Task Data Contributor*) 
+   - The assignment scoped to the task hub level
 
        :::image type="content" source="../media/create-durable-task-scheduler/functions-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
 

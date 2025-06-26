@@ -4,7 +4,9 @@ description: Learn how to connect apps to your MongoDB Atlas (Preview) service u
 # customerIntent: As a developer, I want connect apps deployed to Azure services to a MongoDB Atlas (Preview) resource.
 ms.topic: how-to
 ms.date: 04/22/2025
-ms.custom: service-connector
+ms.custom:
+  - service-connector
+  - build-2025
 ms.author: malev
 author: maud-lv
 
@@ -59,5 +61,5 @@ Follow these steps to connect an app to MongoDB Atlas:
 
 ## Related content
 
+- [Integrate MongoDB Atlas cluster into your application](how-to-integrate-mongodb-atlas.md)
 - [What is Service Connector](overview.md)
-- [Learn about Service Connector concepts](concept-service-connector-internals.md)

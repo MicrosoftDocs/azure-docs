@@ -2,11 +2,12 @@
 title: URL Rewrite for Azure Application Gateway for Containers - Ingress API
 description: Learn how to rewrite URLs in Ingress API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
-ms.author: greglin
+ms.author: mbender
+# Customer intent: "As a cloud architect, I want to implement URL rewriting in the Ingress API for Application Gateway for Containers, so that I can efficiently manage and route client requests to the appropriate backend services based on URL patterns."
 ---
 
 # URL Rewrite for Azure Application Gateway for Containers - Ingress API

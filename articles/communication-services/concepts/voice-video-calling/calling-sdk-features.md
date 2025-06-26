@@ -7,24 +7,26 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 10/31/2024
+ms.date: 05/01/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: devx-track-js
+ms.custom:
+  - devx-track-js
+  - build-2025
 ---
 
 # Calling SDK overview
 
-Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manages and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds more features to a voice or video call, such as roles and permissions.
+Azure Communication Services enables end-user browsers, apps, and services to drive voice and video communication. This article focuses on Calling client SDK, which can be embedded in websites and native applications. This article provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manages and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds more features to a voice or video call, such as roles and permissions.
 
 <!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
-To build your own user experience with the Calling SDK, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
+To build your own user experience with the Calling SDK, see [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
 
 If you'd like help with the end-user experience, the Azure Communication Services UI Library provides a collection of open-source production-ready UI components to drop into your application. With this set of prebuilt controls, you can create beautiful communication experiences using [Microsoft's Fluent design language](https://developer.microsoft.com/en-us/fluentui#/). If you want to learn more about the UI Library, visit [the overview site](../ui-library/ui-library-overview.md).
 
-Once you start development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
+Once you start development, see [known issues](../known-issues.md) to find bugs we're working on.
 
 **SDK links**
 
@@ -34,15 +36,16 @@ Once you start development, check out the [known issues page](../known-issues.md
 | UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - |  [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs) |
 
 **Key features**
-- **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
+
+- **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications data plane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically. You can also bring your own numbers using session border controllers. 
-- **Teams Meetings & Calling** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane.
+- **Teams Meetings & Calling** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video data plane.
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire.
 - **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster).
 - **User Access Security**
   - **Roster** control, **schedule** control, and user **roles/permissions** are enforced through [Virtual Rooms](../rooms/room-concept.md).
   - Ability for a user to **Initiate a new call** or to **Join an existing call** can be managed through [User Identities and Tokens](../identity-model.md) 
-- **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app isn't running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call.
+- **Notifications** - The Calling SDK provides APIs enable clients to be notified of an incoming call. In situations where your app isn't running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) or *toasts* to inform end-users of an incoming call.
 - **Media Stats** - The Calling SDK provides comprehensive insights into [the metrics](media-quality-sdk.md) of your VoIP and video calls. With this information, developers have a clearer understanding of call quality and can make informed decisions to further enhance their communication experience.
 - **Video Constraints** - The Calling SDK provides APIs that gain the ability to regulate [video quality among other parameters](../../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls by adjusting parameters such as resolution and frame rate supporting different call situations for different levels of video quality
 - **User Facing Diagnostics (UFD)** - The Calling SDK provides [events](user-facing-diagnostics.md) that are designed to provide insights into underlying issues that could affect call quality. Developers can subscribe to triggers such as weak network signals or muted microphones, ensuring that they're always aware of any factors impacting the calls.
@@ -177,7 +180,7 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 16 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
 
-\* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24). While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine the number of incoming video streams your web environment can support. To properly support 16 incoming videos, the computer needs a minimum of 16GB RAM and a 4-core or greater CPU that is less than 3 years old.
+\* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24). While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine the number of incoming video streams your web environment can support. To properly support 16 incoming videos, the computer needs a minimum of 16-GB RAM and a 4-core or greater CPU that is less than three years old.
 
 ## Supported video resolutions
 
@@ -190,29 +193,30 @@ The Azure Communication Services Calling SDK supports sending following video re
 
 | **Maximum video resolution**                 | WebJS Desktop | WebJS Mobile | iOS  | Android | Windows |
 |----------------------------------------------|---------------|--------------|------|---------|---------|
-| **Sending Video**                            | 1080p<sup>1</sup>         | 720p         | 720p | 720p    | 1080p   |
-| **Sending screen share**                     | 1080p         | 720p         | 720p | 720p    | 1080p   |
+| **Sending Video**                            | 1080p [enable](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-to-configure-to-send-a-1080p-stream)         | 720p         | 720p | 720p    | 1080p   |
+| **Sending screen share**                     | 1080p         | NA         | 720p | 720p    | 1080p   |
 | **Receiving a remote video or screen share** | 1080p         | 720p         | 720p | 720p    | 1080p   |
 
 ## Number of participants on a call support
-- Sending a [1080p stream from WebJS desktop](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-to-configure-to-send-a-1080p-stream) is in public preview. GA versions of WebJS SDK for Desktop browser support sending a 720p stream.
+- See detailed instructions on how [enable a 1080p from a web desktop browser](../../quickstarts/voice-video-calling/optimizing-video-placement.md#how-to-configure-to-send-a-1080p-stream).
 - Up to **350** users can join a group call, Room call, or Teams + Azure Communication Services call.
 - Once the call size reaches 100+ participants, the Calling SDK only displays the top four dominant speakers that have their video camera active.
 - When the number of people on the call is 100+, the viewable number of incoming videos automatically decreases from 4x4 (16 incoming videos) down to 2x2 (4 incoming videos).
 - When the number of users goes below 100, the number of supported incoming videos goes back up to 4x4 (16 incoming videos).
+- Screen sharing from a mobile browser is not available due to limitations within mobile browsers.
 
-## Calling SDK time-outs
-The following time-outs apply to the Communication Services Calling SDKs:
+## Calling SDK timeouts
+The following timeouts apply to the Communication Services Calling SDKs:
 
-| Action| Time-out in seconds |
+| Action| Timeout in seconds |
 | --------------------------------------------------------------------------- | ------------------ |
 | Reconnect/removal participant     | 60  |
 | Add or remove new modality from a call (Start/stop video or screen sharing) | 40   |
-| Call Transfer operation time-out   | 60   |
-| 1:1 call establishment time-out    | 85   |
-| Group call establishment time-out  | 85   |
-| PSTN call establishment time-out   | 115  |
-| Promote 1:1 call to a group call time-out | 115  |
+| Call Transfer operation timeout   | 60   |
+| 1:1 call establishment timeout    | 85   |
+| Group call establishment timeout  | 85   |
+| PSTN call establishment timeout   | 115  |
+| Promote 1:1 call to a group call timeout | 115  |
 
 ## Next steps
 

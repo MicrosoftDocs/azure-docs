@@ -7,6 +7,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
+# Customer intent: As a developer using BlobFuse2, I want to generate the autocompletion script for the fish shell, so that I can streamline my command-line operations and enhance my productivity.
 ---
 
 # BlobFuse2 completion fish command

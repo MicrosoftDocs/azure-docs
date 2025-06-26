@@ -7,6 +7,7 @@ ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 03/25/2025
 ms.custom: template-concept, references_regions, ignite-2024
+# Customer intent: "As a cloud architect, I want to understand the availability of Azure services that support Private Link, so that I can securely connect resources in my virtual network and enhance data privacy."
 ---
 
 # Azure Private Link availability

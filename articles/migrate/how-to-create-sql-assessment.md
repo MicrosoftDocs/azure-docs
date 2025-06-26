@@ -6,7 +6,7 @@ ms.author: v-uhabiba
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 05/08/2025
 ms.custom: engagement-fy23
 monikerRange: migrate
 ---
@@ -17,7 +17,7 @@ This article to create SQL assessments for migration to Azure, targeting differe
 
 ## Prerequisites
 
-* Deploy and configure the Azure Migrate appliance in your [VMware](vmware/tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
+* Deploy and configure the Azure Migrate appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
 * Check the appliance requirement [Azure Migrate appliance](migrate-appliance.md#appliance---vmware) [URL access](migrate-appliance.md#url-access)
 * [Migration to App Service Environment v3 using the in-place migration feature](../app-service/environment/migrate.md) to discover web applications running in your environment.
 

@@ -20,6 +20,116 @@ To learn more about FOCUS, see [FOCUS: A new specification for cloud cost transp
 
 You can view the latest changes to the FOCUS cost and usage details file schema in the [FinOps Open Cost and Usage Specification changelog](https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/blob/working_draft/CHANGELOG.md).
 
+## Version 1.2-preview
+
+|Column | Field | Description |
+|--------|-------|-------------|
+| 1 | BilledCost | A charge serving as the basis for invoicing, inclusive of all reduced rates and discounts while excluding the amortization of upfront charges (one-time or recurring). |
+| 2 | BillingAccountId | Unique identifier assigned to a billing account by the provider. |
+| 3 | BillingAccountName | Display name assigned to a billing account. |
+| 4 | BillingAccountType | Provider label for the kind of entity the `BillingAccountId` represents. |
+| 5 | BillingCurrency | Currency that a charge was billed in. |
+| 6 | BillingPeriodEnd | Exclusive end date and time of the billing period. |
+| 7 | BillingPeriodStart | Inclusive start date and time of the billing period. |
+| 8 | CapacityReservationId | Identifier assigned to a *capacity reservation* by the provider. Currently null/empty. |
+| 9 | CapacityReservationStatus | Indicates whether the charge represents either the consumption of a *capacity reservation* or when a *capacity reservation* is unused. Currently null/empty. |
+| 10 | ChargeCategory | Highest-level classification of a charge based on the nature of how it gets billed. |
+| 11 | ChargeClass | Indicates whether the row represents a correction to one or more charges invoiced in a previous billing period. |
+| 12 | ChargeDescription | Self-contained summary of the charge's purpose and price. |
+| 13 | ChargeFrequency | Indicates how often a charge occurs. |
+| 14 | ChargePeriodEnd | Exclusive end date and time of a charge period. |
+| 15 | ChargePeriodStart | Inclusive start date and time of a charge period. |
+| 16 | CommitmentDiscountCategory | Indicates whether the commitment-based discount identified in the `CommitmentDiscountId` column is based on usage quantity or cost, also called *spend*. |
+| 17 | CommitmentDiscountId | Unique identifier assigned to a commitment-based discount by the provider. |
+| 18 | CommitmentDiscountName | Display name assigned to a commitment-based discount. |
+| 19 | CommitmentDiscountQuantity | Amount of a commitment discount purchased or accounted for in commitment discount related rows that is denominated in Commitment Discount Units. Currently null/empty. |
+| 20 | CommitmentDiscountStatus | Indicates whether the charge corresponds with the consumption of a commitment-based discount or the unused portion of the committed amount. Currently null/empty. |
+| 21 | CommitmentDiscountType | Label assigned by the provider to describe the type of commitment-based discount applied to the row. |
+| 22 | CommitmentDiscountUnit | (Future) Unit for commitment discount. Currently null/empty. |
+| 23 | ConsumedQuantity | Volume of a given SKU associated with a resource or service used, based on the `ConsumedUnit`. |
+| 24 | ConsumedUnit | Provider-specified measurement unit indicating how a provider measures usage of a given SKU associated with a resource or service. |
+| 25 | ContractedCost | Cost calculated by multiplying `ContractedUnitPrice` and the corresponding `PricingQuantity`. |
+| 26 | ContractedUnitPrice | The agreed-upon unit price for a single `PricingUnit` of the associated SKU, inclusive of negotiated discounts, if present, while excluding negotiated commitment-based discounts or any other discounts. |
+| 27 | EffectiveCost | The amortized cost of the charge after applying all reduced rates, discounts, and the applicable portion of relevant, prepaid purchases (one-time or recurring) that covered the charge. |
+| 28 | InvoiceId | Unique identifier for the invoice this charge was billed on. (Renamed from x_InvoiceId in FOCUS 1.0) |
+| 29 | InvoiceIssuerName | The name of the entity responsible for invoicing for the resources or services consumed. |
+| 30 | ListCost | Cost calculated by multiplying `ListUnitPrice` and the corresponding `PricingQuantity`. |
+| 31 | ListUnitPrice | Suggested provider-published unit price for a single `PricingUnit` of the associated SKU, exclusive of any discounts. |
+| 32 | PricingCategory | Describes the pricing model used for a charge at the time of use or purchase. |
+| 33 | PricingCurrency | The currency used for all pricing columns. (Renamed from x_PricingCurrency in FOCUS 1.0) |
+| 34 | PricingQuantity | Volume of a given SKU associated with a resource or service used or purchased, based on the `Pricing Unit`. |
+| 35 | PricingUnit | Provider-specified measurement unit for determining unit prices, indicating how the provider rates measured usage and purchase quantities after applying pricing rules like block pricing. |
+| 36 | ProviderName | Name of the entity that made the resources or services available for purchase. |
+| 37 | PublisherName | Name of the entity that produced the resources or services that were purchased. |
+| 38 | RegionId | Provider-assigned identifier for an isolated geographic area where a resource is provisioned or a service is provided. |
+| 39 | RegionName | Name of an isolated geographic area where a resource is provisioned or a service is provided. |
+| 40 | ResourceId | Unique identifier assigned to a resource by the provider. |
+| 41 | ResourceName | Display name assigned to a resource. |
+| 42 | ResourceType | The kind of resource for which you're being charged. |
+| 43 | ServiceCategory | Highest-level classification of a service based on the core function of the service. |
+| 44 | ServiceName | An offering that can be purchased from a provider. For example, cloud virtual machine, SaaS database, or professional services from a systems integrator. |
+| 45 | ServiceSubcategory | Secondary classification of the ServiceCategory for a service based on its core function. |
+| 46 | SkuId | Unique identifier that defines a provider-supported construct for organizing properties that are common across one or more SKU Prices. |
+| 47 | SkuMeter | Name of the usage meter. This usually maps to a specific SKU or range of SKUs that have a specific price. Not applicable for purchases. (Renamed from x_SkuMeterName in FOCUS 1.0) |
+| 48 | SkuPriceDetails | A set of properties of a SkuPriceId which are meaningful and common to all instances of that SkuPriceId. This column is formatted as a JSON object. Same as AdditionalInfo. Currently null/empty. |
+| 49 | SkuPriceId | Unique identifier that defines the unit price used to calculate the charge. |
+| 50 | SubAccountId | Unique identifier assigned to a grouping of resources or services, often used to manage access and/or cost. |
+| 51 | SubAccountName | Name assigned to a grouping of resources or services, often used to manage access or cost. |
+| 52 | SubAccountType | Provider label for the kind of entity the `SubAccountId` represents. |
+| 53 | Tags | List of custom key-value pairs applied to a charge defined as a JSON object. |
+| 54 | x_AccountId | Unique identifier for the identity responsible for billing for this subscription.  |
+| 55 | x_AccountName | Name of the identity responsible for billing for this subscription. |
+| 56 | x_AccountOwnerId | Email address of the identity responsible for billing for this subscription.  |
+| 57 | x_AmortizationClass | Indicates how a row relates to amortization to identify and distinguish between the charges before and after amortization is applied. "Principal" for commitment discount purchases/refunds, "Amortized Charge" for usage, null otherwise. |
+| 58 | x_BilledCostInUsd | `BilledCost` in USD. |
+| 59 | x_BilledUnitPrice | Unit price for a single `PricingUnit` of the associated SKU that was charged per unit. |
+| 60 | x_BillingAccountId | Unique identifier for the Microsoft billing account. Same as `BillingAccountId` for EA. |
+| 61 | x_BillingAccountName | Name of the Microsoft billing account. Same as `BillingAccountName` for EA. |
+| 62 | x_BillingExchangeRate | Exchange rate to multiply by when converting from the pricing currency to the billing currency. |
+| 63 | x_BillingExchangeRateDate | Date the exchange rate was determined. |
+| 64 | x_BillingProfileId | Unique identifier for the Microsoft billing profile. Same as `BillingAccountId` for MCA. |
+| 65 | x_BillingProfileName | Name of the Microsoft billing profile. Same as `BillingAccountName` for MCA. |
+| 66 | x_ContractedCostInUsd | `ContractedCost` in USD. |
+| 67 | x_CostAllocationRuleName | Name of the Microsoft Cost Management cost allocation rule that generated this charge. Cost allocation is used to move or split shared charges. |
+| 68 | x_CostCenter | Custom value defined by a billing admin for internal chargeback. |
+| 69 | x_CustomerId | Unique identifier for the Cloud Solution Provider (CSP) customer tenant. |
+| 70 | x_CustomerName | Display name for the Cloud Solution Provider (CSP) customer tenant. |
+| 71 | x_EffectiveCostInUsd | `EffectiveCost` in USD. |
+| 72 | x_EffectiveUnitPrice | Unit price for a single `PricingUnit` of the associated SKU after applying all reduced rates, discounts, and the applicable portion of relevant, prepaid purchases (one-time or recurring) that covered the charge. |
+| 73 | x_InvoiceSectionId | Unique identifier for the MCA invoice section or EA department.  |
+| 74 | x_InvoiceSectionName | Display name for the MCA invoice section or EA department.  |
+| 75 | x_ListCostInUsd | `ListCost` in USD. |
+| 76 | x_PartnerCreditApplied | Indicates when the Cloud Solution Provider (CSP) Partner Earned Credit (PEC) was applied for a charge. |
+| 77 | x_PartnerCreditRate | Rate earned based on the Cloud Solution Provider (CSP) Partner Earned Credit (PEC) applied. |
+| 78 | x_PricingBlockSize | Indicates the number of usage units grouped together for block pricing. This number is usually a part of the `PricingUnit`. Divide `UsageQuantity` by `PricingBlockSize` to get the `PricingQuantity`. |
+| 79 | x_PricingCurrency | Currency used for all price columns. |
+| 80 | x_PricingSubcategory | Describes the kind of pricing model used for a charge within a specific `PricingCategory`. |
+| 81 | x_PricingUnitDescription | Pricing unit description.  |
+| 82 | x_PublisherCategory | Indicates whether a charge is from a cloud provider or third-party Marketplace vendor. |
+| 83 | x_PublisherId | Unique identifier of the entity that produced the resources and/or services that were purchased. |
+| 84 | x_ResellerId | Unique identifier for the Cloud Solution Provider (CSP) reseller. |
+| 85 | x_ResellerName | Name of the Cloud Solution Provider (CSP) reseller. |
+| 86 | x_ResourceGroupName | Grouping of resources that make up an application or set of resources that share the same lifecycle. For example, created and deleted together. |
+| 87 | x_ResourceType | Azure Resource Manager resource type. |
+| 88 | x_ServiceModel | Indicates what aspects of the service are managed by the provider – infrastructure only, the platform custom code runs on, or the entire service. Service model type: IaaS, PaaS, or SaaS. |
+| 89 | x_ServicePeriodEnd | Exclusive end date of the service period applicable for the charge. |
+| 90 | x_ServicePeriodStart | Start date of the service period applicable for the charge. |
+| 91 | x_SkuDescription | Description of the SKU that got used or purchased. |
+| 92 | x_SkuDetails | Additional information about the SKU. This column is formatted as a JSON object. (To be removed when SkuPriceDetails is ready) |
+| 93 | x_SkuIsCreditEligible | Indicates if the charge is eligible for Azure credits. |
+| 94 | x_SkuMeterCategory | Name of the service the SKU falls within. |
+| 95 | x_SkuMeterId | Unique identifier (sometimes a GUID, but not always) for the usage meter. It usually maps to a specific SKU or range of SKUs that have a specific price. |
+| 96 | x_SkuMeterName | Name of the usage meter. It usually maps to a specific SKU or range of SKUs that have a specific price. Not applicable for purchases. (Deprecated, replaced by SkuMeter) |
+| 97 | x_SkuMeterSubcategory | Group of SKU Classes that address the same core need within the SKU Group. |
+| 98 | x_SkuOfferId | Microsoft Cloud subscription type. |
+| 99 | x_SkuOrderId | Unique identifier of the entitlement product for this charge. Same as MCA `ProductOrderId`. Not applicable for EA. |
+| 100 | x_SkuOrderName | Display name of the entitlement product for this charge. Same as MCA `ProductOrderId`. Not applicable for EA. |
+| 101 | x_SkuPlanName | The name of the Marketplace service plan. |
+| 102 | x_SkuPartNumber | Identifier to help categorize specific usage meters. |
+| 103 | x_SkuRegion | Region that the SKU operated in. It might be different from the resource region. |
+| 104 | x_SkuServiceFamily | Highest-level classification of a SKU based on the core function of the SKU. |
+| 105 | x_SkuTier | SKU tier identifier which is the pricing tier for the SKU when that SKU supports tiered or graduated pricing.  |
+
 #### Note: Version 1.0r2
 
 FOCUS 1.0r2 is a follow-up release to the FOCUS 1.0 dataset that changes how date columns are formatted, which may impact anyone who is parsing and especially modifying these values. The 1.0r2 dataset is still aligned with the FOCUS 1.0 specification. The "r2" indicates this is the second release of that 1.0 specification. The only change in this release is that all date columns now include seconds to more closely adhere to the FOCUS 1.0 specification. As an example, a 1.0 export may use "2024-01-01T00:00Z" and a 1.0r2 export would use "2024-01-01T00:00:00Z". The only difference is the extra ":00" for seconds at the end of the time segment of the ISO formatted date string.

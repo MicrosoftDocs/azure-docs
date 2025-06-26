@@ -3,12 +3,12 @@ title: Pay your Microsoft Customer Agreement or Microsoft Online Subscription Pr
 description: Learn how to pay your bill in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
 author: lindseyshep
-ms.reviewer: lishepar
+ms.author: lishepar
+ms.reviewer: lishepar, jobailey
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/08/2024
-ms.author: lishepar
+ms.date: 05/01/2025
 ---
 
 # Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
@@ -43,15 +43,15 @@ Here's a table that summarizes payment methods for agreement types:
 
 ## Reserve Bank of India
 
-As of October 2021, automatic payments in India might block some credit card transactions, especially transactions that exceed 5,000 INR. Because of this situation, you might need to make payments for your Microsoft Online Subscription Program (MOSP) account manually in the Azure portal. This directive doesn't affect the total amount you're charged for your Azure usage.
+In October 2021, automatic payments in India might block some credit card transactions, especially transactions that exceed 5,000 INR. Because of this situation, you might need to make payments for your Microsoft Online Subscription Program (MOSP) account manually in the Azure portal. This directive doesn't affect the total amount you're charged for your Azure usage.
 
-As of June 2022, the Reserve Bank of India increased the limit of e-mandates on cards for recurring payments from 5,000 to 15,000 INR. Learn more about this directive on the [Reserve Bank of India website](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0).
+In June 2022, the Reserve Bank of India increased the limit of e-mandates on cards for recurring payments from 5,000 to 15,000 INR. Learn more about this directive on the [Reserve Bank of India website](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0).
 
-As of September 2022, Microsoft and other online merchants no longer store credit card information. To comply with this regulation, Microsoft removed all stored card details from Azure. To avoid service interruption, you need to add and verify your payment method to make a payment in the Azure portal for all invoices. Learn more about this directive on the [Reserve Bank of India website](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF).
+In September 2022, Microsoft and other online merchants no longer store credit card information. To comply with this regulation, Microsoft removed all stored card details from Azure. Learn more about this directive on the [Reserve Bank of India website](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF).
 
 ### UPI and NetBanking payment options
 
-Azure supports two alternate payment options for customers in India:
+Azure supports two alternate payment methods for India customers for MOSP accounts.
 
 - Unified Payments Interface (UPI) is a real-time payment method.
 - NetBanking gives customers access to banking services through an online platform.
@@ -76,7 +76,7 @@ Refunds are treated as a regular charge. They go to your bank account.
 
 ## Partial payments
 
-Partial payment is available for Azure global pay-as-you-go customers in China and in Egypt. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
+Partial payment is available for Azure global pay-as-you-go customers who experience a payment failure during the [Pay Now](https://learn.microsoft.com/azure/cost-management-billing/understand/pay-bill#pay-now-in-the-azure-portal) flow. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
 
 A minimum payment has a minimum value that you can pay, which varies by country/region.
 
@@ -110,7 +110,9 @@ Although you can generally use debit cards to pay your Azure bill, consider thes
 
 - Hong Kong Special Administrative Region and Brazil don't allow the use of debit cards. They support only credit cards.
 - India supports debit and credit cards through Visa and Mastercard.
-- You can't use virtual and prepaid debit cards to pay your Azure bill.
+- You can't use virtual cards to pay your Azure bill.
+
+- Prepaid cards (aka stored value cards, Visa gift cards, MasterCard gift cards, etc.) are not accepted as valid payment instruments.
 
 ## Wire transfer
 

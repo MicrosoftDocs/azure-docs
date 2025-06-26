@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 04/16/2025
+ms.date: 05/27/2025
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
@@ -16,8 +16,8 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 Understanding the terminology related to performance and capacity in Azure NetApp Files is essential to understanding the metrics available:  
 
-- **Capacity pool**: A capacity pool is how capacity is billed in Azure NetApp Files. Capacity pools contain volume. 
-- **Volume quota**: The amount of capacity provisioned to an Azure NetApp Files volume. Volume quota is directly tied to automatic Quality of Service (QoS), which impacts the volume performance. For more information, see [QoS types for capacity pools](azure-netapp-files-understand-storage-hierarchy.md#qos_types).
+- **Capacity pool**: A capacity pool is how capacity is billed in Azure NetApp Files. Capacity pools contain one or more volumes. 
+- **Volume quota**: The amount of capacity provisioned to an Azure NetApp Files volume. For Auto QoS volumes, throughput is proportional to volume size. For Manual QoS, you set the throughput independently from the volume capacity. For more information, see [QoS types for capacity pools](azure-netapp-files-understand-storage-hierarchy.md#qos_types).
 - **Throughput**: The amount of data transmitted across the wire (read/write/other) between Azure NetApp Files and the client. Throughput in Azure NetApp Files is measured in bytes per second. 
 - **Latency**: Latency is the amount of time for a storage operation to complete within storage from the time it arrives to the time it's processed and is ready to be sent back to the client. Latency in Azure NetApp Files is measured in milliseconds (ms). 
 
@@ -131,6 +131,54 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
    
     :::image type="content" source="./media/azure-netapp-files-metrics/metrics-navigate-volume.png" alt-text="Snapshot that shows how to navigate to the Metric pull-down." lightbox="./media/azure-netapp-files-metrics/metrics-navigate-volume.png":::
 
+## <a name="subscription-quota-metrics"></a> Subscription quota metrics (preview)
+
+Subscription quota metrics display subscription-level quotas relative to the imposed limits. These metrics are displayed in two columns: the available limit and the consumption by your subscription.
+
+:::image type="content" source="./media/azure-netapp-files-metrics/subscription-quota.png" alt-text="Screenshot of subscription quota metrics." lightbox="./media/azure-netapp-files-metrics/subscription-quota.png":::
+
+Subscription quota metrics are currently in preview. Before you can access subscription-level quota metrics, you need to register the feature: 
+
+1. Register the feature
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFQuotaLimit
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFQuotaLimit
+    ```
+    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+- *Accounts per subscription*
+
+    Number of NetApp accounts per region 
+
+- *Total backup enabled volumes per subscription*
+
+    Maximum number of volumes that can be backed up per subscription 
+
+- *Total cool access volumes per subscription* 
+
+    Total number of cool access volumes per subscription 
+
+- *Total DP volumes per subscription* 
+
+    Total number of data protection volumes per subscription  
+
+- *Total TIBs per subscription* 
+
+    Total regional capacity per subscription 
+
+- *Total volumes per subscription* 
+
+    Total number of volumes per subscription  
+    
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
 - *Pool Allocated Size*   
@@ -263,7 +311,6 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 * *Provisioned throughput for the pool*   
     Provisioned throughput of this pool.
 
-
 ## Throughput metrics for volumes   
 
 * *Read throughput*   
@@ -302,10 +349,6 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 * *Volume Backup Bytes*   
 
     The total bytes backed up for this volume.
-
-* *Volume Backup Last Transferred Bytes*   
-
-    The total bytes transferred for the last backup or restore operation.  
 
 * *Volume Backup Operation Last Transferred Bytes*   
 

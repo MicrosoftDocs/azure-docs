@@ -3,7 +3,7 @@ title: Durable Functions storage providers - Azure
 description: Learn about the different storage providers for Durable Functions and how they compare
 author: cgillum
 ms.topic: conceptual
-ms.date: 03/17/2025
+ms.date: 04/10/2025
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand what storage providers are available Durable Functions and which one I should choose.
 ---
@@ -52,7 +52,9 @@ The source code for the DTFx components of the Azure Storage storage provider ca
 > [!NOTE]
 > Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types are not supported. We highly recommend using legacy v1 general purpose storage accounts because the newer v2 storage accounts can be more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
 
-## <a name="netherite"></a>Netherite
+## <a name="netherite"></a>Netherite 
+> [!NOTE]
+> Support for using the Netherite storage backend with Durable Functions will end 31 March 2028. It is recommended that you start evaluating the Durable Task Scheduler for workloads that you're currently using Netherite for. See [end-of-support announcement](https://azure.microsoft.com/updates/?id=489009). 
 
 The Netherite storage backend was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) and the [FASTER](https://www.microsoft.com/research/project/faster/) database technology on top of [Azure Page Blobs](../../storage/blobs/storage-blob-pageblob-overview.md). The design of Netherite enables higher-throughput processing of orchestrations and entities compared to other providers. In some benchmark scenarios, throughput was shown to increase by more than an order of magnitude when compared to the default Azure Storage provider.
 
@@ -125,44 +127,7 @@ If no storage provider is explicitly configured in host.json, the Azure Storage 
 ### Configuring durable task scheduler (preview)
 See the [durable task scheduler getting started documentation](./durable-task-scheduler/quickstart-durable-task-scheduler.md).
 
-### Configuring the Netherite storage provider
-
-Enabling the Netherite storage provider requires a configuration change in your `host.json`. For C# users, it also requires an additional installation step.
-
-#### `host.json` Configuration
-
-The following host.json example shows the minimum configuration required to enable the Netherite storage provider.
-
-```json
-{
-  "version": "2.0",
-  "extensions": {
-    "durableTask": {
-      "storageProvider": {
-        "type": "Netherite",
-        "storageConnectionName": "AzureWebJobsStorage",
-        "eventHubsConnectionName": "EventHubsConnection"
-      }
-    }
-  }
-}
-```
-
-For more detailed setup instructions, see the [Netherite getting started documentation](https://microsoft.github.io/durabletask-netherite/#/?id=getting-started).
-
-#### Install the Netherite extension (.NET only)
-
-> [!NOTE]
-> If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
-
-You'll need to install the latest version of the Netherite Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
-
-The Extension package to install depends on the .NET worker you are using:
-- For the _in-process_ .NET worker, install [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
-- For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite).
-
 ### Configuring the MSSQL storage provider
-
 Enabling the MSSQL storage provider requires a configuration change in your `host.json`. For C# users, it also requires an additional installation step.
 
 #### `host.json` Configuration
@@ -183,22 +148,21 @@ The following example shows the minimum configuration required to enable the MSS
 }
 ```
 
-For more detailed setup instructions, see the [MSSQL provider's getting started documentation](https://microsoft.github.io/durabletask-mssql/#/quickstart).
+For more detailed setup instructions, see the [MSSQL provider's getting started documentation](./quickstart-mssql.md) and [documentation on github.io](https://microsoft.github.io/durabletask-mssql/#/quickstart).
 
 #### Install the Durable Task MSSQL extension (.NET only)
 
 > [!NOTE]
-> If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
+> If your app uses [Extension Bundles](../extension-bundles.md), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You'll need to install the latest version of the MSSQL storage provider Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
-
-The Extension package to install depends on the .NET worker you are using:
-- For the _in-process_ .NET worker, install [`Microsoft.DurableTask.SqlServer.AzureFunctions`](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions).
-- For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer).
+You'll need to install the latest version of the MSSQL storage provider Extension on NuGet: [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer). This usually means including a reference to it in your `.csproj` file and building the project.
 
 ## Comparing storage providers
 
 There are many significant tradeoffs between the various supported storage providers. The following table can be used to help you understand these tradeoffs and decide which storage provider is best for your needs.
+
+> [!NOTE]
+> Support for using the Netherite storage backend with Durable Functions will end 31 March 2028. It is recommended that you start evaluating the Durable Task Scheduler for workloads that you're currently using Netherite for. See [end-of-support announcement](https://azure.microsoft.com/updates/?id=489009). 
 
 | Storage provider | Azure Storage | Netherite | MSSQL | DTS| 
 |- |-              |-          |-      |- |
@@ -211,7 +175,7 @@ There are many significant tradeoffs between the various supported storage provi
 | Maximum activity scale-out (nodes) | N/A | 32 | N/A | N/A | 
 | Durable Entities support | ✅ Fully supported | ✅ Fully supported | ⚠️ Supported except when using .NET Isolated | ✅ Fully supported |
 | [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) | Coming soon! | 
-| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |  Coming soon! | 
+| Support for [extension bundles](../extension-bundles.md) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |  Coming soon! | 
 | Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) | Coming soon! | 
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported | ❌ Azure connectivity required |
 | Identity-based connections | ✅ Fully supported |❌ Not supported | ⚠️ Requires runtime-driven scaling |  ✅ Fully supported |

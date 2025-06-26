@@ -1,12 +1,12 @@
 ---
 title: Send sticker WhatsApp messages
-titleSuffix: An Azure Communication Services Advanced Messages quickstart
+titleSuffix: An Azure Communication Services Advanced Messages article
 description: This article describes how to send WhatsApp sticker messages using Azure Communication Services Advanced Messages SDK.
 author: shamkh
 manager: camilo.ramirez
 services: azure-communication-services
 ms.author: shamkh
-ms.date: 01/15/2025
+ms.date: 05/01/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
@@ -36,14 +36,16 @@ Azure Communication Services enables you to send and receive WhatsApp messages. 
 
 ## Working with WhatsApp Stickers FAQ
 
-### What are supported Sticker format and size limits?
-|Sticker Type	| Extension	| MIME Type	| Max Size |
+### What are supported sticker format and size limits?
+
+| Sticker Type | Extension | MIME Type | Max Size |
 |----------------|------------|------------|-----------|
-|Animated sticker | .webp      |    image/webp | 500 KB |
-|Static sticker   | .webp      | image/webp    | 100 KB |
+|Animated sticker | .webp | image/webp | 500 KB |
+|Static sticker | .webp | image/webp | 100 KB |
 
 ### What is Sticker correct dimension to be uploaded?
-Sticker dimension should be 512x512.
+
+Sticker dimension should be 512 x 512 pixels.
 
 ## Next steps
 

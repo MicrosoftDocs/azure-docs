@@ -2,12 +2,13 @@
 title: Azure DNS Private Resolver endpoints and rulesets
 description: In this article, understand the Azure DNS Private Resolver endpoints and rulesets
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 03/21/2025
-ms.author: greglin
+ms.author: allensu
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
+# Customer intent: "As a network administrator, I want to understand the components and configuration of Azure DNS Private Resolver, so that I can effectively implement and manage DNS resolution across my virtual networks."
 ---
 
 # Azure DNS Private Resolver endpoints and rulesets
@@ -133,7 +134,7 @@ The ruleset link design scenario is best suited to a [distributed DNS architectu
 
 ### Inbound endpoints as custom DNS
 
-**Inbound endpoints** are able to process inbound DNS queries, and can be configured as custom DNS for a VNet. This configuration can replace instances where you're [using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) as custom DNS in a VNet.
+**Inbound endpoints** are able to process inbound DNS queries and can be configured as custom DNS for a VNet. This configuration can replace instances where you're [using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) as custom DNS in a VNet.
 
 The custom DNS design scenario is best suited to a [centralized DNS architecture](private-resolver-architecture.md#centralized-dns-architecture) where DNS resolution and network traffic flow are mostly to a hub VNet, and is controlled from a central location. 
 

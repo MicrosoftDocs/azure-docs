@@ -118,8 +118,6 @@ items:
           href: mqtt-request-response-messages.md                
         - name: Assign custom domain name to a namespace
           href: assign-custom-domain-name.md
-        - name: Authenticate with MQTT broker using OAuth 2.0 authentication
-          href: authenticate-with-namespaces-using-json-web-tokens.md
         - name: Monitor
           items:
           - name: Monitor Event Grid namespaces
@@ -140,6 +138,10 @@ items:
             href: event-grid-namespace-managed-identity.md 
           - name: MQTT client authentication using certificate chain
             href: mqtt-certificate-chain-client-authentication.md            
+          - name: Authenticate with MQTT broker using OAuth 2.0 authentication
+            href: authenticate-with-namespaces-using-json-web-tokens.md
+          - name: Authenticate with MQTT broker using webhook authentication
+            href: authenticate-with-namespaces-using-webhook-authentication.md
     - name: Namespace topics
       items:
       - name: Pull delivery overview
@@ -246,6 +248,10 @@ items:
             href: event-grid-namespace-managed-identity.md
           - name: Authenticate publishing clients using Microsoft Entra ID
             href: authenticate-with-entra-id-namespaces.md
+          - name: Deliver events securely using managed identities
+            href: deliver-events-using-managed-identity.md          
+          - name: Cross-tenant delivery using managed identity
+            href: cross-tenant-delivery-using-managed-identity.md
   - name: Event Grid basic
     items:
     - name: Overview
@@ -624,6 +630,8 @@ items:
         items:
         - name: Publish events securely over a private link
           href: configure-private-endpoints.md
+        - name: Configure network security perimeter for topics and domains
+          href: configure-network-security-perimeter.md
         - name: Use managed identity
           items:
           - name: Enable managed identity for a custom topic or a domain
@@ -636,6 +644,8 @@ items:
             href: managed-service-identity.md
           - name: Cross-tenant delivery using managed identity
             href: cross-tenant-delivery-using-managed-identity.md
+          - name: Deliver events securely using managed identities
+            href: deliver-events-using-managed-identity.md          
         - name: Enforce security controls with custom Azure policies
           href: custom-azure-policies-for-security-control.md
         - name: Deliver events securely over a private link
@@ -725,7 +735,7 @@ items:
     - name: FAQ
       href: faq.yml
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/event-grid/
     - name: Pricing Calculator

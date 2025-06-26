@@ -11,6 +11,7 @@ ms.date: 09/30/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, template-how-to
 ROBOTS: NOINDEX
+# Customer intent: As a cloud administrator, I want to enhance an existing IPv4 application with IPv6 connectivity in an Azure virtual network, so that I can support more devices and improve network communication capabilities.
 ---
 
 # Add an IPv4 application to IPv6 in Azure virtual network using PowerShell

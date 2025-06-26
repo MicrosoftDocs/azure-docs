@@ -2,7 +2,7 @@
 title: Create Backup Policies for PostgreSQL Databases by Using the Data Protection REST API
 description: Learn how to create and manage backup policies for PostgreSQL databases in Azure Database for PostgreSQL by using the Azure Backup Data Protection REST API.
 ms.topic: how-to
-ms.date: 02/09/2025
+ms.date: 04/10/2025
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: jyothisuri
 ms.author: jsuri

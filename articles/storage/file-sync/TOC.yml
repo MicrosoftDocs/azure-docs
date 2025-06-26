@@ -35,6 +35,8 @@
     href: file-sync-replace-server.md
   - name: Replace drive of an Azure File Sync server
     href: file-sync-replace-drive.md
+  - name: Install Azure File Sync agent extension on Arc-enabled Windows Servers
+    href: file-sync-extension.md    
 - name: Cloud tiering
   items:
   - name: Cloud tiering overview
@@ -214,8 +216,6 @@
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
-  - name: Samples
-    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
   - name: Azure Files and Azure NetApp Files comparison
     href: ../files/storage-files-netapp-comparison.md?toc=/azure/storage/file-sync/toc.json
   - name: Manage storage in Azure-independent clouds

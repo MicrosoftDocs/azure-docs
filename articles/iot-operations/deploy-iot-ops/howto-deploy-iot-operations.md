@@ -52,7 +52,7 @@ A cluster host:
 
 * (Optional) Prepare your cluster for observability before deploying Azure IoT Operations: [Configure observability](../configure-observability-monitoring/howto-configure-observability.md).
 
-* (Optional) Configure your own certificate authority issuer before deploying Azure IoT Operations: [Bring your own issuer](../secure-iot-ops/concept-default-root-ca.md#bring-your-own-issuer).
+* (Optional) Configure your own certificate authority issuer before deploying Azure IoT Operations: [Bring your own issuer](../secure-iot-ops/howto-manage-certificates.md#bring-your-own-issuer).
 
 ## Deploy
 
@@ -140,9 +140,7 @@ Use these steps if you chose the **Test settings** option on the **Dependency ma
    1. Prepare the cluster for Azure IoT Operations deployment. Copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
       >[!TIP]
-      >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already has the latest version of Azure IoT Operations deployed on it, you can skip this step.
-
-      If you followed the optional prerequisite to set up your own certificate authority issuer, add the `--user-trust` flag to the `init` command.
+      >The `init` command only needs to be run once per cluster. If you followed the optional prerequisite to set up your own certificate authority issuer, follow the steps in [Bring your own issuer](../secure-iot-ops/howto-manage-certificates.md#bring-your-own-issuer).
 
       This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 

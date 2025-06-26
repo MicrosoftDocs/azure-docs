@@ -1,19 +1,31 @@
 ---
-title: Azure Application Gateway HTTP settings configuration
-description: This article describes how to configure Azure Application Gateway HTTP settings.
+title: Azure Application Gateway Backend Settings configuration
+description: This article describes how to configure Azure Application Gateway Backend Settings.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 04/14/2025
-ms.author: greglin
+ms.date: 05/15/2025
+ms.author: mbender
+ms.custom:
+  - build-2025
+# Customer intent: "As a cloud architect, I want to configure the Backend Settings for Azure Application Gateway, so that I can manage backend connections and optimize traffic routing based on various protocols and settings."
 ---
 
-# Application Gateway HTTP settings configuration
+# Application Gateway backend settings configuration
 
-The application gateway routes traffic to the backend servers by using the configuration that you specify here. After you create an HTTP setting, you must associate it with one or more request-routing rules.
+The Backend Settings enable you to manage the configurations for backend connections established from an application gateway resource to a server in the backend pool. A Backend Settings configuration can be associated with one or more Routing rules.
 
-## Cookie-based affinity
+## Types of Backend Settings in Application Gateway
+While Portal users will only see the "Backend Settings" option, API users will have access to two types of settings. You must utilize the correct configuration, according to the protocol.
+
+* Backend HTTP settings - It is for Layer 7 proxy configurations that support HTTP and HTTPS protocols.
+* Backend settings - It is for Layer 4 proxy (Preview) configurations that support TLS and TCP protocols.
+
+---
+## [Backend HTTP Settings](#tab/backendhttpsettings)
+
+### Cookie-based affinity
 
 Azure Application Gateway uses gateway-managed cookies for maintaining user sessions. When a user sends the first request to Application Gateway, it sets an affinity cookie in the response with a hash value that contains the session details. This process enables subsequent requests that carry the affinity cookie to be routed to the same backend server, thus maintaining stickiness.
 
@@ -32,7 +44,7 @@ The default affinity cookie name is *ApplicationGatewayAffinity* and you can cha
 > [!NOTE]
 > If the attribute *SameSite=None* is set, it's mandatory that the cookie also contains the *Secure* flag, and must be sent over HTTPS. If session affinity is required over CORS, you must migrate your workload to HTTPS. Refer to TLS offload and End-to-End TLS documentation for Application Gateway. See the [SSL overview](ssl-overview.md), [Configure an application gateway with TLS termination](create-ssl-portal.md), and [Configure end-to-end TLS](end-to-end-ssl-portal.md).
 
-## Connection draining
+### Connection draining
 
 Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are explicitly removed from the backend pool.
 
@@ -48,27 +60,27 @@ The only exception to this process are requests bound for deregistering instance
 > [!NOTE]
 > There's a limitation where a configuration update will terminate ongoing connections after the connection draining timeout. To address this limitation, you must increase the connection draining time-out in the backend settings to a value higher than the max expected client download time. 
 
-## Protocol
+### Protocol
 
 Application Gateway supports both HTTP and HTTPS for routing requests to the backend servers. If you choose HTTP, traffic to the backend servers is unencrypted. If unencrypted communication isn't acceptable, choose HTTPS.
 
 This setting combined with HTTPS in the listener supports [end-to-end TLS](ssl-overview.md). This allows you to securely transmit sensitive data encrypted to the back end. Each backend server in the backend pool that has end-to-end TLS enabled must be configured with a certificate to allow secure communication.
 
-## Port
+### Port
 
 This setting specifies the port where the backend servers listen to traffic from the application gateway. You can configure ports ranging from 1 to 65535.
 
-## Trusted root certificate 
+### Trusted root certificate 
 
-If you select HTTPS as the backend protocol, the Application Gateway requires a trusted root certificate to trust the backend pool for end-to-end SSL. By default, the **Use well known CA certificate** option is set to **No**. If you plan to use a self-signed certificate, or a certificate signed by an internal Certificate Authority, then you must provide the Application Gateway the matching public certificate used by the backend pool. This certificate must be uploaded directly to the Application Gateway in .CER format.
+When selecting the HTTPS protocol in the backend settings, the application gateway resource utilizes its default Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
 
-If you plan to use a certificate on the backend pool that is signed by a trusted public Certificate Authority, then you can set the **Use well known CA certificate** option to **Yes** and skip uploading a public certificate.
+By default, the Application Gateway resource includes popular CA certificates, allowing seamless backend TLS connections when the backend server certificate is issued by a Public CA. However, if you intend to use a Private CA or a self-generated certificate, you must provide the corresponding Root CA certificate (.cer) in this Backend Settings configuration.
 
-## Request timeout
+### Request timeout
 
-This setting is the number of seconds that the application gateway waits to receive a response from the backend server.
+This setting is the number of seconds that the application gateway waits to receive a response from the backend server. The default value is 20 seconds. However, you may wish to adjust this setting to the needs of your application.
 
-## Override backend path
+### Override backend path
 
 This setting lets you configure an optional custom forwarding path to use when the request is forwarded to the back end. Any part of the incoming path that matches the custom path in the **override backend path** field is copied to the forwarded path. The following table shows how this feature works:
 
@@ -92,14 +104,14 @@ This setting lets you configure an optional custom forwarding path to use when t
   | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
 
-## Use custom probe
+### Use custom probe
 
 This setting associates a [custom probe](application-gateway-probe-overview.md#custom-health-probe) with an HTTP setting. You can associate only one custom probe with an HTTP setting. If you don't explicitly associate a custom probe, the [default probe](application-gateway-probe-overview.md#default-health-probe-settings) is used to monitor the health of the back end. We recommend that you create a custom probe for greater control over the health monitoring of your back ends.
 
 > [!NOTE]
 > The custom probe doesn't monitor the health of the backend pool unless the corresponding HTTP setting is explicitly associated with a listener.
 
-## Configuring the host name
+### Configuring the host name
 
 Application Gateway allows for the connection established to the backend to use a *different* hostname than the one used by the client to connect to Application Gateway. While this configuration can be useful in some cases, exercise caution when overriding the hostname such that it's different between the application gateway and the client compared to the backend target.  
 
@@ -111,13 +123,13 @@ There are two aspects of an HTTP setting that influence the [`Host`](https://dat
 - "Pick host name from backend-address"
 - "Host name override"
 
-## Pick host name from backend address
+### Pick host name from backend address
 
 This capability dynamically sets the *host* header in the request to the host name of the backend pool. It uses an IP address or FQDN.
 
 This feature helps when the domain name of the back end is different from the DNS name of the application gateway, and the back end relies on a specific host header to resolve to the correct endpoint.
 
-An example case is multi-tenant services as the back end. An app service is a multi-tenant service that uses a shared space with a single IP address. So, an app service can only be accessed through the hostnames that are configured in the custom domain settings.
+An example case is multitenant services as the back end. An app service is a multitenant service that uses a shared space with a single IP address. So, an app service can only be accessed through the hostnames that are configured in the custom domain settings.
 
 By default, the custom domain name is *example.azurewebsites.net*. To access your app service by using an application gateway through a hostname that's not explicitly registered in the app service or through the application gateway's FQDN, you can override the hostname in the original request to the app service's hostname. To do this, enable the **pick host name from backend address** setting.
 
@@ -126,11 +138,39 @@ For a custom domain whose existing custom DNS name is mapped to the app service,
 > [!NOTE]
 > This setting isn't required for App Service Environment, which is a dedicated deployment.
 
-## Host name override
+### Host name override
 
 This capability replaces the *host* header in the incoming request on the application gateway with the host name that you specify.
 
 For example, if *www.contoso.com* is specified in the **Host name** setting, the original request *`https://appgw.eastus.cloudapp.azure.com/path1` is changed to *`https://www.contoso.com/path1` when the request is forwarded to the backend server.
+
+## [Backend Settings](#tab/backendsettings)
+
+### Port
+
+This setting specifies the port where the backend servers listen to traffic from the application gateway. You can configure ports ranging from 1 to 65535.
+
+### Timeout
+
+This setting is the number of seconds that the application gateway waits before closing the frontend and backend connections in case there is no transmission of any data.
+
+### Trusted root certificate 
+
+When selecting the TLS protocol in the backend settings, the application gateway resource utilizes its default Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
+
+By default, the Application Gateway resource includes popular CA certificates, allowing seamless backend TLS connections when the backend server certificate is issued by a Public CA. However, if you intend to use a Private CA or a self-generated certificate, you must provide the corresponding Root CA certificate (.cer) in this Backend Settings configuration.
+
+### SNI (Server Name Indication)
+This configuration is applicable only to a backend setting with the TLS protocol. The SNI value provided here is transmitted to the backend server during the TLS handshake. The backend server must present the appropriate certificate.
+
+### Use custom probe
+
+This setting associates a [custom probe](application-gateway-probe-overview.md#custom-health-probe) with a Backend setting. You can associate only one custom probe with a backend setting. If you don't explicitly associate a custom probe, the [default probe](application-gateway-probe-overview.md#default-health-probe-settings) is used to monitor the health of the backend.
+
+> [!NOTE]
+> The custom probe doesn't monitor the health of the backend pool unless it is linked to a Backend Setting that is associated with a Rule.
+
+---
 
 ## Next steps
 

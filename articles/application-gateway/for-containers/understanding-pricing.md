@@ -2,11 +2,12 @@
 title: Understanding pricing - Application Gateway for Containers
 description: Learn how Azure Application Gateway for Containers is billed.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 5/9/2024
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a cloud architect, I want to understand how Azure Application Gateway pricing works, so that I can accurately budget for my application infrastructure costs.
 ---
 
 # Understanding Pricing for Application Gateway for Containers

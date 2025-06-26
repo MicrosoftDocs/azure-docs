@@ -83,90 +83,92 @@
             href: /azure/search/search-howto-move-across-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Analytics
           items:
-          - name: Azure Event Hubs
+          - name: Event Hubs
             href: ./relocation/relocation-event-hub.md
-          - name: Azure Event Hubs Cluster
+          - name: Event Hubs Cluster
             href: ./relocation/relocation-event-hub-cluster.md
-          - name: Azure Stream Analytics
+          - name: HDInsight
+            href: ./relocation/relocation-hdinsight.md
+          - name: Power BI
+            href: /power-bi/admin/service-admin-region-move?toc=/azure/azure-resource-manager/management/toc.json
+          - name: Stream Analytics
             items:
             - name: Move Stream Analytics jobs
               href: ../../stream-analytics/copy-job.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Move Stream Analytics cluster
               href: ../../stream-analytics/move-cluster.md?toc=/azure/azure-resource-manager/management/toc.json
-          - name: Power BI
-            href: /power-bi/admin/service-admin-region-move?toc=/azure/azure-resource-manager/management/toc.json
         - name: Compute
           items:
-          - name: Azure App Service
+          - name: App Service
             href: ./relocation/relocation-app-service.md
-          - name: Azure Batch
+          - name: Batch
             href: ../../batch/account-move.md?toc=/azure/azure-resource-manager/management/toc.json
-          - name: Azure Functions
+          - name: Functions
             href: ./relocation/relocation-functions.md
-          - name: Azure Static Web Apps
+          - name: Static Web Apps
             href: ./relocation/relocation-static-web-apps.md
-          - name: Azure Virtual Machines
+          - name: Virtual Machines
             items:
-            - name: Move Azure VMs to another region
+            - name: Move VMs to another region
               href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
-            - name: Move encrypted Azure VMs to another region
+            - name: Move encrypted VMs to another region
               href: ../../resource-mover/tutorial-move-region-encrypted-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
           - name: Virtual Machine Scale Sets
             href: ./relocation/relocation-virtual-machine-scale-sets.md
         - name: Containers
           items:
-          - name: Azure Container Registry
+          - name: Container Registry
             href: ./relocation/relocation-container-registry.md
-          - name: Azure Kubernetes Service
+          - name: Kubernetes Service
             href: ./relocation/relocation-kubernetes-service.md
         - name: Databases
           items:
-          - name: Azure Cache for Redis
+          - name: Cache for Redis
             href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
-          - name: Azure Cosmos DB
+          - name: Cosmos DB
             href: ./relocation/relocation-cosmos-db.md
-          - name: Azure Database for MariaDB Server
+          - name: Database for MariaDB Server
             href: /azure/mariadb/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
-          - name: Azure Database for MySQL Server
+          - name: Database for MySQL Server
             href: /azure/mysql/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
-          - name: Azure Database for PostgreSQL
+          - name: Database for PostgreSQL
             href: ./relocation/relocation-postgresql-flexible-server.md
         - name: Integration
           items:
-          - name: Azure Logic apps
+          - name: Logic apps
             href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Internet of Things
           items:
-          - name: Azure Event Grid
+          - name: Event Grid
             items:
-            - name: Relocate Azure Event Grid domains
+            - name: Relocate Event Grid domains
               href: ./relocation/relocation-event-grid-domains.md
-            - name: Relocate Azure Event Grid custom topics
+            - name: Relocate Event Grid custom topics
               href: ./relocation/relocation-event-grid-custom-topics.md
-            - name: Relocate Azure Event Grid system topics
+            - name: Relocate Event Grid system topics
               href: ./relocation/relocation-event-grid-system-topics.md
-          - name: Azure IoT Hub
+          - name: IoT Hub
             href: ../../iot-hub/iot-hub-how-to-clone.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Management and governance
           items:
-          - name: Azure Automation
+          - name: Automation
             href: ./relocation/relocation-automation.md
-          - name: Azure Backup
+          - name: Backup
             href: ./relocation/relocation-backup.md
-          - name: Azure Monitor - Log Analytics Workspace
+          - name: Monitor - Log Analytics Workspace
             href: ./relocation/relocation-log-analytics.md    
-          - name: Azure Site Recovery (Recovery Services vaults)
+          - name: Site Recovery (Recovery Services vaults)
             href: ./relocation/relocation-site-recovery.md  
         - name: Networking
           items:
-          - name: Azure App Gateway and Web App Firewall
-            displayname: Azure Application Gateway, Web Application Firewall
+          - name: App Gateway and Web App Firewall
+            displayname: Application Gateway, Web Application Firewall
             href: ./relocation/relocation-app-gateway.md
-          - name: Azure Load Balancer
+          - name: Load Balancer
             href: ../../load-balancer/move-across-regions-external-load-balancer-portal.md?toc=/azure/azure-resource-manager/management/toc.json
-          - name: Azure Private Link Service
+          - name: Private Link Service
             href: ./relocation/relocation-private-link.md 
-          - name: Azure Virtual Network
+          - name: Virtual Network
             items:
             - name: Virtual Network
               href: ./relocation/relocation-virtual-network.md 
@@ -174,21 +176,21 @@
               href: ./relocation/relocation-virtual-network-nsg.md
         - name: Security
           items:
-          - name: Azure Firewall
+          - name: Firewall
             href: ./relocation/relocation-firewall.md
-          - name: Azure Key Vault
+          - name: Key Vault
             href: ./relocation/relocation-key-vault.md
           - name: Managed identities for Azure resources
             href: /entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move?toc=/azure/azure-resource-manager/management/toc.json&bc=/azure/operational-excellence/breadcrumb/toc.json
         - name: Storage
           items:
-          - name: Azure NetApp Files
+          - name: NetApp Files
             href: ./relocation/relocation-netapp.md
-          - name: Azure Storage Account
+          - name: Storage Account
             href: ./relocation/relocation-storage-account.md
         - name: Web
           items:
-          - name: Azure API Management
+          - name: API Management
             href: ../../api-management/api-management-howto-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
   - name: Tags
     items:
@@ -306,7 +308,7 @@
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-resource-manager
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+    href: https://azure.microsoft.com/updates/?category=monitoring-management
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
@@ -315,5 +317,3 @@
     href: https://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Manage personal data
     href: resource-manager-personal-data.md
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
