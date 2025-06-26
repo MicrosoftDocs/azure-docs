@@ -32,13 +32,13 @@ The Azure Communication Services Advanced Messaging usage fee is based on the nu
 When you connect your WhatsApp Business account to Azure, Azure Communication Services becomes the billing entity for your WhatsApp usage. WhatsApp provides these rates, and they’re included in your Azure bill. WhatsApp describes their pricing in detail here: [WhatsApp Pricing Documentation](https://developers.facebook.com/docs/whatsapp/pricing).
 
 
-> **Effective July 1, 2025**, WhatsApp will implement the following changes to their pricing model:
->
-> - The conversation-based pricing model will be deprecated.
-> - WhatsApp will charge [per-message for template messages](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#per-message-pricing) instead of per-conversation.
-> - Utility template messages sent within an open customer service window [will become free](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#free-utility-templates-in-the-customer-service-window).
->
-> See [Pricing Updates on the WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing/) for additional details.
+**Effective July 1, 2025**, WhatsApp will implement the following changes to their pricing model:
+
+- The conversation-based pricing model will be deprecated.
+- WhatsApp will charge [per-message for template messages](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#per-message-pricing) instead of per-conversation.
+- Utility template messages sent within an open customer service window [will become free](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#free-utility-templates-in-the-customer-service-window).
+
+See [Pricing Updates on the WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing/) for additional details.
 
 ## Pricing example: Contoso sends appointment reminders to their WhatsApp customers
 
