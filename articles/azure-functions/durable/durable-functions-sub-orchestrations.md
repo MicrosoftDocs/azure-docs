@@ -16,7 +16,7 @@ An orchestrator function can call another orchestrator function using the *"call
 Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value and throw an exception as the parent orchestrator function anticipates them.
 
 > [!NOTE]
-> In PowerShell, sub-orchestrations are currently supported in the [standalone Durable Functions PowerShell SDK](durable-functions-powershell-v2-sdk-migration-guide.md) only.
+> In PowerShell, sub-orchestrations are supported in the [standalone Durable Functions PowerShell SDK](durable-functions-powershell-v2-sdk-migration-guide.md) only.
  
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 

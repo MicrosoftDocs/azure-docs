@@ -86,7 +86,7 @@ Next, specify an entry for the DF SDK in your `requirements.psd1` file, as in th
 
 Make sure you use the latest version of the [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) module. The `2.*` version specifier ensures you get the latest stable 2.x version.
 
-Append the following line to the end of your `profile.ps1` file:
+Add the following line to your `profile.ps1` file (typically, at the end of the file):
 
 ```PowerShell
 Import-Module AzureFunctions.PowerShell.Durable.SDK -ErrorAction Stop

@@ -10,10 +10,7 @@ ms.reviewer: azfuncdf
 # Guide to the standalone Durable Functions PowerShell SDK
 
 The Durable Functions (DF) PowerShell SDK is now available as a standalone module in the PowerShell Gallery: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK).
-This SDK is now generally available (GA) and is the recommended approach for authoring Durable Functions apps with PowerShell. In this article, we explain the benefits of this change, and what changes you can expect when adopting this new package.
-
-> [!NOTE]
-> This package is now **generally available (GA)**.
+This SDK is now **generally available (GA)** and is the recommended approach for authoring Durable Functions apps with PowerShell. In this article, we explain the benefits of this change, and what changes you can expect when adopting this new package.
 
 ## Motivation behind the standalone SDK
 
@@ -190,8 +187,8 @@ In this section, we describe the interface and behavioral changes you can expect
 
 #### Modified cmdlets
 
-* The cmdlet `Get-DurableTaskResult` now only accepts a single Task as it's argument, instead of accepting a list of Tasks.
-* The `New-DurableRetryOptions` cmdlet is renamed to `New-DurableRetryPolicy` (an alias for the old cmdlet is provided for backward compatibility).
+* The `Get-DurableTaskResult` cmdlet now only accepts a single Task as it's argument, instead of accepting a list of Tasks.
+* The `New-DurableRetryOptions` cmdlet is renamed to `New-DurableRetryPolicy` (an alias for the old name is provided for backward compatibility).
 
 #### Behavioral changes
 
