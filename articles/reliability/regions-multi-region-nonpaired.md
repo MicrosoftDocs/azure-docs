@@ -62,6 +62,10 @@ For geo-replication in nonpaired regions, Azure Data Factory (ADF) supports Infr
 
 For geo-replication of Event Grid topics in nonpaired regions, you can implement [client-side failover](/azure/event-grid/custom-disaster-recovery-client-side).
 
+## Azure Files
+
+To learn about how to create multi-region solutions using Azure Files, see [Reliability in Azure Files](./reliability-storage-files.md).
+
 ## Azure IoT Hub 
 
 To learn about how to create multi-region solutions using Azure IoT Hub, see [Reliability in Azure IoT Hub](./reliability-iot-hub.md).
@@ -108,20 +112,7 @@ To achieve geo-replication in nonpaired regions:
 
 - **For Azure NetApp Files (ANF)**, you can replicate to a set of nonstandard pairs besides Azure region pairs. See [Azure NetApp Files (ANF) cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction).
 
-- **For Azure Files:**
-
-    - To copy your files to another storage account in a different region, use tools such as:
-
-        -  [AzCopy](../storage/common/storage-use-azcopy-blobs-copy.md)
-        -  [Azure PowerShell](/powershell/module/az.storage/?view=azps-12.0.0&preserve-view=true) 
-        -  [Azure Data Factory](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory) 
-         
-        For a sample script, see [Sync between two Azure file shares for Backup and Disaster Recovery](https://github.com/Azure-Samples/azure-files-samples/tree/master/SyncBetweenTwoAzureFileSharesForDR).
-
-    - To sync between your Azure file share (cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes), use [Azure File Sync](/azure/storage/file-sync/file-sync-introduction).
-
-   > [!IMPORTANT]
-   > You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
+- **For Azure Files:** To learn about how to create multi-region solutions using Azure Files, see [Reliability in Azure Files](./reliability-storage-files.md).
 
 ## Azure Virtual Desktop
 
