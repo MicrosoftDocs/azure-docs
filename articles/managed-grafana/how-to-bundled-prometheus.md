@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 # Configure bundled Prometheus in Azure Managed Grafana
 
-Azure Managed Grafana offers a bundled Prometheus integration that simplifies the setup and management of Prometheus monitoring within your Grafana workspace. This feature allows you to collect, store, and visualize Prometheus metrics without the need to manage separate Prometheus infrastructure.
+Azure Managed Grafana offers a bundled Prometheus integration that lets you connect a selected Azure Monitor workspace (managed Prometheus) to your Grafana instance and immediately use it as both a read and remote-write backend for Grafana-managed recording rules. By connecting your chosen Azure Monitor workspace to Grafana, you can periodically pre-compute frequently used or computationally expensive queries, saving the results as a new time series metric back into the same workspace, and visualize those recorded series alongside the rest of your Azure metrics.
 
 Bundled Prometheus integrates seamlessly with Azure Monitor workspaces, enabling you to:
 
@@ -30,7 +30,7 @@ This article walks you through enabling bundled Prometheus, configuring recordin
 - An Azure Managed Grafana workspace in the Standard tier. [Create a new workspace](./quickstart-managed-grafana-portal.md) if you don't have one.
 - Grafana version 11.0 or higher.
 - An [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) that supports Prometheus metrics collection.
-- You must have the **Contributor** or **Owner** role on the Azure Monitor workspace, or custom permissions to create role assignments. This access allows Azure Managed Grafana to configure the necessary access to collect and store Prometheus metrics.
+- You must have the **Owner** role on the Azure Monitor workspace or custom permissions to create role assignments. This access allows Azure Managed Grafana to configure the necessary access to collect and store Prometheus metrics.
 
 ## Select an Azure Monitor workspace to enable bundled Prometheus
 
