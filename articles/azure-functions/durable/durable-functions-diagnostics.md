@@ -545,7 +545,7 @@ Distributed Tracing tracks requests and shows how different services interact wi
 
 > [!NOTE]
 > * For .NET Isolated apps, Distributed Tracing V2 requires [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) **>= v1.4.0**.
-> * For non-.NET apps, [follow these instructions](./durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension) to manually install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) **>= v3.2.0** for now. Distributed Tracing will be available in extension bundles greater than [v4.24.x](https://github.com/Azure/azure-functions-extension-bundles/releases).
+> * For non-.NET apps, [follow these instructions](./durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension) to manually install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) **>= v3.2.0** for now. Distributed Tracing will be available in extension bundles **> [v4.24.x](https://github.com/Azure/azure-functions-extension-bundles/releases)**.
 
 ### Setting up Distributed Tracing
 
