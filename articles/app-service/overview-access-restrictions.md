@@ -4,6 +4,7 @@ description: This article provides an overview of the access restriction feature
 author: madsd
 ms.topic: overview
 ms.date: 02/13/2024
+ms.update-cycle: 1095-days
 ms.author: madsd
 ms.custom: UpdateFrequency3
 ---
