@@ -1,12 +1,11 @@
 ---
-title: Get $1,000 in Azure Credits for Startups | Microsoft Learn
-description: Eligible startups can receive $1,000 in Azure credits to explore AI models and start building on Azure. Learn how to qualify, redeem your credits, and maximize your benefits within the first 90 days.
+title: Get up to $5,000 in Azure Credits for Startups | Microsoft Learn
+description: Eligible startups can receive up to $5,000 in Azure credits to explore AI models and start building on Azure. Learn how to qualify, redeem your credits, and maximize your benefits.
 author: jesscraze
 ms.author: jecru
 ms.service: azure
 ms.topic: overview
-ms.date: 04/08/2025
-
+ms.date: 06/25/2025
 ---
 
 # Get up to $5,000 in Azure credits to build and grow your startup
