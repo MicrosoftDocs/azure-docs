@@ -6,7 +6,7 @@ ms.custom: troubleshooting
 ms.topic: troubleshooting
 ms.date: 06/25/2025
 ms.author: jeremyhouser
-author: jeremyhouser
+author: jeremyhouser-ms
 ---
 # Troubleshoot a KubernetesCluster with a node in NotReady,Scheduling Disabled state
 
@@ -30,7 +30,7 @@ This procedure may be performed at any time after the issue occurs to quickly re
     $ kubectl get nodes -o wide
     NAME                                          STATUS                      ROLES           AGE    VERSION    INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION    CONTAINER-RUNTIME
     example-naks-control-plane-tgmw8              Ready,SchedulingDisabled    control-plane   2d6h   v1.30.12   10.4.32.10    <none>        Microsoft Azure Linux 3.0   6.6.85.1-2.azl3   containerd://2.0.0
-    example-naks-agentpool1-md-s8vp4-xp98x        Ready,SchedulingDisabled    <none>          2d6h   v1.30.12   10.4.32.11    <none>        CBL-Mariner/Linux           6.6.85.1-2.azl3   containerd://2.0.0
+    example-naks-agentpool1-md-s8vp4-xp98x        Ready,SchedulingDisabled    <none>          2d6h   v1.30.12   10.4.32.11    <none>        Microsoft Azure Linux 3.0   6.6.85.1-2.azl3   containerd://2.0.0
     ~~~
 
 1. Issue the kubectl command to uncordon the Node in the undesired state.
@@ -45,7 +45,7 @@ This procedure may be performed at any time after the issue occurs to quickly re
     $ kubectl get nodes -o wide
     NAME                                          STATUS  ROLES           AGE    VERSION    INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION    CONTAINER-RUNTIME
     example-naks-control-plane-tgmw8              Ready   control-plane   2d6h   v1.30.12   10.4.32.10    <none>        Microsoft Azure Linux 3.0   6.6.85.1-2.azl3   containerd://2.0.0
-    example-naks-agentpool1-md-s8vp4-xp98x        Ready   <none>          2d6h   v1.30.12   10.4.32.11    <none>        CBL-Mariner/Linux           6.6.85.1-2.azl3   containerd://2.0.0
+    example-naks-agentpool1-md-s8vp4-xp98x        Ready   <none>          2d6h   v1.30.12   10.4.32.11    <none>        Microsoft Azure Linux 3.0   6.6.85.1-2.azl3   containerd://2.0.0
     ~~~
 
 If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
