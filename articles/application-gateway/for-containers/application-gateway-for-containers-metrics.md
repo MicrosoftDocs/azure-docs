@@ -18,13 +18,23 @@ Application Gateway for Containers publishes data points to [Azure Monitor](/azu
 
 | Metric Name | Description | Aggregation Type | Dimensions |
 | ----------- | ----------- | ---------------- | ---------- |
-| Backend Connection Timeouts | Count of requests that timed out waiting for a response from the backend target (includes all retry requests initiated from Application Gateway for Containers to the backend target) | Total | Backend Service |
+| Backend Connection Timeouts | Count of requests that timed out waiting for a response from the backend target (includes all retry requests initiated from Application Gateway for Containers to the backend target) | Sum | Backend Service |
 | Backend Healthy Targets | Count of healthy backend targets | Avg | Backend Service |
-| Backend HTTP Response Status | HTTP response status returned by the backend target to Application Gateway for Containers | Total | Backend Service, HTTP Response Code |
-| Connection Timeouts | Count of connections closed due to timeout between clients and Application Gateway for Containers | Total | Frontend |
-| HTTP Response Status | HTTP response status returned by Application Gateway for Containers | Total | Frontend, HTTP Response Code |
-| Total Connection Idle Timeouts | Count of connections closed, between client and Application Gateway for Containers frontend, due to exceeding idle timeout | Total | Frontend |
-| Total Requests | Count of requests Application Gateway for Containers has served | Total | Frontend |
+| Backend HTTP Response Status | HTTP response status returned by the backend target to Application Gateway for Containers | Sum | Backend Service, HTTP Response Code |
+| Connection Timeouts | Count of connections closed due to timeout between clients and Application Gateway for Containers | Sum | Frontend |
+| HTTP Response Status | HTTP response status returned by Application Gateway for Containers | Sum | Frontend, HTTP Response Code |
+| Total Connection Idle Timeouts | Count of connections closed, between client and Application Gateway for Containers frontend, due to exceeding idle timeout | Sum | Frontend |
+| Total Requests | Count of requests Application Gateway for Containers has served | Sum | Frontend |
+
+## WAF Metrics supported by Application Gateway for Containers
+
+Metrics specific to requests processed by web application firewall functionality on Application Gateway for Containers.
+
+| Metric Name | Description | Aggregation Type | Dimensions |
+| ----------- | ----------- | ---------------- | ---------- |
+| WAF Custom Rule Matches | Count of custom rule matches	| Sum | Action, Country/Region, Mode, Policy Name, Policy Scope, Rule Name |
+| WAF Managed Rule Matches | Count of total managed rule matches | Sum | Action, Country/Region, Mode, Policy Name, Policy Scope, Rule Group, Rule ID, Rule Set Name |
+| WAF Total Requests | Count of successful requests that WAF engine has served | Sum | Action, Country/Region, Method, Mode, Policy Name, Policy Scope |
 
 ## View Application Gateway for Containers metrics
 
