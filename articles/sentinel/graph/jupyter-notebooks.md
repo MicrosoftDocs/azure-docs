@@ -3,16 +3,17 @@ title: Running notebooks on the Microsoft Sentinel data lake (Preview)
 titleSuffix: Microsoft Security  
 description: This article describes how to explore and interact with lake data using Jupyter notebooks in Visual Studio Code.
 author: EdB-MSFT  
+ms.author: edbaynash 
 ms.topic: how-to  
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
-ms.date: 06/23/2025
-ms.author: edbayansh  
+ms.date: 06/26/2025
+ 
 
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
 ---
 
-# Running notebooks on the Microsoft Sentinel data lake (Preview)
+# Run notebooks on the Microsoft Sentinel data lake (Preview)
  
 ## Overview  
 
@@ -36,14 +37,7 @@ Before you can use the Microsoft Sentinel extension for Visual Studio Code, you 
 
 ### Permissions
 
-[!INCLUDE[sentinel-data-lake-read-permissions](../includes/sentinel-data-lake-read-permissions.md)]
-
-[!INCLUDE[sentinel-data-lake-write-permissions](../includes/sentinel-data-lake-notebook-write-permissions.md)]
-
-[!INCLUDE[sentinel-data-lake-job-permissions](../includes/sentinel-data-lake-job-permissions.md)]
-
-
-For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](./roles-permissions.md).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run notebooks against those workspaces in the lake tier. For more information, see [Microsoft Sentinel data lake roles and permissions](../roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 ### Install Visual Studio Code  
   
@@ -68,7 +62,7 @@ Install the GitHub Copilot extension for Visual Studio Code to enable code compl
 
 ### Onboarding to the Microsoft Sentinel data lake
 
-If you haven't already onboarded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until sufficient volume of data is ingested before you can create meaningful analyses using notebooks.
+If you haven't onboarded to the Microsoft Sentinel data lake, see [Onboarding to Microsoft Sentinel data lake](./sentinel-lake-onboarding.md). If you have recently onboarded to the data lake, it may take some time until sufficient volume of data is ingested before you can create meaningful analyses using notebooks.
  
  
 ## Explore lake-tier tables
@@ -120,10 +114,10 @@ For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
 1. Select the **Run** triangle to execute the code in the notebook. The results are displayed in the output pane below the code cell.  
   :::image type="content" source="./media/jupyter-notebooks/run-notebook.png" lightbox="./media/jupyter-notebooks/run-notebook.png" alt-text="A screenshot showing how to run a notebook cell.":::
 
-1. Select **MSG Runtime** from the list for a list of runtime pools.
+1. Select **Microsoft Sentinel** from the list for a list of runtime pools.
   :::image type="content" source="./media/jupyter-notebooks/select-msg-runtime.png" lightbox="./media/jupyter-notebooks/select-msg-runtime.png" alt-text="A screenshot showing the runtime picker.":::  
 
-1. Select **Microsoft Sentinel Medium** to run the notebook in the medium sized runtime pool. For more information on the different runtimes, see [Selecting the appropriate MSG runtime](#selecting-the-appropriate-runtime-pool).
+1. Select **Microsoft Sentinel Medium** to run the notebook in the medium sized runtime pool. For more information on the different runtimes, see [Selecting the appropriate Microsoft Sentinel runtime](#selecting-the-appropriate-runtimepool).
   :::image type="content" source="./media/jupyter-notebooks/select-kernel-size.png" lightbox="./media/jupyter-notebooks/select-kernel-size.png" alt-text="A screenshot showing the run pool size picker.":::  
 
 
@@ -156,9 +150,9 @@ There are three runtime pools available to run your Jupyter notebooks in the Mic
  
 | Runtime Pool | Recommended Use Cases |Characteristics |
 |--------------|-----------------------|----------------|
-| **Microsoft Sentinel Small**  | Development, testing, and lightweight exploratory analysis <br>Small workloads with simple transformations <br>Cost efficiency prioritized | Suitable for small workloads <br> Simple transformations <br>Lower cost, longer execution time               |
-| **Microsoft Sentinel Medium** | ETL jobs with joins, aggregations, and ML model training <br>Moderate workloads with complex transformations | Improved performance over Small <br>Handles parallelism and moderate memory-intensive operations             |
-| **Microsoft Sentinel Large**  |  Deep learning and ML workloads<br> Extensive data shuffling, large joins, or real-time processing<br> Critical execution time | High memory and compute power <br>Minimal delays <br> Best for large, complex, or time-sensitive workloads   |
+| **Microsoft Sentinel Small**  | Development, testing, and lightweight exploratory analysis <br>Small workloads with simple transformations <br>Cost efficiency prioritized | Suitable for small workloads <br> Simple transformations <br>Lower cost, longer execution time  |
+| **Microsoft Sentinel Medium** | ETL jobs with joins, aggregations, and ML model training <br>Moderate workloads with complex transformations | Improved performance over Small <br>Handles parallelism and moderate memory-intensive operations  |
+| **Microsoft Sentinel Large**  |  Deep learning and ML workloads<br> Extensive data shuffling, large joins, or real-time processing<br> Critical execution time | High memory and compute power <br>Minimal delays <br> Best for large, complex, or time-sensitive workloads  |
 
 > [!NOTE]
 > When first accessed, kernel options may take about 30 seconds to load.  
@@ -184,14 +178,13 @@ You can schedule jobs to run at specific times or intervals using the Microsoft 
 + Only [Azure Synapse libraries](https://github.com/microsoft/synapse-spark-runtime/blob/main/Synapse/spark3.4/Official-Spark3.4-Rel-2025-04-16.0-rc.1.md) and the Microsoft Sentinel Provider library for abstracted functions are supported for querying lake. Pip installs or custom libraries aren't supported.
 
 
-
 | Category | Limit |
 |----------|-------|
 | Session start-up time | 5 minutes |
 | Interactive: Session inactivity timeout | 20 minutes |
 | Interactive: Query timeout | 2 hours |
 | Gateway web socket timeout | 2 hours |
-| VS Code UX limit to display records | 10,000 rows |
+| VS Code UX limit to display records | 100,000 rows |
 | Supported libraries | Azure Synapse libraries, Microsoft Sentinel Provider. Pip install and custom libraries aren't supported |
 | Language | Python |
 | Max concurrent users on interactive querying | 8-10 on Large pool |
@@ -202,38 +195,37 @@ You can schedule jobs to run at specific times or intervals using the Microsoft 
 
 ## Troubleshooting 
 
-The following table lists common errors you may encounter when working with notebooks in the Microsoft Sentinel extension for Visual Studio Code, along with their root causes and suggested actions to resolve them.
+The following table lists common errors you may encounter when working with notebooks, their root causes and suggested actions to resolve them.
 
-| Component | Error Message | Root Cause | Suggested Action |
-|-------|---------------|------------|------------------|
-| Spark compute | Spark compute session timeout | Spark session has been idle for too long and auto-terminated | Restart the session and rerun the cell |
-| Spark compute | LIVY_JOB_TIMED_OUT: Livy session has failed. Session state: Dead. Error code: LIVY_JOB_TIMED_OUT. Job failed during run time with state=[dead]. Source: Unknown. | Session timed out or user stopped the session | Run the cell again. |
-| Spark compute | Spark compute pool not available | Compute pool hasn't started or is being used by other users or jobs | Reconnect to the pool |
-| Spark compute | Spark pools are not displayed | You don't have the required roles to run interactive notebook or schedule job | Check if you have the required role for interactive notebook or notebook job |
-| Spark compute | Driver memory exceeded or executor failure | Job ran out of drive memory, or one or more executors failed | View job run logs or optimize your query |
-| VS Code Runtime | Kernel not connected | VS Code lost connection to the compute kernel | Reconnect or restart the kernel via the VS Code UI |
-| VS Code Runtime | Module not found | Missing the import of the Microsoft Sentinel Library library | Run the setup/init cell again |
-| VS Code Runtime | Invalid syntax | Python or PySpark syntax error | Review code syntax; check for missing colons, parentheses, or quotes |
-| VS Code Runtime | Unbound variable | Variable used before assignment | Ensure all required setup cells have been run in order |
-| Interactive notebook | The specified source table doesn't exist. | One or more source tables don't exist in the given workspaces or were recently deleted from your workspace. | Verify if source tables exist in the workspace. |
-| Interactive notebook | The workspace or database name provided in the query is invalid or inaccessible. | The referenced database doesn't exist | Confirm the database name is correct |
-| | Gateway 401 error | Gateway has a 1 hour timeout that was reached | |
-| Library | Table not found | Incorrect table name or database name used | Verify table name used is correct |
-| Library | Access denied | User doesn’t have permission to read/write/delete the specified table | Verify user has the role required |
-| Library | Schema mismatch on write | save_as_table() is writing data that doesn’t match the existing schema | Check the dataframe schema and align it with the destination table. |
-| Library | Missing suffix _SPRK for writing table to lake | save_as_table() is writing data to a table that requires _SPRK | Add _SPRK as suffix for writing to custom table in Lake |
-| Library | Missing suffix _SPRK_CL for writing table to analytics tier | save_as_table() is writing data to a table that requires _SPRK_CL | Add _SPRK as suffix for writing to custom table in analytics tier |
-| Library | Invalid write | Attempted to write to system table, this action isn't permitted. | Specify a custom table to write to |
-| Library | Invalid notebook | Incorrect arguments passed to a library method (for example, missing ‘mode’ in save_as_table) | Validate parameter names and values. Refer to method documentation or use autocomplete in VS Code |
-| Job | Job quota exceeded | The notebook is corrupted or contains unsupported syntax for scheduled execution | Open the notebook and validate that all cells run sequentially without manual input. |
-| Job | Job quota exceeded | User or workspace has hit the limit for concurrent or scheduled jobs | Reduce the number of active jobs, or wait for some to finish. |
-| Job | Expired credentials | The user’s token or session used for scheduling is no longer valid | Reauthenticate before scheduling the job. |
+| Area | Error message | Display surface | Message description  | Root cause | Suggested action |
+|-------|---------------|-----------------|------------------------------|------------|------------------|
+| Spark compute  | Spark session timed out  | Output pane, In-line, toast alert  | Spark session timed out. Restart the session and rerun the cell.  | Spark session was idle for too long and autoterminated  | Restart the session and rerun the cell  |
+| Spark compute  | LIVY_JOB_TIMED_OUT: Livy session has failed. Session state: Dead. Error code: LIVY_JOB_TIMED_OUT. Job failed during run time with state=[dead]. Source: Unknown.  | In-Line  | Session timed out or user stopped the session  | Session timed out or user stopped the session  | Execute the cell twice  |
+| Spark compute  | Not enough capacity is available. User requested for X vCores but only Y vCores are available  | Output channel – “Window”  | Spark compute pool not available  | Compute pool hasn't started or is being used by other users or jobs  | Retry with a smaller pool, stop any active Notebooks locally, or stop any active Notebook Job Runs  |
+| Spark compute  | Unable to access Spark Pool – 403 Forbidden  | Output channel – “Window”  | Spark pools aren't displayed  | User doesn't have the required roles to run interactive notebook or schedule job  | Check if you have the required role for interactive notebooks or notebook jobs  |
+| Spark compute  | Spark Pool – <name> – is being upgraded  | Toast alert  | One of the Spark pools is Not available  | Spark pool is being upgraded to the latest version of Microsoft Sentinel Provider  | Wait for ~20-30 mins for the Pool to be available  |
+| Spark compute  | An error occurred while calling z:org.apache.spark.api.python.PythonRDD.collectAndServe. : org.apache.spark.SparkException: Job aborted due to stage failure: Total size of serialized results (4.0 GB) is bigger than spark.driver.maxResultSize (4.0 GB) | Inline  | Driver memory exceeded or executor failure  | Job ran out of driver memory, or one or more executors failed  | View job run logs or optimize your query. Avoid using toPandas() on large datasets. Consider setting `spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "true")` if needed  |
+| VS Code Runtime  | Kernel with id – k1 - has been disposed  | Output channel – “Jupyter”  | Kernel not connected  | VS Code lost connection to the compute kernel  | Reselect the Spark pool and execute a cell  |
+| VS Code Runtime  | ModuleNotFoundError: No module named 'MicrosoftSentinelProvider'  | Inline  | Module not found  | Missing import for example, Microsoft Sentinel Library library | Run the setup/init cell again  |
+| VS Code Runtime  | Cell In[95], line 1 if: ^ SyntaxError: invalid syntax  | Inline  | Invalid syntax  | Python or PySpark syntax error  | Review code syntax; check for missing colons, parentheses, or quotes  |
+| VS Code Runtime  | NameError Traceback (most recent call last) Cell In[31], line 1 ----> 1 data_loader12 NameError: name 'data_loader' is not defined  | Inline  | Unbound variable  | Variable used before assignment  | Ensure all required setup cells were run in order  |
+| Interactive notebook | {"level": "ERROR", "run_id": "...", "message": "Error loading table fooBar: No container of kind 'DeltaParquet' found for table '...|fooBar'."}  | Inline  | The specified source table doesn't exist.  | One or more source tables don't exist in the given workspaces. The table may have been recently deleted from your workspace | Verify if source tables exist in the workspace  |
+| Interactive notebook | {"level": "ERROR", "run_id": "...", "message": "Database Name fooBar doesnt exist."}  | Inline  | The workspace or database name provided in the query is invalid or inaccessible.  | The referenced database doesn't exist  | Confirm the database name is correct  |
+| Interactive notebook | 401 Unauthorized  | Output channel – “Window”  | Gateway 401 error  | Gateway has a 1 hour timeout that was reached  | Run a cell again to establish a new connection  |
+| Library  | 403 Forbidden  | Inline  | Access denied  | User doesn’t have permission to read/write/delete the specified table  | Verify user has the role required  |
+| Library  | TableOperationException: Error saving DataFrame to table fooBar_SPRK: 'schema'  | Inline  | Schema mismatch on write  | save_as_table() is writing data that doesn’t match the existing schema  | Check the dataframe schema and align it with the destination table  |
+| Library  | {"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table fooBar: Tables created in MSG database must have suffix '_SPRK'"}  | Inline  | Missing suffix _SPRK for writing table to lake  | save_as_table() is writing data to a table that requires _SPRK  | Add _SPRK as suffix for writing to custom table in Lake  |
+| Library  | {"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table siva_test_0624_1: Tables created in LA database must have suffix '_SPRK_CL'"}  | Inline  | Missing suffix _SPRK_CL for writing table to analytics tier | save_as_table() is writing data to a table that requires _SPRK_CL  | Add _SPRK_CL as suffix for writing to custom table in analytics tier  |
+| Library  | {"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table EntraUsers: Tables created in MSG database must have suffix '_SPRK'"}  | Inline  | Invalid write  | Attempted to write to system table, this action isn't permitted.  | Specify a custom table to write to  |
+| Library  | TypeError: DataProviderImpl.save_as_table() missing 1 required positional argument: 'table_name'  | Inline  | Invalid notebook  | Incorrect arguments passed to a library method (for example, missing ‘mode’ in save_as_table)  | Validate parameter names and values. Refer to method documentation  |
+| Job  | Job Run status shows the Status as Failed  | Inline  | Job Run failure  | The notebook is corrupted or contains unsupported syntax for scheduled execution  | Open the Notebook Run Snapshot and validate that all cells run sequentially without manual input  |
 
 
 
 ## Related content
 
-- [Create and manage Jupyter notebook jobs](./jupyter-notebook-jobs.md)
+- [Create and manage notebook jobs](./jupyter-notebook-jobs.md)
 - [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
 - [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
 - [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
+- [Microsoft Sentinel data lake roles and permissions](../roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
