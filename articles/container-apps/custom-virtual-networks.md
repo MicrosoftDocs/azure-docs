@@ -165,4 +165,4 @@ In addition to the standard [Azure Container Apps billing](./billing.md), you're
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Managing outbound connections with Azure Firewall](using-azure-firewall.md)
+> [Managing outbound connections with Azure Firewall](use-azure-firewall.md)

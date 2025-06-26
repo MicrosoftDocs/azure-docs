@@ -386,9 +386,9 @@
     - name: Virtual network configuration
       href: custom-virtual-networks.md
     - name: Managing outbound connections with Azure Firewall
-      href: using-azure-firewall.md
+      href: use-azure-firewall.md
     - name: Private endpoints and DNS
-      href: dns.md
+      href: private-endpoints-and-dns.md
     - name: Securing a custom VNET with an NSG
       href: firewall-integration.md
     - name: Tutorials
