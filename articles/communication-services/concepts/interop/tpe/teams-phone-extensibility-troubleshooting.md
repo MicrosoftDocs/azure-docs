@@ -133,7 +133,7 @@ This issue appears if the agent doesn't have a Teams license assigned or is disa
 
 ### Error 403 subcode 10105 Connecting Call end reason=NoPermission
 
-The most common root cause of this error is a misconfiguration of the 3P Azure Bot. Follow the steps as defined in this [Teams Phone extensibility](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-quickstart#ccaas-developer-provision-the-appid-application-id), specifically enable the Teams channel.
+The most common root cause of this error is a misconfiguration of the 3P Azure Bot. Follow the steps as defined in this [Teams Phone extensibility](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#ccaas-developer-provision-the-appid-application-id), specifically enable the Teams channel.
 
 ### Error 400 Bad Requests when adding a Teams Channel in Azure Bot
 
