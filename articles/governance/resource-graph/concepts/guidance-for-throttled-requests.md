@@ -245,7 +245,7 @@ You should consider the ARG GET/LIST API if your service falls into one (or many
   > [!NOTE]
   > ARG GET/LIST API doesn't support VM and VMSS VM Health Status and extension running status in the instanceView. To learn more about the ARG GET/LIST API limits, see the [known limitations](./azure-resource-graph-get-list-api.md#known-limitations).
 
-If the resource you’re interested in, is in the `resources` table or `computeresources` table, *and* it falls in one of the above categories, then use the [ARG GET/LIST API](./azure-resource-graph-get-list-api.md)
+If the resource you’re interested in, is in the `resources` table or `computeresources` table, *and* it falls in one of the above categories, then use the [ARG GET/LIST API](./azure-resource-graph-get-list-api.md).
 
 
 > [!VIDEO https://www.youtube.com/embed/h6ieZqCO_90]
