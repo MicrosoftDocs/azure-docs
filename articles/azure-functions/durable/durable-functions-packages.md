@@ -20,7 +20,7 @@ ms.reviewer: azfuncdf
 
 **Storage providers packages**:
 
-By default, Durable Functions uses Azure Storage as it's backing store. However, alternative [storage providers](./durable-functions-storage-providers.md) are available as well. To use them, you need to reference their packages _in addition to_ the WebJobs extension in your `.csproj`. Those packages are:
+By default, Durable Functions uses Azure Storage as its backing store. However, alternative [storage providers](./durable-functions-storage-providers.md) are available as well. To use them, you need to reference their packages _in addition to_ the WebJobs extension in your `.csproj`. Those packages are:
 
 * The Netherite storage provider: [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
 * The MSSQL storage provider: [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions)
@@ -52,10 +52,10 @@ Users of [Extension Bundles](../extension-bundles.md) (the recommended Azure Fun
 * Node (JavaScript / TypeScript): The [durable-functions](https://www.npmjs.com/package/durable-functions) npm package.
 * Python: The [azure-functions-durable](https://pypi.org/project/azure-functions-durable/) PyPI package.
 * Java: The [durabletask-azure-functions](https://mvnrepository.com/artifact/com.microsoft/durabletask-azure-functions) Maven package.
-* PowerShell: The current GA SDK is built in to Azure Functions PowerShell language worker, so no installation is needed. See the following _note_ for details.
+* PowerShell: The [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) module.
 
 > [!NOTE]
-> For PowerShell users: we have a [_preview_ SDK standalone package](./durable-functions-powershell-v2-sdk-migration-guide.md) under [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) in the PowerShell gallery. The latter will be preferred in the future.
+> For PowerShell users: the standalone [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) module is now generally available (GA) and is the recommended approach. See the [migration guide](./durable-functions-powershell-v2-sdk-migration-guide.md) for details. The legacy SDK is also built into the Azure Functions PowerShell language worker for backward compatibility, but it will not receive new features or bug fixes, and it will be eventually removed from the worker.
 
 ## GitHub repositories
 

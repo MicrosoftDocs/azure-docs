@@ -16,8 +16,8 @@ An orchestrator function can call another orchestrator function using the *"call
 Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value and throw an exception as the parent orchestrator function anticipates them.
 
 > [!NOTE]
-> Sub-orchestrations aren't yet supported in PowerShell.
-
+> In PowerShell, sub-orchestrations are currently supported in the [standalone Durable Functions PowerShell SDK](durable-functions-powershell-v2-sdk-migration-guide.md) only.
+ 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
 ## Example
@@ -145,6 +145,29 @@ public void deviceProvisioningOrchestration(
 
     // Step 4: ...
 }
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$deviceId = $Context.Input
+
+# Step 1: Create an installation package in blob storage and return a SAS URL.
+$sasUrl = Invoke-DurableActivity -FunctionName "CreateInstallationPackage" -Input $deviceId
+
+# Step 2: Notify the device that the installation package is ready.
+$deviceInfo = @{
+    id = $deviceId
+    url = $sasUrl
+}
+Invoke-DurableActivity -FunctionName "SendPackageUrlToDevice" -Input $deviceInfo
+
+# Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+Start-DurableExternalEventListener -EventName "DownloadCompletedAck"
+
+# Step 4: ...
 ```
 
 ---
@@ -294,6 +317,31 @@ public void provisionNewDevices(
 
     // ...
 }
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$deviceIds = Invoke-DurableActivity -FunctionName "GetNewDeviceIds"
+
+# Run multiple device provisioning flows in parallel
+$provisioningTasks = @()
+for ($i = 0; $i -lt $deviceIds.Count; $i++) {
+    $deviceId = $deviceIds[$i]
+    $childId = "$($Context.InstanceId):$i"
+    $provisionTask = Invoke-DurableSubOrchestrator `
+        -FunctionName "DeviceProvisioningOrchestration" `
+        -Input $deviceId `
+        -InstanceId $childId `
+        -NoWait
+    $provisioningTasks += $provisionTask
+}
+
+Wait-DurableTask -Task $provisioningTasks
+
+# ...
 ```
 
 ---
