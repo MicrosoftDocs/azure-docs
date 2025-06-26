@@ -5,7 +5,7 @@ author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: conceptual
-ms.date: 01/01/2024
+ms.date: 06/24/2025
 ms.custom: template-concept, references_regions
 ---
 
@@ -15,17 +15,150 @@ This article describes new features and updates related to Azure Communication S
 
 <!-- [!INCLUDE [Survey Request](includes/survey-request.md)] -->
 
+## June 2025
+
+### Teams Phone extensibility
+
+Introducing Teams Phone extensibility in public preview. Teams Phone extensibility (TPE) for Dynamics 365 Contact Center and contact center as a service (CCaaS) ISV solutions helps organizations extend their telephony investment with Teams Phone into the contact center. 
+
+With generative AI, Contact Center as a Service (CCaaS) providers can easily advise human agents so they’re responsive to customer needs, can automate workflows, and ultimately improve the overall customer experience.
+
+#### Limitations of previous solutions
+
+Workflows are often divided between Unified Communications as a Service (UCaaS) providers like Microsoft Teams and CCaaS systems. This division limits generative AI's potential to streamline operations and deliver a consolidated view of data. Today, organizations want integrated, customizable solutions from their CCaaS providers that unify telephony infrastructure for a complete view of customer interactions and robust data handling.
+
+#### Teams Phone extensibility benefits for CCaaS developers
+
+Teams Phone extensibility, which is powered by Azure Communication Services, enables CCaaS vendors to integrate seamlessly with Teams Phone and deliver several benefits to their customers and end-users, including:
+
+- **Consolidated Telephony for UCaaS and CCaaS:** Simplified setup with no need to configure and administer separate phone systems. Customers can use their Teams Phone telephony investment for contact center deployments.
+- **Conversational AI Integration:** Developers can use Call Automation APIs to use AI-powered tools, play personalized greeting messages, and recognize conversational voice inputs.
+- **Extend UCaaS Capabilities to CCaaS:** Take advantage of Teams Phone enterprise features, including emergency calling and dial plan policies.
+- **Agent Notification handling:** Enable data segregation between CCaaS persona and UCaaS persona with the choice of ringing either the Teams standard client or a CCaaS application.
+- **Cost Efficiency:** Enable ISVs to build cost-effective solutions using existing Teams Phone plans, without adding Azure Communication Services numbers or Direct Routing.
+- **Broader Geographic Availability:** Integration with Teams Calling Plans, Direct Routing, and Operator Connect provides wider telephony options.
+
+:::image type="content" source="media/whats-new-images/teams-phone-extensibility-unified-communication.png" alt-text="A diagram showing separate voice solutions for information workers and contact center agents compared to a more unified solution using Azure Communication Services and Teams Phone extensibility.":::
+
+#### Key Features
+
+- **Provisioning for Seamless Integration:** Empower CCaaS providers to connect their Azure Communication Services deployments with customers' Teams tenants. This integration enables the use of Teams telephony features for a cohesive and efficient communication experience.
+- **Call Routing and Mid-Call Controls:** Advanced call routing capabilities for efficient call management and escalation to agents. Mid-call controls enable adding participants, redirecting calls, and transferring calls seamlessly.
+- **Convenience Recording:** Integrate call recording capabilities into Microsoft Teams for CCaaS scenarios, enabling customized recording processes controlled by CCaaS admins. For more information, see [Call Recording overview](concepts/voice-video-calling/call-recording.md).
+- **Conversational AI Integration:** Developers can use Call Automation APIs to use AI-powered tools, play personalized greeting messages, recognize conversational voice inputs, and use sentiment analysis to improve customer service. Get started today with this Call Automation OpenAI sample.
+- **On-Behalf-Of (OBO):** OBO calling enables applications to initiate and manage voice calls on behalf of a Teams Resource Account, enabling seamless integration with enterprise workflows.
+- **Integrate with Call Automation:** Azure Communication Services [Call Automation APIs](concepts/call-automation/call-automation.md) provide call control and enable CCaaS providers to build server-based and intelligent call flows.
+- **Use the Client SDK:** Azure Communication Services [Client SDK](concepts/voice-video-calling/calling-sdk-features.md) provides the means for a CCaaS provider to develop a custom client for CCaaS persona workflows.
+- **Emergency Calling:** Powered by Azure Communication Services [Calling SDK](concepts/voice-video-calling/calling-sdk-features.md), we bring enhanced emergency calling support for agents who can dial emergency services, provide their static location, and receive callbacks from public safety answering points with Teams Phone service numbers.
+- **Billing:** The Teams Phone extensibility business model charges CCaaS vendors for using Azure Communication Services SDKs, including Calling SDK, VoIP consumption, Audio Insights, and Call Recording, while end users must use Teams Calling Plans and enable necessary Teams licenses for agents and resource accounts. For more information, see [Azure Communication Services pricing](https://azure.microsoft.com/en-us/pricing/details/communication-services/?msockid=29591b22ce2367e3338a0afdcfe86647).
+- **Telemetry:** Developers and CCaaS providers can access calling details and logging tools as part of the Teams Phone extensibility. Telemetry enables developers and system admins to monitor call use and debug call quality from the Azure portal either. They can do this by analyzing the Call Summary and Call Diagnostic Logs with a clear Team Phone Extensibility identifier or using the [Call Diagnostic Center](concepts/voice-video-calling/call-diagnostics.md).
+
+:::image type="content" source="media/whats-new-images/teams-phone-extensibility-using-call-automation.png" alt-text="A diagram showing the Azure Communication Services Call automation API enabling your application to integrate Teams Phone and Azure AI Speech.":::
+
+#### Join the Azure Communication Services Technology Adoption Program (TAP)
+
+[Azure Communication Services Technology Adoption Program Registration](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4vK9ppkHpNKkyNwa3c3wRNUMUVZTlFHUlM3VzRPOUY1VEcwSTBGWDFLSC4u).
+
+#### Next steps
+
+- [Teams Phone extensibility overview](concepts/interop/tpe/teams-phone-extensibility-overview.md)
+- [Teams Phone System extensibility quickstart](quickstart/tpe/teams-phone-extensibility-quickstart.md)
+
 ## May 2025
 
+### Background Blur for Android Mobile browsers
 
+Implement background blur for Android Web mobile using Azure Communication Services Calling SDK. This feature is generally available (GA). By enabling background blur, end users can enjoy calls with increased privacy and confidence, knowing that their background is obscured and doesn’t distract from the call.
+
+#### Next steps
+
+[Add video effects to your video calls](quickstarts/voice-video-calling/get-started-video-effects.md)
+
+### Mobile Browsers support sending 720p resolution video
+
+The Azure Communication Services Calling SDK for Web mobile browser now enables developers to send video by default at a 720p video resolution. This feature is generally available (GA). When you enable a higher video resolution to be sent from mobile browsers, it provides all users with higher quality video and more intimate calling experience.
+
+#### Next steps
+
+[Calling SDK overview > Supported video resolutions](concepts/voice-video-calling//calling-sdk-features.md#supported-video-resolutions)
 
 ## April 2025
 
+### 1080p Web Send
 
+The Azure Communication Services WebJS calling SDK now supports sending video at 1080p resolution, in public preview. Developers can enable this advanced video quality to build solutions that enable their customers to use higher quality and more detailed video presentations.
+
+This enhancement provides developers and participants with improved calling experience. Developers can opt-in to this feature using the Video Constraints API (see the following example), enabling higher quality video streams in their applications.
+
+```javascript
+    const callOptions = {
+        videoOptions: {
+            localVideoStreams: [...],
+            constraints: {
+                send: {
+                    height: {
+                        max: 1080
+                    }
+                }
+            }
+        },
+        audioOptions: {
+            muted: false
+        }
+    };
+    // make a call
+    this.callAgent.startCall(identitiesToCall, callOptions);
+```
+
+#### Next steps
+
+[Best practices for subscribing to video feeds](quickstarts/voice-video-calling/optimizing-video-placement.md)
+
+### Dual Pin 720p videos
+
+The Azure Communication Services Calling SDK now enables developers to spotlight up to two incoming video streams, in public preview. You can send spotlighted streams at a higher resolution than other incoming streams, providing better quality for highlighted videos. This feature enables developers to deliver a more engaging and visually rich experience for participants.
+
+#### Next steps
+
+[Best practices for subscribing to video feeds](quickstarts/voice-video-calling/optimizing-video-placement.md)
 
 ## March 2025
 
+### Integrate Real Time Text into your apps
 
+Real-Time Text (RTT), now in General Availability, enables participants to transmit and display text in real-time during voice and video calls. Unlike traditional messaging, in which the recipient sees the full message only after sending, RTT ensures that each character appears on the recipient’s screen as it is typed. This creates a dynamic, conversational experience that mirrors spoken communication.
+
+:::image type="content" source="media/whats-new-images/real-time-text-pause-typing-demo.gif" alt-text="Animated image showing real time text entered into a text box on a mobile device while displayed to all participants in real time.":::
+
+For developers, integrating RTT into their applications can enhance user engagement and accessibility. By providing immediate and continuous text communication, RTT bridges the gap between spoken and written interactions, making conversations more inclusive and effective. This ability is valuable in scenarios where clarity and real-time feedback are crucial, such as telehealth, remote banking, and customer support.
+
+RTT complies with European accessibility mandates, ensuring that voice and video calling services meet regulatory standards. By incorporating RTT, developers can offer a more inclusive communication experience, catering to users with diverse needs and preferences.
+
+>[!NOTE]
+>RTT is an accessibility compliance requirement for voice and video platforms in the EU starting June 30, 2025. For more information, see [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882).
+
+#### Next steps
+
+- [Real Time Text (RTT) overview](concepts/voice-video-calling/real-time-text.md)
+- [Enable Real Time Text (RTT)](quickstarts/voice-video-calling/get-started-with-real-time-text.md)
+
+### Mobile Numbers for SMS
+
+The Mobile Numbers for SMS feature is now in public preview from Azure Communication Services. This feature is available in 10 countries across Europe including Australia, providing businesses with locally trusted two-way messaging capabilities.
+
+#### Key Benefits
+
+- **Dedicated Sender Identity:** Supports conversational scenarios across industries like healthcare, retail, public sector, and finance.
+- **Interactive Conversations:** Facilitates reply-enabled SMS flows with country-specific mobile numbers.
+- **Improved Deliverability:** Uses number types accepted and prioritized by local carriers.
+
+#### Use Cases
+
+**Inbound Communication:** Customers can reply to alerts, offers, or initiate conversations, ensuring a seamless and engaging communication experience.
+
+#### Next steps
+
+[Phone number types](concepts/numbers/number-types.md)
 
 ## February 2025
 
@@ -124,11 +257,11 @@ For more information, see:
 - [Short Message Service (SMS) Opt-Out Management API for Azure Communication Services](./concepts/sms/opt-out-api-concept.md).
 - [Send OptOut API requests with API using hash message authentication code (HMAC)](./quickstarts/sms/opt-out-api-quickstart.md).
 
-### Real-time text (RTT)
+### Real Time Text (RTT)
 
-Real-time text (RTT) is a system for transmitting text over the internet. RTT enables the recipient to receive and display the text at the same rate as it is being produced without the user pressing send. This ability provides the effect of immediate and continuous communication.
+Real Time Text (RTT) is a system for transmitting text over the internet. RTT enables the recipient to receive and display the text at the same rate as it is being produced without the user pressing send. This ability provides the effect of immediate and continuous communication.
 
-:::image type="content" source="media/whats-new-images/rtt-demo.gif" alt-text="Animated image simulating real time text between people in a meeting and a person using a mobile device.":::
+:::image type="content" source="media/whats-new-images/real-time-text-demo.gif" alt-text="Animated image simulating real time text between people in a meeting and a person using a mobile device.":::
 
 Unlike traditional chat messaging, in which the recipient sees the full message only after it's completed and sent, RTT provides an immediate and continuous stream of communication.
 
@@ -148,14 +281,14 @@ Here’s how RTT makes a difference:
 
 As communication moves increasingly to internet-based platforms, features like RTT play a critical role in making digital interactions more inclusive and accessible.
 
-RTT isn't only a valuable feature, it's also essential for meeting global accessibility standards. Under the [European Accessibility Act (Directive (EU) 2019/882)(https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882)], voice and video calling services in the European Union are required to support RTT by June 2025.
+RTT isn't only a valuable feature, it's also essential for meeting global accessibility standards. Under the [European Accessibility Act (Directive (EU) 2019/882)](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882), voice and video calling services in the European Union are required to support RTT by June 2025.
 
 Azure Communication Services is committed to providing solutions that meet these evolving standards. We want to ensure that all users, regardless of ability, can engage in meaningful and accessible communication.
 
-### Next steps
+#### Next steps
 
 - [Real Time Text (RTT) overview](concepts/voice-video-calling/real-time-text.md)
-- [Real Time Text (RTT) quickstart](quickstarts/voice-video-calling/get-started-with-real-time-text.md)
+- [Enable Real Time Text (RTT)](quickstarts/voice-video-calling/get-started-with-real-time-text.md)
 
 ### Calling Native iOS SDK enabled picture-in-picture (PiP)
 
@@ -677,7 +810,7 @@ Microsoft Teams users can create breakout rooms for scheduled meetings. Meeting 
 
 #### Why is this important
 
-The ability to include ACS users in Teams breakout rooms enhances the collaborative experience, making it more inclusive and versatile. Whether you're conducting a training session, hosting a workshop, or facilitating a brainstorming session, breakout rooms provide the structure needed to foster meaningful interactions and productive discussions.
+The ability to include Azure Communication Services users in Teams breakout rooms enhances the collaborative experience, making it more inclusive and versatile. Whether you're conducting a training session, hosting a workshop, or facilitating a brainstorming session, breakout rooms provide the structure needed to foster meaningful interactions and productive discussions.
 
 #### Get started today
 To start using this feature, ensure that you have the latest version of the Calling SDK. For more  information about implementing and using Teams Breakout rooms, see [Tutorial - Integrate Microsoft Teams breakout rooms](./how-tos/calling-sdk/breakoutrooms.md).
@@ -698,247 +831,3 @@ For more information, see:
 Now in general availability, Microsoft Teams organizers can configure call participants to transferred directly into a Teams user’s voicemail, bypassing ringing the Teams user. This is useful when the transferor knows the transferee is unavailable to take the call.
 
 For more information, see [Transfer calls](./how-tos/calling-sdk/transfer-calls.md#transfer-to-voicemail).
-
-## May 2024
-
-### Data retention with chat threads
-
-Developers can now create chat threads with a retention policy of 30 to 90 days. This feature is in preview.
-
-Setting a retention policy is optional. Developers can choose to create a chat thread with infinite retention (the default) or set a retention policy of 30 to 90 days. If you need to keep the thread for longer than 90 days, you can extend the time by using the Update Chat Thread Properties API. The policy is geared toward data management in organizations that need to move data into their archives for historical purposes or delete the data within a particular period.
-
-The policy doesn't affect existing chat threads.
-
-For more information, see:
-
-- [Chat concepts](./concepts/chat/concepts.md#chat-data)
-- [Create Chat Thread - REST API](/rest/api/communication/chat/chat/create-chat-thread#noneretentionpolicy)
-- [Update Chat Thread Properties - REST API](/rest/api/communication/chat/chat-thread/update-chat-thread-properties#noneretentionpolicy)
-
-### PowerPoint Live
-
-Now in general availability, PowerPoint Live gives both the presenter and the audience an engaging experience. PowerPoint Live combines presenting in PowerPoint with the connection and collaboration of a Microsoft Teams meeting.
-
-:::image type="content" source="media/whats-new-images/powerpoint-live.png" alt-text="Screenshot of PowerPoint Live presentation and collaboration in a Microsoft Teams meeting." lightbox="media/whats-new-images/powerpoint-live.png":::
-
-Meeting participants can now view PowerPoint Live sessions initiated by a Teams client by using the Azure Communication Services Web UI Library. Participants can follow along with a presentation and view presenter annotations. Developers can use this function through composites such as `CallComposite` and `CallWithChatComposite`, and through components such as `VideoGallery`.
-
-For more information, see [Introducing PowerPoint Live in Microsoft Teams (blog post)](https://techcommunity.microsoft.com/t5/microsoft-365-blog/introducing-powerpoint-live-in-microsoft-teams/ba-p/2140980) and [Present from PowerPoint Live in Microsoft Teams](https://support.microsoft.com/en-us/office/present-from-powerpoint-live-in-microsoft-teams-28b20e74-7165-499c-9bd4-0ad975d448ad).
-
-### Live reactions
-
-Now generally available, the updated UI library composites and components include reactions during live calls. The UI Library supports these reactions: &#128077; like, &#129505; love, &#128079; applause, &#128514; laugh, &#128558; surprise.
-
-:::image type="content" source="media/whats-new-images/live-reactions.png" alt-text="Screenshot of live call reactions, including like, love, and applause." lightbox="media/whats-new-images/live-reactions.png":::
-
-Call reactions are associated with the participant who sends it and are visible to all types of participants (in-tenant, guest, federated, anonymous). Call reactions are supported in all types of calls such as rooms, groups, and meetings (scheduled, private, channel) of all sizes (small, large, extra large).
-
-Adding this feature encourages greater engagement within calls, because people can react in real time without needing to speak or interrupt. Developers can use this feature by adding:
-
-- The ability to have live call reactions to `CallComposite` and `CallwithChatComposite` composites on the web.
-- Call reactions at the component level.
-
-For more information, see [Reactions](./how-tos/calling-sdk/reactions.md).
-
-### Closed captions
-
-Promote accessibility by displaying text of the audio in video calls. Already available for app-to-Teams calls, this general availability release adds support for closed captions in all app-to-app calls.
-
-:::image type="content" source="media/whats-new-images/closed-caption-teams-interop.png" alt-text="Screenshot of closed captions for app-to-app calls and Teams interoperability." lightbox="media/whats-new-images/closed-caption-teams-interop.png":::
-
-For more information, see [Closed captions overview](./concepts/voice-video-calling/closed-captions.md).
-
-You can also learn more about [Azure Communication Services interoperability with Teams](./concepts/teams-interop.md).
-
-### Copilot for Call Diagnostics
-  
-AI can help app developers across every step of the development lifecycle: designing, building, and operating. Developers can use [Microsoft Copilot in Azure (preview)](/azure/copilot/overview) within Call Diagnostics to understand and resolve many calling issues. For example, developers can ask Copilot these questions:
-
-- How do I run network diagnostics in Azure Communication Services VoIP calls?
-- How can I optimize my calls for poor network conditions?
-- How do I fix common causes of poor media streams in Azure Communication Services calls?
-- How can I fix the subcode 41048, which caused the video part of my call to fail?
-
-:::image type="content" source="media/whats-new-images/copilot-call-diagnostics.png" alt-text="Screenshot of Call Diagnostics within Microsoft Copilot in Azure." lightbox="media/whats-new-images/copilot-call-diagnostics.png":::
-
-Call Diagnostics can help developers understand call quality and reliability, so they can deliver a great calling experience to customers. Many issues can affect the quality of your calls, such as poor internet connectivity, software incompatibilities, and technical difficulties with devices.
-
-Getting to the root cause of these issues can alleviate potentially frustrating situations for all call participants, whether they're patients checking in for a doctor's call or students taking a lesson with a teacher. Call Diagnostics enables developers to drill down into the data to identify root problems and find a solution. You can use the built-in visualizations in the Azure portal or connect underlying usage and quality data to your own systems.
-
-For more information, see [Call Diagnostics](./concepts/voice-video-calling/call-diagnostics.md).
-
-## April 2024
-
-### Business-to-consumer extensibility with Microsoft Teams for calling
-
-Developers can take advantage of calling interoperability for Microsoft Teams users in Azure Communication Services calling workflows. This feature is now in general availability.
-
-Developers can use [Call Automation APIs](./concepts/call-automation/call-automation.md) to bring Teams users into business-to-consumer (B2C) calling workflows and interactions, which can help you deliver advanced customer service solutions. This interoperability is offered over VoIP to reduce telephony infrastructure overhead. Developers can add Teams users to Azure Communication Services calls by using the participants' Microsoft Entra object IDs (OIDs).
-
-#### Use cases
-
-- **Teams as an extension of an agent desktop**: Connect your contact center as a service (CCaaS) solution to Teams and enable your agents to handle customer calls on Teams. Having Teams as the single-pane-of-glass solution for both internal and B2C communication can increase agents' productivity and empower them to deliver first-class service to customers.
-
-- **Expert consultation**: Businesses can use Teams to invite subject matter experts into their customer service workflows for expedient issue resolution and to improve the rate of first-call resolution.
-
-:::image type="content" source="media/whats-new-images/b2c-extensibility.png" alt-text="Diagram that shows business-to-consumer extensibility with Microsoft Teams for calling." lightbox="media/whats-new-images/b2c-extensibility.png":::
-
-Azure Communication Services B2C extensibility with Microsoft Teams helps customers reach sales and support teams and helps businesses deliver effective customer experiences.
-
-For more information, see [Call Automation workflow interoperability with Microsoft Teams](./concepts/call-automation/call-automation-teams-interop.md).
-
-### Image sharing in Microsoft Teams meetings
-
-Microsoft Teams users can share images with Azure Communication Services users in the context of a Teams meeting. This feature is now generally available. Image sharing enhances collaboration in real time for meetings. Image overlay is also supported for users to look at it in detail.
-
-Image sharing is helpful in many scenarios, such as a business that shares photos to showcase its work or doctors who share images with patients for aftercare instructions.
-
-:::image type="content" source="media/whats-new-images/image-sharing-setup.png" alt-text="Screenshot that shows image-sharing setup and an example in a Microsoft Teams meeting." lightbox="media/whats-new-images/image-sharing-setup.png":::
-
-Try out this feature by using either the UI Library or the Chat SDK. The SDK is available in C# (.NET), JavaScript, Python, and Java. For more information, see:
-
-- [Enable an inline image by using the UI Library in Teams meetings](./tutorials/inline-image-tutorial-interop-chat.md)
-- [GitHub sample: Adding image sharing](https://azure.github.io/communication-ui-library/iframe.html?viewMode=docs&id=composites-callwithchatcomposite--docs#inline-image-in-teams-interop-meeting-chat-thread)
-
-### Deep noise suppression
-
-Deep noise suppression is currently in preview. Noise suppression improves VoIP and video calls by eliminating background noise, so it's easier to talk and listen. For example, if you're taking an Azure Communication Services WebJS call in a coffee shop, turning on noise suppression can improve the calling experience by eliminating background sounds from the shop.
-
-For more information, see [Add audio quality enhancements to your audio calling experience](./tutorials/audio-quality-enhancements/add-noise-supression.md).
-
-### Calling SDKs for Android, iOS, and Windows
-
-We updated the native Calling SDKs to improve the customer experience. This release includes:
-
-- Custom background for video calls
-- Proxy configuration
-- Android TelecomManager integration
-- Unidirectional communication in Data Channel
-- Time-to-live lifespan for push notifications
-
-#### Custom background for video calls
-
-Custom background for video calls is generally available. This feature enables customers to remove distractions behind them. Customers can upload their own personalized images for use as a background.
-
-:::image type="content" source="media/whats-new-images/custom-background-video-calls.jpeg" alt-text="Screenshot that shows custom background for video calls." lightbox="media/whats-new-images/custom-background-video-calls.jpeg":::
-
-For example, business owners can use the Calling SDK to show custom backgrounds in place of the actual background. You can, for example, upload an image of a modern and spacious office and set it as the background for video calls. Anyone who joins the call sees the customized background, which looks realistic and natural. You can also use custom branding images as a background to show fresh images to your customers.
-
-For more information, see [Quickstart: Add video effects to your video calls](./quickstarts/voice-video-calling/get-started-video-effects.md).
-
-#### Proxy configuration
-
-Proxy configuration is now generally available. Some environments, such as industries that are highly regulated or that deal with confidential information, require proxies to help secure and control network traffic. You can use the Calling SDK to configure the HTTP and media proxies for your Azure Communication Services calls. This way, you can ensure that your communications are compliant with network policies and regulations. You can use the native SDK methods to set the proxy configuration for your app.
-
-For more information, see [Proxy your calling traffic](./tutorials/proxy-calling-support-tutorial.md?pivots=platform-android).
-
-#### Android TelecomManager integration
-
-Android TelecomManager manages audio and video calls on Android devices. Use Android TelecomManager to provide a consistent user experience across various Android apps and devices, such as showing incoming and outgoing calls in the system UI, routing audio to devices, and handling call interruptions.
-
-Now you can integrate your app with Android TelecomManager to take advantage of its features for your custom calling scenarios. For more information, see [Integrate with TelecomManager](./how-tos/calling-sdk/telecommanager-integration.md).
-
-#### Unidirectional communication in Data Channel
-
-The Data Channel API is generally available. Data Channel includes unidirectional communication, which enables real-time messaging during audio and video calls. By using this API, you can integrate data exchange functions into the applications to help provide a seamless communication experience for users.
-
-The Data Channel API enables users to instantly send and receive messages during an ongoing audio or video call, promoting smooth and efficient communication. In a group call, a participant can send messages to a single participant, a specific set of participants, or all participants within the call. This flexibility enhances communication and collaboration among users during group interactions.
-
-For more information, see [Data Channel](./concepts/voice-video-calling/data-channel.md).
-
-#### Time-to-live lifespan for push notifications
-
-The time to live (TTL) for push notifications is now generally available. TTL is the duration for which a push notification token is valid. Using a longer-duration TTL can help your app reduce the number of new token requests from your users and improve the experience.
-
-For example, suppose you created an app that enables patients to book virtual medical appointments. The app uses push notifications to display an incoming call UI when the app isn't in the foreground. Previously, the app had to request a new push notification token from the user every 24 hours, which could be annoying and disruptive. With the extended TTL feature, you can now configure the push notification token to last for up to six months, depending on your business needs. This way, the app can avoid frequent token requests and provide a smoother calling experience for your customers.
-
-For more information, see [Enable push notifications for calls](./how-tos/calling-sdk/push-notifications.md#ttl-token).
-
-### Calling SDK native UI Library updates
-
-By using the Azure Communication Services Calling SDK native UI Library, you can now generate encrypted logs for troubleshooting and provide customers with an optional audio-only mode for joining calls.
-
-#### Troubleshooting on the native UI Library for Android and iOS
-
-Now in general availability, you can encrypt logs when troubleshooting on the Calling SDK native UI Library for Android and iOS. You can easily generate encrypted logs to share with Azure support. Ideally, calls just work, or developers self-remediate issues. But customers always have Azure support as a last line of defense. And we strive to make those engagements as easy and fast as possible.
-
-For more information, see [Troubleshoot the UI Library](./how-tos/ui-library-sdk/troubleshooting.md).
-
-#### Audio-only mode in the UI Library
-
-The audio-only mode in the Calling SDK UI Library is now generally available. It enables participants to join calls by using only their audio, without sharing or receiving video. Participants can use this feature to conserve bandwidth and maximize privacy.
-
-When audio-only mode is activated, it automatically disables the video function for both sending and receiving streams. It adjusts the UI to reflect this change by removing video-related controls.
-
-For more information, see [Enable audio-only mode in the UI Library](./how-tos/ui-library-sdk/audio-only-mode.md).
-
-## March 2024
-
-### Calling to Microsoft Teams Call queues and Auto attendants
-
-Calling to Teams Call queues and Auto attendants is now generally available in Azure Communication Services, along with click-to-call for Teams Phone. 
-
-Organizations can enable customers to quickly reach their sales and support members on Microsoft Teams. When you add a [click-to-call widget](./tutorials/calling-widget/calling-widget-tutorial.md) onto a website, such as a **Sales** button that points to a sales department or a **Purchase** button that points to procurement, customers are just one click away from a direct connection to a Teams Call queue or Auto attendant.
-
-Learn more about joining your calling app to a Teams [Call queue](./quickstarts/voice-video-calling/get-started-teams-call-queue.md) or [Auto attendant](./quickstarts/voice-video-calling/get-started-teams-auto-attendant.md), and about [building contact center applications](./tutorials/contact-center.md).
-
-### Email updates
-
-Updates to the Azure Communication Services email service include SMTP support, opt-out management, Azure PowerShell cmdlets, and Azure CLI extensions.
-
-#### SMTP
-
-SMTP support in Azure Communication Services email is now generally available. Developers can use it to easily send emails, improve security features, and have more control over outgoing communications.
-
-The SMTP relay service acts as a link between email clients and mail servers to help deliver emails more effectively. It sets up a specialized relay infrastructure that not only handles higher throughput needs and successful email delivery, but also improves authentication to help protect communication. This service also offers businesses a centralized platform that lets them manage outgoing emails for all B2C communications and get insights into email traffic.
-
-With this capability, customers can switch from on-premises SMTP solutions or link their line-of-business applications to a cloud-based solution platform with Azure Communication Services email. SMTP support enables:
-
-- A reliable SMTP endpoint with TLS 1.2 encryption.
-- Authentication with a Microsoft Entra application ID for sending emails via SMTP.
-- High-volume sending support for B2C communications via SMTP and REST APIs.
-- Compliance with data-handling and privacy requirements for customers.
-
-:::image type="content" source="media/whats-new-images/email-smtp-flow.png" alt-text="Diagram that shows an email SMTP command flowchart." lightbox="media/whats-new-images/email-smtp-flow.png":::
-
-For more information, see [Email SMTP support](./concepts/email/email-smtp-overview.md).
-
-#### Opt-out management
-
-Email opt-out management, now in preview, offers a centralized unsubscribe list and opt-out preferences saved to a data store. This feature helps developers meet guidelines of email providers who require one-click list-unsubscribe implementation in the emails sent from their platforms.
-
-Opt-out management helps you identify and avoid delivery problems. You can maintain compliance by adding suppression list features to help improve reputation and enable customers to easily manage opt-outs.
-
-:::image type="content" source="media/whats-new-images/email-suppression-list-flow.png" alt-text="Diagram that shows an email suppression list flowchart." lightbox="media/whats-new-images/email-suppression-list-flow.png":::
-
-Get started with [Manage email opt-out capabilities](./concepts/email/email-optout-management.md).
-
-#### Azure PowerShell cmdlets and Azure CLI extensions
-
-To enhance the developer experience, Azure Communication Services is introducing more Azure PowerShell cmdlets and Azure CLI extensions for working with email.
-
-##### Azure PowerShell cmdlets
-
-With the addition of the new cmdlets, developers can use Azure PowerShell cmdlets for all CRUD (create, read, update, delete) operations for the email service, including:
-
-- Create a communication service resource (existing)
-- Create an email service resource (new)
-- Create a resource for an Azure-managed or custom domain (new)
-- Initiate or cancel custom domain verification (new)
-- Add a sender username to a domain (new)
-- Link a domain resource to a communication service resource (existing)
-
-Learn more in the [Azure PowerShell reference](/powershell/module/az.communication/).
-
-##### Azure CLI extensions
-
-Developers can use Azure CLI extensions for their end-to-end flow for sending email, including:
-
-- Create a communication service resource (existing)
-- Create an email service resource (new)
-- Create a resource for an Azure-managed or custom domain (new)
-- Add a sender username to a domain (new)
-- Link a domain resource to a communication service resource (existing)
-- Send an email (existing)
-
-For more information, see [Azure CLI reference](/cli/azure/communication/email).
