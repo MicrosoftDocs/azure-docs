@@ -76,7 +76,7 @@ items:
         - name: What is connector for OPC UA?
           href: discover-manage-assets/overview-opcua-broker.md
         - name: Message format
-          href: discover-manage-assets/concept-opcua-message-format.md
+          href: discover-manage-assets/concept-opc-ua-message-format.md
           displayName: OPC UA, payload
         - name: Configure OPC UA assets and devices
           href: discover-manage-assets/howto-configure-opc-ua.md
