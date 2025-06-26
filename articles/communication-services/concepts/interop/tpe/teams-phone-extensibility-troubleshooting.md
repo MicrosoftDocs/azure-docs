@@ -141,7 +141,7 @@ This issue generally arises if the bot was created with a reserved Microsoft Ent
 
 ### No Incoming Call notification in Call Automation application and a busy signal is heard instead of custom greeting when calling a Teams Service Number
 
-This issue arises when the provisioning of the Resource Account is incomplete or incorrect. Check your [Provisioning Resource Account](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-quickstart#teams-admin-provision-resource-account) and change as needed.
+This issue arises when the provisioning of the Resource Account is incomplete or incorrect. Check your [Provisioning Resource Account](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md#teams-admin-provision-resource-account) and change as needed.
 
 ### No Incoming Call notification in Call Automation application and no audio is heard and call disconnects when calling a Teams Service Number
 
