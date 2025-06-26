@@ -4,7 +4,7 @@ metadata:
   description: Addresses common questions about backing up files and folders with Azure Backup.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 10/25/2024
+  ms.date: 06/20/2025
   author: jyothisuri
   ms.author: jsuri
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
@@ -125,7 +125,7 @@ sections:
           
           * You need to register the new machine name with recovery services vault.
           * When you register the new name with the vault, the first operation is a *full* backup.
-          * If you need to recover data backed up to the vault with the old server name, use the option to restore to an alternate location in the Recover Data Wizard. [Learn more](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+          * If you need to recover data backed up to the vault with the old server name, use the option to restore to an alternate location in the Recover Data Wizard. [Learn more](backup-azure-restore-windows-server.md#restore-data-to-an-alternate-machine-using-instant-restore).
           
       - question: |
           What is the maximum file path length for backup?
@@ -256,7 +256,7 @@ sections:
 
           | Original Machine | Passphrase | Available Options |
           | --- | --- | --- |
-          | Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see this [article](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+          | Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see this [article](./backup-azure-restore-windows-server.md#restore-data-to-an-alternate-machine-using-instant-restore).
           | Lost |Lost |Not possible to recover the data or data isn't available |
 
       - question: |

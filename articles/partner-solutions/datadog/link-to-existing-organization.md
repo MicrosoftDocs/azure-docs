@@ -17,7 +17,7 @@ In this quickstart, you link to an existing organization of Datadog.
 
 ## Prerequisites
 
-[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+[!INCLUDE [create-prerequisites-owner](../includes/create-prerequisites-owner.md)]
 - You must [configure your environment](prerequisites.md).
 - You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 

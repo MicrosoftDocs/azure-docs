@@ -26,7 +26,7 @@ landingContent:
             url: front-door-overview.md
           - text: Choose a load balancer
             url: /azure/architecture/guide/technology-choices/load-balancing-overview
-          - text: Well-architected framework
+          - text: Architecture best practices for Azure Front Door
             url: /azure/well-architected/service-guides/azure-front-door
       - linkListType: training
         links:

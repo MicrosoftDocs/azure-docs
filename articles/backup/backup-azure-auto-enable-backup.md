@@ -1,8 +1,8 @@
 ---
-title: Auto-Enable Backup on VM Creation using Azure Policy
-description: 'An article describing how to use Azure Policy to auto-enable backup for all VMs created in a given scope'
+title: Audit and enforce backup during VM creation automatically using Azure Policy
+description: Learn how to use Azure Policy to autoenable backup for all VMs created in a given scope.
 ms.topic: how-to
-ms.date: 06/29/2024
+ms.date: 06/09/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -10,64 +10,92 @@ ms.custom: engagement-fy24
 # Customer intent: As a Backup Admin, I want to automatically enable backup for all newly created virtual machines using Azure Policy, so that I can ensure business-critical data is protected without manual intervention.
 ---
 
-# Auto-enable backup on VM creation using Azure Policy
+# Audit and enforce backup during virtual machine creation automatically using Azure Policy
 
-One of the key responsibilities of a Backup or Compliance Admin in an organization is to ensure that all business-critical machines are backed up with the appropriate retention.
+This article describes how Backup or Compliance Admins can ensure that all business-critical machines have appropriate backup and retention policies.
 
-Today, Azure Backup provides a variety of built-in policies (using [Azure Policy](../governance/policy/overview.md)) to help you automatically ensure that your Azure virtual machines are configured for backup. Depending on how your backup teams and resources are organized, you can use any one of the below policies:
+Azure Backup offers a variety of built-in policies through [Azure Policy](../governance/policy/overview.md) to help you automatically configure backup for your Azure Virtual Machines (VMs). Based on the structure of your backup teams and the organization of your resources, you can choose the most suitable policy from the following options to ensure effective and consistent backup management.
 
-## Policy 1 - Configure backup on VMs without a given tag to an existing recovery services vault in the same location
+## Azure Policy types for Azure VM backup
 
-If your organization has a central backup team that manages backups across application teams, you can use this policy to configure backup to an existing central Recovery Services vault in the same subscription and location as the VMs being governed. You can choose to **exclude** VMs which contain a certain tag, from the scope of this policy.
+The following table lists the various policy types that allows you to manage Azure VM instances backups automatically:
 
-## Policy 2 - Configure backup on VMs with a given tag to an existing recovery services vault in the same location
-This policy works the same as Policy 1 above, with the only difference being that you can use this policy to **include** VMs which contain a certain tag, in the scope of this policy. 
+| Policy type | Description |
+| --- | --- |
+| Policy 1 | Configures backup on VMs without a given tag to an existing Recovery Services vault in the same location. |
+| Policy 2 | Configures backup on VMs with a given tag to an existing Recovery Services vault in the same location. |
+| Policy 3 | Configures backup on VMs without a given tag to a new Recovery Services vault with a default policy. |
+| Policy 4 | Configures backup on VMs with a given tag to a new Recovery Services vault with a default policy. |
 
-## Policy 3 - Configure backup on VMs without a given tag to a new recovery services vault with a default policy
-If you organize applications in dedicated resource groups and want to have them backed up by the same vault, this policy allows you to automatically manage this action. You can choose to **exclude** VMs which contain a certain tag, from the scope of this policy.
+### Policy 1: Configure backup on VMs without a given tag to an existing recovery services vault in the same location
 
-## Policy 4 - Configure backup on VMs with a given tag to a new recovery services vault with a default policy
-This policy works the same as Policy 3 above, with the only difference being that you can use this policy to **include** VMs which contain a certain tag, in the scope of this policy. 
+This policy enables a central backup team to configure backup for Azure Virtual Machines using an existing central Recovery Services vault located in the same subscription and region as the governed VMs. You can **exclude** specific VMs from the policy scope with a designated tag.
 
-In addition to the above, Azure Backup also provides an [audit-only](../governance/policy/concepts/effects.md#audit) policy - **Azure Backup should be enabled for Virtual Machines**. This policy identifies which virtual machines do not have backup enabled, but doesn't automatically configure backups for these VMs. This is useful when you are only looking to evaluate the overall compliance of the VMs but not looking to take action immediately.
 
-## Supported Scenarios
+### Policy 2: Configure backup on VMs with a given tag to an existing recovery services vault in the same location
+This policy functions same as Policy 1, with a key difference - the policy **includes** virtual machines in the policy scope if they have a specific tag.
 
-* The built-in policy is currently supported only for Azure VMs. Users must take care to ensure that the retention policy specified during assignment is a VM retention policy. Refer to [this](./backup-azure-policy-supported-skus.md) document to see all the VM SKUs supported by this policy.
+### Policy 3: Configure backup on VMs without a given tag to a new recovery services vault with a default policy
 
-* Policies 1 and 2 can be assigned to a single location and subscription at a time. To enable backup for VMs across locations and subscriptions, multiple instances of the policy assignment need to be created, one for each combination of location and subscription.
+This policy targets applications organized in dedicated resource groups and backs them up using the same Recovery Services vault. It automatically manages this configuration and allows you to **exclude** virtual machines from the policy scope that have a specific tag.
 
-* For Policies 1 and 2, management group scope is currently unsupported.
+### Policy 4: Configure backup on VMs with a given tag to a new recovery services vault with a default policy
 
-* For Policies 1 and 2, the specified vault and the VMs configured for backup can be under different resource groups.
+This policy functions same as Policy 3, with a key difference - the policy **includes** virtual machines in the policy scope if they have a specific tag.
 
-* Policies 3 and 4 can be assigned to a single subscription at a time (or a resource group within a subscription).
+Azure Backup also provides an [audit-only](../governance/policy/concepts/effects.md#audit) policy - **Azure Backup should be enabled for Virtual Machines**. This policy identifies virtual machines without backup enabled but doesn't apply any backup configuration, which helps assess compliance without enforcing changes.
+
+## Supported and unsupported Scenarios for  Azure VMs backup  with Azure Policy
+
+The following table lists the supported and unsupported scenarios for the available policy types:
+
+| Policy type | Supported | Unsupported |
+| --- | --- | --- |
+| **Built-in policy** | Currently supported only for Azure VMs. Ensure that the retention policy specified during assignment is a VM retention policy. <br><br> Learn about [the VM SKUs supported by this policy](./backup-azure-policy-supported-skus.md) . |          |
+| **Policies 1 and 2** | - Can be assigned to a single location and subscription at a time. To enable backup for VMs across locations and subscriptions, you need to create multiple instances of the policy assignment, one for each combination of location and subscription. <br><br> - The specified vault and the VMs configured for backup can be under different resource groups. | Management group scope is currently unsupported. |
+| **Policies 3 and 4** | Can be assigned to a single subscription at a time (or a resource group within a subscription). |        |
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
-## Using the built-in policies
+## Assign built-in Azure Policy for Azure VM backup
 
-The below steps describe the end-to-end process of assigning Policy 1: **Configure backup on VMs without a given tag to an existing recovery services vault in the same location** to a given scope. Similar instructions will apply for the other policies. Once assigned, any new VM created in the scope is automatically configured for backup.
+This section outlines the end-to-end steps to assign [Policy 1](#policy-1-configure-backup-on-vms-without-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location). The same instructions apply to the other policies. After assignment, the policy automatically configures backup for any new VM created within the defined scope.
 
-1. Sign in to the Azure portal and navigate to the **Policy** Dashboard.
-2. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
-3. Filter the list for **Category=Backup** and select the policy named *Configure backup on virtual machines without a given tag to an existing recovery services vault in the same location*.
-:::image type="content" source="./media/backup-azure-auto-enable-backup/policy-dashboard-inline.png" alt-text="Screenshot showing how to filter the list by category on Policy dashboard." lightbox="./media/backup-azure-auto-enable-backup/policy-dashboard-expanded.png":::
-4. Select the name of the policy. You'll be redirected to the detailed definition for this policy.
-![Screenshot showing the Policy Definition pane.](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
-5. Select the **Assign** button at the top of the pane. This redirects you to the **Assign Policy** pane.
-6. Under **Basics**, select the three dots next to the **Scope** field. This opens up a right context pane where you can select the subscription for the policy to be applied on. You can also optionally select a resource group, so that the policy is applied only for VMs in a particular resource group.
-![Screenshot showing the Policy Assignment Basics tab.](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
-7. In the **Parameters** tab, choose a location from the drop-down, and select the vault and backup policy to which the VMs in the scope must be associated. You can also choose to specify a tag name and an array of tag values. A VM which contains any of the specified values for the given tag will be excluded from the scope of the policy assignment.
-![Screenshot showing the Policy Assignment Parameters pane.](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
-8. Ensure that **Effect** is set to deployIfNotExists.
-9. Navigate to **Review+create** and select **Create**.
+To assign Policy 1 for Azure VM backup, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go to **Policy**> **Authoring** > **Definitions** to view the list of all built-in policies across Azure Resources.
+
+1. On the **Policy Definitions** pane, filter the list for **Category=Backup** and select the policy named *Configure backup on virtual machines without a given tag to an existing recovery services vault in the same location*.
+
+   :::image type="content" source="./media/backup-azure-auto-enable-backup/policy-dashboard-inline.png" alt-text="Screenshot showing how to filter the list by category on Policy dashboard." lightbox="./media/backup-azure-auto-enable-backup/policy-dashboard-expanded.png":::
+
+1. On the selected policy pane, review the policy details, and then select **Assign**.
+
+   :::image type="content" source="./media/backup-azure-auto-enable-backup/policy-definition-blade.png" alt-text="Screenshot shows the Policy Definition pane." lightbox="./media/backup-azure-auto-enable-backup/policy-definition-blade.png":::
+
+1. On the **Assign Policy** pane, on the **Basics** tab, select the **more icon** corresponding to **Scope**.
+
+   :::image type="content" source="./media/backup-azure-auto-enable-backup/policy-assignment-basics.png" alt-text="Screenshot shows the Policy Assignment Basics tab." lightbox="./media/backup-azure-auto-enable-backup/policy-assignment-basics.png":::
+
+1. On the right context pane, select the subscription for the policy to be applied on. 
+
+   You can also select a resource group, so that the policy is applied only for VMs in a particular resource group.
+
+1. On the **Parameters** tab, select the **Location**, **Vault**, and **Backup Policy** to which the VMs in the scope must be associated.
+
+   You can also specify a tag name and an array of tag values. A VM which contains any of the specified values for the given tag are excluded from the scope of the policy assignment.
+
+   :::image type="content" source="./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png" alt-text="Screenshot shows the Policy Assignment Parameters pane." lightbox="./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png":::
+
+   Ensure that **Effect** is set to **`deployIfNotExists`**.
+
+1. On the **Review+create** tab, select **Create**.
 
 > [!NOTE]
 >
 > - Azure Policy can also be used on existing VMs, using [remediation](../governance/policy/how-to/remediate-resources.md).
-> - It's recommended that this policy not be assigned to more than 200 VMs at a time. If the policy is assigned to more than 200 VMs, it can result in the backup being triggered a few hours later than that specified by the schedule.
+> - Avoid assigning this policy to more than 200 VM at once, as it might delay backup triggers by several hours beyond the scheduled time.
 
-## Next step
+## Related content
 
-[Learn more about Azure Policy](../governance/policy/overview.md)
+[About Azure Policy](../governance/policy/overview.md).

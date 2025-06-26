@@ -1,10 +1,10 @@
 ---
-title: Using Azure Front Door Standard/Premium with Cross-Origin Resource Sharing
+title: Using Azure Front Door with Cross-Origin Resource Sharing
 description: Learn how to use the Azure Front Door (AFD) to with Cross-Origin Resource Sharing (CORS).
 author: halkazwini
 ms.author: qixwang
 ms.service: azure-frontdoor
-ms.topic: how-to
+ms.topic: concept-article
 ms.date: 12/28/2023
 ---
 
@@ -14,7 +14,7 @@ ms.date: 12/28/2023
 
 ## What is CORS?
 
-CORS (Cross Origin Resource Sharing) is an HTTP feature that enables a web application running under one domain to access resources in another domain. To reduce the possibility of cross-site scripting attacks, all modern web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy). This prevents a web page from calling APIs in a different domain.  CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin.
+CORS (Cross Origin Resource Sharing) is an HTTP feature that enables a web application running under one domain to access resources in another domain. To reduce the possibility of cross-site scripting attacks, all modern web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy). This prevents a web page from calling APIs in a different domain. CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin.
 
 ## How it works
 
@@ -48,12 +48,12 @@ A complex request is a CORS request where the browser is required to send a *pre
 >
 
 ## Wildcard or single origin scenarios
-CORS on Azure Front Door works automatically with no extra configuration when the **Access-Control-Allow-Origin** header is set to wildcard (*) or a single origin.  Azure Front Door caches the first response and ensuing requests use the same header.
+CORS on Azure Front Door works automatically with no extra configuration when the **Access-Control-Allow-Origin** header is set to wildcard (*) or a single origin. Azure Front Door caches the first response and ensuing requests use the same header.
 
 If requests were sent to the Azure Front Door before CORS being set on your origin, you need to purge content on your endpoint content to reload the content with the **Access-Control-Allow-Origin** header.
 
 ## Multiple origin scenarios
-If you need to allow a specific list of origins to be allowed for CORS, things get a little more complicated. The problem occurs when the CDN caches the **Access-Control-Allow-Origin** header for the first CORS origin.  When a different CORS origin makes another request, the CDN serves the cached **Access-Control-Allow-Origin** header, which doesn't match. There are several ways to correct this problem.
+If you need to allow a specific list of origins to be allowed for CORS, things get a little more complicated. The problem occurs when the CDN caches the **Access-Control-Allow-Origin** header for the first CORS origin. When a different CORS origin makes another request, the CDN serves the cached **Access-Control-Allow-Origin** header, which doesn't match. There are several ways to correct this problem.
 
 ### Azure Front Door Rule Set
 
@@ -62,9 +62,9 @@ On Azure Front Door, you can create a rule in the Azure Front Door [Rules Set](.
 :::image type="content" source="../media/troubleshooting-cross-origin-resource-sharing/cross-origin-resource.png" alt-text="Screenshot of rules example with rule set.":::
 
 > [!TIP]
-> You can add additional actions to your rule to modify additional response headers, such as **Access-Control-Allow-Methods**.
+> You can add more actions to your rule to modify other response headers, such as **Access-Control-Allow-Methods**.
 > 
 
-## Next steps
+## Next step
 
-* Learn how to [create a Front Door](create-front-door-portal.md).
+Learn how to [create a Front Door](create-front-door-portal.md).

@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: how-to 
 ms.date: 02/14/2024
 ms.custom: template-how-to
+# Customer intent: As a cloud engineer, I want to configure multiple Virtual Machine Scale Sets behind a single load balancer, so that I can ensure efficient traffic distribution and improve the resilience of my applications.
 ---
 
 # Add multiple Virtual Machine Scale Set instances behind one Azure Load Balancer 

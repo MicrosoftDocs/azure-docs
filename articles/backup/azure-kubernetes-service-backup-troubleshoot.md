@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Kubernetes Service backup
 description: Symptoms, causes, and resolutions of the Azure Kubernetes Service backup and restore operations.
 ms.topic: troubleshooting
-ms.date: 04/30/2025
+ms.date: 06/18/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -65,6 +65,9 @@ The extension pods aren't exempt, and require the Microsoft Entra pod identity t
    ```
 
 3. To assign the *Storage Blob Data Contributor* role to the extension identity, run the following command:
+
+   >[!Note]
+   >Ensure that you use the latest Terraform script version. [Learn more](quick-kubernetes-backup-terraform.md#prerequisites).
 
    ```azurecli-interactive
    az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name aksclustername --resource-group aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Blob Data Contributor' --scope /subscriptions/subscriptionid/resourceGroups/storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/storageaccountname

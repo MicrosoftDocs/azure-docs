@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: reference
-ms.date: 09/09/2024
+ms.date: 06/10/2025
 ms.custom:
   - references_regions
   - ignite-2023
@@ -152,6 +152,7 @@ This behavior prevents accidental data loss and ensures consistent backups. Cons
 
 ## Next steps
 
-- [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)
-- [Back up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup.md)
-- [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
+- [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md).
+- Back up Azure Kubernetes Service cluster using [Azure portal](azure-kubernetes-service-cluster-backup.md), [Azure CLI](azure-kubernetes-service-cluster-backup-using-cli.md), [Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md), [Azure Resource Manager](quick-kubernetes-backup-arm.md), [Bicep](quick-kubernetes-backup-bicep.md), [Terraform](quick-kubernetes-backup-terraform.md).
+- Restore Azure Kubernetes Service cluster using [Azure portal](azure-kubernetes-service-cluster-restore.md), [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md), [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md).
+- [Manage Azure Kubernetes Service backups using Azure Backup](azure-kubernetes-service-cluster-manage-backups.md).
