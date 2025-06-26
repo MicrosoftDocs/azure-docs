@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 04/30/2024
 ms.author: normesta
+# Customer intent: "As a cloud storage administrator, I want to enable or disable SFTP support for my Azure Blob Storage account, so that I can manage secure file transfers based on current usage and reduce costs when not needed."
 ---
 
 # Enable or disable SSH File Transfer Protocol (SFTP) support in Azure Blob Storage
