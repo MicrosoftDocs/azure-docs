@@ -79,7 +79,7 @@ In this step, create a subscription to the Event Grid topic using the Azure func
    1. For **Endpoint Type**, select **Azure Function**.
    1. Then, select **Configure an endpoint**. 
 
-      :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/create-event-subscription-page.png" alt-text="Screenshot that shows the Create event subscription page." lightbox="./media/mqtt-routing-to-azure-functions-portal/create-event-subscription-page.png":::
+      :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/create-event-subscription-page.png" alt-text="Screenshot that shows the Create event subscription page.":::
 
 1. On the **Select Azure function** page, do these steps:
 
@@ -90,7 +90,7 @@ In this step, create a subscription to the Event Grid topic using the Azure func
    1. For **Function**, select your Azure Function. 
    1. Then, select **Confirm Selection**.
 
-      :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/select-azure-function-page.png" alt-text="Screenshot that shows the Select Azure function page." lightbox="./media/mqtt-routing-to-azure-functions-portal/select-azure-function-page.png":::
+      :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/select-azure-function-page.png" alt-text="Screenshot that shows the Select Azure function page.":::
 
 1. On the **Create Event Subscription** page, select **Create**. 
 1. On the **Event Subscriptions** page, you should see the subscription you created. 
@@ -125,7 +125,7 @@ In this section, you enable system-assigned managed identity for the Event Grid 
 
 1. On **Add role assignment**, on the **Members** page, select **Managed identity**, and then choose **Select members**. 
 
-   :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/role-members-page.png" alt-text="Screenshot that shows the Members page of the Add role assignment wizard." lightbox="./media/mqtt-routing-to-azure-functions-portal/role-members-page.png":::
+   :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/role-members-page.png" alt-text="Screenshot that shows the Members page of the Add role assignment wizard.":::
 
 1. On the **Select managed identities** page, do these steps:
 
@@ -134,7 +134,7 @@ In this section, you enable system-assigned managed identity for the Event Grid 
    1. Select the managed identity that has the same name as the Event Grid namespace.
    1. Choose **Select**. 
     
-      :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/select-managed-identity.png" alt-text="Screenshot that shows the Select managed identities page." lightbox="./media/mqtt-routing-to-azure-functions-portal/select-managed-identity.png":::
+      :::image type="content" source="./media/mqtt-routing-to-azure-functions-portal/select-managed-identity.png" alt-text="Screenshot that shows the Select managed identities page.":::
 
 1. On the **Add role assignment** page, select **Next**. 
 1. On the **Review + assign** page, review settings, and then select **Review + assign**. 
