@@ -16,6 +16,13 @@ You can use Azure Key Vault (including Azure Key Vault Managed Hardware Security
 
 If you only need to encrypt certain properties of your messages, consider using a library like [NServiceBus](https://docs.particular.net/nservicebus/security/property-encryption).
 
+> [!NOTE]
+> A customer-managed keys for is considered disabled in the following scenarios:
+> - Revoking access: If Service Bus no longer has permission to access the key in Azure Key Vault.
+> - Disabling the key: Manually disabling the key in Key Vault renders it unusable.
+> - Letting the key expire: If the key reaches its expiration date without renewal. Letting a key expire has the same effect as revoking or disabling it. Always rotate or renew keys before they expire to avoid unintended outages.
+> - Deleting the key: Once deleted, the key is permanently inaccessible.
+
 ## Enable customer-managed keys (Azure portal)
 
 To enable customer-managed keys in the Azure portal, follow these steps:

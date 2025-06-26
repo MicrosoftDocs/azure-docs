@@ -5,6 +5,7 @@ author: seligj95
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/04/2025
+ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
   - "UpdateFrequency3, fasttrack-edit"
@@ -96,7 +97,7 @@ resource hybridConnection 'Microsoft.Relay/namespaces/hybridConnections@2024-01-
   name: hybridConnectionName
   properties: {
     requiresClientAuthorization: true
-    userMetadata: '[{"key": "endpoint", "value : "<HOST>:<PORT>"}]'
+    userMetadata: '[{/"key/": /"endpoint/", /"value/" : /"<HOST>:<PORT>/"}]'
   }
 }
 ```

@@ -115,8 +115,10 @@ To configure clipboard redirection using host pool RDP properties:
 
 1. For **Clipboard redirection**, select the drop-down list, then select one of the following options:
 
-   - **Clipboard on local computer isn't available in remote session**
-   - **Clipboard on local computer is available in remote session** (*default*)
+   - **Clipboard on local computer isn't available in remote session** (*default*)
+      
+   - **Clipboard on local computer is available in remote session**
+      
    - **Not configured**
 
 1. Select **Save**.
