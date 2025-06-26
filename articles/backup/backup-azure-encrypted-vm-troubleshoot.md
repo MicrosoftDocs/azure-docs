@@ -5,7 +5,7 @@ ms.topic: troubleshooting
 ms.date: 03/27/2025
 author: jyothisuri
 ms.author: jsuri
-# Customer intent: As an IT administrator managing encrypted Azure virtual machines, I want to troubleshoot backup errors effectively, so that I can ensure successful data protection and recovery for my workloads.
+# Customer intent: As an IT administrator managing encrypted Azure virtual machines, I want to troubleshoot backup errors effectively, so that I can ensure successful data protection and recovery for my encrypted VM backup operation.
 ---
 
 # Troubleshoot backup failures on encrypted Azure virtual machines
