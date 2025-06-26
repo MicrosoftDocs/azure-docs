@@ -19,15 +19,15 @@ The purpose of this guide is to troubleshoot a Kubernetes Cluster when 1 or more
 
 ## Typical Cause
 
-After a runtime upgrade, before a Baremetal Machine is shutdown for reimaging, the machine lifecycle controller will cordon and attempt to drain Virtual Machine resources scheduled to that Baremetal Machine. Once the Baremetal Machine resolves the reimaging process, the expectation is that Virtual Machines reschedule to the Baremetal Machine, and then be uncordoned by the machine lifecycle controller, reflecting the appropriate state `Ready`.
+After a runtime upgrade, before a Baremetal Machine is shutdown for reimaging, the machine lifecycle controller will cordon and drain Virtual Machine resources scheduled to that Baremetal Machine. Once the Baremetal Machine resolves the reimaging process, the expectation is that Virtual Machines reschedule to the Baremetal Machine, and then be uncordoned by the machine lifecycle controller, reflecting the appropriate state `Ready`.
 
 However, a race condition may occur wherein the machine lifecycle controller fails to find the virt-launcher pods responsible for deploying Virtual Machines. This is because the virt-launcher pod's image pull job is not yet complete. Only after the image pull job is complete will the pod be schedulable to a Baremetal Machine. When the machine lifecycle controller examines these virt-launcher pods during the uncordon action execution, it cannot find which Baremetal Machine the pod is tied to, and skips the pod and the Virtual Machine it represents.
 
-This problem should only appear during uncordon actions initiated by the machine lifecycle controller after runtime upgrades. It should occur infrequently on small clusters but frequently for large clusters, as multiple concurrent image pulls tends to result in longer scheduling times.
+This problem only appears during uncordon actions initiated by the machine lifecycle controller after runtime upgrades. It should occur infrequently on small clusters but frequently for large clusters, as multiple concurrent image pulls tends to result in longer scheduling times.
 
 ## Procedure
 
-After KubernetesCluster Nodes are discovered in the `Ready,SchedulingDisabled` state, the following remediation may be engaged.
+After Kubernetes Cluster Nodes are discovered in the `Ready,SchedulingDisabled` state, the following remediation may be engaged.
 
 1. Use kubectl to list the nodes using the wide flag. Observe the node in **Ready,SchedulingDisabled** status.
     ~~~bash
@@ -40,9 +40,19 @@ After KubernetesCluster Nodes are discovered in the `Ready,SchedulingDisabled` s
 1. Issue the kubectl command to uncordon the Node in the undesired state.
 
     ~~~bash
-    $ kubectl uncordon example-naks-control-plane-tgmw8
+    $ kubectl uncordon example-naks-agentpool1-md-s8vp4-xp98x
     node/example-naks-agentpool1-md-s8vp4-xp98x uncordoned
     ~~~
+
+    Alternatively, as this is more common in larger scale deployments, it may be more desirable to perform this action in bulk. In this case, issue the following looping command to find and uncordon all Nodes.
+
+    ~~~bash
+    cordoned_nodes=$(kubectl get nodes -o wide --no-headers | awk '/SchedulingDisabled/ {print $1}')
+    for node in $cordoned_nodes; do
+        kubectl uncordon $node
+    done
+    ~~~
+
 
 1. Use kubectl to list the nodes using the wide flag. Observe the node in **Ready** status.
     ~~~bash
