@@ -355,6 +355,8 @@
         href: migrate-app-gateway-v2.md
       - name: Azure App Service
         href: reliability-app-service.md#configure-availability-zone-support
+      - name: Azure Blob Storage
+        href: reliability-storage-blob.md
       - name: Azure Functions
         href: migrate-functions.md
       - name: Azure Cache for Redis
