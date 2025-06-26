@@ -24,7 +24,7 @@ In the self-managed hub-and-spoke setup, the hub is a virtual network (VNet) tha
 
 To understand the multi-region design, you need to master the single-region concepts first. The following diagram shows the routing table configuration for the first region:
 
-:::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-regionA.png" alt-text="Low-level routing design for a single-region self-managed hub-and-spoke architecture." lightbox="media/firewall-multi-hub-spoke/multi-hub-spoke-regionA.png":::
+:::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-regiona.png" alt-text="Low-level routing design for a single-region self-managed hub-and-spoke architecture." lightbox="media/firewall-multi-hub-spoke/multi-hub-spoke-regiona.png":::
 
 You need to consider routing for each of the potential flows in the single-region design to understand the configuration of the user-defined routes:
 
