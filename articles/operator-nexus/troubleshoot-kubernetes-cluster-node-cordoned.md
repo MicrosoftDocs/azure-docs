@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot a Kubernetes Cluster Node in NotReady,Scheduling Disabled after Runtime Upgrade
-description: Learn what to do when you a Kubernetes Cluster Node is in the state NotReady,Scheduling Disabled after a runtime upgrade.
+description: Learn what to do when your Kubernetes Cluster Node is in the state NotReady,Scheduling Disabled after a runtime upgrade.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -19,9 +19,9 @@ The purpose of this guide is to troubleshoot a Kubernetes Cluster when 1 or more
 
 ## Typical Cause
 
-After a runtime upgrade, before a Baremetal Machine is shutdown for reimaging, the machine lifecycle controller will cordon and drain Virtual Machine resources scheduled to that Baremetal Machine. Once the Baremetal Machine resolves the reimaging process, the expectation is that Virtual Machines reschedule to the Baremetal Machine, and then be uncordoned by the machine lifecycle controller, reflecting the appropriate state `Ready`.
+After a runtime upgrade, before a Baremetal Machine is shut down for reimaging, the machine lifecycle controller will cordon and drain Virtual Machine resources scheduled to that Baremetal Machine. Once the Baremetal Machine resolves the reimaging process, the expectation is that Virtual Machine resources reschedule to the Baremetal Machine, and then be uncordoned by the machine lifecycle controller, reflecting the appropriate state `Ready`.
 
-However, a race condition may occur wherein the machine lifecycle controller fails to find the virt-launcher pods responsible for deploying Virtual Machines. This is because the virt-launcher pod's image pull job is not yet complete. Only after the image pull job is complete will the pod be schedulable to a Baremetal Machine. When the machine lifecycle controller examines these virt-launcher pods during the uncordon action execution, it cannot find which Baremetal Machine the pod is tied to, and skips the pod and the Virtual Machine it represents.
+However, a race condition may occur wherein the machine lifecycle controller fails to find the virt-launcher pods responsible for deploying Virtual Machines. This is because the virt-launcher pod's image pull job isn't yet complete. Only after the image pull job is complete will the pod be schedulable to a Baremetal Machine. When the machine lifecycle controller examines these virt-launcher pods during the uncordon action execution, it can't find which Baremetal Machine the pod is tied to, and skips the pod and the Virtual Machine it represents.
 
 ## Procedure
 
@@ -42,7 +42,7 @@ After Kubernetes Cluster Nodes are discovered in the `Ready,SchedulingDisabled` 
     node/example-naks-agentpool1-md-s8vp4-xp98x uncordoned
     ~~~
 
-    Alternatively, as this is more common in larger scale deployments, it may be desirable to perform this action in bulk. In this case, issue the uncordon command as part of a loop to find and uncordon all affected Nodes.
+    Alternatively, as this issue is more common in larger scale deployments, it may be desirable to perform this action in bulk. In this case, issue the uncordon command as part of a loop to find and uncordon all affected Nodes.
 
     ~~~bash
     cordoned_nodes=$(kubectl get nodes -o wide --no-headers | awk '/SchedulingDisabled/ {print $1}')
