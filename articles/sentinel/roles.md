@@ -85,8 +85,6 @@ When you assign Microsoft Sentinel-specific Azure roles, you might come across o
 
 ## Roles and permissions for the Microsoft Sentinel data lake (Preview)
 
-Microsoft Sentinel data lake is in preview. 
-
 To use the Microsoft Sentinel data lake, your workspace must be [onboarded to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) and the [Microsoft Sentinel data lake](https://aka.ms/data-lake-overview).
 
 
@@ -107,8 +105,8 @@ Microsoft Entra ID roles provides broad access across all workspaces in the data
 
 |Permission type  |Supported roles  |
 |---------|---------|
-|**Write to tables in the analytics tier using KQL jobs**     |  Use one of the following Microsoft Entra ID roles: <br><br> - [Security operator](/entra/identity/role-based-access-control/permissions-reference#security-operator)<br>- [Security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) <br>- [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)      |
-|**Write to tables in the Microsoft Sentinel data lake**     |  Use one of the following Microsoft Entra ID roles: <br>- [Security operator](/entra/identity/role-based-access-control/permissions-reference#security-operator) <br>- [Security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) <br>[Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)        |
+|**Write to tables in the analytics tier using KQL jobs or notebooks**     |  Use one of the following Microsoft Entra ID roles: <br><br> - [Security operator](/entra/identity/role-based-access-control/permissions-reference#security-operator)<br>- [Security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) <br>- [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)      |
+|**Write to tables in the Microsoft Sentinel data lake**     |  Use one of the following Microsoft Entra ID roles: <br>- [Security operator](/entra/identity/role-based-access-control/permissions-reference#security-operator) <br>- [Security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator) <br>- [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)        |
 
 Alternatively, you might want to assign the ability to write output to a specific workspace, including creating, updating, and deleted tables in that workspace. In such cases, use one of the following:
 
