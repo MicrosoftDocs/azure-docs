@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/reliability/migrate-api-mgt.md",
+      "redirect_url": "/azure/api-management/enable-zone-redundancy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/api-management/gateway-log-schema-reference.md",
       "redirect_url": "/azure/api-management/monitor-api-management-reference",
       "redirect_document_id": false

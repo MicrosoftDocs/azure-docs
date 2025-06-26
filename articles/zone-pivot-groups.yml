@@ -1987,3 +1987,19 @@ groups:
     title: Azure CLI
   - id: azure-powershell
     title: Azure PowerShell
+- id: api-management-sku
+  title: Azure API Management tier
+  prompt: Choose an Azure API Management tier
+  pivots:
+  - id: consumption
+    title: Consumption
+  - id: basic
+    title: Basic (classic or v2)
+  - id: standard
+    title: Standard (classic or v2)
+  - id: developer
+    title: Developer
+  - id: premium-classic
+    title: Premium (classic)
+  - id: premium-v2
+    title: Premium (v2)
