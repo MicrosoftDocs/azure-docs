@@ -2,11 +2,11 @@
 title: Web Application Firewall on Application Gateway for Containers
 description: This page provides an overview of the Web Application Firewall (WAF) on Application Gateway for Containers, including setup, limitations, known issues, and more.
 services: application-gateway
-author: greg-lindsay
+author: jackstromberg
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 7/1/2025
-ms.author: greglin
+ms.author: jstrom
 ---
 
 # Web Application Firewall on Application Gateway for Containers
