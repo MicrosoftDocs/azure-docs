@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 06/19/2025
 ---
 
-# Document: Feature flag telemetry reference
+# Feature flag telemetry reference
 
 Having telemetry data on your feature flags can be a powerful tool for understanding how your feature flags are used. Telemetry allows you to make informed decisions about your feature management strategy.
 
@@ -21,7 +21,7 @@ In this document, you:
 
 ## Feature evaluation
 
-The Feature evaluation event is emitted whenever a feature flag that has telemetry enabled is evaluated in your application. This event occurs each time your code checks a feature flag's status or gets a variant. The event captures the evaluation result, variant assignment details, and contextual information about why specific decisions were made.
+The Feature evaluation event is emitted whenever a feature flag that has telemetry enabled is evaluated in your application. This event, named `EvaluationEvent`, occurs each time your code checks a feature flag's status or gets a variant. The event captures the evaluation result, variant assignment details, and contextual information about why specific decisions were made.
 
 This event contains the following fields:
 
