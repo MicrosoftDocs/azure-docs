@@ -35,6 +35,8 @@
     href: session-affinity.md
   - name: TLS policy
     href: tls-policy.md
+  - name: Web Application Firewall (WAF)
+    href: web-application-firewall.md
   - name: WebSockets
     href: websockets.md
   - name: Frequently Asked Questions (FAQ)
