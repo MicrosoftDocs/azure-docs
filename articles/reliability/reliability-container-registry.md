@@ -36,48 +36,7 @@ Azure Container Registry is built on Azure's distributed infrastructure to provi
 
 The service provides built-in redundancy through zone redundancy within regions and geo-replication across regions. Zone redundancy automatically distributes data across multiple availability zones, while geo-replication creates independent registry replicas in customer-selected regions. Both features are available in the Premium tier and work together to provide comprehensive protection against infrastructure failures.
 
-```mermaid
-graph TB
-    subgraph "Azure Container Registry Architecture"
-        subgraph "Control Plane"
-            CP[Registry Configuration<br/>- Authentication<br/>- Network Rules<br/>- Geo-replication Settings<br/>- Zone Redundancy Config]
-        end
-        
-        subgraph "Data Plane"
-            API[Registry API Server<br/>- Push/Pull Operations<br/>- Image Management<br/>- Artifact Storage]
-        end
-        
-        subgraph "Storage Layer"
-            AS[Azure Storage<br/>- Container Images<br/>- Artifacts<br/>- Manifests<br/>- Encrypted at Rest]
-        end
-        
-        subgraph "Zone Redundancy (Premium Tier)"
-            Z1[Availability Zone 1<br/>Registry Replica]
-            Z2[Availability Zone 2<br/>Registry Replica]
-            Z3[Availability Zone 3<br/>Registry Replica]
-        end
-        
-        subgraph "Geo-Replication (Premium Tier)"
-            R1[Region 1<br/>Primary Registry]
-            R2[Region 2<br/>Registry Replica]
-            R3[Region 3<br/>Registry Replica]
-        end
-    end
-    
-    CP --> API
-    API --> AS
-    API --> Z1
-    API --> Z2
-    API --> Z3
-    
-    R1 -.->|Async Replication| R2
-    R1 -.->|Async Replication| R3
-    R2 -.->|Content-Addressable<br/>Storage Sync| R3
-    
-    Z1 <-->|Synchronous<br/>Replication| Z2
-    Z2 <-->|Synchronous<br/>Replication| Z3
-    Z1 <-->|Synchronous<br/>Replication| Z3
-```
+:::image type="content" source="./media/reliability-acr/acr-reliability-architecture-overview.png" alt-text="Diagram that shows Azure Container Registry architecture with control plane, data plane, storage layer, zone redundancy across availability zones, and geo-replication across regions." border="false" lightbox="./media/reliability-acr/acr-reliability-architecture-overview.png":::
 
 ### Regional storage
 
@@ -152,57 +111,9 @@ Zone redundancy is automatically enabled when you create a Premium registry in a
 
 During normal operations with zone redundancy enabled, Azure Container Registry automatically distributes registry operations across multiple availability zones. Container image pushes and pulls are load-balanced across zones to optimize performance and ensure high availability. For operational details, see [Azure Container Registry best practices](/azure/container-registry/container-registry-best-practices).
 
-```mermaid
-graph LR
-    subgraph "Client Applications"
-        C1[Docker Client 1]
-        C2[Kubernetes Cluster]
-        C3[CI/CD Pipeline]
-    end
-    
-    subgraph "Load Balancer"
-        LB[Azure Load Balancer<br/>Active-Active Distribution]
-    end
-    
-    subgraph "Azure Container Registry - Zone Redundant"
-        subgraph "Zone 1"
-            ACR1[Registry Endpoint<br/>Zone 1<br/>- Push/Pull Operations<br/>- API Requests]
-            S1[Storage Replica 1]
-        end
-        
-        subgraph "Zone 2"
-            ACR2[Registry Endpoint<br/>Zone 2<br/>- Push/Pull Operations<br/>- API Requests]
-            S2[Storage Replica 2]
-        end
-        
-        subgraph "Zone 3"
-            ACR3[Registry Endpoint<br/>Zone 3<br/>- Push/Pull Operations<br/>- API Requests]
-            S3[Storage Replica 3]
-        end
-    end
-    
-    C1 --> LB
-    C2 --> LB
-    C3 --> LB
-    
-    LB -->|Route to Healthy Zones| ACR1
-    LB -->|Route to Healthy Zones| ACR2
-    LB -->|Route to Healthy Zones| ACR3
-    
-    ACR1 --> S1
-    ACR2 --> S2
-    ACR3 --> S3
-    
-    S1 <-->|Synchronous<br/>Replication| S2
-    S2 <-->|Synchronous<br/>Replication| S3
-    S1 <-->|Synchronous<br/>Replication| S3
-    
-    style ACR1 fill:#90EE90
-    style ACR2 fill:#90EE90
-    style ACR3 fill:#90EE90
-```
+:::image type="content" source="./media/reliability-acr/acr-zone-redundancy-healthy-ops.png" alt-text="Diagram that shows normal zone redundancy operations with clients connecting to a single registry endpoint that automatically routes traffic across three availability zones." border="false" lightbox="./media/reliability-acr/acr-zone-redundancy-healthy-ops.png":::
 
-**Traffic routing between zones**. Container Registry uses an active-active approach where registry operations are distributed across all available zones. The service automatically routes requests to healthy zones and load-balances traffic to optimize performance.
+**Traffic routing between zones**. Container Registry automatically distributes registry operations across all available zones through its built-in service architecture. The registry service automatically routes requests to healthy zones without requiring external load balancers.
 
 **Data replication between zones**. Registry data including container images, manifests, and metadata are synchronously replicated across multiple availability zones. Changes are committed only after successful replication to multiple zones, ensuring data consistency and durability. For storage details, see [Container image storage in Azure Container Registry](/azure/container-registry/container-registry-storage).
 
@@ -210,62 +121,7 @@ graph LR
 
 When a zone becomes unavailable, Azure Container Registry automatically handles the failover process with minimal impact to registry operations:
 
-```mermaid
-graph LR
-    subgraph "Client Applications"
-        C1[Docker Client 1]
-        C2[Kubernetes Cluster]
-        C3[CI/CD Pipeline]
-    end
-    
-    subgraph "Microsoft-Managed Detection"
-        MD[Automatic Zone<br/>Health Detection<br/>- Service Health Monitoring<br/>- Azure Monitor Metrics]
-    end
-    
-    subgraph "Azure Container Registry - Zone Failover"
-        subgraph "Zone 1 - FAILED"
-            ACR1[Registry Endpoint<br/>Zone 1<br/>🔴 UNAVAILABLE]
-            S1[Storage Replica 1<br/>🔴 INACCESSIBLE]
-        end
-        
-        subgraph "Zone 2 - HEALTHY"
-            ACR2[Registry Endpoint<br/>Zone 2<br/>✅ ACTIVE<br/>- Handling Increased Load<br/>- Auto-Retry from Zone 1]
-            S2[Storage Replica 2<br/>✅ OPERATIONAL]
-        end
-        
-        subgraph "Zone 3 - HEALTHY"
-            ACR3[Registry Endpoint<br/>Zone 3<br/>✅ ACTIVE<br/>- Handling Increased Load<br/>- Auto-Retry from Zone 1]
-            S3[Storage Replica 3<br/>✅ OPERATIONAL]
-        end
-    end
-    
-    subgraph "Automatic Traffic Rerouting"
-        TR[Traffic Rerouter<br/>- Automatic Failover<br/>- Load Balancing<br/>- No Config Changes Required]
-    end
-    
-    C1 --> TR
-    C2 --> TR
-    C3 --> TR
-    
-    MD -->|Detects Zone 1 Failure| TR
-    TR -.->|Traffic Blocked| ACR1
-    TR -->|Redirect Traffic| ACR2
-    TR -->|Redirect Traffic| ACR3
-    
-    ACR2 --> S2
-    ACR3 --> S3
-    
-    S2 <-->|Maintains Sync<br/>Data Consistency| S3
-    
-    style ACR1 fill:#FFB6C1
-    style S1 fill:#FFB6C1
-    style ACR2 fill:#90EE90
-    style ACR3 fill:#90EE90
-    style S2 fill:#90EE90
-    style S3 fill:#90EE90
-    style MD fill:#87CEEB
-    style TR fill:#DDA0DD
-```
+:::image type="content" source="./media/reliability-acr/acr-zone-redundancy-failover.png" alt-text="Diagram that shows zone failover scenario where Zone 1 fails and Azure Container Registry automatically routes traffic to healthy zones 2 and 3." border="false" lightbox="./media/reliability-acr/acr-zone-redundancy-failover.png":::
 
 - **Detection and response**. Microsoft-managed automatic detection and failover occur when a zone becomes unavailable. The service automatically routes traffic to remaining healthy zones.
 - **Notification**. Zone-level outages are reflected in Azure Service Health and Azure Monitor metrics. Configure alerts on registry availability metrics to monitor zone health. For monitoring setup, see [Monitor Azure Container Registry](/azure/container-registry/monitor-service).
@@ -290,59 +146,7 @@ Unlike many Azure services, Container Registry geo-replication does not use Azur
 
 Geo-replication automatically synchronizes container images and artifacts across all configured regions. The service uses content-addressable storage to efficiently replicate only the unique image layers, minimizing bandwidth usage and replication time. Registry operations are automatically routed to the nearest regional endpoint for optimal performance. For storage concepts, see [Container image storage in Azure Container Registry](/azure/container-registry/container-registry-storage).
 
-```mermaid
-graph TB
-    subgraph "Global Clients"
-        direction TB
-        C1[Clients in Region 1<br/>- AKS Clusters<br/>- Docker Clients<br/>- CI/CD Pipelines]
-        C2[Clients in Region 2<br/>- AKS Clusters<br/>- Docker Clients<br/>- CI/CD Pipelines]
-        C3[Clients in Region 3<br/>- AKS Clusters<br/>- Docker Clients<br/>- CI/CD Pipelines]
-    end
-    
-    subgraph "Traffic Manager"
-        TM[Azure Traffic Manager<br/>- DNS-based routing<br/>- Nearest endpoint selection<br/>- Health monitoring]
-    end
-    
-    subgraph "Primary Region (Home)"
-        subgraph "Region 1 - East US"
-            PR[Primary Registry<br/>myregistry.azurecr.io<br/>✅ Control + Data Plane<br/>- All registry operations<br/>- Management operations]
-            PS[Storage Layer 1<br/>- Container Images<br/>- Manifests<br/>- Artifacts]
-        end
-    end
-    
-    subgraph "Replica Regions"
-        subgraph "Region 2 - West Europe"
-            RR2[Registry Replica<br/>myregistry.azurecr.io<br/>✅ Data Plane Only<br/>- Push/Pull operations<br/>- Read operations]
-            RS2[Storage Layer 2<br/>- Replicated Images<br/>- Synchronized Manifests<br/>- Local Artifacts]
-        end
-        
-        subgraph "Region 3 - East Asia"
-            RR3[Registry Replica<br/>myregistry.azurecr.io<br/>✅ Data Plane Only<br/>- Push/Pull operations<br/>- Read operations]
-            RS3[Storage Layer 3<br/>- Replicated Images<br/>- Synchronized Manifests<br/>- Local Artifacts]
-        end
-    end
-    
-    C1 --> TM
-    C2 --> TM
-    C3 --> TM
-    
-    TM -->|Routes to nearest| PR
-    TM -->|Routes to nearest| RR2
-    TM -->|Routes to nearest| RR3
-    
-    PR --> PS
-    RR2 --> RS2
-    RR3 --> RS3
-    
-    PS -.->|Async Replication<br/>Content-Addressable<br/>Unique Layers Only| RS2
-    PS -.->|Async Replication<br/>Content-Addressable<br/>Unique Layers Only| RS3
-    RS2 -.->|Cross-region Sync| RS3
-    
-    style PR fill:#FFD700
-    style RR2 fill:#90EE90
-    style RR3 fill:#90EE90
-    style TM fill:#87CEEB
-```
+:::image type="content" source="./media/reliability-acr/acr-geo-replication-healthy-ops.png" alt-text="Diagram that shows geo-replication architecture with global clients connecting to primary and replica registries across multiple regions with asynchronous replication." border="false" lightbox="./media/reliability-acr/acr-geo-replication-healthy-ops.png":::
 
 ### Region support
 
@@ -382,75 +186,7 @@ During normal multi-region operations, Azure Container Registry synchronizes dat
 
 When a region becomes unavailable, container operations can continue using alternative regional endpoints:
 
-```mermaid
-graph TB
-    subgraph "Client Applications"
-        direction TB
-        C1[AKS Cluster<br/>Primary Region]
-        C2[CI/CD Pipeline<br/>Primary Region]
-        C3[Docker Client<br/>Primary Region]
-    end
-    
-    subgraph "Health Monitoring"
-        HM[Application Health Checks<br/>- Registry endpoint monitoring<br/>- DNS resolution tests<br/>- Container pull/push validation]
-    end
-    
-    subgraph "Before Outage - Normal Operations"
-        subgraph "Primary Region - East US"
-            PR1[✅ Primary Registry<br/>myregistry.azurecr.io<br/>- All operations available<br/>- Lowest latency]
-        end
-        
-        subgraph "Secondary Region - West Europe"
-            RR1[✅ Replica Registry<br/>myregistry.azurecr.io<br/>- Data plane operations<br/>- Standby ready]
-        end
-        
-        subgraph "Tertiary Region - East Asia"
-            RR2[✅ Replica Registry<br/>myregistry.azurecr.io<br/>- Data plane operations<br/>- Standby ready]
-        end
-    end
-    
-    subgraph "After Outage - Failover State"
-        subgraph "Primary Region - East US"
-            PR2[🔴 Primary Registry<br/>myregistry.azurecr.io<br/>- Region unavailable<br/>- DNS resolution fails<br/>- Network timeouts]
-        end
-        
-        subgraph "Secondary Region - West Europe"
-            RR3[✅ Active Replica Registry<br/>myregistry.azurecr.io<br/>- Handling redirected traffic<br/>- All data plane operations<br/>- Increased load]
-        end
-        
-        subgraph "Tertiary Region - East Asia"
-            RR4[✅ Active Replica Registry<br/>myregistry.azurecr.io<br/>- Handling redirected traffic<br/>- All data plane operations<br/>- Increased load]
-        end
-    end
-    
-    subgraph "Failover Logic"
-        FL[Application Failover<br/>- Automatic endpoint switching<br/>- Retry logic with backoff<br/>- Health check validation<br/>- Load balancing]
-    end
-    
-    C1 --> HM
-    C2 --> HM
-    C3 --> HM
-    
-    HM -.->|Normal State<br/>Primary endpoint| PR1
-    HM -.->|Detects failure<br/>Switches to replica| RR3
-    HM -.->|Load balancing<br/>Multiple replicas| RR4
-    
-    PR1 -.->|Async replication| RR1
-    RR1 -.->|Cross-region sync| RR2
-    
-    HM -->|Triggers failover| FL
-    FL -->|Redirects traffic| RR3
-    FL -->|Redirects traffic| RR4
-    
-    style PR1 fill:#90EE90
-    style RR1 fill:#87CEEB
-    style RR2 fill:#87CEEB
-    style PR2 fill:#FFB6C1
-    style RR3 fill:#98FB98
-    style RR4 fill:#98FB98
-    style HM fill:#DDA0DD
-    style FL fill:#F0E68C
-```
+:::image type="content" source="./media/reliability-acr/acr-geo-replication-failover.png" alt-text="Diagram that shows regional failover scenario where primary region becomes unavailable and application health monitoring triggers failover to replica regions." border="false" lightbox="./media/reliability-acr/acr-geo-replication-failover.png":::
 
 - **Detection and response**. Customer applications are responsible for detecting regional endpoint unavailability and switching to alternative regions. Configure health checks and failover logic in your container orchestration platforms. For monitoring guidance, see [Monitor Azure Container Registry](/azure/container-registry/monitor-service).
 - **Notification**. Regional outages are reported through Azure Service Health. Monitor registry availability metrics for each regional endpoint to detect issues. For service health information, see [Azure Service Health](/azure/service-health/).
