@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
 ---
 
-# Synchronize APIs from an API Management instance (preview)
+# Synchronize APIs from an API Management instance
 
 This article shows how to integrate an API Management instance so that the instances's APIs are continuously kept up to date in your [API center](overview.md) inventory. 
 
@@ -30,7 +30,6 @@ When you integrate an API Management instance as an API source, the following ha
 API Management APIs automatically synchronize to the API center whenever existing APIs' settings change (for example, new versions are added), new APIs are created, or APIs are deleted. This synchronization is one-way from API Management to your Azure API center, meaning API updates in the API center aren't synchronized back to the API Management instance.
 
 > [!NOTE]
-> * Integration of Azure API Management is currently in preview.
 > * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) for the number of integrated API Management instances (API sources).
 > * An integrated API Management instance can be configured in a virtual network.
 > * API updates in API Management typically synchronize to your API center within minutes, but synchronization can take up to 24 hours.
