@@ -23,8 +23,6 @@ After a runtime upgrade, before a Baremetal Machine is shutdown for reimaging, t
 
 However, a race condition may occur wherein the machine lifecycle controller fails to find the virt-launcher pods responsible for deploying Virtual Machines. This is because the virt-launcher pod's image pull job is not yet complete. Only after the image pull job is complete will the pod be schedulable to a Baremetal Machine. When the machine lifecycle controller examines these virt-launcher pods during the uncordon action execution, it cannot find which Baremetal Machine the pod is tied to, and skips the pod and the Virtual Machine it represents.
 
-This problem only appears during uncordon actions initiated by the machine lifecycle controller after runtime upgrades. It should occur infrequently on small clusters but frequently for large clusters, as multiple concurrent image pulls tends to result in longer scheduling times.
-
 ## Procedure
 
 After Kubernetes Cluster Nodes are discovered in the `Ready,SchedulingDisabled` state, the following remediation may be engaged.
