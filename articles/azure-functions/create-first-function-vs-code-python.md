@@ -2,10 +2,11 @@
 title: Create a Python function using Visual Studio Code - Azure Functions
 description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 09/10/2024
+ms.date: 06/26/2025
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete, ai-video-demo
 ai-usage: ai-assisted
+ms.custom: copilot-scenario-highlight
 ---
 
 # Quickstart: Create a function in Azure with Python using Visual Studio Code
@@ -79,6 +80,23 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
 After you verify that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
+
+## Use AI to validate user input in your function
+
+You can use AI tools, such as GitHub Copilot in Visual Studio Code, to generate Python code that updates the existing function to handle user data cleaning and validation. You can customize the prompt to add specifics per your requirements.
+
+The following text shows an example prompt for Copilot Chat:
+
+```copilot-prompt
+Generate Python code to modify current function to build an Azure Function API endpoint that:
+Accepts user data: {"name": " john doe ", "email": "JOHN@TEST.COM", "age": 25}
+Returns cleaned data: {"name": "John Doe", "email": "john@test.com", "age": 25, "category": "Adult"}
+Validates required fields and data formats
+Handles errors gracefully with clear messages
+Uses POST method and JSON content type
+```
+
+GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
