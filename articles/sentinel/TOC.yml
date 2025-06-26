@@ -196,8 +196,6 @@
               href: sap/reference-systemconfig.md
         - name: Enable SAP detections and threat protection
           href: sap/deployment-solution-configuration.md
-        - name: Automatic attack disruption for SAP
-          href: sap/deployment-attack-disrupt.md
         - name: Integrate SAP across multiple workspaces
           href: sap/cross-workspace.md
         - name: Monitor SAP systems
