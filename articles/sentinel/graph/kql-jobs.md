@@ -36,15 +36,16 @@ You can create a job by selecting the **Create job** button a KQL query tab or d
 
 ## Permissions
 
-[!INCLUDE [sentinel-data-lake-read-permissions](../includes/sentinel-data-lake-read-permissions.md)]
-[!INCLUDE [sentinel-data-lake-job-permissions](../includes/sentinel-data-lake-job-permissions.md)]
-
-For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](./roles-permissions.md).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 
 ## Create a job
 
-To create jobs to run on a schedule or one-time, follow the steps below:
+You can create a job to run a KQL query against the data in the lake tier and promote the results to the analytics tier. You can create jobs to run on a schedule or one-time. When you create a job, you specify the destination workspace and table for the results. The results can be written to a new table or appended to an existing table in the analytics tier.
+
+You can manage jobs from the **Jobs** management page under **Data lake exploration** in the navigation panel. Use the job page to create new jobs, view the list of jobs, their status, and their details. You can also run, edit, or delete and disable jobs. For more information on managing jobs, see [Manage KQL jobs](kql-manage-jobs.md).
+
+To create jobs to run on a schedule or one-time, follow the steps below. 
 
 1. You can start the job creation process from KQL query editor, or from the jobs management page.
     1. To create a job from the KQL query editor, select the **Create job** button in the upper right corner of the query editor. 
@@ -95,11 +96,11 @@ In the **Schedule the query job** panel, select whether you want to run the job 
 1. The job is scheduled and the following page is displayed. You can view the job by selecting the link.
     :::image type="content" source="media/kql-jobs/job-successfully-scheduled.png" alt-text="A screenshot showing the job created page." lightbox="media/kql-jobs/job-successfully-scheduled.png":::
 
-## Manage jobs
 
-You can manage jobs in the Microsoft Sentinel data lake from the **Jobs** management page. From this page, you can view all jobs, their status, and their details. You can also run, edit, or delete jobs from this page. For more information on managing jobs, see [Manage KQL jobs](kql-manage-jobs.md).
 
-### Job limitations
+### Job limitations and troubleshooting
+
+The following table lists the limitations for KQL jobs in the Microsoft Sentinel data lake.
 
 |Category| Limit|
 |---|---|
@@ -109,6 +110,12 @@ You can manage jobs in the Microsoft Sentinel data lake from the **Jobs** manage
 |Concurrent jobs| 3 jobs |
 |Query scope| Single workspace|
 |Output tables per job| 1 table |
+
+> [!NOTE]
+>  Partial results may be promoted if the job's query exceeds the one hour limit.
+
+For troubleshooting tips and error messages, see [Troubleshooting KQL queries for the Microsoft Sentinel data lake (Preview)](troubleshooting-kql.md).
+
 
 ## Related content
 
