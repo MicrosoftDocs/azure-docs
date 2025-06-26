@@ -88,7 +88,7 @@ items:
           href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
           displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn
         - name: Configure OPC UA user authentication
-          href: discover-manage-assets/howto-configure-opcua-authentication-options.md
+          href: discover-manage-assets/howto-configure-opc-ua-authentication-options.md
           displayName: connector, username, password, Key Vault, secret, sync, synchronize, auth, authn
         - name: Configure and use automatic asset discovery
           href: discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri.md
