@@ -51,12 +51,12 @@ You can write data to the lake tier and analytics tier using notebooks. The Micr
  
 ## Jobs and Scheduling
 
-You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Use jobs to process data and write results to custom tables in the lake tier or analytics tier. For more information, see [Create and manage Jupyter notebook jobs (Preview)](./jupyter-notebook-jobs.md).
+You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Use jobs to process data and write results to custom tables in the lake tier or analytics tier. For more information, see [Create and manage Jupyter notebook jobs (Preview)](./notebook-jobs.md).
 
 
 ## Related content
 
 - [Microsoft Sentinel data lake overview (Preview)](./sentinel-lake-overview.md)
-- [Explore the Microsoft Sentinel data lake using Jupyter notebooks (Preview)](./jupyter-notebooks.md)
+- [Explore the Microsoft Sentinel data lake using Jupyter notebooks (Preview)](./notebooks.md)
 - [Sample notebooks for Microsoft Sentinel data lake (Preview)](./notebook-examples.md)
 - [Microsoft Sentinel Provider class reference (Preview)](./sentinel-provider-class-reference.md)

@@ -37,7 +37,7 @@ Before you can use the Microsoft Sentinel extension for Visual Studio Code, you 
 
 ### Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run notebooks against those workspaces in the lake tier. For more information, see [Microsoft Sentinel data lake roles and permissions](../roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run notebooks against those workspaces in the lake tier. For more information, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 ### Install Visual Studio Code  
   
@@ -53,7 +53,7 @@ The Microsoft Sentinel extension for Visual Studio Code (VS Code) is installed f
 1. Select the **Microsoft Sentinel** extension and select **Install**
 1. After the extension is installed,  the Microsoft Sentinel shield icon appears in the left toolbar.
 
-  :::image type="content" source="./media/jupyter-notebooks/install-Sentinel-extension.png" lightbox="./media/jupyter-notebooks/install-sentinel-extension.png" alt-text="A screenshot showing the extension market place.":::  
+  :::image type="content" source="./media/notebooks/install-Sentinel-extension.png" lightbox="./media/notebooks/install-sentinel-extension.png" alt-text="A screenshot showing the extension market place.":::  
 
 Install the GitHub Copilot extension for Visual Studio Code to enable code completion and suggestions in notebooks. 
 
@@ -75,11 +75,11 @@ After installing the Microsoft Sentinel extension, you can start exploring lake-
 
 1. A dialog appears with the following text **The extension "Microsoft Sentinel" wants to sign in using Microsoft**. Select **Allow**.
 
-:::image type="content" source="./media/jupyter-notebooks/sign-in.png" lightbox="./media/jupyter-notebooks/sign-in.png" alt-text="A screenshot showing the sign in dialog."::: 
+:::image type="content" source="./media/notebooks/sign-in.png" lightbox="./media/notebooks/sign-in.png" alt-text="A screenshot showing the sign in dialog."::: 
 
 1. Select your account name to complete the sign in.
  
-:::image type="content" source="./media/jupyter-notebooks/select-account.png" lightbox="./media/jupyter-notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
+:::image type="content" source="./media/notebooks/select-account.png" lightbox="./media/notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
 
 ### View lake tables and jobs
 
@@ -87,17 +87,17 @@ Once you sign in, the Microsoft Sentinel extension displays a list of **Lake tab
 
 For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
 
-:::image type="content" source="./media/jupyter-notebooks/tables-and-jobs.png" lightbox="./media/jupyter-notebooks/tables-and-jobs.png" alt-text="A screenshot showing the list of tables, jobs, and the selected table's metadata."::: 
+:::image type="content" source="./media/notebooks/tables-and-jobs.png" lightbox="./media/notebooks/tables-and-jobs.png" alt-text="A screenshot showing the list of tables, jobs, and the selected table's metadata."::: 
 
 ## Create a new notebook
  
 1. To create a new notebook, use one of the following methods
 
   1. Enter *>* in the search box or press **Ctrl+Shift+P** and then enter *Create New Jupyter Notebook*  
-  :::image type="content" source="./media/jupyter-notebooks/create-new-notebook.png" lightbox="./media/jupyter-notebooks/create-new-notebook.png" alt-text="A screenshot showing how to create a new notebook from the search bar.":::
+  :::image type="content" source="./media/notebooks/create-new-notebook.png" lightbox="./media/notebooks/create-new-notebook.png" alt-text="A screenshot showing how to create a new notebook from the search bar.":::
 
   1. Select File > New File, then select **Jupyter Notebook** from the dropdown.  
-  :::image type="content" source="./media/jupyter-notebooks/new-file-notebook.png" lightbox="./media/jupyter-notebooks/new-file-notebook.png" alt-text="A screenshot showing how to create a new notebook form the file menu.":::
+  :::image type="content" source="./media/notebooks/new-file-notebook.png" lightbox="./media/notebooks/new-file-notebook.png" alt-text="A screenshot showing how to create a new notebook form the file menu.":::
 
 
 1. In the new notebook, paste the following code into the first cell.
@@ -112,20 +112,20 @@ For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
    ```  
 
 1. Select the **Run** triangle to execute the code in the notebook. The results are displayed in the output pane below the code cell.  
-  :::image type="content" source="./media/jupyter-notebooks/run-notebook.png" lightbox="./media/jupyter-notebooks/run-notebook.png" alt-text="A screenshot showing how to run a notebook cell.":::
+  :::image type="content" source="./media/notebooks/run-notebook.png" lightbox="./media/notebooks/run-notebook.png" alt-text="A screenshot showing how to run a notebook cell.":::
 
 1. Select **Microsoft Sentinel** from the list for a list of runtime pools.
-  :::image type="content" source="./media/jupyter-notebooks/select-msg-runtime.png" lightbox="./media/jupyter-notebooks/select-msg-runtime.png" alt-text="A screenshot showing the runtime picker.":::  
+  :::image type="content" source="./media/notebooks/select-msg-runtime.png" lightbox="./media/notebooks/select-msg-runtime.png" alt-text="A screenshot showing the runtime picker.":::  
 
 1. Select **Microsoft Sentinel Medium** to run the notebook in the medium sized runtime pool. For more information on the different runtimes, see [Selecting the appropriate Microsoft Sentinel runtime](#selecting-the-appropriate-runtimepool).
-  :::image type="content" source="./media/jupyter-notebooks/select-kernel-size.png" lightbox="./media/jupyter-notebooks/select-kernel-size.png" alt-text="A screenshot showing the run pool size picker.":::  
+  :::image type="content" source="./media/notebooks/select-kernel-size.png" lightbox="./media/notebooks/select-kernel-size.png" alt-text="A screenshot showing the run pool size picker.":::  
 
 
 > [!NOTE]
 > Selecting the kernel starts the Spark session and runs the code in the notebook. After selecting the pool, it can take 3-5 mins for the session to start. Subsequent runs a faster as the session is already active.
 
 When the session is started, the code in the notebook runs and the results are displayed in the output pane below the code cell, for example:
-    :::image type="content" source="media/jupyter-notebooks/results.png" lightbox="media/jupyter-notebooks/results.png" alt-text="A screenshot showing the results from running a notebook cell.":::
+    :::image type="content" source="media/notebooks/results.png" lightbox="media/notebooks/results.png" alt-text="A screenshot showing the results from running a notebook cell.":::
 
 
 For sample notebooks that demonstrate how to interact with the Microsoft Sentinel data lake, see [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md).
@@ -165,12 +165,12 @@ Logs can be viewed in the **Output** pane of Visual Studio Code.
 1. In the **Output** pane, select **Microsoft Sentinel** from the drop-down.  
 1. Select **Debug** to include detailed log entries.  
 
-:::image type="content" source="media/jupyter-notebooks/output-pane.png" lightbox="media/jupyter-notebooks/output-pane.png" alt-text="A screenshot showing the output pane.":::
+:::image type="content" source="media/notebooks/output-pane.png" lightbox="media/notebooks/output-pane.png" alt-text="A screenshot showing the output pane.":::
 
    
 ## Jobs and scheduling
 
-You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier. For more information on creating and managing jobs, see [Create and manage Jupyter notebook jobs](./jupyter-notebook-jobs.md).
+You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier. For more information on creating and managing jobs, see [Create and manage Jupyter notebook jobs](./notebook-jobs.md).
 
 ## Service limits 
  
@@ -224,8 +224,8 @@ The following table lists common errors you may encounter when working with note
 
 ## Related content
 
-- [Create and manage notebook jobs](./jupyter-notebook-jobs.md)
+- [Create and manage notebook jobs](./notebook-jobs.md)
 - [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
 - [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
 - [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
-- [Microsoft Sentinel data lake roles and permissions](../roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
