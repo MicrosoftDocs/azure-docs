@@ -29,7 +29,7 @@ You can use the following DNS resolution scenarios:
   
 - [Peered virtual network workloads without Azure Private Resolver](#virtual-network-workloads-without-custom-dns-server)
 
-- [On-premises workloads using a DNS forwarder)](#on-premises-workloads-using-a-dns-forwarder-without-azure-private-resolver)
+- [On-premises workloads using a DNS forwarder without Azure Private Resolver)](#on-premises-workloads-using-a-dns-forwarder-without-azure-private-resolver)
    
 - [Azure Private Resolver for on-premises workloads](#azure-private-resolver-for-on-premises-workloads)
   
@@ -88,7 +88,7 @@ To configure properly, you need the following resources:
 
 - On-premises network with a custom DNS solution in place
 - Virtual network [connected to on-premises](/azure/architecture/reference-architectures/hybrid-networking/)
-- DNS forwarder deployed in Azure
+- DNS solution in deployed in your Azure environment with the capability to conditionally forward DNS requests
 - Private DNS zone [privatelink.database.windows.net](../dns/private-dns-privatednszone.md) with [type A record](../dns/dns-zones-records.md#record-types)
 - Private endpoint information (FQDN record name and private IP address)
 
