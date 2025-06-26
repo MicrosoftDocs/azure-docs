@@ -60,4 +60,4 @@ Network rules allow or deny traffic based on the network and transport layer. Wh
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure a DNS for virtual networks in Azure Container Apps environments](private-endpoints-and-dns.md)
+> [Configure a DNS for virtual networks in Azure Container Apps environments](private-endpoints-with-dns.md)

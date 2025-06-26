@@ -388,7 +388,7 @@
     - name: Managing outbound connections with Azure Firewall
       href: use-azure-firewall.md
     - name: Private endpoints and DNS
-      href: private-endpoints-and-dns.md
+      href: private-endpoints-with-dns.md
     - name: Securing a custom VNET with an NSG
       href: firewall-integration.md
     - name: Tutorials

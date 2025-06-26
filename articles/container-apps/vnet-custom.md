@@ -407,7 +407,7 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 
 ## Additional resources
 
-- To use VNet-scope ingress, you must set up [DNS](./private-endpoint-with-dns.md).
+- To use VNet-scope ingress, you must set up [DNS](./private-endpoints-with-dns.md).
 
 ## Next steps
 

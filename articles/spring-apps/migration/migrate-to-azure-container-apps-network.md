@@ -126,7 +126,7 @@ For more information, see [Securing a custom VNET in Azure Container Apps with N
 
 Both Azure Spring Apps and Azure Container Apps support the use of custom DNS servers in a customer virtual network. We recommend adding Azure DNS IP `168.63.129.16` as the upstream DNS server in the custom DNS server.
 
-For more information, see [DNS for virtual networks in Azure Container Apps environments](../../container-apps/dns.md).
+For more information, see [DNS for virtual networks in Azure Container Apps environments](../../container-apps/private-endpoints-with-dns.md#dns).
 
 Currently, Azure Container Apps in a Consumption-only environment type doesn't support flushing DNS settings changes as Azure Spring Apps does. For more information, see [Flush DNS settings changes in Azure Spring Apps](../basic-standard/how-to-use-flush-dns-settings.md). However, the workload profile type of environment automatically refreshes DNS settings every 5 minutes.
 
@@ -134,7 +134,7 @@ Azure Container Apps supports deployment with a private DNS zone. For more infor
 
 ## Access an app in Azure Container Apps within a customer virtual network
 
-Azure Container Apps provides both [Public network access](../../container-apps/networking.md#public-network-access) and [Private endpoint](../../container-apps/dns.md) features to expose applications to the internet or to secure them within a private network. Similarly, Azure Spring Apps supports these features as described in the following articles:
+Azure Container Apps provides both [Public network access](../../container-apps/networking.md#public-network-access) and [Private endpoint](../../container-apps/private-endpoints-with-dns.md) features to expose applications to the internet or to secure them within a private network. Similarly, Azure Spring Apps supports these features as described in the following articles:
 
 - [Access an app in Azure Spring Apps in a virtual network](../basic-standard/access-app-virtual-network.md)
 - [Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network](../consumption-dedicated/quickstart-access-standard-consumption-within-virtual-network.md)

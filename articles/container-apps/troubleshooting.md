@@ -58,7 +58,7 @@ You can use the *diagnose and solve problems* tool to find issues with your cont
 If you receive an error message when you try to deploy a new revision, verify that Container Apps is able to pull your container image.
 
 - Ensure your container environment firewall isn't blocking access to the container registry. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
-- If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./private-endpoint-with-dns.md).
+- If your existing VNet uses a custom DNS server instead of the default Azure-provided DNS server, verify your DNS server is configured correctly and that DNS lookup of the container registry doesn't fail. For more information, see [DNS](./private-endpoints-with-dns.md).
 - If you used the Container Apps cloud build feature to generate a container image for you (see [Code-to-cloud path for Azure Container Apps](./code-to-cloud-options.md#new-to-containers), your image isn't publicly accessible, so this section doesn't apply.
 
 For a Docker container that can run as a console application, verify that your image is publicly accessible by running the following command in an elevated command prompt. Before you run this command, replace placeholders surrounded by `<>` with your values.
