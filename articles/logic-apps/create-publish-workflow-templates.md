@@ -15,7 +15,16 @@ ms.date: 06/24/2025
 
 Azure Logic Apps provides prebuilt, reusable automation and integration workflow templates that you can use to speed up the process of building integration applications. These templates follow commonly used patterns and help you streamline development by providing a starting point or baseline with predefined business logic and configurations.
 
-Not only can you kickstart development by using workflow templates, you can create and publish workflow templates for your organization's use alone within an Azure subscription or share them with others. Your template can include artifacts such as schemas, maps, and custom assemblies.
+Templates can include one or more workflows along with their connections, parameters, and documentation. Azure Logic Apps offers the following template types:
+
+| Template type | Description |
+|---------------|-------------|
+| Workflow | Reusable templates that create single workflows. |
+| Accelerators | Bundled solutions that contain multiple related workflows. |
+
+You can find these templates in the template gallery, which opens when you choose to create a workflow by starting with a template. The gallery already contains Microsoft-authored templates for common design and integration patterns.
+
+Not only can you kickstart development by using workflow templates, but you can create and publish workflow templates for your organization's use alone within an Azure subscription or share them with others. Your template can include artifacts such as schemas, maps, and custom assemblies.
 
 Organizational templates let you standardize integration patterns, share best practices, and reuse solutions across your enterprise internally without making them public. This capability is especially useful for businesses that want to promote consistency while keeping options open for flexibility. Whether your scenarios include embedding internal APIs, handling domain-specific logic, or enforcing architectural patterns, organizational templates help you scale and grow while you stay in control.
 
@@ -166,7 +175,7 @@ On the **Parameters** tab, add customization for any parameters that you want fo
    | **Display name** | Yes | The parameter name that appears in Azure portal. |
    | **Default value** | No | The default value for the parameter. |
    | **Description** | No | The description for parameter's purpose. |
-   | **Required Field** | No | Whether or not the workflow requires the parameter. |
+   | **Required Field** | No | Whether the workflow requires the parameter. |
 
 1. When you're done, select **Save**.
 
