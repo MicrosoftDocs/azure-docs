@@ -4,7 +4,7 @@ items:
 
   - name: Overview
     items:
-    - name: Introduction
+    - name: What is Azure IoT?
       href: iot-introduction.md
     - name: IoT solution components
       expanded: true
@@ -27,88 +27,97 @@ items:
         href: iot-overview-security.md
       - name: Scalability, high availability
         href: iot-overview-scalability-high-availability.md
-    - name: Choose an Azure IoT service
-      href: iot-services-and-technologies.md
+        
+  - name: Choose an Azure IoT service
+    href: iot-services-and-technologies.md
 
-  - name: How-to guides
+  - name: Develop with IoT devices
     items:
-      - name: Use smartphone device app
-        href: iot-phone-app-how-to.md
-      - name: Use IoT Explorer
-        href: howto-use-iot-explorer.md
-      - name: Connect an on-premises SAP system to Azure
-        href: howto-connect-on-premises-sap-to-azure.md
-      - name: Enable an industrial dataspace in Azure
-        href: howto-iot-industrial-dataspaces.md
-
-  - name: Tutorials
-    items:
-    - name: Send telemetry to IoT Hub
+    - name: What is IoT device development
+      href: concepts-iot-device-development.md
+    - name: Tutorial - Send telemetry to IoT Hub
       href: tutorial-send-telemetry-iot-hub.md
-    - name: Embedded device development
+    - name: Develop embedded devices
       items:
-        - name: Connect an MXCHIP AZ3166 to IoT Hub
+        - name: Tutorial - Connect an MXCHIP AZ3166 to IoT Hub
           href: tutorial-devkit-mxchip-az3166-iot-hub.md
-        - name: Connect an STMicroelectronics B-L475E to IoT Hub
-          href: tutorial-devkit-stm-b-l475e-iot-hub.md
-        - name: Connect an ESPRESSIF ESP32 Kit to IoT Hub
-          href: tutorial-devkit-espressif-esp32-freertos-iot-hub.md
-        - name: Troubleshoot embedded device tutorials
+        - name: Tutorial - Connect an STMicroelectronics B-L475E to IoT Hub
+          href: Tutorial-devkit-stm-b-l475e-iot-hub.md
+        - name: Tutorial - Connect an ESPRESSIF ESP32 Kit to IoT Hub
+          href: Tutorial-devkit-espressif-esp32-freertos-iot-hub.md
+        - name: Tutorial - Troubleshoot embedded device
           href: troubleshoot-embedded-device-tutorials.md
-    - name: Use MQTT to connect a device
+    - name: IoT device types
+      href: concepts-iot-device-types.md
+    - name: C SDK and Embedded C SDK usage scenarios
+      href: concepts-using-c-sdk-and-embedded-c-sdk.md
+    - name: Manage device reconnections
+      href: concepts-manage-device-reconnections.md
+    - name: IoT device selection
+      href: concepts-iot-device-selection.md
+  - name: Integrate with IoT Plug and Play
+    items:
+    - name: What is IoT Plug and Play?
+      href: overview-iot-plug-and-play.md
+    - name: Turn smartphone into an IoT device
+      href: iot-phone-app-how-to.md
+    - name: Test your IoT Plug and Play device
+      href: howto-use-iot-explorer.md
+    - name: Architecture
+      href: concepts-architecture.md
+    - name: IoT Plug and Play conventions
+      href: concepts-convention.md
+    - name: IoT Plug and Play message payloads
+      href: concepts-message-payloads.md
+    - name: Device developer guide
+      href: concepts-developer-guide-device.md
+    - name: Service developer guide
+      href: concepts-developer-guide-service.md
+    - name: Digital twins
+      href: concepts-digital-twin.md
+    - name: Device models
+      items:
+      - name: Modeling guide
+        href: concepts-modeling-guide.md
+      - name: Use models in a solution
+        href: concepts-model-discovery.md
+  - name: Communicate with MQTT protocol
+    items:
+    - name: Use MQTT with IoT Hub
+      href: iot-mqtt-connect-to-iot-hub.md
+    - name: Use MQTT with DPS
+      href: iot-mqtt-connect-to-iot-dps.md
+    - name: Tutorial - Connect a device with MQTT
       href: tutorial-use-mqtt.md
+    
+  - name: Solutions
+    items:
     - name: Implement the Industrial IoT reference solution
       href: tutorial-iot-industrial-solution-architecture.md
+    - name: Connect an on-premises SAP system to Azure
+      href: howto-connect-on-premises-sap-to-azure.md
+    - name: Enable an industrial dataspace in Azure
+      href: howto-iot-industrial-dataspaces.md
 
-  - name: Concepts
-    items:
-      - name: IoT device development
-        items:
-        - name: What is IoT device development
-          href: concepts-iot-device-development.md
-        - name: IoT device types
-          href: concepts-iot-device-types.md
-        - name: C SDK and Embedded C SDK usage scenarios
-          href: concepts-using-c-sdk-and-embedded-c-sdk.md
-        - name: Manage device reconnections
-          href: concepts-manage-device-reconnections.md
-        - name: IoT device selection
-          href: concepts-iot-device-selection.md
-      - name: IoT Plug and Play
-        items:
-        - name: What is IoT Plug and Play?
-          href: overview-iot-plug-and-play.md
-        - name: Architecture
-          href: concepts-architecture.md
-        - name: IoT Plug and Play conventions
-          href: concepts-convention.md
-        - name: IoT Plug and Play message payloads
-          href: concepts-message-payloads.md
-        - name: Device developer guide
-          href: concepts-developer-guide-device.md
-        - name: Service developer guide
-          href: concepts-developer-guide-service.md
-        - name: Digital twins
-          href: concepts-digital-twin.md
-        - name: Device models
-          items:
-          - name: Modeling guide
-            href: concepts-modeling-guide.md
-          - name: Use models in a solution
-            href: concepts-model-discovery.md
-      - name: MQTT support
-        items:
-        - name: Use MQTT with IoT Hub
-          href: iot-mqtt-connect-to-iot-hub.md
-        - name: Use MQTT with DPS
-          href: iot-mqtt-connect-to-iot-dps.md
-
-  - name: Resources
+  - name: References
     items:
     - name: Support and help options
       href: iot-support-help.md
     - name: IoT glossary
       href: iot-glossary.md
+    - name: Azure IoT SDKs
+      items:
+      - name: Device and Service SDKs
+        href: iot-sdks.md
+      - name: Azure IoT Operations SDKs
+        href: https://github.com/Azure/iot-operations-sdks
+    - name: Azure IoT Tools for VS Code
+      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
+    - name: Azure IoT Explorer tool
+      href: https://github.com/Azure/azure-iot-explorer
+
+  - name: Resources
+    items:
     - name: Azure IoT services
       items:
       - name: Azure IoT Operations
@@ -125,14 +134,3 @@ items:
         href: ../azure-maps/index.yml
       - name: Time Series Insights
         href: ../time-series-insights/index.yml
-    - name: Azure IoT SDKs
-      items:
-      - name: Device and Service SDKs
-        href: iot-sdks.md
-      - name: Azure IoT Operations SDKs
-        href: https://github.com/Azure/iot-operations-sdks
-    - name: Azure IoT Tools for VS Code
-      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
-    - name: Azure IoT Explorer tool
-      href: https://github.com/Azure/azure-iot-explorer
-
