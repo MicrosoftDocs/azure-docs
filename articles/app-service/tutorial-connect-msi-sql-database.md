@@ -6,7 +6,7 @@ ms.author: cephalin
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/17/2025
+ms.date: 06/26/2025
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ---
 # Tutorial: Use managed identity to connect an Azure web app to an Azure SQL database without secrets
@@ -258,7 +258,7 @@ An ASP.NET app uses [Entity Framework](/ef/ef6/) by default.
        }
    ```
 
-1. Add the following attribute to the file.
+1. Add the following attribute to the `MyDatabaseContext` or other database context class declaration:
 
    ```csharp
    [DbConfigurationType(typeof(AppServiceConfiguration))]
