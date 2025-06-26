@@ -14,8 +14,8 @@ The purpose of this guide is to troubleshoot a Kubernetes Cluster when 1 or more
 
 ## Prerequisites
 
-- Ability to run kubectl commands against the KubernetesCluster
-- Familiarity with the capabilities referenced in this article by reviewing the [Baremetalmachine actions](howto-baremetal-functions.md)
+- Ability to run kubectl commands against the Kubernetes Cluster
+- Familiarity with the capabilities referenced in this article by reviewing [how to connect to Kubernetes Clusters](howto-kubernetes-cluster-connect.md)
 
 ## Typical Cause
 
@@ -42,7 +42,7 @@ After Kubernetes Cluster Nodes are discovered in the `Ready,SchedulingDisabled` 
     node/example-naks-agentpool1-md-s8vp4-xp98x uncordoned
     ~~~
 
-    Alternatively, as this is more common in larger scale deployments, it may be more desirable to perform this action in bulk. In this case, issue the following looping command to find and uncordon all Nodes.
+    Alternatively, as this is more common in larger scale deployments, it may be desirable to perform this action in bulk. In this case, issue the uncordon command as part of a loop to find and uncordon all affected Nodes.
 
     ~~~bash
     cordoned_nodes=$(kubectl get nodes -o wide --no-headers | awk '/SchedulingDisabled/ {print $1}')
