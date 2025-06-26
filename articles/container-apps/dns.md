@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Private endpoints and DNS for virtual networks in Azure Container Apps environments
 
-Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space and should be configured with a private DNS zone.
+Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space and is typically configured with a private DNS zone.
 
 Private endpoints are supported for both Consumption and Dedicated plans in workload profile environments.
 
