@@ -55,7 +55,7 @@ Currently, the only southbound connectors available in Azure IoT Operations are 
 - A device for OPC UA stores the information you need to connect to an OPC UA server.
 - A device for the media connector stores the information you need to connect to a media source.
 
-For more information, see [What is the connector for OPC UA?](./overview-opcua-broker.md)
+For more information, see [What is the connector for OPC UA?](./overview-opc-ua-connector.md)
 
 The following table highlights some important properties that are included in A device definition.
 

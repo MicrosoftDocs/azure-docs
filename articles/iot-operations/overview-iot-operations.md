@@ -71,7 +71,7 @@ Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You ca
 
 Azure IoT Operations can connect to various industrial devices and assets. You can use the [operations experience](discover-manage-assets/howto-configure-opc-ua.md) or the [Azure CLI](discover-manage-assets/howto-configure-opc-ua.md) to manage the devices and assets that you want to connect to.
 
-The [connector for OPC UA](discover-manage-assets/overview-opcua-broker.md) manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers to MQTT broker topics.
+The [connector for OPC UA](discover-manage-assets/overview-opc-ua-connector.md) manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers to MQTT broker topics.
 
 Azure IoT Operations uses the Azure Device Registry to store information about local assets in the cloud. The service enables you to [manage assets on the edge from the Azure portal or the Azure CLI](discover-manage-assets/howto-secure-assets.md). The Azure Device Registry also includes a schema registry for the assets. Data flows use these schemas to deserialize and serialize messages.
 
