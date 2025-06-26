@@ -717,9 +717,9 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 
 ## Scale behavior
 
-Scaling behavior has the following defaults:
+Scaling has the following behaviors:
 
-| Parameter | Value |
+| Behavior | Value |
 |--|--|
 | Polling interval | 30 seconds |
 | Cool down period | 300 seconds |
@@ -734,7 +734,7 @@ Scaling behavior has the following defaults:
 - **Scale up stabilization window** is how long to wait before performing a scale up decision once scale up conditions were met.
 - **Scale down stabilization window** is how long to wait before performing a scale down decision once scale down conditions were met.
 - **Scale up step** is how many replicas are added as your container app scales out. It starts at 1, then increases to 4, 8, 16, 32, and so on, up to the configured maximum replica count.
-- **Scale down step** is how many replicas are removed as your container app scales in. By default, 100% of replicas that need to shut down are removed.
+- **Scale down step** is how many replicas are removed as your container app scales in. 100% of replicas that need to shut down are removed.
 - **Scaling algorithm** is the formula used to calculate the current desired number of replicas.
 
 ### Example
