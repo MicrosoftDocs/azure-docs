@@ -682,6 +682,6 @@ This feature gives you access the video frames inside `IncomingVideoStream` to m
     }
     ```
 
-## Next steps
+## Sample code
 
 - Use the sample app on GitHub at [Raw Video](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/raw-video).

@@ -610,6 +610,6 @@ This feature gives you access the video frames inside the `IncomingVideoStream` 
     }
     ```
 
-## Next steps
+## Sample code
 
 - Use the sample app on GitHub at [Raw Video](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/RawVideo).
