@@ -1,5 +1,5 @@
 ---
-title: Using Azure Firewall with Azure Container Apps
+title: Use Azure Firewall with Azure Container Apps
 description: Learn about securing Azure Container Apps using Azure Firewall.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 04/03/2025
 ms.author: cshoe
 ---
 
-# Integrating with Azure Firewall
+# Integrate with Azure Firewall
 
 This article tells you how to integrate your Azure Container Apps environment with Azure Firewall using user defined routes (UDR). Using UDR, you can control how traffic is routed within your virtual network. You can route all outbound traffic from your container apps through Azure Firewall, which provides a central point for monitoring traffic and applying security policies. This setup helps protect your container apps from potential threats. It also helps in meeting compliance requirements by providing detailed logs and monitoring capabilities.
 
@@ -60,4 +60,4 @@ Network rules allow or deny traffic based on the network and transport layer. Wh
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure a DNS for virtual networks in Azure Container Apps environments](dns.md)
+> [Configure a DNS for virtual networks in Azure Container Apps environments](private-endpoints-and-dns.md)
