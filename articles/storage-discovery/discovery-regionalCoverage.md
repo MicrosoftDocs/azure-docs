@@ -46,3 +46,6 @@ This list is temporary and will change over time as Public Preview support conti
 - France South
 - France Central
 - Germany West Central
+
+> [!IMPORTANT]
+> **Storage Discovery Workspace** created in a region can aggregate metrics from storage accounts present in regions as specified in the list above.

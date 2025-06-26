@@ -2,7 +2,7 @@
 
 ### STATUS: DRAFT
 title: Azure Storage Discovery documentation
-summary: Azure Storage Discovery is...
+summary: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into their storage estate at entire organization level and aiding business decisions.
 brand: azure
 
 metadata:
@@ -22,9 +22,6 @@ highlightedContent:
     - title: What is Azure Storage Discovery?
       itemType: concept
       url: overview.md
-    - title: What is Azure Storage Discovery?
-      itemType: concept
-      url: overview.md
  
 # additionalContent section (optional)
 # Card with links style
@@ -36,39 +33,12 @@ additionalContent:
         # Card
         - title: Overview
           links:
-          - url: overview.md
-            text: Planning for a storage discovery deployment
-          - url: overview.md
+          - url: discovery-deploy-planning.md
+            text: Planning for a Storage Discovery deployment
+          - url: discovery-create.md
             text: Deploying a Storage Discovery resource
         # Card
-        - title: Agent
+        - title: Understand Storage Discovery Pricing
           links:
-          - url: https://aka.ms/StorageMover/agent
-            text: Download the latest migration agent image
-          - url: overview.md
-            text: Deploy a Storage Mover agent VM
-          - url: overview.md
-            text: Register an agent VM
-        # Card
-        - title: Authentication & Authorization
-          links:
-          - url: overview.md
-            text: Overview
-          - url: overview.md
-            text: Just-in-time agent authorization
-          - url: overview.md#permissions
-            text: Required admin permissions (RBAC)
-    - title: Manage
-      items:
-        # Card
-        - title: Structure a migration
-          links:
-          - url: overview.md
-            text: Cloud migration basics
-          - url: overview.md
-            text: Manage a project
-        # Card
-        - title: Discovery costs
-          links:
-          - url: overview.md
-            text: Understanding cost components
+          - url: discovery-pricing.md
+            text: Discovery Pricing

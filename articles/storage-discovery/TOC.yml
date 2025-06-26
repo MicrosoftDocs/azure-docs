@@ -9,26 +9,16 @@ items:
 - name: Concepts
   items: 
   - name: Planning for deployment
-    href: overview.md  
+    href: discovery-deploy-planning.md
+  - name: Understand Discovery Pricing
+    href: discovery-pricing.md 
 - name: How-To
   items: 
   - name: Deploy
     items:
     - name: Create Storage Discovery Workspace
-      href: discovery-create.md      
-  - name: Manage
-    items:
-    - name: placeholder
-      href: overview.md    
-  - name: Decommission
-    items: 
-    - name: placeholder
-      href: overview.md     
-  - name: Troubleshoot
-    items: 
-    - name: placeholder
-      href: overview.md    
+      href: discovery-create.md        
 - name: Resources
   items:
-  - name: placeholder
-    href: overview.md
+  - name: Release notes
+    href: discovery-release-notes.md
