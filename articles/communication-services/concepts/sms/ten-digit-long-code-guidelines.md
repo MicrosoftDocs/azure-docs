@@ -31,6 +31,11 @@ You need to complete brand registration and receive approval first. Then you can
 
 A brand represents your business entity and establishes your credibility with carriers. The information provided must match your official business details. Incorrect details can result in rejected brand submissions. Brand registrations are handled through The Campaign Registry (TCR), which is the centralized registry used by carriers to manage 10DLC numbers for A2P messaging. TCR verifies and stores the details about your business and the campaigns you run, allowing carriers to assess and approve your messaging for compliance and delivery.
 
+### Type of Brands supported
+
+ - **Standard:** For most businesses and organizations that have an EIN. Supports multiple campaigns and higher throughput.
+ - **Sole Proprietor:** For individuals or small businesses that don’t have an EIN (Employer Identification Number). Limited to 1 campaign and low message volume. Requires alternative identity verification like a mobile phone bill.
+
 ### Approval time
 
 Brand registration typically takes 2 to 3 business days with TCR (The Campaign Registry) for processing and approval. However, it may take longer if additional information is required or if there are discrepancies in the details provided.
@@ -46,6 +51,8 @@ Brand registration typically takes 2 to 3 business days with TCR (The Campaign R
 | **Vertical**       | Industry in which your business operates. | E-commerce |
 | **Email Address**  | Contact email for registration-related updates. | contact@contoso.com |
 
+For more detailed information, see [How to apply for 10DLC brand and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
+
 ### Tips for successful registration
 
 - Ensure the **EIN/Tax ID** matches official IRS records.
@@ -57,6 +64,18 @@ Brand registration typically takes 2 to 3 business days with TCR (The Campaign R
 Campaign registration enables you to specify the purpose of your messaging (such as marketing, customer service, or two-factor authentication) and how you plan to use 10DLC numbers. This step ensures that your use case complies with regulations so carriers can properly route and filter messages based on the campaign type.
 
 Campaign details must accurately reflect the content and intent of your messages. Providing false or misleading information could lead to rejections or delays in the approval of your campaign.
+
+### Campaigns Types supported
+
+Currently, Azure Communication Services supports:
+ - **Standard campaigns:** The most common campaign type for general A2P messaging, such as 2FA, alerts, marketing, or customer care.
+ - **Low Volume:** For limited or test messaging with low daily traffic. Ideal for small businesses or developers.
+ - **UCaaS (Low Volume):** A sub-type of Low Volume used by approved Unified Communications as a Service providers. Used when each phone number is tied to a human (e.g., employee texting).
+ - **Enhanced:** A higher-throughput campaign type for larger brands or automated communications. May require vetting.
+ - **Emergency:** For public safety alerts from government agencies, schools, or utilities. Strictly regulated.
+ - **Franchise:** For businesses with multiple locations or agents/franchisees sending similar but localized content. Requires disclosure of all sub-entities.
+ - **Charity:** For 501(c)(3) non-profit organizations sending service-related or fundraising messages. Requires proof of tax-exempt status.
+ - **Political:** Not supported at the moment.
 
 ### Approval time
 
@@ -77,6 +96,8 @@ Campaign registration with TCR typically takes 3 to 5 business days for approval
 | **Embedded Links**        | Indicates if messages include URLs. | Yes |
 | **Embedded Phone Numbers**| Indicates if messages include phone numbers. | Yes |
 | **Age-gated Content**     | Indicates if messages are age-restricted. | No |
+
+For more detailed information, see [How to apply for 10DLC brand and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
 
 ### FAQ
 
