@@ -253,7 +253,7 @@ The failback process differs significantly between Microsoft-managed and custome
 
 - **Customer-managed failover (unplanned)**: After an unplanned failover, the storage account is configured with locally redundant storage (LRS). In order to fail back, you need to re-establish the GRS relationship and wait for the data to be replicated.
 
-- **Customer-managed failover (planned)**: After a planned failover, the storage account remains geo-replicated (GRS). You can initiate another failover in order to fail back to the original primary region, and the same failover considerations apply.
+- **Customer-managed failover (planned)**: After a planned failover, the storage account remains geo-replicated (GRS). You can initiate another failover in order to fail back to the original primary region. [The same failover considerations apply](#zone-down-experience).
 
 - **Microsoft-managed failover**: If Microsoft initiates a failover, it's likely that a significant disaster has occurred in the primary region, and the primary region might not be recoverable. Any timelines or recovery plans depends on the extent of the regional disaster and recovery efforts. You should monitor Azure Service Health communications for details.
 
@@ -269,19 +269,23 @@ You can simulate regional failures to test your disaster recovery procedures:
 
 ### Alternative multi-region approaches
 
-The cross-region failover capabilities of Azure Files aren't suitable for the following scenarios:
+It may be the case that the built-in [cross-region failover capabilities](#multi-region-support) of Azure Files don't meet your specific requirements. 
 
-- You use file share types that don't support geo-redundancy.
 
-- Your storage account is in a nonpaired region.
+For example, you might consider alternative multi-region approaches if you:
 
-- Your business uptime goals aren't satisfied by the recovery time or data loss that the built-in failover options provide.
+- Use file share types that don't support geo-redundancy.
 
-- You need to fail over to a region that isn't your primary region's pair.
+- Have a storage account that's in a nonpaired region.
 
-- You need an active/active configuration across regions.
+- Maintain business uptime goals that aren't satisfied by the recovery time or data loss that the built-in failover options provide.
 
-You can design a cross-region failover solution tailored to your needs. A complete treatment of deployment topologies for Azure Files is outside the scope of this article, but you can consider a multi-region deployment model. Common custom multi-region approaches include:
+- Need to fail over to a region that isn't your primary region's pair.
+
+- Need an active/active configuration across regions.
+
+
+You can, however, design a custom cross-region failover solution that's tailored to your needs. Although complete treatment of deployment topologies for Azure Files is outside the scope of this article, below are some common approaches to consider:
 
 - **Multiple storage accounts:** Azure Files can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
 
@@ -291,9 +295,9 @@ You can design a cross-region failover solution tailored to your needs. A comple
 
 ## Backups
 
-Azure Files integrates with Azure Backup to provide point-in-time recovery capabilities that complement redundancy features for protection against accidental deletion, corruption, or ransomware attacks.
+ [Azure Files backup](/azure/backup/azure-file-share-backup-overview) is an integration between Azure Files and Azure Backup. Azure Files backup provides point-in-time recovery features and offers capabilities that complement Azure Files redundancy features to protect your files against accidental deletion, corruption, or ransomware attacks.
 
-[Azure Files backup](/azure/backup/azure-file-share-backup-overview) creates share-level snapshots stored within the same storage account, providing rapid recovery for individual files or entire shares. Backup policies support long retention periods with customizable backup frequency.
+Azure Files backup creates share-level snapshots stored within the same storage account. This allows for the rapid recovery of both individual file and entire files shares. You can also use *backup policies* to provide long retention periods with customizable backup frequency.
 
 ## Service-level agreement
 
