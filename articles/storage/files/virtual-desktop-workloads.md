@@ -4,9 +4,9 @@ description: Learn how to use SMB Azure file shares for virtual desktop workload
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/23/2025
+ms.date: 06/27/2025
 ms.author: kendownie
-# Customer intent: "As an IT administrator managing virtual desktop environments, I want to implement Azure Files with FSLogix for user profiles, so that I can ensure high availability, performance, and scalability for our users across multiple sessions."
+# Customer intent: "As an IT administrator managing virtual desktop environments, I want to use Azure Files to store user profiles and disk images, so that I can ensure high availability, performance, and scalability for our users across multiple sessions."
 ---
 
 # Azure Files guidance for virtual desktop workloads
@@ -21,7 +21,7 @@ Virtual desktop infrastructure (VDI) centralizes desktop environments on servers
 
 Azure Files is ideal for VDI because it provides cloud file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) to store disk images for dynamic application delivery. When deployed correctly, Azure Files can reduce infrastructure overhead, provide high availability, support enterprise-grade security, and deliver consistent performance for a smooth user experience across virtual desktop sessions.
 
-:::image type="content" source="media/virtual-desktop-workloads/files-virtual-desktop-diagram.png" alt-text="Architecture diagram showing how to use Azure Files for VDI workloads.":::
+:::image type="content" source="media/virtual-desktop-workloads/files-virtual-desktop-architecture.png" alt-text="Architecture diagram showing how to use Azure Files for VDI workloads." border="false":::
 
 ## Performance, scale, and cost
 
