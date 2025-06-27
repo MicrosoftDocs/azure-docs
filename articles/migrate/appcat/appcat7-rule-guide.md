@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
 ms.service: azure
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ms.topic: overview
 ms.date: 06/27/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
@@ -15,31 +15,27 @@ ms.date: 06/27/2025
 
 This guide is for engineers, consultants, and others who want to create custom YAML-based rules for Azure Migrate application and code assessment for Java version 7 (AppCAT) tools.
 
-For more information, see the Introduction to the [Azure Migrate application and code assessment for Java version 7](./java.md) for an overview and the [CLI Guide](./appcat7-cli-guide.md) for details.
+For an overview, see [Overview of Azure Migrate Application and Code Assessment for Java](./java.md) and for details, see the [CLI command guide for AppCAT 7](./appcat7-cli-guide.md).
 
-The AppCAT contains rule-based migration tools that analyze the APIs, technologies, and architectures used by the applications you plan to migrate. In fact, the AppCAT analysis process is implemented using AppCAT rules. AppCAT uses rules internally to extract files from archives, decompile files, scan and classify file types, analyze XML and other file content, analyze the application code, and build the reports.
+AppCAT contains rule-based migration tools that analyze the APIs, technologies, and architectures used by the applications you plan to migrate. In fact, the AppCAT analysis process is implemented using AppCAT rules. AppCAT uses rules internally to extract files from archives, decompile files, scan and classify file types, analyze XML and other file content, analyze the application code, and build the reports.
 
 ## Get started with rules
 
-The [AppCAT ruleset project ](https://github.com/Azure/appcat-konveyor-rulesets) contributes future rules to aid static code analysis as well as issues shared by subject matter experts to aid creation of richer Rulesets.
+The [AppCAT ruleset project](https://github.com/Azure/appcat-konveyor-rulesets) contributes future rules to aid static code analysis. The project also contributes issues shared by subject matter experts to aid the creation of richer rulesets.
 
-The basic rule format is from upsream [konveyor ruleset](https://github.com/konveyor/analyzer-lsp/blob/main/docs/rules.md). Review the doc about rule metadata first.
+The basic rule format is from the upstream [konveyor ruleset](https://github.com/konveyor/analyzer-lsp/blob/main/docs/rules.md). Be sure to review the documentation about rule metadata before you proceed.
 
-### Additional rule metadata in AppCAT
+### More rule metadata in AppCAT
 
-In addition to the rule metadata describe in [konveyor ruleset](https://github.com/konveyor/analyzer-lsp/blob/main/docs/rules.md), AppCAT enrich more details about rules so that make the report more hierarchical.
+AppCAT incorporates the rule metadata described in the [konveyor ruleset](https://github.com/konveyor/analyzer-lsp/blob/main/docs/rules.md), but provides more information about rules to make the report more hierarchical, as described in the following list:
 
-- AppCAT add three domains for rules
-    - Azure Readiness
-        - the goal is to migrate application resource to Azure to work seamlessly with Azure resource
-    - Cloud Native
-        - The goal is to optimize applications to follow cloud-friendly principles
-    - Java Modernization
-        - The goal is to opt applications by adopting supported Java versions and modern APIs while avoiding security risks from deprecated features.
-- Add rule category
-  - Different rules can be grouped into a category if necessary, for example, MySQL/PostgreSQL database found can both belong to database-migration
+- AppCAT adds three domains for rules:
+  - Azure readiness: the goal is to migrate application resources to Azure to work seamlessly with Azure resources.
+  - Cloud native: the goal is to optimize applications to follow cloud-friendly principles
+  - Java modernization: the goal is to optimize applications by adopting supported Java versions and modern APIs while avoiding security risks from deprecated features.
+- AppCAT adds a rule category. You can group different rules into a category if necessary - for example, MySQL/PostgreSQL *database found* can both belong to *database-migration*.
 
-The domain/category mededatas are written uder the `label` properties for custom rules. Only the rules with such label will be shown in the AppCAT report. For example
+The domain/category metadata is written under the `label` properties for custom rules. Only the rules with such labels are shown in the AppCAT report, as shown in the following example:
 
 ```yaml
 labels:
@@ -51,7 +47,7 @@ labels:
 
 ### Creating a rule
 
-Here is a rule example to identify if the MySQL database found in the project, if so, it recommends to migrate it to Azure Database for MySQL.
+The following rule example identifies whether the MySQL database is found in the project. If the database is found, the rule recommends migrating it to Azure Database for MySQL.
 
 ```yaml
 - category: potential
@@ -111,18 +107,27 @@ Here is a rule example to identify if the MySQL database found in the project, i
           nameregex: ([a-zA-Z0-9._-]*)spring-cloud-azure-starter-jdbc-mysql([a-zA-Z0-9._-]*)
 ```
 
-The issue in the AppCAT report shows like below.
+The issue appears in the AppCAT report as shown in the following screenshot:
 
-:::image type="content" source="media/guide/appcat-rule-metadata.png" alt-text="Screenshot of the mysql database found issue in static report." lightbox="media/guide/appcat-rule-metadata.png":::
+:::image type="content" source="media/guide/appcat-rule-metadata.png" alt-text="Screenshot of the My S Q L database found issue in static report." lightbox="media/guide/appcat-rule-metadata.png":::
 
 ### Run a rule
 
-When running rules in AppCAT CLI, you can choose run the rules only or run the rules with AppCAT default rulesets together.
+When running rules in the AppCAT CLI, you can choose to run the rules only or run the rules with AppCAT default rulesets together, as shown in the following examples:
 
 ```bash
 # run appcat rules with default ruleset, it means run your rules with appcat provided rules toger
-appcat analyze --input xxx --output xxx --target xxx --rules custom-rule1.yaml,custome-rule2.yaml
+appcat analyze \
+    --input <input> \
+    --output <output> \
+    --target <target> \
+    --rules custom-rule1.yaml,custom-rule2.yaml
 
 # only run your own rules
-appcat analyze --input xxx --output xxx --target xxx --rules custom-rule1.yaml,custome-rule2.yaml --enable-default-rulesets=false
+appcat analyze \
+    --input <input> \
+    --output <output> \
+    --target <target> \
+    --rules custom-rule1.yaml,custom-rule2.yaml \
+    --enable-default-rulesets=false
 ```

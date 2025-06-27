@@ -13,7 +13,7 @@ items:
             href: java.md
           - name: Release notes
             href: appcat7-release-notes.md
-          - name: Quick Start to assess a Java project
+          - name: "Quickstart: Assess a Java project"
             href: appcat7-quick-start.md
           - name: Interpret the report
             href: appcat7-interpret-report.md
