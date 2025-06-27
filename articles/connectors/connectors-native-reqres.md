@@ -331,6 +331,9 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
    
 1. If any other parameters exist for the trigger, open the **Advanced parameters** list, and select the parameters that you want.
 
+   
+1. If any other parameters exist for the trigger, open the **Advanced parameters** list, and select the parameters that you want.
+
 
 1. When you're ready, save your workflow. On the designer toolbar, select **Save**.
 

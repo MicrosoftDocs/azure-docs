@@ -213,7 +213,9 @@ The following example shows the syntax for these settings where each workflow ID
 
 ### *Trigger* concurrency
 
-The following settings work only for workflows that start with a recurrence-based trigger for [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/). For a workflow that starts with a function-based trigger, you might try to [set up batching where supported](logic-apps-batch-process-send-receive-messages.md). However, batching isn't always the correct solution. For example, with Azure Service Bus triggers, a batch might hold onto messages beyond the lock duration. As a result, any action, such as complete or abandon, fails on such messages.
+The following concurrency settings apply only to workflows that start with a recurrence-based trigger for [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) and control the number of workflows that run concurrently, or at the same time.
+
+For a workflow that starts with a function-based trigger, you might try to [set up batching where supported](logic-apps-batch-process-send-receive-messages.md). However, batching isn't always the correct solution. For example, with Azure Service Bus triggers, a batch might hold onto messages beyond the lock duration. As a result, any action, such as complete or abandon, fails on such messages.
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|

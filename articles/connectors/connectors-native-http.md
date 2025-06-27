@@ -207,7 +207,7 @@ If you have a Standard logic app resource in single-tenant Azure Logic Apps, and
 
 For example, if you're working in Visual Studio Code, follow these steps:
 
-1. Open your logic app project's *local.settings.json* file.
+1. Open your logic app project's **local.settings.json** file.
 
 1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_ROOT_CERTIFICATES` setting:
 
@@ -248,7 +248,7 @@ For more information, see [Manage app settings - local.settings.json](../logic-a
 
 For example, if you're working in Visual Studio Code, follow these steps:
 
-1. Open your logic app project's *local.settings.json* file.
+1. Open your logic app project's **local.settings.json** file.
 
 1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_USER_PROFILE` setting:
 
