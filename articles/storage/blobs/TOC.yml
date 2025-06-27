@@ -327,11 +327,6 @@ items:
             href: ../common/storage-network-security-trusted-azure-services.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Network security perimeter
           href: ../common/storage-network-security-perimeter.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Network routing
-          href: ../common/network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          items:
-          - name: Configure network routing preference
-            href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json
       - name: Transport Layer Security
         items:
         - name: Require secure transfer
@@ -341,7 +336,12 @@ items:
         - name: Configure TLS version for a client
           href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Migrate to TLS 1.2
-          href: ../common/transport-layer-security-configure-migrate-to-TLS2.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.jso
+          href: ../common/transport-layer-security-configure-migrate-to-TLS2.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Network routing
+        href: ../common/network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        items:
+        - name: Configure network routing preference
+          href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json
       - name: Copy operation scopes
         href: ../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json
       - name: Custom domains

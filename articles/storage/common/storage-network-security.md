@@ -60,6 +60,8 @@ To learn how to create IP network rules, see [Create an IP network rule for Azur
 
 If you've enabled a service endpoint for a subnet, traffic from that subnet won't use a public IP address to communicate with a storage account. Instead, all traffic uses a private IP address as the source IP. As a result, IP network rules that permit traffic from those subnets no longer have an effect.
 
+SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but they don't grant new access beyond configured network rules.
+
 > [!IMPORTANT]
 > Some restrictions apply to IP address ranges. For a list of restrictions, see [Restrictions for IP network rules](storage-network-security-limitations.md#restrictions-for-ip-network-rules).
 
