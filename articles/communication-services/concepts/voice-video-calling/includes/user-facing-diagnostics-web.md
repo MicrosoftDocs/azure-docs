@@ -6,7 +6,7 @@ author: sloanster
 ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 06/26/2025
+ms.date: 06/27/2025
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -20,7 +20,7 @@ User Facing Diagnostics (UFD) are enabled to expose user-impacting events happen
 > [!NOTE]  
 > [Version 1.34.1-beta.2](https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1-beta.2) and higher of the public preview calling SDK support sending Remote UFDs from the WebJS calling SDK. Local UFDs emitted by the calling SDK are in general availability (GA).
 
-User Facing Diagnostics (UFD) enable you to see when local or remote participants are experiencing issues that affect audio-video call quality. UFD provides real-time diagnostics on network conditions, device functionality, and media performance. This diagnostic information helps developers identify problems such as poor connectivity, muted microphones, or low bandwidth. While UFD's doesn't automatically fix these issues, it enables applications to offer proactive feedback to users, suggesting solutions like checking their internet connection or adjusting device settings. Based on this data, users can either correct the issue themselves (such as turn-off video when the network is weak) or display the information through the User Interface.
+User Facing Diagnostics (UFD) enable you to see when local or remote participants are experiencing issues that affect audio-video call quality. UFD provides real-time diagnostics on network conditions, device functionality, and media performance. This diagnostic information helps developers identify problems such as poor connectivity, muted microphones, or low bandwidth. While UFDs doesn't automatically fix these issues, it enables applications to offer proactive feedback to users, suggesting solutions like checking their internet connection or adjusting device settings. Based on this data, users can either correct the issue themselves (such as turn-off video when the network is weak) or display the information through the User Interface.
 
 There are some minor differences in using **remote UFDs** and **local UFDs**. Those differences are:
 - The calling SDK doesn't send all of the **remote UFDs** that are available to **local UFDs**.
@@ -37,7 +37,7 @@ The following user-facing diagnostics are available:
 | Name | Description | Possible values | Location | Use cases | Mitigation steps |
 | --- | --- | --- | --- | --- | --- |
 | noNetwork | There's no network available. | - Set to `True` when a call fails to start because there's no network available. <br/> - Set to `False` when there are ICE candidates present. | Local <br/> Remote | Device isn't connected to a network. | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network optimization](../network-requirements.md#network-optimization) section. |
-| networkRelaysNotReachable | Problems with a network. | - Set to `True` when the network has some constraint that isn't allowing you to reach Azure Communication Services relays. <br/> - Set to `False` upon making a new call. | Local <br/> Remote | When on an active call and the WiFi signal go on and off. | Ensure that firewall rules and network routing allow client to reach Microsoft turn servers. For more information, see the [Firewall configuration](../network-requirements.md#firewall-configuration) section. |
+| networkRelaysNotReachable | Problems with a network. | - Set to `True` when the network has some constraint that isn't allowing you to reach Azure Communication Services relays. <br/> - Set to `False` upon making a new call. | Local | When on an active call and the WiFi signal go on and off. | Ensure that firewall rules and network routing allow client to reach Microsoft turn servers. For more information, see the [Firewall configuration](../network-requirements.md#firewall-configuration) section. |
 | networkReconnect | The connection was lost and the client is reconnecting to the network. | - Set to`Bad` when the network is disconnected <br/> - Set to `Poor`when the media transport connectivity is lost <br/> - Set to `Good` when a new session is connected. | Local <br/> Remote | Low bandwidth, no internet | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section. |
 | networkReceiveQuality | An indicator regarding incoming stream quality. | - Set to `Bad` when there's a severe problem with receiving the stream. <br/> - Set to `Poor` when there's a mild problem with receiving the stream. <br/> - Set to `Good` when there's no problem with receiving the stream. | Local <br/> Remote | Low bandwidth | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section. Suggest that the end user turn-off their camera to conserve available internet bandwidth. |
 | networkSendQuality | An indicator regarding outgoing stream quality. | - Set to `Bad` when there's a severe problem with sending the stream. <br/> - Set to `Poor` when there's a mild problem with sending the stream. <br/> - Set to `Good` when there's no problem with sending the stream. | Local <br/> Remote | Low bandwidth | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section. Also, suggest that the end user turn-off their camera to conserve available internet bandwidth. |
@@ -47,12 +47,12 @@ The following user-facing diagnostics are available:
 
 | Name | Description | Possible values | Location | Use cases | Mitigation steps |
 | --- | --- | --- | --- | --- | --- |
-| noSpeakerDevicesEnumerated | there's no audio output device (speaker) on the user's system. | - Set to `True` when there are no speaker devices on the system, and speaker selection is supported. <br/> - Set to `False` when there's a least one speaker device on the system, and speaker selection is supported. | Local <br/> Remote | All speakers are unplugged | When value set to `True`, consider giving visual notification to end user that their current call session doesn't have any speakers available. |
-| speakingWhileMicrophoneIsMuted | Speaking while being on mute. | - Set to `True` when local microphone is muted and the local user is speaking. <br/> - Set to `False` when local user either stops speaking, or unmutes the microphone. <br/> \* Note: Currently, this option isn't supported on Safari because the audio level samples are taken from WebRTC stats. The audio value 'speakingWhileMicrophoneIsMuted' isn't available as a remote UFD. | Local <br/> Remote | During a call, mute your microphone and speak into it. | When value set to `True` consider giving visual notification to the end user that they might be talking and not realizing that their audio is muted. |
-| noMicrophoneDevicesEnumerated | No audio capture devices (microphone) on the user's system | - Set to `True` when there are no microphone devices on the system. <br/> - Set to `False` when there's at least one microphone device on the system. | Local <br/> Remote | All microphones are unplugged during the call. | When value set to `True` consider giving visual notification to end user that their current call session doesn't have a microphone. For more information, see [enable microphone from device manager](../../best-practices.md#plug-in-a-microphone-or-enable-a-microphone-from-the-device-manager-when-a-call-is-in-progress) section. |
+| noSpeakerDevicesEnumerated | there's no audio output device (speaker) on the user's system. | - Set to `True` when there are no speaker devices on the system, and speaker selection is supported. <br/> - Set to `False` when there's a least one speaker device on the system, and speaker selection is supported. | Local | All speakers are unplugged | When value set to `True`, consider giving visual notification to end user that their current call session doesn't have any speakers available. |
+| speakingWhileMicrophoneIsMuted | Speaking while being on mute. | - Set to `True` when local microphone is muted and the local user is speaking. <br/> - Set to `False` when local user either stops speaking, or unmutes the microphone. <br/> \* Note: Currently, this option isn't supported on Safari because the audio level samples are taken from WebRTC stats. The audio value 'speakingWhileMicrophoneIsMuted' isn't available as a remote UFD. | Local | During a call, mute your microphone and speak into it. | When value set to `True` consider giving visual notification to the end user that they might be talking and not realizing that their audio is muted. |
+| noMicrophoneDevicesEnumerated | No audio capture devices (microphone) on the user's system | - Set to `True` when there are no microphone devices on the system. <br/> - Set to `False` when there's at least one microphone device on the system. | Local | All microphones are unplugged during the call. | When value set to `True` consider giving visual notification to end user that their current call session doesn't have a microphone. For more information, see [enable microphone from device manager](../../best-practices.md#plug-in-a-microphone-or-enable-a-microphone-from-the-device-manager-when-a-call-is-in-progress) section. |
 | microphoneNotFunctioning | Microphone isn't functioning. | - Set to `True` when we fail to start sending local audio stream because the microphone device is disabled in the system or being used by another process. This UFD takes about 10 seconds to get raised. <br/> - Set to `False` when microphone starts to successfully send audio stream again. | Local <br/> Remote | No microphones available, microphone access disabled in a system | When value set to `True` give visual notification to end user that there's a problem with their microphone. |
 | microphoneMuteUnexpectedly | Microphone is muted | - Set to `True` when microphone enters muted state unexpectedly. <br/> - Set to `False` when microphone starts to successfully send audio stream | Local <br/> Remote | Microphone is muted from the system. Most cases happen when user is on an Azure Communication Services call on a mobile device and a phone call comes in. In most cases, the operating system mutes the Azure Communication Services call so a user can answer the phone call. | When value is set to `True`, give visual notification to end user that their call was muted because a phone call came in. For more information about how to handle muting, see [OS muting an Azure Communication Services call](../../best-practices.md#handle-the-os-muting-a-call-when-a-phone-call-comes-in) section for more details. |
-| microphonePermissionDenied | there's low volume from device or it's almost silent on macOS. | - Set to `True` when audio permission is denied from the system settings (audio). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS. | Local <br/> Remote | Microphone permissions are disabled in the Settings. | When value is set to `True`, give visual notification to end user that they didn't enable permission to use microphone for an Azure Communication Services call. |
+| microphonePermissionDenied | there's low volume from device or it's almost silent on macOS. | - Set to `True` when audio permission is denied from the system settings (audio). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS. | Local | Microphone permissions are disabled in the Settings. | When value is set to `True`, give visual notification to end user that they didn't enable permission to use microphone for an Azure Communication Services call. |
 
 ### Camera values
 
@@ -62,7 +62,7 @@ The following user-facing diagnostics are available:
 | cameraFreeze | Camera stops producing frames for more than 5 seconds. | - Set to `True` when the local video stream is frozen. This diagnostic means that the remote side is seeing your video frozen on their screen or it means that the remote participants aren't rendering your video on their screen. <br/> - Set to `False` when the freeze ends and users can see your video as per normal. | Local <br/> Remote | The Camera was lost during the call, or bad network caused the camera to freeze. | When value is set to `True`, consider giving notification to end user that the remote participant network might be bad. Suggest that the user turn-off their camera to conserve bandwidth. For more information, see [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section on needed internet abilities for an Azure Communication Services call. |
 | cameraStartFailed | Generic camera failure. | - Set to `True` when we fail to start sending local video because the camera device might be disabled in the system or it's being used by another process. <br/> - Set to `False` when selected camera device successfully sends local video again. | Local <br/> Remote | Camera failures | When value is set to `True`, give visual notification to end user that their camera failed to start. |
 | cameraStartTimedOut | Common scenario where camera is in bad state. | - Set to `True` when camera device times out to start sending video stream. <br/> - Set to `False` when selected camera device successfully sends local video again. | Local <br/> Remote | Camera failures | When value is set to `True`, give visual notification to end user that their camera is possibly having problems. (When value is set back to `False` remove notification). |
-| cameraPermissionDenied | Camera permissions were denied in settings. | - Set to `True` when camera permission is denied from the system settings (video). <br/> - Set to `False` on successful stream acquisition. <br> Note: This diagnostic only works on macOS Chrome. | Local <br/> Remote | Camera permissions are disabled in the settings. | When value is set to `True`, give visual notification to end user that they didn't enable permission to use camera for an Azure Communication Services call. |
+| cameraPermissionDenied | Camera permissions were denied in settings. | - Set to `True` when camera permission is denied from the system settings (video). <br/> - Set to `False` on successful stream acquisition. <br> Note: This diagnostic only works on macOS Chrome. | Local | Camera permissions are disabled in the settings. | When value is set to `True`, give visual notification to end user that they didn't enable permission to use camera for an Azure Communication Services call. |
 | cameraStoppedUnexpectedly | Camera malfunction | - Set to `True` when camera enters stopped state unexpectedly. <br/> - Set to `False` when camera starts to successfully send video stream again. | Local <br/> Remote | Check camera is functioning correctly. | When value is set to `True`, give visual notification to end user that their camera is possibly having problems. (When value is set back to `False` remove notification). |
 
 ### Miscellaneous values
@@ -84,11 +84,11 @@ To utilize user facing diagnostics, first thing you must do is instantiate the u
 const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
 ```
 
-Once you have initialized the user-facing diagnostics feature, next add event listeners for the local network UFD's "diagnosticChanged" event and the local media UFD's "diagnosticChanged" event. The event listener will be invoked when a local UFD is triggered. Within the event listener, you can access the triggered UFD’s data, such as its name (`diagnosticInfo.diagnostic`), its value (`diagnosticInfo.value`), and its value type (`diagnosticInfo.valueType`). Please remove this code sample as it is already included in the subsequent code sample.
+Once you initialize the user-facing diagnostics feature, next add event listeners for the local network UFDs "diagnosticChanged" event and the local media UFDs "diagnosticChanged" event. The event listener is invoked when a local UFD is triggered. Within the event listener, you can access the triggered UFD’s data, such as its name (`diagnosticInfo.diagnostic`), its value (`diagnosticInfo.value`), and its value type (`diagnosticInfo.valueType`).
 
 ## Local User Facing Diagnostic events
 Each diagnostic has the following data:
-- Diagnostic is the type of UFD diagnostic that has been fired off on the local machine. For example a UFD of `NetworkSendQuality` or `DeviceSpeakWhileMuted`.
+- Diagnostic is the type of UFD diagnostic that is fired off on the local machine. For example, a UFD of `NetworkSendQuality` or `DeviceSpeakWhileMuted`.
 - value is `DiagnosticQuality` or `DiagnosticFlag`
 - DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
 - DiagnosticFlag = `true` | `false`
@@ -132,8 +132,8 @@ remoteUfdsFeature.stopSendingDiagnostics();
 ```
 
 For the code sample below, `RemoteParticipantDiagnosticsData` has the following data associated with it:
-- `diagnostic` contains array of diagnostics UFD that have been fired from a remote machines. For example a UFD of `NetworkSendQuality`.
-- The value of that element will be defined as: `DiagnosticQuality` or `DiagnosticFlag`:
+- `diagnostic` contains an array of diagnostic UFD that is fired from a remote machine. For example, a UFD of `NetworkSendQuality`.
+- The value of that element ares: `DiagnosticQuality` or `DiagnosticFlag`:
 - DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
 - DiagnosticFlag = `true` | `false`
 - valueType of the array = `DiagnosticQuality` | `DiagnosticFlag`
@@ -158,11 +158,11 @@ const remoteDiagnosticChangedListener = (diagnosticInfo: RemoteParticipantDiagno
 // Subscribe to the `diagnosticChanged` event to monitor when any remote user-facing diagnostic changes.
 userFacingDiagnostics.remote.on('diagnosticChanged', remoteDiagnosticChangedListener);
 ```
-Do note that all remote UFD's will be classified unnder 'userFacingDiagnostics.remote'.
+Do note that all remote UFDs will be classified under 'userFacingDiagnostics.remote'.
 
 ## Get the latest User Facing Diagnostics event that was received
 
-Here's sample code to generate the latest local UFD value raised by the calling SDK. If a diagnostic is undefined, it means the UFD has not been raised.
+Here's sample code to generate the latest local UFD value raised by the calling SDK. If a diagnostic is undefined, it means the UFD hasn't been raised.
 
 ```js
 const latestNetworkDiagnostics = userFacingDiagnostics.network.getLatest();
@@ -200,7 +200,7 @@ console.log(
 );
 ```
 
-Here's sample code to generate the latest Remote UFD value delivered to the calling SDK. If a diagnostic is undefined, it means the UFD has not been raised.
+Here's sample code to generate the latest Remote UFD value delivered to the calling SDK. If a diagnostic is undefined, it means the UFD hasn't been raised.
 ```js
 const latestRemoteDiagnostics = userFacingDiagnostics.remote.getLatest();
 
