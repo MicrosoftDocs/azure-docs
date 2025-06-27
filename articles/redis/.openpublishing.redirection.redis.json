@@ -46,9 +46,19 @@
             "redirect_url": "../../aspnet/core/performance/caching/overview",
             "redirect_document_id": false
         },
-        {
+                {
             "source_path_from_root": "/articles/redis/web-app-cache-aside-leaderboard.md",
             "redirect_url": "../../aspnet/core/performance/caching/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/web-app-arm-with-redis-cache-provision.md",
+            "redirect_url": "/azure/redis/redis-cache-arm-provision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/web-app-bicep-with-redis-cache-provision.md",
+            "redirect_url": "/azure/redis/redis-cache-bicep-provision",
             "redirect_document_id": false
         }
     ]

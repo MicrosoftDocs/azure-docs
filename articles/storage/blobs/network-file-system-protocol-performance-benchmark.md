@@ -7,6 +7,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 02/02/2024
 ms.author: nikoduki
+# Customer intent: As a systems administrator, I want to perform performance benchmarks for NFS 3.0 on Azure Blob Storage, so that I can assess the storage performance and determine the best configuration for my Linux environment.
 ---
 
 # Performance benchmark test recommendations for NFS 3.0 on Azure Blob Storage
