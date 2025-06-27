@@ -7,10 +7,7 @@ ms.topic: overview
 ms.date: 12/27/2024
 ms.author: jsuri
 ms.custom: mvc, engagement-fy23, UpdateFrequency.5
-
-#Customer intent: As an Azure admin, I need a simple way to move Azure resources, and want to understand how Azure Resource Mover can help me do that.
-
-# Customer intent: As an Azure admin, I want to understand how Resource Mover simplifies the process of relocating Azure resources across regions, so that I can efficiently manage my resources in response to strategic business needs and compliance requirements.
+# Customer intent: As an Azure administrator, I want to understand how Resource Mover simplifies the process of relocating Azure resources across regions, so that I can efficiently manage my resources in response to strategic business needs and compliance requirements.
 ---
 
 # What is Azure Resource Mover?
