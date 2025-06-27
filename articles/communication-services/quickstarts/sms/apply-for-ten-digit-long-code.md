@@ -333,7 +333,7 @@ Using the **Regulatory Documents** blade to monitor the status of your brand and
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-status.png" alt-text="Screenshot showing campaign registration status." lightbox="./media/apply-for-brand-registration/campaign-registration-status.png":::
 
-## STEP 4: Linking a phone number to an approved campaign
+## STEP 4: Link a phone number to an approved campaign
 
 Once your campaign is approved, follow these steps to link a phone number to it:
 
