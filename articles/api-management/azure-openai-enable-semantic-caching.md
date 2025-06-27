@@ -59,11 +59,8 @@ Configure a [backend](backends.md) resource for the embeddings API deployment wi
 
 * **Name** - A name of your choice, such as `embeddings-backend`. You use this name to reference the backend in policies.
 * **Type** - Select **Custom URL**.
-* **Runtime URL** - The URL of the embeddings API deployment in Azure OpenAI, similar to:
+* **Runtime URL** - The URL of the embeddings API deployment in Azure OpenAI, similar to: `https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings`
 
-        ```
-  https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings
-        ```
 * **Authorization credentials** - Go to **Managed Identity** tab.
   * **Client identity** - Select *System assigned identity* or type in a User assigned managed identity client ID.
   * **Resource ID** - Enter `https://cognitiveservices.azure.com/` for Azure OpenAI.
