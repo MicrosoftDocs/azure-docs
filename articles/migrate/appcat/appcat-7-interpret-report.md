@@ -19,7 +19,7 @@ This article guides you through the AppCAT report to help you understand it for 
 
 The landing page of the report presents an overall view of all analyzed applications. From here, you can navigate to individual application reports to explore detailed findings.
 
-:::image type="content" source="media/java/appcat-7-report-applist.png" alt-text="Screenshot of the AppCAT assessment report Applications list." lightbox="media/java/appcat-7-report-applist.png":::
+:::image type="content" source="media/java/appcat-7-report-app-list.png" alt-text="Screenshot of the AppCAT assessment report Applications list." lightbox="media/java/appcat-7-report-app-list.png":::
 
 ## Application view
 
