@@ -314,7 +314,7 @@ Many Azure data and storage services support backups, such as the following:
 
 - [Azure Backup](/azure/reliability/reliability-backup) provides automated backups for virtual machine disks, storage accounts, AKS, and a variety of other sources.
 - Many Azure database services, including [Azure SQL Database](/azure/azure-sql/database/high-availability-sla-local-zone-redundancy) and [Azure Cosmos DB](/azure/reliability/reliability-cosmos-db-nosql), have an automated backup capability for your databases.
-- [Azure Key Vault](/azure/key-vault/general/disaster-recovery-guidance) provides features to back up your secrets, certificates, and keys.
+- [Azure Key Vault](./reliability-key-vault.md) provides features to back up your secrets, certificates, and keys.
 
 #### Automated deployments
 
