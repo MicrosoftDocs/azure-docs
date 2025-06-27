@@ -51,7 +51,7 @@ Brand registration typically takes 2 to 3 business days with TCR (The Campaign R
 | **Vertical**       | Industry in which your business operates. | E-commerce |
 | **Email Address**  | Contact email for registration-related updates. | contact@contoso.com |
 
-For more detailed information, see [How to apply for 10DLC brand and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
+For complete step-by-step guidance, see [How to apply for 10DLC brand and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
 
 ### Tips for successful registration
 
@@ -97,7 +97,7 @@ Campaign registration with TCR typically takes 3 to 5 business days for approval
 | **Embedded Phone Numbers**| Indicates if messages include phone numbers. | Yes |
 | **Age-gated Content**     | Indicates if messages are age-restricted. | No |
 
-For more detailed information, see [How to apply for 10DLC brand and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
+For complete step-by-step guidance, see [How to apply for 10DLC brand and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
 
 ### FAQ
 
