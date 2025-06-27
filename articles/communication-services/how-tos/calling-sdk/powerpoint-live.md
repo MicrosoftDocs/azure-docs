@@ -14,9 +14,9 @@ ms.custom: template-how-to
 
 # View PowerPoint Live presentations
 
-This article describes how to enable meeting participants to view [PowerPoint Live presentations in Microsoft Teams](https://support.microsoft.com/en-us/office/present-from-powerpoint-live-in-microsoft-teams-28b20e74-7165-499c-9bd4-0ad975d448ad) using the Azure Communication Services Calling SDKs.
+This article describes how to enable meeting participants to view [PowerPoint Live presentations in Microsoft Teams](https://support.microsoft.com/office/present-from-powerpoint-live-in-microsoft-teams-28b20e74-7165-499c-9bd4-0ad975d448ad) using the Azure Communication Services Calling SDKs.
 
-Attendees who use Azure Communication Services Calling SDKs to [join a Microsoft Teams meeting](./teams-interoperability.md) can view PowerPoint Live presentations and interact with [reactions](./reactions.md) and [raise hand](./raise-hand.md). The attendee view automatically maintains synchronization with the current slide of the Microsoft Teams presenter.
+Attendees who use Azure Communication Services Calling SDKs to [join a Microsoft Teams meeting](./teams-interoperability.md) can view PowerPoint Live presentations and interact with [reactions](./reactions.md) and [raise hand](./raise-hand.md). The attendee view automatically synchronizes with the current slide of the Microsoft Teams presenter.
 
 ## Prerequisites
 
