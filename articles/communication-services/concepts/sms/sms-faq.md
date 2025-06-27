@@ -64,7 +64,7 @@ The vetting score is based on the information provided during brand registration
 Currently, Azure Communication Services supports:
  - **Standard campaigns:** The most common campaign type for general A2P messaging, such as 2FA, alerts, marketing, or customer care.
  - **Low Volume:** For limited or test messaging with low daily traffic. Ideal for small businesses or developers.
- - **UCaaS (Low Volume):** A sub-type of Low Volume used by approved Unified Communications as a Service providers. Used when each phone number is tied to a human (e.g., employee texting).
+ - **UCaaS (Low Volume):** A sub-type of Low Volume used by approved Unified Communications as a Service apps. Used when each phone number is tied to a human (e.g., employee texting).
  - **Enhanced:** A higher-throughput campaign type for larger brands or automated communications. May require vetting.
  - **Emergency:** For public safety alerts from government agencies, schools, or utilities. Strictly regulated.
  - **Franchise:** For businesses with multiple locations or agents/franchisees sending similar but localized content. Requires disclosure of all sub-entities.
