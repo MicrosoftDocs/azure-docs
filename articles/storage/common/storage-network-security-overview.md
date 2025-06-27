@@ -13,13 +13,7 @@ ms.author: normesta
 
 # Azure Storage network security
 
-Intro sentance here.
-
-First, configure account to accept requests only from secure connections (HTTPS). Then, where possible, create private links to your storage account which secure access over a *private endpoint*. If your storage account must accept traffic over the *public endpoint*, then add rules network rules or include your storage account in a network security perimeter. 
-
-After you secure the network boundary, you can increased protection against infiltration of data by restricting the the source of copy operations. To learn more, [Restrict the source of copy operations to a storage account](security-restrict-copy-operations.md).
-
-This article describes the configuration options for securing traffic to and from your storage account.
+Azure Storage provides multiple layers of network security to protect your data and control access to your storage accounts. This article provides an overview of the key network security features and configuration options available for Azure Storage accounts. You can secure your storage account by requiring HTTPS connections, implementing private endpoints for maximum isolation, or configuring public endpoint access through firewall rules and network security perimeters. Each approach offers different levels of security and complexity, allowing you to choose the right combination based on your specific requirements, network architecture, and security policies.
 
 > [!NOTE]
 > Clients that make requests from allowed sources must also meet the authorization requirements of the storage account. To learn more about account authorization, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
@@ -30,7 +24,7 @@ By default, storage accounts accept requests over HTTPS only. Any requests made 
 
 ## Private endpoints
 
-A private endpoint assigns a private IP address from your virtual network to your storage account. Clients connect to your storage account by using a private link to the private endpoint. Traffic is routed over the Microsoft backbone network so traffic does not travel over the public internet. You can fine-tune access rules by using [Network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md). If you want to permit traffic to originate only from private links, you can block all access over the public endpoint. Private endpoints have cost meters, but provide maximum network isolation.
+Where possible, create private links to your storage account which secure access over a *private endpoint*. A private endpoint assigns a private IP address from your virtual network to your storage account. Clients connect to your storage account by using a private link to the private endpoint. Traffic is routed over the Microsoft backbone network so traffic does not travel over the public internet. You can fine-tune access rules by using [Network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md). If you want to permit traffic to originate only from private links, you can block all access over the public endpoint. Private endpoints have cost meters, but provide maximum network isolation.
 
 To learn more about using a private endpoint to secure traffic to your storage account, see [Use private endpoints for Azure Storage](storage-private-endpoints.md).
 
@@ -61,13 +55,9 @@ Another way to limit traffic to your public endpoint is to include your storage 
 
 To learn more, see [Network security perimeter for Azure Storage](storage-network-security-perimeter.md).
 
-### Authorization
+## Copy operation scopes (preview)
 
-Clients granted access via network rules must continue to meet the authorization requirements of the storage account to access the data. Authorization is supported with Microsoft Entra credentials for blobs and queues, with a valid account access key, or with a shared access signature (SAS) token.
-
-When you configure a blob container for anonymous public access, requests to read data in that container don't need to be authorized, but the firewall rules remain in effect and will block anonymous traffic.
-
-An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Microsoft Entra credentials for blobs, tables, file shares and queues, with a valid account access key, or with a shared access signature (SAS) token. When you configure a blob container for anonymous access, requests to read data in that container don't need to be authorized. The firewall rules remain in effect and will block anonymous traffic.
+You can use the **Permitted scope for copy operations** preview feature to restrict data copying to storage accounts by limiting sources to the same Microsoft Entra tenant or virtual network with private links. This can help to prevent unwanted data infiltration from untrusted environments. To learn more, [Restrict the source of copy operations to a storage account](security-restrict-copy-operations.md).
 
 ## See also
 
