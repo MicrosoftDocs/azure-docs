@@ -85,32 +85,6 @@ Submit the regulatory document. Brand registration may take 2 to 3 days to compl
 > [!Important]
 > Providing incorrect or incomplete information may result in brand registration failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
 
-### 1.3 Brand Vetting Process
-
-> [!TIP]
-> Standard Vetting may only be required for **Standard**, **Enhanced**, **Emergency**, **Franchise**, or **Charity** brands to increase throughput or meet compliance.
-
-During 10DLC brand registration, some brands might be required to undergo Standard Vetting to validate their identity and improve trust with mobile carriers. This step is typically triggered when:
-
-   - The brand receives a low Trust Score during automated checks, or
-   - The brand requests access to higher messaging throughput
-
-Standard Vetting is conducted by a third-party partner and includes:
-
-   - Verification of business name and tax ID (EIN)
-   - Website and domain validation
-   - Review of industry type and messaging practices
-
-Vetting results in a Trust Score that can affect throughput limits and campaign eligibility. Not all brands require vetting, but it may be necessary depending on your use case and score.
-A $40 USD non-refundable fee applies when Standard Vetting is triggered.
-
-> [!NOTE]
-> The vetting fee is currently waived for a limited time.
-
-Once vetting is complete, the resulting score is used to finalize campaign setup and ensure your brand is eligible for approved throughput levels.
-
-:::image type="content" source="./media/apply-for-brand-registration/vetting.png" alt-text="Screenshot showing brand registration vetting form." lightbox="./media/apply-for-brand-registration/vetting.png":::
-
 ## STEP 2: Campaign registration
 
 After your brand is registered, proceed with the campaign registration:
