@@ -53,9 +53,9 @@ sections:
   - name: VMware and Hyper-V backup
     questions:
       - question: |
-          Can I back up VMware vCenter servers to Azure?
+          Can I backup VMware vSphere or ESXI Host VMs to Azure?
         answer: |
-          Yes. You can use Azure Backup Server to back up VMware vCenter Server and ESXi hosts to Azure.
+          Yes, you can use Azure Backup to back up VMware vSphere or ESXI Host VMs to Azure.
 
           - [Learn more](backup-mabs-protection-matrix.md) about supported versions.
           - [Follow these steps](backup-azure-backup-server-vmware.md) to back up a VMware server.
