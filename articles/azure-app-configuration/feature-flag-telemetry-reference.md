@@ -50,7 +50,7 @@ When the Azure App Configuration provider libraries are used, additional propert
 - **ETag**: The current ETag for the feature flag.
 - **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`. When a label is present, the reference includes it as a query parameter: `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
 
-The full schema can be found in the [App Configuration Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/AppConfigurationFeatureEvaluationEvent/FeatureEvaluationEvent.v1.0.0.schema.json).
+The full schema can be found in the [App Configuration Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/AppConfigurationFeatureEvaluationEventv1.0.0.schema.json).
 
 ## Next steps
 
