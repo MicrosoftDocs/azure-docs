@@ -111,9 +111,9 @@ Click **Next** to proceed to the **Campaign details** section.
       - Opt-in information (see the following table for examples)
       - Help information (for example, "send HELP for help")
       - Opt-out information (for example, "send STOP to unsubscribe")
-      - Privacy Policy & Terms and Condiitons link
+      - Privacy Policy & Terms and Conditons link
 
-      The table below shows examples of how recipients might Opt-in:
+      The following table shows examples of how recipients might Opt-in:
 
    | **Method**               | **Description**                                                                                   | **Requirement**                                                                                      | **Examples** |
 |--------------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|--------------|
