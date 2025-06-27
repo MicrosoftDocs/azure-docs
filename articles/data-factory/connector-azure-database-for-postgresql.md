@@ -198,6 +198,8 @@ Example:
     }
 }
 ```
+> [!NOTE]
+> This authentication type is not supported on the self-hosted integration runtime.
 
 ### User-assigned managed identity authentication
 
