@@ -1,9 +1,9 @@
 ---
 title: Microsoft Cost Management automation FAQ
 description: This FAQ is a list of frequently asked questions and answers about Cost Management automation.
-author: jojopm
+author: jojohpm
 ms.author: jojoh
-ms.date: 01/07/2025
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

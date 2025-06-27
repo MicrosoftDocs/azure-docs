@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/29/2025
+ms.date: 06/27/2025
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -198,6 +198,8 @@ Example:
     }
 }
 ```
+> [!NOTE]
+> This authentication type is not supported on the self-hosted integration runtime.
 
 ### User-assigned managed identity authentication
 

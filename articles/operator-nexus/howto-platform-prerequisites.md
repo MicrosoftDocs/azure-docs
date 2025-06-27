@@ -679,12 +679,12 @@ As a best practice, starting from the following minimum recommended BIOS and fir
 |-------------------------------------------------------------------------|---------------|
 | BIOS                                                                    | 1.15.2        |
 | Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
-| iDRAC                                                                   | 7.10.90.00    |
+| iDRAC                                                                   | 6.10.30.20    |
 | Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
 | CPLD                                                                    | 1.1.1         |
-| Mellanox ConnectX-6 DX Adapter                                          | 22.41.1000    |
+| Mellanox ConnectX-6 DX Adapter                                          | 22.35.10.12   |
 | NVIDIA ConnectX-6 Lx 2x 25G SFP28                                       | 26.41.1000    |
-| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.91.5       |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.00.6       |
 
 ##### BOM 2.0.0
 
@@ -692,7 +692,7 @@ As a best practice, starting from the following minimum recommended BIOS and fir
 |-----------------------------------------------------|---------------|
 | BIOS                                                | 2.4.4         |
 | Storage Array Controller (PERC H755)                | 52.26.0-5179  |
-| iDRAC                                               | 7.10.90.00    |
+| iDRAC                                               | 7.10.30.00    |
 | SAS Expander Backplane Firmware (R760)              | 1.61          |
 | Non-Expander Storage Backplane Firmware (R660)      | 7.10          |
 | CPLD                                                | 1.2.6         |
@@ -708,11 +708,11 @@ As a best practice, starting from the following minimum recommended BIOS and fir
 |-------------------------------------------------------------------------|---------------|
 | BIOS                                                                    | 1.13.2        |
 | Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
-| iDRAC                                                                   | 7.10.30.00    |
+| iDRAC                                                                   | 6.10.30.20    |
 | Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
 | CPLD                                                                    | 1.0.9         |
 | Mellanox ConnectX-6 DX Adapter                                          | 22.35.10.12   |
-| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.61.8       |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.00.6       |
 
 ##### BOM 2.0.0
 

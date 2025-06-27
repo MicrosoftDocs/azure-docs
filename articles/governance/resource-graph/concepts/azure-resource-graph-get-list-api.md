@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
 
-# Azure Resources Graph (ARG) GET/LIST API 
+# Azure Resources Graph (ARG) GET/LIST API (Preview)
 
 The ARG GET/LIST API is designed to significantly reduce READ throttling by offloading GET and LIST requests to an alternate ARG platform. This action is achieved through intelligent control plane routing, which directs requests to the alternate platform when a specific parameter is present. If the parameter is absent, requests are seamlessly routed back to the original Resource Provider, ensuring flexibility.
 

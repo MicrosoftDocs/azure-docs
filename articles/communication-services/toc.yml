@@ -88,6 +88,8 @@ items:
     href: concepts/chat/concepts.md#real-time-notifications
   - name: Push notifications
     href: concepts/chat/concepts.md#push-notifications
+  - name: Push notifications overview
+    href: concepts/notifications.md
   - name: Archive chats
     href: how-tos/chat-sdk/archive-chat-threads.md
   - name: Government clouds
@@ -446,6 +448,8 @@ items:
     items:
     - name: Voice and video terminology
       href: concepts/voice-video-calling/about-call-types.md
+    - name: Push notifications overview
+      href: concepts/notifications.md
     - name: Connect to a call
       items:
       - name: Create an access token

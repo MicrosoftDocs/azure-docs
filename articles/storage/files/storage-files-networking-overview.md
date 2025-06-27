@@ -1,12 +1,12 @@
 ---
-title: Networking considerations for Azure Files
+title: Networking Considerations for Azure Files
 description: An overview of networking considerations and options for Azure Files, including secure transfer, public and private endpoints, VPN, ExpressRoute, DNS, and firewall settings.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 05/10/2024
 ms.author: kendownie
-# Customer intent: As a network administrator, I want to configure public and private access to Azure Files, so that I can securely manage file shares based on my organization’s networking and security policies.
+# Customer intent: As a network administrator, I want to configure secure access to Azure Files, so that I can manage file share access in accordance with my organization’s networking and security policies.
 ---
 
 # Azure Files networking considerations

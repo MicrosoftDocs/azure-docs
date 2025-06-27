@@ -1,22 +1,22 @@
 ---
-title: Handle throttling problems, or '429 - Too many requests' errors
-description: How to work around throttling problems or 'HTTP 429 Too many requests' errors in Azure Logic Apps.
+title: Handle Throttling Problems or 429 Too Many Requests
+description: Learn how to handle workflow throttling problems or 'HTTP 429 Too many requests' errors in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 06/19/2025
 ---
 
-# Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
+# Handle throttling problems ("429 - Too Many Requests" errors) in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-If your logic app workflow experiences throttling, which happens when the number of requests exceeds the rate at which the destination can handle over a specific amount of time, you get the ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429). Throttling can create problems such as delayed data processing, reduced performance speed, and errors such as exceeding the specified retry policy.
+If your logic app workflow experiences throttling, which happens when the number of requests exceeds the rate that the destination can handle over a specific amount of time, you get the ["HTTP 429 Too Many Requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429). Throttling can create problems such as delayed data processing, reduced performance speed, and errors such as exceeding the specified retry policy.
 
 For example, the following SQL Server action in a Consumption workflow shows a 429 error, which reports a throttling problem:
 
-![Screenshot showing a Consumption workflow with a SQL Server action that has a 429 error.](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-error.png)
+:::image type="content" source="media/handle-throttling-problems-429-errors/example-429-too-many-requests-error.png" alt-text="Screenshot showing a Consumption workflow with a SQL Server action that has a 429 error.":::
 
 The following sections describe the common levels at which your workflow might experience throttling:
 
@@ -34,9 +34,9 @@ To find throttling events at this level, follow these steps:
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. On the logic app resource menu, under **Monitoring**, select **Metrics**.
+1. On the resource sidebar menu, under **Monitoring**, select **Metrics**.
 
 1. Under **Chart Title**, select **Add metric**, which adds another metric bar to the chart.
 
@@ -48,9 +48,9 @@ The chart now shows throttled events for both actions and triggers in your logic
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app resource menu, under **Monitoring**, select **Metrics**.
+1. On the resource sidebar menu, under **Monitoring**, select **Metrics**.
 
 1. Under **Chart Title**, from the **Metric** list, select **Http 4xx**. From the **Aggregation** list, select **Count**.
 
@@ -66,17 +66,17 @@ To handle throttling at this level, you have the following options:
 
   Although the default number of trigger instances that can concurrently run is [unlimited](logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits), you can limit this number by [turning on the trigger's concurrency setting](logic-apps-workflow-actions-triggers.md#change-trigger-concurrency), and if necessary, select a limit other than the default value.
 
-* Enable high throughput mode.
+* Enable *high throughput* mode.
 
   * A Consumption workflow has a [default limit for the number of actions that can run over a 5-minute rolling interval](logic-apps-limits-and-config.md#throughput-limits). To raise this limit to the maximum number of actions, turn on [high throughput mode](logic-apps-limits-and-config.md#run-high-throughput-mode) on your logic app resource.
 
   * A Standard workflow has no limit on the number of actions that can run during any interval.
 
-* Disable array debatching or "Split On" behavior in triggers.
+* Disable array debatching or **Split On** setting in triggers.
 
   If a trigger returns an array for the remaining workflow actions to process, the trigger's [**Split On** setting](logic-apps-workflow-actions-triggers.md#split-on-debatch) divides up the array items and starts a workflow instance for each array item. This behavior effectively triggers multiple concurrent runs up to the [**Split On** limit](logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits).
 
-  To control throttling, turn off the trigger's **Split On** behavior and have your workflow process the entire array with a single call, rather than handle a single item per call.
+  To control throttling, turn off the trigger's **Split On** setting and have your workflow process the entire array with a single call, rather than handle a single item per call.
 
 * Refactor actions into multiple, smaller workflows.
 
@@ -84,31 +84,31 @@ To handle throttling at this level, you have the following options:
 
   For example, the following Consumption workflow does all the work to get tables from a SQL Server database and gets the rows from each table. The **For each** loop concurrently iterates through each table so that the **Get rows** action returns the rows for each table. Based on the amounts of data in those tables, these actions might exceed the limit on action executions.
 
-  ![Screenshot showing Consumption workflow "before" refactoring.](./media/handle-throttling-problems-429-errors/refactor-logic-app-before-version.png)
+  :::image type="content" source="media/handle-throttling-problems-429-errors/refactor-logic-app-before-version.png" alt-text="Screenshot showing Consumption workflow before refactoring.":::
 
   After refactoring, the original workflow is split into a parent workflow and a child workflow.
 
   The following parent workflow gets the tables from SQL Server and then calls the child workflow for each table to get the rows:
 
-  ![Screenshot showing Consumption parent workflow that gets the SQL Server tables and calls the child workflow.](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-1.png)
+  :::image type="content" source="media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-1.png" alt-text="Screenshot showing Consumption parent workflow that gets the SQL Server tables and calls the child workflow.":::
 
   The following child workflow is called by the parent workflow to get the rows for each table:
 
-  ![Screenshot showing Consumption child workflow that gets the rows for each table.](./media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-2.png)
+  :::image type="content" source="media/handle-throttling-problems-429-errors/refactor-logic-app-single-connection-2.png" alt-text="Screenshot showing Consumption child workflow that gets the rows for each table.":::
 
 <a name="connector-throttling"></a>
 
 ## Connector throttling
 
-Each connector has its own throttling limits, which you can find on [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). For example, the [Azure Service Bus connector](/connectors/servicebus/) has a throttling limit that permits up to 6,000 calls per minute, while the SQL Server connector has [throttling limits that vary based on the operation type](/connectors/sql/).
+Each connector has its own throttling limits, which you can find on [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). For example, the [Azure Service Bus connector](/connectors/servicebus/) has a throttling limit that permits up to 6,000 calls per minute, while the [SQL Server connector](/connectors/sql/) has throttling limits that vary based on the operation type.
 
-Some triggers and actions, such as HTTP, have a ["retry policy"](logic-apps-exception-handling.md#retry-policies) that you can customize based on the [retry policy limits](logic-apps-limits-and-config.md#retry-policy-limits) to implement exception handling. This policy specifies whether and how often a trigger or action retries a request when the original request fails or times out and results in a 408, 429, or 5xx response. So, when throttling starts and returns a 429 error, Logic Apps follows the retry policy where supported.
+Some triggers and actions, such as HTTP, have a [retry policy](logic-apps-exception-handling.md#retry-policies) that you can customize based on the [retry policy limits](logic-apps-limits-and-config.md#retry-policy-limits) to implement exception handling. This policy specifies whether and how often a trigger or action retries a request when the original request fails or times out and results in a 408, 429, or 5xx response. So, when throttling starts and returns a 429 error, Logic Apps follows the retry policy where supported.
 
-To learn whether a trigger or action supports retry policies, check the trigger or action's settings. To view a trigger or action's retry attempts, go to your logic app's runs history, select the run that you want to review, and expand that trigger or action to view details about inputs, outputs, and any retries.
+To learn whether a trigger or action supports retry policies, check the trigger or action's settings. To view a trigger or action's retry attempts, go to your logic app workflow's run history, select the run that you want to review, and expand that trigger or action to view details about inputs, outputs, and any retries.
 
 The following Consumption workflow example shows where you can find this information for an HTTP action:
 
-![Screenshot showing Consumption workflow with an HTTP action's run history, retries, inputs, and outputs.](./media/handle-throttling-problems-429-errors/example-429-too-many-requests-retries.png)
+:::image type="content" source="media/handle-throttling-problems-429-errors/example-429-too-many-requests-retries.png" alt-text="Screenshot showing Consumption workflow with an HTTP action's run history, retries, inputs, and outputs.":::
 
 Although the retry history provides error information, you might have trouble differentiating between connector throttling and [destination throttling](#destination-throttling). In this case, you might have to review the response's details or perform some throttling interval calculations to identify the source.
 
@@ -132,29 +132,29 @@ To handle throttling at this level, you have the following options:
 
     The following Consumption workflow example shows how you can use these expressions:
 
-    ![Screenshot showing a Consumption workflow that uses multiple connections for a single action.](./media/handle-throttling-problems-429-errors/create-multiple-connections-per-action.png)
+    :::image type="content" source="media/handle-throttling-problems-429-errors/create-multiple-connections-per-action.png" alt-text="Screenshot showing a Consumption workflow that uses multiple connections for a single action.":::
 
 * Set up a different connection for each action.
 
   Consider whether you can distribute the workload by spreading each action's requests over their own connection, even when actions connect to the same service or system and use the same credentials.
 
-  For example, suppose that your workflow gets the tables from a SQL Server database and gets each row in each table. You can use separate connections so that the getting the tables use one connection, while the getting each row uses another connection.
+  For example, suppose that your workflow gets the tables from a SQL Server database and gets each row in each table. You can use separate connections so that the **Get tables** action uses one connection, while the **Get rows** action uses another connection.
 
   The following example shows a Consumption workflow that creates and uses a different connection for each action:
 
-  ![Screenshot showing a Consumption workflow that creates and uses a different connection for each action.](./media/handle-throttling-problems-429-errors/create-connection-per-action.png)
+  :::image type="content" source="media/handle-throttling-problems-429-errors/create-connection-per-action.png" alt-text="Screenshot showing a Consumption workflow that creates and uses a different connection for each action.":::
 
-* Change the concurrency or parallelism on a ["For each" loop](logic-apps-control-flow-loops.md#foreach-loop).
+* Change the concurrency or parallelism on a [**For each** loop](logic-apps-control-flow-loops.md#foreach-loop).
 
-  By default, "For each" loop iterations run at the same time up to the [concurrency limit](logic-apps-limits-and-config.md#looping-debatching-limits). If you have a connection that's getting throttled inside a "For each" loop, you can reduce the number of loop iterations that run in parallel. For more information, see the following documentation:
+  By default, **For each** loop iterations run at the same time up to the [concurrency limit](logic-apps-limits-and-config.md#looping-debatching-limits). If you have a connection that's getting throttled inside a **For each** loop, you can reduce the number of loop iterations that run in parallel. For more information, see the following documentation:
   
-  * ["For each" loops - change concurrency or run sequentially](logic-apps-control-flow-loops.md#sequential-foreach-loop)
+  * [**For each** loops - change concurrency or run sequentially](logic-apps-control-flow-loops.md#sequential-foreach-loop)
 
-  * [Workflow Definition Language schema - For each loops](logic-apps-workflow-actions-triggers.md#foreach-action)
+  * [Workflow Definition Language schema - **For each** loops](logic-apps-workflow-actions-triggers.md#foreach-action)
 
-  * [Workflow Definition Language schema - Change "For each" loop concurrency](logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)
+  * [Workflow Definition Language schema - Change **For each** loop concurrency](logic-apps-workflow-actions-triggers.md#change-for-each-concurrency)
 
-  * [Workflow Definition Language schema - Run "For each" loops sequentially](logic-apps-workflow-actions-triggers.md#sequential-for-each)
+  * [Workflow Definition Language schema - Run **For each** loops sequentially](logic-apps-workflow-actions-triggers.md#sequential-for-each)
 
 <a name="destination-throttling"></a>
 
@@ -164,7 +164,7 @@ While a connector has its own throttling limits, the destination service or syst
 
 By default, a logic app's workflow instances and any loops or branches inside those instances, run *in parallel*. This behavior means that multiple instances can call the same endpoint at the same time. Each instance doesn't know about the other's existence, so attempts to retry failed actions can create [race conditions](https://en.wikipedia.org/wiki/Race_condition) where multiple calls try to run at the same time, but to succeed, those calls must arrive at the destination service or system before throttling starts to happen.
 
-For example, suppose you have an array that has 100 items. You use a "For each" loop to iterate through the array and turn on the loop's concurrency control so that you can restrict the number of parallel iterations to 20 or the [current default limit](logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second. This scenario results in a throttling problem because a backlog of retries builds up and never gets to run.
+For example, suppose you have an array that has 100 items. You use a **For each** loop to iterate through the array and turn on the loop's concurrency control so that you can restrict the number of parallel iterations to 20 or the [current default limit](logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Inside that loop, an action inserts an item from the array into a SQL Server database, which permits only 15 calls per second. This scenario results in a throttling problem because a backlog of retries builds up and never gets to run.
 
 The following table describes the timeline for what happens in the loop when the action's retry interval is 1 second:
 
@@ -182,18 +182,18 @@ To handle throttling at this level, you have the following options:
 
   * Create a parent workflow that calls a child or nested workflow for each action. If the parent needs to call different child workflows based on the parent's outcome, you can use a condition action or switch action that determines which child workflow to call. This pattern can help you reduce the number of calls or operations.
 
-    For example, suppose that you have two workflows, each with a polling trigger that checks your email account every minute for a specific subject, such as "Success" or "Failure". This setup results in 120 calls per hour. Instead, if you create a single parent workflow that polls every minute but calls a child workflow that runs based whether the subject is "Success" or "Failure", you cut the number of polling checks to half, or 60 in this case.
+  For example, suppose that you have two workflows, each with a polling trigger that checks your email account every minute for a specific subject, such as "Success" or "Failure". This setup results in 120 calls per hour. Instead, if you create a single parent workflow that polls every minute but calls a child workflow that runs based whether the subject is "Success" or "Failure", you cut the number of polling checks to half, or 60 in this case.
 
-* Set up batch processing. (Consumption workflows only)
+* Set up batch processing (Consumption workflows only).
 
-  If the destination service supports batch operations, you can address throttling by processing items in groups or batches, rather than individually. To implement the batch processing solution, you create a "batch receiver" logic app workflow and a "batch sender" logic app workflow. The batch sender collects messages or items until your specified criteria is met, and then sends those messages or items in a single group. The batch receiver accepts that group and processes those messages or items. For more information, see [Batch process messages in groups](logic-apps-batch-process-send-receive-messages.md).
+  If the destination service supports batch operations, you can address throttling by processing items in groups or batches, rather than individually. To implement the batch processing solution, you create a *batch receiver* logic app workflow and a *batch sender* logic app workflow. The batch sender collects messages or items until your specified criteria is met, and then sends those messages or items in a single group. The batch receiver accepts that group and processes those messages or items. For more information, see [Send, receive, and batch process messages in Azure Logic Apps](logic-apps-batch-process-send-receive-messages.md).
 
 * Use the webhook versions for triggers and actions, rather than the polling versions.
 
-  Why? A polling trigger continues to check the destination service or system at specific intervals. A very frequent interval, such as every second, can create throttling problems. However, a webhook trigger or action, such as [HTTP Webhook](../connectors/connectors-native-webhook.md), creates only a single call to the destination service or system, which happens at subscription time and requests that the destination notifies the trigger or action only when an event happens. That way, the trigger or action doesn't have to continually check the destination.
+  Why? A polling trigger continues to check the destination service or system at specific intervals. A very frequent interval, such as every second, can create throttling problems. However, a webhook trigger or action, such as [HTTP webhook](../connectors/connectors-native-webhook.md), creates only a single call to the destination service or system, which happens at subscription time and requests that the destination notifies the trigger or action only when an event happens. That way, the trigger or action doesn't have to continually check the destination.
   
   So, if the destination service or system supports webhooks or provides a connector that has a webhook version, this option is better than using the polling version. To identify webhook triggers and actions, confirm that they have the `ApiConnectionWebhook` type or that they don't require that you specify a recurrence. For more information, see [ApiConnectionWebhook trigger](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and [ApiConnectionWebhook action](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 
-## Next steps
+## Related content
 
-* [Limits and configuration in Azure Logic Apps](logic-apps-limits-and-config.md)
+* [Limits and configuration reference for Azure Logic Apps](logic-apps-limits-and-config.md)

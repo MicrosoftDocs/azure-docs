@@ -1,5 +1,5 @@
 ---
-title: Understand Azure Files billing
+title: Understand Azure Files Billing
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure Files. Understand total cost of ownership, storage reservations, and burst credits.
 author: khdownie
 ms.service: azure-file-storage
@@ -9,7 +9,7 @@ ms.author: kendownie
 ms.custom:
   - references_regions
   - build-2025
-# Customer intent: "As a financial analyst working with cloud storage, I want to understand the billing models and cost factors for Azure Files, so that I can accurately estimate and manage storage expenses for our organization's cloud strategy."
+# Customer intent: "As a cloud storage administrator, I want to understand the different billing models and cost factors for Azure Files, so that I can accurately estimate and manage storage expenses for our organization's cloud strategy."
 ---
 
 # Understand Azure Files billing models

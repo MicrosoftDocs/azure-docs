@@ -134,7 +134,7 @@ app.MapPost("/api/incomingCall", async (
         }
         catch (Exception ex)
         {
-            logger.LogError($"Answer call exeception : {ex.StackTrace}");
+            logger.LogError($"Answer call exception : {ex.StackTrace}");
         }
     }
     return Results.Ok();
