@@ -44,4 +44,4 @@ While we appreciate the insights this data provides, we also understand that not
 
 ## Next steps
 
-- [Quickstart: Assess a java project using AppCAT 7](appcat7-quick-start.md)
+- [Quickstart: Assess a java project using AppCAT 7](appcat-7-quickstart.md)

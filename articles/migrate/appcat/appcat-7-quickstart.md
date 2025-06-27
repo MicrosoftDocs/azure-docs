@@ -116,6 +116,6 @@ In the **samples** directory, you can find the following scripts to run differen
 
 ## Next steps
 
-- [Interpret the AppCAT 7 report](appcat7-interpret-report.md)
-- [CLI command guide for AppCAT 7](appcat7-cli-guide.md)
-- [Rules development guide for AppCAT 7](appcat7-rule-guide.md)
+- [Interpret the AppCAT 7 report](appcat-7-interpret-report.md)
+- [CLI command guide for AppCAT 7](appcat-7-cli-guide.md)
+- [Rules development guide for AppCAT 7](appcat-7-rule-guide.md)

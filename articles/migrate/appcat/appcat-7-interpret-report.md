@@ -82,4 +82,4 @@ Access this part by selecting the **Insights** tab. Displays file details and in
 
 ## Next steps
 
-- [CLI Command Guide for AppCAT 7](appcat7-cli-guide.md)
+- [CLI Command Guide for AppCAT 7](appcat-7-cli-guide.md)

@@ -12,15 +12,15 @@ items:
           - name: Overview
             href: java.md
           - name: Release notes
-            href: appcat7-release-notes.md
+            href: appcat-7-release-notes.md
           - name: "Quickstart: Assess a Java project"
-            href: appcat7-quick-start.md
+            href: appcat-7-quickstart.md
           - name: Interpret the report
-            href: appcat7-interpret-report.md
+            href: appcat-7-interpret-report.md
           - name: CLI guide
-            href: appcat7-cli-guide.md
+            href: appcat-7-cli-guide.md
           - name: Rule development guide
-            href: appcat7-rule-guide.md
+            href: appcat-7-rule-guide.md
       - name: Assess Java applications and code version 6 (not recommended)
         expanded: true
         items:
