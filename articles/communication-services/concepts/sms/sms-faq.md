@@ -28,7 +28,7 @@ Brand registration is the process of registering your business as a recognized b
 
 To register a brand, you need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. You can complete brand registration through the Azure Communication Services portal as described in [Apply for 10 digit long code (10DLC) brand registration and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
 
-### What types of information are required for brand registration?
+### What type of information are required for brand registration?
 
 You need to provide:
 - Legal business name
@@ -54,12 +54,12 @@ Vetting is a review process to evaluate your brand’s trustworthiness and assig
 
 The vetting score is based on the information provided during brand registration and includes factors like industry reputation, message content, and business type. Scores range from 1-100, with higher scores resulting in higher messaging throughput limits.
 
-### What type of brands are supported?
+### What types of brands are supported?
 
  - **Standard:** For most businesses and organizations that have an EIN. Supports multiple campaigns and higher throughput.
  - **Sole Proprietor:** For individuals or small businesses that don’t have an EIN (Employer Identification Number). Limited to 1 campaign and low message volume. Requires alternative identity verification like a mobile phone bill.
 
-### What type of campaigns are supported?
+### What types of campaigns are supported?
 
 Currently, Azure Communication Services supports:
  - **Standard campaigns:** The most common campaign type for general A2P messaging, such as 2FA, alerts, marketing, or customer care.
