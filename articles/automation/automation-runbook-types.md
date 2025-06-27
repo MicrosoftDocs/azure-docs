@@ -19,7 +19,7 @@ The Azure Automation Process Automation feature supports several types of runboo
 |:--- |:--- |
 | [PowerShell](#powershell-runbooks) <br>(recommended) |Textual runbook based on Windows PowerShell scripting.  The currently supported versions are PowerShell 7.4 and PowerShell 5.1. Since [PowerShell 7.1](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and PowerShell 7.2 are no longer supported by parent product PowerShell, we recommend that you create runbooks in long term supported version PowerShell 7.4. |
 | [PowerShell Workflow](#powershell-workflow-runbooks)|Textual runbook based on Windows PowerShell Workflow scripting. |
-| [Python](#python-runbooks) <br>(recommended) |Textual runbook based on Python scripting. The currently supported versions is Python 3.10. Since [Python 2.7](https://devguide.python.org/versions/) and Python 3.8 are no longer supported by parent product Python, we recommend that you create runbooks in Python 3.10.|
+| [Python](#python-runbooks) <br>(recommended) |Textual runbook based on Python scripting. The currently supported version is Python 3.10. Since [Python 2.7](https://devguide.python.org/versions/) and Python 3.8 are no longer supported by parent product Python, we recommend that you create runbooks in Python 3.10.|
 | [Graphical](#graphical-runbooks)|Graphical runbook based on Windows PowerShell and created and edited completely in the graphical editor in Azure portal. |
 | [Graphical PowerShell Workflow](#graphical-runbooks)|Graphical runbook based on Windows PowerShell Workflow and created and edited completely in the graphical editor in Azure portal. |
 
@@ -44,7 +44,7 @@ The same Azure sandbox and Hybrid Runbook Worker can execute multiple **PowerShe
 
 > [!NOTE]
 > - Currently, PowerShell 7.4 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Brazil Southeast and Gov clouds. 
-> - At the time of runbook execution, if you select **Runtime Version** as **7.4**, PowerShell modules targeting 7.4 runtime version are used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version are used.
+> - At the time of runbook execution, if you select **Runtime Version** as **7.4**, PowerShell modules targeting 7.4 runtime version is used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version is used.
 
 Ensure that you select the right Runtime Version for modules.
 
@@ -267,7 +267,7 @@ The following are the current limitations and known issues with PowerShell runbo
 
       $ProgressPreference = "Continue"
   ```
-- Avoid importing `Az.Accounts` module to version 2.4.0 version for PowerShell 7 runtime as there can be an unexpected behavior using this version in Azure Automation.
+- Avoid importing `Az.Accounts` module to version 2.4.0 for PowerShell 7 runtime as there can be an unexpected behavior using this version in Azure Automation.
 - You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
 - When you import a PowerShell 7.1 module that's dependent on other modules, you may find that the import button is gray even when PowerShell 7.1 version of the dependent module is installed. For example, Az PowerShell module.Compute version 4.20.0, has a dependency on Az.Accounts being >= 2.6.0. This issue occurs when an equivalent dependent module in PowerShell 5.1 doesn't meet the version requirements. For example, 5.1 version of Az.Accounts were < 2.6.0.
 - When you start PowerShell 7 runbook using the webhook, it auto-converts the webhook input parameter to an invalid JSON.
@@ -361,7 +361,7 @@ The limitations of Python runbooks are:
 
 # [Python 2.7](#tab/py27)
 
-- [Python 2.7](https://devguide.python.org/versions/) is no longer supported by parent product Python. We recommend you to create new runbooks in the supported versions and update the outdated runbooks.
+- [Python 2.7](https://devguide.python.org/versions/) is no longer supported by parent product Python. We recommend that you create new runbooks in the supported versions and update the outdated runbooks.
 - You must be familiar with Python scripting.
 - For Python 2.7.12 modules, use wheel files cp27-amd6.
 - To use third-party libraries, you must [import the packages](python-packages.md) into the Automation account.
