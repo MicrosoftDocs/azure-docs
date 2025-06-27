@@ -1,23 +1,24 @@
 ---
-title: Quick start to assess a java project using AppCAT 7
+title: "Quickstart: Assess a Java Project using AppCAT 7"
 description: Azure Migrate application and code assessment tool - Quick start to assess a java project.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
 ms.service: azure
-ms.custom:
-  - devx-track-java
-  - devx-track-extended-java
-  - build-2025
+ms.custom: devx-track-java, build-2025
 ms.topic: overview
-ms.date: 01/15/2025
+ms.date: 06/27/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
-# Quick start to assess a java project using AppCAT 7
-This document describes how to download, install and run AppCAT 7 against a sample Java project. 
+
+# Quickstart: Assess a java project using AppCAT 7
+
+This article describes how to download, install and run AppCAT 7 against a sample Java project.
 
 ## Prerequisites
+
 Before downloading AppCAT, please make sure JDK is installed and configured correctly.
+
 - [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the `JAVA_HOME` environment variable is set.
 
 ## Download and install
@@ -74,34 +75,33 @@ Extract the binary from the downloaded file. You should see the following folder
 ```
 
 ## Run AppCAT against a sample Java project
+
 In following steps, let's do application assessment using AppCAT against [Airsonic-Advanced](https://github.com/airsonic-advanced/airsonic-advanced) - a community-driven, web-based media streamer that enables you to access and share your music collection.
 
 1. To run `appcat` from any location in your terminal, extract the archive to your desired location. Then, update the `PATH` environment variable to include the directory where you extracted the archive.
 
-> [!NOTE]
-> When the `appcat` binary is called, it first looks for its dependencies in the executable folder specified in the `PATH` environment variable. If the dependencies aren't found, it falls back to the user's home directory - **~/.appcat** on Linux/Mac or **%USERPROFILE%\\.appcat** on Windows.
+   > [!NOTE]
+   > When the `appcat` binary is called, it first looks for its dependencies in the executable folder specified in the `PATH` environment variable. If the dependencies aren't found, it falls back to the user's home directory - **~/.appcat** on Linux/Mac or **%USERPROFILE%\\.appcat** on Windows.
 
-2. Clone the application repository to a local folder using the following command:
+1. Clone the application repository to a local folder using the following command:
 
-```sh
-git clone https://github.com/airsonic-advanced/airsonic-advanced.git
-```
+   ```sh
+   git clone https://github.com/airsonic-advanced/airsonic-advanced.git
+   ```
 
-3. Run the assessment scripts living in samples folder of the downloaded AppCAT release package with providing the path to the cloned folder above. Depending on your operating system, run the appropriate script, as shown in the following example. The reports are automatically generated and opened in your web browser. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
+1. Run the assessment scripts living in samples folder of the downloaded AppCAT release package with providing the path to the cloned folder above. Depending on your operating system, run the appropriate script, as shown in the following example. The reports are automatically generated and opened in your web browser. You can find the reports under **../samples/report-\*** (Linux/macOS) or **..\samples\report-\*** (Windows).
 
-# [Linux / macOS](#tab/linux)
+   ### [Linux / macOS](#tab/linux)
 
-```bash
-./samples/run-assessment <path-to-airsonic-advanced>
-```
+   ```bash
+   ./samples/run-assessment <path-to-airsonic-advanced>
+   ```
 
-# [Windows](#tab/windows)
+   ### [Windows](#tab/windows)
 
-```cmd
-.\samples\run-assessment.bat <path-to-airsonic-advanced>
-```
-
----
+   ```cmd
+   .\samples\run-assessment.bat <path-to-airsonic-advanced>
+   ```
 
 > [!NOTE]
 > Ensure that the file permissions for scripts in the extracted folder are set to allow execution.
@@ -115,6 +115,7 @@ In the **samples** directory, you can find the following scripts to run differen
 - **run-assessment-package-only**: Produces a report by assessing specific packages.
 
 ## Next steps
+
 - [Interpret the report](appcat7-interpret-report.md)
 - [CLI Command Guide for AppCAT 7](appcat7-cli-guide.md)
 - [Create custom rules for AppCAT 7](appcat7-rule-guide.md)

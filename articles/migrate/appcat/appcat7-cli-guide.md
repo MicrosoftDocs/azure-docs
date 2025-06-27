@@ -7,13 +7,13 @@ ms.reviewer: brborges
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: overview
-ms.date: 05/28/2025
+ms.date: 06/27/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
 # CLI command guide for AppCAT 7
 
-The guide describes AppCAT CLI command usage.
+This article describes the AppCAT CLI command usage.
 
 ## Commands
 
@@ -29,42 +29,42 @@ The following is a detailed description of the available "appcat analyze" comman
 
 #### Required parameters
 
-| Parameter | Description                                                                                                                                                 |
-|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --input   | Path to application source code or a binary file for analysis. Use a comma-separated list for multiple values: `--input <input1>,<input2>,...` (default []) |
-| --output  | Directory where the analysis results will be stored.                                                                                                        |
+| Parameter   | Description                                                                                                                                                 |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--input`   | Path to application source code or a binary file for analysis. Use a comma-separated list for multiple values: `--input <input1>,<input2>,...` (default []) |
+| `--output`  | Directory where the analysis results will be stored.                                                                                                        |
 
 #### Optional parameters
 
-| Category                     | Parameter                 | Description                                                                                                                                                                                             |
-|------------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Source & target technologies |                           |                                                                                                                                                                                                         |
-|                              | --list-sources            | Display available migration source technologies.                                                                                                                                                        |
-|                              | --list-targets            | Display available migration target technologies.                                                                                                                                                        |
-|                              | --source, -s              | Specify source technologies for analysis. Use a comma-separated list for multiple values: `--source <source1>,<source2>,...`, Use the `--list-sources` argument to list all available sources.          |
-|                              | --target, -t              | Specify target technologies for analysis. Use a comma-separated list for multiple values: `--target <target1>,<target2>,...` , Use the `--list-targets` argument to list all available targets.         |
-| Analysis options             |                           |                                                                                                                                                                                                         |
-|                              | --analyze-known-libraries | Enable analysis of known open-source libraries (specified in maven.default.index of AppCAT) during analyzing source code. (default false)                                                               |
-|                              | --custom-maven-settings   | Specify the path to a custom Maven settings file.                                                                                                                                                       |
-|                              | --dry-run                 | Only check if the flags are valid, not running the analysis actually. (default false)                                                                                                                   |
-|                              | --mode, -m                | Set the analysis mode. Must be one of 'full' (source + dependencies, to analyze source code and list dependencies) or 'source-only'. (default full)                                                     |
-|                              | --packages                | Specify application class packages to be evaluated. Use a comma-separated list for multiple values: `--packages <package1>,<package2>,...` (default [])                                                 |
-| Rule options                 |                           |                                                                                                                                                                                                         |
-|                              | --code-snips-number       | Limit the displayed number of incidents with code snippets in a file. 0 means no limit so all incidents with code snippets in a file will be displayed; -1 means no code snippet displayed. (default 0) |
-|                              | --enable-default-rulesets | Enable the execution of default rulesets. (default true, use `--enable-default-rulesets=false` to disable)                                                                                              |
-|                              | --label-selector, -l      | Apply rules based on a specified label selector expression. Example: `(konveyor.io/target=azure-aks && konveyor.io/source)`                                                                             |
-|                              | --rules                   | Specify rule files or directories. Use a comma-separated list for multiple values: `--rules <rule1>,<rule2>,...` (default [])                                                                           |
-| Proxy settings               |                           |                                                                                                                                                                                                         |
-|                              | --http-proxy              | Define an HTTP proxy URL for downloading OSS libraries from maven repository.                                                                                                                           |
-|                              | --https-proxy             | Define an HTTPS proxy URL for downloading OSS libraries from maven repository.                                                                                                                          |
-|                              | --no-proxy                | Specify URLs to exclude from proxy usage when downloading OSS libraries from maven repository.                                                                                                          |
-| Report & output formatting   |                           |                                                                                                                                                                                                         |
-|                              | --bulk                    | Combine results when running multiple `analyze` commands in bulk. (default false)                                                                                                                       |
-|                              | --context-lines-number    | Set the number of source code lines included in the output for each detected incident. (default 100)                                                                                                    |
-|                              | --incident-selector       | Filter incidents based on a custom variable expression. Example: (!package=io.konveyor.demo.config-utils)                                                                                               |
-|                              | --output-format           | Choose output format: 'yaml' or 'json'. (default yaml)                                                                                                                                                  |
-|                              | --overwrite               | Overwrite the existing output directory. (default false)                                                                                                                                                |
-|                              | --skip-static-report      | Skip generating a static analysis report. (default false)                                                                                                                                               |
+| Category                     | Parameter                   | Description                                                                                                                                                                                             |
+|------------------------------|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Source & target technologies |                             |                                                                                                                                                                                                         |
+|                              | `--list-sources`            | Display available migration source technologies.                                                                                                                                                        |
+|                              | `--list-targets`            | Display available migration target technologies.                                                                                                                                                        |
+|                              | `--source`, `-s`            | Specify source technologies for analysis. Use a comma-separated list for multiple values: `--source <source1>,<source2>,...`, Use the `--list-sources` argument to list all available sources.          |
+|                              | `--target`, `-t`            | Specify target technologies for analysis. Use a comma-separated list for multiple values: `--target <target1>,<target2>,...` , Use the `--list-targets` argument to list all available targets.         |
+| Analysis options             |                             |                                                                                                                                                                                                         |
+|                              | `--analyze-known-libraries` | Enable analysis of known open-source libraries (specified in maven.default.index of AppCAT) during analyzing source code. (default false)                                                               |
+|                              | `--custom-maven-settings`   | Specify the path to a custom Maven settings file.                                                                                                                                                       |
+|                              | `--dry-run`                 | Only check if the flags are valid, not running the analysis actually. The default value is `false`.                                                                                                     |
+|                              | `--mode`, `-m`              | Set the analysis mode. Must be one of 'full' (source + dependencies, to analyze source code and list dependencies) or 'source-only'. (default full)                                                     |
+|                              | `--packages`                | Specify application class packages to be evaluated. Use a comma-separated list for multiple values: `--packages <package1>,<package2>,...` (default [])                                                 |
+| Rule options                 |                             |                                                                                                                                                                                                         |
+|                              | `--code-snips-number`       | Limit the displayed number of incidents with code snippets in a file. 0 means no limit so all incidents with code snippets in a file will be displayed; -1 means no code snippet displayed. (default 0) |
+|                              | `--enable-default-rulesets` | Enable the execution of default rulesets. (default true, use `--enable-default-rulesets=false` to disable)                                                                                              |
+|                              | `--label-selector`, `-l`    | Apply rules based on a specified label selector expression. Example: `(konveyor.io/target=azure-aks && konveyor.io/source)`                                                                             |
+|                              | `--rules`                   | Specify rule files or directories. Use a comma-separated list for multiple values: `--rules <rule1>,<rule2>,...` (default [])                                                                           |
+| Proxy settings               |                             |                                                                                                                                                                                                         |
+|                              | `--http-proxy`              | Define an HTTP proxy URL for downloading OSS libraries from maven repository.                                                                                                                           |
+|                              | `--https-proxy`             | Define an HTTPS proxy URL for downloading OSS libraries from maven repository.                                                                                                                          |
+|                              | `--no-proxy`                | Specify URLs to exclude from proxy usage when downloading OSS libraries from maven repository.                                                                                                          |
+| Report & output formatting   |                             |                                                                                                                                                                                                         |
+|                              | `--bulk`                    | Combine results when running multiple `analyze` commands in bulk. The default value is `false`.                                                                                                         |
+|                              | `--context-lines-number`    | Set the number of source code lines included in the output for each detected incident. The default value is `100`.                                                                                      |
+|                              | `--incident-selector`       | Filter incidents based on a custom variable expression. Example: (!package=io.konveyor.demo.config-utils)                                                                                               |
+|                              | `--output-format`           | Choose output format: 'yaml' or 'json'. The default value is `yaml`.                                                                                                                                    |
+|                              | `--overwrite`               | Overwrite the existing output directory. The default value is `false`.                                                                                                                                  |
+|                              | `--skip-static-report`      | Skip generating a static analysis report. The default value is `false`.                                                                                                                                 |
 
 ##### Supported sources
 
@@ -119,91 +119,107 @@ In AppCAT CLI install path, you can configure the `.appcat-ignore` file to exclu
 
 #### Global parameters
 
-| Parameter           | Description                                             |
-|---------------------|---------------------------------------------------------|
-| --disable-telemetry | Disable telemetry                                       |
-| --log-level         | Set the log level. (default 4)                          |
-| --no-cleanup        | Prevent cleanup of temporary resources after execution. |
+| Parameter             | Description                                             |
+|-----------------------|---------------------------------------------------------|
+| `--disable-telemetry` | Disable telemetry                                       |
+| `--log-level`         | Set the log level. (default 4)                          |
+| `--no-cleanup`        | Prevent cleanup of temporary resources after execution. |
 
 #### Examples
 
 - Analyze a source code directory:
 
-```bash
-appcat analyze --input /path/to/source --output /path/to/output
-```
+  ```bash
+  appcat analyze --input <path-to-source> --output <path-to-output>
+  ```
 
 - Analyze a source code directory with specific source and target technologies:
 
-```bash
-appcat analyze \
-    --input /path/to/source \
-    --output /path/to/output \
-    --source springboot \
-    --target azure-aks,azure-appservice,azure-container-apps
-```
+  ```bash
+  appcat analyze \
+      --input <path-to-source> \
+      --output <path-to-output> \
+      --source springboot \
+      --target azure-aks,azure-appservice,azure-container-apps
+  ```
 
 - Analyze a source code directory with additional custom rules:
 
-```bash
-appcat analyze --input /path/to/source --output /path/to/output --rules /path/to/rules
-```
+  ```bash
+  appcat analyze --input <path-to-source> --output <path-to-output> --rules <path-to-rules>
+  ```
 
 - Analyze a source code directory using only custom rules (without default rulesets):
 
-```bash
-appcat analyze --input /path/to/source --output /path/to/output --enable-default-rulesets=false --rules /path/to/rules
-```
+  ```bash
+  appcat analyze \
+      --input /path/to/source \
+      --output /path/to/output \
+      --enable-default-rulesets=false \
+      --rules /path/to/rules
+  ```
 
-- Analyze and add more application analysis to an existing output directory and static report.
+- Analyze and add more application analysis to an existing output directory and static report:
 
-```bash
-appcat analyze --input=<path-to-source-A>,<path-to-source-B>,<path-to-source-C> --output=<path-to-output-ABC> --target=<target-name>
-appcat analyze --bulk --input=<path-to-source-D> --output=<path-to-output-ABC> --target=<target-name>
-appcat analyze --bulk --input=<path-to-source-E> --output=<path-to-output-ABC> --target=<target-name>
-```
+  ```bash
+  appcat analyze \
+      --input=<path-to-source-A>,<path-to-source-B>,<path-to-source-C> \
+      --output=<path-to-output-ABC> \
+      --target=<target-name>
+  appcat analyze 
+      --bulk \
+      --input=<path-to-source-D> \
+      --output=<path-to-output-ABC> \
+      --target=<target-name>
+  appcat analyze \
+      --bulk \
+      --input=<path-to-source-E> \
+      --output=<path-to-output-ABC> \
+      --target=<target-name>
+  ```
 
-- Analyze a source code directory and keep the detect context lines with custom line number
+- Analyze a source code directory and keep the detect context lines with custom line number:
 
-```bash
-appcat analyze --input /path/to/source --output /path/to/output --context-lines-number <line-number>
-```
+  ```bash
+  appcat analyze \
+      --input <path-to-source> \
+      --output <path-to-output> \
+      --context-lines-number <line-number>
+  ```
 
-here is a `--context-lines-number 3` example
+The following screenshot shows an example of using `--context-lines-number 3`:
+
 :::image type="content" source="media/java/appcat-7-cli-command-with-context-line-number.png" alt-text="Screenshot of the appcat report issue code snip difference with --context-lines-number paramter." lightbox="media/java/appcat-7-cli-command-with-context-line-number.png":::
-
 
 ### appcat transform
 
-Convert Windup XML rules to YAML
+Converts Windup XML rules to YAML.
 
-#### Required Parameters
+#### Required parameters
 
-| Parameter | Description                 |
-|-----------|-----------------------------|
-| --rules   | Convert XML rules to YAML   |
+| Parameter   | Description                |
+|-------------|----------------------------|
+| `--rules`   | Convert XML rules to YAML. |
 
-#### Global Parameters
+#### Global parameters
 
-| Parameter           | Description                                             |
-|---------------------|---------------------------------------------------------|
-| --disable-telemetry | Disable telemetry                                       |
-| --log-level         | Set the log level. (default 4)                          |
-| --no-cleanup        | Prevent cleanup of temporary resources after execution. |
+| Parameter             | Description                                             |
+|-----------------------|---------------------------------------------------------|
+| `--disable-telemetry` | Disable telemetry                                       |
+| `--log-level`         | Set the log level. (default 4)                          |
+| `--no-cleanup`        | Prevent cleanup of temporary resources after execution. |
 
 #### Examples
 
-- Convert a windup XML rule to YAML
+The following example converts a windup XML rule to YAML:
 
 ```bash
-appcat transform rules --input /path/to/rule --output /path/to/outputfolder
+appcat transform rules --input <path-to-rule> --output <path-to-output-folder>
 ```
 
 ### appcat version
 
-Print the tool version
-
-#### Example
+Prints the tool version.
 
 ```bash
 appcat version

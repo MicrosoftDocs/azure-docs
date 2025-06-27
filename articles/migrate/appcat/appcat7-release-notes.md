@@ -1,26 +1,26 @@
 ---
-title: Release notes for AppCAT 7
+title: Release Notes for AppCAT 7
 description: Azure Migrate application and code assessment tool - release notes.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: brborges
 ms.service: azure
-ms.custom:
-  - devx-track-java
-  - devx-track-extended-java
-  - build-2025
+ms.custom: devx-track-java, build-2025
 ms.topic: overview
-ms.date: 01/15/2025
+ms.date: 06/27/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
 # Release notes
+
 ### 7.7.0.0 (GA)
+
 This release contains the following fixes and enhancements:
+
 - Added graceful error handling with well-defined exit codes for different kinds of errors.
 - Removed `appcat test` command.
-- Enhanced report with adding application overview section.
-- Bug Fix: fixed mvnw is not executable in Linux and macOS.
+- Enhanced report by adding application overview section.
+- Bug fix: `mvnw` is now executable in Linux and macOS.
 
 ### 7.6.0.7
 
@@ -31,13 +31,13 @@ This release contains the following fixes and enhancements.
 - Show assessment progress by displaying the number of rules processed during assessment.
 - Removed Maven from prerequisites.
 - Replaced `airsonic.war` with `airsonic-advanced` as the sample application in the released artifacts.
-  
+
 ### 7.6.0.6
 
 This release contains the following fixes and enhancements.
 
 - A default **.appcat-ignore** file is now included in the release package by default. This file causes the tool to exclude specified folders or paths that don't need to be analyzed.
-- Fixed the issue of missing dependencies in the report when using `full` mode (specified by using `--mode`).
+- Fixed the issue of missing dependencies in the report when using `full` mode - specified by using `--mode`.
 - Scoped analysis to AppCAT-supported targets when no targets are specified.
 - Ignored comment lines during analysis.
 - Fixed incorrect location for XML rules.
@@ -107,13 +107,14 @@ This release is based on a different set of components of the Konveyor project.
 - New engine based on the [Konveyor Analyzer LSP](https://github.com/konveyor/analyzer-lsp) project, with a CLI based on the [Konveyor Kantra](https://github.com/konveyor/kantra/) project.
 
 ## Known issues
+
 ### 7.7.0.0
 
 - Rules issues:
   - The `azure-system-config-01000` rules aren't being triggered.
   - The `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
 - An error in the Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
-  
+
 ### 7.6.0.7
 
 - Rules issues:

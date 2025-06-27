@@ -7,7 +7,7 @@ ms.reviewer: brborges
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: overview
-ms.date: 05/28/2025
+ms.date: 06/27/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
@@ -19,7 +19,7 @@ For more information, see the Introduction to the [Azure Migrate application and
 
 The AppCAT contains rule-based migration tools that analyze the APIs, technologies, and architectures used by the applications you plan to migrate. In fact, the AppCAT analysis process is implemented using AppCAT rules. AppCAT uses rules internally to extract files from archives, decompile files, scan and classify file types, analyze XML and other file content, analyze the application code, and build the reports.
 
-## Getting start with rules
+## Get started with rules
 
 The [AppCAT ruleset project ](https://github.com/Azure/appcat-konveyor-rulesets) contributes future rules to aid static code analysis as well as issues shared by subject matter experts to aid creation of richer Rulesets.
 

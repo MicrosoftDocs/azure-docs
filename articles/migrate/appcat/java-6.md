@@ -14,7 +14,7 @@ ms.date: 07/12/2024
 # Azure Migrate application and code assessment for Java
 
 > [!NOTE]
-> This version of *Azure Migrate application and code assessment for Java* is under no maintenance and going to be deprecated. We have released a new version 7.x, based on a new analyzer engine. To download and experiment with the new engine, available for Windows, Linux, and macOS, see [Azure Migrate application and code assessment for Java version 7](./java.md) 
+> This version of *Azure Migrate application and code assessment for Java* is under no maintenance and going to be deprecated. We have released a new version 7.x, based on a new analyzer engine. To download and experiment with the new engine, available for Windows, Linux, and macOS, see [Azure Migrate application and code assessment for Java version 7](./java.md)
 
 This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a CLI (command-line interface) and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
 
@@ -61,7 +61,7 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 
 ## Download
 
-To use the `appcat` CLI, you must download the ZIP file described in the next section, and have a compatible JDK 11 or JDK 17 installation on your computer. The `appcat` CLI runs on any Java-compatible environment such as Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. We recommend you use the [Microsoft Build of OpenJDK](/java/openjdk). 
+To use the `appcat` CLI, you must download the ZIP file described in the next section, and have a compatible JDK 11 or JDK 17 installation on your computer. The `appcat` CLI runs on any Java-compatible environment such as Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. We recommend you use the [Microsoft Build of OpenJDK](/java/openjdk).
 
 > [!div class="nextstepaction"]
 > [Download Azure Migrate application and code assessment for Java 6.3.9.0](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.9.0-preview.zip). Updated on 2024-12-09.
@@ -145,7 +145,7 @@ Use the following command to initiate discovery and cloud readiness:
     --target discovery cloud-readiness
 ```
 
-This type of report is useful when you don't have a specific Azure service in mind to deploy your application to. 
+This type of report is useful when you don't have a specific Azure service in mind to deploy your application to.
 
 The tool always performs the `discovery` whether or not you include that value in the `--target` parameter.
 
