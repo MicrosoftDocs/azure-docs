@@ -228,7 +228,7 @@ Azure service: [Azure Arc](/azure/azure-arc/)
 > | Microsoft.HybridCompute/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
 > | Microsoft.HybridCompute/machines/assessPatches/action | Assesses any Azure Arc machines to get missing software patches |
 > | Microsoft.HybridCompute/machines/installPatches/action | Installs patches on any Azure Arc machines |
-> | Microsoft.HybridCompute/machines/listAccessDetails/action | Retreives the access details for a machines resource |
+> | Microsoft.HybridCompute/machines/listAccessDetails/action | Retrieves the access details for a machines resource |
 > | Microsoft.HybridCompute/machines/addExtensions/action | Setup Extensions on Azure Arc machines |
 > | Microsoft.HybridCompute/machines/extensions/read | Reads any Azure Arc extensions |
 > | Microsoft.HybridCompute/machines/extensions/write | Installs or Updates an Azure Arc extensions |

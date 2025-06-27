@@ -2,7 +2,7 @@
 title: Troubleshooting Azure Data Lake Storage backup using Azure Backup (preview)
 description: Learn to troubleshoot Azure Data Lake Storage backup using Azure Backup.
 ms.topic: troubleshooting
-ms.date: 06/19/2025
+ms.date: 05/27/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -10,7 +10,7 @@ ms.author: jsuri
 
 # Troubleshoot Azure Data Lake Storage backup (preview)
 
-This article provides troubleshooting details for error codes that appear when configuring backup and restoring for Azure Data Lake Storage data using Azure Backup.
+This article provides troubleshooting details for error codes that appear when configuring backup and restoring for Azure Data Lake Storage data using Azure Backup (preview).
 
 ## Common backup errors
 

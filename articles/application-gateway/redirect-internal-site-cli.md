@@ -9,6 +9,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to configure an application gateway for internal web traffic redirection using a command-line interface, so that I can effectively manage traffic across multiple domains and backend resources within my network."
 ---
 
 # Create an application gateway with internal redirection using the Azure CLI

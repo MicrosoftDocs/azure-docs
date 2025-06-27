@@ -136,9 +136,8 @@ Click **Next** to proceed to the **Campaign details** section.
       Click **Next** to proceed to the **Use Case** section
 
       > [!NOTE]
-      > SMS senders in the US are required to include a link to reference Terms and conditions, Privacy policy, and information about how to get help in the initial message to an SMS recipient.  
-      
-      If your company doesn't have a privacy statement related to SMS messaging, you can use the following Microsoft-provided template completed with your company's information. This template includes relevant SMS terms and placeholders where you can insert links to your general terms and conditions, privacy policy, and help information.
+      > SMS senders in the US are required to include a link to reference Terms and conditions, Privacy policy, and information about how to get help in the initial message to an SMS recipient.     
+      > If your company doesn't have a privacy statement related to SMS messaging, you can use the following Microsoft-provided template completed with your company's information. This template includes relevant SMS terms and placeholders where you can insert links to your general terms and conditions, privacy policy, and help information.
 
    > [!Important]
    > DISCLAIMER: This template is for informational purposes only and isn't intended as, and should not be substituted for, consultation with appropriate legal counsel and/or your organization's regulatory compliance team. This template is applicable only to approved uses of SMS from Azure Communication Services. Appropriate terms may vary depending on how you use this service and the nature of your business, and we recommend seeking legal counsel to ensure compliance with all applicable regulatory and legal obligations.
@@ -307,7 +306,7 @@ Using the **Regulatory Documents** blade to monitor the status of your brand and
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-status.png" alt-text="Screenshot showing campaign registration status." lightbox="./media/apply-for-brand-registration/campaign-registration-status.png":::
 
-## STEP 4: Linking a phone number to an approved campaign
+## STEP 4: Link a phone number to an approved campaign
 
 Once your campaign is approved, follow these steps to link a phone number to it:
 

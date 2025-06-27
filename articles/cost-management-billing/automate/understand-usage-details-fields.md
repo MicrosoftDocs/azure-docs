@@ -2,9 +2,9 @@
 title: Understand usage details fields
 titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
-author: jojopm
+author: jojohpm
 ms.author: jojoh
-ms.date: 01/31/2025
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

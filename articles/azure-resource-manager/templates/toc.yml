@@ -286,8 +286,6 @@ items:
       href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Redis Web App
-      href: ../../redis/web-app-arm-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Concepts
@@ -533,4 +531,4 @@ items:
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-resource-manager
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
+    href: /shows/on-demand-instructor-led-training-series/az-104-module-8

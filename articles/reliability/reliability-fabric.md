@@ -12,7 +12,7 @@ ms.custom:
   - references_regions
   - build-2023
   - ignite-2023
-ms.date: 04/24/2025
+ms.date: 06/16/2025
 ---
 
 # Reliability in Microsoft Fabric
@@ -67,6 +67,7 @@ Fabric makes commercially reasonable efforts to provide availability zone suppor
 | **Asia Pacific**     | **Power BI**                                                       | **Datamarts**                                                      | **Data Warehouses**                                                | **Real-Time Analytics**                                            | **Data Factory (pipelines)**                                       | **Data Engineering**                                               | **SQL Database**                                                   | **Activator**                                                   |
 | Australia East       | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: |                                                                    | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: |                                                                    | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: |
 | Japan East           | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: |                                                                    |                                                                    |                                                                    | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: |
+| Japan West           |                                                                     |                                           |                                                                    |                                                                    |                                                                    |                                                                    | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: |                                                               |
 | Southeast Asia       | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: |                                                                    |                                                                    |                                                                    | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: | :::image type="icon" source="media/icon-checkmark.svg" border="false"::: |
 
 ### Zone down experience
@@ -195,6 +196,12 @@ OneLake data remains accessible through multiple channels:
     * Azure Storage Explorer: See [Integrate OneLake with Azure Storage Explorer](/fabric/onelake/onelake-azure-storage-explorer)
 
     * OneLake File Explorer: See [Use OneLake file explorer to access Fabric data](/fabric/onelake/onelake-file-explorer)
+
+* In a disaster scenario, the OneLake catalog is in read-only mode:
+    
+    * Explore tab: You can access the Explore tab to view all items and workspaces, including their metadata and related details.
+
+    * Govern tab: You can access the Govern tab to view insights, recommended actions, and governance tools - based on the most recent successful model refresh prior to failover. 
 
 #### Phase 3: Recovery plan
 
