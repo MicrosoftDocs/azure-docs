@@ -175,7 +175,7 @@ The cmdlets should return the key value. Once you have the kerb1 key, create eit
    ```
 > [!IMPORTANT]
 > **Don't sync users with invalid userPrincipalName (UPN) values**. UPNs must not contain special characters such as `/`, spaces, or other unsupported symbols.
-> Attempting to sync users with invalid UPNs (i.e. using `/` in the username) will result in Azure AD Connect errors.
+> Attempting to sync users with invalid UPNs (i.e. using `/` in the username) will result in Microsoft Entra Connect errors.
 > If such identities exist in your on-premises directory, either:
 > - Update the UPN to a valid format (e.g., `user@domain.com`), **or**
 > - Exclude the user from synchronization using filtering rules in Azure AD Connect.
