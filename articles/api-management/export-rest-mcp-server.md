@@ -43,7 +43,7 @@ In this article, you learn how to:
 ## Expose API as an MCP server
 
 
-1. In the Azure portal, access the MCP server preview at the following URL:
+1. In the Azure portal, access the MCP server preview at the following URL. The preview can ony be used in the supported API Management tiers:
 
     ```
     https://portal.azure.com/?Microsoft_Azure_ApiManagement=mcp
