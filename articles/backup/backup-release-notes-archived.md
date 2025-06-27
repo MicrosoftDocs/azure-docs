@@ -6,7 +6,7 @@ ms.date: 07/30/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
-# Customer intent: "As an IT administrator responsible for data protection, I want to review archived release notes for Azure Backup, so that I can stay informed about past features and improvements to better manage our backup solutions."
+# Customer intent: "As an IT administrator responsible for data protection, I want to review the previous feature releases for Azure Backup, so that I can stay informed about past features and improvements to better manage our backup solutions."
 ---
 
 # Archived release notes in Azure Backup

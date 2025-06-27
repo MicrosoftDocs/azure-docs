@@ -7,7 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
-# Customer intent: As a backup administrator, I want to effectively manage and monitor backups across multiple Azure resources, so that I can ensure data protection and recovery capabilities align with organizational needs.
+# Customer intent: As a backup administrator, I want to understand Backup center and effectively manage and monitor backups across multiple Azure resources, so that I can ensure data protection and recovery capabilities align with organizational needs.
 ---
 
 # About Backup center for Azure Backup and Azure Site Recovery

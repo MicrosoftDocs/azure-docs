@@ -7,7 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
-# Customer intent: "As an IT professional managing Azure storage, I want to configure backups for Azure Blobs, so that I can protect against data loss from accidental deletion or corruption and ensure compliance with retention policies."
+# Customer intent: "As an IT professional managing Azure storage, I want to implement backups for Azure Blobs, so that I can protect against data loss from accidental deletion or corruption and ensure compliance with retention policies."
 ---
 
 # Overview of Azure Blob backup
