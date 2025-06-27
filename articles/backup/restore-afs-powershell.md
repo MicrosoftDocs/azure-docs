@@ -6,7 +6,7 @@ ms.date: 06/03/2025
 ms.custom: devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
-# Customer intent: "As a cloud administrator, I want to restore Azure Files using PowerShell, so that I can quickly recover data from backup points to either the original or an alternate location as needed."
+# Customer intent: "As a cloud administrator, I want to restore backed-up Azure Files using PowerShell, so that I can quickly recover data from backup points to either the original or an alternate location as needed."
 ---
 
 # Restore Azure Files with PowerShell

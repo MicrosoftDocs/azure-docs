@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 05/22/2025
 author: jyothisuri
 ms.author: jsuri
-# Customer intent: As a cloud administrator, I want to restore Azure Files using REST API, so that I can efficiently recover entire file shares or specific files from backup points without relying on GUI tools.
+# Customer intent: As a cloud administrator, I want to restore backed-up Azure Files using REST API, so that I can efficiently recover entire file shares or specific files from backup points without relying on GUI tools.
 ---
 
 # Restore Azure Files using REST API

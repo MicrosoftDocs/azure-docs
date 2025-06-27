@@ -8,7 +8,7 @@ ms.custom:
   - ignite-2024
 author: jyothisuri
 ms.author: jsuri
-# Customer intent: As a database administrator managing SAP ASE databases on Azure, I want to monitor and configure backup settings, so that I can ensure data protection and optimize performance efficiently.
+# Customer intent: As a database administrator managing SAP ASE databases on Azure, I want to monitor and modify backup settings, so that I can ensure data protection and optimize performance efficiently.
 ---
 
 # Manage and monitor backed-up SAP ASE database using Azure portal
