@@ -91,7 +91,7 @@ You must use the Premium (classic) tier to configure availability zone support. 
 
 - **Autoscaling:** If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. U you simply default to the automatic availability zone support, you don't need to adjust your autoscale settings. 
 
-- **IP address requirements:** When you're enabling availability zone support on an API Management instance that's deployed in an external or internal virtual network, you must specify a public IP address resource for the instance to use. In an internal virtual network, the public IP address is used only for management operations, not for API requests. [Learn more about IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). 
+- **IP address requirements:** When you're enabling availability zone support on an API Management instance that's deployed in an external or internal virtual network, currently you must specify a public IP address resource for the instance to use. In an internal virtual network, the public IP address is used only for management operations, not for API requests. [Learn more about IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). 
 
 ### Cost
 
@@ -165,13 +165,12 @@ This section describes what to expect when Azure API Management instances are co
 
     - *Zonal:* For zonal instances, when a zone is unavailable, your instance is unavailable until the availability zone recovers.
 
-- **Traffic rerouting:** The traffic rerouting behavior depends on the availability zone configuration that your instance uses.
-<!-- Not sure about these points -->
+- **Traffic rerouting:** The traffic rerouting behavior depends on the availability zone configuration that your instance uses. <!-- Not sure about these points -->
 
     - *Automatic:* Instances that use automatic availability zone support don't automatically recover into another zone. Any units in the affected zone will be unavailable. You can choose to scale your instance to add more units 
-
+    
     - *Zone-redundant:* For instances that are configured to be zone-redundant, when a zone is unavailable, Azure API Management detects the lost units from that zone. It automatically attempts to find new replacement units. Then, it spreads traffic across the new units as needed. <!-- Dan: Please confirm this is accurate -->
-
+    
     - *Zonal*: For zonal instances, when a zone is unavailable, your instance is unavailable. If you have a secondary instance in another availability zone, you're responsible for rerouting traffic to that secondary instance.
 
 ### Failback
