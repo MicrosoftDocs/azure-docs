@@ -248,5 +248,6 @@ Both Semantic Kernel and Azure AI Foundry Agent Service enable you to build agen
 
 ## More resources
 
+- [Integrate AI into your Azure App Service applications](overview-ai-integration.md)
 - [What is Azure AI Foundry Agent Service?](/azure/ai-foundry/agents/overview)
 - [Introduction to Semantic Kernel](/semantic-kernel/overview/)
