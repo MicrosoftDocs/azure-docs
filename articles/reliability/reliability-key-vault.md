@@ -200,9 +200,9 @@ For detailed instructions, guidance on when to use backups, and important limita
 
 Azure Key Vault provides two key recovery features to prevent accidental or malicious deletion:
 
-1. **Soft delete:** When enabled, soft delete allows you to recover deleted vaults and objects during a configurable retention period (default 90 days). Think of soft delete like a recycle bin for your key vault resources.
+- **Soft delete:** When enabled, soft delete allows you to recover deleted vaults and objects during a configurable retention period (default 90 days). Think of soft delete like a recycle bin for your key vault resources.
 
-2. **Purge protection:** When enabled, purge protection prevents permanent deletion of your key vault and its objects until the retention period elapses. This prevents malicious actors from permanently destroying your secrets.
+- **Purge protection:** When enabled, purge protection prevents permanent deletion of your key vault and its objects until the retention period elapses. This prevents malicious actors from permanently destroying your secrets.
 
 Both features are strongly recommended for production environments. For a detailed explanation of these features, see [What are soft-delete and purge protection](/azure/key-vault/general/key-vault-recovery#what-are-soft-delete-and-purge-protection) in the Key Vault recovery management documentation.
 
