@@ -7,9 +7,7 @@ ms.topic: how-to
 ms.date: 12/27/2024
 ms.author: jsuri
 ms.custom: engagement-fy23, UpdateFrequency2
-#Customer intent: As an Azure admin,  I want to modify destination settings when moving resources to another region using Azure Resource Mover.
-
-# Customer intent: As an Azure admin, I want to modify destination settings during the migration of VMs between regions using a resource mover, so that I can ensure optimal configuration and compliance with regional specifications.
+# Customer intent: As an Azure administrator, I want to modify destination settings during the migration of VMs between regions using a resource mover, so that I can ensure optimal configuration and compliance with regional specifications.
 ---
 # Modify destination settings
 
