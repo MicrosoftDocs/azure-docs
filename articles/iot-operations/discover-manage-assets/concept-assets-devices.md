@@ -67,7 +67,7 @@ The following table highlights some important properties that are included in A 
 
 ## Assets
 
-An *asset* is a configurations resource that represents a physical device or asset in the cloud as an Azure Resource Manager resource and at the edge as a Kubernetes custom resource. When you create an asset, you can define its metadata and the data points, events, and streams that it emits.
+An *asset* is a configuration resource that represents a physical device or asset in the cloud as an Azure Resource Manager resource and at the edge as a Kubernetes custom resource. When you create an asset, you can define its metadata and the data points, events, and streams that it emits.
 
 When you define an asset using either the operations experience or Azure IoT Operations CLI, you can configure *data points*, *events*, and *streams* for each asset.
 
