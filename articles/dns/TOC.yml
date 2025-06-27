@@ -52,6 +52,8 @@
     items:
     - name: What is Azure Traffic Manager?
       href: /azure/traffic-manager/traffic-manager-overview
+  - name: What is network foundations?
+    href: /azure/networking/network-foundations-overview
   expanded: true
 - name: Design
   items:
@@ -93,20 +95,6 @@
       href: private-resolver-architecture.md
     - name: Resiliency in Azure DNS Private Resolver
       href: private-resolver-reliability.md
-- name: Security
-  items:
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
-  - name: DNS security policy
-    href: dns-security-policy.md
-  - name: DNSSEC overview
-    href: dnssec.md
-  - name: Protect public DNS zones and records
-    href: dns-protect-zones-recordsets.md
-  - name: Protect private DNS zones and records
-    href: dns-protect-private-zones-recordsets.md
-  - name: Network security blog
-    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Deploy
   items:
   - name: Public DNS
@@ -155,6 +143,20 @@
       href: tutorial-dns-private-resolver-failover.md
     - name: Resolve Azure and on-premises domains
       href: private-resolver-hybrid-dns.md
+- name: Security
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
+  - name: DNS security policy
+    href: dns-security-policy.md
+  - name: DNSSEC overview
+    href: dnssec.md
+  - name: Protect public DNS zones and records
+    href: dns-protect-zones-recordsets.md
+  - name: Protect private DNS zones and records
+    href: dns-protect-private-zones-recordsets.md
+  - name: Network security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Monitor and manage
   items:
   - name: Monitor and manage DNS traffic
