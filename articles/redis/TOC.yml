@@ -246,7 +246,7 @@ items:
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+managed+redis
   - name: Microsoft Q&A question page
-    href: https://learn.microsoft.com/search/?terms=azure%20managed%20redis&category=QnA
+    href: /search/?terms=azure%20managed%20redis&category=QnA
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/managed-redis/
 
