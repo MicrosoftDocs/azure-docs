@@ -14,7 +14,7 @@ ms.date: 07/12/2024
 # Azure Migrate application and code assessment for Java
 
 > [!NOTE]
-> This version of *Azure Migrate application and code assessment for Java* is under no maintenance and going to be deprecated. We have released a new version 7.x, based on a new analyzer engine. To download and experiment with the new engine, available for Windows, Linux, and macOS, see [Azure Migrate application and code assessment for Java version 7](./appcat7-overview.md) 
+> This version of *Azure Migrate application and code assessment for Java* is under no maintenance and going to be deprecated. We have released a new version 7.x, based on a new analyzer engine. To download and experiment with the new engine, available for Windows, Linux, and macOS, see [Azure Migrate application and code assessment for Java version 7](./java.md) 
 
 This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a CLI (command-line interface) and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
 
