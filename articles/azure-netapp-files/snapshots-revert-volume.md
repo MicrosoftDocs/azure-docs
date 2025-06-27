@@ -1,5 +1,5 @@
 ---
-title: Revert a volume using snapshot revert with Azure NetApp Files | Microsoft Docs
+title: Revert a volume using snapshot revert with Azure NetApp Files 
 description: Describes how to revert a volume to an earlier state using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
