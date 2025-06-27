@@ -220,13 +220,6 @@ items:
     items:
     - name: Use Spring Boot Initializer
       href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
-  - name: Create Web App with Redis cache - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: web-app-bicep-with-redis-cache-provision.md
-  - name: Create Web App with Redis cache - ARM template
-    displayName: Resource Manager
-    href: web-app-arm-with-redis-cache-provision.md
-
 - name: Reference
   items:
     - name: .NET
