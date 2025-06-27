@@ -68,11 +68,9 @@ function refreshTokens() {
 
 ## Extend session token expiration grace period
 
-The authenticated session expires after 8 hours, and a 72-hour default grace period follows. Within this grace period, you can refresh the session token with App Service without reauthenticating the user.
+The authenticated session expires after 8 hours, and a 72-hour default grace period follows. Within this grace period, you can refresh the session token with App Service without reauthenticating the user. You can simply call /.auth/refresh when your session token becomes invalid, and you don't need to track token expiration yourself.
 
-Call `/.auth/refresh` when your session token becomes invalid, and you don't need to track token expiration yourself. When the 72-hour grace period lapses, the user must sign in again to get a valid session token.
-
-If you need a longer expiration window than 72 hours, you can extend it, but extending the expiration for a long period could have significant security implications if an authentication token is leaked or stolen. It's best to leave the setting at the default 72 hours or set the extension period to the smallest possible value.
+When the 72-hour grace period lapses, the user must sign in again to get a valid session token. If you need a longer expiration window than 72 hours, you can extend it, but extending the expiration for a long period could have significant security implications if an authentication token is leaked or stolen. It's best to leave the setting at the default 72 hours or set the extension period to the smallest possible value.
 
 To extend the default expiration window, run the following Azure CLI command in [Azure Cloud Shell](../cloud-shell/overview.md):
 
