@@ -45,9 +45,9 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 EiT is now Generally Available (GA) in all regions that support Azure Premium Files except China North3, New Zealand North, West Europe, US East2, US Central, US South and Korea Central. These remaining regions are currently running preview. You must register your subscription per the instructions below to use EiT in the preview regions.
 
-### Register for preview
+### Register for preview (not needed for GA regions)
  
-To enable encryption in transit for your storage accounts and NFS shares in the preview regions (China North3, New Zealand North, West Europe, US East2, US Central, US South, and Korea Central), you must register for the preview. No registration is needed in the GA regions.
+To enable encryption in transit for your storage accounts and NFS shares in the preview regions (China North3, New Zealand North, West Europe, US East2, US Central, US South, and Korea Central), you must register for the preview. **No registration is needed in the GA regions.**
 
 ### [Portal](#tab/azure-portal)
 
@@ -94,7 +94,7 @@ Azure portal offers a step-by-step, ready-to-use installation script tailored to
 
 :::image type="content" source="./media/encryption-in-transit-nfs-shares/mount-using-encryption-in-transit.png" alt-text="Screenshot showing AZNFS mount instructions in the Azure portal." lightbox="./media/encryption-in-transit-nfs-shares/mount-using-encryption-in-transit.png":::
 
-To support scenarios requiring both TLS and non-TLS connections within the same storage account, ensure that the *Secure transfer required* setting remains disabled.
+Users who prefer to maintain flexibility in having TLS and non-TLS connections on the same storage account should ensure that the *Secure transfer required* setting remains disabled.
 
 ### Encrypt data in transit for NFS shares using Azure CLI
 
