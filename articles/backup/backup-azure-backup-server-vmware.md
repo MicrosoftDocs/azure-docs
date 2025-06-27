@@ -2,7 +2,7 @@
 title: Back up VMware VMs using Azure Backup Server
 description: Learn how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 02/25/2025
+ms.date: 06/27/2025
 author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
@@ -597,8 +597,9 @@ Application consistent backups for VMware VMs running Windows can fail with the 
 To resolve this quiescing error and retry the failed application consistent backup with a crash consistent backup, use the following registry key on the MABS server running V4 UR1 or above:
 
 ```azurepowershell
-Name - FailbackToCrashConsistentBackup DWORD = 1
-Path- SOFTWARE\\MICROSOFT\\MICROSOFT DATA PROTECTION MANAGER\\VMWare
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\MICROSOFT DATA PROTECTION MANAGER\VMWare]
+"SystemDefaultTlsVersions"=dword:00000001
 
 ```
 

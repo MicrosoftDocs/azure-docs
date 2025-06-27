@@ -5,7 +5,7 @@ metadata:
   ms.reviewer: srinathv
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 10/13/2021
+  ms.date: 06/27/2025
   author: jyothisuri
   ms.author: jsuri
 
@@ -84,6 +84,11 @@ sections:
           Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL Always On?
         answer: |
           Because SharePoint databases are configured in SQL Always On, they can't be modified unless the availability group is removed. As a result, DPM can't restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
+
+      - question: |
+          What is the retention range of an on-demand online backup triggered via Azure Backup or DPM Server?
+        answer: |
+          Azure Backup and DPM Server currently don't allow setting an expiry date for on-demand online backups. These backups follow the daily retention policy configured for the data source. If only weekly, monthly, or yearly retention is set, the backup is retained for the day and deleted the next day.
 
 additionalContent: |
 
