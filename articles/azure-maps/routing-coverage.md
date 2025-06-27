@@ -124,7 +124,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Bhutan<sup>1</sup>                     |                ✓                  |                   |             |
 | Brunei                                 |                ✓                  |         ✓         |             |
 | Cambodia                               |                ✓                  |                   |             |
-| China<sup>3</sup>                      |                ✓                  |                   |             |
+| China<sup>4</sup>                      |                ✓                  |                   |             |
 | Christmas Island                       |                ✓                  |                   |             |
 | Cocos (Keeling) Islands<sup>1</sup>    |                ✓                  |                   |             |
 | Comoros<sup>1</sup>                    |                ✓                  |                   |             |
@@ -148,7 +148,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | New Zealand                            |                ✓                  |         ✓         |     ✓      |
 | Niue<sup>1</sup>                       |                ✓                  |                   |             |
 | Norfolk Island<sup>1</sup>             |                ✓                  |                   |             |
-| North Korea<sup>1</sup>                |               ✓                   |                   |             |
+| North Korea<sup>1 2</sup>              |               ✓                   |                   |             |
 | Northern Mariana Islands               |                ✓                  |                   |             |
 | Pakistan<sup>1</sup>                   |                ✓                  |                   |             |
 | Palau<sup>1</sup>                      |                ✓                  |                   |             |
@@ -158,7 +158,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Samoa<sup>1</sup>                      |                ✓                  |                   |             |
 | Singapore                              |                ✓                  |         ✓         |     ✓      |
 | Solomon Islands<sup>1</sup>            |                ✓                  |                   |             |
-| South Korea<sup>2</sup>                |               ✓                   |         ✓         |     ✓      |
+| South Korea<sup>2 3</sup>              |               ✓                   |         ✓         |     ✓      |
 | Sri Lanka<sup>1</sup>                  |                ✓                  |                   |             |
 | Taiwan                                 |                ✓                  |         ✓         |      ✓     |
 | Thailand                               |                ✓                  |         ✓         |      ✓     |
@@ -172,9 +172,11 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 <sup>1</sup> Country/region has partial road data with at least coverage for major roads.
 
-<sup>2</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
+<sup>2</sup> Korea is only supported in the latest version of the Route service.
 
-<sup>3</sup> <!--(Placeholder - real text is coming soon) Route information is unavailable for China when in China.-->
+<sup>3</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
+
+<sup>4</sup> <!--(Placeholder - real text is coming soon) Route information is unavailable for China when in China.-->
 
 ### Europe
 
