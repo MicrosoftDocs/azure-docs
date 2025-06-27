@@ -7,7 +7,6 @@ ms.topic: tutorial
 ms.date: 12/27/2024
 ms.author: jsuri 
 ms.custom: devx-track-azurepowershell
-#Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region using Azure Resource Mover with PowerShell.
 # Customer intent: As an Azure administrator, I want to efficiently move Azure resources across regions using PowerShell, so that I can optimize resource distribution and comply with regional requirements.
 ---
 # Move resources across regions in PowerShell
