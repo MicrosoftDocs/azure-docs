@@ -3,7 +3,7 @@ title: Send VMware syslogs to log management server using Azure Logic Apps
 description: Learn how to use Azure Logic Apps to collect and send VMware syslogs from your Azure VMware Solution private cloud to any log management service of your choice.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 6/23/2025
+ms.date: 6/27/2025
 ms.custom: engagement-fy25
 
 #Customer intent: As an Azure service administrator, I want to use Azure Logic Apps to send VMware syslogs from my Azure VMware Solution private cloud to my preferred log management service for centralized logging and analysis.
@@ -87,7 +87,7 @@ If your log management server is hosted in Azure - for example, your VMware Clou
 For example - if you're deploying your log management server on an Azure VMware Solution private cloud, you will need an Azure Virtual Network that can be peered to the private cloud's network.
 ###Prerequisites
 - The Azure Virtual Network and the Azure Logic App must be in the same region. **Cross-region integration is not supported and will cause the setup to fail.**
-- Ensure there is an available subnet in your Azure Virtual Network for integration. For more information, visit [Add, change, or delete a virtual network subnet](azure-docs/articles/virtual-network/virtual-network-manage-subnet.md).
+- Ensure there is an available subnet in your Azure Virtual Network for integration. For more information, visit [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 ###Steps to integrate with your Azure Virtual Network
 1. In the Azure Logic App, navigate to **Settings > Networking**. 
