@@ -221,6 +221,9 @@ In addition, Front Door attaches the `X-Cache` header to all responses. The `X-C
 - `PRIVATE_NOSTORE`: Request can't be cached because the *Cache-Control* response header is set to either *private* or *no-store*.
 - `CONFIG_NOCACHE`: Request is configured to not cache in the Front Door profile.
 
+> [!NOTE]
+> Azure Front Door strips the `Content-Type` header for empty files when caching is enabled. To enable sending this header, use Azure Front Door rules to manually override it for such files. You also can disable caching for empty files, but this approach is less recommended as it increases the load on your origin and may impact performance.
+
 ## Logs and reports
 
 ::: zone pivot="front-door-standard-premium"
