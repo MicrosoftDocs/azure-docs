@@ -225,7 +225,7 @@ To run the script:
 * If you have FIPS mode enabled for your V1 gateway, it isn't migrated to your new V2 gateway. FIPS mode isn't supported in V2.
 * If you have a Private IP only V1 gateway, the script generates a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
 * WAFv2 is created in old WAF config mode; migration to WAF policy is required.
-* The new WAFv2 is configured to use CRS 3.0 by default. However, since CRS 3.0 is on the path to deprecation, we recommend upgrading to the latest rule set, DRS 2.1 post migration. For more details, refer [CRS and DRS rule groups and rules](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules?tabs=drs21%2Cowasp30) 
+* The new WAFv2 is configured to use CRS 3.0 by default. However, since CRS 3.0 is on the path to deprecation, we recommend upgrading to the latest rule set, DRS 2.1 post migration. For more details, refer [CRS and DRS rule groups and rules](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md) 
 
 ## Traffic migration
 
