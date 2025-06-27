@@ -25,7 +25,7 @@ This article shows you how to create and deploy an Azure Functions app that runs
 
 By running Functions in Container Apps, you benefit from automatic scaling, easy configuration, and a fully managed container environment—all without having to manage the underlying infrastructure yourself.
 
-## Key Benefits
+## Key benefits
 The Container Apps (ACA) hosting model builds on the flexibility of containerized workloads and the event-driven nature of Azure Functions. It offers the following key advantages:
 - **Run functions as containers** with custom dependencies and language stacks.
 - **Scale to zero and up to 1000 instances** using KEDA.
