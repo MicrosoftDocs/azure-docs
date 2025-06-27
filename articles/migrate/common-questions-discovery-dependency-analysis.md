@@ -92,7 +92,7 @@ You can [visualize dependencies](./how-to-create-a-group.md#refine-a-group-with-
 
 ## How do I start discovering my infrastructure?
 
-To start discovering your on-premises infrastructure, you first choose the discovery method that best fits your needs. For more information, see [Discovery methods](discovery-methods-modes.md).
+To start discovering your on-premises infrastructure, you first decide the discovery method that best fits your needs. For more information on available discovery methods, see [Discovery methods](discovery-methods-modes.md).
 
 
 ## Next steps
