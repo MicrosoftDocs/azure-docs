@@ -284,6 +284,7 @@ If your default payment method is wire transfer, check your invoice for payment 
 > - [Yemen](/legal/pay/yemen)
 > - [Zambia](/legal/pay/zambia)
 > - [Zimbabwe](/legal/pay/zimbabwe)
+Please note that SEPA transfers have a character limit of 140 characters in the payment details field. If this limit is exceeded, the payment may not be processed correctly.
 
 ## Pay now in the Azure portal
 
