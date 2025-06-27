@@ -173,7 +173,7 @@ You can specify a different shared key for your connection.
 
 ### <a name="resize"></a>Upgrade a gateway SKU
 
-You can upgrade the SKU of your VPN gateway to a different SKU. There are rules regarding which SKUs are available for upgrade. For more information, see [Upgrade a gatewway SKU](gateway-sku-upgrade.md).
+You can upgrade the SKU of your VPN gateway to a different SKU. There are rules regarding which SKUs are available for upgrade. For more information, see [Upgrade a gateway SKU](gateway-sku-upgrade.md).
 
 ### <a name="additional"></a>More configuration considerations
 
