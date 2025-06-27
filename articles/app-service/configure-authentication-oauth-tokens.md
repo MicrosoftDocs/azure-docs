@@ -48,6 +48,8 @@ For token refresh to work, the token store must contain [refresh tokens](/entra/
 | Google | Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. For more information, see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens).|
 | X | Access tokens don't expire. For more information, see [OAuth FAQ](https://developer.x.com/en/docs/authentication/faq). |
 
+Once you configure your provider, you can find the refresh token and the expiration time for the access token by using the headers listed in [Retrieve tokens in app code](#retrieve-tokens-in-app-code).
+
 To refresh your access token at any time, call `/.auth/refresh` in any language. The following snippet uses jQuery to refresh your access tokens from a JavaScript client.
 
 ```javascript
@@ -60,8 +62,6 @@ function refreshTokens() {
   });
 }
 ```
-
-Once you configure your provider, you can find the refresh token and the expiration time for the access token by using the headers listed in [Retrieve tokens in app code](#retrieve-tokens-in-app-code).
 
 >[!NOTE]
 >If a user revokes the permissions they granted to your app, your call to `/.auth/me` might fail with a `403 Forbidden` response. To diagnose errors, check your application logs for details.
