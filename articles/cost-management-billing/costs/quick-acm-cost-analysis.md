@@ -1,22 +1,22 @@
 ---
-title: Quickstart - Start using Cost analysis
+title: Quickstart - Start using Cost Analysis
 description: Learn how to use Azure Cost Analysis to explore and analyze your organizational costs, identify trends, and understand spending patterns.
 author: shasulin
 ms.author: shasulin
-ms.date: 01/07/2025
+ms.date: 06/27/2025
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: shasulin
 ms.custom: mode-other
-#customer intent: As a billing administrator, I want to use cost analysis so that I can explore and analyze my Azure organizational costs.
+#customer intent: As a billing administrator, I want to use Cost Analysis so that I can explore and analyze my Azure organizational costs.
 ---
 
-# Quickstart: Start using Cost analysis
+# Quickstart: Start using Cost Analysis
 
 Before you can control and optimize your costs, you first need to understand where they originated – from the underlying resources used to support your cloud projects to the environments they get deployed in and the owners who manage them. Full visibility backed by a thorough tagging strategy is critical to accurately understand your spending patterns and enforce cost control mechanisms.
 
-In this quickstart, you use Cost analysis to explore and get quick answers about your costs. You can see a summary of your cost over time to identify trends and break costs down to understand how you're being charged for the services you use. For advanced reporting, use Power BI or export raw cost details.
+In this quickstart, you use Cost Analysis to explore and get quick answers about your costs. You can see a summary of your cost over time to identify trends and break costs down to understand how you're being charged for the services you use. For advanced reporting, use Power BI or export raw cost details.
 
 ## Prerequisites
 
@@ -26,18 +26,18 @@ You must have Read access to use Cost Management. You might need to wait 48 hour
 
 ## Get started
 
-Cost analysis is your tool for interactive analytics and insights. It should be your first stop when you need to explore or get quick answers about your costs. You explore and analyze costs using _views_. A view is a customizable report that summarizes and allows you to drill into your costs. Cost analysis comes with various built-in views that summarize:
+Cost Analysis is your tool for interactive analytics and insights. It should be your first stop when you need to explore or get quick answers about your costs. You explore and analyze costs using _views_. A view is a customizable report that summarizes and allows you to drill into your costs. Cost Analysis comes with various built-in views that summarize:
 
 - Cost of your resources at various levels.
 - Overarching services spanning all your resources.
 - Amortized reservation usage.
 - Cost trends over time.
 
-The first time you open Cost analysis, you start with either a list of available cost views or a customizable area chart. This section walks through the list of views. If Cost analysis shows an area chart by default, see [Analyze costs with customizable views](#analyze-costs-with-customizable-views).
+The first time you open Cost Analysis, you start with either a list of available cost views or a customizable area chart. This section walks through the list of views. If Cost Analysis shows an area chart by default, see [Analyze costs with customizable views](#analyze-costs-with-customizable-views).
 
-Cost analysis has two types of views: **smart views** that offer intelligent insights and more details by default and **customizable views** you can edit, save, and share to meet your needs. Smart views open in tabs in Cost analysis. To open a second view, select the **+** symbol to the right of the list of tabs. You can open up to five tabs at one time. Customizable views open outside of the tabs in the custom view editor.
+Cost Analysis has two types of views: **smart views** that offer intelligent insights and more details by default and **customizable views** you can edit, save, and share to meet your needs. Smart views open in tabs in Cost Analysis. To open a second view, select the **+** symbol to the right of the list of tabs. You can open up to five tabs at one time. Customizable views open outside of the tabs in the custom view editor.
 
-As you explore the different views, notice that Cost analysis remembers which views you've used in the **Recent** section. Switch to the **All views** section to explore all of your saved views and the ones Microsoft provides out of the box. If there's a specific view that you want quick access to, select **Pin to recent** from the **All views** list.
+As you explore the different views, notice that Cost Analysis remembers which views you've used in the **Recent** section. Switch to the **All views** section to explore all of your saved views and the ones Microsoft provides out of the box. If there's a specific view that you want quick access to, select **Pin to recent** from the **All views** list.
 
 :::image type="content" source="./media/quick-acm-cost-analysis/pin-to-recent.png" alt-text="Screenshot showing the Pin to recent option." lightbox="./media/quick-acm-cost-analysis/pin-to-recent.png" :::
 
@@ -45,7 +45,7 @@ Views in the **Recommended** list might vary based on what users most commonly u
 
 ## Analyze costs with smart views
 
-If you're new to Cost analysis, we recommend starting with a smart view, like the Services view. Smart views include:
+If you're new to Cost Analysis, we recommend starting with a smart view, like the Services view. Smart views include:
 
 - Key performance indicators (KPIs) to summarize your cost
 - Intelligent insights about your costs like anomaly detection
@@ -76,7 +76,7 @@ Lastly, use the table to identify and review your top cost contributors and dril
 
 :::image type="content" source="./media/quick-acm-cost-analysis/table-show-cost-contributors.png" alt-text="Screenshot showing a table view of subscription costs with their nested resources." lightbox="./media/quick-acm-cost-analysis/table-show-cost-contributors.png" :::
 
-This view is where you spend most of your time in Cost analysis. To explore further:
+This view is where you spend most of your time in Cost Analysis. To explore further:
 
 1. Expand rows to take a quick peek and see how costs are broken down to the next level. Examples include resources with their product meters and services with a breakdown of products.
 2. Select the name to drill down and see the next level details in a full view. From there, you can drill down again and again, to get down to the finest level of detail, based on what you have interest in. Examples include selecting a subscription, then a resource group, and then a resource to view the specific product meters for that resource.
@@ -119,7 +119,7 @@ Customizable chart views are downloaded as an image, smart views aren't. To down
 
 When you download table data, smart views include an extra option to include nested details. There are a few extra columns available in smart views. We recommend starting with smart views when you download data.
 
-:::image type="content" source="./media/quick-acm-cost-analysis/download-file.png" alt-text="Screenshot showing the Download options in cost analysis." lightbox="./media/quick-acm-cost-analysis/download-file.png" :::
+:::image type="content" source="./media/quick-acm-cost-analysis/download-file.png" alt-text="Screenshot showing the Download options in Cost Analysis." lightbox="./media/quick-acm-cost-analysis/download-file.png" :::
 
 Although Power BI is available for all Microsoft Customer Agreement billing profiles and Enterprise Agreement billing accounts, you only see the option from the smart view Download pane when using a supported scope.
 
@@ -153,8 +153,8 @@ Here's a table to help you understand how the forecast duration and lookback per
 
 For more information about using features in costs analysis, see the following articles:
 
-- For built-in views, see [Use built-in views in Cost analysis](cost-analysis-built-in-views.md).
-- To learn more about customizing views, see [Customize views in cost analysis](customize-cost-analysis-views.md).
+- For built-in views, see [Use built-in views in Cost Analysis](cost-analysis-built-in-views.md).
+- To learn more about customizing views, see [Customize views in Cost Analysis](customize-cost-analysis-views.md).
 - Afterward you can [Save and share customized views](save-share-views.md).
 
 If you need advanced reporting outside of cost analysis, like grouping by multiple attributes or fully customizable reports, you can use:

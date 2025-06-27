@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data included in Cost Management. It also explains how frequently data is processed, collected, shown, and closed.
 author: shasulin
 ms.author: shasulin
-ms.date: 02/10/2025
+ms.date: 06/27/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,15 +13,15 @@ ms.reviewer: shasulin
 
 # Understand Cost Management data
 
-This article helps you better understand Azure cost and usage data included in Cost Management. It explains how frequently data is processed, collected, shown, and closed. You receive a bill for your Azure usage each month. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
+This article helps you better understand Azure cost and usage data included in Cost Management. It explains how frequently data is processed, collected, shown, and closed. You will usually receive a bill for your Azure usage each month. Although billing cycles are monthly periods, the cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
 
 Cost Management includes all usage and purchases, including commitment discounts (that is, reservations and savings plans) and third-party offerings, for Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Microsoft Online Services Agreement (MOSA) accounts only include usage from Azure and Marketplace services with applicable commitment discounts applied but don't include Marketplace or commitment discounts purchases. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits. Cost Management also includes costs associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure.
 
-If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
+If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all the Cost Management features. However, at subscription creation time you can immediately configure a budget to track your costs and alert you of any unexpected spikes.
 
 ## Supported Microsoft Azure offers
 
-The following information shows the currently supported [Microsoft Azure offers](https://azure.microsoft.com/support/legal/offer-details/) in Cost Management. An Azure offer is the type of the Azure subscription that you have. Data is available in Cost Management starting on the **Data available from** date. Summarized data in cost analysis is only available for the last 13 months. If a subscription changes offers, costs before the offer change date aren't available.
+The following information shows the currently supported [Microsoft Azure offers](https://azure.microsoft.com/support/legal/offer-details/) in Cost Management. An Azure offer is the type of Azure subscription that you have. Data is available in Cost Management starting on the **Data available from** date. Summarized data in Cost Analysis is only available for the last 13 months. If a subscription changes offers, costs before the offer change date aren't available.
 
 | **Category**  | **Offer name** | **Quota ID** | **Offer number** | **Data available from** |
 | --- | --- | --- | --- | --- |
@@ -76,13 +76,13 @@ For information about the availability of free tier services after you upgrade t
 
 ### View billing account
 
-Your billing account type, and subscriptions created under it, is based on your Azure offer. If you want to view the properties of your billing account, including its offer ID information, see [Check the type of your account](../manage/view-all-accounts.md#check-the-type-of-your-account).
+Your billing account type, and the subscriptions created under it, are based on your Azure offer. If you want to view the properties of your billing account, including its offer ID information, see [Check the type of your account](../manage/view-all-accounts.md#check-the-type-of-your-account).
 
 ## Costs included in Cost Management
 
 The following table shows included and not included data in Cost Management. Costs shown don't include free and prepaid credits.
 
-All included costs are estimated until an invoice is generated. Estimated costs shown in Cost Management during the open month, before invoice generation, don't consider tiered pricing plans. The cost estimates calculated in this situation are based on the highest tier for a product. After an invoice is issued, charges in Cost Management are updated and they should match the invoice.
+All included costs are estimated until an invoice is generated. Estimated costs shown in Cost Management during the open month, before invoice generation, don't consider tiered pricing plans. The cost estimates calculated during this time are based on the highest tier for a product. After an invoice is issued, charges in Cost Management are updated and they should match the invoice.
 
 | **Included** | **Not included** |
 | --- | --- |
@@ -95,26 +95,27 @@ All included costs are estimated until an invoice is generated. Estimated costs 
 
 _⁴ Azure service usage is based on commitment discounts and negotiated prices._
 
-_⁵ Marketplace purchases aren't available for MSDN and Visual Studio offers at this time._
+_⁵ Marketplace purchases aren't currently available for MSDN and Visual Studio offers._
 
-_⁶ Commitment discount purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
+_⁶ Commitment discount purchases are currently only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts._
 
 _⁷ Only available for specific offers._
 
-Cost Management data only includes the usage and purchases from services and resources that are actively running. The cost data you see is based on past records. It includes resources, resource groups, and subscriptions that might be stopped, deleted, or canceled. So, it might not match with the current resources, resource groups, and subscriptions you see in tools like Azure Resource Manager or Azure Resource Graph. They only display currently deployed resources in your subscriptions. Not all resources emit usage and therefore might not be represented in the cost data. Similarly, Azure Resource Manager doesn't track some resources so they might not be represented in subscription resources. 
+Cost Management data only includes the usage and purchases from services and resources that are actively running. The cost data you see is based on past records. It includes resources, resource groups, and subscriptions that might be stopped, deleted, or canceled. So, it might not match with the current resources, resource groups, and subscriptions you see in tools like Azure Resource Manager or Azure Resource Graph, as they only display currently deployed resources in your subscriptions. Not all resources emit usage and therefore might not be represented in the cost data. Similarly, Azure Resource Manager doesn't track some resources so they might not be represented in subscription resources. 
 
 ## How tags are used in cost and usage data
 
 Cost Management receives tags as part of each usage record submitted by the individual services. The following constraints apply to these tags:
 
 - Tags must be applied directly to resources and aren't implicitly inherited from the parent resource group.
-- Resource tags are only supported for resources deployed to resource groups.
+- Resource tags are only supported for the resources deployed to resource groups.
 - Some deployed resources might not support tags or might not include tags in usage data.
-- Resource tags are only included in usage data while the tag is applied – tags aren't applied to historical data.
+- Resource tags are only included in usage data while the tag is applied to the resource – tags aren't applied to historical data or to future data, after the tag is removed.
 - Resource tags are only available in Cost Management after the data is refreshed.
-- Resource tags are only available in Cost Management when the resource is active/running and producing usage records. For example, when a virtual machine (VM) is deallocated.
+- Resource tags are only available in Cost Management when the resource is active/running and producing usage records.
 - Managing tags requires contributor access to each resource or the [tag contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) Azure role-based-access-control (RBAC) role.
 - Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group.
+- Records for purchases completed in the Marketplace Azure store will also include tags for MCA customers.
     
 If you don't see a specific tag in Cost Management, consider the following questions:
 
@@ -125,8 +126,8 @@ If you don't see a specific tag in Cost Management, consider the following quest
 Here are a few tips for working with tags:
 
 - Plan ahead and define a tagging strategy that allows you to break down costs by organization, application, environment, and so on.
-- [Group and allocate costs using tag inheritance](enable-tag-inheritance.md) to apply resource group and subscription tags to child resource usage records. If you're using Azure policy to enforce tagging for cost reporting, consider enabling the tag inheritance setting for easier management and more flexibility.
-- Use the Tags API with either Query or UsageDetails to get all cost based on the current tags.
+- [Group and allocate costs using tag inheritance](enable-tag-inheritance.md). This will enable you to apply resource group and subscription tags to child resource usage records. If you're using Azure policy to enforce tagging for cost reporting, consider enabling the tag inheritance setting for easier management and more flexibility.
+- Use the Tags API with either Query or Usage Details APIs to get all cost based on the current tags.
 
 ## Cost and usage data updates and retention
 
@@ -138,27 +139,27 @@ Keep the following points in mind as you review costs:
 - Estimated charges for the current billing period are updated six times per day.
 - Estimated charges for the current billing period can change as you incur more usage.
 - Each update is cumulative and includes all the line items and information from the previous update.
-- Azure finalizes or _closes_ the current billing period up to 72 hours (three calendar days) after the billing period ends.
-- During the open month (uninvoiced) period, cost management data should be considered an estimate only. In some cases, charges might be latent in arriving to the system after the usage actually occurred.
+- Azure finalizes or _closes_ the current billing period typically up to 72 hours (three calendar days) after the billing period ends.
+- During the open month (uninvoiced) period, Cost Management data should be considered as estimated only. In some cases, charges might appear with some delay in Cost Management, after the usage occurred.
 
-The following examples illustrate how billing periods could end:
+The following examples demonstrate how different end dates of a billing period might affect data availability:
 
 * Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4. There are uncommon circumstances where it might take longer than 72 hours to finalize a billing period.
 * Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
 
-Usage charges can continue to accrue and can change until the fifth day of the month after your current billing period ends, as Azure completes processing all data. If the usage file isn't ready, you see a message on the Invoices page in the Azure portal stating `Your usage and charges file is not ready`. After the usage file is available, you can download it.
+Usage charges can continue to accrue and can change until the fifth day after your current billing period ends, as Azure completes processing all data. Charges on invoice should be considered as final when invoice is issued. If your invoice was issued but the usage file isn't ready, you will see a message on the Invoices page in the Azure portal stating `Your usage and charges file is not ready`. Check back afer the suggested time. After the usage file is available, it will become available for you to download. 
 
-When cost and usage data becomes available in Cost Management, it gets retained for at least seven years. Only the last 13 months are available from the Azure portal under Cost Management portal under [Exports](tutorial-improved-exports.md). It's also available in the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api). To retrieve historical data that is older than 13 months, use the [Exports REST API](/rest/api/cost-management/exports).
+When cost and usage data becomes available in Cost Management, it gets retained for at least seven years. Cost Management experiences in the Azure Portal provide data for the last 13 months. This includes Cost Analysis, [Exports](tutorial-improved-exports.md) and the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api). To retrieve historical data that is older than 13 months, use the [Exports REST API](/rest/api/cost-management/exports).
 
 ### Rerated data
 
-Whether you use the Cost Management APIs, Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated. Charges might change until the invoice is closed.
+Whether you use the Cost Management APIs, Power BI, or the Azure portal to retrieve data, take into consideration that the current billing period's charges might get rerated. Charges might change until the invoice is closed. 
 
 ## Cost rounding
 
-Costs shown in Cost Management are rounded. Costs returned by the Query API and those shown in your cost and usage data files aren't rounded. For example:
+Costs shown in Cost Management are rounded. Rounding varies by experience. Costs in Cost analysis in the portal are rounded, while costs returned by the Query API and those shown in your cost and usage data files aren't rounded. For example:
 
-- Cost analysis in the portal - Charges are rounded using standard rounding rules: values more than 0.5 and higher are rounded up, otherwise costs are rounded down. Rounding occurs only when values are shown. Rounding doesn't happen during data processing and aggregation. For example, cost analysis aggregates costs as follows:
+- Cost Analysis in the portal - Charges are rounded using standard rounding rules: values more than 0.5 and higher are rounded up, otherwise costs are rounded down. Rounding occurs only when values are shown. Rounding doesn't happen during data processing and aggregation. For example, Cost Analysis aggregates costs as follows:
   - Charge 1: $0.004
   - Charge 2: $0.004
   - Aggregate charge rendered: 0.004 + 0.004 = 0.008. The charge shown is $0.01.
@@ -169,7 +170,7 @@ Costs shown in Cost Management are rounded. Costs returned by the Query API and 
 
 Currency rounding for Azure Commitment discount (ACD) takes place on the unit rate aspect of the effective rate. Currency rounding depends on currency *precision* (or "minimal accountable currency unit" or "minor units"). For most world currencies, the precision is 1/100. It corresponds to two digits after the decimal point.
 
-For example, assume an ACD is a 12.5% discount:
+For example, assume a discount recieved as part of your ACD is 12.5%:
 
 - After a 0.125 discount on a $0.09 market price, it equals 0.07875. When rounded, it’s a $0.08 unit rate.
 - After a 0.125 discount on a 0.6 market price, it equals 0.525. When rounded, it’s a $0.53 unit rate.
@@ -187,7 +188,7 @@ Your usage and charges file shows all of the data involved in rounding. You can 
 
 Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure pay-as-you-go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. The historical data (closed month data) shown in Cost Management is based on your estimated consumption charges only. For the following listed offers, Cost Management historical data doesn't include payments and credits. Additionally, price changes might affect it. *The price shown on your invoice might differ from the price used for cost estimation.*
 
-For example, you get invoiced on January 5 for a service consumed in the month of December. It has a price of $86 per unit. On January 1, the unit price changed to $100. When you view your estimated charges in Cost Management, you see that your cost is the result of your consumed quantity * $100 (not $86, as shown in your  invoice).
+For example, you get invoiced on January 5 for a service consumed in the month of December. It has a price of $86 per unit. On January 1, the unit price changed to $100. When you look at your estimated charges in Cost Management, you see that your cost is the result of your consumed quantity * $100 (not $86, as shown in your  invoice).
 
 >[!NOTE]
 >The price change might result in a price decrease, not only an increase, as explained in this example.

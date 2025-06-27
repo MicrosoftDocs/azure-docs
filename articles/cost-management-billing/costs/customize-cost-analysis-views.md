@@ -1,35 +1,35 @@
 ---
-title: Customize views in cost analysis
+title: Customize views in Cost Analysis
 titleSuffix: Microsoft Cost Management
-description:  This article helps you customize views in cost analysis to understand how you're being charged and to investigate unexpected changes.
+description:  This article helps you customize views in Cost Analysis to understand how you're being charged and to investigate unexpected changes.
 author: shasulin
 ms.author: shasulin
-ms.date: 01/07/2025
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: shasulin
 ---
 
-# Customize views in cost analysis
+# Customize views in Cost Analysis
 
-This article helps you customize views in cost analysis to understand how you're being charged and to investigate unexpected changes.
+This article helps you customize views in Cost Analysis to understand how you're being charged and to investigate unexpected changes.
 
 ## Prerequisites
 
 To customize views, you must have at least the Cost Management Reader (or Contributor) role.
 
-You should be familiar with the information at [Quickstart: Explore and analyze costs with cost analysis](quick-acm-cost-analysis.md).
+You should be familiar with the information at [Quickstart: Explore and analyze costs with Cost Analysis](quick-acm-cost-analysis.md).
 
 ## Get started with customizing views
 
-Customizing views in cost analysis includes anything from tweaking display settings to changing what data gets included or how it's summarized. You customize views when trying to understand what you're spending and where the costs originated. For example, you can drill into data, apply specific filters or groupings, or change display settings, like whether to view a chart or table. The following sections cover each of these customization options.
+Customizing views in Cost Analysis includes anything from tweaking display settings to changing what data gets included or how it's summarized. You customize views when trying to understand what you're spending and where the costs originated. For example, you can drill into data, apply specific filters or groupings, or change display settings, like whether to view a chart or table. The following sections cover each of these customization options.
 
 ## Group costs
 
-Use the **Group by** option to group common properties so that you get a breakdown of costs and to identify top contributors. It should be your first change when drilling into data because it helps you identify the largest changes. To group by resource tags, for example, select the tag key you want to group by. Costs are divided by each tag value, with another segment for resources that don't have the tag applied.
+Use the **Group by** option to group costs by common properties so that you get a breakdown of costs and identify top contributors. It should be your first change when drilling into data because it helps you identify the largest changes. To group by resource tags, for example, select the tag key you want to group by. Costs are divided by each tag value, with another segment for resources that don't have the tag applied or for resources that don't support tags.
 
-Most Azure resources support tagging. However, some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Support for tags applies to usage reported _after_ the tag was applied to the resource. Tags aren't applied retroactively for cost rollups.
+Most Azure resources support tagging. However, some tags aren't available in Cost Management and Billing. Additionally, resource group tags aren't supported. Support for tags applies to usage reported _after_ the tag was applied to the resource. Tags aren't applied retroactively for cost rollups.
 
 Here's a view of Azure service costs for the current month, grouped by Service name.
 
@@ -41,10 +41,9 @@ The following image shows resource group names. You can group by tag to view tot
 
 When you're grouping costs by a specific attribute, the top 10 cost contributors are shown from highest to lowest. If there are more than 10, the top nine cost contributors are shown with an **Others**  group that represents all remaining groups combined. When you're grouping by tags, an **Untagged** group appears for costs that don't have the tag key applied. **Untagged** is always last, even if untagged costs are higher than tagged costs. Untagged costs are part of **Others**, if 10 or more tag values exist. To see the items grouped under **Others**, either select the segment to apply a filter or switch to the table view and set granularity to **None**. It displays all values ranked from highest to lowest cost.
 
-
 Classic virtual machines, networking, and storage resources don't share detailed billing data. They're merged as **Classic services** when grouping costs.
 
-Cost analysis doesn't support grouping by multiple attributes. To work around it, you can apply a filter for a desired attribute and group by the more detailed attribute. For instance, filter down to a specific resource group, then group by resource.
+Cost Analysis doesn't support grouping by multiple attributes. To work around it, you can apply a filter for a desired attribute and group by the more detailed attribute. For instance, filter down to a specific resource group, then group by resource.
 
 Pivot charts under the main chart show different groupings, which give you a broader picture of your overall costs for the selected time period and filters. Select a property or tag to view aggregated costs by any dimension. When you apply a filter to the main chart, the filter also affects pivot charts. Costs are filtered, too. Pivot charts also align to the actual or amortized metric selected for the main chart and to the currency. Pivot charts aren't aligned with **Group by** or **Granularity** selections applied to the main chart.
 
@@ -54,7 +53,7 @@ Pivot charts under the main chart show different groupings, which give you a bro
 
 There are many cases where you need deeper analysis. Customization starts at the top of the page, with the date selection.
 
-Cost analysis shows data for the current month by default. Use the date selector to switch to common date ranges quickly. Examples include the last seven days, the last month, the current year, or a custom date range. Pay-as-you-go subscriptions also include date ranges based on your billing period, which isn't bound to the calendar month, like the current billing period or last invoice.
+Cost Analysis shows data for the current month by default. Use the date selector to switch to common date ranges quickly. Examples include the last seven days, the last month, the current year, or a custom date range. Pay-as-you-go subscriptions also include date ranges based on your billing period, which isn't bound to the calendar month, like the current billing period or last invoice.
 
 :::image type="content" source="./media/customize-cost-analysis-views/date-select.png" alt-text="Screenshot showing the date selector." lightbox="./media/customize-cost-analysis-views/date-select.png" :::
 
@@ -68,7 +67,7 @@ When you view charts, you can also select a chart segment to apply a filter. Aft
 
 ## Switch between actual and amortized cost
 
-By default, cost analysis shows all usage and purchase costs as they get accrued and appear on your invoice, also known as **Actual cost**. Viewing actual cost is ideal for reconciling your invoice. However, purchase spikes in cost can be alarming when you're keeping an eye out for spending anomalies and other changes in cost. To flatten out spikes caused by reservation purchase costs, switch to  **Amortized cost**.
+By default, Cost Analysis shows all usage and purchase costs as they get accrued and appear on your invoice, also known as **Actual cost**. Viewing actual cost is ideal for reconciling your invoice. However, purchase spikes in cost can be alarming when you're keeping an eye out for spending anomalies and other changes in cost. To flatten out spikes caused by reservation purchase costs, switch to  **Amortized cost**.
 
 :::image type="content" source="./media/customize-cost-analysis-views/metric-picker.png" alt-text="Screenshot showing the metric selector." lightbox="./media/customize-cost-analysis-views/metric-picker.png" :::
 
@@ -76,7 +75,7 @@ Amortized cost breaks down reservation purchases into daily chunks and spreads t
 
 If you buy a one-year reservation on May 26 with an upfront payment, the amortized cost is divided by 365 (assuming it's not a leap year) and spread from May 26 through May 25 of the next year. If you pay monthly, the monthly fee is divided by the number of days in that month. The free is spread evenly across May 26 through June 25, with the next month's fee spread across June 26 through July 25.
 
-Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views show different total numbers. Generally, the total cost for months with a reservation purchase decreases when viewing amortized costs, while the costs for the months following the reservation purchase increase. Amortization is available only for reservation purchases and doesn't apply to Azure Marketplace purchases at this time.
+Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views show different total numbers. Generally, the total cost for months with a reservation purchase, decreases when viewing amortized costs, while the costs for the months following the reservation purchase increase. Amortization is available only for reservation and savings plan purchases and doesn't apply to Azure Marketplace purchases.
 
 ## Select a currency
 
@@ -90,11 +89,11 @@ When you view a chart, it can be helpful to visualize your charges against a bud
 
 When you view daily or monthly costs, your budget might get estimated for the period. For instance, a monthly budget of $31 are shown as `$1/day (est)`. Note your budget isn't shown as red when it exceeds this estimated amount on a specific day or month.
 
-Budgets that have filters aren't currently supported in cost analysis. You don't see them in the list. Budgets on lower-level scopes are also not shown in cost analysis today. To view a budget for a specific scope, change scope using the scope picker.
+Budgets that have filters aren't currently supported in Cost Analysis. You don't see them in the list. Budgets on lower-level scopes are also not shown in Cost Analysis today. To view a budget for a specific scope, change scope using the scope picker.
 
 ## Change granularity
 
-Use **Granularity** to indicate how you want to view cost over time. The lowest level you can view is Daily costs. You can view daily costs for up to 3 months or 92 consecutive days. If you select more than 92 days, cost analysis switches to **Monthly** granularity. It updates your date range to include the start and end of the selected months to provide the most accurate picture of your monthly costs. You can view up to 12 months of monthly costs.
+Use **Granularity** to indicate how you want to view cost over time. The lowest level you can view is Daily costs. You can view daily costs for up to 3 months or 92 consecutive days. If you select more than 92 days, Cost Analysis switches to **Monthly** granularity. It updates your date range to include the start and end of the selected months to provide the most accurate picture of your monthly costs. You can view up to 12 months of monthly costs.
 
 If you'd like to view a running total of charges on either a daily or monthly basis, select **Accumulated**. Accumulated is especially helpful when you view your forecast as it helps you see the trend over time.
 
@@ -130,7 +129,7 @@ Here's an example where the **Granularity** is changed to show **Accumulated** c
 
 ## Visualize costs in a chart
 
-Cost analysis supports the following chart types:
+Cost Analysis supports the following chart types:
 
 - Area charts are ideal for showing a running total with forecast trending towards a budget.
 - Line charts are ideal for reviewing relative changes. Line charts aren't stacked, which helps spot changes easily.

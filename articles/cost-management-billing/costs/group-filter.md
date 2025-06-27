@@ -1,19 +1,19 @@
 ---
-title: Group and filter options in Cost analysis and budgets
+title: Group and filter options in Cost Analysis and Budgets
 titleSuffix: Microsoft Cost Management
 description: This article explains how to use group and filter options.
 author: shasulin
 ms.author: shasulin
-ms.date: 01/07/2025
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: shasulin
 ---
 
-# Group and filter options in Cost analysis and budgets
+# Group and filter options in Cost Analysis and Budgets
 
-Cost analysis has many grouping and filtering options. This article helps you understand when to use them.
+Cost Analysis has many grouping and filtering options. This article helps you understand when to use them.
 
 To watch a video about grouping and filtering options, watch the [Cost Management reporting by dimensions and tags](https://www.youtube.com/watch?v=2Vx7V17zbmk) video. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
@@ -21,7 +21,7 @@ To watch a video about grouping and filtering options, watch the [Cost Managemen
 
 ## Group and filter properties
 
-The following table lists some of the most common grouping and filtering options available in Cost analysis and budgets. See the notes column to learn when to use them.
+The following table lists some of the most common grouping and filtering options available in Cost Analysis and Budgets. See the notes column to learn when to use them.
 
 Some filters are only available to specific offers. For example, a billing profile isn't available for an enterprise agreement. For more information, see [Supported Microsoft Azure offers](understand-cost-mgt-data.md#supported-microsoft-azure-offers).
 
@@ -33,14 +33,14 @@ Some filters are only available to specific offers. For example, a billing profi
 | **Charge type** | Break down usage, purchase, refund, and unused reservation and savings plan costs. | Reservation purchases, savings plan purchases, and refunds are available only when using actual costs and not when using amortized costs. Unused reservation and savings plan costs are available only when looking at amortized costs. |
 | **Department** | Break down costs by EA department. | Available only for EA and management groups. PAYG subscriptions don't have a department and will show as **No department** or **unassigned**. |
 | **Enrollment account** | Break down costs by EA account owner. | Available only for EA billing accounts, departments, and management groups. PAYG subscriptions don't have EA enrollment accounts and will show as **No enrollment account** or **unassigned**. |
-| **Frequency** | Break down usage-based, one-time, and recurring costs. | Indicates whether a charge is expected to repeat. Charges can either happen once **OneTime**, repeat on a monthly or yearly basis **Recurring**, or be based on usage **UsageBased**.|
+| **Frequency** | Break down usage-based, one-time, and recurring costs. | Indicates whether a charge is expected to be repeated. Charges can either happen once **OneTime**, repeat on a monthly or yearly basis **Recurring**, or be based on usage **UsageBased**.|
 | **Invoice ID** | Break down costs by billed invoice. | Unbilled charges don't have an invoice ID yet and EA costs don't include invoice details and will show as **No invoice ID**.  |
 | **InvoiceSectionId**| Unique identifier for the MCA invoice section. | Unique identifier for the EA department or MCA invoice section. |
 | **InvoiceSectionName**| Name of the invoice section. | Name of the EA department or MCA invoice section. |
 | **Location** | Break down costs by resource location or region. | Purchases and Marketplace usage may be shown as **unassigned**, or **No resource location**. |
 | **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage might show as **unassigned** or **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
 | **Pricing model** | Break down costs by on-demand, reservation, or spot usage. | Purchases show as **OnDemand**. If you see **Not applicable**, group by **Reservation** to determine whether the usage is reservation or on-demand usage and **Charge type** to identify purchases. |
-| **PartNumber** | The identifier used to get specific meter pricing. | |
+| **PartNumber** | The identifier used to get specific meter pricing. | Applicable only to Enrollement Agreement (EA). Savings plan records don’t include a part number |
 | **Product** | Name of the product. | |
 | **ProductOrderId** | Unique identifier for the product order | |
 | **ProductOrderName** | Unique name for the product order. | |
@@ -67,15 +67,15 @@ For more information about terms, see [Understand the terms used in the Azure us
 
 Get an at-a-glance view of your total SQL costs by grouping SQL databases and elastic pools. They're shown under their parent server in the Resources view.
 
-Understanding what you're being charged for can be complicated. The best place to start for many people is the [Resources view](https://aka.ms/costanalysis/resources). It shows resources that are incurring cost. But even a straightforward list of resources can be hard to follow when a single deployment includes multiple, related resources. To help summarize your resource costs, we're trying to group related resources together. So, we're changing cost analysis to show child resources.
+Understanding what you're being charged for can be complicated. The best place to start for many people is the [Resources view](https://aka.ms/costanalysis/resources). It shows resources that are incurring cost. But even a straightforward list of resources can be hard to follow when a single deployment includes multiple, related resources. To help summarize your resource costs, we're trying to group related resources together. So, we're changing Cost Analysis to show child resources.
 
 Many Azure services use nested or child resources. SQL servers have databases, storage accounts have containers, and virtual networks have subnets. Most of the child resources are only used to configure services, but sometimes the resources have their own usage and charges. SQL databases are perhaps the most common example.
 
-SQL databases are deployed as part of a SQL server instance, but usage is tracked at the database level. Additionally, you might also have charges on the parent server, like for Microsoft Defender for Cloud. To get the total cost for your SQL deployment in classic cost analysis, you need to manually sum up the cost of the server and each individual database. As an example, you can see the **treyanalyticsengine / aepool** elastic pool in the following list and the **treyanalyticsengine / coreanalytics** server under it. What you don't see is another database even lower in the list. You can imagine how troubling this situation would be when you need the total cost of a large server instance with many databases.
+SQL databases are deployed as part of a SQL server instance, but usage is tracked at the database level. Additionally, you might also have charges on the parent server, like for Microsoft Defender for Cloud. To get the total cost for your SQL deployment in classic Cost Analysis, you need to manually sum up the cost of the server and each individual database. As an example, you can see the **treyanalyticsengine / aepool** elastic pool in the following list and the **treyanalyticsengine / coreanalytics** server under it. What you don't see is another database even lower in the list. You can imagine how troubling this situation would be when you need the total cost of a large server instance with many databases.
 
 Here's an example showing the Cost by resource view where multiple related resource costs aren't grouped.
 
-:::image type="content" source="./media/group-filter/classic-cost-analysis-ungrouped-costs.png" alt-text="Screenshot showing cost analysis where multiple related resource costs aren't grouped." lightbox="./media/group-filter/classic-cost-analysis-ungrouped-costs.png" :::
+:::image type="content" source="./media/group-filter/classic-cost-analysis-ungrouped-costs.png" alt-text="Screenshot showing Cost Analysis where multiple related resource costs aren't grouped." lightbox="./media/group-filter/classic-cost-analysis-ungrouped-costs.png" :::
 
 In the Resources view, the child resources are grouped together under their parent resource. The grouping shows a quick, at-a-glance view of your deployment and its total cost. Using the same subscription, you can now see all three charges grouped together under the server, offering a one-line summary for your total server costs.
 
@@ -83,7 +83,7 @@ Here's an example showing grouped resource costs in the Resources view.
 
 :::image type="content" source="./media/group-filter/cost-analysis-grouped-database-costs.png" alt-text="Screenshot showing grouped resource costs." lightbox="./media/group-filter/cost-analysis-grouped-database-costs.png" :::
 
-You might also notice the change in row count. Classic cost analysis shows 53 rows where every resource is broken out on its own. The Resources view only shows 25 rows. The difference is that the individual resources are being grouped together, making it easier to get an at-a-glance cost summary.
+You might also notice the change in row count. Classic Cost Analysis shows 53 rows where every resource is broken out on its own. The Resources view only shows 25 rows. The difference is that the individual resources are being grouped together, making it easier to get an at-a-glance cost summary.
 
 In addition to SQL servers, you also see other services with child resources, like App Service, Synapse, and VNet gateways. Each is similarly shown grouped together in the Resources view.
 
@@ -99,9 +99,9 @@ Some resources have related dependencies that aren't explicit children or nested
 
 As an example, let's say you have an Azure Virtual Desktop host pool configured with two VMs. Tagging the VMs and corresponding network/disk resources groups them under the host pool, giving you the total cost of the session host VMs in your host pool deployment. This example gets even more interesting if you want to also include the cost of any cloud solutions made available via your host pool.
 
-:::image type="content" source="./media/group-filter/cost-analysis-resource-parent-virtual-desktop.png" alt-text="Screenshot of the cost analysis showing VMs and disks grouped under an Azure Virtual Desktop host pool." lightbox="./media/group-filter/cost-analysis-resource-parent-virtual-desktop.png" :::
+:::image type="content" source="./media/group-filter/cost-analysis-resource-parent-virtual-desktop.png" alt-text="Screenshot of Cost Analysis showing VMs and disks grouped under an Azure Virtual Desktop host pool." lightbox="./media/group-filter/cost-analysis-resource-parent-virtual-desktop.png" :::
 
-Before you link resources together, think about how you'd like to see them grouped. You can only link a resource to one parent and cost analysis only supports one level of grouping today.
+Before you link resources together, think about how you'd like to see them grouped. You can only link a resource to one parent and Cost Analysis only supports one level of grouping today.
 
 Once you know which resources you'd like to group, use the following steps to tag your resources:
 
@@ -138,7 +138,7 @@ For any Cost Management data that you've downloaded before 14 October 2021, cons
 
 If you use Cost Management + Billing REST API calls that filter the `PublisherType` field by the value `Azure`, you need to address the change and filter by the new value `Microsoft` after 14 October 2021. If you make any API calls with a filter for Publisher type = `Azure`, data won't be returned.
 
-There's no impact to Cost analysis or budgets because the changes are automatically reflected in the filters. Any saved views or budgets created with Publisher Type = “Azure” filter will be automatically updated.
+There's no impact to Cost Analysis or Budgets because the changes are automatically reflected in the filters. Any saved views or budgets created with Publisher Type = “Azure” filter will be automatically updated.
 
 ## Related content
 
