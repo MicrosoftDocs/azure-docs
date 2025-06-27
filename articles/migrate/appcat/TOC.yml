@@ -2,10 +2,10 @@ items:
   - name: Azure Migrate application and code assessment
     href: index.yml
   - name: Overview
-    href: overview.md  
+    href: overview.md
   - name: Assess Java applications and code
     expanded: true
-    items: 
+    items:
       - name: Assess Java applications and code version 7
         expanded: true
         items:

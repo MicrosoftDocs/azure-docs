@@ -11,22 +11,23 @@ ms.date: 05/28/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
-# Rules Development Guide for AppCAT 7
-## Overview
+# Rules development guide for AppCAT 7
 
-This guide is for engineers, consultants, and others who want to create custom YAML-based rules for Azure Migrate application and code assessment for Java verion 7 (AppCAT) tools.
+This guide is for engineers, consultants, and others who want to create custom YAML-based rules for Azure Migrate application and code assessment for Java version 7 (AppCAT) tools.
 
 For more information, see the Introduction to the [Azure Migrate application and code assessment for Java version 7](./java.md) for an overview and the [CLI Guide](./appcat7-cli-guide.md) for details.
 
 The AppCAT contains rule-based migration tools that analyze the APIs, technologies, and architectures used by the applications you plan to migrate. In fact, the AppCAT analysis process is implemented using AppCAT rules. AppCAT uses rules internally to extract files from archives, decompile files, scan and classify file types, analyze XML and other file content, analyze the application code, and build the reports.
 
 ## Getting start with rules
+
 The [AppCAT ruleset project ](https://github.com/Azure/appcat-konveyor-rulesets) contributes future rules to aid static code analysis as well as issues shared by subject matter experts to aid creation of richer Rulesets.
 
 The basic rule format is from upsream [konveyor ruleset](https://github.com/konveyor/analyzer-lsp/blob/main/docs/rules.md). Review the doc about rule metadata first.
 
-### Addtional rule metadata in AppCAT
-In addtion to the rule metadata describe in [konveyor ruleset](https://github.com/konveyor/analyzer-lsp/blob/main/docs/rules.md), AppCAT enrich more details about rules so that make the report more hierarchical.
+### Additional rule metadata in AppCAT
+
+In addition to the rule metadata describe in [konveyor ruleset](https://github.com/konveyor/analyzer-lsp/blob/main/docs/rules.md), AppCAT enrich more details about rules so that make the report more hierarchical.
 
 - AppCAT add three domains for rules
     - Azure Readiness
@@ -45,11 +46,13 @@ labels:
   - domain=azure-readiness
   - category=database-migration
 ```
+
 :::image type="content" source="media/guide/appcat-rule-domain.png" alt-text="Screenshot of the appcat rule domain in static report." lightbox="media/guide/appcat-rule-domain.png":::
 
-
 ### Creating a rule
+
 Here is a rule example to identify if the MySQL database found in the project, if so, it recommends to migrate it to Azure Database for MySQL.
+
 ```yaml
 - category: potential
   customVariables: []
@@ -113,13 +116,13 @@ The issue in the AppCAT report shows like below.
 :::image type="content" source="media/guide/appcat-rule-metadata.png" alt-text="Screenshot of the mysql database found issue in static report." lightbox="media/guide/appcat-rule-metadata.png":::
 
 ### Run a rule
-When running rules in AppCAT CLI, you can choose run the rules only or run the rules with AppCAT default rulesets together.
-```shell
 
+When running rules in AppCAT CLI, you can choose run the rules only or run the rules with AppCAT default rulesets together.
+
+```bash
 # run appcat rules with default ruleset, it means run your rules with appcat provided rules toger
 appcat analyze --input xxx --output xxx --target xxx --rules custom-rule1.yaml,custome-rule2.yaml
 
 # only run your own rules
-appcat analyze --input xxx --output xxx --target xxx --rules custom-rule1.yaml,custome-rule2.yaml --enable-default-rulesets=false 
-
+appcat analyze --input xxx --output xxx --target xxx --rules custom-rule1.yaml,custome-rule2.yaml --enable-default-rulesets=false
 ```
