@@ -23,7 +23,7 @@ The following troubleshooting steps apply to the Azure virtual machines (VMs) re
 
 To verify if the Microsoft Azure Virtual Machine agent (VM agent) is running and has triggered appropriate actions on the machine and the sequence number for the autopatching request, check the agent log for more information in `/var/log/waagent.log`. Every autopatching request has a unique sequence number associated with it on the machine. Look for a log similar to `2021-01-20T16:57:00.607529Z INFO ExtHandler`.
 
-The package directory for the extension is `/var/lib/waagent/Microsoft.CPlat.Core.Edp.LinuxPatchExtension-<version>`. The `/status` subfolder has a `<sequence number>.status` file. It includes a brief description of the actions performed during a single autopatching request and the status. It also includes a short list of errors that occurred while applying updates.
+The package directory for the extension is `/var/lib/waagent/Microsoft.CPlat.Core.LinuxPatchExtension-<version>`. The `/status` subfolder has a `<sequence number>.status` file. It includes a brief description of the actions performed during a single autopatching request and the status. It also includes a short list of errors that occurred while applying updates.
 
 To review the logs related to all actions performed by the extension, check for more information in `/var/log/azure/Microsoft.CPlat.Core.LinuxPatchExtension/`. It includes the following two log files of interest:
 
