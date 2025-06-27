@@ -105,6 +105,10 @@ The OpenAI bindings have an `AIConnectionName` property that you can use to spec
 
 | Setting name |   Description |
 |---|---|
+<<<<<<< HEAD
+=======
+
+>>>>>>> 36f6fdb02cfee9773076183788a4e68b9f3be8ec
 | `<CONNECTION_NAME_PREFIX>__endpoint` | Sets the URI endpoint of the Azure OpenAI in Foundry Models. This setting is always required. |
 | `<CONNECTION_NAME_PREFIX>__clientId` | Sets the specific user-assigned identity to use when obtaining an access token. Requires that `<CONNECTION_NAME_PREFIX>__credential` is set to `managedidentity`. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](functions-reference.md#local-development-with-identity-based-connections), when `credential` shouldn't be set. |
 |  `<CONNECTION_NAME_PREFIX>__credential` | Defines how an access token is obtained for the connection. Use `managedidentity` for managed identity authentication. This value is only valid when a managed identity is available in the hosting environment. |
