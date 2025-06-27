@@ -24,7 +24,20 @@ To view the available regions for Virtual WAN, see [Products available by region
 
 ### Does the user need to have hub and spoke with SD-WAN/VPN devices to use Azure Virtual WAN?
 
-Virtual WAN provides many functionalities built into a single pane of glass. This includes site/site-to-site VPN connectivity, User/P2S connectivity, ExpressRoute connectivity, virtual network connectivity, VPN ExpressRoute Interconnectivity, VNet-to-VNet transitive connectivity, Centralized Routing, Azure Firewall and Firewall Manager security, Monitoring, ExpressRoute Encryption, and many other capabilities. You don't need to have all of these use-cases to start using Virtual WAN. You can get started with just one use case.
+Virtual WAN provides many functionalities built into a single pane of glass. This includes:
+* [Site/site-to-site VPN connectivity](virtual-wan-site-to-site-portal.md)
+* [User/P2S connectivity](point-to-site-concepts.md)
+* [ExpressRoute connectivity](virtual-wan-expressroute-about.md)
+* [Virtual network connectivity](howto-connect-vnet-hub.md)
+* VPN ExpressRoute Interconnectivity
+* [VNet-to-VNet transitive connectivity](virtual-wan-about.md#transit-vnet)
+* [Centralized Routing](about-virtual-hub-routing.md)
+* [Azure Firewall and Firewall Manager security](https://learn.microsoft.com/azure/firewall-manager/secured-virtual-hub)
+* [Monitoring](monitor-virtual-wan.md) 
+* [ExpressRoute Encryption](vpn-over-expressroute.md) and
+* [Many other capabilities](virtual-wan-about.md)
+
+You don't need to have all of these use-cases to start using Virtual WAN. You can get started with just one use case.
 
 The Virtual WAN architecture is a hub and spoke architecture with scale and performance built in where branches (VPN/SD-WAN devices), users (Azure VPN Clients, openVPN, or IKEv2 Clients), ExpressRoute circuits, virtual networks serve as spokes to virtual hub(s). All hubs are connected in full mesh in a Standard Virtual WAN making it easy for the user to use the Microsoft backbone for any-to-any (any spoke) connectivity. For hub and spoke with SD-WAN/VPN devices, users can either manually set it up in the Azure Virtual WAN portal or use the Virtual WAN Partner CPE (SD-WAN/VPN) to set up connectivity to Azure.
 
@@ -50,7 +63,7 @@ While the concept of Virtual WAN is global, the actual Virtual WAN resource is R
 
 ### Is it possible to share the Firewall in a protected hub with other hubs?
 
-No, each Azure Virtual Hub must have their own Firewall. The deployment of custom routes to point the Firewall of another secured hub's will fail and won't complete successfully. Consider to converting those hubs to [secured hubs](/azure/virtual-wan/howto-firewall) with their own Firewalls.
+No, each Azure Virtual Hub must have their own Firewall. The deployment of custom routes to point the Firewall of another secured hub's will fail and won't complete successfully. Consider converting those hubs to [secured hubs](/azure/virtual-wan/howto-firewall) with their own Firewalls.
 
 ### What client does the Azure Virtual WAN User VPN (point-to-site) support?
 
@@ -165,7 +178,7 @@ Virtual WAN supports up to 20-Gbps aggregate throughput both for VPN and Express
 
 ### How is Virtual WAN different from an Azure virtual network gateway?
 
-A virtual network gateway VPN is limited to 100 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per virtual hub with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can also have multiple virtual hubs per region. This means means you can connect more than 1,000 branches to a single Azure Region by deploying multiple Virtual WAN hubs in that Azure Region, each with its own site-to-site VPN gateway.
+A virtual network gateway VPN is limited to 100 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per virtual hub with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can also have multiple virtual hubs per region. This means you can connect more than 1,000 branches to a single Azure Region by deploying multiple Virtual WAN hubs in that Azure Region, each with its own site-to-site VPN gateway.
 
 ### <a name="packets"></a>What is the recommended algorithm and Packets per second per site-to-site instance in Virtual WAN hub? How many tunnels is support per instance? What is the max throughput supported in a single tunnel?
 
@@ -383,8 +396,19 @@ The Virtual WAN hub drops routes with an ASN of 0 in the AS-Path. To ensure thes
 Yes. This option is currently available via PowerShell only. The Virtual WAN portal requires that the hubs are in the same resource group as the Virtual WAN resource itself.
 
 ### What is the recommended hub address space during hub creation?
+The recommended address space for a Virtual WAN hub is **/23**. It's important to note that the hub address space **cannot be modified after the hub is created**. To change the hub address space, you must redeploy the virtual hub, which can result in downtime.
 
-The recommended Virtual WAN hub address space is /23. Virtual WAN hub assigns subnets to various gateways (ExpressRoute, site-to-site VPN, point-to-site VPN, Azure Firewall, Virtual hub Router). For scenarios where NVAs are deployed inside a virtual hub, a /28 is typically carved out for the NVA instances. However if the user  provisions multiple NVAs, a /27 subnet might be assigned. Therefore, keeping a future architecture in mind, while Virtual WAN hubs are deployed with a minimum size of /24, the recommended hub address space at creation time for user to input is /23.
+The Virtual WAN hub automatically assigns subnets from the specified address space to various Azure services, including:
+
+- Virtual Hub Router
+- ExpressRoute
+- Site-to-site VPN
+- Point-to-site VPN
+- Azure Firewall
+
+For scenarios where Network Virtual Appliances (NVAs) are deployed inside the virtual hub, an additional subnet is allocated for the NVA instances. Typically, a **/28 subnet** is assigned for a small number of NVAs. However, if multiple NVAs are provisioned, a **/27 subnet** might be allocated.
+
+To accommodate future scalability and architectural needs, while the minimum address space for a Virtual WAN hub is **/24**, it is recommended to specify a **/23 address space** during hub creation.
 
 ### Is there support for IPv6 in Virtual WAN?
 

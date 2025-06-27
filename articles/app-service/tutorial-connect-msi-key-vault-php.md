@@ -8,7 +8,7 @@ ms.date: 10/26/2021
 author: cephalin
 ms.author: cephalin
 
-ms.reviewer: madsd 
+ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, AppServiceConnectivity
 ---
 

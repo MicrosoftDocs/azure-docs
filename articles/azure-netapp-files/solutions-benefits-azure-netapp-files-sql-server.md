@@ -1,5 +1,5 @@
 ---
-title:  Benefits of using Azure NetApp Files for SQL Server deployment | Microsoft Docs
+title:  Benefits of using Azure NetApp Files for SQL Server deployment
 description: Shows a detailed cost analysis performance benefits about using Azure NetApp Files for SQL Server deployment.
 services: azure-netapp-files
 author: b-hchen

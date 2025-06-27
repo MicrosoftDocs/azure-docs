@@ -112,6 +112,23 @@ Previously, there wasn't a configuration option for you to use to influence rout
 
 For more information, see [About virtual hub routing preference](about-virtual-hub-routing-preference.md).
 
+## <a name = "addressspace"></a>Virtual hub address space
+The recommended address space for a Virtual WAN hub is **/23**. It's important to note that the hub address space **cannot be modified after the hub is created**. To change the hub address space, you must redeploy the virtual hub, which can result in downtime.
+
+The Virtual WAN hub automatically assigns subnets from the specified address space to various Azure services, including:
+
+- Virtual Hub Router
+- ExpressRoute
+- Site-to-site VPN
+- Point-to-site VPN
+- Azure Firewall
+
+For scenarios where Network Virtual Appliances (NVAs) are deployed inside the virtual hub, an additional subnet is allocated for the NVA instances. Typically, a **/28 subnet** is assigned for a small number of NVAs. However, if multiple NVAs are provisioned, a **/27 subnet** might be allocated.
+
+To accommodate future scalability and architectural needs, while the minimum address space for a Virtual WAN hub is **/24**, it is recommended to specify a **/23 address space** during hub creation.
+
+For more information related to the Virtual WAN hub address space, see [Virtual WAN FAQ](virtual-wan-faq.md)
+
 ## <a name="gateway"></a>Gateway settings
 
 Each virtual hub can contain multiple gateways (site-to-site, point-to-site User VPN, and ExpressRoute). When you create your virtual hub, you can configure gateways at the same time, or create an empty virtual hub and add the gateway settings later. When you edit a virtual hub, you'll see settings that pertain to gateways. For example, gateway scale units.
@@ -119,6 +136,7 @@ Each virtual hub can contain multiple gateways (site-to-site, point-to-site User
 Gateway scale units are different than routing infrastructure units. You adjust gateway scale units when you need more aggregated throughput for the gateway itself. You adjust virtual hub infrastructure units when you want the virtual hub router to support more VMs.
 
 For more information about gateway settings, see [Gateway settings](gateway-settings.md).
+
 
 ## <a name="type"></a>Basic and Standard
 

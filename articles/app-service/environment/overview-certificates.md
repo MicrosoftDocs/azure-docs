@@ -1,10 +1,10 @@
 ---
 title: Certificates in App Service Environment
 description: Explain the use of certificates in an App Service Environment. Learn how certificate bindings work on the single-tenanted apps in an App Service Environment.
-author: madsd
+author: seligj95
 ms.topic: overview
 ms.date: 10/3/2023
-ms.author: madsd
+ms.author: jordanselig
 ---
 
 # Certificates and the App Service Environment 

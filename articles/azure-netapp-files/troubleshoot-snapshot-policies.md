@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot snapshot policy errors for Azure NetApp Files | Microsoft Docs
+title: Troubleshoot snapshot policy errors for Azure NetApp Files 
 description: Describes error messages and resolutions that can help you troubleshoot snapshot policy management issues for Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
