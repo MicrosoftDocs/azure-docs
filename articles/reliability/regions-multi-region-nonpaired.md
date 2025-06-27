@@ -123,6 +123,12 @@ To achieve geo-replication in nonpaired regions:
    > [!IMPORTANT]
    > You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
 
+- **For Azure Table Storage:** To learn about how to create multi-region solutions using Azure Table Storage, see [Reliability in Azure Table Storage](./reliability-storage-table.md).
+
+## Azure Table Storage
+
+To learn about how to create multi-region solutions using Azure Table Storage, see [Reliability in Azure Table Storage](./reliability-storage-table.md).
+
 ## Azure Virtual Desktop
 
 For geo-replication in nonpaired regions for Azure Virtual Desktop, you need to consider session host virtual machines and storage for user profiles, applications, and data. Microsoft manages the Azure Virtual Desktop control plane, which is globally distributed and highly available.
