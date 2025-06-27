@@ -181,6 +181,8 @@
     items:
     - name: Understand data protection and disaster recovery options
       href: data-protection-disaster-recovery-options.md
+    - name: Reliability in Azure NetApp Files 
+      href: ../reliability/reliability-netapp-files.md
     - name: How Azure NetApp Files snapshots work
       href: snapshots-introduction.md
     - name: Azure NetApp Files backup
@@ -189,6 +191,14 @@
         href: backup-introduction.md  
       - name: Requirements and considerations for Azure NetApp Files backup
         href: backup-requirements-considerations.md
+    - name: Replication 
+      items: 
+      - name: Replication in Azure NetApp Files 
+        href: replication.md
+      - name: Replication requirements and considerations
+        href: replicaiton-requirements.md
+
+<!-- remove -- >
     - name: Disaster recovery with cross-region replication
       items: 
       - name: Understand cross-region replication
@@ -205,6 +215,9 @@
         href: cross-zone-replication-requirements-considerations.md
     - name: Understand cross-zone-region replication 
       href: cross-zone-region-replication.md
+
+<!-- remove --> 
+
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?

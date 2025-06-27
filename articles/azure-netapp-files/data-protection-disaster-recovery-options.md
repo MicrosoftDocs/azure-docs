@@ -90,8 +90,8 @@ Fast data recovery (whole volume) | Revert volume from snapshot | Revert volume 
 
 * [How Azure NetApp Files snapshots work](snapshots-introduction.md)
 * [Understand Azure NetApp Files backup](backup-introduction.md)
-* [Understand cross-region replication](cross-region-replication-introduction.md)
-* [Understand cross-zone replication](cross-zone-replication-introduction.md)
+* [Understand Azure NetApp Files replication](replication.md)
+* [Reliability in Azure NetApp Flies](../reliability/reliability-netapp-files.md)
 * [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md)
 * [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
 * [Restore a snapshot to a new volume](snapshots-restore-new-volume.md)

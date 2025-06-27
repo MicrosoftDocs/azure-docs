@@ -44,6 +44,36 @@
             "source_path_from_root": "/articles/azure-netapp-files/access-smb-volume-from-windows-client.md",
             "redirect_url": "/azure/azure-netapp-files/mount-volumes-vms-smb",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/use-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-netapp-files",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/cross-zone-replication-introduction.md",
+            "redirect_url": "/azure/azure-netapp-files/replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/cross-zone-region-replication.md",
+            "redirect_url": "/azure/azure-netapp-files/replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/cross-region-replication-introduction.md",
+            "redirect_url": "/azure/azure-netapp-files/replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root":"/articles/azure-netapp-files/cross-region-replication-requirements-considerations.md",
+            "redirect_url": "/azure/azure-netapp-files/replication-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root":"/articles/azure-netapp-files/cross-zone-replication-requirements-considerations.md",
+            "redirect_url": "/azure/azure-netapp-files/replication-requirements",
+            "redirect_document_id": false
         }
     ]
 }

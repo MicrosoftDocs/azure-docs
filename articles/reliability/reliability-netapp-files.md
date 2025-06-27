@@ -55,7 +55,7 @@ Azure NetApp Files supports *zonal* deployments of volumes. [Azure NetApp Files'
 
 In the diagram below, all virtual machines (VMs) within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). VMs accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. Note there's no replication between the different volumes at the platform level.
 
-:::image type="content" source="./media/reliability-netapps-files/availability-zone-diagram.png" alt-text="Diagram that shows NetApp Files availability zone volume placement." border="false" **lightbox="./media/reliability-netapps-files/availability-zone-diagram.png":::**
+:::image type="content" source="./media/reliability-netapp-files/availability-zone-diagram.png" alt-text="Diagram that shows NetApp Files availability zone volume placement." border="false" lightbox="./media/reliability-netapp-files/availability-zone-diagram.png":::
 
 A single-zone deployment isn't sufficient to meet high reliability requirements. To asynchronously replicate data between volumes in different availability zones, you can use [cross-zone replication](../azure-netapp-files/cross-zone-replication-introduction.md). You must configure cross-zone replication separately from availability zone volume placement.
 
@@ -67,7 +67,7 @@ Cross-zone replication is available in all [availability zone-enabled regions](a
 
 ### Considerations
 
-- Availability zone volume placement in Azure NetApp Files provides zonal volume placement. You'll see low latency when connecting to virtual machines within the same availability zone. However, it doesn't provide proximity placement with virtual machines or other resources, and the volumew might be in a different physical part of the datacenter. <!-- Please confirm this is accurate. The previous wording was a little unclear. -->
+- Availability zone volume placement in Azure NetApp Files provides zonal volume placement. You'll see low latency when connecting to virtual machines within the same availability zone. However, it doesn't provide proximity placement with virtual machines or other resources, and the volume might be in a different physical part of the datacenter. <!-- Please confirm this is accurate. The previous wording was a little unclear. -->
 
 - Replication is permitted between different Azure subscriptions as long as they are within the same Microsoft Entra tenant.
 
@@ -105,9 +105,9 @@ You need to separately configure volume placement and cross-zone replication.
 
 <!-- I've significantly rewritten this section and folded in information from other documents. Please verify that this is still accurate. -->
 
-This section describes what to expect when Azure NetApps Files volumes are configured to be deployed into multiple availability zones, cross-zone replication is enabled, and all availability zones are operational.
+This section describes what to expect when Azure NetApp Files volumes are configured to be deployed into multiple availability zones, cross-zone replication is enabled, and all availability zones are operational.
 
-- **Traffic routing between zones:** Incoming requests are routed to the specific volume, which is located in the availabilty zone you selected.
+- **Traffic routing between zones:** Incoming requests are routed to the specific volume, which is located in the availability zone you selected.
 
 - **Data replication between zones:** Azure NetApp Files cross-zone replication means that all changes to the source volume are asynchronously replicated to destination volumes. You can decide how frequently the replication should happen. Cross-zone replication supports three replication schedules: 10 minutes, hourly, and daily.
 
@@ -118,7 +118,7 @@ This section describes what to expect when Azure NetApps Files volumes are confi
 
 <!-- I've significantly rewritten this section and folded in information from other documents. Please verify that this is still accurate. -->
 
-This section describes what to expect when Azure NetApps Files volumes are configured to be deployed into multiple availability zones, cross-zone replication is enabled, and there's an availability zone outage.
+This section describes what to expect when Azure NetApp Files volumes are configured to be deployed into multiple availability zones, cross-zone replication is enabled, and there's an availability zone outage.
 
 - **Detection and response:** You're responsible for detecting the loss of an availability zone and initiating a failover.
 
@@ -173,7 +173,7 @@ For other considerations related to cross-region replication in Azure NetApp Fil
 
 ### Cost
 
-Cross-region replication is charged based on the maount of data you replicate. For more details and some example scenarios, see [Cost model for cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
+Cross-region replication is charged based on the mount of data you replicate. For more details and some example scenarios, see [Cost model for cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
 
 ### Configure multi-region support
 
@@ -183,7 +183,7 @@ Cross-region replication is charged based on the maount of data you replicate. F
 
 ### Normal operations
 
-This section describes what to expect when Azure NetApps Files volumes are configured to use cross-region replication is enabled, and both regions are operational.
+This section describes what to expect when Azure NetApp Files volumes are configured to use cross-region replication is enabled, and both regions are operational.
 
 - **Traffic routing between regions:** Incoming requests are routed to the specific volume, which is located in the primary region.
 
@@ -196,7 +196,7 @@ This section describes what to expect when Azure NetApps Files volumes are confi
 
 ### Region-down experience
 
-This section describes what to expect when Azure NetApps Files volumes are configured to use cross-region replication is enabled, and there's an outage of the primary region.
+This section describes what to expect when Azure NetApp Files volumes are configured to use cross-region replication is enabled, and there's an outage of the primary region.
 
 <!-- Note that the info here is mostly the same as in the AZ section. Should we collapse it somehow? -->
 
