@@ -6,7 +6,7 @@ ms.date: 09/11/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
-# Customer intent: As a database administrator, I want to manage backup policies for my Azure Database for PostgreSQL server, so that I can control data retention effectively and ensure compliance with recovery requirements.
+# Customer intent: As a database administrator, I want to manage backup operations for my Azure Database for PostgreSQL server, so that I can control data retention effectively and ensure compliance with recovery requirements.
 ---
 
 # Manage an Azure Database for PostgreSQL server by using the Azure portal
