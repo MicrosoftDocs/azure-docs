@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use managed identities with a Po
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
-ms.date: 11/24/2021
+ms.date: 06/27/2025
 ms.topic: tutorial 
 #Customer intent: As a developer, I want PowerShell runbooks to execute code using a manged identity.
 ms.service: azure-automation
@@ -75,7 +75,7 @@ To assign permissions to managed identities, follow these steps:
         -RoleDefinitionName $role1
     ```
 
-1. The same role assignment is needed for the user-assigned managed identity
+1. The same role assignment is needed for the user-assigned managed identity.
 
     ```powershell
     $UAMI = (Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $userAssignedManagedIdentity).PrincipalId
@@ -103,7 +103,7 @@ To create a PowerShell runbook, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/), and navigate to your Automation account.
 
-1. In the **Overview** page, select **Try Runtime Environment experience**, if not already in the new experience .
+1. In the **Overview** page, select **Try Runtime Environment experience**, if not already in the new experience.
 
 1. Under **Process Automation**, select **Runbooks**.
 
@@ -239,7 +239,7 @@ To create a PowerShell runbook, follow these steps:
 
 ## Clean up Resources
 
-To remove any resources no longer needed, run the following runbook.
+To remove any resources no longer needed, run the following runbook:
 
 ```powershell
 #Remove runbook

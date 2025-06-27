@@ -3,7 +3,7 @@ title: Manage Runtime Environment and Associated Runbooks in Azure Automation
 description: This article tells how to manage runbooks in Runtime environment and associated runbooks Azure Automation
 services: automation
 ms.subservice: process-automation
-ms.date: 07/24/2024
+ms.date: 06/27/2025
 ms.topic: how-to
 ms.custom: references_regions
 ms.service: azure-automation
@@ -21,7 +21,7 @@ This article provides information on how to create Runtime Environment and perfo
 
 Before you assign permissions to managed identities, ensure you meet these prerequisites:
 
-- An Azure Automation account is supported in all public regions except Brazil Southeast and Gov clouds.
+- An Azure Automation account in all public regions except Brazil Southeast and Gov clouds.
 
 
 ## Switch between Runtime environment and old experience
@@ -136,11 +136,19 @@ GET
 https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments/<runtimeEnvironmentName>?api-version=2023-05-15-preview 
 ```
 
+### View Runtime environment
+
+Get the Runtime environment properties from the Automation account.
+```rest
+GET
+https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Automation/automationAccounts/<accountName>/runtimeEnvironments/<runtimeEnvironmentName>?api-version=2023-05-15-preview
+```
+
 ### List Runtime environments
 
 #### [Azure portal](#tab/list-runtime-portal)
 
-To list all the Runtime environments from the Automation account, follow these steps:
+To list all the Runtime environments from the Automation account, follow this step:
 
 1. In your Automation account, under **Process Automation**, select **Runtime Environments**.
 
@@ -205,7 +213,7 @@ To update a Runtime environment, follow these steps:
 
 #### [REST API](#tab/update-runtime-rest)
 
-Update the Az module version of an existing Runtime environment: 
+Update the Az module version of an existing Runtime environment.
 
 ```rest
 PATCH 
@@ -240,7 +248,7 @@ To create a new runbook linked to the Runtime environment, follow these steps:
 
 1. In your Automation account, under **Process Automation**, select **Runbooks**.
 1. Select **Create**.
-1. In the **Basics** tab, you can either create a new runbook or upload a file from your local computer or from PowerShell gallery.
+1. On the **Basics** tab, you can either create a new runbook or upload a file from your local computer or from PowerShell gallery.
    1. Enter a **Name** for the runbook. It must begin with a letter and can contain only letters, numbers, underscores, and dashes.
    1. From the **Runbook type** dropdown, select the type of runbook that you want to create.
    1. Select **Runtime environment** to be configured for the runbook. You can either **Select from existing** Runtime environments or **Create new** Runtime environment and link it to the Runbook. The list of runtime environments is populated based on the *Runbook type* selected in step b.
@@ -368,7 +376,7 @@ https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<reso
 You can execute runbooks linked to Runtime Environment both on Azure and Hybrid Worker.
 
 #### [REST API](#tab/create-cloud-job-rest)
-Jobs inherit the Runtime environment from the runbook. Run a cloud job for a published runbook:  
+Jobs inherit the Runtime environment from the runbook. Run a cloud job for a published runbook.
 
 ```rest
 PUT

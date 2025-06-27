@@ -3,7 +3,7 @@ title: Azure Automation Runbook Types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 06/27/2025
 ms.topic: overview
 ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
 ms.service: azure-automation
@@ -67,21 +67,21 @@ The following are the current limitations and known issues with PowerShell runbo
 > [!NOTE]
 > Currently, PowerShell 7.4 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Brazil Southeast and Gov clouds.
 
-- For the PowerShell 7.4 runtime version, the module activities aren't extracted for the imported modules. Use Azure Automation extension for VS Code to simplify runbook authoring experience.
+- For the PowerShell 7.4 runtime version, the module activities aren't extracted for the imported modules. Use [Azure Automation extension for VS Code](automation-runbook-authoring.md) to simplify runbook authoring experience.
 - PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
 - PowerShell 7.x currently doesn't support signed runbooks.
 - Source control integration doesn't support PowerShell 7.4. Also, PowerShell 7.4 runbooks in source control get created in Automation account as Runtime 5.1.
 - Az module 12.3.0 is installed by default. The complete list of component modules of selected Az module version is shown once Az version is configured again using Azure portal or API.
 - The imported PowerShell 7.4 module would be validated during job execution. Ensure that all dependencies for the selected module are also imported for successful job execution.
-- Azure runbook doesn't support Start-Job with -credential.
-- Azure doesn't support all PowerShell input parameters. Learn more.
+- Azure runbook doesn't support `Start-Job` with `-credential`. 
+- Azure doesn't support all PowerShell input parameters. [Learn more](runbook-input-parameters.md).
 
 **Known issues**
 
-- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use `Get-ChildItem` to get the required module information.
-- `Get-AzStorageAccount` cmdlet might fail with an error: The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded.
-- Executing child scripts using `.\child-runbook.ps1` is not supported.
-  **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from Az.Automation module) to start another runbook from parent runbook.
+- Runbooks taking dependency on internal file paths such as `C:\modules` might fail due to changes in service backend infrastructure. Change runbook code to ensure there are no dependencies on internal file paths and use [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7.3&preserve-view=true) to get the required module information.
+- `Get-AzStorageAccount` cmdlet might fail with an error: *The `Get-AzStorageAccount` command was found in the module `Az.Storage`, but the module could not be loaded*.
+- Executing child scripts using `.\child-runbook.ps1` is not supported.</br>
+  **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 - When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules.
 - When you utilize the `New-AzAutomationVariable` cmdlet within Az.Automation Module to upload a variable of type **object**, the operation doesn't function as expected.
   **Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string.
@@ -89,7 +89,7 @@ The following are the current limitations and known issues with PowerShell runbo
   **Example** - Create a PowerShell object that has stored information around Azure VMs
 
   ```
-  Azure PowerShellCopy
+  azurepowershell
 
   # Retrieve Azure virtual machines with status information for the 'northeurope' region 
   $AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
@@ -114,7 +114,7 @@ The following are the current limitations and known issues with PowerShell runbo
 > [!NOTE]
 > PowerShell 7.2 version is no longer supported by parent product PowerShell.
 
-- For the PowerShell 7.2 runtime version, the module activities aren't extracted for the imported modules. Use [Azure Automation extension for VS Code](automation-runbook-authoring.md) to simplify runbook authoring experience. 
+- For the PowerShell 7.2 runtime version, the module activities aren't extracted for the imported modules.
 - PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
 - PowerShell 7.x currently doesn't support signed runbooks.
 - Source control integration doesn't support PowerShell 7.2. Also, PowerShell 7.2 runbooks in source control get created in Automation account as Runtime 5.1.
@@ -261,7 +261,7 @@ The following are the current limitations and known issues with PowerShell runbo
 - Executing child scripts using `.\child-runbook.ps1` isn't supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from `Az.Automation` module) to start another runbook from parent runbook.
 - Runbook properties defining logging preference isn't supported in PowerShell 7 runtime.
-  **Workaround**: Explicitly set the preference at the start of the runbook as following -
+  **Workaround**: Explicitly set the preference at the start of the runbook as following:
   ```
       $VerbosePreference = "Continue"
 

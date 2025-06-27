@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 02/01/2025
+ms.date: 06/27/2025
 ms.custom: references_regions
 ms.author: v-jasmineme
 author: jasminemehndir
@@ -29,7 +29,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 Azure Automation announces General Availability of PowerShell 7.4 and Python 3.10 runbooks in all Public regions except Brazil southeast and Gov clouds. PowerShell 7.1 and 7.2 versions and Python 2.7 and 3.8 versions are announced retired by parent products PowerShell and Python respectively, and hence not recommended. [Learn more](automation-runbook-types.md).
 
-### General Availability: Azure Automation Runtime environment and support for Azure CLI commands in runbooks.
+### General Availability: Azure Automation Runtime environment
 
 Azure Automation announces General Availability of [Runtime Environment](runtime-environment-overview.md) in all Public regions except Brazil southeast and Gov clouds. You can seamlessly [update](quickstart-update-runbook-in-runtime-environment.md) your outdated PowerShell 7.1, PowerShell 7.2, Python 2.7 and Python 3.8 runbooks to latest runtime versions, thereby enhancing security. This feature provides complete control to configure the script execution environment, without worrying about conflicting module versions in a single Automation account. All existing runbooks are automatically available in the new Runtime environment experience with zero manual effort. [Learn more](manage-runtime-environment.md).
 

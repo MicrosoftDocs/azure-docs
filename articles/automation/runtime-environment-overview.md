@@ -3,7 +3,7 @@ title: Runtime Environment in Azure Automation
 description: This article provides an overview on Runtime environment in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/19/2024
+ms.date: 06/27/2025
 ms.topic: overview
 ms.custom: references_regions, devx-track-azurecli
 ms.service: azure-automation
