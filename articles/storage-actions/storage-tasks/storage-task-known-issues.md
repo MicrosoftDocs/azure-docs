@@ -99,6 +99,9 @@ Moving storage tasks and task assignments across different resource groups and s
 ## Cleaning up task assignments before moving storage accounts
 Task assignments must be cleaned up before moving storage accounts across resource groups and subscriptions. Specifically, before a storage account is moved from one resource group to another, or from one subscription to another, all task assignments applied to the storage account must be deleted to ensure a smooth transition.
 
+## Cleaning up task assignments before deleting storage accounts
+Task assignments must be cleaned up before deleting storage tasks or storage accounts. Specifically, before a storage account or storage tasks is deleted, all task assignments applied to the storage account must be deleted.
+
 ## Storage task runs are stuck in the in progress state
 
 If during the assignment process, you assign a role which doesn't have the required permission, the storage task run will take 14 days to fail. To unblock the task run, you can add the required role to the managed identity of the storage task. Otherwise, the task assignment will be stuck in the **in progress** state until the task run ends in 14 days.
