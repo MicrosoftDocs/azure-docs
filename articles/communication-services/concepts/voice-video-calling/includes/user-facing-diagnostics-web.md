@@ -23,7 +23,7 @@ User Facing Diagnostics (UFD) are enabled to expose user-impacting events happen
 User Facing Diagnostics (UFD) enable you to see when local or remote participants are experiencing issues that affect audio-video call quality. UFD provides real-time diagnostics on network conditions, device functionality, and media performance. This diagnostic information helps developers identify problems such as poor connectivity, muted microphones, or low bandwidth. While UFDs doesn't automatically fix these issues, it enables applications to offer proactive feedback to users, suggesting solutions like checking their internet connection or adjusting device settings. Based on this data, users can either correct the issue themselves (such as turn-off video when the network is weak) or display the information through the User Interface.
 
 There are some minor differences in using **remote UFDs** and **local UFDs**. Those differences are:
-- The calling SDK doesn't send all of the **remote UFDs** that are available to **local UFDs**.
+- The calling SDK doesn't send all of the **remote UFDs** that are available from a **local UFDs**.
 - The calling SDK only exposes and stream remote UFDs up to a maximum of 20 participants on the call. When the number of participants exceeds 20, we limit and cease transmission of **remote UFDs** to prevent overloading the network with these events.
 - The calling SDK filters so you only see three (3) **remote UFD** events per minute coming from a unique client.
 - From the client SDK perspective, you need to enable the functionality for the local UFDs to be sent remotely.
@@ -173,6 +173,11 @@ console.log(
 );
 
 console.log(
+  `networkRelaysNotReachable: ${latestNetworkDiagnostics.networkRelaysNotReachable.value}, ` +
+    `value type = ${latestNetworkDiagnostics.networkRelaysNotReachable.valueType}`
+);
+
+console.log(
   `networkReconnect: ${latestNetworkDiagnostics.networkReconnect.value}, ` +
     `value type = ${latestNetworkDiagnostics.networkReconnect.valueType}`
 );
@@ -182,11 +187,46 @@ console.log(
     `value type = ${latestNetworkDiagnostics.networkReceiveQuality.valueType}`
 );
 
+console.log(
+  `networkSendQuality: ${latestNetworkDiagnostics.networkSendQuality.value}, ` +
+    `value type = ${latestNetworkDiagnostics.networkSendQuality.valueType}`
+);
+
 const latestMediaDiagnostics = userFacingDiagnostics.media.getLatest();
+
+console.log(
+  `noSpeakerDevicesEnumerated: ${latestMediaDiagnostics.noSpeakerDevicesEnumerated.value}, ` +
+    `value type = ${latestMediaDiagnostics.noSpeakerDevicesEnumerated.valueType}`
+);
 
 console.log(
   `speakingWhileMicrophoneIsMuted: ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.value}, ` +
     `value type = ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.valueType}`
+);
+
+console.log(
+  `noMicrophoneDevicesEnumerated: ${latestMediaDiagnostics.noMicrophoneDevicesEnumerated.value}, ` +
+    `value type = ${latestMediaDiagnostics.noMicrophoneDevicesEnumerated.valueType}`
+);
+
+console.log(
+  `microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, ` +
+    `value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`
+);
+
+console.log(
+  `microphoneMuteUnexpectedly: ${latestMediaDiagnostics.microphoneMuteUnexpectedly.value}, ` +
+    `value type = ${latestMediaDiagnostics.microphoneMuteUnexpectedly.valueType}`
+);
+
+console.log(
+  `microphonePermissionDenied: ${latestMediaDiagnostics.microphonePermissionDenied.value}, ` +
+    `value type = ${latestMediaDiagnostics.microphonePermissionDenied.valueType}`
+);
+
+console.log(
+  `cameraFreeze: ${latestMediaDiagnostics.cameraFreeze.value}, ` +
+    `value type = ${latestMediaDiagnostics.cameraFreeze.valueType}`
 );
 
 console.log(
@@ -195,12 +235,24 @@ console.log(
 );
 
 console.log(
-  `microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, ` +
-    `value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`
+  `cameraStartTimedOut: ${latestMediaDiagnostics.cameraStartTimedOut.value}, ` +
+    `value type = ${latestMediaDiagnostics.cameraStartTimedOut.valueType}`
 );
+
+console.log(
+  `cameraPermissionDenied: ${latestMediaDiagnostics.cameraPermissionDenied.value}, ` +
+    `value type = ${latestMediaDiagnostics.cameraPermissionDenied.valueType}`
+);
+
+console.log(
+  `cameraStoppedUnexpectedly: ${latestMediaDiagnostics.cameraStoppedUnexpectedly.value}, ` +
+    `value type = ${latestMediaDiagnostics.cameraStoppedUnexpectedly.valueType}`
+);
+
+
 ```
 
-Here's sample code to generate the latest Remote UFD value delivered to the calling SDK. If a diagnostic is undefined, it means the UFD hasn't been raised.
+Here's sample code to generate the latest Remote UFD value delivered to the calling SDK. If a diagnostic is undefined, it means the UFD hasn't been raised from the remote client SDK.
 ```js
 const latestRemoteDiagnostics = userFacingDiagnostics.remote.getLatest();
 
@@ -220,6 +272,11 @@ console.log(
 );
 
 console.log(
+  `networkSendQuality: ${latestRemoteDiagnostics.networkSendQuality.value}, ` +
+    `value type = ${latestRemoteDiagnostics.networkSendQuality.valueType}`
+);
+
+console.log(
   `cameraStartFailed: ${latestRemoteDiagnostics.cameraStartFailed.value}, ` +
     `value type = ${latestRemoteDiagnostics.cameraStartFailed.valueType}`
 );
@@ -227,6 +284,31 @@ console.log(
 console.log(
   `microphoneNotFunctioning: ${latestRemoteDiagnostics.microphoneNotFunctioning.value}, ` +
     `value type = ${latestRemoteDiagnostics.microphoneNotFunctioning.valueType}`
+);
+
+console.log(
+  `microphoneMuteUnexpectedly: ${latestRemoteDiagnostics.microphoneMuteUnexpectedly.value}, ` +
+    `value type = ${latestRemoteDiagnostics.microphoneMuteUnexpectedly.valueType}`
+);
+
+console.log(
+  `cameraFreeze: ${latestRemoteDiagnostics.cameraFreeze.value}, ` +
+    `value type = ${latestRemoteDiagnostics.cameraFreeze.valueType}`
+);
+
+console.log(
+  `cameraStartFailed: ${latestRemoteDiagnostics.cameraStartFailed.value}, ` +
+    `value type = ${latestRemoteDiagnostics.cameraStartFailed.valueType}`
+);
+
+console.log(
+  `cameraStartTimedOut: ${latestRemoteDiagnostics.cameraStartTimedOut.value}, ` +
+    `value type = ${latestRemoteDiagnostics.cameraStartTimedOut.valueType}`
+);
+
+console.log(
+  `cameraStoppedUnexpectedly: ${latestRemoteDiagnostics.cameraStoppedUnexpectedly.value}, ` +
+    `value type = ${latestRemoteDiagnostics.cameraStoppedUnexpectedly.valueType}`
 );
 
 ```
