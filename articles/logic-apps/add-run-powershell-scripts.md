@@ -1,6 +1,6 @@
 ---
-title: Add and Run PowerShell in Standard Workflows
-description: Write and run PowerShell script code in Standard workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
+title: Run PowerShell Scripts in Standard Workflows
+description: Learn how to run PowerShell scripts to perform custom integration tasks in Standard workflows using Inline Code operations in Azure Logic Apps.
 ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, swghimire, shahparth, azla
@@ -264,9 +264,9 @@ To use the managed identity from inside the **Execute PowerShell Code** action, 
 
 ## View logs in Application Insights
 
-1. In the [Azure portal](https://portal.azure.com), under **Monitoring** on the logic app sidebar menu, select **Application Insights**, and then select your logic app.
+1. In the [Azure portal](https://portal.azure.com), on the logic app sidebar menu, under **Monitoring**, select **Application Insights** (not **Insights**), and then select the link to your Application Insights resource.
 
-1. On the **Application Insights** menu, under **Monitoring**, select **Logs**.
+1. On the **Application Insights** resource sidebar menu, under **Monitoring**, select **Logs**.
 
 1. Create a query to find any traces or errors from your workflow execution, for example:
 
@@ -291,7 +291,7 @@ A module organizes PowerShell code, making it easier to distribute. For example,
 
 To find publicly available modules, visit the [PowerShell gallery](https://www.powershellgallery.com). A Standard logic app resource can support up to 10 public modules. To use any public module, you must enable this capability by following these steps:
 
-1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under **Development Tools**, select **Advanced Tools**.
+1. In the [Azure portal](https://portal.azure.com), on your logic app resource sidebar menu, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**.
 
@@ -328,7 +328,7 @@ If you use dependency management, the following considerations apply:
 
 You can generate your own private PowerShell modules. To create your first PowerShell module, see [Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
-1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under **Development Tools**, select **Advanced Tools**.
+1. In the [Azure portal](https://portal.azure.com), on your logic app resource sidebar menu, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**.
 

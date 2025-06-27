@@ -1,6 +1,6 @@
 ---
 title: Convert JSON and XML with Liquid Templates
-description: Transform JSON and XML by using Liquid templates as maps in workflows using Azure Logic Apps.
+description: Learn how to transform JSON and XML by using Liquid templates as maps in workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divyaswarnkar, estfan, tonytang, azla
@@ -31,8 +31,8 @@ For more information, review the following documentation:
 * [Liquid open-source template language](https://shopify.github.io/liquid/)
 * [Consumption versus Standard logic apps](logic-apps-overview.md#resource-environment-differences)
 * [Business-to-business (B2B) built-in operations](../connectors/built-in.md#b2b-built-in-operations)
-* [Built-in connectors in Azure Logic Apps](../connectors/built-in.md)
-* [Managed connectors in Azure Logic Apps](../connectors/managed.md) and [List of all Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [About built-in connectors in Azure Logic Apps](../connectors/built-in.md)
+* [About managed connectors in Azure Logic Apps](../connectors/managed.md) and [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
 ## Prerequisites
 
@@ -144,9 +144,9 @@ After you create your Liquid template, you now have to upload the template based
 
 ### Upload template to Standard logic app
 
-1. In the [Azure portal](https://portal.azure.com), find and open your logic app resource. Make sure that you're at the resource level, not the workflow level.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource. Make sure that you're at the resource level, not the workflow level.
 
-1. On your logic app resource's sidebar menu, under **Artifacts**, select **Maps**.
+1. On the resource sidebar menu, under **Artifacts**, select **Maps**.
 
 1. On the **Maps** pane toolbar, select **Add**.
 
@@ -160,9 +160,9 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. On the sidebar menu, under **Development Tools**, select the designer to open your workflow.
+1. On the resource sidebar menu, under **Development Tools**, select the designer to open your workflow.
 
 1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Liquid operations don't have any triggers available.
 
@@ -178,7 +178,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. In the action's **Content** property, provide the JSON output from the trigger or a previous action that you want to transform by following these steps.
 
-   1. Click inside the **Content** box so that the dynamic content list appears. Select the lightning icon.
+   1. Select inside the **Content** box, which shows the options to open the dynamic content list (lightning icon) or expression editor (function icon). Select the lightning icon to open the dynamic content list.
 
    1. From the dynamic content list, select the JSON data that you want to transform.
 
@@ -201,9 +201,9 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your blank workflow.
+1. On the resource sidebar menu, under **Workflows**, select **Workflows**, and then select your workflow.
 
 1. On the workflow sidebar menu, under **Tools**, select the designer to open the workflow.
 
@@ -223,7 +223,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 1. In the action's **Content** property, provide the JSON output from the trigger or a previous action that you want to transform by following these steps.
 
-   1. Click inside the **Content** box so that the dynamic content list appears. Select the lightning icon.
+   1. Select inside the **Content** box, which shows the options to open the dynamic content list (lightning icon) or expression editor (function icon). Select the lightning icon to open the dynamic content list.
 
    1. From the dynamic content list, select the JSON data that you want to transform.
 

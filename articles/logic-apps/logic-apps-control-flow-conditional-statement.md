@@ -103,7 +103,7 @@ This guide shows how to add a condition to your workflow and use the result to h
 
 1. In the **Condition** action, follow these steps to build your condition:
 
-   1. In the box named **Choose a value**, enter the first value or field that you want to compare.
+   1. In the left-side box named **Choose a value**, enter the first value or field that you want to compare.
 
       After you select inside the **Choose a value** box, the options to open the dynamic content list (lightning icon) or expression editor (formula icon) appear.
 
