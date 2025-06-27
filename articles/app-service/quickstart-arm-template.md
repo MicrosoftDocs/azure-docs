@@ -25,8 +25,6 @@ To complete this quickstart, you need an Azure account with an active subscripti
 
 If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
 
-:::image type="content" source="media/quickstart-arm/create-windows-code.png" alt-text="Screenshot of the ARM Template in the Azure portal.":::
-
 In the Azure portal, select **Create new** to create a new Resource Group and then select the **Review + create** button to deploy the app.
 
 ::: zone-end
@@ -39,8 +37,6 @@ To complete this quickstart, you need an Azure account with an active subscripti
 
 If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
 
-:::image type="content" source="media/quickstart-arm/create-linux.png" alt-text="Screenshot of the ARM Template in the Azure portal.":::
-
 In the Azure portal, select **Create new** to create a new Resource Group and then select the **Review + create** button to deploy the app.
 ::: zone-end
 ::: zone pivot="platform-windows-container"
@@ -49,8 +45,6 @@ Get started with [Azure App Service](overview.md) by deploying an app to the clo
 ## Skip to the end
 
 If you're familiar with using ARM templates, you can skip to the end by selecting this :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows-container%2Fazuredeploy.json"::: button. This button opens the ARM template in the Azure portal. 
-
-:::image type="content" source="media/quickstart-arm/create-windows-container.png" alt-text="Screenshot of the ARM Template in the Azure portal.":::
 
 In the Azure portal, select **Create new** to create a new Resource Group and then select the **Review + create** button to deploy the app.
 ::: zone-end
@@ -97,7 +91,7 @@ This template contains several parameters that are predefined for your convenien
 | appServicePlanName | string  | `webAppPlan-<uniqueString>` | App Service Plan name based on a [unique string value](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
 | location   | string  | `[resourceGroup().location]` | [App region](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)
 | sku        | string  | `F1`                         | Instance size (F1 = Free Tier) |
-| linuxFxVersion   | string  | `DOTNETCORE|3.0`        | "Programming language stack &#124; Version" |
+| linuxFxVersion   | string  | `DOTNETCORE|8.0`        | "Programming language stack &#124; Version" |
 | repoUrl    | string  | ` `                          | External Git repo (optional) |
 
 ---
@@ -162,11 +156,11 @@ az webapp config show --resource-group myResourceGroup --name <app-name> --query
 
 | Language    | Example                                                                            |
 |-------------|------------------------------------------------------------------------------------|
-| **.NET**    | linuxFxVersion="DOTNETCORE&#124;3.0"                                               |
-| **Java**    | linuxFxVersion="JAVA&#124;21-java21 TOMCAT&#124;10.1-java21 JBOSSEAP&#124;8-java17"|
-| **Node.js** | linuxFxVersion="NODE&#124;10.15"                                                   |
-| **Python**  | linuxFxVersion="PYTHON&#124;3.7"                                                   |
-| **PHP**     | linuxFxVersion="PHP&#124;7.4"                                                      |
+| **.NET**    | linuxFxVersion="DOTNETCORE&#124;9.0"                                               |
+| **Java**    | linuxFxVersion="JAVA&#124;21-java21 TOMCAT&#124;11.0-java21 JBOSSEAP&#124;8-java17"|
+| **Node.js** | linuxFxVersion="NODE&#124;22-lts                                                   |
+| **Python**  | linuxFxVersion="PYTHON&#124;3.13"                                                   |
+| **PHP**     | linuxFxVersion="PHP&#124;8.4"                                                      |
 
 ---
 ::: zone-end
