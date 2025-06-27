@@ -2,7 +2,7 @@
 title: Back up Hyper-V virtual machines with MABS
 description: This article contains the procedures for backing up and recovery of virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 06/27/2025
+ms.date: 12/23/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
