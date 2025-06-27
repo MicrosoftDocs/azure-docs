@@ -7,8 +7,7 @@ ms.topic: overview
 ms.date: 12/27/2024
 ms.author: jsuri
 ms.custom: mvc, engagement-fy23, UpdateFrequency.5
-#Customer intent: As an Azure admin, I need to compare tools for moving resources in Azure using Azure Resource Mover.
-# Customer intent: As an Azure admin, I want to compare the available tools for moving resources across regions, so that I can select the most suitable option for efficiently relocating my Azure resources based on their dependencies and requirements.
+# Customer intent: As an Azure administrator, I want to compare the available tools for moving resources across regions, so that I can select the most suitable option for efficiently relocating my Azure resources based on their dependencies and requirements.
 ---
 
 # Choose a tool for moving Azure resources
