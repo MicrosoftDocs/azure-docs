@@ -91,7 +91,7 @@ This template contains several parameters that are predefined for your convenien
 | appServicePlanName | string  | `webAppPlan-<uniqueString>` | App Service Plan name based on a [unique string value](../azure-resource-manager/templates/template-functions-string.md#uniquestring) |
 | location   | string  | `[resourceGroup().location]` | [App region](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)
 | sku        | string  | `F1`                         | Instance size (F1 = Free Tier) |
-| linuxFxVersion   | string  | `DOTNETCORE|8.0`        | "Programming language stack &#124; Version" |
+| linuxFxVersion   | string  | `DOTNETCORE|9.0`        | "Programming language stack &#124; Version" |
 | repoUrl    | string  | ` `                          | External Git repo (optional) |
 
 ---
