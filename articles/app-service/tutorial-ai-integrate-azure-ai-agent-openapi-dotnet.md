@@ -193,6 +193,15 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     
     :::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-openapi-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
 
+## Next step
+
+You've now enabled your App Service app to be used as a tool by Azure AI Foundry Agent Service and interact with your app's APIs through natural language in the agents playground. From here, you can continue add features to your agent in the Foundry portal, integrate it into your own applications using the Azure AI Foundry SDK or REST API, or deploy it as part of a larger solution. Agents created in Azure AI Foundry can be run in the cloud, integrated into chatbots, or embedded in web and mobile apps.
+
+To take the next step and learn how to run your agent directly within Azure App Service, see the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Azure AI Foundry Agent Service (.NET)](tutorial-ai-agentic-web-app-semantic-kernel-foundry.md)
+
 ## More resources
 
 [Integrate AI into your Azure App Service applications](overview-ai-integration.md)

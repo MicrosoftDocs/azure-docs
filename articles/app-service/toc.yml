@@ -67,6 +67,8 @@ items:
           href: tutorial-ai-model-context-protocol-server-dotnet.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-dotnet.md
+        - name: Agentic web app (.NET)
+          href: tutorial-ai-agentic-web-app-semantic-kernel-foundry.md
 
   - name: Java
     items:
@@ -578,7 +580,7 @@ items:
     - name: Routine maintenance, Restarts, and Downtime
       href: routine-maintenance-downtime.md
     - name: Language support policy
-      href: language-support-policy.md
+      href: operating-system-functionality.md
     - name: OS functionality
       href: operating-system-functionality.md
     - name: Kudu service
