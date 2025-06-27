@@ -40,7 +40,7 @@ You need to provide:
 
 ### Can I update my brand information after registration?
 
-This feature is currently not available. You are adviced to contact acstns@microsoft.com for further guidance.
+This feature is currently not available. You are advised to contact acstns@microsoft.com for further guidance.
 
 ### Is there a fee for brand registration?
 
@@ -73,7 +73,7 @@ Currently, Azure Communication Services supports:
 
 ### Can I update my campaign information?
 
-This feature is currently not available. You are adviced to contact acstns@microsoft.com for further guidance.
+This feature is currently not available. You are advised to contact acstns@microsoft.com for further guidance.
 
 ### Is there a fee for campaign registration?
 
