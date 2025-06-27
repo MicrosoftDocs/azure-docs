@@ -80,7 +80,7 @@ az feature register --name AllowEncryptionInTransitNFS4 --namespace Microsoft.St
  
 By enabling the **Secure transfer required** setting on the storage account, you can ensure that all the mounts to the NFS volumes in the storage account are encrypted. EiT can be enabled on both new and existing storage accounts and NFS Azure file shares. There is no additional cost for enabling EiT.
 
-:::image type="content" source="./media/encryption-in-transit-nfs-shares/mount-using-encryption-in-transit.png" alt-text="Screenshot showing AZNFS mount instructions in the Azure portal." lightbox="./media/encryption-in-transit-nfs-shares/mount-using-encryption-in-transit.png":::
+:::image type="content" source="./media/encryption-in-transit-nfs-shares/storage-account-settings.png" alt-text="Screenshot showing how to enable Secure transfer on a storage account." lightbox="./media/encryption-in-transit-nfs-shares/storage-account-settings.png":::
 
 However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the **Secure transfer** setting must remain OFF.
 
@@ -92,7 +92,7 @@ You can encrypt data in transit for NFS Azure file shares by using the Azure por
 
 Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package. Once installed, you can use the provided AZNFS mount script to securely mount the NFS share, establishing an encrypted transmission channel between the client and the server.
 
-:::image type="content" source="./media/encryption-in-transit-nfs-shares/storage-account-settings.png" alt-text="Screenshot showing how to enable Secure transfer on a storage account." lightbox="./media/encryption-in-transit-nfs-shares/storage-account-settings.png":::
+:::image type="content" source="./media/encryption-in-transit-nfs-shares/mount-using-encryption-in-transit.png" alt-text="Screenshot showing AZNFS mount instructions in the Azure portal." lightbox="./media/encryption-in-transit-nfs-shares/mount-using-encryption-in-transit.png":::
 
 To support scenarios requiring both TLS and non-TLS connections within the same storage account, ensure that the *Secure transfer required* setting remains disabled.
 
