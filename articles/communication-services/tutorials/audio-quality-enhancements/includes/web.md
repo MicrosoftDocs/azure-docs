@@ -12,13 +12,13 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-The Azure Communication Services audio effects features can significantly enhance your audio calls by filtering out unwanted background noise and removing echo. Noise suppression works by identifying and eliminating distracting sounds like traffic, typing, or chatter, making conversations clearer and easier to follow. At the same time, echo removal ensures your voice doesn’t bounce back during the call, reducing feedback and preventing interruptions. These technologies not only improve speech clarity but also reduce listener fatigue—especially in noisy environments. For instance, if you're on an Azure Communication Services WebJS call in a busy coffee shop, enabling these audio effects can create a smoother, more focused communication experience
+The Azure Communication Services audio effects features can significantly enhance your audio calls by filtering out unwanted background noise and removing echo. Noise suppression works by identifying and eliminating distracting sounds like traffic, typing, or chatter, making conversations clearer and easier to follow. At the same time, echo removal ensures your voice doesn’t bounce back during the call, reducing feedback and preventing interruptions. These technologies not only improve speech clarity but also reduce listener fatigue—especially in noisy environments. For instance, if you're on an Azure Communication Services WebJS call in a busy coffee shop, enabling these audio effects can create a smoother, more focused communication experience.
 
 ## 🎧 What Are Audio Effects?
 Audio effects in ACS are real-time enhancements applied to microphone input during a call. The Azure Communications Services audio effects package has multiple abilities to remove unwanted sounds from a call (from a client perspective).
 
 **Noise suppression** (sometimes called noise reduction) focuses on eliminating unwanted background sounds. Think typing sounds, fan hums, distant conversations, or street noise. Its job is to isolate your voice so that whoever is listening hears you more clearly, and reduce or remove the distracting background sounds. It uses algorithms trained to recognize the difference between your speech and ambient noise, then reduces or removes that noise in real time. These noises can  be considered a sound that isn't human voice.
-Key traits that noise suppression does:
+Key traits that noise suppression enables:
 - Removes continuous or predictable background noises.
 - Enhances speech clarity.
 - Typically works on the speaker’s end before sending out the audio.
@@ -35,10 +35,10 @@ Key traits for echo cancelation:
 > **Noise Suppression** features are available in GA SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version GA `1.1.2` or later. The general availability (GA) stable version `1.28.4` and later of the Calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and later also support noise suppression.
 
 > [!IMPORTANT]
-> **Echo Cancelation** features are available in public preview SDK version [1.37.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1371-beta1-2025-06-16). Also note that to use echo effects you must use public preview audio effects SDK version beta version [1.21.1-beta](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.2.1-beta.1) or later.
+> **Echo Cancelation** features are available in public preview SDK version [1.37.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1371-beta1-2025-06-16). Also note that to use echo cancelation you must use public preview audio effects SDK version beta version [1.21.1-beta](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.2.1-beta.1) or later.
 
 > [!NOTE]
-> - Browser support for utilizing audio noise suppression effects is available only on Chrome and Edge desktop browsers.
+> - Browser support for utilizing audio effects is available only on Chrome and Edge desktop browsers.
 > - The audio effects library isn't a standalone module and can't function independently. To utilize its capabilities the effects package must be integrated with the Azure Communication Services Calling client library for WebJS.
 > - If you use the GA version of the Calling SDK, you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling audio effects package.
 
