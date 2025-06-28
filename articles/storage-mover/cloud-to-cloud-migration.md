@@ -66,7 +66,7 @@ Follow the steps in this section to configure an AWS connector within your Stora
     - By default, the **Include all supported AWS regions** checkbox is selected within the **Resource filters** section. This option allows the connector to discover resources in all AWS regions. If you want to limit the scan to specific regions, uncheck this checkbox and select the desired regions from the **AWS Regions** drop-down list.
     - Verify that all values are correct and select **Save** to finish adding the Inventory solution to your connector as shown in the following image.
 
-        :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solution-inventory-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Inventory tab selected and required Inventory objects displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solution-inventory.png":::
+        :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solution-inventory-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Inventory Settings pane exposed. The required Inventory fields are displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solution-inventory.png":::
 
     Next, add a **Storage - Data Management** solution by selecting the **Add** link in the **Actions** column of the **Storage - Data Management** solution.
 
@@ -88,11 +88,11 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
 1. The **Review + Create** tab displays a summary of the configuration settings you provided in the previous steps. Review these settings to ensure they're correct. If you need to make changes, select the **Previous** button to return to the appropriate tab. If all settings are correct, select **Create** to create your multicloud connector.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-review-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/add-connector-review.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-review-sml.png" alt-text="A screen capture showing the Add Multicloud Connector Overview page with the Review and Create tab selected. A summary of values is displayed for review." lightbox="media/cloud-to-cloud-migration/add-connector-review.png":::
 
     After the connector is created, you're redirected to the new connector's **Overview** page as shown in the following image. 
 
-    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-deployed-sml.png" alt-text="A screen capture showing the Multicloud Connector Overview page with the connector's properties displayed." lightbox="media/cloud-to-cloud-migration/add-connector-deployed.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-deployed-sml.png" alt-text="A screen capture showing the newly created Multicloud Connector's Overview page with the deployment details displayed." lightbox="media/cloud-to-cloud-migration/add-connector-deployed.png":::
 
     Your new connector also appears in the **Connectors available** pane. To access the list of available connectors, navigate to your Storage Mover resource. In the **Overview** pane, select the **Multicloud migration** tab, and in the **Connect to data source** section, select **View existing multicloud connectors** as shown in the following image. From the **Multicloud connectors** pane, you can select your newly created connector to open it.
 
