@@ -35,7 +35,7 @@ Key traits for echo cancelation:
 > **Noise Suppression** features are available in GA SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version GA `1.1.2` or later. The general availability (GA) stable version `1.28.4` and later of the Calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and later also support noise suppression.
 
 > [!IMPORTANT]
-> **Echo Cancelation** features are available in public preview SDK version [1.37.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1371-beta1-2025-06-16). Also don'te that to use echo effects you must use latest public preview audio effects SDK version beta version [1.21.1-beta](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.2.1-beta.1) or later.
+> **Echo Cancelation** features are available in public preview SDK version [1.37.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1371-beta1-2025-06-16). Also note that to use echo effects you must use public preview audio effects SDK version beta version [1.21.1-beta](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.2.1-beta.1) or later.
 
 > [!NOTE]
 > - Browser support for utilizing audio noise suppression effects is available only on Chrome and Edge desktop browsers.
@@ -58,9 +58,9 @@ If you use the **public preview** of the Calling SDK, you must use the [beta ver
 ## Enable Audio Effects you wish to use
 For information on the interface that details audio effects properties and methods, see the [Audio Effects Feature interface](/javascript/api/azure-communication-services/@azure/communication-calling/audioeffectsfeature?view=azure-communication-services-js&preserve-view=true) API documentation page.
 
+
 ### Initialize the Audio Effects Feature
 To use noise suppression audio effects within the Azure Communication Services Calling SDK, you need the `LocalAudioStream` property that's currently in the call. You need access to the `AudioEffects` API of the `LocalAudioStream` property to start and stop audio effects.
-
 ```js
 import { createAzureCommunicationCallingWithAudioEffects } from '@azure/communication-calling-effects';
 
@@ -69,21 +69,20 @@ const callClient = createAzureCommunicationCallingWithAudioEffects();
 This wraps the standard CallClient with audio effects capabilities.
 
 ### Enable Noise Suppression
+The following code snippet shows an example on how to enable **noise suppression** from within the Webjs environment.
 ```js
 const deviceManager = await callClient.getDeviceManager();
 await deviceManager.askDevicePermission({ audio: true });
 
 const selectedMicrophone = (await deviceManager.getMicrophones())[0];
-
 const audioEffects = await deviceManager.createAudioEffects(selectedMicrophone);
 
 // Enable noise suppression
 await audioEffects.setFeature({ featureName: 'noiseSuppression', enabled: true });
 ```
 ### Enable Echo Cancellation
+The following code snippet shows an example on how to enable **echo cancellation** from within the Webjs environment.
 ```js
-=========================================
-
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 import { EchoCancellationEffect } from '@azure/communication-calling-effects';
 
@@ -97,16 +96,27 @@ const localAudioStreamInCall = call.localAudioStreams[0];
 // Get the audio effects feature API from LocalAudioStream
 const audioEffectsFeatureApi = localAudioStreamInCall.feature(AzureCommunicationCallingSDK.Features.AudioEffects);
 
-// We recommend that you check support for the effect in the current environment by using the isSupported method on the feature API. Remember that noise suppression is only supported on desktop browsers for Chrome and Edge.
+```
+### Validate that the current browser environment supports audio effects
+We recommend that you check support for the effect in the current browser environment by using the `isSupported` method on the feature API. Remember that audio effects are only supported on desktop browsers for Chrome and Edge.
+```js
+
+const deepNoiseSuppression = new DeepNoiseSuppressionEffect();
+const echoCancellationEffect = new EchoCancellationEffect();
+
 const isEchoCancellationSupported = await audioEffectsFeatureApi.isSupported(echoCancellationEffect);
 if (isEchoCancellationSupported) {
     console.log('Echo Cancellation is supported in the current browser environment');
 }
+
+const isNoiseSuppressionSupported = await audioEffectsFeatureApi.isSupported(deepNoiseSuppression);
+if (isNoiseSuppressionSupported) {
+    console.log('Noise Suppression is supported in the current browser environment');
+}
 ```
 
-## Bring it all together: Load and start noise suppression, echo cancelation on client initialization 
-
-To initiate a call with noise suppression enabled, create a new `LocalAudioStream` property using `AudioDeviceInfo`. Ensure that the `LocalAudioStream` source isn't set as a raw `MediaStream` property to support audio effects. Then, include this property within `CallStartOptions.audioOptions` when starting the call.
+## Bring it all together: Load and start noise suppression and echo cancelation  
+To initiate a call with noise suppression and echo cancelation enabled, create a new `LocalAudioStream` property using `AudioDeviceInfo`. Ensure that the `LocalAudioStream` source isn't set as a raw `MediaStream` property to support audio effects. Then, include this property within `CallStartOptions.audioOptions` when starting the call.
 
 ```js
 import { EchoCancellationEffect, DeepNoiseSuppressionEffect } from '@azure/communication-calling-effects';
@@ -131,8 +141,7 @@ await audioEffectsFeatureApi.startEffects({
 ```
 
 ## Turn on noise suppression during an ongoing call
-
-You might start a call and not have noise suppression turned on. The environment might get noisy so that you need to turn on noise suppression. To turn on noise suppression, you can use the `audioEffectsFeatureApi.startEffects` API.
+You might start a call and not have noise suppression turned on. The end users room might get noisy so that they would need to turn on noise suppression. To turn on noise suppression, you can use the `audioEffectsFeatureApi.startEffects` API.
 
 ```js
 // Create the noise suppression instance 
