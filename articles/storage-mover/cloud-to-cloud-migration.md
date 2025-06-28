@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 06/26/2025
+ms.date: 06/27/2025
 ---
 
 # Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
@@ -15,9 +15,6 @@ The Cloud-to-Cloud Migration feature in Azure Storage Mover allows you to secure
 The feature utilizes Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management. The Azure Arc service provides a centralized source for management and governance. The service uses multicloud connectors to extend Azure's management capabilities to resources outside of the Azure cloud. These capabilities and resources can include on-premises servers, multicloud environments, and edge computing devices. For more details on Azure Arc, visit the [Azure Arc overview](/azure/azure-arc/overview) article.
 
 This article guides you through the complete process of configuring Storage Mover to migrate your data from Amazon S3 to Azure Blob Storage. The process consists of creating a multicloud connector for AWS, configuring endpoints, and creating and running a migration job.
-
-> [!IMPORTANT]
-> After your subscription is granted access to this feature, you must use the following link to access the feature within the Azure portal: [https://aka.ms/awstoazuremover](https://aka.ms/awstoazuremover).
 
 ## Prerequisites
 
@@ -56,17 +53,17 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
 1. Within the **Solutions** tab, add an **Inventory** and **Storage - Data Management** solution to your connector. The Inventory solution allows you to discover and manage AWS resources, while the Storage - Data Management solution enables data transfer operations for Storage Mover.
 
+    > [!IMPORTANT]
+    > An **Inventory** solution must be created before you can add a **Storage - Data Management** solution.
+
     :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solution-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Inventory tab selected and required Inventory objects displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solution.png":::
 
-    First, add an **Inventory** solution. An inventory solution must be created before you can add a Storage - Data Management solution.
-    
-    - Because Storage Mover multicloud migrations support only blob data stored in Amazon S3 buckets, select only the Amazon S3 service in the **AWS Services** drop-down list. Uncheck the **Add all supported AWS services** checkbox. In the **AWS Services** drop-down list, deselect all AWS services by selecting **Select all**. Scroll to the **S3** service and select it.
-    - Select the **Permissions** option you want this connector to have to your AWS account.
-    - Enabling **Periodic sync** allows the connector to scan your AWS account on a regular cadence. To set the cadence, select the **Enable periodic sync** checkbox and select the sync interval by selecting the desired number of hours from the **Recur every** drop-down list. 
-    
-    Your AWS account is scanned once if you choose to disable periodic sync.
+    First, add an **Inventory** solution. 
 
-    - Within the **Resource filters** section, select the AWS regions that contain S3 buckets you want to display in the Inventory tab of your connector. Select the **Include all supported AWS regions** checkbox to include all AWS regions in the scan. If you want to limit the scan to specific regions, uncheck this checkbox and select the desired regions from the **AWS Regions** drop-down list.
+    - By default, the **Add all supported AWS services** checkbox is selected. This option allows the connector to discover all AWS services in your account. However, Storage Mover multicloud migrations support only Amazon S3 buckets as a data source. Therefore, you can choose to exclude all other AWS services except the **S3** service.
+    - Select the **Permissions** option you want this connector to have to your AWS account.
+    - Select the **Periodic sync** option to allow the connector to scan your AWS account on a regular interval. Set the cadence by selecting the desired sync interval from the **Recur every** drop-down list. Your AWS account is scanned once if you choose to disable periodic sync.
+    - By default, the **Include all supported AWS regions** checkbox is selected within the **Resource filters** section. This option allows the connector to discover resources in all AWS regions. If you want to limit the scan to specific regions, uncheck this checkbox and select the desired regions from the **AWS Regions** drop-down list.
     - Verify that all values are correct and select **Save** to finish adding the Inventory solution to your connector as shown in the following image.
 
         :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solution-inventory-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Inventory tab selected and required Inventory objects displayed." lightbox="media/cloud-to-cloud-migration/add-connector-solution-inventory.png":::
@@ -83,17 +80,17 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
     Select **Next** to continue to the **Tags** tab.
 
-1. Within the **Tags** tab, you have the option to add key-value pairs that help you identify resources based on settings that are relevant to your organization. Add tags as needed. For example, you can add an **Environment** tag with a value of **Production** or **Development**. For more information about tags, refer to the [Azure Resource Manager documentation](../azure-resource-manager/management/tag-resources.md).
+1. Within the **Tags** tab, you can create and apply tags to help you identify resources based on settings that are relevant to your organization. For example, you can add an **Environment** tag with a value of **Production** or **Development**. For more information about tags, see the [Azure Resource Manager documentation](../azure-resource-manager/management/tag-resources.md).
 
-    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-tags-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Tags tab selected. A sample key-value pair has been added." lightbox="media/cloud-to-cloud-migration/add-connector-tags.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-tags-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Tags tab selected. A sample key-value pair is shown." lightbox="media/cloud-to-cloud-migration/add-connector-tags.png":::
 
     Select **Next** to continue to the **Review + Create** tab.
 
-1. The **Review + Create** tab displays a summary of the configuration settings you provided in the previous steps. Review these settings to ensure they are correct. If you need to make changes, select the **Previous** button to return to the appropriate tab. If all settings are correct, select **Create** to create your multicloud connector.
+1. The **Review + Create** tab displays a summary of the configuration settings you provided in the previous steps. Review these settings to ensure they're correct. If you need to make changes, select the **Previous** button to return to the appropriate tab. If all settings are correct, select **Create** to create your multicloud connector.
 
     :::image type="content" source="media/cloud-to-cloud-migration/add-connector-review-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/add-connector-review.png":::
 
-    After the connector is created, you are redirected to the new connector's **Overview** page as shown in the following image. 
+    After the connector is created, you're redirected to the new connector's **Overview** page as shown in the following image. 
 
     :::image type="content" source="media/cloud-to-cloud-migration/add-connector-deployed-sml.png" alt-text="A screen capture showing the Multicloud Connector Overview page with the connector's properties displayed." lightbox="media/cloud-to-cloud-migration/add-connector-deployed.png":::
 
