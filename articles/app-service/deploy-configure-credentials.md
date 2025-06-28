@@ -1,117 +1,143 @@
 ---
 title: Configure Deployment Credentials
-description: Learn what types of deployment credentials are in Azure App Service and how to configure and use them.
+description: Learn about the types of deployment credentials for deploying local apps to Azure App Service and how to configure and use them.
 author: cephalin
 ms.author: cephalin
 ms.reviewer: byvinyal
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/27/2025
 
 ---
 
 # Configure deployment credentials for Azure App Service
-To secure app deployment from a local computer, [Azure App Service](./overview.md) supports two types of credentials for [local Git deployment](deploy-local-git.md) and [FTP/FTPS deployment](deploy-ftp.md). These credentials are different from your Azure subscription credentials.
 
-[!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
+You can deploy local apps to [Azure App Service](overview.md) by using [local Git deployment](deploy-local-git.md) or [FTP/S deployment](deploy-ftp.md). App Service supports two types of credentials for secure local app deployment, *user-scope* and *app-scope* credentials. These credentials are different from your Azure subscription credentials.
 
-> [!NOTE]
-> When [basic authentication is disabled](configure-basic-auth-disable.md), you can't view or configure deployment credentials in **Deployment Center**.
+- **User-scope credentials** provide a user with one set of deployment credentials for their entire Azure account. A user who is granted app access via role-based access control (RBAC) or coadministrator permissions can use their user-level credentials until access is revoked.
 
-## <a name="userscope"></a>Configure user-scope credentials
+  You can use your user-scope credentials to deploy any app to App Service via local Git or FTP/S in any subscription that your Azure account has permission to access. Don't share these credentials with other Azure users.
+
+- **App-scope credentials** provide one set of credentials per app, which can be used to deploy that app only. The app-scope credentials for each app are generated automatically during app creation and can't be configured manually, but they can be reset anytime.
+
+  A user must have at least **Contributor** level permissions on an app, including the built-in **Website Contributor** role, to be granted access to app-level credentials via RBAC. **Reader** role can't publish and can't access these credentials.
+
+>[!IMPORTANT]
+>Basic authentication must be enabled to publish via local Git or FTP/S. Basic authentication is less secure than other authentication methods and is disabled by default for new apps. When [basic authentication is disabled](configure-basic-auth-disable.md), you can't view or set deployment credentials in the app's **Deployment Center**.
+>
+>To enable or disable basic authentication, go to the app's **Configuration** page in the Azure portal.
+
+<a name="userscope"></a>
+## Set user-scope credentials
+
+You can configure user-scope credentials by using Azure CLI or the Azure portal. For FTP/S deployment, you need both a user name and password. For local Git deployment, you only need a user name. User names must be unique within Azure.
 
 # [Azure CLI](#tab/cli)
 
-Run the [`az webapp deployment user set`](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command. Replace `<username>` and `<password>` with a deployment user's username and password.
-
-- The username must be unique within Azure, and for local Git pushes, must not contain the @ symbol.
-- The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
+To create user-scope credentials, run the [`az webapp deployment user set`](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command, replacing `<username>` and `<password>` with values you select.
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>
 ```
+- For FTP/S, the password must be at least eight characters and contain capital letters, lowercase letters, numbers, and symbols. The JSON output shows the password as `null`.
+- For local Git, you only need to provide a user name. The user name can't contain the `@` character.
 
-The JSON output shows the password as `null`.
+- The user name must follow the format `<app-name>\<user-name>`. Since user-scope credentials are linked to the user and not to the app, the username must be in this format to direct the sign-in action to the FTP/S endpoint for the app. 
 
 # [Azure PowerShell](#tab/powershell)
 
-You can't configure the user-scope credentials by using Azure PowerShell. Use a different method, or consider [using application-scope credentials](#appscope).
+You can't create user-scope credentials by using Azure PowerShell. Use Azure CLI or the Azure portal to create the credentials instead. To deploy to FTP/S or local Git, you can use app-scope credentials.
 
 # [Azure portal](#tab/portal)
 
-You can configure your user-scope credentials in any app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources). Regardless of which app you use to configure these credentials, the credentials apply to all apps for all subscriptions in your Azure account.
+You must have at least one app to use for setting user-scope deployment credentials in the [Azure portal](https://portal.azure.com). You can set the credentials in any app that has **SCM Basic Auth** and **FTP Basic Auth** enabled. The credentials then apply to all apps for all subscriptions in your Azure account that have **SCM Basic Auth** and **FTP Basic Auth** enabled.
 
- You must have at least one app in the [Azure portal](https://portal.azure.com) before you can access the deployment credentials page. To configure your user-scope credentials:
+To configure deployment credentials:
 
-1. From the left menu of your app, select > **Deployment Center** > **FTPS credentials** or **Local Git/FTPS credentials**.
+1. Select **Deployment Center** under **Deployment** in the left navigation menu of an app.
+1. If **Local Git** is configured as the build source, select the **Local Git/FTPS credentials** tab. Otherwise, select the **FTPS credentials** tab.
+1. In the **User-scope** section, add a **Username**. For local Git deployments, the user name can't contain the `@` character.
+1. For FTP/S deployments, add and confirm a **Password**. The password must be at least eight characters and contain contain capital letters, lowercase letters, numbers, and symbols.
+1. Select **Save**.
 
-2. Scroll down to **User scope**, configure the **Username** and **Password**, and then select **Save**.
-
-After you set your deployment credentials, you can find the Git deployment username in your app's **Overview** page.
+After you set the credentials, you can see your deployment user name on your app's **Overview** page. If local Git deployment is configured, the label is **Git/deployment username**. Otherwise, the label is **FTP/deployment username**. The page doesn't show the password.
 
 ![Screenshot that shows you how to find the Git deployment user name on your app's Overview page.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-If Git deployment is configured, the page shows **Git/deployment username**. Otherwise, it shows **FTP/deployment username**.
-
-> [!NOTE]
-> Azure doesn't show your user-scope deployment password. If you forget the password, you can follow the steps in this section to reset your credentials.
-
 -----
 
-## Use user-scope credentials with FTP/FTPS
+### Deploy to FTP/S with user-scope credentials
 
-To authenticate to an FTP/FTPS endpoint by using user-scope credentials, your username must follow this format:
-`<app-name>\<user-name>`
+To authenticate to an FTP/S endpoint by using user-scope credentials, you must prepend the user name with the app name in the format `<app-name>\<user-name>`. Since user-scope credentials are linked to the user and not to the app, the username must be in this format to direct the sign-in action to the correct FTP/S endpoint for the app.
 
-Since user-scope credentials are linked to the user and not to a specific resource, the username must be in this format to direct the sign-in action to the right app endpoint.
+<a name="appscope"></a>
+## Get application-scope credentials
 
-## <a name="appscope"></a>Get application-scope credentials
+The application-scope credentials are automatically created. The FTP/S app-scope user name always follows the format `app-name\$app-name`. The local Git user name follows the format `$app-name`.
+
+>[!NOTE]
+>When you use `git remote add` in shells that use the dollar sign for variable interpolation, such as Bash, you must escape any dollar signs in the username or password by using `\$`, to avoid authentication errors.
+
+You can get your app-scope credentials by using Azure CLI, Azure PowerShell, or the Azure portal.
 
 # [Azure CLI](#tab/cli)
 
 Get the application-scope credentials by using the [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command. For example:
 
 ```azurecli-interactive
-az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
+az webapp deployment list-publishing-profiles --resource-group myResourceGroup --name myApp
 ```
 
-For [local Git deployment](deploy-local-git.md), you can also use the [`az webapp deployment list-publishing-credentials`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command. When you use this command, you get a Git remote URI for your app that has the application-scope credentials already embedded. For example:
+For [local Git deployment](deploy-local-git.md), you can also use the [`az webapp deployment list-publishing-credentials`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-credentials) command. The following example returns a Git remote URI that has the application-scope credentials for the app already embedded.
 
 ```azurecli-interactive
-az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
+az webapp deployment list-publishing-credentials --resource-group myResourceGroup --name myApp --query scmUri
 ```
 
-> [!NOTE]
-> The returned Git remote URI doesn't contain `/<app-name>.git` at the end. When you add the remote URI, make sure to append `/<app-name>.git` to avoid an error 22 with `git-http-push`. Additionally, when using `git remote add ... ` via shells that use the dollar sign for variable interpolation (such as bash), escape any dollar signs `\$` in the username or password. Failure to escape this character can result in authentication errors.
+The returned Git remote URI doesn't have `/<app-name>.git` at the end. When you add a remote, append `/<app-name>.git` to the URI to avoid an error `22` with `git-http-push`.
 
 # [Azure PowerShell](#tab/powershell)
 
 Get the application-scope credentials by using the [`Get-AzWebAppPublishingProfile`](/powershell/module/az.websites/get-azwebapppublishingprofile) command. For example:
 
 ```azurepowershell-interactive
-Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
+Get-AzWebAppPublishingProfile -ResourceGroupName myResourceGroup -Name myApp
 ```
 
 # [Azure portal](#tab/portal)
 
-1. From the left menu of your app, select **Deployment Center** > **FTPS credentials** or **Local Git/FTPS credentials**.
+To get the application-scope credentials:
 
-2. In the **Application scope** section, select the **Copy** link to copy the username or password.
+1. In the Azure portal, select **Deployment Center** under **Deployment** in the left navigation menu of your app.
+1. On the **Deployment Center** page, select the **FTPS credentials** or **Local Git/FTPS credentials** tab.
+1. In the **Application-scope** section, view the **FTPS username**, the **Local Git username**, and the **Password**. Select the copy icons to copy the values.
 
 -----
 
 ## Reset application-scope credentials
 
+You can use Azure CLI, Azure PowerShell, or the Azure portal to reset your application-scope deployment credentials and get a new password. The app-scope user names remain at their autogenerated values.
+
+In Azure CLI and the Azure portal, you can also reset your user-scope credentials by creating new ones. This action affects all the apps in your account that use the user-scope credentials.
+
+When you reset your deployment credentials, any external integrations and automation stop working and must be reconfigured with the new values. 
+
 # [Azure CLI](#tab/cli)
 
-Reset the application-scope credentials by using the [`az resource invoke-action`](/cli/azure/resource#az-resource-invoke-action) command:
+Reset the application-scope password by using the [`az resource invoke-action`](/cli/azure/resource#az-resource-invoke-action) command.
 
 ```azurecli-interactive
 az resource invoke-action --action newpassword --resource-group <group-name> --name <app-name> --resource-type Microsoft.Web/sites
 ```
 
+Reset the user-scope credentials by rerunning the [`az webapp deployment user set`](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command, supplying new user name and password values.
+
+```azurecli-interactive
+az webapp deployment user set --user-name <new-username> --password <new-password>
+```
+
 # [Azure PowerShell](#tab/powershell)
 
-Reset the application-scope credentials by using the [`Invoke-AzResourceAction`](/powershell/module/az.resources/invoke-azresourceaction) command:
+Reset the application-scope password by using the [`Invoke-AzResourceAction`](/powershell/module/az.resources/invoke-azresourceaction) command:
 
 ```azurepowershell-interactive
 Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.Web/sites -ResourceName <app-name> -Action newpassword
@@ -119,16 +145,14 @@ Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.
 
 # [Azure portal](#tab/portal)
 
-1. From the left menu of your app, select **Deployment Center** > **FTPS credentials** or **Local Git/FTPS credentials**.
-
-2. In the **Application scope** section, select **Reset**.
+1. From the left navigation menu of your app, select **Deployment Center** > **FTPS credentials** or **Local Git/FTPS credentials**.
+1. To reset your app-scope credentials and get a new password, select **Reset** at the bottom of the **Application-scope** section.
+1. To reset your user-scope credentials, select **Reset** at the bottom of the **User-scope** section. This action deletes both user name and password, and disables user-scope credentials. To reenable, enter a new username and password, and select **Save**. This action takes effect across all the apps in your account that use the user-scope credentials.
 
 -----
 
-## Disable basic authentication
-
-See [Disable basic authentication in App Service deployment](configure-basic-auth-disable.md).
-
 ## Related content
 
-Find out how to use these credentials to deploy your app from a [local Git](deploy-local-git.md) or by using [FTP/FTPS](deploy-ftp.md).
+- [Disable basic authentication in Azure App Service deployments](configure-basic-auth-disable.md)
+- [Deploy to Azure App Service by using local Git](deploy-local-git.md)
+- [Deploy your app to Azure App Service using FTP/S](deploy-ftp.md).
