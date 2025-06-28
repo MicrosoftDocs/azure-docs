@@ -26,7 +26,14 @@ Document score: not run
 
 Azure Storage Discovery is currently in PREVIEW and is available in the following regions. See the Supplemental Terms of Use for Microsoft Azure Previews for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This list is temporary and will change over time as Public Preview support continues to expand.
+List of regions where Azure Storage Discovery workspace can be created:
+- France Central
+- Canada Central
+- East US2
+- North Europe
+- West Europe
+
+List of regions from which storage metrics will be aggregated by Storage Discovery is as given below. This list is temporary and will change over time as Public Preview support continues to expand.
 - East US2
 - West Europe
 - North Europe
