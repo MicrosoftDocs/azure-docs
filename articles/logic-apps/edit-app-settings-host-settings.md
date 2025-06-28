@@ -211,7 +211,7 @@ The following example shows the syntax for these settings where each workflow ID
 
 <a name="trigger-concurrency"></a>
 
-### *Trigger* concurrency
+### Trigger concurrency
 
 The following concurrency settings apply only to workflows that start with a recurrence-based trigger for [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) and control the number of workflows that run concurrently, or at the same time.
 
