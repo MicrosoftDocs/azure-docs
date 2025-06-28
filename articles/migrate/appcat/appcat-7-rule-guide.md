@@ -43,8 +43,6 @@ labels:
   - category=database-migration
 ```
 
-:::image type="content" source="media/guide/appcat-rule-domain.png" alt-text="Screenshot of the appcat rule domain in static report." lightbox="media/guide/appcat-rule-domain.png":::
-
 ### Creating a rule
 
 The following rule example identifies whether the MySQL database is found in the project. If the database is found, the rule recommends migrating it to Azure Database for MySQL.
@@ -106,10 +104,6 @@ The following rule example identifies whether the MySQL database is found in the
           lowerbound: 0.0.0
           nameregex: ([a-zA-Z0-9._-]*)spring-cloud-azure-starter-jdbc-mysql([a-zA-Z0-9._-]*)
 ```
-
-The issue appears in the AppCAT report as shown in the following screenshot:
-
-:::image type="content" source="media/guide/appcat-rule-metadata.png" alt-text="Screenshot of the My S Q L database found issue in static report." lightbox="media/guide/appcat-rule-metadata.png":::
 
 ### Run a rule
 
