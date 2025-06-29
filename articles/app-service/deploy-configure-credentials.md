@@ -1,5 +1,5 @@
 ---
-title: Configure Deployment Credentials
+title: Manage Deployment Credentials
 description: Learn about the types of deployment credentials for deploying local apps to Azure App Service and how to configure and use them.
 author: cephalin
 ms.author: cephalin
@@ -9,22 +9,22 @@ ms.date: 06/27/2025
 
 ---
 
-# Configure deployment credentials for Azure App Service
+# Manage deployment credentials for Azure App Service
 
 You can deploy local apps to [Azure App Service](overview.md) by using [local Git deployment](deploy-local-git.md) or [FTP/S deployment](deploy-ftp.md). App Service supports two types of credentials for secure local app deployment, *user-scope* and *app-scope* credentials. These credentials are different from your Azure subscription credentials.
 
-- **User-scope credentials** provide a user with one set of deployment credentials for their entire Azure account. A user who is granted app access via role-based access control (RBAC) or coadministrator permissions can use their user-level credentials until access is revoked.
+[!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
-  You can use your user-scope credentials to deploy any app to App Service via local Git or FTP/S in any subscription that your Azure account has permission to access. Don't share these credentials with other Azure users.
+## Prerequisites
 
-- **App-scope credentials** provide one set of credentials per app, which can be used to deploy that app only. The app-scope credentials for each app are generated automatically during app creation and can't be configured manually, but they can be reset anytime.
+To access, set, or reset deployment user credentials, you must have contributor-level permissions on an Azure App Service app that you want to deploy by using local Git or FTP/S.
 
-  A user must have at least **Contributor** level permissions on an app, including the built-in **Website Contributor** role, to be granted access to app-level credentials via RBAC. **Reader** role can't publish and can't access these credentials.
+<a name="disable-basic-authentication"></a>
+### Basic authentication requirement
 
->[!IMPORTANT]
->Basic authentication must be enabled to publish via local Git or FTP/S. Basic authentication is less secure than other authentication methods and is disabled by default for new apps. When [basic authentication is disabled](configure-basic-auth-disable.md), you can't view or set deployment credentials in the app's **Deployment Center**.
->
->To enable or disable basic authentication, go to the app's **Configuration** page in the Azure portal.
+Basic authentication must be enabled to publish App Service apps via local Git or FTP/S. Both **SCM Basic Auth Publishing Credentials** and **FTP Basic Auth Publishing Credentials** must be set to **On** on the app's **Configuration** page in the Azure portal.
+
+Basic authentication is less secure than other authentication methods and is disabled by default for new apps. When basic authentication is disabled, you can't view or set deployment credentials in the app's **Deployment Center** or use these credentials for publishing. For more information, see [Disable basic authentication in Azure App Service deployments](configure-basic-auth-disable.md).
 
 <a name="userscope"></a>
 ## Set user-scope credentials
@@ -56,7 +56,7 @@ To configure deployment credentials:
 1. Select **Deployment Center** under **Deployment** in the left navigation menu of an app.
 1. If **Local Git** is configured as the build source, select the **Local Git/FTPS credentials** tab. Otherwise, select the **FTPS credentials** tab.
 1. In the **User-scope** section, add a **Username**. For local Git deployments, the user name can't contain the `@` character.
-1. For FTP/S deployments, add and confirm a **Password**. The password must be at least eight characters and contain contain capital letters, lowercase letters, numbers, and symbols.
+1. For FTP/S deployments, add and confirm a **Password**. The password must be at least eight characters and contain capital letters, lowercase letters, numbers, and symbols.
 1. Select **Save**.
 
 After you set the credentials, you can see your deployment user name on your app's **Overview** page. If local Git deployment is configured, the label is **Git/deployment username**. Otherwise, the label is **FTP/deployment username**. The page doesn't show the password.
