@@ -93,8 +93,8 @@ landingContent:
             url: api-management-howto-policies.md
           - text: Networking options
             url: virtual-network-concepts.md
-          - text: High availability
-            url: high-availability.md
+          - text: Reliability
+            url: /reliability/reliability-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
       - linkListType: reference
         links:
           - text: API Management policy reference

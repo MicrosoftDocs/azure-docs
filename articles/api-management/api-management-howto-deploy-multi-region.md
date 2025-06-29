@@ -19,7 +19,7 @@ When adding a region, you configure:
 
 * The number of scale [units](upgrade-and-scale.md) that region will host. 
 
-* [Availability zones](enable-availability-zone-support.md.md), if that region supports it. By default, API Management automatically configures availability zones for the added region, which is recommended. You can also manually configure availability zones for the added region.
+* [Availability zones](enable-availability-zone-support.md), if that region supports it. By default, API Management automatically configures availability zones for the added region, which is recommended. You can also manually configure availability zones for the added region.
 
 * [Virtual network](virtual-network-concepts.md) settings in the added region, if networking is configured in the existing region or regions.
 
