@@ -22,8 +22,8 @@ The following limit applies to analytics rules in Microsoft Sentinel.
 
 | Description | Limit | Dependency |
 | ----------- | ----- | ---------- |
-| Number of [scheduled rules](scheduled-rules-overview.md) | 512 *enabled* rules<br>1024 with a [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters) - requires a request to increase the default limit through a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request). | Counted separately from NRT rules |
-| Number of [near-real-time (NRT) rules](near-real-time-rules.md) | 50 *enabled* rules | Counted separately from scheduled rules |
+| Number of [scheduled rules](scheduled-rules-overview.md) | 512 *enabled* rules, 1024 including disabled rules<br>With a [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters) - 1024 *enabled* rules, 2048 including disabled rules. Requires a request to increase the default limit through a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request). | Counted separately from NRT rules |
+| Number of [near-real-time (NRT) rules](near-real-time-rules.md) | 50 *enabled* rules, 100 including disabled rules | Counted separately from scheduled rules |
 | [Entity mappings](map-data-fields-to-entities.md) | 10 mappings per rule | None |
 | [Entities](map-data-fields-to-entities.md) identified per alert<br>(Divided equally among the mapped entities) | 500 entities per alert | None |
 | [Entities](map-data-fields-to-entities.md) cumulative size limit | 64 KB | None |
