@@ -9,16 +9,16 @@ ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
 ---
 
-# CycleCloud Cluster Template File
+# CycleCloud cluster template file
 
-CycleCloud clusters are defined in declarative and hierarchical text files called templates. A number of example CycleCloud cluster templates are available for [download](~/articles/cyclecloud/download-cluster-templates.md)
+You define CycleCloud clusters in declarative and hierarchical text files called templates. You can [download](~/articles/cyclecloud/download-cluster-templates.md) several example CycleCloud cluster templates.
 
 > [!NOTE]
-> The CycleCloud cluster template file is case insensitive throughout.
+> The CycleCloud cluster template file is case insensitive.
 
-## CycleCloud Cluster Template File Hierarchy
+## CycleCloud cluster template file hierarchy
 
-The cluster template file is organized into a hierarchical structure. Each section defines a primary object and the object's name appears in the section header (eg. `[cluster my-cluster]`). The number of square brackets represents the rank, with fewer brackets indicating higher rank. The top of the hierarchy, and the only required object in the Cluster Template file is the `[cluster]` object. The specific order of the sections is not important.
+The cluster template file uses a hierarchical structure. Each section defines a primary object and includes the object's name in the section header (for example, `[cluster my-cluster]`). The number of square brackets shows the rank, with fewer brackets indicating higher rank. The top of the hierarchy, and the only required object in the cluster template file, is the `[cluster]` object. The specific order of the sections doesn't matter.
 
 ``` template
 [cluster]
@@ -35,7 +35,7 @@ The cluster template file is organized into a hierarchical structure. Each secti
     [[[parameter]]]
 ```
 
-A `[cluster]` may contain a `[[node]]`, which may contain a `[[[volume]]]`.
+A `[cluster]` can contain a `[[node]]`, which can contain a `[[[volume]]]`.
 
 A `[[[volume]]]` must be within a `[[node]]`, which must be within a `[cluster]`.
 
@@ -43,7 +43,7 @@ Many objects correspond to Azure resources. For example, `[[node]]` corresponds 
 
 ## Object Attributes
 
-Each object may possess attributes which govern the object's behavior:
+Each object can have attributes that control its behavior:
 
 ``` ini
 [[node my-node]]
@@ -53,7 +53,7 @@ Attribute2 = Value2
 
 ## Parameters
 
-[Cluster Parameters](./parameter-reference.md) are variables set at cluster creation time. They can be used in the definition of any attribute.
+[Cluster Parameters](./parameter-reference.md) are variables you set when you create a cluster. Use these parameters in the definition of any attribute.
 
 ``` ini
 [cluster MyCluster]
@@ -63,24 +63,23 @@ Attribute2 = Value2
   DefaultValue = 200
 ```
 
-The `$` is a special character to denote a parameter value by name.  
+The `$` character lets you specify a parameter value by name.
 
-Parameters have properties both to define the type and to control how they are represented in the cluster UI selectors. Parameters are defined
-at the time of cluster creation so they can either be set via command line parameter flag `-p parameter-file.json`, or by using the cluster UI.
+Parameters have properties that define their type and control how the cluster UI selectors represent them. You define parameters when you create the cluster. You can set them by using the command line parameter flag `-p parameter-file.json` or the cluster UI.
 
 ### Special Parsing
 
-The [template parser](./special-parsing.md) is capable of handling certain logic and special definitions and process functions of parameter values:
+The [template parser](./special-parsing.md) can handle certain logic, special definitions, and process functions of parameter values:
 
 ``` ini
 Attribute1 = ${ifThenElse(AccessSubnet !== undefined, AccessSubnet, ComputeSubnet)}
 ```
 
-The special parser is activated with the `${}` syntax.
+The `${}` syntax activates the special parser.
 
-## Template Objects
+## Template objects
 
-These are the currently supported template objects:
+The following template objects are currently supported:
 
 * [**cluster**](./cluster-reference.md)
 * [**node, nodearray**](./node-nodearray-reference.md)
