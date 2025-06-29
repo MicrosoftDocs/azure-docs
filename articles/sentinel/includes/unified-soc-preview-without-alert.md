@@ -1,6 +1,6 @@
 ---
 title: Defender portal announcement without syntax
-description: Describes the current announcement for Microsoft Sentinel in the Defender portal without any extra admon format.
+description: Describes the current announcement for Microsoft Sentinel in the Defender portal without any extra formatting syntax.
 services: microsoft-sentinel
 author: batamig
 ms.topic: "include"
