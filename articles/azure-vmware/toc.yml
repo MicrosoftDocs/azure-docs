@@ -362,9 +362,9 @@ items:
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - name: Configure VMware Cloud Director Service in Azure VMware Solution
     href: configure-vmware-cloud-director-service-azure-vmware-solution.md
-  - name: Self service maintenance orchestration (preview)
+  - name: Plan self-service maintenance for Azure VMware Solution (public preview)
     href: self-service-maintenance-orchestration.md
-  - name: Enable VMware Cloud Director Service with Azure VMware solution
+  - name: Enable VMware Cloud Director Service with Azure VMware Solution
     href: enable-vmware-cds-with-azure.md
   - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
     href: deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md
