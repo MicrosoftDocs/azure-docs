@@ -6,7 +6,7 @@ author: austinmccollum
 ms.author: austinmc
 ms.custom: subject-cost-optimization
 ms.topic: concept-article
-ms.date: 06/14/2025
+ms.date: 06/29/2025
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
