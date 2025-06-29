@@ -1524,10 +1524,10 @@ If you aren't able to troubleshoot successfully, you might want to revert to usi
 
 If you encounter issues with your migration using this article or want to provide other feedback on this guidance, use one of these methods to get help or provide your feedback: 
 
-* [Get help at Microsoft Q&A](https://learn.microsoft.com/answers/tags/87/azure-functions/)  
+* [Get help at Microsoft Q&A](/answers/tags/87/azure-functions/)  
 * Create an issue in the [Azure Functions repo](https://github.com/Azure/Azure-Functions/issues)  
 * [Provide product feedback](https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0)  
-* [Create a support ticket](https://azure.microsoft.com/en-us/support/create-ticket)  
+* [Create a support ticket](https://azure.microsoft.com/support/create-ticket)  
 
 ## Related articles
 
