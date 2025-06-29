@@ -4,7 +4,7 @@ description: Learn about Business Continuity and Disaster Recovery (BCDR) in Mic
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 02/04/2025
+ms.date: 06/29/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -61,6 +61,16 @@ These activities must be configured manually by the customer and don't happen au
 
 A customer-enabled BCDR setup ensures that if an Azure regional outage occurs in one of the customer's regions, the other paired region, which is geographically and physically separate from the impacted region, remains unaffected. As a result, continuous business operations can proceed without any downtime or data loss.
 
+## Enabling BCDR for Microsoft Data Lake
+
+Before setting up BCDR for Microsoft Sentinel data lake, ensure that BCDR is already enabled for Microsoft Sentinel, and that customers have two identical Log Analytics workspaces in the primary and secondary regions. 
+
+To enable Data Lake BCDR, reach out to Customer Support. Contact the support team and share the secondary region and workspace ID. The support team will work with the Data Lake DRI to onboard your secondary workspace.
+
+In the case of a regional outage, open a support ticket to initiate the failover process. The ticket will help the Data Lake team onboard your secondary workspace and perform the failover to the designated region.
+
+
+
 ## Regional and cloud support
 
 The following table describes the recommended actions for setting up BCDR in different regions and cloud environments:
@@ -78,6 +88,21 @@ The following geographical regions aren't currently supported for the customer-e
 - Azure China 21Vianet
 
 For more information, see [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
+
+
+## Regional and cloud support for Microsoft data lake
+
+The following geographical regions aren't currently supported for the customer-enabled BCDR approach for Microsoft data lake described in this article:
+
++ Australia East
++ UK South
++ Switzerland North
++ Canada Central
++ Japan East
++ Central India
++ Southeast Asia
++ France Central
++ Israel Central
 
 
 ## Related content

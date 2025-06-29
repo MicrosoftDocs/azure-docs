@@ -12,7 +12,7 @@ ms.collection: usx-security
 ---
 # Log retention plans in Microsoft Sentinel
 
-For Microsoft Sentinel workspaces connected to Defender, tiering and retention management must be done from the new table management experience in the Defender portal. For unattached Sentinel workspaces, continue to use the experiences described below to manage data in your workspaces. If you have Basic logs in your workspace, convert them to Analytics tier first from Log Analytics Tables experience before you can change tiering or retention from the Defender’s new table management experience. For more information, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](/unified-secops-platform/manage-data-defender-portal-overview).
+For Microsoft Sentinel workspaces connected to Defender, tiering and retention management must be done from the new table management experience in the Defender portal. For unattached Microsoft Sentinel workspaces, continue to use the experiences described below to manage data in your workspaces. If you have Basic logs in your workspace, convert them to Analytics tier first from Log Analytics Tables experience before you can change tiering or retention from the Defender’s new table management experience. For more information, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](/unified-secops-platform/manage-data-defender-portal-overview).
 
 There are two competing aspects of log collection and retention that are critical to a successful threat detection program. On the one hand, you want to maximize the number of log sources that you collect, so that you have the most comprehensive security coverage possible. On the other hand, you need to minimize the costs incurred by the ingestion of all that data.
 
@@ -101,7 +101,7 @@ The **Auxiliary logs** plan keeps data in the **interactive retention** state fo
 When the interactive retention period ends, data goes into the **long-term retention** state, remaining in its original table. Long-term retention in the auxiliary logs plan is similar to long-term retention in the analytics logs plan, except that the only option to access the data is with a [**search job**](investigate-large-datasets.md). [Restore](restore.md) is not supported for the auxiliary logs plan.
 
 > [!NOTE]
-> We recommend considering Sentinel data lake (Preview) as the preferred solution for storing secondary and long-term data. Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios. For mor information, see [Sentinel data lake (Preview)](graph/data-lake-overview.md). 
+> We recommend considering Microsoft Sentinel data lake (Preview) as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios. For more information, see [Microsoft Sentinel data lake (Preview)](graph/data-lake-overview.md). 
 
 ## Related content
 
