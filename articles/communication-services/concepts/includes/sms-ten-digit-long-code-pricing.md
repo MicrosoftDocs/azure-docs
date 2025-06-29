@@ -48,9 +48,10 @@ Registration fees apply to brands and campaigns as part of the 10DLC compliance 
 | Campaign Registration  | Registration     | Sole Proprietor      | Monthly           | Campaigns registered under Sole Proprietor brand type                       | $2     |
 
 > [!NOTE]
-> Trust scores and vetting requirements are determined by The Campaign Registry (TCR) and participating carriers.
+> The Campaign Registry (TCR) and participating carriers set trust scores and vetting requirements.
 > - Brand vetting is typically required to achieve higher trust scores and better message throughput.
-> - Vetting is also generally required for brands not listed in the Russell 3000 index.
+> - Vetting is generally required for brands not listed in the Russell 3000 index.
+
 
 ---
 
@@ -92,5 +93,6 @@ A carrier surcharge applies to messages exchanged using 10DLC numbers. This surc
 | C-Spire                       | Outbound              | $0.0000          |
 | Commnet                       | Outbound              | $0.0000          |
 
-For additional details, see [Carrier fees in the SMS FAQ](../sms/sms-faq.md#carrier-fees).
+For more information, see [Carrier fees](../sms/sms-faq.md#carrier-fees) in the SMS FAQ.
+
 
