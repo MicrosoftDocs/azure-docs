@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/api-management/high-availability.md",
+      "redirect_url": "/azure/reliability/reliability-api-management",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/api-management/diagnostic-logs-reference.md",
       "redirect_url": "/rest/api/apimanagement/diagnostic/create-or-update",
       "redirect_document_id": false

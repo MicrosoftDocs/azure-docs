@@ -89,7 +89,7 @@ You must use the Premium (classic) tier to configure availability zone support. 
     
     To determine the number of units that provide your required gateway performance, use [capacity metrics](/azure/api-management/api-management-capacity) and your own testing. For more information about scaling and upgrading your service instance, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale).
 
-- **Autoscaling:** If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. U you simply default to the automatic availability zone support, you don't need to adjust your autoscale settings. 
+- **Autoscaling:** If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. If you simply default to the automatic availability zone support, you don't need to adjust your autoscale settings. 
 
 - **IP address requirements:** When you're enabling availability zone support on an API Management instance that's deployed in an external or internal virtual network, currently you must specify a public IP address resource for the instance to use. In an internal virtual network, the public IP address is used only for management operations, not for API requests. [Learn more about IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). 
 
@@ -107,7 +107,7 @@ Regardless of your availability zone configuration, if you add more units, it in
 
     [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-    When you change availability zone configuration, changes can take 15 to 45 minutes to apply. The API Management gateway can continue to handle API requests during this time.
+    When you change availability zone configuration, changes can take 15 to 45 minutes (or longer) to apply. The API Management gateway can continue to handle API requests during this time.
 
     Changing the availability zone configuration triggers a public and private [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-ip-addresses).
 
