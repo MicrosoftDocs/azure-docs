@@ -63,6 +63,23 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 |**Australia** | **Australia**| • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
 |**Africa** | **South Africa**| • South Africa North |
 
+### Regions supported for Microsoft Sentinel data lake
+
+| Continent              | Country/Region   | Azure Region                          |
+|------------------------|------------------|---------------------------------------|
+| North America          | Canada           | Canada Central                        |
+| North America                       | United States    | Central US<br>East US<br>East US 2<br>East US 2 EUAP<br>South Central US<br>West US2 |
+| Asia and Middle East   |       -          | Southeast Asia                        |
+|  Asia and Middle East  | India            | Central India                         |
+|  Asia and Middle East  | Israel           | Israel Central                        |
+|  Asia and Middle East  | Japan            | Japan East                            |
+| Europe                 |                  | North Europe<br>West Europe           |
+| Europe                 | France           | France Central                        |
+|  Europe                | Switzerland      | Switzerland North                     |
+|  Europe                | UK               | UK South                              |
+| Australia              | Australia        | Australia Central                     |
+
+
 ## Data retention
 
 Data from Microsoft Sentinel is retained until the earliest of the following dates:
