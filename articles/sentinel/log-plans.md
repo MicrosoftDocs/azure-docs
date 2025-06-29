@@ -101,7 +101,7 @@ The **Auxiliary logs** plan keeps data in the **interactive retention** state fo
 When the interactive retention period ends, data goes into the **long-term retention** state, remaining in its original table. Long-term retention in the auxiliary logs plan is similar to long-term retention in the analytics logs plan, except that the only option to access the data is with a [**search job**](investigate-large-datasets.md). [Restore](restore.md) is not supported for the auxiliary logs plan.
 
 > [!NOTE]
-> We recommend considering Microsoft Sentinel data lake (Preview) as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios. For more information, see [Microsoft Sentinel data lake (Preview)](graph/data-lake-overview.md). 
+> We recommend considering Microsoft Sentinel data lake (Preview) as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios. For more information, see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md). 
 
 ## Related content
 
