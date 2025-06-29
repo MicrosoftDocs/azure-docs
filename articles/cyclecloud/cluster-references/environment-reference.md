@@ -2,7 +2,7 @@
 title: Cluster Template Reference - Environment
 description: Environment reference for cluster templates for use with Azure CycleCloud
 author: adriankjohnson
-ms.date: 06/03/2024
+ms.date: 06/29/2025
 ms.author: adjohnso
 ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
