@@ -49,9 +49,9 @@ For more information, see [Optimize Microsoft Sentinel costs with a pre-purchase
 
 Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enabled Log Analytics workspaces. It's best to have a separate workspace for non-security operations data, to ensure it doesn't incur Microsoft Sentinel costs.
 
-## Use the Microsoft Sentinel data lake for secondary security data
+## Use the Microsoft Sentinel data lake (Preview) for secondary security data
 
-While the Analytics tier is most appropriate for continuous, real-time threat detection, the Microsoft Sentinel data lake is well-suited for ad-hoc querying and search of secondary security data that isn't frequently needed or accessed on demand. Microsoft Sentinel data lake offers ingestion and storage at a significantly reduced cost. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+While the analytics tier is most appropriate for continuous, real-time threat detection, the Microsoft Sentinel data lake is well-suited for ad-hoc querying and search of secondary security data that isn't frequently needed or accessed on demand. Microsoft Sentinel data lake offers ingestion and storage at a significantly reduced cost. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 >[!NOTE]
 >The Microsoft Sentinel data lake is currently in Public Preview.
@@ -80,7 +80,7 @@ For more information about dedicated clusters, see [Log Analytics dedicated clus
 
 ## Reduce data retention costs with total retention
 
-Microsoft Sentinel retains Analytics tier data by default for the first 90 days in Analytics retention. As data ages, it loses its value for real-time analytics and investigation. Security operations center (SOC) users might not need to access older data as frequently as newer data, but still need to access the data for wider historical investigations or audit purposes. To help you reduce Microsoft Sentinel data retention costs, total retention is available. Data that ages out of its analytics retention state can still be retained, at a much-reduced cost, and access using Lake exploration capabilities. For more information, see [Lake exploration](graph/kql-overview.md).
+Microsoft Sentinel retains analytics tier data by default for the first 90 days in analytics retention. As data ages, it loses its value for real-time analytics and investigation. Security operations center (SOC) users might don't to access older data as frequently, but still want to access the data for wider historical investigations or audit purposes. To help you reduce Microsoft Sentinel data retention costs, total retention is available. Data that ages out of its analytics retention state can still be retained, at a much-reduced cost, and access using Lake exploration capabilities. For more information, see [Lake exploration, KQL queries](graph/kql-overview.md).
 
 Use **Data management > Tables** to adjust the Analytics and Total retention period.
 
@@ -99,3 +99,5 @@ Besides for the predefined sets of events that you can select to ingest, such as
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](/azure/azure-monitor/best-practices-cost).
+- To understand more about Microsoft Sentinel data lake (Preview), see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md).
+- To onboard to Microsoft Sentinel data lake (Preview), see [Onboard data to Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-onboarding.md). 
