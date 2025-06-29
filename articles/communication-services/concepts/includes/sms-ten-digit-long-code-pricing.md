@@ -16,7 +16,8 @@ ms.author: prakulka
 >
 > - For billing locations in the United States and Puerto Rico, **Azure Prepayment (formerly Monetary Commitment)** and **Azure prepaid credits** can't be used to purchase 10DLC-related products. In addition, **spend on these products is not eligible for Microsoft Azure Consumption Commitment (MACC) drawdown**.
 >
-> - For billing locations outside the US and Puerto Rico, **MACC eligibility depends on subscription configuration**. To check if your subscription qualifies, see [Phone number management for United States](https://learn.microsoft.com/en-us/azure/communication-services/concepts/numbers/phone-number-management-for-united-states).
+> - For billing locations outside the US and Puerto Rico, **MACC eligibility depends on subscription configuration**. To check if your subscription qualifies, see [Phone number management for United States](../../concepts/numbers/phone-number-management-for-united-states.md)
+
 
 ## 10 Digit Long Code (10DLC) pricing
 
