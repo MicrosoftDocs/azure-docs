@@ -166,7 +166,7 @@ On the overview page, you will find entry points to relevant cost tracking capab
 When clicking on one of the capabilities under **Currently billed capabilties**, you will a usage report for that capability that will display a trend line of your billable usage for that capability.
 Data is shown for the last 90 days and you can use a filter to adjust the default single month time window. A card will show your total usage for the filtered time period and if enough historic data is available, will also show the trend change compared to the period prior to the one selected in the filter.
 
-:::image type="content" source="media/billing-monitor-costs/usage-reprot.png" alt-text="Screenshot of a cost management in the Microsoft Defender portal showing a usage graph for data lake ingestion." lightbox="media/billing-monitor-costs/usage-report.png":::
+:::image type="content" source="media/billing-monitor-costs/usage-report.png" alt-text="Screenshot of a cost management in the Microsoft Defender portal showing a usage graph for data lake ingestion." lightbox="media/billing-monitor-costs/usage-report.png":::
 
 ## Using Azure Prepayment with Microsoft Sentinel
 
