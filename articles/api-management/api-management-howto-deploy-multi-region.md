@@ -5,7 +5,7 @@ description: Learn how to deploy a Premium tier Azure API Management instance to
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/26/2025
+ms.date: 06/28/2025
 ms.author: danlep
 ---
 
@@ -19,7 +19,7 @@ When adding a region, you configure:
 
 * The number of scale [units](upgrade-and-scale.md) that region will host. 
 
-* Optional [availability zones](../reliability/migrate-api-mgt.md), if that region supports it.
+* [Availability zones](enable-availability-zone-support.md.md), if that region supports it. By default, API Management automatically configures availability zones for the added region, which is recommended. You can also manually configure availability zones for the added region.
 
 * [Virtual network](virtual-network-concepts.md) settings in the added region, if networking is configured in the existing region or regions.
 
@@ -186,10 +186,10 @@ This section provides considerations for multi-region deployments when the API M
 
 ## Related content
 
-* Learn more about configuring API Management for [high availability](high-availability.md).
+* Learn more about [reliability in API Management](../reliability/reliability-api-management.md)
 
-* Learn more about configuring [availability zones](../reliability/migrate-api-mgt.md) to improve the availability of an API Management instance in a region.
-
+* Learn more about enabling [availability zone support](enable-availability-zone-support.md) for an API Management instance.
+    
 * For more information about virtual networks and API Management, see:
 
     * [Connect to a virtual network using Azure API Management](api-management-using-with-vnet.md)

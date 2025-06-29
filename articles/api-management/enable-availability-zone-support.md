@@ -16,7 +16,7 @@ ms.custom: references_regions, subject-reliability
 
 This how-to guide shows you how to enable and configure availability zones on an API Management instance. 
 
-For more detailed information about reliability features of API Management, such as availability zones, and multi-region deployments, see [Reliability in Azure API Management](../reliability/reliability-api-management.md).
+For more detailed information about reliability features of API Management, such as availability zones and multi-region deployments, see [Reliability in Azure API Management](../reliability/reliability-api-management.md).
 
 [!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
 
@@ -32,16 +32,21 @@ For more detailed information about reliability features of API Management, such
 
 When you create a new API Management instance in the **Premium** tier in a region that supports availability zones, or you [deploy API Management to a new region](api-management-howto-deploy-multi-region.md), availability zones are enabled automatically **by default**. With automatic availability zone support, the Azure API Management platform makes a best-effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into.
 
+Under normal operating conditions, all scale units in all enabled zones are active and serve gateway traffic.
+
 > [!IMPORTANT]
-> To ensure the reliability of your API Management gateway, we recommend that you deploy a minimum of three units in each region where you deploy your API Management instances. For details, see [Reliability in API Management](../reliability/reliability-api-management.md).
+> To ensure the reliability of your API Management instance, we recommend that you use the default availability zone support and deploy a minimum of three units in each region where you deploy your API Management instances. For details, see [Reliability in API Management](../reliability/reliability-api-management.md).
 
 ## Manually configure availability zone support for an existing gateway location
 
-While automatic availability zone configuration is recommended, you can manually configure or update availability zones for an existing location of your API Management instance. There are two configuration options for zone redundancy on an existing location of your API Management instance, depending on whether the instance is injected in a virtual network.
+While automatic availability zone configuration is recommended, you can manually configure or update availability zones for an existing location of your API Management instance. There are two configuring availability zones on an existing location of your API Management instance, depending on whether the instance is injected in a virtual network.
+
+> [!CAUTION]
+> If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. If you simply default to the automatic availability zone support, you don't need to adjust your autoscale settings. 
 
 ### Gateway not injected in a virtual network
 
-To manually enable zone-redundancy on an existing location of an API Management instance that's not injected in a virtual network:
+To manually enable availability support on an existing location of an API Management instance that's not injected in a virtual network:
 
 1. Thoroughly understand all requirements and considerations for enabling zone redundancy in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
 
@@ -61,7 +66,7 @@ To manually enable zone-redundancy on an existing location of an API Management 
 
 ### Gateway injected in a virtual network
 
-To manually enable zone-redundancy on an existing location of an API Management instance that's injected in a virtual network:
+To manually enable availability support on an existing location of an API Management instance that's injected in a virtual network:
 
 1. Thoroughly understand all requirements and considerations for enabling zone redundancy in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
 
@@ -81,11 +86,11 @@ To manually enable zone-redundancy on an existing location of an API Management 
 
 1. Select **Apply**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections to enable existing location of API Management instance (stv2 platform) that's injected in a virtual network." source ="media/enable-zone-redundancy/option-three-stv2-injected-in-vnet.png":::
+:::image type="content" alt-text="Screenshot that shows selections to enable existing location of API Management instance (stv2 platform) that's injected in a virtual network." source ="media/enable-availability-zone-support/option-three-stv2-injected-in-vnet.png":::
 
 ## New gateway location
 
-To add a new location to your API Management instance and enable zone redundancy in that location:
+To add a new location to your API Management instance and to manually enable availability support in that location:
 
 1. Thoroughly understand all requirements and considerations for enabling zone redundancy in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
 
@@ -105,7 +110,7 @@ In the **Availability zones** box, leave the **Automatic** setting (recommended)
 
 1. Select **Add**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections for adding a new location for an API Management instance with or without a virtual network." source ="media/enable-zone-redundancy/option-four-add-new-location.png":::
+:::image type="content" alt-text="Screenshot that shows selections for adding a new location for an API Management instance with or without a virtual network." source ="media/enable-availability-zone-support/option-four-add-new-location.png":::
 
 ## Related content
 
