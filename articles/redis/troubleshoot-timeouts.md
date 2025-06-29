@@ -1,21 +1,22 @@
 ---
-title: Troubleshoot Azure Managed Redis (preview) latency and timeouts
+title: Troubleshoot Azure Managed Redis latency and timeouts
 description: Learn how to resolve common latency and timeout issues with Azure Managed Redis, such as Redis server patching and timeout exceptions.
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
 ms.topic: conceptual
-ms.custom: devx-track-csharp, ignite-2024
-ms.date: 11/15/2024
+ms.custom:
+  - devx-track-csharp
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Troubleshoot Azure Managed Redis (preview) latency and timeouts
+# Troubleshoot Azure Managed Redis latency and timeouts
 
 A client operation that doesn't receive a timely response can result in a high latency or timeout exception. An operation could time out at various stages. Where the timeout comes from helps to determine the cause and the mitigation.
 
-This section discusses troubleshooting for latency and timeout issues that occur when connecting to Azure Managed Redis (preview).
+This section discusses troubleshooting for latency and timeout issues that occur when connecting to Azure Managed Redis.
 
 - [Client-side troubleshooting](#client-side-troubleshooting)
   - [Traffic burst and thread pool configuration](#traffic-burst-and-thread-pool-configuration)
@@ -98,7 +99,7 @@ Because of optimistic TCP settings in Linux, client applications hosted on Linux
 
 ### RedisSessionStateProvider retry timeout
 
-If you're using `RedisSessionStateProvider`, ensure you set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Managed Redis](aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+If you're using `RedisSessionStateProvider`, ensure you set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
 ```xml
 <add 

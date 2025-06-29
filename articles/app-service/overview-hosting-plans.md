@@ -5,6 +5,7 @@ keywords: app service, azure app service, scale, scalable, scalability, app serv
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: overview
 ms.date: 03/28/2025
+ms.update-cycle: 1095-days
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
@@ -13,8 +14,6 @@ ms.custom: UpdateFrequency3
 # What are Azure App Service plans?
 
 An *Azure App Service plan* defines a set of compute resources for a web app to run. An app service always runs in an App Service plan. [Azure Functions](../azure-functions/dedicated-plan.md) also has the option of running in an App Service plan.
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 When you create an App Service plan in a certain region, you create a set of compute resources for that plan in that region. Whatever apps you put into the App Service plan run on those compute resources, as defined in the plan.
 

@@ -1,15 +1,16 @@
 ---
 title: Deploy Azure Cache for Redis using Bicep
 description: Learn how to use Bicep to deploy an Azure Cache for Redis resource.
-
- 
-
+ms.date: 05/18/2025
 ms.topic: conceptual
-ms.custom: subject-armqs, devx-track-bicep, ignite-2024
-ms.date: 04/10/2024
+ms.custom:
+  - subject-armqs
+  - devx-track-bicep
+  - ignite-2024
+  - build-2025
 appliesto:
-  - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 ---
 
 # Quickstart: Create an Azure Cache for Redis using Bicep
@@ -20,8 +21,8 @@ Learn how to use Bicep to deploy a cache using Azure Cache for Redis. After you 
 
 ## Prerequisites
 
-* **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* **A storage account**: To create one, see [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal). The storage account is used for diagnostic data. Create the storage account in a new resource group named **exampleRG**.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- **A storage account**: To create one, see [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal). The storage account is used for diagnostic data. Create the storage account in a new resource group named **exampleRG**.
 
 ## Azure Cache for Redis
 
@@ -59,7 +60,7 @@ The following resources are defined in the Bicep file:
 
     When the deployment finishes, you see a message indicating the deployment succeeded.
 
-## Azure Managed Redis (preview)
+## Azure Managed Redis
 
 ### Review the Bicep file
 
@@ -159,9 +160,6 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-## Next steps
+## Related content
 
-In this tutorial, you learned how to use Bicep to deploy a cache using Azure Cache for Redis. To learn more about Azure Cache for Redis and Bicep, see the articles below:
-
-* Learn more about [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
-* Learn more about [Bicep](../../articles/azure-resource-manager/bicep/overview.md).
+- Learn more about [ARM templates](/azure/azure-resource-manager/templates/overview)

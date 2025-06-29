@@ -2,10 +2,10 @@
 title: Create new watchlists
 titleSuffix: Microsoft Sentinel
 description: Create watchlist in Microsoft Sentinel for allowlists or blocklists, to enrich event data, and help investigate threats.
-author: cwatson-cat
-ms.author: cwatson
+author: batamig
+ms.author: bagol
 ms.topic: how-to
-ms.date: 3/14/2024
+ms.date: 05/28/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -22,7 +22,9 @@ Watchlists in Microsoft Sentinel allow you to correlate data from a data source 
 
 Upload a watchlist file from a local folder or from your Azure Storage account. To create a watchlist file, you have the option to download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.
 
-Local file uploads are currently limited to files of up to 3.8 MB in size. A file that's over 3.8 MB in size and up to 500 MB is considered a [large watchlist](#create-a-large-watchlist-from-file-in-azure-storage-preview). Upload the file to an Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md#limitations-of-watchlists).
+Local file uploads are currently limited to files of up to 3.8 MB in size. A file that's over 3.8 MB in size and up to 500 MB is considered a [large watchlist](#create-a-large-watchlist-from-file-in-azure-storage-preview). Upload the file to an Azure Storage account. Before you create a watchlist, review the [limitations of watchlists](watchlists.md#watchlist-limitations).
+
+Data in the Log Analytics Watchlist table is retained for 28 days.
 
 > [!IMPORTANT]
 > The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

@@ -185,7 +185,7 @@
       displayName: alert, alerts
       href: how-to-view-alerts.md
     - name: Accelerate on-premises alert workflows
-      displayName: alerts, supression, exclusion
+      displayName: alerts, suppression, exclusion
       href: how-to-accelerate-alert-incident-response.md
     - name: Forward on-premises alert data
       displayName: alerts

@@ -6,7 +6,9 @@ ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/13/2023
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - build-2025
 ---
 
 # Operator Nexus platform prerequisites
@@ -665,9 +667,9 @@ An example design of three on-premises instances from the same NFC/CM pair, usin
 - All network fabric devices (except for the Terminal Server) are set to `ZTP` mode
 - Servers have default factory settings, inclusive of minimum BIOS settings.
 
-#### Minimum BIOS and firmware versions for Nexus Cluster runtime
+#### Minimum recommended BIOS and firmware versions for Nexus Cluster runtime
 
-Ensure the following minimum BIOS and firmware versions are deployed based on your Nexus Cluster, based on the selected runtime version and BOM:
+As a best practice, starting from the following minimum recommended BIOS and firmware versions are deployed based on your Nexus Cluster, based on the selected runtime version and BOM:
 
 #### Nexus Cluster runtime version 4.4.x
 
@@ -677,12 +679,12 @@ Ensure the following minimum BIOS and firmware versions are deployed based on yo
 |-------------------------------------------------------------------------|---------------|
 | BIOS                                                                    | 1.15.2        |
 | Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
-| iDRAC                                                                   | 7.10.90.00    |
+| iDRAC                                                                   | 6.10.30.20    |
 | Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
 | CPLD                                                                    | 1.1.1         |
-| Mellanox ConnectX-6 DX Adapter                                          | 22.41.1000    |
+| Mellanox ConnectX-6 DX Adapter                                          | 22.35.10.12   |
 | NVIDIA ConnectX-6 Lx 2x 25G SFP28                                       | 26.41.1000    |
-| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.91.5       |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.00.6       |
 
 ##### BOM 2.0.0
 
@@ -690,7 +692,7 @@ Ensure the following minimum BIOS and firmware versions are deployed based on yo
 |-----------------------------------------------------|---------------|
 | BIOS                                                | 2.4.4         |
 | Storage Array Controller (PERC H755)                | 52.26.0-5179  |
-| iDRAC                                               | 7.10.90.00    |
+| iDRAC                                               | 7.10.30.00    |
 | SAS Expander Backplane Firmware (R760)              | 1.61          |
 | Non-Expander Storage Backplane Firmware (R660)      | 7.10          |
 | CPLD                                                | 1.2.6         |
@@ -706,11 +708,11 @@ Ensure the following minimum BIOS and firmware versions are deployed based on yo
 |-------------------------------------------------------------------------|---------------|
 | BIOS                                                                    | 1.13.2        |
 | Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
-| iDRAC                                                                   | 7.10.30.00    |
+| iDRAC                                                                   | 6.10.30.20    |
 | Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
 | CPLD                                                                    | 1.0.9         |
 | Mellanox ConnectX-6 DX Adapter                                          | 22.35.10.12   |
-| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.61.8       |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.00.6       |
 
 ##### BOM 2.0.0
 

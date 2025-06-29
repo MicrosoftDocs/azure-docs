@@ -4,9 +4,10 @@ description: How to use the Intel SGX device plugin and Intel SGX quote helper d
 author: angarg05
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: article
+ms.topic: concept-article
 ms.date: 11/01/2021
 ms.author: ananyagarg
+# Customer intent: As a cloud developer, I want to implement Intel SGX remote attestation using the Azure Kubernetes Service plugin, so that I can securely manage confidential workloads and ensure the integrity of my applications within the AKS environment.
 ---
 
 # Confidential computing plugin for Confidential VMs

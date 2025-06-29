@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 05/07/2025
+ms.date: 06/24/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
@@ -23,7 +23,7 @@ Archive tier supports the following workloads:
 
 | Workloads | Operations |
 | --- | --- |
-| Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-standard tier <br><br> Retention left >= 6 months. <br><br> No active daily and weekly dependencies. There are no un-expired daily or weekly recovery points between the recovery point considered for archival and the next monthly or yearly recovery point. |
+| Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-standard tier <br><br> Retention left >= 6 months. <br><br> No active on-demand, daily, and weekly dependencies. There are no un-expired daily or weekly recovery points between the recovery point considered for archival and the next monthly or yearly recovery point. |
 | SQL Server in Azure Virtual Machines <br><br> SAP HANA in Azure Virtual Machines | Only full recovery points. Logs and differentials aren't supported. <br><br> Age >= 45 days in Vault-standard tier. <br><br> Retention left >= 6 months. <br><br>  No dependencies. |
 
 A recovery point becomes archivable only if all the above conditions are met.
@@ -61,7 +61,8 @@ The amount of storage increase depends on the churn pattern of the Virtual Machi
 To resolve this, Azure Backup provides recommendation set. The recommendation set returns a list of recovery points, which if moved together to Archive tier ensures cost savings.
 
 >[!Note]
->The cost savings depends on various reasons and might differ for every instance.
+>- The cost savings depends on various reasons and might differ for every instance.
+>- The recommendation algorithm for IaaS virtual machines doesn't consider changes in disk configuration. If you add or remove disks from a virtual machine, the backup storage recommendations might not accurately show your updated requirements.
 
 ## Modify protection
 

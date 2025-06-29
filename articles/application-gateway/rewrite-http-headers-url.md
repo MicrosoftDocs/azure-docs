@@ -1,11 +1,12 @@
 ---
 title: Rewrite HTTP headers and URL with Azure Application Gateway
 description: This article provides an overview of rewriting HTTP headers and URL in Azure Application Gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 10/22/2024
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a cloud network engineer, I want to configure HTTP header and URL rewrites in the application gateway, so that I can optimize traffic management and enhance security for my web applications.
 ---
 
 # Rewrite HTTP headers and URL with Application Gateway

@@ -3,12 +3,13 @@ title: 'Quickstart: Direct web traffic using a Resource Manager template'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use a Resource Manager template to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: greg-lindsay
-ms.author: greglin
+author: mbender-ms
+ms.author: mbender
 ms.date: 05/30/2024
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+# Customer intent: As a solutions architect, I want to create an Azure Application Gateway using a Resource Manager template, so that I can efficiently direct web traffic to backend virtual machines and ensure optimal performance of my web applications.
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - ARM template

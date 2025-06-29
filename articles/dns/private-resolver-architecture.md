@@ -3,12 +3,13 @@ title: Private resolver architecture
 titleSuffix: Azure DNS Private Resolver architecture guidance
 description: Configure the Azure DNS Private Resolver for a centralized or noncentralized architecture
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 01/10/2024
-ms.author: greglin
+ms.author: allensu
 #Customer intent: As an administrator, I want to optimize the DNS resolver configuration in my network.
+# Customer intent: "As a network administrator, I want to configure the Azure DNS Private Resolver for both centralized and distributed architectures, so that I can optimize DNS resolution across my Azure VNets efficiently."
 ---
 
 # Private resolver architecture

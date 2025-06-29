@@ -5,7 +5,7 @@ author: PatAltimore
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/05/2024
 ms.author: patricka
 ---
@@ -91,7 +91,7 @@ To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
 1. Start the EFLOW migration
 
     > [!NOTE]
-    > You can migrate with one single cmdlet by using the `-autoConfirm` flag with the `Start-EflowMigration` cmdlet. If specified `Confirm-EflowMigration` doesnt needs to be called to proceed with 1.4 migration.
+    > You can migrate with one single cmdlet by using the `-autoConfirm` flag with the `Start-EflowMigration` cmdlet. If specified `Confirm-EflowMigration` doesn't needs to be called to proceed with 1.4 migration.
 
     1. If you're using the auto-download migration option, run the following cmdlet
         ```powershell

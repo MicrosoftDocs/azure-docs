@@ -99,7 +99,7 @@ Next, you must accept the Terms of Use for the new Palo Alto Networks resource.
 
 1. Once the create process is completed, select **Go to Resource** to navigate to the specific Cloud NGFW by Palo Alto Networks resource.
 
-1. Select **Overview** in the Resource menu to see information on the deployed resources.
+1. Select **Overview** in the service menu to see information on the deployed resources.
 
 ## Next steps
 

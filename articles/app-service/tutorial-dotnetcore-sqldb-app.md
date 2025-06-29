@@ -4,6 +4,7 @@ title: Deploy ASP.NET Core and Azure SQL Database app
 description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
 ms.topic: tutorial
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
@@ -36,7 +37,7 @@ In this tutorial, you learn how to:
 ::: zone pivot="azure-portal"
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
-* A GitHub account. you can also [get one for free](https://github.com/join).
+* A GitHub account. You can also [get one for free](https://github.com/join).
 * Knowledge of ASP.NET Core development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
@@ -83,7 +84,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
     :::column span="2":::
         **Step 2:** In the GitHub fork:
         1. Select **main** > **starter-no-infra** for the starter branch. This branch contains just the sample project and no Azure-related files or configuration.
-        1. Select **Code** > **Create codespace on starter-no-infra**.
+        1. Select **Code** > **Codespaces** > **Create codespace on starter-no-infra**.
         The codespace takes a few minutes to set up.
     :::column-end:::
     :::column:::
@@ -118,7 +119,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure SQL Database, and Azure Cache. For the creation process, you'll specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the .NET version to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -212,9 +213,10 @@ The creation wizard generated the connectivity variable for you already as [.NET
         1. Select the **Networking** tab.
         1. Unselect **Enable public access**.
         1. Select **Create a private endpoint**.
-        1. In **Resource Group**, select **msdocs-core-sql-tutorial**.
+        1. In **Resource group**, select **msdocs-core-sql-tutorial**.
         1. In the dialog, in **Location**, select the same location as your App Service app.
         1. In **Name**, type **msdocs-core-sql-XYZVvaultEndpoint**.
+        1. In **Location**, select the same location as your App Service app.
         1. In **Virtual network**, select **msdocs-core-sql-XYZVnet**.
         1. In **Subnet**, **msdocs-core-sql-XYZSubnet**.
         1. Select **OK**.
@@ -265,7 +267,7 @@ The creation wizard generated the connectivity variable for you already as [.NET
 :::row:::
     :::column span="2":::
         **Step 7: Configure the Redis connector to use Key Vault secrets** 
-        1. In the Service Connectors page, select the checkbox next to the Cache for Redis connector, then select **Edit**.
+        1. In the Service Connector page, select the checkbox next to the Cache for Redis connector, then select **Edit**.
         1. Select the **Authentication** tab.
         1. Select **Store Secret in Key Vault**.
         1. Under **Key Vault Connection**, select the key vault you created. 
@@ -425,7 +427,7 @@ With the SQL Database protected by the virtual network, the easiest way to run [
     :::column span="2":::
         **Step 1:** Back in the App Service page, in the left menu, 
         1. Select **Development Tools** > **SSH**.
-        1. Select **Go**.
+        1. Select **Go**. (The start up takes a few minutes.)
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-generate-db-schema-1.png":::
@@ -670,7 +672,7 @@ With the SQL Database protected by the virtual network, the easiest way to run d
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: &lt;URL>
     </pre>
 
 1. In the SSH session, run the following commands: 
@@ -696,7 +698,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -718,7 +720,7 @@ The sample application includes standard logging statements to demonstrate this 
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: &lt;URL>
 </pre>
 
 Learn more about logging in .NET apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore).

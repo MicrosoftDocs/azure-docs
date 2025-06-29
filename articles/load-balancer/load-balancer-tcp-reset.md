@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 07/31/2024
 ms.author: mbender
+# Customer intent: "As a network administrator, I want to enable TCP resets on idle timeout for load balancer rules, so that I can enhance application responsiveness by promptly notifying endpoints of closed connections."
 ---
 
 # Load Balancer TCP Reset and Idle Timeout
@@ -20,9 +21,9 @@ You can use [Standard Load Balancer](./load-balancer-overview.md) to create a mo
 
 You change this default behavior and enable sending TCP Resets on idle timeout on inbound NAT rules, load balancing rules, and [outbound rules](./load-balancer-outbound-connections.md#outboundrules). When enabled per rule, Load Balancer sends bidirectional TCP Resets (TCP RST packets) to both client and server endpoints at the time of idle timeout for all matching flows.
 
-Endpoints receiving TCP rest packets close the corresponding socket immediately. This provides an immediate notification to the endpoint's connection release and any future communication on the same TCP connection will fail. Applications can purge connections when the socket closes and reestablish connections as needed without waiting for the TCP connection to eventually time out.
+Endpoints receiving TCP RST packets close the corresponding socket immediately. This provides an immediate notification to the endpoint's connection release and any future communication on the same TCP connection will fail. Applications can purge connections when the socket closes and reestablish connections as needed without waiting for the TCP connection to eventually time out.
 
-For many scenarios, TCP reset can reduce the need to send TCP (or application layer) keepalives to refresh the idle timeout of a flow. 
+For many scenarios, a TCP reset can reduce the need to send TCP (or application layer) keepalives to refresh the idle timeout of a flow. 
 
 If your idle durations exceed configuration limits or your application shows an undesirable behavior with TCP Resets enabled, you can still need to use TCP keepalives, or application layer keepalives, to monitor the liveness of the TCP connections. Further, keepalives can also remain useful for when the connection is proxied somewhere in the path, particularly application layer keepalives. 
 

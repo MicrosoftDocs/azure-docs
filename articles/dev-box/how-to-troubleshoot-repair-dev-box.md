@@ -12,9 +12,6 @@ ms.date: 02/21/2025
 
 # Resolve connectivity issues with the Troubleshoot and Repair tool 
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-
-
 In this article, you learn how to troubleshoot and resolve Remote Desktop Connectivity (RDC) issues with your dev box by using the Troubleshoot and Repair tool. Because RDC issues to your dev box can be time consuming to resolve manually, use the **Troubleshoot & repair** tool in the developer portal to diagnose and repair some common dev box connectivity issues.
 
 :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-repair-tool.png" alt-text="Screenshot showing the Troubleshoot and repair tool in the Microsoft developer portal." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-repair-tool.png":::

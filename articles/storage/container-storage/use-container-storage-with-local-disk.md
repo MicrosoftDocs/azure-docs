@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 07/23/2024
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage to use local NVMe for ephemeral volumes, so that I can optimize storage performance for my applications requiring low latency that don't require data durability."
 ---
 
 # Use Azure Container Storage with local NVMe

@@ -1,5 +1,5 @@
 ---
-title: Use Azure Container Storage with temp SSD
+title: Use Azure Container Storage with Temp SSD
 description: Configure Azure Container Storage for use with Ephemeral Disk using temp SSD on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod.
 author: khdownie
 ms.service: azure-container-storage
@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 07/25/2024
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: "As a Kubernetes administrator, I want to set up Azure Container Storage using Ephemeral Disk with temp SSD, so that I can optimize storage performance for my applications that don't require data durability."
 ---
 
 # Use Azure Container Storage with temp SSD

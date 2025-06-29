@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Add audio noise suppression ability to your web calls' 
-titleSuffix: An Azure Communication Services tutorial on how to enable advanced noise suppression
-description: Learn how to add audio effects in your calls by using Azure Communication Services.
+title: Enable audio noise suppression improvements
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add audio effects in your calls using Azure Communication Services.
 author: sloanster
 ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 11/05/2024
+ms.date: 06/27/2025
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -19,7 +19,7 @@ The Azure Communication Services audio effects *noise suppression* abilities can
 > [!IMPORTANT]
 > This tutorial employs the Azure Communication Services Calling SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version `1.1.2` or later. The general availability (GA) stable version `1.28.4` and later of the Calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and later also support noise suppression.
 > 
-> Current browser support for adding audio noise suppression effects is available only on Chrome and Edge desktop browsers.
+> Current browser support for adding audio noise suppression effects is available only on Chrome and Microsoft Edge desktop browsers.
 
 The calling effects library can't be used standalone. It works only when used with the Azure Communication Services Calling client library for WebJS.
 
@@ -83,11 +83,11 @@ const currentActiveEffects = audioEffectsFeatureApi.activeEffects;
 // Create the noise suppression instance.
 const deepNoiseSuppression = new DeepNoiseSuppressionEffect();
 // We recommend that you check support for the effect in the current environment by using the isSupported API 
-// method. Remember that noise supression is only supported on desktop browsers for Chrome and Edge.
+// method. Remember that noise suppression is only supported on desktop browsers for Chrome and Edge.
 
 const isDeepNoiseSuppressionSupported = await audioEffectsFeatureApi.isSupported(deepNoiseSuppression);
 if (isDeepNoiseSuppressionSupported) {
-    console.log('Noise supression is supported in local browser environment');
+    console.log('Noise suppression is supported in local browser environment');
 }
 
 // To start Communication Services Deep Noise Suppression
@@ -131,7 +131,7 @@ await call.startCall({
 You might start a call and not have noise suppression turned on. The environment might get noisy so that you need to turn on noise suppression. To turn on noise suppression, you can use the `audioEffectsFeatureApi.startEffects` API.
 
 ```js
-// Create the noise supression instance 
+// Create the noise suppression instance 
 const deepNoiseSuppression = new DeepNoiseSuppressionEffect();
 
 // Get LocalAudioStream from the localAudioStream collection on the call object
@@ -141,10 +141,10 @@ const localAudioStreamInCall = call.localAudioStreams[0];
 // Get the audio effects feature API from LocalAudioStream
 const audioEffectsFeatureApi = localAudioStreamInCall.feature(AzureCommunicationCallingSDK.Features.AudioEffects);
 
-// We recommend that you check support for the effect in the current environment by using the isSupported method on the feature API. Remember that noise supression is only supported on desktop browsers for Chrome and Edge.
+// We recommend that you check support for the effect in the current environment by using the isSupported method on the feature API. Remember that noise suppression is only supported on desktop browsers for Chrome and Edge.
 const isDeepNoiseSuppressionSupported = await audioEffectsFeatureApi.isSupported(deepNoiseSuppression);
 if (isDeepNoiseSuppressionSupported) {
-    console.log('Noise supression is supported in the current browser environment');
+    console.log('Noise suppression is supported in the current browser environment');
 }
 
 // To start Communication Services Deep Noise Suppression

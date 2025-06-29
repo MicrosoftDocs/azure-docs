@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc
+# Customer intent: "As a data engineer, I want to manage access control lists in Azure Data Lake Storage using Python, so that I can efficiently set, update, and remove permissions for files and directories in a hierarchical storage structure."
 ---
 
 # Use Python to manage ACLs in Azure Data Lake Storage

@@ -48,7 +48,7 @@ All Functions triggers are available in your containerized Functions app. Howeve
 - Azure Blob Storage (Event Grid based)
 - Azure Queue Storage
 - Azure Service Bus
-- Durable Functions (MSSQL storage provider)
+- [Durable Functions (MSSQL storage provider)](../azure-functions/durable/durable-functions-mssql-container-apps-hosting.md)
 - HTTP
 - Kafka
 - Timer

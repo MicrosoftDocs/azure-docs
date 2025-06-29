@@ -9,6 +9,8 @@ ms.author: kewear
 ms.reviewer: estfan, azla
 ms.date: 02/04/2025
 ms.topic: conceptual
+ms.custom:
+  - build-2025
 ---
 
 # Power Automate migration to Azure Logic Apps (Standard)
@@ -29,7 +31,7 @@ Azure Logic Apps (Standard) provides the following benefits by providing capabil
 | Enhanced security and compliance | - Virtual network integration <br>- Private endpoints <br>- Managed identity authentication <br>- Microsoft Entra ID <br>- Role-based access control (RBAC) <br><br>For more information, see [Security and compliance first](#security-compliance). |
 | Improved performance and scalability | - Dedicated compute resources <br>- Elastic scaling <br>- Parallel processing <br>- Low latency <br><br>For more information, see [Performance and scalability](#performance-scalability). |
 | Robust business continuity and disaster recovery (BCDR) capabilities | - Automated backups <br>- Geo-redundancy <br>- High availability with built-in redundancy <br><br>For more information, see [Business continuity and disaster recovery](#business-continuity-disaster-recovery). |
-| Version control with CI/CD <br>(continuous integration and deployment) | - Seamless integration with Git repositories, which provide change tracking, branching, and team collaboration in Azure DevOps or GitHub <br><br>- Automate deployment with CI/CD pipelines and infrastructure as code (ARM templates and Bicep templates) <br><br>For more information, see [Version control with CI/CD](#version-control-ci-cd). |
+| Version control with CI/CD <br>(continuous integration and deployment) | - Seamless integration with Git repositories, which provide change tracking, branching, and team collaboration in Azure DevOps or GitHub <br><br>- Automate deployment with CI/CD pipelines and infrastructure as code (ARM templates and Bicep files) <br><br>For more information, see [Version control with CI/CD](#version-control-ci-cd). |
 
 <!--
 | Migration tool support | - Convert Power Automate flows into Standard workflow configurations for Azure Logic Apps, preserving your flow's logic and functionality. <br><br>- Test and validate converted workflows using functional testing, connector testing, performance testing, and security validation to ensure workflow continuity and performance. <br><br>For more information, see [Migration tool support](#migration-tool). |
@@ -158,7 +160,7 @@ Azure Logic Apps supports robust version control and automated deployment proces
 
   Azure Logic Apps supports automated deployments and integrates with CI/CD tools such as Azure DevOps, which facilitate consistent and less error-prone deployments across environments.
 
-  Define and deploy your logic app workflows with Azure Resource Manager (ARM) templates or Bicep templates (infrastructure as code) by using Azure DevOps, which provides scalable, repeatable deployments that align with DevOps practices.
+  Define and deploy your logic app workflows with Azure Resource Manager (ARM) templates or Bicep files (infrastructure as code) by using Azure DevOps, which provides scalable, repeatable deployments that align with DevOps practices.
 
 <a name="zero-downtime-deployments"></a>
 
@@ -175,7 +177,7 @@ This migration tool converts a Power Automate flow into the equivalent Standard 
 
 However, due to security constraints, the migration tool can't automatically transfer the connections used by the Power Automate flow. While the tool automates most of the flow conversion, you must manually recreate the connections in the logic app workflow. This manual step is necessary to fully meet the security protocols and compliance standards for Azure Logic Apps.
 
-Despite this requirement, the migration tool offers significant time and resource savings by eliminating the need to manually recreate entire workflows. The tool's automated process drastically reduces any other necessary manual effort and shortens the overall migration timeline. With this automation, your team can focus energy on setting up and optmizing connections, not on rebuilding workflows.
+Despite this requirement, the migration tool offers significant time and resource savings by eliminating the need to manually recreate entire workflows. The tool's automated process drastically reduces any other necessary manual effort and shortens the overall migration timeline. With this automation, your team can focus energy on setting up and optimizing connections, not on rebuilding workflows.
 -->
 
 ### Migration testing and validation

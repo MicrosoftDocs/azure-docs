@@ -509,7 +509,7 @@ The following considerations apply when using `func extensions install`:
 
 + To manually install extensions using Core Tools, you must have the [.NET SDK](https://dotnet.microsoft.com/download) installed.
 
-+ When possible, you should instead use [extension bundles](functions-bindings-register.md#extension-bundles). The following are some reasons why you might need to install extensions manually:
++ When possible, you should instead use [extension bundles](extension-bundles.md). The following are some reasons why you might need to install extensions manually:
 
     + You need to access a specific version of an extension not available in a bundle.
     + You need to access a custom extension not available in a bundle.

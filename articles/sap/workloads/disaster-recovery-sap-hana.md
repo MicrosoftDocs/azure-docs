@@ -41,7 +41,7 @@ Requirements for additional HSR sites are different for HANA scale-up and HANA s
 - **Both scale-up and scale-out**: Maximum of one SAP HANA system replication connected from outside the Linux cluster.
 - **HANA scale-out only**: SLES 15 SP1 or higher.
 - **HANA scale-out only**: Operating system (OS) package SAPHanaSR-ScaleOut version 0.180 or higher.
-- **HANA scale-out only**: SAP HANA high-availability (HA) hook [SAPHanaSrMultiTarget](./sap-hana-high-availability-scale-out-hsr-suse.md#implement-hana-ha-hooks-saphanasrmultitarget-and-suschksrv) in use. Preview HANA HA hook `SAPHanaSR` isn't multitarget aware for scale-out.
+- **HANA scale-out only**: SAP HANA high-availability (HA) hooks [susHanaSR or SAPHanaSrMultiTarget](./sap-hana-high-availability-scale-out-hsr-suse.md#implement-hana-resource-agents) in use. Older HANA HA hook `SAPHanaSR` isn't multitarget aware for scale-out.
 
 ## Prerequisites for RHEL
 
@@ -50,7 +50,7 @@ Requirements for additional HSR sites are different for HANA scale-up and HANA s
 > [!NOTE]
 >
 > - Requirements in this article are only valid for a Pacemaker-enabled landscape. Without Pacemaker, SAP HANA version requirements apply for the chosen replication mode.
-> - Pacemaker and the HANA cluster resource agent manage only two sites. The additional HSR sites isn't controlled by the Pacemaker cluster.
+> - Pacemaker and the HANA cluster resource agent manage only two sites. Any additional HSR sites aren't controlled by the Pacemaker cluster.
 
 - RedHat supports one or more additional system replication sites to an SAP HANA database outside the Pacemaker cluster.
 - **HANA scale-up only**: See RedHat [support policies for RHEL HA clusters](https://access.redhat.com/articles/3397471) for details on the minimum OS, SAP HANA, and cluster resource agents version.
@@ -120,7 +120,7 @@ The following example shows a multitarget system replication system. For more in
 
 ## HANA scale-out: Add HANA multitarget system replication for DR purposes
 
-With the SAP HANA HA provider [SAPHanaSrMultiTarget](./sap-hana-high-availability-scale-out-hsr-suse.md#implement-hana-ha-hooks-saphanasrmultitarget-and-suschksrv), you can add a third HANA scale-out site. This third site is often used for DR in another Azure region. The Pacemaker environment is aware of a HANA multitarget DR setup. This section applies to systems running Pacemaker on SUSE only. See the "Prerequisites" section in this document for details.
+With the SAP HANA HA providers  [susHanaSR or SAPHanaSrMultiTarget](./sap-hana-high-availability-scale-out-hsr-suse.md#implement-hana-resource-agents), you can add a third HANA scale-out site. This third site is often used for DR in another Azure region. The Pacemaker environment is aware of a HANA multitarget DR setup. This section applies to systems running Pacemaker on SUSE only. See the "Prerequisites" section in this document for details.
 
 Failure of the third node doesn't trigger any cluster action. The cluster detects the replication status of connected sites and the monitored attribute for the third site can change between the `SOK` and `SFAIL` states. Any takeover tests to the third/DR site or executing your DR exercise process should first place the cluster resources into maintenance mode to prevent any undesired cluster action.
 
