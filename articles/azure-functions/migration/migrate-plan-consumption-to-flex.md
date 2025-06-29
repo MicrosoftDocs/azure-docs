@@ -16,10 +16,9 @@ This article provides step-by-step instructions for migrating your existing func
 
 When you migrate your existing serverless apps, your functions can easily take advantage of these benefits of the Flex Consumption plan:
 
-+ Enhanced performance: your apps benefit from faster cold starts and improved scalability.
++ Enhanced performance: your apps benefit from improved scalability and always-ready instances to reduce cold start impacts.
 + Improved controls: fine-tune your functions with per-function scaling and concurrency settings.
 + Expanded networking: virtual network integration and private endpoints let you run your functions in both public and private networks.
-+ Managed identity support: easily connect to remote Azure services using Microsoft Entra ID authentication.
 
 The Flex Consumption plan is the recommended serverless hosting option for your functions going forward. For more information, see [Flex Consumption plan benefits](../flex-consumption-plan.md#benefits). For a detailed comparison between hosting plans, see [Azure Functions hosting options](../functions-scale.md). 
 
@@ -27,11 +26,9 @@ The Flex Consumption plan is the recommended serverless hosting option for your 
 
 Before staring a migration, keep these considerations in mind:
 
-+ Due to the significant configuration and behavior differences between the two plans, you aren't able to _shift_ an existing Consumption plan app to the Flex Consumption plan. The migration process instead has you create a new Flex Consumption plan app that is equivalent to your current app and running in the same resource group and with the same dependencies.
++ Due to the significant configuration and behavior differences between the two plans, you aren't able to _shift_ an existing Consumption plan app to the Flex Consumption plan. The migration process instead has you create a new Flex Consumption plan app that is equivalent to your current app. This new app runs in the same resource group and with the same dependencies as your current app.
 
 + You should prioritize the migration of your apps that run in a Consumption plan on Linux.  
-
-+ If you have a [Premium plan app](../functions-premium-plan.md) on Windows, you must first [migrate your app to a Consumption plan](../functions-how-to-use-azure-function-app-settings.md?tabs=to-consumption#plan-migration) before you can migrate to the Flex Consumption plan using this guide. This migration path isn't available for Linux apps in the Premium plan. 
 
 + This article assumes that you have a general understanding of Functions concepts and architectures and are familiar with features of your apps being migrated. Such concepts include triggers and bindings, authentication, and networking customization. 
 
@@ -49,14 +46,15 @@ Before staring a migration, keep these considerations in mind:
 
 + Access to the Azure subscription containing one or more function apps to migrate. The account used to run Azure CLI commands must be able to:
 
-   + Create and manage function apps and App Service hosting plans.
-   + Assign roles to managed identities.
-   + Create and manage storage accounts.
-   + Access all dependent resources of your app, such as Azure Key Vault, Azure Service Bus, or Azure Event Hubs.
+    + Create and manage function apps and App Service hosting plans.
+    + Assign roles to managed identities.
+    + Create and manage storage accounts.
+    + Create and manage Application Insights resources.
+    + Access all dependent resources of your app, such as Azure Key Vault, Azure Service Bus, or Azure Event Hubs.
    
     Being assigned to the **Owner** or **Contributor** roles in your resource group generally provides sufficient permissions.
 
-+ [Azure CLI](/cli/azure), version v2.71.0, or a later version. Scripts are testing using Azure CLI in [Azure Cloud Shell](/azure/cloud-shell/overview).
++ [Azure CLI](/cli/azure), version v2.74.0, or a later version. Scripts are tested using Azure CLI in [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 + The [resource-graph](../../governance/resource-graph/first-query-azurecli.md) extension, which you can install by using the [`az extension add`](/cli/azure/extension#az-extension-add) command: 
 
@@ -98,7 +96,7 @@ Before migrating to the Flex Consumption plan, you should perform these checks t
 
 ### Identify potential apps to migrate
 
-Use these steps to make a list of the function apps you need to migrate, noting their names, resource groups, locations, and runtime stacks, then follow the rest of this guide for each app you want to migrate.
+Use these steps to make a list of the function apps you need to migrate. In this list, make note of their names, resource groups, locations, and runtime stacks. You can then repeat the steps in this guide for each app you decide to migrate to the Flex Consumption plan.
 
 The way that function app information is maintained depends on whether your app runs on Linux or Windows. 
 
@@ -223,7 +221,7 @@ If your function app uses an unsupported runtime stack:
 
 ### Verify stack version compatibility
 
-The Flex Consumption plan doesn't currently support all of the language stack versions supported by the Consumption plan. You must verify that your app's runtime stack version is supported in your region before you migrate your app.
+Before migrating to the Flex Consumption plan, you must make sure that your app's runtime stack version is supported in your region when running in the new plan.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -252,7 +250,7 @@ The create process for a function app in the Azure portal filters out language s
 
 1. In the [Azure portal], select **Create a resource** in the left-hand menu and select **Function app** > **Create**.
 
-1. Select **Flex Consumption** > **Select** and in the **Basics** tab select your language **Runtime stacK** and **Region**.
+1. Select **Flex Consumption** > **Select** and in the **Basics** tab select your language **Runtime stack** and **Region**.
 
 1. Expand **Version** and review the supported versions of your language stack in your chosen region.
 
@@ -262,7 +260,7 @@ If your function app uses an unsupported language stack version, you must first 
 
 ### Verify deployment slots usage
 
-Consumption plan apps can have an other deployment slot defined. For more information, see [Azure Functions deployment slots](../functions-deployment-slots.md). However, the Flex Consumption plan doesn't currently support deployment slots. Before you migrate, you must determine if your app has a deployment slot. If so, you need to define a strategy for how to manage your app without deployment slots when running in a Flex Consumption plan.
+Consumption plan apps can have a deployment slot defined. For more information, see [Azure Functions deployment slots](../functions-deployment-slots.md). However, the Flex Consumption plan doesn't currently support deployment slots. Before you migrate, you must determine if your app has a deployment slot. If so, you need to define a strategy for how to manage your app without deployment slots when running in a Flex Consumption plan.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -289,7 +287,7 @@ To determine whether your function app has deployment slots enabled:
 If your function app is currently using deployment slots, you can't currently reproduce this functionality in the Flex Consumption plan. Before migrating, you should...
 
 + Migrate any new code or features from the deployment slot into the main (**production**) slot. 
-+ Consider rearchitecting your application so that you can develop, test, and deploy your function code without having to use slots.
++ Consider rearchitecting your application to use separate function apps. In this way, you can develop, test, and deploy your function code to a second nonproduction app instead of using slots.
 
 ### Verify the use of certificates
 
@@ -321,7 +319,7 @@ If your app currently relies on TSL/SSL certificates, you shouldn't proceed with
 
 ### Verify your Blob storage triggers
 
-Currently, the Flex Consumption plan only supports event-based triggers for Azure Blob storage. Blob storage triggers that use container polling (with a `Source` setting of `LogsAndContainerScan`) aren't supported in Flex Consumption. Because container polling is the default, you must determine if any of your Blob storage triggers are using this source setting. For more information, see [Trigger on a blob container](../storage-considerations.md#trigger-on-a-blob-container).
+Currently, the Flex Consumption plan only supports event-based triggers for Azure Blob storage, which are defined with a `Source` setting of `EventGrid`. Blob storage triggers that use container polling and use a `Source` setting of `LogsAndContainerScan` aren't supported in Flex Consumption. Because container polling is the default, you must determine if any of your Blob storage triggers are using the default `LogsAndContainerScan` source setting. For more information, see [Trigger on a blob container](../storage-considerations.md#trigger-on-a-blob-container).
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -373,9 +371,9 @@ Here are some strategies to protect both upstream and downstream data during the
 
 + **Idempotency**: Ensure your functions can safely process the same message multiple times without negative side effects. For more information, see [Designing Azure Functions for identical input](../functions-idempotent.md).
 + **Logging and monitoring**: Enable detailed logging in both apps during migration to track message processing. For more information, see [Monitor executions in Azure Functions](../functions-monitoring.md). 
-3. **Checkpointing**: For streaming triggers, such as the Event Hubs trigger, implement correct checkpoint behaviors to track processing position. For more information, see [Azure Functions reliable event processing](../functions-reliable-event-processing.md).
-4. **Parallel processing**: Consider temporarily running both apps in parallel during the cutover. Make sure to carefully monitor and validate how data is processed from the upstream service. For more information, see [Active-active pattern for non-HTTPS trigger functions](../../reliability/reliability-functions.md#active-active-pattern-for-non-https-trigger-functions).
-5. **Gradual cutover**: For high-volume systems, consider implementing a gradual cutover by redirecting portions of traffic to the new app. You can manage routing upstream of your apps by using services such as [Azure API Management](../functions-openapi-definition.md) or [Azure Application Gateway](../../app-service/overview-app-gateway-integration.md). 
++ **Checkpointing**: For streaming triggers, such as the Event Hubs trigger, implement correct checkpoint behaviors to track processing position. For more information, see [Azure Functions reliable event processing](../functions-reliable-event-processing.md).
++ **Parallel processing**: Consider temporarily running both apps in parallel during the cutover. Make sure to carefully monitor and validate how data is processed from the upstream service. For more information, see [Active-active pattern for non-HTTPS trigger functions](../../reliability/reliability-functions.md#active-active-pattern-for-non-https-trigger-functions).
++ **Gradual cutover**: For high-volume systems, consider implementing a gradual cutover by redirecting portions of traffic to the new app. You can manage the routing of requests upstream from your apps by using services such as [Azure API Management](../functions-openapi-definition.md) or [Azure Application Gateway](../../app-service/overview-app-gateway-integration.md). 
 
 ### Mitigations by trigger type
 
@@ -387,9 +385,9 @@ You should plan mitigation strategies to protect data for the specific function 
 | [Azure Cosmos DB](../functions-bindings-cosmosdb-v2-trigger.md) | High | Create a dedicated lease container specifically for the new app.<br/>Set this new lease container as the `leaseCollectionName` configuration in your new app.<br/>Requires that your [functions be idempotent](../functions-idempotent.md) or you must be able to handle the results of duplicate change feed processing.<br/>Set the `StartFromBeginning` configuration to `false` in the new app to avoid reprocessing the entire feed. |
 | [Azure Event Grid](../functions-bindings-event-grid-trigger.md) | Medium | Recreate the same event subscription in the new app.<br/>Requires that your [functions be idempotent](../functions-idempotent.md) or you must be able to handle the results of duplicate event processing. | 
 | [Azure Event Hubs](../functions-bindings-event-hubs-trigger.md) | Medium | Create a new [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) for use by the new app. For more information, see [Migration strategies for Event Grid triggers](../functions-reliable-event-processing.md#migration-strategies-for-event-grid-triggers).| 
-| [Azure Service Bus](../functions-bindings-service-bus-trigger.md) | High | Create a new topic for use by the new app.<br/>Update senders and clients to use the new topic.<br/>After the original topic is empty, shut down the old app. |
+| [Azure Service Bus](../functions-bindings-service-bus-trigger.md) | High | Create a new topic or queue for use by the new app.<br/>Update senders and clients to use the new topic or queue.<br/>After the original topic is empty, shut down the old app. |
 | [Azure Storage queue](../functions-bindings-storage-queue-trigger.md) | High | Create a new queue for use by the new app.<br/>Update senders and clients to use the new queue.<br/>After the original queue is empty, shut down the old app. |
-| [HTTP](../functions-bindings-http-webhook-trigger.md) |  Low | Usually not needed. |
+| [HTTP](../functions-bindings-http-webhook-trigger.md) |  Low | Remember to switch clients and other apps or services to target the new HTTP endpoints after the migration. |
 | [Timer](../functions-bindings-timer.md) | Low | During cutover, make sure to offset the timer schedule between the two apps to avoid simultaneous executions from both apps.<br/>[Disable the timer trigger](../disable-function.md) in the old app after the new app runs successfully.  | 
 
 ## Premigration tasks 
@@ -402,7 +400,7 @@ You should complete these tasks before you migrate your app to run in a Flex Con
 > + [Collect app settings](#collect-app-settings)
 > + [Collect application configurations](#collect-application-configurations)
 > + [Identify managed identities and role-based access](#identify-managed-identities-and-role-based-access)
-> + [Identify client authentication settings](#identify-client-authentication-settings)
+> + [Identify built-in authentication settings](#identify-built-in-authentication-settings)
 > + [Review inbound access restrictions](#review-inbound-access-restrictions)
 > + [Get the code deployment package](#get-the-code-deployment-package)
 > + [Capture performance benchmarks](#capture-performance-benchmarks-optional)
@@ -514,7 +512,7 @@ To review the relevant application configurations of your existing app:
 
 1. Under **Settings** > **Custom domains**, note any domain names other than `*.azurewebsites.net`, the binding type, and SSL certificate information. 
 
-1. Under **API** > **CORS**, note an explicitly allowed CORS origins and any other CORS settings.
+1. Under **API** > **CORS**, note any explicitly allowed CORS origins and other CORS settings.
 
 ---
 
@@ -575,9 +573,9 @@ Document all identities and their role assignments so that you can recreate the 
 
 ---
 
-### Identify client authentication settings
+### Identify built-in authentication settings
 
-Before migrating to Flex Consumption, you should collect information about any built-in authentication configurations. If you want to have your app use the same client authentication behaviors, you must recreate them in the new app.
+Before migrating to Flex Consumption, you should collect information about any built-in authentication configurations. If you want to have your app use the same client authentication behaviors, you must recreate them in the new app. For more information, see [Authentication and authorization in Azure Functions](../../app-service/overview-authentication-authorization.md).
 
 Pay special attention to redirect URIs, allowed external redirects, and token settings to ensure a smooth transition for authenticated users.
 
@@ -607,7 +605,7 @@ To determine if built-in client authentication is configured:
 
 ### Review inbound access restrictions
 
-It's possible to set inbound access restrictions on apps in a Consumption plan.  You might want to maintain these restrictions in your new app. For each restriction defined, make sure to capture these properties:
+It's possible to set [inbound access restrictions](../functions-networking-options.md#inbound-access-restrictions) on apps in a Consumption plan. You might want to maintain these restrictions in your new app. For each restriction defined, make sure to capture these properties:
 
 + IP addresses or CIDR ranges
 + Priority values
@@ -829,7 +827,8 @@ The actual migration of your functions from a Consumption plan app to a Flex Con
 > + [Step 8: Configure managed identities and assign roles](#step-8-configure-managed-identities-and-assign-roles)
 > + [Step 9: Configure built-in authentication](#step-9-configure-built-in-authentication)
 > + [Step 10: Configure Network Access Restrictions](#step-10-configure-network-access-restrictions)
-> + [Step 11: Deploy Your App Code to the New Flex Consumption App](#step-11-deploy-your-app-code-to-the-new-flex-consumption-app)
+> + [Step 11: Enable monitoring](#step-11-enable-monitoring)
+> + [Step 12: Deploy Your App Code to the New Flex Consumption App](#step-12-deploy-your-app-code-to-the-new-flex-consumption-app)
 
 ### Step 1: Final review of the plan
 
@@ -850,11 +849,11 @@ A careful final review helps ensure a smoother migration process and minimizes t
 
 ### Step 2: Create an app in the Flex Consumption plan
 
-You can There are various ways to create a function app in the Flex Consumption plan along with other required Azure resources: 
+There are various ways to create a function app in the Flex Consumption plan along with other required Azure resources: 
 
 | Create option | Reference articles |
 | ----- | ----- |
-| Azure CLI | [Command line quickstart](../create-first-function-cli-csharp.md#create-supporting-azure-resources-for-your-function)|
+| Azure CLI | [Create a Flex Consumption app](../flex-consumption-how-to.md?tabs=azure-cli#create-a-flex-consumption-app)|
 | Azure portal | [Create a function app in the Azure portal](../functions-create-function-app-portal.md) |
 | Infrastructure-as-code | [ARM template](../functions-create-first-function-resource-manager.md)<br/>[azd](../create-first-function-azure-developer-cli.md)<br/>[Bicep](../functions-create-first-function-bicep.md)<br/>[Terraform](../functions-create-first-function-terraform.md) |
 | Visual Studio Code | [Visual Studio Code deployment](../functions-develop-vs-code.md#publish-to-azure) |
@@ -1010,7 +1009,9 @@ The Flex Consumption plan implements per-function scaling, where each function w
 
 Consider concurrency settings first if you want your new app to scale similarly to your original app. Setting higher concurrency values can result in fewer instances being created to handle the same load.
 
-If you had a custom scale-out limit set in your original app, you can also apply it to your new app. Otherwise, you can skip to the next section. The maximum instance count you set must be higher than 40, which is the default.
+If you had a custom scale-out limit set in your original app, you can also apply it to your new app. Otherwise, you can skip to the next section. 
+
+The default maximum instance count is 100, and it must be set to a value of 40 or higher.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -1128,8 +1129,8 @@ The way that you configure managed identities in your new app depends on the kin
 
 | Managed identity type | Create identity | Role assignments | 
 | ----- | ----- | ----- |
-| System-assigned | Yes | Because each function app has its own system-assigned managed identity, you must enable the system-assigned managed identity in the new app and reassign the same roles as in the original app. |
-| User-assigned | Optional | You can continue to use the same user-assigned managed identities with the new app. You must reassign these identities to your app and verify that verify that they still have the correct role assignments in remote services. If you choose to create new identities for the new app, you must assign the same roles as the existing identities. |  
+| User-assigned | Optional | You can continue to use the same user-assigned managed identities with the new app. You must reassign these identities to your Flex Consumption app and verify that they still have the correct role assignments in remote services. If you choose to create new identities for the new app, you must assign the same roles as the existing identities. |  
+| System-assigned | Yes | Because each function app has its own system-assigned managed identity, you must enable the system-assigned managed identity in the new app and reassign the same roles as in the original app. | 
 
 Recreating the role assignments correctly is key to ensuring your function app has the same access to Azure resources after the migration.
 
@@ -1220,127 +1221,36 @@ Repeat this script for each role required by the new app.
 
 ### Step 9: Configure built-in authentication
 
-If your original app used built-in client authentication, you should recreate it in your new app. If you're planning to reuse the same client registration, make sure to set the new app's authenticated endpoints in the authentication provider. Follow the steps for your specific authentication provider.
+If your original app used built-in client authentication, you should recreate it in your new app. If you're planning to reuse the same client registration, make sure to set the new app's authenticated endpoints in the authentication provider. 
 
-#### [Microsoft Entra](#tab/microsoft-entra/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
-Use this [`az webapp auth update`](/cli/azure/webapp/auth#az-webapp-auth-update) command to recreate the client-based authentication for both Microsoft Entra ID and in your new app:
+Based on the information you collected earlier, use the [`az webapp auth update`](/cli/azure/webapp/auth#az-webapp-auth-update) command to recreate each built-in authentication registration required by your app.
 
-```azurecli
-az webapp auth update --name <APP_NAME> --resource-group <RESOURCE_GROUP> \
-   --enabled true --action LoginWithAzureActiveDirectory \
-   --aad-client-id <AAD_CLIENT_ID> --aad-issuer-url <AAD_ISSUER_URL>
-```
-
-In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group and function app names, respectively. Replace the remaining variables with the credentials required to connect to the authenticator. For more information, see [Configure your Azure Functions app to use Microsoft Entra sign-in](../../app-service/configure-authentication-provider-aad.md). 
-
-#### [Google](#tab/google/azure-cli)
-
-Use this [`az webapp auth update`](/cli/azure/webapp/auth#az-webapp-auth-update) command to recreate the client-based authentication in your new app:
-
-```azurecli
-az webapp auth update --name <APP_NAME> --resource-group <RESOURCE_GROUP> \
-   --enabled true --action LoginWithGoogle --google-client-id <GOOGLE_CLIENT_ID> \
-   --google-client-secret <GOOGLE_CLIENT_SECRET>
-```
-
-In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group and function app names, respectively. Replace the remaining variables with the credentials required to connect to the authenticator. For more information, see [Configure your Azure Functions app to use Google authentication](../../app-service/configure-authentication-provider-google.md). 
- 
-
-#### [Facebook](#tab/facebook/azure-cli)
-
-Use this [`az webapp auth update`](/cli/azure/webapp/auth#az-webapp-auth-update) command to recreate the client-based authentication in your new app:
-
-```azurecli
-az webapp auth update --name <APP_NAME> --resource-group <RESOURCE_GROUP> \
-   --enabled true --action LoginWithFacebook --facebook-app-id <FACEBOOK_APP_ID> \
-   --facebook-app-secret <FACEBOOK_APP_SECRET>
-```
-
-In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group and function app names, respectively. Replace the remaining variables with the credentials required to connect to the authenticator. For more information, see [Configure your Azure Functions app to use Facebook login](../../app-service/configure-authentication-provider-facebook.md). 
-
-#### [GitHub](#tab/github/azure-cli)
-
-Use this [`az webapp auth update`](/cli/azure/webapp/auth#az-webapp-auth-update) command to recreate the client-based authentication in your new app:
-
-```azurecli
-az webapp auth update --name <APP_NAME> --resource-group <RESOURCE_GROUP> \
-   --enabled true --action LoginWithGitHub --github-client-id <GITHUB_CLIENT_ID> \
-   --github-client-secret <GITHUB_CLIENT_SECRET>
-```
-
-In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group and function app names, respectively. Replace the remaining variables with the credentials required to connect to the authenticator. For more information, see [Configure your Azure Functions app to use GitHub login](../../app-service/configure-authentication-provider-github.md). 
-
-#### [X](#tab/twitter/azure-cli)
-
-Use this [`az webapp auth update`](/cli/azure/webapp/auth#az-webapp-auth-update) command to recreate the client-based authentication in your new app:
-
-```azurecli
-az webapp auth update --name <APP_NAME> --resource-group <RESOURCE_GROUP> \
-   --enabled true --action LoginWithTwitter --twitter-consumer-key <TWITTER_CONSUMER_KEY> \
-   --twitter-consumer-secret <TWITTER_CONSUMER_SECRET>
-```
-
-In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group and function app names, respectively. Replace the remaining variables with the credentials required to connect to the authenticator. For more information, see [Configure your Azure Functions app to use X login](../../app-service/configure-authentication-provider-twitter.md). 
-
-#### [Microsoft Entra](#tab/microsoft-entra/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 1. In the [Azure portal], search for or otherwise navigate to the page for your new app.
 
 1. In the left menu, expand **Settings** > **Authentication** and select **Add identity provider**.
 
-1. Select **Microsoft** as the **Identity provider** and set the configurations and permissions required by the authenticator. For more information, see [Configure your Azure Functions app to use Microsoft Entra sign-in](../../app-service/configure-authentication-provider-aad.md).
- 
-1. Select **Add** to add the authenticator.
+1. Select your desired **Identity provider** and set the configurations and permissions required by the authenticator. 
 
-#### [Google](#tab/google/azure-portal)
+For more information, see these provider-specific articles:
 
-1. In the [Azure portal], search for or otherwise navigate to the page for your new app.
-
-1. In the left menu, expand **Settings** > **Authentication** and select **Add identity provider**.
-
-1. Select **Google** as the **Identity provider** and set the configurations and permissions required by the authenticator. For more information, see [Configure your Azure Functions app to use Google authentication](../../app-service/configure-authentication-provider-google.md). 
- 
-1. Select **Add** to add the authenticator.
-
-#### [Facebook](#tab/facebook/azure-portal)
-
-1. In the [Azure portal], search for or otherwise navigate to the page for your new app.
-
-1. In the left menu, expand **Settings** > **Authentication** and select **Add identity provider**.
-
-1. Select **Facebook** as the **Identity provider** and set the configurations and permissions required by the authenticator. For more information, see [Configure your Azure Functions app to use Facebook login](../../app-service/configure-authentication-provider-facebook.md). 
- 
-1. Select **Add** to add the authenticator.
-
-#### [GitHub](#tab/github/azure-portal)
-
-1. In the [Azure portal], search for or otherwise navigate to the page for your new app.
-
-1. In the left menu, expand **Settings** > **Authentication** and select **Add identity provider**.
-
-1. Select **GitHub** as the **Identity provider** and set the configurations and permissions required by the authenticator. For more information, see [Configure your Azure Functions app to use GitHub login](../../app-service/configure-authentication-provider-github.md). 
- 
-1. Select **Add** to add the authenticator.
-
-#### [X](#tab/twitter/azure-portal)
-
-1. In the [Azure portal], search for or otherwise navigate to the page for your new app.
-
-1. In the left menu, expand **Settings** > **Authentication** and select **Add identity provider**.
-
-1. Select **Twitter** as the **Identity provider** and set the configurations and permissions required by the authenticator. For more information, see [Configure your Azure Functions app to use X login](../../app-service/configure-authentication-provider-twitter.md). 
- 
-1. Select **Add** to add the authenticator.
++ [Configure your Azure Functions app to use Microsoft Entra sign-in](../../app-service/configure-authentication-provider-aad.md)
++ [Configure your Azure Functions app to use GitHub login](../../app-service/configure-authentication-provider-github.md)
++ [Configure your Azure Functions app to use Google authentication](../../app-service/configure-authentication-provider-google.md) 
++ [Configure your Azure Functions app to use Facebook login](../../app-service/configure-authentication-provider-facebook.md) 
++ [Configure your Azure Functions app to use X login](../../app-service/configure-authentication-provider-twitter.md)
 
 ---
 
 ### Step 10: Configure Network Access Restrictions
 
 If your original app had any IP-based inbound access restrictions, you can recreate any of the same inbound access rules you want to keep in your new app. 
-
+ 
 >[!TIP]
->The Flex Consumption plan fully supports virtual network integration. For more information, see [Virtual network integration](../flex-consumption-plan.md#virtual-network-integration).  
+>The Flex Consumption plan [fully supports virtual network integration](../flex-consumption-plan.md#virtual-network-integration). Because of this, you also have the option to use inbound private endpoints after migration. For more information, see [Private endpoints](../functions-networking-options.md#private-endpoints).   
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -1387,7 +1297,15 @@ To add IP-based networking restrictions:
 
 ---
 
-### Step 11: Deploy Your App Code to the New Flex Consumption App
+### Step 11: Enable monitoring
+
+Before you start your new app in the Flex Consumption plan, make sure that Application Insights is enabled. Having Application Insights configured helps you to troubleshoot any issues that might occur during code deployment and start-up. 
+
+Implement a comprehensive monitoring strategy that covers app metrics, logs, and costs. By using such a strategy, you can validate the success of your migration, identify any issues promptly, and optimize the performance and cost of your new app. 
+
+If you plan to compare this new app with your current app, make sure your scheme also collects the required benchmarks for comparison. For more information, see [Configure monitoring](../flex-consumption-how-to.md#monitor-your-app-in-azure).
+
+### Step 12: Deploy Your App Code to the New Flex Consumption App
 
 With your new Flex Consumption plan app fully configured based on the settings from the original app, it's time to deploy your code to the new app resources in Azure. 
 
@@ -1434,7 +1352,6 @@ After a successful migration, you should perform these follow-up tasks:
 
 > [!div class="checklist"]
 > + [Verify basic functionality](#verify-basic-functionality)
-> + [Enable monitoring](#enable-monitoring)
 > + [Capture performance benchmarks](#capture-performance-benchmarks)
 > + [Create custom dashboards](#create-custom-dashboards)
 > + [Refine plan settings](#refine-plan-settings)
@@ -1463,10 +1380,6 @@ After a successful migration, you should perform these follow-up tasks:
     ---
 
 1. Use an HTTP client to call at least one HTTP trigger endpoint on your new app to make sure it responds as expected.
-
-### Enable monitoring
-
-After a successful migration, make sure that Application Insights in enabled in your new app. Implement a comprehensive monitoring strategy that covers app metrics, logs, and costs. By using such a strategy, you can validate the success of your migration, identify any issues promptly, and optimize the performance and cost of your new app. For more information, see [Configure monitoring](../flex-consumption-how-to.md#monitor-your-app-in-azure).
 
 ### Capture performance benchmarks 
 
@@ -1528,7 +1441,7 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 
 ## Troubleshooting and Recovery Strategies
 
-Despite careful planning, migration issues may occur. Here's how to handle potential issues during migration:
+Despite careful planning, migration issues can occur. Here's how to handle potential issues during migration:
 
 | Issue | Solution |
 |-------|----------|
@@ -1609,7 +1522,12 @@ If you aren't able to troubleshoot successfully, you might want to revert to usi
 
 ## Providing feedback
 
-If you encounter issues with your migration using this article or want to provide other feedback on this guidance, use this Microsoft Q&A question to provide your feedback: `<<QUESTION>>`
+If you encounter issues with your migration using this article or want to provide other feedback on this guidance, use one of these methods to get help or provide your feedback: 
+
+* [Get help at Microsoft Q&A](https://learn.microsoft.com/answers/tags/87/azure-functions/)  
+* Create an issue in the [Azure Functions repo](https://github.com/Azure/Azure-Functions/issues)  
+* [Provide product feedback](https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0)  
+* [Create a support ticket](https://azure.microsoft.com/en-us/support/create-ticket)  
 
 ## Related articles
 
