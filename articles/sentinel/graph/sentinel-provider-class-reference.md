@@ -22,7 +22,7 @@ This class is part of the `sentinel.datalake` module and provides methods to int
 from sentinel_lake.providers import MicrosoftSentinelProvider
 lake_provider = MicrosoftSentinelProvider(spark)      
 ```
-You must have the necessary permissions to perform operations such as reading and writing data. For more information on permissions, see [Microsoft Sentinel data lake permissions](./sentinel-lake-permissions.md).
+You must have the necessary permissions to perform operations such as reading and writing data. For more information on permissions, see [Microsoft Sentinel data lake permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 ## Methods
 
@@ -157,5 +157,5 @@ lake_provider.delete_table("customtable_SPRK", "lakeworkspace")
 
 - [Use Jupyter notebooks with Microsoft Sentinel Data lake](./notebooks.md)
 - [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
-- [Microsoft Sentinel data lake permissions](./sentinel-lake-permissions.md)
+- [Microsoft Sentinel data lake permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
 - [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
