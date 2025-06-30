@@ -72,7 +72,7 @@ You can also provide information specific to your scenario and review a list of 
 
 ## Next steps
 
-- [Get an introduction to Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction).
 - [Read an overview of AzCopy](./storage-use-azcopy-v10.md).
 - [Quickstart: Upload, download, and list blobs with PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Quickstart: Create, download, and list blobs with Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
