@@ -3,13 +3,17 @@ title: Sample KQL queries for the data lake(Preview).
 titleSuffix: Microsoft Security  
 description:  Sample KQL queries for the Microsoft Sentinel data lake.
 author: EdB-MSFT  
-ms.service: sentinel  
+ms.service:  microsoft-sentinel
+ms.subservice: sentinel-graph  
 ms.topic: how-to
-ms.subservice: sentinel-graph
-ms.date: 06/16/2025
 ms.author: edbaynash  
 
+ms.date: 06/16/2025
+
 ms.collection: ms-security  
+
+# Customer intent: As a security engineer, I want to use sample KQL queries to learn how to  analyze data in the Microsoft Sentinel data lake so that I can investigate security incidents, detect anomalies, and enrich investigations with long-term historical data.
+
 ---  
  
 

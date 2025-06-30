@@ -25,7 +25,7 @@ Jobs are managed in the **Jobs** page under **Data lake exploration** in the Def
 
 + View all jobs in the Microsoft Sentinel data lake. You can view jobs created in the KQL queries editor or jobs created for notebooks. 
 + Create a new job to run a KQL query. For more information on creating jobs, see [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md).
-+ Edit job details. You can view but can't edit a notebook job from the jobs page. For more information on editing notebook jobs, see [KQL notebooks](kql-notebooks.md).
++ Edit job details. You can view but can't edit a notebook job from the jobs page. For more information on editing notebook jobs, see [Notebook notebooks](notebook-jobs.md).
 + Disable a job, preventing it from running until you enable it again.
 + Enable a job, allowing it to run again after being disabled.
 + View job history, including the run times, and statuses of the job.
@@ -107,4 +107,4 @@ To delete a job, select the **Delete** button in the job details panel. A confir
 - [Overview of the Microsoft Sentinel data lake](sentinel-lake-overview.md)
 - [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md)
 - [Data lake exploration - KQL queries (Preview).](kql-queries.md)
-- [Microsoft Sentinel lake roles and permissions](../roles#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
+- [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)

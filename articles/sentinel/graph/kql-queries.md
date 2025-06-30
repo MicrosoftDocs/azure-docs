@@ -49,7 +49,7 @@ Select **New query** to create a new query tab. Your last query in each tab is s
 
 ### Select workspace
 
-Queries are run against a single workspace. Choose your workspace in the upper right corner of the query editor using the **Selected workspace** dropdown. The workspace you select determines the data available for querying. The *default* workspace contains data from Microsoft Entra, Microsoft 365, and Microsoft Resource Graph. For more information about these data assets, see [Data assets in the data lake](enable-data-connectors.md). 
+Queries are run against a single workspace. Choose your workspace in the upper right corner of the query editor using the **Selected workspace** dropdown. The workspace you select determines the data available for querying. The *default* workspace contains data from Microsoft Entra, Microsoft 365, and Microsoft Resource Graph. For more information about these data assets, see [Manage data connectors in the Sentinel data lake (preview)](enable-data-connectors.md). 
 
 > [!NOTE] 
 > The selected workspace applies to all query tabs in the query editor.  
