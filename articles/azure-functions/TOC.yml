@@ -768,7 +768,7 @@
           displayName: upgrade, migrate, language stack
         - name: Migrate Node.js to model v4.x
           href: functions-node-upgrade-v4.md
-    - name: Migrate to Flex Consumption plan
+    - name: Migrate Consumption plan apps to Flex Consumption
       href: migration/migrate-plan-consumption-to-flex.md    
     - name: Migrate .NET apps to the isolated model
       href: migrate-dotnet-to-isolated-model.md
