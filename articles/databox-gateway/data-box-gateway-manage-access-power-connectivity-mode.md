@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: shaas 
 ms.custom:
+# Customer intent: As a cloud administrator, I want to manage the access, power, and connectivity mode of the Data Box Gateway device, so that I can ensure secure data transfer and optimize device performance based on network conditions.
 ---
 
 # Manage access, power, and connectivity mode for your Azure Data Box Gateway

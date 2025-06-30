@@ -8,6 +8,7 @@ ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 11/26/2024
 ms.author: normesta
+# Customer intent: "As a data administrator, I want to manage access control lists (ACLs) in Azure Data Lake Storage through the Azure portal, so that I can effectively control permissions and secure my data assets."
 ---
 
 # Use the Azure portal to manage ACLs in Azure Data Lake Storage

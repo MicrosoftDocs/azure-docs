@@ -8,6 +8,7 @@ ms.date: 05/01/2024
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.custom: references_regions
+# Customer intent: "As a data engineer, I want to apply index tags to my blob storage objects, so that I can dynamically categorize and efficiently query my data across multiple containers, improving my data management and discovery processes."
 ---
 
 # Manage and find Azure Blob data with blob index tags

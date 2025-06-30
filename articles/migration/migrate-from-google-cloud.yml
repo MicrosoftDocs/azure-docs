@@ -58,8 +58,8 @@ landingContent:
             url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
           - text: Migrate your SIEM in Google Cloud to Microsoft Sentinel
             url: /azure/sentinel/migration
-          - text: Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel
-            url:  /azure/sentinel/data-connectors/google-cloud-platform-iam-using-azure-functions               
+          - text: Google Cloud Platform IAM connector for Microsoft Sentinel
+            url: /azure/sentinel/connect-google-cloud-platform
 
   - title: Migration training modules
     linkLists:
