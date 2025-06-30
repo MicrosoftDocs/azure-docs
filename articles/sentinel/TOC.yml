@@ -11,6 +11,14 @@
     href: best-practices.md
   - name: Experience in Defender portal
     href: microsoft-sentinel-defender-portal.md
+- name: Microsoft Sentinel data lake (Preview)
+  items:  
+  - name: Data lake exploration
+    items:
+    - name: Machine learning in the Microsoft Sentinel data lake (Preview)  
+      href: graph/machine-learning.md
+
+
 - name: Plan
   items:
   - name: Deployment planning guide  
