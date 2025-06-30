@@ -54,7 +54,7 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
     
     - In the Azure portal, from the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules (Preview)**. For example:
 
-        :::image type="content" source="media/summary-rules/summary-rules-azure.png" alt-text="Screenshot of the Summary rules page in the Azure portal.":::
+        :::image type="content" source="media/summary-rules/summary-rules-azure.png" alt-text="Screenshot of the Summary rules page in the Azure portal." lightbox="media/summary-rules/summary-rules-azure.png":::
 
 1. Select **+ Create** and enter the following details:
 
