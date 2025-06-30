@@ -53,7 +53,7 @@ Create a bookmark to preserve the queries, results, your observations, and findi
 
     To view the bookmark in the investigation graph, you must map at least one entity. Entity mappings to account, host, IP, and URL entity types you created are supported, preserving backwards compatibility.
 
-1. Select **Save** to commit your changes and add the bookmark. All bookmarked data is shared with other analysts, and is a first step toward a collaborative investigation experience.
+1. Select **Create** to commit your changes and add the bookmark. All bookmarked data is shared with other analysts, and is a first step toward a collaborative investigation experience.
 
 The log query results support bookmarks whenever this pane is opened from Microsoft Sentinel. For example, if you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. You can't create bookmarks when the **Logs** pane is opened from another location, such as directly from Azure Monitor.
 
