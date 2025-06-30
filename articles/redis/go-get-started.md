@@ -11,7 +11,6 @@ ms.custom:
 appliesto:
   - ✅ Azure Cache for Redis
 ms.devlang: golang
-zone_pivot_groups: redis-type
 ---
 
 # Quickstart: Use Azure Redis with Go
@@ -21,27 +20,27 @@ In this article, you learn how to use an Azure Redis cache with the Go language 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Go](https://go.dev/doc/install)
-- You must also add two imports from Redis to your project and add them to your development environment.
+- Install [Go](https://go.dev/doc/install) language environment
+- Add [two imports from Redis](https://redis.io/docs/latest/develop/clients/go/) to your project and to your development environment
   - `entraid "github.com/redis/go-redis-entraid"`
   - `"github.com/redis/go-redis/v9"`
 
 ## Create an Azure Managed Redis instance
 
-First you must create a cache. You can create a cache using Azure Managed Redis or Azure Cache for Redis using the Azure portal. In this Quickstart, we use Azure Managed Redis.
+First, create a cache. You can create a cache using Azure Managed Redis or Azure Cache for Redis using the Azure portal. In this Quickstart, we use Azure Managed Redis.
 
-When you create the cache, you should create it Microsoft Entra ID is enabled by default. Your cache must also use public endpoint for this QuickStart.
+When you create the cache, Microsoft Entra ID is enabled by default making it secure from the start. Your cache must also use a public endpoint for this QuickStart.
 
 To create a cache with the portal, follow one of these procedures:
 
 - [Azure Managed Redis](includes/managed-redis-create.md)
 - [Azure Cache for Redis](/azure/azure-cache-for-redis/quickstart-create-redis)
 
-Optionally, you can create a cache using Azure CLI, PowerShell, or any means that you prefer.
+Optionally, you can create a cache using Azure CLI, PowerShell, whichever you prefer.
 
 ## Code to connect to a Redis cache
 
-The first part of the code sample, you set your connection to your cache:
+In the first part of the code sample, set your connection to the cache:
 
 ```go
 package main
@@ -82,7 +81,7 @@ func main() {
 
 ## Code to test a connection
 
-In the next section, we test the connection using the Redis command "ping" that returns the "pong" string.
+In the next section, test the connection using the Redis command `ping` that returns the `pong` string.
 
 ```go
         // Ping the Redis server to test the connection
@@ -95,7 +94,7 @@ In the next section, we test the connection using the Redis command "ping" that 
 
 ## Code set a key, get a key
 
-In this section, we show a basic `set` and `get` sequence to demonstrate using the Redis cache.
+In this section, use a basic `set` and `get` sequence to start using the Redis cache in the simplest way to get started.
 
 ```go
         // Do something with Redis and a key-value pair
@@ -120,19 +119,21 @@ In this section, we show a basic `set` and `get` sequence to demonstrate using t
 
 ```
 
-Before you can run this code, you must add yourself as a Redis user. And you must also authorize your connection to Azure from the command line using the Azure command line or Azure developer command line (azd).
+Before you can run this code, you must add yourself as a Redis user. 
 
-You should also [add any user](entra-for-authentication.md) [Add users or System principal to your cache](entra-for-authentication.md#add-users-or-system-principal-to-your-cache) who might run the program as a user on the Redis cache.
+You must also authorize your connection to Azure from the command line using the Azure command line or Azure developer command line (azd).
+
+You should also [add users or a System principal to your cache](entra-for-authentication.md#add-users-or-system-principal-to-your-cache). Add anyone who might run the program as a user on the Redis cache.
 
 The result looks like this:
 
-```
+```console
 Ping returned:  PONG
 SET Message succeeded: OK
 GET Message returned: Hello, The cache is working with Go!
 ```
 
-You can see this code sample in its entirety.
+Here, you can see this code sample in its entirety.
 
 ```go
 package main
@@ -152,7 +153,7 @@ func main() {
         ctx := context.Background()
 
         // Set your Redis host (hostname:port)
-        redisHost := "<host >:<public port number>""
+        redisHost := "<host >:<public port number>"
 
         // Create a credentials provider using DefaultAzureCredential
         provider, err := entraid.NewDefaultAzureCredentialsProvider(entraid.DefaultAzureCredentialsProviderOptions{})
