@@ -11,7 +11,7 @@ ms.custom: compute-evergreen
 
 Use node arrays to define how the cluster creates and deletes nodes of a certain type as it scales up and down. Each node array has a name, a set of attributes that you apply to each node in the array, and optional attributes that describe how the array scales, such as limits, placement groups, and scale set configuration.
 
-This article shows you how to add a node array to an existing cluster by using a template file. [Read more about node arrays.](../concepts/clusters.md#nodes-and-node-node-arrays)
+This article shows you how to add a node array to an existing cluster by using a template file. [Read more about node arrays.](../concepts/clusters.md#nodes-and-node-arrays)
 
 ## Edit the cluster template
 
