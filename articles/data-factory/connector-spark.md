@@ -7,13 +7,16 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/21/2025
+ms.date: 06/06/2025
 ---
 
 # Copy data from Spark using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Spark. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!IMPORTANT]
+> The Spark connector version 2.0 provides improved native Spark support. If you are using Spark connector version 1.0 in your solution, please [upgrade the Spark connector](#upgrade-the-spark-connector) before **September 30, 2025**. Refer to this [section](#differences-between-spark-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -277,7 +280,7 @@ The Spark connector version 2.0 offers new functionalities and is compatible wit
 | Binary and SASL are not supported for `thriftTransportProtocl`. | Support Binary and SASL for `thriftTransportProtocl`. | 
 | Username authentication type is not supported. | Support Username authentication type. |
 | The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br> `enableServerCertificateValidation` is supported. | The default value of `enableSSL` is false. Additionally, support `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert`. <br><br>`enableServerCertificateValidation` is not supported.	 |  
-| The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTimeOffset <br>YearMonthIntervalType -> String<br>DayTimeIntervalType -> String | The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTime<br>Other mappings supported by version 2.0 (Preview) listed left are not supported by version 1.0. | 
+| The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTimeOffset <br>YearMonthIntervalType -> String<br>DayTimeIntervalType -> String | The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTime<br>Other mappings supported by version 2.0 listed left are not supported by version 1.0. | 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

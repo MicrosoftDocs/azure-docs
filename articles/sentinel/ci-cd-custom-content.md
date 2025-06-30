@@ -7,7 +7,9 @@ ms.author: austinmc
 ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 12/31/2024
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - build-2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -67,6 +69,10 @@ The following Microsoft Sentinel content types can be deployed through a reposit
 - Parsers
 - Playbooks
 - Workbooks
+
+> [!IMPORTANT]
+> Analytic rules deployed using The Microsoft Sentinel **Repositories** feature can use cross-workspace queries only if the destination workspace is in the same Resource Group as the workspace connected to the repository.
+>
 
 > [!TIP]
 > This article does *not* describe how to create these types of content from scratch. For more information, see the relevant [Microsoft Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.

@@ -139,7 +139,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** | &check; | &check; | London<br/>London2<br/>Newport(Wales) |
 | **KDDI** | &check; | &check; | Osaka<br/>Tokyo<br/>Tokyo2 |
 | **[KINX](https://www.kinx.net/service/cloudhub/clouds/microsoft_azure_expressroute/?lang=en)** | &check; | &check; | Seoul |
-| **[KIO](https://www.kio.tech/es-mx/microsoft-expressroute)** | &check; | &check; | Queretaro (Mexico) |
+| **[KIO](https://www.kio.tech)** | &check; | &check; | Queretaro (Mexico) |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | &check; | &check; | Auckland<br/>Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | &check; | &check; | Amsterdam<br/>Dublin2|
 | **[KT](https://cloud.kt.com/)** | &check; | &check; | Seoul<br/>Seoul2 |
@@ -190,7 +190,7 @@ The following table shows locations by service provider. If you want to view ava
 | --- | --- | --- | --- |
 | **[REANNZ](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | &check; | &check; | Auckland |
 | **RedCLARA** | &check; | &check; | Sao Paulo |
-| **[Reliance Jio](https://www.jio.com/business/jio-cloud-connect)** | &check; | &check; | Mumbai |
+| **[Reliance Jio](https://www.jio.com/business/services/connectivity/cloud-connect/)** | &check; | &check; | Mumbai |
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | &check; | &check; | Milan |
 | **RISQ** |&check; | &check; | Quebec City<br/>Montreal |
 | **SCSK** |&check; | &check; | Tokyo3 |
@@ -255,7 +255,7 @@ Azure national clouds are isolated from each other and from the Azure public clo
 | **[Internet2](https://internet2.edu/services/microsoft-azure-expressroute/)** |&check; |&check; |Dallas |
 | **[Level 3 Communications](https://www.lumen.com/en-us/edge-cloud/cloud-connect.html)** |&check; |&check; |Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |&check; | &check; | Chicago<br/>Dallas<br/>San Antonio<br/>Seattle<br/>Washington DC |
-| **[Verizon](https://www.verizon.com/about/news/verizon-expands-cloud-solutions-secure-cloud-interconnect-0)** |&check; |&check; |Chicago<br/>Dallas<br/>New York<br/>Silicon Valley<br/>Washington DC |
+| **[Verizon](https://www.verizon.com/business/verizonpartnersolutions/products/cloud/secure-cloud-interconnect/)** |&check; |&check; |Chicago<br/>Dallas<br/>New York<br/>Silicon Valley<br/>Washington DC |
 
 #### [China cloud](#tab/china-cloud)
 
@@ -430,7 +430,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** | Australia |
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | North America |
 | **[New Era](https://www.neweratech.com/us/)** | North America |
-| **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | North America |
+| **[Lightstream](https://lightstream.io/about-us/partners-alliances/microsoft/)** | North America |
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | Australia |
 | **[MOQdigital](https://www.brennanit.com.au/solutions/cloud-services/)** | Australia |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europe (Germany) |

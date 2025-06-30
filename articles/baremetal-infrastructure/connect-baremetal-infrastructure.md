@@ -6,6 +6,7 @@ description: Learn how to identify and interact with BareMetal instances in the 
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 08/15/2024
+# Customer intent: As an infrastructure administrator, I want to register and manage BareMetal instances in Azure using the portal or CLI, so that I can effectively deploy, monitor, and maintain high-performance applications on dedicated hardware.
 ---
 
 # Connect BareMetal Infrastructure instances in Azure

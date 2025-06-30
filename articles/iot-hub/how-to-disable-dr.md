@@ -9,6 +9,8 @@ ms.topic: how-to
 ms.date: 05/02/2025
 
 #Customer intent: As an engineer responsible for business continuity, I want to learn how to disable disaster recovery in IoT Hub so that I can avoid data replication outside of the region.
+ms.custom:
+  - build-2025
 ---
 
 # Disable disaster recovery in Azure IoT Hub

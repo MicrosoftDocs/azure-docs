@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: mbender
+# Customer intent: As a network engineer, I want to configure an application gateway using the CLI, so that I can redirect external web traffic to the appropriate destination efficiently.
 ---
 
 # Create an application gateway with external redirection using the Azure CLI

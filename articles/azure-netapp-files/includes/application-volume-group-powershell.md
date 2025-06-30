@@ -10,6 +10,8 @@ ms.author: anfdocs
 # application-volume-group-add-volume-secondary.md
 # application-volume-group-add-disaster-recovery.md
 # application-volume-group-add-manage-volumes.md
+ms.custom:
+  - build-2025
 ---
 
 >[!IMPORTANT]
