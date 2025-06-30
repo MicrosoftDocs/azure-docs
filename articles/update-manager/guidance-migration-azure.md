@@ -38,7 +38,7 @@ Specifically for update management or patching, as per your requirements, you ca
 
 > [!NOTE]
 > - To manage clients/devices, Intune is the recommended Microsoft solution.
-> - Azure Update Manager does not provide migration support for Azure VMs in MCM. For example, configurations.
+> - Azure Update Manager doesn't provide migration support for Azure VMs in MCM. For example, configurations.
 
 ## Software update management capability map
 
@@ -60,7 +60,7 @@ As a first step in MCM user's journey towards Azure Update Manager, you need to 
 > - Azure Update Manager doesn't support client ordevices.
 > - This article helps you start using Azure Update Manager to manage software updates or patches to servers currently managed by MCM. 
 > - Azure Update Manager and MCM co-existence means that once Azure Update Manager is enabled, MCM should only be used for capabilities other than software updates management.
-> - Azure Update Manager and MCM should not be used simultaneously to manage software updates or patches to same set of servers. 
+> - Azure Update Manager and MCM shouldn't be used simultaneously to manage software updates or patches to same set of servers. 
 
 ### Prerequisites for Azure Update Manager and MCM co-existence
 
