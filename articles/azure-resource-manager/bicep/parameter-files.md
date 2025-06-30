@@ -3,7 +3,7 @@ title: Create a parameters file for bicep deployment
 description: Learn how to create Bicep parameters files instead of passing parameters as inline values in your script.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.date: 06/30/2025
 ---
 
 # Create a parameters file for Bicep deployment
@@ -15,9 +15,9 @@ These parameter files also help enable a streamlined CI/CD deployment approach. 
 This article shows you how to create a parameters file, which you can use instead of passing parameters as inline values in your script. You can use either a Bicep parameters file with the `.bicepparam` file extension or a JSON parameters file that contains the parameter value.
 
 > [!NOTE]
-> Bicep parameters files are supported only in [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.18.4 or later, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or later.
+> Bicep parameters files are supported only in [Bicep CLI version 0.18.4](https://github.com/Azure/bicep/releases/tag/v0.18.4) or later, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or later. The `using none` feature is supported in [Bicep CLI version 0.31.0](https://github.com/Azure/bicep/releases/tag/v0.31.92) or later.
 
-A single Bicep file can have multiple Bicep parameters files associated with it. However, each Bicep parameters file is intended for one particular Bicep file. You can establish this relationship by applying the [`using` statement](./bicep-using.md) within the Bicep parameters file.
+A single Bicep file can be associated with multiple parameter files. However, each parameter file is typically linked to one specific Bicep file—unless `using none` is specified. This association is established using the [`using` statement](./bicep-using.md) within the parameter file.
 
 You can compile Bicep parameters files into JSON parameters files that you can deploy by using a Bicep file. For more information, see [`build-params`](./bicep-cli.md#build-params). You can also decompile a JSON parameters file into a Bicep parameters file. For more information, see [`decompile-params`](./bicep-cli.md#decompile-params).
 
@@ -28,7 +28,7 @@ A parameters file uses the following format:
 ### [Bicep parameters file](#tab/Bicep)
 
 ```bicep
-using '<path>/<file-name>.bicep'
+using '<path>/<file-name>.bicep' | using none
 
 param <first-parameter-name> = <first-value>
 param <second-parameter-name> = <second-value>
@@ -61,8 +61,11 @@ using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
 ...
 ```
 
-For more information, see [Using statement](./bicep-using.md).
+For more information, see [Using statement](./bicep-using.md/#the-using-statement).
 
+You can apply the `using none` statement to indicate that the parameters file is not tied to a specific Bicep template during authoring or compilation. This decouples the parameter file from a particular template, enabling greater flexibility in how parameters are defined and used across deployments. For more information, see [Using none statement](./bicep-using.md/#the-using-none-statement).
+
+```bicep
 You can use expressions with the default value. For example:
 
 ```bicep

@@ -1,21 +1,27 @@
 ---
-title: Using statement
-description: Learn how to use the `using` statement in Bicep.
+title: Using and using none statements
+description: Learn how to use the `using` and `using none` statements in Bicep.
 ms.topic: conceptual
-ms.date: 01/10/2025
+ms.date: 06/30/2025
 ms.custom: devx-track-bicep
 ---
 
-# Using statement
+# Using and using none statements
 
-The `using` statement in [Bicep parameters files](./parameter-files.md) ties the file to a [Bicep file](./file.md), a [JSON Azure Resource Manager template (ARM template)](../templates/syntax.md), a [Bicep module](./modules.md), or a [template spec](./template-specs.md). A `using` declaration must be present in all Bicep parameters files.
+A `using` or a `using none` declaration must be present in all Bicep parameters files.
+
+A Bicep parameter file typically uses a `using` statement to ties the file to a [Bicep file](./file.md), a [JSON Azure Resource Manager template (ARM template)](../templates/syntax.md), a [Bicep module](./modules.md), or a [template spec](./template-specs.md). This linkage allows the Bicep language server and compiler to validate the parameter file—checking for correct names, types, and required values based on the template’s inputs.
+
+In contrast, the `using none` statement explicitly indicates that the parameter file is not tied to any particular template at compile time. This means the parameters are not validated against a specific template and are instead intended for more general use—such as being consumed by external tools or serving as shared, reusable parameter sets.
 
 > [!NOTE]
-> The Bicep parameters file is only supported in the [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.18.4 or later, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or later.
+> Bicep parameters files are supported only in [Bicep CLI version 0.18.4](https://github.com/Azure/bicep/releases/tag/v0.18.4) or later, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or later. The `using none` feature is supported in [Bicep CLI version 0.31.0](https://github.com/Azure/bicep/releases/tag/v0.31.92) or later.
 >
-> To use the statement with JSON ARM templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.22.6 or later and [Azure CLI](/cli/azure/install-azure-cli) version 2.53.0 or later.
+> To use the statement with JSON ARM templates, Bicep modules, and template specs, you need to have [Bicep CLI version 0.22.6](https://github.com/Azure/bicep/releases/tag/v0.22.6) or later and [Azure CLI](/cli/azure/install-azure-cli) version 2.53.0 or later.
 
-## Syntax
+## The using statement
+
+The syntax of the `using` statement:
 
 - To use Bicep files:
 
@@ -90,6 +96,40 @@ The `using` statement in [Bicep parameters files](./parameter-files.md) ties the
   ```bicep
   using 'ts/myStorage:storageSpec:1.0'
   ```
+
+## The using none statement
+
+The `using none` statement in a Bicep parameter file (.bicepparam) indicates that the file is not tied to a specific Bicep template during authoring or compilation. This decouples the parameter file from a particular template, enabling greater flexibility in how parameters are defined and used across deployments.
+
+The syntax of the `using none` statement:
+
+```bicep
+using none
+```
+
+This statement is placed at the beginning of a .bicepparam file to signal that no specific template is referenced.
+
+The primary benefit of `using none` in Bicep lies in scenarios where parameter files are generalized, shared, or dynamically integrated with templates. Common use cases include:
+
+- **Centralized Parameter Repositories**
+
+  Organizations often maintain standard parameter values—such as default regions, naming conventions, or global tags—used across multiple Bicep deployments. A .bicepparam file with using none can act as a central store for these shared values, improving consistency and minimizing duplication. These parameters can then be programmatically merged with template-specific values at deployment time.
+  
+  For example, a shared .bicepparam file might define:
+
+  ```bicepparam
+  using none
+  
+  param location = 'westus2'
+  param environmentTag = 'production'
+  param projectName = 'myApp'
+  ```
+
+- **Dynamic Generation and Runtime Integration**
+
+  In CI/CD pipelines or automation scripts, parameter files may be created on-the-fly or associated with templates at runtime. By omitting a fixed template reference, `using none` allows these files to remain flexible and adaptable to different deployment contexts.
+  
+When `using none` is specified in a Bicep parameter file, the compiler does not validate the parameters against a specific Bicep template, meaning no compile-time warnings or errors are raised for mismatched names or types due to the absence of a linked template. However, this decoupling applies only during authoring and compilation—at deployment time, Azure Resource Manager (ARM) still requires both a Bicep template and a parameter file. The ARM engine performs validation during deployment by resolving the parameters in the file against those defined in the target template.
 
 ## Next steps
 
