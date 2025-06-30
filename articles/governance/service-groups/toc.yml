@@ -8,7 +8,7 @@
     href: create-service-group-portal.md
   - name: Create a service group with REST API
     href: create-service-group-rest-api.md
-  - name: Connect Service Group members with REST API
+  - name: Add Service Group members with REST API
     href: create-service-group-member-rest-api.md
   - name: How to use Service Groups to manage resources
     href: manage-service-groups.md
