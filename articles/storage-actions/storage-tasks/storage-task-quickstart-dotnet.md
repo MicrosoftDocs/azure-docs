@@ -15,7 +15,7 @@ ms.devlang: csharp
 
 In this quickstart, you learn how to use the Azure Storage Actions client library for .NET to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. The storage task applies a time-based immutability policy on any Microsoft Word documents that exist in the storage account.
 
-[API reference documentation](/dotnet/api/overview/azure/resourcemanager.storageactions-readme?view=azure-dotnet-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions/Azure.ResourceManager.StorageActions) | [Package (NuGet)](https://www.nuget.org/packages/Azure.ResourceManager.StorageActions/1.0.0-beta.2) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions/Azure.ResourceManager.StorageActions/samples)
+[API reference documentation](/dotnet/api/overview/azure/resourcemanager.storageactions-readme?view=azure-dotnet-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions/Azure.ResourceManager.StorageActions) | [Package (NuGet)](https://www.nuget.org/packages/Azure.ResourceManager.StorageActions/1.0.0-beta.2) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storageactions/Azure.ResourceManager.StorageActions/tests/Generated/Samples)
 
 ## Prerequisites
 

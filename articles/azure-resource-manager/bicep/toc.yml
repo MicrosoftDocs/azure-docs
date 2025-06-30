@@ -248,8 +248,6 @@ items:
       href: ../../api-management/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Redis Web App
-      href: ../../redis/web-app-bicep-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
@@ -355,7 +353,7 @@ items:
       displayName: getSecret,readEnvironmentVariable
       href: bicep-functions-parameters-file.md
     - name: Resource functions
-      displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,subscriptionResourceId,tenantResourceId,toLogicalZone,toPhysicalZone
+      displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,subscriptionResourceId,tenantResourceId,toLogicalZone,toLogicalZones,toPhysicalZone,toPhysicalZones
       href: bicep-functions-resource.md
     - name: Scope functions
       displayName: managementGroup,resourceGroup,subscription,tenant
@@ -740,5 +738,7 @@ items:
       href: diagnostics/bcp401.md
     - name: BCP414
       href: diagnostics/bcp414.md
+    - name: BCP420
+      href: diagnostics/bcp420.md
   - name: Azure CLI
     href: /cli/azure/resource

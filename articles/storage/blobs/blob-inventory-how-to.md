@@ -11,6 +11,7 @@ ms.author: normesta
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a cloud storage administrator, I want to enable blob inventory reports for my storage account so that I can monitor data attributes for compliance and management purposes.
 ---
 
 # Enable Azure Storage blob inventory reports

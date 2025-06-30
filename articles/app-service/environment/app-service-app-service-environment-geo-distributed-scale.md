@@ -1,12 +1,12 @@
 ---
 title: Geo distributed scale
 description: Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments.
-author: madsd
+author: seligj95
 
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: article
 ms.date: 11/18/2021
-ms.author: madsd
+ms.author: jordanselig
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Geo Distributed Scale with App Service Environments

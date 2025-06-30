@@ -9,6 +9,7 @@ ms.date: 06/13/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a data manager, I want to establish lifecycle management policies for our blob storage, so that I can automate data transitions and deletions to optimize storage costs and enhance data management efficiency.
 ---
 
 # Azure Blob Storage lifecycle management overview
@@ -73,6 +74,8 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 ## Known issues and limitations
 
 - Tiering isn't yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
+
+- Lifecycle management policies can't be used to rehydrate blobs to an online tier.
 
 - A lifecycle management policy must be read or written in full. Partial updates aren't supported.
 

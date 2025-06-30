@@ -143,7 +143,7 @@ MSS clamping is done bidirectionally on the Azure VPN Gateway. The following tab
 
 | **Packet Flow**               |**IPv4**        | **IPv6**   |
 | ---                           | ---            | ---        |
-| Over Internet                 | 1340 bytes     | 1360 bytes |
+| Over Internet                 | 1360 bytes     | 1340 bytes |
 | Over Express Route Gateway    | 1250 bytes     | 1250 bytes |
 
 

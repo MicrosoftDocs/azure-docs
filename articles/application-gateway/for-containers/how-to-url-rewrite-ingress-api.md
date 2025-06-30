@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to implement URL rewriting in the Ingress API for Application Gateway for Containers, so that I can efficiently manage and route client requests to the appropriate backend services based on URL patterns."
 ---
 
 # URL Rewrite for Azure Application Gateway for Containers - Ingress API
