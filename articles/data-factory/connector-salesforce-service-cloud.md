@@ -344,7 +344,7 @@ Here are steps that help you upgrade your Salesforce Service Cloud connector:
 
 1. If you use SQL query in the copy activity source or the lookup activity that refers to the V1 linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
 
-1. readBehavior is replaced with includeDeletedObjects in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type).
+1. `readBehavior` is replaced with `includeDeletedObjects` in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type).
 
 
 ## Related content
