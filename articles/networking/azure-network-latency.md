@@ -5,24 +5,38 @@ services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 06/20/2024
+ms.date: 06/30/2025
 ms.author: mbender
 ms.custom: references_regions,updatedFY24S2
 ---
 
 # Azure network round-trip latency statistics
 
-Azure continuously monitors the latency (speed) of core areas of its network using internal monitoring tools and measurements.
+This article provides round-trip latency statistics between Azure regions to help you optimize your cloud architecture and deployment decisions. The data comes from continuous network monitoring across Azure's global infrastructure and represents real-world performance measurements.
 
-## How are the measurements collected?
+Use these statistics to:
 
-The latency measurements are collected from Azure cloud regions worldwide, and continuously measured in 1-minute intervals by network probes. The monthly latency statistics are derived from averaging the collected samples for the month.
+- **Plan multi-region deployments** for optimal performance
+- **Select regions** that minimize latency for your users
+- **Design disaster recovery strategies** with latency considerations
+- **Benchmark expected performance** between specific region pairs
 
-## Round-trip latency figures
+## What is round-trip latency?
+
+Round-trip latency is the time it takes for a data packet to travel from one point in the network to another and back again. In the context of Azure, it measures the time taken for a packet to travel between two Azure regions. This metric is crucial for applications that require low-latency communication, such as real-time data processing, gaming, and financial transactions.
+
+## How is latency measured?
+
+Azure measures round-trip latency using internal network probes that continuously monitor the performance of the Azure backbone network. These probes send data packets between Azure regions and record the time taken for the packets to travel to their destination and back. The measurements are collected in 1-minute intervals, providing a detailed view of network performance over time.
+
+The latency statistics presented in this article are based on the 50th percentile (P50) of these measurements, which represents the median round-trip time. This means that half of the measured round-trip times are below this value, providing a reliable indicator of typical network performance.
+
+
+## Round-trip latency data by region
 
 The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown in the following tabs. The latency is measured in milliseconds (ms).
 
-The current dataset was taken on *June 20th, 2024*, and it covers the 30-day period ending on *June 19th, 2024*.
+The current dataset was taken on *June 30th, 2025*, and it covers the 30-day period ending on *June 29th, 2025*.
 
 For readability, each table is split into tabs for groups of Azure regions. The tabs are organized by regions, and then by source region in the first column of each table. For example, the *East US* tab also shows the latency from all source regions to the two *East US* regions: *East US* and *East US 2*. 
 
@@ -62,7 +76,6 @@ Use the following tabs to view latency statistics for each region.
 
 | Source | West Central US | West US | West US 2 | West US 3 |
 |---|---|---|---|---|
-|  | 197 | 184 | 176 | 199 |
 | Australia Central | 166 | 147 | 166 | 151 |
 | Australia Central 2 | 166 | 147 | 166 | 150 |
 | Australia East | 161 | 141 | 162 | 146 |
@@ -109,23 +122,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 127 | 150 | 149 | 136 |
 | West Central US |  | 26 | 25 | 36 |
 | West Europe | 131 | 154 | 151 | 143 |
+| West India | 197 | 184 | 176 | 199 |
 | West US | 26 |  | 25 | 20 |
 | West US 2 | 25 | 25 |  | 41 |
 | West US 3 | 36 | 20 | 42 |  |
-| brne |  |  |  |  |
-| clc |  |  |  |  |
-| cnn10 |  |  |  |  |
-| hel |  |  |  |  |
-| krs2 |  |  |  |  |
-| kul |  |  |  |  |
-| yyy |  |  |  |  |
 
 #### [Central US](#tab/CentralUS/Americas)
 
 
 | Source | Central US | North Central US | South Central US |
 |---|---|---|---|
-|  | 212 | 221 | 216 |
 | Australia Central | 179 | 188 | 167 |
 | Australia Central 2 | 179 | 188 | 167 |
 | Australia East | 176 | 185 | 164 |
@@ -172,23 +178,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 112 | 99 | 118 |
 | West Central US | 19 | 28 | 27 |
 | West Europe | 117 | 105 | 120 |
+| West India | 212 | 221 | 216 |
 | West US | 42 | 52 | 37 |
 | West US 2 | 40 | 48 | 52 |
 | West US 3 | 49 | 61 | 27 |
-| brne |  |  |  |
-| clc |  |  |  |
-| cnn10 |  |  |  |
-| hel |  |  |  |
-| krs2 |  |  |  |
-| kul |  |  |  |
-| yyy |  |  |  |
 
 #### [East US](#tab/EastUS/Americas)
 
 
 | Source | East US | East US 2 |
 |---|---|---|
-|  | 237 | 245 |
 | Australia Central | 202 | 199 |
 | Australia Central 2 | 203 | 200 |
 | Australia East | 201 | 196 |
@@ -235,23 +234,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 81 | 85 |
 | West Central US | 54 | 50 |
 | West Europe | 86 | 93 |
+| West India | 237 | 245 |
 | West US | 74 | 71 |
 | West US 2 | 70 | 71 |
 | West US 3 | 61 | 57 |
-| brne |  |  |
-| clc |  |  |
-| cnn10 |  |  |
-| hel |  |  |
-| krs2 |  |  |
-| kul |  |  |
-| yyy |  |  |
 
 #### [Canada](#tab/Canada/Americas)
 
 
 | Source | Canada Central | Canada East |
 |---|---|---|
-|  | 235 | 243 |
 | Australia Central | 204 | 211 |
 | Australia Central 2 | 204 | 210 |
 | Australia East | 201 | 208 |
@@ -298,23 +290,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 93 | 96 |
 | West Central US | 40 | 47 |
 | West Europe | 99 | 102 |
+| West India | 235 | 243 |
 | West US | 65 | 71 |
 | West US 2 | 60 | 68 |
 | West US 3 | 73 | 79 |
-| brne |  |  |
-| clc |  |  |
-| cnn10 |  |  |
-| hel |  |  |
-| krs2 |  |  |
-| kul |  |  |
-| yyy |  |  |
 
 #### [South America](#tab/SouthAmerica/Americas)
 
 
 | Source | Brazil South | Mexico Central |
 |---|---|---|
-|  | 348 | 234 |
 | Australia Central | 308 | 184 |
 | Australia Central 2 | 309 | 184 |
 | Australia East | 305 | 180 |
@@ -361,23 +346,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 184 | 135 |
 | West Central US | 157 | 44 |
 | West Europe | 188 | 136 |
+| West India | 348 | 234 |
 | West US | 178 | 53 |
 | West US 2 | 177 | 71 |
 | West US 3 | 167 | 41 |
-| brne |  |  |
-| clc |  |  |
-| cnn10 |  |  |
-| hel |  |  |
-| krs2 |  |  |
-| kul |  |  |
-| yyy |  |  |
 
 #### [Western Europe](#tab/WesternEurope/Europe)
 
 
 | Source | France Central | France South | Switzerland North | Switzerland West | West Europe |
 |---|---|---|---|---|---|
-|  | 166 | 153 | 165 | 160 | 173 |
 | Australia Central | 244 | 234 | 245 | 241 | 254 |
 | Australia Central 2 | 245 | 234 | 245 | 241 | 254 |
 | Australia East | 241 | 230 | 242 | 237 | 250 |
@@ -424,23 +402,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 15 | 25 | 29 | 24 | 15 |
 | West Central US | 131 | 131 | 140 | 136 | 129 |
 | West Europe | 16 | 25 | 20 | 23 |  |
+| West India | 166 | 153 | 165 | 160 | 173 |
 | West US | 153 | 154 | 164 | 159 | 153 |
 | West US 2 | 152 | 148 | 160 | 156 | 150 |
 | West US 3 | 137 | 142 | 150 | 147 | 143 |
-| brne |  |  |  |  |  |
-| clc |  |  |  |  |  |
-| cnn10 |  |  |  |  |  |
-| hel |  |  |  |  |  |
-| krs2 |  |  |  |  |  |
-| kul |  |  |  |  |  |
-| yyy |  |  |  |  |  |
 
 #### [Central Europe](#tab/CentralEurope/Europe)
 
 
 | Source | Germany North | Germany West Central | Italy North | Poland Central |
 |---|---|---|---|---|
-|  | 177 | 170 | 162 |  |
 | Australia Central | 258 | 251 | 243 | 266 |
 | Australia Central 2 | 257 | 251 | 243 | 266 |
 | Australia East | 254 | 247 | 240 | 263 |
@@ -487,23 +458,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 23 | 22 | 32 | 31 |
 | West Central US | 139 | 137 | 138 | 147 |
 | West Europe | 15 | 13 | 24 | 24 |
+| West India | 177 | 170 | 162 |  |
 | West US | 162 | 158 | 161 | 170 |
 | West US 2 | 159 | 158 | 159 | 168 |
 | West US 3 | 150 | 144 | 151 | 160 |
-| brne |  |  |  |  |
-| clc |  |  |  |  |
-| cnn10 |  |  |  |  |
-| hel |  |  |  |  |
-| krs2 |  |  |  |  |
-| kul |  |  |  |  |
-| yyy |  |  |  |  |
 
 #### [Nordic Countries](#tab/Nordic/Europe)
 
 
 | Source | Norway East | Norway West | Sweden Central |
 |---|---|---|---|
-|  | 189 | 186 |  |
 | Australia Central | 270 | 267 | 296 |
 | Australia Central 2 | 270 | 267 | 294 |
 | Australia East | 266 | 263 | 299 |
@@ -550,23 +514,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 28 | 22 | 41 |
 | West Central US | 141 | 138 | 159 |
 | West Europe | 24 | 20 | 35 |
+| West India | 189 | 186 |  |
 | West US | 163 | 160 | 182 |
 | West US 2 | 161 | 158 | 181 |
 | West US 3 | 152 | 149 | 177 |
-| brne |  |  |  |
-| clc |  |  |  |
-| cnn10 |  |  |  |
-| hel |  |  |  |
-| krs2 |  |  |  |
-| kul |  |  |  |
-| yyy |  |  |  |
 
 #### [UK / Northern Europe](#tab/NorthernEurope/Europe)
 
 
 | Source | North Europe | UK South | UK West |
 |---|---|---|---|
-|  | 179 | 171 | 176 |
 | Australia Central | 260 | 251 | 256 |
 | Australia Central 2 | 260 | 251 | 256 |
 | Australia East | 256 | 247 | 253 |
@@ -613,23 +570,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 16 | 7 |  |
 | West Central US | 118 | 125 | 127 |
 | West Europe | 19 | 14 | 15 |
+| West India | 179 | 171 | 176 |
 | West US | 140 | 147 | 150 |
 | West US 2 | 138 | 145 | 149 |
 | West US 3 | 130 | 137 | 139 |
-| brne |  |  |  |
-| clc |  |  |  |
-| cnn10 |  |  |  |
-| hel |  |  |  |
-| krs2 |  |  |  |
-| kul |  |  |  |
-| yyy |  |  |  |
 
 #### [Australasia](#tab/Australasia/APAC)
 
 
 | Source | Australia Central | Australia Central 2 | Australia East | Australia Southeast | New Zealand North |
 |---|---|---|---|---|---|
-|  | 110 | 109 | 107 | 100 | 130 |
 | Australia Central |  | 3 | 8 | 16 | 32 |
 | Australia Central 2 | 4 |  | 8 | 13 | 31 |
 | Australia East | 8 | 8 |  | 16 | 28 |
@@ -676,23 +626,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 256 | 256 | 253 | 246 | 270 |
 | West Central US | 165 | 166 | 162 | 173 | 148 |
 | West Europe | 255 | 254 | 252 | 246 | 272 |
+| West India | 110 | 109 | 107 | 100 | 130 |
 | West US | 147 | 147 | 140 | 151 | 133 |
 | West US 2 | 166 | 166 | 161 | 172 | 137 |
 | West US 3 | 151 | 150 | 147 | 160 | 134 |
-| brne |  |  |  |  |  |
-| clc |  |  |  |  |  |
-| cnn10 |  |  |  |  |  |
-| hel |  |  |  |  |  |
-| krs2 |  |  |  |  |  |
-| kul |  |  |  |  |  |
-| yyy |  |  |  |  |  |
 
 #### [Japan](#tab/Japan/APAC)
 
 
 | Source | Japan East | Japan West |
 |---|---|---|
-|  | 85 | 82 |
 | Australia Central | 108 | 115 |
 | Australia Central 2 | 108 | 115 |
 | Australia East | 104 | 111 |
@@ -739,23 +682,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 233 | 227 |
 | West Central US | 121 | 129 |
 | West Europe | 236 | 226 |
+| West India | 85 | 82 |
 | West US | 108 | 115 |
 | West US 2 | 100 | 108 |
 | West US 3 | 113 | 121 |
-| brne |  |  |
-| clc |  |  |
-| cnn10 |  |  |
-| hel |  |  |
-| krs2 |  |  |
-| kul |  |  |
-| yyy |  |  |
 
 #### [Korea](#tab/Korea/APAC)
 
 
 | Source | Korea Central | Korea South |
 |---|---|---|
-|  | 77 | 72 |
 | Australia Central | 129 | 123 |
 | Australia Central 2 | 130 | 124 |
 | Australia East | 126 | 119 |
@@ -802,23 +738,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 223 | 218 |
 | West Central US | 144 | 137 |
 | West Europe | 222 | 217 |
+| West India | 77 | 72 |
 | West US | 130 | 124 |
 | West US 2 | 123 | 116 |
 | West US 3 | 137 | 130 |
-| brne |  |  |
-| clc |  |  |
-| cnn10 |  |  |
-| hel |  |  |
-| krs2 |  |  |
-| kul |  |  |
-| yyy |  |  |
 
 #### [India](#tab/India/APAC)
 
 
 | Source | Central India | South India | West India |
 |---|---|---|---|
-|  | 69 | 50 |  |
 | Australia Central | 152 | 131 | 144 |
 | Australia Central 2 | 154 | 130 | 145 |
 | Australia East | 152 | 127 | 140 |
@@ -865,23 +794,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 158 | 137 | 120 |
 | West Central US | 248 | 217 | 234 |
 | West Europe | 147 | 143 | 123 |
+| West India | 69 | 50 |  |
 | West US | 230 | 203 | 217 |
 | West US 2 | 219 | 196 | 210 |
 | West US 3 | 244 | 221 | 236 |
-| brne |  |  |  |
-| clc |  |  |  |
-| cnn10 |  |  |  |
-| hel |  |  |  |
-| krs2 |  |  |  |
-| kul |  |  |  |
-| yyy |  |  |  |
 
 #### [Asia](#tab/Asia/APAC)
 
 
 | Source | East Asia | Indonesia Central | Southeast Asia |
 |---|---|---|---|
-|  | 48 | 88 | 17 |
 | Australia Central | 122 |  | 98 |
 | Australia Central 2 | 123 |  | 98 |
 | Australia East | 119 |  | 94 |
@@ -928,23 +850,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 193 |  | 161 |
 | West Central US | 174 |  | 184 |
 | West Europe | 191 |  | 162 |
+| West India | 48 | 88 | 17 |
 | West US | 159 |  | 171 |
 | West US 2 | 152 |  | 163 |
 | West US 3 | 165 |  | 187 |
-| brne |  |  |  |
-| clc |  |  |  |
-| cnn10 |  |  |  |
-| hel |  |  |  |
-| krs2 |  |  |  |
-| kul |  |  |  |
-| yyy |  |  |  |
 
 #### [Middle East](#tab/MiddleEast/MEA)
 
 
 | Source | Israel Central | Qatar Central | UAE Central | UAE North |
 |---|---|---|---|---|
-|  | 207 |  | 92 | 96 |
 | Australia Central | 299 | 188 | 173 | 176 |
 | Australia Central 2 | 300 | 190 | 173 | 177 |
 | Australia East | 314 | 184 | 170 | 173 |
@@ -991,23 +906,16 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 211 | 140 | 123 | 124 |
 | West Central US | 183 | 263 | 230 | 231 |
 | West Europe | 68 | 132 | 123 | 124 |
+| West India | 207 |  | 92 | 96 |
 | West US | 204 | 264 | 252 | 253 |
 | West US 2 | 206 | 259 | 244 | 249 |
 | West US 3 | 205 | 267 | 243 | 242 |
-| brne |  |  |  |  |
-| clc |  |  |  |  |
-| cnn10 |  |  |  |  |
-| hel |  |  |  |  |
-| krs2 |  |  |  |  |
-| kul |  |  |  |  |
-| yyy |  |  |  |  |
 
 #### [Africa](#tab/Africa/MEA)
 
 
 | Source | South Africa North | South Africa West |
 |---|---|---|
-|  | 305 | 288 |
 | Australia Central | 385 | 369 |
 | Australia Central 2 | 385 | 369 |
 | Australia East | 385 | 367 |
@@ -1054,16 +962,10 @@ Use the following tabs to view latency statistics for each region.
 | UK West | 171 | 153 |
 | West Central US | 257 | 240 |
 | West Europe | 167 | 150 |
+| West India | 305 | 288 |
 | West US | 278 | 262 |
 | West US 2 | 278 | 262 |
 | West US 3 | 265 | 249 |
-| brne |  |  |
-| clc |  |  |
-| cnn10 |  |  |
-| hel |  |  |
-| krs2 |  |  |
-| kul |  |  |
-| yyy |  |  |
 
 
 ---
