@@ -16,11 +16,9 @@ ms.date: 06/04/2025
  
 You can create schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.  
 
-
-
 ## Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To ceate and schedule jobs, read tables across all workspaces, write to the analytics and lake tiers, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To create and schedule jobs, read tables across all workspaces, write to the analytics and lake tiers, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 
 ## Create and schedule a job
@@ -32,10 +30,10 @@ To create schedule a job, you must save your notebook as a file.
 
 1. In the **Explorer** pane, right-click the notebook file and select **Microsoft Sentinel**, then select **Create schedule Job**.
 
-    :::image type="content" source="./media/notebooks/create-job.png" lightbox="./media/notebooks/create-job.png" alt-text="A screenshot showing how to create a new job in VS Code."  :::
+    :::image type="content" source="./media/notebooks/create-job.png" lightbox="./media/notebooks/create-job.png" alt-text="A screenshot showing how to create a new job in Visual Studio Code."  :::
 
 1. On the **Job configuration** page, in the **Job details** section enter a **name** and **description** for the job.
-1. To run a job manually without a schedule select **Off** under **Scheduled Run** in the **Schedule Configuration** section.    
+1. To run a job manually without a schedule, select **Off** under **Scheduled Run** in the **Schedule Configuration** section.    
      
     1. Select **Publish job** to save the job configuration and publish the job.
     
@@ -73,34 +71,36 @@ To edit a published job follow the steps below:
 
 ### Edit the configuration and republish
 
-1. Right-click the yaml file for your notebook and select **Scheduled job configuration editor** to open the job configuration editor.
-      :::image type="content" source="./media/notebook-jobs/right-click-yaml.png" lightbox="./media/notebook-jobs/right-click-yaml.png" alt-text="A screenshot showing how to open the job configuration editor in VS Code."  :::    
-1. In the job configuration editor, you can edit the job name, description, and schedule/ Changing the job name will create a new job definition when you publish the job.
-1. Select **Publish job** to save the job configuration and publish the job. This will upload the notebook file and job configuration.
+1. Right-click the yaml file for your notebook and select **Open With...** 
+    :::image type="content" source="./media/notebook-jobs/right-click-yaml.png" lightbox="./media/notebook-jobs/right-click-yaml.png" alt-text="A screenshot showing how to open the job configuration editor in VS Code."  :::    
+1. Select  **Scheduled job configuration editor** to open the job configuration editor.
+    :::image type="content" source="./media/notebook-jobs/select-scheduled-jobs-configuration-editor.png" lightbox="./media/notebook-jobs/select-scheduled-jobs-configuration-editor.png" alt-text="A screenshot showing the editor selection dropdown.":::
 
-    :::image type="content" source="./media/notebook-jobs/select-scheduled-jobs-configuration-editor.png" lightbox="./media/notebook-jobs/select-scheduled-jobs-configuration-editor.png" alt-text="A screenshot showing the select of the job configuration editor in VS Code." :::
+1. In the job configuration editor, you can edit the job name, description, and schedule. Changing the job name creates a new job definition when you publish the job.
+1. Select **Publish job** to upload the updated notebook file and job configuration.
 
 
 
 ## Viewing jobs in the Microsoft Defender portal
 
-You can view your Jupyter notebook jobs in the Microsoft Sentinel portal. To view your jobs:
-1. Navigate to the **Microsoft Sentinel** menu item in the Defender portal.
-1. Select the **Data lake explorer** tab.
+You can view your notebook jobs in the Defender portal. To view your jobs:
+
+1. In the Defender portal, navigate to the **Microsoft Sentinel** menu item
+1. Select the **Data lake explorer**
 1. Select the **Jobs** 
 
-The page shows a list of jobs adn their the types. Select a notebook job to view its details. You cant endt a notebook job in the Microsoft Sentinel portal, but you can enable and disable the schedule. 
+The page shows a list of jobs and their types. Select a notebook job to view its details. You can enable and disable the job's schedule but you can't edit a notebook job in the Defender portal.
 
-:::image type="content" source="media/notebook-jobs/view-jobs-in-defender-portal.png" alt-text="{alt-text}":::
+:::image type="content" source="media/notebook-jobs/view-jobs-in-defender-portal.png" lightbox="media/notebook-jobs/view-jobs-in-defender-portal.png" alt-text="A screenshot showing the jobs page in the Defender portal.":::
 
 
-## Service limits
+## Service limits and troubleshooting
 
-For more information, see [Service limits](./notebook-jobs.md#service-limits).
+For information on service limits and troubleshooting, see [Run notebooks on the Microsoft Sentinel data lake (Preview)](notebooks.md#service-limits).
 
 ## Related content
 
-- [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
-- [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
-- [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
-- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+- [Sample notebooks for Microsoft Sentinel data lake (Preview)](./notebook-examples.md)
+- [Microsoft Sentinel Provider class reference (Preview)](./sentinel-provider-class-reference.md)
+- [Microsoft Sentinel data lake overview (Preview)](./sentinel-lake-overview.md)
+- [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
