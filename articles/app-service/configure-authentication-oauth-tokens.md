@@ -66,7 +66,7 @@ For token refresh to work, the token store must contain [refresh tokens](/entra/
 | Google | Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. For more information, see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens).|
 | X | Access tokens don't expire. For more information, see [OAuth FAQ](https://developer.x.com/en/docs/authentication/faq). |
 
-### Configure the Microsoft Entra provider to supply refresh tokens
+#### Configure the Microsoft Entra provider to supply refresh tokens
 
 1. In the Azure portal, go to the [API Playground (preview)](https://portal.azure.com/#view/Microsoft_Azure_Resources/ArmPlayground).
 1. In the **Enter ARM relative path here** field, enter the following string, replacing the placeholders with your subscription ID, resource group name, and app name:<br>`subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Web/sites/<app-name>/config/authsettingsV2?api-version=2024-11-01`
