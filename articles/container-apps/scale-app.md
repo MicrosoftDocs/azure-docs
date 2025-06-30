@@ -784,22 +784,34 @@ Azure Container Apps supports two distinct workload types, apps and [jobs](jobs.
 
 - Apps are typically web APIs, background services, or microservices that run continuously and respond to incoming traffic or events.
     - Scaling mechanism: Powered by KEDA, apps scale based on declarative rules tied to metrics like:
-        - HTTP request concurrency
-        - TCP connections
-        - CPU or memory usage
-        - Event sources (e.g., Azure Service Bus, Event Hubs, Kafka)
+        - [HTTP request concurrency](#http)
+        - [TCP connections](#tcp)
+        - [CPU or memory usage](./tutorial-scaling.md#cpu-and-memory-scaling)
+        - [Event sources (e.g., Azure Service Bus, Event Hubs, Kafka)](#custom)
     - Behavior:
         - You define min/max replica counts.
+        - You can combine multiple scale rules, and the app will scale out when any rule is triggered. This allows apps to respond to diverse traffic patterns.
         - Scaling is horizontal: more replicas are added or removed based on demand.
         - Apps can scale to zero when idle, saving costs.
 
 - Jobs are designed for discrete, event-triggered tasks, such as batch processing or queue-based workloads.
-    - Scaling mechanism: Also powered by KEDA, but jobs use [ScaledJobs](https://keda.sh/docs/1.4/concepts/scaling-jobs/), which are optimized for one-off tasks.
+    - Scaling mechanism: Also powered by KEDA, but jobs use [ScaledJobs](https://keda.sh/docs/1.4/concepts/scaling-jobs/), which are optimized for one-off tasks. Jobs don’t scale based on HTTP or TCP traffic, since they’re not designed to be always-on services. Instead, they scale based on discrete events that require processing.
     - Triggers include queue length (for Azure Storage Queues or Azure Service Bus), cron schedules, or custom scalers.
     - Behavior:
         - Each job run spins up a new container instance.
         - You can configure [parallelism and retry policies](./jobs.md#job-settings).
         - Jobs run to completion and then shut down.
+
+In summary:
+
+|Feature|Container Apps|Container App Jobs|
+|===|===|===|
+|Trigger types|HTTP, TCP, CPU, memory, events|Queues, schedules, custom triggers|
+|Scaling behavior|Horizontal scaling of replicas|One-off job tasks|
+|Use case|APIs, background services|Batch jobs, queue processing|
+|KEDA scaler support|Many built-in, as well as custom|Event-driven, job-oriented|
+
+If you're designing a system that mixes both—for example, an API that triggers background processing—you can use apps and jobs together, each with the scaling rules that suit its role.
 
 ### Known limitations
 
