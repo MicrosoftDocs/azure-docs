@@ -124,16 +124,8 @@ For sample queries, see [KQL sample queries for the data lake](kql-samples.md). 
 + Calling external data via KQL query against the data lake isn't supported. 
 + `Ingestion_time()` function isn't supported on tables in data lake.
 
-The following limitations apply when writing queries in the lake tier:
 
-|Category | Limit|
-|---|---|
-| Query result rows|  30,000 rows |
-| Query result data | 64 MB. |
-| Query timeout | 8 minutes. |
-|Queryable time range | Up to 12 years, depending on data retention. |
-| Concurrent interactive queries| 45|
-| Query Scope |	Single workspace |
+[!INCLUDE [Service limits for KQL queries against the data lake](../includes/service-limits-kql-queries.md)]
 
 For troubleshooting KQL queries, see [Troubleshoot KQL queries in the Microsoft Sentinel data lake](kql-troubleshooting.md).
 

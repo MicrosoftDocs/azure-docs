@@ -100,16 +100,7 @@ In the **Schedule the query job** panel, select whether you want to run the job 
 
 ### Job limitations and troubleshooting
 
-The following table lists the limitations for KQL jobs in the Microsoft Sentinel data lake.
-
-|Category| Limit|
-|---|---|
-|Timeout| 1 hour|
-|Queryable time range| 12 years|
-|Job results destination | Analytics tier|
-|Concurrent jobs| 3 jobs |
-|Query scope| Single workspace|
-|Output tables per job| 1 table |
+[!INCLUDE [Service limits for KQL jobs](../includes/service-limits-kql-jobs.md)]
 
 > [!NOTE]
 >  Partial results may be promoted if the job's query exceeds the one hour limit.
