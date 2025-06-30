@@ -37,7 +37,7 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
 
     - To install or manage solutions in the content hub, you need the **Microsoft Sentinel Contributor** role on the resource group that the workspace belongs to.
 
-    - If you have permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), your workspace is automatically onboarded to the Defender portal. Users of such workspaces use [Microsoft Sentinel in the Defender portal](microsoft-sentinel-defender-portal.md) only.
+    - If you are a new Microsoft Sentinel customer and have permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), your workspace is automatically onboarded to the Defender portal. Users of such workspaces use [Microsoft Sentinel in the Defender portal](microsoft-sentinel-defender-portal.md) only.
 
 - **Microsoft Sentinel is a paid service**. Review the [pricing options](https://go.microsoft.com/fwlink/?linkid=2104058) and the [Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 
@@ -68,9 +68,9 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
 1. Select **Add**.
 
 > [!TIP]
-> If your workspace isn't automatically onboarded to the Defender portal, we recommend onboarding for a unified experience in managing security operations (SecOps) across both Microsoft Sentinel and other Microsoft security services.
+> If your workspace isn't automatically onboarded to the Defender portal, we recommend onboarding for a unified experience in managing security operations (SecOps) across both Microsoft Sentinel and other Microsoft security services. For more information, see [Onboard Microsoft Sentinel to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 >
-> If your workspace is automatically onboarded, or if you decide to onboard your workspace now, you can continue the procedures in this article from the Defender portal. For more information, see [Onboard Microsoft Sentinel to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
+> If your workspace is automatically onboarded, or if you decide to onboard your workspace now, you can continue the procedures in this article from the Defender portal. If this is your first time using the Defender portal, there will be a delay of a few minutes while the process completes.
 
 ## Access Microsoft Sentinel in the Defender portal
 
