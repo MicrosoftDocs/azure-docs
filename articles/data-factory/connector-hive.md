@@ -41,8 +41,7 @@ The connector supports the Windows versions in this [article](create-self-hosted
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
-> For Hive connector version 2.0, if you use the self-hosted integration runtime, its version should be 5.54 or above.
-
+> Version 2.0 is supported with the self-hosted integration runtime version 5.54 or above.
 
 ## Getting started
 
@@ -101,7 +100,7 @@ The Hive linked service supports the following properties when apply version 2.0
 | enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is true.  | No |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. Always use System Trust Store. The default value is true. | No |
 | storageReference | A reference to the linked service of the storage account used for staging data in mapping data flow. This is required only when using the Hive linked service in mapping data flow. | No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. If you use the self-hosted integration runtime, its version should be 5.54 or above. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. You can use the self-hosted integration runtime and its version should be 5.54 or above. |No |
 
 **Example:**
 
@@ -341,7 +340,7 @@ The following table shows the release stage and change logs for different versio
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
 | Version 1.0 | End of support announced | / |
-| Version 2.0 | GA version available | • Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is not supported. <br><br>• HiveServer1 and HiveThriftServer are not supported for `ServerType`.  <br><br>• Username authentication type is not supported. SASL transport protocol only supports UsernameAndPassword authentication type. Binary transport protocol only supports Anonymous authentication type. <br><br>• `serviceDiscoveryMode`, `zooKeeperNameSpace` and `useNativeQuery` are not supported. <br><br>• The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br>`enableServerCertificateValidation` is supported. <br><br>• TINYINT is read as SByte data type. <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• The self-hosted integration runtime version should be 5.54 or above. |
+| Version 2.0 | GA version available | • The self-hosted integration runtime version should be 5.54 or above. <br><br>• The default value of `enableSSL` is true. `enableServerCertificateValidation` is supported. <br>`trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br>• TINYINT is read as SByte data type. <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• Using ';' to separate multiple hosts (only when serviceDiscoveryMode is enabled) is not supported. <br><br>• HiveServer1 and HiveThriftServer are not supported for `ServerType`.  <br><br>• Username authentication type is not supported. SASL transport protocol only supports UsernameAndPassword authentication type. Binary transport protocol only supports Anonymous authentication type. <br><br>• `serviceDiscoveryMode`, `zooKeeperNameSpace` and `useNativeQuery` are not supported. |
 
 ### <a name="upgrade-the-hive-connector"></a> Upgrade the Hive connector from version 1.0 to version 2.0
 
@@ -349,7 +348,7 @@ The following table shows the release stage and change logs for different versio
 
 2. The data type mapping for the Hive linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Hive](#data-type-mapping-for-hive).
 
-3. If you use the version 2.0, your self-hosted integration runtime version should be 5.54 or above.
+3. Apply a self-hosted integration runtime with version 5.54 or above.
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

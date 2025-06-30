@@ -38,7 +38,7 @@ The service provides a built-in driver to enable connectivity. Therefore, you do
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
-> For Impala connector version 2.0, if you use the self-hosted integration runtime, its version should be 5.55 or above.
+> Version 2.0 is supported with the self-hosted integration runtime version 5.55 or above.
 
 ## Get started
 
@@ -94,7 +94,7 @@ The Impala linked service supports the following properties when apply version 2
 | password | The password that corresponds to the user name when you use UsernameAndPassword. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifies whether the connections to the server are encrypted by using TLS. The default value is true.  | No |
 | enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. Always use System Trust Store. The default value is true. | No |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. If you use the self-hosted integration runtime, its version should be 5.55 or above. |No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. You can use the self-hosted integration runtime and its version should be 5.55 or above. |No |
 
 **Example:**
 
@@ -280,7 +280,7 @@ The following table shows the release stage and change logs for different versio
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
 | Version 1.0 | End of support announced | / |
-| Version 2.0 | GA version available | • SASLUsername authentication type is not supported. <br><br>• The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.<br>`enableServerCertificateValidation` is supported.  <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• TINYINT is read as SByte data type. <br><br>• The self-hosted integration runtime version should be 5.55 or above. |
+| Version 2.0 | GA version available | • The self-hosted integration runtime version should be 5.55 or above.<br><br> • The default value of `enableSSL` is true. `enableServerCertificateValidation` is supported.<br>`trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br>• TIMESTAMP is read as DateTimeOffset data type. <br><br>• TINYINT is read as SByte data type.  <br><br>• SASLUsername authentication type is not supported. |
 
 ### <a name="upgrade-the-impala-connector"></a> Upgrade the Impala connector from version 1.0 to version 2.0
 
@@ -288,7 +288,7 @@ The following table shows the release stage and change logs for different versio
 
 2. The data type mapping for the Impala linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Impala](#data-type-mapping-for-impala).
 
-3. If you use the version 2.0, your self-hosted integration runtime version should be 5.55 or above.
+3. Apply a self-hosted integration runtime with version 5.55 or above.
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
