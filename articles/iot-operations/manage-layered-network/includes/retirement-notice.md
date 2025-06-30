@@ -8,4 +8,4 @@ ms.author: patricka
 ---
 
 > [!IMPORTANT]
-> Azure IoT Layered Network Management (preview) will be retired. Use the [networking sample](https://github.com/Azure-Samples/explore-iot-operations/tree/patricka-layered-network/samples/layered-networking) instead to implement layered network management in Azure IoT Operations.
+> Azure IoT Layered Network Management (preview) will be retired. Use the [networking sample](https://github.com/PatAltimore/explore-iot-operations/tree/patricka-layered-network/samples/layered-networking) instead to implement layered network management in Azure IoT Operations.
