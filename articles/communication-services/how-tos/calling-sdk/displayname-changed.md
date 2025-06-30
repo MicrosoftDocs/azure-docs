@@ -42,12 +42,12 @@ The following tables define support for display name change during Teams interop
 
 ### Identities and call types
 
-The following table shows media access support for specific call types and identities. 
+The following table shows display name change support for specific call types and identities. 
 
 |Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
 |-----------------------------|---------------|------|----------|------------|------------------------|--------------------------|
-|Communication Services user	| ✔️	          |      |          |     	     |	✔️                      |	✔️                       |
-|Microsoft 365 user	          | ✔️	          |      |          |  	         |    ✔️                    | ✔️                       |
+|Communication Services user  | ✔️	          |      |          |     	     |	                      |	                       |
+|Microsoft 365 user	          | ✔️	          |      |          |  	         |                        |                        |
 
 ### Operations
 
