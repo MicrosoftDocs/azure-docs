@@ -9,6 +9,7 @@ ms.date: 06/13/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a data manager, I want to establish lifecycle management policies for our blob storage, so that I can automate data transitions and deletions to optimize storage costs and enhance data management efficiency.
 ---
 
 # Azure Blob Storage lifecycle management overview

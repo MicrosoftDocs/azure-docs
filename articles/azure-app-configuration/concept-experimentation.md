@@ -8,6 +8,7 @@ ms.custom:
   - build-2024
 ms.topic: conceptual
 ms.date: 03/24/2025
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
 
