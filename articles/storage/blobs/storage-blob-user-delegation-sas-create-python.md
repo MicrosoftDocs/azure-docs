@@ -11,6 +11,7 @@ ms.date: 09/06/2024
 ms.reviewer: dineshm
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a developer, I want to create a user delegation SAS for a container or blob using Python, so that I can securely grant limited access to Azure Storage resources."
 ---
 
 # Create a user delegation SAS for a container or blob with Python
