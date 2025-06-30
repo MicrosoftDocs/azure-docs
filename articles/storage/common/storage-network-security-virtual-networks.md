@@ -1,6 +1,6 @@
 ---
 title: Create a virtual network rule for Azure Storage
-description: Learn how to create a virtual network rule that enables traffic to an Azure Storage account from subnets in an Azure Virtual network.
+description: Learn how to create a virtual network rule that enables traffic to an Azure Storage account from subnets in an Azure Virtual Network.
 services: storage
 author: normesta
 ms.service: azure-storage
@@ -13,9 +13,9 @@ ms.author: normesta
 
 # Create a virtual network rule for Azure Storage
 
-You can deny all public access to your storage account, and then configure Azure network settings to accept requests that originate from specific virtual network subnets. To learn more, see [virtual network subnets](storage-network-security.md#grant-access-from-a-virtual-network).
+You can deny all public access to your storage account and then configure Azure network settings to accept requests that originate from specific virtual network subnets. To learn more, see [virtual network subnets](storage-network-security.md#grant-access-from-a-virtual-network).
 
-To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets that are being added. A [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) or a user who has permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) can apply a rule by using a custom Azure role.
+To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets being added. A [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) or a user who has permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) can apply a rule using a custom Azure role.
 
 ## Create a virtual network rule
 
@@ -32,22 +32,20 @@ To apply a virtual network rule to a storage account, the user must have the app
 
 4. Under **Virtual networks**, select **Add existing virtual network**. 
 
-   The **Add networks pane** appears.
+   The **Add networks** pane appears.
 
 5. From the **Virtual networks** drop-down list, select a virtual network. 
 
 6. From the **Subnets** drop-down list, select the desired subnets, then select **Add**. 
 
-6. If you need to create a new virtual network, select **Add new virtual network**. Provide the necessary information to create the new virtual network, and then select **Create**. 
+7. If you need to create a new virtual network, select **Add new virtual network**. Provide the necessary information to create the new virtual network, and then select **Create**.   Only virtual networks that belong to the same Microsoft Entra tenant appear for selection during rule creation. To grant access to a subnet in a virtual network that belongs to another tenant, use PowerShell, the Azure CLI, or the REST API.
 
-   Only virtual networks that belong to the same Microsoft Entra tenant appear for selection during rule creation. To grant access to a subnet in a virtual network that belongs to another tenant, use PowerShell, the Azure CLI, or REST API.
+8. To remove a virtual network or subnet rule, select the ellipsis (**...**) to open the context menu for the virtual network or subnet, and then select **Remove**.
 
-5. To remove a virtual network or subnet rule, select the ellipsis (**...**) to open the context menu for the virtual network or subnet, and then select **Remove**.
-
-6. Select **Save** to apply your changes.
+9. Select **Save** to apply your changes.
 
 > [!IMPORTANT]
-> If you delete a subnet that's included in a network rule, it will be removed from the network rules for the storage account. If you create a new subnet by the same name, it won't have access to the storage account. To allow access, you must explicitly authorize the new subnet in the network rules for the storage account.
+> If you delete a subnet that's included in a network rule, it is removed from the network rules for the storage account. If you create a new subnet with the same name, it won't have access to the storage account. To allow access, you must explicitly authorize the new subnet in the network rules for the storage account.
 
 ### [PowerShell](#tab/azure-powershell)
 

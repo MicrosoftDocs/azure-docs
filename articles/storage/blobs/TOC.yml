@@ -301,17 +301,17 @@ items:
         href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: Networking
       items:
-      - name: Network security overview
+      - name: Network security
         href: ../common/storage-network-security-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Private endpoints
         href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Public endpoints
+      - name: Public endpoint
         items:
         - name: Default access level
           href: ../common/storage-network-security-set-default-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Firewall rules
           items:
-          - name: Firewall rules overview
+          - name: Firewall rules
             href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Guidelines and limitations
             href: ../common/storage-network-security-limitations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json

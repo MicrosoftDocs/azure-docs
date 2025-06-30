@@ -1,6 +1,6 @@
 ---
-title: Create an resource instance network rule for Azure Storage
-description: Configure the Azure Storage firewall to accept requests from from resource instances.
+title: Create a resource instance network rule for Azure Storage
+description: Configure the Azure Storage firewall to accept requests from resource instances.
 services: storage
 author: normesta
 ms.service: azure-storage
@@ -11,17 +11,17 @@ ms.author: normesta
 
 ---
 
-# Create an resource instance network rule for Azure Storage
+# Create a resource instance network rule for Azure Storage
 
 You can enable traffic from specific Azure resource instances by creating a *resource instance network rule*. 
 
-Resource instance network rules can be added together with other network rules to control traffic to the storage account. To learn more, see [Azure Storage firewall and virtual network rules](storage-network-security.md).
+Resource instance network rules can be combined with other network rules to control traffic to your storage account. To learn more, see [Azure Storage firewall and virtual network rules](storage-network-security.md).
 
 ## Create a resource instance network rule
 
 ### [Portal](#tab/azure-portal)
 
-You can add or remove resource network rules in the Azure portal:
+You can add or remove resource instance network rules in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -29,19 +29,19 @@ You can add or remove resource network rules in the Azure portal:
 
 3. In the service menu, under **Security + networking**, select **Networking**.
 
-4. Check that you've chosen to enable public network access from selected virtual networks and IP addresses.
+4. Verify that you've chosen to enable public network access from selected virtual networks and IP addresses.
 
-5. Scroll down to find **Resource instances**. In the **Resource type** dropdown list, select the resource type of your resource instance.
+5. Scroll down to the **Resource instances** section. In the **Resource type** dropdown list, select the resource type for your resource instance.
 
 6. In the **Instance name** dropdown list, select the resource instance. You can also choose to include all resource instances in the current tenant, subscription, or resource group.
 
-7. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the page for network settings.
+7. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page.
 
 To remove the resource instance, select the delete icon (:::image type="icon" source="media/storage-network-security/delete-icon.png":::) next to the resource instance.
 
 ### [PowerShell](#tab/azure-powershell)
 
-You can use PowerShell commands to add or remove resource network rules.
+You can use PowerShell commands to add or remove resource instance network rules.
 
 #### Grant access
 
@@ -105,7 +105,7 @@ $rule.ResourceAccessRules
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can use Azure CLI commands to add or remove resource network rules.
+You can use Azure CLI commands to add or remove resource instance network rules.
 
 #### Grant access
 

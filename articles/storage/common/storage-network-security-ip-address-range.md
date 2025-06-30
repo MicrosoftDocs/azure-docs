@@ -12,7 +12,7 @@ ms.author: normesta
 
 # Create an IP network rule for Azure Storage
 
-You can deny all public access to your storage account, and then configure Azure network settings to accept requests from specific IP address ranges. To enable traffic from a specific public IP address ranges, create one or more IP network rules. To learn more, see [Permit access to IP address ranges](storage-network-security.md#grant-access-from-an-internet-ip-range).
+You can deny all public access to your storage account and then configure Azure network settings to accept requests from specific IP address ranges. To enable traffic from specific public IP address ranges, create one or more IP network rules. To learn more, see [Permit access to IP address ranges](storage-network-security.md#grant-access-from-an-internet-ip-range).
 
 ## Create an IP network rule
 
@@ -22,7 +22,7 @@ You can deny all public access to your storage account, and then configure Azure
 
 2. In the service menu, under **Security + networking**, select **Networking**.
 
-3. To allow traffic from IP address ranges, make sure that **Enabled from selected virtual networks and IP addresses** is selected.  
+3. To allow traffic from IP address ranges, make sure that **Enabled from selected virtual networks and IP addresses** is selected.
 
 4. To grant access to an internet IP range, enter the IP address or address range (in CIDR format) under **Firewall** > **Address Range**.
 
@@ -34,7 +34,7 @@ You can deny all public access to your storage account, and then configure Azure
 
 1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
-2. To allow traffic to IP address ranges, use the `Update-AzStorageAccountNetworkRuleSet` command and set the `-DefaultAction` parameter to `Deny`:
+2. To allow traffic from IP address ranges, use the `Update-AzStorageAccountNetworkRuleSet` command and set the `-DefaultAction` parameter to `Deny`:
 
    ```powershell
    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
@@ -76,7 +76,6 @@ You can deny all public access to your storage account, and then configure Azure
 ### [Azure CLI](#tab/azure-cli)
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
-
 
 2. To allow traffic from IP address ranges, use the `az storage account update` command and set the `--default-action` parameter to `Deny`:
 
