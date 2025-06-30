@@ -5,6 +5,7 @@ description: ExpressRoute scalable gateway offers flexible scaling and up to 40-
 services: expressroute
 author: mekaylamoore
 ms.service: azure-expressroute
+ms.custom: references_regions
 ms.topic: concept-article
 ms.date: 06/25/2025
 ms.author: mekaylamoore
