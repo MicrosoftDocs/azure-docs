@@ -139,7 +139,7 @@ Reserved instances provide a way for you to save money with Azure. With reservat
 > [!NOTE]
 > Although you can buy a reservation with a pay-as-you-go (MS-AZR-0003P) subscription, Cost Analysis doesn't support viewing amortized reservation costs. If you try to view costs with the **Amortized cost** metric, you'll see the same results as **Actual Cost**.
 
-1. In the Azure portal, navigate to Cost Snalysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost Analysis**.
+1. In the Azure portal, navigate to Cost Analysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost Analysis**.
 1. Add a filter for **Pricing Model: Reservation**.
 1. Under **Scope** and next to the cost shown, select the down arrow symbol, select either **Actual cost** or **Amortized cost** metric.
 
@@ -212,7 +212,7 @@ Costs are only shown for your active enrollment. If you transferred an enrollmen
 
 ## View enrollment monthly cost by term
 
-Use a graphic view of your enrollment's monthly costs to understand the cost trends and invoiced amounts for a given period.
+Use a graphical view of your enrollment's monthly costs to understand the cost trends and invoiced amounts for a given period.
 
 1. In the Azure portal, navigate to Cost Analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost Analysis**.
 1. Select your enrollment and set the enrollment term.
