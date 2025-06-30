@@ -6470,6 +6470,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-spring-cloud-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-spring-cloud-connection",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/move-across-regions-external-load-balancer-portal.md",
       "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
       "redirect_document_id": false
