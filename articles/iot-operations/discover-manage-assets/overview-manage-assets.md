@@ -20,9 +20,9 @@ In Azure IoT Operations, a key task is to manage the assets and devices that are
 
 The following diagram shows the high-level architecture of Azure IoT Operations. The services that you use to manage assets are highlighted in red:
 
-<!-- Art Library Source# ConceptArt-0-000-067 -->
+<!-- Art Library Source# ConceptArt-0-000-077 -->
 
-:::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.svg" alt-text="Diagram that highlights the services used to manage assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.svg" border="false":::
+:::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.svg" alt-text="Diagram that highlights the services used to manage assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.png" border="false":::
 
 ## Understand physical assets and devices
 
