@@ -197,7 +197,7 @@ To have the share **mounted automatically on reboot**, create an entry in the `/
  
 Run the command `df -Th`.
 
-:::image type="content" source="./media/encryption-in-transit-nfs-shares/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox="./media/encryption-in-transit-nfs-shares/powershell-capture.png":::
+:::image type="content" source="./media/encryption-in-transit-nfs-shares/powershell-capture.png" alt-text="Diagram showing the PowerShell screen to test if EiT is applied." lightbox="./media/encryption-in-transit-nfs-shares/powershell-capture.png":::
  
 It indicates that the client is connected through the local port 127.0.0.1, not an external network. The **stunnel** process listens on 127.0.0.1 (localhost) for incoming NFS traffic from the NFS client. Stunnel then **intercepts** this traffic and securely forwards it over **TLS** to the Azure Files NFS server on Azure.
  
