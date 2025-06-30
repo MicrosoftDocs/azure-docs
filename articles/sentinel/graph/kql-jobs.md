@@ -96,10 +96,6 @@ In the **Schedule the query job** panel, select whether you want to run the job 
 1. The job is scheduled and the following page is displayed. You can view the job by selecting the link.
     :::image type="content" source="media/kql-jobs/job-successfully-scheduled.png" alt-text="A screenshot showing the job created page." lightbox="media/kql-jobs/job-successfully-scheduled.png":::
 
-
-
-### Job limitations and troubleshooting
-
 [!INCLUDE [Service limits for KQL jobs](../includes/service-limits-kql-jobs.md)]
 
 > [!NOTE]
