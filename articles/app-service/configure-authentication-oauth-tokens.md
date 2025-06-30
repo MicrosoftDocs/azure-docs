@@ -68,15 +68,12 @@ For token refresh to work, the token store must contain [refresh tokens](/entra/
 
 #### Configure the Microsoft Entra provider to supply refresh tokens
 
-1. In the Azure portal, go to the [API Playground (preview)](https://portal.azure.com/#view/Microsoft_Azure_Resources/ArmPlayground).
-1. In the **Enter ARM relative path here** field, enter the following string, replacing the placeholders with your subscription ID, resource group name, and app name:<br>`subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Web/sites/<app-name>/config/authsettingsV2?api-version=2024-11-01`
+1. In the Azure portal, go to the [API Playground (preview)](https://portal.azure.com/#view/Microsoft_Azure_Resources/ArmPlayground), and select **New request** if necessary.
+1. In the **Enter ARM relative path here including API version** field, enter the following string, replacing the placeholders with your subscription ID, resource group name, and app name:<br>`subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Web/sites/<app-name>/config/authsettingsV2?api-version=2024-11-01`
 1. Select **Execute**.
-1. Copy the contents of the **Response body** field and paste them into an editor.
-1. In the code, add the following line to the `"identityProviders":` **>** `"azureActiveDirectory":` **>** `"login":` section:<br>`"loginParameters": ["scope=openid profile email offline_access"]`.
-1. In the API Playground, select **New request**.
-1. Select `PUT` from the command dropdown list.
-1. Enter the same ARM relative path and API version as for the `GET` command.
-1. Select the **Request body** tab, and paste in your edited code.
+1. Select `PUT` at upper left, and select the **Request body** tab.
+1. Copy the `GET` response contents from the **Response body** field and paste them into the **Request body** tab.
+1. In the code, locate the `"identityProviders":` **>** `"azureActiveDirectory":` **>** `"login":` section, and add the following line:<br>`"loginParameters": ["scope=openid profile email offline_access"]`.
 1. Select **Execute**. The **Response body** field shows your changes.
 
 [Offline_access](/entra/identity-platform/scopes-oidc#the-offline_access-scope) is the scope that provides refresh tokens. App Service already requests the other scopes by default. For more information, see [OpenID Connect Scopes](/entra/identity-platform/scopes-oidc#openid-connect-scopes) and [Web Apps - Update Auth Settings V2](/rest/api/appservice/web-apps/update-auth-settings-v-2).
