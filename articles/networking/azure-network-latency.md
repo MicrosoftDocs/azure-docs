@@ -1,6 +1,6 @@
 ---
 title: Azure network round-trip latency statistics
-description: Learn about round-trip latency statistics between Azure regions.
+description: Use Azure network latency statistics to select regions, plan multi-region deployments, and design disaster recovery solutions with optimal performance considerations.
 services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
@@ -31,23 +31,26 @@ Azure measures round-trip latency using internal network probes that continuousl
 
 The latency statistics presented in this article are based on the 50th percentile (P50) of these measurements, which represents the median round-trip time. This means that half of the measured round-trip times are below this value, providing a reliable indicator of typical network performance.
 
-
 ## Round-trip latency data by region
 
 The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown in the following tabs. The latency is measured in milliseconds (ms).
 
-The current dataset was taken on *June 30th, 2025*, and it covers the 30-day period ending on *June 29th, 2025*.
+The current dataset was taken on *June 30, 2025*, and it covers the 30-day period ending on *June 29, 2025*. The following **new regions** were included in the dataset:
+
+- New Zealand North
+- Indonesia Central
+- Malaysia West
 
 For readability, each table is split into tabs for groups of Azure regions. The tabs are organized by regions, and then by source region in the first column of each table. For example, the *East US* tab also shows the latency from all source regions to the two *East US* regions: *East US* and *East US 2*. 
 
 > [!IMPORTANT]
-> Monthly latency numbers across Azure regions do not change on a regular basis. You can expect an update of these tables every 6 to 9 months. Not all public Azure regions are listed in the following tables. When new regions come online, we will update this document as soon as latency data is available.
+> Monthly latency numbers across Azure regions don't change regularly. You can expect an update of these tables every 6 to 9 months. Not all global Azure regions are listed in the following tables. When new regions come online, we update this document as soon as latency data is available.
 > 
 > You can perform VM-to-VM latency between regions using [test Virtual Machines](../virtual-network/virtual-network-test-latency.md) in your Azure subscription.
 
 #### [North America / South America](#tab/Americas)
 
-Latency tables for Americas regions including US, Canada, and Brazil.
+Latency tables for Americas regions including US, Canada, and South America.
 
 Use the following tabs to view latency statistics for each region.
 
@@ -57,15 +60,15 @@ Latency tables for European regions.
 
 Use the following tabs to view latency statistics for each region.
 
-#### [Australia / Asia / Pacific](#tab/APAC)
+#### [Asia-Pacific](#tab/APAC)
 
-Latency tables for Australia, Asia, and Pacific regions including and Australia, Japan, Korea, and India.
+Latency tables for Asia-Pacific regions including Australia, New Zealand, Japan, Malaysia, Korea, and Southeast Asia.
 
 Use the following tabs to view latency statistics for each region.
 
 #### [Middle East / Africa](#tab/MEA)
 
-Latency tables for Middle East / Africa regions including UAE, South Africa, Israel, and Qatar.
+Latency tables for Middle East and Africa regions including UAE, South Africa, Israel, and Qatar.
 
 Use the following tabs to view latency statistics for each region.
 
@@ -972,7 +975,7 @@ Use the following tabs to view latency statistics for each region.
 
 Additionally, you can view all of the data in a single table.
 
-:::image type="content" source="media/azure-network-latency/azure-network-latency.png" alt-text="Screenshot of full region latency table" lightbox="media/azure-network-latency/azure-network-latency-thumb.png":::
+:::image type="content" source="media/azure-network-latency/azure-network-latency.png" alt-text="Screenshot of full region latency table." lightbox="media/azure-network-latency/azure-network-latency-expanded.png":::
 
 ## Next steps
 
