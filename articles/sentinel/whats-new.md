@@ -18,6 +18,14 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## June 2025
+
+- [Summary rule templates now in public preview](#summary-rule-templates-now-in-public-preview)
+
+### Summary rule templates now in public preview
+
+You can now use summary rule templates to deploy pre-built summary rules tailored to common security scenarios. These templates help you aggregate and analyze large datasets efficiently, don't require deep expertise, reduce setup time, and ensure best practices. For more information, see [Aggregate Microsoft Sentinel data with summary rules (Preview)](summary-rules.md#use-summary-rule-templates).
+
 ## May 2025
 
 - [All Microsoft Sentinel use cases generally available in the Defender portal](#all-microsoft-sentinel-use-cases-generally-available-in-the-defender-portal)

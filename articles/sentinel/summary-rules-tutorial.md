@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Tutorial: Send logs to low-cost storage and extract actionable analytics using summary rules in Microsoft Sentinel (Preview)
 
-This article provides an example of how to use summary rules to aggregate insights from an [auxiliary logs table](basic-logs-use-cases.md) to an Analytics table. In this example, you ingest CEF data from Logstash by deploying a custom connector using an ARM template.
+This article provides an example of how to use summary rules to aggregate insights from an [auxiliary logs table](basic-logs-use-cases.md) to an Analytics table. In this example, you ingest Common Event Format (CEF) data from Logstash by deploying a custom connector using an ARM template.
 
 > [!IMPORTANT]
 > Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -94,36 +94,42 @@ This diagram shows the process described in this tutorial:
     
     Here are a couple of examples of summary rules to aggregate your CEF data:
 
-    - **Lookup indicator of compromise (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurrences, and then query only those occurrences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other metadata, which can then be used against IoC lookups:
+    - **Lookup indicator of compromise (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurrences, and then query only those occurrences for faster results. The `Message` field is device-specific and in JSON format, so you need to parse this field to extract relevant data. This summary rule is an example of how to bring a unique `SourceIP` feed along with other metadata, which you can then use against IoC lookups:
 
         ```kusto
         // Daily Network traffic trend Per Destination IP along with Data transfer stats 
         // Frequency - Daily - Maintain 30 day or 60 Day History. 
-          CommonSecurityLog_CL 
-          | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
-          | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofBytesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
-          by Day,DestinationIp, DeviceVendor 
+        CommonSecurityLog_CL 
+        | extend j=parse_json(Message)
+        | extend DestinationIP=tostring(j.destinationAddress)
+        | extend SourceIP=tostring(j.sourceAddress)
+        | extend SentBytes=toint(j.bytesOut)
+        | extend ReceivedBytes=toint(j.bytesOut)
+        | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
+        | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofBytesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes) by Day,DestinationIP, DeviceVendor
         ```
 
-    - **Query a summary baseline for anomaly detections**. Instead of running your queries against large historical periods, such as 30 or 60 days, we recommend that you ingest data into custom logs, and then only query summary baseline data, such as for time series anomaly detections. For example:
+    - **Query a summary baseline for anomaly detections**. Instead of running your queries against large historical periods, such as 30 or 60 days, we recommend that you ingest data into an Auxiliary table, and then only query summary baseline data, such as for time series anomaly detections. For example:
 
         ```kusto
         // Time series data for Firewall traffic logs 
         let starttime = 14d; 
         let endtime = 1d; 
         let timeframe = 1h; 
-        let TimeSeriesData =  
         CommonSecurityLog_CL 
-          | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) 
-          | where isnotempty(DestinationIP) and isnotempty(SourceIP) 
-          | where ipv4_is_private(DestinationIP) == false 
-          | project TimeGenerated, SentBytes, DeviceVendor 
-          | make-series TotalBytesSent=sum(SentBytes) on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DeviceVendor 
+        | extend j=parse_json(Message)
+        | extend DestinationIP=tostring(j.destinationAddress)
+        | extend SourceIP=tostring(j.sourceAddress)
+        | extend SentBytes=toint(j.bytesOut)
+        | where isnotempty(DestinationIP) and isnotempty(SourceIP) 
+        | where ipv4_is_private(DestinationIP) == false 
+        | project TimeGenerated, SentBytes, DeviceVendor 
+        | make-series TotalBytesSent=sum(SentBytes) on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DeviceVendor 
         ```
 
 1. **Query the destination Analytics table.**
 
-    To view the data that was aggregated by the summary rule, run a query against the Analytics table you specified in the summary rule. 
+    To view the aggregated data, run a query against the Analytics table you specified in the summary rule. 
 
 
 See more information on the following items used in the preceding examples, in the Kusto documentation:
