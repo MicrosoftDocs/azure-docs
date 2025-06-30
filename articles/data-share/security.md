@@ -26,7 +26,7 @@ Once a share is created or received, users with proper permission to the Data Sh
 
 ## Share data from or to data stores with firewall enabled
 
-To share data from or to storage accounts with firewall turned on, you need to enable **Allow trusted Microsoft services** in your storage account. See [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md#trusted-microsoft-services) for details.
+To share data from or to storage accounts with firewall turned on, you need to enable **Allow trusted Microsoft services** in your storage account. See [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security-trusted-azure-services.md#trusted-microsoft-services) for details.
 
 ## Related content
 
