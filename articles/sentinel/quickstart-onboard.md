@@ -67,7 +67,7 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
 
 1. Select **Add**.
 
-> [!TIP]
+> [!NOTE]
 > If your workspace isn't automatically onboarded to the Defender portal, we recommend onboarding for a unified experience in managing security operations (SecOps) across both Microsoft Sentinel and other Microsoft security services. For more information, see [Onboard Microsoft Sentinel to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 >
 > If your workspace is automatically onboarded, or if you decide to onboard your workspace now, you can continue the procedures in this article from the Defender portal. If this is your first time using the Defender portal, there will be a delay of a few minutes while the process completes.
