@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: shaas
 ms.reviewer: dineshm
 ms.date: 02/12/2025
+# Customer intent: "As a web developer, I want to host a static website using cloud storage, so that I can efficiently serve content without the need for a traditional web server while maintaining scalability and performance."
 ---
 
 # Static website hosting in Azure Storage
