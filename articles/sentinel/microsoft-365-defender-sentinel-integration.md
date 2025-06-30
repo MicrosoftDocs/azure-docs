@@ -194,7 +194,7 @@ The Defender XDR connector also lets you stream **advanced hunting** events&mdas
 
 - Use the raw event logs to provide further insights for your alerts, hunting, and investigation, and correlate these events with events from other data sources in Microsoft Sentinel.
 
-- Store the logs with increased retention, beyond Defender XDR’s or its components' default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
+- Store the logs with increased retention, beyond the Defender XDR default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
 
 ## Related content
 
