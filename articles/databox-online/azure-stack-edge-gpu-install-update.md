@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 02/04/2025
+ms.date: 06/30/2025
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU
@@ -22,59 +22,58 @@ Apply the software updates or hotfixes to keep your Azure Stack Edge Pro device 
 
 ## About latest updates
 
-The current version is Update 2501. This update installs two updates, the device update followed by Kubernetes updates. 
+The current version is Update 2506. This update installs two updates, the device update followed by Kubernetes updates. 
 
 The associated versions for this update are:
 
-- Device software version: Azure Stack Edge 2501 (3.3.2501.1176).
-- Device Kubernetes version: Azure Stack Kubernetes Edge 2501 (3.3.2501.1176).
+- Device software version: Azure Stack Edge 2501 (3.3.2506.1064).
+- Device Kubernetes version: Azure Stack Kubernetes Edge 2501 (3.3.2506.1064).
 - Device Kubernetes workload profile: Other workloads.
-- Kubernetes server version: v1.29.4.
+- Kubernetes server version: v1.30.4.
 - IoT Edge version: 0.1.0-beta15.
-- Azure Arc version: 1.19.2.
+- Azure Arc version: 1.23.3.
 - GPU driver version: 535.183.06.
 - CUDA version: 12.2.
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2501-release-notes.md).
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2506-release-notes.md).
 
-**To apply the 2501 update, your device must be running version 2403 or later.**
+**To apply the 2506 update, your device must be running version 2501 or later.**
 
 - If you aren't running the minimum required version, you see this error:
  
   *Update package can't be installed as its dependencies aren't met.*
 
-- You can update to 2403 from 2303 or later, and then install 2501.
+- You can update to 2501 from 2403 or later, and then install 2506.
 
 Supported update paths:
 
-| Current version of Azure Stack Edge software and Kubernetes | Upgrade to Azure Stack Edge software and Kubernetes | Desired update to 2501 |
+| Current version of Azure Stack Edge software and Kubernetes | Upgrade to Azure Stack Edge software and Kubernetes | Desired update to 2506 |
 |-------|----------|------------ |
-| 2303  | 2403  | 2501  |
-| 2309  | 2403  | 2501  |
-| 2312  | 2403  | 2501  |
-| 2403  | Directly to | 2501  |
+| earlier than 2403  | update to 2403, then to 2501  | 2506  |
+| earlier than 2501  | update to 2501  | 2506  |
+| 2501  | Directly to | 2506  |
 
 ### Update Azure Kubernetes service on Azure Stack Edge
 
 > [!IMPORTANT]
 > Use the following procedure only if you are an SAP or a PMEC customer.
 
-If you have Azure Kubernetes service deployed and your Azure Stack Edge device and Kubernetes versions are either 2207 or 2209, you must update in multiple steps to apply 2501.
+If you have Azure Kubernetes service deployed and your Azure Stack Edge device and Kubernetes versions are earlier than 2403, you must update in multiple steps to apply 2506.
 
-Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2407:
+Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2506:
 
-1. Update your device version to 2403.
-1. Update your Kubernetes version to 2210.
+1. Update your device version to 2501.
 1. Update your Kubernetes version to 2403.
-1. Update both device software and Kubernetes to 2501.
+1. Update your Kubernetes version to 2501.
+1. Update both device software and Kubernetes to 2506.
 
-If you're running 2210 or 2301, you can update both your device version and Kubernetes version directly to 2403 and then to 2501.
+If you're running earlier than 2403, you update both your device version and Kubernetes version to 2403, then to 2501, and then to 2506.
 
-If you're running 2403, you can update both your device version and Kubernetes version directly to 2501.
+If you're running 2501, you can update both your device version and Kubernetes version directly to 2506.
 
-In Azure portal, the process requires two clicks, the first update gets your device version to 2403 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2501.
+In Azure portal, the process requires two clicks, the first update gets your device version to 2501 and your Kubernetes version to 2403, and the second update gets your Kubernetes version upgraded to 2506.
 
-From the local UI, you'll have to run each update separately: update the device version to 2403, update Kubernetes version to 2210, update Kubernetes version to 2403, and then the third update gets both the device version and Kubernetes version to 2501.
+From the local UI, you'll have to run each update separately: update the device version to 2501, update Kubernetes version to 2403, update Kubernetes version to 2501, and then the third update gets both the device version and Kubernetes version to 2506.
 
 Each time you change the Kubernetes profile, you're prompted for the Kubernetes update. Go ahead and apply the update.
 
