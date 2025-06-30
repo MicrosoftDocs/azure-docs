@@ -36,7 +36,7 @@ This article walks you through enabling bundled Prometheus, configuring recordin
 
 Complete the following steps to connect your Grafana workspace to an Azure Monitor workspace and enable bundled Prometheus (preview):
 
-1. Open your Azure Managed Grafana workspace and in the left menu select **Integrations** > **Bundled Prometheus**.
+1. Open your Azure Managed Grafana workspace and in the left menu select **Integrations** > **Bundled Prometheus (Preview)**.
 
     :::image type="content" source="media/bundled-prometheus/select-monitor-workspace.png" alt-text="Screenshot of the Azure platform showing the bundled Prometheus integration pane in Azure Managed Grafana.":::
 
@@ -56,7 +56,7 @@ Alert rules monitor your Prometheus metrics and trigger notifications when speci
 Follow these steps to create an alert rule:
 
 1. In the Grafana UI, go to **Alerting** > **Alert rules** and select **New alert rule**.
-    :::image type="content" source="media/bundled-prometheus/new-alert-rule.png" alt-text="Screenshot of the Alert rules page in Grafana with the New alert rule action highlighted.":::
+    :::image type="content" source="media/bundled-prometheus/new-alert-rule.png" alt-text="Screenshot of the Alert rules page in Grafana with the New alert rule action highlighted." lightbox="media/bundled-prometheus/new-alert-rule.png"::::::
 
 1. Enter an alert rule name that describes what you're monitoring.
 1. Define a query and alert condition: select **bundled-azure-prometheus** from the dropdown and define your query and alert condition.
@@ -78,7 +78,7 @@ Follow these steps to create a new recording rule:
 
    1. In the page that opens, enter a name for the recording rule and a metric name.
    1. Define the rule for the bundled-azure-prometheus data source.
-    :::image type="content" source="media/bundled-prometheus/define-recording-rule.png" alt-text="Screenshot of configuring recording rule settings with query and labels." lightbox="media/grafana-settings/grafana-settings-tab.png":::
+    :::image type="content" source="media/bundled-prometheus/define-recording-rule.png" alt-text="Screenshot of configuring recording rule settings with query and labels." lightbox="media/bundled-prometheus/define-recording-rule.png":::
 
    1. Set an evaluation behavior and optionally add labels.
     :::image type="content" source="media/bundled-prometheus/set-evaluation-behaviors-labels.png" alt-text="Screenshot of the recording rule configuration form with evaluation settings.":::
@@ -105,7 +105,7 @@ After you set up the recording rules, you can visualize the recorded Prometheus 
 
 If you no longer need bundled Prometheus (preview), you can disable it from your Azure Managed Grafana workspace:
 
-1. In your Azure Managed Grafana workspace, select **Integrations** > **Bundled Prometheus** from the left menu.
+1. In your Azure Managed Grafana workspace, select **Integrations** > **Bundled Prometheus (Preview)** from the left menu.
 1. Select **Disable** > **Yes** to confirm.
 1. Optionally remove the role assignments previously added in the Azure Monitor workspace:
    1. In the Azure Monitor workspace resource, select **Access control (IAM)** > **Role assignments**.
