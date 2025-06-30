@@ -4,8 +4,11 @@ description: Learn how to expose a REST API in Azure API Management as an MCP se
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/18/2025
+ms.date: 06/27/2025
 ms.author: danlep
+ms.collection: ce-skilling-ai-copilot
+ms.custom:
+  - build-2025
 ---
 
 # Expose REST API in API Management as an MCP server
@@ -17,8 +20,8 @@ In API Management, you can expose a REST API managed in API Management as a remo
 
 Using API Management to expose remote MCP servers provides centralized control over authentication, authorization, and monitoring. It simplifies the process of exposing APIs as MCP servers while helping to mitigate common security risks and ensuring scalability.
 
-> [!NOTE]
-> This feature is currently in preview. It's being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
+> [!IMPORTANT]
+> This feature is being introduced in preview in the classic Basic, Standard, and Premium tiers. It's being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md). After joining the group, it can take 2 hours to access MCP server features.
 
 In this article, you learn how to:
 
@@ -40,7 +43,7 @@ In this article, you learn how to:
 ## Expose API as an MCP server
 
 
-1. In the Azure portal, access the MCP server preview at the following URL:
+1. In the Azure portal, access the MCP server preview at the following URL. The preview can ony be used in the supported API Management tiers:
 
     ```
     https://portal.azure.com/?Microsoft_Azure_ApiManagement=mcp
@@ -82,6 +85,9 @@ To configure policies for the MCP server:
 To verify that the MCP server is working, you can use Visual Studio Code to send requests to the MCP server tools.
 
 In Visual Studio Code, use GitHub Copilot chat in agent mode (preview) to add the MCP server and use the tools. For background about MCP servers in Visual Studio Code, see [Use MCP Servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+
+> [!TIP]
+> If you use the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) to test an MCP server created by API Management, we recommend using version 0.9.0.
 
 ### Add the MCP server in Visual Studio Code
 

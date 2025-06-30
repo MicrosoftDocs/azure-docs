@@ -4,7 +4,11 @@ description: Learn how to deploy the MedTech service using a Bicep file and Azur
 author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
-ms.custom: devx-track-bicep, devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - devx-track-bicep
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - build-2025
 ms.topic: quickstart
 ms.date: 07/12/2023
 ms.author: chrupa

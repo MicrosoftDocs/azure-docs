@@ -6,8 +6,11 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.date: 05/19/2025
+ms.date: 05/21/2025
+ms.update-cycle: 180-days
 #CustomerIntent: I want a guide that introduces starting points, building blocks, examples, samples, and other resources to help me learn about using AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
+ms.custom:
+  - build-2025
 ---
 
 # AI playbook, examples, and other resources for workflows in Azure Logic Apps
@@ -41,6 +44,15 @@ For more information, see the following resources:
 | Resource type | Link |
 |---------------|------|
 | **Documentation** | - [Workflows with AI agents and models in Azure Logic Apps](agent-workflows-concepts.md) <br><br>- [Create workflows that use AI agents and models to complete tasks in Azure Logic Apps](create-agent-workflows.md) |
+| **Blog article** | [Announcing agent loop: Build AI Agents in Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2announcing-agent-loop-build-ai-agents-in-azure-logic-apps-%F0%9F%A4%96/4415052) |
+| **Blog article** | [Agent Loop Demos for Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%A4%96-agent-loop-demos-%F0%9F%A4%96/4414770) |
+| **Video overview** | [Getting Ready for Agents in Azure Logic Apps](https://youtu.be/EMXLB4thdhg) |
+| **Video demo** | [Loan Approval - Autonomous Agent Loop](https://youtu.be/rR1QjQTfCCg) |
+| **Video demo** | [Product Return - Autonomous Agent Loop](https://youtu.be/ilSGRUpjMdU) |
+| **Video demo** | [Grocery Return with IBM Mainframe and Midrange System Integration - Autonomous Agent Loop](https://youtu.be/vPxFjJUP494) |
+| **Video demo** | [Operations Conversational Agent - Repair and Resubmit with ServiceNow](https://youtu.be/-V4n9VMcN0k) |
+| **Video demo** | [Operations Autonomous Agent - Repair and Resubmit with ServiceNow](https://youtu.be/uciB7jtDpyk) |
+| **Video demo** | [Codeful and Declarative Multiple Agents](https://youtu.be/sQaAzhkzT6E) |
 
 ## Building blocks for AI solutions
 

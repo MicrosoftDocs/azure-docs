@@ -16,6 +16,10 @@
       href: virtual-network-service-endpoints-overview.md
     - name: Service tags
       href: service-tags-overview.md
+    - name: Architecture best practices for Azure Virtual Network
+      href: /azure/well-architected/service-guides/virtual-network
+    - name: What is network foundations?
+      href: /azure/networking/network-foundations-overview
 - name: Get started
   items:
     - name: Add, change, or delete a subnet
@@ -78,6 +82,48 @@
       href: tutorial-restrict-network-access-to-resources.md
     - name: Route network traffic
       href: tutorial-create-route-table.md
+- name: Security
+  items:
+    - name: Azure Kubernetes network policies
+      href: kubernetes-network-policies.md
+    - name: Azure Policy Regulatory Compliance controls
+      href: ./security-controls-policy.md
+    - name: Azure security baseline for Virtual Network
+      href: /security/benchmark/azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Azure Security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+    - name: DDoS protection
+      items:
+        - name: Overview
+          href: /azure/ddos-protection/ddos-protection-overview?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Create and configure
+          href: /azure/ddos-protection/manage-ddos-protection?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+        - name: Partnering with Azure DDoS Protection
+          href: /azure/ddos-protection/ddos-protection-partner-onboarding?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Encryption
+      items:
+        - name: Overview
+          href: virtual-network-encryption-overview.md
+        - name: Create a virtual network with encryption
+          href: how-to-create-encryption.md
+        - name: FAQ
+          href: virtual-network-encryption-faq.yml
+    - name: Network security groups
+      items:
+        - name: How network security groups filter traffic
+          href: network-security-group-how-it-works.md
+        - name: Manage network security groups
+          href: manage-network-security-group.md
+    - name: Service endpoint policies for Azure Storage
+      href: virtual-network-service-endpoint-policies-overview.md
+    - name: Virtual network TAP
+      items:
+        - name: Overview
+          href: virtual-network-tap-overview.md
+        - name: Configure virtual network TAP - Azure portal
+          href: tutorial-virtual-network-tap-portal.md
+        - name: Configure virtual network TAP - Azure CLI
+          href: tutorial-tap-virtual-network-cli.md
 - name: Manage connectivity
   items:
     - name: Accelerated networking
@@ -164,8 +210,6 @@
           href: virtual-network-tcpip-performance-tuning.md
 - name: Reliability and availability
   items:
-    - name: Business continuity
-      href: virtual-network-disaster-recovery-guidance.md
     - name: Deploy a DHCP server on an Azure VM
       href: how-to-dhcp-azure.md
     - name: Move across regions
@@ -182,6 +226,8 @@
           href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
         - name: Virtual networks
           href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    - name: Azure Virtual Network reliability
+      href: ../reliability/reliability-virtual-network.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
 - name: Troubleshoot
   items:
     - name: Configure reverse lookup zones for an SMTP banner check
@@ -210,6 +256,8 @@
       href: virtual-network-troubleshoot-cannot-delete-vnet.md
 - name: Security
   items:
+    - name: Secure your Virtual Network
+      href: secure-virtual-network.md
     - name: Azure Kubernetes network policies
       href: kubernetes-network-policies.md
     - name: Azure Policy Regulatory Compliance controls

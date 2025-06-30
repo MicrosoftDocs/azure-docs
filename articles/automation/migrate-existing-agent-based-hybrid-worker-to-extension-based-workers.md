@@ -4,10 +4,16 @@ description: This article provides information on how to migrate an existing age
 services: automation
 ms.subservice: process-automation
 ms.date: 04/07/2025
-ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-bicep
+  - devx-track-azurepowershell
+  - build-2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers

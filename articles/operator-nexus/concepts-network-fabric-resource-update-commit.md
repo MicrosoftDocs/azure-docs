@@ -8,6 +8,8 @@ ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/03/2024
 
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
+ms.custom:
+  - build-2025
 ---
 
 # Update and commit Network Fabric resources

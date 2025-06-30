@@ -100,7 +100,7 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+    href: https://azure.microsoft.com/updates/?searchterms=relay#
   - name: FAQ
     href: relay-faq.yml
   - name: Blog

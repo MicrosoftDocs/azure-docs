@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to configure network security groups for Azure resources so that I can effectively filter and manage inbound and outbound network traffic within my virtual network."
 ---
 
 # How network security groups filter network traffic

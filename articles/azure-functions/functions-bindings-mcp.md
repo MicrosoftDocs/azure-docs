@@ -1,8 +1,9 @@
 ---
 title: MCP tool bindings for Azure Functions
-description: Learn how you can expose your functions as model content protocol (MCP) tools using bindings in Azure Functions.
+description: Learn how you can expose your functions as model context protocol (MCP) tools using bindings in Azure Functions.
 ms.topic: reference
 ms.date: 05/03/2025
+ms.update-cycle: 180-days
 ms.custom: 
   - build-2025
 ai-usage: ai-assisted
@@ -14,7 +15,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # MCP tool bindings for Azure Functions overview
 
-The [Model Content Protocol (MCP)](https://github.com/modelcontextprotocol) is a client-server protocol intended to enable language models and agents to more efficiently discover and use external data sources and tools. 
+The [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) is a client-server protocol intended to enable language models and agents to more efficiently discover and use external data sources and tools. 
 
 [!INCLUDE [functions-mcp-extension-preview-note](../../includes/functions-mcp-extension-preview-note.md)]
 
@@ -84,4 +85,4 @@ To use this experimental bundle in your app, replace the existing `extensionBund
 [Create a tool endpoint in your remote MCP server](./functions-bindings-mcp-trigger.md) 
 
 
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md

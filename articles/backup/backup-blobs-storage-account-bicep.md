@@ -2,8 +2,10 @@
 title: Quickstart - Back up blobs in a storage account
 description: Learn how to back up blobs in a storage account with a Bicep file.
 ms.topic: quickstart
-ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 06/17/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -360,4 +362,5 @@ resource backupInstance 'Microsoft.DataProtection/backupVaults/backupInstances@2
 
 ## Next step
 
-Learn [how to create Bicep files](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI).
+- [Create Bicep files](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI).
+- Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

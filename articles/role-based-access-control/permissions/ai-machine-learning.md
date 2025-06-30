@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -578,6 +578,17 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/Operations/read | List all available operations |
 > | Microsoft.CognitiveServices/skus/read | Reads available SKUs for Cognitive Services. |
 > | **DataAction** | **Description** |
+> | Microsoft.CognitiveServices/accounts/AIServices/agents/write | Create update agents, threads, and messages |
+> | Microsoft.CognitiveServices/accounts/AIServices/agents/read | Read agents, threads, and messages |
+> | Microsoft.CognitiveServices/accounts/AIServices/agents/delete | Delete agents, threads, and messages |
+> | Microsoft.CognitiveServices/accounts/AIServices/assets/read | List versions of an asset or get a particular version of the asset |
+> | Microsoft.CognitiveServices/accounts/AIServices/assets/write | List versions of an asset or get a particular version of the asset |
+> | Microsoft.CognitiveServices/accounts/AIServices/assets/delete | List versions of an asset or get a particular version of the asset |
+> | Microsoft.CognitiveServices/accounts/AIServices/connections/read | List all connections in the project. Get a connection by name. |
+> | Microsoft.CognitiveServices/accounts/AIServices/connections/listSecrets/action | Read connection credentials |
+> | Microsoft.CognitiveServices/accounts/AIServices/deployments/read | List all deployed models in the project. Get a deployed model. |
+> | Microsoft.CognitiveServices/accounts/AIServices/evaluations/write | Create an evaluation run |
+> | Microsoft.CognitiveServices/accounts/AIServices/evaluations/read | Read evaluation runs |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models:detect-last/action | Submit multivariate anomaly detection task with the modelId of trained model and inference data, and the inference data should be put into request body in a JSON format. The request will complete synchronously and return the detection immediately in the response body. |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models:detect-batch/action | Submit multivariate anomaly detection task with the modelId of trained model and inference data, the input schema should be the same with the training request. The request will complete asynchronously and return a resultId to query the detection result.The request should be a source link to indicate an externally accessible Azure storage Uri, either pointed to an Azure blob storage folder, or pointed to a CSV file in Azure blob storage. |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/action | Create and train a multivariate anomaly detection model.<br>The request must include a source parameter to indicate an externally accessible Azure blob storage URI.There are two types of data input: An URI pointed to an Azure blob storage folder which contains multiple CSV files, and each CSV file contains two columns, timestamp and variable.<br>Another type of input is an URI pointed to a CSV file in Azure blob storage, which contains all the variables and a timestamp column. |
@@ -1729,16 +1740,28 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/MetricsAdvisor/timeseriesgroups/seriessets/read | Get a time series set |
 > | Microsoft.CognitiveServices/accounts/ModelDistribution/models/read | Get model manifest for given conditions |
 > | Microsoft.CognitiveServices/accounts/ModelDistribution/models/latest/read | Get latest available and compatible model for a specific service. |
-> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:analyze/action | Extract content and fields from input. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:analyze/action | Extract content and fields from input. Extract content and fields from input.* |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:analyzebinary/action | Extract content and fields from input. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers:classify/action | Classify content with optional splitting. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers:classifybinary/action | Classify content with optional splitting. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/faces:compare/action | Compare the similarity between two faces. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/faces:detect/action | Detect faces in an image. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/read | Get the result of an analysis operation. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/files/read | Get a file associated with the result of an analysis operation. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/read | List analyzers. Get analyzer properties. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/write | Create a new analyzer asynchronously. Update analyzer properties. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/delete | Delete analyzer. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/read | List analyzers. Get analyzer properties.* |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/operations/read | Get the status of an analyzer creation operation. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/operations/read | Get the status of an analyzer creation operation. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/results/read | Get the result of an analysis operation. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/results/images/read | Get an image associated with the result of an analysis operation. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/batchAnalysisJobs/read | List all batch analysis jobs. Get batch analysis job. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/batchAnalysisJobs/write | Create a batch analysis job. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/batchAnalysisJobs/delete | Delete batch analysis job.  Analysis output is not deleted. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifierresults/read | Get the result of a classifier operation. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers/read | List classifiers. Get classifier properties.* |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers/operations/read | Get the status of a classifier creation operation. |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/write | Labeling - Create project Labeling - Update project |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/read | Labeling - Get project Labeling - List projects |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/delete | Labeling - Delete project |
@@ -1760,6 +1783,12 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/test/files/read | Labeling - Get test files Labeling - List test files |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/test/files/delete | Labeling - Delete Test file |
 > | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/test/files/operations/read | Labeling - Get hitl operation status |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/read | List person directories. Get person directory properties.* |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/faces:find/action | Find similar faces. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons:verify/action | Verify if a face matches the person. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons:identify/action | Identify the person from a face. |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/faces/read | List faces. Get face properties.* |
+> | Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons/read | List persons. Get person properties.* |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/categorysearch/action | Returns news for a provided category. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/search/action | Get news articles relevant for a given query. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/trendingtopics/action | Get trending topics identified by Bing. These are the same topics shown in the banner at the bottom of the Bing home page. |
@@ -2372,6 +2401,12 @@ Azure service: [Machine Learning](/azure/machine-learning/)
 > | Microsoft.MachineLearningServices/workspaces/linkedServices/delete | Delete Machine Learning Services Workspace Linked Service(s) |
 > | Microsoft.MachineLearningServices/workspaces/listNotebookAccessToken/read | List Azure Notebook Access Token for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/listNotebookKeys/read | List Azure Notebook keys for a Machine Learning Services Workspace |
+> | Microsoft.MachineLearningServices/workspaces/managedNetworks/read | Get the managed network associated with the Machine Learning Service Workspace. |
+> | Microsoft.MachineLearningServices/workspaces/managedNetworks/write | Creates or updates the managed network associated with the Machine Learning Service Workspace. |
+> | Microsoft.MachineLearningServices/workspaces/managedNetworks/batchOutboundRules/action | Manages the outbound rules of the managed network associated with the Machine Learning Service Workspace. |
+> | Microsoft.MachineLearningServices/workspaces/managedNetworks/outboundRules/read | Gets the outbound rules of managed network associated with the Machine Learning Service Workspace. |
+> | Microsoft.MachineLearningServices/workspaces/managedNetworks/outboundRules/write | Creates or updates an outbound rule of managed network associated with the Machine Learning Service Workspace. |
+> | Microsoft.MachineLearningServices/workspaces/managedNetworks/outboundRules/delete | Deletes an outbound rule of managed network associated with the Machine Learning Service Workspace. |
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/claim/read | Get my claims on data |
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/claim/write | Update my claims on data |
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/claim/manage/action | Manage claims for all users in this workspace |
@@ -2566,7 +2601,7 @@ Azure service: [Azure AI Video Indexer](/azure/azure-video-indexer/)
 > | Microsoft.VideoIndexer/accounts/privateEndpointConnections/write | Update the state of specified private endpoint connection associated with the Video Indexer account. |
 > | Microsoft.VideoIndexer/accounts/privateEndpointConnections/delete | Deletes the specified private endpoint connection associated with the Video Indexer account. |
 > | Microsoft.VideoIndexer/accounts/privateLinkResources/read | List all private link resources in a Video Indexer account. |
-> | Microsoft.VideoIndexer/accounts/privateLinkResources/read | Get the specified private link resource associated with the Video Indexer account. |
+> | Microsoft.VideoIndexer/accounts/privateLinkResources/read | Get the private link resource with the specified group Id associated with the Video Indexer account. |
 > | Microsoft.VideoIndexer/locations/classicAccounts/read | Gets the properties of an Azure Video Indexer Classic account. |
 > | Microsoft.VideoIndexer/locations/operationstatuses/read | read operationstatuses |
 > | Microsoft.VideoIndexer/locations/operationstatuses/write | write operationstatuses |

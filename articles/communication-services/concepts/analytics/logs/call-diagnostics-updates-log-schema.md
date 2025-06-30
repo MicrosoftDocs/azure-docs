@@ -42,7 +42,7 @@ When using the Call Diagnostics Updates Log Schema, always refer to the highest 
 
 ### More about log versions and data latency
 
-The call diagnostics updates log schema may require approximately 60 minutes following the end of a call to propogate data, most logs may be available within 40 minutes. 
+The call diagnostics updates log schema may require approximately 60 minutes following the end of a call to propagate data, most logs may be available within 40 minutes. 
 
 After a call ends, an initial version (version 1) of the log is sent to the CallSummaryUpdates and CallDiagnosticUpdates tables. Initial versions may contain `null` values, if more information becomes available updated versions of the logs are created with more complete information. For example, client data can be delayed because of network connectivity issues between the client computer and our servers, or something as simple as a user closing the lid on their laptop post-call before their client data was sent and re-opening it hours (or days) later. 
 
@@ -89,6 +89,7 @@ This table describes each property.
 | `StreamDirection` | The direction of the media stream. It is either Inbound or Outbound. |
 | `CodecName` | The name of the codec used for processing media streams. It can be OPUS, G722, H264S, SATIN, and so on. |
 | `CallUpdatesVersion`| Represents the log version, with higher numbers indicating the most recently published version. |
+| `TPE`| This value indicates that the call is associated with a Teams Phone extensibility scenario.|
 
 ## Sample data for various call types
 

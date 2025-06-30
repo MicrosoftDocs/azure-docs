@@ -8,6 +8,7 @@ ms.author: akashdubey
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
+# Customer intent: "As a cloud administrator, I want to configure settings for BlobFuse2, so that I can effectively manage access, logging, caching, and permissions in my deployment."
 ---
 
 # How to configure settings for BlobFuse2

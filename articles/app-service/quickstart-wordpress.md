@@ -8,7 +8,10 @@ ms.subservice: wordpress
 ms.topic: quickstart
 ms.date: 04/11/2025
 ms.author: msangapu
-ms.custom: mvc, linux-related-content
+ms.custom:
+  - mvc
+  - linux-related-content
+  - build-2025
 ---
 # Create a WordPress site
 

@@ -7,6 +7,8 @@ ms.service: azure-virtual-network-manager
 ms.topic: concept-article
 ms.date: 11/06/2024
 #CustomerIntent: As a network admin, I want understand the limitations in Azure Virtual Network Manager so that I can properly deploy it my environment.
+ms.custom:
+  - build-2025
 ---
 
 # Limitations with Azure Virtual Network Manager
@@ -23,6 +25,8 @@ This article provides an overview of the current limitations when you're using [
 
 * Azure Virtual Network Manager policies don't support the standard evaluation cycle for policy compliance. For more information, see [Evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 * The move of the subscription where the Azure Virtual Network Manager instance exists to another tenant is not supported.
+
+* In the Azure China regions, currently, using tags on resource groups and subscriptions as a condition in dynamic membership is not supported.
 
 ## Limitations for connected groups 
 

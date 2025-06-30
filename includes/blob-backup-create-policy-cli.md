@@ -99,3 +99,6 @@ To create a backup policy for blob vaulted backup, run the following commands:
     }
 
     ```
+
+>[!Important]
+>The backup schedule follows the ISO 8601 duration format. However, the repeating interval prefix `R` is not supported, as backups are configured to run indefinitely. Any value specified with `R` will be ignored.

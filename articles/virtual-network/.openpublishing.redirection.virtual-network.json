@@ -1289,6 +1289,11 @@
             "source_path_from_root": "/articles/virtual-network/quick-create-terraform.md",
             "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-disaster-recovery-guidance.md",
+            "redirect_url": "/azure/reliability/reliability-virtual-network",
+            "redirect_document_id": false
         }
     ]
 }

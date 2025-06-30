@@ -3,7 +3,7 @@ title: ASP.NET Core output cache provider for Azure Cache for Redis
 description: Use the Redis Output Cache Provider to cache ASP.NET Core page output out of process by using Azure Cache for Redis.
 ms.author: cawa
 ms.date: 06/14/2024
-ms.topic: how-to
+ms.topic: tutorial
 ms.custom:
   - devx-track-csharp
   - ignite-2024
@@ -35,7 +35,6 @@ You can use the output caching middleware in all types of ASP.NET Core apps: min
 - Create an Azure Cache for Redis instance. For more information, see:
   - [Quickstart: Create a Redis cache](../azure-cache-for-redis/quickstart-create-redis.md)
   
-
 For an end-to-end application that uses Redis output caching, see [.NET 8 Web Application with Redis Output Caching and Azure OpenAI](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/output-cache-open-ai).
 
 ## Add Redis output caching middleware to an empty ASP.NET core web application
@@ -172,5 +171,4 @@ It's a security best practice to avoid storing passwords in clear text in source
 
 ## Related content
 
-- [ASP.NET Output Cache Provider for Azure Cache for Redis](aspnet-output-cache-provider.md)
 - [Output caching](/aspnet/core/performance/caching/overview#output-caching)
