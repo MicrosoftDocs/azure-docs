@@ -138,7 +138,7 @@ Keep in mind that if you choose to include a link to data, anyone who receives t
 
 ## Frequently asked questions
 
-The following sections cover the most asked questions and answers about saving and sharing customized views in Cost Management.
+The following sections cover the most frequently asked questions and answers about saving and sharing customized views in Cost Management.
 
 ### Why am I not receiving emails from scheduled alerts?
 
