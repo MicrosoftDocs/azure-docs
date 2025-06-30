@@ -21,7 +21,7 @@ Azure public IP addresses are created with a SKU, either Basic or Standard. The 
 In this article, you learn how to upgrade a static Basic SKU public IP address to Standard SKU in the Azure portal, Azure CLI, or Azure PowerShell.
 
 > [!IMPORTANT]
-> Be aware that Standard SKU IP Addresses are considered Secure by default and will be closed to all internal traffic. It is recommended to apply an NSG to the Subnet or Network Interface that the Public IP address is assoicated in order to prevent unexpected downtime, see [Public IP addresses in Azure](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses#sku)
+> Be aware that Standard SKU IP Addresses are considered Secure by default and will be closed to all internal traffic. It is recommended to apply an NSG to the Subnet or Network Interface that the Public IP address is assoicated in order to prevent unexpected downtime, see [Public IP addresses in Azure](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku)
 
 ## Prerequisites
 
