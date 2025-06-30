@@ -21,13 +21,13 @@ To help you evaluate NC2 on Azure, Nutanix offers and manages a 30-day free tria
 
 **Cost coverage**: The BareMetal cluster nodes have no cost through the trial. Additional components like VMs for Flow Gateway networking and other Azure services are billed and not included in the trial.
 
-**Trial duration**: The trial begins with the initial hardware node deployment and lasts for 30 consecutive days. It cannot be paused, and the start date is fixed regardless of cluster activity.
+**Trial duration**: The trial begins with the initial hardware node deployment and lasts for 30 consecutive days. It cannot be paused, and the start date is fixed regardless of cluster activity. Even if the cluster is dropped the trial time continues.
 
-**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial does not reset, and you will be billed.
+**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial does not reset, and you will be billed. Creating a cluster in a different subscription will also not reset the trial.
 
-**Track the trial period**: Nutanix software tracks trial periods for the NC2 software, but this may not align with the initial BareMetal deployment date. You should track your BareMetal deployment date manually as there is no visible trial date tracker in the software.
+**Track the trial period**: There is no visible trial information for the BareMetal. You should track your BareMetal deployment date manually.
 
-For more information, see [Start your free trial today with Nutanix on Azure](https://www.nutanix.com/products/nutanix-cloud-clusters/azure/free-trial)
+For more information, see _*[Starting a Free Trial for NC2 ](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:nc2-clusters-starting-a-nc2-free-trial-t.html"https://portal.nutanix.com/page/documents/details?targetid=nutanix-cloud-clusters-azure:nc2-clusters-starting-a-nc2-free-trial-t.html")*_
 
 ## What is Hyperconverged Infrastructure (HCI)?
 
