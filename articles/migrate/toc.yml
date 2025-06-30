@@ -49,10 +49,14 @@ items:
       items: 
       - name: Discover Hyper-V
         href: tutorial-discover-hyper-v.md
+      - name: Hyper-V discovery support
+        href: migrate-support-matrix-hyper-v.md
     - name: Discover physical servers
       items:  
       - name: Discover physical servers and servers running in AWS and GCP
         href: tutorial-discover-physical.md
+      - name: Physical server discovery support
+        href: migrate-support-matrix-physical.md
     - name: Appliance configuration
       items:
         - name: Provide server credentials
