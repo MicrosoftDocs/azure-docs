@@ -9,7 +9,9 @@ ms.custom: sentinel-graph
 ms.date: 06/11/2025
 ms.author: monaberdugo  
 
-ms.collection: ms-security  
+ms.collection: ms-security
+
+#Customer intent: As a Microsoft Sentinel user, I want to enable and manage data connectors in the Microsoft Sentinel data lake so that I can ingest and analyze security-related data from various sources.
 ---
 
 # Enable data assets in the Microsoft Sentinel data lake (preview)
