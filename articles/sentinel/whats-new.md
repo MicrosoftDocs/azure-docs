@@ -34,7 +34,7 @@ For more information, see:
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
 - [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md)
 - [Microsoft Sentinel in the Azure portal deprecation timeline](overview.md#microsoft-sentinel-in-the-azure-portal-deprecation-timeline)
-- [It’s Time to Move: Retiring Microsoft Sentinel’s Azure Portal for Greater Security](https://aka.ms/time-to-move-to-defender) (blog)
+- [It’s Time to Move: Retiring Microsoft Sentinel’s Azure portal for greater security](https://aka.ms/time-to-move-to-defender) (blog)
 
 ### For new customers only: Automatic onboarding and redirection to the Microsoft Defender portal
 
