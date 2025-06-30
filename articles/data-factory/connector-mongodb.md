@@ -7,7 +7,7 @@ ms.author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 06/30/2025
 ---
 
 # Copy data from or to MongoDB using Azure Data Factory or Synapse Analytics
@@ -248,6 +248,30 @@ To achieve such schema-agnostic copy, skip the "structure" (also called *schema*
 ## Schema mapping
 
 To copy data from MongoDB to tabular sink or reversed, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
+
+## Data type mapping for MongoDB
+
+When copying data from MongoDB, the following mappings are used from MongoDB data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+
+| MongoDB data Type | Interim Service Data Type | Interim Service Data Type (Forlegacy) |
+|:---|:---|:---|
+| Date | String | Int64 |
+| ObjectId | String | String |
+| Decimal128 | String | String |
+| TimeStamp | The most significant 32 bits -> int64<br>The least significant 32 bits -> int64 | The most significant 32 bits -> int64<br>The least significant 32 bits -> int64 |
+| String | String | String |
+| Array | Array | Array |
+| Double | String | Double |
+| Int32 | String | Int64 |
+| Int64 | String | Int64 |
+| Boolean | Boolean | Boolean |
+| NullData | null | null |
+| Document | Dictionary | Dictionary |
+| javaScript | String | String |
+| Regex | String | String |
+| minKey | Int64 | Int64 |
+| maxKey | Int64 | Int64 |
+| Binary | String | String |
 
 ## Upgrade the MongoDB linked service
 
