@@ -17,13 +17,11 @@ ms.service: azure-iot-operations
 
 Networking is a foundational aspect of deploying and managing distributed systems, especially in hybrid and multi-cloud environments. In Azure IoT Operations, secure networking enables reliable connectivity between on-premises resources, edge devices, and Azure services. Proper network configuration is essential for communication, security, and scalability of IoT Operations and Kubernetes clusters. This article describes key networking options and best practices for securing layered network architectures.
 
-
 ## Azure Arc gateway
 
 The Azure Arc gateway acts as a network proxy, allowing you to onboard and manage servers that do not have direct internet access. By routing traffic through the gateway, you can simplify firewall rules and reduce the need for complex network changes. This approach is especially useful for securely connecting isolated or segmented environments to Azure Arc and Azure IoT Operations.
 
 For more information, see [Simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/servers/arc-gateway).
-
 
 ## Connected Kubernetes clusters
 
@@ -31,13 +29,11 @@ The Azure Arc gateway for connected Kubernetes clusters enables you to register 
 
 For more information, see [Simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/servers/arc-gateway).
 
-
 ## Explicit proxy usage
 
 Azure Firewall Explicit Proxy allows you to direct Azure Arc and IoT Operations traffic through a managed firewall, providing enhanced security and monitoring. This is useful for organizations that require all outbound traffic to be inspected or logged, and helps meet compliance requirements by controlling and auditing network flows to Azure.
 
 For more information, see [Access Azure services over Azure Firewall Explicit Proxy (Public Preview)](/azure/azure-arc/azure-firewall-explicit-proxy).
-
 
 ## Layered networking sample
 
@@ -51,5 +47,4 @@ A practical networking sample is available in the [Azure IoT Operations samples 
 - Ensure compatibility with all Azure IoT Operations services
 - Enable bifurcation for targeted endpoints
 
-> [!IMPORTANT]
-> Azure IoT Layered Network Management (preview) will be retired. Use the [networking sample](https://github.com/Azure-Samples/explore-iot-operations/tree/patricka-layered-network/samples/layered-networking) instead to implement layered network management in Azure IoT Operations.
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
