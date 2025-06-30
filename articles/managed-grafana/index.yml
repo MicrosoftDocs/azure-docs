@@ -52,7 +52,7 @@ landingContent:
             url: how-to-manage-plugins.md
           - text: Add an Azure Monitor workspace
             url: how-to-connect-azure-monitor-workspace.md
-          - text: Configure bundled Prometheus
+          - text: Configure bundled Prometheus (preview)
             url: how-to-bundled-prometheus.md
           - text: Configure Azure Data Explorer
             url: how-to-connect-azure-data-explorer.md

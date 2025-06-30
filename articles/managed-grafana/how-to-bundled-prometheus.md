@@ -1,5 +1,5 @@
 ---
-title: Configure Bundled Prometheus in Azure Managed Grafana
+title: Configure Bundled Prometheus (preview) in Azure Managed Grafana
 description: Learn how to configure bundled Prometheus in Azure Managed Grafana. This guide covers enabling the integration, setting up Grafana-managed recording rules, and visualizing Prometheus metrics.
 keywords: Azure Managed Grafana, Prometheus, bundled Prometheus
 author: maud-lv
@@ -11,9 +11,9 @@ ms.service: azure-managed-grafana
 ai-usage: ai-assisted
 ---
 
-# Configure bundled Prometheus in Azure Managed Grafana
+# Configure bundled Prometheus (preview) in Azure Managed Grafana
 
-Azure Managed Grafana offers a bundled Prometheus integration that lets you connect a selected Azure Monitor workspace (managed Prometheus) to your Grafana instance and immediately use it as both a read and remote-write backend for Grafana-managed recording rules. By connecting your chosen Azure Monitor workspace to Grafana, you can periodically pre-compute frequently used or computationally expensive queries, saving the results as a new time series metric back into the same workspace, and visualize those recorded series alongside the rest of your Azure metrics.
+Azure Managed Grafana offers a bundled Prometheus integration in preview that lets you connect a selected Azure Monitor workspace (managed Prometheus) to your Grafana instance and immediately use it as both a read and remote-write backend for Grafana-managed recording rules. By connecting your chosen Azure Monitor workspace to Grafana, you can periodically pre-compute frequently used or computationally expensive queries, saving the results as a new time series metric back into the same workspace, and visualize those recorded series alongside the rest of your Azure metrics.
 
 Bundled Prometheus integrates seamlessly with Azure Monitor workspaces, enabling you to:
 
@@ -32,9 +32,9 @@ This article walks you through enabling bundled Prometheus, configuring recordin
 - An [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview) that supports Prometheus metrics collection.
 - You must have the **Owner** role on the Azure Monitor workspace or custom permissions to create role assignments. This access allows Azure Managed Grafana to configure the necessary access to collect and store Prometheus metrics.
 
-## Select an Azure Monitor workspace to enable bundled Prometheus
+## Select an Azure Monitor workspace to enable bundled Prometheus (preview)
 
-Complete the following steps to connect your Grafana workspace to an Azure Monitor workspace and enable bundled Prometheus:
+Complete the following steps to connect your Grafana workspace to an Azure Monitor workspace and enable bundled Prometheus (preview):
 
 1. Open your Azure Managed Grafana workspace and in the left menu select **Integrations** > **Bundled Prometheus**.
 
@@ -69,7 +69,7 @@ For more details, see [Create Grafana-managed alert rules](https://grafana.com/d
 ## Set up Grafana-managed recording rules
 
 > [!NOTE]
-> Bundled Prometheus only supports Grafana-managed recording rules, which you configure directly in the Grafana interface. Data source-managed recording rules aren't supported.
+> Bundled Prometheus (preview) only supports Grafana-managed recording rules, which you configure directly in the Grafana interface. Data source-managed recording rules aren't supported.
 
 Follow these steps to create a new recording rule:
 
@@ -88,7 +88,7 @@ metrics.
 
 For detailed configuration options see, [Create Grafana-managed recording rules](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-recording-rules/create-grafana-managed-recording-rules).
 
-## View recorded Prometheus data
+## View recorded Prometheus data (preview)
 
 After you set up the recording rules, you can visualize the recorded Prometheus data in Grafana:
 
@@ -101,9 +101,9 @@ After you set up the recording rules, you can visualize the recorded Prometheus 
 > [!TIP]
 > If you don't see Prometheus data in your dashboard, check if your Azure Monitor workspace is collecting Prometheus data. For troubleshooting, see [Troubleshoot collection of Prometheus metrics in Azure Monitor](/azure/azure-monitor/containers/prometheus-metrics-troubleshoot).
 
-## Disable bundled Prometheus
+## Disable bundled Prometheus (preview)
 
-If you no longer need bundled Prometheus, you can disable it from your Azure Managed Grafana workspace:
+If you no longer need bundled Prometheus (preview), you can disable it from your Azure Managed Grafana workspace:
 
 1. In your Azure Managed Grafana workspace, select **Integrations** > **Bundled Prometheus** from the left menu.
 1. Select **Disable** > **Yes** to confirm.
