@@ -805,7 +805,7 @@ Azure Container Apps supports two distinct workload types, apps and [jobs](jobs.
 In summary:
 
 |Feature|Container Apps|Container App Jobs|
-|===|===|===|
+|---|---|---|
 |Trigger types|HTTP, TCP, CPU, memory, events|Queues, schedules, custom triggers|
 |Scaling behavior|Horizontal scaling of replicas|One-off job tasks|
 |Use case|APIs, background services|Batch jobs, queue processing|
