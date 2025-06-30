@@ -26,7 +26,7 @@ This article shows you how to create an [Azure Functions app in Azure Container 
 
 ## Create a Functions app
 
-The following steps show you how to use a sample container image to create your container app. If you want to use this procedure with a custom container image, see [Create your first Azure Function on Azure Container Apps](https://github.com/Azure/azure-functions-on-container-apps/blob/main/README.md#create-your-first-azure-function-on-azure-container-apps).
+The following steps show you how to use a sample container image to create your container app. If you want to use this procedure with a custom container image, see [Create your first function app in Azure Container Apps](https://github.com/Azure/azure-functions-on-container-apps/blob/main/README.md#create-your-first-azure-function-on-azure-container-apps).
 
 1. Go to the Azure portal and search for **Container Apps** in the search bar.
 
