@@ -2,7 +2,7 @@
 title: Create and configure Recovery Services vaults
 description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: how-to
-ms.date: 06/23/2025
+ms.date: 06/30/2025
 ms.custom: references_regions, engagement-fy23
 author: jyothisuri
 ms.author: jsuri
@@ -83,6 +83,23 @@ For more information about backup and restore with Cross Region Restore, see the
 - [Cross Region Restore for SAP HANA databases](sap-hana-db-restore.md#cross-region-restore)
 - [Cross Region Restore for MARS (Preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore)
 
+## Set Cross Subscription Restore
+
+Cross Subscription Restore allows you to restore data to a different subscription within the same tenant as the source subscription (as per the Azure RBAC capabilities) from restore points. 
+
+>[!Note]
+>Cross Subscription Restore is currently supported for Azure VM, SQL Server in Azure VM, SAP ASE and SAP HANA in Azure VM, and Azure Files.
+
+To configure Cross Subscription Restore for the vault, follow these steps:
+
+1. In the Azure portal, go to your **Recovery Services vault**.
+1. On the **Recovery Services vault** pane, select **Settings** > **Properties**.
+1. On the **Properties** pane, under **Cross Subscription Restore**, select **Update**.
+
+   :::image type="content" source="./media/backup-create-rs-vault/configure-cross-region-restore.png" alt-text="Screenshot shows how to enable Cross subscription restore for a vault." lightbox="./media/backup-create-rs-vault/configure-cross-region-restore.png" :::
+
+1. On the **Cross Subscription Restore** pane, select **Enable Cross Subscription Restore** > **Update**.
+
 ## Set encryption settings
 
 By default, the data in the Recovery Services vault is encrypted through platform-managed keys. You don't need to take any explicit actions to enable this encryption. It applies to all workloads that are backed up to your Recovery Services vault. 
@@ -136,7 +153,7 @@ If you need to keep the current protected data in the GRS vault and continue the
 
 - For an Azure VM, you can [stop protection with retained data](backup-azure-manage-vms.md#stop-protecting-a-vm) for the VM in the GRS vault, move the VM to another resource group, and then help protect the VM in the LRS vault. For information about moving a VM to another resource group, see the [guidance and limitations](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md).
 
-  You can add a VM to only one vault at a time. However, the VM in the new resource group can be added to the LRS vault because it's considered a different VM. Be aware that:
+  You can add a VM to only one vault at a time. However, the VM in the new resource group can be added to the LRS vault because it's considered as a different VM. Be aware that:
 
   - The Azure Backup service will retain the recovery points that have been backed up on the GRS vault.
   - You'll need to pay to keep the recovery points in the GRS vault. See [Azure Backup pricing](azure-backup-pricing.md) for details.

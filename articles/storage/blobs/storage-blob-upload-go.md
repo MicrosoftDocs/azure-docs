@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a developer using Go, I want to upload blobs to Azure Storage so that I can efficiently manage and store data from various sources in my applications.
 ---
 
 # Upload a block blob with Go

@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 10/28/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer working with blob storage, I want to set or change a blob's access tier using JavaScript or TypeScript, so that I can efficiently manage data storage costs based on access patterns.
 ---
 
 # Set or change a block blob's access tier with JavaScript or TypeScript

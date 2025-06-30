@@ -11,6 +11,7 @@ ms.date: 09/06/2024
 ms.reviewer: dineshm
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to create a user delegation SAS for Azure Blob Storage, so that I can securely grant limited access to my blob resources using Microsoft Entra credentials.
 ---
 
 # Create a user delegation SAS for a container or blob with Java

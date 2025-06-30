@@ -239,7 +239,7 @@ The creation wizard generated the connectivity variables for you already as [app
         A **Create connection** dialog is opened on top of the edit dialog.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot showing how to edit a service connector with a key vault connection." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot that shows how to edit a service connector with a key vault connection." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::

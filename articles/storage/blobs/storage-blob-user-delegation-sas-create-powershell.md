@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 12/18/2019
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to create a user delegation SAS for a blob or container using PowerShell, so that I can securely manage access to Azure Storage resources with specified permissions and expiration times.
 ---
 
 # Create a user delegation SAS for a container or blob with PowerShell

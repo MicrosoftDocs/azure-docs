@@ -89,7 +89,7 @@ kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{\"data\": $
 ```
 
 ```powershell
-$cert = kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d
+$cert = kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | %{ [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) }
 $data = kubectl create secret generic temp --from-literal=opcuabroker.crt="$cert" --dry-run=client -o jsonpath='{.data}'
 kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{""data"": $data}"
 ```
@@ -98,8 +98,12 @@ kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{""data"": $
 
 Every OPC UA server type has its own mechanism for managing its application instance certificate. To download the simulator's certificate to a file called `opcplc-000000.crt`, run the following command:
 
-```console
+```bash
 kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d > opcplc-000000.crt
+```
+
+```powershell
+kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o jsonpath='{.data.tls\.crt}' | %{ [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($_)) } > opcplc-000000.crt
 ```
 
 To add the simulator's certificate to the connector's trust list:

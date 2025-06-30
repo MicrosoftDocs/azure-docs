@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to set or change a blob's access tier using the Azure Storage client library, so that I can manage the storage costs and performance based on my application's requirements.
 ---
 
 # Set or change a block blob's access tier with Java

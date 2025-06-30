@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a developer using Go to connect to Azure Blob Storage, I want to implement a customizable retry policy, so that my application can handle transient faults effectively and maintain stability during network issues or service timeouts.
 ---
 
 # Implement a retry policy with Go

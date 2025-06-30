@@ -11,6 +11,7 @@ ms.reviewer: dineshm
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
 #Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.
+# Customer intent: "As a web developer, I want to configure and deploy a static website on cloud storage, so that I can make it accessible to users via a public endpoint."
 ---
 
 # Tutorial: Host a static website on Blob Storage

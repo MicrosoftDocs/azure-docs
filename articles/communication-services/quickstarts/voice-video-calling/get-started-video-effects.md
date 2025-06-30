@@ -1,7 +1,7 @@
 ---
-title: Add video effects to your video calls
+title: Enable video background effects
 titleSuffix: An Azure Communication Services article
-description: Learn how to add video effects in your video calls using Azure Communication Services.
+description: This article describes how to add video effects in your video calls using Azure Communication Services.
 author: sloanster
 
 ms.author: micahvivion
@@ -14,7 +14,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ms.custom: mode-other, devx-track-js
 ---
 
-# Add video effects to your video calls
+# Enable video background effects
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Video effects with JavaScript](./includes/video-effects/video-effects-javascript.md)]
@@ -32,10 +32,9 @@ ms.custom: mode-other, devx-track-js
 [!INCLUDE [Video effects with Android](./includes/video-effects/video-effects-windows.md)]
 ::: zone-end
 
-
 ## Next steps
 
-- Check out our [calling hero sample](../../samples/calling-hero-sample.md)
-- Get started with the [UI Library](../../concepts/ui-library/ui-library-overview.md)
-- Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
-- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md) 
+- Check out our [calling hero sample](../../samples/calling-hero-sample.md).
+- Get started with the [UI Library](../../concepts/ui-library/ui-library-overview.md).
+- Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web).
+- Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md).

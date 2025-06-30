@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 11/19/2024
 ms.custom: devx-track-dotnet, devguide-csharp
+# Customer intent: "As a software developer, I want to implement a retry policy for Azure Blob Storage requests, so that my application can handle transient faults effectively and maintain stability during network or service interruptions."
 ---
 
 # Implement a retry policy with .NET

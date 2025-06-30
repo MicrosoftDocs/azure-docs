@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Add audio noise suppression ability to your web calls' 
-titleSuffix: An Azure Communication Services tutorial on how to enable advanced noise suppression
-description: Learn how to add audio effects in your calls by using Azure Communication Services.
+title: Enable audio noise suppression improvements
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add audio effects in your calls using Azure Communication Services.
 author: sloanster
 ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 11/05/2024
+ms.date: 06/27/2025
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -19,7 +19,7 @@ The Azure Communication Services audio effects *noise suppression* abilities can
 > [!IMPORTANT]
 > This tutorial employs the Azure Communication Services Calling SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version `1.1.2` or later. The general availability (GA) stable version `1.28.4` and later of the Calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and later also support noise suppression.
 > 
-> Current browser support for adding audio noise suppression effects is available only on Chrome and Edge desktop browsers.
+> Current browser support for adding audio noise suppression effects is available only on Chrome and Microsoft Edge desktop browsers.
 
 The calling effects library can't be used standalone. It works only when used with the Azure Communication Services Calling client library for WebJS.
 

@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python, devx-track-python
+# Customer intent: As a developer using the Azure Storage client library for Python, I want to optimize the configuration of upload and download transfer options, so that I can enhance my application's performance and reliability during data transfers.
 ---
 
 # Performance tuning for uploads and downloads with Python

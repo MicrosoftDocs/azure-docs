@@ -52,7 +52,7 @@ You can enable the tag inheritance setting in the Azure portal. You apply the se
 ### To enable tag inheritance in the Azure portal for an EA billing account
 
 1. In the Azure portal, search for **Cost Management** and select it (the green hexagon-shaped symbol, *not* Cost Management + Billing).
-1. Select a scope.
+1. Select a billing account scope.
 1. In the left menu under **Settings**, select **Configuration**.
 1. Under **Tag inheritance**, select **Edit**.  
     :::image type="content" source="./media/enable-tag-inheritance/edit-tag-inheritance.png" alt-text="Screenshot showing the Edit option for Tag inheritance for an EA billing account." lightbox="./media/enable-tag-inheritance/edit-tag-inheritance.png" :::
@@ -64,7 +64,7 @@ After tag inheritance is enabled, subscription and resource group tags are appli
 ### To enable tag inheritance in the Azure portal for an MCA billing profile
 
 1. In the Azure portal, search for **Cost Management** and select it (the green hexagon-shaped symbol, *not* Cost Management + Billing).
-1. Select a scope.
+1. Select a billing profile scope.
 1. In the left menu under **Settings**, select **Manage billing profile**.
 1. Under **Tag inheritance**, select **Edit**.  
     :::image type="content" source="./media/enable-tag-inheritance/edit-tag-inheritance-billing-profile.png" alt-text="Screenshot showing the Edit option for Tag inheritance for an MCA billing profile." lightbox="./media/enable-tag-inheritance/edit-tag-inheritance-billing-profile.png":::

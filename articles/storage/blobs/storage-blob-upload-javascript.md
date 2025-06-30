@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer using JavaScript or TypeScript, I want to upload blobs to Azure Storage so that I can manage data efficiently and utilize various upload methods suited to different data types and requirements.
 ---
 
 # Upload a blob with JavaScript or TypeScript

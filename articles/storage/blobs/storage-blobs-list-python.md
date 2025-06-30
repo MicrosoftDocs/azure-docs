@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a Python developer, I want to list blobs in my Azure Storage account using the client library, so that I can manage and organize my data efficiently."
 ---
 
 # List blobs with Python
