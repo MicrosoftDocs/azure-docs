@@ -68,7 +68,7 @@ The `SemanticKernelAgentProvider` is initialized in *Services/SemanticKernelAgen
 - Adds a kernel plugin that encapsulates the functionality of the CRUD application (in *Plugins/TaskCrudPlugin.cs*). The only interesting parts of the plugin are the `KernelFunction` attributes on the method definitions and the `Description` attributes that help the kernel call the plugin intelligently.
 - Creates a [chat completion agent](/semantic-kernel/frameworks/agent/agent-types/chat-completion-agent?pivots=programming-language-csharp), and configures it to let the AI model automatically invoke functions (`FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()`).
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/SemanticKernelAgentProvider.cs" range="20-67" highlight="18-43" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/SemanticKernelAgentProvider.cs" range="20-67" highlight="18-44" :::
 
 ### [Azure AI Foundry Agent Service](#tab/aifoundry)
 
