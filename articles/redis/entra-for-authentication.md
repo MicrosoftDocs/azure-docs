@@ -18,7 +18,7 @@ Azure Managed Redis offers two methods to [authenticate](configure.md#authentica
 
 Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
 
-Azure Managed Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra](/azure/active-directory/fundamentals/active-directory-whatis). The Entra ID configured to connect with Azure Managed Redis is assigned the same permissions as with using Access Keys.
+Azure Managed Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra](/azure/active-directory/fundamentals/active-directory-whatis). The Entra ID configured to connect with Azure Managed Redis is assigned the same permissions as when using Access Keys.
 
 In this article, you learn how to use your service principal or managed identity to connect to your Redis instance.
 
@@ -39,13 +39,13 @@ When you disable access key authentication for a Redis instance, all existing cl
 Before you disable access keys:
 
 - Microsoft Entra authentication must be enabled.
-- For geo-replicated caches, you must:
 
+- For geo-replicated caches, you must:
    1. Unlink the caches.
    1. Disable access keys.
    1. Relink the caches.
 
-If you have a cache where you use access keys, and you want to disable access keys, follow this procedure:
+If you have a cache where you want to disable access keys, follow this procedure:
 
 1. In the Azure portal, select the Azure Managed Redis instance where you want to disable access keys.
 
@@ -53,14 +53,12 @@ If you have a cache where you use access keys, and you want to disable access ke
 
 1. On the working pane, select **Access keys**.
 
-1. Configure **Access Keys Authentication** to be disabled.
-
-   <!-- :::image type="content" source="media/entra-for-authentication/managed-redis-disable-access-keys.png" alt-text="Screenshot showing access keys in the working pane with the Disable Access Keys Authentication checkbox. "::: -->
+1. Select the **Access Keys Authentication** control to disable access keys.
 
 1. Confirm that you want to update your configuration by selecting **Yes**.
 
-> [!IMPORTANT]
-> When the **Disable Access Keys Authentication** setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections. For more information, see [Connection resilience](best-practices-connection.md).
+    > [!IMPORTANT]
+    > When the **Disable Access Keys Authentication** setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections. For more information, see [Connection resilience](best-practices-connection.md).
 
 ## Configure your Redis client to use Microsoft Entra
 
@@ -71,14 +69,16 @@ Because most Azure Managed Redis clients assume that a password and access key a
 1. Connect to your cache in the Azure portal
 
 1. On the Resource menu, select **Authentication**.
+
 1. On the **Microsoft Entra Authentication** tab, select **User or service principal** and then **+ Select member**.
-1. Type the name of the user who you want to run the program. Select a user from the list and then **Select**. The user is added to the list of Redis users.
-1. 
+
+1. Type the name of the user who you want to run the program. Select the user to add in the list and **Select**. The user is added to the list of Redis users.
+
    :::image type="content" source="media/entra-for-authentication/redis-add-user.png" alt-text="Screenshot of the authentication tab in a Redis cache on the Azure portal.":::
 
 ### Microsoft Entra client workflow
 
-1. Configure your client application to acquire a Microsoft Entra token for scope, `https://redis.azure.com/.default` or `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default`, by using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
+1. Configure your client application to acquire a Microsoft Entra token for scope, `https://redis.azure.com/.default`, or `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default`, by using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
 
 1. Update your Redis connection logic to use the following `User` and `Password`:
 
