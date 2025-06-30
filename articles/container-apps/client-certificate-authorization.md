@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 06/26/2025
+ms.date: 06/30/2025
 ms.author: cshoe
 ---
 
@@ -96,6 +96,7 @@ Hash=<HASH_VALUE>;Cert="-----BEGIN CERTIFICATE-----<CERTIFICATE_VALUE>";Chain="-
 ### Header field breakdown
 
 | Field   | Description                                                                | How to Use It                                                  |
+|---|---|---|
 | `Hash`  | The SHA-256 thumbprint of the client certificate.                         | Use the thumbprint to identify or validate the client certificate.              |
 | `Cert`  | The base64-encoded client certificate in PEM format (single certificate). | Parse the certificate to inspect metadata such as subject and issuer. |
 | `Chain` | One or more PEM-encoded intermediate certificates.                        | Provide the intermediate certificates when building a full trust chain for validation. |
