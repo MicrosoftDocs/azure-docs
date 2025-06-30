@@ -38,7 +38,7 @@ Key traits for echo cancelation:
 > **Echo Cancelation** features are available in public preview SDK version [1.37.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1371-beta1-2025-06-16). Also note that to use echo cancelation you must use public preview audio effects SDK version beta version [1.21.1-beta](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.2.1-beta.1) or later.
 
 > [!NOTE]
-> - Browser support for utilizing audio effects is available only on Chrome and Edge desktop browsers.
+> - Utilizing audio effects is available only on Chrome and Edge desktop browsers.
 > - The audio effects library isn't a standalone module and can't function independently. To utilize its capabilities the effects package must be integrated with the Azure Communication Services Calling client library for WebJS.
 > - If you use the GA version of the Calling SDK, you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling audio effects package.
 
@@ -63,7 +63,7 @@ For information on the interface that details audio effects properties and metho
 To use audio effects within the Azure Communication Services Calling SDK, you need the `LocalAudioStream` property that's currently in the call. You need access to the `AudioEffects` API of the `LocalAudioStream` property to start and stop audio effects.
 
 ### Enable Noise Suppression
-The following code snippet shows an example on how to enable **noise suppression** from within the Webjs environment.
+The following code snippet shows an example on how to enable **noise suppression** from within the WebJS environment.
 ```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 import { DeepNoiseSuppressionEffect } from '@azure/communication-calling-effects'; 
@@ -91,7 +91,7 @@ audioEffectsFeatureApi.on('effectsError', (error: AudioEffectErrorPayload) => {
 });
 ```
 ### Enable Echo Cancellation
-The following code snippet shows an example on how to enable **echo cancellation** from within the Webjs environment.
+The following code snippet shows an example on how to enable **echo cancellation** from within the WebJS environment.
 ```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 import { EchoCancellationEffect } from '@azure/communication-calling-effects';
@@ -151,7 +151,7 @@ await audioEffectsFeatureApi.startEffects({
 ```
 
 ## Turn on noise suppression during an ongoing call
-You might start a call and not have noise suppression turned on. The end users room might get noisy so that they would need to turn on noise suppression. To turn on noise suppression, you can use the `audioEffectsFeatureApi.startEffects` API.
+You might start a call and not have noise suppression turned on. The end users room might get noisy so that they would need to turn on noise suppression. To turn on noise suppression, you can use the `audioEffectsFeatureApi.startEffects` interface.
 
 ```js
 // Create the noise suppression instance 
