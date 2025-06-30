@@ -11,8 +11,10 @@ ms.service: azure-communication-services
 ---
 
 
-# Enable push notifications
-Push notifications let clients be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app isn't running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../concepts/chat/concepts.md#push-notifications).
+# Enable push notifications in Android
+
+Push notifications enable clients to be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app isn't running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../concepts/chat/concepts.md#push-notifications).
+
 > [!NOTE]
 > Chat push notifications are supported for Android SDK in versions starting from 1.1.0-beta.4 and 1.1.0. It is recommended that you use version 2.0.0 or newer, as older versions have a known issue with the registration renewal. Steps from 8 to 12 are only needed for versions equal to or greater than 2.0.0.
 
