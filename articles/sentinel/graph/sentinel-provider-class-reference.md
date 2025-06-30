@@ -3,7 +3,7 @@ title: Microsoft Sentinel Provider class reference (Preview)
 description: Reference documentation for the Microsoft Sentinel Provider class, which allows you to connect to the Microsoft Sentinel data lake and perform various operations.
 author: EdB-MSFT
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-datalake
+ms.subservice: sentinel-graph
 ms.topic: reference 
 ms.author: edbaynash  
 ms.date: 06/23/2025
