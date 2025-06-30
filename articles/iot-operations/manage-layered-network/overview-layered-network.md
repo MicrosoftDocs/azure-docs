@@ -15,37 +15,41 @@ ms.service: azure-iot-operations
 
 # Azure IoT Operations networking
 
-Networking is a foundational aspect of deploying and managing distributed systems, especially when working with hybrid and multi-cloud environments. In Azure Arc-enabled scenarios, networking enables secure connectivity between on-premises resources, edge devices, and Azure services. Proper network configuration ensures reliable communication, security, and scalability for your IoT Operations and Kubernetes clusters. There are several networking options you can use.
+Networking is a foundational aspect of deploying and managing distributed systems, especially in hybrid and multi-cloud environments. In Azure IoT Operations, secure networking enables reliable connectivity between on-premises resources, edge devices, and Azure services. Proper network configuration is essential for communication, security, and scalability of IoT Operations and Kubernetes clusters. This article describes key networking options and best practices for securing layered network architectures.
 
-## Arc gateway
 
-The Azure Arc gateway acts as a network proxy, allowing you to onboard and manage servers that do not have direct internet access. By routing traffic through the gateway, you can simplify firewall rules and reduce the need for complex network changes. This is especially useful for securely connecting isolated or segmented environments to Azure Arc.
+## Azure Arc gateway
 
-For more information about the Azure Arc gateway, see [simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/servers/arc-gateway).
+The Azure Arc gateway acts as a network proxy, allowing you to onboard and manage servers that do not have direct internet access. By routing traffic through the gateway, you can simplify firewall rules and reduce the need for complex network changes. This approach is especially useful for securely connecting isolated or segmented environments to Azure Arc and Azure IoT Operations.
 
-## Connected clusters
+For more information, see [Simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/servers/arc-gateway).
 
-The Azure Arc gateway for connected Kubernetes clusters enables you to register and manage clusters behind firewalls or in private networks. It reduces the need for outbound connectivity from each cluster, centralizing network egress through the gateway. This approach streamlines onboarding and ongoing management of clusters in secure or restricted environments.
 
-For more information about connected clusters, see [simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/servers/arc-gateway).
+## Connected Kubernetes clusters
+
+The Azure Arc gateway for connected Kubernetes clusters enables you to register and manage clusters behind firewalls or in private networks. It reduces the need for outbound connectivity from each cluster by centralizing network egress through the gateway. This approach streamlines onboarding and ongoing management of clusters in secure or restricted environments.
+
+For more information, see [Simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/servers/arc-gateway).
+
 
 ## Explicit proxy usage
 
-Azure Firewall Explicit Proxy allows you to direct Azure Arc traffic through a managed firewall, providing enhanced security and monitoring. This is useful for organizations that require all outbound traffic to be inspected or logged, and helps meet compliance requirements by controlling and auditing network flows to Azure.
+Azure Firewall Explicit Proxy allows you to direct Azure Arc and IoT Operations traffic through a managed firewall, providing enhanced security and monitoring. This is useful for organizations that require all outbound traffic to be inspected or logged, and helps meet compliance requirements by controlling and auditing network flows to Azure.
 
-For more information about Azure Firewall Explicit Proxy, see [access Azure services over Azure Firewall Explicit Proxy (Public Preview)](/azure/azure-arc/azure-firewall-explicit-proxy).
+For more information, see [Access Azure services over Azure Firewall Explicit Proxy (Public Preview)](/azure/azure-arc/azure-firewall-explicit-proxy).
 
-## Networking sample
 
-In industries like manufacturing, you often see segmented networking architectures that create layers. These layers minimize or block lower-level segments from connecting to the internet (for example, [Purdue Network Architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture)). This article shows one way to work with these networks by using open, industry-recognized software.
+## Layered networking sample
 
-A networking guidance sample is available in the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/patricka-layered-network/samples/layered-networking). The sample demonstrates how to use Azure IoT Operations networking to manage devices in segmented networks, such as those found in manufacturing environments. It provides a practical implementation of the layered network architecture, allowing you to connect and manage devices securely. The sample includes:
+In industries like manufacturing, segmented networking architectures (such as the [Purdue Network Architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture)) are common. These architectures create layers that minimize or block lower-level segments from connecting to the internet. Azure IoT Operations supports secure management of devices in these layered networks using open, industry-recognized software and Kubernetes-based configuration.
 
-- Kubernetes-based configuration and compatibility with networking primitives
-- Connecting devices in isolated networks at scale to [Azure Arc](/azure/azure-arc/) for application lifecycle management and configuration of previously isolated resources remotely from a single Azure control plane
-- Security and governance across network levels for devices and services with URL and IP allow lists and connection auditing
-- Compatibility with all Azure IoT Operations services connection
-- Bifurcation capabilities for targeted endpoints
+A practical networking sample is available in the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/patricka-layered-network/samples/layered-networking). This sample demonstrates how to:
+
+- Use Kubernetes-based configuration and networking primitives for layered environments
+- Connect devices in isolated networks at scale to [Azure Arc](/azure/azure-arc/) for application lifecycle management and remote configuration
+- Enforce security and governance across network levels with URL/IP allow lists and connection auditing
+- Ensure compatibility with all Azure IoT Operations services
+- Enable bifurcation for targeted endpoints
 
 > [!IMPORTANT]
 > Azure IoT Layered Network Management (preview) will be retired. Use the [networking sample](https://github.com/Azure-Samples/explore-iot-operations/tree/patricka-layered-network/samples/layered-networking) instead to implement layered network management in Azure IoT Operations.
