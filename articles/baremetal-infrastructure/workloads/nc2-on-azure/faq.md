@@ -23,7 +23,7 @@ To help you evaluate NC2 on Azure, Nutanix offers and manages a 30-day free tria
 
 **Trial duration**: The trial begins with the initial hardware node deployment and lasts for 30 consecutive days. It cannot be paused, and the start date is fixed regardless of cluster activity. Even if the cluster is dropped the trial time continues.
 
-**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial does not reset, and you will be billed. Creating a cluster in a different subscription will also not reset the trial.
+**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial does not reset, and you will be billed. If you create a cluster in a different subscription this will still not reset the trial.
 
 **Track the trial period**: There is no visible trial information for the BareMetal. You should track your BareMetal deployment date manually.
 
