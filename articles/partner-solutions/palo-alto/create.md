@@ -70,7 +70,7 @@ In this section, you'll create a Cloud NGFW by Palo Alto Networks resource.
 
 ### Tags tab (optional)
 
-You can optionally create tags for your resource. 
+[!INCLUDE [tags](../includes/tags.md)]
 
 ### Terms tab
 
