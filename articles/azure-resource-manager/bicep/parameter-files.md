@@ -61,9 +61,9 @@ using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
 ...
 ```
 
-For more information, see [Using statement](./bicep-using.md/#the-using-statement).
+For more information, see [Using statement](./bicep-using.md#the-using-statement).
 
-You can apply the `using none` statement to indicate that the parameters file is not tied to a specific Bicep template during authoring or compilation. This decouples the parameter file from a particular template, enabling greater flexibility in how parameters are defined and used across deployments. For more information, see [Using none statement](./bicep-using.md/#the-using-none-statement).
+You can apply the `using none` statement to indicate that the parameters file is not tied to a specific Bicep template during authoring or compilation. This decouples the parameter file from a particular template, enabling greater flexibility in how parameters are defined and used across deployments. For more information, see [Using none statement](./bicep-using.md#the-using-none-statement).
 
 ```bicep
 You can use expressions with the default value. For example:
