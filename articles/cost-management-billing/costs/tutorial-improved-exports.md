@@ -60,7 +60,7 @@ For Azure Storage accounts:
     
     - `Microsoft.Authorization/permissions/read`
     
-  When you configure the firewall, ensure that [Allow trusted Azure service access](../../storage/common/storage-network-security-trusted-azure-services.md#grant-access-to-trusted-azure-services) is enabled on the storage account. If you want to use the [Exports REST API](/rest/api/cost-management/exports) to write to a storage account behind a firewall, use API version __2023-08-01__ or later. All newer API versions continue to support exports behind firewalls.
+  When you configure the firewall, ensure that [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) is enabled on the storage account. If you want to use the [Exports REST API](/rest/api/cost-management/exports) to write to a storage account behind a firewall, use API version __2023-08-01__ or later. All newer API versions continue to support exports behind firewalls.
   
   A __system-assigned managed identity__ is created for a new export if the user has `Microsoft.Authorization/roleAssignments/write` permissions on the storage account. This setup ensures that the export will continue to work if you enable a firewall in the future. After the export is created or updated, the user no longer needs the __Owner__ role for routine operations.
   
