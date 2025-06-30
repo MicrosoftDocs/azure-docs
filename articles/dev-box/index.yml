@@ -10,6 +10,7 @@ metadata:
   ms.custom:
     - build-2024
     - ignite-2024
+    - build-2025
   ms.topic: landing-page
   ms.author: rosemalcolm
   author: RoseHJM
@@ -30,24 +31,26 @@ landingContent:
             url: concept-dev-box-concepts.md
           - text: Microsoft Dev Box Roadmap
             url: dev-box-roadmap.md
-      - linkListType: deploy
+      - linkListType: learn
         links:
-          - text: Microsoft Dev Box deployment guide
-            url: concept-dev-box-deployment-guide.md
+          - text: Understand the basics of Microsoft Dev Box
+            url: https://learn.microsoft.com/training/modules/understand-basics-microsoft-dev-box/
+          - text: Explore Microsoft Dev Box deployment guidelines and best practices
+            url: https://learn.microsoft.com/training/modules/explore-microsoft-dev-box-deployment-guidelines-best-practices/
 
   # Card
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Set up Dev Box with an ARM template
-            url: quickstart-configure-dev-box-arm-template.md 
-          - text: Configure Microsoft Dev Box
-            url: quickstart-configure-dev-box-service.md
+          - text: Configure Microsoft Dev Box Resources using the Get Started template
+            url: quickstart-get-started-template.md 
           - text: Create a dev box
             url: quickstart-create-dev-box.md
-          - text: Use Team Customizations
-            url: quickstart-team-customizations.md
+      - linkListType: deploy
+        links:
+          - text: Microsoft Dev Box deployment guide
+            url: concept-dev-box-deployment-guide.md
       - linkListType: how-to-guide
         links:
           - text: Connect to your dev box
@@ -108,6 +111,8 @@ landingContent:
             url: how-to-troubleshoot-remote-desktop-connectivity.md   
           - text: Resolve connectivity issues
             url: how-to-resolve-dev-box-connectivity-issues.md
+          - text: 'Reference: imagedefinition.yaml and task.yaml files'
+            url: reference-dev-box-customizations.md
           - text: Get support for Microsoft Dev Box
             url: how-to-get-help.md
         - linkListType: reference

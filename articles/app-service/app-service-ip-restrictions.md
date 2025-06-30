@@ -1,8 +1,8 @@
 ---
 title: Set Up Access Restrictions 
 description: Learn how to secure your app in Azure App Service by setting up access restrictions. Define a priority-ordered allow/deny list that controls network access.
-author: madsd
-ms.author: madsd
+author: seligj95
+ms.author: jordanselig
 ms.topic: how-to
 ms.date: 02/03/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -12,8 +12,6 @@ ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 
 ---
 # Set up Azure App Service access restrictions
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 When you set up access restrictions, you can define a priority-ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, an implicit *deny all* exists at the end of the list. For more information, see [Azure App Service access restrictions](./overview-access-restrictions.md).
 

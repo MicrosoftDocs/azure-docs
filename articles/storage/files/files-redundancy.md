@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 05/20/2025
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: "As a data engineer, I want to select the appropriate data redundancy option for Azure file shares, so that I can ensure optimal availability and disaster recovery tailored to my application's needs."
 ---
 
 # Azure Files data redundancy
@@ -213,7 +214,7 @@ $token = Get-AzAccessToken
 # Invoke SRP list SKU API, and get the returned SKU list
 $result = Invoke-RestMethod -Method Get -Uri "https://management.azure.com/subscriptions/$($subscriptionID)/providers/Microsoft.Storage/skus?api-version=2024-01-01" -Headers @{"Authorization" = "Bearer $($token.Token)"}
 
-# Filter the SKU list to get the required information, customization requried here to get the best result.
+# Filter the SKU list to get the required information, customization required here to get the best result.
 $filteredResult = $result | `
     Select-Object -ExpandProperty value | `
     Where-Object {

@@ -2,7 +2,7 @@
 title: Back up Azure Managed Disks using Azure PowerShell
 description: Learn how to back up Azure Managed Disks using Azure PowerShell.
 ms.topic: how-to
-ms.date: 04/23/2025
+ms.date: 06/11/2025
 ms.custom: devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
@@ -255,7 +255,7 @@ You can also use Az.ResourceGraph to track all jobs across all backup vaults. Us
 
 ## Next steps
 
-[Restore Azure Managed Disks using Azure PowerShell](restore-managed-disks-ps.md).
+Restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md).
 
 ## Related content
 

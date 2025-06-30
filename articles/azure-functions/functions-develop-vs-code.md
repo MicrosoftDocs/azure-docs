@@ -5,7 +5,8 @@ ms.topic: how-to
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devdivchpfy22, vscode-azure-extension-update-complete, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, devx-track-ts
-ms.date: 07/17/2024
+ms.date: 05/27/2025
+
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -321,13 +322,16 @@ You can't use the [quick create](functions-develop-vs-code.md?tabs=quick-create#
    | Prompt |  Selection |
    | ------ |  --------- |
    | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
+   | Select a hosting plan. | Choose your [hosting plan](functions-scale.md). The [Flex Consumption plan](flex-consumption-plan.md) is the recommended plan, which provides serverless hosting on Linux that scales dynamically as needed. |
+   | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Only regions that support your chosen hosting plan are displayed. If you chose an existing resource group, that location is used and you don't see this prompt. |
    | Select a runtime stack. | Choose the language version that you're locally running. |
    | Select an OS. | Choose either Linux or Windows. Python apps must run on Linux. |
+   | Select App Service Plan. | For Elastic Premium and App Service plans, you must explicitly **Create a new app service plan** and enter the plan name or select an existing plan in which to run. When creating a plan, you must also select a pricing tier. For consumption plans, you won't see this prompt. |
+   | Select resource authentication type | Determines how your app connects to the [default host storage account](storage-considerations.md#storage-account-guidance) by using either a shared secret key or Microsoft Entra ID with managed identities. Selecting **Managed identity** provides the most secure connection to your host storage account and is recommended for Flex Consumption plans. When using managed identities with Consumption and Elastic Premium plans, secret key access to the default host storage remains enabled for Azure Files access. For more information, see [run without Azure Files](storage-considerations.md#create-an-app-without-azure-files). |
    | Select a resource group for new resources. | Choose **Create new resource group**, and enter a resource group name such as **myResourceGroup**. You can also select an existing resource group. |
-   | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. If you chose an existing resource group, that location is used and you don't see this prompt. |
-   | Select a hosting plan. | Choose **Consumption** for serverless [Consumption plan hosting](consumption-plan.md), where you're charged only when your functions run. |
-   | Select a storage account. | Choose **Create new storage account**, and at the prompt, enter a globally unique name for the new storage account used by your function app. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
+   | Select a storage account. | Choose **Create new storage account**, and at the prompt, enter a globally unique name for the new storage account used by your function app. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. When using managed identity authentication, you should create a new storage account. |
    | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource**, and at the prompt, enter a name for the instance used to store runtime data from your functions. |
+   | Select a user assigned identity | Choose **Create a new user assigned identity**. You can also select an existing identity. This identity is used when accessing the default host storage account using Microsoft Entra ID authentication. You won't see this prompt when you select the **Secrets** authentication type. | 
 
    A notification appears after your function app is created, and the deployment package is applied. To view the creation and deployment results, including the Azure resources that you created, select **View Output** in this notification.
 
@@ -549,7 +553,7 @@ Replace `<TARGET_VERSION>` in the example with a specific version of the package
 >[!TIP]  
 >You can also use the **NuGet** commands in [the C# Dev Kit](https://code.visualstudio.com/docs/csharp/package-management#_add-a-package) to install binding extension packages.
 
-C# script uses [extension bundles](functions-bindings-register.md#extension-bundles).
+C# script uses [extension bundles](extension-bundles.md).
 
 ::: zone-end  
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"

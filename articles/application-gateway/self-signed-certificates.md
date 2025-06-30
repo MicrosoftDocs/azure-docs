@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 01/17/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to generate a self-signed certificate using a custom root CA for my Application Gateway, so that I can securely establish TLS connections with backend servers in a development environment without incurring costs for commercial certificates.
 ---
 
 # Generate an Azure Application Gateway self-signed certificate with a custom root CA
@@ -18,7 +19,7 @@ The Application Gateway v2 SKU introduces the use of Trusted Root Certificates t
 Application Gateway trusts your website's certificate by default if it's signed by a well-known CA (for example, GoDaddy or DigiCert). You don't need to explicitly upload the root certificate in that case. For more information, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md). However, if you have a dev/test environment and don't want to purchase a verified CA signed certificate, you can create your own custom Root CA and a leaf certificate signed by that Root CA.
 
 > [!NOTE]
-> Self-generated certificates are not trusted by default, and can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority.
+> Self-generated certificates aren't trusted by default and can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority.
 
 **You can use the following options to generate your private certificate for backend TLS connections.**
 1. Use the one-click private [**certificate generator tool**](https://appgwbackendcertgenerator.azurewebsites.net/). Using the domain name (Common Name) that you provide, this tool performs the same steps as documented in this article to generate Root and Server certificates. With the generated certificate files, you can immediately upload the Root certificate (.CER) file to the Backend Setting of your gateway and the corresponding certificate chain (.PFX) to the backend server. The password for the PFX file is also supplied in the downloaded ZIP file.

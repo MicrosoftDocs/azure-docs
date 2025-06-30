@@ -6,8 +6,10 @@ ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.custom: references_regions
-ms.date: 05/15/2025
+ms.custom:
+  - references_regions
+  - build-2025
+ms.date: 06/30/2025
 ---
 
 # Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics
@@ -30,6 +32,16 @@ The Connector upgrade advisor is a comprehensive tool that helps upgrade pipelin
 - Snowflake
 - PostgreSQL
 - Google BigQuery
+- Amazon Redshift
+- Amazon RDS for Oracle
+- Cassandra
+- Greenplum
+- MariaDB
+- MySQL
+- Oracle
+- Presto
+- Teradata
+- Vertica
 
 ## How to use
 

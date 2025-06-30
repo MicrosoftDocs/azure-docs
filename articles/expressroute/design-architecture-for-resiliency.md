@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 07/16/2024
 ms.author: duau
 ms.custom: ai-usage
+# Customer intent: As a network architect, I want to design Azure ExpressRoute for maximum resiliency, so that I can ensure high availability and reliability for our on-premises connections to Azure, supporting critical workloads without interruption.
 ---
 
 # Design and architect Azure ExpressRoute for resiliency

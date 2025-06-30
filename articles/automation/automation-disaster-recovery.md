@@ -4,8 +4,8 @@ description: This article details on disaster recovery strategy to handle servic
 keywords: automation disaster recovery
 services: automation
 ms.subservice: process-automation
-author: SnehaSudhirG
-ms.author: sudhirsneha
+ms.author: v-jasmineme
+author: jasminemehndir
 ms.date: 08/20/2024
 ms.topic: how-to 
 ms.service: azure-automation
@@ -47,30 +47,12 @@ If the Windows or Linux Hybrid Runbook worker is deployed using the extension-ba
 1. [Add](extension-based-hybrid-runbook-worker-install.md?tabs=windows#create-hybrid-worker-group) the same Hybrid Runbook worker to a Hybrid Worker group in the Automation account in the secondary region. The Hybrid worker extension is installed on the machine in the replica of the Automation account.
 1. Execute the jobs on the Hybrid Runbook worker created in Step 2.
 
-For Hybrid Runbook worker deployed using the agent-based approach, choose from below:
-
-#### [Windows Hybrid Runbook worker](#tab/win-hrw)
-
-If the Windows Hybrid Runbook worker is deployed using an agent-based approach in a region different from the primary region of failure, follow the steps to continue executing Hybrid jobs: 
-1. [Uninstall](automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) the agent from the Hybrid Runbook worker present in the Automation account in the primary region. 
-1. [Re-install](automation-windows-hrw-install.md#installation-options) the agent on the same machine in the replica Automation account in the secondary region. 
-1. You can now execute jobs on the Hybrid Runbook worker created in Step 2. 
-
-#### [Linux Hybrid Runbook worker](#tab/linux-hrw)
-
-If the Linux Hybrid Runbook worker is deployed using agent-based approach in a region different from the primary region of failure, follow the below steps to continue executing Hybrid jobs: 
-1. [Uninstall](automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker) the agent from the Hybrid Runbook worker present in Automation account in the primary region. 
-1. [Re-install](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker) the agent on the same machine in the replica Automation account in the secondary region. 
-1. You can now execute jobs on the Hybrid Runbook worker created in Step 2. 
-
 ---
 
 ### Scenario: Execute jobs on Hybrid Runbook Worker deployed in the primary region of failure
 If the Hybrid Runbook worker is deployed in the primary region, and there's a compute failure in that region, the machine won't be available for executing Automation jobs. You must provision a new virtual machine in an alternate region and register it as Hybrid Runbook Worker in Automation account in the secondary region.
  
 - See the installation steps in [how to deploy an extension-based Windows or Linux User Hybrid Runbook Worker](extension-based-hybrid-runbook-worker-install.md?tabs=windows#create-hybrid-worker-group).
-- See the installation steps in [how to deploy an agent-based Windows Hybrid Worker](automation-windows-hrw-install.md#installation-options).
-- See the installation steps in [how to deploy an agent-based Linux Hybrid Worker](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker).
 
 ## Script to migrate Automation account assets from one region to another
 
@@ -83,7 +65,6 @@ You can use these scripts for migration of Automation account assets from the ac
  1. Ensure that the system assigned managed identities of the primary Automation account have contributor access to the subscription it belongs to.
  1. Ensure that the primary Automation account's managed identity has Contributor access with read and write permissions to the Automation account in secondary region. To enable, provide the necessary permissions in secondary Automation account's managed identities. [Learn more](../role-based-access-control/quickstart-assign-role-user-portal.md).
  1. Ensure that the script has access to the Automation account assets in primary region. Hence, it should be executed as a runbook in that Automation account for successful migration.
- 1. If the primary Automation account is deployed using a Run as account, then it must be switched to Managed Identity before migration. [Learn more](migrate-run-as-accounts-managed-identity.md).
  1. Modules required are:
  
       - Az.Accounts version 2.8.0 

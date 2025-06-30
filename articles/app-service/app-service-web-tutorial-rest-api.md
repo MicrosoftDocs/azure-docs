@@ -5,6 +5,7 @@ ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/05/2024
+ms.update-cycle: 1095-days
 ms.custom: "UpdateFrequency3, devx-track-csharp, mvc, devcenter, devx-track-azurecli"
 ms.author: msangapu
 author: msangapu-msft

@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: femila
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -706,8 +706,8 @@ Azure service: [Azure Synapse Analytics](/azure/synapse-analytics/)
 > | Microsoft.Synapse/workspaces/integrationRuntimes/removeLinks/action | Remove any Integration Runtime link |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/enableInteractiveQuery/action | Enable Interactive query on any Integration Runtime |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/disableInteractiveQuery/action | Disable Interactive query on any Integration Runtime |
-> | Microsoft.Synapse/workspaces/integrationRuntimes/refreshObjectMetadata/action | Refresh Object metadata on any Intergration Runtime |
-> | Microsoft.Synapse/workspaces/integrationRuntimes/getObjectMetadata/action | Get Object metadata on any Intergration Runtime |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/refreshObjectMetadata/action | Refresh Object metadata on any Integration Runtime |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/getObjectMetadata/action | Get Object metadata on any Integration Runtime |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/read | Get any Integration Runtime Node. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/delete | Delete any Integration Runtime Node. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/write | Patch any Integration Runtime Node. |

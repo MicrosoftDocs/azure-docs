@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 12/06/2024
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli,engagement-fy23
+# Customer intent: "As a cloud administrator, I want to manage inbound NAT rules for a load balancer, so that I can efficiently forward traffic to appropriate backend instances and ensure optimal performance for applications."
 ---
 
 # Manage inbound NAT rules for Azure Load Balancer

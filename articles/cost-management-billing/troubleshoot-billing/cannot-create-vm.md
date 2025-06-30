@@ -8,6 +8,8 @@ ms.reviewer: macyso
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.date: 05/01/2025
+ms.custom:
+  - build-2025
 ---
 
 # Error when creating a VM as an Azure Enterprise user: Contact your reseller for accurate pricing

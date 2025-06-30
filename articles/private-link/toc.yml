@@ -12,6 +12,8 @@
     href: network-security-perimeter-concepts.md  
   - name: Availability
     href: availability.md
+  - name: What is network foundations?
+    href: /azure/networking/network-foundations-overview
   - name: FAQ
     href: private-link-faq.yml
 - name: Configure
@@ -92,6 +94,22 @@
     href: /azure/cosmos-db/how-to-configure-private-endpoints?toc=/azure/private-link/toc.json
   - name: Approve private link connections across subscriptions
     href: how-to-approve-private-link-cross-subscription.md
+- name: Security
+  items:
+  - name: Configure an application security group
+    href: configure-asg-private-endpoint.md
+  - name: Inspect private endpoint traffic with Azure Firewall
+    href: tutorial-inspect-traffic-azure-firewall.md
+  - name: RBAC permissions
+    href: rbac-permissions.md 
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+  - name: Network security perimeter
+    items:
+    - name: Role-based access control permissions
+      href: network-security-perimeter-role-based-access-control-requirements.md
 - name: Operational excellence
   items:
   - name: Monitor Private Link
@@ -110,22 +128,6 @@
     items:
     - name: Diagnostic logs
       href: network-security-perimeter-diagnostic-logs.md
-- name: Security
-  items:
-  - name: Configure an application security group
-    href: configure-asg-private-endpoint.md
-  - name: Inspect private endpoint traffic with Azure Firewall
-    href: tutorial-inspect-traffic-azure-firewall.md
-  - name: RBAC permissions
-    href: rbac-permissions.md 
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
-  - name: Azure Security blog
-    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-  - name: Network security perimeter
-    items:
-    - name: Role-based access control permissions
-      href: network-security-perimeter-role-based-access-control-requirements.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot private endpoint connectivity problems

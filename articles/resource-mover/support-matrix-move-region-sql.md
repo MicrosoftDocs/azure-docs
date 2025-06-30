@@ -1,11 +1,12 @@
 ---
 title: Support for moving Azure SQL resources between regions with Azure Resource Mover.
 description: Review support for moving Azure SQL resources between regions with Azure Resource Mover.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: concept-article
 ms.date: 12/27/2024
-ms.author: ankitadutta
+ms.update-cycle: 180-days
+ms.author: jsuri
 ms.custom: UpdateFrequency.5
 ---
 # Support for moving Azure SQL resources between Azure regions

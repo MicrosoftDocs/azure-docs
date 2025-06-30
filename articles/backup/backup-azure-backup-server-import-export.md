@@ -6,6 +6,8 @@ ms.date: 05/19/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+ms.custom:
+  - build-2025
 ---
 
 # Offline seeding for DPM/MABS using customer-owned disks with Azure Import/Export

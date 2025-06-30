@@ -7,6 +7,7 @@ ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 11/02/2023
+ms.update-cycle: 180-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.collection: ce-skilling-ai-copilot
 ---
