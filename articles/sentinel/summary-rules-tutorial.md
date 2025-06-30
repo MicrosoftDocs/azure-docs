@@ -38,7 +38,7 @@ To complete this tutorial, you need:
 
 This diagram shows the process described in this tutorial:
 
-:::image type="content" source="media/summary-rules/summary-rule-auxiliary-logs-overview.svg" alt-text="Screenshot of the Content Hub page in Microsoft Sentinel showing summary rule templates." lightbox="media/summary-rules/summary-rule-auxiliary-logs-overview.svg":::
+:::image type="content" source="media/summary-rules/summary-rule-auxiliary-logs-overview.png" alt-text="Screenshot of the Content Hub page in Microsoft Sentinel showing summary rule templates." lightbox="media/summary-rules/summary-rule-auxiliary-logs-overview.png":::
 
 ## Use summary rules with auxiliary logs
 
