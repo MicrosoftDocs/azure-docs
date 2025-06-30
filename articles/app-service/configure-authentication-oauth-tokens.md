@@ -76,7 +76,7 @@ For token refresh to work, the token store must contain [refresh tokens](/entra/
 1. In the API Playground, select **New request**.
 1. Select `PUT` from the command dropdown list.
 1. Enter the same ARM relative path and API version as for the `GET` command.
-1. Select the **Request body** field, and paste in your edited code.
+1. Select the **Request body** tab, and paste in your edited code.
 1. Select **Execute**. The **Response body** field shows your changes.
 
 [Offline_access](/entra/identity-platform/scopes-oidc#the-offline_access-scope) is the scope that provides refresh tokens. App Service already requests the other scopes by default. For more information, see [OpenID Connect Scopes](/entra/identity-platform/scopes-oidc#openid-connect-scopes) and [Web Apps - Update Auth Settings V2](/rest/api/appservice/web-apps/update-auth-settings-v-2).
