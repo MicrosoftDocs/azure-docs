@@ -119,7 +119,7 @@ In this section, use a basic `set` and `get` sequence to start using the Redis c
 
 ```
 
-Before you can run this code, you must add yourself as a Redis user. 
+Before you can run this code, you must add yourself as a Redis user.
 
 You must also authorize your connection to Azure from the command line using the Azure command line or Azure developer command line (azd).
 
