@@ -10,13 +10,13 @@ ms.custom:
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Add an App Service app as a OpenAPI tool in Azure AI Foundry Agent Service (.NET)
+# Add an App Service app as a tool in Azure AI Foundry Agent Service (.NET)
 
 In this tutorial, you'll learn how to expose your app's functionality through OpenAPI, add it as a tool to Azure AI Foundry Agent Service, and interact with your app using natural language in the agents playground. 
 
 If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available to an AI agent in Azure AI Foundry Agent Service. By simply adding an OpenAPI schema to your app, you enable the agent to understand and use your app's capabilities when it responds to users' prompts. This means anything your app can do, your AI agent can do too, with minimal effort beyond creating an OpenAPI endpoint for your app. In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent through conversational AI.
 
-:::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-openapi-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
+:::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
 
 > [!div class="checklist"]
 > * Add OpenAPI functionality to your web app.
@@ -191,7 +191,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     - Create a task called "Come up with three lettuce jokes."
     - Change that to "Come up with three knock-knock jokes."
     
-    :::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-openapi-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
+    :::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
 
 ## Next step
 

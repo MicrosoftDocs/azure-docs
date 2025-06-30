@@ -21,17 +21,31 @@ If your web application already has useful features, like shopping, hotel bookin
 ### [Semantic Kernel](#tab/semantickernel)
 
 
-:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
+:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
 
 ### [Azure AI Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
 
 -----
+
+Both Semantic Kernel and Azure AI Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. The following table shows some of the some of the considerations and trade-offs:
+
+| Consideration      | Semantic Kernel                | Azure AI Foundry Agent Service         |
+|--------------------|-------------------------------|----------------------------------------|
+| Performance        | Fast (runs locally)            | Slower (managed, remote service)       |
+| Development        | Full code, maximum control     | Low code, rapid integration            |
+| Testing            | Manual/unit tests in code      | Built-in playground for quick testing  |
+| Scalability        | App-managed                    | Azure-managed, auto-scaled             |
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Convert existing app functionality into a plugin for Semantic Kernel.
+> * Add the plugin to a Semantic Kernel agent and use it in a web app.
+> * Convert existing app functionaltiy into an OpenAPI endpoint for Azure AI Foundry Agent Service.
+> * Call an Azure AI Foundry agent in a web app.
+- Assign the required permissions for managed identity connectivity.
 
 ## Prerequisites
 
@@ -139,13 +153,13 @@ The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API de
 
 1. Select **Azure OpenAI** and copy the URL in **Azure OpenAI endpoint** for later.
 
-    :::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry/foundry-project-endpoints.png" alt-text="Screenshot showing how to copy the OpenAI endpoint and the foundry project endpoint in the foundry portal.":::
+    :::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/foundry-project-endpoints.png" alt-text="Screenshot showing how to copy the OpenAI endpoint and the foundry project endpoint in the foundry portal.":::
 
 1. From the left menu, select **Agents**, then select the default agent.
 
 1. From the **Setup** pane, copy **Agent ID**, as well as the model name in **Deployment**.
 
-    :::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry/foundry-agent-id-model.png" alt-text="Screenshot showing how to copy the agent ID and the model deployment name in the foundry portal.":::
+    :::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/foundry-agent-id-model.png" alt-text="Screenshot showing how to copy the agent ID and the model deployment name in the foundry portal.":::
 
 1. In the **Setup** pane, add an action with the OpenAPI spec tool. Use the OpenAPI schema that you get from the deployed web app and **anonymous** authentication. For detailed steps, see [How to use the OpenAPI spec tool](/azure/ai-foundry/agents/how-to/tools/openapi-spec-samples?pivots=portal).
 
@@ -159,7 +173,7 @@ The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API de
 
 1. At the upper right corner of the foundry portal, select the name of the resource, then select **Resource Group** to open it in the Azure portal. 
 
-    :::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry/go-to-azure-portal.png" alt-text="Screenshot showing how to quickly go to the resource group view for the foundry resource in the Azure portal.":::
+    :::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/go-to-azure-portal.png" alt-text="Screenshot showing how to quickly go to the resource group view for the foundry resource in the Azure portal.":::
 
 1. Add a role for each of the two resources for the App Service app's manage identity using the following table:
 
@@ -213,11 +227,11 @@ The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API de
 ### [Semantic Kernel](#tab/semantickernel)
 
 
-:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
+:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
 
 ### [Azure AI Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
 
 -----
 
@@ -230,21 +244,6 @@ azd down --purge
 ```
 
 Sind the AZD template doesn't include the Azure AI Foundry resources, you need to delete them manually if you want.
-
-## Frequently asked questions
-
----
-
-### How to choose between Semantic Kernel and Azure AI Foundry Agent Service?
-
-Both Semantic Kernel and Azure AI Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. The following table shows some of the some of the considerations and trade-offs:
-
-| Consideration      | Semantic Kernel                | Azure AI Foundry Agent Service         |
-|--------------------|-------------------------------|----------------------------------------|
-| Performance        | Fast (runs locally)            | Slower (managed, remote service)       |
-| Development        | Full code, maximum control     | Low code, rapid integration            |
-| Testing            | Manual/unit tests in code      | Built-in playground for quick testing  |
-| Scalability        | App-managed                    | Azure-managed, auto-scaled             |
 
 ## More resources
 
