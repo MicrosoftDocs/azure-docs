@@ -1,8 +1,8 @@
 ---
 title: Hunt with bookmarks in Microsoft Sentinel
 description: This article describes how to use the Microsoft Sentinel hunting bookmarks to keep track of data.
-ms.author: mberdugo 
-author: monaberdugo 
+ms.author: monaberdugo
+author: mberdugo 
 ms.topic: how-to
 ms.date: 04/23/2024
 ms.collection: usx-security
