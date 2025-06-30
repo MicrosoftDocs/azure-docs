@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/07/2025
+ms.date: 06/25/2025
 
-#CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
+# Customer intent: "As a network administrator, I want to understand the traffic analytics schema and data aggregation methods so that I can effectively analyze flow logs and enhance network performance and security."
 ---
 
 # Traffic analytics schema and data aggregation
@@ -23,15 +23,6 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 
 ## Data aggregation
 
-# [**Network security group flow logs**](#tab/nsg)
-
-- All flow logs at a network security group between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t` are captured at one-minute intervals as blobs in a storage account.
-- Default processing interval of traffic analytics is 60 minutes, meaning that every hour, traffic analytics picks blobs from the storage account for aggregation. However, if a processing interval of 10 minutes is selected, traffic analytics will instead pick blobs from the storage account every 10 minutes.
-- Flows that have the same `Source IP`, `Destination IP`, `Destination port`, `NSG name`, `NSG rule`, `Flow Direction`, and `Transport layer protocol (TCP or UDP)` are clubbed into a single flow by traffic analytics (Note: source port is excluded for aggregation).
-- This single record is decorated (details in the section below) and ingested in Azure Monitor logs by traffic analytics. This process can take up to 1 hour.
-- `FlowStartTime_t` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
-- For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen by the network security group, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
-
 # [**Virtual network flow logs**](#tab/vnet)
 
 - All flow logs between `FlowIntervalStartTime` and `FlowIntervalEndTime` are captured at one-minute intervals as blobs in a storage account.
@@ -41,7 +32,22 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 - `FlowStartTime` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`.
 - For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
 
----
+The following query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
+
+```
+NTANetAnalytics
+| where SubType == "FlowLog" and FlowStartTime >= ago(30d) and FlowType == "ExternalPublic"
+| project SrcSubnet, DestSubnet
+```
+
+# [**Network security group flow logs**](#tab/nsg)
+
+- All flow logs at a network security group between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t` are captured at one-minute intervals as blobs in a storage account.
+- Default processing interval of traffic analytics is 60 minutes, meaning that every hour, traffic analytics picks blobs from the storage account for aggregation. However, if a processing interval of 10 minutes is selected, traffic analytics will instead pick blobs from the storage account every 10 minutes.
+- Flows that have the same `Source IP`, `Destination IP`, `Destination port`, `NSG name`, `NSG rule`, `Flow Direction`, and `Transport layer protocol (TCP or UDP)` are clubbed into a single flow by traffic analytics (Note: source port is excluded for aggregation).
+- This single record is decorated (details in the section below) and ingested in Azure Monitor logs by traffic analytics. This process can take up to 1 hour.
+- `FlowStartTime_t` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
+- For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen by the network security group, but in Azure Monitor logs, user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
 
 The following query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
 
@@ -87,12 +93,86 @@ The previous query constructs a URL to access the blob directly. The URL with pl
 
 ```
 https://{storageAccountName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{networkSecurityGroupName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
-
 ```
+
+---
 
 ## Traffic analytics schema
 
 Traffic analytics is built on top of Azure Monitor logs, so you can run custom queries on data decorated by traffic analytics and set alerts.
+
+# [**Virtual network flow logs**](#tab/vnet)
+
+The following table lists the fields in the schema and what they signify for virtual network flow logs. For more information, see [NTANetAnalytics](/azure/azure-monitor/reference/tables/ntanetanalytics).
+
+> [!div class="mx-tableFixed"]
+> | Field | Format | Comments |
+> | ----- | ------ | -------- |
+> | **TableName** | NTANetAnalytics | Table for traffic analytics data. |
+> | **SubType** | FlowLog | Subtype for the flow logs. Use only **FlowLog**, other values of **SubType** are for internal use. |
+> | **FASchemaVersion** | 3 | Schema version. Doesn't reflect virtual network flow log version. |
+> | **TimeProcessed** | Date and time in UTC | Time at which the traffic analytics processed the raw flow logs from the storage account. |
+> | **FlowIntervalStartTime** | Date and time in UTC | Starting time of the flow log processing interval (time from which flow interval is measured). |
+> | **FlowIntervalEndTime**| Date and time in UTC | Ending time of the flow log processing interval. |
+> | **FlowStartTime** | Date and time in UTC | First occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. This flow gets aggregated based on aggregation logic. |
+> | **FlowEndTime** | Date and time in UTC | Last occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. |
+> | **FlowType**  | - IntraVNet <br> - InterVNet <br> - S2S <br> - P2S  <br> - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow  <br> - Unknown Private <br> - Unknown | See [Notes](#notes) for definitions. |
+> | **SrcIp** | Source IP address | Blank in AzurePublic and ExternalPublic flows. |
+> | **DestIp** | Destination IP address | Blank in AzurePublic and ExternalPublic flows. |
+> | **TargetResourceId** | ResourceGroupName/ResourceName | The ID of the resource at which flow logging and traffic analytics is enabled. |
+> | **TargetResourceType**  | VirtualNetwork/Subnet/NetworkInterface | Type of resource at which flow logging and traffic analytics is enabled (virtual network, subnet, NIC or network security group).|
+> | **FlowLogResourceId**  | ResourceGroupName/NetworkWatcherName/FlowLogName | The resource ID of the flow log. |
+> | **DestPort** | Destination Port | Port at which traffic is incoming. |
+> | **L4Protocol** | - T <br> - U | Transport Protocol. **T** = TCP <br> **U** = UDP |
+> | **L7Protocol** | Protocol Name | Derived from destination port. |
+> | **FlowDirection**  | - **I** = Inbound <br> - **O** = Outbound | Direction of the flow: in or out of the target resource per flow log. |
+> | **FlowStatus** | - **A** = Allowed <br> - **D** = Denied | Status of flow: allowed or denied by target resource per flow log. |
+> | **AclList** | \<SubscriptionID\>/\<resourcegroup_Name\>/\<NSG_Name\> | Network security group associated with the flow. |
+> | **AclRule** | NSG_Rule_Name  | Network security group rule that allowed or denied the flow. |
+> | **MACAddress** | MAC Address | MAC address of the NIC at which the flow was captured. |
+> | **SrcSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
+> | **DestSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the destination IP in the flow belongs to. |
+> | **SrcRegion** | Azure Region | Azure region of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
+> | **DestRegion** | Azure Region | Azure region of virtual network that the destination IP in the flow belongs to. |
+> | **SrcNic** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
+> | **DestNic** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the destination IP in the flow. |
+> | **SrcVm** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the source IP in the flow.  |
+> | **DestVm** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the destination IP in the flow. |
+> | **SrcSubnet**  | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the source IP in the flow. |
+> | **DestSubnet** | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the destination IP in the flow.  |
+> | **SrcApplicationGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the source IP in the flow. |
+> | **DestApplicationGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the destination IP in the flow. |
+> | **SrcExpressRouteCircuit** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is sent from site via ExpressRoute. |
+> | **DestExpressRouteCircuit** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is received from cloud by ExpressRoute. |
+> | **ExpressRouteCircuitPeeringType** | - AzurePrivatePeering <br> - AzurePublicPeering <br> - MicrosoftPeering | ExpressRoute peering type involved in the flow. |
+> | **SrcLoadBalancer**  | \<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the source IP in the flow. |
+> | **DestLoadBalancer** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the destination IP in the flow. |
+> | **SrcLocalNetworkGateway**  | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the source IP in the flow. |
+> | **DestLocalNetworkGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the destination IP in the flow. |
+> | **ConnectionType** | - VNetPeering <br> - VpnGateway <br> - ExpressRoute | The connection type. |
+> | **ConnectionName** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ConnectionName\> | The connection name. For flow type P2S, it's formatted as \<GatewayName>_\<VPNClientIP> |
+> | **ConnectingVNets** | Space separated list of virtual network names. | In hub and spoke topology, hub virtual networks are populated here. |
+> | **Country** | Two-letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs field share the same country code. |
+> | **AzureRegion** | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs field share the Azure region. |
+> | **AllowedInFlows**| - | Count of inbound flows that were allowed, which represents the number of flows that shared the same four-tuple inbound to the network interface at which the flow was captured. |
+> | **DeniedInFlows** | - | Count of inbound flows that were denied. (Inbound to the network interface at which the flow was captured). |
+> | **AllowedOutFlows** | - | Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured). |
+> | **DeniedOutFlows** | - | Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured). |
+> | **PacketsDestToSrc** | - | Represents packets sent from the destination to the source of the flow. |
+> | **PacketsSrcToDest** | - | Represents packets sent from the source to the destination of the flow . |
+> | **BytesDestToSrc** | - | Represents bytes sent from the destination to the source of the flow. |
+> | **BytesSrcToDest** | - | Represents bytes sent from the source to the destination of the flow. |
+> | **CompletedFlows** | - | Total number of flows completed (populated with non-zero value when a flow gets a completed event). |
+> | **SrcPublicIPs** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
+> | **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
+> | **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows. |
+> | **PrivateEndpointResourceId** | <ResourceGroup/privateEndpointResource> | Resource ID of the private endpoint resource. Populated when traffic is flowing to or from a private endpoint resource. |
+> | **PrivateLinkResourceId** | <ResourceGroup/ResourceType/privateLinkResource> | Resource ID of the private link service. Populated when traffic is flowing to or from a private endpoint resource. |
+> | **PrivateLinkResourceName** | Plain text | Resource name of the private link service. Populated when traffic is flowing to or from a private endpoint resource. |
+> | **IsFlowCapturedAtUDRHop** | - True <br> - False | If the flow was captured at a UDR hop, the value is True. |
+
+> [!NOTE]
+> *NTANetAnalytics* in virtual network flow logs replaces *AzureNetworkAnalytics_CL* used in network security group flow logs.
 
 # [**Network security group flow logs**](#tab/nsg)
 
@@ -118,9 +198,9 @@ The following table lists the fields in the schema and what they signify for net
 > | **L7Protocol_s**	| Protocol Name | Derived from destination port. |
 > | **FlowDirection_s** | - I = Inbound <br> -	O = Outbound | Direction of the flow: in or out of network security group per flow log. |
 > | **FlowStatus_s**	| - A = Allowed <br> - D = Denied | Status of flow whether allowed or denied by the network security group per flow log. |
-> | **NSGList_s** | \<SUBSCRIPTIONID\>/\<RESOURCEGROUP_NAME\>/\<NSG_NAME\> | Network security group associated with the flow. |
-> | **NSGRules_s** | \<Index value 0>\|\<NSG_RULENAME>\|\<Flow Direction>\|\<Flow Status>\|\<FlowCount ProcessedByRule> | Network security group rule that allowed or denied this flow. |
-> | **NSGRule_s** | NSG_RULENAME | Network security group rule that allowed or denied this flow. |
+> | **NSGList_s** | \<SubscriptionID\>/\<resourcegroup_Name\>/\<NSG_Name\> | Network security group associated with the flow. |
+> | **NSGRules_s** | \<Index value 0>\|\<NSG_Rule_Name>\|\<Flow Direction>\|\<Flow Status>\|\<FlowCount ProcessedByRule> | Network security group rule that allowed or denied this flow. |
+> | **NSGRule_s** | NSG_Rule_Name | Network security group rule that allowed or denied this flow. |
 | **NSGRuleType_s**	| - User Defined <br> - Default | The type of network security group rule used by the flow. |
 > | **MACAddress_s** | MAC Address | MAC address of the NIC at which the flow was captured. |
 > | **Subscription_g** | Subscription of the Azure virtual network / network interface / virtual machine is populated in this field | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow, and UnknownPrivate flow types (flow types where only one side is Azure). |
@@ -174,108 +254,15 @@ The following table lists the fields in the schema and what they signify for net
 > - Deprecated fields: `VMIP_s`, `Subscription_g`, `Region_s`, `NSGRules_s`, `Subnet_s`, `VM_s`, `NIC_s`, `PublicIPs_s`, `FlowCount_d`
 > - New fields: `SrcPublicIPs_s`, `DestPublicIPs_s`, `NSGRule_s`
 
-# [**Virtual network flow logs**](#tab/vnet)
-
-The following table lists the fields in the schema and what they signify for virtual network flow logs.
-
-> [!div class="mx-tableFixed"]
-> | Field | Format | Comments |
-> | ----- | ------ | -------- |
-> | **TableName** | NTANetAnalytics | Table for traffic analytics data. |
-> | **SubType** | FlowLog | Subtype for the flow logs. Use only **FlowLog**, other values of **SubType** are for internal use. |
-> | **FASchemaVersion** | 3 | Schema version. Doesn't reflect virtual network flow log version. |
-> | **TimeProcessed** | Date and time in UTC | Time at which the traffic analytics processed the raw flow logs from the storage account. |
-> | **FlowIntervalStartTime** | Date and time in UTC | Starting time of the flow log processing interval (time from which flow interval is measured). |
-> | **FlowIntervalEndTime**| Date and time in UTC | Ending time of the flow log processing interval. |
-> | **FlowStartTime** | Date and time in UTC | First occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. This flow gets aggregated based on aggregation logic. |
-> | **FlowEndTime** | Date and time in UTC | Last occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. |
-> | **FlowType**  | - IntraVNet <br> - InterVNet <br> - S2S <br> - P2S  <br> - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow  <br> - Unknown Private <br> - Unknown | See [Notes](#notes) for definitions. |
-> | **SrcIp** | Source IP address | Blank in AzurePublic and ExternalPublic flows. |
-> | **DestIp** | Destination IP address | Blank in AzurePublic and ExternalPublic flows. |
-> | **TargetResourceId** | ResourceGroupName/ResourceName | The ID of the resource at which flow logging and traffic analytics is enabled. |
-> | **TargetResourceType**  | VirtualNetwork/Subnet/NetworkInterface | Type of resource at which flow logging and traffic analytics is enabled (virtual network, subnet, NIC or network security group).|
-> | **FlowLogResourceId**  | ResourceGroupName/NetworkWatcherName/FlowLogName | The resource ID of the flow log. |
-> | **DestPort** | Destination Port | Port at which traffic is incoming. |
-> | **L4Protocol** | - T <br> - U | Transport Protocol. **T** = TCP <br> **U** = UDP |
-> | **L7Protocol** | Protocol Name | Derived from destination port. |
-> | **FlowDirection**  | - **I** = Inbound <br> - **O** = Outbound | Direction of the flow: in or out of the target resource per flow log. |
-> | **FlowStatus** | - **A** = Allowed <br> - **D** = Denied | Status of flow: allowed or denied by target resource per flow log. |
-> | **NSGList** | \<SUBSCRIPTIONID\>/\<RESOURCEGROUP_NAME\>/\<NSG_NAME\> | Network security group associated with the flow. |
-> | **NsgRule** | NSG_RULENAME  | Network security group rule that allowed or denied the flow. |
-> | **NsgRuleType** | - User Defined <br> - Default | The type of network security group rule used by the flow. |
-> | **MACAddress** | MAC Address | MAC address of the NIC at which the flow was captured. |
-> | **SrcSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
-> | **DestSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the destination IP in the flow belongs to. |
-> | **SrcRegion** | Azure Region | Azure region of virtual network / network interface / virtual machine to which the source IP in the flow belongs to. |
-> | **DestRegion** | Azure Region | Azure region of virtual network to which the destination IP in the flow belongs to. |
-> | **SrcNic** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
-> | **DestNic** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the destination IP in the flow. |
-> | **SrcVm** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the source IP in the flow.  |
-> | **DestVm** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the destination IP in the flow. |
-> | **SrcSubnet**  | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the source IP in the flow. |
-> | **DestSubnet** | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the destination IP in the flow.  |
-> | **SrcApplicationGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the source IP in the flow. |
-> | **DestApplicationGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the destination IP in the flow. |
-> | **SrcExpressRouteCircuit** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is sent from site via ExpressRoute. |
-> | **DestExpressRouteCircuit** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ExpressRouteCircuitName\> | ExpressRoute circuit ID - when flow is received from cloud by ExpressRoute. |
-> | **ExpressRouteCircuitPeeringType** | - AzurePrivatePeering <br> - AzurePublicPeering <br> - MicrosoftPeering | ExpressRoute peering type involved in the flow. |
-> | **SrcLoadBalancer**  | \<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the source IP in the flow. |
-> | **DestLoadBalancer** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the destination IP in the flow. |
-> | **SrcLocalNetworkGateway**  | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the source IP in the flow. |
-> | **DestLocalNetworkGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the destination IP in the flow. |
-> | **ConnectionType** | - VNetPeering <br> - VpnGateway <br> - ExpressRoute | The connection type. |
-> | **ConnectionName** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ConnectionName\> | The connection name. For flow type P2S, it's formatted as \<GatewayName>_\<VPNClientIP> |
-> | **ConnectingVNets** | Space separated list of virtual network names. | In hub and spoke topology, hub virtual networks are populated here. |
-> | **Country** | Two-letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs field share the same country code. |
-> | **AzureRegion** | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs field share the Azure region. |
-> | **AllowedInFlows**| - | Count of inbound flows that were allowed, which represents the number of flows that shared the same four-tuple inbound to the network interface at which the flow was captured. |
-> | **DeniedInFlows** | - | Count of inbound flows that were denied. (Inbound to the network interface at which the flow was captured). |
-> | **AllowedOutFlows** | - | Count of outbound flows that were allowed (Outbound to the network interface at which the flow was captured). |
-> | **DeniedOutFlows** | - | Count of outbound flows that were denied (Outbound to the network interface at which the flow was captured). |
-> | **PacketsDestToSrc** | - | Represents packets sent from the destination to the source of the flow. |
-> | **PacketsSrcToDest** | - | Represents packets sent from the source to the destination of the flow . |
-> | **BytesDestToSrc** | - | Represents bytes sent from the destination to the source of the flow. |
-> | **BytesSrcToDest** | - | Represents bytes sent from the source to the destination of the flow. |
-> | **CompletedFlows** | - | Total number of flows completed (populated with non-zero value when a flow gets a completed event). |
-> | **SrcPublicIPs** | \<SOURCE_PUBLIC_IP\>\|\<FLOW_STARTED_COUNT\>\|\<FLOW_ENDED_COUNT\>\|\<OUTBOUND_PACKETS\>\|\<INBOUND_PACKETS\>\|\<OUTBOUND_BYTES\>\|\<INBOUND_BYTES\> | Entries separated by bars. |
-> | **DestPublicIPs** | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
-> | **FlowEncryption** | - Encrypted <br>- Unencrypted <br>- Unsupported hardware <br>- Software not ready <br>- Drop due to no encryption <br>- Discovery not supported <br>- Destination on same host <br>- Fall back to no encryption. | Encryption level of flows. |
-> | **PrivateEndpointResourceId** | <ResourceGroup/privateEndpointResource> | Resource ID of the private endpoint resource. Populated when traffic is flowing to or from a private endpoint resource. |
-> | **PrivateLinkResourceId** | <ResourceGroup/ResourceType/privateLinkResource> | Resource ID of the private link service. Populated when traffic is flowing to or from a private endpoint resource. |
-> | **PrivateLinkResourceName** | Plain text | Resource name of the private link service. Populated when traffic is flowing to or from a private endpoint resource. |
-> | **IsFlowCapturedAtUDRHop** | - True <br> - False | If the flow was captured at a UDR hop, the value is True. |
-
-> [!NOTE]
-> *NTANetAnalytics* in virtual network flow logs replaces *AzureNetworkAnalytics_CL* used in network security group flow logs.
-
 ---
 
 ## Public IP details schema
 
 Traffic analytics provides WHOIS data and geographic location for all public IPs in your environment. For a malicious IP, traffic analytics provides DNS domain, threat type and thread descriptions as identified by Microsoft security intelligence solutions. IP Details are published to your Log Analytics workspace so you can create custom queries and put alerts on them. You can also access prepopulated queries from the traffic analytics dashboard.
 
-The following table details public IP schema:
-
-# [**Network security group flow logs**](#tab/nsg)
-
-| Field | Format | Comments |
-| ----- | ------ | -------- |
-| **TableName** | AzureNetworkAnalyticsIPDetails_CL | Table that contains traffic analytics IP details data. |
-| **SubType_s**	| FlowLog |	Subtype for the flow logs. **Use only "FlowLog"**, other values of SubType_s are for internal workings of the product. |
-| **FASchemaVersion_s** | 2 | Schema version. Doesn't reflect network security group flow log version. |
-| **FlowIntervalStartTime_t** | Date and Time in UTC | Start time of the flow log processing interval (time from which flow interval is measured). |
-| **FlowIntervalEndTime_t** | Date and Time in UTC | End time of the flow log processing interval. |
-| **FlowType_s** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | See [Notes](#notes) for definitions. |
-| **IP** | Public IP | Public IP whose information is provided in the record. |
-| **Location** | Location of the IP | - For Azure Public IP: Azure region of virtual network/network interface/virtual machine to which the IP belongs OR Global for IP [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). <br> - For External Public IP and Malicious IP: 2-letter country code where IP is located (ISO 3166-1 alpha-2). |
-| **PublicIPDetails** | Information about IP | - For AzurePublic IP: Azure Service owning the IP or Microsoft virtual public IP for [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). <br> - ExternalPublic/Malicious IP: WhoIS information of the IP. |
-| **ThreatType** | Threat posed by malicious IP | **For Malicious IPs only**: One of the threats from the list of currently allowed values (described in the next table). |
-| **ThreatDescription** | Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
-| **DNSDomain** | DNS domain | *For Malicious IPs only*. Domain name associated with the malicious IP. |
-| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only*. |
-| **Port** | Port corresponding to the malicious IP | *For Malicious IPs only*. |
-
 # [**Virtual network flow logs**](#tab/vnet)
+
+The following table details public IP schema. For more information, see [NTAIpDetails](/azure/azure-monitor/reference/tables/ntaipdetails).
 
 | Field | Format | Comments |
 | ----- | ------ | -------- |
@@ -299,10 +286,32 @@ The following table details public IP schema:
 > 
 > - Traffic analytics can log any malicious FQDN associated to the IP for malicious flows. To filter out, use the port, URL and domain fields as needed. 
 
+# [**Network security group flow logs**](#tab/nsg)
+
+The following table details public IP schema.
+
+| Field | Format | Comments |
+| ----- | ------ | -------- |
+| **TableName** | AzureNetworkAnalyticsIPDetails_CL | Table that contains traffic analytics IP details data. |
+| **SubType_s**	| FlowLog |	Subtype for the flow logs. **Use only "FlowLog"**, other values of SubType_s are for internal workings of the product. |
+| **FASchemaVersion_s** | 2 | Schema version. Doesn't reflect network security group flow log version. |
+| **FlowIntervalStartTime_t** | Date and Time in UTC | Start time of the flow log processing interval (time from which flow interval is measured). |
+| **FlowIntervalEndTime_t** | Date and Time in UTC | End time of the flow log processing interval. |
+| **FlowType_s** | - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow | See [Notes](#notes) for definitions. |
+| **IP** | Public IP | Public IP whose information is provided in the record. |
+| **Location** | Location of the IP | - For Azure Public IP: Azure region of virtual network/network interface/virtual machine to which the IP belongs OR Global for IP [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). <br> - For External Public IP and Malicious IP: 2-letter country code where IP is located (ISO 3166-1 alpha-2). |
+| **PublicIPDetails** | Information about IP | - For AzurePublic IP: Azure Service owning the IP or Microsoft virtual public IP for [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). <br> - ExternalPublic/Malicious IP: WhoIS information of the IP. |
+| **ThreatType** | Threat posed by malicious IP | **For Malicious IPs only**: One of the threats from the list of currently allowed values (see [Threat types](#threat-types)). |
+| **ThreatDescription** | Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
+| **DNSDomain** | DNS domain | *For Malicious IPs only*. Domain name associated with the malicious IP. |
+| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only*. |
+| **Port** | Port corresponding to the malicious IP | *For Malicious IPs only*. |
+
 ---
 
-<br>
-List of threat types:
+### Threat types
+
+The following table lists the currently allowed values for the `ThreatType` field in the traffic analytics IP details schema.
 
 | Value | Description |
 | ----- | ----------- |
@@ -333,8 +342,8 @@ List of threat types:
     - `UnknownPrivate`: One of the IP addresses belong to an Azure virtual network, while the other IP address belongs to the private IP range defined in RFC 1918 and couldn't be mapped by traffic analytics to a customer owned site or Azure virtual network.
     - `Unknown`: Unable to map either of the IP addresses in the flow with the customer topology in Azure and on-premises (site).
 
-    > [!NOTE]
-    > A subscription is visible to traffic analytics in a Log Analytics workspace if it contains a flow log configured to that workspace.
+> [!NOTE]
+> A subscription is visible to traffic analytics in a Log Analytics workspace if it contains a flow log configured to that workspace.
 
 ## Related content
 

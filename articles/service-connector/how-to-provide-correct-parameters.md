@@ -6,6 +6,8 @@ ms.service: service-connector
 ms.topic: how-to
 ms.date: 05/12/2025
 ms.author: honc
+ms.custom:
+  - build-2025
 ---
 # Provide correct parameters to Service Connector
 

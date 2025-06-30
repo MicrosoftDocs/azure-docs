@@ -4,8 +4,12 @@ description: Get started connecting Azure SQL to your OpenAI app
 author: jeffwmartinez
 ms.author: jefmarti
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 ms.topic: article
-ms.custom: devx-track-dotnet, linux-related-content
+ms.custom:
+  - devx-track-dotnet
+  - linux-related-content
+  - build-2025
 ms.collection: ce-skilling-ai-copilot
 ---
 

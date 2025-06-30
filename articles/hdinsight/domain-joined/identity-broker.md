@@ -143,7 +143,7 @@ For each cluster, a third party application is registered in Microsoft Entra ID 
 ### Why are users prompted for consent before using HIB enabled clusters?
 In Microsoft Entra ID, consent is required for all third party applications before it can authenticate users or access data.
 
-### Can the consent be approved programatically?
+### Can the consent be approved programmatically?
 Microsoft Graph api allows you to automate the consent, see the [API documentation](/graph/api/resources/oauth2permissiongrant)
 The sequence to automate the consent is:
 

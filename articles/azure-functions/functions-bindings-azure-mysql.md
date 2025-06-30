@@ -59,7 +59,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.MySql --version 1.0.3-prev
 
 ## Install the bundle
 
-The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles). This bundle is specified in your host.json project file.
+The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./extension-bundles.md). This bundle is specified in your host.json project file.
 
 ### Preview bundle v4.x
 
@@ -83,7 +83,7 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install the bundle
 
-The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles). This bundle is specified in your host.json project file.
+The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./extension-bundles.md). This bundle is specified in your host.json project file.
 
 ### Preview bundle v4.x
 
@@ -107,7 +107,7 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install the bundle
 
-The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles). This bundle is specified in your host.json project file.
+The extension for Azure Database for MySQL bindings is part of the v4 [extension bundle](./extension-bundles.md). This bundle is specified in your host.json project file.
 
 ### Preview bundle v4.x
 

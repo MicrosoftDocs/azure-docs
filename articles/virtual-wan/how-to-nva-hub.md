@@ -48,6 +48,18 @@ To deploy a Network Virtual Appliance in a Virtual WAN Hub, the user or service 
 
 These permissions need to be granted to the Azure Marketplace Managed Application to ensure deployments succeed. Other permissions may be required based on the implementation of the deployment workflow developed by your NVA partner.
 
+## Hub address space
+
+Each Virtual WAN hub has a fixed subnet size used for NVA deployments. The number of IP addresses available for consumption is statically defined for all hub address sizes.
+
+Ensure your Virtual WAN hub has sufficient IP addresses to allow for scalability and future network deployment updates:
+
+* Deploy additional NVAs (more than one) in the hub.
+* Add additional IP configurations to your NVA interfaces.
+* Re-size your NVA (increase scale unit).
+
+For more information on how Virtual WAN allocates IP addresses to NVAs in the hub, see [hub address space for NVAs documentation](about-nva-hub.md#hub-address-space).
+
 ## Assigning Permissions to Azure Managed Application
 
 Network Virtual Appliances that are deployed via Azure Marketplace Managed Application are deployed in a special resource group in your Azure tenant called the **managed resource group**. When you create a Managed Application in your subscription, a corresponding and separate **managed resource group** is created in your subscription. All Azure resources created by the Managed Application (including the Network Virtual Appliance) are deployed into the **managed resource group**.

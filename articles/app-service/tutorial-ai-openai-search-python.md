@@ -7,7 +7,10 @@ ms.author: cephalin
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 05/19/2025
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom:
+  - devx-track-python
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (FastAPI)

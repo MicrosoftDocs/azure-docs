@@ -11,6 +11,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:05/16/2025
+  - build-2025
 services: iot-edge
 zone_pivot_groups: iotedge-dev
 content_well_notification:

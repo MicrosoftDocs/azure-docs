@@ -7,7 +7,7 @@ manager: femila
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.topic: troubleshooting
-ms.date: 03/12/2025
+ms.date: 05/27/2025
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
 ---
@@ -232,7 +232,7 @@ You deleted a security principal that had a role assignment. If you assign a rol
 
 **Solution 2**
 
-It isn't a problem to leave these role assignments where the security principal has been deleted. If you like, you can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](role-assignments-remove.yml).
+It's a good practice to remove any role assignments that aren't being used. You can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you'll get the error message: `The provided information does not map to a role assignment`. The following output shows an example of the error message:
 
@@ -261,13 +261,19 @@ You attempt to remove the last Owner role assignment for a subscription and you 
 
 **Cause**
 
-Removing the last Owner role assignment for a subscription isn't supported to avoid orphaning the subscription.
+By default, removing the last Owner role assignment for a subscription isn't supported to avoid orphaning the subscription.
 
-**Solution**
+**Solution 1**
 
 If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
 
-You're allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you're a Global Administrator for the tenant or a classic administrator (Service Administrator or Co-Administrator) for the subscription. In this case, there's no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope.
+**Solution 2**
+
+You're allowed to remove the last Owner (or User Access Administrator) role assignment at subscription scope, if you're a Global Administrator for the tenant. In this case, there's no constraint for deletion. However, if the call comes from some other principal, then you won't be able to remove the last Owner role assignment at subscription scope. To override this default behavior, enable the "Allow removal of the last subscription Owner role assignment" feature in the Azure portal.
+
+**Solution 3**
+
+If you use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) and you are eligible for the Owner (or User Access Administrator) role, you can [activate](/entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles) your Owner (or User Access Administrator) role assignment temporarily, remove the last Owner role assignment, and then deactivate or let your role assignment expire.
 
 ### Symptom - Role assignment isn't moved after moving a resource
 

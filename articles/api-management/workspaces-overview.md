@@ -6,10 +6,11 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/14/2025
+ms.date: 06/03/2025
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
-
+ms.custom:
+  - build-2025
 ---
 
 # Federated API management with workspaces
@@ -111,7 +112,7 @@ For detailed requirements, see [Network resource requirements for workspace gate
 
 ### Scale capacity
 
-Manage gateway capacity by manually adding or removing scale units, similar to the [units](upgrade-and-scale.md) that can be added to the API Management instance in certain service tiers. The costs of a workspace gateway are based on the number of units you select.
+Manage gateway capacity by adding or removing scale units, similar to the [units](upgrade-and-scale.md) that can be added to the API Management instance in certain service tiers. The costs of a workspace gateway are based on the number of units you select.
 
 ### Regional availability
 
@@ -130,8 +131,8 @@ The following constraints currently apply to workspace gateways:
 * Workspace gateways don't support creating APIs directly from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
 * Workspace gateways don't support CA certificates
-* Workspace gateways don't support autoscaling
 * Workspace gateways don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy
+* Workspace gateways can only be created in the API Management instance's primary Azure region 
 
 ## RBAC roles for workspaces
 

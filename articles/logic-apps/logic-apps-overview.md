@@ -7,6 +7,7 @@ author: ecfan
 ms.reviewer: azla
 ms.topic: overview
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ms.date: 01/29/2025
 ---
 

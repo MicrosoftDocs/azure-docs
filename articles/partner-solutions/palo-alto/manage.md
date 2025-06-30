@@ -18,13 +18,13 @@ Once your Cloud NGFW by Palo Alto Networks resource is created in the Azure port
 - [Log settings](#log-settings)
 - [DNS Proxy](#dns-proxy)
 - [Rules](#rules)
-- [Delete a Cloud NGFW by Palo Alto Networks resource](#delete-a-cloud-ngfw-by-palo-alto-networks-resource)
+- [Delete a resource](#delete-a-resource)
 
-From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment. Use the Resource menu to move through the settings for your Cloud NGFW by Palo Alto Networks.
+From the service menu, select your Cloud NGFW by Palo Alto Networks deployment. Use the service menu to move through the settings for your Cloud NGFW by Palo Alto Networks.
 
 ## Networking and NAT
 
-1. Select **Networking & NAT** in the Resource menu.
+1. Select **Networking & NAT** in the service menu.
 
 1. Select the **Type** by checking the **Virtual Network** or **Virtual WAN** options.
 
@@ -36,7 +36,7 @@ From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment.
 
 ## Rulestack
 
-1. Select **Rulestack** in the Resource menu.
+1. Select **Rulestack** in the service menu.
 
 1. For the **Managed by**, select either **Azure Portal** or **"Palo Alto Networks Panorama** to determine the mechanism for managing Rulestack. You must have Palo Alto Networks Panorama set up in order to select it.
 
@@ -44,7 +44,7 @@ From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment.
 
 ## Log settings
 
-1. Select **Log Settings** in the Resource menu.
+1. Select **Log Settings** in the service menu.
 
 1. Select **edit** to enable **Log Settings**.
 
@@ -54,7 +54,7 @@ From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment.
 
 ## DNS Proxy
 
-1. Select **DNS Proxy** in the Resource menu.
+1. Select **DNS Proxy** in the service menu.
 
 1. Select either **Enable** or **Disable**.
 
@@ -68,11 +68,11 @@ Search for  the Local rules under the **Search** option.
 
 To change the Cloud NGFW's billing plan, go to **Overview** and select **Change Plan**.
 
-## Delete a Cloud NGFW by Palo Alto Networks resource
+## Delete a resource
 
 To delete a Cloud NGFW by Palo Alto Networks resource
 
-1. Select **Overview** in the Resource menu.
+1. Select **Overview** in the service menu.
 
 1. Select **Delete**.
 
@@ -89,10 +89,4 @@ After the account is deleted, logs are no longer sent to Cloud NGFW by Palo Alto
 
 - For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](troubleshoot.md).
 
-- Get Started with Cloud Next-Generation Firewall by Palo Alto Networks on
 
-  > [!div class="nextstepaction"]
-  > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls)
-
-  > [!div class="nextstepaction"]
-  > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.pan_swfw_cloud_ngfw?tab=Overview)

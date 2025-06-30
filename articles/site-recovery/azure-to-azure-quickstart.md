@@ -2,10 +2,10 @@
 title: Set up Azure VM disaster recovery to a secondary region with Azure Site Recovery
 description: Quickly set up disaster recovery to another Azure region for an Azure VM, using the Azure Site Recovery service.
 ms.topic: quickstart
-ms.date: 07/14/2023
+ms.date: 06/17/2025
 ms.custom: mvc, mode-other
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.service: azure-site-recovery
 ---
 
@@ -35,10 +35,14 @@ The following steps enable VM replication to a secondary location.
 1. On the Azure portal, from **Home** > **Virtual machines** menu, select a VM to replicate.
 1. In **Operations**, select **Disaster recovery**.
 1. From **Basics** > **Target region**, select the target region.
+   >[!Note]
+   >When you replicate VMs using Premium SSD v2 or Ultra Disks, if the source region lacks availability zones but the target region supports them, a specific zone must be chosen for failover.
 1. To view the replication settings, select **Review + Start replication**. If you need to change any defaults, select **Advanced settings**.
    >[!Note]
    >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
    >:::image type="High churn" source="media/concepts-azure-to-azure-high-churn-support/churn-for-vms.png" alt-text="Screenshot of Churn for VM.":::
+   >
+   >Azure Site Recovery for Premium SSD v2 (preview) and Ultra by default uses High Churn and a Premium Block Blob type. 
 1. To start the job that enables VM replication, select **Start replication**.
 
    :::image type="content" source="media/azure-to-azure-quickstart/enable-replication1.png" alt-text="Enable replication.":::
