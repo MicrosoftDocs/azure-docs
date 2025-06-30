@@ -24,13 +24,11 @@ By default, storage accounts accept requests over HTTPS only. Any requests made 
 
 ## Private endpoints
 
-Where possible, create private links to your storage account to secure access through a *private endpoint*. A private endpoint assigns a private IP address from your virtual network to your storage account. Clients connect to your storage account using the private link. Traffic is routed over the Microsoft backbone network, ensuring it doesn't travel over the public internet. You can fine-tune access rules using [Network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md). To permit traffic only from private links, you can block all access over the public endpoint. Private endpoints incur extra costs but provide maximum network isolation.
-
-To learn more about using a private endpoint to secure traffic to your storage account, see [Use private endpoints for Azure Storage](storage-private-endpoints.md).
+Where possible, create private links to your storage account to secure access through a *private endpoint*. A private endpoint assigns a private IP address from your virtual network to your storage account. Clients connect to your storage account using the private link. Traffic is routed over the Microsoft backbone network, ensuring it doesn't travel over the public internet. You can fine-tune access rules using [Network policies for private endpoints](../../private-link/disable-private-endpoint-network-policy.md). To permit traffic only from private links, you can block all access over the public endpoint. Private endpoints incur extra costs but provide maximum network isolation. To learn more, see [Use private endpoints for Azure Storage](storage-private-endpoints.md).
 
 ## Public endpoints
 
-The *public endpoint* of your storage account is accessed through a public IP address. If you block all access over the public endpoint, you disable all traffic to the storage account's public IP address. However, if there are clients that can't access your storage account over a private link, or if you choose not to use private endpoints for cost or other reasons, then you can secure the public endpoint of your storage account by using firewall rules or by adding your storage account to a network security perimeter.
+The *public endpoint* of your storage account is accessed through a public IP address. If you use only private endpoints, then you should disable all traffic to the storage account's public IP address. If some clients use a private link, or you choose not to use private endpoints for cost or other reasons, then you can secure the public endpoint of your storage account by using firewall rules or by adding your storage account to a network security perimeter.
 
 ### Firewall rules
 

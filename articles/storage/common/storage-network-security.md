@@ -50,9 +50,6 @@ The following table describes each type of service endpoint that you can enable 
 
 To learn how to configure a virtual network rule and enable service endpoints, see [Create a virtual network rule for Azure Storage](storage-network-security-virtual-networks.md).
 
-<a id="grant-access-from-an-internet-ip-range"></a>
-<a id="managing-ip-network-rules"></a>
-
 ### Access from a paired region
 
 Service endpoints also work between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md).
@@ -60,6 +57,9 @@ Service endpoints also work between virtual networks and service instances in a 
 Configuring service endpoints between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md) can be an important part of your disaster recovery plan. Service endpoints enable continuity during a regional failover and provide access to read-only geo-redundant storage (RA-GRS) instances. Virtual network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
 When planning for disaster recovery during a regional outage, create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage with network rules that grant access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
+
+<a id="managing-ip-network-rules"></a>
+<a id="grant-access-from-an-internet-ip-range"></a>
 
 ## IP network rules
 
@@ -94,11 +94,7 @@ To learn how to configure a resource instance rule, see [Create a resource insta
 
 <a id="grant-access-to-trusted-azure-services"></a>
 <a id="manage-exceptions"></a>
-<a id="trusted-microsoft-services"></a>
 <a id="exceptions"></a>
-<a id="trusted-access-based-on-system-assigned-managed-identity"></a>
-<a id="trusted-access-based-on-a-managed-identity"></a>
-<a id="trusted-access-for-resources-registered-in-your-microsoft-entra-tenant"></a>
 
 ## Exceptions for trusted Azure services
 

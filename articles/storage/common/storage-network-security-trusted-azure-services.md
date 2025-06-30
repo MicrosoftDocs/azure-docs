@@ -13,11 +13,14 @@ ms.author: normesta
 
 # Trusted Azure services
 
+<a id="trusted-microsoft-services"></a>
+
 If you need to enable traffic from an Azure service outside of your network boundary, you can add a *network security exception*. This is useful when an Azure service operates from a network that you can't include in your virtual network or IP network rules. For example, some services might need to read resource logs and metrics in your account. You can allow read access for log files, metrics tables, or both by creating a network rule exception. These services connect to your storage account using strong authentication.
 
 To learn how to add a network security exception, see [Manage Network security exceptions](storage-network-security-manage-exceptions.md).
 
 <a id="trusted-access-based-on-system-assigned-managed-identity"></a>
+<a id="trusted-access-for-resources-registered-in-your-microsoft-entra-tenant"></a>
 
 ### Trusted access for resources registered in your Microsoft Entra tenant
 
