@@ -54,8 +54,6 @@ For more information about limitations in Azure Logic Apps, see [Limits and conf
 
 - Custom functions authoring currently isn't available in the Azure portal. However, after you deploy your functions from Visual Studio Code to Azure, follow the steps in [Call your code from a workflow](#call-code-from-workflow) for the Azure portal. You can use the built-in action named **Call a local function in this logic app** to select from your deployed custom functions and run your code. Subsequent actions in your workflow can reference the outputs from these functions, as in any other workflow. You can view the built-in action's run history, inputs, and outputs.
 
-- Custom functions use an isolated worker to invoke the code in your logic app workflow. To avoid package references conflicts between your own function code and the worker, use the same package versions referenced by the worker. For the full package list and versions referenced by the worker, see [Worker and package dependencies](https://github.com/Azure/logicapps/blob/master/articles/worker-packages-dependencies-custom-code.pdf).
-
 ## Create a code project
 
 The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes a code project template that provides a streamlined experience for writing, debugging, and deploying your own code with your workflows. This project template creates a workspace file and two sample projects: one project to write your code, the other project to create your workflows. 
@@ -102,8 +100,8 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
    | Node | Description |
    |------|-------------|
    | **<*workspace-name*>** | Contains both your .NET functions project and logic app workflow project. |
-   | **Functions** | Contains the artifacts for your .NET functions project. For example, the **<*function-name*>.cs** file is the code file where you can author your code. |
-   | **LogicApp** | Contains the artifacts for your logic app project, including a blank workflow. |
+   | **<*function-name*>** | Contains the artifacts for your .NET functions project. For example, the **<*function-name*>.cs** file is the code file where you can author your code. |
+   | **<*logic-app-name*>** | Contains the artifacts for your logic app project, including a blank workflow. |
 
 ## Write your code
 
@@ -230,7 +228,7 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
    }
    ```
 
-1. Replace the sample function code with your own, and edit the default `Run` method for your own scenarios. Or, you can copy the function, including the `[FunctionName("<*function-name*>")]` declaration, and then rename the function with a unique name. You can then edit the renamed function to meet your needs.
+1. Replace the sample function code with your own, and edit the default `Run` method for your own scenarios. Or, you can copy the function, including the `[FunctionName("<function-name>")]` declaration, and then rename the function with a unique name. You can then edit the renamed function to meet your needs.
 
 This example continues with the sample code without any changes.
 
@@ -238,23 +236,11 @@ This example continues with the sample code without any changes.
 
 After you finish writing your code, compile to make sure that no build errors exist. Your .NET functions project automatically includes build tasks, which compile and then add your code to the **lib\custom** folder in your logic app project where workflows look for custom functions to run. These tasks put the assemblies in the **lib\custom\net472** or **lib\custom\net8** folder, based on your .NET version.
 
-1. In Visual Studio Code, from the **Terminal** menu, select **New Terminal**.
+1. In the Visual Studio Code file explorer, right-click the functions project folder and select "Build functions project...".
 
-1. From the working directory list that appears, select **Functions** as your current working directory for the new terminal.
+   :::image type="content" source="media/create-run-custom-code-functions/build-functions-project.png" alt-text="Screenshot shows Visual Studio Code, Logic App workspace file explorer, and the Build functions project context menu option.":::
 
-   :::image type="content" source="media/create-run-custom-code-functions/compile-function-project.png" alt-text="Screenshot shows Visual Studio Code, prompt for current working directory, and selected Functions directory.":::
-
-   Visual Studio Code opens a terminal window with a command prompt.
-
-1. In the **Terminal** window, at the command prompt, enter **dotnet restore**.
-
-   Visual Studio Code analyzes your projects and determines whether they're up-to-date.
-
-   :::image type="content" source="media/create-run-custom-code-functions/dotnet-restore-complete.png" alt-text="Screenshot shows Visual Studio Code, Terminal window, and completed dotnet restore command.":::
-
-1. After the command prompt reappears, enter **dotnet build**. Or, from the **Terminal** menu, select **Run Task**. From the task list, select **build (Functions)**.
-
-   If your build succeeds, the **Terminal** window reports that the **Build succeeded**.
+1. The build task will execute for the functions project. If your build succeeds, the **Terminal** window reports that the **Build succeeded**.
 
 1. Confirm that the following items exist in your logic app project:
 
@@ -290,7 +276,7 @@ After you confirm that your code compiles and that your logic app project contai
 
 ## Debug your code and workflow
 
-1. Repeat the following steps to start the Azurite storage emulator *three* times: one time each for the following Azure Storage services:
+1. Start the Azurite storage emulator for each of the Azure Storage services:
 
    - Azure Blob Service
    - Azure Queue Service
@@ -308,37 +294,17 @@ After you confirm that your code compiles and that your logic app project contai
 
    :::image type="content" source="media/create-run-custom-code-functions/storage-services-running.png" alt-text="Screenshot shows Visual Studio Code taskbar with Azure Blob Service, Azure Queue Service, and Azure Table Service running.":::
 
-1. Attach the debugger to your logic app project by following these steps:
+1. Attach the debugger to your logic app project and .NET functions project by following these steps:
 
    1. On the Visual Studio Code Activity Bar, select **Run and Debug**. (Keyboard: Ctrl+Shift+D)
 
       :::image type="content" source="media/create-run-custom-code-functions/run-debug.png" alt-text="Screenshot shows Visual Studio Code Activity Bar with Run and Debug selected.":::
 
-   1. From the **Run and Debug** list, select **Attach to logic app (LogicApp)**, if not already selected, and then select **Play** (green arrow).
+   1. From the **Run and Debug** list, select **Run/debug logic app with local function (LogicApp)**, if not already selected, and then select **Play** (green arrow).
 
-      :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-logic-app.png" alt-text="Screenshot shows Run and Debug list with Attach to logic app selected and Play button selected.":::
+      :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-logic-app-with-local-function.png" alt-text="Screenshot shows Run and Debug list with Run/debug logic app with local function selected.":::
 
       The **Terminal** window opens and shows the started debugging process. The **Debug Console** window then appears and shows the debugging statuses. At the bottom of Visual Studio Code, the task bar turns orange, indicating that the .NET debugger is loaded.
-
-1. Attach the debugger to your .NET functions project by following these steps, based on your code:
-
-   **.NET 8 projects**
-
-   1. From the Visual Studio Code **View** menu, select **Command Palette**.
-
-   1. From the command palette, find and select **Debug: Attach to a .NET 5+ or .NET Core process**.
-
-      :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-net-core.png" alt-text="Screenshot shows Run and Debug list with Attach to NET Functions selected and Play button selected.":::
-
-   1. From the list, find and select the **dotnet.exe** process. If multiple **dotnet.exe** processes exist, select the process that has the following path:
-
-      **\<drive-name\>:\Users\<user-name>\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\<extension-bundle-version>\CustomCodeNetFxWorker\net8\Microsoft.Azure.Workflows.Functions.CustomCodeNetFxWorker.dll**
-
-   **.NET Framework projects**
-
-   From the **Run and Debug** list, select **Attach to .NET Functions (Functions)**, if not already selected, and then select **Play** (green arrow).
-
-   :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-net-functions.png" alt-text="Screenshot shows Run and Debug list with Attach to NET Functions (Functions) selected and Play button selected.":::
 
 1. To set any breakpoints, in your function definition (**<*function-name*>.cs**) or workflow definition (**workflow.json**), find the line number where you want the breakpoint, and select the column to the left, for example:
 
