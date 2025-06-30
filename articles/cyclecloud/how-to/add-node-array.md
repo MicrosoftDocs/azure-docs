@@ -2,22 +2,22 @@
 title: Add a Node Array
 description: How to add node arrays to a cluster
 author: dpwatrous
-ms.date: 03/27/2023
+ms.date: 06/30/2025
 ms.author: dawatrou
 ms.custom: compute-evergreen
 ---
 
-# Add a Node Array to a Cluster
+# Add a node array to a cluster
 
-Node arrays are used to define how nodes of a certain type are created/deleted as the cluster scales up and down. Each array has a name, a set of attributes which will be applied to each node in the array, and optional attributes describing how the array should scale (limits, placement groups, scale set configuration, etc).
+Use node arrays to define how the cluster creates and deletes nodes of a certain type as it scales up and down. Each node array has a name, a set of attributes that you apply to each node in the array, and optional attributes that describe how the array scales, such as limits, placement groups, and scale set configuration.
 
-This article shows you how to add a node array to an existing cluster using a template file. [Read more about node arrays.](../concepts/clusters.md#nodes-and-node-arrays)
+This article shows you how to add a node array to an existing cluster by using a template file. [Read more about node arrays.](../concepts/clusters.md#nodes-and-node-node-arrays)
 
-## Edit the Cluster Template
+## Edit the cluster template
 
-In order to add a node array, you must have a [template file](~/articles/cyclecloud/how-to/cluster-templates.md) for your cluster. Edit this file and add a new `[[nodearray]]` section underneath `[cluster]`, giving the array a unique name within that cluster.
+To add a node array, you need a [template file](~/articles/cyclecloud/how-to/cluster-templates.md) for your cluster. Edit this file and add a new `[[nodearray]]` section under the `[cluster]` section. Give the node array a unique name within the cluster.
 
-For example, the template below contains a node array named "highmem" which uses Standard_M64 VMs instead of the value specified in the node defaults (Standard_D4_v2):
+For example, the following template contains a node array named `highmem` that uses Standard_M64 VMs instead of the value specified in the node defaults (Standard_D4_v2):
 
 ```ini
 # hpc-template.txt
@@ -56,18 +56,18 @@ For example, the template below contains a node array named "highmem" which uses
 
 ## Reimport the modified cluster template
 
-To apply the cluster template changes and create the new node array, use the [CycleCloud CLI](../cli.md) to import the template. You must specify the name of the cluster to modify as well as the `--force` flag which tells the CLI to overwrite values in the existing cluster.
+To apply the cluster template changes and create the new node array, use the [CycleCloud CLI](../cli.md) to import the template. You must specify the name of the cluster to modify and include the `--force` flag to tell the CLI to overwrite values in the existing cluster.
 
-The command below would apply the changes above to a cluster named "example-cluster":
+The following command applies the changes to a cluster named `example-cluster`:
 
 ```CycleCloud CLI
 cyclecloud import_cluster example-cluster -f hpc-template.txt -c hpc --force
 ```
 
-To test your new node array, go to the web UI and click the "Add node" button. Select the "highmem" array and click "Add" to create a new node. To make further changes, simply edit the template file and re-run the import command above.
+To test your new node array, go to the web UI and select **Add node**. Select the `highmem` array and select **Add** to create a new node. To make further changes, edit the template file and run the import command again.
 
 ![Add Array Node](../images/node-add-from-array.png)
 
-## Further Reading
+## Further reading
 
 * [Node and Node Array Reference](../cluster-references/node-nodearray-reference.md)
