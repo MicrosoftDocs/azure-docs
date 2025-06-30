@@ -73,7 +73,7 @@ For token refresh to work, the token store must contain [refresh tokens](/entra/
 1. Select **Execute**.
 1. Select `PUT` at upper left, and select the **Request body** tab.
 1. Copy the `GET` response contents from the **Response body** field and paste them into the **Request body** tab.
-1. In the code, locate the `"identityProviders":` **>** `"azureActiveDirectory":` **>** `"login":` section, and add the following line:<br>`"loginParameters": ["scope=openid profile email offline_access"]`.
+1. In the code, locate the `"identityProviders":` **>** `"azureActiveDirectory":` **>** `"login":` section, and add the following line:<br>`"loginParameters": ["scope=openid profile email offline_access"]`
 1. Select **Execute**. The **Response body** field shows your changes.
 
 [Offline_access](/entra/identity-platform/scopes-oidc#the-offline_access-scope) is the scope that provides refresh tokens. App Service already requests the other scopes by default. For more information, see [OpenID Connect Scopes](/entra/identity-platform/scopes-oidc#openid-connect-scopes) and [Web Apps - Update Auth Settings V2](/rest/api/appservice/web-apps/update-auth-settings-v-2).
