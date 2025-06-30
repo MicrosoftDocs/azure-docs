@@ -24,7 +24,7 @@ In this section, you'll create a Cloud NGFW by Palo Alto Networks resource.
 
 ### Basics tab
 
-1. Set the following values on the **Basics** tab.
+- Set the following values on the **Basics** tab.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-basics.png" alt-text="Screenshot of the Basics tab of the Create Cloud NGFW page." lightbox="media/palo-alto-create/palo-alto-basics.png":::
 
