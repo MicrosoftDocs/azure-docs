@@ -15,7 +15,7 @@ ms.service: azure-iot-operations
 
 # Azure IoT Operations networking
 
-Networking is a foundational aspect of deploying and managing distributed systems, especially in hybrid and multi-cloud environments. In Azure IoT Operations, secure networking enables reliable connectivity between on-premises resources, edge devices, and Azure services. Proper network configuration is essential for communication, security, and scalability of IoT Operations and Kubernetes clusters. This article describes key networking options and best practices for securing layered network architectures.
+Networking is a foundational aspect of deploying and managing distributed systems, especially in hybrid and multi-cloud environments. In Azure IoT Operations, secure networking enables reliable connectivity between on-premises resources, edge devices, and Azure services. Proper network configuration is essential for communication, security, and scalability of IoT Operations and Kubernetes clusters. This article describes key networking options for IoT Operations.
 
 ## Azure Arc gateway
 
