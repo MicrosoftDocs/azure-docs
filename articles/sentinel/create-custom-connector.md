@@ -4,7 +4,7 @@ description: Learn about available resources for creating custom connectors for 
 author: EdB-MSFT
 ms.topic: conceptual
 ms.date: 11/06/2024
-ms.author: edbayansh
+ms.author: edbaynash
 #Customer intent: As a security engineer, I want to know which Microsoft Sentinel custom data connector would be most appropriate to build for ingesting data from sources with no out-of-the-box solution.
 
 ---
