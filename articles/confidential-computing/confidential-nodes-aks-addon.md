@@ -7,6 +7,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 11/01/2021
 ms.author: ananyagarg
+# Customer intent: As a cloud developer, I want to implement Intel SGX remote attestation using the Azure Kubernetes Service plugin, so that I can securely manage confidential workloads and ensure the integrity of my applications within the AKS environment.
 ---
 
 # Confidential computing plugin for Confidential VMs

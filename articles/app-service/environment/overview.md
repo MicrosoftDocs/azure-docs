@@ -1,10 +1,11 @@
 ---
 title: App Service Environment Overview
 description: Learn about App Service Environment, which is a fully isolated and single-tenant deployment of Azure App Service. It provides high-scale, network-secured hosting for applications in a dedicated environment.
-author: madsd
+author: seligj95
 ms.topic: overview
 ms.date: 06/18/2024
-ms.author: madsd
+ms.update-cycle: 1095-days
+ms.author: jordanselig
 ms.custom:
   - "UpdateFrequency3, references_regions"
   - build-2025

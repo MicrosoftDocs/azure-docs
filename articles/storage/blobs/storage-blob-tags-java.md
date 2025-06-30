@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: "As a Java developer, I want to utilize blob index tags for managing and querying blob data, so that I can efficiently categorize and retrieve relevant data in my cloud storage solution."
 ---
 
 # Use blob index tags to manage and find data with Java
