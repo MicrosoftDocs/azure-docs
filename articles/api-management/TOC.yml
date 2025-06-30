@@ -137,7 +137,7 @@
     items:
     - name: Reliability in API Management
       displayName: reliability, resilience, resiliency
-      href: /reliability/reliability-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+      href: /azure/reliability/reliability-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
     - name: Deploy to multiple Azure regions
       href: api-management-howto-deploy-multi-region.md
     - name: Enable availability zones
