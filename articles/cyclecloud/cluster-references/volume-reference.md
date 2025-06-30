@@ -35,7 +35,7 @@ Adding a `[[[volume]]]` section to a node creates an Azure Disk and attaches it 
     [[[volume data]]]
       VolumeId = /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/my-rg/providers/Microsoft.Compute/disks/datadisk
 ```
-:::
+::: moniker-end
 
 Attribute values that start with `$` reference parameters.
 
