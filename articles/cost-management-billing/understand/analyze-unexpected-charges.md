@@ -210,7 +210,7 @@ Try the following steps:
 
 ### How can I automate the creation of an anomaly alert rule?
 
-You can automate the creation of anomaly alert rules using the [Scheduled Action API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope?view=rest-cost-management-2023-11-01&tabs=HTTP), specifying the scheduled action kind as **`InsightAlert.`**
+You can automate the creation of anomaly alert rules using the [Scheduled Action API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope?view=rest-cost-management-2023-11-01&tabs=HTTP&preserve-view=true), specifying the scheduled action kind as **`InsightAlert.`**
 
 ## Get help to identify charges
 
