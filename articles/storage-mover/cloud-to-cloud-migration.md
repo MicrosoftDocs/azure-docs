@@ -109,7 +109,7 @@ Follow the steps in this section to configure an AWS S3 source endpoint and an A
 ### Configure an AWS S3 Source Endpoint
 
 1. Navigate to your Storage mover instance in Azure.
-1. Within **Storage endpoints**, select **Source endpoints** and then **Add endpoint** to open the **Create source endpoint** pane.
+1. From the **Resource management** group within the left navigation, select **Storage endpoints**. Select the **Source endpoints** tab, and then **Add endpoint** to open the **Create source endpoint** pane.
 1. In the **Create source endpoint** pane:
 
     - Select **AWS S3** as the **Source type**.
@@ -118,14 +118,20 @@ Follow the steps in this section to configure an AWS S3 source endpoint and an A
     - Optionally, provide a description for the endpoint in the **Description** field.
     - Verify that your selections are correct and select **Create** to create the endpoint as shown in the following image
 
-    :::image type="content" source="media/cloud-to-cloud-migration/endpoint-source-create-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/endpoint-source-create.png":::
+        :::image type="content" source="media/cloud-to-cloud-migration/endpoint-source-create-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/endpoint-source-create.png":::
 
-### Configure an Azure Blob Storage Destination Endpoint
+### Configure an Azure Blob Storage Target Endpoint
 
-1. Within **Storage endpoints**, select **Destination endpoints** and then **Add endpoint**.
-1. Select **Azure Blob Storage** as the destination.
-1. Choose the **Storage Account** and **Container**.
-1. Select **Save** to commit your changes.
+1. From the **Resource management** group within the left navigation, select **Storage endpoints**. Select the **Target endpoints** tab, and then **Add endpoint** to open the **Create target endpoint** pane.
+1. In the **Create target endpoint** pane:
+ 
+    - Select your subscription and storage account from the respective **Subscription** and **Storage account** drop-down lists.
+    - Select *Blob container* button from the **Target type** field.
+    - Choose the **Blob container** to which you want to migrate from the **Blob container** drop-down list.
+    - Optionally, provide a description for the endpoint in the **Description** field.
+    - Verify that your selections are correct and select **Create** to create the endpoint as shown in the following image.
+
+        :::image type="content" source="media/cloud-to-cloud-migration/endpoint-target-create-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Target Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/endpoint-target-create.png":::
 
 ## Create a Migration Job
 
