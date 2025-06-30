@@ -200,7 +200,7 @@ You've now enabled your App Service app to be used as a tool by Azure AI Foundry
 To take the next step and learn how to run your agent directly within Azure App Service, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Azure AI Foundry Agent Service (.NET)](tutorial-ai-agentic-web-app-semantic-kernel-foundry.md)
+> [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Azure AI Foundry Agent Service (.NET)](tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet.md)
 
 ## More resources
 
