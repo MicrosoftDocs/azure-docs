@@ -181,7 +181,7 @@ There are scenarios where the Microsoft-managed cross-region failover capabiliti
 
 - Your key vault is in a nonpaired region.
 
-- Your key vault is in a paired region that doesn't support Microsoft-managed cross-region replication and failover, such as Brazil South, Brazil Southeast, and West US 3.
+- Your key vault is in a paired region that doesn't support Microsoft-managed cross-region replication and failover in Brazil South, Brazil Southeast, and West US 3.
 
 - Your business uptime goals aren't satisfied by the recovery time or data loss that Microsoft-managed cross-region failover provides.
 
