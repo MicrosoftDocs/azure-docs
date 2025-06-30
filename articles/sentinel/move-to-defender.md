@@ -172,7 +172,7 @@ The following table lists fields that are important in the response snippets, an
 - [Create automation and workbooks in Microsoft Defender](https://youtu.be/Lc0T_hPTug4?si=TgEpXViwxet7M7t1)
 - [Alert correlation in Microsoft Defender](https://youtu.be/GIIxN1dMJTc?si=7VEO6asJA6dBC-V0)
 - [Incident investigation in Microsoft Defender](https://youtu.be/BnZBVm8ZGsY?si=I-uHGASquUrr4xN5)
-- [Case management in Microsft Defender](https://youtu.be/TxLz-NsxcrM?si=hgg3DujUICLozuYt)
+- [Case management in Microsoft Defender](https://youtu.be/TxLz-NsxcrM?si=hgg3DujUICLozuYt)
 - [Advanced hunting in Microsoft Defender](https://youtu.be/06ukKCHMkeY?si=520Gg8JNmRVYUXKD)
 - [SOC optimizations in Microsoft Defender](https://youtu.be/-Cv5K8A4kfY?si=3o9xVB7WnfH0E3VR)
 
