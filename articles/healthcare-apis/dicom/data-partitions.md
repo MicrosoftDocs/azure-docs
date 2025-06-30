@@ -5,7 +5,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/26/2024
+ms.date: 06/30/2025
 ms.author: buchvarun
 ---
 
