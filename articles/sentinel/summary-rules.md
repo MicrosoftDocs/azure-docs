@@ -120,23 +120,23 @@ To deploy a summary rule template:
 
 1. Open the **Content hub** and filter **Content type** by **Summary rules** to view the available summary rule templates.
 
-    :::image type="content" source="media/summary-rules/summary-rule-templates-content-hub.png" alt-text="Screenshot of the Content Hub page in Microsoft Sentinel showing summary rule templates.":::
+    :::image type="content" source="media/summary-rules/summary-rule-templates-content-hub.png" alt-text="Screenshot of the Content Hub page in Microsoft Sentinel showing summary rule templates." lightbox="media/summary-rules/summary-rule-templates-content-hub.png":::
 
 1. Select a summary rule template. 
 
     A panel with information about the summary rule template opens, displaying fields such as description, summary query, and destination table.
 
-    :::image type="content" source="media/summary-rules/summary-rule-template-details.png" alt-text="Screenshot showing the details panel of a summary rule template in Microsoft Sentinel, including fields like description, summary query, and destination table.":::
+    :::image type="content" source="media/summary-rules/summary-rule-template-details.png" alt-text="Screenshot showing the details panel of a summary rule template in Microsoft Sentinel, including fields like description, summary query, and destination table." lightbox="media/summary-rules/summary-rule-template-details.png":::
 
 1. Select **Install** to install the template.
 
 1. Select the **Templates** tab on the **Summary rules** page, and select the summary rule you installed.
 
-    :::image type="content" source="media/summary-rules/summary-rule-template-create.png" alt-text="A screenshot of the Templates tab of the Summary rules page.":::
+    :::image type="content" source="media/summary-rules/summary-rule-template-create.png" alt-text="A screenshot of the Templates tab of the Summary rules page." lightbox="media/summary-rules/summary-rule-template-create.png":::
 
 1. Select **Create** to open the Summary rule wizard, where all of the fields are prepopulated. 
 
-1. Go through the the Summary rule wizard and select **Save** to deploy the summary rule.
+1. Go through the Summary rule wizard and select **Save** to deploy the summary rule.
 
     For more information about the Summary rule wizard, see [Create a new summary rule](#create-a-new-summary-rule).
 

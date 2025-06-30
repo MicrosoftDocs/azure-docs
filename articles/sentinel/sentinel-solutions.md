@@ -59,7 +59,7 @@ The Microsoft Sentinel **Content hub** lets you find content in the product, dep
 
 ### Why use Microsoft Sentinel solutions?
 
-Microsoft Sentinel solutions are packaged integrations that deliver end-to-end product value for one or more domain or vertical scenario in the **Content hub**.
+Microsoft Sentinel solutions are packaged integrations that deliver end-to-end product value for one or more domains or vertical scenarios in the **Content hub**.
 
 The solutions experience, powered by [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace), helps you find and deploy the content you want. For more information about authoring and publishing solutions in the Azure Marketplace, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide).
 
