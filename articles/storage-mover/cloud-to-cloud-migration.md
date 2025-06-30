@@ -1,14 +1,14 @@
 ---
-title: Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
+title: Get started with cloud-to-cloud migration in Azure Storage Mover (Preview)
 description: The Cloud-to-Cloud Migration feature (preview) in Azure Storage mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage, utilizing Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management.
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 06/27/2025
+ms.date: 06/30/2025
 ---
 
-# Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
+# Get started with cloud-to-cloud migration in Azure Storage Mover (Preview)
 
 The Cloud-to-Cloud Migration feature in Azure Storage Mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage. 
 
@@ -72,11 +72,11 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
     Ensure that both solutions are added by validating the presence of **Edit** links within the **Actions** column of the **Solutions** list. Select **Next** to continue to the **Authentication template** tab as shown in the following image.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solutions-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Solutions tab selected. The Edit link is present in the Actions column of the Solutions list, confirming that the required solutions are added." lightbox="media/cloud-to-cloud-migration/add-connector-solutions.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solutions-sml.png" alt-text="A screen capture showing the presence of the Edit links in the Actions column of the Solutions list, confirming the required solutions are added." lightbox="media/cloud-to-cloud-migration/add-connector-solutions.png":::
     
 1. Within the **Authentication template** tab, follow the on-screen instructions to create the *AWS CloudFormation Stack* using the AWS portal.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-authentication-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Authentication Template tab selected. The AWS CloudFormation template and instructions for creating the stack are displayed." lightbox="media/cloud-to-cloud-migration/add-connector-authentication.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-authentication-sml.png" alt-text="A screen capture showing the Authentication Template tab. The AWS CloudFormation template and instructions for creating the stack are displayed." lightbox="media/cloud-to-cloud-migration/add-connector-authentication.png":::
 
     Select **Next** to continue to the **Tags** tab.
 
@@ -100,26 +100,25 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
 ## Configure Source and Destination Endpoints
 
-After you configure the Azure Arc service, the next step is to create source and destination endpoints for your migration.
+After you configure the multicloud connector, the next step is to create source and destination endpoints for your migration.
 
-In the context of the Azure Storage Mover service, an *endpoint* is a resource that contains the path to either a source or destination location and other relevant information. Storage Mover *job definitions* use endpoints to define the source and target locations for a particular copy operation.
+In the context of the Azure Storage Mover service, an *endpoint* is a resource that contains the path to either a source or destination location and other relevant information. Storage Mover *job definitions* use endpoints to define the source and target locations for copy operations.
 
 Follow the steps in this section to configure an AWS S3 source endpoint and an Azure Blob Storage destination endpoint. To learn more about Storage Mover endpoints, refer to the [Manage Azure Storage Mover endpoints](endpoint-manage.md) article.
 
 ### Configure an AWS S3 Source Endpoint
 
 1. Navigate to your Storage mover instance in Azure.
-1. Under **Storage endpoints**, select **Source endpoints** and then **Add endpoint**.
+1. Within **Storage endpoints**, select **Source endpoints** and then **Add endpoint** to open the **Create source endpoint** pane.
+1. In the **Create source endpoint** pane:
 
-    :::image type="content" source="media/cloud-to-cloud-migration/storage-endpoints-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/storage-endpoints.png":::
+    - Select **AWS S3** as the **Source type**.
+    - Choose the multicloud connector you created in the previous section from the **Multicloud connector** drop-down list.
+    - Select the S3 bucket you want to migrate from the **Select S3 bucket** drop-down list.
+    - Optionally, provide a description for the endpoint in the **Description** field.
+    - Verify that your selections are correct and select **Create** to create the endpoint as shown in the following image
 
-1. Select **AWS S3** as the source.
-1. Choose the Multicloud connector you created in the previous section.
-
-    :::image type="content" source="media/cloud-to-cloud-migration/create-aws-endpoint-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint with the S3 Connector drop down list displayed." lightbox="media/cloud-to-cloud-migration/create-aws-endpoint.png":::
-
-1. Select the S3 bucket you want to migrate and verify that access is properly configured.
-1. Select **Save** to commit your changes.
+    :::image type="content" source="media/cloud-to-cloud-migration/endpoint-source-create-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/endpoint-source-create.png":::
 
 ### Configure an Azure Blob Storage Destination Endpoint
 
