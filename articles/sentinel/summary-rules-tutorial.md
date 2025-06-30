@@ -90,7 +90,7 @@ This diagram shows the process described in this tutorial:
 1. **Create a summary rule.**
 
     Create a summary rule to aggregate insights from the Auxiliary table to an Analytics table.
-    For more information about creating summary rules in Microsoft Sentinel, see [Create a new summary rule](../summary-rules.md#create-a-new-summary-rule).
+    For more information about creating summary rules in Microsoft Sentinel, see [Create a new summary rule](./summary-rules.md#create-a-new-summary-rule).
     
     Here are a couple of examples of summary rules to aggregate your CEF data:
 
