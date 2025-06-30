@@ -1,5 +1,5 @@
 ---
-title: Aggregate Microsoft Sentinel data with summary rules
+title: Aggregate Microsoft Sentinel data with summary rules (Preview)
 description: Learn how to aggregate large sets of Microsoft Sentinel data across log tiers with summary rules.
 author: guywi-ms
 ms.author: guywild
@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 ---
 
-# Aggregate Microsoft Sentinel data with summary rules (preview)
+# Aggregate Microsoft Sentinel data with summary rules (Preview)
 
 Use prebuilt or custom [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentinel to aggregate insights at a regular cadence from large sets of data in any log tier, including the [auxiliary log tier](billing.md#auxiliary-logs). Working with summarized data enhances query performance and helps optimize your data for:
 
@@ -122,7 +122,7 @@ To deploy a summary rule template:
 
     :::image type="content" source="media/summary-rules/summary-rule-templates-content-hub.png" alt-text="Screenshot of the Content Hub page in Microsoft Sentinel showing summary rule templates.":::
 
-1. Select one summary rule template. 
+1. Select a summary rule template. 
 
     A panel with information about the summary rule template opens, displaying fields such as description, summary query, and destination table.
 
