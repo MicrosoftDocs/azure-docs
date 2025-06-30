@@ -170,9 +170,8 @@ Logs can be viewed in the **Output** pane of Visual Studio Code.
 
 You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier. For more information on creating and managing jobs, see [Create and manage Jupyter notebook jobs](./notebook-jobs.md).
 
-## Service limits 
  
-[!INCLUDE [service-limits-kql-notebooks](../includes/sevice-limits-kql-queries.md)]  
+[!INCLUDE [service-limits-notebooks](../includes/sevice-limits-notebooks.md)]  
 
 
 ## Troubleshooting 
