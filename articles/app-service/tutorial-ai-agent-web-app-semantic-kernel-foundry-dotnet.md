@@ -21,11 +21,11 @@ If your web application already has useful features, like shopping, hotel bookin
 ### [Semantic Kernel](#tab/semantickernel)
 
 
-:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
 
 ### [Azure AI Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
 
 -----
 
@@ -153,13 +153,13 @@ The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API de
 
 1. Select **Azure OpenAI** and copy the URL in **Azure OpenAI endpoint** for later.
 
-    :::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/foundry-project-endpoints.png" alt-text="Screenshot showing how to copy the OpenAI endpoint and the foundry project endpoint in the foundry portal.":::
+    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/foundry-project-endpoints.png" alt-text="Screenshot showing how to copy the OpenAI endpoint and the foundry project endpoint in the foundry portal.":::
 
 1. From the left menu, select **Agents**, then select the default agent.
 
 1. From the **Setup** pane, copy **Agent ID**, as well as the model name in **Deployment**.
 
-    :::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/foundry-agent-id-model.png" alt-text="Screenshot showing how to copy the agent ID and the model deployment name in the foundry portal.":::
+    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/foundry-agent-id-model.png" alt-text="Screenshot showing how to copy the agent ID and the model deployment name in the foundry portal.":::
 
 1. In the **Setup** pane, add an action with the OpenAPI spec tool. Use the OpenAPI schema that you get from the deployed web app and **anonymous** authentication. For detailed steps, see [How to use the OpenAPI spec tool](/azure/ai-foundry/agents/how-to/tools/openapi-spec-samples?pivots=portal).
 
@@ -173,7 +173,7 @@ The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API de
 
 1. At the upper right corner of the foundry portal, select the name of the resource, then select **Resource Group** to open it in the Azure portal. 
 
-    :::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/go-to-azure-portal.png" alt-text="Screenshot showing how to quickly go to the resource group view for the foundry resource in the Azure portal.":::
+    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/go-to-azure-portal.png" alt-text="Screenshot showing how to quickly go to the resource group view for the foundry resource in the Azure portal.":::
 
 1. Add a role for each of the two resources for the App Service app's manage identity using the following table:
 
@@ -227,11 +227,11 @@ The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API de
 ### [Semantic Kernel](#tab/semantickernel)
 
 
-:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
 
 ### [Azure AI Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
 
 -----
 

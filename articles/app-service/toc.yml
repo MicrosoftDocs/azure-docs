@@ -64,7 +64,7 @@ items:
         - name: AI Foundry Agent calling web app
           href: tutorial-ai-integrate-azure-ai-agent-dotnet.md
         - name: Agentic web app (.NET)
-          href: tutorial-ai-agentic-web-app-semantic-kernel-foundry-dotnet.md
+          href: tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md
         - name: Invoke OpenAPI app from Azure AI Agent
           href: invoke-openapi-web-app-from-azure-ai-agent-service.md
         - name: Chatbot with local SLM
