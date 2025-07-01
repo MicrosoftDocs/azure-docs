@@ -11,6 +11,7 @@ ms.author: pauljewell
 ms.reviewer: nachakra
 ms.devlang: javascript
 ms.custom: devx-track-javascript, engagement-fy23, devx-track-js, devguide-js
+# Customer intent: As a JavaScript developer, I want to create a service shared access signature for a storage container or blob, so that I can securely grant temporary access to Azure Storage resources.
 ---
 
 # Create a service SAS for a container or blob with JavaScript

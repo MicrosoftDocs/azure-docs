@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.date: 06/13/2025
 ms.topic: concept-article
 ms.author: normesta
+# Customer intent: "As a cost analyst, I want to estimate the expenses related to uploading and accessing data across multiple regions in a storage service, so that I can provide a budget breakdown for cloud usage and optimize data management costs."
 ---
 
 # Cost estimate: Upload and access data from multiple regions 

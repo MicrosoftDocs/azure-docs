@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 03/12/2024
 ROBOTS: NOINDEX, NOFOLLOW
 ms.custom: template-quickstart, devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to configure a basic public load balancer using the command line, so that I can efficiently distribute traffic across virtual machines for scalable applications.
 ---
 
 # Quickstart: Create a basic public load balancer using the Azure CLI

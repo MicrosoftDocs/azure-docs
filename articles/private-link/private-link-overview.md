@@ -22,6 +22,9 @@ Traffic between your virtual network and the service travels the Microsoft backb
 
 :::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Screenshot of Azure Private Link center in Azure portal." :::
 
+> [!NOTE]
+> Azure Private Link is one of the services that make up the Network Foundations category in Azure. Other services in this category include [Azure DNS](../dns/dns-overview.md) and [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Foundations](../networking/foundations/network-foundations-overview.md).
+
 For scenarios that involve public internet PaaS traffic, configure [network security perimeter](network-security-perimeter-concepts.md) to set up a secure logical boundary. Network security perimeter restricts communication to services within its perimeter, and it allows nonperimeter public traffic through inbound and outbound access rules.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]

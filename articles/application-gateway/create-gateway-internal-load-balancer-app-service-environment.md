@@ -8,6 +8,7 @@ ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 06/10/2022
 ms.author: mbender
+# Customer intent: As a cloud administrator, I want to troubleshoot backend server certificate issues with an internal load balancer and application gateway, so that I can ensure the health of my application services and maintain secure connections in Azure.
 ---
 
 # Backend server certificate isn't allow-listed for an application gateway using an Internal Load Balancer with an App Service Environment

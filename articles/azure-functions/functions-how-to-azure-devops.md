@@ -240,7 +240,7 @@ variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: <Docker registry service connection>
   imageRepository: <Name of your image repository>
-  containerRegistry: <Name of the Azure container registry>
+  containerRegistry: <Name of the Azure Container Registry>
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   
@@ -445,7 +445,7 @@ You'll deploy with the [Azure Function App Deploy v2](/azure/devops/pipelines/ta
 
 The v2 version of the task includes support for newer applications stacks for .NET, Python, and Node. The task includes networking predeployment checks. When there are predeployment issues, deployment stops. 
 
-To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. Deploying to a Flex Consumption app requires you to set both `appType: functionAppLinux` and `isFlexConsumption: true`.
+To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. Deploying to a Flex Consumption app requires you to set both `appType: functionAppLinux` and `isFlexConsumption: true`. The reason must be set to `functionAppLinux` when you use Flex Consumption because [Flex Consumption](/azure/azure-functions/flex-consumption-plan) is a Linux-based Azure Function.
 
 ### [Windows App](#tab/windows)
 ```yaml
