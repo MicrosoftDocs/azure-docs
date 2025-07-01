@@ -2,44 +2,44 @@
 title: Using Scheduled Events
 description: Handle VM events on a node
 author: dougclayton
-ms.date: 03/14/2022
+ms.date: 07/01/2025
 ms.author: doclayto
 monikerRange: '>= cyclecloud-8'
 ---
 
 # Using Scheduled Events
 
-As of 8.2.2, CycleCloud can take advantage of [Scheduled Events](/azure/virtual-machines/linux/scheduled-events) for VMs. This feature lets you put a script on your VM that will be automatically executed when one of the supported events occurs.
+Starting with version 8.2.2, CycleCloud supports the use of [Scheduled Events](/azure/virtual-machines/linux/scheduled-events) for VMs. With this feature, you can add a script to your VM that runs automatically when a supported event happens.
 
 ## Invoking a script when events occur
 
-The Jetpack agent on the node automatically listens for events. When one occurs, it looks in the scripts directory (`/opt/cycle/jetpack/scripts` on Linux, `C:\cycle\jetpack\scripts` on Windows) for a script named to match the [event](#supported-events). If it finds a script, it executes it and defers the event until the script succeeds (or the event timeout elapses and Azure schedules the event). Once the script exits successfully, the event is acknowledged to Azure so that the underlying action (e.g., a reboot) can happen immediately. 
+The Jetpack agent on the node automatically listens for events. When one occurs, the agent looks in the scripts directory (`/opt/cycle/jetpack/scripts` on Linux, `C:\cycle\jetpack\scripts` on Windows) for a script named to match the [event](#supported-events). If the agent finds a script, it executes the script and defers the event until the script succeeds (or the event timeout elapses and Azure schedules the event). When the script exits successfully, the agent acknowledges the event to Azure so that the underlying action (such as a reboot) can happen immediately.
 
 > [!NOTE]
-> Events for which there are no scripts will be automatically acknowledged by CycleCloud when monitoring is enabled, to ensure that events such as reboots are not unnecessarily delayed. If you have another custom process that already monitors events, event monitoring can be disabled. Note that this means CycleCloud will not get [notification of spot evictions](../how-to/use-spot-instances.md#spot-vm-eviction).
+> When you enable event monitoring, CycleCloud automatically acknowledges events that don't have scripts. This automatic acknowledgment avoids delaying events like reboots. If you use a custom process to monitor events, you can disable event monitoring. If you disable event monitoring, CycleCloud doesn't get [notification of spot evictions](../how-to/use-spot-instances.md#spot-vm-eviction).
 
-Scheduled-event monitoring is on by default, but it can be disabled by setting the following on a node or nodearray:
+Scheduled-event monitoring is on by default. You can turn it off by setting the following property on a node or node array:
 
 ``` ini
 [[[configuration]]]
 cyclecloud.monitor_scheduled_events = false
 ```
 
-The deprecated setting `cyclecloud.monitor_spot_eviction`, added in version 8, now means the same as `cyclecloud.monitor_scheduled_events`.
+The deprecated setting `cyclecloud.monitor_spot_eviction`, introduced in version 8, now works the same way as `cyclecloud.monitor_scheduled_events`.
 
-### Supported Events
+### Supported events
 
-| Event | Description | Linux Script | Windows Script |
+| Event | Description | Linux script | Windows script |
 | - | - | - | - |
-| Preempt | The spot VM is being evicted | onPreempt.sh | onPreempt.bat |
-| Terminate | The VM is scheduled to be deleted ([optional](#terminate-notification))| onTerminate.sh | onTerminate.bat |
-| Reboot | The VM is scheduled to be rebooted | onReboot.sh | onReboot.bat |
-| Redeploy | The VM is scheduled to move to another host | onRedeploy.sh | onRedeploy.bat |
-| Freeze | The VM is scheduled to pause for a few seconds| onFreeze.sh | onFreeze.bat |
+| Preempt | The spot VM to evict. | onPreempt.sh | onPreempt.bat |
+| Terminate | The VM scheduled for deletion. ([optional](#terminate-notification))| onTerminate.sh | onTerminate.bat |
+| Reboot | The VM scheduled to reboot. | onReboot.sh | onReboot.bat |
+| Redeploy | The VM scheduled to move to another host. | onRedeploy.sh | onRedeploy.bat |
+| Freeze | The VM scheduled to pause for a few seconds.| onFreeze.sh | onFreeze.bat |
 
-## Terminate Notification
+## Terminate notification
 
-CycleCloud supports enabling [Terminate Notification](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification) on scaleset VMs (e.g., execute nodes). To do this, set `EnableTerminateNotification` to true on the nodearray. This will enable it for scalesets created for this nodearray. To override the timeout allowed, you can set `TerminateNotificationTimeout` to a new time. For example, in a cluster template:
+CycleCloud supports enabling [Terminate Notification](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification) on scale set VMs, such as execute nodes. Set `EnableTerminateNotification` to true on the node array to enable this feature. This setting enables terminate notification for the scale sets created for that node array. To change the timeout, set `TerminateNotificationTimeout` to a new value. For example, in a cluster template:
 
 ``` ini
 [[nodearray execute]]
@@ -47,4 +47,4 @@ EnableTerminateNotification = true
 TerminateNotificationTimeout = 10
 ```
 
-Without `EnableTerminateNotification` set to true, the scaleset VMs will not get a Terminate event.
+If you don't set `EnableTerminateNotification` to true, the scale set VMs don't receive a terminate event.

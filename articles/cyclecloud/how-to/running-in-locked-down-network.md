@@ -2,17 +2,17 @@
 title: Running in Locked Down Networks
 description: Learn how to install and run Azure CycleCloud in a locked down networks. Details on internal communication between cluster nodes and CycleCloud.
 author: anhoward
-ms.date: 2/26/2020
+ms.date: 07/01/2025
 ms.author: anhoward
 ---
 
 # Operating in a locked down network
 
-The CycleCloud application and cluster nodes can operate in environments with limited internet access, though there are a minimal number of TCP ports that must remain open.
+The CycleCloud application and cluster nodes can operate in environments with limited internet access, though you must keep a minimal number of TCP ports open.
 
-## Installing Azure CycleCloud in a locked down network
+## Install Azure CycleCloud in a locked down network
 
-The CycleCloud VM must be able to connect to a number of Azure APIs to orchestrate cluster VMs and to authenticate to Azure Active Directory. Since these APIs use HTTPS, CycleCloud requires outbound HTTPS access to:
+The CycleCloud VM needs to connect to several Azure APIs to manage cluster VMs and authenticate to Azure Active Directory. Since these APIs use HTTPS, CycleCloud requires outbound HTTPS access to:
 
 * _management.azure.com_ (Azure ARM Management)
 * _login.microsoftonline.com_ (Azure AD)
@@ -22,29 +22,29 @@ The CycleCloud VM must be able to connect to a number of Azure APIs to orchestra
 * _dc.services.visualstudio.com_ (Azure Application Insights)
 * _ratecard.azure-api.net_ (Azure Price Data)
   
-The management API is hosted regionally, and the public IP address ranges can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+The management API is hosted regionally. You can find the public IP address ranges [here](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
-The Azure AD login is part of the Microsoft 365 common APIs and IP address ranges for the service can be found [here](/office365/enterprise/urls-and-ip-address-ranges).
+The Azure AD authentication is part of the Microsoft 365 common APIs. You can find the IP address ranges for this service [here](/office365/enterprise/urls-and-ip-address-ranges).
 
-The Azure Insights and Log Analytics IP address ranges can be found [here](/azure/azure-monitor/app/ip-addresses).
+You can find the IP address ranges for Azure Insights and Log Analytics [here](/azure/azure-monitor/app/ip-addresses).
 
-Azure CycleCloud must be able to access Azure Storage accounts. The recommended way to provide private access to this service and any other supported Azure service is through [Virtual Network Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+Azure CycleCloud must access Azure Storage accounts. To provide private access to this service and any other supported Azure service, we recommend using [Virtual Network Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
-If using Network Security Groups or the Azure Firewall to limit outbound access to the required domains, then it is possible to configure Azure Cyclecloud to route all requests through an HTTPS proxy. See: [Using a Web Proxy](./running-behind-proxy.md)
+If you use Network Security Groups or the Azure Firewall to limit outbound access to the required domains, you can configure Azure CycleCloud to route all requests through an HTTPS proxy. For more information, see [Using a Web Proxy](./running-behind-proxy.md).
 
 ### Configuring an Azure Network Security Group for the CycleCloud VM
 
-One way to limit outbound internet access from the CycleCloud VM without configuring the Azure Firewall or an HTTPS proxy is to configure a strict Azure Network Security Group for the CycleCloud VM's subnet.  The simplest way to do that is to use [Service Tags](/azure/virtual-network/service-tags-overview) in the subnet or VM level [Network Security Group](/azure/virtual-network/security-overview) to permit the required outbound Azure access.
+You can limit outbound internet access from the CycleCloud VM by configuring a strict Azure Network Security Group for the CycleCloud VM's subnet. This approach doesn't require configuring the Azure Firewall or an HTTPS proxy. The simplest way to do that is to use [Service Tags](/azure/virtual-network/service-tags-overview) in the subnet or VM level [Network Security Group](/azure/virtual-network/security-overview) to permit the required outbound Azure access.
 
 1. Configure a **Storage Service Endpoint** for the Subnet to allow access from CycleCloud to Azure Storage
 
-2. Add the following NSG Outbound rule to *Deny* outbound access by default using the  "**Internet**" destination Service Tag:
+1. Add the following NSG Outbound rule to *Deny* outbound access by default using the  "**Internet**" destination Service Tag:
 
 | Priority    | Name              | Port       | Protocol | Source   | Destination    | Action |
 | ----------- | ----------------- | ---------- | -------- | -------- | -------------- | ------ |
-| 4000        | BlockOutbound     | Any        | Any      | Any      | Internet       | Deny   |
+| 4000        | BlockOutbound       | Any        | Any      | Any      | Internet             | Deny   |
 
-3. Add the following NSG Outbound rules to *Allow* outbound access to the required Azure services by destination Service Tag:
+1. Add the following NSG Outbound rules to *Allow* outbound access to the required Azure services by destination Service Tag:
 
 | Priority    | Name                 | Port       | Protocol | Source   | Destination          | Action |
 | ----------- | -------------------- | ---------- | -------- | -------- | -------------------- | ------ |
@@ -55,7 +55,7 @@ One way to limit outbound internet access from the CycleCloud VM without configu
 
 ## Internal communications between cluster nodes and CycleCloud
 
-These ports need to be open to allow for communication between the cluster nodes and CycleCloud server:
+Open these ports to allow communication between the cluster nodes and CycleCloud server:
 
 | Name        | Source            | Destination    | Service | Protocol | Port Range |
 | ----------- | ----------------- | -------------- | ------- | -------- | ---------- |
@@ -65,45 +65,34 @@ These ports need to be open to allow for communication between the cluster nodes
 ## Launching Azure CycleCloud clusters in a locked down network
 
 > [!NOTE]
-> Running cluster nodes in a subnet without outbound internet access is fully supported today, but it is an advanced topic that often requires either a custom image or customization of the default CycleCloud cluster types and projects or both.
+> Azure CycleCloud supports running cluster nodes in a subnet without outbound internet access. However, it's an advanced topic that often requires either a custom image or customization of the default CycleCloud cluster types and projects, or both.
 >
-> We are actively updating the cluster types and projects to eliminate most or all of that work.  But, if you encounter failures with your cluster type or project in your locked down environment, please consider opening a Support request for assistance.
+> We're actively updating the cluster types and projects to eliminate most or all of that work. If you encounter failures with your cluster type or project in your locked down environment, consider opening a support request for assistance.
 >
 
 Running VMs or Cyclecloud clusters in a virtual network or subnet with outbound internet access generally requires
-the following:
+the following steps:
 
-1. Azure Cyclecloud must be reachable from the cluster VMs for full functionality.   Either:
-   1. Cluster VMs must be able to connect to Azure Cyclecloud directly via HTTPS and AMQP, or
-   2. The Cyclecloud ReturnProxy feature must be enabled at cluster creation time and Cyclecloud itself must be able to connect to the ReturnProxy VM via SSH
-2. All software packages required by the cluster must either be:
-   1. Pre-installed in a custom Managed Image for the cluster VMs, or
-   2. Available in a package repository mirror accessible from the VMs, or
-   3. Copied to the VM from Azure Storage and installed directly by a Cyclecloud project
-3. All Cluster nodes must be able to access Azure Storage accounts. The recommended way
-to provide private access to this service and any other supported Azure service is to enable a [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) for Azure Storage.
+1. Make Azure Cyclecloud reachable from the cluster VMs for full functionality.   Either:
+   1. Cluster VMs connect to Azure Cyclecloud directly via HTTPS and AMQP, or
+   1. Enable the Cyclecloud ReturnProxy feature when you create the cluster. Cyclecloud must be able to connect to the ReturnProxy VM through SSH.
+1. Make sure the cluster VMs have all the required software packages by:
+   1. Preinstalling them in a custom Managed Image,
+   1. Providing a package repository mirror that the VMs can access, or
+   1. Copying them to the VM from Azure Storage and installing them directly through a Cyclecloud project.
+1. Make sure all cluster nodes can access Azure Storage accounts. To provide private access to this service and any other supported Azure service, enable a [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) for Azure Storage.
 
 
-## Project Updates from GitHub
+## Project updates from GitHub
 
-Cyclecloud will download cluster projects from GitHub during the "Staging" orchestration
-phase. This download will occur after initial installation, after upgrading Cyclecloud, or
-when starting a cluster of a certain type for the first time. In a locked down environment, HTTPS
-outbound traffic to [github.com](https://www.github.com) may be blocked. In such a case, node
-creation during the staging resources phase will fail.
+CycleCloud downloads cluster projects from GitHub during the **Staging** orchestration phase. This download happens after initial installation, after upgrading CycleCloud, or when you start a cluster of a certain type for the first time. In a locked down environment, HTTPS outbound traffic to [github.com](https://www.github.com) might be blocked. If this traffic is blocked, node creation during the staging resources phase fails.
 
-If access to GitHub can be opened temporarily during the creation of the first node
-then CycleCloud will prepare the local files for all subsequent nodes. If temporary 
-access is not possible then the necessary files can be downloaded
-from another machine and copied to CycleCloud. 
+If you can temporarily open access to GitHub during the creation of the first node, CycleCloud prepares the local files for all subsequent nodes. If temporary access isn't possible, you can download the necessary files from another machine and copy them to CycleCloud.
 
-First determine which project and
-version your cluster will need, e.g. Slurm 3.0.8. It's normally the highest version
-number in the database for a given project.
-You can determine the latest version either by visiting the github project page or by
-querying CycleCloud for the latest version.
+First, determine which project and version your cluster needs, such as Slurm 3.0.8. It's usually the highest version number in the database for a given project.
+You can find the latest version by visiting the GitHub project page or by querying CycleCloud for the latest version.
 
-To query CycleCloud (note that there will often be multiple versions listed):
+To query CycleCloud (note that there are often multiple versions listed):
 
 ```shell
 /opt/cycle_server/cycle_server execute 'select Name, Version, Url from cloud.project where name == "slurm" order by Version'
@@ -113,14 +102,11 @@ Version = "3.0.8"
 Url = "https://github.com/Azure/cyclecloud-slurm/releases/3.0.8"
 ```
 
-This project version and all dependencies are found in the [release tag]
-(https://github.com/Azure/cyclecloud-slurm/releases/tag/3.0.8).
+You can find this project version and all dependencies in the [release tag](https://github.com/Azure/cyclecloud-slurm/releases/tag/3.0.8).
 
-You can download all release artifacts manually, but the CycleCloud CLI provides
-a helper for this operation.
+You can manually download all release artifacts, but the CycleCloud CLI provides a helper for this operation.
 
-First, use the CycleCloud CLI to fetch and prepare the repository from github 
-(this is the same operation CycleCloud performs during the "Staging Resources" phase):
+First, use the CycleCloud CLI to fetch and prepare the repository from GitHub. This operation is the same operation CycleCloud performs during the "Staging Resources" phase:
 
 ```bash
 RELEASE_URL="https://github.com/Azure/cyclecloud-slurm/releases/3.0.8"
@@ -136,7 +122,7 @@ mv ./build/slurm "./${RELEASE_VERSION}"
 tar czf "slurm-${RELEASE_VERSION}.tgz" ./blobs "./${RELEASE_VERSION}"
 ```
 
-Next, copy the packaged project tarball to the CycleCloud server and extract:
+Next, copy the packaged project tarball to the CycleCloud server and extract it:
 
 ```bash
 #... copy the "slurm-${RELEASE_VERSION}.tgz" file to the Cyclecloud server in /tmp
@@ -147,7 +133,6 @@ tar xzf "/tmp/slurm-${RELEASE_VERSION}.tgz"
 chown -R cycle_server:cycle_server /opt/cycle_server/work/staging
 ```
 
-Once these files have been staged locally Cyclecloud will detect them and
-won't try to download them from GitHub.
+Once you stage these files locally, CycleCloud detects them and doesn't try to download them from GitHub.
 
 
