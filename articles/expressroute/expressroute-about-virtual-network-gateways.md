@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # About ExpressRoute virtual network gateways
 
-To connect your Azure virtual network (VNet) and your on-premises network by using Azure ExpressRoute, you must first create a virtual network gateway. A virtual network gateway serves two purposes: to exchange IP routes between networks, and to route network traffic.
+To connect your Azure virtual network (virtual network) and your on-premises network by using Azure ExpressRoute, you must first create a virtual network gateway. A virtual network gateway serves two purposes: to exchange IP routes between networks, and to route network traffic.
 
 This article explains different gateway types, gateway SKUs, and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
 
@@ -82,6 +82,23 @@ The following table shows the features that each gateway type supports and the m
 ### <a name="aggthroughput"></a>Estimated performances by gateway SKU
 
 [!INCLUDE [expressroute-gateway-preformance-include](../../includes/expressroute-gateway-performance-include.md)]
+
+## Hosted-On-Behalf-Of (HOBO) Public IP
+
+The Hosted-On-Behalf-Of (HOBO) Public IP feature simplifies ExpressRoute gateway deployment by allowing Microsoft to manage the required public IP address on your behalf. With HOBO, you no longer need to create or maintain a separate public IP resource for your gateway.
+
+**Key benefits:**
+
+- **Improved security:** The public IP is managed internally by Microsoft and isn't exposed to customers, reducing risks associated with open management ports.
+- **Reduced complexity:** Customers aren't required to provision or manage a public IP resource.
+- **Streamlined deployment:** The Azure portal and CLI no longer prompt for a public IP during gateway creation.
+
+**How it works:**  
+When you create an ExpressRoute gateway, Microsoft automatically provisions and manages the public IP address in a secure, backend subscription. This IP is encapsulated within the gateway resource, enabling Microsoft to enforce policies such as data rate limits and enhance auditability.
+
+**Availability:**  
+HOBO Public IP is currently in preview for ExpressRoute Virtual Network Gateways. It isn't available for Virtual WAN (vWAN) or Extended Zone deployments.
+
 
 ### <a name="zrgw"></a>Zone-redundant gateway SKUs
 
