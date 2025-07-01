@@ -3,7 +3,7 @@ author: pgrandhi
 ms.service: azure-communication-services
 ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 01/27/2024
+ms.date: 06/28/2024
 ms.author: pgrandhi
 ---
 
