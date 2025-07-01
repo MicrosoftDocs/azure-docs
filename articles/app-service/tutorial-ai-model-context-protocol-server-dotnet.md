@@ -165,7 +165,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     
 1. In the codespace terminal, run the application with `dotnet run`.
 
-1. Select **Open in Browser**, then add a tasks. 
+1. Select **Open in Browser**, then add a task. 
 
     Leave `dotnet run` running. Your MCP server is running at `http://localhost:5093/api/mcp` now.
 
