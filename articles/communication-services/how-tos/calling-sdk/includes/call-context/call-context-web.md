@@ -2,26 +2,26 @@
 author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/13/2024
+ms.date: 06/27/2025
 ms.author: micahvivion
 ---
 
-
 ## Technical parameters
-The calling SDK supports adding up to 5 custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
 
-The maximum length of a SIP header key is 64 chars, including the X-MS-Custom prefix. Due note that when the SIP header is added the calling SDK will automatically add the ‘X-MS-Custom-’ prefix (which can be seeing if you inspect the SIP header with packet inspector).
+The calling SDK supports adding up to five (5) custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
 
-The SIP header key may consist of alphanumeric characters and a few selected symbols which include `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your SBC. The SIP header value may consist of alphanumeric characters and a few selected symbols which include `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
+The maximum length of a SIP header key is 64 chars, including the X-MS-Custom prefix. When you add the SIP header to the calling SDK, it automatically adds the `X-MS-Custom-` prefix, which you can see by inspecting the SIP header with packet inspector.
 
-The maximum length of a VOIP header key is 64 chars. The maximum length of VOIP header value is 1024 chars.
+The SIP header key might consist of alphanumeric characters and a few selected symbols, which include `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your session border controller (SBC). The SIP header value might consist of alphanumeric characters and a few selected symbols, which include `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
+
+The maximum length of a VOIP header key is 64 chars. The maximum length of VOIP header value is 1024 characters.
 
 When adding these custom headers as a developer you can choose to add only SIP headers, only VoIP headers or both can be included.
 
 > [!NOTE]
-> Currently, adding custom User-to-User Information headers is only supported when initiating a 1:1 call. Passing User-to-User Information headers in group calls is not currently supported. To work around this after starting the 1:1 call, you can include additional participants while maintaining the User-to-User Information within the calls. 
+> Currently, adding custom User-to-User Information headers is only supported when initiating a 1:1 call. Passing User-to-User Information headers in group calls isn't currently supported. To work around this constraint after starting the 1:1 call, you can add participants while maintaining the User-to-User Information within the calls. 
 
-For details on the custom context interface API, consult the [custom context API resource](/javascript/api/azure-communication-services/@azure/communication-calling/customcontext?view=azure-communication-services-js&preserve-view=true) page.
+For details about the custom context interface API, see [custom context API resource](/javascript/api/azure-communication-services/@azure/communication-calling/customcontext?view=azure-communication-services-js&preserve-view=true).
 
 ## Place a call with User-to-User Information (UUI) data
 

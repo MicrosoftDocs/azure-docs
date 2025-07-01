@@ -3,9 +3,9 @@
 metadata:
   title: Remove Azure role assignments - Azure RBAC
   description: Learn how to remove access to Azure resources for users, groups, service principals, or managed identities using Azure portal, Azure PowerShell, Azure CLI, or REST API.
-  author: rolyon
-  ms.author: rolyon
-  manager: femila
+  author: jenniferf-skc
+  ms.author: jfields
+  manager: pmwongera
   ms.date: 04/23/2024
   ms.service: role-based-access-control
   ms.topic: how-to

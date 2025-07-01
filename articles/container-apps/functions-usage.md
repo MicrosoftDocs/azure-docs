@@ -26,7 +26,7 @@ This article shows you how to create an [Azure Functions app in Azure Container 
 
 ## Create a Functions app
 
-The following steps show you how to use a sample container image to create your container app. If you want to use this procedure with a custom container image, see [Create your first Azure Function on Azure Container Apps](https://github.com/Azure/azure-functions-on-container-apps/blob/main/README.md#create-your-first-azure-function-on-azure-container-apps) and [Functions in containers](/azure/azure-functions/functions-container-apps-hosting).
+The following steps show you how to use a sample container image to create your container app. If you want to use this procedure with a custom container image, see [Create your first function app in Azure Container Apps](https://github.com/Azure/azure-functions-on-container-apps/blob/main/README.md#create-your-first-azure-function-on-azure-container-apps).
 
 1. Go to the Azure portal and search for **Container Apps** in the search bar.
 
@@ -48,6 +48,8 @@ The following steps show you how to use a sample container image to create your 
 
 1. Next to *Optimize for Azure Functions* check the checkbox.
 
+![fnonacaportal](https://github.com/user-attachments/assets/78bc6b15-462a-48a4-8243-91aa92c0bcbc)
+ 
 1. Under *Container Apps environment* enter:
 
     | Property | Value |
@@ -89,9 +91,6 @@ The following steps show you how to use a sample container image to create your 
     The `AzureWebJobsStorage` variable is a required Azure Storage account connection string for Azure Functions. This storage account stores function execution logs, manage triggers and bindings, and maintains state for durable functions.
 
     Application Insights is a monitoring and diagnostic service that provides insights into the performance and usage of your Azure Functions. This monitoring helps you track request rates, response times, failure rates, and other metrics.
-
-    > [!TIP]
-    > By default, a containerized function app monitors port `80` for incoming requests. If your app uses a different port, use the `WEBSITES_PORT` application setting to change the default port.
 
 1. Select **Next > Ingress** to switch to the Ingress section and enter the following values.
 

@@ -486,7 +486,7 @@ productDirectory:
         - featured
         - compute
         - azure-virtual-desktop
-      url: virtual-desktop/index.yml
+      url: /azure/virtual-desktop/
     # Card
     - title: Azure Container Apps
       summary: Build and deploy modern apps and microservices using serverless containers

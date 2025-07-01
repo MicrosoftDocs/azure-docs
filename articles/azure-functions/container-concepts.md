@@ -35,23 +35,23 @@ The degree to which various features and behaviors of Azure Functions are suppor
 | Feature/behavior | [Container Apps (integrated)][Azure Container Apps] | [Container Apps (direct)](../container-apps/overview.md) | [Premium plan](./functions-premium-plan.md) | [Dedicated plan](./dedicated-plan.md) | [Kubernetes] |
 | ------ | ------ | ------ |------|-------| ------|
 | Product support | Yes | No | Yes |Yes | No  |
-| Functions portal integration | Yes | No | Yes | Yes | No |
+| Functions portal integration | No | No | Yes | Yes | No |
 | [Event-driven scaling](./event-driven-scaling.md) | Yes<sup>5</sup> | Yes ([scale rules](../container-apps/scale-app.md#scale-rules)) | Yes | No | No |
 | Maximum scale (instances) | 1000<sup>1</sup> | 1000<sup>1</sup> | 100<sup>2</sup> | 10-30<sup>3</sup> | Varies by cluster |
 | [Scale-to-zero instances](./event-driven-scaling.md#scale-in-behaviors) | Yes | Yes | No | No | KEDA |
 | Execution time limit | Unbounded<sup>6</sup>| Unbounded<sup>6</sup> | Unbounded<sup>7</sup> | Unbounded<sup>8</sup> | None |
-| [Core Tools deployment](./functions-run-local.md#deploy-containers) | [`func azurecontainerapps`](./functions-core-tools-reference.md#func-azurecontainerapps-deploy) | No | No | No | [`func kubernetes`](./functions-core-tools-reference.md#func-kubernetes-deploy) |
-| [Revisions](../container-apps/revisions.md) | No | Yes |No |No |No |
+| [Core Tools deployment](./functions-run-local.md#deploy-containers) | No | No | No | No | [`func kubernetes`](./functions-core-tools-reference.md#func-kubernetes-deploy) |
+| [Revisions](../container-apps/revisions.md) | [Yes](../container-apps/revisions.md) | Yes |No |No |No |
 | [Deployment slots](./functions-deployment-slots.md) |No |No |Yes |Yes |No |
-| [Streaming logs](./streaming-logs.md) | Yes | [Yes](../container-apps/log-streaming.md) | Yes | Yes | No |
-| [Console access](../container-apps/container-console.md) | Not currently available<sup>4</sup> | Yes | Yes (using [Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes (using [Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes (in pods [using `kubectl`](https://kubernetes.io/docs/reference/kubectl/)) |
+| [Streaming logs](./streaming-logs.md) | [Yes](../container-apps/log-streaming.md) | [Yes](../container-apps/log-streaming.md) | Yes | Yes | No |
+| [Console access](../container-apps/container-console.md) | [Yes](../container-apps/container-console.md) | Yes | Yes (using [Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes (using [Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes (in pods [using `kubectl`](https://kubernetes.io/docs/reference/kubectl/)) |
 | Cold start mitigation | Minimum replicas | [Scale rules](../container-apps/scale-app.md#scale-rules) | [Always-ready/pre-warmed instances](functions-premium-plan.md#eliminate-cold-starts) | n/a | n/a |
-| [App Service authentication](../app-service/overview-authentication-authorization.md) | Not currently available<sup>4</sup> | Yes | Yes | Yes | No |
-| [Custom domain names](../app-service/app-service-web-tutorial-custom-domain.md) | Not currently available<sup>4</sup> | Yes | Yes | Yes | No |
-| [Private key certificates](../app-service/overview-tls.md) | Not currently available<sup>4</sup> | Yes | Yes | Yes | No |
-| Virtual networks | Yes | Yes | Yes | Yes | Yes |
-| Availability zones | Yes | Yes | Yes | Yes | Yes |
-| Diagnostics | Not currently available<sup>4</sup> | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](./functions-diagnostics.md) | [Yes](./functions-diagnostics.md) | No |
+| [App Service authentication](../app-service/overview-authentication-authorization.md) | [Yes](../container-apps/authentication.md) | Yes | Yes | Yes | No |
+| [Custom domain names](../app-service/app-service-web-tutorial-custom-domain.md) | [Yes](../container-apps/custom-domains-certificates.md) | Yes | Yes | Yes | No |
+| [Private key certificates](../app-service/overview-tls.md) | [Yes](../container-apps/custom-domains-certificates.md) | Yes | Yes | Yes | No |
+| Virtual networks | [Yes](../container-apps/networking.md) | Yes | Yes | Yes | Yes |
+| Availability zones | [Yes](../reliability/reliability-azure-container-apps.md) | Yes | Yes | Yes | Yes |
+| Diagnostics | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](./functions-diagnostics.md) | [Yes](./functions-diagnostics.md) | No |
 | Dedicated hardware | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | No | Yes | Yes | 
 | Dedicated GPUs | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | No | No | Yes | 
 | [Configurable memory/CPU count](../container-apps/workload-profiles-overview.md) | Yes | Yes | No | No | Yes |
@@ -62,7 +62,6 @@ The degree to which various features and behaviors of Azure Functions are suppor
 1. On Container Apps, the default is 10 instances, but you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which has an overall maximum of 1000. This setting is honored as long as there's enough cores quota available. When you create your function app from the Azure portal, you're limited to 300 instances.
 2. In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
 3. For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
-4. Feature parity is a goal of integrated hosting on Azure Container Apps.
 5. Requires [KEDA](./functions-kubernetes-keda.md); supported by most triggers. To learn which triggers support event-driven scaling, see [Considerations for Container Apps hosting](functions-container-apps-hosting.md#considerations-for-container-apps-hosting).  
 6. When the [minimum number of replicas](../container-apps/scale-app.md#scale-definition) is set to zero, the default timeout depends on the specific triggers used in the app.
 7. There's no maximum execution timeout duration enforced. However, the grace period given to a function execution is 60 minutes [during scale in](event-driven-scaling.md#scale-in-behaviors), and a grace period of 10 minutes is given during platform updates.
@@ -87,7 +86,7 @@ In some cases, we're required to make platform-level changes that could mean tha
 | I want to... |  See article: |
 | --- | --- |
 | Create my first containerized functions | [Create a function app in a local Linux container](functions-create-container-registry.md)  |  
-| Create and deploy functions to Azure Container Apps | [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md) |
+| Create and deploy functions to Azure Container Apps | [Create your first containerized functions on Azure Container Apps](../container-apps/functions-usage.md) |
 | Create and deploy containerized functions to Azure Functions | [Create your first containerized Azure Functions](functions-deploy-container.md)|
 
 ## Related articles
@@ -95,6 +94,6 @@ In some cases, we're required to make platform-level changes that could mean tha
 + [Working with containers and Azure Functions](functions-how-to-custom-container.md)
 
 
-[Azure Container Apps]: functions-container-apps-hosting.md
+[Azure Container Apps]: ../container-apps/functions-overview.md
 [Kubernetes]: functions-kubernetes-keda.md
 [Azure Functions]: functions-how-to-custom-container.md?pivots=azure-functions#azure-portal-create-using-containers

@@ -4,10 +4,10 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 05/25/2025
+author: jenniferf-skc    
+manager: pmwongera
+ms.author: jfields
+ms.date: 06/30/2025
 ms.custom: generated
 ---
 
@@ -1004,6 +1004,56 @@ Grants read/write access to Azure resources provided by Azure Kubernetes Fleet M
     }
   ],
   "roleName": "Azure Kubernetes Fleet Manager Contributor Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+## Azure Kubernetes Fleet Manager Hub Agent Role
+
+Grants access to Azure resources needed by Azure Kubernetes Fleet Manager hub agents.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/read | Get the Traffic Manager profile configuration. This includes DNS settings, traffic routing settings, endpoint monitoring settings, and the list of endpoints routed by this Traffic Manager profile. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/write | Create a Traffic Manager profile, or modify the configuration of an existing Traffic Manager profile. This includes enabling or disabling a profile and modifying DNS settings, traffic routing settings, or endpoint monitoring settings. Endpoints routed by the Traffic Manager profile can be added, removed, enabled or disabled. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/delete | Delete the Traffic Manager profile. All settings associated with the Traffic Manager profile will be lost, and the profile can no longer be used to route traffic. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/azureEndpoints/read | Gets an Azure Endpoint which belongs to a Traffic Manager Profile, including all the properties of that Azure Endpoint. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/azureEndpoints/write | Add a new Azure Endpoint in an existing Traffic Manager Profile or update the properties of an existing Azure Endpoint in that Traffic Manager Profile. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/trafficManagerProfiles/azureEndpoints/delete | Deletes an Azure Endpoint from an existing Traffic Manager Profile. Traffic Manager will stop routing traffic to the deleted Azure Endpoint. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants access to Azure resources needed by Azure Kubernetes Fleet Manager hub agents.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/de2b316d-7a2c-4143-b4cd-c148f6a355a1",
+  "name": "de2b316d-7a2c-4143-b4cd-c148f6a355a1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/trafficManagerProfiles/read",
+        "Microsoft.Network/trafficManagerProfiles/write",
+        "Microsoft.Network/trafficManagerProfiles/delete",
+        "Microsoft.Network/trafficManagerProfiles/azureEndpoints/read",
+        "Microsoft.Network/trafficManagerProfiles/azureEndpoints/write",
+        "Microsoft.Network/trafficManagerProfiles/azureEndpoints/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Fleet Manager Hub Agent Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

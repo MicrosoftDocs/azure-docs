@@ -2,8 +2,8 @@
 title: Conduct end-to-end threat hunting with Hunts
 titleSuffix: Microsoft Sentinel
 description: Learn how to use hunts for conducting end-to-end proactive threat hunting. Seek out undetected threats based on hypothesis or start broadly and refine your searches with this hunting experience.
-author: austinmccollum
-ms.author: austinmc
+author: mberdugo 
+ms.author: monaberdugo 
 ms.topic: how-to
 ms.date: 03/12/2024
 appliesto:

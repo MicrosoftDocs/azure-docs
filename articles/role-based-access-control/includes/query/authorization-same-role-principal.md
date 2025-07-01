@@ -1,9 +1,9 @@
 ---
-author: rolyon
+author: jenniferf-skc
 ms.service: resource-graph
 ms.topic: include
 ms.date: 05/30/2023
-ms.author: rolyon
+ms.author: jfields
 ---
 
 ```kusto

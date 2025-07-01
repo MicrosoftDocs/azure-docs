@@ -50,7 +50,7 @@ The following list of capabilities is supported for scenarios where at least one
 | | Transfer the end user from ongoing 1:1 call to a Teams user | ❌ | ❌ |
 | | Transfer the end user from ongoing group call to a Teams user | ❌ | ❌ |
 | | Retrieve call properties (`GetCall`) | N/A  | ✔️ |
-| | Send custom context as part of call invite  (AddParticipant and Transfer) | ❌ | ✔️ |
+| | Send custom context as part of call invite  (AddParticipant and Transfer) | ✔️ | ✔️ |
 | | Receive custom context as part of call invite (AddParticipant and Transfer) | ✔️ | ✔️ |
 | | Send and receive SIP headers (UUI and X-header) as part of call invite to and from SIP endpoints | N/A | ✔️ |
 | Mid-call actions (media)  | Developer can play audio (from audio file or text/SSML) to target participant (end user or an agent) | N/A | ✔️ |

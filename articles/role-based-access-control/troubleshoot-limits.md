@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Azure RBAC limits - Azure RBAC
 description: Learn how to use Azure Resource Graph to reduce the number of Azure role assignments and Azure custom roles in Azure role-based access control (Azure RBAC).
-author: rolyon
-manager: femila
+author: jenniferf-skc
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 06/27/2024
-ms.author: rolyon
+ms.author: jfields
 ---
 
 # Troubleshoot Azure RBAC limits

@@ -90,6 +90,11 @@ For agentless visualization, you can view the dependency map of a single server 
 
 You can [visualize dependencies](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) for groups that have up to 10 servers. If you've a group that has more than 10 servers, we recommend that you split the group into smaller groups, and then visualize the dependencies.
 
+## How do I start discovering my infrastructure?
+
+To start discovering your on-premises infrastructure, you first decide the discovery method that best fits your needs. For more information on available discovery methods, see [Discovery methods](discovery-methods-modes.md).
+
+
 ## Next steps
 
 [Learn more](how-to-create-assessment.md) about creating an assessment.

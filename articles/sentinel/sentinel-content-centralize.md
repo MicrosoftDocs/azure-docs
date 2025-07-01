@@ -2,10 +2,10 @@
 title: Out-of-the-box (OOTB) content centralization changes
 titleSuffix: Microsoft Sentinel
 description: This article describes upcoming centralization changes for out-of-the-box content in Microsoft Sentinel.
-author: austinmccollum
+author: batamig
 ms.topic: conceptual
 ms.date: 06/22/2023
-ms.author: austinmc
+ms.author: bagol
 
 
 #Customer intent: As a security operations center (SOC) admin, I want to centralize and update out-of-the-box (OOTB) content in Microsoft Sentinel so that I can ensure all security tools and templates are current and centrally manage content efficiently.
@@ -13,6 +13,8 @@ ms.author: austinmc
 ---
 
 # Microsoft Sentinel out-of-the-box content centralization changes
+
+<!--do we still need this article?-->
 
 The Microsoft Sentinel content hub enables discovery and on-demand installation of out-of-the-box (OOTB) content and solutions in a single step. Previously, some of this OOTB content existed only in various gallery sections of Microsoft Sentinel. Now, *all* of the following gallery content templates are available in the content hub as standalone items or as part of packaged solutions:
 

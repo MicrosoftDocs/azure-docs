@@ -1,12 +1,12 @@
 ---
 title: Assign Azure roles using Azure CLI - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure CLI and Azure role-based access control (Azure RBAC).
-author: rolyon
-manager: femila
+author: jenniferf-skc
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 03/30/2025
-ms.author: rolyon
+ms.author: jfields
 ms.custom: devx-track-azurecli
 ---
 # Assign Azure roles using Azure CLI

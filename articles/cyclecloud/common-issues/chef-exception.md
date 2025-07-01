@@ -2,7 +2,7 @@
 title: Common Issues - Chef Exceptions
 description: Azure CycleCloud common issue - Chef Exceptions
 author: adriankjohnson
-ms.date: 06/20/2023
+ms.date: 06/30/2025
 ms.author: adjohnso
 ms.topic: conceptual
 ms.service: azure-cyclecloud
@@ -17,12 +17,10 @@ ms.custom: compute-evergreen
 
 ## Resolution
 
-Chef exceptions types are numerous. This message will return the Chef resource name, 
-recipe, recipe line number, and stack trace for the occurrence of the exception.
-These exceptions occur during the configuration of the system so they can span 
-all of the functionality that Chef provides as well as arbitrary commands runnable
-as a chef resource. 
+Chef has many exception types. When an exception occurs, Chef returns the resource name, 
+recipe, recipe line number, and stack trace. These exceptions happen during the configuration of the system, so they can affect 
+all of the functionality that Chef provides and arbitrary commands runnable
+as a Chef resource. 
 
-Basic deduction of system administration will be needed to diagnose unhandled
-Chef exceptions.
+To diagnose unhandled Chef exceptions, you need to use your system administration skills.
 

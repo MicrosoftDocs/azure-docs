@@ -2,10 +2,10 @@
 title: Deploy custom content from your repository
 titleSuffix: Microsoft Sentinel
 description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can manage your custom content and deploy it to Microsoft Sentinel.
-author: austinmccollum
+author: mberdugo 
 ms.topic: how-to
 ms.date: 12/31/2024
-ms.author: austinmc
+ms.author: monaberdugo 
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

@@ -120,7 +120,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Queue|queue.core.windows.net|queue.core.usgovcloudapi.net||
 ||Table|table.core.windows.net|table.core.usgovcloudapi.net||
 ||File|file.core.windows.net|file.core.usgovcloudapi.net||
-|**Virtual desktop infrastructure**|Azure Virtual Desktop|See [AVD docs](../virtual-desktop/safe-url-list.md)|See [AVD docs](../virtual-desktop/safe-url-list.md)||
+|**Virtual desktop infrastructure**|Azure Virtual Desktop|See [AVD docs](/azure/virtual-desktop/safe-url-list)|See [AVD docs](/azure/virtual-desktop/safe-url-list)||
 |**Web**|API Management|management.azure.com|management.usgovcloudapi.net||
 ||API Management Gateway|azure-api.net|azure-api.us||
 ||API Management management|management.azure-api.net|management.azure-api.us||

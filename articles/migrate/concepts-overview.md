@@ -45,7 +45,7 @@ This article provides an overview of Azure Migrate assessments. An Azure Migrate
 The discovery source may vary for different assessments depending on the data required for creating the assessments. You can discover your on-premises workloads using either of the following methods:
 
 * By deploying a light-weight Azure Migrate appliance to perform agentless discovery.
-* By importing the workload information using predefined templates.
+* By importing the workload information using import-based discovery. For more information on available discovery methods, see [Discovery methods](discovery-methods-modes.md).
 
 The recommended discovery source is Azure Migrate appliance as it provides an in-depth view of your machines and ensures regular flow of configuration and performance data and account for changes in the source environment.
 

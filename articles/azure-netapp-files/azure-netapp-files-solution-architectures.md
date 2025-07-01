@@ -178,8 +178,8 @@ This section provides references for Virtual Desktop infrastructure solutions.
 ### <a name="windows-virtual-desktop"></a>Azure Virtual Desktop
 
 * [Benefits of using Azure NetApp Files with Azure Virtual Desktop](solutions-windows-virtual-desktop.md)
-* [Storage options for FSLogix profile containers in Azure Virtual Desktop](../virtual-desktop/store-fslogix-profile.md#azure-platform-details)
-* [Create an FSLogix profile container for a host pool using Azure NetApp Files](../virtual-desktop/create-fslogix-profile-container.md)
+* [Storage options for FSLogix profile containers in Azure Virtual Desktop](/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
+* [Create an FSLogix profile container for a host pool using Azure NetApp Files](/azure/virtual-desktop/create-fslogix-profile-container)
 * [Azure Virtual Desktop at enterprise scale](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [Microsoft FSLogix for the enterprise - Azure NetApp Files best practices](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
 * [Enhanced Performance and Scalability: Microsoft Entra joined Session Hosts with Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/enhanced-performance-and-scalability-azure-ad-joined-session/ba-p/3836576)

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to group costs using tag inheritance.
 author: sdoultani
 ms.author: sadoulta
-ms.date: 01/07/2025
+ms.date: 06/27/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management

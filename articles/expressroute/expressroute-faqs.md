@@ -96,7 +96,7 @@ ExpressRoute supports [two routing domains](expressroute-circuit-peerings.md) fo
 
 **Supported:**
 
-* Virtual networks, including all virtual machines and cloud services like [Azure Virtual Desktop RDP Shortpath](../virtual-desktop/shortpath.md)
+* Virtual networks, including all virtual machines and cloud services like [Azure Virtual Desktop RDP Shortpath](/azure/virtual-desktop/shortpath)
 
 ### Microsoft peering
 

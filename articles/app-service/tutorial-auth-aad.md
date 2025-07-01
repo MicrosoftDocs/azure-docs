@@ -262,10 +262,6 @@ You can set this via the same Azure CLI process you used in the previous step.
 authSettings=$(az webapp auth show -g myAuthResourceGroup -n <back-end-app-name>)
 authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.validation.defaultAuthorizationPolicy.allowedApplications += ["<front-end-app-id>"]')
 az webapp auth set --resource-group myAuthResourceGroup --name <back-end-app-name> --body "$authSettings"
-
-authSettings=$(az webapp auth show -g myAuthResourceGroup  -n <back-end-app-name>)
-authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.validation.jwtClaimChecks += { "allowedClientApplications": ["<front-end-app-id>"]}')
-az webapp auth set --resource-group myAuthResourceGroup --name <back-end-app-name> --body "$authSettings"
 ```
 
 ## 7. Frontend calls the authenticated backend

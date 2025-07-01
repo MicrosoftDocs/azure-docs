@@ -3,7 +3,7 @@ title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/14/2025
+ms.date: 06/19/2025
 ---
 
 # String functions for Bicep
@@ -138,6 +138,74 @@ The output from the preceding example with the default values is:
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
+
+## buildUri
+
+`buildUri(uriComponent)`
+
+Constructs a URI by combining the provided scheme, host, port, path, and query component object into a single URI string. To parse a URI, see [parseUri](#parseuri).
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| scheme | Yes | String | The protocol of the URI (e.g., `http`, `https`, `ftp`). |
+| host | Yes | String | The domain or hostname (e.g., `example.com`). |
+| port | No | Int or Null | The port number (e.g., `443`). If not specified, defaults to `null`, which means the default port for the scheme is used. |
+| path | Yes | String | The path component (e.g., `/path/to/resource`). |
+| query | No | String | The query string, including the leading `?` if present (e.g., `?key=value`). Defaults to an empty string if not provided. |
+
+### Return Value
+
+A string representing the absolute URI constructed from the provided components.
+
+### Examples
+
+The following example shows how to use `buildUri` to construct a URI from individual components:
+
+```bicep
+param uriComponents object = {
+  scheme: 'https'
+  host: 'mystorage.blob.core.windows.net'
+  port: 8080
+  path: '/templates/nestedTemplate.json'
+  query: '?st=2025-05-09'
+}
+
+output constructedUri string = buildUri((uriComponents))
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| constructedUri | String | `https://mystorage.blob.core.windows.net:8080/templates/nestedTemplate.json?st=2025-05-09` |
+
+The following example shows how to use `parseUri` to extract components from an existing URI, modify them, and then use `buildUri` to reconstruct a new URI:
+
+```bicep
+param uriComponents object = parseUri('https://mystorage.blob.core.windows.net:8080/templates/nestedTemplate.json?st=2025-05-09')
+param newQuery string = 'st-2025-06-19'
+
+var updatedUriComponents object = { 
+  scheme: uriComponents.schema
+  host: uriComponents.host
+  port: uriComponents.port
+  path: uriComponents.path
+  query: newQuery
+}
+
+// Reconstruct the URI using buildUri
+output reconstructedUri string = buildUri(updatedUriComponents)
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| reconstrcutedUri | String | `https://mystorage.blob.core.windows.net/newdata/newfile.json?newParam=value` |
 
 ## concat
 
@@ -893,6 +961,80 @@ The output from the preceding example with the default values is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
+
+## parseUri
+
+`parseUri(uriString)`
+
+Parses a URI string into its constituent components, such as scheme, host, port, path, and query. To build a URI string, see [buildUri](#builduri).
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| uriString | Yes | string | The URI string to parse. Must be a valid URI as per RFC 3986. |
+
+### Return Value
+
+An object containing the parsed URI components with the following properties:
+
+| Property | Type | Description |
+|:--- |:--- |:--- |
+| scheme | String | The protocol of the URI (e.g., `http`, `https`, `ftp`). |
+| host | String | The domain or hostname (e.g., `example.com`). |
+| port | Int or null | The port number (e.g., `443`), or `null` if not specified. |
+| path | String | The path component (e.g., `/path/to/resource`). |
+| query | String | The query string, including the leading `?` (e.g., `?key=value`), or empty string if not present. |
+
+For complete details, the URI is parsed as specified in [RFC 3986, section 3](https://tools.ietf.org/html/rfc3986#section-3).
+
+### Examples
+
+The following example shows how to use `parseUri` to extract components from a URI:
+
+```bicep
+param inputUri string = 'https://mystorage.blob.core.windows.net:8080/templates/nestedTemplate.json?st=2025-05-09'
+
+var parsedUri = parseUri(inputUri)
+
+output scheme string = parsedUri.scheme
+output host string = parsedUri.host
+output port int = parsedUri.port
+output path string = parsedUri.path
+output query string = parsedUri.query
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| scheme | String | `https` |
+| host | String | `mystorage.blob.core.windows.net` |
+| port | Int | `8080` |
+| path | String | `/templates/nestedTemplate.json` |
+| query | String | `?st=2025-05-09` |
+
+The following example shows how to use `parseUri` to extract the host and scheme, then reconstruct a new URI with a different path using the `uri` function:
+
+```bicep
+param originalUri string = 'https://mystorage.blob.core.windows.net/data/file.json?st=2025-05-09'
+
+var parsedUri = parseUri(originalUri)
+var newPath = '/newdata/newfile.json'
+var modifiedUri = uri('${parsedUri.scheme}://${parsedUri.host}', newPath)
+
+output originalHost string = parsedUri.host
+output newUri string = modifiedUri
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| originalHost | String | `mystorage.blob.core.windows.net` |
+| newUri | String | `https://mystorage.blob.core.windows.net/newdata/newfile.json` |
 
 ## replace
 

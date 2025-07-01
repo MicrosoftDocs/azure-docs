@@ -114,7 +114,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 1. Once the operation is complete, you see your domain name in the list of custom domains with a status of *Secured*. Navigate to your domain to verify that it's accessible.
 
 > [!NOTE]
-> For container apps in internal Container Apps environments, [extra configuration](./networking.md#dns) is required to use custom domains with VNET-scope ingress.
+> For container apps in internal Container Apps environments, [extra configuration](./private-endpoints-with-dns.md) is required to use custom domains with VNET-scope ingress.
 
 ::: zone-end
 

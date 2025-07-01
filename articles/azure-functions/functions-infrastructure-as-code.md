@@ -3,22 +3,26 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 10/21/2024
+ms.date: 06/18/2025
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content, ignite-2024
 zone_pivot_groups: functions-hosting-plan
 ---
 
 # Automate resource deployment for your function app in Azure Functions
 
-You can use a Bicep file or an Azure Resource Manager (ARM) template to automate the process of deploying your function app. During the deployment, you can use existing Azure resources or create new ones. Automation helps you with these scenarios:
+You can use a Bicep file or an Azure Resource Manager (ARM) template to automate the process of deploying your function app. During the deployment, you can use existing Azure resources or create new ones. 
 
-+ Integrating your resource deployments with your source code in Azure Pipelines and GitHub Actions-based deployments.
-+ Restoring a function app and related resources from a backup.
-+ Deploying an app topology multiple times. 
+You can obtain these benefits in your production apps by using deployment automation, both infrastructure-as-code (IaC) and continuous integration and deployment (CI/CD):
 
-This article shows you how to automate the creation of resources and deployment for Azure Functions. Depending on the [triggers and bindings](functions-triggers-bindings.md) used by your functions, you might need to deploy other resources, which is outside of the scope of this article. 
++ **Consistency**: Define your infrastructure in code to ensure consistent deployments across environments.
++ **Version Control**: Track changes to your infrastructure and application configurations in source control, along with your project code.
++ **Automation**: Automate deployment, which reduces manual errors and shortens release process.
++ **Scalability**: Easily replicate infrastructure for multiple environments, such as development, testing, and production.
++ **Disaster Recovery**: Quickly recreate infrastructure after failures or during migrations.
 
-The template code required depends on the desired hosting options for your function app. This article supports the following hosting options:
+This article shows you how to automate the creation of Azure resources and deployment configurations for Azure Functions. To learn more about continuous deployment of your project code, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). 
+
+The template code to create the required Azure resources depends on the desired hosting options for your function app. This article supports the following hosting options:
 
 | Hosting option | Deployment type | Sample template |
 | ----- | ----- | ----- |
@@ -26,7 +30,7 @@ The template code required depends on the desired hosting options for your funct
 | [Azure Functions Flex Consumption plan](functions-infrastructure-as-code.md?pivots=consumption-plan) | Code-only | [Flex Consumption plan](./flex-consumption-plan.md) |
 | [Azure Functions Elastic Premium plan](functions-infrastructure-as-code.md?pivots=premium-plan) | Code \| Container | [Premium plan](./functions-premium-plan.md)|
 | [Azure Functions Dedicated (App Service) plan](functions-infrastructure-as-code.md?pivots=dedicated-plan) | Code \| Container | [Dedicated plan](./dedicated-plan.md)|
-| [Azure Container Apps](functions-infrastructure-as-code.md?pivots=premium-plan) | Container-only | [Container Apps hosting of Azure Functions](functions-container-apps-hosting.md)|
+| [Azure Container Apps](functions-infrastructure-as-code.md?pivots=premium-plan) | Container-only | [Container Apps hosting of Azure Functions](../container-apps/functions-overview.md)|
 | [Azure Arc](functions-infrastructure-as-code.md?pivots=premium-plan) | Code \| Container | [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)| 
 
 When using this article, keep these considerations in mind:
@@ -72,7 +76,7 @@ An Azure Container Apps-hosted deployment typically consists of these resources:
 |------|-------|----|
 | A [storage account](#create-storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | An [Application Insights](#create-application-insights) component | Recommended | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)<sup>*</sup>|  
-| A [managed environment](./functions-container-apps-hosting.md#) | Required | [Microsoft.App/managedEnvironments](/azure/templates/microsoft.app/managedenvironments) |
+| A [managed environment](../container-apps/functions-overview.md#) | Required | [Microsoft.App/managedEnvironments](/azure/templates/microsoft.app/managedenvironments) |
 | A [function app](#create-the-function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
 ::: zone-end  
 ::: zone pivot="azure-arc"  
@@ -1573,7 +1577,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 ::: zone-end
 ::: zone pivot="container-apps"
-When deploying [containerized functions to Azure Container Apps](./functions-container-apps-hosting.md), your template must:
+When deploying [containerized functions to Azure Container Apps](../container-apps/functions-overview.md), your template must:
 
 + Set the `kind` field to a value of `functionapp,linux,container,azurecontainerapps`. 
 + Set the `managedEnvironmentId` site property to the fully qualified URI of the Container Apps environment. 

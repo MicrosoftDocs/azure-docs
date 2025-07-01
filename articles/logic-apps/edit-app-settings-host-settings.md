@@ -1,20 +1,22 @@
 ---
-title: Edit runtime and environment settings for Standard logic apps
-description: Change the runtime and environment settings for Standard logic apps in single-tenant Azure Logic Apps.
+title: Edit App and Host Settings for Standard Logic Apps
+description: Learn how to change runtime and environment settings for Standard logic apps in single-tenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/25/2025
+ms.date: 06/18/2025
 ms.custom: fasttrack-edit
 # Customer intent: As a logic app workflow developer, I want to learn about application settings and host settings that I can edit to customize the way that my Standard workflows run.
 ---
 
-# Edit host and app settings for Standard logic apps in single-tenant Azure Logic Apps
+# Edit app and host settings for Standard logic apps in single-tenant Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-In *single-tenant* Azure Logic Apps, the *app settings* for a Standard logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
+This guide explains how to manage runtime and environment settings for Standard logic apps in single-tenant Azure Logic Apps.
+
+The *app settings* for a Standard logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
 
 Your logic app also has *host settings*, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, for example, default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*.
 
@@ -24,23 +26,23 @@ Settings are *key-value* pairs that define the setting name and value.
 
 ## App settings, parameters, and deployment
 
-In multitenant Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In *multitenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
-App settings integrate with Azure Key Vault. You can [directly reference secure strings](/azure/app-service/app-service-key-vault-references), such as connection strings and keys. Similar to Azure Resource Manager templates (ARM templates), where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. However, app settings have size limitations and can't be referenced from certain areas in Azure Logic Apps.
+App settings integrate with Azure Key Vault. You can [directly reference secure strings](/azure/app-service/app-service-key-vault-references), such as connection strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. However, app settings have size limitations and can't be referenced from certain areas in Azure Logic Apps.
 
 > [!NOTE]
 >
 > If you use Azure Key Vault, make sure to store only secrets, such as passwords, credentials, 
-> and certificates. Don't use a key vault in a logic app workflow to store non-secret values, 
+> and certificates. Don't use a key vault in a logic app workflow to store nonsecret values, 
 > such as URL paths, that the workflow designer needs to make calls. The designer can't 
 > dereference an app setting that references an Azure Key Vault resource, which results 
-> in an error and a failed call. For non-secret values, store them directly in app settings.
+> in an error and a failed call. For nonsecret values, store them directly in app settings.
 
 For more information about setting up your logic apps for deployment, see the following documentation:
 
-- [Create parameters for values that change in workflows between environments for single-tenant Azure Logic Apps](parameterize-workflow-app.md)
+- [Create cross-environment parameters for workflow inputs in Azure Logic Apps](create-parameters-workflows.md)
 - [DevOps deployment overview for single-tenant based logic apps](/azure/logic-apps/devops-deployment-single-tenant-azure-logic-apps)
 - [Set up DevOps deployment for single-tenant based logic apps](/azure/logic-apps/set-up-devops-deployment-single-tenant-azure-logic-apps)
 
@@ -52,30 +54,30 @@ For more information about setting up your logic apps for deployment, see the fo
 
 ## Reference for app settings - local.settings.json
 
-In Visual Studio Code, at your logic app project's root level, the **local.settings.json** file contain global configuration options that affect *all workflows* in that logic app while running in your local development environment. When your workflows run locally, these settings are accessed as local environment variables, and their values can often change between the various environments where you run your workflows. To view and manage these settings, review [Manage app settings - local.settings.json](#manage-app-settings).
+In Visual Studio Code, at your logic app project's root level, the **local.settings.json** file contain global configuration options that affect *all workflows* in that logic app while running in your local development environment. When your workflows run locally, these settings are accessed as local environment variables, and their values can often change between the various environments where you run your workflows. To learn how to view and manage these settings, see [Manage app settings - local.settings.json](#manage-app-settings).
 
-App settings in Azure Logic Apps work similarly to app settings in Azure Functions or Azure Web Apps. If you've used these other services before, you might already be familiar with app settings. For more information, review [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) and [Work with Azure Functions Core Tools - Local settings file](../azure-functions/functions-develop-local.md#local-settings-file).
+App settings in Azure Logic Apps work similarly to app settings in Azure Functions or Azure Web Apps. If you've used these other services before, you might already be familiar with app settings. For more information, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) and [Work with Azure Functions Core Tools - Local settings file](../azure-functions/functions-develop-local.md#local-settings-file).
 
 The following table describes the app settings that your logic app uses. Some settings are required for your logic app to work correctly:
 
 | Setting | Required | Value | Description |
 |---------|----------|-------|-------------|
-| `APP_KIND` | Yes | `workflowApp` | Required to set the app type for the Standard logic app resource. The value must be set to **`workflowApp`**. <br><br>**Note**: In some scenarios, this app setting might be missing, for example, due to automation using Azure Resource Manager templates or other scenarios where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code** action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to **`workflowApp`**. |
+| `APP_KIND` | Yes | `workflowApp` | Required to set the app type for the Standard logic app resource. The value must be set to `workflowApp`. <br><br>**Note**: In some scenarios, this app setting might be missing, for example, due to automation using Azure Resource Manager templates or other scenarios where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code** action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to `workflowApp`. |
 | `AZURE_AUTHORITY_HOST` | No | None | Sets the Standard logic app's default authority to use for OAuth authentication. |
 | `AzureWebJobsStorage` | Yes | None | Required to set the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage). |
 | `FUNCTIONS_EXTENSION_VERSION` | Yes | `~4` | Required to set the Azure Functions version. For more information, see [FUNCTIONS_EXTENSION_VERSION](/azure/azure-functions/functions-app-settings#functions_extension_version). |
-| `FUNCTIONS_WORKER_RUNTIME` | Yes | `dotnet` | Required to set the language worker runtime for your logic app resource and workflows. <br><br>**Note**: This setting's value was previously set to **`node`**, but now the required value is **`dotnet`** for all new and existing deployed Standard logic apps. This change shouldn't affect your workflow's runtime, so everything should work the same way as before. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](/azure/azure-functions/functions-app-settings#functions_worker_runtime). |
+| `FUNCTIONS_WORKER_RUNTIME` | Yes | `dotnet` | Required to set the language worker runtime for your logic app resource and workflows. <br><br>**Note**: This setting's value was previously set to `node`, but now the required value is `dotnet` for all new and existing deployed Standard logic apps. This change shouldn't affect your workflow's runtime, so everything should work the same way as before. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](/azure/azure-functions/functions-app-settings#functions_worker_runtime). |
 | `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | No | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
 | `ServiceProviders.Sftp.OperationTimeout` | No | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
-| `ServiceProviders.Sftp.ServerAliveInterval` | No | `00:30:00` <br>(30 min) | Sends a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. |
+| `ServiceProviders.Sftp.ServerAliveInterval` | No | `00:30:00` <br>(30 min) | Sends a *keep alive* message to keep the SSH connection active if no data exchange with the server happens during the specified period. |
 | `ServiceProviders.Sftp.SftpConnectionPoolSize` | No | `2` connections | Sets the number of connections that each processor can cache. The total number of connections that you can cache is *ProcessorCount* multiplied by the setting value. |
 | `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | No | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
 | `ServiceProviders.Sql.QueryTimeout` | No | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
 | `WEBSITE_CONTENTSHARE` | Yes | Dynamic | Required to set the name for the file share that Azure Functions uses to store function app code and configuration files and is used with [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](/azure/azure-functions/functions-app-settings#website_contentazurefileconnectionstring). The default is a unique string generated by the runtime. For more information, see [WEBSITE_CONTENTSHARE](/azure/azure-functions/functions-app-settings#website_contentshare). |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | No | None | Sets the thumbprints for the root certificates to be trusted. |
-| `WEBSITE_NODE_DEFAULT_VERSION` | Yes | **~**<*version*> | Sets the Node.js version when running your logic app workflows on Windows. Use a tilde (~) to have the Azure Logic Apps runtime use the latest available version of the targeted major version. For example, if set to **~18**, the latest version of Node.js 18 is used. When you use a tilde with a major version, you don't have to manually update the minor version. <br><br>For more information, see [**WEBSITE_NODE_DEFAULT_VERSION** - Azure Functions](/azure/azure-functions/functions-app-settings#website_node_default_version). |
+| `WEBSITE_NODE_DEFAULT_VERSION` | Yes | **~**<*version*> | Sets the Node.js version when running your logic app workflows on Windows. Use a tilde (~) to have the Azure Logic Apps runtime use the latest available version of the targeted major version. For example, if set to **~18**, the latest version of Node.js 18 is used. When you use a tilde with a major version, you don't have to manually update the minor version. <br><br>For more information, see [WEBSITE_NODE_DEFAULT_VERSION](/azure/azure-functions/functions-app-settings#website_node_default_version). |
 | `Workflows.Connection.AuthenticationAudience` | No | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
-| `Workflows.CustomHostName` | No | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
+| `Workflows.CustomHostName` | No | None | Sets the host name to use for workflow and input-output URLs, for example, `logic.contoso.com`. For information to configure a custom DNS name, see [Set up an existing custom domain in Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Enable HTTPS for a custom domain in Azure App Service](../app-service/configure-ssl-bindings.md). |
 | `Workflows.<workflowName>.FlowState` | No | None | Sets the state for <*workflowName*>. |
 | `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | No | `90` days | Sets the amount of time in days to keep the run history for <*workflowName*>. <br><br>- Minimum: 7 days <br>- Maximum: 365 days |
 | `Workflows.RuntimeConfiguration.RetentionInDays` | No | `90` days | Sets the amount of time in days to keep workflow run history after a run starts. <br><br>- Minimum: 7 days <br>- Maximum: 365 days |
@@ -85,7 +87,7 @@ The following table describes the app settings that your logic app uses. Some se
 
 ## Manage app settings - local.settings.json
 
-To add, update, or delete app settings, select and review the following sections for Azure portal, Visual Studio Code, Azure CLI, or ARM (Bicep) template. For app settings specific to logic apps, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
+To add, update, or delete app settings, select and review the following sections for Azure portal, Visual Studio Code, or Azure CLI. For app settings specific to logic apps, see [Reference for app settings - local.settings.json](#reference-local-settings-json).
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -93,11 +95,11 @@ To add, update, or delete app settings, select and review the following sections
 
 1. In the [Azure portal](https://portal.azure.com/) search box, find and open your logic app.
 
-1. On your logic app menu, under **Settings**, select **Environment variables**.
+1. On the sidebar menu, under **Settings**, select **Environment variables**.
 
 1. On the **Environment variables** page, on the **App settings** tab, review the app settings for your logic app.
 
-   For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
+   For more information about these settings, see [Reference for app settings - local.settings.json](#reference-local-settings-json).
 
 1. To view all values, on the page toolbar, select **Show Values**. Or, to view a single value, in the **Value** column, select **Show value** (eye icon).
 
@@ -121,7 +123,7 @@ To add, update, or delete app settings, select and review the following sections
 
 1. In the `Values` object, review the app settings for your logic app.
 
-   For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
+   For more information about these settings, see [Reference for app settings - local.settings.json](#reference-local-settings-json).
 
 ##### Add an app setting in Visual Studio Code
 
@@ -142,26 +144,27 @@ To add, update, or delete app settings, select and review the following sections
 
 ### [Azure CLI](#tab/azure-cli)
 
-To review your current app settings using the Azure CLI, run the command, `az logicapp config appsettings list`. Make sure that your command includes the `--name -n` and `--resource-group -g` parameters, for example:
+To review your current app settings using the Azure CLI, run the command `az logicapp config appsettings list`. Make sure that your command includes the `--name` and `--resource-group` parameters, for example:
 
 ```azurecli
-az logicapp config appsettings list --name MyLogicApp --resource-group MyResourceGroup
+az logicapp config appsettings list --name <MyLogicApp> --resource-group <MyResourceGroup>
 ```
 
-For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
+For more information about these settings, see [Reference for app settings - local.settings.json](#reference-local-settings-json).
 
-To add or update an app setting using the Azure CLI, run the command `az logicapp config appsettings set`. Make sure that your command includes the `--name n` and `--resource-group -g` parameters. For example, the following command creates a setting with a key named `CUSTOM_LOGIC_APP_SETTING` with a value of `12345`:
+To add or update an app setting using the Azure CLI, run the command `az logicapp config appsettings set`. Make sure that your command includes the `--name`, `--resource-group`, and `--settings` parameters. For example, the following command creates a setting with a key named `CUSTOM_LOGIC_APP_SETTING` with a value of `12345`:
 
 ```azurecli
-az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 
+az logicapp config appsettings set --name <MyLogicApp> --resource-group <MyResourceGroup> --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
+
 ---
 
 <a name="reference-host-json"></a>
 
 ## Reference for host settings - host.json
 
-In Visual Studio Code, at your logic app project's root level, the **host.json** metadata file contains the runtime settings and default values that apply to *all workflows* in a logic app resource whether running locally or in Azure. To view and manage these settings, review [Manage host settings - host.json](#manage-host-settings). You can also find related limits information in the [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#definition-limits) documentation.
+In Visual Studio Code, at your logic app project's root level, the **host.json** metadata file contains the runtime settings and default values that apply to *all workflows* in a logic app resource whether running locally or in Azure. To learn how to view and manage these settings, see [Manage host settings - host.json](#manage-host-settings). You can also find related limits information in the [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#definition-limits) documentation.
 
 <a name="job-orchestration"></a>
 
@@ -181,7 +184,7 @@ The following settings are used to manually stop and immediately delete the spec
 
 > [!NOTE]
 >
-> Use these settings with caution and only in non-production environments, such as load 
+> Use these settings with caution and only in nonproduction environments, such as load 
 > or performance test environments, as you can't undo or recover from these operations.
 
 | Setting | Default value | Description |
@@ -190,8 +193,7 @@ The following settings are used to manually stop and immediately delete the spec
 | `Jobs.SuspendedJobPartitionPrefixes` | None | Stops the run jobs for the specified workflows. |
 | `SequencerJobs.SuspendedSequencerPartitionPrefixes` | None | Stops the sequencer run jobs for the specified workflows. |
 
-
-The following example shows the syntax for these settings where each workflow ID is followed by a colon (**:**) and separated by a semicolon (**;**):
+The following example shows the syntax for these settings where each workflow ID is followed by a colon (`:`) and separated by a semicolon (`;`):
 
 ```json
 "Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:;<workflow-ID-2>:",
@@ -211,7 +213,9 @@ The following example shows the syntax for these settings where each workflow ID
 
 ### Trigger concurrency
 
-The following settings work only for workflows that start with a recurrence-based trigger for [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/). For a workflow that starts with a function-based trigger, you might try to [set up batching where supported](logic-apps-batch-process-send-receive-messages.md). However, batching isn't always the correct solution. For example, with Azure Service Bus triggers, a batch might hold onto messages beyond the lock duration. As a result, any action, such as complete or abandon, fails on such messages.
+The following concurrency settings apply only to workflows that start with a recurrence-based trigger for [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) and control the number of workflows that run concurrently, or at the same time.
+
+For a workflow that starts with a function-based trigger, you might try to [set up batching where supported](logic-apps-batch-process-send-receive-messages.md). However, batching isn't always the correct solution. For example, with Azure Service Bus triggers, a batch might hold onto messages beyond the lock duration. As a result, any action, such as complete or abandon, fails on such messages.
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
@@ -233,12 +237,12 @@ The following settings work only for workflows that start with a recurrence-base
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the duration for a workflow action job to run before timing out and retrying. To change the default time-out for a built-in operation such as SAP, also set the **`functionTimeout`** host setting. For more information, see the next entry. |
-| `functionTimeout` | `00:30:00` <br>(30 minutes) | Sets the duration to run before timing out for calls from Azure Functions and some built-in operations, such as SAP, that work as function calls. Standard logic apps use the same underlying design as function apps. So, the **`functionTimeout`** host setting in Azure Functions also affects built-in operations that run as function calls. For more information, see [**functionTimeout**](/azure/azure-functions/functions-host-json#functiontimeout). <br><br>**Note**: In the **host.json** file, the **`functionTimeout`** setting exists at the same level as the **`extensions`** object where the host settings exist for a Standard logic app. For more information, see the example in this section: [Change time-out value for function-based built-in operations](#change-time-out-value-for-function-based-built-in-operations). |
+| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the duration for a workflow action job to run before timing out and retrying. To change the default timeout for a built-in operation such as SAP, also set the **`functionTimeout`** host setting. For more information, see the next entry. |
+| `functionTimeout` | `00:30:00` <br>(30 minutes) | Sets the duration to run before timing out for calls from Azure Functions and some built-in operations, such as SAP, that work as function calls. Standard logic apps use the same underlying design as function apps. So, the **`functionTimeout`** host setting in Azure Functions also affects built-in operations that run as function calls. For more information, see [**functionTimeout**](/azure/azure-functions/functions-host-json#functiontimeout). <br><br>**Note**: In the **host.json** file, the **`functionTimeout`** setting exists at the same level as the **`extensions`** object where the host settings exist for a Standard logic app. For more information, see the example in this section: [Change timeout value for function-based built-in operations](#change-timeout-value-for-function-based-built-in-operations). |
 
-#### Change time-out value for function-based built-in operations
+#### Change timeout value for function-based built-in operations
 
-For built-in operations that run as function calls in Azure Functions, add both the **`Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout`** and **`functionTimeout`** host settings to your **host.json** file as shown in the following example:
+For built-in operations that run as function calls in Azure Functions, add both the `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` and `functionTimeout` host settings to your **host.json** file as shown in the following example:
 
 ```json
 {
@@ -264,7 +268,7 @@ For built-in operations that run as function calls in Azure Functions, add both 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Microsoft.Azure.Workflows.TemplateLimits.InputParametersLimit` | `50` | Change the default limit on [cross-environment workflow parameters](create-parameters-workflows.md) up to 500 for Standard logic apps created by [exporting Consumption logic apps](export-from-consumption-to-standard-logic-app.md). |
+| `Microsoft.Azure.Workflows.TemplateLimits.InputParametersLimit` | `50` | Changes the default limit on [cross-environment workflow parameters](create-parameters-workflows.md) up to 500 for Standard logic apps created by [exporting Consumption logic apps](export-from-consumption-to-standard-logic-app.md). |
 | `Runtime.ContentLink.MaximumContentSizeInBytes` | `104857600` bytes | Sets the maximum size in bytes that an input or output can have in a single trigger or action. |
 | `Runtime.FlowRunActionJob.MaximumActionResultSize` | `209715200` bytes | Sets the maximum size in bytes that the combined inputs and outputs can have in a single action. |
 
@@ -448,19 +452,19 @@ For built-in operations that run as function calls in Azure Functions, add both 
 
 ### Limitations
 
-- Maximum content size
+Maximum content size:
 
-  By default, built-in triggers, such as HTTP or Request, are limited to the message size described in [Limits and configuration reference - Messages](logic-apps-limits-and-config.md#messages). To handle files larger than the limit, try uploading your content as a blob to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), and then get your content using the [Azure Blob connector](../connectors/connectors-create-api-azureblobstorage.md).
+By default, built-in triggers, such as HTTP or Request, are limited to the message size described in [Limits and configuration reference - Messages](logic-apps-limits-and-config.md#messages). To handle files larger than the limit, try uploading your content as a blob to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), and then get your content using the [Azure Blob connector](../connectors/connectors-create-api-azureblobstorage.md).
 
 <a name="manage-host-settings"></a>
 
 ## Manage host settings - host.json
 
-You can add, update, or delete host settings, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, such as default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*. For host settings specific to logic apps, review the [reference guide for available runtime and deployment settings - host.json](#reference-host-json).
+You can add, update, or delete host settings, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, such as default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*. For host settings specific to logic apps, see [Reference for host settings - host.json](#reference-host-json).
 
 <a name="manage-host-settings-portal"></a>
 
-### Azure portal - host.json
+### [Azure portal](#tab/azure-portal)
 
 To review the host settings for your single-tenant based logic app in the Azure portal, follow these steps:
 
@@ -480,7 +484,7 @@ To review the host settings for your single-tenant based logic app in the Azure 
 
 1. After the **host.json** file opens, review any host settings that were previously added for your logic app.
 
-   For more information about host settings, review the [reference guide for available host settings - host.json](#reference-host-json).
+   For more information about host settings, see [Reference for host settings - host.json](#reference-host-json).
 
 To add a setting, follow these steps:
 
@@ -535,15 +539,15 @@ To add a setting, follow these steps:
 
 <a name="manage-host-settings-visual-studio-code"></a>
 
-### Visual Studio Code - host.json
+### [Visual Studio Code](#tab/visual-studio-code)
 
 To review the host settings for your logic app in Visual Studio Code, follow these steps:
 
 1. In your logic app project, at the root project level, find and open the **host.json** file.
 
-1. In the `extensions` object, under `workflows` and `settings`, review any host settings that were previously added for your logic app. Otherwise, the `extensions` object won't appear in the file.
+1. In the `extensions` object, under `workflows` and `settings`, review any host settings that were previously added for your logic app. Otherwise, the `extensions` object doesn't appear in the file.
 
-   For more information about host settings, review the [reference guide for available host settings - host.json](#reference-host-json).
+   For more information about host settings, see [Reference for host settings - host.json](#reference-host-json).
 
 To add a host setting, follow these steps:
 
@@ -584,9 +588,13 @@ To add a host setting, follow these steps:
    }
    ```
 
+### [Azure CLI](#tab/azure-cli)
+
+Not available.
+
 ---
 
-## Next steps
+## Related content
 
-- [Create parameters for values that change in workflows between environments for single-tenant Azure Logic Apps](parameterize-workflow-app.md)
-- [Set up DevOps deployment for single-tenant Azure Logic Apps](set-up-devops-deployment-single-tenant-azure-logic-apps.md)
+- [Create cross-environment parameters for workflow inputs in Azure Logic Apps](create-parameters-workflows.md)
+- [Set up DevOps deployment for Standard logic apps in single-tenant Azure Logic Apps](set-up-devops-deployment-single-tenant-azure-logic-apps.md)
