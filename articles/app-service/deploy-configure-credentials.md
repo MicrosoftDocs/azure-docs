@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.reviewer: byvinyal
 ms.topic: how-to
-ms.date: 06/30/2025
+ms.date: 07/01/2025
 
 ---
 
@@ -31,15 +31,15 @@ Basic authentication is less secure than other authentication methods and is dis
 <a name="userscope"></a>
 ## Set user-scope credentials
 
-For FTP/S deployment, you need both a user name and a password. Local Git deployment requires a user name but not a password.
+For FTP/S deployment, you need both a user name and a password. Local Git deployment requires only a user name. The user name must be unique within Azure.
 
-The user name must be unique within Azure. For local Git deployment, the user name can't contain the `@` character.
+For local Git deployment, the user name can't contain the `@` character.
 
-For FTP/S:
+For FTP/S deployment:
 
 - The user name must follow the format `<app-name>\<user-name>`. Since user-scope credentials are linked to the user and not to the app, this format directs the sign-in action to the correct FTP/S endpoint for the app.
 
-- The password must be at least eight characters and contain capital letters, lowercase letters, numbers, and symbols. The user-scope creation JSON output and portal display don't show the password value. If you forget your password, you can [reset your credentials](#reset-credentials) to get a new one.
+- The password must be at least eight characters and contain capital letters, lowercase letters, numbers, and symbols. The Azure portal doesn't show the user-scope password, and the JSON output shows it as `null`. If you lose or forget your password, you can [reset your credentials](#reset-credentials) to get a new one.
 
 You can configure user-scope credentials by using Azure CLI or the Azure portal.
 
@@ -74,7 +74,7 @@ After you set user-scope credentials, you can see your deployment user name on y
 <a name="appscope"></a>
 ## Get application-scope credentials
 
-The application-scope credentials are automatically created at app creation. The FTP/S app-scope user name always follows the format `app-name\$app-name`. The local Git user name uses the format `$app-name`.
+The application-scope credentials are automatically created at app creation. The FTP/S app-scope user name always follows the format `app-name\$app-name`. The local Git app-scope user name uses the format `$app-name`.
 
 >[!NOTE]
 >When you use `git remote add` in shells that use the dollar sign for variable interpolation, such as Bash, you must use `\$` to escape any dollar signs in the username or password to avoid authentication errors.
@@ -125,7 +125,7 @@ When you reset your deployment credentials, any external integrations and automa
 
 # [Azure CLI](#tab/cli)
 
-In Azure CLI, reset the application-scope password by using the [`az resource invoke-action`](/cli/azure/resource#az-resource-invoke-action) command.
+In Azure CLI, reset the application-scope password by using the [`az resource invoke-action`](/cli/azure/resource#az-resource-invoke-action) command with the `newpassword` action.
 
 ```azurecli-interactive
 az resource invoke-action --action newpassword --resource-group <group-name> --name <app-name> --resource-type Microsoft.Web/sites
@@ -139,7 +139,7 @@ az webapp deployment user set --user-name <new-username> --password <new-passwor
 
 # [Azure PowerShell](#tab/powershell)
 
-In Azure PowerShell, reset the application-scope password by using the [`Invoke-AzResourceAction`](/powershell/module/az.resources/invoke-azresourceaction) command:
+In Azure PowerShell, reset the application-scope password by using the [`Invoke-AzResourceAction`](/powershell/module/az.resources/invoke-azresourceaction) command with the `newpassword` action:
 
 ```azurepowershell-interactive
 Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.Web/sites -ResourceName <app-name> -Action newpassword
