@@ -2,7 +2,7 @@
 title: Azure Batch task schedule fail event
 description: Reference for Batch task schedule fail event. This event is emitted when a task failed to be scheduled and will retry later.
 ms.topic: reference
-ms.date: 09/20/2020
+ms.date: 07/01/2025
 ---
 
 # Task schedule fail event
