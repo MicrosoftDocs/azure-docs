@@ -2,19 +2,19 @@
 title: Using the Azure CycleCloud REST API
 description: Examples of how to use the Azure CycleCloud REST API
 author: mvrequa
-ms.date: 01/23/2020
+ms.date: 07/01/2025
 ms.author: adjohnso
 ---
 
 
 # Using the CycleCloud REST API
 
-Cyclecloud provides a [REST API](../api.md) for adding automated and programmatic cluster management. Custom autoscaling and custom scheduler integration requires a tool which evaluates a workload queue and starts Virtual Machines (VM) equal to the workload demand. The CycleCloud REST API is the appropriate endpoint for such a tool and supports workload requirements that may include high-throughput or tightly-coupled VM arrangements. 
+CycleCloud provides a [REST API](../api.md) for adding automated and programmatic cluster management. Custom autoscaling and custom scheduler integration require a tool that evaluates a workload queue and starts virtual machines (VMs) to match the workload demand. The CycleCloud REST API is the appropriate endpoint for such a tool and supports workload requirements that might include high-throughput or tightly coupled VM arrangements.
 
 
 ## Determine cluster status
 
-You can query CycleCloud to determine cluster status which indicates VM availability in each of the cluster configurations. 
+You can query CycleCloud to determine cluster status. The status shows VM availability in each of the cluster configurations. 
 
 ```bash
 curl --location --request GET '${CC-URL}/clusters/${CLUSTER}/status' \
@@ -22,11 +22,9 @@ curl --location --request GET '${CC-URL}/clusters/${CLUSTER}/status' \
 ```
 
 > [!NOTE]
-> The CycleCloud API accepts basic authentication using username and password combination. These _curl_ API examples
-are a base64 encoded string 'user:password'.
+> The CycleCloud API accepts basic authentication with a username and password. These _curl_ API examples use a base64 encoded string for 'user:password'.
 
-The response will be in the following form. The response contains a complete set 
-of node attributes but many are omitted here for simplicity.
+The response looks like the following example. The response contains a complete set of node attributes, but many are omitted here for simplicity.
 
 ```json
 {
@@ -94,7 +92,7 @@ of node attributes but many are omitted here for simplicity.
 
 ## Create nodes
 
-The API provides great flexibility in starting nodes. The only required attributes to create nodes are `nodearray` and `count`. A call using the minimum required attributes will inherit all the existing node configurations and be placed in the first bucket which can satisfy the request.
+The API gives you great flexibility when you start nodes. The only required attributes to create nodes are `nodearray` and `count`. A call that uses these minimum required attributes inherits all the existing node configurations. The nodes go in the first bucket that can satisfy the request.
 
 ```bash
 curl --location --request POST '${CC-URL}/clusters/${CLUSTER}/nodes/create' \
@@ -110,7 +108,7 @@ curl --location --request POST '${CC-URL}/clusters/${CLUSTER}/nodes/create' \
 }'
 ```
 
-The response to this call will provide an operation ID.
+The response to this call provides an operation ID.
 
 ```json
 {
@@ -123,7 +121,7 @@ The response to this call will provide an operation ID.
 }
 ```
 
-The operation status can be tracked using the [operations API](../api.md#gets-operation-status-by-id). You can set the `request_id` parameter to filter the GET nodes response. This can provide you with details for all the nodes created with the create request.
+You can track the operation status with the [operations API](../api.md#gets-operation-status-by-id). Set the `request_id` parameter to filter the GET nodes response. This filter gives you details for all the nodes created with the create request.
 
 ```bash
 curl --location --request GET '${CC-URL}/clusters/${CLUSTER}/nodes?request_id=463270ca-abcd-1234-98d6-431ee3ef8ed5' \
@@ -131,12 +129,12 @@ curl --location --request GET '${CC-URL}/clusters/${CLUSTER}/nodes?request_id=46
 
 ## Add tightly-coupled nodes
 
-CycleCloud nodearrays can be defined with multiple valid machine types in a list. Suppose that the `ondemand` nodearray has both 
-`Standard_F32s_v2_`and `Standard_Hc44rs` defined. The cluster status API will show at least two `buckets` for this nodearray one 
-for each VM Size. Observe that the `Standard_Hc44rs` bucket indicates that _infiniband_ service is available. Some quantitative
-software is written to scale out across nodes and take advantage of low-latency connections between nodes.
+You can define CycleCloud node arrays with multiple valid machine types in a list. Suppose that the `ondemand` node array has both 
+`Standard_F32s_v2_`and `Standard_Hc44rs` defined. The cluster status API shows at least two `buckets` for this node array, one 
+for each VM size. The `Standard_Hc44rs` bucket indicates that _infiniband_ service is available. Some quantitative
+software scales out across nodes and takes advantage of low-latency connections between nodes.
 
-Suppose you are running such a workload and a job calls for four nodes connected by Azure Infiniband networking. To ensure that the four nodes end up in the same placement group, and thus on the same Infiniband network, you will use the [create nodes API call](../api.md#create-cluster-nodes) with a `placementGroupId`.
+Suppose you're running such a workload and a job calls for four nodes connected by Azure Infiniband networking. To ensure that the four nodes end up in the same placement group, and thus on the same Infiniband network, use the [create nodes API call](../api.md#create-cluster-nodes) with a `placementGroupId`.
 
 ```bash
 curl --location --request POST '${CC-URL}/clusters/${CLUSTER}/nodes/create' \
@@ -154,11 +152,11 @@ curl --location --request POST '${CC-URL}/clusters/${CLUSTER}/nodes/create' \
 }'
 ```
 
-The `placementGroupId` may or may not reference a pre-existing placement group. This is a logical group used in CycleCloud and if a specific placement group doesn't exist when the request is made, then CycleCloud will create a new placement group. You can add additional VMs to the same placement group in additional create nodes requests.
+The `placementGroupId` might reference a preexisting placement group or it might not. CycleCloud uses this ID for a logical group. If the request specifies a placement group that doesn't exist, CycleCloud creates a new placement group. You can add more VMs to the same placement group in extra create nodes requests.
 
 ## Delete nodes
 
-At some point the manager service will want to [terminate nodes](../api.md#terminate-and-remove-cluster-nodes) that have been created. 
+At some point, the manager service needs to [terminate nodes](../api.md#terminate-and-remove-cluster-nodes) that it created.
 
 ```bash
 curl --location --request POST '${CC-URL}/clusters/${CLUSTER}/nodes/terminate' \
