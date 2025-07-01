@@ -7121,7 +7121,7 @@
     },
     {
       "source_path": "articles/signups/startup-programs.md",
-      "redirect_url": "azure/signups/overview",
+      "redirect_url": "/azure/signups/overview",
       "redirect_document_id": false
     }
   ]
