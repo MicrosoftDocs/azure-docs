@@ -54,7 +54,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 ### Americas
 
-| Country/Region         | Route directions, range & matrix, snap to roads  | Real-time traffic | Truck route |
+| Country/Region         | Route directions, route range, route matrix & snap to roads  | Real-time traffic | Truck route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Anguilla                               |                ✓                  |                   |             |
 | Antigua & Barbuda                      |                ✓                  |                   |             |
@@ -116,7 +116,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 ### Asia Pacific
 
-| Country/Region         | Route directions, range & matrix, snap to roads | Real-time Traffic | Truck Route |
+| Country/Region         | Route directions, route range, route matrix & snap to roads | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | American Samoa                         |                ✓                  |                   |             |
 | Australia                              |                ✓                  |         ✓         |     ✓      |
@@ -180,7 +180,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 ### Europe
 
-| Country/Region         | Route directions, range & matrix, snap to roads | Real-time Traffic | Truck Route |
+| Country/Region         | Route directions, route range, route matrix & snap to roads | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Albania                                |                ✓                  |                   |     ✓       |
 | Andorra                                |                ✓                  |         ✓         |     ✓      |
@@ -248,7 +248,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 ### Middle East & Africa
 
-| Country/Region         | Route directions, range & matrix, snap to roads | Real-time Traffic | Truck Route |
+| Country/Region         | Route directions, route range, route matrix & snap to roads | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Afghanistan<sup>1</sup>                |                ✓                  |                   |             |
 | Algeria                                |                ✓                  |                   |             |
