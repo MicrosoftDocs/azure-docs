@@ -178,7 +178,7 @@ For detailed instructions, see [Optimize reservation use](../reservations/manage
 
 Many Azure users apply tags to their resources such as a cost center or development environment (production and test) to better categorize charges. Tags appear as a dimension in Cost Analysis. You can use the dimension to gain insights into your custom tagging categorizations.
 
-Support for tags applies to usage reported *after* the tag was applied to the resource. Tags aren't applied retroactively for cost rollups. Tags will populate also for purchases completed via the Azure Marketplace in Azure Portal. Tags are currently not supported for reservation purchases.
+Support for tags applies to usage reported *after* the tag was applied to the resource. Tags aren't applied retroactively for cost rollups. Tags will populate also for purchases completed via the Azure Marketplace in the Azure portal. Tags are currently not supported for reservation purchases.
 
 1. In the Azure portal, navigate to Cost Analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost Analysis**.
 1. Select **Group by** for your tag.
