@@ -20,7 +20,7 @@ The listed features were released in the last six months. For information about 
 
 ## July 2025
 
-### Microsoft Sentinel in the Defender portal to be deprecated July 2026
+### Microsoft Sentinel in the Defender portal to be retired July 2026
 
 [!INCLUDE [sentinel-azure-deprecation](includes/sentinel-azure-deprecation.md)]
 
