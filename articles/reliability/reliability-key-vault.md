@@ -30,7 +30,7 @@ For production deployments of Key Vault, we recommend that you do the following 
 
 ## Reliability architecture overview
 
-To ensure high durability and availability of your keys, secrets, and certificates if a hardware failure or network outage occurs, Key Vault provides multiple layers of redundancy to maintain availability:
+To ensure high durability and availability of your keys, secrets, and certificates if a hardware failure or network outage occurs, Key Vault provides multiple layers of redundancy to maintain availability during the following events:
 
 - Hardware failures
 - Network outages
@@ -151,7 +151,7 @@ There are no extra costs for the built-in multi-region replication capabilities 
 
 #### Normal operations
 
-The following section describes what to expect when a key vault is located in a region that supports Microsoft-managed replication and failover, and the primary region is operational:
+The following section describes what to expect when a key vault is located in a region that supports Microsoft-managed replication and failover and the primary region is operational:
 
 - **Traffic routing between regions:** During normal operations, all requests are routed to the primary region where your key vault is deployed.
 
