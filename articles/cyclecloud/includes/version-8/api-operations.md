@@ -12,8 +12,8 @@ GET /clusters/{cluster}/nodes
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to query|string|
-|**Query**|**operation**  <br>*optional*|If given, returns only the nodes for this operation id, and includes the operation attribute on the body|string|
-|**Query**|**request_id**  <br>*optional*|If given, returns only the nodes for the operation identified by this request id,<br> and includes the operation attribute on the body|string|
+|**Query**|**operation**  <br>*optional*|If given, returns only the nodes for this operation ID, and includes the operation attribute on the body|string|
+|**Query**|**request_id**  <br>*optional*|If given, returns only the nodes for the operation identified by this request ID,<br> and includes the operation attribute on the body|string|
 
 
 ### Responses
@@ -23,8 +23,6 @@ GET /clusters/{cluster}/nodes
 |**200**|OK|[NodeList](#nodelist)|
 |**400**|Invalid specification|No Content|
 |**404**|Not found|No Content|
-
-
 
 
 ### Example HTTP request
@@ -57,7 +55,7 @@ POST /clusters/{cluster}/nodes/create
 
 
 ### Description
-This operation adds new nodes from a nodearray to a cluster. It accepts multiple node definitions in a single call. It returns the URL to the operation that can be used to track the status of the operation.
+This operation adds new nodes from a node array to a cluster. It accepts multiple node definitions in a single call. It returns the URL to the operation that you can use to track the status of the operation.
 
 
 ### Parameters
@@ -65,7 +63,7 @@ This operation adds new nodes from a nodearray to a cluster. It accepts multiple
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to add nodes to|string|
-|**Body**|**nodes**  <br>*required*|Sets of nodes to be created|[NodeCreationRequest](#nodecreationrequest)|
+|**Body**|**nodes**  <br>*required*|Sets of nodes to create|[NodeCreationRequest](#nodecreationrequest)|
 
 
 ### Responses
@@ -114,14 +112,14 @@ POST /clusters/{cluster}/nodes/deallocate
 
 
 ### Description
-This operation deallocates nodes in a cluster. The nodes can be identified in several ways,  including node name, node id, or by filter.
+This operation deallocates nodes in a cluster. You can identify the nodes by using several methods, including node name, node ID, or a filter.
 
 
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Path**|**cluster**  <br>*required*|The cluster to deallocate nodes in|string|
+|**Path**|**cluster**  <br>*required*|The cluster where you want to deallocate nodes|string|
 |**Body**|**action**  <br>*required*|Description of which nodes to deallocate|[NodeManagementRequest](#nodemanagementrequest)|
 
 
@@ -175,14 +173,14 @@ POST /clusters/{cluster}/nodes/remove
 
 
 ### Description
-This operation removes nodes in a cluster. The nodes can be identified in several ways,  including node name, node id, or by filter. Note that by default nodes are removed when terminated (unless the node has Fixed set to true), in which case this call is no different than terminate.
+This operation removes nodes in a cluster. You can identify the nodes in several ways, including node name, node ID, or by using a filter. By default, nodes are removed when terminated unless the node has the `Fixed` property set to `true`. In that case, this call acts the same as terminate.
 
 
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Path**|**cluster**  <br>*required*|The cluster to remove nodes in|string|
+|**Path**|**cluster**  <br>*required*|The cluster where you want to remove nodes|string|
 |**Body**|**action**  <br>*required*|Description of which nodes to remove|[NodeManagementRequest](#nodemanagementrequest)|
 
 
@@ -236,15 +234,15 @@ POST /clusters/{cluster}/nodes/shutdown
 
 
 ### Description
-This operation terminates or deallocates nodes in a cluster, depending on whether the ShutdownPolicy attribute on each node is Terminate (the default) or Deallocate, respectively.
+This operation terminates or deallocates nodes in a cluster. The operation uses the `ShutdownPolicy` attribute on each node to determine the action. If the attribute is set to `Terminate` (the default), the operation terminates the node. If the attribute is set to `Deallocate`, the operation deallocates the node.
 
 
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Path**|**cluster**  <br>*required*|The cluster to shutdown nodes in|string|
-|**Body**|**action**  <br>*required*|Description of which nodes to shutdown|[NodeManagementRequest](#nodemanagementrequest)|
+|**Path**|**cluster**  <br>*required*|The cluster where you want to shut down nodes|string|
+|**Body**|**action**  <br>*required*|Description of which nodes to shut down|[NodeManagementRequest](#nodemanagementrequest)|
 
 
 ### Responses
@@ -297,7 +295,7 @@ POST /clusters/{cluster}/nodes/start
 
 
 ### Description
-This operation starts nodes in a cluster. The nodes can be identified in several ways,  including node name, node id, or by filter.
+This operation starts nodes in a cluster. You can identify the nodes by node name, node ID, or by using a filter.
 
 
 ### Parameters
@@ -358,14 +356,14 @@ POST /clusters/{cluster}/nodes/terminate
 
 
 ### Description
-This operation terminates nodes in a cluster. The nodes can be identified in several ways,  including node name, node id, or by filter.
+This operation terminates nodes in a cluster. You can identify the nodes in several ways, including node name, node ID, or by using a filter.
 
 
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Path**|**cluster**  <br>*required*|The cluster to terminate nodes in|string|
+|**Path**|**cluster**  <br>*required*|The cluster where you want to terminate nodes|string|
 |**Body**|**action**  <br>*required*|Description of which nodes to terminate|[NodeManagementRequest](#nodemanagementrequest)|
 
 
@@ -419,7 +417,7 @@ POST /clusters/{cluster}/scale/{nodearray}
 
 
 ### Description
-This operation adds nodes as needed to a nodearray to hit a total count. The request is processed one time, and does not re-add nodes later to maintain the given number. This scales by either total cores or total nodes, but not both. It returns the URL to the operation that can be used to track the status of the operation.
+This operation adds nodes as needed to a node array to reach a total count. The cluster processes the request one time. It doesn't re-add nodes later to maintain the number. You can scale by either total cores or total nodes, but not both. The operation returns the URL to use for tracking the status of the operation.
 
 
 ### Parameters
@@ -427,9 +425,9 @@ This operation adds nodes as needed to a nodearray to hit a total count. The req
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to add nodes to|string|
-|**Path**|**nodearray**  <br>*required*|The nodearray to add nodes to|string|
-|**Query**|**totalCoreCount**  <br>*optional*|The total number of cores to have in this nodearray, including nodes already created|integer|
-|**Query**|**totalNodeCount**  <br>*optional*|The total number of machines to have in this nodearray, including nodes already created|integer|
+|**Path**|**nodearray**  <br>*required*|The node array to add nodes to|string|
+|**Query**|**totalCoreCount**  <br>*optional*|The total number of cores in this node array, including nodes you already created|integer|
+|**Query**|**totalNodeCount**  <br>*optional*|The total number of machines in this node array, including nodes you already created|integer|
 
 
 ### Responses
@@ -469,15 +467,14 @@ GET /clusters/{cluster}/status
 
 
 ### Description
-This operation contains information for the nodes and nodearrays in a given cluster. For each nodearray, it returns the status of each "bucket" of allocation that can be used, such as how many  nodes are in the bucket, how many more can be added, etc. Each bucket is a set of possible VMs of a given hardware profile, that can be created in a given location, under a given  customer account, etc. The valid buckets for a nodearray are determined by the user's cluster definition, but the limits are determined in part by the cloud provider.
-
+This operation returns information for the nodes and node arrays in a cluster. For each node array, it returns the status of each "bucket" of allocation that you can use. The status shows how many nodes are in the bucket and how many more nodes you can add. Each bucket is a set of possible VMs with a specific hardware profile. You can create these VMs in a specific location under a customer account. The user's cluster definition determines the valid buckets for a node array. The cloud provider determines the limits.
 
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to query|string|
-|**Query**|**nodes**  <br>*optional*|If true, nodes and node references are returned in the response|boolean|
+|**Query**|**nodes**  <br>*optional*|If true, the response includes nodes and node references|boolean|
 
 
 ### Responses
@@ -520,7 +517,7 @@ GET /clusters/{cluster}/usage
 
 
 ### Description
-This operation returns overall usage data (core hours) and cost data, if available, for the cluster, as well as a per-nodearray breakdown.  By default it returns the current month's worth of usage.
+This operation returns overall usage data (core hours) and cost data, if available, for the cluster, as well as a per-nodearray breakdown. By default, it returns the current month's worth of usage.
 
 
 ### Parameters
@@ -528,10 +525,10 @@ This operation returns overall usage data (core hours) and cost data, if availab
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to return usage data for|string|
-|**Query**|**timeframe**  <br>*optional*|If given, this specifies the time range to use for the query.  monthToDate returns the usage for the current month, and  lastMonth returns the usage for the previous month. weekToDate returns the usage for the current week (starting Sunday). custom requires to 'from' and 'to' query parameters. The default is MonthToDate. All times are in UTC.|enum (monthToDate, lastMonth, weekToDate, custom)|
-|**Query**|**from**  <br>*optional*|For custom timeframes, this is the start of the timeframe in ISO-8601 format.  This is rounded down to the nearest hour or day.|string|
-|**Query**|**to**  <br>*optional*|For custom timeframes, this is the end of the timeframe in ISO-8601 format. This is rounded up to the nearest hour or day.|string|
-|**Query**|**granularity**  <br>*optional*|Specifies how to aggregate data: by hour, by daily, or as a single number. This default is daily.|enum (total, daily, hourly)|
+|**Query**|**timeframe**  <br>*optional*|The time range for the query.  monthToDate returns the usage for the current month, and  lastMonth returns the usage for the previous month. weekToDate returns the usage for the current week (starting Sunday). custom requires to 'from' and 'to' query parameters. The default is MonthToDate. All times are in UTC.|enum (monthToDate, lastMonth, weekToDate, custom)|
+|**Query**|**from**  <br>*optional*|For custom timeframes, the start of the timeframe in ISO-8601 format.  The value is rounded down to the nearest hour or day.|string|
+|**Query**|**to**  <br>*optional*|For custom timeframes, use the end of the timeframe in ISO-8601 format. The value rounds up to the nearest hour or day.|string|
+|**Query**|**granularity**  <br>*optional*|Specifies how to aggregate data: by hour, by daily, or as a single number. The default is daily.|enum (total, daily, hourly)|
 
 
 ### Responses
@@ -572,7 +569,7 @@ GET /operations/
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Query**|**request_id**  <br>*optional*|The request ID for the operation. If this is given, the list will only have 0 or 1 element in it.|string|
+|**Query**|**request_id**  <br>*optional*|The request ID for the operation. If you provide this ID, the list contains either zero or one element.|string|
 
 
 ### Responses
@@ -606,7 +603,7 @@ GET /operations/
 
 
 <a name="operations_getstatus"></a>
-## Gets operation status by id
+## Gets operation status by ID
 ```
 GET /operations/{id}
 ```
