@@ -89,7 +89,10 @@ Now that you understand in detail how traffic works inside of a single hub-and-s
 
 The only addition to the configuration is the route tables associated with the Azure Firewall subnets in each region. Each hub VNet only knows the prefixes of the directly peered VNets, so there's no routing for the prefixes of remote spokes. You can add user-defined routes for each Azure Firewall subnet so that traffic for each region is routed to the corresponding Azure Firewall. In this example, each region can be easily summarized (region A contains prefixes in `10.1.0.0/16` and region B in `10.2.0.0/16`. Defining IP addresses in each region which are easily summarized will make your routing configuration much simpler, otherwise you have to create one route for each remote spoke.
 
-The route table associated to the Azure Firewall subnet needs to have the checkbox "Disable Gateway Route Propagation" disabled, so that Azure Firewall learns the routes from the VPN and ExpressRoute gateways and it's able to route traffic to on-premises networks.
+The route table associated to the Azure Firewall subnet needs to have the checkbox "Propagate Gateways Routes" set to yes, so that Azure Firewall learns the routes from the VPN and ExpressRoute gateways and it's able to route traffic to on-premises networks.
+
+> [!NOTE]
+> If the Azure Firewall is deployed without Management NIC, the Azure Firewall Subnet requires a default route with Next Hop Internet to be able to add more specific routes as previously described.
 
 To simplify the management of user-defined routes in a multi-region environment you can use Azure Virtual Network Manager. See [Manage User-Defined Routes across multiple hub-and-spoke topologies with AVNM][avnm-multihub] for more details.
 
