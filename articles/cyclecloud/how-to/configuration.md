@@ -38,14 +38,14 @@ To support multiple compute subnets, you need to make two basic cluster template
 
 1. Set the `SubnetId` attribute on each node or node array that isn't in the default subnet for the cluster.
 1. Configure hostname resolution for all subnets by either:
-   1. Using an Azure DNS Zone and disabling the default hosts-file based resolution
-   1. Setting the `CycleCloud.hosts.standalone_dns.subnets` attribute to either CIDR range of the VNet or a comma-separated list of CIDR ranges for each subnet. See the [node Configuration Reference](../cluster-references/configuration-reference.md) for details.
+   * Using an Azure DNS Zone and disabling the default hosts-file based resolution
+   * Setting the `CycleCloud.hosts.standalone_dns.subnets` attribute to either CIDR range of the VNet or a comma-separated list of CIDR ranges for each subnet. See the [node Configuration Reference](../cluster-references/configuration-reference.md) for details.
 
 ## Network security group settings for the CycleCloud subnet
 
 Configuring your Azure Virtual Network for security is a broad topic, well beyond the scope of this document.
 
-CycleCloud and CycleCloud clusters can run in very locked down environments. For configuration details, see [Running in Locked Down Networks](./running-in-locked-down-network.md) and [Running behind a Proxy](./running-behind-proxy.md).
+CycleCloud and CycleCloud clusters can run in locked down environments. For configuration details, see [Running in Locked Down Networks](./running-in-locked-down-network.md) and [Running behind a Proxy](./running-behind-proxy.md).
 
 However, for less restrictive networks, follow these general guidelines. First, CycleCloud GUI users need access to the CycleCloud VM through HTTPS, and administrators might need SSH access. Cluster users usually need SSH access to at least the submission nodes in the compute clusters and possibly other access like RDP for Windows clusters. The last general rule is to restrict access to the minimum required.
 
