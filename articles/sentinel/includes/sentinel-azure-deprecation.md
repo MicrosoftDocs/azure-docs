@@ -19,5 +19,5 @@ If you're currently using Microsoft Sentinel in the Azure portal, we recommend t
 For more information, see:
 
 - [Microsoft Sentinel in the Microsoft Defender portal](../microsoft-sentinel-defender-portal.md)
-- [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md)
+- [Transition your Microsoft Sentinel environment to the Defender portal](../move-to-defender.md)
 - [Planning your move to Microsoft Defender portal for all Microsoft Sentinel customers](https://techcommunity.microsoft.com/blog/microsoft-security-blog/planning-your-move-to-microsoft-defender-portal-for-all-microsoft-sentinel-custo/4428613) (blog)
