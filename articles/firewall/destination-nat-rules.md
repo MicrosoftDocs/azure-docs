@@ -44,8 +44,6 @@ Azure Firewall supports *FQDN filtering* in DNAT rules, allowing you to specify 
 
 1. In the **Add a rule collection** pane, provide the following information:
 
-    :::image type="content" source="./media/dnat-rule/add-rule-collection-fqdn.png" alt-text="Screenshot showing a DNAT rule created in a rule collection using an FQDN for the translated address.":::
-
    - **Name**: Enter a name for the DNAT rule collection.
    - **Priority**: Specify a priority for the rule collection. Lower numbers indicate higher priority. The range is 100-65000.
    - **Action**: Destination Network Address Translation (DNAT) (default).
@@ -81,7 +79,7 @@ It's important to note the following when you're analyzing the **AZFWNatRule** l
 - **Private DNS zones**: Supported only within virtual networks (VNets). This feature isn't available for virtual WAN SKUs.
 - **Multiple IPs in DNS resolution**: If an FQDN resolves to multiple IP addresses in a private DNS zone or custom DNS servers, Azure Firewall's DNS proxy selects the first IP address from the list. This behavior is by design.
 - **FQDN resolution failures**:
-    - If Azure Firewall can't resolve an FQDN, the DNAT rule doesn't get match, so the traffic isn't processed.
+    - If Azure Firewall can't resolve an FQDN, the DNAT rule doesn't match, so the traffic isn't processed.
     - These failures are logged in **AZFWInternalFQDNResolutionFailure** logs only if DNS proxy is enabled.
     - Without DNS proxy enabled, resolution failures aren't logged.
 
