@@ -101,12 +101,11 @@ The following table includes links to code samples. They demonstrate how to conn
 | Client library  | Language   | Link to sample code|
 |----|----|----|
 | StackExchange.Redis | .NET           | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
-| redis-py            | Python         | [redis-py code sample](https://aka.ms/redis/aad/sample-code/python)        |
-| Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
-| Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
-| Redisson            | Java           | [Redisson code sample](https://aka.ms/redis/aad/sample-code/java-redisson) |
-| ioredis             | Node.js        | [ioredis code sample](https://aka.ms/redis/aad/sample-code/js-ioredis)    |
-| node-redis          | Node.js        | [node-redis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  |
+| redis-py            | Python         | [redis-py code sample](https://redis.io/docs/latest/develop/clients/redis-py/amr/)   |
+| Jedis               | Java           | [Jedis code sample](https://redis.io/docs/latest/develop/clients/jedis/amr/)    |
+| Lettuce             | Java           | [Lettuce code sample](https://redis.io/docs/latest/develop/clients/lettuce/amr/)  |
+| node-redis          | Node.js        | [node-redis code sample](https://redis.io/docs/latest/develop/clients/nodejs/amr/)  |
+| go-redis            | go language    | [go code sample](https://redis.io/docs/latest/develop/clients/go/amr)  |
 
 ### Best practices for Microsoft Entra authentication
 
