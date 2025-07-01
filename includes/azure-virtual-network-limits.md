@@ -24,6 +24,7 @@ The following limits apply only for networking resources managed through **Azure
 | [Virtual network gateways (VPN gateways) per virtual network](../articles/vpn-gateway/about-gateway-skus.md#benchmark) |1 |
 | [Virtual network gateways (ExpressRoute gateways) per virtual network](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | DNS servers per virtual network |20 |
+| DNS servers per network interface |20 |
 | Private IP addresses per virtual network |65,536 |
 | Total Private Addresses for a group of Peered Virtual networks | 128,000 |
 | Private IP addresses per network interface |256 |
