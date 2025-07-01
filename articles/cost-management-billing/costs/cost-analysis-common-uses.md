@@ -191,7 +191,7 @@ Your usage details report file, known as the Cost and Usage Details file, in CSV
 
 1. In the Azure portal, navigate to the **Usage and Charges** tab for a billing account or subscription. For example: **Cost Management + Billing** > **Billing** > **Usage + charges**.
 1. Select the line item to download from and then select the download symbol.  
-    :::image type="content" border="true" source="./media/cost-analysis-common-uses/download1.png" lightbox="./media/cost-analysis-common-uses/download1.png" alt-text="Screenshot showing the Usage + charges page were start a download.":::
+    :::image type="content" border="true" source="./media/cost-analysis-common-uses/download1.png" lightbox="./media/cost-analysis-common-uses/download1.png" alt-text="Screenshot showing the Usage + charges page where users can start a download.":::
 1.  Select the usage file to download.  
     :::image type="content" border="true" source="./media/cost-analysis-common-uses/download2.png" alt-text="Screenshot showing the Download Usage + charges page to select a file to download.":::
 

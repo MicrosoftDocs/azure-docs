@@ -75,7 +75,7 @@ Amortized cost breaks down reservation purchases into daily chunks and spreads t
 
 If you buy a one-year reservation on May 26 with an upfront payment, the amortized cost is divided by 365 (assuming it's not a leap year) and spread from May 26 through May 25 of the next year. If you pay monthly, the monthly fee is divided by the number of days in that month. The free is spread evenly across May 26 through June 25, with the next month's fee spread across June 26 through July 25.
 
-Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views show different total numbers. Generally, the total cost for months with a reservation purchase, decreases when viewing amortized costs, while the costs for the months following the reservation purchase increase. Amortization is available only for reservation and savings plan purchases and doesn't apply to Azure Marketplace purchases.
+Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views show different total numbers. Generally, the total cost for months with a reservation purchase decreases when viewing amortized costs, while the costs for the months following the reservation purchase increase. Amortization is available only for reservation and savings plan purchases and doesn't apply to Azure Marketplace purchases.
 
 ## Select a currency
 

@@ -16,9 +16,6 @@ ms.custom:
 
 This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management experiences and APIs.
 
-## Overview
-
-
 ## Scopes
 
 A _scope_ is a node in the Azure resource hierarchy where Microsoft Entra users access and manage services. Most Azure resources are created and deployed into resource groups, which are part of subscriptions. Microsoft also offers two hierarchies above Azure subscriptions that have specialized roles to manage billing data:

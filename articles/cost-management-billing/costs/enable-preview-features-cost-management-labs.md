@@ -46,7 +46,7 @@ Cost Management now remembers preview features across sessions in the preview po
 
 ## How to share feedback
 
-We're always open to your feedback and strive to making constant improvements based on it. Here are a few ways to share your feedback with the team:
+We're always open to your feedback and strive to make constant improvements based on it. Here are a few ways to share your feedback with the team:
 
 - If you are encountering an issue or are seeing data that doesn't make sense, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458). It's the fastest way to investigate and resolve data issues and major bugs.
 - For feature requests, you can share ideas and vote up others in the [Cost Management feedback forum](https://aka.ms/costmgmt/feedback).
