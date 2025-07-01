@@ -2,7 +2,7 @@
 title: Azure Batch pool resize complete event
 description: Reference for Batch pool resize complete event. See an example of a pool that increased in size and completed successfully.
 ms.topic: reference
-ms.date: 12/13/2021
+ms.date: 07/01/2025
 ---
 
 # Pool resize complete event
