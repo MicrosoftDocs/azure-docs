@@ -54,6 +54,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Marketo (Preview)](connector-marketo.md)                  | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [MySQL](connector-mysql.md)                              | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support                | October 31, 2024      | September 30, 2025    |
+| [Netezza](connector-netezza.md)                          | version 2.0    | Public Preview                                | /                   | /                   |
+|                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
 | [Oracle](connector-oracle.md)                             | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | October 31, 2025         | March 31, 2026      |
 | [Oracle Eloqua (Preview)](connector-oracle-eloqua.md)      | /              | End of support                    | December 31, 2024     | December 31, 2024     |
