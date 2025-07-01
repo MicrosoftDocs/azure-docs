@@ -40,7 +40,7 @@ Some filters are only available to specific offers. For example, a billing profi
 | **Location** | Break down costs by resource location or region. | Purchases and Marketplace usage may be shown as **unassigned**, or **No resource location**. |
 | **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage might show as **unassigned** or **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
 | **Pricing model** | Break down costs by on-demand, reservation, or spot usage. | Purchases show as **OnDemand**. If you see **Not applicable**, group by **Reservation** to determine whether the usage is reservation or on-demand usage and **Charge type** to identify purchases. |
-| **PartNumber** | The identifier used to get specific meter pricing. | Applicable only to Enrollement Agreement (EA). Savings plan records don’t include a part number |
+| **PartNumber** | The identifier used to get specific meter pricing. | Applicable only to Enrollment Agreement (EA). Savings plan records don’t include a part number |
 | **Product** | Name of the product. | |
 | **ProductOrderId** | Unique identifier for the product order | |
 | **ProductOrderName** | Unique name for the product order. | |
