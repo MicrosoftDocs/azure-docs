@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/24/2025
+ms.date: 07/02/2025
 #Customer intent: As a developer, I want to create and share workflow templates for use with Azure Logic Apps.
 ---
 
@@ -72,7 +72,7 @@ This guide shows how to create and publish a workflow template in the following 
 
   To create these images, follow these steps:
 
-  1. In the [Azure portal](https://portal.azure.com), open the Standard logic app and source workflow in the designer.
+  1. In the [Azure portal](https://portal.azure.com), open the source logic app resource and workflow in the designer.
 
   1. Set up the workflow to create two screenshots: one version that works with a web browser's light theme and another version that works with a web browser's dark theme.
 
@@ -82,17 +82,21 @@ This guide shows how to create and publish a workflow template in the following 
 
 <a name="workflow-best-practices"></a>
 
-## Workflow best practices
+## Best practices
 
-- Use the built-in operations as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
-
-  - A built-in, service provider version, which appears in the connectors gallery under the **Built-in** filter. This version is hosted and run with the single-tenant Azure Logic Apps runtime, offering better performance, throughput, and other benefits.
-
-  - A Microsoft-managed API version, which appears in the connectors gallery with the **Shared** label. This version is hosted and run in multitenant Azure using shared global resources.
+This list provides best practices to follow when you create your workflow template:
 
 - Don't use hardcoded properties and their values in trigger and action definitions.
 
 - Provide more context about trigger and action definitions by adding descriptive and helpful comments.
+
+- Standard logic app workflows
+
+  - Use the built-in operations as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
+
+    - Built-in, service provider operations appear in the connectors gallery under the **Built-in** filter. These versions are hosted and run with the single-tenant Azure Logic Apps runtime, offering better performance, throughput, and other benefits.
+
+    - Azure-hosted managed API connector operations appear in the connectors gallery under the **Shared** filter. These versions are hosted and run in multitenant Azure using shared global resources.
 
 ## Create a workflow template
 
@@ -133,8 +137,8 @@ Next, choose the source workflow definition to use for your template.
    |-----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | The name for the Azure subscription with the source logic app. |
    | **Resource group** | Yes | <*resource-group-name*> | The name for the Azure resource group with the source logic app. |
-   | **Logic app instance** | Yes | <*source-logic-app*> | The name for the source Standard logic app with the workflow that you want to use. |
-   | **Workflows** | Yes | <*source-workflows*> | Select at least one workflow to use in your template. |
+   | **Logic app instance** | Yes | <*source-logic-app*> | The name for the source logic app with the workflow that you want to use. |
+   | **Workflows** | Yes | <*source-workflows*> | For a Consumption logic app, select the sole existing workflow to use in your template. <br><br>For a Standard logic app, select at least one workflow to use in your template. |
 
 1. When you're done, select **Next**.
 
