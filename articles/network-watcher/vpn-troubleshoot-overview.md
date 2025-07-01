@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 09/12/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about VPN troubleshoot so I can use it to troubleshoot my VPN virtual network gateways and their connections whenever resources in a virtual network can't communicate with on-premises machines over a VPN connection.
+# Customer intent: As an Azure administrator, I want to utilize the VPN troubleshoot feature, so that I can effectively diagnose and resolve connectivity issues between my on-premises resources and Azure Virtual Networks.
 ---
 
 # VPN troubleshoot overview

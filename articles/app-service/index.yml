@@ -10,6 +10,7 @@ metadata:
   ms.author: msangapu
   ms.service: azure-app-service
   ms.date: 06/10/2025
+  ms.update-cycle: 1095-days
   ms.custom: UpdateFrequency3
 
 landingContent:
@@ -71,7 +72,7 @@ landingContent:
             url: tutorial-ai-openai-chatbot-java.md            
           - text: Run a chatbot with a local SLM (Express.js)
             url: tutorial-ai-slm-expressjs.md
-          - text: Invoke OpenAPI web app from Azure AI Agent
+          - text: Invoke a web app from Azure AI Agent
             url: invoke-openapi-web-app-from-azure-ai-agent-service.md
 
   - title: Secure and deploy  

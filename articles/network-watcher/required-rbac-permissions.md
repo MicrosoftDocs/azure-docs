@@ -6,9 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 06/11/2025
+ms.date: 06/24/2025
 
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
+# Customer intent: As an Azure administrator, I want to understand the Azure RBAC permissions required for Network Watcher capabilities, so that I can effectively manage user access and ensure they can utilize the features needed for their roles.
 ---
 
 # Azure role-based access control permissions required to use Network Watcher
@@ -25,7 +26,7 @@ To use Azure Network Watcher capabilities, the account you log into Azure with, 
 
 To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
-The following sections list the minimum required permissions to use Network Watcher and its capabilities. For a full list of related Azure permissions, see [Microsoft.Network permissions](/azure/role-based-access-control/permissions/networking#microsoftnetwork), [Microsoft.Compute permissions](/azure/role-based-access-control/permissions/compute#microsoftcompute), [Microsoft.Storage permissions](/azure/role-based-access-control/permissions/storage#microsoftstorage), [Microsoft.Insights permissions](/azure/role-based-access-control/permissions/monitor#microsoftinsights), and [Microsoft.OperationalInsights permissions](/azure/role-based-access-control/permissions/monitor#microsoftoperationalinsights).
+The following sections list the minimum required permissions to use Network Watcher and its capabilities. For a full list of related Azure permissions, see [Microsoft.Network permissions](/azure/role-based-access-control/permissions/networking?toc=/azure/network-watcher/toc.json#microsoftnetwork), [Microsoft.Compute permissions](/azure/role-based-access-control/permissions/compute?toc=/azure/network-watcher/toc.json#microsoftcompute), [Microsoft.Storage permissions](/azure/role-based-access-control/permissions/storage?toc=/azure/network-watcher/toc.json#microsoftstorage), [Microsoft.Insights permissions](/azure/role-based-access-control/permissions/monitor?toc=/azure/network-watcher/toc.json#microsoftinsights), and [Microsoft.OperationalInsights permissions](/azure/role-based-access-control/permissions/monitor?toc=/azure/network-watcher/toc.json#microsoftoperationalinsights).
 
 ## Network Watcher
 
@@ -72,6 +73,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > | ---- | ---- |
 > | Microsoft.Network/applicationGateways/read | Get an application gateway |
 > | Microsoft.Network/connections/read | Get VirtualNetworkGatewayConnection |
+> | Microsoft.Network/expressRouteCircuits/read | Get an ExpressRouteCircuit |
 > | Microsoft.Network/loadBalancers/read | Get a load balancer definition |
 > | Microsoft.Network/localNetworkGateways/read | Get LocalNetworkGateway |
 > | Microsoft.Network/networkInterfaces/read | Get a network interface definition |
@@ -80,7 +82,8 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > | Microsoft.Network/routeTables/read | Get a route table definition |
 > | Microsoft.Network/virtualNetworkGateways/read | Get a VirtualNetworkGateway |
 > | Microsoft.Network/virtualNetworks/read | Get a virtual network definition |
-> | Microsoft.Network/expressRouteCircuits/read | Get an ExpressRouteCircuit |
+> | Microsoft.Compute/virtualMachines/read | Get the properties of a virtual machine |
+> | Microsoft.Compute/virtualMachineScaleSets/read | Get the properties of a Virtual Machine Scale Set |
 > | Microsoft.OperationalInsights/workspaces/read | Get an existing workspace |
 > | Microsoft.OperationalInsights/workspaces/sharedkeys/action | Retrieve the shared keys for the workspace |
 > | Microsoft.Insights/dataCollectionRules/read <sup>1</sup> | Read a data collection rule |
@@ -90,7 +93,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > | Microsoft.Insights/dataCollectionEndpoints/write <sup>1</sup> | Create or update a data collection endpoint |
 > | Microsoft.Insights/dataCollectionEndpoints/delete <sup>1</sup> | Delete a data collection endpoint |
 
-<sup>1</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
+<sup>1</sup> Required on the Log Analytics workspace subscription when using traffic analytics with virtual network flow logs.
 
 [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 

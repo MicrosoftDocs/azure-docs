@@ -8,6 +8,7 @@ ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
 ms.date: 04/18/2023
 ms.author: steveesp
+# Customer intent: "As a system administrator managing Linux and FreeBSD VMs, I want to configure and monitor Accelerated Networking so that I can optimize network performance and reduce latency for my applications running in Azure."
 ---
 
 # How Accelerated Networking works in Linux and FreeBSD VMs

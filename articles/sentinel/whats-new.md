@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 05/22/2025
+ms.date: 06/15/2025
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 ms.custom:
   - build-2025
@@ -20,17 +20,25 @@ The listed features were released in the last six months. For information about 
 
 ## June 2025
 
-- [Codeless Connector Platform (CCP) renamed.](#microsoft-sentinel-data-connectors)
+- [Codeless Connector Platform (CCP) renamed.](#codeless-connector-platform-ccp-renamed-to-codeless-connector-framework-ccf)
 - [Connector Documentation consolidation](#connector-documentation-consolidation)
+- [Summary rule templates now in public preview](#summary-rule-templates-now-in-public-preview)
 
-### Microsoft Sentinel data connectors
+### Codeless Connector Platform (CCP) renamed to Codeless Connector Framework (CCF)
 
 The Microsoft Sentinel Codeless Connector Platform (CCP) has been renamed to **Codeless Connector Framework (CCF)**. The new name reflects the platform's evolution and avoids confusion with other platform-orineted services, while still providing the same ease of use and flexibility that users have come to expect.
 
-### Connector Documentation consolidation
+For more information, see [Create a codeless connector](create-codeless-connector.md) and [Unlock the potential of Microsoft Sentinel’s Codeless Connector Framework and do more with Microsoft Sentinel faster](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/exciting-announcements-new-data-connectors-released-using-the-codeless-connector/4421104).
 
-We have consolidated the connector reference documentation, merging the separate connector articles into a single, comprehensive reference table. You can find the new connector reference at [Microsoft Sentinel data connectors](/azure/sentinel/data-connectors-reference#sentinel-data-connectors). Select the connector name to expand the row and see the details.
+### Connector documentation consolidation
 
+We have consolidated the connector reference documentation, merging the separate connector articles into a single, comprehensive reference table. You can find the new connector reference at [Microsoft Sentinel data connectors](/azure/sentinel/data-connectors-reference#sentinel-data-connectors). 
+
+Select the connector name to expand the row and see the details.
+
+### Summary rule templates now in public preview
+
+You can now use summary rule templates to deploy pre-built summary rules tailored to common security scenarios. These templates help you aggregate and analyze large datasets efficiently, don't require deep expertise, reduce setup time, and ensure best practices. For more information, see [Aggregate Microsoft Sentinel data with summary rules (Preview)](summary-rules.md#deploy-pre-built-summary-rule-templates).
 
 ## May 2025
 
@@ -40,7 +48,7 @@ We have consolidated the connector reference documentation, merging the separate
 
 ### All Microsoft Sentinel use cases generally available in the Defender portal
 
-All Microsoft Sentinel use cases that are in general availability, including [multi-tenant](/unified-secops-platform/mto-overview) and [multi-workspace](workspaces-defender-portal.md) capabilities and support for all government and commercial clouds, are now also supported for general availability in the Defender portal.
+All Microsoft Sentinel use cases that are in general availability, including [multitenant](/unified-secops-platform/mto-overview) and [multi-workspace](workspaces-defender-portal.md) capabilities and support for all government and commercial clouds, are now also supported for general availability in the Defender portal.
 
 We recommend that you [onboard your workspaces to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) to take advantage of unified security operations. For more information, see:
 

@@ -62,6 +62,6 @@ instantiate a calling agent to make and receive call.
 ## Related articles
 
 - [Teams Phone extensibility overview](./teams-phone-extensibility-overview.md)
-- [Teams Phone extensibility client capabilities](./teams-phone-extensibility-client-capabilities.md)
+- [Teams Phone extensibility capabilities](./teams-phone-extensibility-capabilities.md)
 - [Teams Phone extensibility FAQ](./teams-phone-extensibility-faq.md)
 - [Teams Phone extensibility troubleshooting](./teams-phone-extensibility-troubleshooting.md)

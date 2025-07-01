@@ -8,6 +8,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 07/20/2023
 ms.custom: template-concept
+# Customer intent: "As a cloud security administrator, I want to understand how virtual Trusted Platform Modules work in Azure confidential VMs, so that I can ensure robust security and integrity for the applications running in my organization’s cloud infrastructure."
 ---
 
 # Virtual TPMs in Azure confidential VMs

@@ -8,6 +8,7 @@ ms.service: azure-traffic-manager
 ms.date: 06/03/2024
 ms.author: allensu
 ms.custom: template-how-to, devx-track-azurecli
+# Customer intent: As a network administrator, I want to configure subnet overrides in Traffic Manager profiles using Azure CLI, so that I can control traffic routing based on the end user's IP address for improved performance and reliability.
 ---
 
 # Traffic Manager subnet override using Azure CLI

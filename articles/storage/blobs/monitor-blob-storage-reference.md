@@ -7,6 +7,7 @@ ms.topic: reference
 author: normesta
 ms.author: normesta
 ms.service: azure-blob-storage
+# Customer intent: "As a cloud administrator, I want to understand the monitoring metrics and resource logs for Azure Blob Storage, so that I can effectively track performance and ensure data integrity in my storage environment."
 ---
 
 # Azure Blob Storage monitoring data reference

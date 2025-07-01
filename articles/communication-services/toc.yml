@@ -88,6 +88,8 @@ items:
     href: concepts/chat/concepts.md#real-time-notifications
   - name: Push notifications
     href: concepts/chat/concepts.md#push-notifications
+  - name: Push notifications overview
+    href: concepts/notifications.md
   - name: Archive chats
     href: how-tos/chat-sdk/archive-chat-threads.md
   - name: Government clouds
@@ -312,7 +314,7 @@ items:
     href: concepts/sms/messaging-policy.md
   - name: Short code program brief filling guidelines
     href: concepts/sms/program-brief-guidelines.md
-  - name: Ten digit long code (10DLC) registration guidelines
+  - name: 10DLC - Ten digit long code registration guidelines
     href: concepts/sms/ten-digit-long-code-guidelines.md
   - name: Opt-Out management overview
     href: concepts/sms/opt-out-api-concept.md
@@ -354,7 +356,7 @@ items:
 #      href: tutorials/postman-tutorial.md
     - name: Send short URL
       href: tutorials/sms-url-shortener.md
-    - name: Apply for 10 digit long code (10DLC) registration
+    - name: Apply for 10DLC registration
       href: quickstarts/sms/apply-for-ten-digit-long-code.md
     - name: Apply for toll-free verification
       href: quickstarts/sms/apply-for-toll-free-verification.md
@@ -446,6 +448,8 @@ items:
     items:
     - name: Voice and video terminology
       href: concepts/voice-video-calling/about-call-types.md
+    - name: Push notifications overview
+      href: concepts/notifications.md
     - name: Connect to a call
       items:
       - name: Create an access token
@@ -501,6 +505,8 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
+      - name: Integrate with Azure ExpressRoute
+        href: tutorials/integrate-express-route.md
   - name: Advanced audio and video features
     items:
     - name: Music mode
@@ -1196,8 +1202,8 @@ items:
     href: concepts/interop/tpe/teams-phone-extensibility-connectivity-cost.md
   - name: Provisioning and authorization
     href: concepts/interop/tpe/teams-phone-extensibility-provisioning.md
-  - name: Teams Phone client capabilities
-    href: concepts/interop/tpe/teams-phone-extensibility-client-capabilities.md
+  - name: Teams Phone capabilities
+    href: concepts/interop/tpe/teams-phone-extensibility-capabilities.md
   - name: Teams Phone extensibility FAQ
     href: concepts/interop/tpe/teams-phone-extensibility-faq.md
   - name: Troubleshooting

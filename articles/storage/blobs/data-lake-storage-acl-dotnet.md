@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to manage access control lists in Azure Data Lake Storage, so that I can efficiently set, update, and remove permissions for files and directories programmatically.
 ---
 
 # Use .NET to manage ACLs in Azure Data Lake Storage
