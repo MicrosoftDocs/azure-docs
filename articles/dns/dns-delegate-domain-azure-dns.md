@@ -97,7 +97,7 @@ After the DNS zone is created, you must update the parent domain with the Azure 
 2. When you delegate a domain to Azure DNS, you must use the name servers that Azure DNS provides. Use all four name servers, regardless of the name of your domain. Domain delegation doesn't require a name server to use the same top-level domain as your domain.
 
 > [!IMPORTANT]
-> When you copy each name server address, make sure you copy the trailing period at the end of the address. The trailing period indicates the end of a fully qualified domain name. Some registrars append the period if the NS name doesn't have it at the end. To be compliant with the DNS RFC, include the trailing period.
+> When you copy each name server address, make sure you copy the trailing period at the end of the address. The trailing period indicates the end of a fully qualified domain name. Some registrars append the period if the NS name doesn't have it at the end. To be compliant with the DNS RFC, include the trailing period. Please note that some registrars append the trailing period on your behalf. If you are unsure, check with your registrar on whether they append the trailing period on your behalf or not. 
 
 Delegations that use name servers in your own zone, sometimes called *vanity name servers*, aren't currently supported in Azure DNS.
 
