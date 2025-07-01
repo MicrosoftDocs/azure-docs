@@ -22,11 +22,11 @@ Key Vault is a cloud service that provides a secure store for secrets, such as k
 
 For production deployments of Key Vault, we recommend that you do the following steps:
 
-- Use Standard or Premium tier key vaults
+- Use Standard or Premium tier key vaults.
 
-- Enable soft delete and purge protection to prevent accidental or malicious deletion
+- Enable soft delete and purge protection to prevent accidental or malicious deletion.
 
-- For critical workloads, consider implementing multi-region strategies as described in this guide
+- For critical workloads, consider implementing multi-region strategies that are described in this guide.
 
 ## Reliability architecture overview
 
@@ -39,13 +39,13 @@ To ensure high durability and availability of your keys, secrets, and certificat
 
 By default, Key Vault achieves redundancy by replicating your key vault and its contents within the region.
 
-If the region has a [paired region](./regions-list.md) and that paired region is in the same geography as the primary region, the contents are also replicated to the paired region. This approach ensures high durability of your keys and secrets, protecting against hardware failures, network outages, or localized disasters.
+If the region has a [paired region](./regions-list.md) and that paired region is in the same geography as the primary region, the contents are also replicated to the paired region. This approach ensures high durability of your keys and secrets, which protects against hardware failures, network outages, or localized disasters.
 
 ## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-To handle any transient failures that might occur, your client applications should implement retry logic when interacting with Key Vault. Consider the following best practices:
+To handle any transient failures that might occur, your client applications should implement retry logic when they interact with Key Vault. Consider the following best practices:
 
 - Use the [Azure SDKs](https://azure.microsoft.com/downloads/), which typically include built-in retry mechanisms.
 
@@ -87,11 +87,11 @@ All Key Vault SKUs, Standard and Premium, support the same level of availability
 
 ### Cost
 
-There are no extra costs associated with Key Vault's zone redundancy. The pricing is based on the SKU, either Standard or Premium, and the number of operations performed.
+There are no extra costs associated with zone redundancy in Key Vault. The pricing is based on the SKU, either Standard or Premium, and the number of operations performed.
 
 ### Normal operations
 
-The following section describes what to expect when key vaults are in a region with availability zones and all availability zones are operational:
+This section describes what to expect when key vaults are in a region that has availability zones and all availability zones are operational:
 
 - **Traffic routing between zones:** Key Vault automatically manages traffic routing between availability zones. During normal operations, requests are distributed across zones transparently.
 
@@ -159,19 +159,19 @@ The following section describes what to expect when a key vault is located in a 
 
 #### Region-down experience
 
-The following section describes what to expect when a key vault is located in a region that supports Microsoft-managed replication and failover, and there's an outage in the primary region:
+The following section describes what to expect when a key vault is located in a region that supports Microsoft-managed replication and failover and there's an outage in the primary region:
 
 - **Detection and response:** Microsoft can decide to perform a failover if the primary region is lost. This process can take several hours after the loss of the primary region, or longer in some scenarios. Failover of key vaults might not occur at the same time as other Azure services.
 
 - **Notification:** You can monitor the status of your key vault through Azure Resource Health and Azure Service Health notifications.
 
-- **Active requests:** During a region failover, active requests might fail and client applications to retry them after failover completes.
+- **Active requests:** During a region failover, active requests might fail, and client applications need to retry them after the failover completes.
 
 - **Expected data loss:** There might be some data loss if changes aren't replicated to the secondary region before the primary region fails.
 
 - **Expected downtime:** During a major outage of the primary region, your key vault might be unavailable for several hours or until Microsoft initiates failover to the secondary region.
 
-- **Traffic rerouting:** After a region failover is completed, requests are automatically routed to the paired region without requiring any customer intervention.
+- **Traffic rerouting:** After a region failover completes, requests are automatically routed to the paired region without requiring any customer intervention.
 
 For more information about the failover process and behavior, see [Failover across regions](/azure/key-vault/general/disaster-recovery-guidance#failover-across-regions) in the Key Vault availability and redundancy guide.
 
