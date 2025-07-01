@@ -2,42 +2,42 @@
 title: Install CycleCloud using ARM template
 description: How to install CycleCloud using an ARM template
 author: adriankjohnson
-ms.date: 01/22/2020
+ms.date: 07/01/2025
 ms.author: adjohnso
 ---
 
 # Running CycleCloud using an ARM template
 
-Azure CycleCloud can be installed on Azure resources using an Azure Resource Manager (ARM) template that is stored on GitHub. The ARM template handles the majority of the CycleCloud setup. The ARM template:
+You can install Azure CycleCloud on Azure resources by using an Azure Resource Manager template (ARM template) that you store on GitHub. The ARM template takes care of most of the CycleCloud setup. The ARM template:
 
 1. Deploys a virtual network with three separate subnets:
-    * *cycle*: The subnet in which the CycleCloud server is started in
+    * *cycle*: The subnet where the CycleCloud server starts
     * *compute*: A /22 subnet for the HPC clusters
-    * *user*: The subnet for creating user logins
-2. Provisions a VM in the *cycle* subnet and installs Azure CycleCloud on it.
+    * *user*: The subnet for creating user authentications
+1. Provisions a VM in the *cycle* subnet and installs Azure CycleCloud on it.
 
-The recommended method of installing CycleCloud is via the CycleCloud Marketplace Image. Please follow the [CycleCloud Marketplace Installation Quickstart](../qs-install-marketplace.md). CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation Quickstart](install-manual.md).
+The recommended method of installing CycleCloud is via the CycleCloud Marketplace Image. For more information, see the [CycleCloud Marketplace Installation Quickstart](../qs-install-marketplace.md). You can also install CycleCloud manually, which gives you greater control over the installation and configuration process. For more information, see the [Manual CycleCloud Installation Quickstart](install-manual.md).
 
 ## Prerequisites
 
-You will need:
+You need:
 
 1. An Azure account with an active subscription.
-2. A Shell session in a terminal.
-    * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
+1. A Shell session in a terminal.
+    * If you're using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
     * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](~/articles/cyclecloud/includes/cloud-shell-try-it.md)]
 
-### Service Principal
+### Service principal
 
-Azure CycleCloud requires a service principal with contributor access to your Azure subscription. If you do not have a service principal available, you can create one now. Note that your service principal name must be unique - in the example below, *CycleCloudApp* can be replaced with whatever you like:
+Azure CycleCloud needs a service principal with contributor access to your Azure subscription. If you don't have a service principal, you can create one. Your service principal name must be unique. In the following example, *CycleCloudApp* can be replaced with any name you choose:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name CycleCloudApp --years 1
 ```
 
-The output will display a number of parameters. You will need to save the `appId`, `password`, and `tenant`:
+The output displays several parameters. Save the `appId`, `password`, and `tenant` values:
 
 ``` output
 "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -47,30 +47,30 @@ The output will display a number of parameters. You will need to save the `appId
 "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-### SSH Keypair
+### SSH keypair
 
-An SSH key is needed to log into the CycleCloud VM and clusters. Generate an SSH keypair:
+You need an SSH key to sign in to the CycleCloud VM and clusters. Generate an SSH keypair:
 
 ```azurecli-interactive
 ssh-keygen -f ~/.ssh/id_rsa -m pem -t rsa -N "" -b 4096
 ```
 
 > [!NOTE]
-> The Python cryptography library used by the CycleCloud CLI does not support the newer OpenSSH serialization format. One must use `ssh-keygen -m pem` to generate the key with the older standard format.
+> The Python cryptography library used by the CycleCloud CLI doesn't support the newer OpenSSH serialization format. Use `ssh-keygen -m pem` to generate the key with the older standard format.
 
-Retrieve the SSH public key with:
+Get the SSH public key with:
 
 ```azurecli-interactive
 cat ~/.ssh/id_rsa.pub
 ```
 
-The output will begin with ssh-rsa followed by a long string of characters. Copy and save this key now.
+The output starts with `ssh-rsa` followed by a long string of characters. Copy and save this key now.
 
 On Linux, follow [these instructions on GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) to generate a new SSH keypair.
 
 ## Deploy Azure CycleCloud
 
-Click the button below to deploy Azure CycleCloud into your subscription:
+Select the following button to deploy Azure CycleCloud into your subscription:
 
 <a target="_blank"
    title="Deploy to Azure"
@@ -83,24 +83,24 @@ Enter the required information.
 Basics:
 
 * *Subscription*: If you have more than one active Azure subscription, select the one to use here
-* *Resource Group*: Enter the name of a (new) resource group that will hold everything generated by this quickstart (e.g. MyQuickstart)
+* *Resource Group*: Enter the name of a new resource group that holds everything generated by this quickstart (for example, `MyQuickstart`)
 * *Location*: Select a region in which to store your instance
 
 Settings:
 
-* *Tenant ID*: The `tenant` from the service principal above
-* *Application ID*: The `appId` from the service principal above
-* *Application Secret*: The `password` from the service principal above
-* *SSH Public Key*: The public key used to log into the CycleCloud VM
-* *Username*: The username for the CycleCloud VM. Use your Azure Portal username without the domain (e.g. *johnsmith* instead of *johnsmith@domain.com*)
+* *Tenant ID*: The `tenant` from the service principal
+* *Application ID*: The `appId` from the service principal
+* *Application Secret*: The `password` from the service principal
+* *SSH Public Key*: The public key you use to sign in to the CycleCloud VM
+* *Username*: The username for the CycleCloud VM. Use your Azure portal username without the domain (for example, *johnsmith* instead of *johnsmith@domain.com*)
 
-The remaining fields can be left as is. Agree to the terms and conditions, and click **Purchase**. Note that the CycleCloud product is free but you are still paying for the core hours used in Azure.
+Use the default values for the other fields. Agree to the terms and conditions, and select **Purchase**. The CycleCloud product is free, but you pay for the core hours you use in Azure.
 
 The deployment process runs an installation script as a custom script extension, which installs and sets up CycleCloud. This process takes between 5 and 8 minutes.
 
-## Log into the CycleCloud Application Server
+## Sign in to the CycleCloud application server
 
-To connect to the CycleCloud webserver, retrieve the Fully Qualified Domain Name (FQDN) of the CycleServer VM from either the Azure Portal or using the CLI:
+To connect to the CycleCloud webserver, get the Fully Qualified Domain Name (FQDN) of the CycleServer VM from either the Azure portal or the CLI:
 
 ```azurecli-interactive
 # Replace "MyQuickstart" with the resource group you created above.
@@ -108,25 +108,25 @@ export RESOURCE_GROUP="MyQuickstart"
 az network public-ip show -g ${RESOURCE_GROUP?} -n cycle-ip --query dnsSettings.fqdn
 ```
 
-Browse to `https://<FQDN>/`. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
+Browse to `https://<FQDN>/`. The installation uses a self-signed SSL certificate, which might show up with a warning in your browser.
 
-Create a **Site Name** for your installation. You can use any name here:
+Create a **Site Name** for your installation. You can use any name:
 
 ![CycleCloud Welcome screen](~/articles/cyclecloud/images/cc-first-login.png)
 
-The Azure CycleCloud End User License Agreement will be displayed - click to accept it. You will then need to create a CycleCloud admin user for the application server. We recommend using the same username used above. Ensure the password you enter meets the requirements listed. Click **Done** to continue.
+The Azure CycleCloud End User License Agreement is displayed - accept it. You need to create a CycleCloud admin user for the application server. We recommend using the same user name you used earlier. Make sure the password you enter meets the listed requirements. Select **Done** to continue.
 
 ![CycleCloud Create New User screen](~/articles/cyclecloud/images/create-new-user.png)
 
-Once you have created your user, you may want to set your SSH key so that you can more easily access any Linux VMs created by CycleCloud. To add an SSH key, edit your profile by clicking on your name in the upper right hand corner of the screen.
+After you create your user, set your SSH key so you can more easily access any Linux VMs that CycleCloud creates. To add an SSH key, edit your profile by selecting your name in the upper right corner of the screen.
 
-You should now have a running CycleCloud application that allows you to create and run clusters.
+You now have a running CycleCloud application that lets you create and run clusters.
 
 > [!NOTE]
-> The default CycleCloud configuration may be customized for specific environments using settings in the _$CS_HOME/config/cycle_server.properties_ file.
+> You can customize the default CycleCloud configuration for specific environments by using settings in the _$CS_HOME/config/cycle_server.properties_ file.
 
 
-## Further Reading
+## Further reading
 
 * [Run CycleCloud using a Marketplace VM](../qs-install-marketplace.md)
 * [Install CycleCloud manually](install-manual.md)
