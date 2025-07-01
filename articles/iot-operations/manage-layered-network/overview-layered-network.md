@@ -19,7 +19,7 @@ Networking is a foundational aspect of deploying and managing distributed system
 
 ## Azure Arc gateway
 
-The Azure Arc gateway acts as a network proxy, allowing you to onboard and manage servers that don't have direct internet access. By routing traffic through the gateway, you can simplify firewall rules and reduce the need for complex network changes. This approach is especially useful for securely connecting isolated or segmented environments to Azure Arc and Azure IoT Operations.
+The Azure Arc gateway acts as a network proxy that lets you simplify network configuration requirements by reducing the number of Azure endpoints to allow through your firewall. By routing traffic through the gateway, you can simplify firewall rules and reduce the need for complex network changes. This approach is especially useful for securely connecting isolated or segmented environments to Azure Arc and Azure IoT Operations.
 
 For more information, see [Simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/servers/arc-gateway).
 
