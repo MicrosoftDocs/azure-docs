@@ -79,6 +79,48 @@ The following user-facing diagnostics are available:
 
 User-facing diagnostics is an extended feature of the core [`Call`](/javascript/api/azure-communication-services/@azure/communication-calling/call?view=azure-communication-services-js&preserve-view=true) API. You can understand more about the `UserFacingDiagnosticsFeature` interface [here](/javascript/api/azure-communication-services/@azure/communication-calling/userfacingdiagnosticsfeature?view=azure-communication-services-js&preserve-view=true).
 
+UserFacingDiagnosticsFeature (extends CallFeature)
+├── network: NetworkDiagnostics
+│   ├── getLatest(): LatestNetworkDiagnostics
+│   ├── on('diagnosticChanged', listener)
+│   ├── off('diagnosticChanged', listener)
+│   └── LatestNetworkDiagnostics
+│       ├── networkReconnect?: LatestDiagnosticValue
+│       ├── networkReceiveQuality?: LatestDiagnosticValue
+│       ├── networkSendQuality?: LatestDiagnosticValue
+│       ├── noNetwork?: LatestDiagnosticValue
+│       └── networkRelaysNotReachable?: LatestDiagnosticValue
+│
+├── media: MediaDiagnostics
+│   ├── getLatest(): LatestMediaDiagnostics
+│   ├── on('diagnosticChanged', listener)
+│   ├── off('diagnosticChanged', listener)
+│   └── LatestMediaDiagnostics
+│       ├── speakingWhileMicrophoneIsMuted?: LatestDiagnosticValue
+│       ├── noSpeakerDevicesEnumerated?: LatestDiagnosticValue
+│       ├── noMicrophoneDevicesEnumerated?: LatestDiagnosticValue
+│       ├── cameraFreeze?: LatestDiagnosticValue
+│       ├── cameraStartFailed?: LatestDiagnosticValue
+│       ├── cameraStartTimedOut?: LatestDiagnosticValue
+│       ├── capturerStartFailed?: LatestDiagnosticValue
+│       ├── microphoneNotFunctioning?: LatestDiagnosticValue
+│       ├── microphoneMuteUnexpectedly?: LatestDiagnosticValue
+│       ├── cameraStoppedUnexpectedly?: LatestDiagnosticValue
+│       ├── capturerStoppedUnexpectedly?: LatestDiagnosticValue
+│       ├── screenshareRecordingDisabled?: LatestDiagnosticValue
+│       ├── microphonePermissionDenied?: LatestDiagnosticValue
+│       └── cameraPermissionDenied?: LatestDiagnosticValue
+│
+└── remote: RemoteDiagnostics
+    ├── isSendingDiagnosticsEnabled: boolean
+    ├── startSendingDiagnostics()
+    ├── stopSendingDiagnostics()
+    ├── getLatest(): RemoteParticipantDiagnosticsData
+    ├── on('diagnosticChanged', listener)
+    ├── off('diagnosticChanged', listener)
+    └── RemoteParticipantDiagnosticsData
+        └── diagnostics: RemoteDiagnostic
+
 To utilize user facing diagnostics, first thing you must do is instantiate the user facing diagnostics feature from the call.
 ```js
 const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
