@@ -46,7 +46,7 @@ Azure Firewall filters traffic using either:
 
 ## Scenario 1: Hub and spoke architecture - Dedicated virtual network for private endpoints
 
-:::image type="content" source="./media/inspect-traffic-use-azure-firewall/hub-and-spoke.png" alt-text="Dedicated Virtual Network for Private Endpoints" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/hub-and-spoke.png" alt-text="Dedicated Virtual Network for Private Endpoints" border="true":::
 
 This scenario is the most expandable architecture to connect privately to multiple Azure services using private endpoints. A route pointing to the network address space where the private endpoints are deployed is created. This configuration reduces administrative overhead and prevents running into the limit of 400 routes.
 
@@ -56,7 +56,7 @@ For more information on charges related to connections with peered virtual netwo
 
 ## Scenario 2: Hub and spoke architecture - Shared virtual network for private endpoints and virtual machines
 
-:::image type="content" source="./media/inspect-traffic-use-azure-firewall/shared-spoke.png" alt-text="Private Endpoints and Virtual Machines in same Virtual Network" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Private Endpoints and Virtual Machines in same Virtual Network" border="true":::
 
 This scenario is implemented when:
 
@@ -76,7 +76,7 @@ For more information on charges related to connections with peered virtual netwo
 
 ## Scenario 3: Single virtual network
 
-:::image type="content" source="./media/inspect-traffic-use-azure-firewall/single-vnet.png" alt-text="Single virtual network" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Single virtual network" border="true":::
 
 Use this pattern when a migration to a hub and spoke architecture isn't possible. The same considerations as in scenario 2 apply. In this scenario, virtual network peering charges don't apply.
 
