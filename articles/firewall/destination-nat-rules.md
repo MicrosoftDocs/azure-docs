@@ -2,11 +2,11 @@
 title: How to set up and monitor Azure Firewall DNAT rules for secure traffic management
 description: Learn how to configure and monitor Azure Firewall DNAT rules to securely manage incoming traffic by translating destination IP addresses and ports, including support for FQDN filtering for dynamic backend configurations.
 services: firewall
-author: duongau
+author: sujamiya
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 4/29/2025
-ms.author: duau
+ms.author: sujamiya
 ms.custom: ai-usage
 ---
 

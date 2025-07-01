@@ -67,6 +67,4 @@ Application rules are designed for filtering HTTP/S and MSSQL traffic. They rely
 
 By understanding the differences between these rule types, you can effectively configure Azure Firewall to meet your organization's security and traffic management needs.
 
-## Next steps
-
 - Learn how  Azure Firewall policy rule sets are structured [Azure Firewall Policy rule sets](policy-rule-sets.md).
