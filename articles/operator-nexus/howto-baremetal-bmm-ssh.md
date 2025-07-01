@@ -43,6 +43,9 @@ When the command runs, it executes on each bare metal machine in the Cluster wit
 - While at least one keyset is defined, ssh access is allowed from any jump host in any keyset. For example, if keyset A specifies jump host A and keyset B specifies jump host B, users in either keyset can use either jump host A or B.
 - While no keysets are defined, ssh access is allowed from any jump host that has network connectivity to the machines.
 
+> [!NOTE]
+> The privilege level of a keyset can't be changed via the update command. If you need to change a keyset's privilege level, you must delete & recreate the keyset with the new privilege level.
+
 ## Prerequisites
 
 - Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md).
