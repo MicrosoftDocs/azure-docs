@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: azure-communication-services
-ms.date: 08/14/2023
+ms.date: 06/27/2025
 ms.topic: include
 author: sloanster
 ms.author: micahvivion
@@ -64,14 +64,11 @@ const callClient = new CallClient({
     }
 });
 
-
-
-
 // ...continue normally with your SDK setup and usage.
 ```
 
 > [!IMPORTANT]
-> If you provided your TURN server details while you initialized `CallClient`, all the media traffic *exclusively* flows through these TURN servers. Any other ICE candidates that are normally generated when you create a call won't be considered while trying to establish connectivity between peers. That means only `relay` candidates are considered. To learn more about different types of Ice candidates see [RTCIceCandidate: type property](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
+> If you provided your TURN server details while you initialized `CallClient`, all the media traffic *exclusively* flows through these TURN servers. Any other ICE candidates that are normally generated when you create a call aren't considered while trying to establish connectivity between peers. That means only `relay` candidates are considered. For more information about different types of Ice candidates, see [RTCIceCandidate: type property](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
 
 If the `?transport` query parameter isn't present as part of the TURN URL or isn't one of the `udp`, `tcp`, or `tls` values, the default behavior is UDP.
 

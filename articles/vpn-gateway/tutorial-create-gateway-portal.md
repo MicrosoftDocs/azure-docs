@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 03/10/2025
+ms.date: 06/24/2025
 
 # Customer intent: "As a network administrator, I want to create and manage a VPN gateway using the cloud portal, so that I can securely connect our on-premises resources to our virtual network."
 ---
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Create a virtual network.
 > * Create an active-active mode zone-redundant VPN gateway.
 > * View the gateway public IP address.
-> * Resize a VPN gateway (resize SKU).
+> * Upgrade a VPN gateway SKU.
 > * Reset a VPN gateway.
 
 > [!NOTE]
@@ -69,12 +69,12 @@ To view public IP addresses associated to your virtual network gateway, navigate
 1. On the **Virtual network gateway** portal page, under **Settings**, open the **Properties** page.
 1. To view more information about the IP address object, click the associated IP address link.
 
-## <a name="resize"></a>Resize a gateway SKU
+## <a name="resize"></a>Upgrade a gateway SKU
 
-There are specific rules for resizing versus changing a gateway SKU. In this section, you resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
+There are specific rules for upgrading a gateway SKU. Not all SKUs can be upgraded. For more information, see [Upgrade a gateway SKU](gateway-sku-upgrade.md).
 
 1. Go to the **Configuration** page for your virtual network gateway.
-1. On the right side of the page, select the dropdown arrow to show a list of available SKUs. Notice that the list only populates SKUs that you're able to use to resize your current SKU. If you don't see the SKU you want to use, instead of resizing, you have to change to a new SKU.
+1. On the right side of the page, select the dropdown arrow to show a list of available SKUs. Notice that the list only populates SKUs that you're able to select.
 1. Select the SKU from the dropdown list and save your changes.
 
 ## <a name="reset"></a>Reset a gateway

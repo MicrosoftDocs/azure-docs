@@ -2,13 +2,13 @@
 title: Migrate from the EA Usage Details APIs
 titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Usage Details APIs.
-author: jojopm
-ms.author: jojoh
-ms.date: 01/07/2025
+author: maddieminn
+ms.author: maminn
+ms.date: 07/01/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: maminn
 ---
 
 # Migrate from EA Usage Details APIs

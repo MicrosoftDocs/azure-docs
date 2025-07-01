@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 02/02/2024
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to integrate Application Gateway with Key Vault for managing TLS certificates, so that I can enhance security and automate certificate renewal without manual intervention."
 ---
 
 # TLS termination with Key Vault certificates

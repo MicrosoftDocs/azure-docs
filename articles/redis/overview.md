@@ -25,7 +25,7 @@ For more information on how Azure Managed Redis is built, see [Azure Managed Red
 
 Azure Managed Redis can improve the performance and scalability of an application that heavily uses backend data stores. It's able to process large volumes of application requests by keeping frequently accessed data in the server memory, which can be written to and read from quickly.
 
-Redis brings a critical low-latency and high-throughput data storage solution to modern applications. Additionally, Redis is increasingly used for noncaching applications, including data ingestion, deduplication, messaging, [leaderboards](web-app-cache-aside-leaderboard.md), [semantic caching](tutorial-semantic-cache.md), and as a [vector database](overview-vector-similarity.md).
+Redis brings a critical low-latency and high-throughput data storage solution to modern applications. Additionally, Redis is increasingly used for noncaching applications, including data ingestion, deduplication, messaging, leaderboards, [semantic caching](tutorial-semantic-cache.md), and as a [vector database](overview-vector-similarity.md).
 
 Azure Managed Redis can be deployed standalone, or deployed along with other Azure app or database services, such as Azure Container Apps, Azure App Service, Azure Functions, Azure SQL, or Azure Cosmos DB.
 
@@ -35,13 +35,13 @@ Azure Managed Redis improves application performance by supporting common applic
 
 | Pattern      | Description                                        |
 | ------------ | -------------------------------------------------- |
-| [Data cache](web-app-cache-aside-leaderboard.md) | Databases are often too large to load directly into a cache. It's common to use the [cache-aside](/azure/architecture/patterns/cache-aside) pattern to load data into the cache only as needed. When the system makes changes to the data, the system can also update the cache, which is then distributed to other clients. Additionally, the system can set an expiration on data, or use an eviction policy to trigger data updates into the cache.|
-| [Content cache](aspnet-output-cache-provider.md) | Many web pages are generated from templates that use static content such as headers, footers, banners. These static items shouldn't change often. Using an in-memory cache provides quick access to static content compared to backend datastores. This pattern reduces processing time and server load, allowing web servers to be more responsive. It can allow you to reduce the number of servers needed to handle loads. Azure Managed Redis provides the Redis Output Cache Provider to support this pattern with ASP.NET.|
-| [Session store](aspnet-session-state-provider.md) | This pattern is commonly used with shopping carts and other user history data that a web application might associate with user cookies. Storing too much in a cookie can have a negative effect on performance as the cookie size grows and is passed and validated with every request. A typical solution uses the cookie as a key to query the data in a database. When you use an in-memory cache, like Azure Managed Redis, to associate information with a user is faster than interacting with a full relational database. |
+| Data cache | Databases are often too large to load directly into a cache. It's common to use the [cache-aside](/azure/architecture/patterns/cache-aside) pattern to load data into the cache only as needed. When the system makes changes to the data, the system can also update the cache, which is then distributed to other clients. Additionally, the system can set an expiration on data, or use an eviction policy to trigger data updates into the cache.|
+| Content cache | Many web pages are generated from templates that use static content such as headers, footers, banners. These static items shouldn't change often. Using an in-memory cache provides quick access to static content compared to backend datastores. This pattern reduces processing time and server load, allowing web servers to be more responsive. It can allow you to reduce the number of servers needed to handle loads. Azure Managed Redis provides the Redis Output Cache Provider to support this pattern with ASP.NET.|
+| Session store | This pattern is commonly used with shopping carts and other user history data that a web application might associate with user cookies. Storing too much in a cookie can have a negative effect on performance as the cookie size grows and is passed and validated with every request. A typical solution uses the cookie as a key to query the data in a database. When you use an in-memory cache, like Azure Managed Redis, to associate information with a user is faster than interacting with a full relational database. |
 | [Vector similarity search](overview-vector-similarity.md) | A common AI use-case is to generate vector embeddings using a large language model (LLM). These vector embeddings need to be stored in a vector database and then compared to determine similarity. Azure Managed Redis has built-in functionality to both store and compare vector embeddings at high throughputs.|
 | [Semantic caching](tutorial-semantic-cache.md) | Using LLMs often introduces a high amount of latency (due to generation time) and cost (due to per token pricing) to an application. Caching can help solve these problems by storing the past output of an LLM so that it can quickly be retrieved again. However, because LLMs use natural language, storage can be difficult for typical caches to handle. Semantic caches like Azure Managed Redis are capable of caching not just a specific query, but the semantic meaning of a query, allowing it to be used much more naturally with LLMs.|
 | [Deduplication](https://redis.io/solutions/deduplication/) | Often, you need to determine if an action already happened in a system, such as determining if a username is taken or if a customer was already sent an email. In Azure Managed Redis, bloom filters can rapidly determine duplicates, and prevent problems. |
-| [Leaderboards](web-app-cache-aside-leaderboard.md) | Redis offers simple and powerful support for developing leaderboards of all kinds using the [sorted set](https://redis.io/solutions/leaderboards/) data structure. Additionally, using [active geo-replication](how-to-active-geo-replication.md) can allow one leaderboard to be shared globally. |
+| Leaderboards | Redis offers simple and powerful support for developing leaderboards of all kinds using the [sorted set](https://redis.io/solutions/leaderboards/) data structure. Additionally, using [active geo-replication](how-to-active-geo-replication.md) can allow one leaderboard to be shared globally. |
 | Job and message queuing | Applications often add tasks to a queue when the operations associated with the request take time to execute. Longer running operations are queued to be processed in sequence, often by another server. This method of deferring work is called task queuing. Azure Managed Redis provides a distributed queue to enable this pattern in your application.|
 | [PowerBI/Analytics Acceleration](https://techcommunity.microsoft.com/blog/analyticsonazure/how-to-use-redis-as-a-data-source-for-power-bi-with-redis-sql-odbc/3799471) | You can use the Redis ODBC driver to utilize Redis for BI, reporting, and analytics use-cases. Because Redis is typically much faster than relational databases, using Redis in this way can dramatically increase query responsiveness. |
 | Distributed transactions | Applications sometimes require a series of commands against a backend data-store to execute as a single atomic operation. All commands must succeed, or all must be rolled back to the initial state. Azure Managed Redis supports executing a batch of commands as a single [transaction](https://redis.io/topics/transactions). |
@@ -118,7 +118,33 @@ The following table helps describe some of the features supported by tier:
 ### Other considerations when picking a tier
 
 - **Network performance**: If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that cause time-outs in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
-- **Maximum number of client connections**: Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. For more information on the limit for each SKU, see [Azure Managed Redis Pricing](https://aka.ms/amrpricing).
+- **Maximum number of client connections**: Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
+
+
+[!INCLUDE [tier-preview](includes/tier-preview.md)]
+
+|  Size (GB)  |    Memory Optimized   |    Balanced   |   Compute Optimized  |  Flash Optimized (preview)|
+|:-----------:|:---------------------:|:-------------:|:--------------------:|:--------------------:|
+|    0.5      |       -               |    15,000      |         -            |       -              |
+|     1       |       -               |    15,000      |         -            |       -              |
+|     3       |       -               |    15,000      |         30,000        |       -              |
+|     6       |       -               |    15,000      |         30,000        |       -              |
+|     12      |   15,000               |    30,000      |         75,000        |       -              |
+|     24      |   30,000               |    75,000      |         150,000       |       -              |
+|     60      |   75,000               |    150,000     |         200,000       |       -              |
+|     120     |   150,000              |    200,000     |         200,000       |       -              |
+|     180 *   |   200,000              |    200,000     |         200,000       |       -              |
+|     240 *   |   200,000              |    200,000     |         200,000       |       75,000          |
+|     360 *   |   200,000              |    200,000     |         200,000       |       -              |
+|     480 *   |   200,000              |    200,000     |         200,000       |       150,000         |
+|     720 *   |   200,000              |    200,000     |         200,000       |       200,000         |
+|     960 *   |   200,000              |    200,000     |         -             |       200,000         |
+|     1440 *  |   200,000              |        -       |         -             |       200,000         |
+|     1920 *  |   200,000              |        -       |         -             |       200,000         |
+|     4500 *  |       -                |        -       |         -             |       200,000         |
+
+  \* These tiers are in Public Preview.
+
 - **High availability**: Azure Managed Redis provides multiple [high availability](high-availability.md) options. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. This lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
 
 ### Other pricing considerations

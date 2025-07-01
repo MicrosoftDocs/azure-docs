@@ -61,4 +61,5 @@ To make sure your environment is properly configured, check the local IP address
 
 ## Next steps
 
-To learn more about private links, see [Azure Private Link](../../private-link/index.yml).
+- To learn more about private links, see [Azure Private Link](../../private-link/index.yml).
+- Refer to Azure [Private Link availability](../../private-link/availability.md) for information on supported services and regions, including Government cloud support.
