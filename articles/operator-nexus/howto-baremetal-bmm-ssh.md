@@ -74,7 +74,7 @@ az networkcloud cluster baremetalmachinekeyset create \
   --expiration "<Expiration Timestamp>" \
   --jump-hosts-allowed "<List of jump server IP addresses>" \
   --os-group-name "<Name of the Operating System Group>" \
-  --privilege-level "<"Standard" or "Superuser">" \
+  --privilege-level "<"Standard", "Superuser" or "Other">" \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
     "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
     "userPrincipalName":""}]', \
@@ -86,73 +86,81 @@ az networkcloud cluster baremetalmachinekeyset create \
 ### Create Arguments
 
 ```azurecli
-  --azure-group-id                            [Required] : The object ID of Azure Active Directory
-                                                           group that all users in the list must
-                                                           be in for access to be granted. Users
-                                                           that are not in the group do not have
-                                                           access.
   --bare-metal-machine-key-set-name --name -n [Required] : The name of the bare metal machine key
-                                                           set.
+                                                            set.
   --cluster-name                              [Required] : The name of the cluster.
-  --expiration                                [Required] : The date and time after which the users
-                                                           in this key set are removed from
-                                                           the bare metal machines. The maximum
-                                                           expiration date is a year from creation
-                                                           date. Format is: "YYYY-MM-DDTHH:MM:SS.000Z".
-  --extended-location                         [Required] : The extended location of the cluster
-                                                           associated with the resource.
-    Usage: --extended-location name=XX type=XX
-      name: Required. The resource ID of the extended location on which the resource is created.
-      type: Required. The extended location type: "CustomLocation".
-  --jump-hosts-allowed                        [Required] : The list of IP addresses of jump hosts
-                                                           with management network access from
-                                                           which a login is be allowed for the
-                                                           users. Supports IPv4 or IPv6 addresses.
-  --privilege-level                           [Required] : The access level allowed for the users
-                                                           in this key set.  Allowed values:
-                                                           "Standard" or "Superuser".
-  --resource-group -g                         [Required] : Name of cluster resource group. Optional if
-                                                           configuring the default group using `az
-                                                           configure --defaults group=<name>`.
-  --user-list                                 [Required] : The unique list of permitted users.
-    Usage: --user-list azure-user-name=XX description=XX key-data=XX
-      azure-user-name: Required. User name used to login to the server.
-      description: The free-form description for this user.
-      key-data: Required. The public ssh key of the user.
-      userPrincipalName: Required. The User Principal Name of the User.
-
-      Multiple users can be specified by using more than one --user-list argument.
-  --os-group-name                                        : The name of the group that users are assigned
-                                                           to on the operating system of the machines.
-  --tags                                                 : Space-separated tags: key[=value]
-                                                           [key[=value] ...]. Use '' to clear
-                                                           existing tags.
-  --location -l                                          : Azure Region. Values from: `az account
-                                                           list-locations`. You can configure the
-                                                           default location using `az configure
-                                                           --defaults location=<location>`.
+  --resource-group -g                         [Required] : Name of resource group. You can
+                                                            configure the default group using `az
+                                                            configure --defaults group=<name>`.
+  --if-match                                             : The ETag of the transformation. Omit
+                                                            this value to always overwrite the
+                                                            current resource. Specify the last-seen
+                                                            ETag value to prevent accidentally
+                                                            overwriting concurrent changes.
+  --if-none-match                                        : Set to '*' to allow a new record set to
+                                                            be created, but to prevent updating an
+                                                            existing resource. Other values will
+                                                            result in error from server as they are
+                                                            not supported.
   --no-wait                                              : Do not wait for the long-running
-                                                           operation to finish.
+                                                            operation to finish.  Allowed values:
+                                                            0, 1, f, false, n, no, t, true, y, yes.
+  --extended-location                         [Required] : The extended location of the cluster
+                                                            associated with the resource.  Support
+                                                            shorthand-syntax, json-file and yaml-
+                                                            file. Try "??" to show more.
+  --location -l                                          : The geo-location where the resource
+                                                            lives  When not specified, the location
+                                                            of the resource group will be used.
+  --tags                                                 : Resource tags.  Support shorthand-
+                                                            syntax, json-file and yaml-file. Try
+                                                            "??" to show more.
+  --azure-group-id                            [Required] : The object ID of Azure Active Directory
+                                                            group that all users in the list must
+                                                            be in for access to be granted. Users
+                                                            that are not in the group will not have
+                                                            access.
+  --expiration                                [Required] : The date and time after which the users
+                                                            in this key set will be removed from
+                                                            the bare metal machines.
+  --jump-hosts-allowed                        [Required] : The list of IP addresses of jump hosts
+                                                            with management network access from
+                                                            which a login will be allowed for the
+                                                            users.  Support shorthand-syntax, json-
+                                                            file and yaml-file. Try "??" to show
+                                                            more.
+  --privilege-level                           [Required] : The access level allowed for the users
+                                                            in this key set.  Allowed values:
+                                                            Other, Standard, Superuser.
+  --user-list                                 [Required] : The unique list of permitted users.
+                                                            Support shorthand-syntax, json-file and
+                                                            yaml-file. Try "??" to show more.
+  --os-group-name                                        : The name of the group that users will
+                                                            be assigned to on the operating system
+                                                            of the machines.
+  --privilege-level-name                                 : The name of the access level to apply
+                                                            when the privilege level is set to
+                                                            Other.
 ```
 
 ### Global Azure CLI arguments (applicable to all commands)
 
 ```azurecli
   --debug                                                : Increase logging verbosity to show all
-                                                           debug logs.
+                                                            debug logs.
   --help -h                                              : Show this help message and exit.
   --only-show-errors                                     : Only show errors, suppressing warnings.
   --output -o                                            : Output format.  Allowed values: json,
-                                                           jsonc, none, table, tsv, yaml, yamlc.
-                                                           Default: json.
+                                                            jsonc, none, table, tsv, yaml, yamlc.
+                                                            Default: json.
   --query                                                : JMESPath query string. See
-                                                           http://jmespath.org/ for more
-                                                           information and examples.
-  --subscription                              [Required] : Name or ID of subscription. Optional if
-                                                           configuring the default subscription
-                                                           using `az account set -s NAME_OR_ID`.
+                                                            http://jmespath.org/ for more
+                                                            information and examples.
+  --subscription                                         : Name or ID of subscription. You can
+                                                            configure the default subscription
+                                                            using `az account set -s NAME_OR_ID`.
   --verbose                                              : Increase logging verbosity. Use --debug
-                                                           for full debug logs.
+                                                            for full debug logs.
 ```
 
 This example creates a new keyset with two users that have standard access from two jump hosts.
@@ -193,15 +201,33 @@ az networkcloud cluster baremetalmachinekeyset delete \
 ### Delete Arguments
 
 ```azurecli
-    --bare-metal-machine-key-set-name --name -n [Required] : The name of the bare metal machine key set to be
-                                                             deleted.
-    --cluster-name                              [Required] : The name of the cluster.
-    --resource-group -g                         [Required] : Name of cluster resource group. Optional if configuring the
-                                                             default group using `az configure --defaults
-                                                             group=<name>`.
-    --no-wait                                              : Do not wait for the long-running operation to
-                                                             finish.
-    --yes -y                                               : Do not prompt for confirmation.
+  --if-match                                  : The ETag of the transformation. Omit this value to
+                                                always overwrite the current resource. Specify the
+                                                last-seen ETag value to prevent accidentally
+                                                overwriting concurrent changes.
+  --if-none-match                             : Set to '*' to allow a new record set to be
+                                                created, but to prevent updating an existing
+                                                resource. Other values will result in error from
+                                                server as they are not supported.
+  --no-wait                                   : Do not wait for the long-running operation to
+                                                finish.  Allowed values: 0, 1, f, false, n, no, t,
+                                                true, y, yes.
+  --yes -y                                    : Do not prompt for confirmation.
+
+  --bare-metal-machine-key-set-name --name -n : The name of the bare metal machine key set.
+  --cluster-name                              : The name of the cluster.
+  --ids                                       : One or more resource IDs (space-delimited). It
+                                                should be a complete resource ID containing all
+                                                information of 'Resource Id' arguments. You should
+                                                provide either --ids or other 'Resource Id'
+                                                arguments.
+  --resource-group -g                         : Name of resource group. You can configure the
+                                                default group using `az configure --defaults
+                                                group=<name>`.
+  --subscription                              : Name or ID of subscription. You can configure the
+                                                default subscription using `az account set -s
+                                                NAME_OR_ID`.
+
 ```
 
 This example removes the "bareMetalMachineKeysetName" keyset group in the "clusterName" Cluster.
@@ -223,7 +249,7 @@ The command syntax is:
 az networkcloud cluster baremetalmachinekeyset update \
   --name "<bare metal machine Keyset Name>" \
   --jump-hosts-allowed "<List of jump server IP addresses>" \
-  --privilege-level "<"Standard" or "Superuser">" \
+  --expiration "2022-12-31T23:59:59.008Z" \
   --user-list '[{"description":"<User List Description>","azureUserName":"<User Name>",\
    "sshPublicKey":{"keyData":"<SSH Public Key>"}, \
    "userPrincipalName":""}]', \
@@ -235,36 +261,44 @@ az networkcloud cluster baremetalmachinekeyset update \
 ### Update Arguments
 
 ```azurecli
-  --bare-metal-machine-key-set-name --name -n [Required] : The name of the bare metal machine key set.
-  --cluster-name                              [Required] : The name of the cluster.
-  --expiration                                           : The date and time after which the users
-                                                           in this key set are removed from
-                                                           the bare metal machines. The maximum
-                                                           expiration date is a year from creation
-                                                           date. Format is: "YYYY-MM-DDTHH:MM:SS.000Z".
-  --jump-hosts-allowed                                   : The list of IP addresses of jump hosts
-                                                           with management network access from
-                                                           which a login is allowed for the
-                                                           users. Supports IPv4 or IPv6 addresses.
-  --privilege-level                                      : The access level allowed for the users
-                                                           in this key set.  Allowed values:
-                                                           "Standard" or "Superuser".
-  --user-list                                            : The unique list of permitted users.
-    Usage: --user-list azure-user-name=XX description=XX key-data=XX
-      azure-user-name: Required. User name used to login to the server.
-      description: The free-form description for this user.
-      key-data: Required. The public SSH key of the user.
-      userPrincipalName: Required. The User Principal Name of the User.
-
-      Multiple users can be specified by using more than one --user-list argument.
-  --resource-group -g                         [Required] : Name of cluster resource group. Optional if
-                                                           configuring the default group using `az
-                                                           configure --defaults group=<name>`.
-  --tags                                                 : Space-separated tags: key[=value]
-                                                           [key[=value] ...]. Use '' to clear
-                                                           existing tags.
-  --no-wait                                              : Do not wait for the long-running
-                                                           operation to finish.
+  --if-match                                  : The ETag of the transformation. Omit this value to
+                                                always overwrite the current resource. Specify the
+                                                last-seen ETag value to prevent accidentally
+                                                overwriting concurrent changes.
+  --if-none-match                             : Set to '*' to allow a new record set to be
+                                                created, but to prevent updating an existing
+                                                resource. Other values will result in error from
+                                                server as they are not supported.
+  --no-wait                                   : Do not wait for the long-running operation to
+                                                finish.  Allowed values: 0, 1, f, false, n, no, t,
+                                                true, y, yes.
+  --tags                                      : The Azure resource tags that will replace the
+                                                existing ones.  Support shorthand-syntax, json-
+                                                file and yaml-file. Try "??" to show more.
+  --bare-metal-machine-key-set-name --name -n : The name of the bare metal machine key set.
+  --cluster-name                              : The name of the cluster.
+  --ids                                       : One or more resource IDs (space-delimited). It
+                                                should be a complete resource ID containing all
+                                                information of 'Resource Id' arguments. You should
+                                                provide either --ids or other 'Resource Id'
+                                                arguments.
+  --resource-group -g                         : Name of resource group. You can configure the
+                                                default group using `az configure --defaults
+                                                group=<name>`.
+  --subscription                              : Name or ID of subscription. You can configure the
+                                                default subscription using `az account set -s
+                                                NAME_OR_ID`.
+  --expiration                                : The date and time after which the users in this
+                                                key set will be removed from the bare metal
+                                                machines.
+  --jump-hosts-allowed                        : The list of IP addresses of jump hosts with
+                                                management network access from which a login will
+                                                be allowed for the users.  Support shorthand-
+                                                syntax, json-file and yaml-file. Try "??" to show
+                                                more.
+  --user-list                                 : The unique list of permitted users.  Support
+                                                shorthand-syntax, json-file and yaml-file. Try
+                                                "??" to show more.
 ```
 
 This example adds two new users to the "baremetalMachineKeySetName" group and changes the expiry time for the group.
@@ -272,7 +306,8 @@ This example adds two new users to the "baremetalMachineKeySetName" group and ch
 ```azurecli
 az networkcloud cluster baremetalmachinekeyset update \
   --name "bareMetalMachineKeySetName" \
- --expiration "2023-12-31T23:59:59.008Z" \
+  --expiration "2023-12-31T23:59:59.008Z" \
+  --jump-hosts-allowed "192.0.2.1" "192.0.2.5"
   --user-list '[{"description":"Needs access for troubleshooting as a part of the support team",\
   "azureUserName":"userABC", \
   "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, \
