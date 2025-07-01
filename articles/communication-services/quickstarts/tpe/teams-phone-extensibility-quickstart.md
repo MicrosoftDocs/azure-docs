@@ -457,7 +457,7 @@ The following example shows a request to add a PSTN user to a Teams Phone extens
 //Call is already established
 ...
 ...
-var target = new PhoneNumberIdentifier("4:+12065551212");
+var target = new PhoneNumberIdentifier("+12065551212");
 await callConnection.AddParticipantAsync(new AddParticipantOptions(new CallInvite(target, null))
 {
     InvitationTimeoutInSeconds = 60,
@@ -477,7 +477,7 @@ The following example shows a request to transfer an established call to a PSTN 
 //Call is already established
 ...
 ...
-var target = new PhoneNumberIdentifier("4:+12065551212");
+var target = new PhoneNumberIdentifier("+12065551212");
 await callConnection.TransferCallToParticipantAsync(new TransferToParticipantOptions(target)
 {
     OperationContext = "transferParticipantAsync"
