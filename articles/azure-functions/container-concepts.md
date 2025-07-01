@@ -48,7 +48,7 @@ The degree to which various features and behaviors of Azure Functions are suppor
 | Cold start mitigation | Minimum replicas | [Scale rules](../container-apps/scale-app.md#scale-rules) | [Always-ready/pre-warmed instances](functions-premium-plan.md#eliminate-cold-starts) | n/a | n/a |
 | [App Service authentication](../app-service/overview-authentication-authorization.md) | [Yes](../container-apps/authentication.md) | Yes | Yes | Yes | No |
 | [Custom domain names](../app-service/app-service-web-tutorial-custom-domain.md) | [Yes](../container-apps/custom-domains-certificates.md) | Yes | Yes | Yes | No |
-| [Private key certificates](../app-service/overview-tls.md) | [Yes](../azure/container-apps/custom-domains-certificates.md) | Yes | Yes | Yes | No |
+| [Private key certificates](../app-service/overview-tls.md) | [Yes](../container-apps/custom-domains-certificates.md) | Yes | Yes | Yes | No |
 | Virtual networks | [Yes](../container-apps/networking.md) | Yes | Yes | Yes | Yes |
 | Availability zones | [Yes](../reliability/reliability-azure-container-apps.md) | Yes | Yes | Yes | Yes |
 | Diagnostics | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](./functions-diagnostics.md) | [Yes](./functions-diagnostics.md) | No |
