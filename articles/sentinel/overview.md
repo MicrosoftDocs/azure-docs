@@ -1,11 +1,11 @@
 ---
 title: What is Microsoft Sentinel? | Microsoft Docs
 description: Learn about Microsoft Sentinel, a security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution.
-author: cwatson-cat
-ms.author: cwatson
+author: batamig
+ms.author: bagol
 ms.topic: overview
 ms.service: microsoft-sentinel
-ms.date: 05/13/2024
+ms.date: 07/01/2025
 
 
 #CustomerIntent: As a business decision maker, I want to understand what Microsoft Sentinel offers so that I can determine whether the service meets my organization's requirements.
@@ -126,9 +126,9 @@ If you're currently using Microsoft Sentinel in the Azure portal, we recommend t
 
 ### Changes for new customers starting July 2025
 
-For the sake of the changes described in this section, new Microsoft Sentinel customers are customers who are [onboarding the first workspace in their tenant to Microsoft Sentinel](quickstart-onboard.md) on or after **July 1, 2025**, and are not Azure Lighthouse-delegated users.
+For the sake of the changes described in this section, new Microsoft Sentinel customers are customers who are [onboarding the first workspace in their tenant to Microsoft Sentinel](quickstart-onboard.md) on or after **July 1, 2025**.
 
-Starting **July 1, 2025**, such new customers who have the permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), have their workspaces automatically onboarded to the Defender portal together with onboarding to Microsoft Sentinel. Users of such workspaces, who also aren't Azure Lighthouse-delegated users, see links in Microsoft Sentinel in the Azure portal that redirect them to the Defender portal. Such users use Microsoft Sentinel in the Defender portal only. For example:
+Starting **July 1, 2025**, such new customers who are not Azure Lighthouse-delegated users, and who have the permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), have their workspaces automatically onboarded to the Defender portal together with onboarding to Microsoft Sentinel. Users of such workspaces, who also aren't Azure Lighthouse-delegated users, see links in Microsoft Sentinel in the Azure portal that redirect them to the Defender portal. Such users use Microsoft Sentinel in the Defender portal only. For example:
 
 New customers who don't have relevant permissions aren't automatically onboarded to the Defender portal, but they do still see redirection links in the Azure portal, together with prompts to have a user with relevant permissions manually onboard the workspace to the Defender portal.
 
@@ -138,7 +138,7 @@ The following table summarizes these experience:
 |---------|---------|
 |**Existing customers** creating new workspaces in a tenant where there is already a workspace enabled for Microsoft Sentinel | Workspaces are not automatically onboarded, and users don't see redirection links |
 |**Azure Lighthouse-delegated users** creating new workspaces in any tenant | Workspaces are not automatically onboarded, and users don't see redirection links |
-|**New customers** onboarding the first workspace in their tenant to Microsoft Sentinel | - Users who have the required permissions have their workspace automatically onboarded. Other users of such workspaces see redirection links in the Azure portal. <br><br>- Users who don't have the required permissions don't have their workspace automatically onboarded. All users of such workspaces see redirection links in the Azure portal, and a user with the required permissions must onboard the workspace to the Defender portal. |
+|**New customers** onboarding the first workspace in their tenant to Microsoft Sentinel | - **Users who have the required permissions** have their workspace automatically onboarded. Other users of such workspaces see redirection links in the Azure portal. <br><br>- **Users who don't have the required permissions** don't have their workspace automatically onboarded. All users of such workspaces see redirection links in the Azure portal, and a user with the required permissions must onboard the workspace to the Defender portal. |
 
 ## Related content
 
