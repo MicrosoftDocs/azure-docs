@@ -105,6 +105,16 @@ sections:
           We follow [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone file master format escape rules for TXT records. For example, `\` now actually escapes everything per the RFC. If you specify `A\B` as the TXT record value, it's represented and resolved as just `AB`. If you really want the TXT record to have `A\B` at resolution, you need to escape the `\` again. As an example, specify `A\\B`.
           
           This support currently isn't available for TXT records created from the Azure portal.
+
+      - question: |
+          Does Azure DNS support round-robin DNS?
+        answer: |
+          Azure DNS does not natively support round-robin DNS. However, this can be achieved through using Azure Traffic Manager. Users can create an Alias record in the DNS zone pointing to a traffic manager profile to achieve this. 
+          
+          [Tutorial](tutorial-alias-tm.md) for creating an alias record for use with a traffic manager profile. 
+
+          [Tutorial](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) for creating a weighted traffic manager profile
+          
           
   - name: Alias records
     questions:
