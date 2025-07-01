@@ -132,7 +132,7 @@ Starting **July 1, 2025**, such new customers who are not Azure Lighthouse-deleg
 
 New customers who don't have relevant permissions aren't automatically onboarded to the Defender portal, but they do still see redirection links in the Azure portal, together with prompts to have a user with relevant permissions manually onboard the workspace to the Defender portal.
 
-The following table summarizes these experience:
+The following table summarizes these experiences:
 
 |Customer type| Experience|
 |---------|---------|
