@@ -225,10 +225,14 @@ The following steps demonstrate how to receive and answer an incoming Teams call
 1. A Teams Phone number assigned to the resource account.
 1. A Teams Resource Account provisioned to send calls to the Azure Communication Services Resource.
 1. A Teams Resource Account provisioned with a Calling Plan.
-1. An Azure Communication Services Resource with permission to receive call from the Teams Resource Account.
+1. An Azure Communication Services Resource with permission to receive call from the Teams Resource Account. 
 1. [Create and host a dev tunnel](/azure/developer/dev-tunnels/get-started).
 1. (Optional) Create a Microsoft Teams user with a phone license that is voice enabled. Teams Phone license is required to add Teams users to the call. Learn more about [Microsoft Teams business options](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-business-options). For more information, see [Set up Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system).
 1. Complete client and server consent as defined in [Access a user's Teams Phone separate from their Teams client](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md).
+
+> [!NOTE]
+> For the Azure Communication Services resource, ensure the data location matches the Teams Tenant location to comply with data boundary regulations. You can retrieve programatically details about tenant organisation via [Get organization](https://learn.microsoft.com/en-us/graph/api/organization-get?view=graph-rest-1.0&tabs=http)
+>
 
 #### Setup and host your Azure dev tunnels
 
