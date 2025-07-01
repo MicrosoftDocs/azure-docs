@@ -29,7 +29,7 @@ If your web application already has useful features, like shopping, hotel bookin
 
 -----
 
-Both Semantic Kernel and Azure AI Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. The following table shows some of the some of the considerations and trade-offs:
+Both Semantic Kernel and Azure AI Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. The following table shows some of the considerations and trade-offs:
 
 | Consideration      | Semantic Kernel                | Azure AI Foundry Agent Service         |
 |--------------------|-------------------------------|----------------------------------------|
