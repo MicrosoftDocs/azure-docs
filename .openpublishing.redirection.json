@@ -1,11 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/signups/startup-programs.md",
-      "redirect_url": "azure/signups/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/backup/azure-elastic-storage-area-network-backup-manage.md",
       "redirect_url": "/azure/backup/azure-elastic-san-backup-manage",
       "redirect_document_id": false
@@ -7122,6 +7117,11 @@
     {
       "source_path": "articles/reliability/whats-new.md",
       "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
+    },
+     {
+      "source_path": "articles/signups/startup-programs.md",
+      "redirect_url": "azure/signups/overview",
       "redirect_document_id": false
     }
   ]
