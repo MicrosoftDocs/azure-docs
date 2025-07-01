@@ -1,8 +1,8 @@
 ---
 title: Work with OAuth Tokens in Authentication and Authorization
-description: Learn how to retrieve tokens, refresh tokens, and extend session token expiration when you use the built-in authentication and authorization in Azure App Service.
+description: Learn how to retrieve, refresh, and extend session expiration for OAuth tokens when you use Azure App Service built-in authentication and authorization.
 ms.topic: how-to
-ms.date: 06/30/2025
+ms.date: 07/01/2025
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
@@ -10,16 +10,16 @@ ms.author: cephalin
 
 # Manage OAuth tokens in Azure App Service
 
-This article shows you how to manage OAuth tokens when you use [built-in authentication and authorization](overview-authentication-authorization.md) in Azure App Service.
+This article shows you how to manage [OAuth](/security/business/security-101/what-is-oauth) tokens for [built-in authentication and authorization](overview-authentication-authorization.md) in Azure App Service.
 
 ## Retrieve tokens in app code
 
-Provider-specific tokens are injected into the request header from your server code so you can easily access them. To get the provider-specific tokens, send an HTTP `GET` request to `/.auth/me` from your client code, such as a mobile app or in-browser JavaScript. [Token store](overview-authentication-authorization.md#token-store) must be enabled for the app. The returned JSON contains the provider-specific tokens.
+Azure App Service injects your provider-specific tokens into the request header so you can easily access them. To get the provider-specific tokens, [token store](overview-authentication-authorization.md#token-store) must be enabled for the app. Send an HTTP `GET` request to `/.auth/me` from your client code, such as a mobile app or in-browser JavaScript. The returned JSON has the provider-specific tokens.
 
 > [!NOTE]
 > Access tokens are for accessing provider resources, so are present only if you configure your provider with a client secret.
 
-The following table lists possible token headers from several providers:
+The following table lists the OAuth token header names for several App Service built-in providers:
 
 | Provider | Header names |
 |-|-|
