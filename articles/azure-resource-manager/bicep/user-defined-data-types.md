@@ -430,7 +430,7 @@ resourceOutput<'type@version'>
 
 `resourceOutput<>`: Represents the readable properties of a resource type, stripping away any properties marked as WriteOnly in the ARM template schema. It matches the type of value returned after the resource is provisioned.
 
-You can apply `resourceInput<>` to extract only a part of a resource schema. For example, to strongly type a variable or parameter based on just the `kind` or `properties` of a storage account:
+You can apply `resourceInput<>` or `resourceOutput<>` to extract only a part of a resource schema. For example, to strongly type a variable or parameter based on just the `kind` or `properties` of a storage account:
 
 ```bicep
 type accountKind = resourceInput<'Microsoft.Storage/storageAccounts@2024-01-01'>.kind
