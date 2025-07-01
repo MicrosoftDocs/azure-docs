@@ -13,13 +13,13 @@ ms.date: 06/30/2025
 
 You can deploy local apps to [Azure App Service](overview.md) by using [local Git deployment](deploy-local-git.md) or [FTP/S deployment](deploy-ftp.md). This article explains how to create and manage deployment credentials for local Git or FTP/S deployment.
 
-App Service supports two types of credentials for secure local app deployment: *user-scope* and *app-scope* credentials. These deployment credentials are different from your Azure subscription credentials.
+Deployment credentials are different from your Azure subscription credentials. App Service supports two types of credentials for secure local app deployment: *user-scope* and *app-scope* credentials.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
 ## Prerequisites
 
-To access, set, or reset deployment user credentials, you must have **Contributor**-level permissions on an App Service app.
+To set, reset, access, or use deployment credentials, you must have **Contributor**-level permissions on the App Service app.
 
 <a name="disable-basic-authentication"></a>
 ### Basic authentication requirement
@@ -37,9 +37,9 @@ The user name must be unique within Azure. For local Git deployment, the user na
 
 For FTP/S:
 
-- The user name must follow the format `<app-name>\<user-name>`. Since user-scope credentials are linked to the user and not to the app, the username must be in this format to direct the sign-in action to the correct FTP/S endpoint for the app.
+- The user name must follow the format `<app-name>\<user-name>`. Since user-scope credentials are linked to the user and not to the app, this format directs the sign-in action to the correct FTP/S endpoint for the app.
 
-- The password must be at least eight characters and contain capital letters, lowercase letters, numbers, and symbols. The JSON output from credential creation shows the password as `null`.
+- The password must be at least eight characters and contain capital letters, lowercase letters, numbers, and symbols. The user-scope creation JSON output and portal display don't show the password value. If you forget your password, you can [reset your credentials](#reset-credentials) to get a new one.
 
 You can configure user-scope credentials by using Azure CLI or the Azure portal.
 
@@ -68,8 +68,6 @@ In the [Azure portal](https://portal.azure.com), you must have at least one app 
 -----
 
 After you set user-scope credentials, you can see your deployment user name on your app's **Overview** page in the Azure portal. If local Git deployment is configured, the label is **Git/Deployment username**. Otherwise, the label is **FTP/Deployment username**.
-
-The portal doesn't show the password. If you forget your password, you can [reset your credentials](#reset-credentials) to get a new one.
 
 ![Screenshot that shows the Git deployment user name on an app's Overview page.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
