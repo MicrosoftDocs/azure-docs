@@ -412,6 +412,61 @@ output config object = serviceConfig
 
 For more information, see [Custom tagged union data type](./data-types.md#custom-tagged-union-data-type).
 
+## Resource-derived types
+
+Bicep allows you to derive types directly from Azure resource schemas using the `resourceInput<>` and `resourceOutput<>` constructs. Resource-derived types allow you to check parameters and variables against a portion of a resource body instead of with a custom type.
+
+Templates can reuse resource types wherever a type is expected:
+
+```bicep
+resourceInput<'type@version'>
+```
+
+`resourceInput<>`: Represents the writable properties of a resource type, stripping away any properties marked as WriteOnly in the ARM schema. It uses the type that you would need to pass in to the resource declaration.
+
+```bicep
+resourceOutput<'type@version'>
+```
+
+`resourceOutput<>`: Represents the readable properties of a resource type, stripping away any properties marked as ReadOnly in the ARM schema. It matches the type of value returned after the resource is provisioned. 
+
+You can apply `resourceInput<>` to extract only a part of a resource schema. For example, to strongly type a variable or parameter based on just the `kind` or `properties` of a storage account:
+
+```bicep
+type accountKind = resourceInput<'Microsoft.Storage/storageAccounts@2024-01-01'>.kind
+```
+
+This is equivalent to:
+
+```bicep
+type accountKind = 'BlobStorage' | 'BlockBlobStorage' | 'FileStorage' | 'Storage' | 'StorageV2'
+```
+
+The following example shows how to use `resourceInput<>` to create a strongly typed parameter based on the `properties` of a storage account resource. This allows you to define a parameter that matches the writable properties of a storage account, such as `accessTier`, `minimumTlsVersion`, and others:
+
+```bicep
+// Strongly typed variable using the .properties path of a storage account
+param storageAccountProps resourceInput<'Microsoft.Storage/storageAccounts@2023-01-01'>.properties = {
+  accessTier: 'Hot'
+  minimumTlsVersion: 'TLS1_2'
+  allowBlobPublicAccess: false
+  supportsHttpsTrafficOnly: true
+}
+
+// Resource declaration using the strongly typed properties variable
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+  name: 'mystorageacct123'
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: storageAccountProps
+}
+```
+
+Unlike user-defined data types, resource-derived types are checked by Bicep when editing or compiling a file, but they are not checked by the ARM service.
+
 ## Related content
 
 For a list of the Bicep data types, see [Data types](./data-types.md).
