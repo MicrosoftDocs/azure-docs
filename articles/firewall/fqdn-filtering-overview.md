@@ -66,7 +66,3 @@ Application rules are designed for filtering HTTP/S and MSSQL traffic. They rely
 - Provide finer granularity for supported protocols.
 
 By understanding the differences between these rule types, you can effectively configure Azure Firewall to meet your organization's security and traffic management needs.
-
-## Next steps
-
-- Learn how to [create a DNAT rule](dnat-rule.md) using FQDN filtering.
