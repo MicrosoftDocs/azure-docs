@@ -2,7 +2,7 @@
 title: Elastic integration overview
 description: Learn about using the Elastic Cloud-Native Observability Platform in Azure Marketplace.
 ms.topic: overview
-ms.date: 01/17/2025
+ms.date: 07/01/2025
 ---
 
 # What is Elastic Cloud (Elasticsearch)?
@@ -43,9 +43,9 @@ Here are the key capabilities provided by the Elastic integration with Azure:
 
 ## Elastic links
 
-For more help with using the Elastic service, see the [Elastic documentation](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html) for Azure integration.
+For more help using the Elastic service, see the [Elastic documentation](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html) for Azure integration.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [QuickStart: Get started with Elastic](create.md)

@@ -2,7 +2,7 @@
 title: Manage settings for your Elastic resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Elastic resource via Azure portal.
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 07/01/2025
 
 
 ---
