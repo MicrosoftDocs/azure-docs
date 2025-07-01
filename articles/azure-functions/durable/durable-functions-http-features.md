@@ -451,17 +451,17 @@ public static async Task RunOrchestrator(
 public static async Task<string> RestartVm(
     [OrchestrationTrigger] TaskOrchestrationContext context)
 {
-    ILogger logger = context.CreateReplaySafeLogger(nameof(RestartVm));
-
     string subscriptionId = "mySubId";
     string resourceGroup = "myRG";
     string vmName = "myVM";
     string apiVersion = "2019-03-01";
 
+    // Automatically fetches an Azure AD token for resource = https://management.core.windows.net/.default
+    // and attaches it to the outgoing Azure Resource Manager API call.
     var tokenSource = new ManagedIdentityTokenSource("https://management.core.windows.net/.default");
 
     var response = await context.CallHttpAsync(
-        HttpMethod.Post, 
+        HttpMethod.Post,
         new Uri($"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/restart?api-version={apiVersion}"),
         tokenSource: tokenSource);
 
