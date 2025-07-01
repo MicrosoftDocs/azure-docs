@@ -11,6 +11,7 @@ ms.author: pauljewell
 ms.reviewer: nachakra
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python, engagement-fy23
+# Customer intent: As a developer using the Azure Blob Storage client library for Python, I want to create a service shared access signature (SAS) for a container or blob, so that I can delegate controlled access to resources in my application securely.
 ---
 
 # Create a service SAS for a container or blob with Python

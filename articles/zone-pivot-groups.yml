@@ -1127,7 +1127,7 @@ groups:
     title: Managed
   - id: aca-vnet-custom
     title: Custom
-# Onwer: cshoe
+# Owner: cshoe
 - id: azure-azd-cli-portal
   title: Interface
   prompt: Choose your interface
@@ -1914,7 +1914,7 @@ groups:
   prompt: Choose a connection type
   pivots:
   - id: connection-agentless
-    title: Agentless data connector (Preview)
+    title: Agentless data connector (Limited preview)
   - id: connection-agent
     title: Data connector agent
 # Owner: jodowns

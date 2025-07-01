@@ -9,6 +9,7 @@ ms.topic: overview
 ms.date: 06/09/2023
 ms.author: jushiman #ananyagarg #sgallagher #michamcr
 ms.custom: inspire-july-2022
+# Customer intent: "As a data security manager, I want to implement confidential computing in my cloud infrastructure, so that I can ensure the protection of sensitive data in use and minimize the risk of unauthorized access."
 ---
 
 # What is confidential computing?

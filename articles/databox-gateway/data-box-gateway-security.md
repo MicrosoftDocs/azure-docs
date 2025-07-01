@@ -8,6 +8,7 @@ ms.service: azure-data-box-gateway
 ms.topic: concept-article
 ms.date: 10/20/2020
 ms.author: shaas
+# Customer intent: "As a data security administrator, I want to ensure the protection and privacy of my organization's data during transfer and storage, so that I can comply with regulations and safeguard sensitive information when using the Data Box Gateway solution."
 ---
 
 # Azure Data Box Gateway security and data protection

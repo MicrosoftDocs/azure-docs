@@ -9,6 +9,7 @@ ms.date: 09/04/2024
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: mvc, mode-ui
+# Customer intent: "As a network engineer, I want to set up an application gateway that directs web traffic to backend virtual machines, so that I can manage traffic efficiently and ensure high availability for my web applications."
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure portal

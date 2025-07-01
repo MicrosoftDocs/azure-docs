@@ -1,10 +1,11 @@
 ---
 title: App Service Access restrictions
 description: This article provides an overview of the access restriction features in App Service.
-author: madsd
+author: seligj95
 ms.topic: overview
 ms.date: 02/13/2024
-ms.author: madsd
+ms.update-cycle: 1095-days
+ms.author: jordanselig
 ms.custom: UpdateFrequency3
 ---
 
