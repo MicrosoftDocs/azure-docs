@@ -499,12 +499,12 @@ To review the relevant application configurations of your existing app:
  
 1. In the **General settings** tab, make a note of these settings:
 
-  + **SCM Basic Auth Publishing Credentials**
-  + **HTTP version**
-  + **HTTPS Only**
-  + **Minimum Inbound TLS Version**
-  + **Minimum Inbound TLS Cipher**
-  + **Incoming client certificates**
+	+ **SCM Basic Auth Publishing Credentials**
+	+ **HTTP version**
+	+ **HTTPS Only**
+	+ **Minimum Inbound TLS Version**
+	+ **Minimum Inbound TLS Cipher**
+	+ **Incoming client certificates**
 
 1. In the **Path mappings** tab, verify if there are any existing file share mounts required by your app. If there are, note the storage **Account name**, **Share name**, **Mount path**, and access **Type** for each mounted share.
 
@@ -993,11 +993,11 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 
 1. In the left menu, expand **Settings** > **Configuration** and on the **General settings** tab update these settings to match what you documented from your original Consumption plan app:
 
-  + **SCM Basic Auth Publishing Credentials**
-  + **HTTP version**
-  + **HTTPS Only**
-  + **Minimum Inbound TLS Version and cypher**
-  + **Client Certificate settings**
+	+ **SCM Basic Auth Publishing Credentials**
+	+ **HTTP version**
+	+ **HTTPS Only**
+	+ **Minimum Inbound TLS Version and cypher**
+	+ **Client Certificate settings**
 
 1. Select **Save** to apply the configuration changes.
 

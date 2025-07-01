@@ -274,7 +274,7 @@ For Python projects, you should package the root of your project file and always
 
 ### [Continuous Deployment](#tab/continuous-deployment)
 
-Azure Functions has both a custom GitHub Action and a custom Azure Piplines Task to support continuous deployment. Refer the following guides to incorporate these tools in your CI/CD pipelines:
+Azure Functions has both a custom GitHub Action and a custom Azure Pipelines Task to support continuous deployment. Refer the following guides to incorporate these tools in your CI/CD pipelines:
 
 - [Build and deploy using Azure Pipelines](./functions-how-to-azure-devops.md)
 - [Build and deploy using GitHub Actions](./functions-how-to-github-actions.md)
