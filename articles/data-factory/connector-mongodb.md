@@ -274,7 +274,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage           | Change log |
 | :------- | :---------------------- |:---------- |
-| MongoDB (legacy) | End of support announced | / |
+| MongoDB (legacy) | End of support | / |
 | MongoDB | GA version available | • Support the equivalent MongoDB queries only. <br><br>• Date, Double, Int32 and Int64 are read as String data type. |
 
 ### Upgrade the MongoDB linked service
