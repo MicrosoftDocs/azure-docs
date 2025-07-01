@@ -200,7 +200,7 @@ The following properties are supported in the Copy Activity **sink** section:
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out. The allowed value is timespan. | No<br/>(the default is **00:30:00** - 30 minutes) |
 
 >[!TIP]
->To import JSON documents as-is, refer to [Import or export JSON documents](#import-and-export-json-documents) section; to copy from tabular-shaped data, refer to [Schema mapping](#schema-mapping).
+>To import JSON documents as-is, refer to [Import or export JSON documents](#import-and-export-json-documents) section; to copy from tabular-shaped data, refer to [Schema mapping](#data-type-mapping-for-mongodb).
 
 **Example**
 
@@ -244,16 +244,11 @@ You can use this MongoDB connector to easily:
 
 To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
 
-
-## Schema mapping
-
-To copy data from MongoDB to tabular sink or reversed, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
-
 ## Data type mapping for MongoDB
 
 When copying data from MongoDB, the following mappings are used from MongoDB data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| MongoDB data Type | Interim Service Data Type | Interim Service Data Type (Forlegacy) |
+| MongoDB data Type | Interim Service Data Type | Interim Service Data Type (For Legacy) |
 |:---|:---|:---|
 | Date | String | Int64 |
 | ObjectId | String | String |
@@ -273,7 +268,16 @@ When copying data from MongoDB, the following mappings are used from MongoDB dat
 | maxKey | Int64 | Int64 |
 | Binary | String | String |
 
-## Upgrade the MongoDB linked service
+## MongoDB connector lifecycle and upgrade
+
+The following table shows the release stage and change logs for different versions of the MongoDB connector:
+
+| Version  | Release stage           | Change log |
+| :------- | :---------------------- |:---------- |
+| MongoDB (legacy) | End of support announced | / |
+| MongoDB | GA version available | • Support the equivalent MongoDB queries only. <br><br>• Date, Double, Int32 and Int64 are read as String data type. |
+
+### Upgrade the MongoDB linked service
 
 Here are steps that help you upgrade your linked service and related queries:
 
