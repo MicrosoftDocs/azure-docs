@@ -33,6 +33,7 @@ Azure Container Registry is built on Azure's distributed infrastructure to provi
 
 The service provides built-in resilency through zone redundancy within supported regions, and geo-replication across regions. Zone redundancy automatically distributes data across multiple availability zones, while geo-replication creates independent registry replicas in customer-selected regions. Both features are available in the Premium tier and work together to provide comprehensive protection against infrastructure failures.
 
+<!-- I'm worried this diagram might add more confusion. It makes it look like only some parts of the service are zone redundant, and that the control plane, data plane, and storage layers are distinct from zone redundancy. The later diagrams are clearer, so I feel like it might be best to omit this one. Anastasia - any thoughts? -->
 :::image type="content" source="./media/reliability-acr/acr-reliability-architecture-overview.png" alt-text="Diagram that shows Azure Container Registry architecture with control plane, data plane, storage layer, zone redundancy across availability zones, and geo-replication across regions." border="false" lightbox="./media/reliability-acr/acr-reliability-architecture-overview.png":::
 
 > [!NOTE]
@@ -194,6 +195,8 @@ This section describes what to expect when a registry is configured for geo-repl
 
 When a region becomes unavailable, container operations can continue using alternative regional endpoints:
 
+<!-- Chase: Given this section is specifically about the region-down experience, I feel like it might be more confusing than helpful to have the "Normal state" part of the diagram on the right. Do you think it could be removed? -->
+<!-- TODO need to check this diagram after it's clear whether this is an active-active or active-passive approach. -->
 :::image type="content" source="./media/reliability-acr/acr-geo-replication-failover.png" alt-text="Diagram that shows regional failover scenario where primary region becomes unavailable and application health monitoring triggers failover to replica regions." border="false" lightbox="./media/reliability-acr/acr-geo-replication-failover.png":::
 
 - **Detection and response**. Customer applications are responsible for detecting regional endpoint unavailability and switching to alternative regions. Configure health checks and failover logic in your container orchestration platforms. <!-- Need to verify this. -->
