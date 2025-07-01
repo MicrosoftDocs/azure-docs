@@ -219,6 +219,8 @@ items:
     href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
   - name: Enable VMware HCX access over the internet
     href: enable-hcx-access-over-internet.md
+  - name: Migrate workloads between Azure VMware Solution private clouds
+    href: migrate-between-avs-private-clouds.md
   - name: Upgrade VMware HCX on Azure VMware Solution
     href: upgrade-hcx-azure-vmware-solutions.md
   - name: Use VMware HCX Run Commands
