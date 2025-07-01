@@ -147,7 +147,7 @@ Follow the steps in this section to create a migration project and run a migrati
     - **Project description**: A useful description for the project.
     - Select **Create** to create the project.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/project-create-sml.png" alt-text="A screen capture showing the Project Explorer page with the Create a Project pane's fields visible." lightbox="media/cloud-to-cloud-migration/create-job.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/project-create-sml.png" alt-text="A screen capture showing the Project Explorer page with the Create a Project pane's fields visible." lightbox="media/cloud-to-cloud-migration/project-create.png":::
 
 1. Select the newly created project after it appears within the **Project explorer**, then select **Create job definition** to open the **Create a Migration Job** page's **Basics** tab. Provide values for the following fields:
     - **Job name**: A meaningful name for the migration.
