@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 06/15/2025
+ms.date: 07/01/2025
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 ms.custom:
   - build-2025
@@ -17,6 +17,12 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 The listed features were released in the last six months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## July 2025
+
+### Microsoft Sentinel in the Defender portal to be deprecated July 2026
+
+[!INCLUDE [sentinel-azure-deprecation](includes/sentinel-azure-deprecation.md)]
 
 ## June 2025
 
