@@ -62,9 +62,11 @@
 - name: HPC Performance and Benchmarking
   expanded: true
   items:
-  - name: Performance and Benchmarking Overview
+  - name: Performance and benchmarking overview
     href: ./performance-benchmarking/overview.md
-  - name: HPC Performance and Benchmarking Applications
+  - name: HPC workload best practices and storage solutions
+    href: ./performance-benchmarking/hpc-storage-options.md    
+  - name: HPC performance and benchmarking applications
     href: ./performance-benchmarking/high-performance-computing-performance-benchmarking-applications.md
-  - name: Performance Optimization for HPC and AI VMs
+  - name: Performance optimization for HPC and AI VMs
     href: ./performance-benchmarking/optimize-performance.md

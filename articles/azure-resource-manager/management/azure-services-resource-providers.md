@@ -68,7 +68,7 @@ The resource providers for compute services are:
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
 | Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
-| Microsoft.DesktopVirtualization | [Azure Virtual Desktop](../../virtual-desktop/index.yml) |
+| Microsoft.DesktopVirtualization | [Azure Virtual Desktop](/azure/virtual-desktop/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.HanaOnAzure | [SAP HANA on Azure Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |

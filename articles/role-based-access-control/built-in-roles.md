@@ -4,10 +4,10 @@ description: This article describes the Azure built-in roles for Azure role-base
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 05/25/2025
+author: jenniferf-skc    
+manager: pmwongera
+ms.author: jfields
+ms.date: 06/30/2025
 ms.custom: generated
 ---
 
@@ -198,6 +198,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-container-storage-operator'></a>[Azure Container Storage Operator](./built-in-roles/containers.md#azure-container-storage-operator) | Enable a managed identity to perform Azure Container Storage operations, such as manage virtual machines and manage virtual networks. | 08d4c71a-cc63-4ce4-a9c8-5dd251b4d619 |
 > | <a name='azure-container-storage-owner'></a>[Azure Container Storage Owner](./built-in-roles/containers.md#azure-container-storage-owner) | Install Azure Container Storage, grant access to its storage resources, and configure Azure Elastic storage area network (SAN). Includes an ABAC condition to constrain role assignments. | 95de85bd-744d-4664-9dde-11430bc34793 |
 > | <a name='azure-kubernetes-fleet-manager-contributor-role'></a>[Azure Kubernetes Fleet Manager Contributor Role](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-contributor-role) | Grants read/write access to Azure resources provided by Azure Kubernetes Fleet Manager, including fleets, fleet members, fleet update strategies, fleet update runs, etc. | 63bb64ad-9799-4770-b5c3-24ed299a07bf |
+> | <a name='azure-kubernetes-fleet-manager-hub-agent-role'></a>[Azure Kubernetes Fleet Manager Hub Agent Role](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-hub-agent-role) | Grants access to Azure resources needed by Azure Kubernetes Fleet Manager hub agents. | de2b316d-7a2c-4143-b4cd-c148f6a355a1 |
 > | <a name='azure-kubernetes-fleet-manager-rbac-admin'></a>[Azure Kubernetes Fleet Manager RBAC Admin](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-admin) | Grants read/write access to Kubernetes resources within a namespace in the fleet-managed hub cluster - provides write permissions on most objects within a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces. | 434fb43a-c01c-447e-9f67-c3ad923cfaba |
 > | <a name='azure-kubernetes-fleet-manager-rbac-cluster-admin'></a>[Azure Kubernetes Fleet Manager RBAC Cluster Admin](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-cluster-admin) | Grants read/write access to all Kubernetes resources in the fleet-managed hub cluster. | 18ab4d3d-a1bf-4477-8ad9-8359bc988f69 |
 > | <a name='azure-kubernetes-fleet-manager-rbac-reader'></a>[Azure Kubernetes Fleet Manager RBAC Reader](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-reader) | Grants read-only access to most Kubernetes resources within a namespace in the fleet-managed hub cluster. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces. | 30b27cfc-9c84-438e-b0ce-70e35255df80 |

@@ -80,7 +80,7 @@ The retry policy tells the runtime to rerun a failed execution until either succ
 A retry policy is evaluated when a function executed by a supported trigger type raises an uncaught exception. As a best practice, you should catch all exceptions in your code and raise new exceptions for any errors that you want to result in a retry.
 
 > [!IMPORTANT]
-> Event Hubs checkpoints aren't written until after the retry policy for the execution finishes. Because of this behavior, progress on the specific partition is paused until the current batch is done processing.
+> Event Hubs checkpoints aren't written until after the retry policy for the execution finishes. Because of this behavior, progress on the specific partition is paused until the current batch is done processing. For more information, see [Azure Functions reliable event processing](functions-reliable-event-processing.md).
 >
 > The version 5.x of the Event Hubs extension supports extra retry capabilities for interactions between the Functions host and the event hub. For more information, see `clientRetryOptions` in the [Event Hubs host.json reference](functions-bindings-event-hubs.md#host-json).
 

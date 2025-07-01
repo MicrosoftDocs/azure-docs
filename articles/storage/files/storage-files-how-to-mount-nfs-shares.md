@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
-ms.date: 05/27/2025
+ms.date: 07/01/2025
 ms.author: kendownie
 # Customer intent: As a Linux system administrator, I want to mount an NFS Azure file share, so that I can securely access and manage data stored in Azure from my Linux environment.
 ---
@@ -47,17 +47,6 @@ NFS file shares can only be accessed from trusted networks. Currently, the only 
 
 To use NFS Azure file shares, you must either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
 
-### Disable secure transfer
-
-Follow these steps to disable secure transfer on your storage account. Alternatively, you can [enable encryption in transit (preview)](encryption-in-transit-for-nfs-shares.md).
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) and access the storage account containing the NFS share you created.
-1. Select **Configuration**.
-1. Select **Disabled** for **Secure transfer required**.
-1. Select **Save**.
-
-    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration screen with secure transfer disabled." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
-
 ### Enable hybrid access through VPN or ExpressRoute (optional)
 
 To enable hybrid access to an NFS Azure file share, use one of the following networking solutions:
@@ -75,10 +64,10 @@ You can mount the share using the Azure portal. You can also create a record in 
 You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
 
 1. Once the file share is created, select the share and select **Connect from Linux**.
-1. Enter the mount path you'd like to use, then copy the script.
+1. Enter the mount path you'd like to use, then copy the script. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package. Once installed, you can use the provided AZNFS mount script to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md).
 1. Connect to your client and use the provided mounting script. Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot of file share connect blade.":::
+    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" border="true":::
 
 The NFS file share is now mounted.
 
