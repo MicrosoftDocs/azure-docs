@@ -246,13 +246,13 @@ You can set these properties on retry policy definitions:
 
 Here's an example of a Timer trigger function that uses a fixed delay retry strategy:
 
-:::code language="python" source="~/azure-functions-python-worker/tests/endtoend/retry_policy_functions/fixed_strategy/function_app.py" :::
+:::code language="python" source="~/azure-functions-python-worker/workers/tests/endtoend/retry_policy_functions/fixed_strategy/function_app.py" :::
 
 #### [Python v2 model](#tab/python-v2/exponential-backoff)
 
 Here's an example of a Timer trigger function that uses an exponential backoff retry strategy:
 
-:::code language="python" source="~/azure-functions-python-worker/tests/endtoend/retry_policy_functions/exponential_strategy/function_app.py" :::
+:::code language="python" source="~/azure-functions-python-worker/workers/tests/endtoend/retry_policy_functions/exponential_strategy/function_app.py" :::
 
 #### [Python v1 model](#tab/python-v1/fixed-delay)
 
