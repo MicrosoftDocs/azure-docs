@@ -32,7 +32,7 @@ Key benefits of Microsoft Sentinel data lake (Preview) as a single platform arch
 + Support for multiple analytics engines to unlock deeper insights from your security data
 + Native integration with Microsoft Sentinel, including the ability to tier log data across analytics and lake tiers 
 
-For more information, see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md).
+For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
 
 ## Microsoft security service integrations
 
@@ -80,7 +80,7 @@ The following table provides high-level descriptions for how to use Microsoft Se
 
 - [Microsoft Sentinel operational guide](ops-guide.md)
 - [On-board Microsoft Sentinel](quickstart-onboard.md)
-- [On-board Microsoft Sentinel data lake](graph/sentinel-lake-onboarding.md)
+- [On-board Microsoft Sentinel data lake](https://aka.ms/sentinel-lake-onboarding)
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)
 - [Protecting MSSP intellectual property in Microsoft Sentinel](mssp-protect-intellectual-property.md)
 

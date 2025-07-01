@@ -40,7 +40,7 @@ The deployment phase is typically performed by a SOC analyst or related roles.
 | [**2. Configure content**](configure-content.md) | Configure the different types of Microsoft Sentinel security content, which allow you to detect, monitor, and respond to security threats across your systems: Data connectors, analytics rules, automation rules, playbooks, workbooks, and watchlists. |
 | [**3. Set up a cross-workspace architecture**](use-multiple-workspaces.md) | If your environment requires multiple workspaces, you can now set them up as part of your deployment. In this article, you learn how to set up Microsoft Sentinel to extend across multiple workspaces and tenants. |
 | [**4. Enable User and Entity Behavior Analytics (UEBA)**](enable-entity-behavior-analytics.md) | Enable and use the UEBA feature to streamline the analysis process.  |
-| [**5.Configure Microsoft Sentinel data lake**](/graph/sentinel-lake-onboarding.md) | Configure interactive and data retention settings to ensure your organization retains critical long-term data, leveraging the Microsoft Sentinel data lake for cost-effective storage, enhanced visibility, and seamless integration with advanced analytics tools. |
+| [**5.Configure Microsoft Sentinel data lake**](https://aka.ms/sentinel-lake-onboarding) | Configure interactive and data retention settings to ensure your organization retains critical long-term data, leveraging the Microsoft Sentinel data lake for cost-effective storage, enhanced visibility, and seamless integration with advanced analytics tools. |
 
 ## Fine tune and review: Checklist for post-deployment
 
@@ -71,7 +71,7 @@ Depending on which phase you're in, choose the appropriate next steps:
 - Fine tune and review - [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
 
 When you're finished with your deployment of Microsoft Sentinel, continue to explore Microsoft Sentinel capabilities by reviewing tutorials that cover common tasks:  
-- [What is Microsoft Sentinel data lake?](graph/sentinel-lake-overview.md)
+- [What is Microsoft Sentinel data lake?](https://aka.ms/sentinel-lake-overview)
 - [Forward Syslog data to a Log Analytics workspace with Microsoft Sentinel by using Azure Monitor Agent](forward-syslog-monitor-agent.md)
 - [Configure table-level retention](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2#configure-table-level-retention)
 - [Detect threats using analytics rules](tutorial-log4j-detection.md)

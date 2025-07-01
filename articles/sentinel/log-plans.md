@@ -101,7 +101,7 @@ The **Auxiliary logs** plan keeps data in the **interactive retention** state fo
 When the interactive retention period ends, data goes into the **long-term retention** state, remaining in its original table. Long-term retention in the auxiliary logs plan is similar to long-term retention in the analytics logs plan, except that the only option to access the data is with a [**search job**](investigate-large-datasets.md). [Restore](restore.md) is not supported for the auxiliary logs plan.
 
 > [!NOTE]
-> We recommend considering Microsoft Sentinel data lake (Preview) as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios. For more information, see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md). 
+> We recommend considering Microsoft Sentinel data lake (Preview) as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios. For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview). 
 
 ## Related content
 
@@ -109,5 +109,5 @@ When the interactive retention period ends, data goes into the **long-term reten
 
 - To set up a table in the Auxiliary logs plan, see [Set up a table with the Auxiliary plan in your Log Analytics workspace](/azure/azure-monitor/logs/create-custom-table-auxiliary).
 - To understand more about retention periods&mdash;which exist across plans&mdash;see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure).
-- To understand more about Microsoft Sentinel data lake (Preview), see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md).
-- To onboard to Microsoft Sentinel data lake (Preview), see [Onboard data to Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-onboarding.md). 
+- To understand more about Microsoft Sentinel data lake (Preview), see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
+- To onboard to Microsoft Sentinel data lake (Preview), see [Onboard data to Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-onboarding). 

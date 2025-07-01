@@ -4,7 +4,7 @@ description: Learn how to aggregate large sets of Microsoft Sentinel data across
 author: batamig
 ms.author: bagol
 ms.topic: how-to #Don't change
-ms.date: 10/16/2024
+ms.date: 07/01/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
