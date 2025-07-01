@@ -449,7 +449,7 @@ public static async Task RunOrchestrator(
 ```csharp
 [Function(nameof(RestartVm))]
 public static async Task<string> RestartVm(
-        [OrchestrationTrigger] TaskOrchestrationContext context)
+    [OrchestrationTrigger] TaskOrchestrationContext context)
 {
     ILogger logger = context.CreateReplaySafeLogger(nameof(RestartVm));
 
