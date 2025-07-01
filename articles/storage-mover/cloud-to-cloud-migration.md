@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 06/30/2025
+ms.date: 07/01/2025
 ---
 
 # Get started with cloud-to-cloud migration in Azure Storage Mover (Preview)
@@ -98,13 +98,13 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
     :::image type="content" source="media/cloud-to-cloud-migration/connectors-available-sml.gif" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/connectors-available.gif":::
 
-## Configure Source and Destination Endpoints
+## Configure Source and Target Endpoints
 
-After you configure the multicloud connector, the next step is to create source and destination endpoints for your migration.
+After you configure the multicloud connector, the next step is to create source and target endpoints for your migration.
 
-In the context of the Azure Storage Mover service, an *endpoint* is a resource that contains the path to either a source or destination location and other relevant information. Storage Mover *job definitions* use endpoints to define the source and target locations for copy operations.
+In the context of the Azure Storage Mover service, an *endpoint* is a resource that contains the path to either a source or target location and other relevant information. Storage Mover *job definitions* use endpoints to define the source and target locations for copy operations.
 
-Follow the steps in this section to configure an AWS S3 source endpoint and an Azure Blob Storage destination endpoint. To learn more about Storage Mover endpoints, refer to the [Manage Azure Storage Mover endpoints](endpoint-manage.md) article.
+Follow the steps in this section to configure an AWS S3 source endpoint and an Azure Blob Storage target endpoint. To learn more about Storage Mover endpoints, refer to the [Manage Azure Storage Mover endpoints](endpoint-manage.md) article.
 
 ### Configure an AWS S3 Source Endpoint
 
@@ -133,27 +133,40 @@ Follow the steps in this section to configure an AWS S3 source endpoint and an A
 
         :::image type="content" source="media/cloud-to-cloud-migration/endpoint-target-create-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Target Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/endpoint-target-create.png":::
 
-## Create a Migration Job
+## Create a migration project and job definition
 
-After you define source and destination endpoints for your migration, the next step is to create a Storage Mover Migration Job Definition.
+After you define source and target endpoints for your migration, the next steps are to create a Storage Mover migration project and job definition.
 
-A Job Definition describes resources and migration options for a specific set of copy operations undertaken by the Storage Mover service. These resources include, for example, the source and destination endpoints, and any migration settings you want to apply.
+A *migration project* allows you to organize large migrations into smaller, more manageable units that make sense for your use case. A *job definition* describes resources and migration options for a specific set of copy operations undertaken by the Storage Mover service. These resources include, for example, the source and target endpoints, and any migration settings you want to apply.
 
-Follow the steps in this section to create and run a Storage Mover Migration Job. To learn more about other Storage Mover job types, refer to the [Define and start a migration job](job-definition-create.md) article.
+Follow the steps in this section to create a migration project and run a migration job.
 
-1. Navigate to the **Project explorer** tab in your Storage Mover instance.
-1. Select **Create job definition**.
+1. Navigate to the **Project explorer** tab in your Storage Mover instance and select **Create project**.
 1. Provide values for the following fields:
+    - **Project name**: A meaningful name for the migration.
+    - **Project description**: A useful description for the project.
+    - Select **Create** to create the project.
+
+    :::image type="content" source="media/cloud-to-cloud-migration/project-create-sml.png" alt-text="A screen capture showing the Project Explorer page with the Create a Project pane's fields visible." lightbox="media/cloud-to-cloud-migration/create-job.png":::
+
+1. Select the newly created project after it appears within the **Project explorer**, then select **Create job definition** to open the **Create a Migration Job** page's **Basics** tab. Provide values for the following fields:
     - **Job name**: A meaningful name for the migration.
     - **Migration type**: Select `Cloud to cloud`.
     
-        :::image type="content" source="media/cloud-to-cloud-migration/create-job-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Basics tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-job.png":::
-    - **Source endpoint**: Select the AWS S3 bucket configured via Azure Arc.
-        > [!NOTE]
-        > Amazon S3 buckets might take up to an hour to become visible within newly created Multicloud connectors.
+    :::image type="content" source="media/cloud-to-cloud-migration/create-job-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Basics tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-job.png":::
 
-        :::image type="content" source="media/cloud-to-cloud-migration/create-source-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-source.png":::
-    - **Destination endpoint**: Select the Azure Blob Storage container.
+1. Within the **Source** tab, select the **Select an existing endpoint** option for the **Source endpoint** field. 
+
+    :::image type="content" source="media/cloud-to-cloud-migration/create-source-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-source.png":::
+
+    Next, select the **Select an existing endpoint as a source** link to open the **Select an existing endpoint** pane. Choose the AWS S3 source endpoint created in the previous section and select **Select** to save your changes.
+
+    > [!NOTE]
+    > Amazon S3 buckets might take up to an hour to become visible within newly created Multicloud connectors.
+
+    :::image type="content" source="media/cloud-to-cloud-migration/select-source-sml.png" alt-text="A screen capture showing the Select an existing source endpointpane." lightbox="media/cloud-to-cloud-migration/select-source.png":::
+
+1. Within the **Target** tab, select the **Select an existing endpoint reference** option for the **Target endpoint** field. Next, select the **Select an existing endpoint as a target** link to open the **Select an existing endpoint** pane. Choose the Azure Blob Storage target endpoint created in the previous section and select **Select** to save your changes. Verify that the correct target endpoint is displayed in the **Existing target endpoint** field and then select **Next** to continue to the **Settings** tab.
 
         :::image type="content" source="media/cloud-to-cloud-migration/create-target-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Target tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-target.png":::
     - **Copy mode**: Select `Mirror source to target`.
