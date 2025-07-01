@@ -188,8 +188,12 @@
       href: durable-functions-create-portal.md
     - name: Manage connections
       href: ../manage-connections.md?toc=/azure/azure-functions/durable/toc.json
-    - name: Unit testing
+    - name: Unit testing (C# in-process)
       href: durable-functions-unit-testing.md
+    - name: Unit testing (C# isolated)
+      href: durable-functions-unit-testing-dotnet-isolated.md
+    - name: Unit testing (Python)
+      href: durable-functions-unit-testing-python.md
     - name: Create as WebJobs
       href: durable-functions-webjobs-sdk.md
     - name: Durable entities in .NET

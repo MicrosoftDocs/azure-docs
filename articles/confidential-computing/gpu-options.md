@@ -8,6 +8,7 @@ ms.service: azure-virtual-machines
 ms.custom: confidential-compute
 ms.topic: concept-article
 ms.date: 07/16/2024
+# Customer intent: As a cloud architect, I want to understand the specifications and deployment considerations for Azure confidential GPU VMs so that I can effectively plan and implement secure computational solutions in my organization.
 ---
 
 # Azure Confidential GPU options

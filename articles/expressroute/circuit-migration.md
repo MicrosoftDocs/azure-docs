@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
+# Customer intent: "As a network engineer, I want to migrate my ExpressRoute circuit to a new circuit with minimal service interruption, so that I can maintain continuous production traffic during the transition."
 ---
 
 # Migrate to a new ExpressRoute circuit

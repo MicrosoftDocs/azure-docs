@@ -431,7 +431,7 @@ Once you set the call options, then use the `startCall()` method in the [TeamsCa
 
 After you sign in as an agent with a dual persona identity, you can add that Teams Phone extensibility call agent to an established call using their dual persona identity.
 
-The following example shows a request to add a Teams Phone extensibility call agent with Microsoft Entra ID identifier `e5b7f628-ea94-4fdc-b3d9-1af1fe231111` in tenant `87d349ed-44d7-43e1-9a83-5f2406dee5bd` scoped to Azure Communication Services Resource `0269be4d-5be0-4770-bf9c-a1bf50ee78d5`. 
+The following example shows a request to add a Teams Phone extensibility call agent with Microsoft Entra ID identifier `0269be4d-5be0-4770-bf9c-a1bf50ee78d5` in tenant `87d349ed-44d7-43e1-9a83-5f2406dee5bd` scoped to Azure Communication Services Resource `e5b7f628-ea94-4fdc-b3d9-1af1fe231111`. 
 
 ```csharp
 //Call is already established

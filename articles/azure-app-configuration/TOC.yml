@@ -220,6 +220,12 @@
       href: howto-variant-feature-flags-python.md
     - name: JavaScript
       href: howto-variant-feature-flags-javascript.md
+  - name: Enable telemetry for feature flags
+    items:
+    - name: Overview
+      href: howto-telemetry.md
+    - name: Python
+      href: howto-telemetry-python.md
 - name: CI/CD integration
   items:
   - name: Use configuration files
@@ -390,6 +396,8 @@
         href: ./reference-kubernetes-provider.md
     - name: Go
       items:
+      - name: Feature reference
+        href: https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration
       - name: Azure SDK for Go
         href: https://go.microsoft.com/fwlink/?linkid=2270866
 
@@ -419,6 +427,10 @@
       items:
       - name: Feature reference
         href: ./feature-management-javascript-reference.md
+    - name: Telemetry
+      items:
+      - name: Feature flag telemetry reference
+        href: feature-flag-telemetry-reference.md
   - name: Deployment
     items:
     - name: ARM template
@@ -434,6 +446,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: Azure MCP Server
+    href: /azure/developer/azure-mcp-server/tools/app-configuration?toc=/azure/azure-app-configuration/TOC.json
 - name: Resources
   items:
   - name: Pricing

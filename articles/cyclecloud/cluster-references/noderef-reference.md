@@ -2,13 +2,13 @@
 title: Cluster Template Reference - Network
 description: Noderef reference for cluster templates for use with Azure CycleCloud
 author: adriankjohnson
-ms.date: 06/03/2024
+ms.date: 06/29/2025
 ms.author: adjohnso
 ms.custom: compute-evergreen
 ---
 # NodeRef
 
-Noderef is rank 1.  Noderef is an internal reference to another CycleCloud node.
+NodeRef is rank 1. NodeRef is an internal reference to another CycleCloud node.
 
 ## Examples
 
@@ -24,11 +24,11 @@ Noderef is rank 1.  Noderef is an internal reference to another CycleCloud node.
 ## Blocking Behavior
 
 Defining a `noderef` in a cluster template file, then using it in a node definition creates a resource dependency. The referring node is now
-dependent on the referred node.  This means that some state transitions are blocked on both the referring and referred node.
+dependent on the referred node. This dependency blocks some state transitions on both the referring and referred nodes.
 
-The referred node cannot be **Terminated** until the referring node is **Terminated**.
+You can't **Terminate** the referred node until you **Terminate** the referring node.
 
-The referring node cannot be **Started** until the referred node is **Started**.
+You can't **Start** the referring node until you **Start** the referred node.
 
 Attribute | Type | Definition
 ------ | ----- | ----------

@@ -10,6 +10,7 @@ ms.author: shaas
 ms.custom: mode-other
 zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
+# Customer intent: "As an IT admin, I want to export data from Azure using Data Box, so that I can efficiently transfer large volumes of data to my local storage."
 ---
 
 # Quickstart: Get started exporting data from Azure using Azure Data Box

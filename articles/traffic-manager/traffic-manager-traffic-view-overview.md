@@ -7,6 +7,7 @@ ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 02/11/2025
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to analyze user traffic patterns and latency data from different regions, so that I can optimize endpoint placement to reduce latency and improve user experience."
 ---
 
 # Traffic Manager Traffic View
