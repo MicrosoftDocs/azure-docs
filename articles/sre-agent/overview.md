@@ -103,6 +103,30 @@ Further, here are some prompts you can use to help you interact with your agent:
 - List [Container Apps/Web Apps/etc.] that you’re managing across all subscriptions.
 - Visualize split of Container Apps vs Web Apps vs AKS clusters managed across all subscriptions as a pie chart.
 
+## Supported services
+
+While Azure SRE Agent can help you manage and report on all Azure services, the agent features specialized tools for managing the following services:
+
+- Azure API Management
+- Azure App Service
+- Azure Cache for Redis
+- Azure Container Apps
+- Azure Cosmos DB
+- Azure Database for PostgreSQL
+- Azure Functions
+- Azure Kubernetes Service
+- Azure SQL
+- Azure Storage
+- Azure Virtual Machines
+
+To get the latest list of services with custom agent tooling, you can submit the following prompt to the agent:
+
+```text
+Which Azure services do you have specialized tooling available?
+```
+
+As you create an agent, the resource group picker indicates groups containing services from this list that feature specialized support. In the create window, a checkmark next to the resource group indicates that the group includes services with specialized support.
+
 ## Preview access
 
 Access to an SRE Agent is only available as in preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
