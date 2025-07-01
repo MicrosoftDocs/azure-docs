@@ -182,6 +182,25 @@ az networkcloud cluster baremetalmachinekeyset create \
   --cluster-name "clusterName"
   --resource-group "cluster_RG"
 ```
+This example creates a new keyset with two users that have Other access from two jump hosts. Privilege level "Other" requires the v20250701preview version of the Network Cloud API. 
+```azurecli
+az networkcloud cluster baremetalmachinekeyset create \
+  --name "bareMetalMachineKeySetName" \
+  --extended-location name="/subscriptions/subscriptionId/resourceGroups/cluster_RG/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName" \
+    type="CustomLocation" \
+  --location "eastus" \
+  --azure-group-id "f110271b-XXXX-4163-9b99-214d91660f0e" \
+  --expiration "2022-12-31T23:59:59.008Z" \
+  --jump-hosts-allowed "192.0.2.1" "192.0.2.5" \
+  --os-group-name "standardAccessGroup" \
+  --privilege-level "Other" \
+  --privilege-level-name "SecurityScanner" \
+  --user-list '[{"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userABC", "sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"},"userPrincipalName":"example@contoso.com"},\
+  {"description":"Needs access for troubleshooting as a part of the support team","azureUserName":"userXYZ","sshPublicKey":{"keyData":"ssh-rsa  AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXTSTRnIDpcf5qytjs1XoyYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm"}, "userPrincipalName":"example@contoso.com"}]' \
+  --tags key1="myvalue1" key2="myvalue2" \
+  --cluster-name "clusterName"
+  --resource-group "cluster_RG"
+```
 
 For assistance in creating the `--user-list` structure, see [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md).
 
@@ -319,6 +338,9 @@ az networkcloud cluster baremetalmachinekeyset update \
    --cluster-name "clusterName" \
   --resource-group "cluster_RG"
 ```
+
+> [!NOTE]
+> When you remove a user from a Bare Metal Machine Keyset via an update command, the command response might still show the deleted user. This behavior occurs because the command runs asynchronously and the user delete on the backend might still be in progress. Subsequent gets, lists, or shows on the keyset should have the correct list of users.
 
 ## Listing Bare Metal Machine Keysets
 
