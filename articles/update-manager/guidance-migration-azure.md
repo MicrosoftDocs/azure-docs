@@ -28,7 +28,8 @@ If you use MCM as part of the System Center suite, the table below lists Azure s
 > As part of your migration journey, we recommend the following options:
 > 1. Fully migrate your virtual machines to Azure and replace System Center with Azure native services.
 > 1. Take a hybrid approach and replace System Center with Azure native services. Where both Azure and on-premises virtual machines are managed using Azure native services. For on-premises virtual machines, the capabilities of the Azure platform are extended to on-premises via Azure Arc.
-> 1. Software updates management is a key capability of MCM, and this article focuses on Azure Update Manager, which provides Azure based experience for software updates and patch management.
+
+Software updates management is a key capability of MCM, and this article focuses on Azure Update Manager, which provides Azure based experience for software updates and patch management.
 
 ## Migrate to Azure Update Manager
 
@@ -50,7 +51,7 @@ Synchronize software updates between sites (Central Admin site, Primary, Seconda
 Synchronize software updates/check for updates (retrieve patch metadata) | You can scan for updates periodically by setting configuration on the Software update point. [Learn more](/mem/configmgr/sum/get-started/synchronize-software-updates#to-schedule-software-updates-synchronization) | You can enable periodic assessment to enable scan of patches every 24 hours. [Learn more](assessment-options.md)|
 Configuring classifications/products to synchronize/scan/assess | You can choose the update classifications (security or critical updates) to synchronize/scan/assess. [Learn more](/mem/configmgr/sum/get-started/configure-classifications-and-products) | There's no such capability here. The entire software metadata is scanned. | 
 Deploy software updates (install patches) | Provides three modes of deploying updates: </br> Manual deployment </br> Automatic deployment </br> Phased deployment [Learn more](/mem/configmgr/sum/deploy-use/deploy-software-updates) | - Manual deployment is mapped to deploy [one-time updates](deploy-updates.md) </br> - Automatic deployment is mapped to scheduled updates </br> - There's no phased deployment option.
-| Deploy software updates on Windows and Linux machines (in Azure or on-premises or other clouds) | SCCM helps manage tracking and applying software updates to Windows machines (Currently, we don't support Linux machines.) | Azure Update Manager supports software updates on both Windows and Linux machines. | 
+| Deploy software updates on Windows and Linux machines (in Azure or on-premises or other clouds) | MCM helps manage tracking and applying software updates to Windows machines (Currently, we don't support Linux machines.) | Azure Update Manager supports software updates on both Windows and Linux machines. | 
 
 ## Guidance to use Azure Update Manager on MCM managed machines
 
