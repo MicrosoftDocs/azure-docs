@@ -54,7 +54,7 @@ To switch to the old experience, follow this step:
 
 ## Manage Runtime environment
 > [!NOTE]
-> It is not possible to run Runbooks in a User Created Runtime environment on a Hybrid Worker.
+> Now, It is not possible to run Runbooks in a User Created Runtime environment on a Hybrid Worker.
 > Hybrid Workers can only execute Runbooks in a System Created Runtime environment.
 
 ### Create Runtime environment
