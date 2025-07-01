@@ -9,9 +9,6 @@ ms.date: 07/01/2025
 
 # Migrate workloads between Azure VMware Solution private clouds
 
-> [!NOTE]
->  On June 30, 2025, Microsoft has announced the end of sale for 3-year Reserved Instances for AV36 nodes, with AV36 node retirement on June 25, 2028. If you are using AV36 nodes currently, see [Migrate workloads to a new SKU as AV36 nodes retire](#migrate-workloads-to-a-new-sku-as-av36-nodes-retire) for guidance on planning your migration to our different Azure VMware Solution SKU offerings.
-
 Azure VMware Solution customers often need to migrate workloads between private clouds in scenarios such as moving to a different Azure region, changing SKUs, or consolidating environments. You can use **VMware HCX** to perform these migrations seamlessly, using **similar steps to migrating workloads from on-premises environments to Azure VMware Solution**.
 
 VMware HCX enables you to move workloads with minimal downtime, maintain consistent IP addressing if needed, and preserve operational continuity while modernizing or rebalancing your Azure VMware Solution environment.
@@ -51,13 +48,6 @@ The process for extending networks between two Azure VMware Solution environment
 
 For detailed instructions, see [Extend networks using VMware HCX in Azure VMware Solution](configure-hcx-network-extension.md).
 
-# Migrate workloads to a new SKU as AV36 nodes retire
+## Considerations when migrating to an Azure VMware Solution Generation 2 private cloud
 
-Microsoft has announced the end of sale for 3-year Reserved Instances for **AV36 nodes on June 30, 2025**, with **AV36 node retirement on June 25, 2028**. To prepare for this change, you will need to transition your workloads from AV36-based private clouds to a new Azure VMware Solution SKU before the retirement date. The instructions outlined above will work to help you migrate your VMware workloads to a different SKU offering on Azure VMware Solution. 
-
-## What SKU is right for me?
-
-[Fill this out].
-
-
-
+Azure VMware Solution Generation 2 private clouds currently have functionality, networking, and integration limitations that may affect your migration plans. Review these limitations to ensure your deployment aligns with current capabilities. For details, see [Design considerations for Azure VMware Solution Generation 2 Private Clouds](native-network-design-consideration.md).
