@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 > [!IMPORTANT]
 > ### Zerto limitations on Azure VMware Solution
-> - AV64 node type is again supported as of Zerto version 3.7.11 (previously it wasn't)
+> - AV64 node type is again supported as of Zerto version 3.7.11 (previously it wasn't).
 > - Zerto supports from Version Zerto 10.0 U5 onwards.
 > - DNS and network configuration changes for Zerto Virtual Machine aren't supported after installation.
 > - Azure resource group modifications aren't supported after Zerto installation.
