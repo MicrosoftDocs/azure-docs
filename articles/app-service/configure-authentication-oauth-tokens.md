@@ -14,7 +14,9 @@ This article shows you how to manage [OAuth](https://www.microsoft.com/security/
 
 ## Retrieve tokens in app code
 
-Azure App Service injects your provider-specific tokens into the request header so you can easily access them. To get the provider-specific tokens, [token store](overview-authentication-authorization.md#token-store) must be enabled for the app. Send an HTTP `GET` request to `/.auth/me` from your client code, such as a mobile app or in-browser JavaScript. The returned JSON has the provider-specific tokens.
+Azure App Service injects your provider-specific tokens into the request header so you can easily access them. To get the provider-specific tokens, [token store](overview-authentication-authorization.md#token-store) must be enabled for the app.
+
+Send an HTTP `GET` request to `/.auth/me` from your client code, such as a mobile app or in-browser JavaScript. The returned JSON has the provider-specific tokens.
 
 > [!NOTE]
 > Access tokens are for accessing provider resources, so are present only if you configure your provider with a client secret.
