@@ -63,6 +63,8 @@
   items:
   - name: What's new in Azure Cache for Redis?
     href: cache-whats-new.md
+  - name: About Azure Cache for Redis
+    href: cache-overview.md
 
   - name: Deploy and configure
     items:
