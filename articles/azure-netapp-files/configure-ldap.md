@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Configure LDAP directory servers for Azure NetApp Files NFS volumes (preview)
 
-In addiition to native Active Directory, Azure NetApp Files supports FreeIPA, OpenLDAP, and Red Hat Directory Server. 
+In addition to native Active Directory, Azure NetApp Files supports using FreeIPA, OpenLDAP, and Red Hat Directory Server for lightweight directory access protocol (LDAP) directory servers. 
 
 >[!IMPORTANT]
 >To configure LDAP with Active Directory, see [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md).
@@ -20,7 +20,7 @@ In addiition to native Active Directory, Azure NetApp Files supports FreeIPA, Op
 * FreeIPA, OpenLDAP, and Red Hat Directory Server are supported with NFSv3 and NFSv4.1 volumes; they aren't currently supported with dual-protocol volumes. 
 * These directory services aren't currently supported with large volumes. 
 * You must configure the LDAP server before creating the volume. 
-* You can only configure FreeIPA, OpenLDAP, or Red Hat Directory Server on _new_ NFS volumes. You can't convert an existing NFS volumes to use these LDAP servers. 
+* You can only configure FreeIPA, OpenLDAP, or Red Hat Directory Server on _new_ NFS volumes. You can't convert an existing NFS volume to use an LDAP servers. 
 
 
 ## Register the feature
@@ -36,7 +36,7 @@ Support for FreeIPA, OpenLDAP, and Red Hat Directory Server is currently in prev
 2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFOpenLDAP
@@ -49,7 +49,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 
 * To configure FreeIPA, see the [FreeIPA QuickStart Guide](https://www.freeipa.org/page/Quick_Start_Guide) then follow [Red Hat's guidance](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/client-install#client-install-non-interactive).
 * For OpenLDAP, see [OpenLDAP documentation](https://www.openldap.org/doc/).
-* For Red Hat Directory Server, follow the [Red Hat documentation](https://docs.redhat.com/en/documentation/red_hat_fuse/6.3/html/security_guide/esbldaptutorialinstallds#ESBLDAPTutorialInstallDS).For additional information, see the [install guide for 389 Directory Server](https://www.port389.org/docs/389ds/howto/howto-install-389.html). 
+* For Red Hat Directory Server, follow the [Red Hat documentation](https://docs.redhat.com/en/documentation/red_hat_fuse/6.3/html/security_guide/esbldaptutorialinstallds#ESBLDAPTutorialInstallDS).For more information, see the [install guide for 389 Directory Server](https://www.port389.org/docs/389ds/howto/howto-install-389.html). 
 
 ## Configure the LDAP connection in Azure NetApp Files 
 
@@ -58,8 +58,8 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 1. In the new menu, provide: 
     * **Domain:** The domain name acts as the base DN. 
     * **LDAP servers:** The IP address of the LDAP server. 
-    * **LDAP over TLS:** Check the box to enable LDAP over TLS for secure communication. This is optional. For more information, see [Configure LDAP over TLS](configure-ldap-over-tls.md).
-    * **Server CA certificate:** The certification authority certificate. This is required if you select LDAP over TLS. 
+    * **LDAP over TLS:** Optionally, check the box to enable LDAP over TLS for secure communication. For more information, see [Configure LDAP over TLS](configure-ldap-over-tls.md).
+    * **Server CA certificate:** The certification authority certificate. Selecting this option is required if you use LDAP over TLS. 
     * **Certificate CN Host:** The common name server of the host, for example contoso.server.com. 
 
     :::image type="content" source="./media/configure-ldap/configure-ldap-connection.png" alt-text="Screenshot of Configure LDAP connection options." lightbox="./media/configure-ldap/configure-ldap-connection.png":::
