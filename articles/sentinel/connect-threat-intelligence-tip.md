@@ -2,10 +2,10 @@
 title: Connect your threat intelligence platform
 titleSuffix: Microsoft Sentinel
 description: Learn how to connect your threat intelligence platform (TIP) or custom feed to Microsoft Sentinel and send threat indicators.
-author: austinmccollum
+author: poliveria  
 ms.topic: how-to
 ms.date: 3/14/2024
-ms.author: austinmc
+ms.author: pauloliveria 
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
