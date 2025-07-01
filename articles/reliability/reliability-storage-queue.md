@@ -61,7 +61,6 @@ To manage transient faults effectively when using Azure Queue Storage:
 - **Use visibility timeouts appropriately** when receiving messages to ensure messages become available for retry if your application encounters failures during processing.
 
 
-For detailed retry policy configuration for different programming languages, see [Implement a retry policy with .NET](/azure/storage/blobs/storage-retry-policy) and [Implement a retry policy with Java](/azure/storage/blobs/storage-retry-policy-java).
 
 **Source:** [Performance and scalability checklist for Queue Storage](https://learn.microsoft.com/azure/storage/queues/storage-performance-checklist) and [Transient fault handling](https://learn.microsoft.com/azure/architecture/best-practices/transient-faults)
 
