@@ -10,7 +10,7 @@ ms.author: cephalin
 
 # Manage OAuth tokens in Azure App Service
 
-This article shows you how to manage [OAuth](/security/business/security-101/what-is-oauth) tokens for [built-in authentication and authorization](overview-authentication-authorization.md) in Azure App Service.
+This article shows you how to manage [OAuth](https://www.microsoft.com/security/business/security-101/what-is-oauth) tokens for [built-in authentication and authorization](overview-authentication-authorization.md) in Azure App Service.
 
 ## Retrieve tokens in app code
 
