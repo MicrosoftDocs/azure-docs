@@ -236,11 +236,13 @@ This example continues with the sample code without any changes.
 
 After you finish writing your code, compile to make sure that no build errors exist. Your .NET functions project automatically includes build tasks, which compile and then add your code to the **lib\custom** folder in your logic app project where workflows look for custom functions to run. These tasks put the assemblies in the **lib\custom\net472** or **lib\custom\net8** folder, based on your .NET version.
 
-1. In the Visual Studio Code file explorer, right-click the functions project folder and select "Build functions project...".
+1. In Visual Studio Code, on the Activity Bar, select **Explorer**.
 
-   :::image type="content" source="media/create-run-custom-code-functions/build-functions-project.png" alt-text="Screenshot shows Visual Studio Code, Logic App workspace file explorer, and the Build functions project context menu option.":::
+1. In the **Explorer** window, open the shortcut menu for the functions project folder, and select **Build functions project**.
 
-1. The build task will execute for the functions project. If your build succeeds, the **Terminal** window reports that the **Build succeeded**.
+   :::image type="content" source="media/create-run-custom-code-functions/build-functions-project.png" alt-text="Screenshot shows Visual Studio Code, Explorer window, and functions project shortcut menu with selected option for Build functions project." lightbox="media/create-run-custom-code-functions/build-functions-project.png":::
+
+   The build task executes for the functions project. If your build succeeds, the **Terminal** window shows the message that the **Build succeeded**.
 
 1. Confirm that the following items exist in your logic app project:
 
@@ -276,7 +278,7 @@ After you confirm that your code compiles and that your logic app project contai
 
 ## Debug your code and workflow
 
-1. Start the Azurite storage emulator for each of the Azure Storage services:
+1. For each of the following Azure Storage services, start the Azurite storage emulator:
 
    - Azure Blob Service
    - Azure Queue Service
@@ -294,7 +296,7 @@ After you confirm that your code compiles and that your logic app project contai
 
    :::image type="content" source="media/create-run-custom-code-functions/storage-services-running.png" alt-text="Screenshot shows Visual Studio Code taskbar with Azure Blob Service, Azure Queue Service, and Azure Table Service running.":::
 
-1. Attach the debugger to your logic app project and .NET functions project by following these steps:
+1. Attach the debugger to both your logic app project and .NET functions project by following these steps:
 
    1. On the Visual Studio Code Activity Bar, select **Run and Debug**. (Keyboard: Ctrl+Shift+D)
 
@@ -302,7 +304,7 @@ After you confirm that your code compiles and that your logic app project contai
 
    1. From the **Run and Debug** list, select **Run/debug logic app with local function (LogicApp)**, if not already selected, and then select **Play** (green arrow).
 
-      :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-logic-app-with-local-function.png" alt-text="Screenshot shows Run and Debug list with Run/debug logic app with local function selected.":::
+      :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-logic-app-with-local-function.png" alt-text="Screenshot shows Run and Debug list with selection option for Run/debug logic app with local function.":::
 
       The **Terminal** window opens and shows the started debugging process. The **Debug Console** window then appears and shows the debugging statuses. At the bottom of Visual Studio Code, the task bar turns orange, indicating that the .NET debugger is loaded.
 
