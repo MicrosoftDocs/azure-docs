@@ -13,8 +13,8 @@ ms.custom: include file
 You should enable Continuous Availability for only the following workloads and use cases:
 
 * [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html)
-* [FSLogix user profile containers](../../virtual-desktop/create-fslogix-profile-container.md), including [FSLogix ODFC containers](/fslogix/concepts-container-types#odfc-container)
-* [MSIX app attach with Azure Virtual Desktop (AVD)](../../virtual-desktop/create-netapp-files.md)
+* [FSLogix user profile containers](/azure/virtual-desktop/create-fslogix-profile-container), including [FSLogix ODFC containers](/fslogix/concepts-container-types#odfc-container)
+* [MSIX app attach with Azure Virtual Desktop](/azure/virtual-desktop/create-netapp-files)
     * When using MSIX applications with the `CIM FS` file format:
         * The number of AVD session hosts per volume shouldn't exceed 500.
         * The number of MSIX applications per volume shouldn't exceed 40.

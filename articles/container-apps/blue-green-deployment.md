@@ -14,7 +14,7 @@ ms.author: ruslany
 zone_pivot_groups: azure-cli-bicep
 ---
 
-# Blue-Green Deployment in Azure Container Apps
+# Blue-green deployment in Azure Container Apps
 
 [Blue-Green Deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) is a software release strategy that aims to minimize downtime and reduce the risk associated with deploying new versions of an application. In a blue-green deployment, two identical environments, referred to as "blue" and "green," are set up. One environment (blue) is running the current application version and one environment (green) is running the new application version. 
 
