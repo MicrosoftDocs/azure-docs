@@ -7,7 +7,7 @@ author: amerjusupovic
 ms.author: ajusupovic
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 04/30/2025
+ms.date: 07/01/2025
 ---
 
 # Preview API life cycle
