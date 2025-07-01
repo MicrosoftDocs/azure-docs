@@ -118,7 +118,7 @@ The following table helps describe some of the features supported by tier:
 ### Other considerations when picking a tier
 
 - **Network performance**: If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that cause time-outs in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
-- **Maximum number of client connections**: Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU
+- **Maximum number of client connections**: Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
 
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
