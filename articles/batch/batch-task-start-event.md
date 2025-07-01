@@ -2,7 +2,7 @@
 title: Azure Batch task start event
 description: Reference information for Batch task start event. This event is emitted once a task has been scheduled to start on a compute node by the scheduler.
 ms.topic: reference
-ms.date: 10/08/2020
+ms.date: 07/01/2025
 ---
 
 # Task start event
