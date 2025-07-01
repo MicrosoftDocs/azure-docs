@@ -544,7 +544,6 @@
         "articles/time-series-insights/**/*.md": "https://feedback.azure.com/d365community/forum/873d6d1c-0c25-ec11-b6e6-000d3a4f07b8",
         "articles/traffic-manager/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=40ace5ab-8326-ec11-b6e6-000d3a4f0789",
         "articles/update-center/**/*.md": "https://feedback.azure.com/d365community/forum/721a322e-bd25-ec11-b6e6-000d3a4f0f1c",
-        "articles/virtual-desktop/**/*.md": "https://techcommunity.microsoft.com/t5/azure-virtual-desktop/idb-p/AzureVirtualDesktop",
         "articles/virtual-network/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=f2c41334-8326-ec11-b6e6-000d3a4f0789",
         "articles/visual-studio/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=9fa5490b-8326-ec11-b6e6-000d3a4f0789"
@@ -721,7 +720,6 @@
         "articles/traffic-manager/**/*": "https://learn.microsoft.com/answers/tags/103/azure-traffic-manager/",
         "articles/trusted-signing/**/*": "https://learn.microsoft.com/answers/tags/509/trusted-signing/",
         "articles/update-manager/**/*": "https://learn.microsoft.com/answers/tags/452/update-manager/",
-        "articles/virtual-desktop/**/*": "https://learn.microsoft.com/answers/tags/221/azure-virtual-desktop/",
         "articles/virtual-network-manager/**/*": "https://learn.microsoft.com/answers/tags/143/azure-virtual-network/",
         "articles/virtual-network/**/*": "https://learn.microsoft.com/answers/tags/143/azure-virtual-network/",
         "articles/virtual-wan/**/*": "https://learn.microsoft.com/answers/tags/34/azure-virtual-wan/",
@@ -814,8 +812,6 @@
         "articles/traffic-manager/**/*.md": "kumud",
         "articles/update-manager/**/*.md": "akashdubey",
         "articles/remote-rendering/**/*.md": "jlyons",
-        "articles/virtual-desktop/**/*.md": "eliotgra",
-        "articles/virtual-desktop/**/*.yml": "eliotgra",
         "articles/virtual-network/**/*.md": "kumud",
         "articles/vmware-cloudsimple/**/*.md": "rayoflores",
         "articles/vpn-gateway/**/*.md": "kumud",
@@ -1127,10 +1123,7 @@
         "articles/service-health/**/*.md": "azure-service-health",
         "articles/site-recovery/*.md": "azure-site-recovery",
         "articles/synapse-analytics/**/*": "azure-synapse-analytics",
-        "articles/terraform/**/*.md": "terraform",
-        "articles/virtual-desktop/**/*.md": "azure-virtual-desktop",
-        "articles/virtual-desktop/**/*.yml": "azure-virtual-desktop"
-      },
+        "articles/terraform/**/*.md": "terraform"      },
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova",
         "articles/healthcare-apis/*.md": "leeclontz",
