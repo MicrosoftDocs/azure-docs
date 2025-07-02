@@ -56,7 +56,30 @@ If you use the **public preview** of the Calling SDK, you must use the [beta ver
 ```
 
 ## Enable Audio Effects you wish to use
-For information on the interface that details audio effects properties and methods, see the [Audio Effects Feature interface](/javascript/api/azure-communication-services/@azure/communication-calling/audioeffectsfeature?view=azure-communication-services-js&preserve-view=true) API documentation page.
+The following is a tree-structured representation of the AudioEffects interface:
+```
+AudioEffectsFeature
+├── Properties
+│   ├── activeEffects: ActiveAudioEffects (read-only)
+│   └── name: string (inherited from AudioStreamFeature)
+│
+├── Methods
+│   ├── isSupported(effect: "BrowserNoiseSuppression" | DeepNoiseSuppressionEffect): Promise<boolean>
+│   ├── startEffects(config: AudioEffectsStartConfig): Promise<void>
+│   ├── stopEffects(config: AudioEffectsStopConfig): Promise<void>
+│   ├── on(event: "effectsStarted" | "effectsStopped" | "effectsError", listener: AudioEffectsFeatureListener): void
+│   └── off(event: "effectsStarted" | "effectsStopped" | "effectsError", listener: AudioEffectsFeatureListener): void
+│
+└── Inherited Methods (from AudioStreamFeature)
+    └── dispose(): void
+```
+Where
+- `activeEffects` gives you the currently running audio effects.
+- `isSupported` checks if a specific effect is available in the current environment.
+- `startEffects` and `stopEffects` control the activation of effects (noise suppression, echo cancellation)
+- `on`/`off` let you subscribe/unsubscribe to events
+
+For more information on the interface that details audio effects properties and methods, see the [Audio Effects Feature interface](/javascript/api/azure-communication-services/@azure/communication-calling/audioeffectsfeature?view=azure-communication-services-js&preserve-view=true) API documentation page.
 
 
 ### Initialize the Audio Effects Feature
