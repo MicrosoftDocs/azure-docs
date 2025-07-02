@@ -9,6 +9,7 @@ ms.tgt_pltfrm: na
 ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: anfdocs
+# Customer intent: "As a finance manager, I want to purchase reserved capacity for Azure NetApp Files, so that I can optimize our storage costs and improve our total cost of ownership over the term of the reservation."
 ---
 # Reserved capacity for Azure NetApp Files
 
