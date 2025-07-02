@@ -62,6 +62,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * **Destination path**: the directory where the files will be restored. The destination path must already exist in the destination volume. This field cannot be left blank. Enter a slash ( / ) to restore files to their original path locations.
 
+    >[!IMPORTANT]
+    >The file path is case-sensitive. 
+    
     :::image type="content" source="./media/restore-single-file-backup/restore-files-file-path.jpg" alt-text="Screenshot of restore interface." lightbox="./media/restore-single-file-backup/restore-files-file-path.jpg":::
 
 1. Select **Restore** to complete the operation. 
