@@ -135,7 +135,7 @@ If you encounter any issues during the setup process, see the following troubles
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview (Preview)](https://aka.ms.sentinel-lake-overview)
-- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
+- [Microsoft Sentinel data lake overview (Preview)](https://aka.ms/sentinel-lake-overview)
+- [Microsoft Sentinel data lake roles and permissions](https://aka.ms/sentinel-data-lake-roles) <!---(../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview) --->
 - [Microsoft Sentinel data lake billing](../billing.md)
 - [Create custom roles with Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/create-custom-rbac-roles)

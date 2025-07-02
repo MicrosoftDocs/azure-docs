@@ -44,7 +44,7 @@ The Microsoft Sentinel data lake technical architecture includes the following k
 The Microsoft Sentinel data lake is designed with two distinct storage tiers to optimize cost and performance:
 
 + Analytics tier: The existing Microsoft Sentinel data tier enabling advanced querying, visualization, and alerting capabilities to help you proactively identify and resolve issues across your infrastructure and applications. 
-+ Data lake tier: A centralized security data lake offering long-term data storage for querying and python-based advanced analytics. The data lake tier is designed for cost-effective storage of large volumes of security data, enabling you to retain data for up to 12 years. For more information on data tiers and retention, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](/unified-secops-platform/manage-data-defender-portal-overview).
++ Data lake tier: A centralized security data lake offering long-term data storage for querying and python-based advanced analytics. The data lake tier is designed for cost-effective storage of large volumes of security data, enabling you to retain data for up to 12 years. For more information on data tiers and retention, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](https://aka.ms/manage-data-defender-portal-overview) <!---(/unified-secops-platform/manage-data-defender-portal-overview).--->
 
 
 ### Integration
@@ -78,13 +78,13 @@ KQL queries offer the following key features:
 + Full support for KQL: Use the full range of KQL capabilities, including machine learning functions and advanced analytics.
 + Job Creation: Create one-time or scheduled jobs to promote data from the lake to the analytics tier.
 
-For more information, see [KQL and the Microsoft Sentinel data lake (Preview)](kql-overview.md)
+For more information, see [KQL and the Microsoft Sentinel data lake (Preview)](https://aka.ms/kql-overview)
 
 ### Powerful analytics using Jupyter notebooks
 
 Jupyter notebooks in the Microsoft Sentinel data lake provide a powerful environment for data analysis and machine learning. Use Python libraries to build and run machine learning models, conduct advanced analytics, and visualize your data. The notebooks support rich visualizations, enabling you to gain insights from your security data. Schedule notebooks to summarize data, run machine learning models, and promote data from the lake tier to the analytics tier.
 
-For more information, see [Jupyter notebooks in the Microsoft Sentinel data lake (Preview)](notebooks-overview.md).
+For more information, see [Jupyter notebooks in the Microsoft Sentinel data lake (Preview)](https://aka.ms/notebooks-overview).
 
 :::image type="content" source="media/sentinel-lake-overview/notebook.png" lightbox="media/sentinel-lake-overview/notebook.png" alt-text="A screenshot showing a Jupyter notebook."::: 
 
@@ -102,10 +102,10 @@ For more information on audited data lake activities,  see [Search the audit log
 
 ## Get started
 
-To get started with Microsoft Sentinel data lake, follow these steps in the [onboarding guide](sentinel-lake-onboarding.md). 
+To get started with Microsoft Sentinel data lake, follow these steps in the [onboarding guide](https://aka.ms/sentinel-lake-onboarding). 
 For more information on using the Microsoft Sentinel data lake, see the following articles:
-+ [Jupyter notebooks in the Microsoft Sentinel data lake (Preview)](notebooks-overview.md).
-+ [KQL and the Microsoft Sentinel data lake (Preview)](kql-overview.md)
-+ [Permissions for the Microsoft Sentinel data lake (Preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
-+ [Manage data tiers and retention in Microsoft Defender Portal (Preview)](/unified-secops-platform/manage-data-defender-portal-overview)
++ [Jupyter notebooks in the Microsoft Sentinel data lake (Preview)](https://aka.ms/notebooks-overview).
++ [KQL and the Microsoft Sentinel data lake (Preview)](https://aka.ms/kql-overview)
++ [Permissions for the Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-data-lake-roles) <!---(../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)--->
++ [Manage data tiers and retention in Microsoft Defender Portal (Preview)](https://aka.ms/manage-data-defender-portal-overview) <!---(/unified-secops-platform/manage-data-defender-portal-overview)--->
 
