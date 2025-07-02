@@ -621,6 +621,12 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "app-service-agentic-semantic-kernel-ai-foundry-agent",
+            "url": "https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-ai-foundry-agent",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "playwright-testing-service",
             "url": "https://github.com/microsoft/playwright-testing-service",
             "branch": "main",

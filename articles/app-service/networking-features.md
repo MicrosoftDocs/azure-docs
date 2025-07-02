@@ -1,11 +1,12 @@
 ---
 title: Networking features
 description: Learn about the networking features in Azure App Service, and learn which features you need for security or other functionality.
-author: madsd
+author: seligj95
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 01/30/2025
-ms.author: madsd
+ms.date: 06/13/2025
+ms.update-cycle: 1095-days
+ms.author: jordanselig
 ms.custom: UpdateFrequency3
 #customer intent: As a deployment engineer, I want to understand the options for deploying apps in Azure App Services to control network traffic.
 ---
@@ -15,7 +16,7 @@ You can deploy applications in Azure App Service in multiple ways. By default, a
 
 There are two main deployment types for Azure App Service:
 
-- The multitenant public service hosts App Service plans in the Free, Shared, Basic, Standard, Premium, PremiumV2, and PremiumV3 pricing SKUs.
+- The multitenant public service hosts App Service plans in the Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, and PremiumV4 pricing SKUs.
 - The single-tenant App Service Environment (ASE) hosts Isolated SKU App Service plans directly in your Azure virtual network.
 
 The features that you use depend on whether you're in the multitenant service or in an ASE.
@@ -71,11 +72,14 @@ Azure App Service scale units support many customers in each deployment. The Fre
 
 #### Outbound addresses
 
-The worker virtual machines are broken down in large part by the App Service plans. The Free, Shared, Basic, Standard, and Premium plans all use the same worker virtual machine type. The PremiumV2 plan uses another virtual machine type. PremiumV3 uses yet another virtual machine type.
+The worker virtual machines are broken down in large part by the App Service plans. The Free, Shared, Basic, Standard, and Premium plans all use the same worker virtual machine type. The PremiumV2 plan uses another virtual machine type. PremiumV3 uses yet another virtual machine type. And PremiumV4 uses yet another virtual machine type.
 
 When you change the virtual machine family, you get a different set of outbound addresses. If you scale from Standard to PremiumV2, your outbound addresses change. If you scale from PremiumV2 to PremiumV3, your outbound addresses change. In some older scale units, both the inbound and outbound addresses change when you scale from Standard to PremiumV2.
 
 There are many addresses that are used for outbound calls. The outbound addresses used by your app for making outbound calls are listed in the properties for your app. All the apps that run on the same worker virtual machine family in the App Service deployment share these addresses. If you want to see all the addresses that your app might use in a scale unit, there's property called `possibleOutboundAddresses` that lists them.
+
+> [!NOTE]
+> Apps on the PremiumV4 SKU don't expose their outbound IP addresses. To learn more, see [How IP addresses work in App Service](./overview-inbound-outbound-ips.md#how-ip-addresses-work-in-app-service).
 
 :::image type="content" source="media/networking-features/app-properties.png" alt-text="Screenshot that shows app properties, including possible outbound addresses." lightbox="media/networking-features/app-properties.png":::
 

@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 10/25/2024
+# Customer intent: "As an internet peering partner, I want to view and create alerts for maintenance events in the Azure Peering Service, so that I can stay informed and manage any potential impact on my network performance."
 ---
 
 # View and monitor device maintenance events
