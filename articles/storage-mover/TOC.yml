@@ -7,6 +7,8 @@ items:
     href: service-overview.md
   - name: Cloud migration basics
     href: migration-basics.md
+  - name: Get started with cloud-to-cloud migration
+    href: cloud-to-cloud-migration.md
   expanded: true
 - name: Concepts
   items: 

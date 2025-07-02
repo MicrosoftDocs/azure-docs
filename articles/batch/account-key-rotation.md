@@ -2,7 +2,7 @@
 title: Rotate Batch account keys
 description: Learn how to rotate Batch account shared key credentials.
 ms.topic: how-to
-ms.date: 08/09/2024
+ms.date: 07/01/2025
 ---
 # Batch account shared key credential rotation
 
