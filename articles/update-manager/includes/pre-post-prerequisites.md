@@ -21,31 +21,32 @@ For the script examples below (Start VM's and Stop VM's), the Virtual Machine Co
   
    #### [Using Azure portal](#tab/portal)
     
-    Follow the steps in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml) to assign permissions
+Follow the steps in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml) to assign permissions
 
    #### [Using Azure PowerShell](#tab/powershell)
 
-    Use PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign a role to the system-assigned managed identity.
+Use PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign a role to the system-assigned managed identity.
 
-    ```powershell
-   New-AzRoleAssignment `
+```powershell 
+New-AzRoleAssignment `
                    -ObjectId $SA_PrincipalId `
                    -ResourceGroupName $resourceGroup `
                    -RoleDefinitionName "Contributor"
-    ```        
+```        
  
-    Assign a role to a user-assigned managed identity.
+Assign a role to a user-assigned managed identity.
 
-    ```powershell
-   New-AzRoleAssignment `
+```powershell
+New-AzRoleAssignment `
                    -ObjectId $UAMI.PrincipalId `
                    -ResourceGroupName $resourceGroup `
                    -RoleDefinitionName "Contributor"
-    ```
-    For the system-assigned managed identity, show `ClientId` and record the value for later use.
+```
+                   
+For the system-assigned managed identity, show `ClientId` and record the value for later use.
         
-    ```powershell
-    $UAMI.ClientId
-    ```
-  ---
+```powershell
+$UAMI.ClientId
+```
+
 3. Import the `Az.ResourceGraph` module, ensure the module is updated to ThreadJob with the module version 2.0.3.
