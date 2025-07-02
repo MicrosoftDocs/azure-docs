@@ -79,13 +79,13 @@ Zone-redundant Azure Queue Storage can be deployed [in any region that supports 
 
 You must use a Standard general-purpose v2 storage account to enable zone-redundant storage for Table Storage. Premium storage accounts don't support Table Storage. All storage account tiers and performance levels support ZRS configuration where availability zones are available.
 
-**Source**: [Azure Storage redundancy](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy#summary-of-redundancy-options)
+**Source**: [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy#summary-of-redundancy-options)
 
 ### Cost
 
 When you enable ZRS, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead. For detailed pricing information, see [Azure Tables pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
 
-**Source**: [Azure Storage redundancy](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy#summary-of-redundancy-options)
+**Source**: [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy#summary-of-redundancy-options)
 
 ### Configure availability zone support
 
@@ -120,7 +120,7 @@ When the failed availability zone recovers, Azure Table Storage automatically be
 
 During failback, the service ensures data consistency by synchronizing any operations that occurred during the outage period. Partition rebalancing occurs gradually to minimize performance impact, typically completing within minutes without requiring any customer intervention or configuration changes.
 
-**Source**: [Azure storage disaster recovery planning and failover](https://learn.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance)
+**Source**: [Azure storage disaster recovery planning and failover](https://learn.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance)
 
 ### Testing for zone failures
 
@@ -182,7 +182,7 @@ This approach requires you to manage data distribution, handle synchronization b
 - **Read/write splitting**: Direct write operations to a primary region while allowing reads from multiple regions.
 - **Conflict resolution**: Implement strategies to handle conflicting updates when using multi-master configurations.
 
-**Source**: [Performance and scalability checklist for Table storage](https://learn.microsoft.com/en-us/azure/storage/tables/storage-performance-checklist)
+**Source**: [Performance and scalability checklist for Table storage](https://learn.microsoft.com/azure/storage/tables/storage-performance-checklist)
 
 ## Backups
 
@@ -198,7 +198,7 @@ When designing backup strategies for Table Storage, consider the partitioned nat
 
 The geo-redundant storage options (GRS/GZRS) serve as the primary disaster recovery mechanism for Table Storage by maintaining copies of your table data in a secondary region, providing protection against regional outages without requiring separate backup infrastructure.
 
-**Source**: [Azure Storage redundancy](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region)
+**Source**: [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region)
 
 ## Service-level agreement
 
