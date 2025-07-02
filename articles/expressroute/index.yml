@@ -148,7 +148,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Scalable ExpressRoute gateway
-            url: articles\expressroute\scalable-gateway.md
+            url: scalable-gateway.md
           - text: ExpressRoute FastPath
             url: about-fastpath.md
           - text: About ExpressRoute Direct
