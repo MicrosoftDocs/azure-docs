@@ -55,7 +55,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
     async function run() {
         // Connect to Azure App Configuration using endpoint and token credential
-        const settings = await load(endpoint, credential, {
+        const appConfig = await load(endpoint, credential, {
             featureFlagOptions: {
                 enabled: true,
                 // Note: selectors must be explicitly provided for feature flags.
@@ -69,13 +69,11 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
             }
         });
 
-        // Create a feature flag provider which uses a map as feature flag source
-        const ffProvider = new ConfigurationMapFeatureFlagProvider(settings);
         // Create a feature manager which will evaluate the feature flag
-        const fm = new FeatureManager(ffProvider);
+        const fm = new FeatureManager(new ConfigurationMapFeatureFlagProvider(appConfig));
 
         while (true) {
-            await settings.refresh(); // Refresh to get the latest feature flag settings
+            await appConfig.refresh(); // Refresh to get the latest feature flag settings
             const isEnabled = await fm.isEnabled("Beta"); // Evaluate the feature flag
             console.log(`Beta is enabled: ${isEnabled}`);
             await sleepInMs(5000);
@@ -94,7 +92,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
     async function run() {
         // Connect to Azure App Configuration using connection string
-        const settings = await load(connectionString, {
+        const appConfig = await load(connectionString, {
             featureFlagOptions: {
                 enabled: true,
                 // Note: selectors must be explicitly provided for feature flags.
@@ -108,13 +106,11 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
             }
         });
 
-        // Create a feature flag provider which uses a map as feature flag source
-        const ffProvider = new ConfigurationMapFeatureFlagProvider(settings);
         // Create a feature manager which will evaluate the feature flag
-        const fm = new FeatureManager(ffProvider);
+         const fm = new FeatureManager(new ConfigurationMapFeatureFlagProvider(appConfig));
 
         while (true) {
-            await settings.refresh(); // Refresh to get the latest feature flag settings
+            await appConfig.refresh(); // Refresh to get the latest feature flag settings
             const isEnabled = await fm.isEnabled("Beta"); // Evaluate the feature flag
             console.log(`Beta is enabled: ${isEnabled}`);
             await sleepInMs(5000);

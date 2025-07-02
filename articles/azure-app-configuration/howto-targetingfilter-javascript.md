@@ -52,6 +52,7 @@ In this section, you create a web application that uses the *Beta* feature flag 
 
     let appConfig;
     let featureManager;
+
     async function initializeConfig() {
         appConfig = await load(appConfigEndpoint, new DefaultAzureCredential(), {
             featureFlagOptions: {
@@ -62,8 +63,18 @@ In this section, you create a web application that uses the *Beta* feature flag 
             }
         });
 
-        const featureFlagProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
-        featureManager = new FeatureManager(featureFlagProvider);
+        featureManager = new FeatureManager(new ConfigurationMapFeatureFlagProvider(appConfig));
+    }
+
+    function buildContent(title, message) {
+        return `
+            <html>
+                <head><title>${title}</title></head>
+                <body style="display: flex; justify-content: center; align-items: center;">
+                    <h1 style="text-align: center; font-size: 5.0rem">${message}</h1>
+                </body>
+            </html>
+        `;
     }
 
     function startServer() {
@@ -75,26 +86,12 @@ In this section, you create a web application that uses the *Beta* feature flag 
 
         app.get("/", async (req, res) => {
             const { userId, groups } = req.query;
-            const beta = await featureManager.isEnabled("Beta", { userId: userId, groups: groups ? groups.split(",") : [] });
-            if (beta) {
-                res.send(`
-                    <html>
-                        <head><title>Beta Page</title></head>
-                        <body style="display: flex; justify-content: center; align-items: center;">
-                            <h1 style="text-align: center; font-size: 5.0rem">This is a beta page.</h1>
-                        </body>
-                    </html>
-                `);
-            } else {
-                res.send(`
-                    <html>
-                        <head><title>Home Page</title></head>
-                        <body style="display: flex; justify-content: center; align-items: center;">
-                            <h1 style="text-align: center; font-size: 5.0rem">Welcome.</h1>
-                        </body>
-                    </html>
-                `);
-            }
+            const isBetaEnabled = await featureManager.isEnabled("Beta", { userId: userId, groups: groups ? groups.split(",") : [] });
+            
+            res.send(isBetaEnabled ? 
+                buildContent("Beta Page", "This is a beta page.") : 
+                buildContent("Home Page", "Welcome.")
+            );
         });
 
         const port = "8080";
