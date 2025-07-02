@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 05/20/2025
 
-#CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
+#CustomerIntent: As an IT professional, I want to manage Azure IoT Operations instances.
 ---
 
 # Manage the lifecycle of an Azure IoT Operations instance
@@ -107,7 +107,25 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 ---
 
-### (Preview) Clone instance
+### View Azure Device Registry
+
+<!-- TODO - 2507 Expand this section with more details about the Azure Device Registry. -->
+
+In the Azure portal, you can view the Azure Device Registry, which is a collection of all devices and assets that are connected to your Azure IoT Operations instance.
+
+You can use *namespaces* to organize your assets and devices. For example, you can create a namespace for each asset type or location.
+
+<!-- TODO - 2507 Expand this section with more details about the connector template configuration. -->
+
+### Configure connector templates
+
+In the Azure portal, you can configure *connector templates* for your Azure IoT Operations instance. Connector templates define the configuration of connectors, such as the connector for OPC UA, that are deployed to your cluster. When you create a connector template, it enables an OT user to create a device that uses the connector type in the operations experience web UI.
+
+### Configure discovery handlers
+
+In the Azure portal, you can configure *discovery handlers* for your Azure IoT Operations instance. Discovery handlers define the configuration of the handlers that can automatically discover assets and devices in your environment. When you create a discovery handler, it enables an OT user to configure the discovery of assets and devices of the type defined in the handler in the operations experience web UI.
+
+### Clone instance (preview)
 
 > [!NOTE]
 > The clone feature is in preview and under development.
@@ -195,7 +213,7 @@ az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --fea
 
 Each Azure IoT Operations instance includes several components, like the MQTT broker, connector for OPC UA, and data flows. To learn more about managing these components, see their respective articles. For example, to manage the MQTT broker, start with [Broker overview](../manage-mqtt-broker/overview-broker.md).
 
-### (Preview) Manage components using Kubernetes deployment manifests
+### Manage components using Kubernetes deployment manifests (preview)
 
 In general, Azure IoT Operations uses the Azure Arc platform to provide a hybrid cloud experience where you can manage the configuration through Azure Resource Manager (ARM) and front-end tools like the Azure portal, Bicep, and the Azure CLI.
 

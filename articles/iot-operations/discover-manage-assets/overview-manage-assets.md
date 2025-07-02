@@ -79,7 +79,6 @@ Azure IoT Operations includes several services that help you manage devices and 
 - The **media connector (preview)** is a service that makes media from media sources such as edge-attached cameras available to other Azure IoT Operations components.
 - The **connector for ONVIF (preview)** is a service that discovers and registers ONVIF assets such as cameras. The connector enables you to manage and control ONVIF assets such as cameras connected to your cluster.
 - The **REST/HTTP connector** is a service that lets you connect to REST/HTTP endpoints and publish data to the MQTT broker.
-- The **SQL connector** is a service that lets you connect to SQL databases and publish data to the MQTT broker.
 - **Custom connectors** are services that you can create to connect to other data sources and publish data to the MQTT broker. Use the Azure IoT Operations SDKS to create custom connectors that meet your specific requirements.
 - **Akri services** are a set of services that enable the automatic discovery of physical assets and devices in your environment. Akri services can help you create and configure assets and devices in operations experience. To learn more, see [What is asset discovery (preview)?](overview-akri.md).
 

@@ -50,7 +50,7 @@ You can create, edit, and delete devices and assets by using the Azure IoT Opera
 
 Before you can create an asset, you need to define a device. A device is a profile that describes southbound edge connectivity information for one or more assets.
 
-Currently, the only southbound connectors available in Azure IoT Operations are the connector for OPC UA, the media connector (preview), the connector for ONVIF (preview), the connector for SQL (preview), and the connector for HTTP/REST (preview). You can use the Azure IoT Operations SDKs to create custom connectors. Devices are configurations for a connector that enable it to connect to an asset. For example:
+Currently, the only southbound connectors available in Azure IoT Operations are the connector for OPC UA, the media connector (preview), the connector for ONVIF (preview), and the connector for HTTP/REST (preview). You can use the Azure IoT Operations SDKs to create custom connectors. Devices are configurations for a connector that enable it to connect to an asset. For example:
 
 - A device for OPC UA stores the information you need to connect to an OPC UA server.
 - A device for the media connector stores the information you need to connect to a media source.

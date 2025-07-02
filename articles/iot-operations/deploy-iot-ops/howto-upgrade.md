@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 03/03/2025
 
-#CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
+#CustomerIntent: As an IT professional, I want to manage Azure IoT Operations instances.
 ---
 
 # Upgrade to a new version
