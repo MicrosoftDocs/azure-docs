@@ -213,6 +213,8 @@ Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](
 
 ## [Access Key Authentication](#tab/accesskey)
 
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
+
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 ### Read and write to the cache from the command line

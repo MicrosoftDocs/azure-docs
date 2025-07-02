@@ -7,7 +7,7 @@ ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: quickstart-bicep
 ms.custom: subject-bicepqs
-ms.date: 11/06/2024
+ms.date: 06/19/2025
 ---
 
 # Quickstart: Deploy the Azure Health Data Services de-identification service with Bicep

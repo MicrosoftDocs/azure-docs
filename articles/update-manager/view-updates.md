@@ -4,8 +4,8 @@ description: This article explains how to use Azure Update Manager in the Azure 
 ms.service: azure-update-manager
 ms.date: 08/22/2024
 ms.topic: how-to
-author: SnehaSudhir 
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # Check update compliance with Azure Update Manager

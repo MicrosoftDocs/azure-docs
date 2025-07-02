@@ -10,6 +10,7 @@ ms.date: 12/06/2024
 ms.author: mbender
 ms.custom: mvc, subject-bicepqs, mode-arm, template-quickstart, devx-track-bicep
 #Customer intent: I want to create a load balancer by using a Bicep file so that I can load balance internet traffic to VMs.
+# Customer intent: "As a cloud architect, I want to deploy a public load balancer using a Bicep file, so that I can efficiently manage and distribute internet traffic to my virtual machines."
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using a Bicep file

@@ -69,7 +69,7 @@ Create a virtual network and infrastructure subnet to include with the Container
 When using these commands, replace the `<PLACEHOLDERS>` with your values.
 
 >[!NOTE]
-> The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/networking.md#subnet).
+> The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
 
 # [Azure CLI](#tab/azure-cli)
 

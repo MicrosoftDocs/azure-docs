@@ -30,7 +30,7 @@ For more information on networking concepts in Container Apps, see [Networking E
 
 ## Prerequisites
 
-- **Internal environment with custom VNet**: Have a container app that is on an internal environment and integrated with a custom virtual network. For more information on how to create a custom virtual network integrated app, see [provide a virtual network to an Azure Container Apps environment](./vnet-custom.md).
+- **Internal environment with virtual network**: Have a container app that is on an internal environment and integrated with a virtual network. For more information on how to create a virtual network integrated app, see [provide a virtual network to an internal Azure Container Apps environment](./vnet-custom-internal.md).
 
 - **Security certificates**: If you must use TLS/SSL encryption to the application gateway, a valid public certificate that's used to bind to your application gateway is required.
 
@@ -105,7 +105,7 @@ To create and configure an Azure Private DNS zone, perform the following steps:
 
     | Setting | Action |
     |---|---|
-    | Link name | Enter **my-custom-vnet-pdns-link**. |
+    | Link name | Enter **my-vnet-pdns-link**. |
     | I know the resource ID of virtual network | Leave it unchecked. |
     | Virtual network | Select the virtual network your container app is integrated with. |
     | Enable auto registration | Leave it unchecked. |
@@ -144,7 +144,7 @@ Perform the following steps:
     | Virtual network | Select the virtual network that your container app is integrated with. |
     | Subnet | Select **Manage subnet configuration**. If you already have a subnet you wish to use, use that instead, and skip to [the Frontends section](#frontends-tab). |
 
-1. From within the *Subnets* window of *my-custom-vnet*, select **+Subnet** and enter the following values:
+1. From within the *Subnets* window of *my-vnet*, select **+Subnet** and enter the following values:
 
     | Setting | Action |
     |---|---|

@@ -11,6 +11,7 @@ ms.date: 10/03/2022
 ms.author: shaas
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to manage Azure blob storage containers using PowerShell, so that I can efficiently create, list, and manipulate storage resources while maintaining data organization and access control."
 ---
 
 # Manage blob containers using PowerShell
