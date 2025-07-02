@@ -8,7 +8,7 @@ ms.date: 05/31/2024
 ms.author: rogarana
 ms.reviewer: jaylansdaal
 ms.custom: references_regions
-# Customer intent: As an IT administrator, I want to manage customer-managed keys for Azure Elastic SAN, so that I can control encryption key access, comply with security regulations, and ensure continuous data protection without downtime.
+# Customer intent: As an IT administrator, I want to manage customer-managed keys for Azure Elastic SAN, so that I can control encryption key access and comply with security regulations and compliance mandates.
 ---
 
 # Manage customer-managed keys for Azure Elastic SAN
