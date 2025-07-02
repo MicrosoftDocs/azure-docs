@@ -2,7 +2,7 @@
 title: Copy applications and data to pool nodes
 description: Learn how to copy applications and data to pool nodes.
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 07/01/2025
 ---
 
 # Copy applications and data to pool nodes

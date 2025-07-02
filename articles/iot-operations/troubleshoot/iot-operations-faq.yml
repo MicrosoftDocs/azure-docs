@@ -49,6 +49,9 @@ sections:
          Does Azure IoT Operations support connecting via proxy servers? 
       answer: Azure IoT Operations supports connecting via passthrough proxies that don't require proxy authentication. Proxies that require authentication or can inspect encrypted traffic are currently not supported. 
     - question: |
+         What versions of Azure IoT Operations are supported? 
+      answer: Microsoft supports the three most recent minor versions of Azure IoT Operations. To learn more, see [Supported versions](../overview-iot-operations.md#supported-versions).
+    - question: |
          Does Azure IoT Operations support Azure Private Link and private endpoints? 
       answer: Azure IoT Operations currently does not support Azure Private Link and private endpoints. 
 additionalContent: |

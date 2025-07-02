@@ -2,7 +2,7 @@
 title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: concept-article
-ms.date: 06/25/2024
+ms.date: 07/01/2025
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-azurecli
@@ -40,7 +40,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 - **an Azure Compute Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
 
 > [!NOTE]
-> If the Shared Image is not in the same subscription as the Batch account, you must [register the Microsoft.Batch resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for the subscription that uses the Shared Image. The two subscriptions must be in the same Microsoft Entra tenant.
+> If the Shared Image is in a different subscription than the Batch account, you must [register the Microsoft.Batch resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) in the subscription where the Shared Image resides. Both the subscriptions must belong to the same Microsoft Entra tenant.
 >
 > The image can be in a different region as long as it has replicas in the same region as your Batch account.
 

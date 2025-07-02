@@ -7,7 +7,7 @@ manager: martinco
 ms.reviewer: kengaderdus
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/30/2025
 ms.author: gasinh
 ms.subservice: b2c
 
@@ -21,20 +21,19 @@ In this article, you can learn how to configure the [Cloudflare Web Application 
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- An Azure subscription 
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
-- [An Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription
-- A [Cloudflare](https://dash.cloudflare.com/sign-up) account
+- An Azure subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
+- [An Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription.
+- A [Cloudflare](https://dash.cloudflare.com/sign-up) account.
 
 ## Scenario description
 
 Cloudflare WAF integration includes the following components:
 
-- **Azure AD B2C tenant** – The authorization server that verifies user credentials using the custom policies defined in the tenant. It's known as the identity provider
+- **Azure AD B2C tenant** – The authorization server that verifies user credentials using the custom policies defined in the tenant, known as the identity provider.
 - [**Azure Front Door**](../frontdoor/front-door-overview.md) – Enables custom domains for Azure B2C tenant. Traffic from Cloudflare WAF is routed to Azure Front Door before arriving at Azure AD B2C tenant.
-- **Cloudflare** – The web application firewall that manages traffic sent to the authorization server
+- **Cloudflare** – The web application firewall that manages traffic sent to the authorization server.
 
 ## Integrate with Azure AD B2C
 
@@ -57,6 +56,9 @@ On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-
 The settings appear in the following image.
 
    ![Screenshot of proxied status.](./media/partner-cloudflare/select-proxied.png)
+
+> [!NOTE]
+> Azure Front Door-managed certificates aren't automatically renewed if your custom domain’s CNAME record points to a DNS record other than the Azure Front Door endpoint’s domain (for example, when using a third-party DNS service like Cloudflare). To renew the certificate in such cases, follow the instructions in the [Renew Azure Front Door-managed certificates](../frontdoor/domain.md#renew-azure-front-door-managed-certificates) article.
 
 ### Configure the Web Application Firewall
 

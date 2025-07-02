@@ -139,7 +139,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 2. To generate VSS snapshots for the VM, check that Hyper-V Integration Services is installed on the VM, and that the Backup (VSS) Integration Service is enabled.
     - Ensure that the Integration Services VSS service/daemons are running on the guest, and are in an **OK** state.
     - You can check this from an elevated PowerShell session on the Hyper-V host with command **Get-VMIntegrationService -VMName\<VMName>-Name VSS** You can also get this information by logging into the guest VM. [Learn more](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Ensure that the Backup/VSS integration Services on the VM is running and in healthy state. If not, restart these services, and the Hyper-V Volume Shadow Copy requestor service on the Hyper-V host server.
+    - Ensure that the Backup/VSS integration Services on the VM is running and in healthy state. If not, restart these services, and the Hyper-V Volume Shadow Copy requester service on the Hyper-V host server.
 
 ### Common errors
 

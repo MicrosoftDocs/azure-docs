@@ -1,7 +1,7 @@
 ---
 title: Rendering capabilities
 description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
-ms.date: 06/10/2024
+ms.date: 07/01/2025
 ms.topic: how-to
 ---
 

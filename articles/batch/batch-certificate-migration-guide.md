@@ -3,7 +3,7 @@ title: Migrate Batch account certificates to Azure Key Vault
 description: Learn how to migrate Batch account certificates to Azure Key Vault and plan for feature end of support.
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 07/01/2025
 ---
 
 # Migrate Batch account certificates to Azure Key Vault
@@ -46,7 +46,7 @@ For a complete guide on how to enable Azure Key Vault VM Extension with Pool Use
 
 - How do I get references to certificates on Linux Batch Pools since `$AZ_BATCH_CERTIFICATES_DIR` will be removed?
 
-  The Key Vault VM extension for Linux allows you to specify the `certificateStoreLocation`, which is an absolute path to where the certificate are stored. The Key Vault VM extension will scope certificates installed at the specified location with only superuser (root) privileges. You need to make sure that your tasks run elevated to access these certificates by default, or copy the certificates to an accessible directly and/or adjust certificate files with proper file modes. You can run such commands as part of an elevated start task or job prep task.
+  The Key Vault VM extension for Linux allows you to specify the `certificateStoreLocation`, which is an absolute path to where the certificates are stored. The Key Vault VM extension will scope certificates installed at the specified location with only superuser (root) privileges. You need to make sure that your tasks run elevated to access these certificates by default, or copy the certificates to an accessible directly and/or adjust certificate files with proper file modes. You can run such commands as part of an elevated start task or job prep task.
 
 - How do I install `.cer` files that don't contain private keys?
 
