@@ -8,6 +8,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to create and manage backup policies via REST API, so that I can automate backup schedules and retention settings for various Azure workloads."
 ---
 # Create Azure Recovery Services backup policies by using REST API
 

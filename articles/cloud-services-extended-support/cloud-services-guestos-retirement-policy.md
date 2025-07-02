@@ -11,6 +11,7 @@ ms.topic: concept-article
 ms.date: 05/09/2025
 ms.author: ssundara
 ms.custom: compute-evergreen
+# Customer intent: As a cloud services administrator, I want to understand the support and retirement policies for Azure Guest OS, so that I can ensure my applications remain secure and compliant during updates and migrations.
 ---
 # Azure Guest OS supportability and retirement policy
 

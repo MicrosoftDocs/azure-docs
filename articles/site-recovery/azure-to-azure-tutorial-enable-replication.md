@@ -7,6 +7,7 @@ ms.date: 05/10/2024
 ms.custom: mvc
 ms.author: jsuri
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
+# Customer intent: As an Azure administrator, I want to configure disaster recovery for my Azure VMs using replication, so that they remain available in a secondary region during outages in the primary region.
 ---
 # Tutorial: Set up disaster recovery for Azure VMs
 

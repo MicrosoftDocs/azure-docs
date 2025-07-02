@@ -9,6 +9,7 @@ ms.date: 07/11/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurecli
 
+# Customer intent: "As a cloud architect, I want to configure VNet-to-VNet connections using command-line tools, so that I can establish secure communication between virtual networks across different regions and subscriptions efficiently."
 ---
 # Configure a VNet-to-VNet VPN gateway connection using Azure CLI
 

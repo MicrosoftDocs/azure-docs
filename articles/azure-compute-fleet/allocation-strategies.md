@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2024
 ms.date: 04/21/2025
 ms.reviewer: jushiman
+# Customer intent: As a cloud architect, I want to understand the allocation strategies for Compute Fleet, so that I can optimize virtual machine deployments based on cost, performance, and availability for my workloads.
 ---
 
 # Allocation strategies for Azure Compute Fleet 

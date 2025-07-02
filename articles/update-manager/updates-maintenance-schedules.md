@@ -6,6 +6,7 @@ ms.date: 06/11/2025
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
+# Customer intent: "As an IT administrator, I want to enable automated update management for my virtual machines, so that I can ensure timely application of security patches and OS upgrades without manual intervention, minimizing downtime and maintaining system security."
 ---
 
 # Update options and orchestration in Azure Update Manager

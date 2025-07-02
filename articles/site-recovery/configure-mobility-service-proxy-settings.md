@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 03/21/2025
 ms.author: jsuri
 
+# Customer intent: As an IT administrator configuring disaster recovery, I want to set up proxy settings for the Mobility Service in Azure Site Recovery, so that I can ensure proper connectivity during VM replication and recovery across Azure regions.
 ---
 # Configure Mobility Service Proxy Settings for Azure to Azure Disaster Recovery
 

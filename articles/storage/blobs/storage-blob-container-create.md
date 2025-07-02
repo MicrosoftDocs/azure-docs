@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a developer, I want to create a blob container using the .NET client library, so that I can organize and manage my data in Azure Storage efficiently."
 ---
 
 # Create a blob container with .NET

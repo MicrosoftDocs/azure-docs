@@ -10,6 +10,7 @@ ms.topic: sample
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ai-usage: ai-assisted
+# Customer intent: "As a .NET developer, I want access to sample code and developer guides for Azure Storage services, so that I can efficiently implement storage functionalities in my applications."
 ---
 
 # Azure Storage samples using .NET client libraries

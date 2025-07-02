@@ -12,6 +12,7 @@ ms.author: pauljewell
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
+# Customer intent: "As a developer, I want to create and manage client objects for Azure Blob Storage, so that I can interact with storage resources efficiently and securely in my application."
 ---
 
 # Create and manage client objects that interact with data resources

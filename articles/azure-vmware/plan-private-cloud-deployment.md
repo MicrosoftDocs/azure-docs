@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.custom: engagement-fy23
 ms.service: azure-vmware
 ms.date: 01/08/2025
+# Customer intent: As a cloud architect, I want to plan and document my Azure VMware Solution deployment, so that I can ensure a successful production-ready environment for virtual machines and facilitate smooth migration processes.
 ---
 
 # Plan the Azure VMware Solution deployment

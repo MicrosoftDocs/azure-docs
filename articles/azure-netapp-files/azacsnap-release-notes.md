@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 05/21/2025
 ms.author: phjensen
+# Customer intent: As a cloud administrator, I want to stay updated with the latest release notes for the Azure Application Consistent Snapshot tool, so that I can leverage new features and improvements for enhanced data protection and compliance in my environment.
 ---
 
 # Release Notes for Azure Application Consistent Snapshot tool
