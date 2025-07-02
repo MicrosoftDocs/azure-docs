@@ -6,6 +6,7 @@ ms.date: 06/11/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator managing Azure VMs, I want to back up VMs directly from the VM settings, so that I can ensure data protection and easy recovery from potential data loss.
 ---
 # Back up an Azure VM from the VM settings
 

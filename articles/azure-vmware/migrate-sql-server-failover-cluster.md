@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 01/08/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a database administrator, I want to migrate a SQL Server Failover Cluster Instance to Azure VMware Solution, so that I can ensure high availability and scalability for my SQL Server workloads in the cloud."
 ---
 
 #  Migrate a SQL Server Always On Failover Cluster Instance to Azure VMware Solution

@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: jsuri
 ms.date: 09/06/2024
 
+# Customer intent: As a cloud administrator managing VMware VMs, I want to exclude specific disks from replication to Azure, so that I can optimize bandwidth and resource usage during disaster recovery operations.
 ---
 
 # Exclude disks from VMware VM replication to Azure

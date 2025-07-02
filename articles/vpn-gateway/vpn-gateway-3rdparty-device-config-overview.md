@@ -8,6 +8,7 @@ ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: As a network administrator, I want to configure on-premises VPN devices to connect to Azure VPN gateways so that I can establish secure site-to-site VPN tunnels for reliable communication between my local network and cloud resources.
 ---
 # Overview of partner VPN device configurations
 This article provides an overview of configuring on-premises VPN devices for connecting to Azure VPN gateways. A sample Azure virtual network and VPN gateway setup is used to show you how to connect to different on-premises VPN device configurations by using the same parameters.

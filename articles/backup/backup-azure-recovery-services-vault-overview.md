@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to utilize a Recovery Services vault for backing up data and managing recovery points, so that I can ensure data security, minimize management overhead, and efficiently restore backups in various scenarios.
 ---
 # Recovery Services vaults overview
 

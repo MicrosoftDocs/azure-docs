@@ -9,6 +9,7 @@ ms.date: 01/04/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: "monitoring, devx-track-csharp"
+# Customer intent: As a storage administrator, I want to enable and configure Storage Analytics logging for my Azure Storage account, so that I can monitor requests and diagnose any issues effectively.
 ---
 
 # Azure Storage analytics logging

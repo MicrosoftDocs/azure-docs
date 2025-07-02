@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 05/29/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a web application administrator, I want to configure IP restriction rules in a web application firewall for Azure Front Door, so that I can control access to my applications based on specific IP addresses or ranges."
 ---
 
 # Configure an IP restriction rule with a WAF for Azure Front Door

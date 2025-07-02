@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: overview
 ms.date: 03/10/2025
+# Customer intent: "As a security engineer, I want to implement a Web Application Firewall with customizable policies on my application gateway, so that I can protect my web applications from common exploits and monitor attack patterns effectively."
 ---
 
 # What is Azure Web Application Firewall on Azure Application Gateway?

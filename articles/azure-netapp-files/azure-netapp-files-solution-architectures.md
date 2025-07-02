@@ -10,6 +10,7 @@ ms.custom:
 ms.topic: concept-article
 ms.date: 05/19/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to implement Azure NetApp Files to migrate and run mission-critical applications, so that I can ensure high performance, scalability, and security for diverse workloads in the cloud.
 ---
 # Solution architectures using Azure NetApp Files
 

@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 02/20/2025
 ms.author: phjensen
+# Customer intent: "As a database administrator, I want to use the application consistent snapshot tool for data protection, so that I can ensure consistent backups and rapid recovery for critical databases without impacting performance."
 ---
 
 # What is the Azure Application Consistent Snapshot tool?

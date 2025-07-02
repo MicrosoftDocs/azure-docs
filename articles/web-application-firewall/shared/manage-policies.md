@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 06/15/2022
+# Customer intent: As a network security administrator, I want to manage Web Application Firewall policies through a centralized platform, so that I can efficiently protect my applications and leverage advanced features across different subscriptions and regions.
 ---
 
 # Configure WAF policies using Azure Firewall Manager

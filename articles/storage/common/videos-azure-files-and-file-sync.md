@@ -6,6 +6,7 @@ ms.topic: concept-article
 ms.author: nasindam
 ms.date: 07/26/2023
 ms.service: azure-file-storage
+# Customer intent: "As a cloud user interested in Azure Files and File Sync, I want to access video tutorials, so that I can enhance my knowledge and skills in using these services effectively."
 ---
 
 # Azure Files and Azure File Sync videos

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/18/2025
 ms.author: anfdocs
 ms.custom: references_regions
+# Customer intent: As a storage administrator, I want to enable file access logs on Azure NetApp Files volumes so that I can monitor file access operations and troubleshoot access issues effectively.
 ---
 
 # Manage file access logs in Azure NetApp Files (preview)

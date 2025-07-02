@@ -8,6 +8,7 @@ ms.custom: include file
 
 # application-volume-group-concepts.md
 # application-volume-group-oracle-introduction.md
+# Customer intent: "As a cloud architect, I want to understand the application volume group configuration, so that I can effectively deploy optimal data, log, and backup volumes in Azure NetApp Files for improved performance and resource management."
 ---
 
 * Application volume group can deploy 1 to 8 data, log (and optionally, log-mirror), backup, and binary volumes in the selected zone using the same network features setting (Standard or Basic) and the same NFS version (NFSv4.1 or NFSv3).

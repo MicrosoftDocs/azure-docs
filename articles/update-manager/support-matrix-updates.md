@@ -7,6 +7,7 @@ ms.author: v-uhabiba
 ms.date: 03/18/2025
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates
+# Customer intent: As an IT administrator, I want to understand the supported operating systems and patching capabilities of Azure Update Manager, so that I can ensure my virtual machines are properly updated and compliant with organizational policies.
 ---
 
 # Support for Updates/One time Updates/Periodic assessments and Scheduled patching

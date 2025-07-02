@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 05/09/2023
 ms.author: pauljewell
 ms.reviewer: nachakra
+# Customer intent: As a cloud administrator, I want to understand the supported actions and attributes for role assignment conditions in Azure Queue Storage, so that I can effectively manage access control and permissions for my storage resources.
 ---
 
 # Actions and attributes for Azure role assignment conditions for Azure Queue Storage
