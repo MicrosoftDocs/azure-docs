@@ -103,7 +103,7 @@ az afd origin create --enabled-state Enabled \
                      --enable-private-link true \
                      --private-link-location 'EastUS' \
                      --private-link-request-message 'AFD storage origin Private Link request.' \
-                     --private-link-resource /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorage \
+                     --private-link-resource '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorage' \
                      --private-link-sub-resource-type blob 
 ```
 
@@ -130,7 +130,7 @@ az afd origin create --enabled-state Enabled \
 1. Use the [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) command to list the private endpoint connections for your storage account. Note the `Resource ID` of the private endpoint connection from the output.
 
     ```azurecli-interactive
-    az network private-endpoint-connection list --name mystorage --resource-group myResourceGroup --type Microsoft.Storage/storageAccounts
+    az network private-endpoint-connection list --name 'mystorage' --resource-group 'myResourceGroup' --type 'Microsoft.Storage/storageAccounts'
     ```
 
 2. Use the [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) command to approve the private endpoint connection.
