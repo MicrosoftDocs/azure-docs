@@ -141,7 +141,7 @@ az afd origin create --enabled-state Enabled \
 
 ::: zone-end
 
-    It takes a few minutes for the connection to fully establish after approval. Once established, you can access your storage account privately through Azure Front Door Premium. Public internet access to the storage account is disabled once the private endpoint is enabled.
+        It takes a few minutes for the connection to fully establish after approval. Once established, you can access your storage account privately through Azure Front Door Premium. Public internet access to the storage account is disabled once the private endpoint is enabled.
 
 > [!NOTE]
 > If the blob or container within the storage account doesn't permit anonymous access, requests made against the blob/container should be authorized. One option for authorizing a request is by using [shared access signatures](../../storage/common/storage-sas-overview.md).
