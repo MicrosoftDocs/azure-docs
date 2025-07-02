@@ -13,7 +13,7 @@ ms.update-cycle: 180-days
 
 # Reliability in Azure Container Registry
 
-This article describes reliability support in Azure Container Registry (ACR), covering intra-regional resiliency via [availability zones](#zone-redundancy-region-support) and cross-region resiliency via [geo-replication](#geo-replication).
+This article describes reliability support in Azure Container Registry (ACR), covering intra-regional resiliency via [availability zones](#zone-redundancy-reliability) and cross-region resiliency via [geo-replication](#multi-region-reliability).
 
 Azure Container Registry is a managed container registry service used to store and manage your private Docker container images and related artifacts for your container deployments. For more information, see [What is Azure Container Registry?](/azure/container-registry/container-registry-intro).
 
@@ -92,7 +92,7 @@ Zone redundancy is automatically enabled when you create a Premium registry in a
 
 - **Create**. Use the Azure portal, Azure CLI, Azure PowerShell, or ARM templates to create Premium registries. For configuration details, see [Create a container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal).
 - **Disable**. Zone redundancy can't be disabled once enabled for a registry. If you need a non-zone-redundant registry, you must create a new registry and migrate your container images.
-- **Migrate**. Existing Basic or Standard tier registries can be upgraded to Premium tier, however upgrading alone doesn't enable zone redundancy for existing registries. To get zone redundancy, you must create a new Premium registry in a supported region and migrate your container images. Migrating SKUs requires migrating registry artifacts, which you can do by following [creating a transfer pipeline](/azure/container-registry/container-registry-transfer-prerequisites) or via [importing](azure/container-registry/container-registry-import-images).
+- **Migrate**. Existing Basic or Standard tier registries can be upgraded to Premium tier, however upgrading alone doesn't enable zone redundancy for existing registries. To get zone redundancy, you must create a new Premium registry in a supported region and migrate your container images. Migrating SKUs requires migrating registry artifacts, which you can do by following [creating a transfer pipeline](/azure/container-registry/container-registry-transfer-prerequisites) or via [importing](/azure/container-registry/container-registry-import-images).
 
 **Important limitations**:
 - Converting to zone redundancy isn't currently supported
