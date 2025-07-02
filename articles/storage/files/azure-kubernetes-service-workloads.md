@@ -4,7 +4,7 @@ description: Learn how to use Azure file shares for Azure Kubernetes Service (AK
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/30/2025
+ms.date: 07/02/2025
 ms.author: kendownie
 # Customer intent: "As a Kubernetes administrator, I want to implement Azure Files for my Azure Kubernetes Service (AKS) workloads requiring persistent, shared storage, so that I can better support my organization's containerized applications."
 ---
@@ -15,11 +15,11 @@ Azure Files provides fully managed file shares in the cloud that are accessible 
 
 ## What is Azure Kubernetes Service?
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that simplifies deploying, managing, and scaling containerized applications using Kubernetes on Azure. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance, while you focus on your application workloads.
+Azure Kubernetes Service is a managed Kubernetes service that simplifies deploying, managing, and scaling containerized applications using Kubernetes on Azure. It reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. As a hosted Kubernetes service, AKS handles critical tasks like health monitoring and maintenance, while you focus on your application workloads.
 
-## Why Azure Files for Azure Kubernetes Service?
+## Why Azure Files for AKS?
 
-Azure Files is an ideal storage solution for AKS workloads due to several advantages:
+The combination of persistent shared storage, Kubernetes-native integration, and enterprise-grade performance and security makes Azure Files an excellent choice for stateful applications, shared data scenarios, and complex multi-pod architectures in AKS environments. Whether you're deploying content management systems, implementing centralized logging, or building data processing pipelines, Azure Files offers the flexibility and reliability needed to support your AKS infrastructure at scale.
 
 ### Persistent shared storage
 
@@ -27,15 +27,16 @@ Unlike local storage that's tied to individual nodes, Azure Files provides persi
 
 ### Kubernetes native integration
 
-Azure Files integrates seamlessly with Kubernetes through the Container Storage Interface (CSI) driver, allowing you to provision and manage file shares using standard Kubernetes constructs like PersistentVolumes (PV) and PersistentVolumeClaims (PVC). The CSI driver handles all the complexity of Azure API interactions, authentication, and mount operations, providing a native Kubernetes experience for storage management.
+Azure Files integrates seamlessly with Kubernetes through the Container Storage Interface (CSI) driver, allowing you to provision and manage file shares using standard Kubernetes constructs like persistent volumes (PV) and persistent volume claims (PVC). The CSI driver handles all the complexity of Azure API interactions, authentication, and mount operations, providing a native Kubernetes experience for storage management.
 
-### Multiple performance tiers
+### SSD file shares for optimal performance
 
-Azure Files offers multiple performance tiers to match your workload requirements:
+Azure Files offers two types of storage media:
 
 - **HDD (Standard)**: Cost-effective for general-purpose workloads
 - **SSD (Premium)**: High-performance SSD-backed storage for I/O intensive applications
-- **Transaction optimized**: Optimized for workloads with high transaction rates
+
+For optimal performance, we recommend using SSD file shares deployed in the same Azure region as your AKS cluster. This minimizes latency and maximizes throughput for file operations.
 
 ### Protocol support
 
@@ -43,23 +44,23 @@ Support for both NFS and SMB protocols ensures compatibility with a wide range o
 
 ### Security and compliance
 
-Azure Files provides enterprise-grade security features including encryption at rest, encryption in transit, Microsoft Entra ID integration, and compliance with industry standards.
+Azure Files provides essential security features including encryption at rest, encryption in transit, Microsoft Entra ID integration, and compliance with industry standards.
 
 ## Understanding the Azure Files CSI driver
 
-The Azure Files Container Storage Interface (CSI) driver is a critical component that enables seamless integration between Azure Files and Kubernetes clusters, including AKS. The CSI specification provides a standardized interface for storage systems to expose their capabilities to containerized workloads, and the Azure Files CSI driver implements this specification specifically for Azure Files.
+The Azure Files Container Storage Interface (CSI) driver is a critical component that enables seamless integration between Azure Files and Kubernetes clusters, including AKS. The CSI specification provides a standardized interface for storage systems to expose their capabilities to containerized workloads, and the Azure Files CSI driver implements this specification specifically for Azure Files. For more information, see [Use Azure Files CSI driver in AKS](/azure/aks/azure-files-csi).
 
 ### How the CSI driver works
 
 The Azure Files CSI driver operates through several key components:
 
 - **CSI driver pod**: Runs as a DaemonSet on each node in the AKS cluster, responsible for mounting and unmounting Azure file shares
-- **CSI controller**: Manages the lifecycle of Azure Files shares, including creation, deletion, and volume expansion
+- **CSI controller**: Manages the lifecycle of Azure file shares, including creation, deletion, and volume expansion
 - **Storage classes**: Define the parameters and policies for dynamic provisioning of Azure file shares
-- **Persistent volumes (PV)**: Represent the actual Azure Files shares in Kubernetes
-- **Persistent volume claims (PVC)**: User requests for storage that are bound to persistent volumes
+- **Persistent volumes**: Represent the actual Azure file shares in Kubernetes
+- **Persistent volume claims**: User requests for storage that are bound to persistent volumes
 
-When a pod requests storage through a PVC, the CSI driver coordinates with Azure APIs to either create a new Azure file share (dynamic provisioning) or connect to an existing share (static provisioning). The driver then mounts the share into the pod's filesystem namespace, making it accessible to applications.
+When a pod requests storage through a persistent volume claim, the CSI driver coordinates with Azure APIs to either create a new Azure file share (dynamic provisioning) or connect to an existing share (static provisioning). The driver then mounts the share into the pod's filesystem namespace, making it accessible to applications.
 
 ### CSI driver capabilities
 
@@ -116,7 +117,7 @@ Azure Files is particularly useful for:
 - **Certificate distribution**: Centrally manage and distribute SSL/TLS certificates.
 - **Shared libraries**: Store common libraries or binaries accessed by multiple applications.
 
-This YAML example creates a PVC for shared configuration storage and a deployment that mounts this storage across multiple pod replicas:
+This YAML example creates a persistent volume claim for shared configuration storage and a deployment that mounts this storage across multiple pod replicas:
 
 ```yaml
 apiVersion: v1
@@ -216,7 +217,7 @@ Azure Files CSI driver supports both static and dynamic provisioning through Kub
 
 With dynamic provisioning, storage is automatically created when a persistent volume claim is created.
 
-This YAML defines a StorageClass for dynamic provisioning of premium Azure Files shares with SMB protocol and specific mount options:
+This YAML defines a storage class for dynamic provisioning of SSD (premium) Azure file shares with SMB protocol and specific mount options:
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -240,9 +241,9 @@ mountOptions:
 
 ### Static provisioning
 
-For existing Azure Files shares, you can create persistent volumes that reference pre-created storage.
+For existing Azure file shares, you can create persistent volumes that reference pre-created storage.
 
-This YAML example shows how to create a Persistent Volume that references an existing Azure file share using static provisioning:
+This YAML example shows how to create a persistent volume that references an existing Azure file share using static provisioning:
 
 ```yaml
 apiVersion: v1
@@ -267,8 +268,7 @@ spec:
       protocol: smb
 ```
 
-
-## Optimize mount options
+## Recommended mount options
 
 This YAML example shows optimized mount options for Azure Files to improve performance and compatibility. However, you should configure mount options to optimize performance for your specific use case.
 
@@ -310,3 +310,7 @@ parameters:
   networkEndpointType: privateEndpoint
 ```
 
+## See also
+
+- [Use Azure Files CSI driver in AKS](/azure/aks/azure-files-csi)
+- [Create and use a volume with Azure Files in AKS](/azure/aks/azure-csi-files-storage-provision)
