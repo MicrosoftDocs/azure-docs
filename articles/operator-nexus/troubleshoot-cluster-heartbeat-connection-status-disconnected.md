@@ -18,7 +18,7 @@ For a Cluster, the `ClusterConnectionStatus` represents the stability in the con
 > The `ClusterConnectionStatus` **doesn't** represent or is related to the health or connectivity of the Arc Connected Kubernetes Cluster.
 > The `ClusterConnectionStatus` indicates that the Cluster is successful in sending heartbeats and receiving acknowledgment from the Cluster Manager.
 
-![prereqAzCLI](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
+[!include[prereqAzCLI](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 
 ## Understanding the Cluster connection status signal
 
