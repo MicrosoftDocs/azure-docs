@@ -33,7 +33,7 @@ For more information, see [Access Azure services over Azure Firewall Explicit Pr
 
 In industries like manufacturing, segmented networking architectures (such as the [Purdue Network Architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture)) are common. These architectures create layers that minimize or block lower-level segments from connecting to the internet. Azure IoT Operations supports secure management of devices in these layered networks using open, industry-recognized software, and Kubernetes-based configuration.
 
-A practical networking sample is available in the [Azure IoT Operations samples repository](https://github.com/PatAltimore/explore-iot-operations/tree/patricka-layered-network/samples/layered-networking). This sample demonstrates how to:
+A [layered networking guidance sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/layered-networking) is available  in the Azure IoT Operations samples repository. It demonstrates how to:
 
 - Use Kubernetes-based configuration and networking primitives for layered environments
 - Connect devices in isolated networks at scale to [Azure Arc](/azure/azure-arc/) for application lifecycle management and remote configuration
