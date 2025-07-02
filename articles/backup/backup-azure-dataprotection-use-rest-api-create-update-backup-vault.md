@@ -2,7 +2,7 @@
 title: Create Azure Backup policy for blobs using REST API.
 description: In this article, learn how to create a policy to back up blobs in a storage account using REST API.
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 07/02/2025
 ms.assetid: 93861379-5bec-4ed5-95d2-46f534a115fd
 author: jyothisuri
 ms.author: jsuri
@@ -10,9 +10,11 @@ ms.author: jsuri
 
 # Create Azure Backup vault using REST API
 
+This article describes how to create a [Backup vault](backup-vault-overview.md) using REST API. You can also [create a Backup vault using the Azure portal](create-manage-backup-vault.md#create-a-backup-vault).
+
 Azure Backup's new Data Protection platform provides enhanced capabilities for backup and restore for newer workloads such as blobs in storage accounts, managed disk and PostgreSQL server's PaaS platform. It aims to minimize management overhead while making it easy for organizing backups. A 'Backup vault' is the cornerstone of the Data protection platform and this is different from the 'Recovery Services' vault.
 
-The steps to create an Azure Backup vault using REST API are outlined in [create vault REST API](/rest/api/dataprotection/backup-vaults/create-or-update) documentation. Let's use this document as a reference to create a vault called "testBkpVault" in "West US" and under 'TestBkpVaultRG' resource group.
+The steps to create an Azure Backup vault using REST API are outlined in [create vault REST API](/rest/api/dataprotection/backup-vaults/create-or-update) documentation. Let's use this document as a reference to create a vault called `testBkpVault` in `West US` and under `TestBkpVaultRG` resource group.
 
 To create or update an Azure Backup vault, use the following *PUT* operation.
 

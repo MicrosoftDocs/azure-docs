@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 07/02/2025
 ms.author: kendownie
 # Customer intent: As a Linux system administrator, I want to mount an NFS Azure file share, so that I can securely access and manage data stored in Azure from my Linux environment.
 ---
@@ -57,19 +57,59 @@ To enable hybrid access to an NFS Azure file share, use one of the following net
 
 ## Step 2: Mount an NFS Azure file share
 
-You can mount the share using the Azure portal. You can also create a record in the **/etc/fstab** file to automatically mount the share every time the Linux server or VM boots.
-
-### Mount an NFS share using the Azure portal
+You can mount the share using the Azure portal, or you can use the native Linux mount commands. You can also create a record in the **/etc/fstab** file to automatically mount the share every time the Linux server or VM boots.
 
 You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
 
-1. Once the file share is created, select the share and select **Connect from Linux**.
-1. Enter the mount path you'd like to use, then copy the script. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package. Once installed, you can use the provided AZNFS mount script to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md).
-1. Connect to your client and use the provided mounting script. Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
+### Mount an NFS share using the Azure portal
 
-    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" border="true":::
+1. Once the file share is created, select the share and then select **Connect from Linux**.
+1. Enter the mount path you'd like to use, then copy the script and run it on your client. Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
+
+> [!NOTE]
+> The Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package. Once installed, you can use the provided AZNFS mount script to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md).
+
+   :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" border="true":::
 
 The NFS file share is now mounted.
+
+### Mount an NFS share using the Linux command line
+
+You can also mount the file share using the Linux command line. Select the tab below for your Linux distribution to see the commands you need to run. Be sure to replace `<YourStorageAccountName>` and `<FileShareName>` with your information.
+
+# [Ubuntu/Debian](#tab/Ubuntu)
+```bash
+sudo apt-get -y update
+sudo apt-get install nfs-common
+ 
+/mount/<YourStorageAccountName>/<FileShareName>
+ 
+sudo mkdir -p /mount/<YourStorageAccountName>/<FileShareName>
+sudo mount -t nfs <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> -o vers=4,minorversion=1,sec=sys,nconnect=4
+```
+
+# [RHEL/CentOS](#tab/RHEL)
+```bash
+sudo yum update
+sudo yum install nfs-utils
+ 
+/mount/<YourStorageAccountName>/<FileShareName>
+ 
+sudo mkdir -p /mount/<YourStorageAccountName>/<FileShareName>
+sudo mount -t nfs <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> -o vers=4,minorversion=1,sec=sys,nconnect=4
+```
+
+### [SUSE](#tab/SUSE)
+```bash
+sudo zypper update
+sudo zypper -n install nfs-client
+ 
+/mount/<YourStorageAccountName>/<FileShareName>
+ 
+sudo mkdir -p /mount/<YourStorageAccountName>/<FileShareName>
+sudo mount -t nfs <YourStorageAccountName>.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> -o vers=4,minorversion=1,sec=sys,nconnect=4
+```
+---
 
 ### Mount an NFS share using /etc/fstab
 
