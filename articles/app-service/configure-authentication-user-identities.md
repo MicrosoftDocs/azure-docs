@@ -14,7 +14,9 @@ This article shows you how to work with user identities when you use built-in [a
 
 ## Access user claims in app code
 
-Authenticated end users or client applications make claims in incoming tokens. App Service makes the claims available to your code by injecting them into request headers. External requests aren't allowed to set these headers, so they're present only if set by App Service.
+Your app's authenticated end users or client applications make claims in incoming tokens. App Service makes the claims available to your code by injecting them into request headers. External requests aren't allowed to set these headers, so they're present only if set by App Service.
+
+Code in any language or framework can get needed information from the request headers. Some code frameworks provide extra options that might be more convenient. See [Framework-specific alternatives](#framework-specific-alternatives).
 
 The following table describes some example headers:
 
@@ -30,16 +32,17 @@ Similar headers expose [provider tokens](configure-authentication-oauth-tokens.m
 > [!NOTE]
 > App Service makes the request headers available to all language frameworks. Different language frameworks might present these headers to the app code in different formats, such as lowercase or title case.
 
-Code in any language or framework can get the information it needs from the request headers. Some code frameworks provide extra options that might be more convenient. See [Framework-specific alternatives](#framework-specific-alternatives).
-
+<a name="decode-the-client-principal-header"></a>
 ### Decode the X-MS-CLIENT-PRINCIPAL header
 
-The `X-MS-CLIENT-PRINCIPAL` header contains the full set of available claims in Base64-encoded JSON. To process this header, your app must decode the payload and iterate through the `claims` array to find relevant claims. These claims undergo a default claims-mapping process, so some might have different names than if you process the token directly.
+The `X-MS-CLIENT-PRINCIPAL` header contains the full set of available claims in Base64-encoded JSON. To process this header, your app must decode the payload and iterate through the `claims` array to find relevant claims.
 
 > [!NOTE]
-> For claims mapping to work, you must enable the [token store](overview-authentication-authorization.md#token-store) in your app.
+> These claims undergo a default claims-mapping process, so some might have different names than if you process the token directly.
 
-The decoded payload is structured as follows:
+For claims mapping to work, you must enable the [token store](overview-authentication-authorization.md#token-store) in your app.
+
+The decoded payload structure is as follows:
 
 ```json
 {
