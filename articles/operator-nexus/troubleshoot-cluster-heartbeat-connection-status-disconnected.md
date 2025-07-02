@@ -4,14 +4,14 @@ description: Provide steps to investigate and possibly resolve circumstances tha
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 04/28/2025
+ms.date: 07/02/2025
 ms.author: omarrivera
 author: omarrivera
 ---
 
 # Troubleshoot Cluster heartbeat connection status shows disconnected
 
-This guide attempts to provide steps to troubleshoot a Cluster with a `clusterConnectionStatus` in `Disconnected` state.
+This guide attempts to provide steps to troubleshoot a Cluster with a `ClusterConnectionStatus` in `Disconnected` state.
 For a Cluster, the `ClusterConnectionStatus` represents the stability in the connection between the on-premises Cluster and its ability to reach the Cluster Manager.
 
 > [!IMPORTANT]
@@ -25,7 +25,7 @@ For a Cluster, the `ClusterConnectionStatus` represents the stability in the con
 The `ClusterConnectionStatus` represents the ability of the on-premises Cluster to send heartbeats and receive acknowledgments from the Cluster Manager, indicating the health of the network connection between them.
 `ClusterConnectionStatus` distinct from the connectivity of the Arc Connected Kubernetes Cluster, though network issues affect both.
 
-A Cluster resource has the property `ClusterConnectionStatus` which is set to the value `Connected` as the heartbeats are continuously received and acknowledged.
+A Cluster resource has the property `ClusterConnectionStatus` set to the value `Connected` as the heartbeats are continuously received and acknowledged.
 The `ClusterConnectionStatus` becomes `Connected` once the Cluster is in a healthy state and network connectivity issues are resolved.
 The Cluster shows `Timeout` only as a transitional state between `Connected` and `Disconnected`.
 The Cluster `ClusterConnectionStatus` value becomes `Disconnected` as Cluster Manager detects continuously missed heartbeats.
@@ -38,15 +38,15 @@ The following table shows the possible values of `ClusterConnectionStatus` and t
 | Status         | Definition                                                                                                            |
 |----------------|-----------------------------------------------------------------------------------------------------------------------|
 | `Connected`    | Heartbeats received, indicates healthy cluster and cluster manager connectivity                                       |
-| `Disconnected` | Heartbeats missed for __over 5 minutes__, indicates likely connectivity issue between Cluster Manager and Cluster     |
-| `Timeout`      | Heartbeats missed for __over 2 minutes but less than 5 minutes__, cluster connectivity is uncertain possibly degraded |
+| `Disconnected` | Heartbeats missed for **over 5 minutes**, indicates likely connectivity issue between Cluster Manager and Cluster     |
+| `Timeout`      | Heartbeats missed for **over 2 minutes but less than 5 minutes**, cluster connectivity is uncertain possibly degraded |
 | `Undefined`    | Cluster not yet deployed or running a version without the heartbeats feature                                          |
 
-## Check the ClusterConnectionStatus
+## Check the value of the Cluster's ClusterConnectionStatus property
 
 The value of `ClusterConnectionStatus` is visible in the Azure portal in the Cluster resource view.
 
-![!include[clusterConnectionStatus](./media/troubleshoot-cluster-heartbeat-connection-status/az-portal-cluster-connection-status.png)]
+![!include[ClusterConnectionStatus](./media/troubleshoot-cluster-heartbeat-connection-status/az-portal-cluster-connection-status.png)]
 
 Or, you can use the Azure CLI to see the value of `ClusterConnectionStatus`:
 
@@ -63,6 +63,34 @@ ClusterConnectionStatus
 Connected
 ```
 
+## Understanding the NexusClusterConnectionStatus metric
+
+Use Azure Resource Health to build alerts for cluster health, as it provides a comprehensive and supported view of resource status.
+The `NexusClusterConnectionStatus` metric integrates into the Cluster's Azure Resource Health.
+If you use the `NexusClusterConnectionStatus` metric directly, understand how it functions and what it represents.
+
+The Cluster Manager, not the on-premises Cluster, emits the metric based on the `ClusterConnectionStatus` property.
+A pod running on the on-premises Cluster sends heartbeat message to the Cluster Manager through the infrastructure proxy.
+The metric emits a value of "1" for all time series. Starting from when the Cluster resource's connectionStatus is set for the first time.
+The metric emitting process never sends "0" values. Any "0" values seen in graphs are due to graphing tools filling gaps.
+The detection of state changes requires the Cluster Manager's reconciliation process to update the Cluster resource's `ClusterConnectionStatus` property accordingly.
+
+There might be a delay between the actual loss of heartbeats and the metric reflecting the `Disconnected` state, due to the reconciliation loop and other operational factors.
+The `NexusClusterConnectionStatus` metric is used as a health indicator for the cluster, but delays in status changes can occur due to reconciliation timing and operational constraints.
+Timeout events can occur if heartbeats aren't received within a 2-minute threshold, but a single successful heartbeat resets the timer.
+The status can transition between Connected, Timeout, and `Disconnected` based on heartbeat activity.
+
+The image shows a general representation of the components responsible for emitting the `NexusClusterConnectionStatus` metric.
+
+![!include[ClusterHeartbeatComponents](./media/troubleshoot-cluster-heartbeat-connection-status/cluster-connection-status-components-for-metric.png)]
+
+### ClusterConnectionStatus isn't the same as Arc Connected Cluster status
+
+The Cluster's `ClusterConnectionStatus` and Arc Connected Cluster status are separate signals and shouldn't be treated interchangeably.
+Although the two signals aren't related, both rely on network connectivity for the Cluster.
+It's possible for a Cluster to be Arc `Disconnected` but still have a Heartbeat Status of `Connected`.
+Both signals depend on network connectivity, but they serve different purposes and managed by different systems.
+
 ## Common investigation steps
 
 Infrastructure networking issues, permission changes in the Managed Identity, or other issues that might not be obvious at first, affect the Cluster resource connection status.
@@ -75,7 +103,8 @@ The following sections provide some common investigation steps and references to
 ### Cluster Network Fabric health and connectivity
 
 It's useful to start with the Network Fabric [controller][Network Fabric Controller] and [services][Network Fabric Services] resources.
-Verify the [network configuration][How to Configure Network Fabric], including rack cabling, IP addresses, DNS settings, routing rules, firewall rules, and any other network-related settings that might be affecting the connectivity.
+Verify the [network configuration][How to Configure Network Fabric] or any other network-related settings that might be affecting the connectivity.
+Verify the physical network setup including rack cabling, IP addresses, DNS settings, routing rules, firewall rules, etc.
 
 [How to Configure Network Fabric]: ./howto-configure-network-fabric.md
 [Network Fabric Controller]: ./concepts-network-fabric-controller.md
@@ -104,6 +133,14 @@ However, if the BareMetal Machines aren't healthy, the pods can't reschedule and
 
 To check the BareMetal Machines, use the following command:
 
-**TBD**: Need to add the command to check BareMetal Machines
+```azurecli
+az networkcloud baremetalmachine list \
+  --resource-group "$CLUSTER_RG" \
+  --cluster-name "$CLUSTER_NAME" \
+  --subscription "$SUBSCRIPTION_ID" \
+  --output table
+```
+
+Review the status of the control-plane BareMetal Machines. If any are unhealthy or unavailable, investigate further or contact support.
 
 [!include[stillHavingIssues](./includes/contact-support.md)]
