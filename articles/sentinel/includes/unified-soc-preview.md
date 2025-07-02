@@ -1,6 +1,6 @@
 ---
-title: "include file" 
-description: "include file" 
+title: General Microsoft Sentinel Azure portal retirement announcement, with extra formatting.
+description: Provides an include file for the general Microsoft Sentinel Azure portal retirement announcement, with extra formatting.
 services: microsoft-sentinel
 author: batamig
 ms.topic: "include"
