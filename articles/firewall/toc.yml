@@ -24,6 +24,8 @@ items:
       href: policy-rule-sets.md
     - name: Policy Analytics
       href: policy-analytics.md
+  - name: FQDN filtering
+    href: domain-filtering-overview.md
   - name: Infrastructure FQDNs
     href: infrastructure-fqdns.md
   - name: IDPS signature rule categories
@@ -151,6 +153,8 @@ items:
   items:
   - name: Add or modify rules using PowerShell
     href: deploy-rules-powershell.md
+  - name: DNAT rule for filtering inbound traffic
+    href: destination-nat-rules.md
   - name: DNS proxy
     items:
     - name: Overview
